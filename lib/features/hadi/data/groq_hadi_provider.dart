@@ -79,6 +79,9 @@ class HadiProviderException implements Exception {
 
 /// Groq — fastest free tier, no training on data, generous daily quota.
 class GroqHadiProvider extends OpenAIChatHadiProvider {
+  /// Current production model on Groq (tests assert requests carry it).
+  static const String model = 'openai/gpt-oss-120b';
+
   GroqHadiProvider({required super.apiKey, super.client})
       : super(
           baseUrl: 'https://api.groq.com/openai/v1/chat/completions',
