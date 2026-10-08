@@ -34,6 +34,7 @@ jobs:
           git config user.name "Ar-Rayaan Builder"
           git config user.email "builder@ar-rayaan.app"
           git fetch origin render
+          git checkout -- . 2>/dev/null || true
           git checkout render
           # replace branch contents with the fresh web build
           git rm -r -q --cached . 2>/dev/null || true
