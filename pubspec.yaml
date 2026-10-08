@@ -46,6 +46,7 @@ flutter:
     - assets/hadith/
     - assets/adhkar/
     - assets/noor/
+    - assets/stories/
     - assets/audio/
 
   fonts:
