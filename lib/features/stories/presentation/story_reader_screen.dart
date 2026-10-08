@@ -40,7 +40,7 @@ class _StoryReaderScreenState extends State<StoryReaderScreen> {
             ),
           ),
           const SizedBox(height: 6),
-          Text(story.subtitle, style: AppText.bodyMuted),
+          Text(story.subtitle, style: AppTypography.bodyMuted),
           const SizedBox(height: 20),
           if (story.chapters.length > 1)
             Padding(
@@ -97,7 +97,7 @@ class _StoryReaderScreenState extends State<StoryReaderScreen> {
                   onPressed: () => setState(() => _chapter--),
                   icon: const Icon(Icons.arrow_back_ios,
                       size: 14, color: AppColors.gold),
-                  label: Text('Previous', style: AppText.bodyMuted),
+                  label: Text('Previous', style: AppTypography.bodyMuted),
                 )
               else
                 const SizedBox.shrink(),
@@ -107,7 +107,7 @@ class _StoryReaderScreenState extends State<StoryReaderScreen> {
                   iconAlignment: IconAlignment.end,
                   icon: const Icon(Icons.arrow_forward_ios,
                       size: 14, color: AppColors.gold),
-                  label: Text('Next', style: AppText.bodyMuted),
+                  label: Text('Next', style: AppTypography.bodyMuted),
                 ),
             ],
           ),
@@ -116,7 +116,7 @@ class _StoryReaderScreenState extends State<StoryReaderScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('SOURCES', style: AppText.eyebrow),
+                Text('SOURCES', style: AppTypography.eyebrow),
                 const SizedBox(height: 8),
                 for (final s in story.sources)
                   Padding(
@@ -132,7 +132,7 @@ class _StoryReaderScreenState extends State<StoryReaderScreen> {
                         Expanded(
                           child: Text(
                             s,
-                            style: AppText.bodyMuted.copyWith(height: 1.5),
+                            style: AppTypography.bodyMuted.copyWith(height: 1.5),
                           ),
                         ),
                       ],
@@ -147,7 +147,7 @@ class _StoryReaderScreenState extends State<StoryReaderScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('SIT TOGETHER', style: AppText.eyebrow),
+                Text('SIT TOGETHER', style: AppTypography.eyebrow),
                 const SizedBox(height: 8),
                 Text(
                   story.familyQuestion,

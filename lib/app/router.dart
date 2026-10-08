@@ -76,6 +76,8 @@ abstract final class AppRoutes {
   static const String prayerTimes = '/prayer';
   static const String quran = '/quran';
   static const String hadith = '/hadith';
+  static const String stories = '/stories';
+  static const String storyReader = '/stories/read';
   static const String adhkar = '/adhkar';
   static const String qibla = '/qibla';
   static const String calendar = '/calendar';
@@ -106,6 +108,19 @@ GoRouter buildRouter() {
     routes: [
       // Onboarding flow (no bottom nav)
       GoRoute(
+          path: AppRoutes.stories,
+          pageBuilder: (context, state) =>
+              _fade(context, state, const StoriesScreen()),
+        ),
+        GoRoute(
+          path: AppRoutes.storyReader,
+          pageBuilder: (context, state) => _fade(
+            context,
+            state,
+            StoryReaderScreen(story: state.extra as Story),
+          ),
+        ),
+        GoRoute(
         path: AppRoutes.splash,
         pageBuilder: (c, s) => _fade(const SplashScreen()),
       ),

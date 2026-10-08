@@ -32,7 +32,7 @@ class StoriesScreen extends ConsumerWidget {
           child: CircularProgressIndicator(color: AppColors.gold),
         ),
         error: (e, _) => Center(
-          child: Text('Could not load stories.', style: AppText.bodyMuted),
+          child: Text('Could not load stories.', style: AppTypography.bodyMuted),
         ),
         data: (all) {
           final repo = ref.read(storiesRepositoryProvider);
@@ -44,7 +44,7 @@ class StoriesScreen extends ConsumerWidget {
                 padding: const EdgeInsets.only(left: 4, bottom: 4),
                 child: Text(
                   'READ WITH YOUR HEART',
-                  style: AppText.eyebrow,
+                  style: AppTypography.eyebrow,
                 ),
               ),
               for (final (key, title, subtitle) in _collections) ...[
@@ -54,11 +54,11 @@ class StoriesScreen extends ConsumerWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(title, style: AppText.cardTitle),
+                        Text(title, style: AppTypography.titleMedium),
                         const SizedBox(height: 2),
                         Text(
                           subtitle,
-                          style: AppText.bodyMuted,
+                          style: AppTypography.bodyMuted,
                         ),
                       ],
                     ),
@@ -91,13 +91,13 @@ class StoriesScreen extends ConsumerWidget {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(story.title, style: AppText.cardTitle),
+                                  Text(story.title, style: AppTypography.titleMedium),
                                   const SizedBox(height: 2),
                                   Text(
                                     story.subtitle,
                                     maxLines: 2,
                                     overflow: TextOverflow.ellipsis,
-                                    style: AppText.bodyMuted,
+                                    style: AppTypography.bodyMuted,
                                   ),
                                 ],
                               ),
