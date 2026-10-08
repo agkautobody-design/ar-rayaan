@@ -8,7 +8,15 @@ import '../domain/story.dart';
 /// Bundled, fully offline story library. Collections arrive as JSON
 /// packs under assets/stories/ so content ships with the app.
 class StoriesRepository {
-  static const _packs = ['prophets', 'women', 'seerah', 'companions', 'signs', 'tales'];
+  static const _packs = [
+    'prophets',
+    'women',
+    'seerah',
+    'companions',
+    'ghayb',
+    'signs',
+    'tales',
+  ];
 
   Future<List<Story>> loadAll() async {
     final stories = <Story>[];

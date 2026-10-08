@@ -18,6 +18,7 @@ class StoriesScreen extends ConsumerWidget {
     ('women', 'Women of Islam', 'The hearts that carried the light'),
     ('seerah', 'The Seerah', 'The life of the Prophet \u0635\u0644\u0649 \u0627\u0644\u0644\u0647 \u0639\u0644\u064a\u0647 \u0648\u0633\u0644\u0645'),
     ('companions', 'The Companions', 'The generation that held the light'),
+    ('ghayb', 'Al-Ghayb — The Unseen', 'Angels, jinn, the Last Day, and the 2am questions'),
     ('signs', 'Signs & the Last Day', 'What is coming, with certainty'),
     ('tales', 'Tales of the Ummah', 'Stories of the generations between'),
   ];
