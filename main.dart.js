@@ -60411,7 +60411,7 @@ for(;n<e.length;e.length===o||(0,A.L)(e),++n){m=e[n]
 l=m.a?"assistant":"user"
 f.push(A.am(["role",l,"content",m.b],h,h))}f.push(A.am(["role","user","content",a],h,h))
 s=3
-return A.i(p.b.Aa("POST",i,g,B.a0.k9(A.am(["model","llama-3.3-70b-versatile","temperature",0.3,"max_tokens",350,"messages",f],h,t.z),null),null),$async$ql)
+return A.i(p.b.Aa("POST",i,g,B.a0.k9(A.am(["model","openai/gpt-oss-120b","temperature",0.3,"max_tokens",350,"messages",f],h,t.z),null),null),$async$ql)
 case 3:k=d
 i=k.b
 if(i!==200)throw A.f(new A.Iu("The guidance service returned "+i+". Check your API key in H\u0101di settings."))
