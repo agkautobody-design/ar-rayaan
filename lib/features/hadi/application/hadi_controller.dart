@@ -96,13 +96,18 @@ class HadiController extends Notifier<HadiState> {
     String answer;
     try {
       answer = await p.ask(q, state.messages);
-    } catch (_) {
-      // Live failure never dead-ends: the curated knowledge answers.
+    } catch (e) {
+      // Live failure never dead-ends: the curated knowledge answers — but
+      // say WHY, so a bad key, a blocked region, or CORS is visible instead
+      // of masquerading as ignorance.
+      String offline;
       try {
-        answer = await const OfflineHadiProvider().ask(q, state.messages);
+        offline = await const OfflineHadiProvider().ask(q, state.messages);
       } catch (_) {
-        answer = OfflineHadiProvider.decline;
+        offline = OfflineHadiProvider.decline;
       }
+      answer = 'I could not reach my knowledge engine just now (\$e). '
+          'Offline guidance: \$offline';
     }
     state = state.copy(
       messages: <HadiMessage>[
