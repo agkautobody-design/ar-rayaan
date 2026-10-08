@@ -1,0 +1,1 @@
+ /tmp/b5/lib/app/l10n/generated/app_localizations_ar.dart /tmp/b5/lib/app/l10n/generated/app_localizations_en.dart /tmp/b5/lib/app/l10n/generated/app_localizations.dart:  /tmp/b5/l10n.yaml /tmp/b5/lib/app/l10n/app_ar.arb /tmp/b5/lib/app/l10n/app_en.arb
