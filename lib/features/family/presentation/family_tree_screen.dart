@@ -62,6 +62,19 @@ class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
                       data.note,
                       style: AppText.bodyMuted.copyWith(height: 1.5),
                     ),
+                    const SizedBox(height: 8),
+                    Text(
+                      'HOW TO READ THIS TREE',
+                      style: AppText.eyebrow,
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      'Each row is a parent \u2014 tap the arrow to walk into their children. '
+                      'Adam and his sons open first; follow Sheeth\u2019s line down to Nuh, then '
+                      'Ibrahim, where the two rivers split: one to the Prophet \u0635\u0644\u0649 \u0627\u0644\u0644\u0647 \u0639\u0644\u064a\u0647 \u0648\u0633\u0644\u0645, one to Musa, Dawud and Isa. '
+                      'Folded rows are generations the tradition names with less certainty \u2014 honest gaps, not decoration.',
+                      style: AppText.bodyMuted.copyWith(height: 1.55),
+                    ),
                   ],
                 ),
               ),
@@ -169,7 +182,10 @@ class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
                         ),
                         const SizedBox(height: 1),
                         Text(
-                          node.era,
+                          node.era +
+                              (hasKids
+                                  ? ' \u00b7 \${node.children.where((c) => data.byId.containsKey(c)).length} children'
+                                  : ''),
                           style: AppText.bodyMuted.copyWith(fontSize: 9.5),
                         ),
                       ],
