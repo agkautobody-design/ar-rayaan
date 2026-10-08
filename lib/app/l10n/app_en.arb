@@ -1,0 +1,11 @@
+{
+  "@@locale": "en",
+  "appTitle": "Ar-Rayaan",
+  "@appTitle": {"description": "App name — The Gate."},
+  "taglineGateway": "Your Gateway to Allah",
+  "journeyToParadise": "A Journey to Paradise",
+  "continueLabel": "Continue",
+  "nextLabel": "Next",
+  "skipForNow": "Skip for now",
+  "askHadiHint": "Ask Hādi anything.."
+}
