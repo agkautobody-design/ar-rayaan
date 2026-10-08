@@ -21,6 +21,7 @@ class StoriesScreen extends ConsumerWidget {
     ('ghayb', 'Al-Ghayb — The Unseen', 'Angels, jinn, the Last Day, and the 2am questions'),
     ('signs', 'Signs & the Last Day', 'What is coming, with certainty'),
     ('tales', 'Tales of the Ummah', 'Stories of the generations between'),
+    ('khutbahs', 'Khutbahs', 'Sermons for the classics and for today'),
   ];
 
   @override

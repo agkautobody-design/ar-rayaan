@@ -16,6 +16,7 @@ class StoriesRepository {
     'ghayb',
     'signs',
     'tales',
+    'khutbahs',
   ];
 
   Future<List<Story>> loadAll() async {
