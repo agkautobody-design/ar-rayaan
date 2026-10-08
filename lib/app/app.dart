@@ -32,7 +32,16 @@ class ArRayaanApp extends StatelessWidget {
             behavior: HitTestBehavior.translucent,
             onPointerDown: (_) => ref.read(ambientServiceProvider).unlock(),
             child: Container(
-              color: const Color(0xFF04070C),
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/images/bg_pattern.jpg'),
+                  fit: BoxFit.cover,
+                  colorFilter: ColorFilter.mode(
+                    Color(0xD805090F),
+                    BlendMode.darken,
+                  ),
+                ),
+              ),
               alignment: Alignment.center,
               child: ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 460),
