@@ -33,13 +33,14 @@ jobs:
           set -e
           git config user.name "Ar-Rayaan Builder"
           git config user.email "builder@ar-rayaan.app"
+          cp -r build/web /tmp/webbuild
           git fetch origin render
           git checkout -- . 2>/dev/null || true
           git checkout render
           # replace branch contents with the fresh web build
           git rm -r -q --cached . 2>/dev/null || true
           find . -maxdepth 1 -mindepth 1 ! -name .git -exec rm -rf {} +
-          cp -r build/web/* .
+          cp -r /tmp/webbuild/* .
           git add -A
           git commit -m "Deploy ${GITHUB_SHA:0:7} via Actions"
           git push origin render
