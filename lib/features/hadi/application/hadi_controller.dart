@@ -106,8 +106,8 @@ class HadiController extends Notifier<HadiState> {
       } catch (_) {
         offline = OfflineHadiProvider.decline;
       }
-      answer = 'I could not reach my knowledge engine just now (\$e). '
-          'Offline guidance: \$offline';
+      answer = 'I could not reach my knowledge engine just now ($e). '
+          'Offline guidance: $offline';
     }
     state = state.copy(
       messages: <HadiMessage>[
