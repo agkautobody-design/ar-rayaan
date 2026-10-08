@@ -9,7 +9,7 @@ void main() {
     final packs = ['prophets', 'women', 'seerah', 'companions', 'signs', 'tales'];
     var total = 0;
     for (final pack in packs) {
-      final f = File('assets/stories/\$pack.json');
+      final f = File('assets/stories/$pack.json');
       if (!f.existsSync()) continue;
       final list = json.decode(f.readAsStringSync()) as List<dynamic>;
       for (final e in list) {
