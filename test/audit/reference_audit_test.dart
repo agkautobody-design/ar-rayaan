@@ -66,7 +66,7 @@ void main() {
     final packsInRepo = RegExp(r"'([a-z0-9]+)',")
         .allMatches(repo)
         .map((m) => m.group(1)!)
-        .where((p) => File('assets/stories/\$p.json').existsSync())
+        .where((p) => File('assets/stories/$p.json').existsSync())
         .toSet();
     for (final p in packsInRepo) {
       expect(screen.contains("('$p',"), isTrue,
@@ -84,7 +84,7 @@ void main() {
     final matchers = ['Prayer', 'Qur', 'Dhikr', 'Hadith', 'Today', 'H', 'Islamic', 'Knowledge'];
     for (final t in titles) {
       final ok = matchers.any((m) => t.startsWith(m) || t.startsWith('H\u0101di') || t.startsWith('Hadi'));
-      expect(ok, isTrue, reason: 'no tile image matcher for title: \$t');
+      expect(ok, isTrue, reason: 'no tile image matcher for title: $t');
     }
   });
 
