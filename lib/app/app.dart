@@ -8,6 +8,8 @@ import 'core/sound/sound_services.dart';
 import 'l10n/generated/app_localizations.dart';
 import 'router.dart';
 import 'theme/app_theme.dart';
+import 'theme/app_colors.dart';
+import 'theme/app_typography.dart';
 
 class ArRayaanApp extends StatelessWidget {
   const ArRayaanApp({required this.env, super.key});
@@ -49,10 +51,10 @@ class ArRayaanApp extends StatelessWidget {
                   child: Stack(
                     children: [
                       child ?? const SizedBox.shrink(),
-                      const Positioned(
+                      Positioned(
                         right: 12,
                         bottom: 12,
-                        child: _AskHadiPill(),
+                        child: const _AskHadiPill(),
                       ),
                     ],
                   ),

@@ -24,7 +24,7 @@ class QiblaScreen extends StatelessWidget {
       backgroundColor: Colors.transparent,
       body: Stack(
         children: [
-          const ScenicBackground.noor(),
+          const ScenicBackground.home(),
           SafeArea(
             child: ListView(
               padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
