@@ -4,30 +4,31 @@ import 'package:http/http.dart' as http;
 
 import '../application/hadi_provider.dart';
 
-/// Live AI on Groq's free tier (OpenAI-compatible chat API) with the user's
-/// own key — the recommended best-of-class free backend (Groq's stable production model).
-/// generous free quota, no card required. The key stays on the device.
-class GroqHadiProvider implements HadiProvider {
-  GroqHadiProvider({required this.apiKey, http.Client? client})
-    : _client = client ?? http.Client();
+/// Live AI over any OpenAI-compatible chat endpoint with the user's own key.
+/// Keys never leave the device. Two curated backends below (Groq, OpenRouter).
+class OpenAIChatHadiProvider implements HadiProvider {
+  OpenAIChatHadiProvider({
+    required this.apiKey,
+    required this.baseUrl,
+    required this.model,
+    this.extraHeaders = const <String, String>{},
+    http.Client? client,
+  }) : _client = client ?? http.Client();
 
   final String apiKey;
+  final String baseUrl;
+  final String model;
+  final Map<String, String> extraHeaders;
   final http.Client _client;
-
-  static const String _endpoint =
-      'https://api.groq.com/openai/v1/chat/completions';
-
-  /// Free-tier flagship on Groq — strong instruction following for the
-  /// guardrail prompt, fast enough for chat.
-  static const String model = 'openai/gpt-oss-120b';
 
   @override
   Future<String> ask(String question, List<HadiMessage> history) async {
     final http.Response resp = await _client.post(
-      Uri.parse(_endpoint),
+      Uri.parse(baseUrl),
       headers: <String, String>{
         'Authorization': 'Bearer $apiKey',
         'Content-Type': 'application/json',
+        ...extraHeaders,
       },
       body: jsonEncode(<String, dynamic>{
         'model': model,
@@ -74,4 +75,26 @@ class HadiProviderException implements Exception {
 
   @override
   String toString() => message;
+}
+
+/// Groq — fastest free tier, no training on data, generous daily quota.
+class GroqHadiProvider extends OpenAIChatHadiProvider {
+  GroqHadiProvider({required super.apiKey, super.client})
+      : super(
+          baseUrl: 'https://api.groq.com/openai/v1/chat/completions',
+          model: 'openai/gpt-oss-120b',
+        );
+}
+
+/// OpenRouter — one API key, many models (incl. long-standing free ones).
+class OpenRouterHadiProvider extends OpenAIChatHadiProvider {
+  OpenRouterHadiProvider({required super.apiKey, super.client})
+      : super(
+          baseUrl: 'https://openrouter.ai/api/v1/chat/completions',
+          model: 'meta-llama/llama-3.3-70b-instruct:free',
+          extraHeaders: const <String, String>{
+            'HTTP-Referer': 'https://ar-rayaan.onrender.com',
+            'X-Title': 'Ar-Rayaan',
+          },
+        );
 }

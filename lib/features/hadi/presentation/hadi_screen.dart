@@ -63,7 +63,12 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
       ),
-      builder: (BuildContext ctx) => Padding(
+      builder: (BuildContext ctx) {
+        String providerChoice = ref
+            .read(hadiControllerProvider.notifier)
+            .providerName;
+        return StatefulBuilder(
+          builder: (BuildContext ctx2, StateSetter setSheet) => Padding(
         padding: EdgeInsets.fromLTRB(
           20,
           24,
@@ -78,17 +83,36 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
             const SizedBox(height: 8),
             Text(
               'Hādi answers from curated authentic knowledge offline. For '
-              'open conversation, paste a free Groq API key (console.groq.com '
-              '→ API Keys — free, no card). The key never leaves your device.',
+              'open conversation, add a free key from either provider — both '
+              'free, no card. The key never leaves your device.',
               style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.5),
             ),
-            const SizedBox(height: 14),
+            const SizedBox(height: 12),
+            Wrap(
+              spacing: 8,
+              children: [
+                ChoiceChip(
+                  label: const Text('Groq'),
+                  selected: providerChoice == 'groq',
+                  onSelected: (_) =>
+                      setSheet(() => providerChoice = 'groq'),
+                ),
+                ChoiceChip(
+                  label: const Text('OpenRouter'),
+                  selected: providerChoice == 'openrouter',
+                  onSelected: (_) =>
+                      setSheet(() => providerChoice = 'openrouter'),
+                ),
+              ],
+            ),
+            const SizedBox(height: 12),
             TextField(
               controller: keyInput,
               obscureText: true,
               style: AppText.body,
               decoration: InputDecoration(
-                hintText: 'gsk_…',
+                hintText:
+                    providerChoice == 'groq' ? 'gsk_…' : 'sk-or-…',
                 hintStyle: AppText.bodyMuted,
                 filled: true,
                 fillColor: AppColors.glassFill,
@@ -122,9 +146,10 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                 Expanded(
                   child: ElevatedButton(
                     onPressed: () async {
-                      await ref
-                          .read(hadiControllerProvider.notifier)
-                          .saveApiKey(keyInput.text);
+                      final notifier = ref
+                          .read(hadiControllerProvider.notifier);
+                      await notifier.saveApiProvider(providerChoice);
+                      await notifier.saveApiKey(keyInput.text);
                       if (ctx.mounted) Navigator.of(ctx).pop();
                     },
                     style: ElevatedButton.styleFrom(
@@ -138,7 +163,9 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
             ),
           ],
         ),
-      ),
+          ),
+        );
+      },
     );
   }
 

@@ -37,6 +37,7 @@ class HadiState {
 /// failure the offline provider answers instead (never a dead end).
 class HadiController extends Notifier<HadiState> {
   static const String _keyPref = 'ar.hadi.apikey';
+  static const String _providerPref = 'ar.hadi.provider';
 
   @override
   HadiState build() {
@@ -60,6 +61,26 @@ class HadiController extends Notifier<HadiState> {
 
   bool get hasKey => _apiKey != null;
 
+  String get _provider {
+    try {
+      final SharedPreferences prefs = ref.watch(sharedPreferencesProvider);
+      return prefs.getString(_providerPref) ?? 'groq';
+    } catch (_) {
+      return 'groq';
+    }
+  }
+
+  String get providerName => _provider;
+
+  Future<void> saveApiProvider(String provider) async {
+    try {
+      final SharedPreferences prefs = ref.read(sharedPreferencesProvider);
+      await prefs.setString(_providerPref, provider);
+    } catch (_) {
+      // In-memory only.
+    }
+  }
+
   Future<void> saveApiKey(String key) async {
     try {
       final SharedPreferences prefs = ref.read(sharedPreferencesProvider);
@@ -78,7 +99,12 @@ class HadiController extends Notifier<HadiState> {
   /// Injectable for tests — returns the provider to answer with.
   HadiProvider resolveProvider(String? apiKey) {
     final String? k = apiKey;
-    if (k != null) return GroqHadiProvider(apiKey: k);
+    if (k != null) {
+      if (_provider == 'openrouter') {
+        return OpenRouterHadiProvider(apiKey: k);
+      }
+      return GroqHadiProvider(apiKey: k);
+    }
     return const OfflineHadiProvider();
   }
 
