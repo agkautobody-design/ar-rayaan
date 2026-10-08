@@ -10,13 +10,14 @@ class GoldText extends StatelessWidget {
   final TextStyle style;
   final TextAlign? textAlign;
 
-  @override
+    @override
   Widget build(BuildContext context) {
-    return ShaderMask(
-      shaderCallback: (Rect bounds) =>
-          AppColors.goldTextGradient.createShader(bounds),
-      blendMode: BlendMode.srcIn,
-      child: Text(text, style: style, textAlign: textAlign),
+    // Solid gold instead of ShaderMask: ShaderMask is unreliable on Flutter
+    // web and left text invisible on several screens.
+    return Text(
+      text,
+      style: style.copyWith(color: AppColors.goldLight),
+      textAlign: textAlign,
     );
   }
 }

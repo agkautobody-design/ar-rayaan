@@ -202,7 +202,7 @@ class HomeScreen extends ConsumerWidget {
                               GoldText(
                                 'Welcome Home',
                                 style: AppText.displayMedium.copyWith(
-                                  fontSize: 28,
+                                  fontSize: 32,
                                 ),
                               ),
                               const SizedBox(height: 8),
@@ -222,9 +222,9 @@ class HomeScreen extends ConsumerWidget {
                         crossAxisCount: 3,
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
-                        mainAxisSpacing: 10,
+                        mainAxisSpacing: 8,
                         crossAxisSpacing: 10,
-                        childAspectRatio: 0.97,
+                        childAspectRatio: 1.0,
                         children: [
                           for (final (icon, title, sub, route) in tiles)
                             GlassCard(

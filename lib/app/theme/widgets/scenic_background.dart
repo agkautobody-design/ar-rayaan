@@ -40,9 +40,9 @@ class ScenicBackground extends StatelessWidget {
         const [0.0, 0.30, 0.62, 1.0],
         const [
           Color(0x0005090F),
-          Color(0x2405090F),
-          Color(0x5905090F),
-          Color(0xA605090F),
+          Color(0x1405090F),
+          Color(0x3305090F),
+          Color(0x8005090F),
         ],
         key: key,
       );

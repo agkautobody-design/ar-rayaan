@@ -30,7 +30,14 @@ class ArRayaanApp extends StatelessWidget {
           return Listener(
             behavior: HitTestBehavior.translucent,
             onPointerDown: (_) => ref.read(ambientServiceProvider).unlock(),
-            child: child ?? const SizedBox.shrink(),
+            child: Container(
+              color: const Color(0xFF04070C),
+              alignment: Alignment.center,
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 460),
+                child: ClipRect(child: child ?? const SizedBox.shrink()),
+              ),
+            ),
           );
         },
       ),
