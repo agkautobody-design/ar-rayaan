@@ -81,10 +81,22 @@ class HadiController extends Notifier<HadiState> {
     }
   }
 
+  /// Reads the provider straight from the key's fingerprint, so the user
+  /// never has to think about which engine a key belongs to.
+  static String detectProvider(String key) {
+    final String k = key.trim();
+    if (k.startsWith('xai-')) return 'xai';
+    if (k.startsWith('sk-or-')) return 'openrouter';
+    return 'groq'; // gsk_ and anything else defaults to Groq
+  }
+
   Future<void> saveApiKey(String key) async {
     try {
       final SharedPreferences prefs = ref.read(sharedPreferencesProvider);
       final String trimmed = key.trim();
+      if (trimmed.isNotEmpty) {
+        await prefs.setString(_providerPref, detectProvider(trimmed));
+      }
       if (trimmed.isEmpty) {
         await prefs.remove(_keyPref);
       } else {

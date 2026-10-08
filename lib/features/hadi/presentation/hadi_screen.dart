@@ -116,6 +116,13 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
               controller: keyInput,
               obscureText: true,
               style: AppText.body,
+              onChanged: (v) {
+                if (v.trim().isEmpty) return;
+                final String detected = HadiController.detectProvider(v);
+                if (detected != providerChoice) {
+                  setSheet(() => providerChoice = detected);
+                }
+              },
               decoration: InputDecoration(
                 hintText: providerChoice == 'groq'
                     ? 'gsk_…'
