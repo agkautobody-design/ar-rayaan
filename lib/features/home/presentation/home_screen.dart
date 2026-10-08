@@ -114,6 +114,27 @@ class HomeScreen extends ConsumerWidget {
               child: Stack(
         children: [
           const ScenicBackground.home(),
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            height: 380,
+            child: IgnorePointer(
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: const [
+                      Color(0xE605090F),
+                      Color(0xA605090F),
+                      Colors.transparent,
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
           SafeArea(
             bottom: false,
             child: Column(
@@ -473,11 +494,11 @@ class _PictureTile extends StatelessWidget {
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              stops: const [0.30, 0.72, 1.0],
+              stops: const [0.16, 0.55, 1.0],
               colors: const [
                 Colors.transparent,
-                Color(0x9905090F),
-                Color(0xF205090F),
+                Color(0xB805090F),
+                Color(0xFA05090F),
               ],
             ),
           ),
@@ -492,6 +513,9 @@ class _PictureTile extends StatelessWidget {
                   fontSize: 11.5,
                   fontWeight: FontWeight.w700,
                   color: AppColors.goldLight,
+                  shadows: const [
+                    Shadow(color: Colors.black, blurRadius: 8),
+                  ],
                 ),
               ),
               const SizedBox(height: 2),
@@ -502,6 +526,9 @@ class _PictureTile extends StatelessWidget {
                 style: AppText.bodyMuted.copyWith(
                   fontSize: 8.5,
                   height: 1.3,
+                  shadows: const [
+                    Shadow(color: Colors.black, blurRadius: 6),
+                  ],
                 ),
               ),
             ],
