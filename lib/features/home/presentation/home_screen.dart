@@ -152,7 +152,7 @@ class HomeScreen extends ConsumerWidget {
                                   child: Text(
                                     'Ask Hādi anything..',
                                     style: AppText.bodyMuted.copyWith(
-                                      color: AppColors.textFaint,
+                                      color: AppColors.sand.withValues(alpha: 0.85),
                                     ),
                                     overflow: TextOverflow.ellipsis,
                                   ),
@@ -224,7 +224,7 @@ class HomeScreen extends ConsumerWidget {
                         physics: const NeverScrollableScrollPhysics(),
                         mainAxisSpacing: 10,
                         crossAxisSpacing: 10,
-                        childAspectRatio: 0.82,
+                        childAspectRatio: 0.97,
                         children: [
                           for (final (icon, title, sub, route) in tiles)
                             GlassCard(
@@ -232,12 +232,12 @@ class HomeScreen extends ConsumerWidget {
                                   context.go(route ?? AppRoutes.explore),
                               padding: const EdgeInsets.symmetric(
                                 horizontal: 8,
-                                vertical: 14,
+                                vertical: 10,
                               ),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  IconTile(icon: icon),
+                                  Icon(icon, size: 24, color: AppColors.gold),
                                   const SizedBox(height: 8),
                                   Text(
                                     title,
