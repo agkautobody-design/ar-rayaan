@@ -35,7 +35,9 @@ void main() {
   });
 
   test('W2.2 family tree story links resolve to real stories', () {
-    final nodes = readList('assets/family/tree.json');
+    final nodes =
+        (json.decode(File('assets/family/tree.json').readAsStringSync())
+            as Map<String, dynamic>)['nodes'] as List<dynamic>;
     for (final e in nodes) {
       final sid = (e as Map<String, dynamic>)['story'] as String?;
       if (sid != null) {
