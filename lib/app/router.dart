@@ -110,15 +110,11 @@ GoRouter buildRouter() {
       GoRoute(
           path: AppRoutes.stories,
           pageBuilder: (context, state) =>
-              _fade(context, state, const StoriesScreen()),
+              _fade(const StoriesScreen()),
         ),
         GoRoute(
           path: AppRoutes.storyReader,
-          pageBuilder: (context, state) => _fade(
-            context,
-            state,
-            StoryReaderScreen(story: state.extra as Story),
-          ),
+          pageBuilder: (context, state) => _fade(StoryReaderScreen(story: state.extra as Story)),
         ),
         GoRoute(
         path: AppRoutes.splash,
