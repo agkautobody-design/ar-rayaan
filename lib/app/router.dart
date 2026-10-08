@@ -43,6 +43,7 @@ import '../features/stories/presentation/stories_screen.dart';
 import '../features/family/presentation/family_tree_screen.dart';
 import '../features/huda/presentation/huda_screens.dart';
 import '../features/games/presentation/games_screens.dart';
+import '../features/feelings/presentation/feelings_screens.dart';
 import '../features/stories/presentation/story_reader_screen.dart';
 import '../features/stories/domain/story.dart';
 import '../features/zakat/presentation/zakat_screen.dart';
@@ -79,6 +80,7 @@ abstract final class AppRoutes {
   static const String prayerTimes = '/prayer';
   static const String quran = '/quran';
   static const String hadith = '/hadith';
+  static const String feelings = '/feelings';
   static const String games = '/games';
   static const String trivia = '/games/trivia';
   static const String names99 = '/games/names99';
@@ -117,6 +119,16 @@ GoRouter buildRouter() {
     routes: [
       // Onboarding flow (no bottom nav)
       GoRoute(
+          path: AppRoutes.feelings,
+          pageBuilder: (context, state) => _fade(const FeelingsScreen()),
+        ),
+        GoRoute(
+          path: '${AppRoutes.feelings}/:id',
+          pageBuilder: (context, state) => _fade(
+            FeelingScreen(feelingId: state.pathParameters['id']!),
+          ),
+        ),
+        GoRoute(
           path: AppRoutes.games,
           pageBuilder: (context, state) => _fade(const GamesScreen()),
         ),
