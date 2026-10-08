@@ -1,0 +1,522 @@
+[
+ {
+  "id": "tq-01",
+  "category": "Prophets",
+  "question": "Who was thrown into the fire and did not burn?",
+  "options": [
+   "Nuh",
+   "Ibrahim",
+   "Musa",
+   "Yusuf"
+  ],
+  "answer": 1,
+  "why": "Ibrahim was thrown into a great fire, and Allah commanded it: 'be coolness and safety' (21:69)."
+ },
+ {
+  "id": "tq-02",
+  "category": "Prophets",
+  "question": "Which prophet was swallowed by a great fish?",
+  "options": [
+   "Yunus",
+   "Ayyub",
+   "Hud",
+   "Salih"
+  ],
+  "answer": 0,
+  "why": "Yunus called from the darkness: 'la ilaha illa Anta' — and his prayer is one the Prophet ﷺ said is always answered (21:87; Tirmidhi 3505)."
+ },
+ {
+  "id": "tq-03",
+  "category": "Prophets",
+  "question": "Which prophet interpreted the king's dream in Egypt?",
+  "options": [
+   "Ya'qub",
+   "Musa",
+   "Yusuf",
+   "Dawud"
+  ],
+  "answer": 2,
+  "why": "Yusuf interpreted the dream of seven fat and seven lean cows and became treasurer of Egypt (12:43-55)."
+ },
+ {
+  "id": "tq-04",
+  "category": "Prophets",
+  "question": "Whose staff turned into a serpent before Pharaoh?",
+  "options": [
+   "Harun",
+   "Musa",
+   "Ilyas",
+   "Shu'ayb"
+  ],
+  "answer": 1,
+  "why": "Musa threw down his staff and it became a clear serpent; he drew out his hand and it shone white (26:32-33)."
+ },
+ {
+  "id": "tq-05",
+  "category": "Prophets",
+  "question": "Which prophet built the ark?",
+  "options": [
+   "Hud",
+   "Nuh",
+   "Lut",
+   "Idris"
+  ],
+  "answer": 1,
+  "why": "Nuh was commanded: 'build the ship under Our eyes' (11:37)."
+ },
+ {
+  "id": "tq-06",
+  "category": "Prophets",
+  "question": "Which prophet was given a kingdom no one will have after him?",
+  "options": [
+   "Sulayman",
+   "Dawud",
+   "Dhu'l-Qarnayn",
+   "Ibrahim"
+  ],
+  "answer": 0,
+  "why": "Sulayman asked for 'a kingdom such as will not belong to anyone after me' (38:35)."
+ },
+ {
+  "id": "tq-07",
+  "category": "Prophets",
+  "question": "Who was the first prophet?",
+  "options": [
+   "Nuh",
+   "Ibrahim",
+   "Adam",
+   "Idris"
+  ],
+  "answer": 2,
+  "why": "Adam is the first man and the first prophet (his story opens 2:30-39)."
+ },
+ {
+  "id": "tq-08",
+  "category": "Prophets",
+  "question": "Which prophet's people were destroyed by a screaming wind?",
+  "options": [
+   "Thamud",
+   "'Ad",
+   "Madyan",
+   "the people of Lut"
+  ],
+  "answer": 1,
+  "why": "'Ad were destroyed by a bitter wind of seven nights and eight days (69:6-8) — the people of the prophet Hud."
+ },
+ {
+  "id": "tq-09",
+  "category": "Women",
+  "question": "Who was the first martyr in Islam?",
+  "options": [
+   "Maryam",
+   "Khadijah",
+   "Sumayyah",
+   "Asiya"
+  ],
+  "answer": 2,
+  "why": "Sumayyah bint Khayyat was killed for her faith in Makkah — the first martyr (Tirmidhi 3882)."
+ },
+ {
+  "id": "tq-10",
+  "category": "Women",
+  "question": "Whose plea became the name of a surah of the Qur'an?",
+  "options": [
+   "Maryam",
+   "Khadijah",
+   "Khawlah bint Tha'labah",
+   "Asma bint Abi Bakr"
+  ],
+  "answer": 2,
+  "why": "Surah Al-Mujadilah — 'the woman who argues' — was revealed for Khawlah (58:1)."
+ },
+ {
+  "id": "tq-11",
+  "category": "Women",
+  "question": "Who raised the Prophet Muhammad ﷺ after his mother's death?",
+  "options": [
+   "Khadijah",
+   "Umm Ayman",
+   "Fatima",
+   "Amina"
+  ],
+  "answer": 1,
+  "why": "Umm Ayman (Barakah) raised him; the Prophet ﷺ said she still had 'some of my mother' in her (Tirmidhi 3835)."
+ },
+ {
+  "id": "tq-12",
+  "category": "Women",
+  "question": "Who is the only woman named in the Qur'an?",
+  "options": [
+   "Khadijah",
+   "Maryam",
+   "Aisha",
+   "Asiya"
+  ],
+  "answer": 1,
+  "why": "Maryam bint Imran — Surah Maryam (19) is named for her."
+ },
+ {
+  "id": "tq-13",
+  "category": "Women",
+  "question": "Which wife of the Prophet ﷺ kept the master copy of the first Qur'an?",
+  "options": [
+   "Aisha",
+   "Hafsa",
+   "Zaynab",
+   "Umm Salama"
+  ],
+  "answer": 1,
+  "why": "The leaves were gathered in the custody of Hafsa; the standardized copies descended from it (Bukhari 4987-4988)."
+ },
+ {
+  "id": "tq-14",
+  "category": "Women",
+  "question": "Who carried supplies to the cave of Thawr in two belts?",
+  "options": [
+   "Asma bint Abi Bakr",
+   "Umm Ammarah",
+   "Safiyya",
+   "Sumayyah"
+  ],
+  "answer": 0,
+  "why": "Asma smuggled food to the Prophet ﷺ and Abu Bakr — 'Dhat an-Nitaqayn,' the possessor of the two belts (Bukhari 3751)."
+ },
+ {
+  "id": "tq-15",
+  "category": "Women",
+  "question": "Who was given the choice between the glitter of the world and Allah — and chose Allah?",
+  "options": [
+   "Zaynab bint Jahsh",
+   "Hafsa",
+   "Umm Salama",
+   "Aisha"
+  ],
+  "answer": 0,
+  "why": "The Prophet ﷺ offered the wives the choice; Zaynab answered with the wives' words: 'we choose Allah and His Messenger' (33:28-29)."
+ },
+ {
+  "id": "tq-16",
+  "category": "Seerah",
+  "question": "In which cave did the Prophet ﷺ receive the first revelation?",
+  "options": [
+   "Thawr",
+   "Hira",
+   "Uhud",
+   "Nur"
+  ],
+  "answer": 1,
+  "why": "The cave of Hira on Jabal an-Nur — the first word was 'Iqra' (96:1)."
+ },
+ {
+  "id": "tq-17",
+  "category": "Seerah",
+  "question": "Who accompanied the Prophet ﷺ on the Hijrah as 'the second of two'?",
+  "options": [
+   "Umar",
+   "Ali",
+   "Abu Bakr",
+   "Uthman"
+  ],
+  "answer": 2,
+  "why": "'He said to his companion — the second of two — do not grieve; indeed Allah is with us' (9:40)."
+ },
+ {
+  "id": "tq-18",
+  "category": "Seerah",
+  "question": "Which battle is named 'the day of the criterion' in the Qur'an?",
+  "options": [
+   "Uhud",
+   "Badr",
+   "the Trench",
+   "Hunayn"
+  ],
+  "answer": 1,
+  "why": "'The day the two hosts met' — Badr, called furqan (8:41)."
+ },
+ {
+  "id": "tq-19",
+  "category": "Seerah",
+  "question": "What stopped the coalition at the Battle of the Trench?",
+  "options": [
+   "A cavalry charge",
+   "A bitter gale",
+   "A flood",
+   "A plague"
+  ],
+  "answer": 1,
+  "why": "Allah sent a wind and a storm that broke the siege (33:9)."
+ },
+ {
+  "id": "tq-20",
+  "category": "Seerah",
+  "question": "Which treaty 'looked like defeat' but opened Arabia?",
+  "options": [
+   "Aqabah",
+   "Hudaybiyyah",
+   "the Charter of Madinah",
+   "Fath Makkah"
+  ],
+  "answer": 1,
+  "why": "The Qur'an called Hudaybiyyah 'a clear conquest' (48:1)."
+ },
+ {
+  "id": "tq-21",
+  "category": "Companions",
+  "question": "Who was the first caliph after the Prophet ﷺ?",
+  "options": [
+   "Umar",
+   "Uthman",
+   "Ali",
+   "Abu Bakr"
+  ],
+  "answer": 3,
+  "why": "Abu Bakr as-Siddiq; the Prophet ﷺ had him lead the prayer in his final illness."
+ },
+ {
+  "id": "tq-22",
+  "category": "Companions",
+  "question": "Which companion gave the adhan from the roof of the Kaaba after the conquest of Makkah?",
+  "options": [
+   "Bilal",
+   "Ammar",
+   "Salman",
+   "Khabbab"
+  ],
+  "answer": 0,
+  "why": "The Prophet ﷺ said: 'Bilal, call the people to prayer' (Bukhari 1145)."
+ },
+ {
+  "id": "tq-23",
+  "category": "Companions",
+  "question": "Which companion was the first ambassador of Islam — sent to Madinah?",
+  "options": [
+   "Mus'ab ibn Umair",
+   "Mu'adh ibn Jabal",
+   "Zayd ibn Harithah",
+   "Abu Musa al-Ash'ari"
+  ],
+  "answer": 0,
+  "why": "Mus'ab was sent back with the Madinan believers before the Hijrah (seerah)."
+ },
+ {
+  "id": "tq-24",
+  "category": "Companions",
+  "question": "Whose freeing freed a hundred families?",
+  "options": [
+   "Juwayriyya",
+   "Umm Salama",
+   "Safiyya",
+   "Hafsa"
+  ],
+  "answer": 0,
+  "why": "The Prophet ﷺ freed Juwayriyya; her people followed, and the companions freed every captive of Banu al-Mustaliq (Abu Dawud 3927)."
+ },
+ {
+  "id": "tq-25",
+  "category": "Companions",
+  "question": "Which companion pulled the Prophet's ﷺ own tooth from his cheek at Uhud — losing his own teeth?",
+  "options": [
+   "Abu Ubaidah",
+   "Talha",
+   "Zubayr",
+   "Sa'd"
+  ],
+  "answer": 0,
+  "why": "Abu Ubaidah gripped the helmet's link with his teeth and pulled (Bukhari 3044)."
+ },
+ {
+  "id": "tq-26",
+  "category": "Qur'an",
+  "question": "What is the first revealed word of the Qur'an?",
+  "options": [
+   "Qul",
+   "Iqra",
+   "Bismillah",
+   "Alhamdulillah"
+  ],
+  "answer": 1,
+  "why": "'Read, in the name of your Lord' (96:1)."
+ },
+ {
+  "id": "tq-27",
+  "category": "Qur'an",
+  "question": "How many surahs are in the Qur'an?",
+  "options": [
+   "110",
+   "114",
+   "116",
+   "120"
+  ],
+  "answer": 1,
+  "why": "114 surahs."
+ },
+ {
+  "id": "tq-28",
+  "category": "Qur'an",
+  "question": "Which surah is named after a metal?",
+  "options": [
+   "Al-Fajr",
+   "Al-Hadid",
+   "Az-Zumar",
+   "Al-Mulk"
+  ],
+  "answer": 1,
+  "why": "Al-Hadid — 'the iron' (57)."
+ },
+ {
+  "id": "tq-29",
+  "category": "Qur'an",
+  "question": "Ayat al-Kursi is in which surah?",
+  "options": [
+   "Al-Imran",
+   "Al-Baqarah",
+   "An-Nisa",
+   "Al-Ma'idah"
+  ],
+  "answer": 1,
+  "why": "Al-Baqarah 2:255 — 'His Kursi extends over the heavens and the earth.'"
+ },
+ {
+  "id": "tq-30",
+  "category": "Qur'an",
+  "question": "'Bismillah' opens every surah except which one?",
+  "options": [
+   "Al-Fatihah",
+   "At-Tawbah",
+   "Ya-Sin",
+   "Al-Kahf"
+  ],
+  "answer": 1,
+  "why": "Surah At-Tawbah (9) opens without the basmalah."
+ },
+ {
+  "id": "tq-31",
+  "category": "Al-Ghayb",
+  "question": "Which angel carries revelation?",
+  "options": [
+   "Mika'il",
+   "Israfil",
+   "Jibril",
+   "Malak al-Mawt"
+  ],
+  "answer": 2,
+  "why": "Ruh al-Amin, the Trustworthy Spirit (26:193-194)."
+ },
+ {
+  "id": "tq-32",
+  "category": "Al-Ghayb",
+  "question": "What are Munkar and Nakir?",
+  "options": [
+   "Two scribes",
+   "Two questioners of the grave",
+   "Two gates of Paradise",
+   "Two winds"
+  ],
+  "answer": 1,
+  "why": "The two angels who ask: who is your Lord, what is your religion, who is this man? (Tirmidhi 1071)."
+ },
+ {
+  "id": "tq-33",
+  "category": "Al-Ghayb",
+  "question": "What breaks the whisper (waswas)?",
+  "options": [
+   "Silence",
+   "Seeking refuge in Allah",
+   "Counting",
+   "Leaving the room"
+  ],
+  "answer": 1,
+  "why": "'If an evil suggestion comes from Satan, seek refuge in Allah' (7:200)."
+ },
+ {
+  "id": "tq-34",
+  "category": "Al-Ghayb",
+  "question": "Which sign comes last among the ten major signs?",
+  "options": [
+   "The Beast",
+   "The sunrise from the west",
+   "The fire that gathers",
+   "The smoke"
+  ],
+  "answer": 2,
+  "why": "The fire drives mankind to the gathering — the final sign (Muslim 2942)."
+ },
+ {
+  "id": "tq-35",
+  "category": "Al-Ghayb",
+  "question": "What is the barzakh?",
+  "options": [
+   "A punishment",
+   "A barrier behind which nothing returns",
+   "A gate of Paradise",
+   "A night prayer"
+  ],
+  "answer": 1,
+  "why": "'Behind them is a barrier until the Day they are resurrected' (23:100)."
+ },
+ {
+  "id": "tq-36",
+  "category": "General",
+  "question": "What does 'Islam' literally mean?",
+  "options": [
+   "Peace",
+   "Submission",
+   "Praise",
+   "Light"
+  ],
+  "answer": 1,
+  "why": "Submission to Allah — from aslama."
+ },
+ {
+  "id": "tq-37",
+  "category": "General",
+  "question": "How many pillars of Islam are there?",
+  "options": [
+   "4",
+   "5",
+   "6",
+   "7"
+  ],
+  "answer": 1,
+  "why": "Shahada, prayer, zakat, fasting, Hajj."
+ },
+ {
+  "id": "tq-38",
+  "category": "General",
+  "question": "In which month do Muslims fast?",
+  "options": [
+   "Shawwal",
+   "Rajab",
+   "Ramadan",
+   "Muharram"
+  ],
+  "answer": 2,
+  "why": "'The month of Ramadan in which the Qur'an was revealed' (2:185)."
+ },
+ {
+  "id": "tq-39",
+  "category": "General",
+  "question": "What is the direction of prayer called?",
+  "options": [
+   "Sajdah",
+   "Qiblah",
+   "Mihrab",
+   "Rak'ah"
+  ],
+  "answer": 1,
+  "why": "The qiblah — toward al-Masjid al-Haram."
+ },
+ {
+  "id": "tq-40",
+  "category": "General",
+  "question": "Which phrase is the testimony of faith?",
+  "options": [
+   "Alhamdulillah",
+   "La ilaha illa Allah",
+   "Bismillah",
+   "Subhan Allah"
+  ],
+  "answer": 1,
+  "why": "The shahada's first half — 'there is no deity but Allah.'"
+ }
+]
