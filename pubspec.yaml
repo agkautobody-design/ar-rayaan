@@ -50,6 +50,7 @@ flutter:
     - assets/stories/
     - assets/family/
     - assets/guides/
+    - assets/games/
     - assets/audio/
 
   fonts:

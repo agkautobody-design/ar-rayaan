@@ -42,6 +42,7 @@ import '../features/sources/presentation/sources_screen.dart';
 import '../features/stories/presentation/stories_screen.dart';
 import '../features/family/presentation/family_tree_screen.dart';
 import '../features/huda/presentation/huda_screens.dart';
+import '../features/games/presentation/games_screens.dart';
 import '../features/stories/presentation/story_reader_screen.dart';
 import '../features/stories/domain/story.dart';
 import '../features/zakat/presentation/zakat_screen.dart';
@@ -78,6 +79,9 @@ abstract final class AppRoutes {
   static const String prayerTimes = '/prayer';
   static const String quran = '/quran';
   static const String hadith = '/hadith';
+  static const String games = '/games';
+  static const String trivia = '/games/trivia';
+  static const String names99 = '/games/names99';
   static const String huda = '/huda';
   static const String hudaGuide = '/huda/guide';
   static const String familyTree = '/family-tree';
@@ -113,6 +117,18 @@ GoRouter buildRouter() {
     routes: [
       // Onboarding flow (no bottom nav)
       GoRoute(
+          path: AppRoutes.games,
+          pageBuilder: (context, state) => _fade(const GamesScreen()),
+        ),
+        GoRoute(
+          path: AppRoutes.trivia,
+          pageBuilder: (context, state) => _fade(const TriviaScreen()),
+        ),
+        GoRoute(
+          path: AppRoutes.names99,
+          pageBuilder: (context, state) => _fade(const Names99Screen()),
+        ),
+        GoRoute(
           path: AppRoutes.huda,
           pageBuilder: (context, state) => _fade(const HudaScreen()),
         ),
