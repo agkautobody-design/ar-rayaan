@@ -41,6 +41,7 @@ import '../features/share/presentation/share_screen.dart';
 import '../features/sources/presentation/sources_screen.dart';
 import '../features/stories/presentation/stories_screen.dart';
 import '../features/family/presentation/family_tree_screen.dart';
+import '../features/huda/presentation/huda_screens.dart';
 import '../features/stories/presentation/story_reader_screen.dart';
 import '../features/stories/domain/story.dart';
 import '../features/zakat/presentation/zakat_screen.dart';
@@ -77,6 +78,8 @@ abstract final class AppRoutes {
   static const String prayerTimes = '/prayer';
   static const String quran = '/quran';
   static const String hadith = '/hadith';
+  static const String huda = '/huda';
+  static const String hudaGuide = '/huda/guide';
   static const String familyTree = '/family-tree';
   static const String stories = '/stories';
   static const String storyReader = '/stories/read';
@@ -110,6 +113,15 @@ GoRouter buildRouter() {
     routes: [
       // Onboarding flow (no bottom nav)
       GoRoute(
+          path: AppRoutes.huda,
+          pageBuilder: (context, state) => _fade(const HudaScreen()),
+        ),
+        GoRoute(
+          path: AppRoutes.hudaGuide,
+          pageBuilder: (context, state) =>
+              _fade(GuideScreen(guide: state.extra as Guide)),
+        ),
+        GoRoute(
           path: AppRoutes.familyTree,
           pageBuilder: (context, state) =>
               _fade(const FamilyTreeScreen()),

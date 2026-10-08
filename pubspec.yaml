@@ -49,6 +49,7 @@ flutter:
     - assets/noor/
     - assets/stories/
     - assets/family/
+    - assets/guides/
     - assets/audio/
 
   fonts:

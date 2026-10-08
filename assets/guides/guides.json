@@ -1,0 +1,329 @@
+[
+ {
+  "id": "huda-prayer",
+  "collection": "huda",
+  "category": "Worship",
+  "title": "How to Pray — The Essentials",
+  "subtitle": "The five daily prayers, step by step from standing to salaam",
+  "steps": [
+   "Niyyah (intention) — settle the heart on which prayer and how many rak'ahs; the Prophet ﷺ said: actions are judged by intentions (Bukhari 1). Intention is in the heart, not spoken aloud.",
+   "Face the qiblah, standing. Men raise hands to the ears (women to the shoulders) saying Allahu Akbar — the prayer has begun; everything before this was worldly (Bukhari 756).",
+   "Recite the opening supplication (thana'), then Ayat al-Kursi or another passage, then Surah al-Fatihah — the Prophet ﷺ said there is no prayer for the one who does not recite it (Bukhari 756).",
+   "Ruku' — bow with the back level, saying Subhana Rabbiyal-'Azim three times.",
+   "Stand from ruku' saying Sami'allahu liman hamidah... Rabbana wa lakal-hamd.",
+   "Sujud — prostrate on seven limbs: forehead (with nose), two hands, two knees, two feet — saying Subhana Rabbiyal-A'la three times (Bukhari 812).",
+   "Sit between the two prostrations, then prostrate again — that is one rak'ah. Repeat per the prayer: Fajr 2, Dhuhr 4, Asr 4, Maghrib 3, Isha 4.",
+   "In the final sitting: the tashahhud, blessings on the Prophet ﷺ, and any dua; then the salaam: Assalamu 'alaykum wa rahmatullah, turning right then left (Bukhari 831)."
+  ],
+  "sources": [
+   "Sahih al-Bukhari 756, 812, 831; Sahih Muslim 397-401"
+  ],
+  "madhhabNote": "Differences between the four schools (hand positions, recitation aloud vs silent, amin aloud) are all valid — the Huda rule: follow one school's fiqh completely, or ask a local teacher."
+ },
+ {
+  "id": "huda-wudu",
+  "collection": "huda",
+  "category": "Worship",
+  "title": "Wudu — The Purifying Wash",
+  "subtitle": "How the Prophet ﷺ washed for prayer",
+  "steps": [
+   "Niyyah in the heart, then Bismillah; the Prophet ﷺ said: there is no wudu for the one who does not mention Allah (Abu Dawud 101, hasan).",
+   "Wash the hands three times, right then left (Bukhari 159).",
+   "Rinse the mouth and nose three times with one handful (Bukhari 159).",
+   "Wash the face three times — from the hairline to the chin, ear to ear.",
+   "Wash the arms to the elbows, right then left, three times (Qur'an 5:6).",
+   "Wipe the head once — wet hands from the forehead to the nape and back (Qur'an 5:6), then the ears.",
+   "Wash the feet to the ankles three times, right then left — the Prophet ﷺ said: woe to the heels from the Fire (Bukhari 163).",
+   "The seal: the shahada — Ash-hadu an la ilaha illa Allah wahdahu la sharika lah... and the eight gates of Paradise are opened for him (Muslim 234)."
+  ],
+  "sources": [
+   "Qur'an 5:6; Sahih al-Bukhari 159, 163; Sahih Muslim 234"
+  ]
+ },
+ {
+  "id": "huda-ghusl",
+  "collection": "huda",
+  "category": "Worship",
+  "title": "Ghusl — The Full Purification",
+  "subtitle": "After janabah, menstruation's end, and before Friday prayer (sunnah)",
+  "steps": [
+   "Niyyah in the heart; begin Bismillah.",
+   "Wash the hands, then wash the private parts — the Prophet ﷺ used to do this first (Bukhari 248).",
+   "Perform a complete wudu as for prayer (Bukhari 248).",
+   "Pour water over the head three times, letting it reach the roots of the hair — even under a thick braid (the matted-haired woman, Muslim 330).",
+   "Wash the right side of the body, then the left — the water must touch every part, nothing dry (Bukhari 193).",
+   "Optional seal (sunnah): the Friday ghusl — the Prophet ﷺ commanded it and even used to wash every Friday, perfume, and wear his best (Bukhari 902)."
+  ],
+  "sources": [
+   "Sahih al-Bukhari 193, 248, 902; Sahih Muslim 330"
+  ],
+  "madhhabNote": "Order differs between schools (some wash the whole body first, wudu after) — all trace to the Prophet's ﷺ practice; follow your school's fiqh."
+ },
+ {
+  "id": "huda-tayammum",
+  "collection": "huda",
+  "category": "Worship",
+  "title": "Tayammum — The Dry Purification",
+  "subtitle": "When water is absent, harmful, or out of reach",
+  "steps": [
+   "Condition: no water, or water would harm (illness, cold), or no access. The command: 'and if you are ill or on a journey... then seek clean earth' (Qur'an 4:43, 5:6).",
+   "Strike the clean earth (dust, sand, stone) once with both palms.",
+   "Wipe the face with them (Qur'an 4:43).",
+   "Strike the earth again — and wipe the hands and arms to the elbows (Qur'an 5:6).",
+   "Pray with it — it lifts every restriction water would lift; the earth was made for you as a purifier (Bukhari 335).",
+   "It expires with the finding of water: the Prophet ﷺ struck the earth and prayed, then water was brought and he did not repeat the prayer (Bukhari 344)."
+  ],
+  "sources": [
+   "Qur'an 4:43; 5:6; Sahih al-Bukhari 335, 344"
+  ]
+ },
+ {
+  "id": "huda-adhan",
+  "collection": "huda",
+  "category": "Worship",
+  "title": "The Adhan & Iqamah",
+  "subtitle": "The call that empties the unseen world of devils",
+  "steps": [
+   "The mu'adhin faces the qiblah, raises the voice, and calls: Allahu Akbar (4x), Ash-hadu an la ilaha illa Allah (2x), Ash-hadu anna Muhammadan Rasulullah (2x), Hayya 'alas-salah (2x), Hayya 'alal-falah (2x), Allahu Akbar (2x), La ilaha illa Allah (Bukhari 604).",
+   "In Fajr, after Hayya 'alal-falah: As-salatu khayrun minan-nawm (2x) (Bukhari 589).",
+   "The effect: Shaytan hears the adhan and flees, passing wind until he cannot hear it (Bukhari 608).",
+   "Repeat after the mu'adhin, and after the last phrase send blessings on the Prophet ﷺ — your intercession becomes obligatory for him (Muslim 384).",
+   "Then ask: Allahumma rabba hadhihid-da'watit-tammah... — the Prophet ﷺ said whoever says it, my intercession for him becomes obligatory (Bukhari 589).",
+   "The iqamah: the same words as adhan, doubled phrases said once, ending with Qad qamatis-salat (2x) — prayed immediately after it (Abu Dawud 500)."
+  ],
+  "sources": [
+   "Sahih al-Bukhari 589, 604, 608; Sahih Muslim 384"
+  ]
+ },
+ {
+  "id": "huda-jumuah",
+  "collection": "huda",
+  "category": "Worship",
+  "title": "Friday Prayer — The Essentials",
+  "subtitle": "Jumu'ah: the weekly gathering with conditions and sunnahs",
+  "steps": [
+   "Obligatory on every free, resident, adult Muslim man; women are exempt but rewarded for attending (Bukhari 876).",
+   "The ghusl before it is obligatory — the Prophet ﷺ commanded every accountable person to wash on Friday (Bukhari 877).",
+   "Wear the best clean clothes; early arrival is multiplied — the Prophet ﷺ compared the stages of arrival to sacrifices: as if a camel, then a cow, then a sheep... (Bukhari 881).",
+   "Listen in silence: even saying 'be quiet' to a talker during the khutbah forfeits the reward (Bukhari 892).",
+   "The prayer: two rak'ahs after the khutbah, led by the imam (Bukhari 883).",
+   "The missed window: Jumu'ah has a fixed hour when no Muslim asks Allah but He grants it — the Prophet ﷺ indicated it is between the imam sitting and the prayer's end (Bukhari 935)."
+  ],
+  "sources": [
+   "Sahih al-Bukhari 876, 877, 881, 892, 935"
+  ]
+ },
+ {
+  "id": "huda-qada",
+  "collection": "huda",
+  "category": "Worship",
+  "title": "Making Up Missed Prayers",
+  "subtitle": "Qada' — the debt that only you can pay",
+  "steps": [
+   "The duty: a missed obligatory prayer must be prayed — 'the Prophet ﷺ was asked about a man who slept through the prayer: he said: there is no negligence in sleep; negligence is only while awake' (Muslim 681).",
+   "Pray it as soon as remembered — 'when any of you forgets the prayer, let him pray it when he remembers' (Bukhari 597).",
+   "Order: keep the prayers in sequence when possible; if several prayers are owed and only part can be caught, begin with the earliest missed (the majority view).",
+   "Do not trade it for nawafil: 'there is no make-up for the one who delays beyond its time, and his excessive works are the expiation' (Muslim 684) — the missed prayer stands as a debt until paid.",
+   "Practical system: the Prophet ﷺ taught a habit for forgetfulness — say the isti'adhah and dhikr after prayer so forgetfulness becomes rare (Bukhari 1374).",
+   "Ask: if sleep, travel, or genuine forgetfulness caused the miss — pray it without blame; deliberate neglect is the danger, and its cure is repentance plus immediate qada."
+  ],
+  "sources": [
+   "Sahih al-Bukhari 597; Sahih Muslim 681-684"
+  ],
+  "madhhabNote": "The schools differ on whether multiple missed prayers must be prayed in strict order (hanafi: yes, with cause for exception; shafi'i: recommended; hanbali: obligatory). Follow your school."
+ },
+ {
+  "id": "huda-nawafil",
+  "collection": "huda",
+  "category": "Worship",
+  "title": "The Rawatib — Prayers Around the Obligatory",
+  "subtitle": "The sunnah prayers that guard the fard",
+  "steps": [
+   "Fajr: two sunnah rak'ahs — 'the two rak'ahs of Fajr are better than the world and everything in it' (Muslim 725).",
+   "Dhuhr: four before (and two after) — 'if anyone prays four before Dhuhr and four after, Allah forbids him the Fire' (Tirmidhi 428, hasan).",
+   "Maghrib: two after; Isha: two after.",
+   "The night prayer (qiyam): two by two — 'the night prayer is two by two, and witr is one rak'ah' (Bukhari 990).",
+   "Witr: the Prophet ﷺ never abandoned it, neither traveling nor resident (Bukhari 990).",
+   "Duha: the mid-morning prayer — 'a prayer of the repentant, prayed when the young camels feel the sun's heat' (Muslim 748)."
+  ],
+  "sources": [
+   "Sahih al-Bukhari 990; Sahih Muslim 725, 748; Sunan al-Tirmidhi 428"
+  ]
+ },
+ {
+  "id": "huda-mosque",
+  "collection": "huda",
+  "category": "Sacred Spaces",
+  "title": "Mosque Manners",
+  "subtitle": "The adab of the house of Allah",
+  "steps": [
+   "Enter with the right foot and the dua: Bismillah, was-salatu was-salamu 'ala Rasulillah... (Bukhari 1131, abridged).",
+   "Pray the two rak'ahs of greeting (tahiyyat al-masjid) before sitting — 'when one of you enters the mosque, let him not sit until he prays two rak'ahs' (Bukhari 1163).",
+   "Keep the voice low: the Prophet ﷺ forbade raising voices in recitation in the mosque except at a level of self-reminder (Abu Dawud 1332).",
+   "Do not pass in front of a praying person — the hadith likens that to a donkey passing before an archer (Bukhari 509).",
+   "Leave with the left foot and the leaving-dua (inverse of the entering).",
+   "Photography, eating, and trade are for elsewhere: 'whoever eats garlic or onions, let him keep away from us — or from our mosque' (Bukhari 545)."
+  ],
+  "sources": [
+   "Sahih al-Bukhari 509, 545, 1131, 1163"
+  ]
+ },
+ {
+  "id": "huda-home",
+  "collection": "huda",
+  "category": "Daily Adab",
+  "title": "Entering & Leaving the Home",
+  "subtitle": "Bismillah at the door, gratitude at the threshold",
+  "steps": [
+   "Enter with the right foot, saying Bismillah; the Prophet ﷺ named the entering-dua (Bismillah, was-salamu... ) — 'Shaytan then says to his companion: no lodging or supper for you tonight' (Muslim 2018).",
+   "Mention Allah over food and drink — 'mention the name of Allah, eat with your right hand, and eat from what is nearest you' (Bukhari 5376).",
+   "Leave with the left foot and the leaving-dua: Bismillah, tawakkaltu 'alallah, wa la hawla wa la quwwata illa billah.",
+   "The greeting inside: spread the salam — 'you will not enter Paradise until you believe, and you will not believe until you love one another; shall I guide you to something which, if you do it, you will love one another? Spread the salam among you' (Muslim 54)."
+  ],
+  "sources": [
+   "Sahih al-Bukhari 5376; Sahih Muslim 54, 2018"
+  ]
+ },
+ {
+  "id": "ghuda-janazah-wash",
+  "collection": "huda",
+  "category": "The Last Day",
+  "title": "Washing the Deceased",
+  "subtitle": "Ghusl al-mayyit — the final service, done gently",
+  "steps": [
+   "The one who washes is trustworthy, bathes first, and covers the body; men wash men, women wash women — spouses may wash each other (Bukhari 1254).",
+   "The Prophet ﷺ said of the washer: 'wash her three times, or five, or seven — odd numbers — and begin with her right side and the places of wudu' (Bukhari 1253).",
+   "Camphor is used in the final wash — 'the best of your perfumes is camphor' (Bukhari 1242).",
+   "Comb the hair, wash gently; the Prophet ﷺ said: treat the deceased gently, for the believer is honored by Allah (Abu Dawud 3142).",
+   "The water used last is poured with the du'a for forgiveness — 'O Allah, forgive him, have mercy on him, pardon him...' (Muslim 916)."
+  ],
+  "sources": [
+   "Sahih al-Bukhari 1242, 1253-1254; Sahih Muslim 916"
+  ]
+ },
+ {
+  "id": "huda-janazah-prayer",
+  "collection": "huda",
+  "category": "The Last Day",
+  "title": "The Funeral Prayer",
+  "subtitle": "Salat al-janazah — no ruku', no sujud, only dua",
+  "steps": [
+   "Stand in rows facing the qiblah; the imam stands at the head of a man, the middle of a woman (Bukhari 1331).",
+   "Four takbirs: Allahu Akbar, then the opening supplication (al-Thanaiya); Allahu Akbar, then blessings on the Prophet ﷺ; Allahu Akbar, then the dua for the deceased (Muslim 916).",
+   "The dua: Allahumma-ghfir lahu, warhamhu, wa 'afihi, wa'fu 'anhu... — the Prophet ﷺ taught it, and for a woman, the endings change (Bukhari 1334).",
+   "A fourth takbir, then one may add a personal dua; the salam follows — one salam to the right (most schools).",
+   "The reward: 'whoever follows a funeral and prays over it, he earns a qirat; and whoever stays until the burial, two qirats' — the companions asked: what are two qirats? He said: like two great mountains (Bukhari 1325)."
+  ],
+  "sources": [
+   "Sahih al-Bukhari 1325, 1331, 1334; Sahih Muslim 916"
+  ]
+ },
+ {
+  "id": "huda-janazah-burial",
+  "collection": "huda",
+  "category": "The Last Day",
+  "title": "The Burial & Visiting Graves",
+  "subtitle": "Hasten the burial; visit to remember, not to worship",
+  "steps": [
+   "Hasten it: 'hasten with the deceased, for if it was righteous, you are forwarding it to good; and if otherwise, you are taking a burden off your necks' (Bukhari 1315).",
+   "The grave: dug as a lahd (niche) where the ground allows; the body laid on its right side facing the qiblah.",
+   "The earth is thrown — three handfuls from the head's end, with: minha khalaqnakum... (Bukhari 1337).",
+   "No wailing, no fire-brands of grief, no bare heads from grief itself — 'the deceased is punished by the wailing of his family' (Bukhari 1296).",
+   "Visiting graves: the Prophet ﷺ permitted it — 'I had forbidden you to visit graves, but now visit them, for they remind you of the Hereafter' (Muslim 977).",
+   "The greeting of the grave: Assalamu 'alaykum ahlal-qubur... (Muslim 977)."
+  ],
+  "sources": [
+   "Sahih al-Bukhari 1296, 1315, 1337; Sahih Muslim 977"
+  ]
+ },
+ {
+  "id": "huda-condolence",
+  "collection": "huda",
+  "category": "The Last Day",
+  "title": "Consoling the Bereaved",
+  "subtitle": "What to say when there is nothing to say",
+  "steps": [
+   "The sunnah phrase: Inna lillahi wa inna ilayhi raji'un; Allahumma-jurni fi musibati, wakhluf li khayran minha — 'O Allah, reward me in my affliction and replace it for me with better' (Muslim 2123).",
+   "Say what eases: the Prophet ﷺ said: 'whoever consoles a bereaved person has a garment of honor upon him on the Day of Resurrection' (Tirmidhi 1075).",
+   "Do not say 'it could be worse' or 'be strong' — the sunnah is to speak the phrases of tawhid and reward.",
+   "Serve the family: bring food — 'the family of Ja'far are preoccupied; feed them' (Abu Dawud 3128).",
+   "The three-day gathering limit: it is for the relatives to prepare food for the bereaved, not the reverse (Bukhari 1340).",
+   "Pray for the dead in their absence: 'the prayer of the absent reaches' (Baihaqi, hasan)."
+  ],
+  "sources": [
+   "Sahih al-Bukhari 1340; Sahih Muslim 2123; Sunan al-Tirmidhi 1075"
+  ]
+ },
+ {
+  "id": "huda-food",
+  "collection": "huda",
+  "category": "Daily Adab",
+  "title": "Eating Manners",
+  "subtitle": "One-third for food, one-third for drink, one-third for breath",
+  "steps": [
+   "Say Bismillah; if forgotten: Bismillahi awwalahu wa akhirahu (Abu Dawud 3767).",
+   "Eat with the right hand — 'the Shaytan eats with his left hand and drinks with his left' (Muslim 2020).",
+   "Eat from what is nearest — 'eat from what is nearest to you' (Bukhari 5376).",
+   "The portion: 'the son of Adam fills no vessel worse than his stomach — a few morsels suffice him; but if he must, then one-third for food, one-third for drink, one-third for breath' (Ibn Majah 3349).",
+   "Eat together — 'the food of one suffices two, and the food of two suffices four' (Bukhari 5392).",
+   "Praise after: Alhamdulillahil-ladhi at'amana... — 'Allah is pleased with the servant who eats a morsel and praises Him for it' (Muslim 2734)."
+  ],
+  "sources": [
+   "Sahih al-Bukhari 5376, 5392; Sahih Muslim 2020, 2734; Sunan Ibn Majah 3349"
+  ]
+ },
+ {
+  "id": "huda-sleep",
+  "collection": "huda",
+  "category": "Daily Adab",
+  "title": "Sleeping Manners",
+  "subtitle": "The night as worship's gateway",
+  "steps": [
+   "Before bed: ayat al-Kursi — 'a guardian from Allah stays with you and no devil approaches you until morning' (Bukhari 2311).",
+   "The three quls: blow into the palms, wipe over what you can reach of the body (Bukhari 5017).",
+   "Sleep on the right side — 'when you go to bed, lie on your right side' (Bukhari 247).",
+   "The duas: Bismika Allahumma amutu wa ahya; and on waking: Alhamdulillahil-ladhi ahyana... (Bukhari 6324).",
+   "Recitation before sleep: al-Mulk — 'there is a surah of thirty verses which intercedes for a man until he is forgiven: Blessed is He in whose hand is the dominion' (Abu Dawud 1400).",
+   "The night is also for prayer: 'the best prayer after the obligatory is the night prayer' (Muslim 1163)."
+  ],
+  "sources": [
+   "Sahih al-Bukhari 247, 2311, 5017, 6324; Sahih Muslim 1163"
+  ]
+ },
+ {
+  "id": "huda-speech",
+  "collection": "huda",
+  "category": "Daily Adab",
+  "title": "Speech — The Weight of Words",
+  "subtitle": "Guarding the tongue without going silent",
+  "steps": [
+   "The standard: 'whoever believes in Allah and the Last Day, let him speak good or remain silent' (Bukhari 6018).",
+   "The backbite prohibition: 'would any of you like to eat the flesh of his dead brother? You detest it!' (49:12).",
+   "The license for reconciliation: 'there is no ghibah in six: the one who openly sins, the one who commits injustice...' (Abu Dawud 4880) — naming injustice to stop it is not backbiting.",
+   "Argue gently: 'I guarantee a house at the edge of Paradise for the one who leaves an argument even when he is right' (Abu Dawud 4800).",
+   "Praise with honesty: 'the one who deceives us is not one of us' (Muslim 101).",
+   "The dua: Allahumma a'inni 'ala dhikrika wa shukrika wa husni 'ibadatik — 'O Allah, help me to remember You, thank You, and worship You well' (Abu Dawud 1522)."
+  ],
+  "sources": [
+   "Qur'an 49:12; Sahih al-Bukhari 6018; Sahih Muslim 101; Sunan Abi Dawud 4800, 4880"
+  ]
+ },
+ {
+  "id": "huda-greeting",
+  "collection": "huda",
+  "category": "Daily Adab",
+  "title": "Greetings & Sneezing",
+  "subtitle": "The salam as a transaction of peace",
+  "steps": [
+   "Spread the salam: 'as-salamu 'alaykum' — to those you know and those you do not (Bukhari 12).",
+   "The return: wa 'alaykum as-salam — and the reward: 'you will not enter Paradise until you love one another; spread the salam among you' (Muslim 54).",
+   "Sneezing: the sneezer says Alhamdulillah; the hearer says Yarhamukallah; the sneezer returns: Yahdikumullah... (Bukhari 6224).",
+   "Yawning is from Shaytan — suppress it: 'yawning is from Shaytan, so if any of you yawns let him suppress it as much as he can' (Bukhari 6226).",
+   "The handshake completes the greeting: 'when two Muslims meet and shake hands, their sins fall away before they part' (Abu Dawud 5212, hasan).",
+   "Enter gatherings with the salam; leave with it — the salam begins and ends every sitting."
+  ],
+  "sources": [
+   "Sahih al-Bukhari 12, 6224, 6226; Sahih Muslim 54"
+  ]
+ }
+]
