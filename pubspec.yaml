@@ -48,6 +48,7 @@ flutter:
     - assets/adhkar/
     - assets/noor/
     - assets/stories/
+    - assets/family/
     - assets/audio/
 
   fonts:

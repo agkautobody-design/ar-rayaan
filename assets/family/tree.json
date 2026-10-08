@@ -1,0 +1,769 @@
+{
+ "meta": {
+  "title": "The Messengers' Tree",
+  "note": "Qur'an-established links are labeled [Established]; lineage through tradition (Ibn Ishaq, al-Tabari) is labeled [Interpretive]. The gaps between Adnan and Ma'add, and between Ya'qub and the later prophets, are deliberately folded — honest gaps are part of the design.",
+  "sources": [
+   "Qur'an 6:84-90 — the chain of prophets from Ibrahim",
+   "Qur'an 37:101-113 — Ibrahim's two sons",
+   "Seerah: Ibn Ishaq/Ibn Hisham; History: al-Tabari"
+  ]
+ },
+ "nodes": [
+  {
+   "id": "adam",
+   "name": "Adam",
+   "era": "The Beginning",
+   "parents": [],
+   "children": [
+    "sheeth",
+    "habil",
+    "qabil"
+   ],
+   "river": "root",
+   "sourceLabel": "Established",
+   "description": "The first man and first prophet; father of every soul in this tree. His two sons' story is in the Tales shelf (Qur'an 5:27-31).",
+   "sources": [
+    "Qur'an 2:30-39"
+   ],
+   "spouses": [
+    "hawwa"
+   ],
+   "story": "prophet-adam"
+  },
+  {
+   "id": "hawwa",
+   "name": "Hawwa (Eve)",
+   "era": "The Beginning",
+   "parents": [],
+   "children": [
+    "sheeth",
+    "habil",
+    "qabil"
+   ],
+   "river": "root",
+   "sourceLabel": "Interpretive",
+   "description": "Mother of humanity; named in the tradition of Ibn Ishaq, not in the Qur'an's text.",
+   "sources": [
+    "Seerah: Ibn Ishaq"
+   ],
+   "spouses": [
+    "adam"
+   ]
+  },
+  {
+   "id": "habil",
+   "name": "Habil",
+   "era": "The Beginning",
+   "parents": [
+    "adam",
+    "hawwa"
+   ],
+   "children": [],
+   "river": "root",
+   "sourceLabel": "Established",
+   "description": "The accepted brother, killed by his brother — the first martyr, whose funeral a crow taught (Tales shelf).",
+   "sources": [
+    "Qur'an 5:27-31"
+   ]
+  },
+  {
+   "id": "qabil",
+   "name": "Qabil",
+   "era": "The Beginning",
+   "parents": [
+    "adam",
+    "hawwa"
+   ],
+   "children": [],
+   "river": "root",
+   "sourceLabel": "Established",
+   "description": "The first murderer; the Qur'an keeps him nameless — he is remembered by his deed.",
+   "sources": [
+    "Qur'an 5:27-31"
+   ]
+  },
+  {
+   "id": "sheeth",
+   "name": "Sheeth (Seth)",
+   "era": "The Generations",
+   "parents": [
+    "adam",
+    "hawwa"
+   ],
+   "children": [
+    "nuh-line"
+   ],
+   "river": "root",
+   "sourceLabel": "Interpretive",
+   "description": "The righteous son through whom the prophetic line continued; named in tradition.",
+   "sources": [
+    "Seerah: Ibn Ishaq"
+   ]
+  },
+  {
+   "id": "nuh-line",
+   "name": "…ten generations…",
+   "era": "The Generations",
+   "parents": [
+    "sheeth"
+   ],
+   "children": [
+    "nuh"
+   ],
+   "river": "root",
+   "sourceLabel": "Interpretive",
+   "description": "The generations between Sheeth and Nuh are veiled; the tradition names them, the tree leaves them folded — the honest gap.",
+   "sources": [
+    "Ibn Ishaq; al-Tabari"
+   ]
+  },
+  {
+   "id": "nuh",
+   "name": "Nuh",
+   "era": "Before the Flood",
+   "parents": [
+    "nuh-line"
+   ],
+   "children": [
+    "sam"
+   ],
+   "river": "root",
+   "sourceLabel": "Established",
+   "description": "The second father of humanity. From his three sons descend all the peoples of the earth; this tree follows Sam, through whom every prophet came.",
+   "sources": [
+    "Qur'an 71; 11:25-48; Ibn Ishaq"
+   ],
+   "story": "prophet-nuh"
+  },
+  {
+   "id": "sam",
+   "name": "Sam (Shem)",
+   "era": "After the Flood",
+   "parents": [
+    "nuh"
+   ],
+   "children": [
+    "arfakhshadh"
+   ],
+   "river": "root",
+   "sourceLabel": "Interpretive",
+   "description": "Nuh's son through whom the prophetic line ran.",
+   "sources": [
+    "Ibn Ishaq; al-Tabari"
+   ]
+  },
+  {
+   "id": "arfakhshadh",
+   "name": "Arfakhshadh",
+   "era": "The First Cities",
+   "parents": [
+    "sam"
+   ],
+   "children": [
+    "ibrahim-line"
+   ],
+   "river": "root",
+   "sourceLabel": "Interpretive",
+   "description": "The chain from Sam to Ibrahim runs through the generations the historians record; carried as one folded branch.",
+   "sources": [
+    "Ibn Ishaq; al-Tabari"
+   ]
+  },
+  {
+   "id": "ibrahim-line",
+   "name": "…Shalikh, Abir, Faligh, Ra'u, Sarugh, Nahur…",
+   "era": "The First Cities",
+   "parents": [
+    "arfakhshadh"
+   ],
+   "children": [
+    "ibrahim"
+   ],
+   "river": "root",
+   "sourceLabel": "Interpretive",
+   "description": "The named ancestors of Ibrahim in the historians' tradition — one folded branch of named generations.",
+   "sources": [
+    "Ibn Ishaq; al-Tabari"
+   ]
+  },
+  {
+   "id": "ibrahim",
+   "name": "Ibrahim",
+   "era": "The Friend of Allah",
+   "parents": [
+    "ibrahim-line"
+   ],
+   "children": [
+    "ismail",
+    "ishaq"
+   ],
+   "river": "branch",
+   "sourceLabel": "Established",
+   "description": "The trunk of the whole tree. His two sons became two rivers: Ismail → the line of the final Prophet ﷺ; Ishaq → the line of Musa, Dawud, Sulayman, Zakariya, Yahya, and Isa.",
+   "sources": [
+    "Qur'an 2:125-127; 4:163; 6:84-90"
+   ],
+   "spouses": [
+    "sarah",
+    "hajar"
+   ],
+   "story": "prophet-ibrahim"
+  },
+  {
+   "id": "sarah",
+   "name": "Sarah",
+   "era": "The Friend's Household",
+   "parents": [],
+   "children": [
+    "ishaq"
+   ],
+   "river": "branch",
+   "sourceLabel": "Established",
+   "description": "Mother of Ishaq; her story is bound to the birth of the second river.",
+   "sources": [
+    "Qur'an 11:71-73"
+   ],
+   "spouses": [
+    "ibrahim"
+   ]
+  },
+  {
+   "id": "hajar",
+   "name": "Hajar",
+   "era": "The Friend's Household",
+   "parents": [],
+   "children": [
+    "ismail"
+   ],
+   "river": "branch",
+   "sourceLabel": "Interpretive",
+   "description": "Mother of Ismail; her run between Safa and Marwah is the sa'i of every pilgrim.",
+   "sources": [
+    "Qur'an 2:158; Sahih al-Bukhari 3364"
+   ],
+   "spouses": [
+    "ibrahim"
+   ]
+  },
+  {
+   "id": "ismail",
+   "name": "Ismail",
+   "era": "The First River",
+   "parents": [
+    "ibrahim",
+    "hajar"
+   ],
+   "children": [
+    "qaydar"
+   ],
+   "river": "ismail",
+   "sourceLabel": "Established",
+   "description": "The elder son. From him: the Arabs, the guardianship of the Kaaba, and the line to the Prophet Muhammad ﷺ.",
+   "sources": [
+    "Qur'an 14:37; 2:125-129; 19:54"
+   ],
+   "story": "prophet-ismail"
+  },
+  {
+   "id": "qaydar",
+   "name": "Qaydar & the sons of Ismail",
+   "era": "The First River",
+   "parents": [
+    "ismail"
+   ],
+   "children": [
+    "adnan"
+   ],
+   "river": "ismail",
+   "sourceLabel": "Interpretive",
+   "description": "Ismail's twelve sons settled Arabia, the tradition says; Qaydar's line carried the Prophet's ancestry. Kept as one node.",
+   "sources": [
+    "Ibn Ishaq; al-Tabari"
+   ]
+  },
+  {
+   "id": "adnan",
+   "name": "Adnan",
+   "era": "The Arab Line",
+   "parents": [
+    "qaydar"
+   ],
+   "children": [
+    "maadd"
+   ],
+   "river": "ismail",
+   "sourceLabel": "Interpretive",
+   "description": "The ancestor where the scholars draw the line of certainty: from Adnan down the line is agreed; above him the names soften.",
+   "sources": [
+    "Ibn Ishaq; al-Tabari"
+   ]
+  },
+  {
+   "id": "maadd",
+   "name": "…to Ma'add…",
+   "era": "The Arab Line",
+   "parents": [
+    "adnan"
+   ],
+   "children": [
+    "fihr"
+   ],
+   "river": "ismail",
+   "sourceLabel": "Interpretive",
+   "description": "The generations between Adnan and Ma'add — estimated near forty — are deliberately folded; honesty about gaps is part of this tree's design.",
+   "sources": [
+    "Ibn Ishaq; al-Tabari"
+   ]
+  },
+  {
+   "id": "fihr",
+   "name": "Fihr ibn Malik — Quraysh",
+   "era": "The Age of Quraysh",
+   "parents": [
+    "maadd"
+   ],
+   "children": [
+    "qusayy"
+   ],
+   "river": "ismail",
+   "sourceLabel": "Interpretive",
+   "description": "The progenitor of Quraysh, the tribe of the Prophet's house and the keepers of the Kaaba.",
+   "sources": [
+    "Ibn Ishaq; al-Tabari"
+   ]
+  },
+  {
+   "id": "qusayy",
+   "name": "Qusayy ibn Kilab",
+   "era": "The Age of Quraysh",
+   "parents": [
+    "fihr"
+   ],
+   "children": [
+    "abd-manaf"
+   ],
+   "river": "ismail",
+   "sourceLabel": "Interpretive",
+   "description": "Gathered Quraysh into Makkah and took the keys of the Kaaba — the first lord of Makkah in the direct line.",
+   "sources": [
+    "Ibn Ishaq; al-Tabari"
+   ]
+  },
+  {
+   "id": "abd-manaf",
+   "name": "Abd Manaf",
+   "era": "The Age of Quraysh",
+   "parents": [
+    "qusayy"
+   ],
+   "children": [
+    "hashim"
+   ],
+   "river": "ismail",
+   "sourceLabel": "Interpretive",
+   "description": "Father of Hashim, from whom the clan took its name: Banu Hashim, the Prophet's own clan.",
+   "sources": [
+    "Ibn Ishaq; al-Tabari"
+   ]
+  },
+  {
+   "id": "hashim",
+   "name": "Hashim ibn Abd Manaf",
+   "era": "The Age of Quraysh",
+   "parents": [
+    "abd-manaf"
+   ],
+   "children": [
+    "abdul-muttalib"
+   ],
+   "river": "ismail",
+   "sourceLabel": "Interpretive",
+   "description": "The clan's namesake; the tradition honors him with instituting the two caravan journeys that made Makkah's wealth.",
+   "sources": [
+    "Ibn Ishaq; al-Tabari"
+   ]
+  },
+  {
+   "id": "abdul-muttalib",
+   "name": "Abdul-Muttalib",
+   "era": "The Age of Quraysh",
+   "parents": [
+    "hashim"
+   ],
+   "children": [
+    "abdullah"
+   ],
+   "river": "ismail",
+   "sourceLabel": "Interpretive",
+   "description": "The Prophet's ﷺ grandfather; redug the well of Zamzam and shielded his grandson from the Quraysh.",
+   "sources": [
+    "Ibn Ishaq; al-Tabari"
+   ]
+  },
+  {
+   "id": "abdullah",
+   "name": "Abdullah ibn Abdul-Muttalib",
+   "era": "The Age of Quraysh",
+   "parents": [
+    "abdul-muttalib"
+   ],
+   "children": [
+    "muhammad"
+   ],
+   "river": "ismail",
+   "sourceLabel": "Interpretive",
+   "description": "The Prophet's ﷺ father; died on a trading journey before his son's birth.",
+   "sources": [
+    "Ibn Ishaq; al-Tabari"
+   ]
+  },
+  {
+   "id": "muhammad",
+   "name": "Muhammad ﷺ",
+   "era": "The Final Prophet",
+   "parents": [
+    "abdullah"
+   ],
+   "children": [
+    "fatima"
+   ],
+   "river": "ismail",
+   "sourceLabel": "Established",
+   "description": "The Seal of the Prophets — the first river of Ibrahim's house reaching its ocean. Read his life in the Seerah shelf.",
+   "sources": [
+    "Qur'an 33:40; Seerah: Ibn Ishaq"
+   ],
+   "spouses": [
+    "khadijah"
+   ],
+   "story": "seerah-01"
+  },
+  {
+   "id": "khadijah",
+   "name": "Khadijah bint Khuwaylid",
+   "era": "The First Believer",
+   "parents": [],
+   "children": [
+    "fatima"
+   ],
+   "river": "ismail",
+   "sourceLabel": "Established",
+   "description": "The first to believe; mother of Fatima. Her portrait is in the Women shelf.",
+   "sources": [
+    "Sahih al-Bukhari 3"
+   ],
+   "spouses": [
+    "muhammad"
+   ]
+  },
+  {
+   "id": "fatima",
+   "name": "Fatima al-Zahra",
+   "era": "The Household",
+   "parents": [
+    "muhammad",
+    "khadijah"
+   ],
+   "children": [
+    "hasan-husayn"
+   ],
+   "river": "ismail",
+   "sourceLabel": "Established",
+   "description": "The leader of the women of Paradise. Her portrait is in the Women shelf.",
+   "sources": [
+    "Sahih al-Bukhari 3624"
+   ],
+   "spouses": [
+    "ali"
+   ]
+  },
+  {
+   "id": "hasan-husayn",
+   "name": "Hasan & Husayn",
+   "era": "The Household",
+   "parents": [
+    "ali",
+    "fatima"
+   ],
+   "children": [],
+   "river": "ismail",
+   "sourceLabel": "Established",
+   "description": "The leaders of the youth of Paradise — the Prophet's ﷺ two grandsons, loved by the whole ummah.",
+   "sources": [
+    "Sunan al-Tirmidhi 3749"
+   ]
+  },
+  {
+   "id": "ali",
+   "name": "Ali ibn Abi Talib",
+   "era": "The Household",
+   "parents": [],
+   "children": [
+    "hasan-husayn"
+   ],
+   "river": "ismail",
+   "sourceLabel": "Established",
+   "description": "The Prophet's ﷺ cousin and son-in-law; husband of Fatima. His portrait is in the Companions shelf.",
+   "sources": [
+    "Seerah; Sahih al-Bukhari 4356"
+   ],
+   "spouses": [
+    "fatima"
+   ]
+  },
+  {
+   "id": "ishaq",
+   "name": "Ishaq",
+   "era": "The Second River",
+   "parents": [
+    "ibrahim",
+    "sarah"
+   ],
+   "children": [
+    "yaqub"
+   ],
+   "river": "ishaq",
+   "sourceLabel": "Established",
+   "description": "The second son — through him the prophetic line ran into the tribes of Israel and to every prophet after him until Isa.",
+   "sources": [
+    "Qur'an 37:112-113; 4:163"
+   ],
+   "story": "prophet-ishaq"
+  },
+  {
+   "id": "yaqub",
+   "name": "Ya'qub (Israel)",
+   "era": "The Second River",
+   "parents": [
+    "ishaq"
+   ],
+   "children": [
+    "yusuf",
+    "binyamin",
+    "musa-line",
+    "dawud-line",
+    "zakariya-line"
+   ],
+   "river": "ishaq",
+   "sourceLabel": "Established",
+   "description": "Israel — father of twelve sons, the twelve tribes. From his line: Musa, Dawud, Sulayman, Zakariya, Yahya, Isa.",
+   "sources": [
+    "Qur'an 2:132-133; 12"
+   ],
+   "story": "prophet-yaqub"
+  },
+  {
+   "id": "yusuf",
+   "name": "Yusuf",
+   "era": "Egypt",
+   "parents": [
+    "yaqub"
+   ],
+   "children": [],
+   "river": "ishaq",
+   "sourceLabel": "Established",
+   "description": "The beloved son — the best of stories is in the Prophets shelf.",
+   "sources": [
+    "Qur'an 12"
+   ],
+   "story": "prophet-yusuf"
+  },
+  {
+   "id": "binyamin",
+   "name": "Binyamin",
+   "era": "Egypt",
+   "parents": [
+    "yaqub"
+   ],
+   "children": [],
+   "river": "ishaq",
+   "sourceLabel": "Established",
+   "description": "The youngest brother, retained in Egypt — the second grief of Ya'qub, and the second joy of the reunion.",
+   "sources": [
+    "Qur'an 12"
+   ]
+  },
+  {
+   "id": "musa-line",
+   "name": "The House of Imran (I)",
+   "era": "Egypt & the Exodus",
+   "parents": [
+    "yaqub"
+   ],
+   "children": [
+    "imran"
+   ],
+   "river": "ishaq",
+   "sourceLabel": "Established",
+   "description": "From Ya'qub's line came the house the Qur'an honors by name (3:33) — the family of Imran: Musa's mother, Maryam's mother, and through them the prophets of the river.",
+   "sources": [
+    "Qur'an 3:33-36; 66:11-12; 19:28"
+   ]
+  },
+  {
+   "id": "imran",
+   "name": "Imran (Amram)",
+   "era": "Egypt & the Exodus",
+   "parents": [
+    "musa-line"
+   ],
+   "children": [
+    "musa-harun"
+   ],
+   "river": "ishaq",
+   "sourceLabel": "Interpretive",
+   "description": "Father of Musa and Harun; the Qur'an names the house of Imran, the historians fill the generations.",
+   "sources": [
+    "Qur'an 3:33; Ibn Ishaq"
+   ]
+  },
+  {
+   "id": "musa-harun",
+   "name": "Musa & Harun",
+   "era": "The Exodus",
+   "parents": [
+    "imran"
+   ],
+   "children": [],
+   "river": "ishaq",
+   "sourceLabel": "Established",
+   "description": "The two brothers of the exodus — Musa, who spoke to Allah, and Harun, his support. Both in the Prophets shelf.",
+   "sources": [
+    "Qur'an 20; 26; 7:103-155"
+   ],
+   "story": "prophet-musa"
+  },
+  {
+   "id": "dawud-line",
+   "name": "The Line of Dawud",
+   "era": "Israel's Kingdom",
+   "parents": [
+    "yaqub"
+   ],
+   "children": [
+    "dawud"
+   ],
+   "river": "ishaq",
+   "sourceLabel": "Interpretive",
+   "description": "Dawud and Sulayman rose from Ya'qub's line in the generations after Musa — the historians carry the names; the Qur'an carries the glory.",
+   "sources": [
+    "Qur'an 2:251; Ibn Ishaq"
+   ]
+  },
+  {
+   "id": "dawud",
+   "name": "Dawud",
+   "era": "Israel's Kingdom",
+   "parents": [
+    "dawud-line"
+   ],
+   "children": [
+    "sulayman"
+   ],
+   "river": "ishaq",
+   "sourceLabel": "Established",
+   "description": "The king-psalmist — given the Zabur, the echoing mountains, the pliable iron. In the Prophets shelf.",
+   "sources": [
+    "Qur'an 2:251; 34:10-11; 38:17-25"
+   ],
+   "story": "prophet-dawud"
+  },
+  {
+   "id": "sulayman",
+   "name": "Sulayman",
+   "era": "Israel's Kingdom",
+   "parents": [
+    "dawud"
+   ],
+   "children": [],
+   "river": "ishaq",
+   "sourceLabel": "Established",
+   "description": "The kingdom no one will have after him. In the Prophets shelf.",
+   "sources": [
+    "Qur'an 38:30-40; 27:15-44"
+   ],
+   "story": "prophet-sulayman"
+  },
+  {
+   "id": "zakariya-line",
+   "name": "The House of Imran (II)",
+   "era": "The Temple",
+   "parents": [
+    "yaqub"
+   ],
+   "children": [
+    "zakariya"
+   ],
+   "river": "ishaq",
+   "sourceLabel": "Interpretive",
+   "description": "Zakariya, Yahya, and Isa all descend from Ya'qub through the generations the historians record — united under the honored house of Imran.",
+   "sources": [
+    "Qur'an 3:33-44; 19:2-15; Ibn Ishaq"
+   ]
+  },
+  {
+   "id": "zakariya",
+   "name": "Zakariya",
+   "era": "The Temple",
+   "parents": [
+    "zakariya-line"
+   ],
+   "children": [
+    "yahya"
+   ],
+   "river": "ishaq",
+   "sourceLabel": "Established",
+   "description": "The guardian of Maryam, given Yahya in old age — his whole supplication preserved (3:38; 21:89).",
+   "sources": [
+    "Qur'an 3:37-41; 19:2-15; 21:89-90"
+   ]
+  },
+  {
+   "id": "yahya",
+   "name": "Yahya",
+   "era": "The Temple",
+   "parents": [
+    "zakariya"
+   ],
+   "children": [],
+   "river": "ishaq",
+   "sourceLabel": "Established",
+   "description": "The son given to the barren house — 'Yahya, confirming a word from Allah' (3:39).",
+   "sources": [
+    "Qur'an 3:39; 19:7-15; 21:90"
+   ]
+  },
+  {
+   "id": "maryam",
+   "name": "Maryam bint Imran",
+   "era": "The Annunciation",
+   "parents": [],
+   "children": [
+    "isa"
+   ],
+   "river": "ishaq",
+   "sourceLabel": "Established",
+   "description": "Chosen above the women of the worlds — mother of Isa without a father. Her portrait is in the Women shelf.",
+   "sources": [
+    "Qur'an 3:42-51; 19:16-36"
+   ],
+   "story": "woman-maryam"
+  },
+  {
+   "id": "isa",
+   "name": "Isa",
+   "era": "The Annunciation",
+   "parents": [
+    "maryam"
+   ],
+   "children": [],
+   "river": "ishaq",
+   "sourceLabel": "Established",
+   "description": "The final prophet of the second river — a word from Allah, raised to Him, and returning. In the Prophets shelf.",
+   "sources": [
+    "Qur'an 3:45-51; 4:157-159; 5:110-116"
+   ],
+   "story": "prophet-isa"
+  }
+ ]
+}
