@@ -292,5 +292,65 @@
     "why": "The quiet hour is part of the house of the deen, not an escape from it"
    }
   ]
+ },
+ {
+  "id": "feel-peace",
+  "feeling": "At peace",
+  "line": "When the heart is quiet and you want to keep it",
+  "dua": {
+   "arabic": "اللَّهُمَّ إِنِّي أَسْأَلُكَ الْهُدَىٰ وَالتُّقَىٰ وَالْعَفَافَ وَالْغِنَىٰ",
+   "body": "O Allah, I ask You for guidance, piety, chastity, and self-sufficiency — the Prophet ﷺ would say this in his prayer. Peace is not the absence of trouble; it is the presence of sufficiency in Allah.",
+   "source": "Sahih Muslim 2721"
+  },
+  "items": [
+   {
+    "type": "story",
+    "storyId": "mh-soul-solitude",
+    "title": "Solitude Is a Room",
+    "why": "Protect the quiet — it is part of the house of the deen"
+   },
+   {
+    "type": "story",
+    "storyId": "kh-burnout",
+    "title": "Built to Rest",
+    "why": "Rest is written into your design; keep the appointment"
+   },
+   {
+    "type": "story",
+    "storyId": "tale-cave",
+    "title": "The Three Men in the Cave",
+    "why": "Honest deeds held a sealed cave — peace is built the same way"
+   }
+  ]
+ },
+ {
+  "id": "feel-overwhelmed",
+  "feeling": "Overwhelmed",
+  "line": "When everything is due and there is only one of you",
+  "dua": {
+   "arabic": "لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ، وَهُوَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ",
+   "body": "There is no deity but Allah alone, without partner; His is the dominion and His is the praise, and He is over all things able. The Prophet ﷺ said: whoever says it in distress, Allah frees him from it.",
+   "source": "Sahih al-Bukhari 3295"
+  },
+  "items": [
+   {
+    "type": "story",
+    "storyId": "kh-burnout",
+    "title": "Built to Rest",
+    "why": "The night was made for rest — and Friday is a legal stop"
+   },
+   {
+    "type": "story",
+    "storyId": "mh-money-birds",
+    "title": "The Birds Leave Hungry",
+    "why": "Work the morning; release the outcome"
+   },
+   {
+    "type": "story",
+    "storyId": "dua-sleep",
+    "title": "Before Sleep — Ayat al-Kursi",
+    "why": "The night has a Guardian you do not pay"
+   }
+  ]
  }
 ]

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
@@ -204,12 +206,27 @@ class _FeelingChip extends ConsumerWidget {
 class _FeelingResponseView extends StatelessWidget {
   const _FeelingResponseView({required this.feelingId});
 
+  /// Routes each check-in feeling to its guided path in For Your Heart.
+  static const Map<String, String> _feelingToHeartPath = <String, String>{
+    'anxious': 'feel-anxious',
+    'sad': 'feel-sad',
+    'grieving': 'feel-sad',
+    'angry': 'feel-angry',
+    'lonely': 'feel-lonely',
+    'grateful': 'feel-grateful',
+    'overwhelmed': 'feel-overwhelmed',
+    'peace': 'feel-peace',
+    'hopeful': 'feel-hopeful',
+    'sin': 'feel-guilty',
+  };
+
   final String feelingId;
 
   @override
   Widget build(BuildContext context) {
     final FeelingResponse r = MoodMap.responseFor(feelingId, DateTime.now());
     final Feeling f = MoodMap.byId(feelingId);
+    final String? heartPath = _feelingToHeartPath[feelingId];
 
     return Container(
       padding: const EdgeInsets.all(14),
@@ -252,6 +269,29 @@ class _FeelingResponseView extends StatelessWidget {
               r.note!,
               style: AppText.caption.copyWith(
                 color: AppColors.sand.withValues(alpha: 0.6),
+              ),
+            ),
+          ],
+          if (heartPath != null) ...[
+            const SizedBox(height: 10),
+            Align(
+              alignment: Alignment.centerRight,
+              child: TextButton.icon(
+                onPressed: () => context.go(
+                  '${AppRoutes.feelings}/$heartPath',
+                ),
+                iconAlignment: IconAlignment.end,
+                icon: const Icon(
+                  Icons.favorite_border,
+                  size: 14,
+                  color: AppColors.gold,
+                ),
+                label: Text(
+                  'FOR YOUR HEART',
+                  style: AppText.eyebrow.copyWith(
+                    color: AppColors.goldLight,
+                  ),
+                ),
               ),
             ),
           ],
