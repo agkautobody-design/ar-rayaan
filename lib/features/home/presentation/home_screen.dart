@@ -187,7 +187,7 @@ class HomeScreen extends ConsumerWidget {
                     children: [
                       // Greeting sits directly on the scenery (locked board).
                       SizedBox(
-                        height: 150,
+                        height: 178,
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 4),
                           child: Column(
