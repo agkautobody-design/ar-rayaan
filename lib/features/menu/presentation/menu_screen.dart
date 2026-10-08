@@ -62,11 +62,11 @@ class MenuScreen extends ConsumerWidget {
     (
       'Tools & Resources',
       [
-        (Icons.local_library_outlined, 'Library', null),
-        (Icons.bookmark_outline, 'Notes & Bookmarks', null),
-        (Icons.download_outlined, 'Downloads', null),
-        (Icons.search, 'Saved Searches', null),
-        (Icons.dark_mode_outlined, 'Night Mode', null),
+        (Icons.local_library_outlined, 'Library', AppRoutes.stories),
+        (Icons.bookmark_outline, 'Notes & Bookmarks', AppRoutes.notes),
+        (Icons.download_outlined, 'Downloads', AppRoutes.downloads),
+        (Icons.search, 'Saved Searches', AppRoutes.quranSearch),
+        (Icons.dark_mode_outlined, 'Night Mode', AppRoutes.settings),
       ],
     ),
   ];

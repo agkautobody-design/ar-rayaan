@@ -94,7 +94,7 @@ class XaiHadiProvider extends OpenAIChatHadiProvider {
   XaiHadiProvider({required super.apiKey, super.client})
       : super(
           baseUrl: 'https://api.x.ai/v1/chat/completions',
-          modelName: 'grok-4.7',
+          modelName: 'grok-4.3',
         );
 }
 

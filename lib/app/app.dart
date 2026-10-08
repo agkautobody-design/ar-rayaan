@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import 'core/env_config.dart';
 import 'core/sound/sound_services.dart';
@@ -35,7 +36,18 @@ class ArRayaanApp extends StatelessWidget {
               alignment: Alignment.center,
               child: ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 460),
-                child: ClipRect(child: child ?? const SizedBox.shrink()),
+                child: ClipRect(
+                  child: Stack(
+                    children: [
+                      child ?? const SizedBox.shrink(),
+                      const Positioned(
+                        right: 12,
+                        bottom: 12,
+                        child: _AskHadiPill(),
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ),
           );
@@ -55,6 +67,76 @@ class ArRayaanApp extends StatelessWidget {
         Locale('ur'),
         Locale('pa'),
       ],
+    );
+  }
+}
+
+/// One tap to Hādi from anywhere in the app. Hides itself while you are
+/// already talking to him.
+class _AskHadiPill extends StatelessWidget {
+  const _AskHadiPill();
+
+  @override
+  Widget build(BuildContext context) {
+    final GoRouterDelegate delegate = GoRouter.of(context).routerDelegate;
+    return AnimatedBuilder(
+      animation: delegate,
+      builder: (context, _) {
+        var path = '';
+        try {
+          path = delegate.currentConfiguration.uri.path;
+        } catch (_) {
+          path = '';
+        }
+        if (path.startsWith('/hadi')) return const SizedBox.shrink();
+        return SafeArea(
+          child: Material(
+            color: Colors.transparent,
+            child: InkWell(
+              onTap: () => context.go(AppRoutes.hadi),
+              borderRadius: BorderRadius.circular(24),
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 10,
+                ),
+                decoration: BoxDecoration(
+                  color: const Color(0xF20A0F18),
+                  borderRadius: BorderRadius.circular(24),
+                  border: Border.all(
+                    color: AppColors.gold.withValues(alpha: 0.55),
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withValues(alpha: 0.5),
+                      blurRadius: 12,
+                    ),
+                  ],
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Icon(
+                      Icons.auto_awesome,
+                      size: 16,
+                      color: AppColors.goldLight,
+                    ),
+                    const SizedBox(width: 8),
+                    Text(
+                      'Ask H\u0101di',
+                      style: AppText.body.copyWith(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w600,
+                        color: AppColors.goldLight,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }

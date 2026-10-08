@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
@@ -200,7 +201,7 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                 children: [
                   _HeaderIcon(
                     icon: Icons.arrow_back,
-                    onTap: () => context.pop(),
+                    onTap: () => context.go(AppRoutes.home),
                   ),
                   const SizedBox(width: 12),
                   Expanded(
