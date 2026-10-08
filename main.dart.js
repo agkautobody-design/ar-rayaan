@@ -60327,63 +60327,66 @@ if(a!=null){s=A.bar()
 if(s==null)s=new A.uR(A.b([],t.O))
 return new A.aw6(a,s)}return B.tB},
 AN(a){return this.aGU(a)},
-aGU(a){var s=0,r=A.r(t.N),q,p=2,o=[],n=this,m,l,k,j,i,h,g,f,e,d,c
-var $async$AN=A.n(function(b,a0){if(b===1){o.push(a0)
-s=p}for(;;)switch(s){case 0:e=B.c.d0(a)
-if(e.length!==0){j=n.a
-j===$&&A.a()
-j.d3()
-j=j.gcJ().b}else j=!0
-if(j){q=""
+aGU(a0){var s=0,r=A.r(t.N),q,p=2,o=[],n=this,m,l,k,j,i,h,g,f,e,d,c,b,a
+var $async$AN=A.n(function(a1,a2){if(a1===1){o.push(a2)
+s=p}for(;;)switch(s){case 0:c=B.c.d0(a0)
+if(c.length!==0){h=n.a
+h===$&&A.a()
+h.d3()
+h=h.gcJ().b}else h=!0
+if(h){q=""
 s=1
-break}m=e
-e=n.a
-e===$&&A.a()
-e.d3()
-j=e.gcJ()
-e.d3()
-i=t.tx
-h=A.W(e.gcJ().a,i)
-h.push(new A.vQ(!1,m))
-e.N(j.a7X(h,!0))
-g=n.aRk(n.gMF())
-l=g
+break}m=c
+c=n.a
+c===$&&A.a()
+c.d3()
+h=c.gcJ()
+c.d3()
+g=t.tx
+f=A.W(c.gcJ().a,g)
+f.push(new A.vQ(!1,m))
+c.N(h.a7X(f,!0))
+e=n.aRk(n.gMF())
+l=e
 k=null
 p=4
-e.d3()
+c.d3()
 s=7
-return A.i(l.ql(m,e.gcJ().a),$async$AN)
-case 7:k=a0
+return A.i(l.ql(m,c.gcJ().a),$async$AN)
+case 7:k=a2
 p=2
 s=6
 break
 case 4:p=3
-d=o.pop()
+b=o.pop()
+j=A.a_(b)
+i=null
 p=9
-e.d3()
+c.d3()
 s=12
-return A.i(B.tB.ql(m,e.gcJ().a),$async$AN)
-case 12:k=a0
+return A.i(B.tB.ql(m,c.gcJ().a),$async$AN)
+case 12:i=a2
 p=3
 s=11
 break
 case 9:p=8
-c=o.pop()
-k=u.a
+a=o.pop()
+i=u.a
 s=11
 break
 case 8:s=3
 break
-case 11:s=6
+case 11:k="I could not reach my knowledge engine just now ("+A.t(j)+"). Offline guidance: "+A.t(i)
+s=6
 break
 case 3:s=2
 break
-case 6:e.d3()
-j=e.gcJ()
-e.d3()
-i=A.W(e.gcJ().a,i)
-i.push(new A.vQ(!0,k))
-e.N(j.a7X(i,!1))
+case 6:c.d3()
+h=c.gcJ()
+c.d3()
+g=A.W(c.gcJ().a,g)
+g.push(new A.vQ(!0,k))
+c.N(h.a7X(g,!1))
 q=k
 s=1
 break
