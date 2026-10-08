@@ -18,6 +18,7 @@ class StoriesRepository {
     'tales',
     'khutbahs',
     'modernhadith',
+    'dailyduas',
   ];
 
   Future<List<Story>> loadAll() async {

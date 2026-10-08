@@ -80,6 +80,30 @@ class _StoryReaderScreenState extends State<StoryReaderScreen> {
             ),
             const SizedBox(height: 10),
           ],
+          if (current.arabic != null) ...[
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 10),
+              margin: const EdgeInsets.only(bottom: 14),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(
+                  color: AppColors.gold.withValues(alpha: 0.25),
+                ),
+              ),
+              child: Text(
+                current.arabic!,
+                textAlign: TextAlign.center,
+                textDirection: TextDirection.rtl,
+                style: const TextStyle(
+                  fontFamily: 'Amiri',
+                  fontSize: 22,
+                  height: 1.9,
+                  color: Color(0xFFEAD9A8),
+                ),
+              ),
+            ),
+          ],
           Text(
             current.body,
             style: const TextStyle(

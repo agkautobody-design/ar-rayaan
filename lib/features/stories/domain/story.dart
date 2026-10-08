@@ -4,11 +4,15 @@
 class StoryChapter {
   final String heading;
   final String body;
-  const StoryChapter({required this.heading, required this.body});
+  final String? arabic;
+  final String? dua;
+  const StoryChapter({required this.heading, required this.body, this.arabic, this.dua});
 
   factory StoryChapter.fromJson(Map<String, dynamic> j) => StoryChapter(
         heading: j['heading'] as String,
         body: j['body'] as String,
+        arabic: j['arabic'] as String?,
+        dua: j['dua'] as String?,
       );
 }
 

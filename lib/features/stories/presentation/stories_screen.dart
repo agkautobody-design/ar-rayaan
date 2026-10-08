@@ -23,6 +23,7 @@ class StoriesScreen extends ConsumerWidget {
     ('tales', 'Tales of the Ummah', 'Stories of the generations between'),
     ('khutbahs', 'Khutbahs', 'Sermons for the classics and for today'),
     ('modernhadith', 'Hadiths for Our Times', 'The pressures of this age, answered'),
+    ('dailyduas', 'Daily Duas', 'For waking, eating, travel, hardship, and home'),
   ];
 
   @override
