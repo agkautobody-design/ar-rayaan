@@ -1,0 +1,44 @@
+name: Build & Deploy Web
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  test-build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Run tests
+        run: flutter test
+
+      - name: Build web (release)
+        run: flutter build web --release
+
+      - name: Deploy to render branch
+        run: |
+          set -e
+          git config user.name "Ar-Rayaan Builder"
+          git config user.email "builder@ar-rayaan.app"
+          git fetch origin render
+          git checkout render
+          # replace branch contents with the fresh web build
+          git rm -r -q --cached . 2>/dev/null || true
+          find . -maxdepth 1 -mindepth 1 ! -name .git -exec rm -rf {} +
+          cp -r build/web/* .
+          git add -A
+          git commit -m "Deploy ${GITHUB_SHA:0:7} via Actions"
+          git push origin render
