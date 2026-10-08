@@ -10,14 +10,14 @@ class OpenAIChatHadiProvider implements HadiProvider {
   OpenAIChatHadiProvider({
     required this.apiKey,
     required this.baseUrl,
-    required this.model,
+    required this.modelName,
     this.extraHeaders = const <String, String>{},
     http.Client? client,
   }) : _client = client ?? http.Client();
 
   final String apiKey;
   final String baseUrl;
-  final String model;
+  final String modelName;
   final Map<String, String> extraHeaders;
   final http.Client _client;
 
@@ -31,7 +31,7 @@ class OpenAIChatHadiProvider implements HadiProvider {
         ...extraHeaders,
       },
       body: jsonEncode(<String, dynamic>{
-        'model': model,
+        'model': modelName,
         'temperature': 0.3, // low drift — authenticity over creativity
         'max_tokens': 350,
         'messages': <Map<String, String>>[
@@ -85,7 +85,7 @@ class GroqHadiProvider extends OpenAIChatHadiProvider {
   GroqHadiProvider({required super.apiKey, super.client})
       : super(
           baseUrl: 'https://api.groq.com/openai/v1/chat/completions',
-          model: 'openai/gpt-oss-120b',
+          modelName: model,
         );
 }
 
@@ -94,7 +94,7 @@ class XaiHadiProvider extends OpenAIChatHadiProvider {
   XaiHadiProvider({required super.apiKey, super.client})
       : super(
           baseUrl: 'https://api.x.ai/v1/chat/completions',
-          model: 'grok-4.7',
+          modelName: 'grok-4.7',
         );
 }
 
@@ -103,7 +103,7 @@ class OpenRouterHadiProvider extends OpenAIChatHadiProvider {
   OpenRouterHadiProvider({required super.apiKey, super.client})
       : super(
           baseUrl: 'https://openrouter.ai/api/v1/chat/completions',
-          model: 'meta-llama/llama-3.3-70b-instruct:free',
+          modelName: 'meta-llama/llama-3.3-70b-instruct:free',
           extraHeaders: const <String, String>{
             'HTTP-Referer': 'https://ar-rayaan.onrender.com',
             'X-Title': 'Ar-Rayaan',
