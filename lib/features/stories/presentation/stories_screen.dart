@@ -22,6 +22,7 @@ class StoriesScreen extends ConsumerWidget {
     ('signs', 'Signs & the Last Day', 'What is coming, with certainty'),
     ('tales', 'Tales of the Ummah', 'Stories of the generations between'),
     ('khutbahs', 'Khutbahs', 'Sermons for the classics and for today'),
+    ('modernhadith', 'Hadiths for Our Times', 'The pressures of this age, answered'),
   ];
 
   @override
