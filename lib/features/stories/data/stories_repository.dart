@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../domain/story.dart';
-import '../../app/core/content/content_sync.dart';
+import '../../../app/core/content/content_sync.dart';
 
 /// Bundled, fully offline story library. Collections arrive as JSON
 /// packs under assets/stories/ so content ships with the app.

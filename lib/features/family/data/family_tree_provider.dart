@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../app/core/content/content_sync.dart';
+import '../../../app/core/content/content_sync.dart';
 
 class FamilyNode {
   final String id;
