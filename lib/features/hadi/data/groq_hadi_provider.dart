@@ -86,6 +86,15 @@ class GroqHadiProvider extends OpenAIChatHadiProvider {
         );
 }
 
+/// xAI (Grok) — OpenAI-compatible; requires an xAI API key (x.ai/api).
+class XaiHadiProvider extends OpenAIChatHadiProvider {
+  XaiHadiProvider({required super.apiKey, super.client})
+      : super(
+          baseUrl: 'https://api.x.ai/v1/chat/completions',
+          model: 'grok-3',
+        );
+}
+
 /// OpenRouter — one API key, many models (incl. long-standing free ones).
 class OpenRouterHadiProvider extends OpenAIChatHadiProvider {
   OpenRouterHadiProvider({required super.apiKey, super.client})

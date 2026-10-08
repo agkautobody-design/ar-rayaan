@@ -100,10 +100,14 @@ class HadiController extends Notifier<HadiState> {
   HadiProvider resolveProvider(String? apiKey) {
     final String? k = apiKey;
     if (k != null) {
-      if (_provider == 'openrouter') {
-        return OpenRouterHadiProvider(apiKey: k);
+      switch (_provider) {
+        case 'openrouter':
+          return OpenRouterHadiProvider(apiKey: k);
+        case 'xai':
+          return XaiHadiProvider(apiKey: k);
+        default:
+          return GroqHadiProvider(apiKey: k);
       }
-      return GroqHadiProvider(apiKey: k);
     }
     return const OfflineHadiProvider();
   }

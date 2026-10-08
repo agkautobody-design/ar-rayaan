@@ -103,6 +103,12 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                   onSelected: (_) =>
                       setSheet(() => providerChoice = 'openrouter'),
                 ),
+                ChoiceChip(
+                  label: const Text('xAI (Grok)'),
+                  selected: providerChoice == 'xai',
+                  onSelected: (_) =>
+                      setSheet(() => providerChoice = 'xai'),
+                ),
               ],
             ),
             const SizedBox(height: 12),
@@ -111,8 +117,11 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
               obscureText: true,
               style: AppText.body,
               decoration: InputDecoration(
-                hintText:
-                    providerChoice == 'groq' ? 'gsk_…' : 'sk-or-…',
+                hintText: providerChoice == 'groq'
+                    ? 'gsk_…'
+                    : providerChoice == 'openrouter'
+                        ? 'sk-or-…'
+                        : 'xai-…',
                 hintStyle: AppText.bodyMuted,
                 filled: true,
                 fillColor: AppColors.glassFill,
