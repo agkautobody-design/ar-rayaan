@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -11,6 +10,7 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../../../app/core/content/content_sync.dart';
 
 class TriviaQ {
   final String id, category, question, why;
@@ -25,7 +25,7 @@ class TriviaQ {
 }
 
 final triviaProvider = FutureProvider<List<TriviaQ>>((ref) async {
-  final raw = await rootBundle.loadString('assets/games/trivia.json');
+  final raw = await ContentSync.load('games/trivia.json');
   return (json.decode(raw) as List).map((e) => TriviaQ.fromJson(e)).toList();
 });
 
@@ -37,7 +37,7 @@ class Name99 {
 }
 
 final namesProvider = FutureProvider<List<Name99>>((ref) async {
-  final raw = await rootBundle.loadString('assets/games/names99.json');
+  final raw = await ContentSync.load('games/names99.json');
   return (json.decode(raw) as List).map((e) => Name99.fromJson(e)).toList();
 });
 

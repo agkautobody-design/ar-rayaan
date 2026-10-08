@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../domain/story.dart';
+import '../../app/core/content/content_sync.dart';
 
 /// Bundled, fully offline story library. Collections arrive as JSON
 /// packs under assets/stories/ so content ships with the app.
@@ -24,7 +24,7 @@ class StoriesRepository {
     final stories = <Story>[];
     for (final pack in _packs) {
       try {
-        final raw = await rootBundle.loadString('assets/stories/\$pack.json');
+        final raw = await ContentSync.load('stories/\$pack.json');
         final list = json.decode(raw) as List<dynamic>;
         stories.addAll(
           list.map((e) => Story.fromJson(e as Map<String, dynamic>)),

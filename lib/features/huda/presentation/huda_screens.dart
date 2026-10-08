@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -10,6 +9,7 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../../../app/core/content/content_sync.dart';
 
 class Guide {
   final String id;
@@ -42,7 +42,7 @@ class Guide {
 }
 
 final guidesProvider = FutureProvider<List<Guide>>((ref) async {
-  final raw = await rootBundle.loadString('assets/guides/guides.json');
+  final raw = await ContentSync.load('guides/guides.json');
   final list = json.decode(raw) as List<dynamic>;
   return list.map((e) => Guide.fromJson(e as Map<String, dynamic>)).toList();
 });

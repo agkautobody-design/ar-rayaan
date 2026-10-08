@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../app/core/content/content_sync.dart';
 
 class FamilyNode {
   final String id;
@@ -61,7 +61,7 @@ class FamilyTreeData {
 }
 
 final familyTreeProvider = FutureProvider<FamilyTreeData>((ref) async {
-  final raw = await rootBundle.loadString('assets/family/tree.json');
+  final raw = await ContentSync.load('family/tree.json');
   final j = json.decode(raw) as Map<String, dynamic>;
   return FamilyTreeData(
     title: j['meta']['title'] as String,
