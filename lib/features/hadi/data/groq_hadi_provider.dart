@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 import '../application/hadi_provider.dart';
 
 /// Live AI on Groq's free tier (OpenAI-compatible chat API) with the user's
-/// own key — the recommended best-of-class free backend: fast Llama models,
+/// own key — the recommended best-of-class free backend (Groq's stable production model).
 /// generous free quota, no card required. The key stays on the device.
 class GroqHadiProvider implements HadiProvider {
   GroqHadiProvider({required this.apiKey, http.Client? client})
@@ -19,7 +19,7 @@ class GroqHadiProvider implements HadiProvider {
 
   /// Free-tier flagship on Groq — strong instruction following for the
   /// guardrail prompt, fast enough for chat.
-  static const String model = 'llama-3.3-70b-versatile';
+  static const String model = 'openai/gpt-oss-120b';
 
   @override
   Future<String> ask(String question, List<HadiMessage> history) async {
