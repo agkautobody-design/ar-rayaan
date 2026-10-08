@@ -79,5 +79,85 @@
    }
   ],
   "familyQuestion": "Ali slept in the Prophet's bed knowing swords were coming. What has your loyalty ever cost you?"
+ },
+ {
+  "id": "comp-hamza",
+  "collection": "companions",
+  "title": "Hamza ibn Abdul-Muttalib",
+  "kicker": "THE COMPANIONS",
+  "subtitle": "Sayyid al-Shuhada — the master of martyrs, the lion of Allah and His Messenger",
+  "sourceLabel": "Established",
+  "sources": [
+   "Seerah: Ibn Ishaq/Ibn Hisham — his death at Uhud",
+   "Qur'an 16:126 — the verse that answered his mutilation",
+   "Sahih al-Bukhari 4043 — the Prophet's ﷺ grief over him"
+  ],
+  "chapters": [
+   {
+    "heading": "The Uncle Who Became the Lion",
+    "body": "When Abu Jahl insulted the Prophet ﷺ and a freedwoman told Hamza — hunting, still in his hunting dress — the uncle did not wait for deliberation. He walked to the Kaaba where Abu Jahl sat among his people, raised his bow, and struck him: will you insult him when I am upon his religion? — and the tradition records that some of Quraysh's own men wished, in that hour, that Hamza had kept silent long before. He embraced Islam the way he did everything: at full strength and without apology. At Badr he was the army's right wing; at Uhud he stood over the broken line until the spears found him. The Prophet ﷺ stood beside what the enemy had done to his uncle's body and wept, and said: I will mutilate seventy of them for you — until the revelation descended and forbade it forever (16:126). Hamza's title was fixed by that day: Sayyid al-Shuhada, the master of the martyrs. The seerah records the Prophet ﷺ seeing him in Paradise, walking on its rivers' banks, wearing two earrings — and the scholars said: he wears the mark of the wounds as honor."
+   }
+  ],
+  "familyQuestion": "Hamza used his strength the day he heard his nephew insulted. What strength of yours is waiting for the right cause?"
+ },
+ {
+  "id": "comp-bilal",
+  "collection": "companions",
+  "title": "Bilal ibn Rabah",
+  "kicker": "THE COMPANIONS",
+  "subtitle": "The caller of Islam — the muezzin whose footsteps were heard in Paradise",
+  "sourceLabel": "Established",
+  "sources": [
+   "Sunan al-Tirmidhi 3754 — Abu Bakr's purchase and freeing",
+   "Sahih al-Bukhari 1145 — 'Bilal, call the people to prayer' after the conquest of Makkah",
+   "Seerah: Ibn Ishaq — the first muezzin of Islam"
+  ],
+  "chapters": [
+   {
+    "heading": "Ahad, Under the Stone",
+    "body": "He had been the slave of Umayyah ibn Khalaf, dragged onto the burning sand at noon with a boulder on his chest, and his answer was one word that has outlived every empire built on torture: Ahad — One. Abu Bakr passed by and purchased him — and the tradition records the exchange in detail, that Abu Bakr said: are you not content that he says Allah is my Lord and you have his blood on your hands? — and freed him that day (Tirmidhi 3754). At the conquest of Makkah, the Prophet ﷺ sent him to the roof of the Kaaba with the words the whole city had waited twenty years to hear from its own stones: 'Bilal, call the people to prayer' (Bukhari 1145). Bilal climbed the House of Allah — the house his former master had worshipped idols beside — and called the adhan over a city of new believers. He lived on in Madinah as the muezzin of the Prophet's ﷺ mosque, and after the Prophet's ﷺ death he could not bring himself to call the adhan in the city again; the tradition records that he did it once for Umar, at Fajr, and that Madinah wept until Umar asked him to stop. His footsteps, the Prophet ﷺ once said in Paradise-vision, are heard ahead of him in Paradise."
+   }
+  ],
+  "familyQuestion": "Bilal's one word under a boulder became the adhan over the Kaaba. What is your one word that could outlive your circumstances?"
+ },
+ {
+  "id": "comp-salman",
+  "collection": "companions",
+  "title": "Salman al-Farsi",
+  "kicker": "THE COMPANIONS",
+  "subtitle": "The seeker of a thousand miles — the trench was his idea",
+  "sourceLabel": "Established",
+  "sources": [
+   "Seerah: Ibn Ishaq/Ibn Hisham — the long search from Persia",
+   "Sahih al-Bukhari 4190 — 'Salman is one of us, the family of the house'",
+   "Seerah sources: the counsel of the trench at the Battle of the Trench"
+  ],
+  "chapters": [
+   {
+    "heading": "From Zoroastrian Fire-Worshipper to the Family of the House",
+    "body": "Salman's road to Madinah took a lifetime: born to Zoroastrian fire-worshippers in Persia, he studied under a Christian bishop, was traded from master to master across Syria and Arabia, and carried at every stage one instruction from his teachers: a prophet is coming; his time is near; he will appear in the land of palm-trees between two lava-fields. When at last a caravan brought him to Yathrib — palms, two lava-tracts — he recognized the signs before he recognized the man: the seal of prophethood between the shoulders. The Prophet ﷺ heard his story of bondage and ransom and announced that Salman was not a client of any tribe: 'Salman is one of us, the family of the house' (Bukhari 4190). At the Trench, when the alliance of ten thousand surrounded Madinah, it was Salman — the outsider, the Persian — whose counsel held the city: a trench along the open quarter, as the Persians build. The Muslims dug by night through the cold; Salman supervised; and the tradition records that the Prophet ﷺ worked beside him on the rock, striking three times — and each strike split a third of the rock — until light shone from the rock of Madinah. The idea that saved the city of the Prophet ﷺ came from the farthest nation on earth from Arabia."
+   }
+  ],
+  "familyQuestion": "Salman was a stranger with a foreign idea — and Madinah listened. What stranger's idea is your community dismissing right now?"
+ },
+ {
+  "id": "comp-abu-ubaidah",
+  "collection": "companions",
+  "title": "Abu Ubaidah ibn al-Jarrah",
+  "kicker": "THE COMPANIONS",
+  "subtitle": "The trustee of this ummah — the man who pulled the Prophet's ﷺ own tooth at the Battle of Uhud",
+  "sourceLabel": "Established",
+  "sources": [
+   "Sahih al-Bukhari 4078 — 'every nation has a trustee, and the trustee of this ummah is Abu Ubaidah'",
+   "Sahih al-Bukhari 3044 — the tooth at Uhud",
+   "Seerah: Ibn Ishaq — his generalship in Syria"
+  ],
+  "chapters": [
+   {
+    "heading": "The Pull of the Tooth",
+    "body": "At Uhud, when the Prophet's ﷺ face was cut and a link of his helmet's chain was driven into his cheekbone, the companions crowded to pull it — and each, seeing his face, could not bear to be the one to hurt him. Abu Ubaidah took his own teeth — and the tradition records that he was the most toothsome of the companions, with teeth like a camel's — gripped the link, and pulled, and his two front teeth fell out with it. That image — the companion sacrificing his own smile to spare the Prophet's ﷺ face — is the whole biography in one act. The Prophet ﷺ named him in a sentence that outranks armies: 'every nation has a trustee, and the trustee of this ummah is Abu Ubaidah ibn al-Jarrah' (Bukhari 4078). In the wars of Syria, when the plague of Amwas struck his camp, he chose to stay with his army and die among them rather than survive by flight — and he died as he lived, in the line he had been trusted to hold."
+   }
+  ],
+  "familyQuestion": "Abu Ubaidah gave his own teeth to spare the Prophet's ﷺ pain. What small sacrifice of yours would mean more than a grand one?"
  }
 ]
