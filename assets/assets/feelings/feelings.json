@@ -1,0 +1,356 @@
+[
+ {
+  "id": "feel-anxious",
+  "feeling": "Anxious",
+  "line": "When the chest is tight and tomorrow won't sit still",
+  "dua": {
+   "arabic": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ",
+   "body": "O Allah, I seek refuge in You from anxiety and grief, from incapacity and laziness, from miserliness and cowardice, from the burden of debt and being overpowered by men.",
+   "source": "Sunan Abi Dawud 1551"
+  },
+  "items": [
+   {
+    "type": "story",
+    "storyId": "kh-anxiety",
+    "title": "Anxiety and the Medicine of Ta'weel",
+    "why": "The sermon for the 3am ceiling"
+   },
+   {
+    "type": "story",
+    "storyId": "mh-soul-heart",
+    "title": "The Morsel of Flesh",
+    "why": "Your heart is the governor of the body — and it can be treated"
+   },
+   {
+    "type": "story",
+    "storyId": "prophet-ayyub",
+    "title": "Ayyub — The Patient One",
+    "why": "The dua from darkness: 'You are the Most Merciful of the merciful'"
+   }
+  ]
+ },
+ {
+  "id": "feel-sad",
+  "feeling": "Sad or Grieving",
+  "line": "When something or someone is gone",
+  "dua": {
+   "arabic": "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ، اللَّهُمَّ أْجُرْنِي فِي مُصِيبَتِي وَاخْلُفْ لِي خَيْرًا مِنْهَا",
+   "body": "Indeed we belong to Allah, and indeed to Him we return. O Allah, reward me in my affliction and replace it for me with better.",
+   "source": "Sahih Muslim 2123; Qur'an 2:156"
+  },
+  "items": [
+   {
+    "type": "story",
+    "storyId": "kh-innalillah",
+    "title": "The Grammar of Loss",
+    "why": "The sentence that turns a hit into an address"
+   },
+   {
+    "type": "story",
+    "storyId": "woman-umm-salama",
+    "title": "Umm Salama — Whose Question Became a Verse",
+    "why": "She said the dua — and her replacement was the Messenger ﷺ"
+   },
+   {
+    "type": "story",
+    "storyId": "kh-yaqub",
+    "title": "The Beautiful Patience",
+    "why": "Ya'qub held a stained shirt for years — and was right to hope"
+   }
+  ]
+ },
+ {
+  "id": "feel-angry",
+  "feeling": "Angry",
+  "line": "When the heat rises and the tongue loads",
+  "dua": {
+   "arabic": "أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ",
+   "body": "I seek refuge in Allah from the accursed Shaytan. Then sit if you stand, and perform wudu — water against fire.",
+   "source": "Sahih al-Bukhari 3282; Sunan Abi Dawud 4784"
+  },
+  "items": [
+   {
+    "type": "story",
+    "storyId": "prophet-yusuf",
+    "title": "Yusuf — 'No Blame Upon You'",
+    "why": "The grudge that melted into 'no blame upon you today'"
+   },
+   {
+    "type": "story",
+    "storyId": "ghayb-pb-anger",
+    "title": "Play 5: Anger & Argument",
+    "why": "Shaytan pours oil; you carry water"
+   },
+   {
+    "type": "story",
+    "storyId": "prophet-ibrahim",
+    "title": "The Two Rivers of Ibrahim",
+    "why": "The man who smashed idols answered fire with coolness"
+   }
+  ]
+ },
+ {
+  "id": "feel-lonely",
+  "feeling": "Lonely",
+  "line": "When the crowd is full and the room is empty",
+  "dua": {
+   "arabic": "لَا إِلَٰهَ إِلَّا اللَّهُ الْعَظِيمُ الْحَلِيمُ",
+   "body": "There is no deity but Allah, the Magnificent, the Forbearing — say it in the loneliness; He is nearer than the vein the loneliness aches in.",
+   "source": "Sahih al-Bukhari 6346; Qur'an 50:16"
+  },
+  "items": [
+   {
+    "type": "story",
+    "storyId": "kh-lonely",
+    "title": "Loneliness in the Crowd",
+    "why": "Five hundred friends and no one to call — and the three doors back"
+   },
+   {
+    "type": "story",
+    "storyId": "woman-maryam",
+    "title": "Maryam — The Palm Tree",
+    "why": "Alone in labor — and provision descended at her feet"
+   },
+   {
+    "type": "story",
+    "storyId": "prophet-yunus",
+    "title": "Yunus — The Whale's Belly",
+    "why": "Darker than your dark, and one sentence reached the Throne"
+   }
+  ]
+ },
+ {
+  "id": "feel-grateful",
+  "feeling": "Grateful",
+  "line": "When the heart is full and you want to say it well",
+  "dua": {
+   "arabic": "الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنَا وَسَقَانَا وَجَعَلَنَا مُسْلِمِينَ",
+   "body": "All praise is for Allah who fed us, gave us drink, and made us Muslims. Gratitude is the wealth that increases — 'if you are grateful, I will surely increase you.'",
+   "source": "Sahih Muslim 2734; Qur'an 14:7"
+  },
+  "items": [
+   {
+    "type": "story",
+    "storyId": "kh-atom",
+    "title": "The Weight of One Atom",
+    "why": "Gratitude for the small is the deposit that pays at the end"
+   },
+   {
+    "type": "story",
+    "storyId": "prophet-sulayman",
+    "title": "Sulayman — The Kingdom",
+    "why": "The mightiest king prayed only to be grateful"
+   },
+   {
+    "type": "story",
+    "storyId": "mh-money-hand",
+    "title": "The Upper Hand",
+    "why": "Give from the gratitude — 'sadaqah does not decrease wealth'"
+   }
+  ]
+ },
+ {
+  "id": "feel-tired",
+  "feeling": "Tired or Burnt Out",
+  "line": "When the tank is empty and the week won't end",
+  "dua": {
+   "arabic": "اللَّهُمَّ أَعِنِّي عَلَى ذِكْرِكَ وَشُكْرِكَ وَحُسْنِ عِبَادَتِكَ",
+   "body": "O Allah, help me to remember You, thank You, and worship You well. Rest is written into your design — the night was made for it.",
+   "source": "Sunan Abi Dawud 1522; Qur'an 17:12"
+  },
+  "items": [
+   {
+    "type": "story",
+    "storyId": "kh-burnout",
+    "title": "Built to Rest",
+    "why": "You were built to rest — and Friday is a standing appointment"
+   },
+   {
+    "type": "story",
+    "storyId": "mh-money-birds",
+    "title": "The Birds Leave Hungry",
+    "why": "Provision flows to the one who works the morning and releases the outcome"
+   },
+   {
+    "type": "story",
+    "storyId": "dua-sleep",
+    "title": "Before Sleep — Ayat al-Kursi",
+    "why": "A guardian is promised for the night — rest guarded"
+   }
+  ]
+ },
+ {
+  "id": "feel-afraid",
+  "feeling": "Afraid",
+  "line": "When the dark gets loud",
+  "dua": {
+   "arabic": "قُلْ أَعُوذُ بِرَبِّ النَّاسِ، مَلِكِ النَّاسِ، إِلَٰهِ النَّاسِ",
+   "body": "Say: I seek refuge in the Lord of mankind, the King of mankind, the God of mankind — the three quls, blown into the hands and wiped over the body, three times.",
+   "source": "Sahih al-Bukhari 5017; Qur'an 114"
+  },
+  "items": [
+   {
+    "type": "story",
+    "storyId": "ghayb-protection",
+    "title": "Protection from the Jinn",
+    "why": "The fortress is five minutes of habit — never hours of fear"
+   },
+   {
+    "type": "story",
+    "storyId": "prophet-ibrahim",
+    "title": "Ibrahim — The Fire That Cooled",
+    "why": "'Be coolness and safety upon Ibrahim' — the fire obeyed"
+   },
+   {
+    "type": "story",
+    "storyId": "seerah-13",
+    "title": "The Hijrah — The Second of Two",
+    "why": "'Do not grieve; indeed Allah is with us' — said in a cave with hunters at the door"
+   }
+  ]
+ },
+ {
+  "id": "feel-guilty",
+  "feeling": "Guilty",
+  "line": "When you did the thing and the shame is loud",
+  "dua": {
+   "arabic": "أَسْتَغْفِرُ اللَّهَ الَّذِي لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ وَأَتُوبُ إِلَيْهِ",
+   "body": "I seek Allah's forgiveness — He besides whom there is no deity, the Ever-Living, the Sustainer — and I turn to Him. The door has no lock on the inside.",
+   "source": "Sunan at-Tirmidhi 3573; Qur'an 39:53"
+  },
+  "items": [
+   {
+    "type": "story",
+    "storyId": "prophet-adam",
+    "title": "Adam — The First Repentance",
+    "why": "One honest sentence opened the door of mercy for every sinner after him"
+   },
+   {
+    "type": "story",
+    "storyId": "tale-99",
+    "title": "The Man Who Killed 99",
+    "why": "The road to paradise, measured in miles of intention"
+   },
+   {
+    "type": "story",
+    "storyId": "tale-dog",
+    "title": "The Prostitute's Thirst",
+    "why": "One bowl of water — and the ledger was closed by mercy"
+   }
+  ]
+ },
+ {
+  "id": "feel-hopeful",
+  "feeling": "Hopeful",
+  "line": "When something good is coming and you can feel it",
+  "dua": {
+   "arabic": "حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ",
+   "body": "Allah is sufficient for us, and He is the best Disposer of affairs — said by the Prophet's ﷺ household, and the favor that followed astonished them.",
+   "source": "Qur'an 3:173"
+  },
+  "items": [
+   {
+    "type": "story",
+    "storyId": "kh-taif",
+    "title": "Taif — Praying for Your Enemies' Grandchildren",
+    "why": "The dua that refused the mountains and chose the future"
+   },
+   {
+    "type": "story",
+    "storyId": "seerah-22",
+    "title": "Hudaybiyyah — The Clear Conquest",
+    "why": "The treaty everyone hated opened all of Arabia"
+   },
+   {
+    "type": "story",
+    "storyId": "prophet-sulayman",
+    "title": "The Queen's Throne",
+    "why": "Power and wisdom can serve the same end: guidance"
+   }
+  ]
+ },
+ {
+  "id": "feel-lost",
+  "feeling": "Lost or Confused",
+  "line": "When the map is gone and every road looks the same",
+  "dua": {
+   "arabic": "اللَّهُمَّ إِنْ كُنْتَ تَعْلَمُ أَنَّ هَٰذَا الْأَمْرَ خَيْرٌ لِي فِي دِينِي وَمَعَاشِي وَعَاقِبَةِ أَمْرِي فَاقْدُرْهُ لِي وَيَسِّرْهُ لِي",
+   "body": "O Allah, if You know this matter to be good for me in my religion, my livelihood, and my outcome — decree it for me and ease it; and if it is bad, turn it and me away, and decree good for me wherever it is.",
+   "source": "Sahih al-Bukhari 6382"
+  },
+  "items": [
+   {
+    "type": "story",
+    "storyId": "prophet-ibrahim",
+    "title": "Ibrahim — The Seeker",
+    "why": "He reasoned his way to Allah before a single prophet taught him"
+   },
+   {
+    "type": "story",
+    "storyId": "mh-soul-solitude",
+    "title": "Solitude Is a Room",
+    "why": "The quiet hour is part of the house of the deen, not an escape from it"
+   }
+  ]
+ },
+ {
+  "id": "feel-peace",
+  "feeling": "At peace",
+  "line": "When the heart is quiet and you want to keep it",
+  "dua": {
+   "arabic": "اللَّهُمَّ إِنِّي أَسْأَلُكَ الْهُدَىٰ وَالتُّقَىٰ وَالْعَفَافَ وَالْغِنَىٰ",
+   "body": "O Allah, I ask You for guidance, piety, chastity, and self-sufficiency — the Prophet ﷺ would say this in his prayer. Peace is not the absence of trouble; it is the presence of sufficiency in Allah.",
+   "source": "Sahih Muslim 2721"
+  },
+  "items": [
+   {
+    "type": "story",
+    "storyId": "mh-soul-solitude",
+    "title": "Solitude Is a Room",
+    "why": "Protect the quiet — it is part of the house of the deen"
+   },
+   {
+    "type": "story",
+    "storyId": "kh-burnout",
+    "title": "Built to Rest",
+    "why": "Rest is written into your design; keep the appointment"
+   },
+   {
+    "type": "story",
+    "storyId": "tale-cave",
+    "title": "The Three Men in the Cave",
+    "why": "Honest deeds held a sealed cave — peace is built the same way"
+   }
+  ]
+ },
+ {
+  "id": "feel-overwhelmed",
+  "feeling": "Overwhelmed",
+  "line": "When everything is due and there is only one of you",
+  "dua": {
+   "arabic": "لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ، وَهُوَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ",
+   "body": "There is no deity but Allah alone, without partner; His is the dominion and His is the praise, and He is over all things able. The Prophet ﷺ said: whoever says it in distress, Allah frees him from it.",
+   "source": "Sahih al-Bukhari 3295"
+  },
+  "items": [
+   {
+    "type": "story",
+    "storyId": "kh-burnout",
+    "title": "Built to Rest",
+    "why": "The night was made for rest — and Friday is a legal stop"
+   },
+   {
+    "type": "story",
+    "storyId": "mh-money-birds",
+    "title": "The Birds Leave Hungry",
+    "why": "Work the morning; release the outcome"
+   },
+   {
+    "type": "story",
+    "storyId": "dua-sleep",
+    "title": "Before Sleep — Ayat al-Kursi",
+    "why": "The night has a Guardian you do not pay"
+   }
+  ]
+ }
+]
