@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -51,11 +52,12 @@ class ArRayaanApp extends StatelessWidget {
                   child: Stack(
                     children: [
                       child ?? const SizedBox.shrink(),
-                      Positioned(
-                        right: 12,
-                        bottom: 12,
-                        child: const _AskHadiPill(),
-                      ),
+                      if (!kDebugMode)
+                        const Positioned(
+                          right: 12,
+                          bottom: 12,
+                          child: _AskHadiPill(),
+                        ),
                     ],
                   ),
                 ),
