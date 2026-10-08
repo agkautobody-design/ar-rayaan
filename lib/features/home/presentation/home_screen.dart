@@ -226,40 +226,13 @@ class HomeScreen extends ConsumerWidget {
                         crossAxisSpacing: 10,
                         childAspectRatio: 1.0,
                         children: [
-                          for (final (icon, title, sub, route) in tiles)
-                            GlassCard(
+                          for (final (_, title, sub, route) in tiles)
+                            _PictureTile(
+                              image: _tileImage(title),
+                              title: title,
+                              subtitle: sub,
                               onTap: () =>
                                   context.go(route ?? AppRoutes.explore),
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 8,
-                                vertical: 10,
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(icon, size: 24, color: AppColors.gold),
-                                  const SizedBox(height: 8),
-                                  Text(
-                                    title,
-                                    style: AppText.body.copyWith(
-                                      fontSize: 11,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                  const SizedBox(height: 3),
-                                  Text(
-                                    sub,
-                                    style: AppText.bodyMuted.copyWith(
-                                      fontSize: 8.5,
-                                      height: 1.3,
-                                    ),
-                                    textAlign: TextAlign.center,
-                                    maxLines: 2,
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                ],
-                              ),
                             ),
                         ],
                       ),
@@ -445,6 +418,93 @@ class _HeaderIcon extends StatelessWidget {
             icon,
             size: 17,
             color: AppColors.sand.withValues(alpha: 0.85),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+String _tileImage(String t) {
+  const base = 'assets/images/tiles';
+  if (t.startsWith('Prayer')) return '$base/tile_prayer.jpg';
+  if (t.startsWith('Qur')) return '$base/tile_quran.jpg';
+  if (t.startsWith('Dhikr')) return '$base/tile_dhikr.jpg';
+  if (t.startsWith('Hadith')) return '$base/tile_hadith.jpg';
+  if (t.startsWith('Today')) return '$base/tile_noor.jpg';
+  if (t.startsWith('H\u0101di') || t.startsWith('Hadi')) {
+    return '$base/tile_hadi.jpg';
+  }
+  if (t.startsWith('Islamic')) return '$base/tile_calendar.jpg';
+  if (t.startsWith('Knowledge')) return '$base/tile_knowledge.jpg';
+  return '$base/tile_journey.jpg';
+}
+
+class _PictureTile extends StatelessWidget {
+  final String image;
+  final String title;
+  final String subtitle;
+  final VoidCallback onTap;
+
+  const _PictureTile({
+    required this.image,
+    required this.title,
+    required this.subtitle,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(14),
+          border: Border.all(color: AppColors.gold.withValues(alpha: 0.30)),
+          image: DecorationImage(
+            image: AssetImage(image),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(14),
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              stops: const [0.30, 0.72, 1.0],
+              colors: const [
+                Colors.transparent,
+                Color(0x9905090F),
+                Color(0xF205090F),
+              ],
+            ),
+          ),
+          padding: const EdgeInsets.fromLTRB(10, 0, 10, 10),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: AppText.body.copyWith(
+                  fontSize: 11.5,
+                  fontWeight: FontWeight.w700,
+                  color: AppColors.goldLight,
+                ),
+              ),
+              const SizedBox(height: 2),
+              Text(
+                subtitle,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: AppText.bodyMuted.copyWith(
+                  fontSize: 8.5,
+                  height: 1.3,
+                ),
+              ),
+            ],
           ),
         ),
       ),
