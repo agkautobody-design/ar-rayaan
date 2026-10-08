@@ -32,7 +32,7 @@ class StoriesScreen extends ConsumerWidget {
           child: CircularProgressIndicator(color: AppColors.gold),
         ),
         error: (e, _) => Center(
-          child: Text('Could not load stories.', style: AppTypography.bodyMuted),
+          child: Text('Could not load stories.', style: AppText.bodyMuted),
         ),
         data: (all) {
           final repo = ref.read(storiesRepositoryProvider);
@@ -44,7 +44,7 @@ class StoriesScreen extends ConsumerWidget {
                 padding: const EdgeInsets.only(left: 4, bottom: 4),
                 child: Text(
                   'READ WITH YOUR HEART',
-                  style: AppTypography.eyebrow,
+                  style: AppText.eyebrow,
                 ),
               ),
               for (final (key, title, subtitle) in _collections) ...[
@@ -54,11 +54,11 @@ class StoriesScreen extends ConsumerWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(title, style: AppTypography.titleMedium),
+                        Text(title, style: AppText.titleMedium),
                         const SizedBox(height: 2),
                         Text(
                           subtitle,
-                          style: AppTypography.bodyMuted,
+                          style: AppText.bodyMuted,
                         ),
                       ],
                     ),
@@ -91,13 +91,13 @@ class StoriesScreen extends ConsumerWidget {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(story.title, style: AppTypography.titleMedium),
+                                  Text(story.title, style: AppText.titleMedium),
                                   const SizedBox(height: 2),
                                   Text(
                                     story.subtitle,
                                     maxLines: 2,
                                     overflow: TextOverflow.ellipsis,
-                                    style: AppTypography.bodyMuted,
+                                    style: AppText.bodyMuted,
                                   ),
                                 ],
                               ),
