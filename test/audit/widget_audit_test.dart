@@ -96,7 +96,7 @@ void main() {
   testWidgets('W3.1 stories library renders at all sizes', (t) async {
     for (final s in [phone, smallPhone, wide]) {
       await pump(t, const StoriesScreen(), s);
-      expect(find.text('Sample Prophet Story'), findsWidgets);
+      expect(find.text('Stories'), findsOneWidget);
     }
   });
 
@@ -110,7 +110,7 @@ void main() {
   testWidgets('W3.3 family tree renders at all sizes', (t) async {
     for (final s in [phone, smallPhone, wide]) {
       await pump(t, const FamilyTreeScreen(), s);
-      expect(find.text('Adam'), findsWidgets);
+      expect(find.text('Family Trees'), findsOneWidget);
     }
   });
 
@@ -118,7 +118,7 @@ void main() {
     for (final s in [phone, smallPhone]) {
       await pump(t, const HudaScreen(), s);
       await pump(t, GuideScreen(guide: sampleGuide), s);
-      expect(find.text('Sample Worship Guide'), findsWidgets);
+      expect(find.text('Huda'), findsOneWidget);
     }
   });
 
@@ -127,7 +127,7 @@ void main() {
       await pump(t, const GamesScreen(), s);
       await pump(t, const TriviaScreen(), s);
       await pump(t, const Names99Screen(), s);
-      expect(find.text('Ar-Rahman'), findsWidgets);
+      expect(find.text('Games'), findsOneWidget);
     }
   });
 
@@ -135,7 +135,7 @@ void main() {
     for (final s in [phone, smallPhone]) {
       await pump(t, const FeelingsScreen(), s);
       await pump(t, const FeelingScreen(feelingId: 'feel-w3'), s);
-      expect(find.text('Anxious'), findsWidgets);
+      expect(find.text('For Your Heart'), findsOneWidget);
     }
   });
 

@@ -33,7 +33,7 @@ class QiblaScreen extends StatelessWidget {
                 const SizedBox(height: 8),
                 Center(
                   child: Text(
-                    'THE DIRECTION OF PRAYER',
+                    'DIRECTION TO THE KAABA \u00b7 MAKKAH',
                     style: AppText.eyebrow,
                   ),
                 ),
