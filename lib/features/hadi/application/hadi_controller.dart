@@ -85,9 +85,10 @@ class HadiController extends Notifier<HadiState> {
   /// never has to think about which engine a key belongs to.
   static String detectProvider(String key) {
     final String k = key.trim();
-    if (k.startsWith('xai-')) return 'xai';
+    if (k.startsWith('xai-') || k.startsWith('ai-')) return 'xai';
     if (k.startsWith('sk-or-')) return 'openrouter';
-    return 'groq'; // gsk_ and anything else defaults to Groq
+    if (k.startsWith('gsk-')) return 'groq';
+    return 'groq'; // default
   }
 
   Future<void> saveApiKey(String key) async {
@@ -112,7 +113,10 @@ class HadiController extends Notifier<HadiState> {
   HadiProvider resolveProvider(String? apiKey) {
     final String? k = apiKey;
     if (k != null) {
-      switch (_provider) {
+      // Routing is a pure function of the key itself — every call re-derives
+      // the provider from the key's fingerprint, so a stale stored preference
+      // can never send a key to the wrong engine again.
+      switch (detectProvider(k)) {
         case 'openrouter':
           return OpenRouterHadiProvider(apiKey: k);
         case 'xai':
