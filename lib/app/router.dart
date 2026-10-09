@@ -110,12 +110,15 @@ abstract final class AppRoutes {
 }
 
 CustomTransitionPage<void> _fade(Widget child) {
+  // Pages swap without an animated fade: on the web a FadeTransition can
+  // freeze mid-flight (the stuck grey veil). Instant transitions are
+  // reliable everywhere and keep the app's pace brisk.
   return CustomTransitionPage<void>(
     child: child,
-    transitionDuration: const Duration(milliseconds: 350),
-    reverseTransitionDuration: const Duration(milliseconds: 250),
+    transitionDuration: Duration.zero,
+    reverseTransitionDuration: Duration.zero,
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      return FadeTransition(opacity: animation, child: child);
+      return child;
     },
   );
 }
