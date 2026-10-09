@@ -5,6 +5,7 @@ import 'package:ar_rayaan/features/academy/application/academy_providers.dart';
 import 'package:ar_rayaan/features/academy/application/academy_strings.dart';
 import 'package:ar_rayaan/features/academy/presentation/academy_home_screen.dart';
 import 'package:ar_rayaan/features/academy/presentation/lesson_player_screen.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
