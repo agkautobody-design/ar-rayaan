@@ -165,20 +165,24 @@ void main() {
   });
 
   group('widgets', () {
-    testWidgets('AcademyHomeScreen renders header, Path card and 4 schools',
+    testWidgets('AcademyHomeScreen renders header, hero and the verse banner',
         (tester) async {
       SharedPreferences.setMockInitialValues(<String, Object>{});
       await tester.pumpWidget(await wrapWithProviders(const AcademyHomeScreen()));
       await tester.pumpAndSettle();
 
       expect(find.text('Al-Wasia Academy of Sacred Knowledge'), findsOneWidget);
-      // Fresh progress → continue hero features the first uncompleted lesson.
       expect(find.text('Continue where you left off'), findsOneWidget);
       expect(find.text('Your first step'), findsOneWidget);
 
-      // When every lesson is complete the Path card takes over the hero.
-      // All ten Path lessons complete -> continue hero yields to the
-      // Path card. (Units 2-9 shipped after this test was written.)
+      final scrollable = find.byType(Scrollable).first;
+      await tester.scrollUntilVisible(find.textContaining('39:9'), 250,
+          scrollable: scrollable);
+      expect(find.textContaining('39:9'), findsOneWidget);
+    });
+
+    testWidgets('AcademyHomeScreen shows the Path card and the open schools',
+        (tester) async {
       SharedPreferences.setMockInitialValues(<String, Object>{
         'ar.academy.progress.v1':
             '{"path.u0.l1":{"lastStep":4,"completed":true},'
@@ -195,15 +199,18 @@ void main() {
       await tester.pumpWidget(await wrapWithProviders(const AcademyHomeScreen()));
       await tester.pumpAndSettle();
       expect(find.text('The Path'), findsOneWidget);
+
+      final scrollable = find.byType(Scrollable).first;
       for (final t in <String>[
-        'Letters',
-        'Recitation',
-        'Quranic Arabic',
-        'Understanding',
+        'Letters', 'Recitation', 'Quranic Arabic', 'Understanding',
       ]) {
+        await tester.scrollUntilVisible(find.text(t), 250,
+            scrollable: scrollable);
         expect(find.text(t), findsOneWidget);
       }
-      expect(find.text('Coming soon — insha’Allah'), findsNWidgets(4));
+      // Three schools open (LIVE), one honest SOON — the founder's design.
+      expect(find.text('LIVE'), findsNWidgets(3));
+      expect(find.text('SOON'), findsOneWidget);
     });
 
     testWidgets('LessonPlayerScreen advances steps on Next',

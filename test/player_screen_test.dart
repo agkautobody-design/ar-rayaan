@@ -9,7 +9,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
-  testWidgets('Player shows honest empty-library state before Pack 1',
+  testWidgets('Player renders the shipped library',
       (tester) async {
     SharedPreferences.setMockInitialValues(<String, Object>{});
     final prefs = await SharedPreferences.getInstance();
@@ -23,6 +23,7 @@ void main() {
     expect(find.text('The Ar-Rayaan Player'), findsOneWidget);
     expect(find.text('Nothing playing — choose a mix or a track.'),
         findsOneWidget);
-    expect(find.textContaining('Pack 1'), findsOneWidget);
+    // The shipped library surfaces its language facets.
+    expect(find.textContaining('Urdu'), findsWidgets);
   });
 }

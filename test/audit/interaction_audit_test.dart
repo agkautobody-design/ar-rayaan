@@ -79,7 +79,7 @@ void main() {
       for (final w in tappables) {
         if (tapped >= 25) break;
         final finder = find.byWidget(w);
-        if (t.evaluate().isEmpty) continue;
+        if (finder.evaluate().isEmpty) continue;
         try {
           await t.tap(finder.first, warnIfMissed: false);
           await t.pumpAndSettle();
