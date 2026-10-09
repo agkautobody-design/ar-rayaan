@@ -5,6 +5,7 @@ library;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
@@ -332,6 +333,11 @@ class _BrowseSection extends ConsumerWidget {
               trailing: const Icon(Icons.play_arrow,
                   color: AppColors.gold, size: 20),
               onTap: () {
+                if (t.audioUrl.isEmpty && (t.officialUrl ?? '').isNotEmpty) {
+                  launchUrl(Uri.parse(t.officialUrl!),
+                      mode: LaunchMode.externalApplication);
+                  return;
+                }
                 final int i = catalog.tracks.indexWhere((Track x) => x.id == t.id);
                 ref.read(playerQueueProvider.notifier).playQueue(
                     catalog.tracks.sublist(i),

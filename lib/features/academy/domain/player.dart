@@ -15,6 +15,7 @@ class Track {
     required this.audioUrl,
     this.lyricsLines = const <String>[],
     this.licenseLine,
+    this.officialUrl,
   });
 
   final String id;
@@ -27,6 +28,7 @@ class Track {
   final String audioUrl;
   final List<String> lyricsLines;
   final String? licenseLine;
+  final String? officialUrl;
 
   Map<String, dynamic> toJson() => <String, dynamic>{
         'id': id, 'title': title, 'artist': artist,
@@ -35,6 +37,7 @@ class Track {
         'audioUrl': audioUrl,
         if (lyricsLines.isNotEmpty) 'lyrics': lyricsLines,
         if (licenseLine != null) 'licenseLine': licenseLine,
+        if (officialUrl != null) 'officialUrl': officialUrl,
       };
 
   factory Track.fromJson(Map<String, dynamic> j) => Track(
@@ -48,8 +51,8 @@ class Track {
         audioUrl: j['audioUrl'] as String,
         lyricsLines: (j['lyrics'] as List<dynamic>? ?? const <dynamic>[])
             .map((dynamic e) => e.toString()).toList(),
-        licenseLine: j['licenseLine'] as String?,
-      );
+        licenseLine: j['licenseLine'] as String?,,
+        officialUrl: j['officialUrl'] as String?,);
 }
 
 class Catalog {
