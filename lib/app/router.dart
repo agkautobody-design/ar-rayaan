@@ -15,6 +15,7 @@ import '../features/academy/presentation/wasia_lessons.dart';
 import '../features/academy/presentation/academy_family.dart';
 import '../features/academy/presentation/player_screen.dart';
 import '../features/academy/presentation/school_placeholder_screen.dart';
+import '../features/academy/presentation/word_deck_screen.dart';
 import '../features/academy/presentation/tajweed_cards_screen.dart';
 import '../features/academy/presentation/hifz_planner_screen.dart';
 import '../features/academy/presentation/dua_school_screen.dart';
@@ -367,7 +368,7 @@ GoRouter buildRouter() {
       ),
       GoRoute(
         path: '/academy/quranic-arabic',
-        pageBuilder: (context, state) => _fade(const SchoolPlaceholderScreen(schoolKey: 'school.arabic.title')),
+        pageBuilder: (context, state) => _fade(const WordDeckScreen()),
       ),
       GoRoute(
         path: '/academy/understanding',
