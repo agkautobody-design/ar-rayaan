@@ -14,7 +14,7 @@ import 'theme/app_typography.dart';
 
 class ArRayaanApp extends StatelessWidget {
   late final GoRouter _router = buildRouter();
-  const ArRayaanApp({required this.env, super.key});
+  ArRayaanApp({required this.env, super.key});
 
   final EnvConfig env;
 
@@ -54,10 +54,10 @@ class ArRayaanApp extends StatelessWidget {
                     children: [
                       child ?? const SizedBox.shrink(),
                       if (!kDebugMode)
-                        const Positioned(
+                        Positioned(
                           right: 12,
                           bottom: 12,
-                          child: _AskHadiPill(),
+                          child: _AskHadiPill(router: _router),
                         ),
                     ],
                   ),
