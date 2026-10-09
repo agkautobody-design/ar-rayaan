@@ -13,6 +13,7 @@ import 'theme/app_colors.dart';
 import 'theme/app_typography.dart';
 
 class ArRayaanApp extends StatelessWidget {
+  late final GoRouter _router = buildRouter();
   const ArRayaanApp({required this.env, super.key});
 
   final EnvConfig env;
@@ -23,7 +24,7 @@ class ArRayaanApp extends StatelessWidget {
       title: 'Ar-Rayaan',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.dark(),
-      routerConfig: buildRouter(),
+      routerConfig: _router,
       // First tap anywhere unlocks web audio; the soundscape setting is
       // mirrored into the ambient service.
       builder: (context, child) => Consumer(
@@ -87,11 +88,13 @@ class ArRayaanApp extends StatelessWidget {
 /// One tap to Hādi from anywhere in the app. Hides itself while you are
 /// already talking to him.
 class _AskHadiPill extends StatelessWidget {
-  const _AskHadiPill();
+  const _AskHadiPill({required this.router});
+
+  final GoRouter router;
 
   @override
   Widget build(BuildContext context) {
-    final GoRouterDelegate delegate = GoRouter.of(context).routerDelegate;
+    final GoRouterDelegate delegate = router.routerDelegate;
     return AnimatedBuilder(
       animation: delegate,
       builder: (context, _) {
@@ -106,7 +109,7 @@ class _AskHadiPill extends StatelessWidget {
           child: Material(
             color: Colors.transparent,
             child: InkWell(
-              onTap: () => context.go(AppRoutes.hadi),
+              onTap: () => router.go(AppRoutes.hadi),
               borderRadius: BorderRadius.circular(24),
               child: Container(
                 padding: const EdgeInsets.symmetric(
