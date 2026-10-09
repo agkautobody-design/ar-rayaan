@@ -26,7 +26,14 @@ jobs:
         run: flutter test
 
       - name: Build web (release)
-        run: flutter build web --release
+        run: >-
+          flutter build web --release
+          --dart-define=FIREBASE_API_KEY=AIzaSyAB4e-12YGNZx4c9mX-3UInAePd-lRTTOY
+          --dart-define=FIREBASE_APP_ID=1:967867528821:web:65ee3d9c67a2820cc42a3c
+          --dart-define=FIREBASE_PROJECT_ID=ar-rayaan
+          --dart-define=FIREBASE_MESSAGING_SENDER_ID=967867528821
+          --dart-define=FIREBASE_AUTH_DOMAIN=ar-rayaan.firebaseapp.com
+          --dart-define=FIREBASE_STORAGE_BUCKET=ar-rayaan.firebasestorage.app
 
       - name: Deploy to render branch
         run: |

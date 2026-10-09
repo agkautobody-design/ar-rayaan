@@ -26,6 +26,7 @@ class ExploreScreen extends ConsumerWidget {
         (Icons.menu_book_outlined, 'Huda \u2014 Worship Guides', AppRoutes.huda),
         (Icons.sports_esports_outlined, 'Games', AppRoutes.games),
         (Icons.favorite_border, 'For Your Heart', AppRoutes.feelings),
+        (Icons.forum_outlined, 'Majlis \u2014 The Courtyard', AppRoutes.majlis),
         (Icons.wb_sunny_outlined, 'Dhikr & Du’a', AppRoutes.adhkar),
         (Icons.nights_stay_outlined, 'Prayer Times', AppRoutes.prayerTimes),
         (Icons.calendar_month_outlined, 'Islamic Calendar', AppRoutes.calendar),

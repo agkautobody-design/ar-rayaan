@@ -52,6 +52,7 @@ flutter:
     - assets/guides/
     - assets/games/
     - assets/feelings/
+    - assets/majlis/
     - assets/audio/
 
   fonts:

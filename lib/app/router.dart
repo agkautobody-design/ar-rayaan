@@ -45,6 +45,7 @@ import '../features/huda/presentation/huda_screens.dart';
 import '../features/games/presentation/games_screens.dart';
 import '../features/feelings/presentation/feelings_screens.dart';
 import '../features/notes/presentation/tools_screens.dart';
+import '../features/majlis/presentation/majlis_screens.dart';
 import '../features/stories/presentation/story_reader_screen.dart';
 import '../features/stories/domain/story.dart';
 import '../features/zakat/presentation/zakat_screen.dart';
@@ -82,6 +83,9 @@ abstract final class AppRoutes {
   static const String quran = '/quran';
   static const String hadith = '/hadith';
   static const String feelings = '/feelings';
+  static const String majlis = '/majlis';
+  static const String majlisThread = '/majlis/thread';
+  static const String majlisNew = '/majlis/new';
   static const String notes = '/notes';
   static const String downloads = '/downloads';
   static const String games = '/games';
@@ -122,6 +126,21 @@ GoRouter buildRouter() {
     routes: [
       // Onboarding flow (no bottom nav)
       GoRoute(
+          path: AppRoutes.majlis,
+          pageBuilder: (context, state) => _fade(const MajlisScreen()),
+        ),
+        GoRoute(
+          path: '${AppRoutes.majlisThread}/:id',
+          pageBuilder: (context, state) => _fade(ThreadScreen(
+            threadId: state.pathParameters['id']!,
+            title: state.extra as String? ?? '',
+          )),
+        ),
+        GoRoute(
+          path: AppRoutes.majlisNew,
+          pageBuilder: (context, state) => _fade(const NewThreadScreen()),
+        ),
+        GoRoute(
           path: AppRoutes.notes,
           pageBuilder: (context, state) => _fade(const NotesScreen()),
         ),
