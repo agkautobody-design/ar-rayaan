@@ -327,9 +327,9 @@ class _LudoState extends State<LudoScreen> {
           const SizedBox(height: 12),
           if (mode == 0)
             Column(children: [
-              _mode('Play Hadi', 'Green takes the dice against you', () => setState(() { mode = 1; _reset(); })),
+              _mode('Play Hadi', 'Green takes the dice against you', Icons.casino_outlined, () => setState(() { mode = 1; _reset(); })),
               const SizedBox(height: 10),
-              _mode('Two players', 'Red and Green, passing the phone', () => setState(() { mode = 2; _reset(); })),
+              _mode('Two players', 'Red and Green, passing the phone', Icons.people_outline, () => setState(() { mode = 2; _reset(); })),
               const SizedBox(height: 10),
               _mode('Play a friend online', 'Create a table, share the six-letter code',
                   Icons.wifi, _onlineSetup),
@@ -398,7 +398,7 @@ class _LudoState extends State<LudoScreen> {
     );
   }
 
-  Widget _mode(String t, String s, VoidCallback onTap) {
+  Widget _mode(String t, String s, IconData icon, VoidCallback onTap) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -409,7 +409,7 @@ class _LudoState extends State<LudoScreen> {
           color: const Color(0x1405090F),
         ),
         child: Row(children: [
-          const Icon(Icons.casino_outlined, color: AppColors.goldLight, size: 20),
+          Icon(icon, color: AppColors.goldLight, size: 20),
           const SizedBox(width: 12),
           Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Text(t, style: AppText.body.copyWith(fontWeight: FontWeight.w700, fontSize: 14)),
@@ -545,52 +545,6 @@ class DiceFace extends StatelessWidget {
     5: [0, 2, 4, 6, 8], 6: [0, 2, 3, 5, 6, 8],
   };
 
-  Future<void> _onlineSetup() async {
-    final r = await OnlineLobby.show(context, 'ludo', _rooms);
-    if (r == null || !mounted) return;
-    setState(() {
-      mode = 3;
-      roomCode = r['code'];
-      mySide = r['side']!;
-      myIdx = mySide == 'host' ? 0 : 1;
-      _reset();
-      appliedMoves = 0;
-      turn = 0;
-      status = mySide == 'host'
-          ? 'Table \${roomCode} — waiting for your opponent\u2026'
-          : 'Joined \${roomCode} — you are Green';
-    });
-    _roomStream = _rooms.watch(roomCode!);
-    _roomStream!.listen((snap) {
-      final data = (snap as dynamic).data() as Map<String, dynamic>?;
-      if (data == null || !mounted) return;
-      final moves = (data['moves'] as List<dynamic>? ?? []);
-      final guest = data['guest'] as Map<String, dynamic>?;
-      if (mySide == 'host' && guest != null && data['status'] == 'playing' &&
-          status.startsWith('Table')) {
-        setState(() => status = 'Red to roll');
-      }
-      while (appliedMoves < moves.length) {
-        final m = Map<String, dynamic>.from(moves[appliedMoves] as Map);
-        appliedMoves++;
-        final mover = (m['turn'] as num).toInt() == myIdx
-            ? 1 - myIdx
-            : 1 - myIdx;
-        if ((m['by'] as String) != mySide) {
-          setState(() {
-            dice = (m['d'] as num).toInt();
-            _apply(mover, (m['t'] as num).toInt(), dice);
-            if (!gameOver) {
-              turn = (m['next'] as num).toInt();
-              rolled = false;
-              dice = 0;
-              status = '${names[turn]} to roll';
-            }
-          });
-        }
-      }
-    });
-  }
 
   @override
   Widget build(BuildContext context) {

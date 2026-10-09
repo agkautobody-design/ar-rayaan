@@ -73,6 +73,7 @@ abstract final class AppRoutes {
   static const String community = '/community';
   static const String academy = '/academy';
   static const String academyGate = '/academy/gate';
+  static const String player = '/player';
   static const String myAdditions = '/player/my-additions';
   static const String requestNasheed = '/player/request';
   static String academyLesson(String c, String u, String l) =>

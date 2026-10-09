@@ -171,11 +171,14 @@ class _ChildCard extends ConsumerWidget {
                     ),
                     if (exams.isNotEmpty) ...[
                       const SizedBox(height: 6),
-                      for (final e in exams)
-                        Text(
-                          '\u2022 ${e['score']}/${e['total']} \u00b7 ${_examTitle(e.key as String)}',
-                          style: AppText.bodyMuted.copyWith(fontSize: 11.5),
-                        ),
+                      for (final e in (p['exams'] as Map).entries)
+                        Builder(builder: (_) {
+                          final v = Map<String, dynamic>.from(e.value as Map);
+                          return Text(
+                            '\u2022 ${v['score']}/${v['total']} \u00b7 ${_examTitle(e.key as String)}',
+                            style: AppText.bodyMuted.copyWith(fontSize: 11.5),
+                          );
+                        }),
                     ],
                   ],
                 );

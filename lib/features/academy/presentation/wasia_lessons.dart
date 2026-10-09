@@ -75,7 +75,7 @@ class LettersLessonsScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final lessons = ref.watch(lettersLessonsProvider);
+    final lessons = ref.watch(lettersCurriculumProvider);
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: lessons.when(

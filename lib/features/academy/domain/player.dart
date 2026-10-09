@@ -51,8 +51,9 @@ class Track {
         audioUrl: j['audioUrl'] as String,
         lyricsLines: (j['lyrics'] as List<dynamic>? ?? const <dynamic>[])
             .map((dynamic e) => e.toString()).toList(),
-        licenseLine: j['licenseLine'] as String?,,
-        officialUrl: j['officialUrl'] as String?,);
+        licenseLine: j['licenseLine'] as String?,
+        officialUrl: j['officialUrl'] as String?,
+      );
 }
 
 class Catalog {
