@@ -11,6 +11,7 @@ import '../features/academy/presentation/lesson_player_screen.dart';
 import '../features/academy/presentation/my_additions_screen.dart';
 import '../features/academy/presentation/request_nasheed_screen.dart';
 import '../features/academy/presentation/letters_school_screen.dart';
+import '../features/academy/presentation/wasia_lessons.dart';
 import '../features/academy/presentation/school_placeholder_screen.dart';
 import '../features/academy/presentation/tajweed_cards_screen.dart';
 import '../features/academy/presentation/hifz_planner_screen.dart';
@@ -335,7 +336,15 @@ GoRouter buildRouter() {
       ),
       GoRoute(
         path: '/academy/letters',
-        pageBuilder: (context, state) => _fade(const LettersSchoolScreen()),
+        pageBuilder: (context, state) => _fade(const LettersLessonsScreen()),
+        routes: [
+          GoRoute(
+            path: 'lesson/:id',
+            pageBuilder: (context, state) => _fade(
+              LessonRunnerScreen(lessonId: state.pathParameters['id']!),
+            ),
+          ),
+        ],
       ),
       GoRoute(
         path: '/academy/recitation',
