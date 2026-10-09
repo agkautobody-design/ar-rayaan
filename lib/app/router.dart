@@ -49,6 +49,7 @@ import '../features/huda/presentation/huda_screens.dart';
 import '../features/games/presentation/games_screens.dart';
 import '../features/games/presentation/games_extra.dart';
 import '../features/games/presentation/shatranj_screen.dart';
+import '../features/games/presentation/ludo_screen.dart';
 import '../features/feelings/presentation/feelings_screens.dart';
 import '../features/notes/presentation/tools_screens.dart';
 import '../features/majlis/presentation/majlis_screens.dart';
@@ -137,6 +138,10 @@ GoRouter buildRouter() {
     routes: [
       // Onboarding flow (no bottom nav)
       GoRoute(
+          path: '/games/ludo',
+          pageBuilder: (context, state) => _fade(const LudoScreen()),
+        ),
+        GoRoute(
           path: '/games/shatranj',
           pageBuilder: (context, state) => _fade(const ShatranjScreen()),
         ),

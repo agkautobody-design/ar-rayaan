@@ -57,6 +57,12 @@ class GamesScreen extends ConsumerWidget {
             child: Text('LEARN BY PLAYING', style: AppText.eyebrow),
           ),
           GlassCard(
+            onTap: () => context.go('/games/ludo'),
+            child: _gameRow(Icons.casino_outlined, 'Ludo \u00b7 the second crown',
+                'Dice, captures and four tokens racing home'),
+          ),
+          const SizedBox(height: 10),
+          GlassCard(
             onTap: () => context.go('/games/shatranj'),
             child: _gameRow(Icons.extension_outlined, 'Shatranj \u00b7 the crown jewel',
                 'Chess against Hadi\u2019s engine or a friend beside you'),
