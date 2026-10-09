@@ -10,6 +10,7 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../application/wasia_controller.dart';
+import '../application/family_service.dart';
 
 class LessonStep {
   final String type;
@@ -52,12 +53,20 @@ class Lesson {
       );
 }
 
+final lettersCurriculumProvider =
+    FutureProvider<Map<String, dynamic>>((ref) async {
+  final raw =
+      await rootBundle.loadString('assets/academy/letters_curriculum.json');
+  return json.decode(raw) as Map<String, dynamic>;
+});
+
 final lettersLessonsProvider = FutureProvider<List<Lesson>>((ref) async {
-  final raw = await rootBundle.loadString('assets/academy/letters_lessons.json');
-  final d = json.decode(raw) as Map<String, dynamic>;
-  return (d['lessons'] as List<dynamic>)
-      .map((e) => Lesson.fromJson(e as Map<String, dynamic>))
-      .toList();
+  final data = await ref.watch(lettersCurriculumProvider.future);
+  return [
+    for (final u in data['units'] as List<dynamic>)
+      for (final l in u['lessons'] as List<dynamic>)
+        Lesson.fromJson(l as Map<String, dynamic>),
+  ];
 });
 
 /// The School of Letters — a path of lessons, each taught by Wasia.
@@ -74,7 +83,12 @@ class LettersLessonsScreen extends ConsumerWidget {
             child: CircularProgressIndicator(color: AppColors.gold)),
         error: (e, _) => Center(
             child: Text('Could not load the lessons.', style: AppText.bodyMuted)),
-        data: (list) => ListView(
+        data: (data) {
+          final units = data['units'] as List<dynamic>;
+          final exams = (data['exams'] as List<dynamic>)
+              .map((e) => Map<String, dynamic>.from(e as Map))
+              .toList();
+          return ListView(
           padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
           children: [
             const ScreenHeader(title: 'School of Letters', close: true),
@@ -84,49 +98,87 @@ class LettersLessonsScreen extends ConsumerWidget {
                 style: const TextStyle(fontFamily: 'Amiri', fontSize: 26,
                     color: Color(0xFFEAD9A8))),
             const SizedBox(height: 4),
-            Center(child: Text('UNIT 1 · THE LETTERS · TAUGHT BY WASIA',
+            Center(child: Text('THE FULL CURRICULUM \u00b7 TAUGHT BY WASIA',
                 style: AppText.eyebrow)),
             const SizedBox(height: 6),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),
               child: Text(
-                'One lesson a day. Wasia greets you, teaches the letter, shows it in a word, and asks a gentle question at the end.',
+                'Four units, twenty-eight letters, an exam at the end of each unit. '
+                'Wasia teaches every lesson, asks a gentle question, and records your child\u2019s growth.',
                 textAlign: TextAlign.center,
                 style: AppText.bodyMuted,
               ),
             ),
             const SizedBox(height: 16),
-            for (final l in list)
-              Padding(
-                padding: const EdgeInsets.only(bottom: 10),
-                child: GlassCard(
-                  onTap: () =>
-                      context.go('/academy/letters/lesson/${l.id}'),
-                  child: Row(
-                    children: [
-                      Container(
-                        width: 46, height: 46,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                              color: AppColors.gold.withValues(alpha: 0.4)),
-                        ),
-                        child: Text(l.arabic,
-                            style: const TextStyle(fontFamily: 'Amiri',
-                                fontSize: 22, color: Color(0xFFEAD9A8))),
-                      ),
-                      const SizedBox(width: 12),
-                      Expanded(child: Text(l.title, style: AppText.body.copyWith(
-                          fontSize: 13.5, fontWeight: FontWeight.w600))),
-                      const Icon(Icons.chevron_right,
-                          color: AppColors.gold, size: 18),
-                    ],
-                  ),
+            for (final u in units)
+              ...[
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(4, 10, 4, 8),
+                  child: Text((u['title'] as String).toUpperCase(),
+                      style: AppText.eyebrow),
                 ),
-              ),
+                for (final l in (u['lessons'] as List<dynamic>))
+                  Builder(builder: (ctx) {
+                    final lesson =
+                        Lesson.fromJson(l as Map<String, dynamic>);
+                    return Padding(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: GlassCard(
+                        onTap: () =>
+                            context.go('/academy/letters/lesson/${lesson.id}'),
+                        child: Row(
+                          children: [
+                            Container(
+                              width: 46, height: 46,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                border: Border.all(
+                                    color: AppColors.gold.withValues(alpha: 0.4)),
+                              ),
+                              child: Text(lesson.arabic,
+                                  style: const TextStyle(fontFamily: 'Amiri',
+                                      fontSize: 22, color: Color(0xFFEAD9A8))),
+                            ),
+                            const SizedBox(width: 12),
+                            Expanded(child: Text(lesson.title, style: AppText.body.copyWith(
+                                fontSize: 13.5, fontWeight: FontWeight.w600))),
+                            const Icon(Icons.chevron_right,
+                                color: AppColors.gold, size: 18),
+                          ],
+                        ),
+                      ),
+                    );
+                  }),
+                ...exams.where((e) => e['unit'] == u['id']).map((e) =>
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: GlassCard(
+                      onTap: () => context.go('/academy/exam/${e['id']}'),
+                      child: Row(children: [
+                        const Icon(Icons.fact_check_outlined,
+                            color: AppColors.goldLight, size: 20),
+                        const SizedBox(width: 12),
+                        Expanded(child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(e['title'] as String,
+                                style: AppText.body.copyWith(
+                                    fontWeight: FontWeight.w700, fontSize: 13.5)),
+                            Text('10 questions \u00b7 pass at 7 \u00b7 recorded to your child',
+                                style: AppText.bodyMuted.copyWith(fontSize: 11)),
+                          ],
+                        )),
+                        const Icon(Icons.chevron_right,
+                            color: AppColors.gold, size: 18),
+                      ]),
+                    ),
+                  )),
+              ],
           ],
-        ),
+        );
+        },
       ),
     );
   }

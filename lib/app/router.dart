@@ -12,6 +12,7 @@ import '../features/academy/presentation/my_additions_screen.dart';
 import '../features/academy/presentation/request_nasheed_screen.dart';
 import '../features/academy/presentation/letters_school_screen.dart';
 import '../features/academy/presentation/wasia_lessons.dart';
+import '../features/academy/presentation/academy_family.dart';
 import '../features/academy/presentation/school_placeholder_screen.dart';
 import '../features/academy/presentation/tajweed_cards_screen.dart';
 import '../features/academy/presentation/hifz_planner_screen.dart';
@@ -345,6 +346,15 @@ GoRouter buildRouter() {
             ),
           ),
         ],
+      ),
+      GoRoute(
+        path: '/academy/family',
+        pageBuilder: (context, state) => _fade(const FamilyScreen()),
+      ),
+      GoRoute(
+        path: '/academy/exam/:id',
+        pageBuilder: (context, state) =>
+            _fade(ExamScreen(examId: state.pathParameters['id']!)),
       ),
       GoRoute(
         path: '/academy/recitation',

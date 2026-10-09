@@ -223,6 +223,7 @@ class _AcademyHomeScreenState
               _LibraryRow(icon: Icons.account_tree_outlined, title: 'The Messengers\u2019 Tree \u00b7 lineage', route: AppRoutes.familyTree),
               _LibraryRow(icon: Icons.spa_outlined, title: 'The 99 Names \u00b7 memory deck', route: AppRoutes.names99),
               _LibraryRow(icon: Icons.favorite_border, title: 'For Your Heart \u00b7 guided by feeling', route: AppRoutes.feelings),
+              _LibraryRow(icon: Icons.family_restroom_outlined, title: 'The Family Wing \u00b7 parents & progress', route: '/academy/family'),
               const SizedBox(height: 16),
 
               // Today strip ----------------------------------------------------

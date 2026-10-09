@@ -1,0 +1,1042 @@
+{
+ "school": "letters",
+ "units": [
+  {
+   "id": "u1",
+   "title": "Unit 1 · The First Letters",
+   "exam": "u1-exam",
+   "lessons": [
+    {
+     "id": "letters-01",
+     "title": "Lesson 1: Alif — ا",
+     "arabic": "ا",
+     "steps": [
+      {
+       "type": "teach",
+       "text": "Assalamu alaikum, my student. Today we meet a new friend of the alphabet: Alif (ا). A deep open 'a' — the spine of the alphabet. Take your time — every letter of the Qur'an is a door, and doors open slowly and surely."
+      },
+      {
+       "type": "card",
+       "arabic": "ا",
+       "translit": "Alif",
+       "note": "You will see ا in words like آدَم."
+      },
+      {
+       "type": "teach",
+       "text": "Look at the shape until your eyes know it. Say its name three times, slowly. The Prophet ﷺ loved that the Qur'an be learned gently — he was sent, he said, as a teacher made easy with his people."
+      },
+      {
+       "type": "quiz",
+       "question": "Which letter did we meet today?",
+       "options": [
+        "ا",
+        "ت",
+        "س"
+       ],
+       "answer": 0,
+       "why": "Today was Alif — ا. Review the card above and it will settle, in shaa Allah."
+      },
+      {
+       "type": "teach",
+       "text": "Well walked. One letter a day, and the alphabet becomes a garden you planted yourself. See you at the next lesson — Wasia is proud of you."
+      }
+     ]
+    },
+    {
+     "id": "letters-02",
+     "title": "Lesson 2: Ba — ب",
+     "arabic": "ب",
+     "steps": [
+      {
+       "type": "teach",
+       "text": "Assalamu alaikum, my student. Today we meet a new friend of the alphabet: Ba (ب). A gentle 'b'; one dot beneath its boat. Take your time — every letter of the Qur'an is a door, and doors open slowly and surely."
+      },
+      {
+       "type": "card",
+       "arabic": "ب",
+       "translit": "Ba",
+       "note": "You will see ب in words like بَاب."
+      },
+      {
+       "type": "teach",
+       "text": "Look at the shape until your eyes know it. Say its name three times, slowly. The Prophet ﷺ loved that the Qur'an be learned gently — he was sent, he said, as a teacher made easy with his people."
+      },
+      {
+       "type": "quiz",
+       "question": "Which letter did we meet today?",
+       "options": [
+        "ب",
+        "ث",
+        "ش"
+       ],
+       "answer": 0,
+       "why": "Today was Ba — ب. Review the card above and it will settle, in shaa Allah."
+      },
+      {
+       "type": "teach",
+       "text": "Well walked. One letter a day, and the alphabet becomes a garden you planted yourself. See you at the next lesson — Wasia is proud of you."
+      }
+     ]
+    },
+    {
+     "id": "letters-03",
+     "title": "Lesson 3: Ta — ت",
+     "arabic": "ت",
+     "steps": [
+      {
+       "type": "teach",
+       "text": "Assalamu alaikum, my student. Today we meet a new friend of the alphabet: Ta (ت). Two dots; a soft 't'. Take your time — every letter of the Qur'an is a door, and doors open slowly and surely."
+      },
+      {
+       "type": "card",
+       "arabic": "ت",
+       "translit": "Ta",
+       "note": "You will see ت in words like تُفَّاح."
+      },
+      {
+       "type": "teach",
+       "text": "Look at the shape until your eyes know it. Say its name three times, slowly. The Prophet ﷺ loved that the Qur'an be learned gently — he was sent, he said, as a teacher made easy with his people."
+      },
+      {
+       "type": "quiz",
+       "question": "Which letter did we meet today?",
+       "options": [
+        "ت",
+        "ج",
+        "ص"
+       ],
+       "answer": 0,
+       "why": "Today was Ta — ت. Review the card above and it will settle, in shaa Allah."
+      },
+      {
+       "type": "teach",
+       "text": "Well walked. One letter a day, and the alphabet becomes a garden you planted yourself. See you at the next lesson — Wasia is proud of you."
+      }
+     ]
+    },
+    {
+     "id": "letters-04",
+     "title": "Lesson 4: Tha — ث",
+     "arabic": "ث",
+     "steps": [
+      {
+       "type": "teach",
+       "text": "Assalamu alaikum, my student. Today we meet a new friend of the alphabet: Tha (ث). Three dots; say it between the teeth. Take your time — every letter of the Qur'an is a door, and doors open slowly and surely."
+      },
+      {
+       "type": "card",
+       "arabic": "ث",
+       "translit": "Tha",
+       "note": "You will see ث in words like ثَوْب."
+      },
+      {
+       "type": "teach",
+       "text": "Look at the shape until your eyes know it. Say its name three times, slowly. The Prophet ﷺ loved that the Qur'an be learned gently — he was sent, he said, as a teacher made easy with his people."
+      },
+      {
+       "type": "quiz",
+       "question": "Which letter did we meet today?",
+       "options": [
+        "ث",
+        "ح",
+        "ض"
+       ],
+       "answer": 0,
+       "why": "Today was Tha — ث. Review the card above and it will settle, in shaa Allah."
+      },
+      {
+       "type": "teach",
+       "text": "Well walked. One letter a day, and the alphabet becomes a garden you planted yourself. See you at the next lesson — Wasia is proud of you."
+      }
+     ]
+    },
+    {
+     "id": "letters-05",
+     "title": "Lesson 5: Jeem — ج",
+     "arabic": "ج",
+     "steps": [
+      {
+       "type": "teach",
+       "text": "Assalamu alaikum, my student. Today we meet a new friend of the alphabet: Jeem (ج). Like the 'j' in 'jam'. Take your time — every letter of the Qur'an is a door, and doors open slowly and surely."
+      },
+      {
+       "type": "card",
+       "arabic": "ج",
+       "translit": "Jeem",
+       "note": "You will see ج in words like جَنَّة."
+      },
+      {
+       "type": "teach",
+       "text": "Look at the shape until your eyes know it. Say its name three times, slowly. The Prophet ﷺ loved that the Qur'an be learned gently — he was sent, he said, as a teacher made easy with his people."
+      },
+      {
+       "type": "quiz",
+       "question": "Which letter did we meet today?",
+       "options": [
+        "ج",
+        "خ",
+        "ط"
+       ],
+       "answer": 0,
+       "why": "Today was Jeem — ج. Review the card above and it will settle, in shaa Allah."
+      },
+      {
+       "type": "teach",
+       "text": "Well walked. One letter a day, and the alphabet becomes a garden you planted yourself. See you at the next lesson — Wasia is proud of you."
+      }
+     ]
+    },
+    {
+     "id": "letters-06",
+     "title": "Lesson 6: Ha (deep) — ح",
+     "arabic": "ح",
+     "steps": [
+      {
+       "type": "teach",
+       "text": "Assalamu alaikum, my student. Today we meet a new friend of the alphabet: Ha (deep) (ح). From the throat — breathe the 'h' deep. Take your time — every letter of the Qur'an is a door, and doors open slowly and surely."
+      },
+      {
+       "type": "card",
+       "arabic": "ح",
+       "translit": "Ha (deep)",
+       "note": "You will see ح in words like حَقّ."
+      },
+      {
+       "type": "teach",
+       "text": "Look at the shape until your eyes know it. Say its name three times, slowly. The Prophet ﷺ loved that the Qur'an be learned gently — he was sent, he said, as a teacher made easy with his people."
+      },
+      {
+       "type": "quiz",
+       "question": "Which letter did we meet today?",
+       "options": [
+        "ح",
+        "د",
+        "ظ"
+       ],
+       "answer": 0,
+       "why": "Today was Ha (deep) — ح. Review the card above and it will settle, in shaa Allah."
+      },
+      {
+       "type": "teach",
+       "text": "Well walked. One letter a day, and the alphabet becomes a garden you planted yourself. See you at the next lesson — Wasia is proud of you."
+      }
+     ]
+    },
+    {
+     "id": "letters-07",
+     "title": "Lesson 7: Kha — خ",
+     "arabic": "خ",
+     "steps": [
+      {
+       "type": "teach",
+       "text": "Assalamu alaikum, my student. Today we meet a new friend of the alphabet: Kha (خ). A raspy 'kh', like the end of 'loch'. Take your time — every letter of the Qur'an is a door, and doors open slowly and surely."
+      },
+      {
+       "type": "card",
+       "arabic": "خ",
+       "translit": "Kha",
+       "note": "You will see خ in words like خَيْر."
+      },
+      {
+       "type": "teach",
+       "text": "Look at the shape until your eyes know it. Say its name three times, slowly. The Prophet ﷺ loved that the Qur'an be learned gently — he was sent, he said, as a teacher made easy with his people."
+      },
+      {
+       "type": "quiz",
+       "question": "Which letter did we meet today?",
+       "options": [
+        "خ",
+        "ذ",
+        "ع"
+       ],
+       "answer": 0,
+       "why": "Today was Kha — خ. Review the card above and it will settle, in shaa Allah."
+      },
+      {
+       "type": "teach",
+       "text": "Well walked. One letter a day, and the alphabet becomes a garden you planted yourself. See you at the next lesson — Wasia is proud of you."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u2",
+   "title": "Unit 2 · The Middle Letters",
+   "exam": "u2-exam",
+   "lessons": [
+    {
+     "id": "letters-08",
+     "title": "Lesson 8: Dal — د",
+     "arabic": "د",
+     "steps": [
+      {
+       "type": "teach",
+       "text": "Assalamu alaikum, my student. Today we meet a new friend of the alphabet: Dal (د). A simple rolling 'd'. Take your time — every letter of the Qur'an is a door, and doors open slowly and surely."
+      },
+      {
+       "type": "card",
+       "arabic": "د",
+       "translit": "Dal",
+       "note": "You will see د in words like دِين."
+      },
+      {
+       "type": "teach",
+       "text": "Look at the shape until your eyes know it. Say its name three times, slowly. The Prophet ﷺ loved that the Qur'an be learned gently — he was sent, he said, as a teacher made easy with his people."
+      },
+      {
+       "type": "quiz",
+       "question": "Which letter did we meet today?",
+       "options": [
+        "د",
+        "ر",
+        "غ"
+       ],
+       "answer": 0,
+       "why": "Today was Dal — د. Review the card above and it will settle, in shaa Allah."
+      },
+      {
+       "type": "teach",
+       "text": "Well walked. One letter a day, and the alphabet becomes a garden you planted yourself. See you at the next lesson — Wasia is proud of you."
+      }
+     ]
+    },
+    {
+     "id": "letters-09",
+     "title": "Lesson 9: Dhal — ذ",
+     "arabic": "ذ",
+     "steps": [
+      {
+       "type": "teach",
+       "text": "Assalamu alaikum, my student. Today we meet a new friend of the alphabet: Dhal (ذ). Like 'th' in 'this'. Take your time — every letter of the Qur'an is a door, and doors open slowly and surely."
+      },
+      {
+       "type": "card",
+       "arabic": "ذ",
+       "translit": "Dhal",
+       "note": "You will see ذ in words like ذِكْرى."
+      },
+      {
+       "type": "teach",
+       "text": "Look at the shape until your eyes know it. Say its name three times, slowly. The Prophet ﷺ loved that the Qur'an be learned gently — he was sent, he said, as a teacher made easy with his people."
+      },
+      {
+       "type": "quiz",
+       "question": "Which letter did we meet today?",
+       "options": [
+        "ذ",
+        "ز",
+        "ف"
+       ],
+       "answer": 0,
+       "why": "Today was Dhal — ذ. Review the card above and it will settle, in shaa Allah."
+      },
+      {
+       "type": "teach",
+       "text": "Well walked. One letter a day, and the alphabet becomes a garden you planted yourself. See you at the next lesson — Wasia is proud of you."
+      }
+     ]
+    },
+    {
+     "id": "letters-10",
+     "title": "Lesson 10: Ra — ر",
+     "arabic": "ر",
+     "steps": [
+      {
+       "type": "teach",
+       "text": "Assalamu alaikum, my student. Today we meet a new friend of the alphabet: Ra (ر). A rolling 'r', touched not trilled. Take your time — every letter of the Qur'an is a door, and doors open slowly and surely."
+      },
+      {
+       "type": "card",
+       "arabic": "ر",
+       "translit": "Ra",
+       "note": "You will see ر in words like رَبّ."
+      },
+      {
+       "type": "teach",
+       "text": "Look at the shape until your eyes know it. Say its name three times, slowly. The Prophet ﷺ loved that the Qur'an be learned gently — he was sent, he said, as a teacher made easy with his people."
+      },
+      {
+       "type": "quiz",
+       "question": "Which letter did we meet today?",
+       "options": [
+        "ر",
+        "س",
+        "ق"
+       ],
+       "answer": 0,
+       "why": "Today was Ra — ر. Review the card above and it will settle, in shaa Allah."
+      },
+      {
+       "type": "teach",
+       "text": "Well walked. One letter a day, and the alphabet becomes a garden you planted yourself. See you at the next lesson — Wasia is proud of you."
+      }
+     ]
+    },
+    {
+     "id": "letters-11",
+     "title": "Lesson 11: Zay — ز",
+     "arabic": "ز",
+     "steps": [
+      {
+       "type": "teach",
+       "text": "Assalamu alaikum, my student. Today we meet a new friend of the alphabet: Zay (ز). A buzzing 'z'. Take your time — every letter of the Qur'an is a door, and doors open slowly and surely."
+      },
+      {
+       "type": "card",
+       "arabic": "ز",
+       "translit": "Zay",
+       "note": "You will see ز in words like زَيْتون."
+      },
+      {
+       "type": "teach",
+       "text": "Look at the shape until your eyes know it. Say its name three times, slowly. The Prophet ﷺ loved that the Qur'an be learned gently — he was sent, he said, as a teacher made easy with his people."
+      },
+      {
+       "type": "quiz",
+       "question": "Which letter did we meet today?",
+       "options": [
+        "ز",
+        "ش",
+        "ك"
+       ],
+       "answer": 0,
+       "why": "Today was Zay — ز. Review the card above and it will settle, in shaa Allah."
+      },
+      {
+       "type": "teach",
+       "text": "Well walked. One letter a day, and the alphabet becomes a garden you planted yourself. See you at the next lesson — Wasia is proud of you."
+      }
+     ]
+    },
+    {
+     "id": "letters-12",
+     "title": "Lesson 12: Seen — س",
+     "arabic": "س",
+     "steps": [
+      {
+       "type": "teach",
+       "text": "Assalamu alaikum, my student. Today we meet a new friend of the alphabet: Seen (س). A soft, smooth 's'. Take your time — every letter of the Qur'an is a door, and doors open slowly and surely."
+      },
+      {
+       "type": "card",
+       "arabic": "س",
+       "translit": "Seen",
+       "note": "You will see س in words like سَمَاء."
+      },
+      {
+       "type": "teach",
+       "text": "Look at the shape until your eyes know it. Say its name three times, slowly. The Prophet ﷺ loved that the Qur'an be learned gently — he was sent, he said, as a teacher made easy with his people."
+      },
+      {
+       "type": "quiz",
+       "question": "Which letter did we meet today?",
+       "options": [
+        "س",
+        "ص",
+        "ل"
+       ],
+       "answer": 0,
+       "why": "Today was Seen — س. Review the card above and it will settle, in shaa Allah."
+      },
+      {
+       "type": "teach",
+       "text": "Well walked. One letter a day, and the alphabet becomes a garden you planted yourself. See you at the next lesson — Wasia is proud of you."
+      }
+     ]
+    },
+    {
+     "id": "letters-13",
+     "title": "Lesson 13: Sheen — ش",
+     "arabic": "ش",
+     "steps": [
+      {
+       "type": "teach",
+       "text": "Assalamu alaikum, my student. Today we meet a new friend of the alphabet: Sheen (ش). A gentle 'sh'. Take your time — every letter of the Qur'an is a door, and doors open slowly and surely."
+      },
+      {
+       "type": "card",
+       "arabic": "ش",
+       "translit": "Sheen",
+       "note": "You will see ش in words like شَمْس."
+      },
+      {
+       "type": "teach",
+       "text": "Look at the shape until your eyes know it. Say its name three times, slowly. The Prophet ﷺ loved that the Qur'an be learned gently — he was sent, he said, as a teacher made easy with his people."
+      },
+      {
+       "type": "quiz",
+       "question": "Which letter did we meet today?",
+       "options": [
+        "ش",
+        "ض",
+        "م"
+       ],
+       "answer": 0,
+       "why": "Today was Sheen — ش. Review the card above and it will settle, in shaa Allah."
+      },
+      {
+       "type": "teach",
+       "text": "Well walked. One letter a day, and the alphabet becomes a garden you planted yourself. See you at the next lesson — Wasia is proud of you."
+      }
+     ]
+    },
+    {
+     "id": "letters-14",
+     "title": "Lesson 14: Sad — ص",
+     "arabic": "ص",
+     "steps": [
+      {
+       "type": "teach",
+       "text": "Assalamu alaikum, my student. Today we meet a new friend of the alphabet: Sad (ص). A heavy 's' from the chest. Take your time — every letter of the Qur'an is a door, and doors open slowly and surely."
+      },
+      {
+       "type": "card",
+       "arabic": "ص",
+       "translit": "Sad",
+       "note": "You will see ص in words like صَدَقَة."
+      },
+      {
+       "type": "teach",
+       "text": "Look at the shape until your eyes know it. Say its name three times, slowly. The Prophet ﷺ loved that the Qur'an be learned gently — he was sent, he said, as a teacher made easy with his people."
+      },
+      {
+       "type": "quiz",
+       "question": "Which letter did we meet today?",
+       "options": [
+        "ص",
+        "ط",
+        "ن"
+       ],
+       "answer": 0,
+       "why": "Today was Sad — ص. Review the card above and it will settle, in shaa Allah."
+      },
+      {
+       "type": "teach",
+       "text": "Well walked. One letter a day, and the alphabet becomes a garden you planted yourself. See you at the next lesson — Wasia is proud of you."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u3",
+   "title": "Unit 3 · The Deep Letters",
+   "exam": "u3-exam",
+   "lessons": [
+    {
+     "id": "letters-15",
+     "title": "Lesson 15: Dad — ض",
+     "arabic": "ض",
+     "steps": [
+      {
+       "type": "teach",
+       "text": "Assalamu alaikum, my student. Today we meet a new friend of the alphabet: Dad (ض). The famous deep Arabic sound. Take your time — every letter of the Qur'an is a door, and doors open slowly and surely."
+      },
+      {
+       "type": "card",
+       "arabic": "ض",
+       "translit": "Dad",
+       "note": "You will see ض in words like ضَيْف."
+      },
+      {
+       "type": "teach",
+       "text": "Look at the shape until your eyes know it. Say its name three times, slowly. The Prophet ﷺ loved that the Qur'an be learned gently — he was sent, he said, as a teacher made easy with his people."
+      },
+      {
+       "type": "quiz",
+       "question": "Which letter did we meet today?",
+       "options": [
+        "ض",
+        "ظ",
+        "ه"
+       ],
+       "answer": 0,
+       "why": "Today was Dad — ض. Review the card above and it will settle, in shaa Allah."
+      },
+      {
+       "type": "teach",
+       "text": "Well walked. One letter a day, and the alphabet becomes a garden you planted yourself. See you at the next lesson — Wasia is proud of you."
+      }
+     ]
+    },
+    {
+     "id": "letters-16",
+     "title": "Lesson 16: Ta (deep) — ط",
+     "arabic": "ط",
+     "steps": [
+      {
+       "type": "teach",
+       "text": "Assalamu alaikum, my student. Today we meet a new friend of the alphabet: Ta (deep) (ط). A strong 't' with depth. Take your time — every letter of the Qur'an is a door, and doors open slowly and surely."
+      },
+      {
+       "type": "card",
+       "arabic": "ط",
+       "translit": "Ta (deep)",
+       "note": "You will see ط in words like طَهْ."
+      },
+      {
+       "type": "teach",
+       "text": "Look at the shape until your eyes know it. Say its name three times, slowly. The Prophet ﷺ loved that the Qur'an be learned gently — he was sent, he said, as a teacher made easy with his people."
+      },
+      {
+       "type": "quiz",
+       "question": "Which letter did we meet today?",
+       "options": [
+        "ط",
+        "ع",
+        "و"
+       ],
+       "answer": 0,
+       "why": "Today was Ta (deep) — ط. Review the card above and it will settle, in shaa Allah."
+      },
+      {
+       "type": "teach",
+       "text": "Well walked. One letter a day, and the alphabet becomes a garden you planted yourself. See you at the next lesson — Wasia is proud of you."
+      }
+     ]
+    },
+    {
+     "id": "letters-17",
+     "title": "Lesson 17: Za — ظ",
+     "arabic": "ظ",
+     "steps": [
+      {
+       "type": "teach",
+       "text": "Assalamu alaikum, my student. Today we meet a new friend of the alphabet: Za (ظ). Like 'th' in 'this' but heavier. Take your time — every letter of the Qur'an is a door, and doors open slowly and surely."
+      },
+      {
+       "type": "card",
+       "arabic": "ظ",
+       "translit": "Za",
+       "note": "You will see ظ in words like ظِلّ."
+      },
+      {
+       "type": "teach",
+       "text": "Look at the shape until your eyes know it. Say its name three times, slowly. The Prophet ﷺ loved that the Qur'an be learned gently — he was sent, he said, as a teacher made easy with his people."
+      },
+      {
+       "type": "quiz",
+       "question": "Which letter did we meet today?",
+       "options": [
+        "ظ",
+        "غ",
+        "ي"
+       ],
+       "answer": 0,
+       "why": "Today was Za — ظ. Review the card above and it will settle, in shaa Allah."
+      },
+      {
+       "type": "teach",
+       "text": "Well walked. One letter a day, and the alphabet becomes a garden you planted yourself. See you at the next lesson — Wasia is proud of you."
+      }
+     ]
+    },
+    {
+     "id": "letters-18",
+     "title": "Lesson 18: Ayn — ع",
+     "arabic": "ع",
+     "steps": [
+      {
+       "type": "teach",
+       "text": "Assalamu alaikum, my student. Today we meet a new friend of the alphabet: Ayn (ع). From deep in the throat — practice slowly. Take your time — every letter of the Qur'an is a door, and doors open slowly and surely."
+      },
+      {
+       "type": "card",
+       "arabic": "ع",
+       "translit": "Ayn",
+       "note": "You will see ع in words like عِلْم."
+      },
+      {
+       "type": "teach",
+       "text": "Look at the shape until your eyes know it. Say its name three times, slowly. The Prophet ﷺ loved that the Qur'an be learned gently — he was sent, he said, as a teacher made easy with his people."
+      },
+      {
+       "type": "quiz",
+       "question": "Which letter did we meet today?",
+       "options": [
+        "ع",
+        "ف",
+        "ا"
+       ],
+       "answer": 0,
+       "why": "Today was Ayn — ع. Review the card above and it will settle, in shaa Allah."
+      },
+      {
+       "type": "teach",
+       "text": "Well walked. One letter a day, and the alphabet becomes a garden you planted yourself. See you at the next lesson — Wasia is proud of you."
+      }
+     ]
+    },
+    {
+     "id": "letters-19",
+     "title": "Lesson 19: Ghayn — غ",
+     "arabic": "غ",
+     "steps": [
+      {
+       "type": "teach",
+       "text": "Assalamu alaikum, my student. Today we meet a new friend of the alphabet: Ghayn (غ). A soft gargle, like a French 'r'. Take your time — every letter of the Qur'an is a door, and doors open slowly and surely."
+      },
+      {
+       "type": "card",
+       "arabic": "غ",
+       "translit": "Ghayn",
+       "note": "You will see غ in words like غَفُور."
+      },
+      {
+       "type": "teach",
+       "text": "Look at the shape until your eyes know it. Say its name three times, slowly. The Prophet ﷺ loved that the Qur'an be learned gently — he was sent, he said, as a teacher made easy with his people."
+      },
+      {
+       "type": "quiz",
+       "question": "Which letter did we meet today?",
+       "options": [
+        "غ",
+        "ق",
+        "ب"
+       ],
+       "answer": 0,
+       "why": "Today was Ghayn — غ. Review the card above and it will settle, in shaa Allah."
+      },
+      {
+       "type": "teach",
+       "text": "Well walked. One letter a day, and the alphabet becomes a garden you planted yourself. See you at the next lesson — Wasia is proud of you."
+      }
+     ]
+    },
+    {
+     "id": "letters-20",
+     "title": "Lesson 20: Fa — ف",
+     "arabic": "ف",
+     "steps": [
+      {
+       "type": "teach",
+       "text": "Assalamu alaikum, my student. Today we meet a new friend of the alphabet: Fa (ف). A light 'f'. Take your time — every letter of the Qur'an is a door, and doors open slowly and surely."
+      },
+      {
+       "type": "card",
+       "arabic": "ف",
+       "translit": "Fa",
+       "note": "You will see ف in words like فَجْر."
+      },
+      {
+       "type": "teach",
+       "text": "Look at the shape until your eyes know it. Say its name three times, slowly. The Prophet ﷺ loved that the Qur'an be learned gently — he was sent, he said, as a teacher made easy with his people."
+      },
+      {
+       "type": "quiz",
+       "question": "Which letter did we meet today?",
+       "options": [
+        "ف",
+        "ك",
+        "ت"
+       ],
+       "answer": 0,
+       "why": "Today was Fa — ف. Review the card above and it will settle, in shaa Allah."
+      },
+      {
+       "type": "teach",
+       "text": "Well walked. One letter a day, and the alphabet becomes a garden you planted yourself. See you at the next lesson — Wasia is proud of you."
+      }
+     ]
+    },
+    {
+     "id": "letters-21",
+     "title": "Lesson 21: Qaf — ق",
+     "arabic": "ق",
+     "steps": [
+      {
+       "type": "teach",
+       "text": "Assalamu alaikum, my student. Today we meet a new friend of the alphabet: Qaf (ق). From the back of the tongue. Take your time — every letter of the Qur'an is a door, and doors open slowly and surely."
+      },
+      {
+       "type": "card",
+       "arabic": "ق",
+       "translit": "Qaf",
+       "note": "You will see ق in words like قَلْب."
+      },
+      {
+       "type": "teach",
+       "text": "Look at the shape until your eyes know it. Say its name three times, slowly. The Prophet ﷺ loved that the Qur'an be learned gently — he was sent, he said, as a teacher made easy with his people."
+      },
+      {
+       "type": "quiz",
+       "question": "Which letter did we meet today?",
+       "options": [
+        "ق",
+        "ل",
+        "ث"
+       ],
+       "answer": 0,
+       "why": "Today was Qaf — ق. Review the card above and it will settle, in shaa Allah."
+      },
+      {
+       "type": "teach",
+       "text": "Well walked. One letter a day, and the alphabet becomes a garden you planted yourself. See you at the next lesson — Wasia is proud of you."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u4",
+   "title": "Unit 4 · The Final Letters",
+   "exam": "u4-exam",
+   "lessons": [
+    {
+     "id": "letters-22",
+     "title": "Lesson 22: Kaf — ك",
+     "arabic": "ك",
+     "steps": [
+      {
+       "type": "teach",
+       "text": "Assalamu alaikum, my student. Today we meet a new friend of the alphabet: Kaf (ك). A clean 'k'. Take your time — every letter of the Qur'an is a door, and doors open slowly and surely."
+      },
+      {
+       "type": "card",
+       "arabic": "ك",
+       "translit": "Kaf",
+       "note": "You will see ك in words like كِتَاب."
+      },
+      {
+       "type": "teach",
+       "text": "Look at the shape until your eyes know it. Say its name three times, slowly. The Prophet ﷺ loved that the Qur'an be learned gently — he was sent, he said, as a teacher made easy with his people."
+      },
+      {
+       "type": "quiz",
+       "question": "Which letter did we meet today?",
+       "options": [
+        "ك",
+        "م",
+        "ج"
+       ],
+       "answer": 0,
+       "why": "Today was Kaf — ك. Review the card above and it will settle, in shaa Allah."
+      },
+      {
+       "type": "teach",
+       "text": "Well walked. One letter a day, and the alphabet becomes a garden you planted yourself. See you at the next lesson — Wasia is proud of you."
+      }
+     ]
+    },
+    {
+     "id": "letters-23",
+     "title": "Lesson 23: Lam — ل",
+     "arabic": "ل",
+     "steps": [
+      {
+       "type": "teach",
+       "text": "Assalamu alaikum, my student. Today we meet a new friend of the alphabet: Lam (ل). A flowing 'l'. Take your time — every letter of the Qur'an is a door, and doors open slowly and surely."
+      },
+      {
+       "type": "card",
+       "arabic": "ل",
+       "translit": "Lam",
+       "note": "You will see ل in words like لَيْل."
+      },
+      {
+       "type": "teach",
+       "text": "Look at the shape until your eyes know it. Say its name three times, slowly. The Prophet ﷺ loved that the Qur'an be learned gently — he was sent, he said, as a teacher made easy with his people."
+      },
+      {
+       "type": "quiz",
+       "question": "Which letter did we meet today?",
+       "options": [
+        "ل",
+        "ن",
+        "ح"
+       ],
+       "answer": 0,
+       "why": "Today was Lam — ل. Review the card above and it will settle, in shaa Allah."
+      },
+      {
+       "type": "teach",
+       "text": "Well walked. One letter a day, and the alphabet becomes a garden you planted yourself. See you at the next lesson — Wasia is proud of you."
+      }
+     ]
+    },
+    {
+     "id": "letters-24",
+     "title": "Lesson 24: Meem — م",
+     "arabic": "م",
+     "steps": [
+      {
+       "type": "teach",
+       "text": "Assalamu alaikum, my student. Today we meet a new friend of the alphabet: Meem (م). A warm 'm'. Take your time — every letter of the Qur'an is a door, and doors open slowly and surely."
+      },
+      {
+       "type": "card",
+       "arabic": "م",
+       "translit": "Meem",
+       "note": "You will see م in words like مَاء."
+      },
+      {
+       "type": "teach",
+       "text": "Look at the shape until your eyes know it. Say its name three times, slowly. The Prophet ﷺ loved that the Qur'an be learned gently — he was sent, he said, as a teacher made easy with his people."
+      },
+      {
+       "type": "quiz",
+       "question": "Which letter did we meet today?",
+       "options": [
+        "م",
+        "ه",
+        "خ"
+       ],
+       "answer": 0,
+       "why": "Today was Meem — م. Review the card above and it will settle, in shaa Allah."
+      },
+      {
+       "type": "teach",
+       "text": "Well walked. One letter a day, and the alphabet becomes a garden you planted yourself. See you at the next lesson — Wasia is proud of you."
+      }
+     ]
+    },
+    {
+     "id": "letters-25",
+     "title": "Lesson 25: Noon — ن",
+     "arabic": "ن",
+     "steps": [
+      {
+       "type": "teach",
+       "text": "Assalamu alaikum, my student. Today we meet a new friend of the alphabet: Noon (ن). A clear 'n'. Take your time — every letter of the Qur'an is a door, and doors open slowly and surely."
+      },
+      {
+       "type": "card",
+       "arabic": "ن",
+       "translit": "Noon",
+       "note": "You will see ن in words like نُور."
+      },
+      {
+       "type": "teach",
+       "text": "Look at the shape until your eyes know it. Say its name three times, slowly. The Prophet ﷺ loved that the Qur'an be learned gently — he was sent, he said, as a teacher made easy with his people."
+      },
+      {
+       "type": "quiz",
+       "question": "Which letter did we meet today?",
+       "options": [
+        "ن",
+        "و",
+        "د"
+       ],
+       "answer": 0,
+       "why": "Today was Noon — ن. Review the card above and it will settle, in shaa Allah."
+      },
+      {
+       "type": "teach",
+       "text": "Well walked. One letter a day, and the alphabet becomes a garden you planted yourself. See you at the next lesson — Wasia is proud of you."
+      }
+     ]
+    },
+    {
+     "id": "letters-26",
+     "title": "Lesson 26: Ha — ه",
+     "arabic": "ه",
+     "steps": [
+      {
+       "type": "teach",
+       "text": "Assalamu alaikum, my student. Today we meet a new friend of the alphabet: Ha (ه). A light, easy 'h'. Take your time — every letter of the Qur'an is a door, and doors open slowly and surely."
+      },
+      {
+       "type": "card",
+       "arabic": "ه",
+       "translit": "Ha",
+       "note": "You will see ه in words like هُدى."
+      },
+      {
+       "type": "teach",
+       "text": "Look at the shape until your eyes know it. Say its name three times, slowly. The Prophet ﷺ loved that the Qur'an be learned gently — he was sent, he said, as a teacher made easy with his people."
+      },
+      {
+       "type": "quiz",
+       "question": "Which letter did we meet today?",
+       "options": [
+        "ه",
+        "ي",
+        "ذ"
+       ],
+       "answer": 0,
+       "why": "Today was Ha — ه. Review the card above and it will settle, in shaa Allah."
+      },
+      {
+       "type": "teach",
+       "text": "Well walked. One letter a day, and the alphabet becomes a garden you planted yourself. See you at the next lesson — Wasia is proud of you."
+      }
+     ]
+    },
+    {
+     "id": "letters-27",
+     "title": "Lesson 27: Waw — و",
+     "arabic": "و",
+     "steps": [
+      {
+       "type": "teach",
+       "text": "Assalamu alaikum, my student. Today we meet a new friend of the alphabet: Waw (و). A rounded 'w'. Take your time — every letter of the Qur'an is a door, and doors open slowly and surely."
+      },
+      {
+       "type": "card",
+       "arabic": "و",
+       "translit": "Waw",
+       "note": "You will see و in words like وَحْي."
+      },
+      {
+       "type": "teach",
+       "text": "Look at the shape until your eyes know it. Say its name three times, slowly. The Prophet ﷺ loved that the Qur'an be learned gently — he was sent, he said, as a teacher made easy with his people."
+      },
+      {
+       "type": "quiz",
+       "question": "Which letter did we meet today?",
+       "options": [
+        "و",
+        "ا",
+        "ر"
+       ],
+       "answer": 0,
+       "why": "Today was Waw — و. Review the card above and it will settle, in shaa Allah."
+      },
+      {
+       "type": "teach",
+       "text": "Well walked. One letter a day, and the alphabet becomes a garden you planted yourself. See you at the next lesson — Wasia is proud of you."
+      }
+     ]
+    },
+    {
+     "id": "letters-28",
+     "title": "Lesson 28: Ya — ي",
+     "arabic": "ي",
+     "steps": [
+      {
+       "type": "teach",
+       "text": "Assalamu alaikum, my student. Today we meet a new friend of the alphabet: Ya (ي). A soft 'y'. Take your time — every letter of the Qur'an is a door, and doors open slowly and surely."
+      },
+      {
+       "type": "card",
+       "arabic": "ي",
+       "translit": "Ya",
+       "note": "You will see ي in words like يَوْم."
+      },
+      {
+       "type": "teach",
+       "text": "Look at the shape until your eyes know it. Say its name three times, slowly. The Prophet ﷺ loved that the Qur'an be learned gently — he was sent, he said, as a teacher made easy with his people."
+      },
+      {
+       "type": "quiz",
+       "question": "Which letter did we meet today?",
+       "options": [
+        "ي",
+        "ب",
+        "ز"
+       ],
+       "answer": 0,
+       "why": "Today was Ya — ي. Review the card above and it will settle, in shaa Allah."
+      },
+      {
+       "type": "teach",
+       "text": "Well walked. One letter a day, and the alphabet becomes a garden you planted yourself. See you at the next lesson — Wasia is proud of you."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "source": "Classical Qaida sequence; example words from the Qur'an; pedagogy per the Academy & Life design"
+}
