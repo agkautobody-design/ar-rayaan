@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
@@ -140,19 +141,88 @@ class _AcademyHomeScreenState
                 ),
               const SizedBox(height: 16),
 
-              // School grid (2×2) --------------------------------------------
-              GridView.count(
-                crossAxisCount: 2,
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                mainAxisSpacing: 12,
-                crossAxisSpacing: 12,
-                childAspectRatio: 1.15,
-                children: <Widget>[
-                  for (final AcademyCourse school in schools)
-                    _SchoolCard(course: school),
-                ],
+              // The knowledge banner ------------------------------------------
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 14),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(14),
+                  border: Border.all(color: AppColors.gold.withValues(alpha: 0.3)),
+                ),
+                child: Column(
+                  children: <Widget>[
+                    Text(
+                      '\u0642\u064f\u0644\fa \u0647\u064e\u0644\fa \u064a\u064e\u0633\u0652\u062a\u064e\u0648\u0650\u064a \u0627\u0644\u0651\u064e\u0630\u0650\u064a\u0646\u064e \u064a\u064e\u0639\u0652\u0644\u064e\u0645\u064f\u0648\u0646\u064e \u0648\u064e\u0627\u0644\u0651\u064e\u0630\u0650\u064a\u0646\u064e \u0644\u0627 \u064a\u064e\u0639\u0652\u0644\u064e\u0645\u064f\u0648\u0646\u064e',
+                      textAlign: TextAlign.center,
+                      textDirection: TextDirection.rtl,
+                      style: const TextStyle(
+                        fontFamily: 'Amiri',
+                        fontSize: 19,
+                        height: 1.9,
+                        color: Color(0xFFEAD9A8),
+                      ),
+                    ),
+                    const SizedBox(height: 6),
+                    Text(
+                      '\u201cAre those who know equal to those who do not '
+                      'know?\u201d \u2014 Qur\u2019an 39:9',
+                      textAlign: TextAlign.center,
+                      style: AppText.bodyMuted.copyWith(fontSize: 11.5),
+                    ),
+                  ],
+                ),
               ),
+              const SizedBox(height: 18),
+
+              // The schools -----------------------------------------------------
+              Text(AcademyStrings.get('academy.schoolsEyebrow'), style: AppText.eyebrow),
+              const SizedBox(height: 10),
+              _SchoolRow(
+                icon: Icons.edit_outlined,
+                arabic: '\u0627\u0644\u062d\u064f\u0631\u064f\u0648\u0641',
+                title: AcademyStrings.get('school.letters.title'),
+                subtitle: AcademyStrings.get('school.letters.body'),
+                route: '/academy/letters',
+                live: true,
+              ),
+              _SchoolRow(
+                icon: Icons.graphic_eq,
+                arabic: '\u0627\u0644\u062a\u0651\u064e\u0644\u064e\u0627\u0648\u064e\u0629',
+                title: AcademyStrings.get('school.recitation.title'),
+                subtitle: AcademyStrings.get('school.recitation.body'),
+                route: '/academy/recitation',
+                live: true,
+              ),
+              _SchoolRow(
+                icon: Icons.menu_book_outlined,
+                arabic: '\u0627\u0644\u0639\u064e\u0631\u064e\u0628\u0650\u064a\u064e\u0629 \u0627\u0644\u0642\u064f\u0631\u0670\u0646\u0650\u064a\u064e\u0629',
+                title: AcademyStrings.get('school.quranicArabic.title'),
+                subtitle: AcademyStrings.get('school.quranicArabic.body'),
+                route: '/academy/quranic-arabic',
+                live: true,
+              ),
+              _SchoolRow(
+                icon: Icons.lightbulb_outline,
+                arabic: '\u0627\u0644\u0641\u0650\u0642\u0647 \u0648\u064e\u0627\u0644\u0645\u064e\u0639\u0652\u0631\u0650\u0641\u064e\u0629',
+                title: AcademyStrings.get('school.understanding.title'),
+                subtitle: AcademyStrings.get('school.understanding.body'),
+                route: '/academy/understanding',
+                live: false,
+              ),
+              const SizedBox(height: 18),
+
+              // The school's library --------------------------------------------
+              Text('THE SCHOOL\u2019S LIBRARY', style: AppText.eyebrow),
+              const SizedBox(height: 10),
+              _LibraryRow(icon: Icons.auto_stories_outlined, title: 'Stories of the Prophets, the Women, the Seerah', route: AppRoutes.stories),
+              _LibraryRow(icon: Icons.bookmark_border, title: 'Daily Duas \u00b7 with Arabic', route: AppRoutes.stories),
+              _LibraryRow(icon: Icons.wb_twilight, title: 'Hadiths for Our Times', route: AppRoutes.stories),
+              _LibraryRow(icon: Icons.mic_none, title: 'Khutbahs for the classics and today', route: AppRoutes.stories),
+              _LibraryRow(icon: Icons.nightlight_round, title: 'Al-Ghayb \u00b7 the Unseen', route: AppRoutes.stories),
+              _LibraryRow(icon: Icons.menu_book_outlined, title: 'Huda \u00b7 worship guides', route: AppRoutes.huda),
+              _LibraryRow(icon: Icons.account_tree_outlined, title: 'The Messengers\u2019 Tree \u00b7 lineage', route: AppRoutes.familyTree),
+              _LibraryRow(icon: Icons.spa_outlined, title: 'The 99 Names \u00b7 memory deck', route: AppRoutes.names99),
+              _LibraryRow(icon: Icons.favorite_border, title: 'For Your Heart \u00b7 guided by feeling', route: AppRoutes.feelings),
               const SizedBox(height: 16),
 
               // Today strip ----------------------------------------------------
@@ -282,6 +352,123 @@ class _TodayStat extends StatelessWidget {
         const SizedBox(height: 2),
         Text(label, style: AppText.bodyMuted, textAlign: TextAlign.center),
       ],
+    );
+  }
+}
+
+class _SchoolRow extends StatelessWidget {
+  const _SchoolRow({
+    required this.icon,
+    required this.arabic,
+    required this.title,
+    required this.subtitle,
+    required this.route,
+    required this.live,
+  });
+
+  final IconData icon;
+  final String arabic;
+  final String title;
+  final String subtitle;
+  final String route;
+  final bool live;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10),
+      child: GlassCard(
+        onTap: () => context.go(route),
+        child: Row(
+          children: <Widget>[
+            Container(
+              width: 42,
+              height: 42,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: AppColors.gold.withValues(alpha: 0.35),
+                ),
+              ),
+              child: Icon(icon, size: 19, color: AppColors.goldLight),
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    arabic,
+                    style: const TextStyle(
+                      fontFamily: 'Amiri',
+                      fontSize: 17,
+                      color: Color(0xFFEAD9A8),
+                    ),
+                  ),
+                  const SizedBox(height: 1),
+                  Text(title, style: AppText.body.copyWith(fontWeight: FontWeight.w600)),
+                  const SizedBox(height: 1),
+                  Text(
+                    subtitle,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: AppText.bodyMuted.copyWith(fontSize: 11),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(width: 8),
+            if (live)
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(color: AppColors.gold.withValues(alpha: 0.45)),
+                ),
+                child: Text('LIVE',
+                    style: TextStyle(fontSize: 8.5, color: AppColors.goldLight)),
+              )
+            else
+              Text('SOON',
+                  style: TextStyle(
+                      fontSize: 8.5,
+                      color: AppColors.sand.withValues(alpha: 0.6))),
+            const Icon(Icons.chevron_right, color: AppColors.gold, size: 18),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _LibraryRow extends StatelessWidget {
+  const _LibraryRow({
+    required this.icon,
+    required this.title,
+    required this.route,
+  });
+
+  final IconData icon;
+  final String title;
+  final String route;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: GlassCard(
+        onTap: () => context.go(route),
+        child: Row(
+          children: <Widget>[
+            Icon(icon, size: 17, color: AppColors.goldLight),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Text(title, style: AppText.body.copyWith(fontSize: 13)),
+            ),
+            const Icon(Icons.chevron_right, color: AppColors.gold, size: 16),
+          ],
+        ),
+      ),
     );
   }
 }

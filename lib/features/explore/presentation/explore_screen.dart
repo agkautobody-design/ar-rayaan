@@ -32,7 +32,7 @@ class ExploreScreen extends ConsumerWidget {
         (Icons.calendar_month_outlined, 'Islamic Calendar', AppRoutes.calendar),
         (Icons.explore_outlined, 'Qibla Finder', AppRoutes.qibla),
         (Icons.calculate_outlined, 'Zakat Calculator', AppRoutes.zakat),
-        (Icons.school_outlined, 'Islamic Courses', AppRoutes.academy),
+        (Icons.school_outlined, 'The Academy', AppRoutes.academyGate),
       ],
     ),
     (
@@ -99,8 +99,8 @@ class ExploreScreen extends ConsumerWidget {
                       child: Column(
                         children: [
                           for (int i = 0; i < items.length; i++) ...[
-                            if (showAcademy || items[i].$3 != AppRoutes.academy)
-                            if (i > 0 && (showAcademy || items[i].$3 != AppRoutes.academy))
+                            if (showAcademy || items[i].$3 != AppRoutes.academyGate)
+                            if (i > 0 && (showAcademy || items[i].$3 != AppRoutes.academyGate))
                               Divider(
                                 height: 1,
                                 color: AppColors.gold.withValues(alpha: 0.1),

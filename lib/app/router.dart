@@ -46,6 +46,7 @@ import '../features/games/presentation/games_screens.dart';
 import '../features/feelings/presentation/feelings_screens.dart';
 import '../features/notes/presentation/tools_screens.dart';
 import '../features/majlis/presentation/majlis_screens.dart';
+import '../features/academy/presentation/academy_gate_screen.dart';
 import '../features/stories/presentation/story_reader_screen.dart';
 import '../features/stories/domain/story.dart';
 import '../features/zakat/presentation/zakat_screen.dart';
@@ -64,6 +65,7 @@ abstract final class AppRoutes {
   static const String journey = '/journey';
   static const String community = '/community';
   static const String academy = '/academy';
+  static const String academyGate = '/academy/gate';
   static const String myAdditions = '/player/my-additions';
   static const String requestNasheed = '/player/request';
   static String academyLesson(String c, String u, String l) =>
@@ -129,6 +131,10 @@ GoRouter buildRouter() {
     routes: [
       // Onboarding flow (no bottom nav)
       GoRoute(
+          path: AppRoutes.academyGate,
+          pageBuilder: (context, state) => _fade(const AcademyGateScreen()),
+        ),
+        GoRoute(
           path: AppRoutes.majlis,
           pageBuilder: (context, state) => _fade(const MajlisScreen()),
         ),
