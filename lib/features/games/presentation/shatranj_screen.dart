@@ -6,6 +6,8 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import 'chess_pieces.dart';
+import '../data/game_rooms_service.dart';
+import 'online_lobby.dart';
 
 /// SHATRANJ — the crown jewel. A complete chess engine (legal moves, king
 /// safety, alpha-beta search) beneath an immersive golden board.
@@ -31,6 +33,11 @@ class _ShatranjState extends State<ShatranjScreen> {
   final _rnd = Random();
   bool aiThinking = false;
   String hadiLine = '';
+  final _rooms = GameRoomsService();
+  String? roomCode;
+  String mySide = 'host';
+  int appliedMoves = 0;
+  Stream<dynamic>? _roomStream;
 
   static const _hadiLines = [
     'Hadi studies the board the way he studies a hadith — patiently.',
@@ -320,6 +327,7 @@ class _ShatranjState extends State<ShatranjScreen> {
     if (mode == 0 || aiThinking) return;
     if (status.startsWith('Checkmate') || status.startsWith('Stalemate')) return;
     if (mode == 1 && !whiteToMove) return;
+    if (mode == 3 && !_isMyTurnOnline) return;
     final white = _isWhite(b[i]);
     if (sel == null) {
       if (b[i].isNotEmpty && white == whiteToMove) {
@@ -339,12 +347,64 @@ class _ShatranjState extends State<ShatranjScreen> {
     }
     final ok = legalSel.any((m) => m[1] == i);
     if (!ok) return;
-    _commit(sel!, i);
+    final from = sel!;
+    _commit(from, i);
     setState(() {});
+    if (mode == 3) {
+      _rooms.sendMove(roomCode!, {
+        't': 'm', 'from': _sq(from), 'to': _sq(i),
+      });
+      if (status.startsWith('Checkmate')) {
+        _rooms.finish(roomCode!, mySide == 'host' ? 'White wins' : 'Black wins');
+      } else if (status.startsWith('Stalemate')) {
+        _rooms.finish(roomCode!, 'Draw');
+      }
+      return;
+    }
     if (mode == 1 && !status.startsWith('Checkmate') && !status.startsWith('Stalemate')) {
       _aiMove();
     }
   }
+
+  int _sqToIdx(String sq) =>
+      (8 - int.parse(sq[1])) * 8 + 'abcdefgh'.indexOf(sq[0]);
+
+  Future<void> _onlineSetup() async {
+    final r = await OnlineLobby.show(context, 'shatranj', _rooms);
+    if (r == null || !mounted) return;
+    setState(() {
+      mode = 3;
+      roomCode = r['code'];
+      mySide = r['side']!;
+      _reset();
+      appliedMoves = 0;
+      status = mySide == 'host'
+          ? 'Table \${roomCode} — waiting for your opponent to join\u2026'
+          : 'Joined table \${roomCode} — you are Black';
+    });
+    _roomStream = _rooms.watch(roomCode!);
+    _roomStream!.listen((snap) {
+      final data = (snap as dynamic).data() as Map<String, dynamic>?;
+      if (data == null || !mounted) return;
+      final moves = (data['moves'] as List<dynamic>? ?? []);
+      final guest = data['guest'] as Map<String, dynamic>?;
+      if (mySide == 'host' && guest != null &&
+          status.startsWith('Table') && data['status'] == 'playing') {
+        setState(() => status = 'White to move');
+      }
+      while (appliedMoves < moves.length) {
+        final m = Map<String, dynamic>.from(moves[appliedMoves] as Map);
+        appliedMoves++;
+        if (m['t'] == 'm') {
+          _commit(_sqToIdx(m['from'] as String), _sqToIdx(m['to'] as String));
+        }
+      }
+      if (mounted) setState(() {});
+    });
+  }
+
+  bool get _isMyTurnOnline =>
+      mode != 3 || (mySide == 'host') == whiteToMove;
 
   @override
   Widget build(BuildContext context) {
@@ -364,6 +424,9 @@ class _ShatranjState extends State<ShatranjScreen> {
               _modeButton('Two players', 'One board, two minds, pass and play',
                   Icons.people_outline, () => setState(() { mode = 2; _reset(); })),
               const SizedBox(height: 10),
+              _modeButton('Play a friend online', 'Create a table, share the code — across the street or the ocean',
+                  Icons.wifi, _onlineSetup),
+              const SizedBox(height: 10),
               GlassCard(child: Text(
                 'Online rooms — play a friend across the city or the ocean — arrive with the family cloud, in shaa Allah. Castling and en passant follow in v2.',
                 style: AppText.bodyMuted.copyWith(height: 1.5))),
@@ -381,7 +444,10 @@ class _ShatranjState extends State<ShatranjScreen> {
                   const SizedBox(width: 14, height: 14,
                       child: CircularProgressIndicator(strokeWidth: 2, color: AppColors.gold)),
                 TextButton(
-                  onPressed: () => setState(() { mode = 0; _reset(); }),
+                  onPressed: () {
+                    if (mode == 3 && roomCode != null) _rooms.leave(roomCode!);
+                    setState(() { mode = 0; roomCode = null; _reset(); });
+                  },
                   child: const Text('Leave', style: TextStyle(color: AppColors.goldLight, fontSize: 12)),
                 ),
                 TextButton(

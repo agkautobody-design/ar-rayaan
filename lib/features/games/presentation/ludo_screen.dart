@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../data/game_rooms_service.dart';
+import 'online_lobby.dart';
 
 /// LUDO — the second crown. The classic 52-cell track, four safe stars per
 /// lap, captures, and the exact roll to reach the heart of the board.
@@ -63,6 +65,12 @@ class _LudoState extends State<LudoScreen> {
   int? selToken;
   String hadiLine = '';
   bool gameOver = false;
+  final _rooms = GameRoomsService();
+  String? roomCode;
+  String mySide = 'host';
+  int myIdx = 0;
+  int appliedMoves = 0;
+  Stream<dynamic>? _roomStream;
 
   static const _hadiLudo = [
     'Hadi: The dice belong to Allah — the moves belong to you.',
@@ -163,6 +171,7 @@ class _LudoState extends State<LudoScreen> {
 
   void _roll() {
     if (gameOver || rolled) return;
+    if (mode == 3 && turn != myIdx) return;
     setState(() {
       dice = 1 + _rnd.nextInt(6);
       rolled = true;
@@ -181,12 +190,23 @@ class _LudoState extends State<LudoScreen> {
 
   void _move(int t) {
     if (!rolled || gameOver) return;
+    if (mode == 3 && turn != myIdx) return;
     if (!_validMoves(turn, dice).contains(t)) return;
+    final d = dice;
+    final mover = turn;
     setState(() {
-      _apply(turn, t, dice);
+      _apply(turn, t, d);
       if (!gameOver) {
-        final extra = dice == 6;
+        final extra = d == 6;
         _nextTurn(extra: extra);
+        if (mode == 3 && roomCode != null) {
+          _rooms.sendMove(roomCode!, {
+            'by': mySide, 'd': d, 't': t, 'turn': mover, 'next': turn,
+          });
+          if (gameOver) {
+            _rooms.finish(roomCode!, '${names[mover]} wins');
+          }
+        }
       }
     });
   }
@@ -248,6 +268,53 @@ class _LudoState extends State<LudoScreen> {
     rolled = true;
   }
 
+  Future<void> _onlineSetup() async {
+    final r = await OnlineLobby.show(context, 'ludo', _rooms);
+    if (r == null || !mounted) return;
+    setState(() {
+      mode = 3;
+      roomCode = r['code'];
+      mySide = r['side']!;
+      myIdx = mySide == 'host' ? 0 : 1;
+      _reset();
+      appliedMoves = 0;
+      turn = 0;
+      status = mySide == 'host'
+          ? 'Table \${roomCode} — waiting for your opponent\u2026'
+          : 'Joined \${roomCode} — you are Green';
+    });
+    _roomStream = _rooms.watch(roomCode!);
+    _roomStream!.listen((snap) {
+      final data = (snap as dynamic).data() as Map<String, dynamic>?;
+      if (data == null || !mounted) return;
+      final moves = (data['moves'] as List<dynamic>? ?? []);
+      final guest = data['guest'] as Map<String, dynamic>?;
+      if (mySide == 'host' && guest != null && data['status'] == 'playing' &&
+          status.startsWith('Table')) {
+        setState(() => status = 'Red to roll');
+      }
+      while (appliedMoves < moves.length) {
+        final m = Map<String, dynamic>.from(moves[appliedMoves] as Map);
+        appliedMoves++;
+        final mover = (m['turn'] as num).toInt() == myIdx
+            ? 1 - myIdx
+            : 1 - myIdx;
+        if ((m['by'] as String) != mySide) {
+          setState(() {
+            dice = (m['d'] as num).toInt();
+            _apply(mover, (m['t'] as num).toInt(), dice);
+            if (!gameOver) {
+              turn = (m['next'] as num).toInt();
+              rolled = false;
+              dice = 0;
+              status = '${names[turn]} to roll';
+            }
+          });
+        }
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -264,6 +331,9 @@ class _LudoState extends State<LudoScreen> {
               const SizedBox(height: 10),
               _mode('Two players', 'Red and Green, passing the phone', () => setState(() { mode = 2; _reset(); })),
               const SizedBox(height: 10),
+              _mode('Play a friend online', 'Create a table, share the six-letter code',
+                  Icons.wifi, _onlineSetup),
+              const SizedBox(height: 10),
               board(),
               const SizedBox(height: 8),
               Text('Four-player tables and online rooms arrive with the family cloud.',
@@ -279,7 +349,10 @@ class _LudoState extends State<LudoScreen> {
               child: Row(children: [
                 Expanded(child: Text(status, style: AppText.body.copyWith(fontSize: 13))),
                 TextButton(
-                  onPressed: () => setState(() { mode = 0; _reset(); }),
+                  onPressed: () {
+                    if (mode == 3 && roomCode != null) _rooms.leave(roomCode!);
+                    setState(() { mode = 0; roomCode = null; _reset(); });
+                  },
                   child: const Text('Leave', style: TextStyle(color: AppColors.goldLight, fontSize: 12))),
                 TextButton(
                   onPressed: () => setState(() => _reset()),
@@ -471,6 +544,53 @@ class DiceFace extends StatelessWidget {
     1: [4], 2: [0, 8], 3: [0, 4, 8], 4: [0, 2, 6, 8],
     5: [0, 2, 4, 6, 8], 6: [0, 2, 3, 5, 6, 8],
   };
+
+  Future<void> _onlineSetup() async {
+    final r = await OnlineLobby.show(context, 'ludo', _rooms);
+    if (r == null || !mounted) return;
+    setState(() {
+      mode = 3;
+      roomCode = r['code'];
+      mySide = r['side']!;
+      myIdx = mySide == 'host' ? 0 : 1;
+      _reset();
+      appliedMoves = 0;
+      turn = 0;
+      status = mySide == 'host'
+          ? 'Table \${roomCode} — waiting for your opponent\u2026'
+          : 'Joined \${roomCode} — you are Green';
+    });
+    _roomStream = _rooms.watch(roomCode!);
+    _roomStream!.listen((snap) {
+      final data = (snap as dynamic).data() as Map<String, dynamic>?;
+      if (data == null || !mounted) return;
+      final moves = (data['moves'] as List<dynamic>? ?? []);
+      final guest = data['guest'] as Map<String, dynamic>?;
+      if (mySide == 'host' && guest != null && data['status'] == 'playing' &&
+          status.startsWith('Table')) {
+        setState(() => status = 'Red to roll');
+      }
+      while (appliedMoves < moves.length) {
+        final m = Map<String, dynamic>.from(moves[appliedMoves] as Map);
+        appliedMoves++;
+        final mover = (m['turn'] as num).toInt() == myIdx
+            ? 1 - myIdx
+            : 1 - myIdx;
+        if ((m['by'] as String) != mySide) {
+          setState(() {
+            dice = (m['d'] as num).toInt();
+            _apply(mover, (m['t'] as num).toInt(), dice);
+            if (!gameOver) {
+              turn = (m['next'] as num).toInt();
+              rolled = false;
+              dice = 0;
+              status = '${names[turn]} to roll';
+            }
+          });
+        }
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
