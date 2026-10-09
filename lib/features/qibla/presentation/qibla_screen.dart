@@ -60,7 +60,7 @@ class QiblaScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: 4),
                       Text(
-                        'from ${QiblaDirection.defaultLocationName} to the Kaaba',
+                        'clockwise from true North \u2014 ${QiblaDirection.defaultLocationName} to the Kaaba',
                         style: AppText.bodyMuted,
                       ),
                     ],
