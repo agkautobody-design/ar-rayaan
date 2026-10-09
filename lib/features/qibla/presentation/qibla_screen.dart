@@ -52,7 +52,7 @@ class QiblaScreen extends StatelessWidget {
                       Text(
                         '${bearing.round()}\u00b0 $compass',
                         style: const TextStyle(
-                          fontFamily: 'Cinzel',
+                          fontFamily: 'PlayfairDisplay',
                           fontSize: 32,
                           fontWeight: FontWeight.w600,
                           color: AppColors.goldLight,

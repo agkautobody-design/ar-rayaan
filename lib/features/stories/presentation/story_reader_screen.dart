@@ -33,7 +33,7 @@ class _StoryReaderScreenState extends State<StoryReaderScreen> {
           Text(
             story.title,
             style: const TextStyle(
-              fontFamily: 'Cinzel',
+              fontFamily: 'PlayfairDisplay',
               fontSize: 30,
               fontWeight: FontWeight.w600,
               color: AppColors.goldLight,
@@ -72,7 +72,7 @@ class _StoryReaderScreenState extends State<StoryReaderScreen> {
             Text(
               current.heading,
               style: const TextStyle(
-                fontFamily: 'Cinzel',
+                fontFamily: 'PlayfairDisplay',
                 fontSize: 20,
                 fontWeight: FontWeight.w600,
                 color: AppColors.sand,

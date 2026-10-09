@@ -227,7 +227,7 @@ class _TriviaScreenState extends ConsumerState<TriviaScreen> {
             const SizedBox(height: 8),
             Text('$_score / ${_qs.length}',
                 style: const TextStyle(
-                    fontFamily: 'Cinzel', fontSize: 44, color: AppColors.goldLight)),
+                    fontFamily: 'PlayfairDisplay', fontSize: 44, color: AppColors.goldLight)),
             const SizedBox(height: 6),
             Text(
               _score >= 8
@@ -310,7 +310,7 @@ class _Names99ScreenState extends ConsumerState<Names99Screen> {
                             key: const ValueKey('front'),
                             textAlign: TextAlign.center,
                             style: const TextStyle(
-                                fontFamily: 'Cinzel',
+                                fontFamily: 'PlayfairDisplay',
                                 fontSize: 34,
                                 color: AppColors.goldLight),
                           ),

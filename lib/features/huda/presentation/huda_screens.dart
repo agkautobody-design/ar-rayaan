@@ -121,7 +121,7 @@ class GuideScreen extends StatelessWidget {
           Text(
             guide.title,
             style: const TextStyle(
-              fontFamily: 'Cinzel',
+              fontFamily: 'PlayfairDisplay',
               fontSize: 24,
               fontWeight: FontWeight.w600,
               color: AppColors.goldLight,
