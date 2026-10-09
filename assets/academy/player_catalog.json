@@ -1,0 +1,24 @@
+{
+ "tracks": [
+  {
+   "id": "adhan-makkah",
+   "title": "Adhan al-Makkah",
+   "artist": "The Muezzin of Masjid al-Haram",
+   "language": "Arabic",
+   "theme": "call",
+   "mood": "adhan",
+   "audioUrl": "assets/audio/adhan_mecca.mp3",
+   "licenseLine": "Adhan recording bundled with Ar-Rayaan."
+  },
+  {
+   "id": "rain-ambient",
+   "title": "Rain on the Roof",
+   "artist": "Ar-Rayaan Atmosphere",
+   "language": "—",
+   "theme": "ambience",
+   "mood": "calm",
+   "audioUrl": "assets/audio/ambient.mp3",
+   "licenseLine": "Atmosphere recording bundled with Ar-Rayaan."
+  }
+ ]
+}

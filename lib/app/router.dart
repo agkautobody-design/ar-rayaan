@@ -13,6 +13,7 @@ import '../features/academy/presentation/request_nasheed_screen.dart';
 import '../features/academy/presentation/letters_school_screen.dart';
 import '../features/academy/presentation/wasia_lessons.dart';
 import '../features/academy/presentation/academy_family.dart';
+import '../features/academy/presentation/player_screen.dart';
 import '../features/academy/presentation/school_placeholder_screen.dart';
 import '../features/academy/presentation/tajweed_cards_screen.dart';
 import '../features/academy/presentation/hifz_planner_screen.dart';
@@ -133,6 +134,10 @@ GoRouter buildRouter() {
     routes: [
       // Onboarding flow (no bottom nav)
       GoRoute(
+          path: AppRoutes.player,
+          pageBuilder: (context, state) => _fade(const PlayerScreen()),
+        ),
+        GoRoute(
           path: AppRoutes.academyGate,
           pageBuilder: (context, state) => _fade(const AcademyGateScreen()),
         ),

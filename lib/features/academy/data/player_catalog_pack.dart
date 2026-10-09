@@ -9,7 +9,7 @@ import 'package:flutter/services.dart' show rootBundle;
 
 import '../domain/player.dart';
 
-const String kCatalogSha256 = '';
+const String kCatalogSha256 = '71589f1c3f1b775a4be8535fc4a28242c07750b660bc56a4d385fcde507c5ec0';
 
 abstract final class PlayerCatalogPack {
   static Future<Catalog?> load() async {
