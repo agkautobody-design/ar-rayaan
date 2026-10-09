@@ -301,8 +301,7 @@ class _LudoState extends State<LudoScreen> {
                   color: const Color(0xFF0A0F18),
                   border: Border.all(color: AppColors.gold.withValues(alpha: 0.5)),
                 ),
-                child: Text(dice == 0 ? '?' : '$dice',
-                    style: const TextStyle(fontSize: 26, color: AppColors.goldLight, fontFamily: 'PlayfairDisplay')),
+                child: DiceFace(value: dice),
               ),
               const SizedBox(width: 16),
               ElevatedButton.icon(
@@ -441,17 +440,70 @@ class _LudoState extends State<LudoScreen> {
             Wrap(alignment: WrapAlignment.center, spacing: 1, runSpacing: 1, children: [
               for (final x in tokensHere.take(4))
                 Container(
-                  width: 8, height: 8,
+                  width: 10, height: 10,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: cols[x ~/ 4],
-                    border: Border.all(color: Colors.white.withValues(alpha: 0.85), width: 0.8),
-                    boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.5), blurRadius: 1)],
+                    gradient: RadialGradient(
+                      center: const Alignment(-0.4, -0.4),
+                      colors: [Colors.white.withValues(alpha: 0.9), cols[x ~/ 4]],
+                    ),
+                    border: Border.all(
+                      color: (x ~/ 4) == turn
+                          ? AppColors.gold
+                          : Colors.white.withValues(alpha: 0.85),
+                      width: (x ~/ 4) == turn ? 1.4 : 0.8),
+                    boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.55), blurRadius: 1.5)],
                   ),
                 ),
             ]),
         ]),
       ),
+    );
+  }
+}
+
+/// The dice, painted in gold with real pips - no font tricks.
+class DiceFace extends StatelessWidget {
+  final int value;
+  const DiceFace({super.key, required this.value});
+
+  static const _pips = {
+    1: [4], 2: [0, 8], 3: [0, 4, 8], 4: [0, 2, 6, 8],
+    5: [0, 2, 4, 6, 8], 6: [0, 2, 3, 5, 6, 8],
+  };
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(9),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        gradient: const LinearGradient(
+          begin: Alignment.topLeft, end: Alignment.bottomRight,
+          colors: [Color(0xFF171310), Color(0xFF0A0F18)]),
+        border: Border.all(color: AppColors.gold.withValues(alpha: 0.6)),
+      ),
+      child: value == 0
+          ? const Center(child: Text('?',
+              style: TextStyle(color: AppColors.goldLight, fontSize: 22)))
+          : GridView.count(
+              crossAxisCount: 3,
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              children: [
+                for (var i = 0; i < 9; i++)
+                  AnimatedContainer(
+                    duration: const Duration(milliseconds: 120),
+                    margin: const EdgeInsets.all(2.5),
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: (_pips[value] ?? const []).contains(i)
+                          ? AppColors.goldLight
+                          : Colors.transparent,
+                    ),
+                  ),
+              ],
+            ),
     );
   }
 }

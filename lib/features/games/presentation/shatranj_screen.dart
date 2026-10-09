@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import 'chess_pieces.dart';
 
 /// SHATRANJ — the crown jewel. A complete chess engine (legal moves, king
 /// safety, alpha-beta search) beneath an immersive golden board.
@@ -419,8 +420,23 @@ class _ShatranjState extends State<ShatranjScreen> {
             ),
             const SizedBox(height: 10),
             if (captured.isNotEmpty)
-              Text('Taken: ${captured.map((p) => _glyph[p]).join(' ')}',
-                  style: AppText.bodyMuted.copyWith(fontSize: 12)),
+              SizedBox(
+              height: 20,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                shrinkWrap: true,
+                children: [
+                  for (final p in captured)
+                    Padding(
+                      padding: const EdgeInsets.only(right: 4),
+                      child: CustomPaint(
+                        painter: ChessPiecePainter(p),
+                        size: const Size.square(18),
+                      ),
+                    ),
+                ],
+              ),
+            ),
             if (moveLog.isNotEmpty)
               Padding(
                 padding: const EdgeInsets.only(top: 6),
@@ -505,16 +521,11 @@ class _ShatranjState extends State<ShatranjScreen> {
                         decoration: BoxDecoration(shape: BoxShape.circle,
                           color: AppColors.gold.withValues(alpha: 0.85)))
                     : const SizedBox.shrink())
-                : Text(
-                    _glyph[piece]!,
-                    style: TextStyle(
-                      fontSize: 26,
-                      height: 1,
-                      color: _isWhite(piece) ? const Color(0xFFFBF3DC) : const Color(0xFF1A1408),
-                      shadows: [
-                        Shadow(color: _isWhite(piece) ? Colors.black.withValues(alpha: 0.55) : Colors.white.withValues(alpha: 0.25),
-                            blurRadius: 2, offset: const Offset(0.5, 1)),
-                      ],
+                : Padding(
+                    padding: const EdgeInsets.all(3),
+                    child: CustomPaint(
+                      painter: ChessPiecePainter(piece),
+                      size: const Size.square(40),
                     ),
                   ),
           ),
