@@ -1,0 +1,47 @@
+{
+ "room": {
+  "id": "courtyard",
+  "name": "The Courtyard",
+  "description": "The open courtyard of Ar-Rayaan — dua requests, questions, and announcements. Be kind; everyone here is carrying something."
+ },
+ "threads": [
+  {
+   "title": "Welcome to the Courtyard — read first, in shaa Allah",
+   "authorName": "Ar-Rayaan",
+   "posts": [
+    {
+     "authorName": "Ar-Rayaan",
+     "body": "As-salamu alaikum wa rahmatullah, and welcome. This courtyard is the open square of the app: ask questions, request dua, share announcements. Three courtesies: speak as if the Prophet ﷺ is listening; assume good intent; and when you disagree, disagree with ideas, never with people. The Adab Engine holds the gate — let us hold the tone."
+    }
+   ]
+  },
+  {
+   "title": "Dua request: my father starts chemo next week",
+   "authorName": "Umm Yusuf",
+   "posts": [
+    {
+     "authorName": "Umm Yusuf",
+     "body": "Please keep my father in your duas — first round of chemo begins Monday. His name is Mahmoud. May Allah grant him shifa and reward every one of you for a single sincere 'Rabbana atina'."
+    },
+    {
+     "authorName": "Ar-Rayaan",
+     "body": "Allahumma ashfi Mahmoud, shifa'an 'ajilan ghayra 'ajilin. Ameen. The Daily Duas shelf in Stories holds the dua of illness — recite it for him tonight."
+    }
+   ]
+  },
+  {
+   "title": "Question: praying while travelling — when does qasr begin and end?",
+   "authorName": "Bilal K",
+   "posts": [
+    {
+     "authorName": "Bilal K",
+     "body": "I travel weekly for work. I know travel shortens the prayer, but when exactly does the 'travel' state start and end? Jazakum Allahu khairan."
+    },
+    {
+     "authorName": "Ar-Rayaan",
+     "body": "A great case for the Huda shelf (Travel — The Wayfarer's Adab). In brief, the majority count travel from when you leave your city's boundary until you intend to stay 15+ days; the shortened prayer is then combined. Views differ among the schools and all are valid — consult a local teacher for your case."
+    }
+   ]
+  }
+ ]
+}
