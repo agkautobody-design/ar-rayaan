@@ -224,6 +224,14 @@ class _AcademyHomeScreenState
               _LibraryRow(icon: Icons.spa_outlined, title: 'The 99 Names \u00b7 memory deck', route: AppRoutes.names99),
               _LibraryRow(icon: Icons.favorite_border, title: 'For Your Heart \u00b7 guided by feeling', route: AppRoutes.feelings),
               _LibraryRow(icon: Icons.family_restroom_outlined, title: 'The Family Wing \u00b7 parents & progress', route: '/academy/family'),
+              Text('THE PRACTICE ROOMS', style: AppText.eyebrow),
+              const SizedBox(height: 10),
+              _LibraryRow(icon: Icons.bookmark_border, title: 'The Hifz Planner \u00b7 memorization', route: '/academy/hifz'),
+              _LibraryRow(icon: Icons.back_hand_outlined, title: 'The Dua School', route: '/academy/dua'),
+              _LibraryRow(icon: Icons.graphic_eq, title: 'Recitation Audio Packs', route: '/academy/audio-packs'),
+              _LibraryRow(icon: Icons.self_improvement, title: 'The Dhikr School', route: '/academy/dhikr'),
+              _LibraryRow(icon: Icons.replay_outlined, title: 'Review Session \u00b7 spaced repetition', route: '/academy/review'),
+              const SizedBox(height: 8),
               const SizedBox(height: 16),
 
               // Today strip ----------------------------------------------------
