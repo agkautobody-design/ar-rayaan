@@ -47,6 +47,7 @@ import '../features/stories/presentation/stories_screen.dart';
 import '../features/family/presentation/family_tree_screen.dart';
 import '../features/huda/presentation/huda_screens.dart';
 import '../features/games/presentation/games_screens.dart';
+import '../features/games/presentation/games_extra.dart';
 import '../features/feelings/presentation/feelings_screens.dart';
 import '../features/notes/presentation/tools_screens.dart';
 import '../features/majlis/presentation/majlis_screens.dart';
@@ -135,6 +136,18 @@ GoRouter buildRouter() {
     routes: [
       // Onboarding flow (no bottom nav)
       GoRoute(
+          path: '/games/lineage',
+          pageBuilder: (context, state) => _fade(const LineageChallengeScreen()),
+        ),
+        GoRoute(
+          path: '/games/ayah',
+          pageBuilder: (context, state) => _fade(const AyahCompletionScreen()),
+        ),
+        GoRoute(
+          path: '/games/hijrah',
+          pageBuilder: (context, state) => _fade(const HijrahMapScreen()),
+        ),
+        GoRoute(
           path: AppRoutes.player,
           pageBuilder: (context, state) => _fade(const PlayerScreen()),
         ),

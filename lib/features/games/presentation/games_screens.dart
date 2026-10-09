@@ -67,6 +67,24 @@ class GamesScreen extends ConsumerWidget {
             child: _gameRow(Icons.spa_outlined, 'The 99 Names',
                 'The beautiful names, one flashcard at a time'),
           ),
+          const SizedBox(height: 10),
+          GlassCard(
+            onTap: () => context.go('/games/lineage'),
+            child: _gameRow(Icons.account_tree_outlined, 'Lineage Challenge',
+                'Who begot whom — the Messengers\u2019 tree as a game'),
+          ),
+          const SizedBox(height: 10),
+          GlassCard(
+            onTap: () => context.go('/games/ayah'),
+            child: _gameRow(Icons.format_quote_outlined, 'Ayah Completion',
+                'One word veiled — what did Allah say?'),
+          ),
+          const SizedBox(height: 10),
+          GlassCard(
+            onTap: () => context.go('/games/hijrah'),
+            child: _gameRow(Icons.route_outlined, 'The Hijrah Journey',
+                'Makkah to Madinah, station by station'),
+          ),
         ],
       ),
     );
