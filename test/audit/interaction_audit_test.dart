@@ -71,8 +71,10 @@ void main() {
       router.go(path);
       await t.pumpAndSettle();
       t.takeException(); // clear navigation noise
-      final tappables = t.widgetList<InkWell>(find.byType(InkWell)).toList() +
-          t.widgetList<GestureDetector>(find.byType(GestureDetector)).toList();
+      final List<Widget> tappables = <Widget>[
+        ...t.widgetList<InkWell>(find.byType(InkWell)),
+        ...t.widgetList<GestureDetector>(find.byType(GestureDetector)),
+      ];
       var tapped = 0;
       for (final w in tappables) {
         if (tapped >= 25) break;
