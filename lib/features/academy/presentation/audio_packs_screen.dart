@@ -118,6 +118,7 @@ class _AudioPacksScreenState extends ConsumerState<AudioPacksScreen> {
                                 ),
                         ),
                       ),
+                      ),
                     );
                   },
                 ),
