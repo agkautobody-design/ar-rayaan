@@ -36,6 +36,8 @@ class ExploreScreen extends ConsumerWidget {
         (Icons.explore_outlined, 'Qibla Finder', AppRoutes.qibla),
         (Icons.calculate_outlined, 'Zakat Calculator', AppRoutes.zakat),
         (Icons.school_outlined, 'The Academy', AppRoutes.academyGate),
+        (Icons.nightlight_round, 'Ramadan Mode \u00b7 the season, complete', '/ramadan'),
+        (Icons.translate_outlined, 'Language & Voice \u00b7 your tongue, your choice', '/settings/language'),
       ],
     ),
     (
@@ -51,21 +53,21 @@ class ExploreScreen extends ConsumerWidget {
     (
       'Family & Community',
       [
-        (Icons.handshake_outlined, 'Marriage', null),
-        (Icons.child_care_outlined, 'Parenting', null),
-        (Icons.home_outlined, 'Family Life', null),
+        (Icons.handshake_outlined, 'Marriage', AppRoutes.huda),
+        (Icons.child_care_outlined, 'Parenting', '/academy/family'),
+        (Icons.home_outlined, 'Family Life', AppRoutes.feelings),
         (Icons.people_outline, 'Community', AppRoutes.community),
-        (Icons.favorite_outline, 'Elder Care', null),
+        (Icons.favorite_outline, 'Elder Care', '/elder-care'),
       ],
     ),
     (
       'Tools & Resources',
       [
-        (Icons.local_library_outlined, 'Library', null),
-        (Icons.bookmark_outline, 'Notes & Bookmarks', null),
-        (Icons.download_outlined, 'Downloads', null),
-        (Icons.search, 'Saved Searches', null),
-        (Icons.dark_mode_outlined, 'Night Mode', null),
+        (Icons.local_library_outlined, 'Library', AppRoutes.stories),
+        (Icons.bookmark_outline, 'Notes & Bookmarks', AppRoutes.notes),
+        (Icons.download_outlined, 'Downloads', AppRoutes.downloads),
+        (Icons.search, 'Saved Searches', AppRoutes.quran),
+        (Icons.dark_mode_outlined, 'Night Mode', AppRoutes.settings),
       ],
     ),
   ];

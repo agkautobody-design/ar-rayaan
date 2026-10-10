@@ -16,6 +16,12 @@ The relay keeps it secret and speaks on the app's behalf.
    · TTS_ORIGIN=https://ar-rayaan.onrender.com
 4. App build flag: AR_VOICE_URL = the relay's URL
 
+## Voice roles (FOUNDER LAW — fixed, not user-selectable)
+- HADI = male voice (the guide)
+- WASIA = female voice (the teacher)
+The relay requests these genders explicitly from the provider; there is no
+setting to swap them — the roles are part of who they are.
+
 ## Then
 Wasia and Hadi speak aloud in the language the user chose in Settings —
 the same engine the big assistants use, but private and on your terms.
