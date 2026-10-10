@@ -1,10 +1,12 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/services.dart' show rootBundle, Clipboard, ClipboardData;
 import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../../app/core/providers.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/screen_header.dart';
@@ -131,6 +133,22 @@ class _ShareState extends State<ShareScreen> {
                       style: const TextStyle(color: AppColors.goldLight, fontSize: 13)),
                 ),
               ]),
+              const SizedBox(height: 14),
+              Consumer(builder: (c, ref, _) {
+                final url = ref.watch(appUrlProvider);
+                return GlassCard(
+                  child: Column(children: [
+                    Text('SHARE AR-RAYAAN', style: AppText.eyebrow),
+                    const SizedBox(height: 6),
+                    Text(url, style: AppText.body.copyWith(color: AppColors.goldLight, fontSize: 13)),
+                    const SizedBox(height: 4),
+                    Text('ADD TO ANY HOME SCREEN',
+                        style: AppText.bodyMuted.copyWith(fontSize: 11)),
+                    Text('From a browser\'s menu: Add to Home Screen — it becomes a real app.',
+                        style: AppText.bodyMuted.copyWith(fontSize: 10)),
+                  ]),
+                );
+              }),
               const SizedBox(height: 8),
               Center(child: Text('Swipe the dots \u00b7 send one to someone tonight',
                   style: AppText.bodyMuted.copyWith(fontSize: 11))),

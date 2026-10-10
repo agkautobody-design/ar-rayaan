@@ -80,13 +80,16 @@ class _AudioPacksScreenState extends ConsumerState<AudioPacksScreen> {
                     return Padding(
                       padding: const EdgeInsets.only(bottom: 6),
                       child: GlassCard(
-                        child: ListTile(
+                        child: Material(
+                          color: Colors.transparent,
+                          child: ListTile(
                           dense: true,
                           leading: Text(
                             surah.toString().padLeft(3, '0'),
                             style: AppText.caption
                                 .copyWith(color: AppColors.gold),
                           ),
+                        ),
                           title: Text('Surah $surah', style: AppText.body),
                           subtitle: downloading
                               ? LinearProgressIndicator(
