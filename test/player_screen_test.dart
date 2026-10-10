@@ -25,5 +25,6 @@ void main() {
         findsOneWidget);
     // The shipped library loads and renders without exception.
     expect(tester.takeException(), isNull);
-  }, skip: 'Player idle animation never settles in the harness; re-enable after a settled-frame audit');
+    // TODO(harness): the player's idle animation never settles; re-enable after a settled-frame audit.
+  }, skip: true);
 }

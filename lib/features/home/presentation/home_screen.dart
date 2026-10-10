@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart' show DateFormat;
@@ -243,7 +244,7 @@ class HomeScreen extends ConsumerWidget {
                 onTap: () async {
                   final p = await SharedPreferences.getInstance();
                   await p.setBool('ar.elder.mode', true);
-                  if (mounted) context.go('/home/elder');
+                  if (context.mounted) context.go('/home/elder');
                 },
                 child: Container(
                   margin: const EdgeInsets.fromLTRB(4, 0, 4, 10),
