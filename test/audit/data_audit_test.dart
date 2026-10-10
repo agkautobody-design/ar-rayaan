@@ -72,7 +72,7 @@ void main() {
 
   test('W1.3 guides: 40 guides, steps and sources intact', () {
     final list = readList('assets/guides/guides.json');
-    expect(list.length, 40, reason: 'guide count drifted');
+    expect(list.length, 44, reason: 'guide count drifted (40 + Hajj/Umrah pack)');
     for (final e in list) {
       final m = e as Map<String, dynamic>;
       expect((m['steps'] as List).length, greaterThanOrEqualTo(3),
