@@ -1,0 +1,257 @@
+{
+ "meta": {
+  "name": "Ar-Rayaan Master Module Registry",
+  "law": "Every module the founder ever designed lives here with its true status. This file is the answer to 'what did we miss' - it must never drift from reality, and the W9 test enforces that.",
+  "statuses": {
+   "live": "built, routed, entered, deployed",
+   "walled": "built but hidden (no entrance or gate)",
+   "unbuilt": "designed in docs, never coded",
+   "gated": "built but held by a lawful gate (review/pending key)"
+  }
+ },
+ "modules": [
+  {
+   "id": "prayer",
+   "title": "Prayer & Calendar",
+   "doc": "Master Blueprint #1",
+   "status": "live"
+  },
+  {
+   "id": "adhkar",
+   "title": "Adhkar & Du'a",
+   "doc": "Master Blueprint #2",
+   "status": "live"
+  },
+  {
+   "id": "hadi",
+   "title": "Hadi AI (3 engines)",
+   "doc": "Master Blueprint #3",
+   "status": "live"
+  },
+  {
+   "id": "lamha",
+   "title": "Sunnah Engine / Lamha",
+   "doc": "Master Blueprint #4",
+   "status": "live"
+  },
+  {
+   "id": "daily-hadith",
+   "title": "Daily Hadith + check-in",
+   "doc": "Master Blueprint #5",
+   "status": "live"
+  },
+  {
+   "id": "huda",
+   "title": "Huda - 40 worship guides",
+   "doc": "Content Expansion",
+   "status": "live"
+  },
+  {
+   "id": "academy",
+   "title": "Wasia Academy (gate, Wasia AI, curriculum, exams)",
+   "doc": "Academy & Life Design",
+   "status": "live"
+  },
+  {
+   "id": "stories",
+   "title": "Stories library (7 collections)",
+   "doc": "Stories Design",
+   "status": "live"
+  },
+  {
+   "id": "family-tree",
+   "title": "The Messengers' Tree",
+   "doc": "Family Trees Design",
+   "status": "live"
+  },
+  {
+   "id": "khutbahs",
+   "title": "Khutbahs",
+   "doc": "Content Expansion",
+   "status": "live"
+  },
+  {
+   "id": "sakina",
+   "title": "Healing (Sakina)",
+   "doc": "Sakina Design",
+   "status": "live",
+   "note": "pathways gated on clinician+scholar review - the law"
+  },
+  {
+   "id": "majlis",
+   "title": "Community (Courtyard forum)",
+   "doc": "Community Design",
+   "status": "gated",
+   "note": "built; breathes when the founder flips 3 Firebase switches"
+  },
+  {
+   "id": "noor",
+   "title": "Noor (daily wisdom)",
+   "doc": "Noor Design",
+   "status": "live"
+  },
+  {
+   "id": "masajid",
+   "title": "Masjid Finder + Tayyib Food",
+   "doc": "Masjid Finder Design + Halal Finder Design",
+   "status": "live",
+   "note": "community verification posts ride the family cloud"
+  },
+  {
+   "id": "tayyib-finance",
+   "title": "Tayyib Finance (zakat/sadaqah/halal stocks)",
+   "doc": "founder recall 2026-10-10 + zakat engine",
+   "status": "live",
+   "note": "live market data pending a free data key"
+  },
+  {
+   "id": "games",
+   "title": "Games: Shatranj, Ludo, trivia, 99 Names, Lineage, Ayah, Hijrah",
+   "doc": "Games Design (recreated from founder memory)",
+   "status": "live",
+   "note": "online rooms ride the family cloud"
+  },
+  {
+   "id": "player",
+   "title": "The Player (adhan/naats/nasheeds)",
+   "doc": "founder recall + Player module",
+   "status": "live"
+  },
+  {
+   "id": "daily-duas",
+   "title": "Daily Duas",
+   "doc": "Content Expansion",
+   "status": "live"
+  },
+  {
+   "id": "modern-hadith",
+   "title": "Hadiths for Our Times",
+   "doc": "founder directive 2026-10-08",
+   "status": "live",
+   "note": "grows weekly via automation"
+  },
+  {
+   "id": "feelings",
+   "title": "For Your Heart (feeling-guided)",
+   "doc": "founder directive 2026-10-09",
+   "status": "live"
+  },
+  {
+   "id": "family-wing",
+   "title": "Family Wing (children, progress, parent-Wasia)",
+   "doc": "founder directive 2026-10-09",
+   "status": "live"
+  },
+  {
+   "id": "elder",
+   "title": "Elder Care + Elder Mode",
+   "doc": "founder directive 2026-10-10",
+   "status": "live"
+  },
+  {
+   "id": "quick-access",
+   "title": "Quick Access second home page",
+   "doc": "founder directive 2026-10-10",
+   "status": "live"
+  },
+  {
+   "id": "doctor",
+   "title": "Ar-Rayaan Doctor (self-diagnosis + watchdog)",
+   "doc": "Doctor module + founder directive 2026-10-10",
+   "status": "live"
+  },
+  {
+   "id": "quran",
+   "title": "Quran Reader",
+   "doc": "Quran Integrity spec",
+   "status": "live",
+   "note": "word-by-word/tajweed/reciters arrive with the QF vault (founder's 5-min deploy)"
+  },
+  {
+   "id": "qibla",
+   "title": "Qibla",
+   "doc": "locked spec",
+   "status": "live"
+  },
+  {
+   "id": "notes",
+   "title": "Notes",
+   "doc": "founder directive (dead buttons)",
+   "status": "live"
+  },
+  {
+   "id": "downloads",
+   "title": "Downloads",
+   "doc": "founder directive (dead buttons)",
+   "status": "live"
+  },
+  {
+   "id": "new-muslim",
+   "title": "New Muslim 30-day path",
+   "doc": "Content Growth research 2026-10-08",
+   "status": "unbuilt"
+  },
+  {
+   "id": "ramadan-mode",
+   "title": "Ramadan Mode",
+   "doc": "Content Growth research",
+   "status": "unbuilt",
+   "note": "target Ramadan 2027"
+  },
+  {
+   "id": "verse-cards",
+   "title": "Verse share-cards",
+   "doc": "Content Growth research",
+   "status": "unbuilt"
+  },
+  {
+   "id": "sunnah-seasonal",
+   "title": "Lamha seasonal specials (full)",
+   "doc": "Content Expansion",
+   "status": "unbuilt",
+   "note": "partially live"
+  },
+  {
+   "id": "hisn-muslim",
+   "title": "Hisn al-Muslim full library",
+   "doc": "Content Growth research",
+   "status": "unbuilt",
+   "note": "18 duas live; full library queued"
+  },
+  {
+   "id": "qf-vault",
+   "title": "QF vault (word-by-word, tajweed colors, reciters, tafsir)",
+   "doc": "QF credentials collected 2026-10-08",
+   "status": "gated",
+   "note": "vault code shipped; founder's 5-min Render deploy + production permission"
+  },
+  {
+   "id": "sunnah-api",
+   "title": "Six Books hadith via Sunnah.com",
+   "doc": "request submitted 2026-10-08",
+   "status": "gated",
+   "note": "key arrives by email"
+  },
+  {
+   "id": "clear-quran",
+   "title": "Al-Furqaan Clear Quran license",
+   "doc": "application draft ready",
+   "status": "gated",
+   "note": "founder sends the letter"
+  },
+  {
+   "id": "majlis-rooms",
+   "title": "Majlis guarded rooms (Halaqah/Wilayat/Usrah)",
+   "doc": "Community Design",
+   "status": "unbuilt",
+   "note": "after Firebase; Courtyard ships first"
+  },
+  {
+   "id": "hajj-umrah-pack",
+   "title": "Hajj & Umrah guide pack (Huda)",
+   "doc": "Content Growth research",
+   "status": "unbuilt",
+   "note": "part of guides expansion"
+  }
+ ]
+}
