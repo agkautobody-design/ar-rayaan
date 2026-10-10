@@ -19,8 +19,6 @@ typedef LadderRung = Future<String?> Function(String system, String user);
 
 abstract final class PhysicianEngine {
   /// Groq free tier (rung 1): same key contract as Hadi.
-  static const String _groqKey = String.fromEnvironment('GROQ_API_KEY');
-  static const String _groqUrl =
       'https://api.groq.com/openai/v1/chat/completions';
 
   static List<LadderRung> get defaultLadder => <LadderRung>[_userKeyRung];
@@ -45,11 +43,7 @@ abstract final class PhysicianEngine {
     }
   }
 
-  static Future<String?> _groqRung(String system, String user) async {
-    final http.Response res = await http.post(
-      Uri.parse(_groqUrl),
       headers: <String, String>{
-        'Authorization': 'Bearer $_groqKey',
         'Content-Type': 'application/json',
       },
       body: jsonEncode(<String, dynamic>{
