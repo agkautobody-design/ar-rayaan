@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -37,6 +38,30 @@ class HadiState {
 /// with guardrails; otherwise → curated offline knowledge. On any live
 /// failure the offline provider answers instead (never a dead end).
 class HadiController extends Notifier<HadiState> {
+
+  String? _tocDigest;
+
+  Future<String> _toc() async {
+    if (_tocDigest != null) return _tocDigest!;
+    try {
+      final raw = await ContentSync.load('share/app_toc.json');
+      final d = json.decode(raw) as Map<String, dynamic>;
+      final parts = <String>[];
+      for (final e in (d['rooms'] as Map<String, dynamic>).entries) {
+        final titles = (e.value as List<dynamic>)
+            .map((x) => (x as Map)['title'] as String).toList();
+        if (titles.isNotEmpty) {
+          parts.add('${e.key}: ' + titles.take(6).join('; ') +
+              (titles.length > 6 ? '; and ${titles.length - 6} more' : ''));
+        }
+      }
+      _tocDigest = parts.join('\n');
+      return _tocDigest!;
+    } catch (_) {
+      _tocDigest = '';
+      return '';
+    }
+  }
 
   /// Screen-jump requests extracted from Hadi's replies ([GO:/path] tokens).
   final navigationEvents = StreamController<String>.broadcast();
@@ -145,6 +170,13 @@ class HadiController extends Notifier<HadiState> {
     final HadiProvider p = provider ?? resolveProvider(_apiKey);
     String answer;
     try {
+      final tocDigest = await _toc();
+      if (tocDigest.isNotEmpty) {
+        question = 'The app\u2019s table of contents (so you can answer about '
+            'what the app CONTAINS, e.g. which stories or guides exist — never '
+            'claim to know the user\u2019s private data):\n$tocDigest\n\n'
+            'User\u2019s question: $question';
+      }
       answer = await p.ask(q, state.messages);
     } catch (e) {
       // Live failure never dead-ends: the curated knowledge answers — but
