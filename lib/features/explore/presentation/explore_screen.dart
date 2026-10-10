@@ -29,6 +29,7 @@ class ExploreScreen extends ConsumerWidget {
         (Icons.forum_outlined, 'Majlis \u2014 The Courtyard', AppRoutes.majlis),
         (Icons.savings_outlined, 'Tayyib Finance \u00b7 zakat & halal investing', '/finance'),
         (Icons.mosque_outlined, 'Masajid \u00b7 mosques near you', '/masajid'),
+        (Icons.ios_share_outlined, 'Verse Cards \u00b7 share the light', '/share'),
         (Icons.wb_sunny_outlined, 'Dhikr & Du’a', AppRoutes.adhkar),
         (Icons.nights_stay_outlined, 'Prayer Times', AppRoutes.prayerTimes),
         (Icons.calendar_month_outlined, 'Islamic Calendar', AppRoutes.calendar),
