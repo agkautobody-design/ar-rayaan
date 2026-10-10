@@ -240,6 +240,37 @@ class HomeScreen extends ConsumerWidget {
                       ),
                       const SizedBox(height: 16),
                       GestureDetector(
+                onTap: () async {
+                  final p = await SharedPreferences.getInstance();
+                  await p.setBool('ar.elder.mode', true);
+                  if (mounted) context.go('/home/elder');
+                },
+                child: Container(
+                  margin: const EdgeInsets.fromLTRB(4, 0, 4, 10),
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(color: AppColors.gold.withValues(alpha: 0.6), width: 1.2),
+                    color: const Color(0x2405090F),
+                  ),
+                  child: Row(children: [
+                    const Icon(Icons.elderly_outlined, color: AppColors.goldLight, size: 26),
+                    const SizedBox(width: 12),
+                    Expanded(child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('ELDER MODE', style: AppText.body.copyWith(
+                            fontWeight: FontWeight.w800, fontSize: 15, color: AppColors.goldLight,
+                            letterSpacing: 1.2)),
+                        Text('One tap \u2014 the app opens here for them every time. Big words. Three doors. Nothing else.',
+                            style: AppText.bodyMuted.copyWith(fontSize: 10.5)),
+                      ],
+                    )),
+                    const Icon(Icons.chevron_right, color: AppColors.gold, size: 22),
+                  ]),
+                ),
+              ),
+              GestureDetector(
                 onTap: () => context.go('/home/quick'),
                 child: Container(
                   margin: const EdgeInsets.fromLTRB(4, 0, 4, 10),
