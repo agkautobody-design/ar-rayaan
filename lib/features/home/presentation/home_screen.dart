@@ -298,12 +298,20 @@ class HomeScreen extends ConsumerWidget {
                 ),
               ),
               GridView.count(
-                        crossAxisCount: 3,
+                        // Adaptive: phones keep three tiles; wide screens
+                        // gain columns so nothing stretches into emptiness.
+                        crossAxisCount: MediaQuery.of(context).size.width > 1100
+                            ? 5
+                            : MediaQuery.of(context).size.width > 780
+                                ? 4
+                                : 3,
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
                         mainAxisSpacing: 8,
                         crossAxisSpacing: 10,
-                        childAspectRatio: 1.0,
+                        childAspectRatio: MediaQuery.of(context).size.width > 780
+                            ? 1.15
+                            : 1.0,
                         children: [
                           for (final (_, title, sub, route) in tiles)
                             _PictureTile(
