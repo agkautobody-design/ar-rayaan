@@ -50,6 +50,7 @@ import '../features/elder/presentation/elder_care_screen.dart';
 import '../features/elder/presentation/elder_home_screen.dart';
 import '../features/finance/presentation/tayyib_finance_screen.dart';
 import '../features/masjid/presentation/masjid_finder_screen.dart';
+import '../features/settings/presentation/language_settings.dart';
 import '../features/home/presentation/home_quick_screen.dart';
 import '../features/games/presentation/games_screens.dart';
 import '../features/games/presentation/games_extra.dart';
@@ -144,6 +145,10 @@ GoRouter buildRouter() {
     routes: [
       // Onboarding flow (no bottom nav)
       GoRoute(
+          path: '/settings/language',
+          pageBuilder: (context, state) => _fade(const LanguageSettingsScreen()),
+        ),
+        GoRoute(
           path: '/share',
           pageBuilder: (context, state) => _fade(const ShareScreen()),
         ),

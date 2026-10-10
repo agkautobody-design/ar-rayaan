@@ -423,7 +423,7 @@ class _Bubble extends StatelessWidget {
                         const SizedBox(height: 6),
                         Align(
                           alignment: Alignment.centerRight,
-                          child: SpeakButton(text: message.text, size: 24),
+                          child: SpeakButton(text: message.text),
                         ),
                       ],
                     ),

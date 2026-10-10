@@ -9,6 +9,7 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../../../app/theme/widgets/speak_button.dart';
 import '../application/wasia_controller.dart';
 import '../application/family_service.dart';
 
@@ -236,7 +237,10 @@ class _LessonRunnerState extends ConsumerState<LessonRunnerScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('WASIA \u00b7 YOUR TEACHER', style: AppText.eyebrow),
+                      Row(children: [
+                        Expanded(child: Text('WASIA \u00b7 YOUR TEACHER', style: AppText.eyebrow)),
+                        SpeakButton(text: current.text ?? ''),
+                      ]),
                       const SizedBox(height: 8),
                       Text(current.text ?? '',
                           style: AppText.body.copyWith(height: 1.65, fontSize: 14.5)),
@@ -391,7 +395,11 @@ class _WasiaBoxState extends ConsumerState<_WasiaBox> {
       ]),
       if (_answer != null) ...[
         const SizedBox(height: 10),
-        Text(_answer!, style: AppText.body.copyWith(height: 1.6, fontSize: 13.5)),
+        Row(children: [
+          Expanded(child: Text(_answer!,
+              style: AppText.body.copyWith(height: 1.6, fontSize: 13.5))),
+          SpeakButton(text: _answer!, size: 22),
+        ]),
       ],
     ]);
   }
