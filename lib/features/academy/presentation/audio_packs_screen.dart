@@ -1,148 +1,54 @@
-/// Audio packs — download Al-Husary recitation per surah.
-/// Wi-Fi recommended, on-device only, prune control for storage.
-library;
-
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
-import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
-import '../application/audio_packs_provider.dart';
 
-class AudioPacksScreen extends ConsumerStatefulWidget {
+/// Recitation audio packs. The per-surah downloader returns with the
+/// reciter vault; until then the packs are listed honestly and the
+/// repeat-after-reciter loops stay available in the recitation school.
+class AudioPacksScreen extends StatelessWidget {
   const AudioPacksScreen({super.key});
 
   @override
-  ConsumerState<AudioPacksScreen> createState() => _AudioPacksScreenState();
-}
-
-class _AudioPacksScreenState extends ConsumerState<AudioPacksScreen> {
-  int _tick = 0; // progress listener repaints
-
-  @override
-  void initState() {
-    super.initState();
-    ref.read(audioPacksProvider.notifier).addProgressListener(() {
-      if (mounted) setState(() => _tick++);
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
-    final Set<int> packs = ref.watch(audioPacksProvider);
-    final AudioPacksNotifier notifier =
-        ref.read(audioPacksProvider.notifier);
-
     return Scaffold(
-      body: ScenicScaffold.pattern(
-        body: SafeArea(
-          child: Column(
-            children: <Widget>[
-              const ScreenHeader(title: 'Audio Packs'),
+      backgroundColor: Colors.transparent,
+      body: Center(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 720),
+          child: ListView(
+            padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
+            children: [
+              const ScreenHeader(title: 'Audio Packs', close: true),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: GlassCard(
-                  child: Row(
-                    children: <Widget>[
-                      const Icon(Icons.wifi, color: AppColors.gold, size: 18),
-                      const SizedBox(width: 10),
+                padding: const EdgeInsets.only(left: 4, bottom: 10),
+                child: Text('RECITATION, COMING WITH THE VAULT', style: AppText.eyebrow),
+              ),
+              GlassCard(
+                child: Text(
+                  'Per-surah recitation packs (multiple ijazah-certified reciters, '
+                  'offline-ready) arrive with the reciter vault — the same delivery '
+                  'that carries word-by-word and tajweed colors. The packs below are '
+                  'the promised library; the vault is the key.',
+                  style: AppText.bodyMuted.copyWith(height: 1.6),
+                ),
+              ),
+              const SizedBox(height: 12),
+              for (final s in const ['Juz 1-30 — full khatm pack', 'Al-Fatihah & the short surahs — prayer pack', 'Juz Amma — memorization pack', 'Reciter comparison set — four voices, one mushaf'])
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: GlassCard(
+                    child: Row(children: [
+                      const Icon(Icons.audiotrack_outlined,
+                          size: 20, color: AppColors.goldLight),
+                      const SizedBox(width: 12),
                       Expanded(
-                        child: Text(
-                          '${packs.length} of 114 surahs downloaded · '
-                          'Wi-Fi recommended · stored on this device only',
-                          style: AppText.caption,
-                        ),
-                      ),
-                      if (packs.length > 6)
-                        TextButton(
-                          onPressed: () => notifier.pruneTo(6),
-                          child: Text('Keep 6',
-                              style: AppText.caption
-                                  .copyWith(color: AppColors.gold)),
-                        ),
-                    ],
+                          child: Text(s, style: AppText.body.copyWith(fontSize: 13.5))),
+                    ]),
                   ),
                 ),
-              ),
-              const SizedBox(height: 8),
-              Expanded(
-                child: ListView.builder(
-                  padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
-                  itemCount: AudioPacksNotifier.kAllSurahs.length,
-                  itemBuilder: (context, i) {
-                    final int surah = AudioPacksNotifier.kAllSurahs[i];
-                    final bool has = packs.contains(surah);
-                    final double prog = notifier.progressOf(surah);
-                    final bool downloading = prog > 0 && prog < 1;
-                    return Padding(
-                      padding: const EdgeInsets.only(bottom: 6),
-                      child: GlassCard(
-                        child: InkWell(
-                          onTap: () async {
-                            if (!has) await notifier.download(surah);
-                          },
-                          borderRadius: BorderRadius.circular(12),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 16, vertical: 8),
-                            child: Row(children: [
-                              Icon(
-                                has
-                                    ? Icons.check_circle_outline
-                                    : Icons.audiotrack_outlined,
-                                size: 22,
-                                color: AppColors.goldLight,
-                              ),
-                              const SizedBox(width: 12),
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.start,
-                                  children: [
-                                    Text('Surah $surah',
-                                        style: const TextStyle(
-                                            color: AppColors.goldLight,
-                                            fontWeight: FontWeight.w600)),
-                                    Text(
-                                      has
-                                          ? 'aboard · plays offline'
-                                          : downloading
-                                              ? 'downloading · ${(prog * 100).round()}%'
-                                              : 'tap to download',
-                                      style: TextStyle(
-                                          fontSize: 11,
-                                          color: AppColors.sand
-                                              .withValues(alpha: 0.7)),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              if (downloading)
-                                const SizedBox(
-                                  width: 16,
-                                  height: 16,
-                                  child: CircularProgressIndicator(
-                                      strokeWidth: 2, color: AppColors.gold),
-                                )
-                              else
-                                Icon(
-                                  has
-                                      ? Icons.play_arrow
-                                      : Icons.download_outlined,
-                                  size: 18,
-                                  color:
-                                      AppColors.sand.withValues(alpha: 0.6),
-                                ),
-                            ]),
-                          ),
-                        ),
-                      ),
-                  },
-                ),
-              ),
             ],
           ),
         ),
