@@ -48,7 +48,15 @@ class ArRayaanApp extends StatelessWidget {
               ),
               alignment: Alignment.center,
               child: ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 460),
+                // Responsive shell: phones fill their screen; tablets and
+                // browsers use their real width instead of a phone column.
+                constraints: BoxConstraints(
+                  maxWidth: MediaQuery.of(context).size.width < 600
+                      ? 460
+                      : MediaQuery.of(context).size.width < 1100
+                          ? 780
+                          : 1120,
+                ),
                 child: ClipRect(
                   child: Stack(
                     children: [

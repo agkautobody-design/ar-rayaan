@@ -210,7 +210,8 @@ void main() {
       }
       expect(find.text('LIVE', skipOffstage: false), findsNWidgets(3));
       expect(find.text('SOON', skipOffstage: false), findsOneWidget);
-    }, skip: 'Lazy-list offstage harness; re-enable after scrollable audit');
+    // TODO(harness): lazy-list offstage finder; re-enable after scrollable audit.
+    }, skip: true);
 
     testWidgets('LessonPlayerScreen advances steps on Next',
         (tester) async {
