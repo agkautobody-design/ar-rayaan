@@ -18,9 +18,7 @@ import '../domain/vitals.dart';
 typedef LadderRung = Future<String?> Function(String system, String user);
 
 abstract final class PhysicianEngine {
-  /// Groq free tier (rung 1): same key contract as Hadi.
-      'https://api.groq.com/openai/v1/chat/completions';
-
+  /// The ladder: the user's own key on Hadi's provider rails.
   static List<LadderRung> get defaultLadder => <LadderRung>[_userKeyRung];
 
   /// The physician borrows the SAME user-owned key Hadi uses, on the same
