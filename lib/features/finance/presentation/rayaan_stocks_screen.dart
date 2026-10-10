@@ -53,6 +53,29 @@ class RayaanStocksScreen extends ConsumerWidget {
               padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
               children: [
                 const ScreenHeader(title: 'Rayaan Stocks', close: true),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(4, 0, 4, 10),
+                  child: GestureDetector(
+                    onTap: () => context.go('/finance/floor'),
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(color: AppColors.gold.withValues(alpha: 0.45)),
+                      ),
+                      child: Row(children: [
+                        const Icon(Icons.candlestick_chart_outlined, color: AppColors.goldLight, size: 18),
+                        const SizedBox(width: 10),
+                        Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                          Text('THE TRADING FLOOR', style: AppText.eyebrow.copyWith(color: AppColors.goldLight)),
+                          Text('Practice with \$100,000 paper money \u00b7 budget \u00b7 Hajj savings',
+                              style: AppText.bodyMuted.copyWith(fontSize: 10.5)),
+                        ])),
+                        const Icon(Icons.chevron_right, color: AppColors.gold, size: 18),
+                      ]),
+                    ),
+                  ),
+                ),
                 Padding(padding: const EdgeInsets.only(left: 4, bottom: 6),
                     child: Text('WEALTH, TAUGHT AS FACT', style: AppText.eyebrow)),
                 Padding(padding: const EdgeInsets.fromLTRB(4, 0, 4, 14),

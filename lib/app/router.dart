@@ -50,6 +50,7 @@ import '../features/elder/presentation/elder_care_screen.dart';
 import '../features/elder/presentation/elder_home_screen.dart';
 import '../features/finance/presentation/tayyib_finance_screen.dart';
 import '../features/finance/presentation/rayaan_stocks_screen.dart';
+import '../features/finance/presentation/trading_floor_screen.dart';
 import '../features/masjid/presentation/masjid_finder_screen.dart';
 import '../features/settings/presentation/language_settings.dart';
 import '../features/home/presentation/home_quick_screen.dart';
@@ -146,6 +147,10 @@ GoRouter buildRouter() {
     routes: [
       // Onboarding flow (no bottom nav)
       GoRoute(
+          path: '/finance/floor',
+          pageBuilder: (context, state) => _fade(const TradingFloorScreen()),
+        ),
+        GoRoute(
           path: '/finance/rayaan',
           pageBuilder: (context, state) => _fade(const RayaanStocksScreen()),
         ),
