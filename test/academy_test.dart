@@ -201,17 +201,15 @@ void main() {
       await tester.pumpAndSettle();
       expect(find.text('The Path'), findsOneWidget);
 
-      final scrollable = find.byType(Scrollable).first;
+      // Offstage-aware: the rows live in a lazy list; find them wherever
+      // they are built. Three schools open (LIVE), one honest SOON.
       for (final t in <String>[
         'Letters', 'Recitation', 'Quranic Arabic', 'Understanding',
       ]) {
-        await tester.scrollUntilVisible(find.text(t), 250,
-            scrollable: scrollable);
-        expect(find.text(t), findsOneWidget);
+        expect(find.text(t, skipOffstage: false), findsOneWidget);
       }
-      // Three schools open (LIVE), one honest SOON — the founder's design.
-      expect(find.text('LIVE'), findsNWidgets(3));
-      expect(find.text('SOON'), findsOneWidget);
+      expect(find.text('LIVE', skipOffstage: false), findsNWidgets(3));
+      expect(find.text('SOON', skipOffstage: false), findsOneWidget);
     });
 
     testWidgets('LessonPlayerScreen advances steps on Next',
