@@ -1038,5 +1038,439 @@
    ]
   }
  ],
+ "exams": [
+  {
+   "id": "u1-exam",
+   "unit": "u1",
+   "title": "Exam · The First Letters",
+   "pass": 7,
+   "questions": [
+    {
+     "q": "Which letter is Alif?",
+     "options": [
+      "ا",
+      "ب",
+      "ش"
+     ],
+     "answer": 0,
+     "why": "Alif is ا — as in آدَم."
+    },
+    {
+     "q": "Which letter is Ba?",
+     "options": [
+      "ب",
+      "ت",
+      "ص"
+     ],
+     "answer": 0,
+     "why": "Ba is ب — as in بَاب."
+    },
+    {
+     "q": "Which letter is Ta?",
+     "options": [
+      "ت",
+      "ث",
+      "ض"
+     ],
+     "answer": 0,
+     "why": "Ta is ت — as in تُفَّاح."
+    },
+    {
+     "q": "Which letter is Tha?",
+     "options": [
+      "ث",
+      "ج",
+      "ط"
+     ],
+     "answer": 0,
+     "why": "Tha is ث — as in ثَوْب."
+    },
+    {
+     "q": "Which letter is Jeem?",
+     "options": [
+      "ج",
+      "ح",
+      "ظ"
+     ],
+     "answer": 0,
+     "why": "Jeem is ج — as in جَنَّة."
+    },
+    {
+     "q": "Which letter is Ha (deep)?",
+     "options": [
+      "ح",
+      "خ",
+      "ع"
+     ],
+     "answer": 0,
+     "why": "Ha (deep) is ح — as in حَقّ."
+    },
+    {
+     "q": "Which letter is Kha?",
+     "options": [
+      "خ",
+      "د",
+      "غ"
+     ],
+     "answer": 0,
+     "why": "Kha is خ — as in خَيْر."
+    },
+    {
+     "q": "The word آدَم begins with which letter?",
+     "options": [
+      "ا",
+      "خ",
+      "ض"
+     ],
+     "answer": 0,
+     "why": "آدَم opens with ا (Alif)."
+    },
+    {
+     "q": "The word بَاب begins with which letter?",
+     "options": [
+      "ب",
+      "د",
+      "ط"
+     ],
+     "answer": 0,
+     "why": "بَاب opens with ب (Ba)."
+    },
+    {
+     "q": "The word تُفَّاح begins with which letter?",
+     "options": [
+      "ت",
+      "ذ",
+      "ظ"
+     ],
+     "answer": 0,
+     "why": "تُفَّاح opens with ت (Ta)."
+    }
+   ]
+  },
+  {
+   "id": "u2-exam",
+   "unit": "u2",
+   "title": "Exam · The Middle Letters",
+   "pass": 7,
+   "questions": [
+    {
+     "q": "Which letter is Dal?",
+     "options": [
+      "د",
+      "ذ",
+      "ف"
+     ],
+     "answer": 0,
+     "why": "Dal is د — as in دِين."
+    },
+    {
+     "q": "Which letter is Dhal?",
+     "options": [
+      "ذ",
+      "ر",
+      "ق"
+     ],
+     "answer": 0,
+     "why": "Dhal is ذ — as in ذِكْرى."
+    },
+    {
+     "q": "Which letter is Ra?",
+     "options": [
+      "ر",
+      "ز",
+      "ك"
+     ],
+     "answer": 0,
+     "why": "Ra is ر — as in رَبّ."
+    },
+    {
+     "q": "Which letter is Zay?",
+     "options": [
+      "ز",
+      "س",
+      "ل"
+     ],
+     "answer": 0,
+     "why": "Zay is ز — as in زَيْتون."
+    },
+    {
+     "q": "Which letter is Seen?",
+     "options": [
+      "س",
+      "ش",
+      "م"
+     ],
+     "answer": 0,
+     "why": "Seen is س — as in سَمَاء."
+    },
+    {
+     "q": "Which letter is Sheen?",
+     "options": [
+      "ش",
+      "ص",
+      "ن"
+     ],
+     "answer": 0,
+     "why": "Sheen is ش — as in شَمْس."
+    },
+    {
+     "q": "Which letter is Sad?",
+     "options": [
+      "ص",
+      "ض",
+      "ه"
+     ],
+     "answer": 0,
+     "why": "Sad is ص — as in صَدَقَة."
+    },
+    {
+     "q": "The word دِين begins with which letter?",
+     "options": [
+      "د",
+      "ص",
+      "ك"
+     ],
+     "answer": 0,
+     "why": "دِين opens with د (Dal)."
+    },
+    {
+     "q": "The word ذِكْرى begins with which letter?",
+     "options": [
+      "ذ",
+      "ض",
+      "ل"
+     ],
+     "answer": 0,
+     "why": "ذِكْرى opens with ذ (Dhal)."
+    },
+    {
+     "q": "The word رَبّ begins with which letter?",
+     "options": [
+      "ر",
+      "ط",
+      "م"
+     ],
+     "answer": 0,
+     "why": "رَبّ opens with ر (Ra)."
+    }
+   ]
+  },
+  {
+   "id": "u3-exam",
+   "unit": "u3",
+   "title": "Exam · The Deep Letters",
+   "pass": 7,
+   "questions": [
+    {
+     "q": "Which letter is Dad?",
+     "options": [
+      "ض",
+      "ط",
+      "و"
+     ],
+     "answer": 0,
+     "why": "Dad is ض — as in ضَيْف."
+    },
+    {
+     "q": "Which letter is Ta (deep)?",
+     "options": [
+      "ط",
+      "ظ",
+      "ي"
+     ],
+     "answer": 0,
+     "why": "Ta (deep) is ط — as in طَهْ."
+    },
+    {
+     "q": "Which letter is Za?",
+     "options": [
+      "ظ",
+      "ع",
+      "ا"
+     ],
+     "answer": 0,
+     "why": "Za is ظ — as in ظِلّ."
+    },
+    {
+     "q": "Which letter is Ayn?",
+     "options": [
+      "ع",
+      "غ",
+      "ب"
+     ],
+     "answer": 0,
+     "why": "Ayn is ع — as in عِلْم."
+    },
+    {
+     "q": "Which letter is Ghayn?",
+     "options": [
+      "غ",
+      "ف",
+      "ت"
+     ],
+     "answer": 0,
+     "why": "Ghayn is غ — as in غَفُور."
+    },
+    {
+     "q": "Which letter is Fa?",
+     "options": [
+      "ف",
+      "ق",
+      "ث"
+     ],
+     "answer": 0,
+     "why": "Fa is ف — as in فَجْر."
+    },
+    {
+     "q": "Which letter is Qaf?",
+     "options": [
+      "ق",
+      "ك",
+      "ج"
+     ],
+     "answer": 0,
+     "why": "Qaf is ق — as in قَلْب."
+    },
+    {
+     "q": "The word ضَيْف begins with which letter?",
+     "options": [
+      "ض",
+      "ق",
+      "ا"
+     ],
+     "answer": 0,
+     "why": "ضَيْف opens with ض (Dad)."
+    },
+    {
+     "q": "The word طَهْ begins with which letter?",
+     "options": [
+      "ط",
+      "ك",
+      "ب"
+     ],
+     "answer": 0,
+     "why": "طَهْ opens with ط (Ta (deep))."
+    },
+    {
+     "q": "The word ظِلّ begins with which letter?",
+     "options": [
+      "ظ",
+      "ل",
+      "ت"
+     ],
+     "answer": 0,
+     "why": "ظِلّ opens with ظ (Za)."
+    }
+   ]
+  },
+  {
+   "id": "u4-exam",
+   "unit": "u4",
+   "title": "Exam · The Final Letters",
+   "pass": 7,
+   "questions": [
+    {
+     "q": "Which letter is Kaf?",
+     "options": [
+      "ك",
+      "ل",
+      "ح"
+     ],
+     "answer": 0,
+     "why": "Kaf is ك — as in كِتَاب."
+    },
+    {
+     "q": "Which letter is Lam?",
+     "options": [
+      "ل",
+      "م",
+      "خ"
+     ],
+     "answer": 0,
+     "why": "Lam is ل — as in لَيْل."
+    },
+    {
+     "q": "Which letter is Meem?",
+     "options": [
+      "م",
+      "ن",
+      "د"
+     ],
+     "answer": 0,
+     "why": "Meem is م — as in مَاء."
+    },
+    {
+     "q": "Which letter is Noon?",
+     "options": [
+      "ن",
+      "ه",
+      "ذ"
+     ],
+     "answer": 0,
+     "why": "Noon is ن — as in نُور."
+    },
+    {
+     "q": "Which letter is Ha?",
+     "options": [
+      "ه",
+      "و",
+      "ر"
+     ],
+     "answer": 0,
+     "why": "Ha is ه — as in هُدى."
+    },
+    {
+     "q": "Which letter is Waw?",
+     "options": [
+      "و",
+      "ي",
+      "ز"
+     ],
+     "answer": 0,
+     "why": "Waw is و — as in وَحْي."
+    },
+    {
+     "q": "Which letter is Ya?",
+     "options": [
+      "ي",
+      "ا",
+      "س"
+     ],
+     "answer": 0,
+     "why": "Ya is ي — as in يَوْم."
+    },
+    {
+     "q": "The word كِتَاب begins with which letter?",
+     "options": [
+      "ك",
+      "ي",
+      "د"
+     ],
+     "answer": 0,
+     "why": "كِتَاب opens with ك (Kaf)."
+    },
+    {
+     "q": "The word لَيْل begins with which letter?",
+     "options": [
+      "ل",
+      "ا",
+      "ذ"
+     ],
+     "answer": 0,
+     "why": "لَيْل opens with ل (Lam)."
+    },
+    {
+     "q": "The word مَاء begins with which letter?",
+     "options": [
+      "م",
+      "ب",
+      "ر"
+     ],
+     "answer": 0,
+     "why": "مَاء opens with م (Meem)."
+    }
+   ]
+  }
+ ],
  "source": "Classical Qaida sequence; example words from the Qur'an; pedagogy per the Academy & Life design"
 }
