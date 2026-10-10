@@ -80,46 +80,28 @@ class _AudioPacksScreenState extends ConsumerState<AudioPacksScreen> {
                     return Padding(
                       padding: const EdgeInsets.only(bottom: 6),
                       child: GlassCard(
-                        child: Material(
-                          color: Colors.transparent,
-                          child: ListTile(
-                          dense: true,
-                          leading: Text(
-                            surah.toString().padLeft(3, '0'),
-                            style: AppText.caption
-                                .copyWith(color: AppColors.gold),
+                        child: InkWell(
+                          onTap: () {},
+                          borderRadius: BorderRadius.circular(12),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 16, vertical: 8),
+                            child: Row(children: [
+                              const Icon(Icons.surah_outlined,
+                                  size: 22, color: AppColors.goldLight),
+                              const SizedBox(width: 12),
+                              const Expanded(
+                                  child: Text('Surah pack',
+                                      style: TextStyle(
+                                          color: AppColors.goldLight,
+                                          fontWeight: FontWeight.w600))),
+                              Icon(Icons.expand_more,
+                                  size: 18,
+                                  color: AppColors.sand.withValues(alpha: 0.5)),
+                            ]),
                           ),
-                          title: Text('Surah $surah', style: AppText.body),
-                          subtitle: downloading
-                              ? LinearProgressIndicator(
-                                  value: prog,
-                                  minHeight: 3,
-                                  backgroundColor:
-                                      AppColors.gold.withValues(alpha: 0.15),
-                                  valueColor:
-                                      const AlwaysStoppedAnimation<Color>(
-                                          AppColors.gold),
-                                )
-                              : null,
-                          trailing: has
-                              ? IconButton(
-                                  icon: const Icon(Icons.delete_outline,
-                                      color: AppColors.gold, size: 20),
-                                  onPressed: () => notifier.remove(surah),
-                                )
-                              : IconButton(
-                                  icon: const Icon(
-                                      Icons.download_for_offline_outlined,
-                                      color: AppColors.gold,
-                                      size: 20),
-                                  onPressed: downloading
-                                      ? null
-                                      : () => notifier.download(surah),
-                                ),
                         ),
                       ),
-                      ),
-                    );
                   },
                 ),
               ),
