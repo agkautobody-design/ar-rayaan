@@ -81,23 +81,61 @@ class _AudioPacksScreenState extends ConsumerState<AudioPacksScreen> {
                       padding: const EdgeInsets.only(bottom: 6),
                       child: GlassCard(
                         child: InkWell(
-                          onTap: () {},
+                          onTap: () async {
+                            if (!has) await notifier.download(surah);
+                          },
                           borderRadius: BorderRadius.circular(12),
                           child: Padding(
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 16, vertical: 8),
                             child: Row(children: [
-                              const Icon(Icons.surah_outlined,
-                                  size: 22, color: AppColors.goldLight),
+                              Icon(
+                                has
+                                    ? Icons.check_circle_outline
+                                    : Icons.audiotrack_outlined,
+                                size: 22,
+                                color: AppColors.goldLight,
+                              ),
                               const SizedBox(width: 12),
-                              const Expanded(
-                                  child: Text('Surah pack',
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.start,
+                                  children: [
+                                    Text('Surah $surah',
+                                        style: const TextStyle(
+                                            color: AppColors.goldLight,
+                                            fontWeight: FontWeight.w600)),
+                                    Text(
+                                      has
+                                          ? 'aboard · plays offline'
+                                          : downloading
+                                              ? 'downloading · ${(prog * 100).round()}%'
+                                              : 'tap to download',
                                       style: TextStyle(
-                                          color: AppColors.goldLight,
-                                          fontWeight: FontWeight.w600))),
-                              Icon(Icons.expand_more,
+                                          fontSize: 11,
+                                          color: AppColors.sand
+                                              .withValues(alpha: 0.7)),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              if (downloading)
+                                const SizedBox(
+                                  width: 16,
+                                  height: 16,
+                                  child: CircularProgressIndicator(
+                                      strokeWidth: 2, color: AppColors.gold),
+                                )
+                              else
+                                Icon(
+                                  has
+                                      ? Icons.play_arrow
+                                      : Icons.download_outlined,
                                   size: 18,
-                                  color: AppColors.sand.withValues(alpha: 0.5)),
+                                  color:
+                                      AppColors.sand.withValues(alpha: 0.6),
+                                ),
                             ]),
                           ),
                         ),
