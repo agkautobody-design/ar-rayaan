@@ -144,6 +144,10 @@ GoRouter buildRouter() {
     routes: [
       // Onboarding flow (no bottom nav)
       GoRoute(
+          path: '/share',
+          pageBuilder: (context, state) => _fade(const ShareScreen()),
+        ),
+        GoRoute(
           path: '/masajid',
           pageBuilder: (context, state) => _fade(const MasjidFinderScreen()),
         ),
