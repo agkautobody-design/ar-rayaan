@@ -194,6 +194,25 @@ class _TayyibState extends State<TayyibFinanceScreen> {
                       child: const Text('Run the screens'),
                     ),
                   ),
+                  const SizedBox(height: 8),
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton.icon(
+                      onPressed: () => context.go('/finance/rayaan'),
+                      icon: const Icon(Icons.school_outlined, size: 16),
+                      label: const Text('Rayaan Stocks — the full halal course (9 lessons)'),
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColors.gold.withValues(alpha: 0.15),
+                          foregroundColor: AppColors.goldLight),
+                    ),
+                  ),
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: _screen,
+                      child: const Text('Run the screens'),
+                    ),
+                  ),
                   if (_verdict != null) ...[
                     const SizedBox(height: 10),
                     for (final v in _verdict!)

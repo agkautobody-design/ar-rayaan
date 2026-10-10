@@ -252,6 +252,13 @@
    "doc": "Content Growth research",
    "status": "unbuilt",
    "note": "part of guides expansion"
+  },
+  {
+   "id": "rayaan-stocks",
+   "title": "Rayaan Stocks (halal financial learning)",
+   "doc": "founder directive 2026-10-10",
+   "status": "live",
+   "note": "live market data pending a data key"
   }
  ]
 }

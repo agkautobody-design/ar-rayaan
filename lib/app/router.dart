@@ -49,6 +49,7 @@ import '../features/huda/presentation/huda_screens.dart';
 import '../features/elder/presentation/elder_care_screen.dart';
 import '../features/elder/presentation/elder_home_screen.dart';
 import '../features/finance/presentation/tayyib_finance_screen.dart';
+import '../features/finance/presentation/rayaan_stocks_screen.dart';
 import '../features/masjid/presentation/masjid_finder_screen.dart';
 import '../features/settings/presentation/language_settings.dart';
 import '../features/home/presentation/home_quick_screen.dart';
@@ -145,6 +146,15 @@ GoRouter buildRouter() {
     routes: [
       // Onboarding flow (no bottom nav)
       GoRoute(
+          path: '/finance/rayaan',
+          pageBuilder: (context, state) => _fade(const RayaanStocksScreen()),
+        ),
+        GoRoute(
+          path: '/finance/rayaan/:id',
+          pageBuilder: (context, state) =>
+              _fade(FinLessonScreen(lessonId: state.pathParameters['id']!)),
+        ),
+        GoRoute(
           path: '/settings/language',
           pageBuilder: (context, state) => _fade(const LanguageSettingsScreen()),
         ),
