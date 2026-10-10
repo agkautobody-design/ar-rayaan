@@ -60,10 +60,10 @@ class WelcomeReflectionScreen extends StatelessWidget {
             children: [
               // Complete artwork, never cropped; gaps filled by a blurred echo
               ImageFiltered(
-                imageFilter: ImageFilter.blur(sigmaX: 40, sigmaY: 40),
+                imageFilter: ImageFilter.blur(sigmaX: 55, sigmaY: 55),
                 child: ColorFiltered(
                   colorFilter: ColorFilter.mode(
-                    AppColors.night.withValues(alpha: 0.6),
+                    AppColors.night.withValues(alpha: 0.30),
                     BlendMode.darken,
                   ),
                   child: Image.asset(

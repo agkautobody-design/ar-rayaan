@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -20,9 +22,24 @@ class AcademyGateScreen extends StatelessWidget {
         child: Stack(
           fit: StackFit.expand,
           children: [
-            Image.asset(
-              'assets/images/welcome-reflection-full.jpg',
-              fit: BoxFit.cover,
+            ImageFiltered(
+              imageFilter: ImageFilter.blur(sigmaX: 55, sigmaY: 55),
+              child: ColorFiltered(
+                colorFilter: ColorFilter.mode(
+                  const Color(0xFF05090F).withValues(alpha: 0.30),
+                  BlendMode.darken,
+                ),
+                child: Image.asset(
+                  'assets/images/welcome-reflection-full.jpg',
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            Center(
+              child: Image.asset(
+                'assets/images/welcome-reflection-full.jpg',
+                fit: BoxFit.contain,
+              ),
             ),
             Container(
               decoration: const BoxDecoration(
