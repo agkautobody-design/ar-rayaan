@@ -18,6 +18,7 @@ class HomeQuickScreen extends StatelessWidget {
     ('Quick Hadith', 'A hadith in a breath', 'assets/images/tiles/tile_prayer.jpg', '/hadith'),
     ('Quick Khutbah', 'Sermons for today', 'assets/images/tiles/tile_journey.jpg', '/stories'),
     ('Daily Duas', 'For every moment', 'assets/images/tiles/tile_calendar.jpg', '/stories'),
+    ('Tayyib Finance', 'Zakat \u00b7 sadaqah \u00b7 halal stocks', 'assets/images/tiles/tile_prayer.jpg', '/finance'),
   ];
 
   @override
