@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
@@ -24,6 +27,66 @@ class _TayyibState extends State<TayyibFinanceScreen> {
   final _interest = TextEditingController();
   final _revenue = TextEditingController();
   List<String>? _verdict;
+  // A5: purification calculator + watchlist
+  final _dividend = TextEditingController();
+  final _haramPct = TextEditingController();
+  double? _purify;
+  List<Map<String, dynamic>> _watch = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _loadWatch();
+  }
+
+  Future<void> _loadWatch() async {
+    final p = await SharedPreferences.getInstance();
+    final raw = p.getString('ar.tayyib.watch');
+    if (raw != null && raw.isNotEmpty && mounted) {
+      setState(() => _watch = (json.decode(raw) as List<dynamic>)
+          .map((e) => Map<String, dynamic>.from(e as Map)).toList());
+    }
+  }
+
+  Future<void> _saveWatch() async {
+    final p = await SharedPreferences.getInstance();
+    await p.setString('ar.tayyib.watch', json.encode(_watch));
+  }
+
+  void _calcPurify() {
+    final d = double.tryParse(_dividend.text.replaceAll(',', '').trim()) ?? 0;
+    final pct = double.tryParse(_haramPct.text.replaceAll('%', '').trim()) ?? 0;
+    setState(() => _purify = d * pct / 100);
+  }
+
+  Future<void> _addWatch() async {
+    final name = TextEditingController();
+    final note = TextEditingController();
+    final ok = await showDialog<bool>(context: context, builder: (ctx) => AlertDialog(
+      backgroundColor: const Color(0xFF0A0F18),
+      title: Text('Add to watchlist', style: AppText.titleMedium),
+      content: Column(mainAxisSize: MainAxisSize.min, children: [
+        TextField(controller: name, style: AppText.body,
+            decoration: const InputDecoration(hintText: 'Name or ticker')),
+        const SizedBox(height: 8),
+        TextField(controller: note, style: AppText.body,
+            decoration: const InputDecoration(hintText: 'e.g. passes screens / under review')),
+      ]),
+      actions: [
+        TextButton(onPressed: () => Navigator.pop(ctx, false),
+            child: const Text('Cancel')),
+        TextButton(onPressed: () => Navigator.pop(ctx, true),
+            child: const Text('Add', style: TextStyle(color: AppColors.goldLight))),
+      ],
+    ));
+    if (ok == true && name.text.trim().isNotEmpty) {
+      setState(() {
+        _watch.insert(0, {'name': name.text.trim(), 'note': note.text.trim(),
+            'at': DateTime.now().toIso8601String()});
+      });
+      await _saveWatch();
+    }
+  }
 
   void _screen() {
     double p(String s) => double.tryParse(s.replaceAll(',', '').trim()) ?? 0;
@@ -142,6 +205,74 @@ class _TayyibState extends State<TayyibFinanceScreen> {
                   const SizedBox(height: 6),
                   Text('Educational tool \u2014 for real portfolios, consult a qualified Sharia advisor. Live market screening arrives with a free data key.',
                       style: AppText.bodyMuted.copyWith(fontSize: 10)),
+                ]),
+              ),
+              const SizedBox(height: 14),
+              GlassCard(
+                child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  Text('PURIFICATION CALCULATOR', style: AppText.eyebrow),
+                  const SizedBox(height: 4),
+                  Text('If a stock passes the screens with a tolerated haram portion, you donate that portion of your dividends \u2014 purifying the income, keeping the investment.',
+                      style: AppText.bodyMuted.copyWith(height: 1.5, fontSize: 12)),
+                  const SizedBox(height: 10),
+                  TextField(controller: _dividend, keyboardType: TextInputType.number,
+                      style: AppText.body,
+                      decoration: const InputDecoration(hintText: 'Annual dividends received (\$)')),
+                  const SizedBox(height: 8),
+                  TextField(controller: _haramPct, keyboardType: TextInputType.number,
+                      style: AppText.body,
+                      decoration: const InputDecoration(hintText: 'Haram revenue % (from the screen above)')),
+                  const SizedBox(height: 10),
+                  SizedBox(width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: _calcPurify,
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColors.gold,
+                          foregroundColor: const Color(0xFF0A0F18)),
+                      child: const Text('Calculate purification'),
+                    )),
+                  if (_purify != null) ...[
+                    const SizedBox(height: 10),
+                    Text('\${_purify!.toStringAsFixed(2)} to give in sadaqah',
+                        style: AppText.body.copyWith(color: AppColors.goldLight,
+                            fontWeight: FontWeight.w700, fontSize: 15)),
+                    Text('The rest of the dividend is halal income, in shaa Allah.',
+                        style: AppText.bodyMuted.copyWith(fontSize: 11)),
+                  ],
+                ]),
+              ),
+              const SizedBox(height: 14),
+              GlassCard(
+                child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  Row(children: [
+                    Expanded(child: Text('WATCHLIST', style: AppText.eyebrow)),
+                    TextButton(
+                      onPressed: _addWatch,
+                      child: const Text('+ Add', style: TextStyle(color: AppColors.goldLight, fontSize: 12)),
+                    ),
+                  ]),
+                  if (_watch.isEmpty)
+                    Text('Companies you are researching \u2014 with your own notes and verdicts, remembered on this device.',
+                        style: AppText.bodyMuted.copyWith(fontSize: 11.5)),
+                  for (final w in _watch)
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 6),
+                      child: Row(children: [
+                        Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                          Text(w['name'] as String,
+                              style: AppText.body.copyWith(fontWeight: FontWeight.w600, fontSize: 13.5)),
+                          if ((w['note'] as String? ?? '').isNotEmpty)
+                            Text(w['note'] as String, style: AppText.bodyMuted.copyWith(fontSize: 11)),
+                        ])),
+                        GestureDetector(
+                          onTap: () async {
+                            setState(() => _watch.remove(w));
+                            await _saveWatch();
+                          },
+                          child: const Icon(Icons.close, size: 15, color: AppColors.sand),
+                        ),
+                      ]),
+                    ),
                 ]),
               ),
             ],
