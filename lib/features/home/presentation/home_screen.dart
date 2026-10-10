@@ -239,7 +239,33 @@ class HomeScreen extends ConsumerWidget {
                         ),
                       ),
                       const SizedBox(height: 16),
-                      GridView.count(
+                      GestureDetector(
+                onTap: () => context.go('/home/quick'),
+                child: Container(
+                  margin: const EdgeInsets.fromLTRB(4, 0, 4, 10),
+                  padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(color: AppColors.gold.withValues(alpha: 0.45)),
+                    color: const Color(0x1A05090F),
+                  ),
+                  child: Row(children: [
+                    const Icon(Icons.dashboard_outlined, color: AppColors.goldLight, size: 20),
+                    const SizedBox(width: 12),
+                    Expanded(child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Quick Access', style: AppText.body.copyWith(
+                            fontWeight: FontWeight.w700, fontSize: 13.5, color: AppColors.goldLight)),
+                        Text('Academy \u00b7 Naats \u00b7 Games \u00b7 Elder Care \u00b7 Therapy \u00b7 Duas',
+                            style: AppText.bodyMuted.copyWith(fontSize: 10.5)),
+                      ],
+                    )),
+                    const Icon(Icons.chevron_right, color: AppColors.gold, size: 18),
+                  ]),
+                ),
+              ),
+              GridView.count(
                         crossAxisCount: 3,
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),

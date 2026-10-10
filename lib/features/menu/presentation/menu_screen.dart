@@ -53,10 +53,10 @@ class MenuScreen extends ConsumerWidget {
           'Marriage',
           null,
         ), // NOOR Connect deferred (§10)
-        (Icons.child_care_outlined, 'Parenting', null),
-        (Icons.home_outlined, 'Family Life', null),
+        (Icons.child_care_outlined, 'Parenting', '/academy/family'),
+        (Icons.home_outlined, 'Family Life', AppRoutes.feelings),
         (Icons.people_outline, 'Community', AppRoutes.community),
-        (Icons.favorite_outline, 'Elder Care', null),
+        (Icons.favorite_outline, 'Elder Care', '/elder-care'),
       ],
     ),
     (

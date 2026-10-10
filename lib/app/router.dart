@@ -46,6 +46,8 @@ import '../features/sources/presentation/sources_screen.dart';
 import '../features/stories/presentation/stories_screen.dart';
 import '../features/family/presentation/family_tree_screen.dart';
 import '../features/huda/presentation/huda_screens.dart';
+import '../features/elder/presentation/elder_care_screen.dart';
+import '../features/home/presentation/home_quick_screen.dart';
 import '../features/games/presentation/games_screens.dart';
 import '../features/games/presentation/games_extra.dart';
 import '../features/games/presentation/shatranj_screen.dart';
@@ -139,6 +141,14 @@ GoRouter buildRouter() {
     routes: [
       // Onboarding flow (no bottom nav)
       GoRoute(
+          path: '/elder-care',
+          pageBuilder: (context, state) => _fade(const ElderCareScreen()),
+        ),
+        GoRoute(
+          path: '/home/quick',
+          pageBuilder: (context, state) => _fade(const HomeQuickScreen()),
+        ),
+        GoRoute(
           path: '/games/ludo',
           pageBuilder: (context, state) => _fade(const LudoScreen()),
         ),
