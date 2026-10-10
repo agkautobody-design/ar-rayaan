@@ -598,5 +598,245 @@
    }
   ],
   "familyQuestion": "Who in your family needs this dua tonight — and will you tell them you prayed it for them?"
+ },
+ {
+  "id": "dua-istikhara-full",
+  "collection": "dailyduas",
+  "title": "Istikhara — Asking Allah to Choose",
+  "kicker": "DAILY DUAS · DECISIONS",
+  "subtitle": "Two rak'ahs, then this dua, naming the matter in your heart — then proceed with what unfolds",
+  "sourceLabel": "Established",
+  "sources": [
+   "Sahih al-Bukhari 6382"
+  ],
+  "chapters": [
+   {
+    "heading": "Istikhara — Asking Allah to Choose",
+    "body": "O Allah, if You know this matter to be good for my religion, my livelihood, and the end of my affair, decree it for me, make it easy, and bless it. And if You know it to be bad, turn it away from me and turn me from it — then decree good for me wherever it lies and content me with it.",
+    "arabic": "اللَّهُمَّ إِنْ كُنْتَ تَعْلَمُ أَنَّ هَٰذَا الْأَمْرَ خَيْرٌ لِي فِي دِينِي وَمَعَاشِي وَعَاقِبَةِ أَمْرِي فَاقْدُرْهُ لِي وَيَسِّرْهُ لِي ثُمَّ بَارِكْ لِي فِيهِ... (complete form)",
+    "dua": null
+   }
+  ],
+  "familyQuestion": "Which person in your family needs this dua most this week — and will you teach it to them?"
+ },
+ {
+  "id": "dua-suhoor",
+  "collection": "dailyduas",
+  "title": "At Suhoor — the Fast Begins",
+  "kicker": "DAILY DUAS · FASTING",
+  "subtitle": "The Prophet ﷺ said: actions are by intentions — the fast is born at suhoor",
+  "sourceLabel": "Established",
+  "sources": [
+   "Sunan Abi Dawud 2450 (intention principle)"
+  ],
+  "chapters": [
+   {
+    "heading": "At Suhoor — the Fast Begins",
+    "body": "I intend the fast of tomorrow from the month of Ramadan (intention in the heart; this phrase is the taught wording).",
+    "arabic": "وَبِصَوْمِ غَدٍ نَّوَيْتُ مِنْ شَهْرِ رَمَضَانَ",
+    "dua": null
+   }
+  ],
+  "familyQuestion": "Which person in your family needs this dua most this week — and will you teach it to them?"
+ },
+ {
+  "id": "dua-iftar-full",
+  "collection": "dailyduas",
+  "title": "Breaking the Fast — Complete",
+  "kicker": "DAILY DUAS · FASTING",
+  "subtitle": "The fast-breaker's dua is not rejected (Ibn Majah 1753)",
+  "sourceLabel": "Established",
+  "sources": [
+   "Sunan Abi Dawud 2357"
+  ],
+  "chapters": [
+   {
+    "heading": "Breaking the Fast — Complete",
+    "body": "The thirst is gone, the veins are moistened, and the reward is confirmed, if Allah wills.",
+    "arabic": "ذَهَبَ الظَّمَأُ وَابْتَلَّتِ الْعُرُوقُ وَثَبَتَ الْأَجْرُ إِنْ شَاءَ اللَّهُ",
+    "dua": null
+   }
+  ],
+  "familyQuestion": "Which person in your family needs this dua most this week — and will you teach it to them?"
+ },
+ {
+  "id": "dua-travel-full",
+  "collection": "dailyduas",
+  "title": "The Full Journey Dua",
+  "kicker": "DAILY DUAS · TRAVEL",
+  "subtitle": "Say the takbir three times when boarding; this when setting out",
+  "sourceLabel": "Established",
+  "sources": [
+   "Qur'an 43:13-14; Muslim 1342"
+  ],
+  "chapters": [
+   {
+    "heading": "The Full Journey Dua",
+    "body": "Glory to Him who subjected this to us, and we could never have accomplished it. And indeed, to our Lord we will return. O Allah, we ask You on this journey for righteousness and taqwa, and deeds You are pleased with.",
+    "arabic": "سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَٰذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ وَإِنَّا إِلَىٰ رَبِّنَا لَمُنقَلِبُونَ، اللَّهُمَّ إِنَّا نَسْأَلُكَ فِي سَفَرِنَا هَٰذَا الْبِرَّ وَالتَّقْوَىٰ وَمِنَ الْعَمَلِ مَا تَرْضَىٰ",
+    "dua": null
+   }
+  ],
+  "familyQuestion": "Which person in your family needs this dua most this week — and will you teach it to them?"
+ },
+ {
+  "id": "dua-sajdah",
+  "collection": "dailyduas",
+  "title": "Inside the Prostration",
+  "kicker": "DAILY DUAS · PRAYER",
+  "subtitle": "Then pour out your own words — the slave is nearest to his Lord in sujud (Muslim 482)",
+  "sourceLabel": "Established",
+  "sources": [
+   "Sahih Muslim 772"
+  ],
+  "chapters": [
+   {
+    "heading": "Inside the Prostration",
+    "body": "Glory to my Lord, the Most High.",
+    "arabic": "سُبْحَانَ رَبِّيَ الْأَعْلَىٰ",
+    "dua": null
+   }
+  ],
+  "familyQuestion": "Which person in your family needs this dua most this week — and will you teach it to them?"
+ },
+ {
+  "id": "dua-between-sajdah",
+  "collection": "dailyduas",
+  "title": "Between the Two Prostrations",
+  "kicker": "DAILY DUAS · PRAYER",
+  "subtitle": "The sitting between sujud is built for asking",
+  "sourceLabel": "Established",
+  "sources": [
+   "Sunan Abi Dawud 875"
+  ],
+  "chapters": [
+   {
+    "heading": "Between the Two Prostrations",
+    "body": "My Lord, forgive me. My Lord, forgive me.",
+    "arabic": "رَبِّ اغْفِرْ لِي، رَبِّ اغْفِرْ لِي",
+    "dua": null
+   }
+  ],
+  "familyQuestion": "Which person in your family needs this dua most this week — and will you teach it to them?"
+ },
+ {
+  "id": "dua-witr-qunut",
+  "collection": "dailyduas",
+  "title": "The Witr Qunut",
+  "kicker": "DAILY DUAS · PRAYER",
+  "subtitle": "Taught to a companion who could not master other recitations — mercy in simplicity",
+  "sourceLabel": "Established",
+  "sources": [
+   "Sunan an-Nasa'i 1745"
+  ],
+  "chapters": [
+   {
+    "heading": "The Witr Qunut",
+    "body": "O Allah, guide me among those You have guided, pardon me among those You have pardoned, protect me among those You have protected — bless what You have given, and shield me from the evil You have decreed, for You decree and none decrees against You.",
+    "arabic": "اللَّهُمَّ اهْدِنِي فِيمَنْ هَدَيْتَ، وَعَافِنِي فِيمَنْ عَافَيْتَ، وَتَوَلَّنِي فِيمَنْ تَوَلَّيْتَ... (complete form)",
+    "dua": null
+   }
+  ],
+  "familyQuestion": "Which person in your family needs this dua most this week — and will you teach it to them?"
+ },
+ {
+  "id": "dua-visit-sick",
+  "collection": "dailyduas",
+  "title": "Visiting the Sick",
+  "kicker": "DAILY DUAS · HARD TIMES",
+  "subtitle": "Say it seven times; the Prophet ﷺ visited a sick man and wiped his face until he rose healed",
+  "sourceLabel": "Established",
+  "sources": [
+   "Sahih al-Bukhari 3616"
+  ],
+  "chapters": [
+   {
+    "heading": "Visiting the Sick",
+    "body": "No harm — a purification, if Allah wills.",
+    "arabic": "لَا بَأْسَ، طَهُورٌ إِنْ شَاءَ اللَّهُ",
+    "dua": null
+   }
+  ],
+  "familyQuestion": "Which person in your family needs this dua most this week — and will you teach it to them?"
+ },
+ {
+  "id": "dua-morning-master",
+  "collection": "dailyduas",
+  "title": "The Morning Shield (Complete)",
+  "kicker": "DAILY DUAS · WAKING",
+  "subtitle": "Three times at morning — nothing harms the one who says it that day (Tirmidhi 3604)",
+  "sourceLabel": "Established",
+  "sources": [
+   "Sahih Muslim 2708"
+  ],
+  "chapters": [
+   {
+    "heading": "The Morning Shield (Complete)",
+    "body": "I seek refuge in the perfect words of Allah from the evil of what He has created.",
+    "arabic": "أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ",
+    "dua": null
+   }
+  ],
+  "familyQuestion": "Which person in your family needs this dua most this week — and will you teach it to them?"
+ },
+ {
+  "id": "dua-evening-shield",
+  "collection": "dailyduas",
+  "title": "The Evening Shield",
+  "kicker": "DAILY DUAS · SLEEPING",
+  "subtitle": "Said as the body settles — the night given back to its Owner",
+  "sourceLabel": "Established",
+  "sources": [
+   "Sahih al-Bukhari 6324"
+  ],
+  "chapters": [
+   {
+    "heading": "The Evening Shield",
+    "body": "In Your name, O Allah, I die and I live.",
+    "arabic": "بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا",
+    "dua": null
+   }
+  ],
+  "familyQuestion": "Which person in your family needs this dua most this week — and will you teach it to them?"
+ },
+ {
+  "id": "dua-children-shield",
+  "collection": "dailyduas",
+  "title": "Over Your Children",
+  "kicker": "DAILY DUAS · FAMILY",
+  "subtitle": "The Prophet ﷺ said this over al-Hasan and al-Husayn, passing his hands over their heads",
+  "sourceLabel": "Established",
+  "sources": [
+   "Sahih al-Bukhari 3371"
+  ],
+  "chapters": [
+   {
+    "heading": "Over Your Children",
+    "body": "I seek protection for you both in the perfect words of Allah, from every devil and poisonous creature, and from every evil eye.",
+    "arabic": "أُعِيذُكُمَا بِكَلِمَاتِ اللَّهِ التَّامَّةِ مِنْ كُلِّ شَيْطَانٍ وَهَامَّةٍ وَمِنْ كُلِّ عَيْنٍ لَامَّةٍ",
+    "dua": null
+   }
+  ],
+  "familyQuestion": "Which person in your family needs this dua most this week — and will you teach it to them?"
+ },
+ {
+  "id": "dua-takbir-days",
+  "collection": "dailyduas",
+  "title": "The Ten Days' Takbir",
+  "kicker": "DAILY DUAS · WORSHIP",
+  "subtitle": "The loud glorification of Dhul-Hijjah's first ten days — the days Allah swears by (89:2)",
+  "sourceLabel": "Established",
+  "sources": [
+   "Sunan al-Kubra Baihaqi"
+  ],
+  "chapters": [
+   {
+    "heading": "The Ten Days' Takbir",
+    "body": "Allah is Greatest, Allah is Greatest; there is no god but Allah; Allah is Greatest, Allah is Greatest, and to Allah belongs all praise.",
+    "arabic": "اللَّهُ أَكْبَرُ، اللَّهُ أَكْبَرُ، لَا إِلَٰهَ إِلَّا اللَّهُ، وَاللَّهُ أَكْبَرُ، اللَّهُ أَكْبَرُ، وَلِلَّهِ الْحَمْدُ",
+    "dua": null
+   }
+  ],
+  "familyQuestion": "Which person in your family needs this dua most this week — and will you teach it to them?"
  }
 ]
