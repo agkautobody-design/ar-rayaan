@@ -8,6 +8,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../../../app/core/providers.dart';
 import '../../../app/theme/app_colors.dart';
+import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 

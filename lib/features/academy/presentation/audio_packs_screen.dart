@@ -89,7 +89,6 @@ class _AudioPacksScreenState extends ConsumerState<AudioPacksScreen> {
                             style: AppText.caption
                                 .copyWith(color: AppColors.gold),
                           ),
-                        ),
                           title: Text('Surah $surah', style: AppText.body),
                           subtitle: downloading
                               ? LinearProgressIndicator(
