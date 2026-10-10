@@ -6,10 +6,7 @@ library;
 
 import 'dart:convert';
 
-import 'package:shared_preferences/shared_preferences.dart';
-
-import '../../hadi/application/hadi_provider.dart';
-import '../../hadi/data/groq_hadi_provider.dart';
+import 'package:http/http.dart' as http;
 
 import '../domain/physician.dart';
 import '../domain/vitals.dart';
@@ -18,30 +15,21 @@ import '../domain/vitals.dart';
 typedef LadderRung = Future<String?> Function(String system, String user);
 
 abstract final class PhysicianEngine {
-  /// The ladder: the user's own key on Hadi's provider rails.
-  static List<LadderRung> get defaultLadder => <LadderRung>[_userKeyRung];
+  /// Groq free tier (rung 1): same key contract as Hadi.
+  static const String _groqKey = String.fromEnvironment('GROQ_API_KEY');
+  static const String _groqUrl =
+      'https://api.groq.com/openai/v1/chat/completions';
 
-  /// The physician borrows the SAME user-owned key Hadi uses, on the same
-  /// provider rails — one key, three minds (Hadi, Wasia, the Doctor).
-  static Future<String?> _userKeyRung(String system, String user) async {
-    final prefs = await SharedPreferences.getInstance();
-    final k = (prefs.getString('ar.hadi.apikey') ?? '').trim();
-    if (k.isEmpty) return null;
-    final providerName = prefs.getString('ar.hadi.provider') ?? 'groq';
-    final HadiProvider p = switch (providerName) {
-      'openrouter' => OpenRouterHadiProvider(apiKey: k),
-      'xai' => XaiHadiProvider(apiKey: k),
-      _ => GroqHadiProvider(apiKey: k),
-    };
-    try {
-      return await p.ask('\$system\n\nPatient record (probe results):\n\$user',
-          const <HadiMessage>[]);
-    } catch (_) {
-      return null;
-    }
-  }
+  static List<LadderRung> get defaultLadder => <LadderRung>[
+        if (_groqKey.isNotEmpty) _groqRung,
+        // Workers AI rung slots in here when the founder's token ships.
+      ];
 
+  static Future<String?> _groqRung(String system, String user) async {
+    final http.Response res = await http.post(
+      Uri.parse(_groqUrl),
       headers: <String, String>{
+        'Authorization': 'Bearer $_groqKey',
         'Content-Type': 'application/json',
       },
       body: jsonEncode(<String, dynamic>{
