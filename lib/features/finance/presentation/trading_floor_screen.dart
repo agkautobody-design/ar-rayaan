@@ -144,18 +144,18 @@ class _FloorState extends ConsumerState<TradingFloorScreen> {
               child: Row(children: [
                 for (final (i, t) in [('Learn', 0), ('Floor', 1), ('Budget', 2), ('Savings', 3)].indexed)
                   Expanded(child: GestureDetector(
-                    onTap: () => setState(() => _tab = i.$2.$2),
+                    onTap: () => setState(() => _tab = t.$2),
                     child: Container(
                       margin: const EdgeInsets.symmetric(horizontal: 3),
                       padding: const EdgeInsets.symmetric(vertical: 8),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
-                        border: Border.all(color: _tab == i.$2.$2
+                        border: Border.all(color: _tab == t.$2
                             ? AppColors.gold : AppColors.sand.withValues(alpha: 0.2)),
                       ),
-                      child: Text(i.$2.$1, textAlign: TextAlign.center,
+                      child: Text(t.$1, textAlign: TextAlign.center,
                           style: AppText.body.copyWith(fontSize: 12.5,
-                              color: _tab == i.$2.$2 ? AppColors.goldLight : AppColors.sand)),
+                              color: _tab == t.$2 ? AppColors.goldLight : AppColors.sand)),
                     ),
                   )),
               ]),

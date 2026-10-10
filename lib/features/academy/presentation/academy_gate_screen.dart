@@ -32,7 +32,7 @@ class _AcademyGateState extends State<AcademyGateScreen> {
     if (!_minElapsed) return;
     context.go(AppRoutes.academy);
   }
-}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -153,4 +153,3 @@ class _AcademyGateState extends State<AcademyGateScreen> {
       ),
     );
   }
-}
