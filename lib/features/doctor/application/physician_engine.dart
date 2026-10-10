@@ -6,7 +6,10 @@ library;
 
 import 'dart:convert';
 
-import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../hadi/application/hadi_provider.dart';
+import '../../hadi/data/groq_hadi_provider.dart';
 
 import '../domain/physician.dart';
 import '../domain/vitals.dart';
@@ -20,10 +23,27 @@ abstract final class PhysicianEngine {
   static const String _groqUrl =
       'https://api.groq.com/openai/v1/chat/completions';
 
-  static List<LadderRung> get defaultLadder => <LadderRung>[
-        if (_groqKey.isNotEmpty) _groqRung,
-        // Workers AI rung slots in here when the founder's token ships.
-      ];
+  static List<LadderRung> get defaultLadder => <LadderRung>[_userKeyRung];
+
+  /// The physician borrows the SAME user-owned key Hadi uses, on the same
+  /// provider rails — one key, three minds (Hadi, Wasia, the Doctor).
+  static Future<String?> _userKeyRung(String system, String user) async {
+    final prefs = await SharedPreferences.getInstance();
+    final k = (prefs.getString('ar.hadi.apikey') ?? '').trim();
+    if (k.isEmpty) return null;
+    final providerName = prefs.getString('ar.hadi.provider') ?? 'groq';
+    final HadiProvider p = switch (providerName) {
+      'openrouter' => OpenRouterHadiProvider(apiKey: k),
+      'xai' => XaiHadiProvider(apiKey: k),
+      _ => GroqHadiProvider(apiKey: k),
+    };
+    try {
+      return await p.ask('\$system\n\nPatient record (probe results):\n\$user',
+          const <HadiMessage>[]);
+    } catch (_) {
+      return null;
+    }
+  }
 
   static Future<String?> _groqRung(String system, String user) async {
     final http.Response res = await http.post(
