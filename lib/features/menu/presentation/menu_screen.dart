@@ -67,6 +67,7 @@ class MenuScreen extends ConsumerWidget {
         (Icons.download_outlined, 'Downloads', AppRoutes.downloads),
         (Icons.search, 'Saved Searches', AppRoutes.quran),
         (Icons.dark_mode_outlined, 'Night Mode', AppRoutes.settings),
+        (Icons.monitor_heart_outlined, 'Ar-Rayaan Doctor (founder)', '/founder'),
       ],
     ),
   ];

@@ -57,8 +57,11 @@ class _AcademyHomeScreenState
     return Scaffold(
       body: ScenicScaffold.pattern(
         body: SafeArea(
-          child: ListView(
-            padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
+          child: Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 780),
+              child: ListView(
+                padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
             children: <Widget>[
               ScreenHeader(title: s),
               const SizedBox(height: 8),
@@ -279,6 +282,8 @@ class _AcademyHomeScreenState
                 ),
               ),
             ],
+              ),
+            ),
           ),
         ),
       ),
