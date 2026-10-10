@@ -11,7 +11,7 @@ class LocaleController extends StateNotifier<Locale> {
 
   static const _pref = 'ar.locale';
 
-  static const supported = <Locale, String>{
+  static final supported = <Locale, String>{
     Locale('en'): 'English',
     Locale('ur'): 'اردو · Urdu',
     Locale('ar'): 'العربية · Arabic',

@@ -33,8 +33,6 @@ class _AcademyGateState extends State<AcademyGateScreen> {
     context.go(AppRoutes.academy);
   }
 }
-  const AcademyGateScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

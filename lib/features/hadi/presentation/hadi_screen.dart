@@ -30,7 +30,7 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
   @override
   void initState() {
     super.initState();
-    ref.read(hadiControllerProvider.notifier).navigationEvents.listen((route) {
+    ref.read(hadiControllerProvider.notifier).navigationEvents.stream.listen((route) {
       if (mounted) context.go(route);
     });
   }
