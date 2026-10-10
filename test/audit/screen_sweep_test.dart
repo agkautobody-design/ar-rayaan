@@ -1,3 +1,4 @@
+import 'package:ar_rayaan/app/core/providers.dart';
 import 'package:ar_rayaan/app/router.dart';
 import 'package:ar_rayaan/features/academy/presentation/wasia_lessons.dart';
 import 'package:ar_rayaan/features/family/data/family_tree_provider.dart';
@@ -81,6 +82,7 @@ void main() {
             ]),
         triviaProvider.overrideWith((ref) async => []),
         namesProvider.overrideWith((ref) async => []),
+        appUrlProvider.overrideWith((ref) => 'https://ar-rayaan.onrender.com'),
       ],
       child: MaterialApp.router(routerConfig: router),
     ));

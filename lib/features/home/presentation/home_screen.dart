@@ -240,7 +240,8 @@ class HomeScreen extends ConsumerWidget {
                         ),
                       ),
                       const SizedBox(height: 16),
-                      GestureDetector(
+                      const DailyHadithBanner(),
+              GestureDetector(
                 onTap: () async {
                   final p = await SharedPreferences.getInstance();
                   await p.setBool('ar.elder.mode', true);
