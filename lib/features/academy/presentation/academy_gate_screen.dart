@@ -10,7 +10,29 @@ import '../../../app/theme/app_typography.dart';
 /// The gate of Wasia Academy — entered the way Ar-Rayaan itself is entered:
 /// a threshold of light. Bismillah in calligraphy, the knowledge verse,
 /// one tap to step inside.
-class AcademyGateScreen extends StatelessWidget {
+class AcademyGateScreen extends StatefulWidget {
+  const AcademyGateScreen({super.key});
+  @override
+  State<AcademyGateScreen> createState() => _AcademyGateState();
+}
+
+class _AcademyGateState extends State<AcademyGateScreen> {
+  DateTime _shownAt = DateTime.now();
+  bool _minElapsed = false;
+
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(seconds: 3), () {
+      if (mounted) setState(() => _minElapsed = true);
+    });
+  }
+
+  void _enter(BuildContext context) {
+    if (!_minElapsed) return;
+    context.go(AppRoutes.academy);
+  }
+}
   const AcademyGateScreen({super.key});
 
   @override
@@ -18,7 +40,7 @@ class AcademyGateScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: GestureDetector(
-        onTap: () => context.go(AppRoutes.academy),
+        onTap: () => _enter(context),
         child: Stack(
           fit: StackFit.expand,
           children: [
@@ -118,7 +140,7 @@ class AcademyGateScreen extends StatelessWidget {
                     ),
                     const Spacer(flex: 3),
                     Text(
-                      'TAP TO ENTER',
+                      _minElapsed ? 'TAP TO ENTER' : 'ENTERING THE SCHOOL\u2026',
                       style: AppText.eyebrow.copyWith(
                         color: AppColors.goldLight,
                       ),
