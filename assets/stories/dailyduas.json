@@ -358,5 +358,245 @@
    }
   ],
   "familyQuestion": "Which person in your life needs this dua most this week — and will you tell them you prayed it?"
+ },
+ {
+  "id": "dua-after-salah",
+  "collection": "dailyduas",
+  "title": "After the Prayer",
+  "kicker": "DAILY DUAS · PRAYER",
+  "subtitle": "Say it after every obligatory prayer, before the dhikr",
+  "sourceLabel": "Established",
+  "sources": [
+   "Sahih Muslim 591"
+  ],
+  "chapters": [
+   {
+    "heading": "After the Prayer",
+    "body": "I seek Allah's forgiveness (3x). O Allah, You are Peace and from You comes peace. Blessed are You, O Owner of Majesty and Honor.",
+    "arabic": "أَسْتَغْفِرُ اللَّهَ، أَسْتَغْفِرُ اللَّهَ، أَسْتَغْفِرُ اللَّهَ، اللَّهُمَّ أَنْتَ السَّلَامُ وَمِنْكَ السَّلَامُ تَبَارَكْتَ يَا ذَا الْجَلَالِ وَالْإِكْرَامِ",
+    "dua": null
+   }
+  ],
+  "familyQuestion": "Who in your family needs this dua tonight — and will you tell them you prayed it for them?"
+ },
+ {
+  "id": "dua-istikhlas",
+  "collection": "dailyduas",
+  "title": "Sayyid al-Istighfar — the Master of Seeking Forgiveness",
+  "kicker": "DAILY DUAS · PRAYER",
+  "subtitle": "Whoever says it with conviction morning or evening and dies that day/night enters Paradise",
+  "sourceLabel": "Established",
+  "sources": [
+   "Sahih al-Bukhari 6306"
+  ],
+  "chapters": [
+   {
+    "heading": "Sayyid al-Istighfar — the Master of Seeking Forgiveness",
+    "body": "O Allah, You are my Lord, none has the right to be worshipped but You. You created me and I am Your servant... (complete form in Sahih al-Bukhari 6306)",
+    "arabic": "اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَٰهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ... (continue the full dua)",
+    "dua": null
+   }
+  ],
+  "familyQuestion": "Who in your family needs this dua tonight — and will you tell them you prayed it for them?"
+ },
+ {
+  "id": "dua-rabbana-atina",
+  "collection": "dailyduas",
+  "title": "The Sum of all Duas",
+  "kicker": "DAILY DUAS · QUR'AN",
+  "subtitle": "The Prophet's ﷺ most frequent supplication (Bukhari 6389)",
+  "sourceLabel": "Established",
+  "sources": [
+   "Qur'an 2:201"
+  ],
+  "chapters": [
+   {
+    "heading": "The Sum of all Duas",
+    "body": "Our Lord, give us in this world good and in the Hereafter good, and protect us from the punishment of the Fire.",
+    "arabic": "رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ",
+    "dua": null
+   }
+  ],
+  "familyQuestion": "Who in your family needs this dua tonight — and will you tell them you prayed it for them?"
+ },
+ {
+  "id": "dua-exit-home",
+  "collection": "dailyduas",
+  "title": "Leaving for Work or Study",
+  "kicker": "DAILY DUAS · HOME",
+  "subtitle": "Said when leaving the house — the caller says: you are guided, sufficed, and protected",
+  "sourceLabel": "Established",
+  "sources": [
+   "Sunan Abi Dawud 5095"
+  ],
+  "chapters": [
+   {
+    "heading": "Leaving for Work or Study",
+    "body": "In the name of Allah, I trust in Allah, and there is no might nor power except with Allah.",
+    "arabic": "بِسْمِ اللَّهِ، تَوَكَّلْتُ عَلَى اللَّهِ، وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ",
+    "dua": null
+   }
+  ],
+  "familyQuestion": "Who in your family needs this dua tonight — and will you tell them you prayed it for them?"
+ },
+ {
+  "id": "dua-enter-mosque2",
+  "collection": "dailyduas",
+  "title": "Entering the Mosque (full form)",
+  "kicker": "DAILY DUAS · PRAYER",
+  "subtitle": "Then pray two rak'ahs of greeting before sitting",
+  "sourceLabel": "Established",
+  "sources": [
+   "Sahih Muslim 769"
+  ],
+  "chapters": [
+   {
+    "heading": "Entering the Mosque (full form)",
+    "body": "I seek refuge in Allah the Magnificent, in His noble countenance and eternal authority, from the accursed devil. In the name of Allah; blessings and peace upon the Messenger of Allah. O Allah, open for me the doors of Your mercy.",
+    "arabic": "أَعُوذُ بِاللَّهِ الْعَظِيمِ وَبِوَجْهِهِ الْكَرِيمِ وَسُلْطَانِهِ الْقَدِيمِ مِنَ الشَّيْطَانِ الرَّجِيمِ، بِسْمِ اللَّهِ وَالصَّلَاةُ وَالسَّلَامُ عَلَى رَسُولِ اللَّهِ، اللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ",
+    "dua": null
+   }
+  ],
+  "familyQuestion": "Who in your family needs this dua tonight — and will you tell them you prayed it for them?"
+ },
+ {
+  "id": "dua-rain2",
+  "collection": "dailyduas",
+  "title": "Asking for Rain",
+  "kicker": "DAILY DUAS · WORLD",
+  "subtitle": "When the rain hardens: O Allah, around us and not upon us",
+  "sourceLabel": "Established",
+  "sources": [
+   "Sahih al-Bukhari 1012"
+  ],
+  "chapters": [
+   {
+    "heading": "Asking for Rain",
+    "body": "O Allah, send us rain (3x) — the Prophet ﷺ would raise his hands and turn his cloak when the sky cleared.",
+    "arabic": "اللَّهُمَّ أَغِثْنَا، اللَّهُمَّ أَغِثْنَا، اللَّهُمَّ أَغِثْنَا",
+    "dua": null
+   }
+  ],
+  "familyQuestion": "Who in your family needs this dua tonight — and will you tell them you prayed it for them?"
+ },
+ {
+  "id": "dua-debt2",
+  "collection": "dailyduas",
+  "title": "For Relief of Debt",
+  "kicker": "DAILY DUAS · HARD TIMES",
+  "subtitle": "The dua of Ali (RA); whoever says it morning and evening, Allah suffices him",
+  "sourceLabel": "Established",
+  "sources": [
+   "Sunan at-Tirmidhi 3565"
+  ],
+  "chapters": [
+   {
+    "heading": "For Relief of Debt",
+    "body": "O Allah, suffice me with Your halal against Your haram, and enrich me by Your bounty from all besides You.",
+    "arabic": "اللَّهُمَّ اكْفِنِي بِحَلَالِكَ عَنْ حَرَامِكَ، وَأَغْنِنِي بِفَضْلِكَ عَمَّنْ سِوَاكَ",
+    "dua": null
+   }
+  ],
+  "familyQuestion": "Who in your family needs this dua tonight — and will you tell them you prayed it for them?"
+ },
+ {
+  "id": "dua-rizq",
+  "collection": "dailyduas",
+  "title": "Asking Provision",
+  "kicker": "DAILY DUAS · HARD TIMES",
+  "subtitle": "Ask after Fajr, when doors of rizq are opened",
+  "sourceLabel": "Established",
+  "sources": [
+   "Musnad Ahmad (sahih-form narration)"
+  ],
+  "chapters": [
+   {
+    "heading": "Asking Provision",
+    "body": "O Allah, I ask You for wide, halal, wholesome provision, without hardship, and answer my call without refusal.",
+    "arabic": "اللَّهُمَّ إِنِّي أَسْأَلُكَ رِزْقًا وَاسِعًا حَلَالًا طَيِّبًا، مِنْ غَيْرِ كَدٍّ، وَاسْتَجِبْ دُعَائِي مِنْ غَيْرِ رَدٍّ",
+    "dua": null
+   }
+  ],
+  "familyQuestion": "Who in your family needs this dua tonight — and will you tell them you prayed it for them?"
+ },
+ {
+  "id": "dua-family2",
+  "collection": "dailyduas",
+  "title": "For the Whole Household",
+  "kicker": "DAILY DUAS · FAMILY",
+  "subtitle": "The dua of Ibrahim's tradition for a righteous house",
+  "sourceLabel": "Established",
+  "sources": [
+   "Qur'an 25:74"
+  ],
+  "chapters": [
+   {
+    "heading": "For the Whole Household",
+    "body": "Our Lord, grant us from our spouses and offspring comfort to our eyes, and make us leaders for the righteous.",
+    "arabic": "رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا",
+    "dua": null
+   }
+  ],
+  "familyQuestion": "Who in your family needs this dua tonight — and will you tell them you prayed it for them?"
+ },
+ {
+  "id": "dua-hawqala",
+  "collection": "dailyduas",
+  "title": "The Hawqala — the Treasure of Paradise",
+  "kicker": "DAILY DUAS · HARD TIMES",
+  "subtitle": "A treasure of Paradise — said when matters weigh heavy",
+  "sourceLabel": "Established",
+  "sources": [
+   "Sahih al-Bukhari 6394"
+  ],
+  "chapters": [
+   {
+    "heading": "The Hawqala — the Treasure of Paradise",
+    "body": "There is no might nor power except with Allah.",
+    "arabic": "لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ",
+    "dua": null
+   }
+  ],
+  "familyQuestion": "Who in your family needs this dua tonight — and will you tell them you prayed it for them?"
+ },
+ {
+  "id": "dua-seeing-afflicted",
+  "collection": "dailyduas",
+  "title": "Seeing Someone Afflicted",
+  "kicker": "DAILY DUAS · HARD TIMES",
+  "subtitle": "Say it quietly — and never say it as pride, only gratitude",
+  "sourceLabel": "Established",
+  "sources": [
+   "Sunan at-Tirmidhi 3431"
+  ],
+  "chapters": [
+   {
+    "heading": "Seeing Someone Afflicted",
+    "body": "Praise is to Allah who spared me what He has afflicted you with, and favored me over much of His creation.",
+    "arabic": "الْحَمْدُ لِلَّهِ الَّذِي عَافَانِي مِمَّا ابْتَلَاكَ بِهِ وَفَضَّلَنِي عَلَى كَثِيرٍ مِمَّنْ خَلَقَ تَفْضِيلًا",
+    "dua": null
+   }
+  ],
+  "familyQuestion": "Who in your family needs this dua tonight — and will you tell them you prayed it for them?"
+ },
+ {
+  "id": "dua-forgiveness-night",
+  "collection": "dailyduas",
+  "title": "The Night Prayer's Door",
+  "kicker": "DAILY DUAS · HARD TIMES",
+  "subtitle": "Aisha asked what to say in Laylat al-Qadr — this was the answer",
+  "sourceLabel": "Established",
+  "sources": [
+   "Sunan at-Tirmidhi 3513"
+  ],
+  "chapters": [
+   {
+    "heading": "The Night Prayer's Door",
+    "body": "O Allah, You are Pardoning and love to pardon, so pardon me.",
+    "arabic": "اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي",
+    "dua": null
+   }
+  ],
+  "familyQuestion": "Who in your family needs this dua tonight — and will you tell them you prayed it for them?"
  }
 ]
