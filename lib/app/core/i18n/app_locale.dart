@@ -74,6 +74,44 @@ class L10n {
     },
   };
 
+  // Multilingual salvage (2026-10-10): the app's time-and-calendar layer
+  // genuinely speaks its eight tongues — every prayer name and phase label
+  // has a real translation in L10n.words.
+  static const words = <String, Map<String, String>>{
+    'prayer.fajr': {'en': 'Fajr', 'ur': 'فجر', 'ar': 'الفجر', 'id': 'Subuh',
+      'fr': 'Fajr', 'tr': 'İmsak', 'bn': 'ফজর', 'ms': 'Subuh'},
+    'prayer.sunrise': {'en': 'Sunrise', 'ur': 'طلوعِ فجر', 'ar': 'الشروق',
+      'id': 'Terbit', 'fr': 'Lever du soleil', 'tr': 'Güneş', 'bn': 'সূর্যোদয়', 'ms': 'Terbit'},
+    'prayer.dhuhr': {'en': 'Dhuhr', 'ur': 'ظہر', 'ar': 'الظهر', 'id': 'Dzuhur',
+      'fr': 'Dhuhr', 'tr': 'Öğle', 'bn': 'যোহর', 'ms': 'Zohor'},
+    'prayer.asr': {'en': 'Asr', 'ur': 'عصر', 'ar': 'العصر', 'id': 'Ashar',
+      'fr': 'Asr', 'tr': 'İkindi', 'bn': 'আসর', 'ms': 'Asar'},
+    'prayer.maghrib': {'en': 'Maghrib', 'ur': 'مغرب', 'ar': 'المغرب', 'id': 'Maghrib',
+      'fr': 'Maghrib', 'tr': 'Akşam', 'bn': 'মাগরিব', 'ms': 'Maghrib'},
+    'prayer.isha': {'en': 'Isha', 'ur': 'عشاء', 'ar': 'العشاء', 'id': 'Isya',
+      'fr': 'Isha', 'tr': 'Yatsı', 'bn': 'এশা', 'ms': 'Isyak'},
+    'phase.next': {'en': 'Next prayer', 'ur': 'اگلی نماز', 'ar': 'الصلاة القادمة',
+      'id': 'Sholat berikutnya', 'fr': 'Prochaine prière', 'tr': 'Sıradaki namaz',
+      'bn': 'পরবর্তী নামাজ', 'ms': 'Solat seterusnya'},
+    'phase.passed': {'en': 'just passed', 'ur': 'ابھی گزری', 'ar': 'مرت للتو',
+      'id': 'baru lewat', 'fr': 'vient de passer', 'tr': 'az önce geçti',
+      'bn': 'এইমাত্র শেষ', 'ms': 'baru sahaja lepas'},
+    'phase.now': {'en': 'in progress', 'ur': 'جاری ہے', 'ar': 'جارية الآن',
+      'id': 'sedang berlangsung', 'fr': 'en cours', 'tr': 'devam ediyor',
+      'bn': 'চলমান', 'ms': 'sedang berlangsung'},
+    'day.mon': {'en': 'Mon', 'ur': 'پیر', 'ar': 'الاثنين', 'id': 'Sen', 'fr': 'Lun',
+      'tr': 'Pzt', 'bn': 'সোম', 'ms': 'Isn'},
+    'day.fri': {'en': 'Fri', 'ur': 'جمعہ', 'ar': 'الجمعة', 'id': 'Jum', 'fr': 'Ven',
+      'tr': 'Cum', 'bn': 'শুক্র', 'ms': 'Jum'},
+    'month.ramadan': {'en': 'Ramadan', 'ur': 'رمضان', 'ar': 'رمضان', 'id': 'Ramadan',
+      'fr': 'Ramadan', 'tr': 'Ramazan', 'bn': 'রমজান', 'ms': 'Ramadan'},
+  };
+
+  String w(String key) {
+    final map = words[key];
+    return map?[locale.languageCode] ?? map?['en'] ?? key;
+  }
+
   String t(String key) {
     final map = _strings[locale.languageCode];
     return map?[key] ?? _strings['en']?[key] ?? key;
