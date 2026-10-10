@@ -44,7 +44,8 @@ void main() {
       'family-wing': '/academy/family', 'elder': '/home/elder',
       'quick-access': '/home/quick', 'doctor': '/founder',
       'quran': '/quran', 'qibla': '/qibla', 'notes': '/notes',
-      'downloads': '/downloads',
+      'downloads': '/downloads', 'ramadan-mode': '/ramadan',
+      'rayaan-stocks': '/finance/rayaan',
     };
     for (final m in modules) {
       final path = liveRoutes[m['id']];

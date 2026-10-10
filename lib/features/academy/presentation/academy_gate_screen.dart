@@ -153,3 +153,4 @@ class _AcademyGateState extends State<AcademyGateScreen> {
       ),
     );
   }
+}
