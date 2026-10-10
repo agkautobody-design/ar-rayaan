@@ -28,6 +28,14 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
   final ScrollController _scroll = ScrollController();
 
   @override
+  void initState() {
+    super.initState();
+    ref.read(hadiControllerProvider.notifier).navigationEvents.listen((route) {
+      if (mounted) context.go(route);
+    });
+  }
+
+  @override
   void dispose() {
     _input.dispose();
     _scroll.dispose();

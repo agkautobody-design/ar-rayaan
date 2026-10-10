@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -36,6 +37,9 @@ class HadiState {
 /// with guardrails; otherwise → curated offline knowledge. On any live
 /// failure the offline provider answers instead (never a dead end).
 class HadiController extends Notifier<HadiState> {
+
+  /// Screen-jump requests extracted from Hadi's replies ([GO:/path] tokens).
+  final navigationEvents = StreamController<String>.broadcast();
   static const String _keyPref = 'ar.hadi.apikey';
   static const String _providerPref = 'ar.hadi.provider';
 
@@ -162,6 +166,27 @@ class HadiController extends Notifier<HadiState> {
       ],
       typing: false,
     );
+    // Hadi's hands: a [GO:/path] token means "take the user there".
+    final nav = RegExp(r'\[GO:(/[a-z0-9\-/:]+)\]').firstMatch(answer);
+    if (nav != null) {
+      final route = nav.group(1);
+      const known = <String>{
+        '/home', '/stories', '/games', '/player', '/finance', '/masajid',
+        '/feelings', '/family-tree', '/huda', '/majlis', '/elder-care',
+        '/qibla', '/hadith', '/sakina', '/share', '/notes', '/founder',
+        '/academy', '/academy/gate', '/academy/family', '/home/quick',
+      };
+      if (route != null && known.contains(route)) {
+        navigationEvents.add(route);
+      }
+      final clean = answer.replaceAll(RegExp(r'\s*\[GO:[^\]]+\]'), '').trim();
+      if (clean.isNotEmpty && clean != answer) {
+        final msgs = [...state.messages];
+        msgs[msgs.length - 1] = HadiMessage(fromHadi: true, text: clean);
+        state = state.copy(messages: msgs);
+        return clean;
+      }
+    }
     return answer;
   }
 }
