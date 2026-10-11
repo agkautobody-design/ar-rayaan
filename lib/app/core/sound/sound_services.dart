@@ -189,6 +189,14 @@ class AdhanService extends Notifier<bool> {
 
   Future<void> toggle() async => state ? stop() : play();
 
+  /// One-shot adhan for the autonomous scheduler.
+  Future<void> playAdhan() async {
+    try {
+      await _player?.stop();
+      await _player?.play(AssetSource('audio/adhan_mecca.mp3'));
+    } catch (_) {}
+  }
+
   Future<void> play() async {
     _player ??= _tryCreatePlayer();
     final AudioPlayer? player = _player;
