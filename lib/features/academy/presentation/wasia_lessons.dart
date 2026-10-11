@@ -267,6 +267,21 @@ class _LessonRunnerState extends ConsumerState<LessonRunnerScreen> {
                       Text(current.note!, textAlign: TextAlign.center,
                           style: AppText.bodyMuted),
                     ],
+                    const SizedBox(height: 12),
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(color: AppColors.gold.withValues(alpha: 0.3)),
+                      ),
+                      child: Column(children: [
+                        Text('SAY IT WITH WASIA', style: AppText.eyebrow.copyWith(fontSize: 8.5)),
+                        const SizedBox(height: 4),
+                        Text('Repeat the letter three times, slowly — then tap the voice above to hear your teacher say it. Tomorrow it will know your name.',
+                            textAlign: TextAlign.center,
+                            style: AppText.bodyMuted.copyWith(fontSize: 11, height: 1.5)),
+                      ]),
+                    ),
                   ]),
                 )
               else if (current.type == 'quiz')

@@ -36,6 +36,14 @@ class ContentSync {
             .get(Uri.parse('$_remoteBase/$assetPath'))
             .timeout(const Duration(seconds: 10));
         if (res.statusCode == 200 && res.body.isNotEmpty) {
+          // Validate before trusting: a truncated or error-body fetch must
+          // never poison the device cache.
+          try {
+            json.decode(res.body);
+          } catch (_) {
+            await prefs.remove('cp_$assetPath');
+            return bundled;
+          }
           await prefs.setString('cp_$assetPath', res.body);
           await prefs.setInt('cv_$assetPath', remoteVer);
           return res.body;
