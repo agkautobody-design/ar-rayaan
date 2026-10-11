@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
-import '../../../app/theme/widgets/speak_button.dart';
-import '../../hadi/application/hadi_controller.dart';
 import '../domain/story.dart';
 
 class StoryReaderScreen extends StatefulWidget {
@@ -169,9 +166,7 @@ class _StoryReaderScreenState extends State<StoryReaderScreen> {
             ),
           ),
           const SizedBox(height: 12),
-          _AskHadiAboutStory(story: story, chapter: current),
-              const SizedBox(height: 12),
-              GlassCard(
+          GlassCard(
             strong: true,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -192,74 +187,6 @@ class _StoryReaderScreenState extends State<StoryReaderScreen> {
           ),
         ],
       ),
-    );
-  }
-}
-
-/// CONVERSATION MODE — ask Hadi about the story being read; he answers IN context.
-class _AskHadiAboutStory extends ConsumerStatefulWidget {
-  final Story story;
-  final StoryChapter chapter;
-  const _AskHadiAboutStory({required this.story, required this.chapter});
-
-  @override
-  ConsumerState<_AskHadiAboutStory> createState() => _AskHadiState();
-}
-
-class _AskHadiState extends ConsumerState<_AskHadiAboutStory> {
-  final _input = TextEditingController();
-  String? _answer;
-
-  @override
-  Widget build(BuildContext context) {
-    final busy = ref.watch(hadiControllerProvider).isLoading;
-    return GlassCard(
-      strong: true,
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Text('ASK H\u0100DI ABOUT THIS STORY', style: AppText.eyebrow),
-        const SizedBox(height: 6),
-        Text('Anything unclear — a name, a decision, a lesson — ask, and he answers from this chapter.',
-            style: AppText.bodyMuted.copyWith(fontSize: 11)),
-        const SizedBox(height: 8),
-        Row(children: [
-          Expanded(
-            child: TextField(
-              controller: _input,
-              style: AppText.body,
-              decoration: const InputDecoration(hintText: 'e.g. why did Yusuf forgive his brothers?'),
-            ),
-          ),
-          const SizedBox(width: 8),
-          CircleAvatar(
-            backgroundColor: AppColors.gold,
-            child: IconButton(
-              icon: busy
-                  ? const SizedBox(width: 14, height: 14,
-                      child: CircularProgressIndicator(strokeWidth: 2, color: Color(0xFF0A0F18)))
-                  : const Icon(Icons.send, size: 17, color: Color(0xFF0A0F18)),
-              onPressed: busy ? null : () async {
-                final q = _input.text.trim();
-                if (q.isEmpty) return;
-                final ctx = 'The user is reading \'\${widget.story.title}\' (\${widget.story.kicker}). '
-                    'Current chapter \'\${widget.chapter.heading}\': \${widget.chapter.body} '
-                    'Sources: \${widget.story.sources.join('; ')}. '
-                    'Answer their question about THIS story briefly, warmly, and stay faithful to the text above. '
-                    'If beyond the story, say what the sources establish and recommend a scholar. Question: \$q';
-                final a = await ref.read(hadiControllerProvider.notifier).ask(ctx);
-                setState(() => _answer = a);
-              },
-            ),
-          ),
-        ]),
-        if (_answer != null) ...[
-          const SizedBox(height: 10),
-          Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            Expanded(child: Text(_answer!,
-                style: AppText.body.copyWith(height: 1.6, fontSize: 13))),
-            SpeakButton(text: _answer!, size: 20),
-          ]),
-        ],
-      ]),
     );
   }
 }
