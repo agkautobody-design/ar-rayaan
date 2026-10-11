@@ -1,0 +1,88 @@
+{
+ "cards": [
+  {
+   "id": "s-rahman",
+   "kind": "Qur'an",
+   "arabic": "فَبِأَيِّ آلَاءِ رَبِّكُمَا تُكَذِّبَانِ",
+   "text": "Then which of the favors of your Lord will you deny?",
+   "ref": "Qur'an 55:13"
+  },
+  {
+   "id": "s-fajr",
+   "kind": "Qur'an",
+   "arabic": "إِنَّ الَّذِي فَطَرَنِي فَهُوَ يَهْدِينِ",
+   "text": "Indeed, He who created me will guide me.",
+   "ref": "Qur'an 26:78"
+  },
+  {
+   "id": "s-insan",
+   "kind": "Qur'an",
+   "arabic": "إِنَّ مَعَ الْعُسْرِ يُسْرًا",
+   "text": "Indeed, with hardship comes ease.",
+   "ref": "Qur'an 94:6"
+  },
+  {
+   "id": "s-kahf",
+   "kind": "Qur'an",
+   "arabic": "رَبِّ اجْعَلْنِي مُقِيمَ الصَّلَاةِ وَمِن ذُرِّيَّتِي",
+   "text": "My Lord, make me an establisher of prayer — and from my descendants too.",
+   "ref": "Qur'an 14:40"
+  },
+  {
+   "id": "s-ikhlas2",
+   "kind": "Qur'an",
+   "arabic": "قُلْ هُوَ اللَّهُ أَحَدٌ",
+   "text": "Say: He is Allah, the One.",
+   "ref": "Qur'an 112:1"
+  },
+  {
+   "id": "s-nur",
+   "kind": "Qur'an",
+   "arabic": "اللَّهُ نُورُ السَّمَاوَاتِ وَالْأَرْضِ",
+   "text": "Allah is the Light of the heavens and the earth.",
+   "ref": "Qur'an 24:35"
+  },
+  {
+   "id": "s-gentle",
+   "kind": "Hadith",
+   "arabic": "",
+   "text": "Allah is Gentle and loves gentleness in all things.",
+   "ref": "Sahih al-Bukhari 6927"
+  },
+  {
+   "id": "s-kindness",
+   "kind": "Hadith",
+   "arabic": "",
+   "text": "Kindness is not found in anything except that it adds beauty to it — and nothing is deprived of kindness except that it is disgraced.",
+   "ref": "Sahih Muslim 2594"
+  },
+  {
+   "id": "s-smile",
+   "kind": "Hadith",
+   "arabic": "",
+   "text": "Your smile in your brother's face is sadaqah.",
+   "ref": "Sunan at-Tirmidhi 1956"
+  },
+  {
+   "id": "s-mercy",
+   "kind": "Hadith",
+   "arabic": "",
+   "text": "The merciful are shown mercy by the Most Merciful. Be merciful to those on earth, and the One above the heavens will be merciful to you.",
+   "ref": "Sunan at-Tirmidhi 1924"
+  },
+  {
+   "id": "s-sins",
+   "kind": "Hadith",
+   "arabic": "",
+   "text": "Every son of Adam sins, and the best of sinners are those who repent.",
+   "ref": "Jami' at-Tirmidhi 2499"
+  },
+  {
+   "id": "s-deeds",
+   "kind": "Hadith",
+   "arabic": "",
+   "text": "The most beloved deeds to Allah are the most consistent, even if small.",
+   "ref": "Sahih al-Bukhari 6464"
+  }
+ ]
+}

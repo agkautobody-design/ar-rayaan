@@ -725,5 +725,86 @@
   "sources": [
    "Qur'an 2:180; Sahih al-Bukhari 1315; Sahih Muslim 1886, 4222; Sunan at-Tirmidhi 2103, 3100"
   ]
+ },
+ {
+  "id": "huda-hajj-overview",
+  "collection": "huda",
+  "category": "Hajj & Umrah",
+  "title": "Hajj — The Fifth Pillar (Walkthrough)",
+  "subtitle": "The full journey, day by day, from ihram to the farewell tawaf",
+  "steps": [
+   "Enter ihram at the miqat (or before it for air travelers): ghusl, the two white cloths, the niyyah and talbiyah — Labbaika Allahumma Hajjan.",
+   "Day 1 (8 Dhul-Hijjah, Yawm at-Tarwiyah): enter ihram for Hajj if not already; proceed to Mina and pray Dhuhr, Asr, Maghrib, Isha and Fajr there, shortened but not combined.",
+   "Day 2 (9 Dhul-Hijjah, Arafah): stand at Arafat from noon until sunset — the essence of Hajj. Combine Dhuhr and Asr at Zuhr time, shortened. Pray, make dua, remember; no fasting for the pilgrim.",
+   "After sunset, leave for Muzdalifah without praying Maghrib at Arafat: pray Maghrib and Isha combined at Isha time; spend the night (or part of it, especially for the weak and women).",
+   "Day 3 (10 Dhul-Hijjah, Yawm an-Nahr): stone Jamrat al-Aqabah with seven pebbles; sacrifice; shave or shorten the hair (taqsir/halq) — the first release from ihram; then the tawaf al-ifadah and sa'i of Hajj, completing the release.",
+   "The days of Tashreeq (11-13): stone the three jamarat daily after noon, seven each — or leave after two days, the concession for those who hasten (2:203).",
+   "Farewell: before departing Makkah, the tawaf al-wada' — one final circuit. The menstruating woman is excused from it (Bukhari 1755)."
+  ],
+  "sources": [
+   "Qur'an 2:196-203; 3:97",
+   "Sahih al-Bukhari 1513-1560; Sahih Muslim 1218, 1297"
+  ],
+  "madhhabNote": "Stoning order details, Muzdalifah stay length, and combining prayers differ in detail between schools — follow your group's mutawwif (guide) or your school's fiqh."
+ },
+ {
+  "id": "huda-umrah",
+  "collection": "huda",
+  "category": "Hajj & Umrah",
+  "title": "Umrah — In a Day",
+  "subtitle": "The smaller pilgrimage, complete from ihram to release",
+  "steps": [
+   "Enter ihram at the miqat: ghusl, the cloths, niyyah for Umrah, talbiyah — Labbaika Allahumma Umrah.",
+   "Arrive al-Masjid al-Haram with the talbiyah still on your tongue; begin tawaf at the Black Stone (kiss, touch, or point with takbir), seven circuits, the Kaaba on your left, ramal (brisk) in the first three if others are present.",
+   "Pray two rak'ahs of tawaf behind the Maqam Ibrahim if possible; drink Zamzam.",
+   "Sa'i: Safa to Marwah seven lengths, remembering Hajar's run; men jog between the green lights.",
+   "Exit ihram: shave (preferred) or shorten the hair — the Umrah is complete. Men shorten from all sides; women cut a fingertip's length only.",
+   "No raml in sa'i after the first tawaf; no visit to the rawdah is required but is beloved if time allows."
+  ],
+  "sources": [
+   "Qur'an 2:196",
+   "Sahih al-Bukhari 1597; Sahih Muslim 1211"
+  ],
+  "madhhabNote": "Women do not ramal and do not shave; touching the Black Stone is sunnah, never an obligation — the crowd's safety comes first."
+ },
+ {
+  "id": "huda-arafat-day",
+  "collection": "huda",
+  "category": "Hajj & Umrah",
+  "title": "The Day of Arafah — Even at Home",
+  "subtitle": "The 9th of Dhul-Hijjah for the pilgrim and the one far away",
+  "steps": [
+   "For the pilgrim: stand within the boundary of Arafat from noon to sunset — standing even a moment within it completes the pillar; combine Dhuhr and Asr at Zuhr time, two by two.",
+   "Fill the hours with dua — the best is the taught one: La ilaha illa Allah wahdahu la sharika lah, lahul-mulku wa lahul-hamdu wa huwa 'ala kulli shay'in qadir (Tirmidhi 3585).",
+   "Do not fast on Arafah if you are the pilgrim standing there — the day is for drinking and remembering (the pilgrims' exemption: Bukhari 1661).",
+   "For everyone else: FAST this day — it expiates the year before and the year after (Muslim 1162); say the takbir and the shahada abundantly.",
+   "After sunset, depart for Muzdalifah — but not before the sun sets; the impatient crowds cannot move the sun.",
+   "The one who misses the standing entirely has missed that Hajj and owes a makeup with a sacrifice (Bukhari 1560) — so the boundary signs matter; follow the guides."
+  ],
+  "sources": [
+   "Qur'an 2:198-199",
+   "Sahih Muslim 1162, 1348; Sunan at-Tirmidhi 3585"
+  ],
+  "madhhabNote": "Saying 'standing' means presence within Arafat's bounds, not a specific posture or location upon the mountain — the day is mercy, not ordeal."
+ },
+ {
+  "id": "huda-ihram-rites",
+  "collection": "huda",
+  "category": "Hajj & Umrah",
+  "title": "Ihram — Entering the Sacred State",
+  "subtitle": "The wardrobe, the words, and the boundaries before the House",
+  "steps": [
+   "Ghusl (full wash), then perfume on the BODY before the niyyah — never on the cloths after (Bukhari 1539).",
+   "Men: two seamless white cloths, no fitted garment, no head cover. Women: ordinary modest dress; no face veil, no gloves (Bukhari 1838).",
+   "Pray two rak'ahs at the miqat, then declare: Labbaika Allahumma Hajjan (or Umrah); raise the talbiyah aloud: Labbaika Allahumma labbaik...",
+   "What ihram forbids: sewn garments (men), head cover (men), face cover and gloves (women), cutting hair or nails, perfume, hunting, marriage contracts — 'the muhrim may not marry, nor be married' (Muslim 1409).",
+   "Violations carry fidyah — fasting three days, feeding six poor persons, or sacrificing a sheep (2:196); the schools assign which expiation to which violation — ask your guide.",
+   "The talbiyah continues until the stoning of Jamrat al-Aqabah on the 10th — let your tongue not fall silent while your heart is present."
+  ],
+  "sources": [
+   "Qur'an 2:196; 5:95-96",
+   "Sahih al-Bukhari 134, 1534-1542; Sahih Muslim 1184, 1409"
+  ],
+  "madhhabNote": "Which violations require which expiation (perfume vs shaving vs intimacy) differs by school and cause — this is precisely the case for a Hajj seminar or a trusted manual."
  }
 ]
