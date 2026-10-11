@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/services.dart' show rootBundle, Clipboard, ClipboardData;
 import 'package:go_router/go_router.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../app/core/providers.dart';
@@ -77,6 +78,15 @@ class _ShareState extends State<ShareScreen> {
                     Text('BETA \u00b7 INVITE A TESTER', style: AppText.eyebrow),
                     const SizedBox(height: 6),
                     Text(url, style: AppText.body.copyWith(color: AppColors.goldLight, fontSize: 13)),
+                    const SizedBox(height: 8),
+                    Container(
+                      padding: const EdgeInsets.all(6),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: QrImageView(data: url, size: 96),
+                    ),
                     const SizedBox(height: 4),
                     Text('ADD TO ANY HOME SCREEN',
                         style: AppText.bodyMuted.copyWith(fontSize: 11)),

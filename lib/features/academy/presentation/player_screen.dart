@@ -209,7 +209,9 @@ class _NowPlayingCard extends ConsumerWidget {
           if (queue.tracks.length > 1) ...<Widget>[
             const Divider(height: 20),
             for (var i = 0; i < queue.tracks.length && i < 6; i++)
-              ListTile(
+              Material(
+            color: Colors.transparent,
+            child: ListTile(
                 dense: true,
                 selected: i == queue.index,
                 leading: Text('${i + 1}',
@@ -217,7 +219,7 @@ class _NowPlayingCard extends ConsumerWidget {
                 title: Text(queue.tracks[i].title, style: AppText.body),
                 onTap: () => notifier.playQueue(queue.tracks.sublist(i),
                     name: queue.playlistName),
-              ),
+              )),
           ],
         ],
       ),
@@ -325,7 +327,9 @@ class _BrowseSection extends ConsumerWidget {
           ],
           const Divider(height: 16),
           for (final Track t in shown.take(12))
-            ListTile(
+            Material(
+            color: Colors.transparent,
+            child: ListTile(
               dense: true,
               title: Text(t.title, style: AppText.body),
               subtitle: Text('${t.artist} · ${t.language}',
@@ -343,7 +347,7 @@ class _BrowseSection extends ConsumerWidget {
                     catalog.tracks.sublist(i),
                     name: facetValue ?? facet);
               },
-            ),
+            )),
         ],
       ),
     );
