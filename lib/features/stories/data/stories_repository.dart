@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:flutter/services.dart' show rootBundle;
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../domain/story.dart';
@@ -25,14 +27,34 @@ class StoriesRepository {
   Future<List<Story>> loadAll() async {
     final stories = <Story>[];
     for (final pack in _packs) {
+      List<dynamic>? list;
       try {
-        final raw = await ContentSync.load('stories/\$pack.json');
-        final list = json.decode(raw) as List<dynamic>;
-        stories.addAll(
-          list.map((e) => Story.fromJson(e as Map<String, dynamic>)),
-        );
-      } catch (_) {
-        // Pack not shipped yet — library grows pack by pack.
+        list = json.decode(await ContentSync.load('stories/\$pack.json'))
+            as List<dynamic>;
+      } catch (_) {}
+      if (list == null) {
+        // The synced copy failed (a poisoned cache, a filtered network) —
+        // the bundled pack is always the floor. A shelf may never die.
+        try {
+          list = json.decode(
+                  await rootBundle.loadString('assets/stories/\$pack.json'))
+              as List<dynamic>;
+        } catch (_) {}
+      }
+      if (list != null) {
+        try {
+          stories.addAll(
+            list.map((e) => Story.fromJson(e as Map<String, dynamic>)),
+          );
+        } catch (_) {
+          // One malformed entry must not sink the whole shelf:
+          // load every healthy story in the pack.
+          for (final e in list) {
+            try {
+              stories.add(Story.fromJson(e as Map<String, dynamic>));
+            } catch (_) {}
+          }
+        }
       }
     }
     return stories;
