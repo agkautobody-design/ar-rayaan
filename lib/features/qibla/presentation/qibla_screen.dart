@@ -76,6 +76,31 @@ class QiblaScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      Text('TWO WAYS TO FACE THE KAABA', style: AppText.eyebrow),
+                      const SizedBox(height: 8),
+                      Text(
+                        '1 · THE EXACT BEARING (recommended) — the dial above is true North, computed by great-circle mathematics. No compass needed: at solar noon (when shadows are shortest) the sun is due south in Toronto and shadows point due NORTH — line your prayer mat along the shadow, then turn 55° clockwise. Fully offline, exact to a degree.',
+                        style: AppText.bodyMuted.copyWith(height: 1.6, fontSize: 12),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        '2 · A PHYSICAL COMPASS — WARNING: compasses read MAGNETIC North, and in Toronto magnetic North sits about 10° EAST of true North (2026; the offset drifts yearly and differs by city). Reading the dial against a compass without correcting the declination will point you ~10° off. Correct with your phone\\u2019s built-in compass app (most show true North), or subtract roughly 10° from the compass bearing.',
+                        style: AppText.bodyMuted.copyWith(height: 1.6, fontSize: 12),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        'If the two methods ever disagree, trust the sun at noon over any compass — it never has declination.',
+                        style: AppText.body.copyWith(fontSize: 12,
+                            color: AppColors.goldLight, fontStyle: FontStyle.italic),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 12),
+                GlassCard(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
                       Text('HOW TO USE', style: AppText.eyebrow),
                       const SizedBox(height: 8),
                       Text(

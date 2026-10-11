@@ -495,6 +495,7 @@ class _ObservancesCard extends StatelessWidget {
               Divider(height: 16, color: AppColors.gold.withValues(alpha: 0.1)),
             _ObservanceRow(
               observance: upcoming[i].$1,
+                onDetail: () => _observanceDetail(context, upcoming[i].$1),
               date: upcoming[i].$2,
               daysAway:
                   HijriDate.hijriToJd(
@@ -517,11 +518,13 @@ class _ObservanceRow extends StatelessWidget {
     required this.observance,
     required this.date,
     required this.daysAway,
+    this.onDetail,
   });
 
   final Observance observance;
   final HijriDate date;
   final int daysAway;
+  final VoidCallback? onDetail;
 
   @override
   Widget build(BuildContext context) {
@@ -546,7 +549,9 @@ class _ObservanceRow extends StatelessWidget {
         ? 'Tomorrow'
         : 'in $daysAway days';
 
-    return Row(
+    return GestureDetector(
+        onTap: onDetail,
+        child: return Row(
       children: [
         Expanded(
           child: Column(
@@ -578,6 +583,7 @@ class _ObservanceRow extends StatelessWidget {
           ),
         ),
       ],
-    );
+    ),
+      );;
   }
 }
