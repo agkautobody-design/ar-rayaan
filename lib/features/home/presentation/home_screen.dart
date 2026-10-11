@@ -7,6 +7,7 @@ import 'package:intl/intl.dart' show DateFormat;
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
+import '../../hadith/presentation/daily_hadith_banner.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/gold_text.dart';
 import '../../../app/theme/widgets/icon_tile.dart';
