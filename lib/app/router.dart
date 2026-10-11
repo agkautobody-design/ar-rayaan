@@ -148,6 +148,10 @@ GoRouter buildRouter() {
     routes: [
       // Onboarding flow (no bottom nav)
       GoRoute(
+          path: '/welcome',
+          pageBuilder: (context, state) => _fade(const OnboardingScreen()),
+        ),
+        GoRoute(
           path: '/ramadan',
           pageBuilder: (context, state) => _fade(const RamadanScreen()),
         ),

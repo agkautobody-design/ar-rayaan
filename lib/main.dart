@@ -9,6 +9,7 @@ import 'app/core/firebase/firebase_bootstrap.dart';
 import 'app/core/providers.dart';
 import 'features/auth/application/auth_providers.dart';
 import 'features/doctor/application/drift_guard.dart';
+import 'features/onboarding/presentation/onboarding_screen.dart';
 import 'features/doctor/application/feature_probes.dart';
 import 'features/auth/application/auth_repository.dart';
 import 'features/auth/data/fake_auth_repository.dart';
@@ -28,6 +29,9 @@ Future<void> main() async {
   // place that chooses — screens never know the difference.
   final bool firebaseLive = await FirebaseBootstrap.maybeInit();
   unawaited(DriftGuard().scan());
+  if (await OnboardingScreen.shouldShow()) {
+    _appRouter.go('/welcome');
+  }
   final AuthRepository authRepo;
   if (firebaseLive) {
     authRepo = FirebaseAuthRepository();
