@@ -101,7 +101,7 @@ class HomeScreen extends ConsumerWidget {
         'Events & Observances',
         AppRoutes.calendar,
       ),
-      (Icons.school_outlined, 'Knowledge', 'Articles, Lessons & Courses', null),
+      (Icons.school_outlined, 'Knowledge', 'Articles, Lessons & Courses', AppRoutes.stories),
       (
         Icons.trending_up,
         'My Journey',

@@ -20,10 +20,10 @@ class ProfileScreen extends ConsumerWidget {
   const ProfileScreen({super.key});
 
   static const List<(IconData, String, String?)> _items = [
-    (Icons.account_circle_outlined, 'My Profile', null),
+    (Icons.account_circle_outlined, 'My Profile', AppRoutes.settings),
     (Icons.trending_up, 'My Journey', AppRoutes.journey),
-    (Icons.bookmark_outline, 'Bookmarks', null),
-    (Icons.sticky_note_2_outlined, 'Notes', null),
+    (Icons.bookmark_outline, 'Bookmarks', AppRoutes.stories),
+    (Icons.sticky_note_2_outlined, 'Notes', AppRoutes.notes),
     (Icons.settings_outlined, 'Settings', AppRoutes.settings),
   ];
 
