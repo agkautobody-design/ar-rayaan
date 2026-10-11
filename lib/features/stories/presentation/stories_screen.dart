@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../app/theme/app_colors.dart';
@@ -37,7 +38,30 @@ class StoriesScreen extends ConsumerWidget {
           child: CircularProgressIndicator(color: AppColors.gold),
         ),
         error: (e, _) => Center(
-          child: Text('Could not load stories.', style: AppText.bodyMuted),
+          child: Padding(
+            padding: const EdgeInsets.all(24),
+            child: GestureDetector(
+              onTap: () async {
+                // Clear the content-sync cache and rebuild the library.
+                final prefs = await SharedPreferences.getInstance();
+                for (final k in prefs.getKeys()) {
+                  if (k.startsWith('cp_') || k.startsWith('cv_')) {
+                    await prefs.remove(k);
+                  }
+                }
+                ref.invalidate(storiesProvider);
+              },
+              child: Column(mainAxisSize: MainAxisSize.min, children: [
+                Text('The library could not load.', style: AppText.body),
+                const SizedBox(height: 6),
+                Text('${'\$e'}', textAlign: TextAlign.center,
+                    style: AppText.bodyMuted.copyWith(fontSize: 10.5)),
+                const SizedBox(height: 10),
+                Text('TAP TO RETRY',
+                    style: AppText.eyebrow.copyWith(color: AppColors.goldLight)),
+              ]),
+            ),
+          ),
         ),
         data: (all) {
           final repo = ref.read(storiesRepositoryProvider);
@@ -45,6 +69,34 @@ class StoriesScreen extends ConsumerWidget {
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
             children: [
               const ScreenHeader(title: 'Stories', close: true),
+              if (all.isEmpty)
+                Padding(
+                  padding: const EdgeInsets.all(24),
+                  child: GestureDetector(
+                    onTap: () async {
+                      final prefs = await SharedPreferences.getInstance();
+                      for (final k in prefs.getKeys()) {
+                        if (k.startsWith('cp_') || k.startsWith('cv_')) {
+                          await prefs.remove(k);
+                        }
+                      }
+                      ref.invalidate(storiesProvider);
+                    },
+                    child: Column(mainAxisSize: MainAxisSize.min, children: [
+                      Text('The shelves are empty — the packs did not load.',
+                          style: AppText.body),
+                      const SizedBox(height: 8),
+                      Text('TAP TO RETRY',
+                          style: AppText.eyebrow.copyWith(color: AppColors.goldLight)),
+                    ]),
+                  ),
+                )
+              else
+                Padding(
+                  padding: const EdgeInsets.only(left: 4, bottom: 6),
+                  child: Text('\${all.length} STORIES LOADED',
+                      style: AppText.eyebrow),
+                ),
               Padding(
                 padding: const EdgeInsets.only(left: 4, bottom: 4),
                 child: Text(

@@ -22,9 +22,9 @@ class JourneyScreen extends ConsumerWidget {
 
   static const List<(IconData, String, String?)> _path = [
     (Icons.auto_stories_outlined, 'My Reflections', AppRoutes.noor),
-    (Icons.track_changes, 'Goals', null),
-    (Icons.edit_note, 'Gratitude Journal', null),
-    (Icons.bookmark_outline, 'Bookmarks', null),
+    (Icons.track_changes, 'Goals', '/finance/floor'),
+    (Icons.edit_note, 'Gratitude Journal', AppRoutes.notes),
+    (Icons.bookmark_outline, 'Bookmarks', AppRoutes.stories),
   ];
 
   @override

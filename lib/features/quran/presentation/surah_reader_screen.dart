@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'dart:convert';
+
+import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -43,6 +46,16 @@ class SurahReaderScreen extends ConsumerStatefulWidget {
   @override
   ConsumerState<SurahReaderScreen> createState() => _SurahReaderScreenState();
 }
+
+final transliterationProvider = FutureProvider<Map<String, String>>((ref) async {
+  try {
+    final raw = await rootBundle.loadString('assets/quran/transliteration.json');
+    final m = (json.decode(raw) as Map)['map'] as Map;
+    return m.map((k, v) => MapEntry(k as String, v as String));
+  } catch (_) {
+    return const {};
+  }
+});
 
 class _SurahReaderScreenState extends ConsumerState<SurahReaderScreen> {
   @override
@@ -261,6 +274,7 @@ class _AyahBlock extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final tr = ref.watch(transliterationProvider).value ?? const {};
     final RecitationState rec = ref.watch(recitationServiceProvider);
     final bool playing = rec.surah == surahNumber && rec.ayah == ayah.number;
     return InkWell(
@@ -295,7 +309,20 @@ class _AyahBlock extends ConsumerWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 8),
+            if (tr['\${widget.surahNumber}:\${ayah.number}'] != null) ...[
+              const SizedBox(height: 4),
+              Text(
+                tr['\${widget.surahNumber}:\${ayah.number}']!,
+                style: AppText.body.copyWith(
+                  fontSize: 12.5,
+                  height: 1.6,
+                  fontStyle: FontStyle.italic,
+                  color: const Color(0xFFCFBE92),
+                ),
+              ),
+              const SizedBox(height: 6),
+            ] else
+              const SizedBox(height: 8),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
