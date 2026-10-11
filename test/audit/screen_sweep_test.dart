@@ -50,7 +50,6 @@ void main() {
     '/hadith': () => null,
     '/sakina': () => null,
     '/hadi': () => null,
-    '/academy': () => null,
     '/academy/gate': () => null,
     '/academy/letters': () => null,
     '/academy/family': () => null,
