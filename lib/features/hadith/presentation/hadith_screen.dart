@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -29,28 +28,6 @@ class HadithScreen extends ConsumerWidget {
         child: Column(
           children: [
             const ScreenHeader(title: 'Hadith'),
-            const SizedBox(height: 8),
-            SizedBox(
-              height: 40,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                padding: const EdgeInsets.symmetric(horizontal: 8),
-                children: [
-                  for (final f in MoodMap.all)
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 4),
-                      child: ActionChip(
-                        label: Text(f.label, style: const TextStyle(fontSize: 11)),
-                        onPressed: () async {
-                          final p = await SharedPreferences.getInstance();
-                          await p.setString('ar.mood.last', f.id);
-                          if (context.mounted) setState(() {});
-                        },
-                      ),
-                    ),
-                ],
-              ),
-            ),
             Expanded(
               child: collection.when(
                 loading: () => const Center(

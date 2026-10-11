@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'adhan_toggle.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
@@ -43,7 +42,6 @@ class PrayerTimesScreen extends ConsumerWidget {
         child: Column(
           children: [
             const ScreenHeader(title: 'Prayer Times'),
-            const AdhanToggle(),
             Expanded(
               child: times.when(
                 loading: () => const Center(
