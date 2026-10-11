@@ -428,7 +428,9 @@ class _LocationCard extends ConsumerWidget {
             ),
             const SizedBox(height: 12),
             for (final PrayerLocation c in CityDirectory.cities)
-              ListTile(
+              Material(
+              color: Colors.transparent,
+              child: ListTile(
                 dense: true,
                 contentPadding: EdgeInsets.zero,
                 title: Text(c.city, style: AppText.body),
@@ -439,7 +441,7 @@ class _LocationCard extends ConsumerWidget {
                         style: AppText.bodyMuted.copyWith(fontSize: 11),
                       ),
                 onTap: () => Navigator.of(ctx).pop(c),
-              ),
+              )),
           ],
         ),
       ),
