@@ -154,9 +154,7 @@ class _HouseholdCard extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return GlassCard(
-      child: SwitchMaterial(
-              color: Colors.transparent,
-              child: ListTile(
+      child: SwitchListTile(
         contentPadding: EdgeInsets.zero,
         activeColor: AppColors.gold,
         title: Text('Hide personal tracks', style: AppText.titleMedium),
@@ -167,7 +165,7 @@ class _HouseholdCard extends ConsumerWidget {
         value: hidden,
         onChanged: (bool v) =>
             ref.read(personalHiddenProvider.notifier).set(v),
-      )),
+      ),
     );
   }
 }
@@ -179,9 +177,7 @@ class _TrackRow extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return GlassCard(
-      child: Material(
-              color: Colors.transparent,
-              child: ListTile(
+      child: ListTile(
         contentPadding: EdgeInsets.zero,
         title: Text(track.title, style: AppText.titleMedium),
         subtitle: Column(
@@ -231,7 +227,7 @@ class _TrackRow extends ConsumerWidget {
             ),
           ],
         ),
-      )),
+      ),
     );
   }
 

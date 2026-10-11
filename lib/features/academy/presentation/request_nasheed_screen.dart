@@ -159,9 +159,7 @@ class _RequestNasheedScreenState extends ConsumerState<RequestNasheedScreen> {
                 ...requests.map((NasheedRequest r) => Padding(
                       padding: const EdgeInsets.only(bottom: 8),
                       child: GlassCard(
-                        child: Material(
-              color: Colors.transparent,
-              child: ListTile(
+                        child: ListTile(
                           contentPadding: EdgeInsets.zero,
                           title: Text(r.title, style: AppText.titleMedium),
                           subtitle: Column(
@@ -202,7 +200,7 @@ class _RequestNasheedScreenState extends ConsumerState<RequestNasheedScreen> {
                               ),
                             ],
                           ),
-                        )),
+                        ),
                       ),
                     )),
             ],

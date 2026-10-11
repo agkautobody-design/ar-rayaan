@@ -171,9 +171,7 @@ class _FlagTileState extends ConsumerState<_FlagTile> {
   @override
   Widget build(BuildContext context) {
     return GlassCard(
-      child: SwitchMaterial(
-              color: Colors.transparent,
-              child: ListTile(
+      child: SwitchListTile(
         title: Text(widget.title, style: AppText.body),
         value: _value ?? true,
         activeThumbColor: AppColors.gold,
@@ -183,7 +181,7 @@ class _FlagTileState extends ConsumerState<_FlagTile> {
           ref.invalidate(academyFlagProvider);
           setState(() => _value = v);
         },
-      )),
+      ),
     );
   }
 }
