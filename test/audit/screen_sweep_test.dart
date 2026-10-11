@@ -112,7 +112,9 @@ void main() {
           final harnessOnly = msg.contains('SharedPreferences') ||
               msg.contains('MissingPluginException') ||
               msg.contains('UnimplementedError') ||
-              msg.contains('MethodChannel');
+              msg.contains('MethodChannel') ||
+              msg.contains('core/no-app') ||
+              msg.contains('Firebase');
           if (!harnessOnly) failures.add('$path :: $err');
         }
       } catch (e) {
