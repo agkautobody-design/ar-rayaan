@@ -36,7 +36,7 @@ class AdhanScheduler {
         // fire within the prayer minute (0..0 after; allow 1 min window)
         if (diff >= 0 && diff <= 1) {
           _played.add(key);
-          unawaited(_ref.read(speechServiceProvider.notifier).playAdhan());
+          unawaited(_ref.read(speechServiceProvider).playAdhan());
         }
       }
       if (_played.length > 40) _played.clear();

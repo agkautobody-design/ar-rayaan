@@ -192,8 +192,8 @@ class AdhanService extends Notifier<bool> {
   /// One-shot adhan for the autonomous scheduler.
   Future<void> playAdhan() async {
     try {
-      await _player.stop();
-      await _player.play(AssetSource('audio/adhan_mecca.mp3'));
+      await _player?.stop();
+      await _player?.play(AssetSource('audio/adhan_mecca.mp3'));
     } catch (_) {}
   }
 
