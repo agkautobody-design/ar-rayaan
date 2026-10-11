@@ -31,8 +31,6 @@ import '../features/home/presentation/home_screen.dart';
 import '../features/journey/presentation/journey_screen.dart';
 import '../features/menu/presentation/menu_screen.dart';
 import '../features/noor/presentation/noor_screen.dart';
-import '../features/onboarding/presentation/splash_screen.dart';
-import '../features/onboarding/presentation/welcome_reflection_screen.dart';
 import '../features/prayer/presentation/prayer_times_screen.dart';
 import '../features/profile/presentation/profile_screen.dart';
 import '../features/adhkar/presentation/adhkar_screen.dart';
@@ -148,14 +146,6 @@ GoRouter buildRouter() {
     routes: [
       // Onboarding flow (no bottom nav)
       GoRoute(
-          path: '/search',
-          pageBuilder: (context, state) => _fade(const SearchScreen()),
-        ),
-        GoRoute(
-          path: '/welcome',
-          pageBuilder: (context, state) => _fade(const OnboardingScreen()),
-        ),
-        GoRoute(
           path: '/ramadan',
           pageBuilder: (context, state) => _fade(const RamadanScreen()),
         ),
