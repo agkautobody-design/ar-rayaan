@@ -80,8 +80,13 @@ void main() {
                       body: 'b', source: 's'),
                   items: const []),
             ]),
-        triviaProvider.overrideWith((ref) async => []),
-        namesProvider.overrideWith((ref) async => []),
+        triviaProvider.overrideWith((ref) async => [
+              TriviaQ(id: 'w8', category: 'Prophets', question: 'Who built the ark?',
+                  options: const ['Nuh', 'Hud', 'Salih', 'Lut'], answer: 0, why: 'Q 11:37'),
+            ]),
+        namesProvider.overrideWith((ref) async => [
+              const Name99(n: 1, name: 'Ar-Rahman', meaning: 'The Most Compassionate', ref: '55:1'),
+            ]),
         appUrlProvider.overrideWith((ref) => 'https://ar-rayaan.onrender.com'),
       ],
       child: MaterialApp.router(routerConfig: router),

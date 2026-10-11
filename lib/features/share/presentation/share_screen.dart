@@ -74,7 +74,7 @@ class _ShareState extends State<ShareScreen> {
                 final url = ref.watch(appUrlProvider);
                 return GlassCard(
                   child: Column(children: [
-                    Text('SHARE AR-RAYAAN', style: AppText.eyebrow),
+                    Text('BETA \u00b7 INVITE A TESTER', style: AppText.eyebrow),
                     const SizedBox(height: 6),
                     Text(url, style: AppText.body.copyWith(color: AppColors.goldLight, fontSize: 13)),
                     const SizedBox(height: 4),
