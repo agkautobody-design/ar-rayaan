@@ -16,8 +16,13 @@ import '../data/mushaf_layout_pack.dart';
 /// Feature flag. Default ON for the beta preview; flipping the stored
 /// value to false hides every Academy entry point instantly (kill switch).
 final academyFlagProvider = FutureProvider<bool>((Ref ref) async {
-  final SharedPreferences prefs = await SharedPreferences.getInstance();
-  return prefs.getBool('ar.flag.academy') ?? true;
+  try {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getBool('ar.flag.academy') ?? true;
+  } catch (_) {
+    // Channels unavailable (test harness, cold start): the flag defaults ON.
+    return true;
+  }
 });
 
 /// The course manifest (static in Wave 1; content packs land in Wave 2+).
