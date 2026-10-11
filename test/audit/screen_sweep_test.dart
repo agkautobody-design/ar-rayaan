@@ -103,6 +103,7 @@ void main() {
         router.go(path);
         await t.pump();
         await t.pump(const Duration(milliseconds: 350));
+        await t.pump(const Duration(seconds: 5)); // flush pending dwell timers
         final err = t.takeException();
         // Harness-only edge: plugin channels absent in the sweep environment.
         // Real devices always wire channels; the app-side fallback also covers

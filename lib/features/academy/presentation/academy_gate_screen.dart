@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -17,15 +18,22 @@ class AcademyGateScreen extends StatefulWidget {
 }
 
 class _AcademyGateState extends State<AcademyGateScreen> {
+  Timer? _dwell;
   DateTime _shownAt = DateTime.now();
   bool _minElapsed = false;
 
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 3), () {
+    _dwell = Timer(const Duration(seconds: 3), () {
       if (mounted) setState(() => _minElapsed = true);
     });
+  }
+
+  @override
+  void dispose() {
+    _dwell?.cancel();
+    super.dispose();
   }
 
   void _enter(BuildContext context) {
