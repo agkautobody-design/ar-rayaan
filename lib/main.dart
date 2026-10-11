@@ -29,9 +29,7 @@ Future<void> main() async {
   // place that chooses — screens never know the difference.
   final bool firebaseLive = await FirebaseBootstrap.maybeInit();
   unawaited(DriftGuard().scan());
-  if (await OnboardingScreen.shouldShow()) {
-    _appRouter.go('/welcome');
-  }
+
   final AuthRepository authRepo;
   if (firebaseLive) {
     authRepo = FirebaseAuthRepository();
