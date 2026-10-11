@@ -346,18 +346,7 @@ class _ExamScreenState extends ConsumerState<ExamScreen> {
                 ),
               const SizedBox(height: 10),
               if (_picked != null)
-                GlassCard(
-              child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                Text('TALK TO WASIA', style: AppText.eyebrow),
-                const SizedBox(height: 4),
-                Text('She speaks with students, parents — and teachers.',
-                    style: AppText.bodyMuted.copyWith(fontSize: 11)),
-                const SizedBox(height: 8),
-                _WasiaChat(persona: WasiaPersona.parent),
-              ]),
-            ),
-            const SizedBox(height: 12),
-            Align(
+                Align(
                   alignment: Alignment.centerRight,
                   child: TextButton.icon(
                     onPressed: () async {
@@ -426,50 +415,5 @@ class _ExamScreenState extends ConsumerState<ExamScreen> {
         ),
       ),
     );
-  }
-}
-
-/// The parent's conversation with Wasia — she knows the child and the numbers.
-class _WasiaChat extends ConsumerStatefulWidget {
-  final WasiaPersona persona;
-  final String? childName;
-  const _WasiaChat({required this.persona, this.childName});
-
-  @override
-  ConsumerState<_WasiaChat> createState() => _WasiaChatState();
-}
-
-class _WasiaChatState extends ConsumerState<_WasiaChat> {
-  final _input = TextEditingController();
-  String? _answer;
-
-  @override
-  Widget build(BuildContext context) {
-    final busy = ref.watch(wasiaControllerProvider).isLoading;
-    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Row(children: [
-        Expanded(child: TextField(
-          controller: _input, style: AppText.body,
-          decoration: const InputDecoration(hintText: 'Ask Wasia anything\u2026'),
-        )),
-        const SizedBox(width: 8),
-        CircleAvatar(backgroundColor: AppColors.gold, child: IconButton(
-          icon: busy
-              ? const SizedBox(width: 14, height: 14, child: CircularProgressIndicator(strokeWidth: 2, color: Color(0xFF0A0F18)))
-              : const Icon(Icons.send, size: 17, color: Color(0xFF0A0F18)),
-          onPressed: busy ? null : () async {
-            final q = _input.text.trim();
-            if (q.isEmpty) return;
-            final a = await ref.read(wasiaControllerProvider.notifier).ask(
-              q, persona: widget.persona, childName: widget.childName);
-            setState(() => _answer = a);
-          },
-        )),
-      ]),
-      if (_answer != null) ...[
-        const SizedBox(height: 10),
-        Text(_answer!, style: AppText.body.copyWith(height: 1.6, fontSize: 13)),
-      ],
-    ]);
   }
 }
