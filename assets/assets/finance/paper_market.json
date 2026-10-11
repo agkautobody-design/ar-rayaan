@@ -1,0 +1,149 @@
+{
+ "note": "Teaching market. Fundamentals are real ratios to screen; prices drift daily (seeded) as practice weather. Screen each company BEFORE buying — 8 pass the screens, 4 do not. That discovery is the lesson.",
+ "companies": [
+  {
+   "sym": "NUR",
+   "name": "Nur Foods",
+   "sector": "Halal food",
+   "price": 42.1,
+   "rev": 820,
+   "debt": 90,
+   "mcap": 2400,
+   "interest": 2,
+   "haram": 0,
+   "blurb": "Packaged halal foods across 14 countries."
+  },
+  {
+   "sym": "SAFA",
+   "name": "Safa Logistics",
+   "sector": "Shipping",
+   "price": 28.55,
+   "rev": 1100,
+   "debt": 700,
+   "mcap": 2100,
+   "interest": 18,
+   "haram": 0,
+   "blurb": "Freight and warehousing; heavy truck loans."
+  },
+  {
+   "sym": "QMR",
+   "name": "Qamar Tech",
+   "sector": "Software",
+   "price": 96.2,
+   "rev": 640,
+   "debt": 40,
+   "mcap": 5100,
+   "interest": 1,
+   "haram": 0,
+   "blurb": "Cloud software; almost no debt, piles of cash."
+  },
+  {
+   "sym": "RBD",
+   "name": "Ribdale Bank",
+   "sector": "Banking",
+   "price": 61.0,
+   "rev": 3200,
+   "debt": 9000,
+   "mcap": 12000,
+   "interest": 2900,
+   "haram": 3100,
+   "blurb": "Conventional lender — interest is the business."
+  },
+  {
+   "sym": "MDN",
+   "name": "Madinah REIT",
+   "sector": "Real estate",
+   "price": 33.4,
+   "rev": 460,
+   "debt": 380,
+   "mcap": 1500,
+   "interest": 14,
+   "haram": 0,
+   "blurb": "Commercial properties near masajid; moderate loans."
+  },
+  {
+   "sym": "KHL",
+   "name": "Kohl Entertainment",
+   "sector": "Media",
+   "price": 19.8,
+   "rev": 700,
+   "debt": 260,
+   "mcap": 900,
+   "interest": 4,
+   "haram": 300,
+   "blurb": "Streaming; a third of revenue is adult content."
+  },
+  {
+   "sym": "BRK",
+   "name": "Barakah Pharma",
+   "sector": "Healthcare",
+   "price": 74.25,
+   "rev": 1500,
+   "debt": 300,
+   "mcap": 6800,
+   "interest": 6,
+   "haram": 0,
+   "blurb": "Generic medicines; alcohol-free syrups."
+  },
+  {
+   "sym": "TJW",
+   "name": "Tajweed Learning",
+   "sector": "Education",
+   "price": 12.9,
+   "rev": 95,
+   "debt": 8,
+   "mcap": 420,
+   "interest": 0,
+   "haram": 0,
+   "blurb": "Online Qur'an academy; tiny and debt-free."
+  },
+  {
+   "sym": "VNT",
+   "name": "Vinewave Beverages",
+   "sector": "Drinks",
+   "price": 55.6,
+   "rev": 2100,
+   "debt": 850,
+   "mcap": 3400,
+   "interest": 30,
+   "haram": 1900,
+   "blurb": "Alcohol is 90% of revenue."
+  },
+  {
+   "sym": "SND",
+   "name": "Sundus Textiles",
+   "sector": "Manufacturing",
+   "price": 8.35,
+   "rev": 380,
+   "debt": 140,
+   "mcap": 310,
+   "interest": 5,
+   "haram": 0,
+   "blurb": "Modest fashion fabrics; small-cap."
+  },
+  {
+   "sym": "GLF",
+   "name": "Gulf Star Air",
+   "sector": "Airlines",
+   "price": 21.7,
+   "rev": 1800,
+   "debt": 1600,
+   "mcap": 1900,
+   "interest": 35,
+   "haram": 60,
+   "blurb": "Alcohol served on board; leases pile up as debt."
+  },
+  {
+   "sym": "AMN",
+   "name": "Amanah Energy",
+   "sector": "Utilities",
+   "price": 48.0,
+   "rev": 1200,
+   "debt": 500,
+   "mcap": 4400,
+   "interest": 12,
+   "haram": 0,
+   "blurb": "Solar farms; interest income within tolerance."
+  }
+ ]
+}

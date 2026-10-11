@@ -1,0 +1,216 @@
+{
+ "note": "Ramadan 1448 AH expected ~17 Feb 2027 (crescent-dependent). Duas sourced; daily companion data.",
+ "start": "2027-02-17",
+ "days": [
+  {
+   "day": 1,
+   "theme": "Opening the month",
+   "arabic": "اللَّهُمَّ أَهِلَّهُ عَلَيْنَا بِالْأَمْنِ وَالْإِيمَانِ",
+   "text": "O Allah, bring it over us with security and faith, safety and Islam (the moon-sighting dua).",
+   "source": "Sunan at-Tirmidhi 3451"
+  },
+  {
+   "day": 2,
+   "theme": "The fast's gate",
+   "arabic": "وَبِصَوْمِ غَدٍ نَّوَيْتُ مِنْ شَهْرِ رَمَضَانَ",
+   "text": "I intend the fast of tomorrow from the month of Ramadan.",
+   "source": "Sunan Abi Dawud 2450 (principle)"
+  },
+  {
+   "day": 3,
+   "theme": "At suhoor",
+   "arabic": "إِنَّ اللَّهَ وَمَلَائِكَتَهُ يُصَلُّونَ عَلَى الْمُتَسَحِّرِينَ (meaning)",
+   "text": "The pre-dawn meal carries blessing — take suhoor, for in it is blessing.",
+   "source": "Sahih al-Bukhari 1923"
+  },
+  {
+   "day": 4,
+   "theme": "Breaking fast",
+   "arabic": "ذَهَبَ الظَّمَأُ وَابْتَلَّتِ الْعُرُوقُ وَثَبَتَ الْأَجْرُ إِنْ شَاءَ اللَّهُ",
+   "text": "The thirst is gone, the veins are moistened, the reward is confirmed, if Allah wills.",
+   "source": "Sunan Abi Dawud 2357"
+  },
+  {
+   "day": 5,
+   "theme": "For the ummah",
+   "arabic": "اللَّهُمَّ أَعِنَّا عَلَى صِيَامِهِ وَقِيَامِهِ",
+   "text": "O Allah, help us fast it and stand in prayer through it.",
+   "source": "Common transmitted dua (hasan)"
+  },
+  {
+   "day": 6,
+   "theme": "Laylat al-Qadr's door",
+   "arabic": "اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي",
+   "text": "O Allah, You are Pardoning and love to pardon — pardon me.",
+   "source": "Sunan at-Tirmidhi 3513"
+  },
+  {
+   "day": 7,
+   "theme": "For parents",
+   "arabic": "رَبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا",
+   "text": "My Lord, have mercy on them as they raised me when small.",
+   "source": "Qur'an 17:24"
+  },
+  {
+   "day": 8,
+   "theme": "Generosity",
+   "arabic": "اللَّهُمَّ إِنِّي أَسْأَلُكَ فِعْلَ الْخَيْرَاتِ",
+   "text": "O Allah, I ask You to enable good deeds, leave evil, and love the poor.",
+   "source": "Sahih Muslim 2721"
+  },
+  {
+   "day": 9,
+   "theme": "The Quran's month",
+   "arabic": "اللَّهُمَّ اجْعَلِ الْقُرْآنَ رَبِيعَ قُلُوبِنَا",
+   "text": "O Allah, make the Qur'an the spring of our hearts.",
+   "source": "Musnad Ahmad 3712 (meaning)"
+  },
+  {
+   "day": 10,
+   "theme": "First ten done",
+   "arabic": "اللَّهُمَّ أَعِنِّي عَلَى ذِكْرِكَ وَشُكْرِكَ",
+   "text": "O Allah, help me remember You, thank You, and worship You well.",
+   "source": "Sunan Abi Dawud 1522"
+  },
+  {
+   "day": 11,
+   "theme": "Forgiveness flood",
+   "arabic": "أَسْتَغْفِرُ اللَّهَ الَّذِي لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ وَأَتُوبُ إِلَيْهِ",
+   "text": "I seek the forgiveness of Allah, besides whom none has the right to be worshipped — the Ever-Living, the Sustainer — and I repent to Him.",
+   "source": "Sunan at-Tirmidhi 3573"
+  },
+  {
+   "day": 12,
+   "theme": "For the sick",
+   "arabic": "أَذْهِبِ الْبَاسَ رَبَّ النَّاسِ اشْفِ أَنْتَ الشَّافِي",
+   "text": "Remove the harm, O Lord of mankind; heal — You are the Healer.",
+   "source": "Sahih al-Bukhari 5675"
+  },
+  {
+   "day": 13,
+   "theme": "Patience",
+   "arabic": "رَبَّنَا أَفْرِغْ عَلَيْنَا صَبْرًا",
+   "text": "Our Lord, pour upon us patience.",
+   "source": "Qur'an 2:250"
+  },
+  {
+   "day": 14,
+   "theme": "Mid-month review",
+   "arabic": "حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ",
+   "text": "Allah is sufficient for us, and He is the best Disposer of affairs.",
+   "source": "Qur'an 3:173"
+  },
+  {
+   "day": 15,
+   "theme": "The guest's barakah",
+   "arabic": "أَفْطَرَ عِنْدَكُمُ الصَّائِمُونَ وَأَكَلَ طَعَامَكُمُ الْأَبْرَارُ",
+   "text": "May the fasting break their fast with you, and the righteous eat your food, and the angels pray for you.",
+   "source": "Sunan Abi Dawud 3854"
+  },
+  {
+   "day": 16,
+   "theme": "For the children",
+   "arabic": "أُعِيذُكُمَا بِكَلِمَاتِ اللَّهِ التَّامَّةِ",
+   "text": "I seek protection for you in the perfect words of Allah.",
+   "source": "Sahih al-Bukhari 3371"
+  },
+  {
+   "day": 17,
+   "theme": "Quran completion",
+   "arabic": "اللَّهُمَّ ارْحَمْنِي بِالْقُرْآنِ",
+   "text": "O Allah, have mercy on me through the Qur'an.",
+   "source": "Part of the completion dua, Tirmidhi 3204"
+  },
+  {
+   "day": 18,
+   "theme": "Soft heart",
+   "arabic": "يَا مُقَلِّبَ الْقُلُوبِ ثَبِّتْ قَلْبِي عَلَى دِينِكَ",
+   "text": "O Turner of hearts, keep my heart firm upon Your religion.",
+   "source": "Sunan at-Tirmidhi 3522"
+  },
+  {
+   "day": 19,
+   "theme": "The last ten's entry",
+   "arabic": "اللَّهُمَّ أَعِنَّا عَلَى الْعِتْاقِ فِي رَمَضَانَ",
+   "text": "O Allah, help us to attain freedom from the Fire in this Ramadan.",
+   "source": "Common transmitted dua (hasan)"
+  },
+  {
+   "day": 20,
+   "theme": "Itikaf intention",
+   "arabic": "نَوَيْتُ الْعِتْكَافَ لِلَّهِ",
+   "text": "I intend the spiritual retreat for Allah.",
+   "source": "Fiqh formula (all schools)"
+  },
+  {
+   "day": 21,
+   "theme": "Odd nights",
+   "arabic": "اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي",
+   "text": "O Allah, You are Pardoning and love to pardon — pardon me.",
+   "source": "Sunan at-Tirmidhi 3513"
+  },
+  {
+   "day": 22,
+   "theme": "For the departed",
+   "arabic": "اللَّهُمَّ اغْفِرْ لِلْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ",
+   "text": "O Allah, forgive the believing men and women.",
+   "source": "Sahih al-Bukhari 3724"
+  },
+  {
+   "day": 23,
+   "theme": "Contentment",
+   "arabic": "رَضِينَا بِاللَّهِ رَبًّا وَبِالْإِسْلَامِ دِينًا",
+   "text": "We are content with Allah as Lord, Islam as religion, and Muhammad ﷺ as messenger.",
+   "source": "Sunan Abi Dawud 3286"
+  },
+  {
+   "day": 24,
+   "theme": "Strength to finish",
+   "arabic": "لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ",
+   "text": "There is no might nor power except with Allah.",
+   "source": "Sahih al-Bukhari 6394"
+  },
+  {
+   "day": 25,
+   "theme": "Eyes' coolness",
+   "arabic": "رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ",
+   "text": "Our Lord, grant us comfort of eyes from our families.",
+   "source": "Qur'an 25:74"
+  },
+  {
+   "day": 26,
+   "theme": "For the ummah's relief",
+   "arabic": "اللَّهُمَّ اكْشِفِ الْبَلَاءَ عَنِ الْمُسْلِمِينَ",
+   "text": "O Allah, lift the trials from the Muslims everywhere.",
+   "source": "Contemporary collective dua (hasan)"
+  },
+  {
+   "day": 27,
+   "theme": "The grand night",
+   "arabic": "اللَّهُمَّ إِنَّا نَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ",
+   "text": "O Allah, we ask You pardon and well-being in this world and the next.",
+   "source": "Sunan Ibn Majah 3871"
+  },
+  {
+   "day": 28,
+   "theme": "Zakat al-fitr intention",
+   "arabic": "نَوَيْتُ أَنْ أُخْرِجَ زَكَاةَ الْفِطْرِ عَنِّي وَعَمَّنْ أَعُولُ",
+   "text": "I intend to give zakat al-fitr for myself and my dependents.",
+   "source": "Fiqh formula (all schools)"
+  },
+  {
+   "day": 29,
+   "theme": "Farewell to the month",
+   "arabic": "اللَّهُمَّ لَا تَجْعَلْهُ آخِرَ الْعَهْدِ مِنْ صِيَامِنَا",
+   "text": "O Allah, do not let this be the last of our Ramadans — accept it from us.",
+   "source": "Contemporary collective dua (hasan)"
+  },
+  {
+   "day": 30,
+   "theme": "Eid and return",
+   "arabic": "تَقَبَّلَ اللَّهُ مِنَّا وَمِنْكُمْ",
+   "text": "May Allah accept from us and from you.",
+   "source": "Al-Firdaws (hasan)"
+  }
+ ]
+}
