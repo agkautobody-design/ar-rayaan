@@ -9,6 +9,7 @@ import 'package:ar_rayaan/features/stories/data/stories_repository.dart';
 import 'package:ar_rayaan/features/stories/domain/story.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 /// WAVE 8 - THE FULL SCREEN SWEEP. Every route in the app, pumped one by
@@ -16,6 +17,7 @@ import 'package:flutter_test/flutter_test.dart';
 /// the test. This is the "check every screen individually" law, automated.
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences.setMockInitialValues(<String, Object>{});
 
   final sampleStory = Story(
     id: 'w8', collection: 'prophets', title: 'S', kicker: 'K',
