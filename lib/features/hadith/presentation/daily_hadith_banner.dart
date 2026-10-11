@@ -36,10 +36,15 @@ class _DailyHadithBannerState extends State<DailyHadithBanner> {
   }
 
   Future<void> _load() async {
-    final p = await SharedPreferences.getInstance();
+    try {
+      final p = await SharedPreferences.getInstance();
     final today = DateTime.now().toIso8601String().substring(0, 10);
     _on = p.getBool('ar.dailyhadith.on') ?? true;
     _shownToday = p.getString('ar.dailyhadith.shown') == today;
+    } catch (_) {
+      _on = true;
+      _shownToday = false;
+    }
     try {
       final raw = await ContentSync.load('stories/modernhadith.json');
       final list = json.decode(raw) as List<dynamic>;
@@ -48,7 +53,8 @@ class _DailyHadithBannerState extends State<DailyHadithBanner> {
             Map<String, dynamic>.from(list[_dayOfYear % list.length] as Map));
       }
     } catch (_) {
-      // Library not reachable today — the banner rests, nothing breaks.
+      // Storage or library unreachable (offline, first run, test harness) —
+      // the banner rests, nothing breaks, no async gap escapes.
     }
   }
 
