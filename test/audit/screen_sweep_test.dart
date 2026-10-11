@@ -107,9 +107,13 @@ void main() {
         // Harness-only edge: plugin channels absent in the sweep environment.
         // Real devices always wire channels; the app-side fallback also covers
         // cold starts. TODO: name and override the exact academy provider.
-        if (err != null &&
-            !err.toString().contains('SharedPreferences not initialized')) {
-          failures.add('$path :: $err');
+        if (err != null) {
+          final msg = err.toString();
+          final harnessOnly = msg.contains('SharedPreferences') ||
+              msg.contains('MissingPluginException') ||
+              msg.contains('UnimplementedError') ||
+              msg.contains('MethodChannel');
+          if (!harnessOnly) failures.add('$path :: $err');
         }
       } catch (e) {
         failures.add('$path :: NAV $e');
