@@ -24,7 +24,7 @@ class WelcomeReflectionScreen extends StatelessWidget {
               const SizedBox(height: 14),
               GlassCard(
                 child: Text(
-                  '\u201cO Allah, show us the truth as truth and grant us the ability to follow it, and show us falsehood as falsehood and grant us the ability to avoid it.\u201d',
+                  'O Allah, show us the truth as truth and grant us the ability to follow it, and show us falsehood as falsehood and grant us the ability to avoid it.',
                   style: AppText.body.copyWith(height: 1.7),
                 ),
               ),
