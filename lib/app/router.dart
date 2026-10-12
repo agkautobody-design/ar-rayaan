@@ -528,3 +528,4 @@ GoRouter buildRouter() {
     ],
   );
 }
+
