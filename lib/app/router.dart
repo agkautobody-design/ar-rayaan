@@ -286,14 +286,6 @@ GoRouter buildRouter() {
           path: AppRoutes.storyReader,
           pageBuilder: (context, state) => _fade(StoryReaderScreen(story: state.extra as Story)),
         ),
-        GoRoute(
-        path: AppRoutes.splash,
-        pageBuilder: (c, s) => _fade(const SplashScreen()),
-      ),
-      GoRoute(
-        path: AppRoutes.welcome,
-        pageBuilder: (c, s) => _fade(const WelcomeReflectionScreen()),
-      ),
 
       // Auth flow (no bottom nav)
       GoRoute(
@@ -528,4 +520,5 @@ GoRouter buildRouter() {
     ],
   );
 }
+
 
