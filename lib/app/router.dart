@@ -129,15 +129,30 @@ abstract final class AppRoutes {
 }
 
 CustomTransitionPage<void> _fade(Widget child) {
-  // Pages swap without an animated fade: on the web a FadeTransition can
-  // freeze mid-flight (the stuck grey veil). Instant transitions are
-  // reliable everywhere and keep the app's pace brisk.
+  // The soft transition: every screen breathes in with a gentle fade and a
+  // whisper of rise. Built to dodge the web's stuck-grey-veil freeze the
+  // founders hit: NO ScaleTransition (texture compositing was the trigger),
+  // NO secondaryAnimation parallax, symmetric reverse, short durations, and
+  // an easeOutCubic that settles fast even when the user taps mid-flight.
   return CustomTransitionPage<void>(
     child: child,
-    transitionDuration: Duration.zero,
-    reverseTransitionDuration: Duration.zero,
+    transitionDuration: const Duration(milliseconds: 280),
+    reverseTransitionDuration: const Duration(milliseconds: 220),
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      return child;
+      final curved = CurvedAnimation(
+        parent: animation,
+        curve: Curves.easeOutCubic,
+        reverseCurve: Curves.easeInCubic,
+      );
+      return FadeTransition(
+        opacity: curved,
+        child: SlideTransition(
+          position:
+              Tween<Offset>(begin: const Offset(0, 0.035), end: Offset.zero)
+                  .animate(curved),
+          child: child,
+        ),
+      );
     },
   );
 }
