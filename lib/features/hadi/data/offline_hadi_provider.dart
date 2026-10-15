@@ -542,4 +542,373 @@ const List<_Entry> _knowledge = <_Entry>[
     'pain you did not choose becomes the expiation you did not '
     'earn.',
   ),
+  // ── Home, travel, and daily moments ─────────────────────────────────
+  _Entry(
+    <String>['leaving home', 'entering home', 'go out', 'come back home', 'exit the house'],
+    'Leaving home: "Bismillahi, tawakkaltu \'alallah, la hawla wa la '
+    'quwwata illa billah" - In Allah\'s name, I trust in Allah; there '
+    'is no might nor power except with Allah - it is said to you: you '
+    'are guided, sufficed, and protected. (Sunan Abu Dawood 5095). '
+    'Entering home: greet with salam, say "Bismillah" as you enter, '
+    'and "Allahumma inni as\'aluka khayral mawla...". (Muslim 2018)',
+  ),
+  _Entry(
+    <String>['travel dua', 'going on a trip', 'road trip dua', 'flying dua', 'journey dua', 'travel', 'trip'],
+    'Before and during travel: "Subhanalladhi sakhkhara lana hadha '
+    'wa ma kunna lahu muqrinin, wa inna ila rabbina lamunqalibun" - '
+    'Glory to Him who subjected this to us, and we could never have '
+    'accomplished it ourselves - and indeed, to our Lord we will '
+    'return. (Sahih Muslim 1342). Shorten the four-unit prayers when '
+    'you travel beyond the city.',
+  ),
+  _Entry(
+    <String>['sneezing', 'sneeze', 'alhamdulillah sneeze', 'bless sneeze'],
+    'When someone sneezes and praises Allah ("Alhamdulillah"), say '
+    '"Yarhamukumullah" - may Allah have mercy on you. The sneezer '
+    'replies "Yahdikumullah..." (Sahih al-Bukhari 6224). A learned '
+    'custom: sneeze in privacy, praise Allah, and be answered with '
+    'mercy.',
+  ),
+  _Entry(
+    <String>['dream interpretation', 'had a dream', 'strange dream', 'bad dream', 'nightmare', 'dream'],
+    'The Prophet taught: the righteous dream is from Allah - '
+    'thank Him and tell whom you love; the distressing dream is '
+    'from shaytan - seek refuge in Allah from its evil, do not '
+    'narrate it, and it will not harm you. Spit lightly to your '
+    'left three times. (Sahih al-Bukhari 3292). Not every dream '
+    'carries a meaning - most are what the daytime leaves behind.',
+  ),
+  _Entry(
+    <String>['evil eye', 'hasad', 'envy', 'someone envied me', 'nazr', 'ruqyah', 'protect my children'],
+    'The Prophet said: "The evil eye is real and can put a man in '
+    'the grave and a camel into the cooking pot." (Sahih Muslim 2188). '
+    'The shield: Ayat al-Kursi, the three Quls said morning and '
+    'evening, and "la ilaha illallah wahdahu la sharika lah..." for '
+    'one hundred mornings. For ruqyah, the greatest of it is '
+    'Al-Fatiha - the Prophet once healed a tribesman with it and '
+    'was paid thirty sheep. (Bukhari 5748)',
+  ),
+
+  // ── Family milestones ───────────────────────────────────────────────
+  _Entry(
+    <String>['marriage proposal', 'getting married', 'choosing spouse', 'marry someone', 'marriage advice', 'marry', 'marriage'],
+    'The Prophet\'s counsel: "When someone whose religion and '
+    'character pleases you proposes to you, then marry him. If you '
+    'do not, there will be corruption in the land and widespread '
+    'evil." (Jami\' at-Tirmidhi 1085). Religion first - beauty and '
+    'wealth open like flowers and close like them; faith is the '
+    'root that stays.',
+  ),
+  _Entry(
+    <String>['wedding dua', 'nikkah dua', 'just married', 'newlywed'],
+    'The blessed wedding du\'a: "Barakallahu laka wa baraka '
+    '\'alaika wa jama\'a bainakuma fi khayr" - May Allah bless '
+    'you, shower blessings upon you, and join you both in goodness. '
+    '(Sunan Abu Dawood 2130). And the house of the newlyweds is '
+    'built upon five: gratitude, gentleness, patience, honesty, '
+    'and prayer together.',
+  ),
+  _Entry(
+    <String>['new baby', 'newborn', 'baby born', 'child born', 'aqiqah', 'tahnik', 'baby'],
+    'For the newborn: give the adhan in the right ear and the iqamah '
+    'in the left - the first voice it hears is the call to Allah. '
+    '(Sunan Abu Dawood 5105). Tahnik: a softened date on the palate, '
+    'and pray for the child. (Sahih al-Bukhari 5469). And the '
+    'aqiqah: "Every child is pledged to its aqiqah" - an animal '
+    'sacrificed on the seventh day, its weight in silver given as '
+    'charity, and the child named. (Tirmidhi 1513)',
+  ),
+  _Entry(
+    <String>['children', 'raising kids', 'my child', 'teaching children', 'kids behavior'],
+    '"Every child is born upon the fitrah - the natural readiness '
+    'for Islam; its parents make it a Jew, a Christian, or a '
+    'Persian." (Sahih al-Bukhari 1385). Be the first kindness they '
+    'know: the Prophet carried children, shortened the prayer when '
+    'he heard a baby cry, and said: "He is not of us who does not '
+    'have mercy on our young." (Tirmidhi 1919)',
+  ),
+
+  // ── Friday, Eid, and the rhythm of the week ─────────────────────────
+  _Entry(
+    <String>['friday', 'jumuah', 'jumma', 'surah kahf', 'best hour friday'],
+    'Friday: purify and adorn, go early to the masjid, and leave '
+    'trading aside when the call is made - "And when the prayer is '
+    'concluded, disperse within the land and seek the bounty of '
+    'Allah" (Al-Jumuah 9-10). The Prophet said Friday has an hour in '
+    'which no Muslim happens to ask Allah for good but that He gives '
+    'it - and it is believed to be the last hour after Asr. (Sahih '
+    'al-Bukhari 935). Recite Surah al-Kahf: "a light between this '
+    'Friday and the next." (Tirmidhi 2810)',
+  ),
+  _Entry(
+    <String>['eid', 'eid dua', 'eid mubarak', 'eid salah'],
+    'The Prophet said: "Every nation has its festival, and this is '
+    'ours" - take a different route going and returning, praise '
+    'Allah on the way, and embrace. (Sahih al-Bukhari 952). The '
+    'takbeer: "Allahu Akbar, Allahu Akbar, la ilaha illallah, '
+    'wallahu Akbar, Allahu Akbar wa lillahil hamd" - aloud on the '
+    'roads, softly in the heart.',
+  ),
+  _Entry(
+    <String>['fasting shawwal', 'six days of shawwal', 'monday fasting', 'thursday fasting', 'white days', 'extra fasts', 'fast the year'],
+    'Beyond Ramadan: fasting Ramadan then six days of Shawwal "is '
+    'like fasting the whole year" (Sahih Muslim 1164). The Prophet '
+    'fasted Mondays and Thursdays - deeds are presented on those '
+    'days (Jami\' at-Tirmidhi 747) - and the three white days, the '
+    '13th, 14th, and 15th of the lunar month (Tirmidhi 762). The '
+    'most beloved fast to Allah is Dawud\'s: a day on, a day off. '
+    '(Sahih al-Bukhari 3420)',
+  ),
+  _Entry(
+    <String>['suhoor', 'sehri', 'pre-dawn meal'],
+    '"Take suhoor, for in suhoor there is blessing." (Sahih '
+    'al-Bukhari 1923). Delay it toward dawn; the Prophet said the '
+    'difference between our fasting and the fasting of the People '
+    'of the Book is the pre-dawn meal. (Muslim 1096). Even dates '
+    'and water carry the barakah.',
+  ),
+  _Entry(
+    <String>['itikaf', 'spiritual retreat', 'last ten nights'],
+    'I\'tikaf - secluding oneself in the masjid for worship - was '
+    'practiced by the Prophet every Ramadan, ten nights, and in the '
+    'year he passed away, twenty. (Sahih al-Bukhari 2025). The '
+    'minimum is a moment of intention in the masjid; the essence is '
+    'to leave the world at the door and keep only conversation with '
+    'Allah.',
+  ),
+  _Entry(
+    <String>['feed a fasting person', 'feeding iftar', 'iftar for someone', 'feed'],
+    '"Whoever provides the food for a fasting person to break his '
+    'fast earns the same reward as his, without the fasting '
+    'person\'s reward being diminished in any way." (Jami\' '
+    'at-Tirmidhi 807). A date and a glass of milk suffice - and the '
+    'angels make du\'a for the giver all that evening.',
+  ),
+
+  // ── Weather, seasons, and the sky ───────────────────────────────────
+  _Entry(
+    <String>['rain dua', 'it\'s raining', 'rain blessing', 'rain shower', 'rain'],
+    'When the rain falls: "Allahumma sayyiban nafi\'an" - O Allah, '
+    'make it a beneficial rain. (Sahih al-Bukhari 1032). And the '
+    'downpour is an hour of answer: "Two are not rejected - the '
+    'du\'a at the time of rain and the du\'a of the oppressed." '
+    '(Abu Dawood 2540, Ibn Majah 3878). Expose some of it to the '
+    'rain - it has newly come from its Lord.',
+  ),
+  _Entry(
+    <String>['wind dua', 'storm dua', 'strong wind', 'thunder dua', 'lightning', 'wind', 'storm'],
+    'For the wind: "Allahumma inni as\'aluka khayraha, wa khayra '
+    'ma fiiha, wa khayra ma ursilat bihi, wa a\'udhu bika min '
+    'sharriha..." - O Allah, I ask You for its good, the good in '
+    'it, the good it was sent with, and I seek refuge in You from '
+    'its evil. (Sahih Muslim 899). The thunder glorifies the praise '
+    'of its Lord - say Subhan Allah as it rolls. (Musnad Ahmad)',
+  ),
+  _Entry(
+    <String>['new moon', 'crescent moon', 'moon sighting', 'hilal', 'moon'],
+    'Seeing the new crescent: "Allahumma ahillahu \'alaina bil '
+    'amni wal iman, was-salamati wal islam..." - O Allah, let this '
+    'moon rise over us with security, faith, safety, and Islam. '
+    '(Sahih Muslim 1742). The sighting ties the ummah to the sky - '
+    'the month begins when the crescent is seen, not when the '
+    'calendar guesses.',
+  ),
+
+  // ── Earnings, trade, and the table ──────────────────────────────────
+  _Entry(
+    <String>['halal income', 'halal earnings', 'haram money', 'riba', 'interest', 'halal work', 'halal', 'haram'],
+    '"O people, Allah is Pure and accepts only what is pure - He '
+    'commands the believers as He commanded the messengers: eat of '
+    'the good and do righteous work." (Sahih Muslim 1015). '
+    'Earnings built on riba are fought by the Prophet himself: he '
+    'cursed the one who consumes riba, the one who gives it, the '
+    'one who records it, and its two witnesses - "they are alike." '
+    '(Muslim 1598). Trade is blessed; the Prophet was a merchant '
+    'and praised the honest trader.',
+  ),
+  _Entry(
+    <String>['gambling', 'lottery', 'betting', 'casino', 'poker'],
+    '"O you who believe, intoxicants, gambling, idols, and divining '
+    'arrows are but filth of Satan\'s handiwork - avoid it that '
+    'you may succeed. Satan only intends to cause enmity and hatred '
+    'between you through it and to bar you from the remembrance of '
+    'Allah and from prayer." (Al-Ma\'idah 90-91). The money of '
+    'gambling is built on taking without consent - the blessed '
+    'exit door is always open.',
+  ),
+  _Entry(
+    <String>['alcohol', 'drinking', 'wine', 'beer', 'intoxicants'],
+    '"Every intoxicant is khamr, and every khamr is unlawful." '
+    '(Sahih Muslim 2003) - and prayer is not accepted from one who '
+    'is intoxicated for forty days if he does not repent. (Tirmidhi '
+    '3773). What poisons the mind is barred from the body, '
+    'whatever shape the bottle takes.',
+  ),
+  _Entry(
+    <String>['eating manners', 'right hand eating', 'wash hands eating', 'table manners islam', 'eat', 'eating'],
+    'The Sunnah of the table: mention Allah\'s name, eat with the '
+    'right hand, and eat from what is nearest - "If he forgets to '
+    'mention Allah, let him say: Bismillahi awwalahu wa akhirahu." '
+    '(Sahih Muslim 2017, 2020). Wash the hands before and after '
+    'eating, for blessing descends when the hands are washed. '
+    '(Sunan Abu Dawood 3755). Sit together - the shared meal is '
+    'mercy and separation is from the shaytan. (Abu Dawood 3764)',
+  ),
+  _Entry(
+    <String>['miswak', 'tooth stick', 'brush teeth sunnah'],
+    '"Were it not that I might overburden my ummah, I would have '
+    'commanded them to use the miswak before every prayer." '
+    '(Sahih al-Bukhari 887). The Prophet cleaned his teeth at '
+    'wudu, before prayer, before reciting, on waking - a different '
+    'part of worship than fresh breath alone.',
+  ),
+
+  // ── Prophetic medicine and creatures ────────────────────────────────
+  _Entry(
+    <String>['honey', 'black seed', 'tibben nabawi', 'prophetic medicine', 'natural remedy'],
+    'From the Sunnah of healing: honey - "healing for the people" '
+    '(An-Nahl 69), and the Prophet said healing is in three: the '
+    'cut of the cupper, a drink of honey, and cauterization with '
+    'fire - but he forbade his ummah cauterization. (Sahih '
+    'al-Bukhari 5356). And black seed: "the healing for every '
+    'disease except death" (Bukhari 5688). Medicine of the body '
+    'and the ruqyah of the heart travel together.',
+  ),
+  _Entry(
+    <String>['zamzam', 'drinking zamzam', 'umrah zamzam'],
+    '"The water of Zamzam is for whatever it is drunk for" - drink '
+    'it with an intention: knowledge, healing, forgiveness, a '
+    'righteous child. (Sunan Ibn Majah 3062). It sprang for Ismail '
+    'in the desert of Makkah and has not ceased - five thousand '
+    'years of answered thirst.',
+  ),
+  _Entry(
+    <String>['cupping', 'hijamah', 'blood cupping'],
+    'The Prophet praised cupping: "The best of your treatments is '
+    'hijamah" - and had it done on the veins at the back of his '
+    'neck, paying the cupper his wage. (Jami\' at-Tirmidhi 1190). '
+    'Even treatment has an etiquette: seek the skilled, pay '
+    'fairly, and pair it with du\'a.',
+  ),
+  _Entry(
+    <String>['cats', 'kittens', 'pet cat'],
+    'Kindness to cats is from the Sunnah: a cat once slept on the '
+    'Prophet\'s cloak; he cut the sleeve off rather than wake it '
+    'when he stood for prayer - and he used its water for wudu. '
+    'Cats are not impure, he said; they are among those who go '
+    'about among you. (Jami\' at-Tirmidhi 91). Muezza, they say, '
+    'was the name of his own.',
+  ),
+
+  // ── Sleep, waking, and the night ────────────────────────────────────
+  _Entry(
+    <String>['sleep dua', 'going to sleep', 'bedtime', 'sleep on right side', 'wake up dua', 'waking up', 'sleep'],
+    'Before sleep: wudu as you washed for prayer, lie on the right '
+    'side, and recite Ayat al-Kursi - "a protector from Allah is '
+    'appointed over you, and no devil comes near you until '
+    'morning." (Sahih al-Bukhari 2311). Dust the bedding three '
+    'times - "for you do not know what came to rest upon it." '
+    '(Bukhari 6320). Waking: "Alhamdulillahilladhi ahyana ba\'da '
+    'ma amatana wa ilaihin nushur" - all praise to Allah who gave '
+    'us life after death, and to Him is the resurrection. (Bukhari '
+    '6312)',
+  ),
+  _Entry(
+    <String>['seeing someone sick', 'someone else afflicted', 'heard bad news'],
+    'When you see someone afflicted: "Alhamdulillahil-ladhi '
+    '\'afani mimabtalaaka bihi wa faddalani \'ala kathirin mimman '
+    'khalaqa tafdila" - praise to Allah who spared me what He '
+    'afflicted you with and favored me over much of His creation. '
+    '(Jami\' at-Tirmidhi 3433). Gratitude without the afflicted '
+    'hearing it; the reward and the mercy both remain.',
+  ),
+
+  // ── Hard moments, held gently ───────────────────────────────────────
+  _Entry(
+    <String>['someone died', 'death of a loved one', 'lost my mother', 'lost my father', 'grief', 'mourning', 'funeral', 'visiting graves', 'passed away', 'died', 'lost'],
+    'When death takes someone you love: "Inna lillahi wa inna '
+    'ilaihi raji\'un - Allahumma\'jurni fi musibati wakhluf li '
+    'khayran minha" - To Allah we belong and to Him we return; O '
+    'Allah, reward me in my calamity and replace it for me with '
+    'better. (Sahih Muslim 918). The Prophet said: "Allah says to '
+    'the angels: build for My servant a palace in Paradise and '
+    'call it the House of Praise." For the deceased: wash, shroud, '
+    'pray over, and bury - attending carries the reward of two '
+    'great qirats. (Bukhari 1325) And visit the graves - "they '
+    'remind you of the Hereafter" (Muslim 977). Say to the '
+    'grieving: "May Allah magnify your reward, beautify your '
+    'patience, and forgive your departed."',
+  ),
+  _Entry(
+    <String>['trust in allah', 'tawakkul', 'my rizq', 'provision', 'how will i survive', 'jobless', 'no money', 'money'],
+    'The Prophet said: "If you relied upon Allah as He should be '
+    'relied upon, He would provide for you as He provides for the '
+    'birds - they leave in the morning with empty stomachs and '
+    'return full." (Jami\' at-Tirmidhi 2344). And: "Tie your '
+    'camel, then trust in Allah." (Tirmidhi 2517). Tawakkul is '
+    'not the abandonment of means - it is the heart\'s grip on '
+    'Allah while the hand grips the rope. Rizq was written when '
+    'you were sixty days in the womb; what is yours will walk to '
+    'you.',
+  ),
+  _Entry(
+    <String>['hurt myself', 'want to die', 'end my life', 'no point living', 'self harm', 'suicidal', 'don\'t want to live', 'kill myself', 'no will to live'],
+    'Please - stop, and breathe. Your pain is real, and so is '
+    'Allah\'s promise: "Allah does not burden a soul beyond what '
+    'it can bear" (Al-Baqarah 286), and "Despair not of the mercy '
+    'of Allah" (Az-Zumar 53). This world can hurt unbearably, but '
+    'the Prophet said: "No fatigue, nor illness, nor anxiety, nor '
+    'sorrow, nor harm reaches a Muslim but that Allah expiates by '
+    'it - even a thorn." (Sahih al-Bukhari 5641). You are not '
+    'alone: the Prayer Times screen can connect you to a human '
+    'near you, and Sakina is open whenever the night is heavy. '
+    'Stay - the One who made you is not done with you.',
+  ),
+  _Entry(
+    <String>['hijab', 'covering', 'modesty dress', 'why do muslim women cover'],
+    'Allah says: "And tell the believing women to lower their gaze '
+    'and guard their private parts and not expose their adornment '
+    'except that which appears thereof, and to draw their coverings '
+    'over their chests..." (An-Nur 31), and: "O Prophet, tell your '
+    'wives and daughters and the women of the believers to draw '
+    'their outer garments over themselves." (Al-Ahzab 59). The '
+    'Prophet said that when a woman reaches menstruation, nothing '
+    'should be seen of her but this and this - and he pointed to '
+    'the face and hands. (Abu Dawood 4104) It is worship, '
+    'obedience, and - for many who wear it - peace.',
+  ),
+
+  // ── Learning the Qur'an and Arabic ──────────────────────────────────
+  _Entry(
+    <String>['memorize quran', 'hifz', 'memorization tips', 'learn quran', 'quran study tips', 'memorize'],
+    'The memorizer\'s method, unchanged for a thousand years: a '
+    'daily portion - new and revision - with recitation to a '
+    'teacher who corrects. Ibn al-Jazari said: "Committing to what '
+    'you can bear - even a little - is better than burning out on '
+    'a lot." Recite in the same copy, at the same hour, and '
+    'listen to one reciter only until the passage settles. The '
+    'promise is sealed in the hadith: "The best of you are those '
+    'who learn the Qur\'an and teach it." (Sahih al-Bukhari 5027)',
+  ),
+  _Entry(
+    <String>['tajweed', 'pronunciation quran', 'recitation rules', 'makhraj'],
+    'Tajweed is giving every letter its right: from its makhraj - '
+    'its exit point - and with its sifah - its characteristics - '
+    'slowly, without artificiality. The Prophet listened to Ibn '
+    'Umar\'s recitation for a long while and said: "Have mercy on '
+    'yourself" - beautiful, unhurried recitation is loved. (Abu '
+    'Dawood 802) Begin with one surah perfected; the Qur\'an '
+    'itself teaches: "And recite the Qur\'an with measured '
+    'recitation." (Al-Muzzammil 4)',
+  ),
+  _Entry(
+    <String>['learn arabic', 'arabic alphabet', 'arabic learning tips', 'arabic'],
+    'The alphabet is a door, not a mountain: twenty-nine letters, '
+    'each with a shape at the start, middle, and end of a word. '
+    'The Wasia Academy in this app walks children through every '
+    'letter with sound and practice - and what works for them '
+    'works for you: one letter a day, said aloud, written twice, '
+    'found in a word you already know. Ten weeks of one letter a '
+    'day, and the script that carried the revelation is yours.',
+  ),
 ];
