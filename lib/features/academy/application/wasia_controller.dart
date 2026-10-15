@@ -3,6 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../hadi/application/hadi_provider.dart';
 import '../../hadi/data/groq_hadi_provider.dart';
+import '../../hadi/data/offline_hadi_provider.dart';
 
 enum WasiaPersona { student, parent, teacher }
 
@@ -90,11 +91,22 @@ class WasiaController extends StateNotifier<WasiaState> {
       int? examsTaken}) async {
     final q = question.trim();
     if (q.isEmpty || state.isLoading) return '';
-    final noKey = 'Wasia needs your AI key to speak freely — add it once in '
-        'H\u0101di\u2019s settings and both of us can teach. Until then, '
-        'walk the scripted lessons; they carry everything.';
+    // Keyless: Wasia still teaches from the curated offline shelf — the same
+    // honest knowledge base Hadi falls back to. She never invents what she
+    // does not know; the decline itself points to Hadi settings.
     final k = await _key();
-    if (k == null) return noKey;
+    if (k == null) {
+      final offline =
+          await const OfflineHadiProvider().ask(q, state.messages);
+      state = state.copy(
+        messages: <HadiMessage>[
+          ...state.messages,
+          HadiMessage(fromHadi: false, text: q),
+          HadiMessage(fromHadi: true, text: offline),
+        ],
+      );
+      return offline;
+    }
 
     final first = state.messages.isEmpty;
     state = state.copy(
