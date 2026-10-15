@@ -47,9 +47,28 @@ const String kWasiaSystemPrompt =
     'Family Wing shows each child\u2019s lessons and exams, and offer to help '
     'them write a progress report to send.';
 
+/// Wasia's conversation: every box feeds one thread, so she remembers
+/// follow-ups ("what about the second letter?") across the whole session.
+class WasiaState {
+  const WasiaState({
+    this.messages = const <HadiMessage>[],
+    this.isLoading = false,
+  });
+
+  final List<HadiMessage> messages;
+  final bool isLoading;
+
+  WasiaState copy({List<HadiMessage>? messages, bool? isLoading}) {
+    return WasiaState(
+      messages: messages ?? this.messages,
+      isLoading: isLoading ?? this.isLoading,
+    );
+  }
+}
+
 /// Wasia reuses the same user-owned AI key as Hadi — one key, both teachers.
-class WasiaController extends StateNotifier<AsyncValue<String?>> {
-  WasiaController(this.ref) : super(const AsyncData<String?>(null));
+class WasiaController extends StateNotifier<WasiaState> {
+  WasiaController(this.ref) : super(const WasiaState());
 
   final Ref ref;
 
@@ -61,18 +80,30 @@ class WasiaController extends StateNotifier<AsyncValue<String?>> {
     return (k == null || k.trim().isEmpty) ? null : k.trim();
   }
 
+  /// Start a fresh conversation with Wasia.
+  void clear() => state = const WasiaState();
+
   Future<String> ask(String question,
       {WasiaPersona persona = WasiaPersona.student,
       String? childName,
       int? lessonsDone,
       int? examsTaken}) async {
+    final q = question.trim();
+    if (q.isEmpty || state.isLoading) return '';
+    final noKey = 'Wasia needs your AI key to speak freely — add it once in '
+        'H\u0101di\u2019s settings and both of us can teach. Until then, '
+        'walk the scripted lessons; they carry everything.';
     final k = await _key();
-    if (k == null) {
-      return 'Wasia needs your AI key to speak freely — add it once in '
-          'H\u0101di\u2019s settings and both of us can teach. Until then, '
-          'walk the scripted lessons; they carry everything.';
-    }
-    state = const AsyncLoading<String?>();
+    if (k == null) return noKey;
+
+    final first = state.messages.isEmpty;
+    state = state.copy(
+      isLoading: true,
+      messages: <HadiMessage>[
+        ...state.messages,
+        HadiMessage(fromHadi: false, text: q),
+      ],
+    );
     try {
       final prefs = await SharedPreferences.getInstance();
       final provider = prefs.getString('ar.hadi.provider') ?? 'groq';
@@ -81,8 +112,8 @@ class WasiaController extends StateNotifier<AsyncValue<String?>> {
         'xai' => XaiHadiProvider(apiKey: k),
         _ => GroqHadiProvider(apiKey: k),
       };
-      // The voice is chosen here; the persona lands in the first message
-      // the model reads, regardless of provider.
+      // The voice lands in the FIRST message only, like a system prompt;
+      // follow-ups ride the conversation history.
       final voice = personaPrompt(persona,
           childName: childName,
           lessonsDone: lessonsDone,
@@ -92,12 +123,25 @@ class WasiaController extends StateNotifier<AsyncValue<String?>> {
         WasiaPersona.parent => 'Parent',
         WasiaPersona.teacher => 'Teacher',
       };
-      final answer =
-          await p.ask('$voice\n\n$who asks: $question', const <HadiMessage>[]);
-      state = AsyncData<String?>(answer);
+      final content = first ? '$voice\n\n$who asks: $q' : q;
+      final answer = await p.ask(content, state.messages);
+      var msgs = <HadiMessage>[
+        ...state.messages,
+        HadiMessage(fromHadi: true, text: answer),
+      ];
+      // Cap the thread: keep the persona anchor + the most recent turns.
+      if (msgs.length > 14) {
+        msgs = <HadiMessage>[msgs.first, ...msgs.sublist(msgs.length - 12)];
+      }
+      state = state.copy(messages: msgs, isLoading: false);
       return answer;
     } catch (e) {
-      state = AsyncError<String?>(e, StackTrace.current);
+      // A failed turn must not wedge the conversation: drop the pending
+      // question so the user can rephrase.
+      state = state.copy(
+        isLoading: false,
+        messages: state.messages.sublist(0, state.messages.length - 1),
+      );
       return 'Wasia could not reach her voice just now ($e). '
           'The lesson above still carries everything — keep walking it.';
     }
@@ -105,6 +149,6 @@ class WasiaController extends StateNotifier<AsyncValue<String?>> {
 }
 
 final wasiaControllerProvider =
-    StateNotifierProvider<WasiaController, AsyncValue<String?>>((ref) {
+    StateNotifierProvider<WasiaController, WasiaState>((ref) {
   return WasiaController(ref);
 });

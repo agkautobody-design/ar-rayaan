@@ -8,6 +8,7 @@ import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../application/family_service.dart';
 import '../application/wasia_controller.dart';
+import 'widgets/wasia_thread.dart';
 import 'wasia_lessons.dart';
 
 final familyServiceProvider = Provider<FamilyService>((ref) => FamilyService());
@@ -207,7 +208,6 @@ class _ParentWasiaBox extends ConsumerStatefulWidget {
 
 class _ParentWasiaBoxState extends ConsumerState<_ParentWasiaBox> {
   final _input = TextEditingController();
-  String? _answer;
 
   @override
   Widget build(BuildContext context) {
@@ -244,22 +244,19 @@ class _ParentWasiaBoxState extends ConsumerState<_ParentWasiaBox> {
                         .progress(widget.childId);
                     final lessons = (p['lessons'] as Map).length;
                     final exams = (p['exams'] as Map).length;
-                    final a = await ref
+                    await ref
                         .read(wasiaControllerProvider.notifier)
                         .ask(q,
                             persona: WasiaPersona.parent,
                             childName: widget.childName,
                             lessonsDone: lessons,
                             examsTaken: exams);
-                    setState(() => _answer = a);
                   },
           ),
         ),
       ]),
-      if (_answer != null) ...[
-        const SizedBox(height: 10),
-        Text(_answer!, style: AppText.body.copyWith(height: 1.6, fontSize: 13)),
-      ],
+      const SizedBox(height: 8),
+      const WasiaThread(),
     ]);
   }
 }
@@ -274,7 +271,6 @@ class _TeacherWasiaBox extends ConsumerStatefulWidget {
 
 class _TeacherWasiaBoxState extends ConsumerState<_TeacherWasiaBox> {
   final _input = TextEditingController();
-  String? _answer;
 
   @override
   Widget build(BuildContext context) {
@@ -304,18 +300,15 @@ class _TeacherWasiaBoxState extends ConsumerState<_TeacherWasiaBox> {
                 : () async {
                     final q = _input.text.trim();
                     if (q.isEmpty) return;
-                    final a = await ref
+                    await ref
                         .read(wasiaControllerProvider.notifier)
                         .ask(q, persona: WasiaPersona.teacher);
-                    setState(() => _answer = a);
                   },
           ),
         ),
       ]),
-      if (_answer != null) ...[
-        const SizedBox(height: 10),
-        Text(_answer!, style: AppText.body.copyWith(height: 1.6, fontSize: 13)),
-      ],
+      const SizedBox(height: 8),
+      const WasiaThread(),
     ]);
   }
 }

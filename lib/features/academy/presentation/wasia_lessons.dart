@@ -11,6 +11,7 @@ import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/theme/widgets/speak_button.dart';
 import '../application/wasia_controller.dart';
+import 'widgets/wasia_thread.dart';
 import '../application/family_service.dart';
 
 class LessonStep {
@@ -371,7 +372,6 @@ class _WasiaBox extends ConsumerStatefulWidget {
 
 class _WasiaBoxState extends ConsumerState<_WasiaBox> {
   final _input = TextEditingController();
-  String? _answer;
 
   @override
   Widget build(BuildContext context) {
@@ -400,22 +400,15 @@ class _WasiaBoxState extends ConsumerState<_WasiaBox> {
                 : () async {
                     final q = _input.text.trim();
                     if (q.isEmpty) return;
-                    final a = await ref
+                    await ref
                         .read(wasiaControllerProvider.notifier)
                         .ask(q);
-                    setState(() => _answer = a);
                   },
           ),
         ),
       ]),
-      if (_answer != null) ...[
-        const SizedBox(height: 10),
-        Row(children: [
-          Expanded(child: Text(_answer!,
-              style: AppText.body.copyWith(height: 1.6, fontSize: 13.5))),
-          SpeakButton(text: _answer!, size: 22),
-        ]),
-      ],
+      const SizedBox(height: 8),
+      const WasiaThread(),
     ]);
   }
 }
