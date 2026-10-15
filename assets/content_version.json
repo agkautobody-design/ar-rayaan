@@ -1,1 +1,20 @@
-{"stories/prophets.json": 1, "stories/women.json": 1, "stories/seerah.json": 1, "stories/companions.json": 1, "stories/ghayb.json": 1, "stories/signs.json": 1, "stories/tales.json": 1, "stories/khutbahs.json": 2, "stories/modernhadith.json": 3, "family/tree.json": 1, "guides/guides.json": 2, "games/trivia.json": 1, "games/names99.json": 1, "feelings/feelings.json": 2, "stories/dailyduas.json": 4, "stories/newmuslim.json": 1, "share/cards.json": 1, "finance/paper_market.json": 1}
+{
+  "stories/prophets.json": 1,
+  "stories/women.json": 1,
+  "stories/seerah.json": 1,
+  "stories/companions.json": 1,
+  "stories/ghayb.json": 1,
+  "stories/signs.json": 1,
+  "stories/tales.json": 1,
+  "stories/khutbahs.json": 2,
+  "stories/modernhadith.json": 4,
+  "family/tree.json": 1,
+  "guides/guides.json": 2,
+  "games/trivia.json": 1,
+  "games/names99.json": 1,
+  "feelings/feelings.json": 2,
+  "stories/dailyduas.json": 4,
+  "stories/newmuslim.json": 1,
+  "share/cards.json": 1,
+  "finance/paper_market.json": 1
+}
