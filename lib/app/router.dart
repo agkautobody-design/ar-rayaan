@@ -5,6 +5,7 @@ import '../features/auth/presentation/login_screen.dart';
 import '../features/auth/presentation/reset_screen.dart';
 import '../features/auth/presentation/signup_screen.dart';
 import '../features/auth/presentation/verify_screen.dart';
+import '../features/onboarding/presentation/onboarding_screen.dart';
 import '../features/community/presentation/community_screen.dart';
 import '../features/academy/presentation/academy_home_screen.dart';
 import '../features/academy/presentation/lesson_player_screen.dart';
@@ -72,6 +73,7 @@ import 'theme/widgets/app_bottom_nav.dart';
 abstract final class AppRoutes {
   static const String splash = '/';
   static const String welcome = '/welcome';
+  static const String onboarding = '/onboarding';
   static const String home = '/home';
   static const String explore = '/explore';
   static const String hadi = '/hadi';
@@ -140,14 +142,20 @@ CustomTransitionPage<void> _fade(Widget child) {
   );
 }
 
-GoRouter buildRouter() {
+GoRouter buildRouter({String initialLocation = '/'}) {
   return GoRouter(
-    initialLocation: AppRoutes.splash,
+    initialLocation: initialLocation,
     routes: [
       // Onboarding flow (no bottom nav)
       GoRoute(
           path: '/',
           pageBuilder: (context, state) => _fade(const HomeScreen()),
+        ),
+        // First-run gate: onboarding completes and sets ar.onboarded.v1.
+        // main() routes here only when the pref is unset.
+        GoRoute(
+          path: AppRoutes.onboarding,
+          pageBuilder: (context, state) => _fade(const OnboardingScreen()),
         ),
         GoRoute(
           path: '/home',

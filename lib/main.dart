@@ -39,13 +39,16 @@ Future<void> main() async {
     authRepo = local;
   }
 
+  // First-run gate: fresh installs walk the onboarding flow once.
+  final bool showOnboarding = await OnboardingScreen.shouldShow();
+
   runApp(
     ProviderScope(
       overrides: [
         sharedPreferencesProvider.overrideWithValue(prefs),
         authRepositoryProvider.overrideWithValue(authRepo),
       ],
-      child: ArRayaanApp(env: env),
+      child: ArRayaanApp(env: env, showOnboarding: showOnboarding),
     ),
   );
 }

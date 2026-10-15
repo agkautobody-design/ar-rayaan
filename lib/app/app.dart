@@ -13,10 +13,13 @@ import 'theme/app_colors.dart';
 import 'theme/app_typography.dart';
 
 class ArRayaanApp extends StatelessWidget {
-  late final GoRouter _router = buildRouter();
-  ArRayaanApp({required this.env, super.key});
+  late final GoRouter _router = buildRouter(
+    initialLocation: showOnboarding ? AppRoutes.onboarding : AppRoutes.splash,
+  );
+  ArRayaanApp({required this.env, this.showOnboarding = false, super.key});
 
   final EnvConfig env;
+  final bool showOnboarding;
 
   @override
   Widget build(BuildContext context) {
