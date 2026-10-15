@@ -189,9 +189,10 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['who are you', 'your name', 'what are you'],
     'I am Hadi - "the guide" - your companion inside Ar-Rayaan. I '
-    'answer from the Qur\'an and the authentic Sunnah, I know every '
-    'room of this app, and I would rather say "I don\'t know" than '
-    'invent. My sister-teacher Wasia runs the letter school.',
+    'answer from the Qur\'an and the Sihah Sitta - the six authentic '
+    'books of hadith - and I know every room of this app. I would '
+    'rather say "I don\'t know" than invent. My sister-teacher Wasia '
+    'runs the letter school.',
   ),
   _Entry(
     <String>['who is wasia', 'what is wasia'],
