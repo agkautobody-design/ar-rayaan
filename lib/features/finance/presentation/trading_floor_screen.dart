@@ -20,7 +20,7 @@ class PaperCo {
       required this.debt, required this.mcap, required this.interest,
       required this.haram});
   factory PaperCo.fromJson(Map<String, dynamic> j) => PaperCo(
-      sym: j['sym'], name: j['name'], sector: j['sector'], blurb: j['blurb'],
+      sym: j['sym'] as String, name: j['name'] as String, sector: j['sector'] as String, blurb: j['blurb'] as String,
       price: (j['price'] as num).toDouble(), rev: (j['rev'] as num).toDouble(),
       debt: (j['debt'] as num).toDouble(), mcap: (j['mcap'] as num).toDouble(),
       interest: (j['interest'] as num).toDouble(),

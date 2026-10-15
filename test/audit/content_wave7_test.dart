@@ -16,7 +16,7 @@ void main() {
       for (final l in (u as Map)['lessons'] as List<dynamic>) {
         final m = l as Map<String, dynamic>;
         lessons++;
-        expect(m['steps'], hasLength(5), reason: m['id']);
+        expect(m['steps'], hasLength(5), reason: m['id'] as String?);
         expect((m['steps'] as List).where((s) => (s as Map)['type'] == 'quiz'),
             hasLength(1), reason: '${m['id']} needs exactly one quiz');
         expect((m['title'] as String).isNotEmpty, isTrue);
@@ -26,7 +26,7 @@ void main() {
     expect((c['exams'] as List).length, 4);
     for (final e in c['exams'] as List<dynamic>) {
       final em = e as Map<String, dynamic>;
-      expect((em['questions'] as List).length, 10, reason: em['id']);
+      expect((em['questions'] as List).length, 10, reason: em['id'] as String?);
       for (final q in em['questions'] as List<dynamic>) {
         final qm = q as Map<String, dynamic>;
         expect((qm['answer'] as num).toInt(),

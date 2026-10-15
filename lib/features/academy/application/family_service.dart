@@ -109,12 +109,12 @@ class FamilyService {
         final p = await progress(c['id'] as String);
         for (final e in (p['exams'] as Map).entries) {
           await fam.collection('children').doc(c['id'] as String)
-              .collection('exams').doc(e.key)
+              .collection('exams').doc(e.key as String)
               .set(Map<String, dynamic>.from(e.value as Map));
         }
         for (final l in (p['lessons'] as Map).entries) {
           await fam.collection('children').doc(c['id'] as String)
-              .collection('lessons').doc(l.key)
+              .collection('lessons').doc(l.key as String)
               .set(Map<String, dynamic>.from(l.value as Map));
         }
       }

@@ -18,8 +18,8 @@ class ShareCard {
   const ShareCard({required this.id, required this.kind, required this.arabic,
       required this.text, required this.ref});
   factory ShareCard.fromJson(Map<String, dynamic> j) => ShareCard(
-      id: j['id'], kind: j['kind'], arabic: j['arabic'] ?? '',
-      text: j['text'], ref: j['ref']);
+      id: j['id'] as String, kind: j['kind'] as String, arabic: j['arabic'] as String? ?? '',
+      text: j['text'] as String, ref: j['ref'] as String);
 }
 
 

@@ -17,9 +17,9 @@ class FinLesson {
   const FinLesson({required this.id, required this.title, required this.kicker,
       required this.subtitle, required this.body, required this.familyQuestion});
   factory FinLesson.fromJson(Map<String, dynamic> j) => FinLesson(
-      id: j['id'], title: j['title'], kicker: j['kicker'], subtitle: j['subtitle'],
+      id: j['id'] as String, title: j['title'] as String, kicker: j['kicker'] as String, subtitle: j['subtitle'] as String,
       body: (j['chapters'] as List).first['body'] as String,
-      familyQuestion: j['familyQuestion']);
+      familyQuestion: j['familyQuestion'] as String);
 }
 
 final rayaanLessonsProvider = FutureProvider<List<FinLesson>>((ref) async {

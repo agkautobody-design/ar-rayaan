@@ -64,7 +64,7 @@ class _LineageState extends ConsumerState<LineageChallengeScreen> {
         distractors[0]['name'] as String, distractors[1]['name'] as String]..shuffle(rnd);
       rounds.add(_Round(
         'Who is the parent of ${n['name']}?',
-        opts, opts.indexOf(parent['name']),
+        opts, opts.indexOf(parent['name'] as String),
         '${n['name']} descends from ${parent['name']} — ${n['era']}.',
       ));
     }

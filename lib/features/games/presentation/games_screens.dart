@@ -19,26 +19,26 @@ class TriviaQ {
   const TriviaQ({required this.id, required this.category, required this.question,
       required this.options, required this.answer, required this.why});
   factory TriviaQ.fromJson(Map<String, dynamic> j) => TriviaQ(
-    id: j['id'], category: j['category'], question: j['question'],
+    id: j['id'] as String, category: j['category'] as String, question: j['question'] as String,
     options: (j['options'] as List).cast<String>(),
-    answer: j['answer'], why: j['why']);
+    answer: j['answer'] as String, why: j['why'] as String);
 }
 
 final triviaProvider = FutureProvider<List<TriviaQ>>((ref) async {
   final raw = await ContentSync.load('games/trivia.json');
-  return (json.decode(raw) as List).map((e) => TriviaQ.fromJson(e)).toList();
+  return (json.decode(raw) as List).map((e) => TriviaQ.fromJson(e as Map<String, dynamic>)).toList();
 });
 
 class Name99 {
   final int n; final String name, meaning, ref;
   const Name99({required this.n, required this.name, required this.meaning, required this.ref});
   factory Name99.fromJson(Map<String, dynamic> j) =>
-      Name99(n: j['n'], name: j['name'], meaning: j['meaning'], ref: j['ref']);
+      Name99(n: j['n'] as int, name: j['name'] as String, meaning: j['meaning'] as String, ref: j['ref'] as String);
 }
 
 final namesProvider = FutureProvider<List<Name99>>((ref) async {
   final raw = await ContentSync.load('games/names99.json');
-  return (json.decode(raw) as List).map((e) => Name99.fromJson(e)).toList();
+  return (json.decode(raw) as List).map((e) => Name99.fromJson(e as Map<String, dynamic>)).toList();
 });
 
 class GamesScreen extends ConsumerWidget {

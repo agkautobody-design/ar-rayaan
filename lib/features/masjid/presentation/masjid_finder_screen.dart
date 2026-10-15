@@ -85,8 +85,8 @@ class _MasjidState extends State<MasjidFinderScreen> {
           '${Uri.encodeComponent(q)}&format=json&limit=1'));
       final list = json.decode(res.body) as List<dynamic>;
       if (list.isNotEmpty) {
-        _lat = double.parse(list[0]['lat']);
-        _lon = double.parse(list[0]['lon']);
+        _lat = double.parse(list[0]['lat'] as String);
+        _lon = double.parse(list[0]['lon'] as String);
         await _fetch();
         return;
       }
@@ -124,13 +124,13 @@ class _MasjidState extends State<MasjidFinderScreen> {
                   '${tags['addr:city'] ?? ''}'.trim()
               : null;
           out.add(Mosque(
-            name: tags['name'] ?? 'Masjid',
+            name: tags['name'] as String? ?? 'Masjid',
             lat: lat, lon: lon,
             addr: addr?.isEmpty == true ? null : addr,
-            website: tags['website'] ?? tags['contact:website'],
-            phone: tags['phone'] ?? tags['contact:phone'],
-            denomination: tags['denomination'],
-            hours: tags['opening_hours'],
+            website: tags['website'] as String? ?? tags['contact:website'] as String?,
+            phone: tags['phone'] as String? ?? tags['contact:phone'] as String?,
+            denomination: tags['denomination'] as String?,
+            hours: tags['opening_hours'] as String?,
             wheelchair: tags['wheelchair'] == 'yes',
           ));
         }

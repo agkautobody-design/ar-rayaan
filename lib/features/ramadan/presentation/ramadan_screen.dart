@@ -20,8 +20,8 @@ class RamadanDay {
   const RamadanDay({required this.day, required this.theme, required this.arabic,
       required this.text, required this.source});
   factory RamadanDay.fromJson(Map<String, dynamic> j) => RamadanDay(
-      day: (j['day'] as num).toInt(), theme: j['theme'], arabic: j['arabic'],
-      text: j['text'], source: j['source']);
+      day: (j['day'] as num).toInt(), theme: j['theme'] as String, arabic: j['arabic'] as String,
+      text: j['text'] as String, source: j['source'] as String);
 }
 
 final ramadanDaysProvider = FutureProvider<List<RamadanDay>>((ref) async {
