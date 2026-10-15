@@ -345,4 +345,201 @@ const List<_Entry> _knowledge = <_Entry>[
     'garden from Paradise or a pit from the Fire - and its morning '
     'is near.',
   ),
+  // ── Daily-life du'as ────────────────────────────────────────────────
+  _Entry(
+    <String>['morning adhkar', 'evening adhkar', 'morning dua', 'evening dua', 'morning remembrance', 'evening remembrance'],
+    'The morning and evening adhkar are the shield of the day: Ayat '
+    'al-Kursi, the three Quls, "Raditu billahi rabba..." - whoever '
+    'says them morning and evening is sufficed. They live in your '
+    'Dhikr & Du\'a sets with counters and meanings.',
+  ),
+  _Entry(
+    <String>['before eating', 'after eating', 'eating dua', 'food dua', 'eat dua'],
+    'Before eating: "Bismillah" - and if you forget, say "Bismillahi '
+    'awwalahu wa akhirahu". After: "Alhamdulillahilladhi at\'amana '
+    'wa saqana wa ja\'alana muslimin" - all praise to Allah who fed '
+    'us, gave us drink, and made us Muslims. (Abu Dawood 3761, 3201)',
+  ),
+  _Entry(
+    <String>['dua for parents', 'my parents', 'parents', 'mother dua', 'father dua'],
+    'The Qur\'an itself teaches the du\'a: "Rabbir hamhumaa kamaa '
+    'rabbayaani saghira" - My Lord, have mercy on them as they '
+    'raised me when I was small (Al-Isra 24). Say it after every '
+    'prayer; it is among the most beloved of speech.',
+  ),
+  _Entry(
+    <String>['dua for the sick', 'someone sick', 'visiting the sick', 'ill dua', 'cure dua'],
+    'For the sick: place your hand where it hurts and say "Bismillah" '
+    'three times, then "As\'alullah al-\'Azim Rabbal-\'arshil-'
+    'azim an yashfiyak" - I ask Allah the Magnificent, Lord of the '
+    'Magnificent Throne, to cure you - seven times. (Sahih al-Bukhari '
+    '5675). And visiting the sick is an expiation: its fruits ripen '
+    'in Paradise. (Bukhari 5402)',
+  ),
+
+  // ── Character and heart ─────────────────────────────────────────────
+  _Entry(
+    <String>['anxious', 'anxiety', 'worried', 'worry', 'depressed', 'overwhelmed', 'scared', 'afraid'],
+    'For a heavy heart: "Hasbunallahu wa ni\'mal wakeel" - Allah is '
+    'sufficient for us, and He is the best Disposer of affairs '
+    '(Al-Imran 173) - the words of Ibrahim and our Prophet in '
+    'distress. And the Prophet (peace be upon him) said: "There is '
+    'no worry or grief for the servant who, in hardship, says: Ya '
+    'Hayyu ya Qayyum, bi-rahmatika astagheeth." (Sunan Ibn Majah 3881). '
+    'Sakina is in this app for you too.',
+  ),
+  _Entry(
+    <String>['niyyah', 'intention', 'why do we', 'actions are'],
+    '"Actions are only by intentions, and every person shall have '
+    'what he intended." (Sahih al-Bukhari 1 - the very first hadith). '
+    'The reward of an act lives in its intention: prayer for showing '
+    'off is empty, and sweeping a floor for Allah is worship.',
+  ),
+  _Entry(
+    <String>['mercy', 'be kind', 'kindness', 'gentle', 'compassion'],
+    '"The merciful are shown mercy by Ar-Rahman. Be merciful to '
+    'those on earth, and the One above the heavens will be merciful '
+    'to you." (Jami\' at-Tirmidhi 1924). "He who does not show mercy '
+    'will not be shown mercy." (Sahih al-Bukhari 6013). Kindness - '
+    'rifq - beautifies everything it touches.',
+  ),
+  _Entry(
+    <String>['neighbor', 'neighbour', 'next door'],
+    'Jibreel kept advising the Prophet about the neighbor until he '
+    'thought he would make him an heir: the neighbor has a right '
+    'almost of kinship. (Sahih al-Bukhari 6015) Good neighborhood - '
+    'guarding dignity, sharing food, soft greetings - is faith in '
+    'daily dress.',
+  ),
+  _Entry(
+    <String>['gossip', 'backbite', 'speak good', 'talk bad', 'rumors'],
+    '"Whoever believes in Allah and the Last Day, let him speak '
+    'good or remain silent." (Sahih al-Bukhari 6018). Backbiting - '
+    'mentioning your brother with what he dislikes - is described in '
+    'the Qur\'an as eating the flesh of a dead brother (Al-Hujurat '
+    '12). If speech is not good, silence is worship.',
+  ),
+
+  // ── Worship deep-dives ──────────────────────────────────────────────
+  _Entry(
+    <String>['sadaqah', 'charity', 'give money', 'donate'],
+    '"Charity does not decrease wealth." (Sahih Muslim 2588). "Your '
+    'smile in your brother\'s face is charity; removing harm from '
+    'the path is charity." (Jami\' at-Tirmidhi 1956). The zakat '
+    'calculator in this app handles the obligatory share; beyond it, '
+    'even half a date shields against the Fire. (Bukhari 5049)',
+  ),
+  _Entry(
+    <String>['tawbah', 'repent', 'repentance', 'forgiveness', 'forgive me', 'sinned'],
+    'Allah says: "Despair not of the mercy of Allah; indeed Allah '
+    'forgives all sins" (Az-Zumar 53). The Prophet said: "By the One '
+    'in Whose hand is my soul, if you did not sin, Allah would '
+    'replace you with people who sin and seek forgiveness - and He '
+    'would forgive them." (Sahih Muslim 2749). Repentance: leave the '
+    'sin, regret it, resolve not to return - and restore rights if '
+    'anyone was wronged.',
+  ),
+  _Entry(
+    <String>['hajj', 'pilgrimage', 'makkah trip'],
+    'Hajj, the fifth pillar, is owed once in a lifetime by whoever '
+    'can find a way: "And to Allah is a duty upon mankind - the '
+    'pilgrimage of the House - for whoever can make the way" (Al-'
+    'Imran 97). "An accepted Hajj has no reward but Paradise." '
+    '(Sahih al-Bukhari 1521). Its rites gather at the Ka\'bah, '
+    'Arafat, Muzdalifah, and Mina across Dhul-Hijjah.',
+  ),
+  _Entry(
+    <String>['umrah', 'minor pilgrimage', 'omra'],
+    'Umrah is the shorter pilgrimage, performable any time of year: '
+    'ihram, tawaf of the Ka\'bah, sa\'i between Safa and Marwah, '
+    'and shaving or shortening the hair. The Prophet said an Umrah '
+    'in Ramadan equals a Hajj with him in reward. (Sahih al-Bukhari '
+    '1782)',
+  ),
+  _Entry(
+    <String>['tahajjud', 'night prayer', 'qiyam', 'pray at night'],
+    '"The best prayer after the obligatory prayers is the night '
+    'prayer." (Sahih Muslim 1163). Tahajjud is prayed after sleeping '
+    'a portion of the night, in units of two: "Their sides forsake '
+    'their beds, calling their Lord in fear and hope" (As-Sajdah '
+    '16). Start with two rak\'ah before Fajr; Allah descends to the '
+    'lowest heaven asking who is calling upon Him. (Bukhari 1145)',
+  ),
+  _Entry(
+    <String>['istikhara', 'decision dua', 'should i do', 'big decision', 'choice dua'],
+    'For any matter - marriage, a job, a move - pray two units of '
+    'non-obligatory prayer, then the du\'a of istikhara taught by '
+    'the Prophet himself: "Allahumma inni astakhiruka bi-\'ilmik..." '
+    '- O Allah, I seek Your choice by Your knowledge... Then choose '
+    'what feels settled in your heart, for the Prophet said: "If '
+    'one of you intends a matter, let him pray two rak\'ah." '
+    '(Sahih al-Bukhari 1162)',
+  ),
+  _Entry(
+    <String>['laylatul qadr', 'night of decree', 'qadr', 'best night', 'odd nights'],
+    'Laylatul Qadr, in the last ten nights of Ramadan - in the odd '
+    'nights, the 21st, 23rd, 25th, 27th, 29th: "Better than a '
+    'thousand months" (Al-Qadr 3). Seek it in the odd nights: stand, '
+    'recite, ask - "There is no night in which the servants descend '
+    'more numerous..." (Bukhari 2017). What would you do with 83 '
+    'years of worship in one night?',
+  ),
+  _Entry(
+    <String>['breaking fast', 'iftar dua', 'iftar', 'end of fast'],
+    'At iftar, before eating, say: "Dhahaba al-zama\'u wabtallat '
+    'al-urooqu wa thabata al-ajru in sha Allah" - The thirst is gone, '
+    'the veins are moistened, and the reward is fixed, if Allah '
+    'wills. (Sunan Abu Dawood 2357). The fasting person has a du\'a '
+    'at the moment of breaking that is not rejected. (Ibn Majah 1753)',
+  ),
+  _Entry(
+    <String>['durood', 'salawat', 'bless the prophet', 'blessings on the prophet'],
+    '"Whoever sends one blessing upon me, Allah sends ten upon him." '
+    '(Sahih Muslim 408). The least of it: "Allahumma salli \'ala '
+    'Muhammad" - O Allah, send Your peace and blessings upon '
+    'Muhammad. It is the signature of love: your prayer is not '
+    'complete without it.',
+  ),
+  _Entry(
+    <String>['spread salam', 'say salam', 'greeting islam', 'how to greet'],
+    '"Spread salam among yourselves." (Sahih al-Bukhari 28). The '
+    'greeting of Islam - "As-salamu alaikum warahmatullah" - carries '
+    'three levels: peace, then mercy, then Allah\'s blessings; add '
+    'them all, for each raises the giver a degree and wipes a sin.',
+  ),
+
+  // ── Knowledge and daily life ────────────────────────────────────────
+  _Entry(
+    <String>['seeking knowledge', 'learn islam', 'study', 'ilm', 'become a scholar'],
+    '"Seeking knowledge is an obligation upon every Muslim." (Sunan '
+    'Ibn Majah 224 - the chain is debated, but the meaning is '
+    'carried by the whole religion). The best of you, said the '
+    'Prophet, are those who learn the Qur\'an and teach it. (Sahih '
+    'al-Bukhari 5027). Ten minutes daily outlasts a weekend of '
+    'regret.',
+  ),
+  _Entry(
+    <String>['plant a tree', 'small deeds', 'tiny good deed', 'good deeds small'],
+    '"If a Muslim plants a tree, or sows a crop, and a bird or a '
+    'person or an animal eats of it, it is counted as charity for '
+    'him." (Sahih al-Bukhari 2320). And the man who gave a thirsty '
+    'dog water - Allah thanked him and forgave him. (Bukhari 3467) '
+    'No good deed is too small for His scale.',
+  ),
+  _Entry(
+    <String>['names on the day of judgment', 'resurrection names', 'called by name', 'name on judgment day'],
+    'The Prophet said: "You will be called on the Day of '
+    'Resurrection by your names and the names of your fathers, so '
+    'make your names beautiful." (Sunan Abu Dawood 4948) - a name '
+    'carried with goodness becomes a light.',
+  ),
+  _Entry(
+    <String>['sick suffering', 'going through hardship', 'why me', 'afflicted', 'trials'],
+    'The Prophet said: "When Allah wills good for a slave, He '
+    'afflicts him." (Sahih al-Bukhari 5645) - and "No fatigue, '
+    'illness, anxiety, sorrow, harm or sadness touches a Muslim, '
+    'even a thorn, but Allah expiates by it." (Bukhari 5641). The '
+    'pain you did not choose becomes the expiation you did not '
+    'earn.',
+  ),
 ];
