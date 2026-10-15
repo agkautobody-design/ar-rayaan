@@ -246,13 +246,67 @@ class _ParentWasiaBoxState extends ConsumerState<_ParentWasiaBox> {
                     final exams = (p['exams'] as Map).length;
                     final a = await ref
                         .read(wasiaControllerProvider.notifier)
-                        .ask(
-                          'You are speaking with the parent of \${widget.childName}. '
-                          'Child\u2019s current progress: \$lessons/28 letters lessons, '
-                          '\$exams exam(s) recorded. Encourage the parent honestly, '
-                          'suggest one concrete practice, and keep the deen gentle. '
-                          'Parent asks: \$q',
-                        );
+                        .ask(q,
+                            persona: WasiaPersona.parent,
+                            childName: widget.childName,
+                            lessonsDone: lessons,
+                            examsTaken: exams);
+                    setState(() => _answer = a);
+                  },
+          ),
+        ),
+      ]),
+      if (_answer != null) ...[
+        const SizedBox(height: 10),
+        Text(_answer!, style: AppText.body.copyWith(height: 1.6, fontSize: 13)),
+      ],
+    ]);
+  }
+}
+
+/// Teachers' corner — pedagogy voice on the same Wasia brain.
+class _TeacherWasiaBox extends ConsumerStatefulWidget {
+  const _TeacherWasiaBox();
+
+  @override
+  ConsumerState<_TeacherWasiaBox> createState() => _TeacherWasiaBoxState();
+}
+
+class _TeacherWasiaBoxState extends ConsumerState<_TeacherWasiaBox> {
+  final _input = TextEditingController();
+  String? _answer;
+
+  @override
+  Widget build(BuildContext context) {
+    final busy = ref.watch(wasiaControllerProvider).isLoading;
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      Row(children: [
+        Expanded(
+          child: TextField(
+            controller: _input,
+            style: AppText.body.copyWith(fontSize: 13),
+            decoration: const InputDecoration(
+                hintText: 'Sequence the letters? When to join? Exam tips?'),
+          ),
+        ),
+        const SizedBox(width: 8),
+        CircleAvatar(
+          backgroundColor: AppColors.gold,
+          radius: 20,
+          child: IconButton(
+            icon: busy
+                ? const SizedBox(width: 14, height: 14,
+                    child: CircularProgressIndicator(strokeWidth: 2,
+                        color: Color(0xFF0A0F18)))
+                : const Icon(Icons.send, size: 16, color: Color(0xFF0A0F18)),
+            onPressed: busy
+                ? null
+                : () async {
+                    final q = _input.text.trim();
+                    if (q.isEmpty) return;
+                    final a = await ref
+                        .read(wasiaControllerProvider.notifier)
+                        .ask(q, persona: WasiaPersona.teacher);
                     setState(() => _answer = a);
                   },
           ),
@@ -345,6 +399,22 @@ class _ExamScreenState extends ConsumerState<ExamScreen> {
                   ),
                 ),
               const SizedBox(height: 10),
+              GlassCard(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("TEACHERS' CORNER", style: AppText.eyebrow),
+                    const SizedBox(height: 4),
+                    Text(
+                      'Running a classroom or homeschool? Ask Wasia about sequencing, joining, exams, struggling students.',
+                      style: AppText.bodyMuted.copyWith(fontSize: 11),
+                    ),
+                    const SizedBox(height: 8),
+                    const _TeacherWasiaBox(),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 12),
               if (_picked != null)
                 Align(
                   alignment: Alignment.centerRight,

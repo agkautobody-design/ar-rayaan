@@ -4,6 +4,34 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../hadi/application/hadi_provider.dart';
 import '../../hadi/data/groq_hadi_provider.dart';
 
+enum WasiaPersona { student, parent, teacher }
+
+/// One brain, three voices. Research-backed shape: a specific, in-domain
+/// persona that NAMES its audience and context beats a generic role label —
+/// so each voice rides on top of Wasia's teaching laws, not instead of them.
+String personaPrompt(WasiaPersona p,
+    {String? childName, int? lessonsDone, int? examsTaken}) {
+  switch (p) {
+    case WasiaPersona.student:
+      return kWasiaSystemPrompt;
+    case WasiaPersona.parent:
+      return '$kWasiaSystemPrompt\n'
+          'YOU ARE SPEAKING WITH A PARENT'
+          '${childName != null ? " — their child is $childName" : ""}, '
+          'gently, without jargon. '
+          '${lessonsDone != null ? "Progress so far: $lessonsDone of 28 letter lessons, ${examsTaken ?? 0} exams. " : ""}'
+          'Encourage honestly, suggest ONE concrete practice, and always '
+          'leave them feeling capable.';
+    case WasiaPersona.teacher:
+      return '$kWasiaSystemPrompt\n'
+          'YOU ARE SPEAKING WITH A TEACHER or a homeschool parent running '
+          'a classroom. Share pedagogy: how to sequence letters, when to '
+          'introduce joining, how to run the unit exam, how to handle a '
+          'struggling student. Be collegial, practical, and cite the '
+          'lessons by name.';
+  }
+}
+
 const String kWasiaSystemPrompt =
     'You are Wasia, the beloved teacher of Wasia Academy inside the Ar-Rayaan '
     'app, named after the founder\u2019s daughter. You teach Qur\u2019an, Arabic '
@@ -33,7 +61,11 @@ class WasiaController extends StateNotifier<AsyncValue<String?>> {
     return (k == null || k.trim().isEmpty) ? null : k.trim();
   }
 
-  Future<String> ask(String question) async {
+  Future<String> ask(String question,
+      {WasiaPersona persona = WasiaPersona.student,
+      String? childName,
+      int? lessonsDone,
+      int? examsTaken}) async {
     final k = await _key();
     if (k == null) {
       return 'Wasia needs your AI key to speak freely — add it once in '
@@ -49,12 +81,19 @@ class WasiaController extends StateNotifier<AsyncValue<String?>> {
         'xai' => XaiHadiProvider(apiKey: k),
         _ => GroqHadiProvider(apiKey: k),
       };
-      // Persona rides inside the question itself: it lands in the message
-      // the model reads first, regardless of provider.
-      final answer = await p.ask(
-        '\$kWasiaSystemPrompt\n\nStudent\u2019s question: \$question',
-        const <HadiMessage>[],
-      );
+      // The voice is chosen here; the persona lands in the first message
+      // the model reads, regardless of provider.
+      final voice = personaPrompt(persona,
+          childName: childName,
+          lessonsDone: lessonsDone,
+          examsTaken: examsTaken);
+      final who = switch (persona) {
+        WasiaPersona.student => 'Student',
+        WasiaPersona.parent => 'Parent',
+        WasiaPersona.teacher => 'Teacher',
+      };
+      final answer =
+          await p.ask('$voice\n\n$who asks: $question', const <HadiMessage>[]);
       state = AsyncData<String?>(answer);
       return answer;
     } catch (e) {

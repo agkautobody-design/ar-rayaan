@@ -184,7 +184,7 @@ class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
                         Text(
                           node.era +
                               (hasKids
-                                  ? ' \u00b7 \${node.children.where((c) => data.byId.containsKey(c)).length} children'
+                                  ? ' \u00b7 ${node.children.where((c) => data.byId.containsKey(c)).length} children'
                                   : ''),
                           style: AppText.bodyMuted.copyWith(fontSize: 9.5),
                         ),

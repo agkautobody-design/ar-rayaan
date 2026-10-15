@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../../../app/theme/widgets/speak_button.dart';
+import '../../hadi/application/hadi_controller.dart';
 import '../domain/story.dart';
 
 class StoryReaderScreen extends StatefulWidget {
@@ -185,6 +188,98 @@ class _StoryReaderScreenState extends State<StoryReaderScreen> {
               ],
             ),
           ),
+          const SizedBox(height: 12),
+          _AskHadiAboutStory(story: story, chapter: current),
+        ],
+      ),
+    );
+  }
+}
+
+/// Conversation mode: Hadi reads along. Ask about THIS story and he answers
+/// from the text in front of you, with read-aloud for the answer.
+class _AskHadiAboutStory extends ConsumerStatefulWidget {
+  final Story story;
+  final StoryChapter chapter;
+  const _AskHadiAboutStory({required this.story, required this.chapter});
+
+  @override
+  ConsumerState<_AskHadiAboutStory> createState() => _AskHadiAboutStoryState();
+}
+
+class _AskHadiAboutStoryState extends ConsumerState<_AskHadiAboutStory> {
+  final _input = TextEditingController();
+  String? _answer;
+
+  @override
+  Widget build(BuildContext context) {
+    final busy = ref.watch(hadiControllerProvider).isLoading;
+    return GlassCard(
+      strong: true,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text('ASK HADI ABOUT THIS STORY', style: AppText.eyebrow),
+          const SizedBox(height: 4),
+          Text(
+            'Ask about a character, a word, a meaning, "why did he…?" — Hadi answers from this story.',
+            style: AppText.bodyMuted.copyWith(fontSize: 11),
+          ),
+          const SizedBox(height: 8),
+          Row(children: [
+            Expanded(
+              child: TextField(
+                controller: _input,
+                style: AppText.body.copyWith(fontSize: 13),
+                decoration: const InputDecoration(
+                    hintText: 'What does this story teach about patience?'),
+              ),
+            ),
+            const SizedBox(width: 8),
+            CircleAvatar(
+              backgroundColor: AppColors.gold,
+              radius: 20,
+              child: IconButton(
+                icon: busy
+                    ? const SizedBox(width: 14, height: 14,
+                        child: CircularProgressIndicator(strokeWidth: 2,
+                            color: Color(0xFF0A0F18)))
+                    : const Icon(Icons.send, size: 16, color: Color(0xFF0A0F18)),
+                onPressed: busy
+                    ? null
+                    : () async {
+                        final q = _input.text.trim();
+                        if (q.isEmpty) return;
+                        final title = widget.story.title;
+                        final heading = widget.chapter.heading;
+                        final ctx =
+                            "The user is reading '$title' (${widget.story.kicker}). "
+                            "Current chapter '$heading': ${widget.chapter.body} "
+                            'Sources: ${widget.story.sources.join('; ')}. '
+                            'Answer their question about THIS story briefly, '
+                            'warmly, and stay faithful to the text above. If '
+                            'beyond the story, say what the sources establish '
+                            'and recommend a scholar. Question: $q';
+                        final a = await ref
+                            .read(hadiControllerProvider.notifier)
+                            .ask(ctx);
+                        setState(() => _answer = a);
+                      },
+              ),
+            ),
+          ]),
+          if (_answer != null) ...[
+            const SizedBox(height: 10),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                    child: Text(_answer!,
+                        style: AppText.body.copyWith(height: 1.6, fontSize: 13))),
+                SpeakButton(text: _answer!),
+              ],
+            ),
+          ],
         ],
       ),
     );
