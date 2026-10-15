@@ -6,6 +6,7 @@ import '../features/auth/presentation/reset_screen.dart';
 import '../features/auth/presentation/signup_screen.dart';
 import '../features/auth/presentation/verify_screen.dart';
 import '../features/onboarding/presentation/onboarding_screen.dart';
+import '../features/search/presentation/search_screen.dart';
 import '../features/community/presentation/community_screen.dart';
 import '../features/academy/presentation/academy_home_screen.dart';
 import '../features/academy/presentation/lesson_player_screen.dart';
@@ -74,6 +75,7 @@ abstract final class AppRoutes {
   static const String splash = '/';
   static const String welcome = '/welcome';
   static const String onboarding = '/onboarding';
+  static const String search = '/search';
   static const String home = '/home';
   static const String explore = '/explore';
   static const String hadi = '/hadi';
@@ -156,6 +158,10 @@ GoRouter buildRouter({String initialLocation = '/'}) {
         GoRoute(
           path: AppRoutes.onboarding,
           pageBuilder: (context, state) => _fade(const OnboardingScreen()),
+        ),
+        GoRoute(
+          path: AppRoutes.search,
+          pageBuilder: (context, state) => _fade(const SearchScreen()),
         ),
         GoRoute(
           path: '/home',

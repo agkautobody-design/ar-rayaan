@@ -198,6 +198,11 @@ class HomeScreen extends ConsumerWidget {
                       ),
                       const SizedBox(width: 12),
                       _HeaderIcon(
+                        icon: Icons.search,
+                        onTap: () => context.push(AppRoutes.search),
+                      ),
+                      const SizedBox(width: 8),
+                      _HeaderIcon(
                         icon: Icons.menu,
                         onTap: () => context.push(AppRoutes.menu),
                       ),
