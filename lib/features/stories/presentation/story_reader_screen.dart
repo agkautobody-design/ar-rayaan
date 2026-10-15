@@ -213,7 +213,7 @@ class _AskHadiAboutStoryState extends ConsumerState<_AskHadiAboutStory> {
 
   @override
   Widget build(BuildContext context) {
-    final busy = ref.watch(hadiControllerProvider).isLoading;
+    final busy = ref.watch(hadiControllerProvider).typing;
     return GlassCard(
       strong: true,
       child: Column(
