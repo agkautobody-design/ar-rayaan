@@ -911,4 +911,405 @@ const List<_Entry> _knowledge = <_Entry>[
     'found in a word you already know. Ten weeks of one letter a '
     'day, and the script that carried the revelation is yours.',
   ),
+  // ── The Prophets, peace be upon them all ───────────────────────────
+  _Entry(
+    <String>['adam', 'first human', 'adam and eve', 'hawa'],
+    'Adam - the first human and the first prophet - was taught the '
+    'names of all things by Allah Himself (Al-Baqarah 31). From Adam '
+    'and Hawwa came every nation; from their repentance we learn '
+    'that the door of return never closes, for them or for us.',
+  ),
+  _Entry(
+    <String>['nuh', 'noah', 'the flood', 'ark'],
+    'Nuh, peace be upon him, called his people by day in openness '
+    'and by night in secret - for nine hundred and fifty years '
+    '(Al-Ankabut 14). When the flood came, the ark carried the '
+    'believers and pairs of every kind. The lesson: success is '
+    'measured by faithfulness to the message, not by who listens.',
+  ),
+  _Entry(
+    <String>['ibrahim', 'abraham', 'kaaba builder', 'friend of allah'],
+    'Ibrahim, Khalilullah - the Friend of Allah - smashed the idols '
+    'his people worshipped and walked out of the fire they lit for '
+    'him: "Allah is sufficient for us" (Al-Imran 173). He and his '
+    'son Ismail raised the foundations of the Ka\'bah together '
+    '(Al-Baqarah 127). Every prophet after him is of his house, '
+    'and we send peace upon him in every prayer.',
+  ),
+  _Entry(
+    <String>['yusuf', 'joseph', 'best of stories'],
+    'Yusuf was thrown into a well by his own brothers, sold as a '
+    'slave, slandered by a minister\'s wife, and imprisoned - then '
+    'raised to the treasury of Egypt. The Qur\'an calls his story '
+    'the best of stories (Yusuf 3). Its thread: no betrayal outruns '
+    'Allah\'s plan, and forgiveness is the crown of the wronged - '
+    '"No blame upon you today" (Yusuf 92).',
+  ),
+  _Entry(
+    <String>['musa', 'moses', 'red sea', 'pharaoh', 'firawn'],
+    'Musa, the one Allah spoke to directly (An-Nisa 164), stood '
+    'before Pharaoh with a staff and a brother - and the sea split '
+    'at his strike (Ash-Shuara 63). He received the Tawrah on the '
+    'mountain and led Bani Israel through forty years of lessons. '
+    'When Khidr outpaced his patience, Musa learned: knowledge is '
+    'deeper than what we see (Al-Kahf 60-82).',
+  ),
+  _Entry(
+    <String>['dawud', 'david', 'zabur', 'psalms'],
+    'Dawud was given the Zabur - the Psalms - and iron was softened '
+    'for him: "Make coats of mail and measure the links well" '
+    '(Saba 10-11). Mountains and birds would echo his glorification '
+    'with him (Saba 10). He judged between people with justice and '
+    'repented at speed when rebuked by two disputants.',
+  ),
+  _Entry(
+    <String>['sulayman', 'solomon', 'kingdom', 'jinn and animals'],
+    'Sulayman inherited Dawud\'s kingdom and was given what no one '
+    'after him was given: the wind traveled a month\'s journey each '
+    'morning and evening for him, the jinn built at his command, '
+    'and even the ants had a language he understood (An-Naml 16-19). '
+    'He asked for a kingdom no one after him would have - and it '
+    'was given (Sad 35).',
+  ),
+  _Entry(
+    <String>['isa', 'jesus', 'mary', 'messiah'],
+    'Isa, the Messiah, was born to the virgin Maryam - she was '
+    'dedicated to the temple by her mother and miraculously '
+    'sustained (Al-Imran 35-37; Maryam 16-34). He spoke in the '
+    'cradle, healed by Allah\'s leave, and called to worship '
+    'Allah alone: "Indeed, Allah is my Lord and your Lord, so '
+    'worship Him" (Maryam 36). The Qur\'an says plainly: he is the '
+    'messenger of Allah, His word to Maryam, not a son - "Exalted '
+    'is He above having a son" (An-Nisa 171).',
+  ),
+  _Entry(
+    <String>['muhammad', 'life of the prophet', 'the prophet\'s story', 'seerah summary', 'final prophet'],
+    'Muhammad ibn Abdullah, the Seal of the Prophets (Al-Ahzab 40), '
+    'was born in Makkah in the Year of the Elephant, orphaned '
+    'young, known as As-Sadiq Al-Amin - the Truthful, the '
+    'Trustworthy - long before revelation. At forty, in the cave '
+    'of Hira, Jibreel brought him: "Iqra" - Read. He endured '
+    'thirteen years of Makkan persecution, walked to Madinah when '
+    'the assassination plot was laid, and in ten years there built '
+    'a community that changed history - forgiving the city that '
+    'stoned him at its conquest: "Go, you are free." He passed at '
+    'sixty-three with his armor pledged for wheat - leaving no '
+    'gold and a religion that now carries two billion hearts.',
+  ),
+  _Entry(
+    <String>['order of prophets', 'list of prophets', '25 prophets', 'how many prophets', 'prophets mentioned'],
+    'The Qur\'an names twenty-five prophets; from Adam, the first, '
+    'to Muhammad, the last. The named ones: Adam, Idris, Nuh, Hud, '
+    'Salih, Ibrahim, Lut, Ismail, Ishaq, Ya\'qub, Yusuf, Ayyub, '
+    'Shu\'ayb, Musa, Harun, Dhul-Kifl, Dawud, Sulayman, Ilyas, '
+    'Al-Yasa, Yunus, Zakariya, Yahya, Isa, and Muhammad - peace '
+    'be upon them all. The stories shelf of this app walks many of '
+    'them, story by story.',
+  ),
+  _Entry(
+    <String>['difference between prophet and messenger', 'nabi vs rasul', 'messenger vs prophet'],
+    'A prophet (nabi) receives revelation from Allah. A messenger '
+    '(rasul) is a prophet sent with a book or a law to a people - '
+    'every messenger is a prophet, but not every prophet was '
+    'entrusted with a new scripture. The five of strongest resolve '
+    '(ulu al-\'azm) are Nuh, Ibrahim, Musa, Isa, and Muhammad - '
+    'peace be upon them all.',
+  ),
+
+  // ── The Qur\'an, its chapters and its history ──────────────────────
+  _Entry(
+    <String>['fatiha', 'opening chapter', 'first surah'],
+    'Al-Fatiha - the Opening - is the seven verses no prayer stands '
+    'without: "There is no prayer for the one who does not recite '
+    'the Fatiha" (Sahih Muslim 397). It is Umm al-Kitab, the mother '
+    'of the Book, and the Prophet said no revelation like it came '
+    'in the Tawrah, the Injil, or the Zabur (Tirmidhi 3124). Allah '
+    'answers between the aamin.',
+  ),
+  _Entry(
+    <String>['ayat al-kursi', 'kursi', 'greatest verse', 'throne verse'],
+    'Ayat al-Kursi (Al-Baqarah 255) is the greatest verse of the '
+    'Qur\'an - the Prophet affirmed it when Ubayy asked. Whoever '
+    'recites it after every obligatory prayer, nothing prevents '
+    'him from Paradise except death. (Tirmidhi 3781, an-Nasa\'i). '
+    'Its beginning: "Allah - there is no deity except Him, the '
+    'Ever-Living, the Sustainer of all."',
+  ),
+  _Entry(
+    <String>['ya-sin', 'yaseen', 'heart of the quran'],
+    'Ya-Sin is the heart of the Qur\'an, as the Prophet named it '
+    '(Jami\' at-Tirmidhi 2887). Recite it for the dying - it '
+    'comes with ease at the passing of the soul - and for the '
+    'living, over any need, as the tradition teaches.',
+  ),
+  _Entry(
+    <String>['al-mulk', 'surah mulk', 'before sleep surah'],
+    'Surah Al-Mulk (The Sovereignty) is the rescuer: "A surah of '
+    'thirty verses which intercedes for its companion until he is '
+    'forgiven" (Abu Dawood 1400, Tirmidhi 2891). Recited before '
+    'sleep, it shields from the punishment of the grave.',
+  ),
+  _Entry(
+    <String>['al-ikhlas', 'ikhlas', 'qul huwallahu'],
+    'Qul Huwallahu Ahad - Al-Ikhlas, the Sincerity - is a third of '
+    'the Qur\'an in reward, equal to reciting the whole (Sahih '
+    'al-Bukhari 5013). Four verses that name Allah: The One, the '
+    'Eternal Refuge, who begets not and was not begotten - and '
+    'nothing is comparable to Him.',
+  ),
+  _Entry(
+    <String>['last two verses of baqarah', 'kursi dua night', 'suffice him'],
+    'Whoever recites the last two verses of Al-Baqarah at night, '
+    'they suffice him - "they will suffice him" (Sahih al-Bukhari '
+    '5009). The Messenger was given their like from beneath the '
+    'Throne. Add the three Quls said into cupped palms and wiped '
+    'over the body, morning and evening.',
+  ),
+  _Entry(
+    <String>['recitation reward', 'letter of quran reward', 'reading quran reward'],
+    'The reciter is not paid by the page but by the letter: '
+    '"Whoever recites a letter of the Book of Allah has a reward '
+    'for it, and each reward is multiplied ten times - I do not '
+    'say alif-lam-mim is a letter, but alif is a letter..." '
+    '(Jami\' at-Tirmidhi 2910). A slow page outearns a rushed '
+    'volume.',
+  ),
+  _Entry(
+    <String>['compiled quran', 'who compiled the quran', 'uthman', 'quran history'],
+    'Revelation ended with the Prophet\'s passing, and the '
+    'compilation followed: Abu Bakr gathered the Qur\'an into one '
+    'book after the Battle of Yamamah, at Umar\'s insistence '
+    '(Sahih al-Bukhari 4986). Uthman standardized the consonantal '
+    'text and sent copies to the cities - the manuscripts we read '
+    'descend from those. Allah promised the preservation Himself: '
+    '"Indeed, We sent down the Remembrance, and indeed We will '
+    'guard it" (Al-Hijr 9).',
+  ),
+  _Entry(
+    <String>['al-waqiah', 'waqiah', 'rizq surah', 'poverty surah'],
+    'The tradition says recite Surah Al-Waqi\'ah - the Event, the '
+    'surah of provision - between Maghrib and Isha for '
+    'sufficiency from poverty (reported by Ibn Masud in the '
+    'collections of ad-Darimi and others). Its opening strikes the '
+    'heart: when the inevitable event arrives...',
+  ),
+
+  // ── The Names of Allah ──────────────────────────────────────────────
+  _Entry(
+    <String>['names of allah meanings', 'names of allah', 'asma ul husna', 'attributes of allah', 'who is allah', 'meanings of the names'],
+    'The Prophet said Allah has ninety-nine names - one hundred '
+    'less one - whoever preserves them enters Paradise (Sahih '
+    'al-Bukhari 2736). A few of their lights: Ar-Rahman - the '
+    'Entirely Merciful; Ar-Rahim - the Especially Merciful to '
+    'believers; Al-Malik - the King; Al-Quddus - the Most Holy; '
+    'Al-Wadud - the Most Loving; Al-Latif - the Most Subtle and '
+    'Kind; Al-Khabir - the All-Aware; Al-Fattah - the Opener; '
+    'Al-Alim - the All-Knowing; Al-Hakim - the All-Wise; '
+    'Al-Ghafoor - the Ever-Forgiving; As-Sabur - the Most '
+    'Patient; Al-Wakeel - the Best Disposer of Affairs; Al-Hayy - '
+    'the Ever-Living; Al-Qayyum - the Sustainer; An-Nur - the '
+    'Light; Al-Haqq - the Absolute Truth; Al-Mateen - the Firm. '
+    'The 99 Names game walks them one by one with meanings and '
+    'references.',
+  ),
+
+  // ── Purification and prayer fiqh ────────────────────────────────────
+  _Entry(
+    <String>['ghusl', 'full bath', 'janabah', 'major impurity', 'after intimacy'],
+    'Ghusl - the full wash - is owed after intimacy, after '
+    'menstruation, and after post-natal bleeding. The Prophet\'s '
+    'way: wash the hands, rinse the mouth and nose, wash the head '
+    'and right side then left - as one continuous wash. (Sahih '
+    'al-Bukhari 248). Water reaches every part, once or more.',
+  ),
+  _Entry(
+    <String>['tayammum', 'no water', 'dust ablution', 'dry wudu'],
+    'When water is absent - or using it would harm you - Allah '
+    'permitted tayammum: "So strike the earth with your faces and '
+    'hands" (An-Nisa 43). Strike clean dust with the palms, wipe '
+    'the face, then the hands to the elbows (Al-Ma\'idah 6). The '
+    'earth itself is made for purification, said the Prophet. '
+    '(Sahih al-Bukhari 344)',
+  ),
+  _Entry(
+    <String>['breaks wudu', 'nullify wudu', 'invalid wudu', 'wudu broken'],
+    'What nullifies wudu: anything that exits the two private '
+    'passes; deep sleep; and loss of consciousness or sanity. '
+    'Touching the private part, in the strongest narration, also '
+    'breaks it (Abu Dawood 181, Tirmidhi 85). What does not: '
+    'eating camel meat per the majority, ordinary touch, doubt - '
+    'and certainty is not removed by doubt. (Sahih Muslim 362)',
+  ),
+  _Entry(
+    <String>['period', 'menstruation', 'hayd', 'can I pray on my period', 'menses'],
+    'The menstruating woman does not pray and does not fast - the '
+    'Prophet told Fatimah bint Abi Hubaysh: leave prayer during '
+    'the days, then wash and pray. (Sahih al-Bukhari 306) She '
+    'makes up the fasts, not the prayers: "Your duty is the '
+    'fasting, not the prayer." (Bukhari 321) Worship does not '
+    'stop - dhikr, du\'a, Qur\'an listening and good deeds all '
+    'remain open.',
+  ),
+  _Entry(
+    <String>['missed prayer', 'make up prayer', 'qada prayer', 'overslept prayer', 'forgot prayer'],
+    'Whoever sleeps through a prayer or forgets it, let him pray '
+    'it when he remembers - "there is no expiation for it except '
+    'this" (Sahih al-Bukhari 597). The missed prayers are a debt '
+    'on the neck; the scholars hold a person of resolve pays them '
+    'in order with each day\'s prayers until cleared.',
+  ),
+  _Entry(
+    <String>['combine prayers', 'travel prayers', 'jam', 'qasr', 'shorten prayer travel'],
+    'The traveler shortens the four-unit prayers to two - a gift '
+    'of the Sunnah the Prophet said is charity Allah gave: "It is '
+    'a charity Allah has given you, so accept His charity." '
+    '(Sahih Muslim 686) And on a real journey he combined - '
+    'Zuhr with Asr, Maghrib with Isha - as he did at Arafat and '
+    'Muzdalifah (Sahih Muslim 1218).',
+  ),
+  _Entry(
+    <String>['congregation', 'jamaah', 'pray together', 'mosque prayer', 'pray in the masjid'],
+    'Prayer in congregation outweighs solitary prayer by '
+    'twenty-seven degrees (Sahih al-Bukhari 645). The mu\'adhdhin '
+    'calls, the rows form shoulder to shoulder, the imam leads - '
+    'and the angels pray behind the rows. Twenty-seven: the '
+    'scholars said it is as if a man prayed every day and night '
+    'for five and twenty.',
+  ),
+  _Entry(
+    <String>['adhan', 'call to prayer', 'muadhin', 'repeat after adhan'],
+    'When the adhan sounds, repeat the words after the '
+    'mu\'adhdhin - then send blessings upon the Prophet, and ask '
+    'for al-Wasilah: "O Allah, Lord of this perfect call and the '
+    'established prayer, grant Muhammad the Wasilah..." '
+    '(Sahih Muslim 384). "My intercession will be obligatory for '
+    'him" - it was said of whoever asks it once. (Bukhari 614)',
+  ),
+  _Entry(
+    <String>['khuffs', 'leather socks', 'wipe socks', 'masah', 'winter socks'],
+    'The traveler wipes over leather socks for three days and '
+    'nights, the resident for one day and night - then the wash '
+    'is owed. (Sahih Muslim 276) Ali described the Prophet\'s '
+    'wipe: the top of the sock, not the underside - as if I '
+    'watched it today. (Abu Dawood 162)',
+  ),
+
+  // ── Creed, gently held ──────────────────────────────────────────────
+  _Entry(
+    <String>['tawhid', 'oneness of allah', 'three types of tawhid', 'uluhiyyah'],
+    'Tawhid is that Allah alone is God - in His lordship '
+    '(Ar-Rububiyyah: He alone creates and sustains), in His '
+    'worship (Al-Uluhiyyah: Him alone we worship and invoke), and '
+    'in His names and attributes (Al-Asma was-Sifat: as He '
+    'described Himself, without likeness). "Allah witnesses that '
+    'there is no deity but Him, and so do the angels and those of '
+    'knowledge" (Al-Imran 18).',
+  ),
+  _Entry(
+    <String>['shirk', 'polytheism', 'associating partners'],
+    'Shirk - joining partners with Allah - is the gravest of '
+    'sins: "Indeed, Allah does not forgive association with Him, '
+    'but He forgives what is less than that for whom He wills" '
+    '(An-Nisa 48). It is not only idols - showing off in worship '
+    'is the hidden shirk the Prophet warned of (Ahmad). The cure '
+    'is what the caller to Islam repeats: La ilaha illallah.',
+  ),
+  _Entry(
+    <String>['qadar', 'destiny', 'predestination', 'qadr', 'why did allah allow'],
+    'Belief in qadar - the decree - is the sixth pillar of '
+    'faith. The Prophet told the slave seeking freedom: "Say: I '
+    'trust in Allah, there is no might nor power except with '
+    'Allah" - and taught that this saying is a rescue from every '
+    'hardship. (Sahih al-Bukhari) And in the hadith of Jibreel: '
+    '"You will not enter Paradise until you believe, and you will '
+    'not believe until you love one another." (Sahih Muslim 8) '
+    'What reached you could never have missed you; what missed '
+    'you could never have reached you.',
+  ),
+  _Entry(
+    <String>['angels', 'jibreel', 'gabriel', 'recording angels', 'mika\'il'],
+    'Belief in the angels is the second pillar of faith. '
+    'Jibreel brings revelation; Mika\'il is charged with rain '
+    'and provision; Israfil will blow the Trumpet; Malik keeps '
+    'the Fire; and Kiraman Katibin - the noble scribes - record '
+    'every word: "Not a word does he utter but there is an '
+    'observer prepared" (Qaf 18). (See Al-Baqarah 97-98, Fatir '
+    '1, Az-Zukhruf 77)',
+  ),
+  _Entry(
+    <String>['jinn', 'qarin', 'evil spirits', 'demons'],
+    'The jinn were created from smokeless fire (Al-Hijr 27), '
+    'before Adam - some believers, some not. Every human has a '
+    'companion from the jinn, said the Prophet: "There is no one '
+    'of you but has a companion appointed for him" - and an angel '
+    'appointed too. (Sahih Muslim 2814) Their harm is real but '
+    'bounded: the morning and evening adhkar, Ayat al-Kursi, and '
+    'the last two verses of Al-Baqarah are the shield. (Bukhari '
+    '5017)',
+  ),
+  _Entry(
+    <String>['magic', 'sihr', 'spell', 'witchcraft', 'someone did magic on me'],
+    'Sihr is real - the two angels Harut and Marut taught the '
+    'test by which people could learn "how to separate a man from '
+    'his wife" (Al-Baqarah 102). The Prophet was affected by a '
+    'spell and was healed by Jibreel with the Mu\'awwidhat. '
+    '(Sahih al-Bukhari 5763) The defense is not fear but '
+    'remembrance: the three Quls, Ayat al-Kursi, and the dua '
+    '"Allahumma inni a\'udhu bika min sharri..." (Muslim 2186) - '
+    'nothing harms the one who says them morning and evening.',
+  ),
+  _Entry(
+    <String>['bid\'ah', 'innovation', 'newly invented', 'bida'],
+    '"The worst of matters are the newly invented; every '
+    'innovation is misguidance, and every misguidance is in the '
+    'Fire." (Sahih Muslim 867). This is why the companions '
+    'guarded the practice so carefully - what was not worship in '
+    'the Prophet\'s day is not worship in ours. And yet the '
+    'doors of mercy remain wide: whatever eases people without '
+    'contradicting the revelation finds its place in the '
+    'scholars\' categories.',
+  ),
+
+  // ── Life's paperwork and relationships ──────────────────────────────
+  _Entry(
+    <String>['non-muslim family', 'non muslim parents', 'my non muslim', 'christian family', 'jewish friends'],
+    'Allah said: "Allah does not forbid you from those who do '
+    'not fight you because of religion and do not expel you from '
+    'your homes - from being righteous toward them and acting '
+    'justly toward them. Indeed, Allah loves those who act '
+    'justly" (Al-Mumtahanah 8). Kindness to parents is owed even '
+    'if they do not share your faith: " accompany them in this '
+    'world with appropriate kindness" (Luqman 15) - while '
+    'worship remains Allah\'s alone.',
+  ),
+  _Entry(
+    <String>['fidya', 'cannot fast', 'unable to fast', 'old age fasting', 'pregnant fasting'],
+    'For the one who cannot fast from old age or lasting '
+    'illness: "a ransom - a feeding of a poor person for each '
+    'day" (Al-Baqarah 184). The pregnant and nursing woman who '
+    'fears for herself or her child may break the fast and feed '
+    'the poor for each day - or fast them, in the choice of '
+    'the narration of Ibn Abbas. (Bukhari 1944, Abu Dawood '
+    '2318) Fiqh is mercy before it is arithmetic.',
+  ),
+  _Entry(
+    <String>['wasiyyah', 'write a will', 'write my will', 'my will', 'estate', 'one third will'],
+    'The Prophet heard that Sa\'d wished to bequeath all his '
+    'wealth: "One third, and one third is much - to leave your '
+    'heirs rich is better than leaving them poor, begging from '
+    'people." (Sahih al-Bukhari 2742) A wasiyyah is made for '
+    'non-heirs - up to a third - and debt is settled before '
+    'any inheritance moves.',
+  ),
+  _Entry(
+    <String>['faraid', 'inheritance', 'who inherits', 'islamic inheritance'],
+    '"Learn the faraid and teach it, for it is half of '
+    'knowledge" - the Prophet\'s command. (Sunan Abu Dawood '
+    '2880) The shares are fixed in An-Nisa 11-12: the son\'s '
+    'share, the daughter\'s half, the spouse\'s quarter or '
+    'eighth, the parents\' sixths - apportioned after the '
+    'burial, the debt, and the wasiyyah. It was a science the '
+    'companions called half of knowledge because families '
+    'stand or split on it.',
+  ),
 ];
