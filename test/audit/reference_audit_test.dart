@@ -91,13 +91,13 @@ void main() {
   });
 
   test('W2.6 model round-trip: JSON drift cannot break the app silently', () {
-    final sample = (readList('assets/stories/prophets.json') as List).first;
+    final sample = readList('assets/stories/prophets.json').first;
     // Story.fromJson must accept exactly what we ship.
     final chapters = sample['chapters'] as List<dynamic>;
     expect(chapters.first is Map<String, dynamic>, isTrue);
     expect(sample['sources'] is List<dynamic>, isTrue);
     // dailyduas chapters carry arabic/dua — model must tolerate the extra keys.
-    final dua = (readList('assets/stories/dailyduas.json') as List).first;
+    final dua = readList('assets/stories/dailyduas.json').first;
     expect((dua['chapters'] as List).first['arabic'], isNotNull);
   });
 }

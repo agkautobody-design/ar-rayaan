@@ -27,6 +27,7 @@ class GameRoomsService {
 
   Future<String?> _uid() async {
     try {
+      if (_auth == null) return null;
       final u = _auth.currentUser ?? (await _auth.signInAnonymously()).user;
       return u?.uid;
     } catch (_) {

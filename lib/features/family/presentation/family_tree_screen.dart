@@ -233,7 +233,7 @@ class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
 
   void _openNode(BuildContext context, FamilyTreeData data, FamilyNode node) {
     final hasKids = node.children.any((c) => data.byId.containsKey(c));
-    showModalBottomSheet(
+    showModalBottomSheet<void>(
       context: context,
       backgroundColor: const Color(0xFF0A0F18),
       shape: const RoundedRectangleBorder(
