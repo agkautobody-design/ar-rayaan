@@ -187,12 +187,13 @@ const List<_Entry> _knowledge = <_Entry>[
     'du\'a with you, or take you to Sakina for stillness.',
   ),
   _Entry(
-    <String>['who are you', 'your name', 'what are you'],
+    <String>['who are you', 'your name', 'your hadi'],
     'I am Hadi - "the guide" - your companion inside Ar-Rayaan. I '
-    'answer from the Qur\'an and the Sihah Sitta - the six authentic '
-    'books of hadith - and I know every room of this app. I would '
-    'rather say "I don\'t know" than invent. My sister-teacher Wasia '
-    'runs the letter school.',
+    'answer from the Qur\'an and the Sihah Sitta: Sahih al-Bukhari, '
+    'Sahih Muslim, Sunan Abu Dawood, Jami\' at-Tirmidhi, Sunan '
+    'an-Nasa\'i, and Sunan Ibn Majah - and I know every room of this '
+    'app. I would rather say "I don\'t know" than invent. My '
+    'sister-teacher Wasia runs the letter school.',
   ),
   _Entry(
     <String>['who is wasia', 'what is wasia'],
