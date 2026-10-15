@@ -32,6 +32,8 @@ void main() {
     '/home/elder': () => null,
     '/elder-care': () => null,
     '/stories': () => null,
+    '/onboarding': () => null,
+    '/search': () => null,
     '/family-tree': () => null,
     '/huda': () => null,
     '/games': () => null,

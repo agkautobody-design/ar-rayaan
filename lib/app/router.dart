@@ -73,7 +73,6 @@ import 'theme/widgets/app_bottom_nav.dart';
 /// Application routes (GoRouter) — Master Build Sheet §5.
 abstract final class AppRoutes {
   static const String splash = '/';
-  static const String welcome = '/welcome';
   static const String onboarding = '/onboarding';
   static const String search = '/search';
   static const String home = '/home';
