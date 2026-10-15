@@ -114,7 +114,7 @@ class _LineageState extends ConsumerState<LineageChallengeScreen> {
               onPressed: () {
                 if (_picked == r.answer) _score++;
                 if (!last) setState(() { _picked = null; _i++; });
-                else showDialog(context: context, builder: (ctx) => AlertDialog(
+                else showDialog<void>(context: context, builder: (ctx) => AlertDialog(
                   backgroundColor: const Color(0xFF0A0F18),
                   title: Text('Journey complete', style: AppText.titleMedium),
                   content: Text('Score: $_score/${_rounds!.length}. The tree of the Prophets is becoming yours.',
@@ -228,7 +228,7 @@ class _AyahState extends ConsumerState<AyahCompletionScreen> {
               onPressed: () {
                 if (_picked == r.answer) _score++;
                 if (!last) setState(() { _picked = null; _i++; });
-                else showDialog(context: context, builder: (ctx) => AlertDialog(
+                else showDialog<void>(context: context, builder: (ctx) => AlertDialog(
                   backgroundColor: const Color(0xFF0A0F18),
                   title: Text('Walk complete', style: AppText.titleMedium),
                   content: Text('Score: $_score/${_rounds!.length}. Each ayah you complete is a verse that now knows your name.',

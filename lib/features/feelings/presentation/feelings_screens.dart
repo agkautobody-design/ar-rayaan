@@ -11,7 +11,6 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../stories/data/stories_repository.dart';
-import '../../stories/domain/story.dart';
 
 class Feeling {
   final String id;

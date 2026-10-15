@@ -29,7 +29,7 @@ class StoriesRepository {
     for (final pack in _packs) {
       List<dynamic>? list;
       try {
-        list = json.decode(await ContentSync.load('stories/\$pack.json'))
+        list = json.decode(await ContentSync.load('stories/$pack.json'))
             as List<dynamic>;
       } catch (_) {}
       if (list == null) {

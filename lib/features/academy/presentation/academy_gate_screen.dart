@@ -19,7 +19,6 @@ class AcademyGateScreen extends StatefulWidget {
 
 class _AcademyGateState extends State<AcademyGateScreen> {
   Timer? _dwell;
-  DateTime _shownAt = DateTime.now();
   bool _minElapsed = false;
 
   @override

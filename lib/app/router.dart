@@ -12,7 +12,6 @@ import '../features/academy/presentation/academy_home_screen.dart';
 import '../features/academy/presentation/lesson_player_screen.dart';
 import '../features/academy/presentation/my_additions_screen.dart';
 import '../features/academy/presentation/request_nasheed_screen.dart';
-import '../features/academy/presentation/letters_school_screen.dart';
 import '../features/academy/presentation/wasia_lessons.dart';
 import '../features/academy/presentation/academy_family.dart';
 import '../features/academy/presentation/player_screen.dart';

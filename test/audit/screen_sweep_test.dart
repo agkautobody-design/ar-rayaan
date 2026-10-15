@@ -1,7 +1,6 @@
 import 'package:ar_rayaan/app/core/providers.dart';
 import 'package:ar_rayaan/app/router.dart';
 import 'package:ar_rayaan/features/academy/application/academy_providers.dart';
-import 'package:ar_rayaan/features/academy/presentation/wasia_lessons.dart';
 import 'package:ar_rayaan/features/family/data/family_tree_provider.dart';
 import 'package:ar_rayaan/features/feelings/presentation/feelings_screens.dart';
 import 'package:ar_rayaan/features/games/presentation/games_screens.dart';

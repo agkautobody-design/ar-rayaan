@@ -9,7 +9,6 @@ import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/router.dart';
 import '../data/stories_repository.dart';
-import '../domain/story.dart';
 
 class StoriesScreen extends ConsumerWidget {
   const StoriesScreen({super.key});

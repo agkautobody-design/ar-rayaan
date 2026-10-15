@@ -22,7 +22,6 @@ class DriftGuard {
   static const _baselinePref = 'ar.doctor.baseline';
   static const _lastPref = 'ar.doctor.last';
 
-  static Map<String, dynamic> _fingerprint() => <String, dynamic>{};
 
   Future<DriftReport> scan() async {
     final drifts = <String>[];

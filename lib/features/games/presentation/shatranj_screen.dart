@@ -50,12 +50,7 @@ class _ShatranjState extends State<ShatranjScreen> {
     'Hadi: Even the queen bows to the plan, not the power.',
   ];
 
-  static const _glyph = {
-    'K': '\u2654', 'Q': '\u2655', 'R': '\u2656', 'B': '\u2657',
-    'N': '\u2658', 'P': '\u2659',
-    'k': '\u265A', 'q': '\u265B', 'r': '\u265C', 'b': '\u265D',
-    'n': '\u265E', 'p': '\u265F',
-  };
+
 
   @override
   void initState() {
@@ -256,7 +251,7 @@ class _ShatranjState extends State<ShatranjScreen> {
 
   void _aiMove() async {
     setState(() => aiThinking = true);
-    await Future.delayed(const Duration(milliseconds: 350));
+    await Future<void>.delayed(const Duration(milliseconds: 350));
     final moves = <List<int>>[];
     for (var i = 0; i < 64; i++) {
       if (b[i].isEmpty || _isWhite(b[i])) continue;
@@ -293,7 +288,7 @@ class _ShatranjState extends State<ShatranjScreen> {
   }
 
   void _commit(int from, int to) {
-    final piece = b[from];
+
     if (b[to].isNotEmpty) captured.add(b[to]);
     _applyOn(b, from, to);
     moveLog.add('${_sq(from)}${_sq(to)}');

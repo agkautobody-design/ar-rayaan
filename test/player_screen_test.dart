@@ -1,5 +1,3 @@
-import 'package:ar_rayaan/features/academy/application/player_queue_provider.dart';
-import 'package:ar_rayaan/features/academy/domain/player.dart';
 import 'package:ar_rayaan/features/academy/presentation/player_screen.dart';
 import 'package:ar_rayaan/app/core/providers.dart';
 import 'package:ar_rayaan/app/theme/app_theme.dart';

@@ -4,16 +4,13 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../prayer/application/prayer_providers.dart';
-import '../../prayer/domain/prayer_times.dart';
 
 class RamadanDay {
   final int day; final String theme, arabic, text, source;
@@ -151,7 +148,7 @@ class _RamadanState extends ConsumerState<RamadanScreen> {
                     const SizedBox(height: 10),
                     // TABS
                     Row(children: [
-                      for (final (i, t) in [('Worship', 0), ('Household', 1)].indexed)
+                      for (final (_, t) in [('Worship', 0), ('Household', 1)].indexed)
                         Expanded(child: GestureDetector(
                           onTap: () => setState(() => _tab = t.$2),
                           child: Container(

@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' show rootBundle, Clipboard, ClipboardData;
+import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -142,7 +142,7 @@ class _FloorState extends ConsumerState<TradingFloorScreen> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(children: [
-                for (final (i, t) in [('Learn', 0), ('Floor', 1), ('Budget', 2), ('Savings', 3)].indexed)
+                for (final (_, t) in [('Learn', 0), ('Floor', 1), ('Budget', 2), ('Savings', 3)].indexed)
                   Expanded(child: GestureDetector(
                     onTap: () => setState(() => _tab = t.$2),
                     child: Container(

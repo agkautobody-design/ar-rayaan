@@ -179,7 +179,7 @@ class _LudoState extends State<LudoScreen> {
       final valid = _validMoves(turn, dice);
       if (valid.isEmpty) {
         status = '${names[turn]} rolled $dice — no move, passing';
-        Future.delayed(const Duration(milliseconds: 700), () {
+        Future<void>.delayed(const Duration(milliseconds: 700), () {
           if (mounted) setState(() => _nextTurn());
         });
       } else {
@@ -212,10 +212,10 @@ class _LudoState extends State<LudoScreen> {
   }
 
   void _aiTurn() async {
-    await Future.delayed(const Duration(milliseconds: 600));
+    await Future<void>.delayed(const Duration(milliseconds: 600));
     if (!mounted || gameOver) return;
     setState(() => _rollSilent());
-    await Future.delayed(const Duration(milliseconds: 700));
+    await Future<void>.delayed(const Duration(milliseconds: 700));
     if (!mounted || gameOver) return;
     final valid = _validMoves(1, dice);
     if (valid.isEmpty) {
@@ -223,7 +223,7 @@ class _LudoState extends State<LudoScreen> {
         status = 'Hadi rolled $dice — no move';
         hadiLine = _hadiLudo[_rnd.nextInt(_hadiLudo.length)];
       });
-      await Future.delayed(const Duration(milliseconds: 800));
+      await Future<void>.delayed(const Duration(milliseconds: 800));
       if (mounted) setState(() => _nextTurn());
       return;
     }

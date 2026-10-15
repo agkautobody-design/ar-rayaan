@@ -47,9 +47,7 @@ class _AcademyHomeScreenState
     final AcademyCourse path = courses.firstWhere(
       (AcademyCourse c) => c.id == 'the-path',
     );
-    final List<AcademyCourse> schools = courses
-        .where((AcademyCourse c) => c.id != 'the-path')
-        .toList();
+    
     final AcademyLesson? cont = ref.watch(continueLessonProvider);
     final int done = ref.watch(lessonsDoneProvider);
     final String s = AcademyStrings.get('academy.title');
@@ -301,54 +299,6 @@ class _AcademyHomeScreenState
     if (total == 0) return 0;
     final int idx = p.lastStep.clamp(0, total - 1);
     return p.completed ? 1 : (idx + 1) / total;
-  }
-}
-
-class _SchoolCard extends StatelessWidget {
-  const _SchoolCard({required this.course});
-
-  final AcademyCourse course;
-
-  static const Map<String, IconData> _icons = <String, IconData>{
-    'letters': Icons.edit_outlined,
-    'recitation': Icons.graphic_eq,
-    'quranic-arabic': Icons.abc,
-    'understanding': Icons.account_tree_outlined,
-  };
-
-  @override
-  Widget build(BuildContext context) {
-    final IconData icon = _icons[course.id] ?? Icons.menu_book_outlined;
-    return GlassCard(
-      onTap: course.available && course.units.isNotEmpty
-          ? () => context.go('/academy/${course.id}')
-          : null,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Icon(icon, color: AppColors.gold, size: 26),
-          const SizedBox(height: 10),
-          Text(
-            AcademyStrings.get(course.titleKey),
-            style: AppText.titleMedium.copyWith(color: AppColors.gold),
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: 4),
-          Flexible(
-            child: Text(
-              course.available
-                  ? AcademyStrings.get(course.subtitleKey)
-                  : AcademyStrings.get('academy.comingSoon'),
-              style: AppText.bodyMuted,
-              textAlign: TextAlign.center,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-            ),
-          ),
-        ],
-      ),
-    );
   }
 }
 

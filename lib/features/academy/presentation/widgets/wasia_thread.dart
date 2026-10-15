@@ -4,7 +4,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../app/theme/app_colors.dart';
 import '../../../../app/theme/app_typography.dart';
 import '../../../../app/theme/widgets/speak_button.dart';
-import '../../../hadi/application/hadi_provider.dart';
 import '../../application/wasia_controller.dart';
 
 /// The shared Wasia conversation thread — every chat box renders the same

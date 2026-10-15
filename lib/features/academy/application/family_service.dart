@@ -21,7 +21,7 @@ class FamilyService {
   Future<bool> cloudReady() async {
     try {
       if (_db == null || _auth == null) return false;
-      final u = _auth!.currentUser ?? (await _auth!.signInAnonymously()).user;
+      final u = _auth.currentUser ?? (await _auth.signInAnonymously()).user;
       return u != null;
     } catch (_) {
       return false;
