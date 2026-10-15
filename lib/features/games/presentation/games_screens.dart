@@ -21,7 +21,7 @@ class TriviaQ {
   factory TriviaQ.fromJson(Map<String, dynamic> j) => TriviaQ(
     id: j['id'] as String, category: j['category'] as String, question: j['question'] as String,
     options: (j['options'] as List).cast<String>(),
-    answer: j['answer'] as String, why: j['why'] as String);
+    answer: j['answer'] as int, why: j['why'] as String);
 }
 
 final triviaProvider = FutureProvider<List<TriviaQ>>((ref) async {
