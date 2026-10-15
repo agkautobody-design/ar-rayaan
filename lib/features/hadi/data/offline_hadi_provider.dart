@@ -173,4 +173,174 @@ const List<_Entry> _knowledge = <_Entry>[
     'Paradise.” (Sahih al-Bukhari 2736). Begin with Ar-Rahman — the '
     'Most Merciful — the name He opens His Book with.',
   ),
+  // ── Conversational packs ────────────────────────────────────────────
+  _Entry(
+    <String>['salaam', 'salam', 'assalamu', 'wa alaikum', 'hello', 'hey '],
+    'Wa alaikum as-salam wa rahmatullah - and upon you be peace and '
+    'mercy. How may I walk beside you today? Ask me about worship, '
+    'the Qur\'an, this app, or simply talk.',
+  ),
+  _Entry(
+    <String>['how are you', 'how do you feel'],
+    'Alhamdulillah - all praise belongs to Allah. More importantly: '
+    'how are YOU? If something weighs on your heart, I can make '
+    'du\'a with you, or take you to Sakina for stillness.',
+  ),
+  _Entry(
+    <String>['who are you', 'your name', 'what are you'],
+    'I am Hadi - "the guide" - your companion inside Ar-Rayaan. I '
+    'answer from the Qur\'an and the authentic Sunnah, I know every '
+    'room of this app, and I would rather say "I don\'t know" than '
+    'invent. My sister-teacher Wasia runs the letter school.',
+  ),
+  _Entry(
+    <String>['who is wasia', 'what is wasia'],
+    'Wasia is the AI teacher of the Wasia Academy - the letter '
+    'school built with love. She teaches the Arabic alphabet, reads '
+    'with the child, and speaks in three voices: student, parent, '
+    'and a Teachers\' Corner for parents. Shall I take you there?\n[GO:/academy/gate]',
+  ),
+  _Entry(
+    <String>['thank', 'jazak', 'shukran', 'thanks'],
+    'Wa iyyakum - and you likewise, many times over. May Allah '
+    'accept from you. I am here whenever you need me.',
+  ),
+  _Entry(
+    <String>['what can you do', 'what do you do', 'features', 'guide me'],
+    'Three things, always: (1) answer from the Qur\'an and the '
+    'Sihah Sitta - verses, du\'as, rulings, with sources; (2) teach '
+    'you this app room by room - prayer times, Qur\'an, stories, '
+    'zakat, games; (3) walk you there myself - just say "take me '
+    'to..." and I will. What shall we begin with?',
+  ),
+
+  // ── Navigation packs (offline users get walked too) ─────────────────
+  _Entry(
+    <String>['quran screen', 'read the quran', 'recitation screen', 'open quran'],
+    'Opening the Qur\'an - tap any ayah to hear Shaykh Mishary '
+    'Rashid Alafasy recite.\n[GO:/quran]',
+  ),
+  _Entry(
+    <String>['prayer times screen', 'prayer screen', 'salah times screen'],
+    'Opening your Prayer Times - tap the bell beside any prayer to '
+    'be alerted when its time arrives.\n[GO:/prayer]',
+  ),
+  _Entry(
+    <String>['adhkar screen', 'dhikr screen', 'dua screen', 'du\'a screen'],
+    'Opening Dhikr & Du\'a - the Hisn al-Muslim sets with counters '
+    'and meanings.\n[GO:/adhkar]',
+  ),
+  _Entry(
+    <String>['zakat screen', 'zakat calculator'],
+    'Opening the Zakat calculator - it walks you through nisab and '
+    'rates step by step.\n[GO:/zakat]',
+  ),
+  _Entry(
+    <String>['stories screen', 'story screen', 'prophets screen'],
+    'Opening Stories - Prophets, Women, Seerah, Companions, duas '
+    'and khutbahs. Inside any story you can ask me about it as you '
+    'read.\n[GO:/stories]',
+  ),
+  _Entry(
+    <String>['search screen', 'find anything', 'find screen'],
+    'Opening Find Anything - one search across every shelf of the '
+    'app.\n[GO:/search]',
+  ),
+  _Entry(
+    <String>['games screen', 'game screen'],
+    'Opening Games - Shatranj, Ludo, Trivia, and the 99 Names.\n[GO:/games]',
+  ),
+  _Entry(
+    <String>['99 names screen', 'names screen', 'names of allah screen'],
+    'Opening the 99 Names - learn them one by one; "whoever '
+    'preserves them enters Paradise."\n[GO:/games/names99]',
+  ),
+  _Entry(
+    <String>['hadith screen', 'forty hadith', 'nawawi screen'],
+    'Opening the Forty Hadith of an-Nawawi, Arabic with meanings.\n[GO:/hadith]',
+  ),
+  _Entry(
+    <String>['qibla screen', 'find qibla', 'qibla direction', 'face qibla'],
+    'Opening Qibla - hold your phone flat and it points you to the '
+    'Ka\'bah.\n[GO:/qibla]',
+  ),
+  _Entry(
+    <String>['calendar screen', 'islamic calendar', 'ramadan dates', 'eid dates'],
+    'Opening the Islamic Calendar - this year\'s months, Ramadan '
+    'and Eid dates.\n[GO:/calendar]',
+  ),
+  _Entry(
+    <String>['finance screen', 'stocks screen', 'trading screen', 'halal stocks'],
+    'Opening Tayyib Finance - the halal stock screener and a paper '
+    'trading floor to practice on.\n[GO:/finance]',
+  ),
+  _Entry(
+    <String>['academy screen', 'school screen', 'letters screen', 'alphabet'],
+    'Opening Wasia Academy - where children learn the Arabic '
+    'letters with Wasia.\n[GO:/academy/gate]',
+  ),
+  _Entry(
+    <String>['feelings screen', 'heart screen'],
+    'Opening For Your Heart - a gentle feelings guide with a du\'a '
+    'for every state.\n[GO:/feelings]',
+  ),
+  _Entry(
+    <String>['sakina', 'comfort screen', 'peace screen'],
+    'Opening Sakina - a page of stillness for when the heart is '
+    'heavy.\n[GO:/sakina]',
+  ),
+  _Entry(
+    <String>['family tree screen', 'messengers screen'],
+    'Opening the Messengers\' family tree - from Adam to the '
+    'Prophet Muhammad (peace be upon them all).\n[GO:/family-tree]',
+  ),
+  _Entry(
+    <String>['share screen', 'cards screen', 'verse cards'],
+    'Opening verse cards - share an ayah with someone you love.\n[GO:/share]',
+  ),
+  _Entry(
+    <String>['sources screen', 'our sources'],
+    'Opening Our Sources - every authority this app builds on.\n[GO:/sources]',
+  ),
+  _Entry(
+    <String>['settings screen', 'api key', 'apikey', 'add a key'],
+    'Opening Settings - in Hadi\'s section you can add your free '
+    'API key so I can reason further; without one I still answer '
+    'from the curated shelf.\n[GO:/settings]',
+  ),
+  _Entry(
+    <String>['masajid', 'masjid', 'mosque', 'halal food', 'restaurants'],
+    'Opening Masajid & Halal - prayer spaces and halal food near '
+    'you.\n[GO:/masajid]',
+  ),
+
+  // ── Knowledge packs ─────────────────────────────────────────────────
+  _Entry(
+    <String>['shahada', 'testimony', 'declaration of faith'],
+    'The testimony: "La ilaha illallah, Muhammadur rasulullah" - '
+    'there is no god worthy of worship but Allah, and Muhammad is '
+    'the Messenger of Allah. The first pillar; on it everything '
+    'stands.',
+  ),
+  _Entry(
+    <String>['pillars of islam', 'five pillars'],
+    'The five pillars: the testimony of faith, the five daily '
+    'prayers, zakat, the fast of Ramadan, and Hajj for those able '
+    '- each established in the Qur\'an and the Sunnah.',
+  ),
+  _Entry(
+    <String>['wudu', 'ablution'],
+    'Wudu is the purification before prayer: wash the face, hands '
+    'to the elbows, wipe head and ears, wash the feet - with '
+    'intention and in order. "Allah does not accept prayer without '
+    'purification." (Sahih Muslim 224).',
+  ),
+  _Entry(
+    <String>['grave', 'after death', 'hereafter'],
+    'The Prophet (peace be upon him) said: "Remember often the '
+    'destroyer of pleasures - death." (Jami\' at-Tirmidhi 2307). '
+    'Live each prayer as if it were your last; the grave is a '
+    'garden from Paradise or a pit from the Fire - and its morning '
+    'is near.',
+  ),
 ];

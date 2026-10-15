@@ -96,8 +96,11 @@ class WasiaController extends StateNotifier<WasiaState> {
     // does not know; the decline itself points to Hadi settings.
     final k = await _key();
     if (k == null) {
-      final offline =
+      // Wasia doesn't navigate: strip any [GO:] token from the shared
+      // offline shelf so her thread stays clean.
+      var offline =
           await const OfflineHadiProvider().ask(q, state.messages);
+      offline = offline.replaceAll(RegExp(r'\[GO:[^\]]+\]'), '').trim();
       state = state.copy(
         messages: <HadiMessage>[
           ...state.messages,

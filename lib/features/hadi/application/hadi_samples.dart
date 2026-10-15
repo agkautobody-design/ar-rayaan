@@ -32,6 +32,38 @@ const List<HadiExchange> kProposedHadiExchanges = [
         'most simply one rak’ah. After ruku‘ you may recite Qunut: '
         '“Allahumma ihdini fiman hadayt…” Would you like the full text?',
   ),
+  HadiExchange(
+    question: 'What can you do?',
+    answer: 'Three things, always: answer from the Qur\'an and the '
+        'authentic Sunnah, teach you every room of this app, and '
+        'walk you there myself.',
+  ),
+  HadiExchange(
+    question: 'Who is Wasia?',
+    answer: 'The AI teacher of the Wasia Academy - the letter '
+        'school. She speaks to students, parents, and teachers.',
+  ),
+  HadiExchange(
+    question: 'Take me to the Stories',
+    answer: 'With pleasure.\n[GO:/stories]',
+  ),
+  HadiExchange(
+    question: 'A du\'a before sleep',
+    answer: 'Bismika Allahumma amutu wa ahya - "In Your name, O '
+        'Allah, I die and I live." (Sahih al-Bukhari 6324). It is '
+        'in your evening adhkar.',
+  ),
+  HadiExchange(
+    question: 'How do I pray two rak\'ahs?',
+    answer: 'With intention, raise the hands saying Allahu Akbar, '
+        'recite Al-Fatihah, bow, rise, prostrate twice between '
+        'sittings - the full method is in the Huda guides.',
+  ),
+  HadiExchange(
+    question: 'Find the dua for leaving home',
+    answer: 'Bismillahi, tawakkaltu \'alallah - "In the name of '
+        'Allah, I trust in Allah." It opens the Daily Duas pack.',
+  ),
 ];
 
 const String kHadiGreeting =
