@@ -23,7 +23,15 @@ jobs:
         run: flutter pub get
 
       - name: Run tests
-        run: flutter test
+        run: |
+          flutter analyze > analyze_dump.txt 2>&1 || true
+          tail -60 analyze_dump.txt
+          git config user.email "actions@github.com"
+          git config user.name "Ar-Rayaan Builder"
+          git add analyze_dump.txt
+          git commit -m "DEBUG: analyze dump" --allow-empty
+          git push origin HEAD:main
+          flutter test
 
       - name: Build web (release)
         run: >-
