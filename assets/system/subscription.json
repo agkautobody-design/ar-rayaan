@@ -1,0 +1,32 @@
+{
+  "schema": "ar.subscription.v1",
+  "note": "Tiers ship with the app; billing (Stripe/RevenueCat) plugs in later. The managed endpoint serves per-user keys server-side \u2014 a founder key must NEVER ship inside this file or the app.",
+  "endpoint": "https://api.ar-rayaan.app/v1",
+  "tiers": {
+    "free": {
+      "label": "Free",
+      "liveAi": false,
+      "dailyQuestions": 0,
+      "familyWingChildren": 1
+    },
+    "plus": {
+      "label": "Plus",
+      "liveAi": true,
+      "dailyQuestions": 30,
+      "familyWingChildren": 3
+    },
+    "family": {
+      "label": "Family",
+      "liveAi": true,
+      "dailyQuestions": 100,
+      "familyWingChildren": 8
+    }
+  },
+  "pricing": {
+    "decision": "pending-founder",
+    "currencies": [
+      "USD",
+      "GBP"
+    ]
+  }
+}

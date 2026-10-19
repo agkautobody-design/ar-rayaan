@@ -1,6 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../app/core/subscription/subscription_service.dart';
+
 import '../../hadi/application/hadi_provider.dart';
 import '../../hadi/data/groq_hadi_provider.dart';
 import '../../hadi/data/offline_hadi_provider.dart';
@@ -85,7 +87,12 @@ class WasiaController extends StateNotifier<WasiaState> {
   Future<String?> _key() async {
     final prefs = await SharedPreferences.getInstance();
     final k = prefs.getString(_keyPref);
-    return (k == null || k.trim().isEmpty) ? null : k.trim();
+    if (k != null && k.trim().isNotEmpty) return k.trim();
+    // Subscription fallback, same rules as Hādi: managed key, one quota
+    // per question. Quota spent or inactive → her own shelf below.
+    final sub = ref.read(subscriptionServiceProvider.notifier);
+    if (sub.isEntitled && sub.consumeQuestion()) return sub.managedKey;
+    return null;
   }
 
   /// Start a fresh conversation with Wasia.
@@ -104,11 +111,21 @@ class WasiaController extends StateNotifier<WasiaState> {
     // invents what she does not know.
     final k = await _key();
     if (k == null) {
+      // Quota spent (but still subscribed)? Say so honestly before the
+      // shelf answer — never let a limit masquerade as ignorance.
+      String? quotaNote;
+      final sub = ref.read(subscriptionServiceProvider.notifier);
+      if (sub.isEntitled && sub.managedKey != null) {
+        quotaNote = 'Your live questions for today are finished — the '
+            'subscription resets at midnight. Meanwhile, from my lesson '
+            'shelf:\n\n';
+      }
       // Wasia's own shelf — the Academy curriculum, not Hadi's. She
       // doesn't navigate: strip any [GO:] token so her thread stays clean.
       var offline =
           await const OfflineWasiaProvider().ask(q, state.messages);
       offline = offline.replaceAll(RegExp(r'\[GO:[^\]]+\]'), '').trim();
+      if (quotaNote != null) offline = quotaNote + offline;
       state = state.copy(
         messages: <HadiMessage>[
           ...state.messages,

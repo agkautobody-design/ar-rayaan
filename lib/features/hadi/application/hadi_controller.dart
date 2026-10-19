@@ -6,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../../app/core/content/content_sync.dart';
 import '../../../app/core/providers.dart';
 import '../../profile/application/profile_providers.dart';
+import '../../../app/core/subscription/subscription_service.dart';
 import '../data/groq_hadi_provider.dart';
 import '../data/offline_hadi_provider.dart';
 import 'hadi_provider.dart';
@@ -153,13 +154,29 @@ class HadiController extends Notifier<HadiState> {
     );
   }
 
+  /// Effective key: the user's own key wins; otherwise an active
+  /// subscription's managed key (per-user, server-issued — never a
+  /// founder key shipped in the app). Offline shelf when both are absent.
   String? get _apiKey {
     try {
       final SharedPreferences prefs = ref.watch(sharedPreferencesProvider);
       final String? k = prefs.getString(_keyPref);
-      return (k == null || k.trim().isEmpty) ? null : k.trim();
+      if (k != null && k.trim().isNotEmpty) return k.trim();
+      return ref.watch(subscriptionServiceProvider.notifier).managedKey;
     } catch (_) {
       return null;
+    }
+  }
+
+  /// True when the live key comes from the subscription rather than the
+  /// user — only those calls count against the daily quota.
+  bool get _usingManagedKey {
+    try {
+      final SharedPreferences prefs = ref.read(sharedPreferencesProvider);
+      final String? k = prefs.getString(_keyPref);
+      return (k == null || k.trim().isEmpty);
+    } catch (_) {
+      return false;
     }
   }
 
@@ -242,7 +259,20 @@ class HadiController extends Notifier<HadiState> {
       ],
       typing: true,
     );
-    final HadiProvider p = provider ?? resolveProvider(_apiKey);
+    HadiProvider p = provider ?? resolveProvider(_apiKey);
+    // Subscription quota: managed-key calls count against the daily tier
+    // quota. When the quota is spent, answer from the shelf and say so.
+    String? quotaNote;
+    if (provider == null && _usingManagedKey && _apiKey != null) {
+      final SubscriptionService sub =
+          ref.read(subscriptionServiceProvider.notifier);
+      if (sub.isEntitled && !sub.consumeQuestion()) {
+        p = const OfflineHadiProvider();
+        quotaNote = 'Your live questions for today are finished — the '
+            'subscription resets at midnight. Meanwhile, from my built-in '
+            'shelf:\n\n';
+      }
+    }
     String answer;
     try {
       final tocDigest = await _toc();
@@ -287,6 +317,7 @@ class HadiController extends Notifier<HadiState> {
       ],
       typing: false,
     );
+    if (quotaNote != null) answer = quotaNote + answer;
     _persistThread(state.messages);
     // Hadi's hands: a [GO:/path] token means "take the user there".
     final nav = RegExp(r'\[GO:(/[a-z0-9\-/:]+)\]').firstMatch(answer);

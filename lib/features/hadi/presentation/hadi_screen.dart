@@ -9,6 +9,8 @@ import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/icon_tile.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/speak_button.dart';
+import '../../../app/core/subscription/subscription_service.dart';
+import '../../../app/core/providers.dart';
 import '../application/hadi_controller.dart';
 import '../application/hadi_provider.dart';
 import '../application/hadi_samples.dart';
@@ -96,6 +98,8 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
               'free, no card. The key never leaves your device.',
               style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.5),
             ),
+            const SizedBox(height: 12),
+            _SubscriptionPanel(),
             const SizedBox(height: 12),
             Wrap(
               spacing: 8,
@@ -524,6 +528,73 @@ class _HeaderIcon extends StatelessWidget {
             color: AppColors.sand.withValues(alpha: 0.85),
           ),
         ),
+      ),
+    );
+  }
+}
+
+
+/// Subscription status inside the key sheet: tier, quota, expiry, and the
+/// restore flow (placeholder until billing plugs into the same contract).
+class _SubscriptionPanel extends ConsumerWidget {
+  const _SubscriptionPanel();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final String tier = ref.watch(subscriptionServiceProvider);
+    final SubscriptionService sub =
+        ref.watch(subscriptionServiceProvider.notifier);
+    final SharedPreferences prefs = ref.watch(sharedPreferencesProvider);
+    final bool entitled = sub.isEntitled;
+    final int? expires = prefs.getInt(SubscriptionService.expiresPref);
+    final String expiryLabel = expires == null
+        ? ''
+        : DateTime.fromMillisecondsSinceEpoch(expires).toLocal().toString().substring(0, 10);
+
+    return GlassCard(
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              const Icon(Icons.workspace_premium_outlined,
+                  size: 16, color: AppColors.gold),
+              const SizedBox(width: 8),
+              Text(
+                entitled
+                    ? 'Subscription · ${tier[0].toUpperCase()}${tier.substring(1)}'
+                    : 'Subscription · Free tier',
+                style: AppText.body.copyWith(
+                    fontSize: 13, fontWeight: FontWeight.w600),
+              ),
+            ],
+          ),
+          const SizedBox(height: 6),
+          Text(
+            entitled
+                ? '${sub.remainingToday} live questions left today'
+                    '${expiryLabel.isEmpty ? '' : ' · renews $expiryLabel'}'
+                : 'Live AI comes with a subscription — pricing lands soon. '
+                    'Until then, add your own free key above, or use my '
+                    'built-in shelf: it never runs out.',
+            style: AppText.bodyMuted.copyWith(fontSize: 11.5, height: 1.5),
+          ),
+          const SizedBox(height: 8),
+          GestureDetector(
+            onTap: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Billing arrives with the subscription '
+                      'launch — your entitlement will restore here.'),
+                ),
+              );
+            },
+            child: Text('Restore purchase →',
+                style: AppText.bodyMuted.copyWith(
+                    color: AppColors.gold, fontSize: 12)),
+          ),
+        ],
       ),
     );
   }
