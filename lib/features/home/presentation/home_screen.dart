@@ -102,6 +102,12 @@ class HomeScreen extends ConsumerWidget {
       ),
       (Icons.school_outlined, 'Knowledge', 'Articles, Lessons & Courses', AppRoutes.stories),
       (
+        Icons.child_care,
+        'Wasia Academy',
+        'Letters school & Family Wing',
+        AppRoutes.academyGate,
+      ),
+      (
         Icons.trending_up,
         'My Journey',
         'Track, Reflect & Grow',
@@ -531,6 +537,9 @@ String _tileImage(String t) {
   }
   if (t.startsWith('Islamic')) return '$base/tile_calendar.jpg';
   if (t.startsWith('Knowledge')) return '$base/tile_knowledge.jpg';
+  // Fallback until assets/images/tiles/tile_academy.jpg ships
+  // (see state/art_list.md, Wave 1 #1).
+  if (t.startsWith('Wasia')) return '$base/tile_knowledge.jpg';
   return '$base/tile_journey.jpg';
 }
 
