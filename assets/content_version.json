@@ -12,10 +12,11 @@
   "guides/guides.json": 2,
   "games/trivia.json": 1,
   "games/names99.json": 1,
-  "feelings/feelings.json": 2,
+  "feelings/feelings.json": 3,
   "stories/dailyduas.json": 4,
-  "stories/newmuslim.json": 1,
+  "stories/newmuslim.json": 2,
   "share/cards.json": 1,
   "finance/paper_market.json": 1,
-  "updated": "2026-10-19"
+  "updated": "2026-10-20",
+  "system/module_registry.json": 1
 }
