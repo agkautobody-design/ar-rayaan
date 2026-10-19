@@ -226,7 +226,9 @@ class HadiController extends Notifier<HadiState> {
 
 const String kHadiGreeting =
     'As-Salaamu Alaikum. I am Hādi — walking beside you as you seek '
-    'authentic knowledge. Ask me anything.';
+    'authentic knowledge. Ask me about worship, the Qur\'an, or where '
+    'anything lives in this app. And when the weight is heavy, tell me '
+    'that too — I will stay with it.';
 
 final NotifierProvider<HadiController, HadiState> hadiControllerProvider =
     NotifierProvider<HadiController, HadiState>(HadiController.new);
