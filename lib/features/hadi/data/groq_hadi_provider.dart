@@ -32,15 +32,15 @@ class OpenAIChatHadiProvider implements HadiProvider {
       },
       body: jsonEncode(<String, dynamic>{
         'model': modelName,
-        'temperature': 0.3, // low drift — authenticity over creativity
-        'max_tokens': 350,
+        'temperature': 0.5, // low drift — authenticity over creativity
+        'max_tokens': 750,
         'messages': <Map<String, String>>[
           const <String, String>{
             'role': 'system',
             'content': kHadiSystemPrompt,
           },
-          // Recent history for continuity (cap keeps requests small).
-          for (final HadiMessage m in history.length > 8
+          // Recent history for continuity (cap keeps context rich).
+          for (final HadiMessage m in history.length > 16
               ? history.sublist(history.length - 8)
               : history)
             <String, String>{
