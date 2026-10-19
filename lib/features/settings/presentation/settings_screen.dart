@@ -141,6 +141,16 @@ class SettingsScreen extends ConsumerWidget {
                           height: 1.5,
                         ),
                       ),
+                      const SizedBox(height: 4),
+                      GestureDetector(
+                        onTap: () => context.go(AppRoutes.onboarding),
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 4),
+                          child: Text('Replay the introduction →',
+                              style: AppText.bodyMuted.copyWith(
+                                  color: AppColors.gold, fontSize: 13)),
+                        ),
+                      ),
                       const SizedBox(height: 20),
                       Padding(
                         padding: const EdgeInsets.only(left: 4, bottom: 8),

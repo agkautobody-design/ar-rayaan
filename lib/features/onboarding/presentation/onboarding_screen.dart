@@ -9,37 +9,75 @@ class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
 
   static const pref = 'ar.onboarded.v1';
+  static const needPref = 'ar.need';
 
   static Future<bool> shouldShow() async {
     final p = await SharedPreferences.getInstance();
     return p.getBool(pref) != true;
   }
 
+  /// Where a returning user should land after replaying the introduction.
+  static Future<String> homeRouteFor(String? need) {
+    switch (need) {
+      case 'learn':
+        return Future.value(AppRoutes.stories);
+      case 'peace':
+        return Future.value(AppRoutes.sakina);
+      case 'children':
+        return Future.value(AppRoutes.academyGate);
+      case 'pray':
+        return Future.value(AppRoutes.prayerTimes);
+      case 'new':
+        return Future.value(AppRoutes.newMuslimPath);
+      case 'community':
+        return Future.value(AppRoutes.community);
+      default:
+        return Future.value(AppRoutes.home);
+    }
+  }
+
   @override
   State<OnboardingScreen> createState() => _OnboardingState();
+}
+
+class _Need {
+  const _Need(this.key, this.icon, this.title, this.blurb);
+  final String key;
+  final IconData icon;
+  final String title;
+  final String blurb;
 }
 
 class _OnboardingState extends State<OnboardingScreen> {
   final _page = PageController();
   int _i = 0;
+  String? _need;
 
-  static const _slides = [
-    (Icons.mosque_outlined, 'AS-SALAAMU ALAIKUM', 'This is Ar-Rayaan',
-        'One app for your whole deen: prayer times and the Quran, stories of the Prophets, a school for your children, games, and a companion who answers your questions.'),
-    (Icons.auto_awesome, 'MEET HADI', 'Ask him anything',
-        'Tap the Ask Hadi pill on any screen and ask in plain words. He answers from the Quran and the Sunnah, and shows you where it lives in the app.'),
-    (Icons.wb_twilight, 'YOUR FIRST HOUR', 'Three things, gently',
-        'Check your prayer times. Read one story. Then open the Academy and let Wasia teach your family. That is the whole app.'),
+  static const _needs = <_Need>[
+    _Need('learn', Icons.menu_book_outlined, 'Learning my deen',
+        'Stories, khutbahs, and knowledge'),
+    _Need('peace', Icons.favorite_outline, 'Peace for my heart',
+        'Du’as and comfort for heavy days'),
+    _Need('children', Icons.child_care, 'Teaching my children',
+        'Wasia’s letters school and Family Wing'),
+    _Need('pray', Icons.access_time, 'Praying on time',
+        'Prayer times, qibla, and adhkar'),
+    _Need('new', Icons.door_front_door_outlined, 'I am new to Islam',
+        'A gentle 30-day road, one step at a time'),
+    _Need('community', Icons.people_outline, 'A community',
+        'Finding your masjid and your people'),
   ];
 
   Future<void> _finish() async {
     final p = await SharedPreferences.getInstance();
     await p.setBool(OnboardingScreen.pref, true);
-    if (mounted) context.go(AppRoutes.home);
+    if (_need != null) await p.setString(OnboardingScreen.needPref, _need!);
+    if (mounted) context.go(await OnboardingScreen.homeRouteFor(_need));
   }
 
   @override
   Widget build(BuildContext context) {
+    const slides = 6;
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: SafeArea(
@@ -55,9 +93,53 @@ class _OnboardingState extends State<OnboardingScreen> {
             child: PageView.builder(
               controller: _page,
               onPageChanged: (i) => setState(() => _i = i),
-              itemCount: _slides.length,
+              itemCount: slides,
               itemBuilder: (c, i) {
-                final s = _slides[i];
+                if (i == 1) return _needSlide();
+                final (icon, eyebrow, title, body) = switch (i) {
+                  0 => (
+                      Icons.mosque_outlined,
+                      'AS-SALAAMU ALAIKUM',
+                      'This is Ar-Rayaan',
+                      'One app for your whole deen: prayer times and the '
+                          'Qur’an, stories of the Prophets, a school for '
+                          'your children, games, and a companion who walks '
+                          'with you.'
+                    ),
+                  2 => (
+                      Icons.auto_awesome,
+                      'MEET HADI',
+                      'Ask him anything',
+                      'Tap Ask Hādi and ask in plain words. With an AI key '
+                          'he answers live; without one he answers from his '
+                          'built-in shelf of authentic knowledge. Either '
+                          'way, he never invents a source.'
+                    ),
+                  3 => (
+                      Icons.school_outlined,
+                      'MEET WASIA',
+                      'The letters school',
+                      'Wasia teaches your children the Arabic letters, one '
+                          'gentle step at a time — and the Family Wing shows '
+                          'you every lesson and exam they complete.'
+                    ),
+                  4 => (
+                      Icons.home_outlined,
+                      'YOUR HOME',
+                      'Made for your days',
+                      'Your first hour here: check prayer times, read one '
+                          'story, open the Academy. When the heart is '
+                          'heavy, For Your Heart is always open.'
+                    ),
+                  _ => (
+                      Icons.wb_twilight,
+                      'LET’S BEGIN',
+                      'Bismillah',
+                      'The road is open. Whatever you chose, you can change '
+                          'it later — every room of the house stays open '
+                          'to you.'
+                    ),
+                };
                 return Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: Column(
@@ -69,15 +151,15 @@ class _OnboardingState extends State<OnboardingScreen> {
                           shape: BoxShape.circle,
                           border: Border.all(color: AppColors.gold.withValues(alpha: 0.5)),
                         ),
-                        child: Icon(s.$1, size: 40, color: AppColors.goldLight),
+                        child: Icon(icon, size: 40, color: AppColors.goldLight),
                       ),
                       const SizedBox(height: 26),
-                      Text(s.$2, style: AppText.eyebrow),
+                      Text(eyebrow, style: AppText.eyebrow),
                       const SizedBox(height: 8),
-                      Text(s.$3, textAlign: TextAlign.center,
+                      Text(title, textAlign: TextAlign.center,
                           style: const TextStyle(fontFamily: 'PlayfairDisplay', fontSize: 30, color: AppColors.goldLight)),
                       const SizedBox(height: 14),
-                      Text(s.$4, textAlign: TextAlign.center,
+                      Text(body, textAlign: TextAlign.center,
                           style: AppText.bodyMuted.copyWith(fontSize: 14, height: 1.7)),
                     ],
                   ),
@@ -86,7 +168,7 @@ class _OnboardingState extends State<OnboardingScreen> {
             ),
           ),
           Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-            for (var d = 0; d < _slides.length; d++)
+            for (var d = 0; d < slides; d++)
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 3),
                 width: d == _i ? 20 : 7, height: 7,
@@ -103,7 +185,7 @@ class _OnboardingState extends State<OnboardingScreen> {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  if (_i < _slides.length - 1) {
+                  if (_i < slides - 1) {
                     _page.nextPage(duration: const Duration(milliseconds: 250), curve: Curves.easeOut);
                   } else {
                     _finish();
@@ -113,10 +195,74 @@ class _OnboardingState extends State<OnboardingScreen> {
                     backgroundColor: AppColors.gold,
                     foregroundColor: const Color(0xFF0A0F18),
                     padding: const EdgeInsets.symmetric(vertical: 14)),
-                child: Text(_i < _slides.length - 1 ? 'Next' : 'Begin'),
+                child: Text(_i < slides - 1 ? 'Next' : 'Begin'),
               ),
             ),
           ),
+        ]),
+      ),
+    );
+  }
+
+  Widget _needSlide() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text('WHAT BRINGS YOU HERE?', style: AppText.eyebrow),
+          const SizedBox(height: 8),
+          Text('Choose one — it only sets your first door.',
+              textAlign: TextAlign.center,
+              style: AppText.bodyMuted.copyWith(fontSize: 13)),
+          const SizedBox(height: 22),
+          for (var row = 0; row < 3; row++)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 10),
+              child: Row(children: [
+                for (var col = 0; col < 2; col++)
+                  Expanded(
+                    child: Padding(
+                      padding: EdgeInsets.only(right: col == 0 ? 5 : 0, left: col == 1 ? 5 : 0),
+                      child: _needCard(_needs[row * 2 + col]),
+                    ),
+                  ),
+              ]),
+            ),
+        ],
+      ),
+    );
+  }
+
+  Widget _needCard(_Need n) {
+    final bool selected = _need == n.key;
+    return GestureDetector(
+      onTap: () => setState(() => _need = n.key),
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 180),
+        padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 10),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(14),
+          border: Border.all(
+            color: selected
+                ? AppColors.gold
+                : AppColors.gold.withValues(alpha: 0.25),
+          ),
+          color: selected
+              ? AppColors.gold.withValues(alpha: 0.08)
+              : Colors.transparent,
+        ),
+        child: Column(children: [
+          Icon(n.icon, size: 22,
+              color: selected ? AppColors.gold : AppColors.sand.withValues(alpha: 0.6)),
+          const SizedBox(height: 8),
+          Text(n.title, textAlign: TextAlign.center,
+              style: AppText.body.copyWith(
+                  fontSize: 12.5, fontWeight: FontWeight.w600,
+                  color: selected ? AppColors.goldLight : null)),
+          const SizedBox(height: 4),
+          Text(n.blurb, textAlign: TextAlign.center,
+              style: AppText.bodyMuted.copyWith(fontSize: 10, height: 1.4)),
         ]),
       ),
     );
