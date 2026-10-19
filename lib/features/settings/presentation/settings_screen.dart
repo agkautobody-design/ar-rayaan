@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../app/core/sound/sound_services.dart';
+import '../../../app/core/providers.dart';
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
@@ -75,6 +77,65 @@ class SettingsScreen extends ConsumerWidget {
                         'Adhan, Qur’an recitation, and read-aloud always play '
                         'when you tap them — this switch is only for the '
                         'background soundscape.',
+                        style: AppText.bodyMuted.copyWith(
+                          fontSize: 11,
+                          height: 1.5,
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 4, bottom: 8),
+                        child: Text('HĀDI', style: AppText.eyebrow),
+                      ),
+                      GlassCard(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 6,
+                        ),
+                        child: StatefulBuilder(
+                          builder: (context, setTile) {
+                            final SharedPreferences prefs =
+                                ref.watch(sharedPreferencesProvider);
+                            final bool memoryOn =
+                                prefs.getBool('ar.hadi.memory') == true;
+                            return SwitchListTile.adaptive(
+                              contentPadding: EdgeInsets.zero,
+                              value: memoryOn,
+                              activeTrackColor: AppColors.gold.withValues(
+                                alpha: 0.5,
+                              ),
+                              thumbColor: const WidgetStatePropertyAll(
+                                AppColors.gold,
+                              ),
+                              title: Text(
+                                'Hādi remembers you',
+                                style: AppText.body.copyWith(fontSize: 14),
+                              ),
+                              subtitle: Text(
+                                'Share your name so Hādi can greet you '
+                                'personally. Stored on this device only.',
+                                style: AppText.bodyMuted.copyWith(
+                                  fontSize: 11,
+                                ),
+                              ),
+                              secondary: const Icon(
+                                Icons.face_outlined,
+                                size: 18,
+                                color: AppColors.gold,
+                              ),
+                              onChanged: (bool v) async {
+                                await prefs.setBool('ar.hadi.memory', v);
+                                setTile(() {});
+                              },
+                            );
+                          },
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      Text(
+                        'Hādi also remembers your last conversation on this '
+                        'device, so you can pick up where you left off. Clear '
+                        'it any time from the Hādi screen.',
                         style: AppText.bodyMuted.copyWith(
                           fontSize: 11,
                           height: 1.5,

@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../app/core/content/content_sync.dart';
 import '../../../app/core/providers.dart';
+import '../../profile/application/profile_providers.dart';
 import '../data/groq_hadi_provider.dart';
 import '../data/offline_hadi_provider.dart';
 import 'hadi_provider.dart';
@@ -68,10 +69,75 @@ class HadiController extends Notifier<HadiState> {
   final navigationEvents = StreamController<String>.broadcast();
   static const String _keyPref = 'ar.hadi.apikey';
   static const String _providerPref = 'ar.hadi.provider';
+  static const String _threadPref = 'ar.hadi.thread';
+  static const String _memoryPref = 'ar.hadi.memory';
 
   @override
   HadiState build() {
-    return HadiState(
+    List<HadiMessage> messages = const <HadiMessage>[
+      HadiMessage(fromHadi: true, text: kHadiGreeting),
+    ];
+    try {
+      final SharedPreferences prefs = ref.watch(sharedPreferencesProvider);
+      final String? raw = prefs.getString(_threadPref);
+      if (raw != null && raw.isNotEmpty) {
+        final List<dynamic> decoded = json.decode(raw) as List<dynamic>;
+        final List<HadiMessage> restored = <HadiMessage>[
+          for (final dynamic e in decoded)
+            HadiMessage(
+              fromHadi: (e as Map)['fromHadi'] as bool,
+              text: e['text'] as String,
+            ),
+        ];
+        if (restored.length > 1) {
+          String topic = '';
+          for (final HadiMessage m in restored.reversed) {
+            if (!m.fromHadi) {
+              topic = m.text.split(' ').take(8).join(' ');
+              break;
+            }
+          }
+          messages = <HadiMessage>[
+            ...restored,
+            HadiMessage(
+              fromHadi: true,
+              text: topic.isEmpty
+                  ? 'Welcome back. Where shall we continue?'
+                  : 'Welcome back. Last time we spoke about "$topic". '
+                      'How is it going?',
+            ),
+          ];
+        } else if (restored.isNotEmpty) {
+          messages = restored;
+        }
+      }
+    } catch (_) {}
+    return HadiState(messages: messages, live: _apiKey != null);
+  }
+
+  void _persistThread(List<HadiMessage> messages) {
+    try {
+      final SharedPreferences prefs = ref.read(sharedPreferencesProvider);
+      final List<HadiMessage> tail = messages.length > 20
+          ? messages.sublist(messages.length - 20)
+          : messages;
+      prefs.setString(
+        _threadPref,
+        json.encode(<Map<String, dynamic>>[
+          for (final HadiMessage m in tail)
+            <String, dynamic>{'fromHadi': m.fromHadi, 'text': m.text},
+        ]),
+      );
+    } catch (_) {}
+  }
+
+  /// Fresh conversation: wipe the persisted thread and start over.
+  Future<void> clearThread() async {
+    try {
+      final SharedPreferences prefs = ref.read(sharedPreferencesProvider);
+      await prefs.remove(_threadPref);
+    } catch (_) {}
+    state = HadiState(
       messages: const <HadiMessage>[
         HadiMessage(fromHadi: true, text: kHadiGreeting),
       ],
@@ -173,9 +239,23 @@ class HadiController extends Notifier<HadiState> {
     try {
       final tocDigest = await _toc();
       if (tocDigest.isNotEmpty) {
+        // Opt-in memory: only what the user deliberately enabled, and only
+        // the name — nothing else leaves the device.
+        String memoryContext = '';
+        try {
+          final SharedPreferences prefs = ref.read(sharedPreferencesProvider);
+          if (prefs.getBool(_memoryPref) == true) {
+            final profile = await ref.read(userProfileProvider.future);
+            final String? name = profile?.displayName;
+            if (name != null && name.trim().isNotEmpty) {
+              memoryContext = 'The user chose to share their name with you: '
+                  '${name.trim()}. Use it once per answer, naturally.\n';
+            }
+          }
+        } catch (_) {}
         question = 'The app\u2019s table of contents (so you can answer about '
             'what the app CONTAINS, e.g. which stories or guides exist — never '
-            'claim to know the user\u2019s private data):\n$tocDigest\n\n'
+            'claim to know the user\u2019s private data):\n$tocDigest\n$memoryContext\n'
             'User\u2019s question: $question';
       }
       answer = await p.ask(q, state.messages);
@@ -199,6 +279,7 @@ class HadiController extends Notifier<HadiState> {
       ],
       typing: false,
     );
+    _persistThread(state.messages);
     // Hadi's hands: a [GO:/path] token means "take the user there".
     final nav = RegExp(r'\[GO:(/[a-z0-9\-/:]+)\]').firstMatch(answer);
     if (nav != null) {

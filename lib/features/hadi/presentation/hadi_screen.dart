@@ -248,6 +248,46 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                   ),
                   const SizedBox(width: 12),
                   _HeaderIcon(
+                    icon: Icons.restart_alt,
+                    onTap: () async {
+                      final bool? ok = await showDialog<bool>(
+                        context: context,
+                        builder: (ctx) => AlertDialog(
+                          backgroundColor: AppColors.night,
+                          title: Text('New conversation?',
+                              style: AppText.body.copyWith(
+                                  color: AppColors.goldLight)),
+                          content: Text(
+                            'Hādi will forget this conversation on this '
+                            'device and we will start fresh.',
+                            style: AppText.bodyMuted,
+                          ),
+                          actions: [
+                            TextButton(
+                              onPressed: () => Navigator.of(ctx).pop(false),
+                              child: Text('Cancel',
+                                  style: AppText.bodyMuted),
+                            ),
+                            ElevatedButton(
+                              onPressed: () => Navigator.of(ctx).pop(true),
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: AppColors.gold,
+                                foregroundColor: AppColors.night,
+                              ),
+                              child: const Text('Start fresh'),
+                            ),
+                          ],
+                        ),
+                      );
+                      if (ok == true) {
+                        await ref
+                            .read(hadiControllerProvider.notifier)
+                            .clearThread();
+                      }
+                    },
+                  ),
+                  const SizedBox(width: 8),
+                  _HeaderIcon(
                     icon: Icons.key_outlined,
                     onTap: _openKeySheet,
                   ),
