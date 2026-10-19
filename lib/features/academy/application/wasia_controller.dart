@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../hadi/application/hadi_provider.dart';
 import '../../hadi/data/groq_hadi_provider.dart';
 import '../../hadi/data/offline_hadi_provider.dart';
+import '../data/offline_wasia_provider.dart';
 
 enum WasiaPersona { student, parent, teacher }
 
@@ -91,15 +92,16 @@ class WasiaController extends StateNotifier<WasiaState> {
       int? examsTaken}) async {
     final q = question.trim();
     if (q.isEmpty || state.isLoading) return '';
-    // Keyless: Wasia still teaches from the curated offline shelf — the same
-    // honest knowledge base Hadi falls back to. She never invents what she
-    // does not know; the decline itself points to Hadi settings.
+    // Keyless: Wasia teaches from her OWN curated shelf — the Academy
+    // curriculum (letters, units, exams, parent FAQ). She never borrows
+    // Hadi's religious shelf for a child's letter question, and never
+    // invents what she does not know.
     final k = await _key();
     if (k == null) {
-      // Wasia doesn't navigate: strip any [GO:] token from the shared
-      // offline shelf so her thread stays clean.
+      // Wasia's own shelf — the Academy curriculum, not Hadi's. She
+      // doesn't navigate: strip any [GO:] token so her thread stays clean.
       var offline =
-          await const OfflineHadiProvider().ask(q, state.messages);
+          await const OfflineWasiaProvider().ask(q, state.messages);
       offline = offline.replaceAll(RegExp(r'\[GO:[^\]]+\]'), '').trim();
       state = state.copy(
         messages: <HadiMessage>[
