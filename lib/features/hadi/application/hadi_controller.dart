@@ -71,6 +71,7 @@ class HadiController extends Notifier<HadiState> {
   static const String _providerPref = 'ar.hadi.provider';
   static const String _threadPref = 'ar.hadi.thread';
   static const String _memoryPref = 'ar.hadi.memory';
+  static const String _seedPref = 'ar.hadi.seed';
 
   @override
   HadiState build() {
@@ -110,6 +111,13 @@ class HadiController extends Notifier<HadiState> {
         } else if (restored.isNotEmpty) {
           messages = restored;
         }
+      }
+      // Feelings bridge: a feeling sent from For Your Heart arrives here.
+      // Consume exactly once, then let Hadi answer it like any question.
+      final String? seed = prefs.getString(_seedPref);
+      if (seed != null && seed.isNotEmpty) {
+        prefs.remove(_seedPref); // fire-and-forget: sync build() cannot await
+        Future<void>.microtask(() => ask(seed));
       }
     } catch (_) {}
     return HadiState(messages: messages, live: _apiKey != null);

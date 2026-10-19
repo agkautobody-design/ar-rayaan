@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../app/core/content/content_sync.dart';
@@ -193,6 +194,42 @@ class FeelingScreen extends ConsumerWidget {
                       style: AppText.bodyMuted.copyWith(fontSize: 10.5),
                     ),
                   ],
+                ),
+              ),
+              const SizedBox(height: 20),
+              GestureDetector(
+                onTap: () async {
+                  final SharedPreferences prefs =
+                      await SharedPreferences.getInstance();
+                  await prefs.setString(
+                    'ar.hadi.seed',
+                    'I came from For Your Heart — I am feeling ${f.feeling}. '
+                    'Can you walk with me?',
+                  );
+                  if (context.mounted) context.go(AppRoutes.hadi);
+                },
+                child: Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.symmetric(vertical: 14),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16),
+                    border: Border.all(
+                      color: AppColors.gold.withValues(alpha: 0.5),
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(Icons.favorite_outline,
+                          size: 18, color: AppColors.gold),
+                      const SizedBox(width: 10),
+                      Text(
+                        'Tell Hādi how you feel',
+                        style: AppText.body
+                            .copyWith(color: AppColors.gold, fontSize: 14),
+                      ),
+                    ],
+                  ),
                 ),
               ),
               const SizedBox(height: 20),
