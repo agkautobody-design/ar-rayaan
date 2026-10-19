@@ -14,20 +14,58 @@ class OfflineHadiProvider implements HadiProvider {
       'Sources), or a qualified local scholar. Add a free API key in Hādi '
       'settings and I can reason further.';
 
+  /// Normalizes a question: lowercase, punctuation becomes spaces,
+  /// apostrophes/diacritic marks removed ("du'a" -> "dua"), collapsed.
+  static String _norm(String s) {
+    final String lower = s.toLowerCase();
+    final StringBuffer buf = StringBuffer();
+    int run = 0;
+    for (final int c in lower.codeUnits) {
+      final bool keep = (c >= 97 && c <= 122) || (c >= 48 && c <= 57) || c > 127;
+      if (keep) {
+        buf.writeCharCode(c);
+        run++;
+      } else if (run > 0) {
+        buf.write(' ');
+        run = 0;
+      }
+    }
+    return ' ${buf.toString().trim()} ';
+  }
+
   @override
   Future<String> ask(String question, List<HadiMessage> history) async {
-    final String q = question.toLowerCase();
+    final String q = _norm(question);
     int bestScore = 0;
+    int secondScore = 0;
     String bestAnswer = decline;
+    String secondAnswer = decline;
     for (final _Entry e in _knowledge) {
       int score = 0;
       for (final String k in e.keywords) {
-        if (q.contains(k)) score += k.length; // longer match = more specific
+        final String nk = _norm(k).trim();
+        if (nk.isEmpty) continue;
+        if (q.contains(nk)) score += nk.length; // longer match = more specific
       }
       if (score > bestScore) {
+        secondScore = bestScore;
+        secondAnswer = bestAnswer;
         bestScore = score;
         bestAnswer = e.answer;
+      } else if (score > secondScore && e.answer != bestAnswer) {
+        secondScore = score;
+        secondAnswer = e.answer;
       }
+    }
+    if (bestScore == 0) return decline;
+    // Near-tie: two plausible readings and the winner is weak — say so
+    // honestly instead of answering with false confidence.
+    if (secondScore > 0 &&
+        secondScore * 2 > bestScore &&
+        bestScore < 10 &&
+        secondAnswer != bestAnswer) {
+      return 'Perhaps you meant this?\n\n$bestAnswer\n\n'
+          'If I read your question wrong, rephrase it and I will try again.';
     }
     return bestAnswer;
   }
@@ -71,7 +109,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'you recite.',
   ),
   _Entry(
-    <String>['ramadan', 'fasting', 'fast', 'sawm', 'suhoor', 'iftar'],
+    <String>['ramadan', 'fasting', 'fast', 'sawm', 'siyam', 'roza', 'suhoor', 'iftar'],
     'Fasting Ramadan is the fourth pillar of Islam (Qur\'an 2:183-185). '
     '“Whoever fasts Ramadan out of faith and hope for reward, his past '
     'sins are forgiven.” (Sahih al-Bukhari 38). Take suhoor — “in suhoor '
@@ -79,7 +117,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'screen for this year\'s dates.',
   ),
   _Entry(
-    <String>['zakat', 'charity', 'sadaqah'],
+    <String>['zakat', 'charity', 'sadaqah', 'almsgiving'],
     'Zakat is the third pillar — 2.5% of qualifying wealth held a lunar '
     'year above the nisab. “Whoever pays it seeking reward…” (Sahih '
     'al-Bukhari 1395). The Zakat screen in Ar-Rayaan calculates it for '
@@ -92,7 +130,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'any prayer to be alerted when its time arrives.',
   ),
   _Entry(
-    <String>['how do i pray', 'how to pray', 'salah', 'pray witr'],
+    <String>['how do i pray', 'how to pray', 'salah', 'salaat', 'namaz', 'pray witr'],
     'Prayer is the second pillar. “Pray as you have seen me pray.” '
     '(Sahih al-Bukhari 631). Five daily prayers are obligatory; the '
     'Prophet\'s ﷺ complete method is recorded across the six books — '
@@ -100,7 +138,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'beautifully, step by step.',
   ),
   _Entry(
-    <String>['quran', 'qur\'an', 'recite', 'recitation'],
+    <String>['quran', 'qur\'an', 'koran', 'recite', 'recitation'],
     'The Qur\'an screen holds all 114 surahs — tap any ayah to hear '
     'recitation by Shaykh Mishary Rashid Alafasy. “The best of you are '
     'those who learn the Qur\'an and teach it.” (Sahih al-Bukhari 5027).',
@@ -318,7 +356,7 @@ const List<_Entry> _knowledge = <_Entry>[
 
   // ── Knowledge packs ─────────────────────────────────────────────────
   _Entry(
-    <String>['shahada', 'testimony', 'declaration of faith'],
+    <String>['shahada', 'shahadah', 'kalima', 'testimony', 'declaration of faith'],
     'The testimony: "La ilaha illallah, Muhammadur rasulullah" - '
     'there is no god worthy of worship but Allah, and Muhammad is '
     'the Messenger of Allah. The first pillar; on it everything '
@@ -2505,5 +2543,17 @@ const List<_Entry> _knowledge = <_Entry>[
     'Prophet ﷺ. It is a major sin to fabricate hadith. The Prophet ﷺ said: '
     '"Whoever lies about me intentionally, let him take his seat in the '
     'Fire." (Sahih al-Bukhari 106, Sahih Muslim 3).',
+  ),
+  _Entry(
+    <String>['zina', 'adultery', 'fornication', 'boyfriend', 'girlfriend',
+        'relationship before marriage', 'haram relationship', 'talking to a girl',
+        'talking to a boy'],
+    'Allah says: “And do not approach unlawful sexual intercourse (zina) — '
+    'indeed, it is immorality and an evil way.” (Qur’an 17:32). The verse '
+    'says do not even APPROACH it — so the early steps matter, not only the '
+    'last one. And for whatever has already happened, the door of return is '
+    'open: “Do not despair of the mercy of Allah — indeed, Allah forgives '
+    'all sins.” (Qur’an 39:53). For your specific situation, a trusted local '
+    'scholar can walk with you privately.',
   ),
 ];
