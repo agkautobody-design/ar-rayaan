@@ -43,6 +43,7 @@ import '../features/settings/presentation/settings_screen.dart';
 import '../features/share/presentation/share_screen.dart';
 import '../features/sources/presentation/sources_screen.dart';
 import '../features/stories/presentation/stories_screen.dart';
+import '../features/stories/presentation/new_muslim_path_screen.dart';
 import '../features/family/presentation/family_tree_screen.dart';
 import '../features/huda/presentation/huda_screens.dart';
 import '../features/elder/presentation/elder_care_screen.dart';
@@ -115,6 +116,7 @@ abstract final class AppRoutes {
   static const String familyTree = '/family-tree';
   static const String stories = '/stories';
   static const String storyReader = '/stories/read';
+  static const String newMuslimPath = '/new-muslim';
   static const String adhkar = '/adhkar';
   static const String qibla = '/qibla';
   static const String calendar = '/calendar';
@@ -324,6 +326,10 @@ GoRouter buildRouter({String initialLocation = '/'}) {
         GoRoute(
           path: AppRoutes.storyReader,
           pageBuilder: (context, state) => _fade(StoryReaderScreen(story: state.extra as Story)),
+        ),
+        GoRoute(
+          path: AppRoutes.newMuslimPath,
+          pageBuilder: (context, state) => _fade(const NewMuslimPathScreen()),
         ),
 
       // Auth flow (no bottom nav)
