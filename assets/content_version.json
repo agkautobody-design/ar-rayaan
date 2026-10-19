@@ -6,8 +6,8 @@
   "stories/ghayb.json": 1,
   "stories/signs.json": 1,
   "stories/tales.json": 1,
-  "stories/khutbahs.json": 2,
-  "stories/modernhadith.json": 6,
+  "stories/khutbahs.json": 3,
+  "stories/modernhadith.json": 7,
   "family/tree.json": 1,
   "guides/guides.json": 2,
   "games/trivia.json": 1,
@@ -16,5 +16,6 @@
   "stories/dailyduas.json": 4,
   "stories/newmuslim.json": 1,
   "share/cards.json": 1,
-  "finance/paper_market.json": 1
+  "finance/paper_market.json": 1,
+  "updated": "2026-10-19"
 }
