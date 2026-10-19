@@ -6,6 +6,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../../app/core/content/content_sync.dart';
 import '../../../app/core/providers.dart';
 import '../../profile/application/profile_providers.dart';
+import '../../stories/application/saved_stories_controller.dart';
+import '../../stories/data/stories_repository.dart';
+import '../../hadith/application/feeling_providers.dart';
+import '../../hadith/domain/daily_hadith.dart';
+import '../../../app/core/content/content_sync.dart';
 import '../../../app/core/subscription/subscription_service.dart';
 import '../data/groq_hadi_provider.dart';
 import '../data/offline_hadi_provider.dart';
@@ -64,6 +69,67 @@ class HadiController extends Notifier<HadiState> {
       _tocDigest = '';
       return '';
     }
+  }
+
+
+  /// Hadi's hands, level two: [DO:] tokens perform a small, reversible
+  /// app action the USER explicitly asked for. Whitelist of three —
+  /// nothing else is ever executed, and the token never reaches the UI.
+  Future<String> _executeActions(String answer) async {
+    final List<RegExpMatch> actions =
+        RegExp(r'\[DO:([a-z\-]+)(?::([^\]]+))?\]')
+            .allMatches(answer)
+            .toList();
+    if (actions.isEmpty) return answer;
+    final List<String> confirmations = <String>[];
+    for (final RegExpMatch m in actions) {
+      final String kind = m.group(1)!;
+      final String? arg = m.group(2);
+      try {
+        switch (kind) {
+          case 'bookmark':
+            if (arg != null) {
+              final List<Story> all =
+                  await ref.read(storiesProvider.future);
+              final bool exists = all.any((Story s) => s.id == arg);
+              if (exists) {
+                await ref.read(savedStoriesProvider.notifier).save(arg);
+                confirmations.add('Done — it is in your Bookmarks '
+                    '(My Journey).');
+              }
+            }
+          case 'save-hadith':
+            final DailyHadith hadith = ref.read(todaysHadithProvider);
+            await ref
+                .read(savedDailyHadithsProvider.notifier)
+                .toggle(hadith.text);
+            confirmations.add("Today's hadith is saved for you.");
+          case 'feeling':
+            if (arg != null) {
+              final List<dynamic> feelings =
+                  json.decode(await ContentSync.load('feelings/feelings.json'))
+                      as List<dynamic>;
+              final bool exists =
+                  feelings.any((dynamic e) => (e as Map)['id'] == arg);
+              if (exists) {
+                await ref
+                    .read(feelingCheckInProvider.notifier)
+                    .checkIn(arg);
+                confirmations.add('Done — I have checked you in.');
+              }
+            }
+        }
+      } catch (_) {}
+    }
+    String clean =
+        answer.replaceAll(RegExp(r'\s*\[DO:[^\]]+\]'), '').trim();
+    if (confirmations.isNotEmpty) {
+      clean = '$clean\n\n${confirmations.join(' ')}'.trim();
+    }
+    final List<HadiMessage> msgs = <HadiMessage>[...state.messages];
+    msgs[msgs.length - 1] = HadiMessage(fromHadi: true, text: clean);
+    state = state.copy(messages: msgs);
+    return clean;
   }
 
   /// Screen-jump requests extracted from Hadi's replies ([GO:/path] tokens).
@@ -318,6 +384,7 @@ class HadiController extends Notifier<HadiState> {
       typing: false,
     );
     if (quotaNote != null) answer = quotaNote + answer;
+    answer = await _executeActions(answer);
     _persistThread(state.messages);
     // Hadi's hands: a [GO:/path] token means "take the user there".
     final nav = RegExp(r'\[GO:(/[a-z0-9\-/:]+)\]').firstMatch(answer);
