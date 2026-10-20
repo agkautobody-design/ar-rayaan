@@ -200,6 +200,7 @@ void main() {
           theme: AppTheme.dark(),
           home: const FamilyTreeScreen(
             initiallyExpanded: <String>{
+              'ishaq',
               'yaqub',
               'maryam-line',
               'imran-maryam',
