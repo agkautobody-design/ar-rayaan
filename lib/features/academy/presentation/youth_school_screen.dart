@@ -54,12 +54,12 @@ const List<_YouthUnit> kYouthUnits = <_YouthUnit>[
     lessons: <_YouthLesson>[
       _YouthLesson(
         title: 'The Scroll That Eats the Hour',
-        body: 'The five prayers are five anchors a day; the feed is a current that pulls you under for hours. The Prophet \ufdfa warned about a time when a man\'s own family would be safer from him than a stranger (Bukhari 2082) — screens make strangers of us at our own dinner tables.',
+        body: 'The five prayers are five anchors a day; the feed is a current that pulls you under for hours. Screens can make strangers of us at our own dinner tables.',
         practice: 'One meal this week: no phone at the table. Everyone. See who speaks first.',
       ),
       _YouthLesson(
         title: 'The Feed Is Not Real',
-        body: 'You are comparing your inside to everyone else\'s outside. The filtered life is a storefront, not a home — and Allah looks at hearts (Bukhari 54), not likes. Imam Ghazali wrote nine hundred years ago about the dunya: it is like a dream; laugh a little, weep a little, and it is gone.',
+        body: 'You are comparing your inside to everyone else\'s outside. The filtered life is a storefront, not a home — and the Prophet \ufdfa said Allah does not look at your appearances or wealth but at your hearts and deeds (Muslim 2564), not likes. Imam Ghazali wrote nine hundred years ago about the dunya: it is like a dream; laugh a little, weep a little, and it is gone.',
         practice: 'Unfollow five accounts that make you feel small. Follow one that makes you want to pray.',
       ),
       _YouthLesson(
