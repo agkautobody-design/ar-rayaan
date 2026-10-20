@@ -259,6 +259,14 @@ class _AcademyHomeScreenState
                 live: true,
               ),
               _SchoolRow(
+                icon: Icons.home_outlined,
+                arabic: 'الأسرة',
+                title: AcademyStrings.get('school.family.title'),
+                subtitle: AcademyStrings.get('school.family.body'),
+                route: '/academy/family',
+                live: true,
+              ),
+              _SchoolRow(
                 icon: Icons.graphic_eq,
                 arabic: '\u0627\u0644\u062a\u0651\u064e\u0644\u064e\u0627\u0648\u064e\u0629',
                 title: AcademyStrings.get('school.recitation.title'),

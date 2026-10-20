@@ -139,6 +139,8 @@ abstract final class AcademyStrings {
       'school.stories.body': 'The library\u2019s stories as a moral curriculum — patience, courage, mercy, and gratitude, each with a family question.',
       'school.character.title': 'Character School',
       'school.character.body': 'The heart\u2019s traits — sincerity, patience, gratitude, and their enemies — each with one practice for today.',
+      'school.family.title': 'Family Life School',
+      'school.family.body': 'Marriage, children, and the home as a place of worship — mercy between you, the trust of children.',
       'academy.title': 'Al-Wasia Academy of Sacred Knowledge',
       'academy.comingSoon': 'Coming soon — insha’Allah',
       'academy.continue': 'Continue where you left off',
