@@ -10,6 +10,7 @@ import '../../../app/theme/widgets/icon_tile.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/speak_button.dart';
 import '../../../app/core/subscription/subscription_service.dart';
+import '../../../app/core/subscription/billing_gateway.dart';
 import '../../../app/core/providers.dart';
 import '../application/hadi_controller.dart';
 import '../application/hadi_provider.dart';
@@ -582,13 +583,19 @@ class _SubscriptionPanel extends ConsumerWidget {
           ),
           const SizedBox(height: 8),
           GestureDetector(
-            onTap: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text('Billing arrives with the subscription '
-                      'launch — your entitlement will restore here.'),
-                ),
-              );
+            onTap: () async {
+              final gateway = ref.read(billingGatewayProvider);
+              final BillingResult result = await gateway.restore();
+              final String? error =
+                  await activateBillingResult(ref, result);
+              if (context.mounted) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(error ??
+                        'Subscription restored — ${result.tier} is active.'),
+                  ),
+                );
+              }
             },
             child: Text('Restore purchase →',
                 style: AppText.bodyMuted.copyWith(
