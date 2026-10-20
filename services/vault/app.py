@@ -76,18 +76,23 @@ def content(sub):
     origin = request.headers.get("Origin")
     if origin is not None and origin != _vault_origin:
         return jsonify(error="origin not allowed"), 403
-    if ".." in sub or not sub.startswith(_ALLOWED_PREFIXES):
+    # Match whole path segments ("quran" but not "quranX"); no traversal.
+    first = sub.split("/", 1)[0]
+    if ".." in sub or first not in _ALLOWED_PREFIXES:
         return jsonify(error="path not allowed"), 404
-    upstream = requests.get(
-        QF_CONTENT + sub,
-        params={k: v for k, v in request.args.items()},
-        headers={
-            "x-auth-token": _token(),
-            "x-client-id": _client_id,
-            "Accept": "application/json",
-        },
-        timeout=30,
-    )
+    try:
+        upstream = requests.get(
+            QF_CONTENT + sub,
+            params={k: v for k, v in request.args.items()},
+            headers={
+                "x-auth-token": _token(),
+                "x-client-id": _client_id,
+                "Accept": "application/json",
+            },
+            timeout=30,
+        )
+    except requests.RequestException:
+        return jsonify(error="upstream unavailable"), 502
     return Response(
         upstream.content,
         status=upstream.status_code,
