@@ -1225,4 +1225,213 @@ AcademyLesson? findLesson(String courseId, String unitId, String lessonId) {
       ),
       ],
     ),
+    AcademyCourse(
+      id: 'womens',
+      titleKey: 'course.womens.title',
+      subtitleKey: 'course.womens.subtitle',
+      units: <AcademyUnit>[
+      AcademyUnit(
+        id: 'wmns.u1',
+        courseId: 'womens',
+        titleKey: 'wmns.u1.title',
+        subtitleKey: 'wmns.u1.subtitle',
+        lessons: <AcademyLesson>[
+          AcademyLesson(
+            id: 'wmns.u1.l1',
+            unitId: 'wmns.u1',
+            courseId: 'womens',
+            titleKey: 'wmns.u1.l1.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'wmns.u1.l1.s1.title', bodyKey: 'wmns.u1.l1.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'wmns.u1.l1.s2.title', bodyKey: 'wmns.u1.l1.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'wmns.u1.l2',
+            unitId: 'wmns.u1',
+            courseId: 'womens',
+            titleKey: 'wmns.u1.l2.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'wmns.u1.l2.s1.title', bodyKey: 'wmns.u1.l2.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'wmns.u1.l2.s2.title', bodyKey: 'wmns.u1.l2.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'wmns.u1.l3',
+            unitId: 'wmns.u1',
+            courseId: 'womens',
+            titleKey: 'wmns.u1.l3.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'wmns.u1.l3.s1.title', bodyKey: 'wmns.u1.l3.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'wmns.u1.l3.s2.title', bodyKey: 'wmns.u1.l3.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'wmns.u1.l4',
+            unitId: 'wmns.u1',
+            courseId: 'womens',
+            titleKey: 'wmns.u1.l4.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'wmns.u1.l4.s1.title', bodyKey: 'wmns.u1.l4.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'wmns.u1.l4.s2.title', bodyKey: 'wmns.u1.l4.s2.body'),
+            ],
+          ),
+        ],
+      ),
+      AcademyUnit(
+        id: 'wmns.u2',
+        courseId: 'womens',
+        titleKey: 'wmns.u2.title',
+        subtitleKey: 'wmns.u2.subtitle',
+        lessons: <AcademyLesson>[
+          AcademyLesson(
+            id: 'wmns.u2.l1',
+            unitId: 'wmns.u2',
+            courseId: 'womens',
+            titleKey: 'wmns.u2.l1.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'wmns.u2.l1.s1.title', bodyKey: 'wmns.u2.l1.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'wmns.u2.l1.s2.title', bodyKey: 'wmns.u2.l1.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'wmns.u2.l2',
+            unitId: 'wmns.u2',
+            courseId: 'womens',
+            titleKey: 'wmns.u2.l2.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'wmns.u2.l2.s1.title', bodyKey: 'wmns.u2.l2.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'wmns.u2.l2.s2.title', bodyKey: 'wmns.u2.l2.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'wmns.u2.l3',
+            unitId: 'wmns.u2',
+            courseId: 'womens',
+            titleKey: 'wmns.u2.l3.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'wmns.u2.l3.s1.title', bodyKey: 'wmns.u2.l3.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'wmns.u2.l3.s2.title', bodyKey: 'wmns.u2.l3.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'wmns.u2.l4',
+            unitId: 'wmns.u2',
+            courseId: 'womens',
+            titleKey: 'wmns.u2.l4.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'wmns.u2.l4.s1.title', bodyKey: 'wmns.u2.l4.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'wmns.u2.l4.s2.title', bodyKey: 'wmns.u2.l4.s2.body'),
+            ],
+          ),
+        ],
+      ),
+      AcademyUnit(
+        id: 'wmns.u3',
+        courseId: 'womens',
+        titleKey: 'wmns.u3.title',
+        subtitleKey: 'wmns.u3.subtitle',
+        lessons: <AcademyLesson>[
+          AcademyLesson(
+            id: 'wmns.u3.l1',
+            unitId: 'wmns.u3',
+            courseId: 'womens',
+            titleKey: 'wmns.u3.l1.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'wmns.u3.l1.s1.title', bodyKey: 'wmns.u3.l1.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'wmns.u3.l1.s2.title', bodyKey: 'wmns.u3.l1.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'wmns.u3.l2',
+            unitId: 'wmns.u3',
+            courseId: 'womens',
+            titleKey: 'wmns.u3.l2.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'wmns.u3.l2.s1.title', bodyKey: 'wmns.u3.l2.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'wmns.u3.l2.s2.title', bodyKey: 'wmns.u3.l2.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'wmns.u3.l3',
+            unitId: 'wmns.u3',
+            courseId: 'womens',
+            titleKey: 'wmns.u3.l3.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'wmns.u3.l3.s1.title', bodyKey: 'wmns.u3.l3.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'wmns.u3.l3.s2.title', bodyKey: 'wmns.u3.l3.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'wmns.u3.l4',
+            unitId: 'wmns.u3',
+            courseId: 'womens',
+            titleKey: 'wmns.u3.l4.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'wmns.u3.l4.s1.title', bodyKey: 'wmns.u3.l4.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'wmns.u3.l4.s2.title', bodyKey: 'wmns.u3.l4.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'wmns.u3.l5',
+            unitId: 'wmns.u3',
+            courseId: 'womens',
+            titleKey: 'wmns.u3.l5.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'wmns.u3.l5.s1.title', bodyKey: 'wmns.u3.l5.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'wmns.u3.l5.s2.title', bodyKey: 'wmns.u3.l5.s2.body'),
+            ],
+          ),
+        ],
+      ),
+      AcademyUnit(
+        id: 'wmns.u4',
+        courseId: 'womens',
+        titleKey: 'wmns.u4.title',
+        subtitleKey: 'wmns.u4.subtitle',
+        lessons: <AcademyLesson>[
+          AcademyLesson(
+            id: 'wmns.u4.l1',
+            unitId: 'wmns.u4',
+            courseId: 'womens',
+            titleKey: 'wmns.u4.l1.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'wmns.u4.l1.s1.title', bodyKey: 'wmns.u4.l1.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'wmns.u4.l1.s2.title', bodyKey: 'wmns.u4.l1.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'wmns.u4.l2',
+            unitId: 'wmns.u4',
+            courseId: 'womens',
+            titleKey: 'wmns.u4.l2.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'wmns.u4.l2.s1.title', bodyKey: 'wmns.u4.l2.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'wmns.u4.l2.s2.title', bodyKey: 'wmns.u4.l2.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'wmns.u4.l3',
+            unitId: 'wmns.u4',
+            courseId: 'womens',
+            titleKey: 'wmns.u4.l3.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'wmns.u4.l3.s1.title', bodyKey: 'wmns.u4.l3.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'wmns.u4.l3.s2.title', bodyKey: 'wmns.u4.l3.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'wmns.u4.l4',
+            unitId: 'wmns.u4',
+            courseId: 'womens',
+            titleKey: 'wmns.u4.l4.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'wmns.u4.l4.s1.title', bodyKey: 'wmns.u4.l4.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'wmns.u4.l4.s2.title', bodyKey: 'wmns.u4.l4.s2.body'),
+            ],
+          ),
+        ],
+      ),
+      ],
+    ),
 
