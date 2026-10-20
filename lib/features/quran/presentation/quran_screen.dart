@@ -7,7 +7,10 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 import '../application/quran_providers.dart';
+import '../domain/quran_texts.dart';
 import '../domain/quran_models.dart';
 
 /// Qur'an index — all 114 surahs + Continue Reading banner.
@@ -43,6 +46,35 @@ class QuranScreen extends ConsumerWidget {
                       _ContinueBanner(position: position, surahs: surahs),
                       const SizedBox(height: 16),
                     ],
+                    Semantics(
+                      button: true,
+                      label: 'My bookmarks, collections and notes',
+                      child: GlassCard(
+                        onTap: () => context.push(AppRoutes.quranBookmarks),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 14,
+                        ),
+                        child: Row(
+                          children: <Widget>[
+                            const Icon(Icons.bookmarks_outlined,
+                                color: AppColors.gold, size: 22),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: Text(
+                                'Bookmarks, collections & notes',
+                                style: AppText.body
+                                    .copyWith(fontWeight: FontWeight.w600),
+                              ),
+                            ),
+                            Icon(Icons.chevron_right,
+                                size: 18,
+                                color: AppColors.gold.withValues(alpha: 0.6)),
+                          ],
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 16),
                     GlassCard(
                       padding: EdgeInsets.zero,
                       child: ListView.separated(
@@ -58,19 +90,50 @@ class QuranScreen extends ConsumerWidget {
                       ),
                     ),
                     const SizedBox(height: 24),
-                    Text(
-                      'ARABIC: TANZIL · TRANSLATION: SAHEEH INTERNATIONAL',
-                      style: AppText.eyebrow.copyWith(
-                        fontSize: 8,
-                        color: AppColors.gold.withValues(alpha: 0.4),
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
+                    const _TextCredit(),
                   ],
                 ),
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+/// Credit and link for the two bundled texts (Tanzil requires its source to
+/// be named and linked).
+class _TextCredit extends ConsumerWidget {
+  const _TextCredit();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final QuranTexts texts =
+        ref.watch(quranTextsProvider).value ?? QuranTexts.fallback;
+    return Semantics(
+      link: true,
+      label: 'Arabic text and translation source: Tanzil.net',
+      child: InkWell(
+        onTap: () async {
+          try {
+            await launchUrl(
+              Uri.parse(texts.arabic.url),
+              mode: LaunchMode.externalApplication,
+            );
+          } catch (_) {}
+        },
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(minHeight: 48),
+          child: Center(
+            child: Text(
+              'Arabic: Tanzil Uthmani · Translation: Saheeh International, '
+              'via Tanzil.net',
+              style: AppText.caption
+                  .copyWith(decoration: TextDecoration.underline),
+              textAlign: TextAlign.center,
+            ),
+          ),
         ),
       ),
     );
@@ -113,7 +176,7 @@ class _ContinueBanner extends StatelessWidget {
               children: [
                 Text(
                   'CONTINUE READING',
-                  style: AppText.eyebrow.copyWith(fontSize: 8),
+                  style: AppText.eyebrow.copyWith(fontSize: 12),
                 ),
                 const SizedBox(height: 4),
                 Text(
@@ -181,7 +244,7 @@ class _SurahRow extends StatelessWidget {
                     ),
                     Text(
                       '${meta.englishMeaning} · ${meta.isMeccan ? 'Meccan' : 'Medinan'} · ${meta.ayahCount} ayahs',
-                      style: AppText.bodyMuted.copyWith(fontSize: 11),
+                      style: AppText.bodyMuted.copyWith(fontSize: 12),
                       overflow: TextOverflow.ellipsis,
                     ),
                   ],

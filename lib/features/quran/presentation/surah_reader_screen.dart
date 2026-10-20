@@ -6,17 +6,22 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../academy/application/academy_providers.dart';
-import '../../academy/application/recitation_player_provider.dart';
 import '../../academy/presentation/verse_range_player_bar.dart';
 
 import '../../../app/core/sound/sound_services.dart';
+import 'package:url_launcher/url_launcher.dart';
+import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../application/quran_marks_controller.dart';
 import '../application/quran_providers.dart';
+import '../domain/quran_marks.dart';
 import '../domain/quran_models.dart';
+import '../domain/quran_texts.dart';
+import 'ayah_actions_sheet.dart';
 
 /// Surah reader — Arabic (Amiri) with gold ayah medallions + translation.
 /// Tapping an ayah saves the Continue-Reading position.
@@ -94,6 +99,7 @@ class _SurahReaderScreenState extends ConsumerState<SurahReaderScreen> {
               data: (Surah s) => ScreenHeader(title: s.meta.transliteration),
               orElse: () => const ScreenHeader(title: 'Qur\'an'),
             ),
+            const _ReaderToolbar(),
             // Madinah page mode — visible only when the checksum-verified
             // layout pack has shipped (provider returns null otherwise).
             Consumer(
@@ -246,6 +252,7 @@ class _ReaderState extends ConsumerState<_Reader> {
     final bool showBismillah = surah.meta.number != 1 && surah.meta.number != 9;
     final ReadingPosition? position = ref.watch(readingPositionProvider);
     final int n = surah.ayahs.length;
+    final double arabicSize = ref.watch(arabicSizeProvider);
 
     return ListView.builder(
       controller: _scroll,
@@ -259,17 +266,7 @@ class _ReaderState extends ConsumerState<_Reader> {
           );
         }
         if (index == n + 1) {
-          return Padding(
-            padding: const EdgeInsets.only(top: 24),
-            child: Text(
-              'TAP AN AYAH TO SAVE YOUR PLACE',
-              style: AppText.eyebrow.copyWith(
-                fontSize: 8,
-                color: AppColors.gold.withValues(alpha: 0.4),
-              ),
-              textAlign: TextAlign.center,
-            ),
-          );
+          return const _ReaderFooter();
         }
         final int i = index - 1;
         final Ayah ayah = surah.ayahs[i];
@@ -301,6 +298,8 @@ class _ReaderState extends ConsumerState<_Reader> {
                 child: _AyahBlock(
                   ayah: ayah,
                   surahNumber: surah.meta.number,
+                  surahName: surah.meta.transliteration,
+                  arabicSize: arabicSize,
                   isBookmarked: bookmarked,
                   onTap: () {
                     ref.read(readingPositionProvider.notifier).save(
@@ -336,7 +335,7 @@ class _ReaderState extends ConsumerState<_Reader> {
             '${surah.meta.englishMeaning} · '
             '${surah.meta.isMeccan ? 'Meccan' : 'Medinan'} · '
             '${surah.meta.ayahCount} ayahs',
-            style: AppText.bodyMuted.copyWith(fontSize: 11),
+            style: AppText.bodyMuted.copyWith(fontSize: 12),
             textAlign: TextAlign.center,
           ),
           if (showBismillah) ...[
@@ -360,16 +359,111 @@ class _ReaderState extends ConsumerState<_Reader> {
   }
 }
 
+class _ReaderToolbar extends ConsumerWidget {
+  const _ReaderToolbar();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final ArabicSizeController size = ref.read(arabicSizeProvider.notifier);
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 12),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          IconButton(
+            tooltip: 'Smaller Arabic text',
+            constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
+            onPressed: size.smaller,
+            icon: const Icon(Icons.text_decrease, color: AppColors.gold),
+          ),
+          IconButton(
+            tooltip: 'Larger Arabic text',
+            constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
+            onPressed: size.larger,
+            icon: const Icon(Icons.text_increase, color: AppColors.gold),
+          ),
+          IconButton(
+            tooltip: 'My bookmarks, collections and notes',
+            constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
+            onPressed: () => context.push(AppRoutes.quranBookmarks),
+            icon: const Icon(Icons.bookmarks_outlined, color: AppColors.gold),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// End of surah: how to save a place, and where the two texts come from
+/// (Tanzil asks for its source to be named and linked).
+class _ReaderFooter extends ConsumerWidget {
+  const _ReaderFooter();
+
+  Future<void> _open(String url) async {
+    try {
+      await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
+    } catch (_) {}
+  }
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final QuranTexts texts =
+        ref.watch(quranTextsProvider).value ?? QuranTexts.fallback;
+    return Padding(
+      padding: const EdgeInsets.only(top: 24),
+      child: Column(
+        children: <Widget>[
+          Text(
+            'TAP AN AYAH TO SAVE YOUR PLACE',
+            style: AppText.eyebrow.copyWith(
+              fontSize: 12,
+              color: AppColors.gold.withValues(alpha: 0.7),
+            ),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 12),
+          Semantics(
+            link: true,
+            label: 'Arabic text and translation source: Tanzil.net',
+            child: InkWell(
+              onTap: () => _open(texts.arabic.url),
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(minHeight: 48),
+                child: Center(
+                  child: Text(
+                    'Arabic: Tanzil Uthmani · Translation: Saheeh '
+                    'International, via Tanzil.net',
+                    style: AppText.caption.copyWith(
+                      decoration: TextDecoration.underline,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class _AyahBlock extends ConsumerWidget {
   const _AyahBlock({
     required this.ayah,
     required this.surahNumber,
+    required this.surahName,
+    required this.arabicSize,
     required this.isBookmarked,
     required this.onTap,
   });
 
   final Ayah ayah;
   final int surahNumber;
+  final String surahName;
+  final double arabicSize;
+
+  /// True for the saved reading place (Continue Reading), not a bookmark.
   final bool isBookmarked;
   final VoidCallback onTap;
 
@@ -388,75 +482,84 @@ class _AyahBlock extends ConsumerWidget {
         (RecitationState s) => s.surah == surahNumber && s.ayah == ayah.number,
       ),
     );
-    return InkWell(
-      onTap: onTap,
-      borderRadius: BorderRadius.circular(12),
-      child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 6),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
-          color: isBookmarked
-              ? AppColors.gold.withValues(alpha: 0.08)
-              : Colors.transparent,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            // Arabic with end-of-ayah medallion
-            RichText(
-              textAlign: TextAlign.right,
-              textDirection: TextDirection.rtl,
-              text: TextSpan(
-                style: AppText.arabicLarge.copyWith(fontSize: 21, height: 2.0),
-                children: [
-                  TextSpan(text: ayah.arabic),
-                  TextSpan(
-                    text: ' ﴿${SurahReaderScreen.toArabicIndic(ayah.number)}﴾',
-                    style: TextStyle(
-                      color: AppColors.gold.withValues(alpha: 0.9),
-                      fontSize: 17,
+    final AyahMark? mark = ref.watch(
+      quranMarksProvider.select(
+        (QuranMarks m) => m.of(surahNumber, ayah.number),
+      ),
+    );
+    final bool saved = mark?.bookmarked ?? false;
+    final bool hasNote = mark?.note.isNotEmpty ?? false;
+    return Semantics(
+      container: true,
+      label: 'Surah $surahName, ayah ${ayah.number}',
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(12),
+        child: Container(
+          padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 6),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
+            color: isBookmarked || playing
+                ? AppColors.gold.withValues(alpha: playing ? 0.14 : 0.08)
+                : Colors.transparent,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              // Arabic with end-of-ayah medallion
+              RichText(
+                textAlign: TextAlign.right,
+                textDirection: TextDirection.rtl,
+                text: TextSpan(
+                  style: AppText.arabicLarge
+                      .copyWith(fontSize: arabicSize, height: 2.0),
+                  children: [
+                    TextSpan(text: ayah.arabic),
+                    TextSpan(
+                      text:
+                          ' ﴿${SurahReaderScreen.toArabicIndic(ayah.number)}﴾',
+                      style: TextStyle(
+                        color: AppColors.gold.withValues(alpha: 0.9),
+                        fontSize: arabicSize * 0.8,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            if (_usable(tr)) ...[
-              const SizedBox(height: 4),
+              if (_usable(tr)) ...[
+                const SizedBox(height: 4),
+                Text(
+                  tr!,
+                  style: AppText.body.copyWith(
+                    fontSize: 12.5,
+                    height: 1.6,
+                    fontStyle: FontStyle.italic,
+                    color: const Color(0xFFCFBE92),
+                  ),
+                ),
+                const SizedBox(height: 6),
+              ] else
+                const SizedBox(height: 8),
               Text(
-                tr!,
-                style: AppText.body.copyWith(
-                  fontSize: 12.5,
-                  height: 1.6,
-                  fontStyle: FontStyle.italic,
-                  color: const Color(0xFFCFBE92),
-                ),
+                ayah.english,
+                style: AppText.bodyMuted.copyWith(fontSize: 13, height: 1.55),
               ),
-              const SizedBox(height: 6),
-            ] else
-              const SizedBox(height: 8),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
+              if (hasNote)
+                Padding(
+                  padding: const EdgeInsets.only(top: 6),
                   child: Text(
-                    ayah.english,
-                    style: AppText.bodyMuted.copyWith(
-                      fontSize: 12.5,
-                      height: 1.55,
-                    ),
+                    'Your note: ${mark!.note}',
+                    style: AppText.caption.copyWith(color: AppColors.gold),
                   ),
                 ),
-                SizedBox(
-                  width: 40,
-                  height: 40,
-                  child: IconButton(
-                    padding: EdgeInsets.zero,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  IconButton(
+                    constraints:
+                        const BoxConstraints(minWidth: 48, minHeight: 48),
                     tooltip: playing ? 'Stop' : 'Play this ayah',
                     onPressed: () async {
-                      // One voice at a time: silence the range player.
-                      await ref
-                          .read(recitationPlayerProvider.notifier)
-                          .stop();
                       await ref
                           .read(recitationServiceProvider.notifier)
                           .toggle(surahNumber, ayah.number);
@@ -465,25 +568,47 @@ class _AyahBlock extends ConsumerWidget {
                       playing
                           ? Icons.stop_circle_outlined
                           : Icons.play_circle_outline,
-                      size: 22,
+                      size: 24,
                       color: AppColors.gold.withValues(
-                        alpha: playing ? 1.0 : 0.55,
+                        alpha: playing ? 1.0 : 0.8,
                       ),
                     ),
                   ),
-                ),
-                if (isBookmarked)
-                  Padding(
-                    padding: const EdgeInsets.only(left: 4, top: 12),
-                    child: Icon(
-                      Icons.bookmark,
-                      size: 14,
+                  IconButton(
+                    constraints:
+                        const BoxConstraints(minWidth: 48, minHeight: 48),
+                    tooltip: saved ? 'Remove bookmark' : 'Bookmark this ayah',
+                    onPressed: () => ref
+                        .read(quranMarksProvider.notifier)
+                        .toggleBookmark(surahNumber, ayah.number),
+                    icon: Icon(
+                      saved ? Icons.bookmark : Icons.bookmark_border,
+                      size: 24,
+                      color: AppColors.gold.withValues(
+                        alpha: saved ? 1.0 : 0.8,
+                      ),
+                    ),
+                  ),
+                  IconButton(
+                    constraints:
+                        const BoxConstraints(minWidth: 48, minHeight: 48),
+                    tooltip: 'Note, collections and copy',
+                    onPressed: () => showAyahActions(
+                      context,
+                      surahName: surahName,
+                      surah: surahNumber,
+                      ayah: ayah,
+                    ),
+                    icon: Icon(
+                      hasNote ? Icons.edit_note : Icons.more_horiz,
+                      size: 24,
                       color: AppColors.gold.withValues(alpha: 0.8),
                     ),
                   ),
-              ],
-            ),
-          ],
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
