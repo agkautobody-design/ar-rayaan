@@ -1,0 +1,16 @@
+{
+ "schema": 1,
+ "subject": "sulayman",
+ "badge": "Not from the Qur’an",
+ "checked": "2026-10-20",
+ "items": [
+  {
+   "id": "sulayman-ring-tale",
+   "class": "contradicted",
+   "origin": "Jewish tradition, as reported in some tafsir books",
+   "claim": "A tale in which Satan takes Sulayman’s ring and rules in his place for forty days.",
+   "ruling": "Not told here. Ma’ariful Qur’an reports it as drawn only from Jewish narrations, rejects it as the meaning of 38:34, and quotes Ibn Kathir that the People of the Book, who deny Sulayman’s prophethood, forged such tales. It also finds no source for its details.",
+   "basis": "Ma’ariful Qur’an (English edition, read on Quran.com), on 38:34; Qur’an 2:102 (Sulayman did not disbelieve)"
+  }
+ ]
+}
