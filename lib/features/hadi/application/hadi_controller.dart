@@ -406,6 +406,7 @@ class HadiController extends Notifier<HadiState> {
         '/academy/review', '/academy/letters', '/academy/audio-packs',
         '/academy', '/academy/gate', '/academy/family', '/home/quick',
         '/new-muslim', '/academy/qa', '/academy/hisn', '/ramadan',
+        '/academy/ramadan-mode', '/academy/family-life', '/games/names99',
         '/academy/transactions', '/academy/end-of-life', '/academy/dawah',
         '/academy/health', '/academy/arabic-language', '/academy/aqeedah',
         '/academy/hadith', '/academy/seerah', '/academy/history',

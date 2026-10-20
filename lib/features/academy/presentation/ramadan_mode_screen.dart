@@ -140,7 +140,7 @@ class RamadanModeScreen extends ConsumerWidget {
                               trailing: const Icon(Icons.chevron_right,
                                   color: AppColors.gold),
                               onTap: () => context
-                                  .push('/guides/read', extra: fasting),
+                                  .push('/huda/guide', extra: fasting),
                             ),
                           ),
                         ),

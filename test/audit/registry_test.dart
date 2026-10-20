@@ -46,6 +46,9 @@ void main() {
       'quran': '/quran', 'qibla': '/qibla', 'notes': '/notes',
       'downloads': '/downloads', 'ramadan-mode': '/ramadan',
       'rayaan-stocks': '/finance/rayaan',
+      'new-muslim': '/new-muslim', 'verse-cards': '/share',
+      'hajj-umrah-pack': '/academy/hajj-umrah-pack',
+      'hisn': '/academy/hisn', 'qa-bank': '/academy/qa',
     };
     for (final m in modules) {
       final path = liveRoutes[m['id']];

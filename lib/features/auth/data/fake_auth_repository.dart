@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart' show kReleaseMode;
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../application/auth_repository.dart';
@@ -10,6 +11,18 @@ import '../application/auth_repository.dart';
 /// fully functional. Replaced by FirebaseAuthRepository when the Founder's
 /// Firebase config lands (O-4) — Firebase persists sessions natively.
 class FakeAuthRepository implements AuthRepository {
+  /// The demo repository must never pretend to sign anyone in on the live
+  /// site (any password worked, as "Ahmed"). Release builds only reach it
+  /// when Firebase failed to start, so say that plainly.
+  static void _refuseInRelease() {
+    if (kReleaseMode) {
+      throw const AuthException(
+        'Sign-in is unavailable right now. You can continue as a guest — '
+        'everything works on this device.',
+      );
+    }
+  }
+
   FakeAuthRepository([this._prefs]);
 
   final SharedPreferences? _prefs;
@@ -61,6 +74,7 @@ class FakeAuthRepository implements AuthRepository {
     required String email,
     required String password,
   }) async {
+    _refuseInRelease();
     await Future<void>.delayed(_latency);
     if (password.length < 6) {
       throw const AuthException('Incorrect email or password.');
@@ -74,6 +88,7 @@ class FakeAuthRepository implements AuthRepository {
     required String email,
     required String password,
   }) async {
+    _refuseInRelease();
     await Future<void>.delayed(_latency);
     if (password.length < 6) {
       throw const AuthException('Password must be at least 6 characters.');
@@ -83,6 +98,7 @@ class FakeAuthRepository implements AuthRepository {
 
   @override
   Future<AuthUser> signInWithGoogle() async {
+    _refuseInRelease();
     await Future<void>.delayed(_latency);
     return _establish(
       const AuthUser(
@@ -95,6 +111,7 @@ class FakeAuthRepository implements AuthRepository {
 
   @override
   Future<AuthUser> signInWithApple() async {
+    _refuseInRelease();
     await Future<void>.delayed(_latency);
     return _establish(
       const AuthUser(
@@ -107,6 +124,7 @@ class FakeAuthRepository implements AuthRepository {
 
   @override
   Future<void> sendPasswordReset({required String email}) async {
+    _refuseInRelease();
     await Future<void>.delayed(_latency);
   }
 

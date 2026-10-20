@@ -54,7 +54,7 @@ class ExploreScreen extends ConsumerWidget {
       'Family & Community',
       [
         (Icons.handshake_outlined, 'Marriage', AppRoutes.huda),
-        (Icons.child_care_outlined, 'Parenting', '/academy/family'),
+        (Icons.child_care_outlined, 'Parenting', '/academy/family-life'),
         (Icons.home_outlined, 'Family Life', AppRoutes.feelings),
         (Icons.people_outline, 'Community', AppRoutes.community),
         (Icons.favorite_outline, 'Elder Care', '/elder-care'),

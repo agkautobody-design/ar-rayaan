@@ -228,7 +228,7 @@ final List<AcademyCourse> kAcademyCourses = <AcademyCourse>[
             titleKey: 'path.u4.l4.title',
             steps: <AcademyStep>[
               const AcademyStep(kind: AcademyStepKind.text, titleKey: 'path.u4.l4.s1.title', bodyKey: 'path.u4.l4.s1.body'),
-              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'path.u4.l4.s2.title', bodyKey: 'path.u4.l4.s2.body', route: 'None'),
+              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'path.u4.l4.s2.title', bodyKey: 'path.u4.l4.s2.body'),
               const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'path.u4.l4.s3.title', bodyKey: 'path.u4.l4.s3.body'),
             ],
           ),
@@ -267,7 +267,7 @@ final List<AcademyCourse> kAcademyCourses = <AcademyCourse>[
             titleKey: 'path.u5.l2.title',
             steps: <AcademyStep>[
               const AcademyStep(kind: AcademyStepKind.text, titleKey: 'path.u5.l2.s1.title', bodyKey: 'path.u5.l2.s1.body'),
-              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'path.u5.l2.s2.title', bodyKey: 'path.u5.l2.s2.body', route: '/academy/the-path'),
+              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'path.u5.l2.s2.title', bodyKey: 'path.u5.l2.s2.body', route: '/huda'),
               const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'path.u5.l2.s3.title', bodyKey: 'path.u5.l2.s3.body'),
             ],
           ),
@@ -288,7 +288,7 @@ final List<AcademyCourse> kAcademyCourses = <AcademyCourse>[
             titleKey: 'path.u5.l4.title',
             steps: <AcademyStep>[
               const AcademyStep(kind: AcademyStepKind.text, titleKey: 'path.u5.l4.s1.title', bodyKey: 'path.u5.l4.s1.body'),
-              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'path.u5.l4.s2.title', bodyKey: 'path.u5.l4.s2.body', route: 'None'),
+              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'path.u5.l4.s2.title', bodyKey: 'path.u5.l4.s2.body'),
               const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'path.u5.l4.s3.title', bodyKey: 'path.u5.l4.s3.body'),
             ],
           ),
@@ -327,7 +327,7 @@ final List<AcademyCourse> kAcademyCourses = <AcademyCourse>[
             titleKey: 'path.u6.l2.title',
             steps: <AcademyStep>[
               const AcademyStep(kind: AcademyStepKind.text, titleKey: 'path.u6.l2.s1.title', bodyKey: 'path.u6.l2.s1.body'),
-              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'path.u6.l2.s2.title', bodyKey: 'path.u6.l2.s2.body', route: '/hajj-umrah'),
+              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'path.u6.l2.s2.title', bodyKey: 'path.u6.l2.s2.body', route: '/academy/hajj-umrah-pack'),
               const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'path.u6.l2.s3.title', bodyKey: 'path.u6.l2.s3.body'),
             ],
           ),
@@ -396,7 +396,7 @@ final List<AcademyCourse> kAcademyCourses = <AcademyCourse>[
             titleKey: 'path.u7.l4.title',
             steps: <AcademyStep>[
               const AcademyStep(kind: AcademyStepKind.text, titleKey: 'path.u7.l4.s1.title', bodyKey: 'path.u7.l4.s1.body'),
-              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'path.u7.l4.s2.title', bodyKey: 'path.u7.l4.s2.body', route: 'None'),
+              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'path.u7.l4.s2.title', bodyKey: 'path.u7.l4.s2.body'),
               const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'path.u7.l4.s3.title', bodyKey: 'path.u7.l4.s3.body'),
             ],
           ),
@@ -434,7 +434,7 @@ final List<AcademyCourse> kAcademyCourses = <AcademyCourse>[
             titleKey: 'path.u8.l2.title',
             steps: <AcademyStep>[
               const AcademyStep(kind: AcademyStepKind.text, titleKey: 'path.u8.l2.s1.title', bodyKey: 'path.u8.l2.s1.body'),
-              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'path.u8.l2.s2.title', bodyKey: 'path.u8.l2.s2.body', route: 'None'),
+              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'path.u8.l2.s2.title', bodyKey: 'path.u8.l2.s2.body'),
               const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'path.u8.l2.s3.title', bodyKey: 'path.u8.l2.s3.body'),
             ],
           ),
@@ -455,7 +455,7 @@ final List<AcademyCourse> kAcademyCourses = <AcademyCourse>[
             titleKey: 'path.u8.l4.title',
             steps: <AcademyStep>[
               const AcademyStep(kind: AcademyStepKind.text, titleKey: 'path.u8.l4.s1.title', bodyKey: 'path.u8.l4.s1.body'),
-              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'path.u8.l4.s2.title', bodyKey: 'path.u8.l4.s2.body', route: 'None'),
+              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'path.u8.l4.s2.title', bodyKey: 'path.u8.l4.s2.body'),
               const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'path.u8.l4.s3.title', bodyKey: 'path.u8.l4.s3.body'),
             ],
           ),
@@ -514,7 +514,7 @@ final List<AcademyCourse> kAcademyCourses = <AcademyCourse>[
             titleKey: 'path.u9.l4.title',
             steps: <AcademyStep>[
               const AcademyStep(kind: AcademyStepKind.text, titleKey: 'path.u9.l4.s1.title', bodyKey: 'path.u9.l4.s1.body'),
-              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'path.u9.l4.s2.title', bodyKey: 'path.u9.l4.s2.body', route: 'None'),
+              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'path.u9.l4.s2.title', bodyKey: 'path.u9.l4.s2.body'),
               const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'path.u9.l4.s3.title', bodyKey: 'path.u9.l4.s3.body'),
             ],
           ),

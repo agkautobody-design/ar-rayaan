@@ -309,10 +309,10 @@ class _AyahBlock extends ConsumerWidget {
                 ],
               ),
             ),
-            if (tr['${widget.surahNumber}:${ayah.number}'] != null) ...[
+            if (tr['$surahNumber:${ayah.number}'] != null) ...[
               const SizedBox(height: 4),
               Text(
-                tr['${widget.surahNumber}:${ayah.number}']!,
+                tr['$surahNumber:${ayah.number}']!,
                 style: AppText.body.copyWith(
                   fontSize: 12.5,
                   height: 1.6,

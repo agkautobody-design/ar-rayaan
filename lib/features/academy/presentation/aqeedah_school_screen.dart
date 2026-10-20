@@ -63,7 +63,7 @@ const List<_AqUnit> kAqeedahUnits = <_AqUnit>[
         body:
             "'And to Allah belong the most beautiful names, so call upon Him by them' (7:180). The 99 Names are not a list to recite dryly — they are His self-descriptions, each one an answer to a human need. Al-Rahman answers the afraid; Al-Wakeel answers the burdened.",
         source: "Qur'an 7:180",
-        actionRoute: '/names99',
+        actionRoute: '/games/names99',
         actionLabel: 'Meet them in the memory deck',
       ),
     ],

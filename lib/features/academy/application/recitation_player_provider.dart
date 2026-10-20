@@ -1,5 +1,4 @@
 /// Recitation player state — executes a [RecitationPlanEngine] plan.
-import 'package:flutter/foundation.dart' show kIsWeb;
 ///
 /// The audio backend is an interface so tests run silent: production
 /// wires [AudioplayersAyahPlayer], tests use a fake that completes
@@ -7,6 +6,8 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 library;
 
 import 'dart:io';
+
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:path_provider/path_provider.dart';

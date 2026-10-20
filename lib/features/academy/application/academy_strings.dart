@@ -203,7 +203,7 @@ abstract final class AcademyStrings {
       'aqid.u1.l3.title': 'The Attribute We Say Most',
       'aqid.u1.l4.s1.title': '\'And to Allah belong the most beautiful names, so call upon Him by them\' (7:180). The 99 Names are self-descriptions, each one an answer to a human need.',
       'aqid.u1.l4.s2.title': 'Meet them in the memory deck — open the 99 Names.',
-      'aqid.u1.l4.s2.body': '/names99',
+      'aqid.u1.l4.s2.body': '/games/names99',
       'aqid.u1.l4.title': 'His Are the Most Beautiful Names',
       'aqid.u1.title': 'Who Is Allah',
       'aqid.u1.subtitle': 'The names and attributes, from the Quran itself',

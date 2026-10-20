@@ -173,7 +173,7 @@ class HajjUmrahPackScreen extends ConsumerWidget {
                                 }
                                 return GestureDetector(
                                   onTap: () =>
-                                      context.push('/guides/read', extra: guide),
+                                      context.push('/huda/guide', extra: guide),
                                   child: Text('Open the guide \u2192',
                                       style: AppText.bodyMuted.copyWith(
                                           color: AppColors.gold, fontSize: 12)),

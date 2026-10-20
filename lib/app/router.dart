@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart' show kReleaseMode;
 import 'package:go_router/go_router.dart';
 
 import '../features/auth/presentation/login_screen.dart';
@@ -89,6 +90,11 @@ import '../features/quran/presentation/surah_reader_screen.dart';
 import 'theme/widgets/app_bottom_nav.dart';
 
 /// Application routes (GoRouter) — Master Build Sheet §5.
+/// Developer and founder tools are compiled into release builds only when
+/// explicitly requested (--dart-define=FOUNDER_TOOLS=true).
+const bool kFounderTools =
+    !kReleaseMode || bool.fromEnvironment('FOUNDER_TOOLS');
+
 abstract final class AppRoutes {
   static const String splash = '/';
   static const String onboarding = '/onboarding';
@@ -180,6 +186,8 @@ CustomTransitionPage<void> _fade(Widget child) {
 GoRouter buildRouter({String initialLocation = '/'}) {
   return GoRouter(
     initialLocation: initialLocation,
+    // Any unknown link lands somewhere useful instead of a red error page.
+    errorPageBuilder: (context, state) => _fade(const _NotFoundScreen()),
     routes: [
       // Onboarding flow (no bottom nav)
       GoRoute(
@@ -481,7 +489,7 @@ GoRouter buildRouter({String initialLocation = '/'}) {
         pageBuilder: (context, state) => _fade(const CharacterSchoolScreen()),
       ),
       GoRoute(
-        path: '/academy/family',
+        path: '/academy/family-life',
         pageBuilder: (context, state) => _fade(const FamilySchoolScreen()),
       ),
       GoRoute(
@@ -517,7 +525,7 @@ GoRouter buildRouter({String initialLocation = '/'}) {
         pageBuilder: (context, state) => _fade(const HajjUmrahPackScreen()),
       ),
       GoRoute(
-        path: '/ramadan',
+        path: '/academy/ramadan-mode',
         pageBuilder: (context, state) => _fade(const RamadanModeScreen()),
       ),
       GoRoute(
@@ -528,10 +536,13 @@ GoRouter buildRouter({String initialLocation = '/'}) {
         path: '/academy/dua',
         pageBuilder: (context, state) => _fade(const DuaSchoolScreen()),
       ),
-      GoRoute(
-        path: '/founder',
-        pageBuilder: (context, state) => _fade(const FounderConsoleScreen()),
-      ),
+      // Founder console and theme demo: debug builds, or a release built
+      // with --dart-define=FOUNDER_TOOLS=true. Never open to every visitor.
+      if (kFounderTools)
+        GoRoute(
+          path: '/founder',
+          pageBuilder: (context, state) => _fade(const FounderConsoleScreen()),
+        ),
       GoRoute(
         path: '/academy/audio-packs',
         pageBuilder: (context, state) => _fade(const AudioPacksScreen()),
@@ -588,10 +599,11 @@ GoRouter buildRouter({String initialLocation = '/'}) {
           ));
         },
       ),
-      GoRoute(
-        path: AppRoutes.themeDemo,
-        pageBuilder: (c, s) => _fade(const ThemeDemoScreen()),
-      ),
+      if (kFounderTools)
+        GoRoute(
+          path: AppRoutes.themeDemo,
+          pageBuilder: (c, s) => _fade(const ThemeDemoScreen()),
+        ),
 
       // Bottom-nav shell: Home · Faith · Family · Hādi · You
       StatefulShellRoute.indexedStack(
@@ -656,5 +668,30 @@ GoRouter buildRouter({String initialLocation = '/'}) {
   );
 }
 
+class _NotFoundScreen extends StatelessWidget {
+  const _NotFoundScreen();
 
-
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(32),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              const Text('This page is not here.',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 18)),
+              const SizedBox(height: 16),
+              FilledButton(
+                onPressed: () => context.go(AppRoutes.home),
+                child: const Text('Go home'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

@@ -263,7 +263,7 @@ class _AcademyHomeScreenState
                 arabic: 'الأسرة',
                 title: AcademyStrings.get('school.family.title'),
                 subtitle: AcademyStrings.get('school.family.body'),
-                route: '/academy/family',
+                route: '/academy/family-life',
                 live: true,
               ),
               _SchoolRow(
@@ -335,7 +335,7 @@ class _AcademyHomeScreenState
                 arabic: 'رمضان',
                 title: AcademyStrings.get('ramadan.title'),
                 subtitle: AcademyStrings.get('ramadan.body'),
-                route: '/ramadan',
+                route: '/academy/ramadan-mode',
                 live: true,
               ),
               _SchoolRow(
