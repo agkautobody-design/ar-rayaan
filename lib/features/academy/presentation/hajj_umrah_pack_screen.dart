@@ -165,7 +165,7 @@ class HajjUmrahPackScreen extends ConsumerWidget {
                                     .firstOrNull;
                                 if (guide == null) {
                                   return Text(
-                                    'Guide coming soon',
+                                    'Guide arrives with the next content wave',
                                     style: AppText.bodyMuted.copyWith(
                                         fontSize: 11,
                                         color: AppColors.gold),

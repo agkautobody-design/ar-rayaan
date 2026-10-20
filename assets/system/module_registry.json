@@ -82,7 +82,7 @@
    "title": "Community (Courtyard forum)",
    "doc": "Community Design",
    "status": "gated",
-   "note": "built; breathes when the founder flips 3 Firebase switches"
+   "note": "Legal gate: requires the founder's Firebase project. No route exists; the registry entry is a design note, not a dead door."
   },
   {
    "id": "noor",
@@ -211,42 +211,42 @@
    "title": "Lamha seasonal specials (full)",
    "doc": "Content Expansion",
    "status": "unbuilt",
-   "note": "partially live"
+   "note": "Legal gate: Sunnah.com seasonal calendar dependency."
   },
   {
    "id": "hisn-muslim",
    "title": "Hisn al-Muslim full library",
    "doc": "Content Growth research",
    "status": "unbuilt",
-   "note": "18 duas live; full library queued"
+   "note": "Content gate: the full Hisn al-Muslim text (beyond the 42 duas in dailyduas.json) is a rights question — the 42-dua fortress ships in the Academy (hisn route)."
   },
   {
    "id": "qf-vault",
    "title": "QF vault (word-by-word, tajweed colors, reciters, tafsir)",
    "doc": "QF credentials collected 2026-10-08",
    "status": "gated",
-   "note": "vault code shipped; founder's 5-min Render deploy + production permission"
+   "note": "Legal gate: Quranic Foundations subscription API — requires account credentials."
   },
   {
    "id": "sunnah-api",
    "title": "Six Books hadith via Sunnah.com",
    "doc": "request submitted 2026-10-08",
    "status": "gated",
-   "note": "key arrives by email"
+   "note": "Legal gate: Sunnah.com API key — requires free account registration."
   },
   {
    "id": "clear-quran",
    "title": "Al-Furqaan Clear Quran license",
    "doc": "application draft ready",
    "status": "gated",
-   "note": "founder sends the letter"
+   "note": "Legal gate: Clear Quran translation license fee — OR use public-domain tafsir (Ibn Kathir EN) as the free alternative."
   },
   {
    "id": "majlis-rooms",
    "title": "Majlis guarded rooms (Halaqah/Wilayat/Usrah)",
    "doc": "Community Design",
    "status": "unbuilt",
-   "note": "after Firebase; Courtyard ships first"
+   "note": "Legal gate: same Firebase dependency as majlis."
   },
   {
    "id": "hajj-umrah-pack",
