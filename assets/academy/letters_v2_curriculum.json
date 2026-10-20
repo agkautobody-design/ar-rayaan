@@ -1,0 +1,1084 @@
+{
+ "school": "letters",
+ "units": [
+  {
+   "id": "u5",
+   "title": "Unit 5 · Short and Long Vowels",
+   "exam": "u5-exam",
+   "lessons": [
+    {
+     "id": "letters-29",
+     "title": "Lesson 29: Fatha - the short 'a'",
+     "arabic": "َ",
+     "steps": [
+      {
+       "type": "teach",
+       "text": "Assalamu alaikum, my student. Letters are only half of reading. The other half is the small marks that tell your mouth which sound to make. The first is the fatha: a small slanted stroke above a letter. It gives the short sound 'a', as in 'cat'."
+      },
+      {
+       "type": "card",
+       "arabic": "بَ",
+       "translit": "ba",
+       "note": "Ba with a fatha on top: say 'ba'."
+      },
+      {
+       "type": "card",
+       "arabic": "تَ",
+       "translit": "ta",
+       "note": "Ta with a fatha: 'ta'."
+      },
+      {
+       "type": "card",
+       "arabic": "سَ",
+       "translit": "sa",
+       "note": "Seen with a fatha: 'sa'."
+      },
+      {
+       "type": "card",
+       "arabic": "خَلَقَ",
+       "translit": "khalaqa",
+       "note": "Seen in the Qur'an at 2:29. Every letter here carries a fatha, so each is read with 'a'.",
+       "ref": "2:29"
+      },
+      {
+       "type": "quiz",
+       "question": "How do you read the letter ك with a fatha above it?",
+       "options": [
+        "ka",
+        "ki",
+        "ku"
+       ],
+       "answer": 0,
+       "why": "A fatha above a letter gives the short 'a': ka."
+      },
+      {
+       "type": "quiz",
+       "question": "Where does the fatha sit?",
+       "options": [
+        "Above the letter",
+        "Below the letter",
+        "Inside the letter"
+       ],
+       "answer": 0,
+       "why": "The fatha is a small slanted stroke written above the letter."
+      },
+      {
+       "type": "teach",
+       "text": "Well walked. Come back to this lesson whenever it feels shaky - Wasia is proud of you."
+      }
+     ]
+    },
+    {
+     "id": "letters-30",
+     "title": "Lesson 30: Kasra - the short 'i'",
+     "arabic": "ِ",
+     "steps": [
+      {
+       "type": "teach",
+       "text": "Assalamu alaikum, my student. The second mark is the kasra: the same small slanted stroke, but written below the letter. It gives the short sound 'i', as in 'sit'."
+      },
+      {
+       "type": "card",
+       "arabic": "بِ",
+       "translit": "bi",
+       "note": "Ba with a kasra under it: 'bi'."
+      },
+      {
+       "type": "card",
+       "arabic": "تِ",
+       "translit": "ti",
+       "note": "Ta with a kasra: 'ti'."
+      },
+      {
+       "type": "card",
+       "arabic": "مِ",
+       "translit": "mi",
+       "note": "Meem with a kasra: 'mi'."
+      },
+      {
+       "type": "card",
+       "arabic": "لِمَن",
+       "translit": "li-man",
+       "note": "Seen in the Qur'an at 2:154. The first letter carries a kasra: 'li'. The next two carry fathas.",
+       "ref": "2:154"
+      },
+      {
+       "type": "quiz",
+       "question": "How do you read ن with a kasra under it?",
+       "options": [
+        "na",
+        "ni",
+        "nu"
+       ],
+       "answer": 1,
+       "why": "A kasra below a letter gives the short 'i': ni."
+      },
+      {
+       "type": "quiz",
+       "question": "What is the difference between fatha and kasra?",
+       "options": [
+        "Fatha is above and says 'a'; kasra is below and says 'i'",
+        "Fatha is below and says 'i'; kasra is above and says 'a'",
+        "They sound the same"
+       ],
+       "answer": 0,
+       "why": "Fatha sits above and sounds 'a'. Kasra sits below and sounds 'i'."
+      },
+      {
+       "type": "teach",
+       "text": "Well walked. Come back to this lesson whenever it feels shaky - Wasia is proud of you."
+      }
+     ]
+    },
+    {
+     "id": "letters-31",
+     "title": "Lesson 31: Damma - the short 'u'",
+     "arabic": "ُ",
+     "steps": [
+      {
+       "type": "teach",
+       "text": "Assalamu alaikum, my student. The third mark is the damma: a small curl, like a tiny waw, written above the letter. It gives the short sound 'u', as in 'put'."
+      },
+      {
+       "type": "card",
+       "arabic": "بُ",
+       "translit": "bu",
+       "note": "Ba with a damma: 'bu'."
+      },
+      {
+       "type": "card",
+       "arabic": "كُ",
+       "translit": "ku",
+       "note": "Kaf with a damma: 'ku'."
+      },
+      {
+       "type": "card",
+       "arabic": "لُ",
+       "translit": "lu",
+       "note": "Lam with a damma: 'lu'."
+      },
+      {
+       "type": "card",
+       "arabic": "كُتِبَ",
+       "translit": "kutiba",
+       "note": "Seen in the Qur'an at 2:178. Three letters, three marks: damma 'ku', kasra 'ti', fatha 'ba'.",
+       "ref": "2:178"
+      },
+      {
+       "type": "quiz",
+       "question": "How do you read م with a damma above it?",
+       "options": [
+        "ma",
+        "mi",
+        "mu"
+       ],
+       "answer": 2,
+       "why": "A damma gives the short 'u': mu."
+      },
+      {
+       "type": "quiz",
+       "question": "Read the word: كُتِبَ",
+       "options": [
+        "kataba",
+        "kutiba",
+        "kitaba"
+       ],
+       "answer": 1,
+       "why": "Damma then kasra then fatha: ku-ti-ba."
+      },
+      {
+       "type": "teach",
+       "text": "Well walked. Come back to this lesson whenever it feels shaky - Wasia is proud of you."
+      }
+     ]
+    },
+    {
+     "id": "letters-32",
+     "title": "Lesson 32: Long vowels - alif, waw, ya",
+     "arabic": "ا",
+     "steps": [
+      {
+       "type": "teach",
+       "text": "Assalamu alaikum, my student. A short vowel can be stretched into a long one. A fatha followed by an alif gives 'aa'. A kasra followed by a ya gives 'ii'. A damma followed by a waw gives 'uu'. Hold the sound for about two beats."
+      },
+      {
+       "type": "card",
+       "arabic": "بَا",
+       "translit": "baa",
+       "note": "Fatha plus alif: a long 'aa'."
+      },
+      {
+       "type": "card",
+       "arabic": "بِي",
+       "translit": "bii",
+       "note": "Kasra plus ya: a long 'ii'."
+      },
+      {
+       "type": "card",
+       "arabic": "بُو",
+       "translit": "buu",
+       "note": "Damma plus waw: a long 'uu'."
+      },
+      {
+       "type": "quiz",
+       "question": "Which letter stretches a fatha into a long 'aa'?",
+       "options": [
+        "ا",
+        "و",
+        "ي"
+       ],
+       "answer": 0,
+       "why": "Alif after a fatha makes 'aa'."
+      },
+      {
+       "type": "quiz",
+       "question": "Which letter stretches a damma into a long 'uu'?",
+       "options": [
+        "ي",
+        "و",
+        "ا"
+       ],
+       "answer": 1,
+       "why": "Waw after a damma makes 'uu'."
+      },
+      {
+       "type": "quiz",
+       "question": "How do you read كِي?",
+       "options": [
+        "ka",
+        "kii",
+        "kuu"
+       ],
+       "answer": 1,
+       "why": "Kasra plus ya: a long 'ii', so kii."
+      },
+      {
+       "type": "teach",
+       "text": "Well walked. Come back to this lesson whenever it feels shaky - Wasia is proud of you."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u6",
+   "title": "Unit 6 · Sukun, Shaddah and Tanween",
+   "exam": "u6-exam",
+   "lessons": [
+    {
+     "id": "letters-33",
+     "title": "Lesson 33: Sukun - a letter with no vowel",
+     "arabic": "ْ",
+     "steps": [
+      {
+       "type": "teach",
+       "text": "Assalamu alaikum, my student. Sometimes a letter carries no vowel at all. A small circle above it, the sukun, tells you to stop on the sound and let the next letter follow straight away. In many printed Mushafs it is drawn as a small head-shaped mark; the idea is the same."
+      },
+      {
+       "type": "card",
+       "arabic": "بْ",
+       "translit": "b",
+       "note": "Ba with a sukun: just 'b', with no vowel after it."
+      },
+      {
+       "type": "card",
+       "arabic": "اَبْ",
+       "translit": "ab",
+       "note": "A fatha-letter followed by a sukun-letter: 'ab'."
+      },
+      {
+       "type": "card",
+       "arabic": "قُلۡ",
+       "translit": "qul",
+       "note": "Seen in the Qur'an at 2:80. The lam has a sukun, so the word stops on 'l'.",
+       "ref": "2:80"
+      },
+      {
+       "type": "card",
+       "arabic": "هَلۡ",
+       "translit": "hal",
+       "note": "Seen in the Qur'an at 2:210. Again the lam stops: 'hal'.",
+       "ref": "2:210"
+      },
+      {
+       "type": "card",
+       "arabic": "مِنۡ",
+       "translit": "min",
+       "note": "Seen in the Qur'an at 2:74. The nun stops: 'min'.",
+       "ref": "2:74"
+      },
+      {
+       "type": "quiz",
+       "question": "What does a sukun tell you?",
+       "options": [
+        "The letter has no vowel",
+        "The letter is doubled",
+        "Add an 'n' sound"
+       ],
+       "answer": 0,
+       "why": "Sukun means the letter is read without a vowel."
+      },
+      {
+       "type": "quiz",
+       "question": "How do you read the word هَلۡ?",
+       "options": [
+        "hala",
+        "hal",
+        "hali"
+       ],
+       "answer": 1,
+       "why": "The lam carries a sukun, so it is just 'l': hal."
+      },
+      {
+       "type": "teach",
+       "text": "Well walked. Come back to this lesson whenever it feels shaky - Wasia is proud of you."
+      }
+     ]
+    },
+    {
+     "id": "letters-34",
+     "title": "Lesson 34: Shaddah - the doubled letter",
+     "arabic": "ّ",
+     "steps": [
+      {
+       "type": "teach",
+       "text": "Assalamu alaikum, my student. A small mark shaped like a tiny sin, the shaddah, written above a letter means that letter is doubled: you press it once to end one sound and again to start the next. It is read as if the letter were written twice, the first with a sukun."
+      },
+      {
+       "type": "card",
+       "arabic": "بَّ",
+       "translit": "bba",
+       "note": "Ba doubled with a fatha: 'b-ba'."
+      },
+      {
+       "type": "card",
+       "arabic": "ثُمَّ",
+       "translit": "thumma",
+       "note": "Seen in the Qur'an at 2:28. The meem is doubled: 'thum-ma'.",
+       "ref": "2:28"
+      },
+      {
+       "type": "card",
+       "arabic": "رَبِّ",
+       "translit": "rabbi",
+       "note": "Seen in the Qur'an at 1:2. The ba is doubled: 'rab-bi'.",
+       "ref": "1:2"
+      },
+      {
+       "type": "card",
+       "arabic": "كُلِّ",
+       "translit": "kulli",
+       "note": "Seen in the Qur'an at 2:20. The lam is doubled: 'kul-li'.",
+       "ref": "2:20"
+      },
+      {
+       "type": "card",
+       "arabic": "حَقَّ",
+       "translit": "haqqa",
+       "note": "Seen in the Qur'an at 2:121. The qaf is doubled: 'haq-qa'.",
+       "ref": "2:121"
+      },
+      {
+       "type": "quiz",
+       "question": "What does a shaddah mean?",
+       "options": [
+        "The letter is doubled",
+        "The letter is silent",
+        "The vowel is long"
+       ],
+       "answer": 0,
+       "why": "A shaddah doubles the letter it sits on."
+      },
+      {
+       "type": "quiz",
+       "question": "How many sounds does رَبِّ have when the ba is doubled?",
+       "options": [
+        "ra-bi (two beats)",
+        "rab-bi (the ba is pressed twice)",
+        "raa-bii (long vowels)"
+       ],
+       "answer": 1,
+       "why": "The doubled ba is pressed twice: rab-bi."
+      },
+      {
+       "type": "teach",
+       "text": "Well walked. Come back to this lesson whenever it feels shaky - Wasia is proud of you."
+      }
+     ]
+    },
+    {
+     "id": "letters-35",
+     "title": "Lesson 35: Tanween - the 'n' at the end",
+     "arabic": "ً",
+     "steps": [
+      {
+       "type": "teach",
+       "text": "Assalamu alaikum, my student. Doubling the vowel mark at the end of a word gives tanween: a short vowel followed by an 'n' sound that is not written as a letter. Two fathas give 'an'. Two kasras give 'in'. Two dammas give 'un'. Tanween only ever appears at the end of a word."
+      },
+      {
+       "type": "card",
+       "arabic": "بً",
+       "translit": "ban",
+       "note": "Two fathas: the ending 'an'. (With this mark an alif is usually written after the letter.)"
+      },
+      {
+       "type": "card",
+       "arabic": "بٍ",
+       "translit": "bin",
+       "note": "Two kasras: the ending 'in'."
+      },
+      {
+       "type": "card",
+       "arabic": "بٌ",
+       "translit": "bun",
+       "note": "Two dammas: the ending 'un'."
+      },
+      {
+       "type": "card",
+       "arabic": "كَنزٌ",
+       "translit": "kanzun",
+       "note": "Seen in the Qur'an at 11:12. Two dammas at the end: 'kanzun'.",
+       "ref": "11:12"
+      },
+      {
+       "type": "card",
+       "arabic": "عَمَلٍ",
+       "translit": "amalin",
+       "note": "Seen in the Qur'an at 10:61. Two kasras at the end: 'amalin'.",
+       "ref": "10:61"
+      },
+      {
+       "type": "card",
+       "arabic": "رَجُلٌ",
+       "translit": "rajulun",
+       "note": "Seen in the Qur'an at 23:38. Two dammas at the end: 'rajulun'.",
+       "ref": "23:38"
+      },
+      {
+       "type": "quiz",
+       "question": "Two kasras under the last letter give which ending?",
+       "options": [
+        "an",
+        "in",
+        "un"
+       ],
+       "answer": 1,
+       "why": "Two kasras give the ending 'in'."
+      },
+      {
+       "type": "quiz",
+       "question": "Where does tanween appear?",
+       "options": [
+        "Only at the end of a word",
+        "Only at the start of a word",
+        "Anywhere in a word"
+       ],
+       "answer": 0,
+       "why": "Tanween is only written on the last letter of a word."
+      },
+      {
+       "type": "teach",
+       "text": "Well walked. Come back to this lesson whenever it feels shaky - Wasia is proud of you."
+      }
+     ]
+    },
+    {
+     "id": "letters-36",
+     "title": "Lesson 36: Reading whole words",
+     "arabic": "ك",
+     "steps": [
+      {
+       "type": "teach",
+       "text": "Assalamu alaikum, my student. Now put it together. Read each letter, then its mark, left to right in your mind but right to left on the page. Read slowly first; speed comes by itself."
+      },
+      {
+       "type": "card",
+       "arabic": "خَلَقَ",
+       "translit": "khalaqa",
+       "note": "Seen in the Qur'an at 2:29. Fatha, fatha, fatha.",
+       "ref": "2:29"
+      },
+      {
+       "type": "card",
+       "arabic": "قَدۡ",
+       "translit": "qad",
+       "note": "Seen in the Qur'an at 2:60. A fatha, then a sukun: 'qad'.",
+       "ref": "2:60"
+      },
+      {
+       "type": "card",
+       "arabic": "ثُمَّ",
+       "translit": "thumma",
+       "note": "Seen in the Qur'an at 2:28. A damma, then a doubled meem with a fatha.",
+       "ref": "2:28"
+      },
+      {
+       "type": "card",
+       "arabic": "عَلَقٍ",
+       "translit": "alaqin",
+       "note": "Seen in the Qur'an at 96:2. Fatha, fatha, then tanween 'in'.",
+       "ref": "96:2"
+      },
+      {
+       "type": "quiz",
+       "question": "Read the word: بَلۡ",
+       "options": [
+        "bala",
+        "bal",
+        "bali"
+       ],
+       "answer": 1,
+       "why": "Fatha then a lam with sukun: bal."
+      },
+      {
+       "type": "quiz",
+       "question": "Read the word: كَذَّبَ",
+       "options": [
+        "kadhaba",
+        "kadhdhaba",
+        "kadhiba"
+       ],
+       "answer": 1,
+       "why": "The dhal carries a shaddah, so it is doubled: kadh-dha-ba."
+      },
+      {
+       "type": "teach",
+       "text": "Well walked. Come back to this lesson whenever it feels shaky - Wasia is proud of you."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "u7",
+   "title": "Unit 7 · Joining Letters into Words",
+   "exam": "u7-exam",
+   "lessons": [
+    {
+     "id": "letters-37",
+     "title": "Lesson 37: Letters change shape",
+     "arabic": "ب",
+     "steps": [
+      {
+       "type": "teach",
+       "text": "Assalamu alaikum, my student. In Arabic writing, most letters join to the letter that follows them. Because of that, a letter can look slightly different at the start of a word, in the middle, at the end, or when it stands alone. The core of the shape stays the same; look for the body and the dots."
+      },
+      {
+       "type": "card",
+       "arabic": "ب",
+       "translit": "ba",
+       "note": "Ba alone."
+      },
+      {
+       "type": "card",
+       "arabic": "بـ",
+       "translit": "ba (start)",
+       "note": "Ba at the start of a word: the body is shortened and it reaches toward the next letter."
+      },
+      {
+       "type": "card",
+       "arabic": "ـبـ",
+       "translit": "ba (middle)",
+       "note": "Ba in the middle: it joins on both sides."
+      },
+      {
+       "type": "card",
+       "arabic": "ـب",
+       "translit": "ba (end)",
+       "note": "Ba at the end: it joins from the right and ends with its full tail."
+      },
+      {
+       "type": "quiz",
+       "question": "Why can a letter look different in a word?",
+       "options": [
+        "Because it joins to its neighbours",
+        "Because it is a different letter",
+        "Because of its vowel"
+       ],
+       "answer": 0,
+       "why": "Letters join to their neighbours, so their shape adapts by position."
+      },
+      {
+       "type": "quiz",
+       "question": "What stays the same in every shape of ب?",
+       "options": [
+        "The dot below and the body",
+        "The tail",
+        "Nothing"
+       ],
+       "answer": 0,
+       "why": "The body and the single dot below stay recognisable."
+      },
+      {
+       "type": "teach",
+       "text": "Well walked. Come back to this lesson whenever it feels shaky - Wasia is proud of you."
+      }
+     ]
+    },
+    {
+     "id": "letters-38",
+     "title": "Lesson 38: Six letters that do not join forward",
+     "arabic": "د",
+     "steps": [
+      {
+       "type": "teach",
+       "text": "Assalamu alaikum, my student. Six letters join to the letter before them but never to the letter after them: alif, dal, dhal, ra, zay and waw. After one of them, the next letter starts fresh, as if a new word began, even though it is the same word."
+      },
+      {
+       "type": "card",
+       "arabic": "ا",
+       "translit": "alif",
+       "note": "Alif - does not join forward."
+      },
+      {
+       "type": "card",
+       "arabic": "د",
+       "translit": "dal",
+       "note": "Dal - does not join forward."
+      },
+      {
+       "type": "card",
+       "arabic": "ذ",
+       "translit": "dhal",
+       "note": "Dhal - does not join forward."
+      },
+      {
+       "type": "card",
+       "arabic": "ر",
+       "translit": "ra",
+       "note": "Ra - does not join forward."
+      },
+      {
+       "type": "card",
+       "arabic": "ز",
+       "translit": "zay",
+       "note": "Zay - does not join forward."
+      },
+      {
+       "type": "card",
+       "arabic": "و",
+       "translit": "waw",
+       "note": "Waw - does not join forward."
+      },
+      {
+       "type": "quiz",
+       "question": "Which of these does NOT join to the letter after it?",
+       "options": [
+        "ب",
+        "د",
+        "ن"
+       ],
+       "answer": 1,
+       "why": "Dal never joins forward. Ba and noon do."
+      },
+      {
+       "type": "quiz",
+       "question": "Which of these does NOT join to the letter after it?",
+       "options": [
+        "ر",
+        "س",
+        "م"
+       ],
+       "answer": 0,
+       "why": "Ra never joins forward."
+      },
+      {
+       "type": "quiz",
+       "question": "How many letters never join forward?",
+       "options": [
+        "Two",
+        "Six",
+        "Twelve"
+       ],
+       "answer": 1,
+       "why": "Six: alif, dal, dhal, ra, zay and waw."
+      },
+      {
+       "type": "teach",
+       "text": "Well walked. Come back to this lesson whenever it feels shaky - Wasia is proud of you."
+      }
+     ]
+    },
+    {
+     "id": "letters-39",
+     "title": "Lesson 39: Lam-alif",
+     "arabic": "لا",
+     "steps": [
+      {
+       "type": "teach",
+       "text": "Assalamu alaikum, my student. When a lam is followed by an alif they are written together as one crossed shape, called lam-alif. It is not a new letter; it is still lam then alif, read 'laa'."
+      },
+      {
+       "type": "card",
+       "arabic": "لا",
+       "translit": "laa",
+       "note": "Lam-alif: lam then alif, read 'laa'."
+      },
+      {
+       "type": "card",
+       "arabic": "لَا",
+       "translit": "laa",
+       "note": "With a fatha on the lam: 'laa'."
+      },
+      {
+       "type": "quiz",
+       "question": "Lam-alif is read as:",
+       "options": [
+        "laa",
+        "alla",
+        "ala"
+       ],
+       "answer": 0,
+       "why": "Lam followed by alif is 'laa'."
+      },
+      {
+       "type": "quiz",
+       "question": "Is lam-alif a twenty-ninth letter?",
+       "options": [
+        "Yes, a new letter",
+        "No, it is lam and alif joined"
+       ],
+       "answer": 1,
+       "why": "It is lam and alif written together; the alphabet stays twenty-eight letters."
+      },
+      {
+       "type": "teach",
+       "text": "Well walked. Come back to this lesson whenever it feels shaky - Wasia is proud of you."
+      }
+     ]
+    },
+    {
+     "id": "letters-40",
+     "title": "Lesson 40: Reading a connected word",
+     "arabic": "م",
+     "steps": [
+      {
+       "type": "teach",
+       "text": "Assalamu alaikum, my student. Look at a whole word. Find the letters from right to left. Remember which ones do not join forward. Then add the marks. Take it slowly; you are reading real Arabic."
+      },
+      {
+       "type": "card",
+       "arabic": "خَلَقَ",
+       "translit": "khalaqa",
+       "note": "Seen in the Qur'an at 2:29. Khaa-laam-qaaf, read right to left on the page.",
+       "ref": "2:29"
+      },
+      {
+       "type": "card",
+       "arabic": "كَتَبَ",
+       "translit": "kataba",
+       "note": "Seen in the Qur'an at 2:187. Kaf, ta, ba, with fathas.",
+       "ref": "2:187"
+      },
+      {
+       "type": "card",
+       "arabic": "جَعَلَ",
+       "translit": "jaʿala",
+       "note": "Seen in the Qur'an at 2:22. Jeem, ain, lam, with fathas.",
+       "ref": "2:22"
+      },
+      {
+       "type": "card",
+       "arabic": "كَفَرَ",
+       "translit": "kafara",
+       "note": "Seen in the Qur'an at 2:102. Kaf, fa, ra, with fathas.",
+       "ref": "2:102"
+      },
+      {
+       "type": "quiz",
+       "question": "In كَتَبَ, which letter comes first (on the right)?",
+       "options": [
+        "ك",
+        "ت",
+        "ب"
+       ],
+       "answer": 0,
+       "why": "Arabic is read right to left; the kaf is first."
+      },
+      {
+       "type": "quiz",
+       "question": "In جَعَلَ, how many fathas are there?",
+       "options": [
+        "Two",
+        "Three",
+        "Four"
+       ],
+       "answer": 1,
+       "why": "Each of the three letters carries one fatha: ja-'a-la."
+      },
+      {
+       "type": "teach",
+       "text": "Well walked. Come back to this lesson whenever it feels shaky - Wasia is proud of you."
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "exams": [
+  {
+   "id": "u5-exam",
+   "unit": "u5",
+   "title": "Exam · Short and Long Vowels",
+   "pass": 6,
+   "questions": [
+    {
+     "q": "Which mark is a fatha?",
+     "options": [
+      "A slanted stroke above the letter",
+      "A slanted stroke below the letter",
+      "A small curl above the letter"
+     ],
+     "answer": 0,
+     "why": "Fatha is above."
+    },
+    {
+     "q": "Which mark is a kasra?",
+     "options": [
+      "Below the letter",
+      "Above the letter",
+      "A circle"
+     ],
+     "answer": 0,
+     "why": "Kasra is below."
+    },
+    {
+     "q": "Which mark is a damma?",
+     "options": [
+      "A small curl above",
+      "A stroke below",
+      "A circle above"
+     ],
+     "answer": 0,
+     "why": "Damma is the small curl above."
+    },
+    {
+     "q": "Read: بُ",
+     "options": [
+      "ba",
+      "bi",
+      "bu"
+     ],
+     "answer": 2,
+     "why": "Damma gives 'u'."
+    },
+    {
+     "q": "Read: تِ",
+     "options": [
+      "ta",
+      "ti",
+      "tu"
+     ],
+     "answer": 1,
+     "why": "Kasra gives 'i'."
+    },
+    {
+     "q": "Read: سَا",
+     "options": [
+      "sa",
+      "saa",
+      "sii"
+     ],
+     "answer": 1,
+     "why": "Fatha plus alif gives a long 'aa'."
+    },
+    {
+     "q": "Which letter stretches a kasra?",
+     "options": [
+      "ي",
+      "و",
+      "ا"
+     ],
+     "answer": 0,
+     "why": "Ya after a kasra makes 'ii'."
+    },
+    {
+     "q": "Read: كُتِبَ",
+     "options": [
+      "kataba",
+      "kutiba",
+      "kitaba"
+     ],
+     "answer": 1,
+     "why": "Damma, kasra, fatha: kutiba."
+    }
+   ]
+  },
+  {
+   "id": "u6-exam",
+   "unit": "u6",
+   "title": "Exam · Sukun, Shaddah and Tanween",
+   "pass": 6,
+   "questions": [
+    {
+     "q": "A sukun on a letter means:",
+     "options": [
+      "No vowel",
+      "Doubled",
+      "Long"
+     ],
+     "answer": 0,
+     "why": "Sukun: no vowel."
+    },
+    {
+     "q": "A shaddah on a letter means:",
+     "options": [
+      "It is doubled",
+      "It is silent",
+      "It is long"
+     ],
+     "answer": 0,
+     "why": "Shaddah doubles."
+    },
+    {
+     "q": "Read: قُلۡ",
+     "options": [
+      "qula",
+      "qul",
+      "quli"
+     ],
+     "answer": 1,
+     "why": "Sukun on the lam: qul."
+    },
+    {
+     "q": "Read: ثُمَّ",
+     "options": [
+      "thuma",
+      "thumma",
+      "thama"
+     ],
+     "answer": 1,
+     "why": "Doubled meem: thum-ma."
+    },
+    {
+     "q": "Tanween with two dammas gives:",
+     "options": [
+      "an",
+      "in",
+      "un"
+     ],
+     "answer": 2,
+     "why": "Two dammas: un."
+    },
+    {
+     "q": "Tanween with two kasras gives:",
+     "options": [
+      "in",
+      "an",
+      "un"
+     ],
+     "answer": 0,
+     "why": "Two kasras: in."
+    },
+    {
+     "q": "Read: رَبِّ",
+     "options": [
+      "rabi",
+      "rabbi",
+      "rubbi"
+     ],
+     "answer": 1,
+     "why": "Doubled ba: rab-bi."
+    },
+    {
+     "q": "Where does tanween appear?",
+     "options": [
+      "Only at the end of a word",
+      "At the start",
+      "Anywhere"
+     ],
+     "answer": 0,
+     "why": "Only the last letter."
+    }
+   ]
+  },
+  {
+   "id": "u7-exam",
+   "unit": "u7",
+   "title": "Exam · Joining Letters into Words",
+   "pass": 6,
+   "questions": [
+    {
+     "q": "Which letter does NOT join to the one after it?",
+     "options": [
+      "ب",
+      "ر",
+      "ت"
+     ],
+     "answer": 1,
+     "why": "Ra does not join forward."
+    },
+    {
+     "q": "Which letter does NOT join to the one after it?",
+     "options": [
+      "م",
+      "د",
+      "ن"
+     ],
+     "answer": 1,
+     "why": "Dal does not join forward."
+    },
+    {
+     "q": "How many letters never join forward?",
+     "options": [
+      "Six",
+      "Four",
+      "Ten"
+     ],
+     "answer": 0,
+     "why": "Six."
+    },
+    {
+     "q": "Lam-alif is read:",
+     "options": [
+      "laa",
+      "ila",
+      "alaa"
+     ],
+     "answer": 0,
+     "why": "Laa."
+    },
+    {
+     "q": "Why does a letter change shape?",
+     "options": [
+      "It joins to its neighbours",
+      "It changes sound",
+      "It is doubled"
+     ],
+     "answer": 0,
+     "why": "Joining changes the shape."
+    },
+    {
+     "q": "Arabic is read:",
+     "options": [
+      "Right to left",
+      "Left to right",
+      "Top to bottom"
+     ],
+     "answer": 0,
+     "why": "Right to left."
+    },
+    {
+     "q": "In كَتَبَ the first letter is:",
+     "options": [
+      "ك",
+      "ب",
+      "ت"
+     ],
+     "answer": 0,
+     "why": "Kaf, on the right."
+    },
+    {
+     "q": "Is lam-alif a new letter?",
+     "options": [
+      "No, lam and alif joined",
+      "Yes"
+     ],
+     "answer": 0,
+     "why": "Still lam and alif."
+    }
+   ]
+  }
+ ],
+ "source": "Letters v2 (units 5-7). Rules of vowels, sukun, shaddah, tanween and joining are standard Arabic reading rules; every Quran word shown is taken letter for letter from the bundled Quran text at the reference on its card (checked by test/letters_v2_test.dart). No word meanings are given. Not yet scholar-reviewed."
+}

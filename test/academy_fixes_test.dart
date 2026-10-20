@@ -17,6 +17,7 @@ void main() {
         key: key,
         arabic: 'كِتَاب',
         gloss: 'book',
+        glossSource: 'test fixture',
         sourceAyah: const AyahRef(2, 2),
         review: ReviewCard(wordKey: key, dueDate: now),
       );

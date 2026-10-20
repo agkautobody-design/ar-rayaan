@@ -13,20 +13,25 @@ import '../../../app/theme/widgets/screen_header.dart';
 /// domain/word_deck.dart and is practised at /academy/review).
 class WordPackCard {
   final String arabic, gloss;
+  final String? glossSource;
   final int occurrences, frequencyRank;
   final List<int> sourceAyah;
   const WordPackCard({required this.arabic, required this.gloss,
+      this.glossSource,
       required this.occurrences, required this.frequencyRank,
       required this.sourceAyah});
 
   /// False for pack cards whose meaning has not been verified (empty gloss)
   /// or that still carry a truncated verse snippet from an older pack.
   bool get hasMeaning =>
-      gloss.trim().isNotEmpty && !gloss.contains('(in context)');
+      gloss.trim().isNotEmpty &&
+      !gloss.contains('(in context)') &&
+      (glossSource?.trim().isNotEmpty ?? false);
 
   factory WordPackCard.fromJson(Map<String, dynamic> j) => WordPackCard(
         arabic: j['arabic'] as String,
         gloss: j['gloss'] as String,
+        glossSource: j['glossSource'] as String?,
         occurrences: (j['occurrences'] as num).toInt(),
         frequencyRank: (j['frequencyRank'] as num).toInt(),
         sourceAyah: (j['sourceAyah'] as List<dynamic>).cast<int>(),

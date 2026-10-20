@@ -13,6 +13,7 @@ import '../application/word_deck_provider.dart';
 import '../application/academy_strings.dart';
 import '../domain/academy_models.dart';
 import 'widgets/course_browser.dart';
+import 'widgets/path_ux_widgets.dart';
 
 /// Al-Wasia Academy of Sacred Knowledge — home (Wave 1).
 /// Locked look: Playfair header · continue hero · The Path card ·
@@ -141,6 +142,8 @@ class _AcademyHomeScreenState
                     ],
                   ),
                 ),
+              const SizedBox(height: 12),
+              const WeeklyRhythmCard(),
               const SizedBox(height: 16),
 
               // The knowledge banner ------------------------------------------

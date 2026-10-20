@@ -103,6 +103,7 @@ class _ReviewSessionScreenState
                       for (final (ReviewGrade g, String label, IconData ic)
                           in <(ReviewGrade, String, IconData)>[
                         (ReviewGrade.again, 'Again', Icons.refresh),
+                        (ReviewGrade.hard, 'Hard', Icons.trending_flat),
                         (ReviewGrade.good, 'Good', Icons.check),
                         (ReviewGrade.easy, 'Easy', Icons.auto_awesome),
                       ])
@@ -190,7 +191,7 @@ class _ReviewCardView extends StatelessWidget {
                     style: AppText.bodyMuted,
                     textAlign: TextAlign.center,
                   ),
-                if (card.root != null) ...<Widget>[
+                if (card.root != null && card.hasSource) ...<Widget>[
                   const SizedBox(height: 8),
                   Text('Root: ${card.root}',
                       style: AppText.bodyMuted, textAlign: TextAlign.center),
@@ -228,10 +229,22 @@ class _GradeButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FilledButton.tonalIcon(
+    // Four buttons share one row (Again / Hard / Good / Easy), so the icon
+    // sits above a short label instead of beside it.
+    return FilledButton.tonal(
       onPressed: onPressed,
-      icon: Icon(icon, size: 18),
-      label: Text(label),
+      style: FilledButton.styleFrom(
+        padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 10),
+        minimumSize: const Size(0, 52),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Icon(icon, size: 18),
+          const SizedBox(height: 2),
+          Text(label, style: const TextStyle(fontSize: 12)),
+        ],
+      ),
     );
   }
 }
@@ -286,7 +299,8 @@ class _LessonReviewCard extends ConsumerWidget {
 
   Future<void> _grade(WidgetRef ref, ReviewGrade g) async {
     await ref.read(reviewQueueProvider.notifier).grade(_lessonId, g);
-    if (_isLetters && g != ReviewGrade.again) {
+    if (_isLetters &&
+        (g == ReviewGrade.good || g == ReviewGrade.easy)) {
       final FamilyService fam = ref.read(familyServiceProvider);
       final String? child = await fam.activeChildId();
       if (child != null) await fam.recordMastery(child, _lessonId, 'mastered');
@@ -338,6 +352,7 @@ class _LessonReviewCard extends ConsumerWidget {
               for (final (ReviewGrade g, String label, IconData ic)
                   in <(ReviewGrade, String, IconData)>[
                 (ReviewGrade.again, 'Again', Icons.refresh),
+                (ReviewGrade.hard, 'Hard', Icons.trending_flat),
                 (ReviewGrade.good, 'Good', Icons.check),
                 (ReviewGrade.easy, 'Easy', Icons.auto_awesome),
               ])

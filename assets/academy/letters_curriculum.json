@@ -91,7 +91,7 @@
        "type": "card",
        "arabic": "ت",
        "translit": "Ta",
-       "note": "You will see ت in words like تُفَّاح."
+       "note": "You will see ت in words like تَوْبَة."
       },
       {
        "type": "teach",
@@ -272,7 +272,7 @@
      "steps": [
       {
        "type": "teach",
-       "text": "Assalamu alaikum, my student. Today we meet a new friend of the alphabet: Dal (د). A simple rolling 'd'. Take your time — every letter of the Qur'an is a door, and doors open slowly and surely."
+       "text": "Assalamu alaikum, my student. Today we meet a new friend of the alphabet: Dal (د). A clean 'd': the tip of the tongue touches the gum behind the upper front teeth. Take your time — every letter of the Qur'an is a door, and doors open slowly and surely."
       },
       {
        "type": "card",
@@ -344,7 +344,7 @@
      "steps": [
       {
        "type": "teach",
-       "text": "Assalamu alaikum, my student. Today we meet a new friend of the alphabet: Ra (ر). A rolling 'r', touched not trilled. Take your time — every letter of the Qur'an is a door, and doors open slowly and surely."
+       "text": "Assalamu alaikum, my student. Today we meet a new friend of the alphabet: Ra (ر). A light 'r': the tip of the tongue taps the roof of the mouth once. Take your time — every letter of the Qur'an is a door, and doors open slowly and surely."
       },
       {
        "type": "card",
@@ -488,7 +488,7 @@
      "steps": [
       {
        "type": "teach",
-       "text": "Assalamu alaikum, my student. Today we meet a new friend of the alphabet: Sad (ص). A heavy 's' from the chest. Take your time — every letter of the Qur'an is a door, and doors open slowly and surely."
+       "text": "Assalamu alaikum, my student. Today we meet a new friend of the alphabet: Sad (ص). A heavy 's': the back of the tongue rises towards the roof of the mouth, so the sound is full. Take your time — every letter of the Qur'an is a door, and doors open slowly and surely."
       },
       {
        "type": "card",
@@ -1073,7 +1073,7 @@
       "ت"
      ],
      "answer": 2,
-     "why": "Ta is ت — as in تُفَّاح."
+     "why": "Ta is ت — as in تَوْبَة."
     },
     {
      "q": "Which letter is Tha?",
@@ -1136,14 +1136,14 @@
      "why": "بَاب opens with ب (Ba)."
     },
     {
-     "q": "The word تُفَّاح begins with which letter?",
+     "q": "The word تَوْبَة begins with which letter?",
      "options": [
       "ت",
       "ذ",
       "ظ"
      ],
      "answer": 0,
-     "why": "تُفَّاح opens with ت (Ta)."
+     "why": "تَوْبَة opens with ت (Ta)."
     }
    ]
   },

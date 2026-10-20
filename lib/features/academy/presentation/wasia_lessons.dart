@@ -14,6 +14,8 @@ import '../application/academy_providers.dart';
 import '../application/family_service.dart';
 import '../application/wasia_controller.dart';
 import '../domain/academy_models.dart' show LessonProgress;
+import '../domain/letters_meta.dart';
+import 'widgets/path_ux_widgets.dart';
 import 'widgets/wasia_thread.dart';
 
 class LessonStep {
@@ -61,7 +63,15 @@ final lettersCurriculumProvider =
     FutureProvider<Map<String, dynamic>>((ref) async {
   final raw =
       await rootBundle.loadString('assets/academy/letters_curriculum.json');
-  return json.decode(raw) as Map<String, dynamic>;
+  Map<String, dynamic>? v2;
+  try {
+    v2 = json.decode(await rootBundle
+            .loadString('assets/academy/letters_v2_curriculum.json'))
+        as Map<String, dynamic>;
+  } catch (_) {
+    v2 = null; // units 1-4 still work on their own
+  }
+  return mergeLettersCurriculum(json.decode(raw) as Map<String, dynamic>, v2);
 });
 
 final lettersLessonsProvider = FutureProvider<List<Lesson>>((ref) async {
@@ -116,13 +126,15 @@ class LettersLessonsScreen extends ConsumerWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),
               child: Text(
-                'Four units, twenty-eight letters, an exam at the end of each unit. '
+                'Seven units: the twenty-eight letters, then vowels, sukun, shaddah, tanween and joining, with an exam at the end of each unit. '
                 'Wasia teaches every lesson, asks a gentle question, and records your child\u2019s growth.',
                 textAlign: TextAlign.center,
                 style: AppText.bodyMuted,
               ),
             ),
             const SizedBox(height: 16),
+            const PlacementQuizCard(),
+            const SizedBox(height: 12),
             for (final u in units)
               ...[
                 Padding(
@@ -184,7 +196,7 @@ class LettersLessonsScreen extends ConsumerWidget {
                             Text(e['title'] as String,
                                 style: AppText.body.copyWith(
                                     fontWeight: FontWeight.w700, fontSize: 13.5)),
-                            Text('10 questions \u00b7 pass at 7 \u00b7 recorded to your child',
+                            Text('${(e['questions'] as List<dynamic>).length} questions \u00b7 pass at ${e['pass']} \u00b7 recorded to your child',
                                 style: AppText.bodyMuted.copyWith(fontSize: 11)),
                           ],
                         )),
@@ -322,7 +334,7 @@ class _LessonRunnerState extends ConsumerState<LessonRunnerScreen> {
                       child: Column(children: [
                         Text('SAY IT WITH WASIA', style: AppText.eyebrow.copyWith(fontSize: 8.5)),
                         const SizedBox(height: 4),
-                        Text('Repeat the letter three times, slowly — then tap the voice above to hear your teacher say it. Tomorrow it will know your name.',
+                        Text('Repeat the letter three times, slowly — then tap the voice above to hear your teacher say it.',
                             textAlign: TextAlign.center,
                             style: AppText.bodyMuted.copyWith(fontSize: 11, height: 1.5)),
                       ]),
@@ -403,7 +415,7 @@ class _LessonRunnerState extends ConsumerState<LessonRunnerScreen> {
                         const SizedBox(height: 6),
                         Text(
                           'Anything about this lesson — ask your teacher. '
-                          '(Uses your AI key, the same one H\u0101di uses.)',
+                          '(Uses the AI connection set up for H\u0101di; your child\u2019s name is never sent.)',
                           style: AppText.bodyMuted.copyWith(fontSize: 11.5),
                         ),
                         const _WasiaBox(),

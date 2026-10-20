@@ -847,6 +847,10 @@ abstract final class AcademyStrings {
       'common.back': 'Back',
       'common.done': 'Done',
       'common.open': 'Open',
+      'check.retry': 'Try once more',
+      'recall.title': 'Recall check',
+      'recall.note':
+          'Made from this lesson\u2019s own words. It checks that you remember what the lesson said \u2014 it is not a ruling and does not make the lesson more or less correct.',
       'check.title': 'Check your understanding',
       'check.passed': 'Alhamdulillah — every answer correct.',
       'check.tryAgain': 'Let’s look at it once more, gently.',
@@ -990,7 +994,7 @@ abstract final class AcademyStrings {
       'school.understanding.title': 'Understanding',
       'school.understanding.subtitle': 'Word-by-word meanings and roots',
       'school.soonBody':
-          'This school is being built with scholarly review — lesson by lesson. The Path is ready for you today.',
+          'This school is still being built, lesson by lesson. Lessons stay marked \u201cNot yet scholar-reviewed\u201d until a named scholar has reviewed them. The Path is ready for you today.',
     },
     'ar': <String, String>{
       'academy.title': 'أكاديمية الوسيع للعلوم الشرعية',
