@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show HapticFeedback;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -16,6 +17,7 @@ import '../../prayer/application/location_providers.dart';
 import '../../prayer/application/prayer_repository.dart';
 import '../data/device_heading.dart';
 import '../domain/compass_math.dart';
+import '../domain/magnetic_declination.dart';
 import '../domain/qibla_direction.dart';
 
 class QiblaScreen extends ConsumerWidget {
@@ -58,7 +60,13 @@ class QiblaScreen extends ConsumerWidget {
                   ),
                 ),
                 const SizedBox(height: 26),
-                Center(child: _LiveQibla(bearing: bearing)),
+                Center(
+                  child: _LiveQibla(
+                    bearing: bearing,
+                    latitude: loc.latitude,
+                    longitude: loc.longitude,
+                  ),
+                ),
                 const SizedBox(height: 18),
                 Center(
                   child: Column(
@@ -113,7 +121,7 @@ class QiblaScreen extends ConsumerWidget {
                       ),
                       const SizedBox(height: 8),
                       Text(
-                        '2 · A PHYSICAL COMPASS — compasses point to MAGNETIC North, which differs from true North by your local magnetic declination (for example about 10° west in Toronto in 2026; it differs by city and drifts every year). Either switch your phone\u2019s compass app to show true North, or look up your declination (NOAA\u2019s magnetic field calculator) and correct for it: with a WEST declination add it to ${bearing.round()}°, with an EAST declination subtract it.',
+                        '2 · A PHYSICAL COMPASS — compasses point to MAGNETIC North, which differs from true North by your local magnetic declination (for example about 10° west in Toronto in 2026; it differs by city and drifts every year). The live compass below applies your declination for you, from the World Magnetic Model. With a separate compass: with a WEST declination add it to ${bearing.round()}°, with an EAST declination subtract it.',
                         style: AppText.bodyMuted.copyWith(height: 1.6, fontSize: 12),
                       ),
                       const SizedBox(height: 8),
@@ -158,12 +166,12 @@ class QiblaScreen extends ConsumerWidget {
                       Text(
                         'The bearing is computed by great-circle mathematics \u2014 exact, '
                         'and fully offline. The live compass reads your phone\u2019s '
-                        'magnetic sensor through the browser, so it is only as good as '
-                        'the sensor: keep away from metal and magnets, hold the phone '
-                        'flat, and confirm with the sun method above when it matters. '
-                        'It needs https and a phone with a compass; desktop browsers '
-                        'and the native builds show the static dial until a sensor '
-                        'plugin is added.',
+                        'magnetic sensor (in the Android and iPhone apps directly, and '
+                        'through the browser on a phone over https), so it is only as '
+                        'good as the sensor: keep away from metal and magnets, hold the '
+                        'phone flat, and confirm with the sun method above when it '
+                        'matters. A few degrees of error is normal. Desktop computers '
+                        'usually have no compass and show the static dial.',
                         style: AppText.body.copyWith(height: 1.55, fontSize: 13.5),
                       ),
                     ],
@@ -200,10 +208,21 @@ class QiblaScreen extends ConsumerWidget {
 
 /// The dial plus the optional live compass. The dial is north-up by default;
 /// with the sensor on it turns so that its N follows true North.
+///
+/// The compass reads MAGNETIC north. The declination that turns it into true
+/// north comes from the World Magnetic Model 2025 for the prayer location
+/// (computed offline); the user can override it with their own number and
+/// return to the automatic value at any time.
 class _LiveQibla extends ConsumerStatefulWidget {
-  const _LiveQibla({required this.bearing});
+  const _LiveQibla({
+    required this.bearing,
+    required this.latitude,
+    required this.longitude,
+  });
 
   final double bearing;
+  final double latitude;
+  final double longitude;
 
   @override
   ConsumerState<_LiveQibla> createState() => _LiveQiblaState();
@@ -219,17 +238,21 @@ class _LiveQiblaState extends ConsumerState<_LiveQibla> {
   _CompassStatus _status = _CompassStatus.idle;
   double? _magnetic;
 
-  /// Magnetic declination, degrees, east positive (set by the user).
-  double _declination = 0;
+  /// The last readings, for the "unsteady compass" warning.
+  final List<double> _recent = <double>[];
+  bool _wasAligned = false;
+
+  /// The user's own declination (degrees, east positive), or null to use the
+  /// model's.
+  double? _manual;
 
   @override
   void initState() {
     super.initState();
     try {
-      _declination =
-          ref.read(sharedPreferencesProvider).getDouble(_declKey) ?? 0;
+      _manual = ref.read(sharedPreferencesProvider).getDouble(_declKey);
     } catch (_) {
-      _declination = 0;
+      _manual = null;
     }
   }
 
@@ -241,6 +264,14 @@ class _LiveQiblaState extends ConsumerState<_LiveQibla> {
     super.dispose();
   }
 
+  MagneticDeclination get _model => MagneticModel.declination(
+    latitude: widget.latitude,
+    longitude: widget.longitude,
+    date: DateTime.now(),
+  );
+
+  double get _declination => _manual ?? _model.degrees;
+
   Future<void> _start() async {
     setState(() => _status = _CompassStatus.starting);
     final bool granted = await DeviceHeading.requestPermission();
@@ -250,8 +281,11 @@ class _LiveQiblaState extends ConsumerState<_LiveQibla> {
       return;
     }
     _magnetic = null;
+    _recent.clear();
     _sub = DeviceHeading.headings().listen((double h) {
       if (!mounted) return;
+      _recent.add(h);
+      if (_recent.length > 16) _recent.removeAt(0);
       final double? prev = _magnetic;
       setState(() {
         _magnetic = prev == null ? h : CompassMath.smooth(prev, h);
@@ -274,23 +308,31 @@ class _LiveQiblaState extends ConsumerState<_LiveQibla> {
     setState(() {
       _status = _CompassStatus.idle;
       _magnetic = null;
+      _wasAligned = false;
+      _recent.clear();
     });
   }
 
-  Future<void> _setDeclination(double value) async {
-    final double v = value.clamp(-60, 60).toDouble();
-    setState(() => _declination = v);
+  Future<void> _setManual(double? value) async {
+    final double? v = value?.clamp(-60, 60).toDouble();
+    setState(() => _manual = v);
     try {
-      await ref.read(sharedPreferencesProvider).setDouble(_declKey, v);
+      final prefs = ref.read(sharedPreferencesProvider);
+      if (v == null) {
+        await prefs.remove(_declKey);
+      } else {
+        await prefs.setDouble(_declKey, v);
+      }
     } catch (_) {
       // Kept in memory for this visit.
     }
   }
 
   String _declLabel() {
-    final int d = _declination.abs().round();
-    if (d == 0) return '0\u00b0';
-    return '$d\u00b0 ${_declination > 0 ? 'E' : 'W'}';
+    final double d = _declination;
+    final int r = d.abs().round();
+    if (r == 0) return '0\u00b0';
+    return '$r\u00b0 ${d > 0 ? 'E' : 'W'}';
   }
 
   @override
@@ -305,7 +347,13 @@ class _LiveQiblaState extends ConsumerState<_LiveQibla> {
             qiblaBearing: widget.bearing,
             trueHeading: trueHeading,
           );
-    final bool aligned = offset != null && offset.abs() <= 5;
+    final bool aligned = offset != null && offset.abs() <= 3;
+    if (aligned && !_wasAligned) {
+      unawaited(HapticFeedback.selectionClick());
+    }
+    _wasAligned = aligned;
+    final bool erratic = CompassMath.isErratic(_recent);
+    final MagneticDeclination model = _model;
 
     return Column(
       children: [
@@ -330,28 +378,59 @@ class _LiveQiblaState extends ConsumerState<_LiveQibla> {
               color: aligned ? AppColors.goldLight : AppColors.sand,
             ),
           ),
+          if (erratic) ...[
+            const SizedBox(height: 4),
+            Text(
+              'The compass is unsteady. Move away from metal, magnets and '
+              'cases with magnets, then wave the phone slowly in a figure '
+              'of eight to recalibrate it.',
+              style: AppText.bodyMuted.copyWith(
+                fontSize: 11.5,
+                color: AppColors.goldLight,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ],
           const SizedBox(height: 4),
           Text(
-            'Magnetic declination ${_declLabel()} \u00b7 set it for your city '
-            '(west is negative)',
+            _manual == null
+                ? 'Magnetic declination ${_declLabel()} \u00b7 automatic, from '
+                      'the World Magnetic Model for your location'
+                : 'Magnetic declination ${_declLabel()} \u00b7 set by you '
+                      '(west is negative)',
             style: AppText.bodyMuted.copyWith(fontSize: 11),
             textAlign: TextAlign.center,
           ),
+          if (_manual == null && !model.withinValidity)
+            Text(
+              'This model was issued for 2025\u20132030 and today is outside '
+              'that span, so the number may be off. You can set your own.',
+              style: AppText.bodyMuted.copyWith(fontSize: 11),
+              textAlign: TextAlign.center,
+            ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               IconButton(
                 tooltip: 'Declination 1\u00b0 more west',
-                onPressed: () => _setDeclination(_declination - 1),
+                onPressed: () => _setManual(_declination - 1),
                 icon: const Icon(Icons.remove_circle_outline, size: 20),
                 color: AppColors.gold,
               ),
               IconButton(
                 tooltip: 'Declination 1\u00b0 more east',
-                onPressed: () => _setDeclination(_declination + 1),
+                onPressed: () => _setManual(_declination + 1),
                 icon: const Icon(Icons.add_circle_outline, size: 20),
                 color: AppColors.gold,
               ),
+              if (_manual != null)
+                TextButton(
+                  onPressed: () => _setManual(null),
+                  child: Text(
+                    'Use automatic',
+                    style: AppText.bodyMuted.copyWith(color: AppColors.gold),
+                  ),
+                ),
               TextButton(
                 onPressed: _stop,
                 child: Text(
@@ -361,9 +440,15 @@ class _LiveQiblaState extends ConsumerState<_LiveQibla> {
               ),
             ],
           ),
+          Text(
+            'Declination: World Magnetic Model 2025, produced by NOAA/NCEI '
+            'and the British Geological Survey.',
+            style: AppText.bodyMuted.copyWith(fontSize: 10),
+            textAlign: TextAlign.center,
+          ),
         ] else if (!DeviceHeading.isSupported)
           Text(
-            'Live compass is not available in this build \u2014 use the dial '
+            'Live compass is not available here \u2014 use the dial '
             'and the two methods below.',
             style: AppText.bodyMuted.copyWith(fontSize: 11),
             textAlign: TextAlign.center,
@@ -389,7 +474,8 @@ class _LiveQiblaState extends ConsumerState<_LiveQibla> {
           if (_status == _CompassStatus.noData)
             Text(
               'No compass data arrived. This needs a phone with a compass '
-              'sensor and an https page; desktops usually have none.',
+              'sensor (and an https page in a browser); desktops usually '
+              'have none.',
               style: AppText.bodyMuted.copyWith(fontSize: 11),
               textAlign: TextAlign.center,
             ),

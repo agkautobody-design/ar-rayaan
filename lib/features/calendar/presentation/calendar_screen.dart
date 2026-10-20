@@ -1,21 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../application/hijri_settings.dart';
 import '../domain/hijri_date.dart';
 import '../domain/sunnah_fasting.dart';
 
-/// Islamic Calendar — today's Hijri date hero, month grid, and the year's
-/// upcoming observances. Official Umm al-Qura calendar, fully offline.
-class CalendarScreen extends StatelessWidget {
+/// Islamic Calendar: today's Hijri date, a month grid you can page through,
+/// a date converter and the year's upcoming observances. Fully offline.
+///
+/// The calendar basis (Umm al-Qura or tabular) and a whole-day shift are the
+/// user's choice (see `hijriSettingsProvider`); the page rebuilds when they
+/// change, and every other screen reads the same setting.
+class CalendarScreen extends ConsumerStatefulWidget {
   const CalendarScreen({super.key});
 
   @override
+  ConsumerState<CalendarScreen> createState() => _CalendarScreenState();
+}
+
+class _CalendarScreenState extends ConsumerState<CalendarScreen> {
+  /// Months away from the current Hijri month being shown.
+  int _monthOffset = 0;
+
+  @override
   Widget build(BuildContext context) {
+    final HijriConfig config = ref.watch(hijriSettingsProvider);
     final DateTime today = DateTime.now();
     final HijriDate hijri = HijriDate.fromGregorian(today);
+    final int index = hijri.year * 12 + (hijri.month - 1) + _monthOffset;
+    final HijriDate shown = HijriDate(index ~/ 12, index % 12 + 1, 1);
     final List<(Observance, HijriDate)> upcoming = Observances.upcoming(
       today,
     ).take(6).toList();
@@ -30,15 +47,39 @@ class CalendarScreen extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
                 children: [
                   _TodayCard(today: today, hijri: hijri),
+                  const SizedBox(height: 8),
+                  Align(
+                    child: TextButton.icon(
+                      onPressed: () => _showBasisSheet(context),
+                      icon: const Icon(Icons.tune, size: 16),
+                      label: Text(
+                        '${config.basis == HijriBasis.ummAlQura ? 'Umm al-Qura' : 'Tabular'}'
+                        '${config.adjustDays == 0 ? '' : ' · ${config.adjustDays > 0 ? '+' : ''}${config.adjustDays} d'}'
+                        ' · change',
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  _MonthCard(
+                    shown: shown,
+                    today: hijri,
+                    onPrev: () => setState(() => _monthOffset--),
+                    onNext: () => setState(() => _monthOffset++),
+                    onToday: _monthOffset == 0
+                        ? null
+                        : () => setState(() => _monthOffset = 0),
+                  ),
                   const SizedBox(height: 16),
-                  _MonthCard(hijri: hijri),
+                  _FastingMonthCard(hijri: shown),
                   const SizedBox(height: 16),
-                  _FastingMonthCard(hijri: hijri),
+                  const _ConverterCard(),
                   const SizedBox(height: 16),
                   _ObservancesCard(upcoming: upcoming),
                   const SizedBox(height: 16),
                   Text(
-                    'DATES FOLLOW THE OFFICIAL UMM AL-QURA CALENDAR · CONFIRM BY LOCAL MOON SIGHTING',
+                    config.basis == HijriBasis.ummAlQura
+                        ? 'UMM AL-QURA TABLE (HIJRI PACKAGE, 1356-1500 AH) · CONFIRM BY LOCAL MOON SIGHTING'
+                        : 'TABULAR (ARITHMETIC) CALENDAR · NOT MOON-SIGHTED · CONFIRM BY LOCAL MOON SIGHTING',
                     style: AppText.eyebrow.copyWith(
                       color: AppColors.gold.withValues(alpha: 0.4),
                       fontSize: 9,
@@ -50,6 +91,147 @@ class CalendarScreen extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  void _showBasisSheet(BuildContext context) {
+    showModalBottomSheet<void>(
+      context: context,
+      backgroundColor: AppColors.navy,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (BuildContext sheetContext) => Consumer(
+        builder: (BuildContext c, WidgetRef ref, Widget? _) {
+          final HijriConfig cfg = ref.watch(hijriSettingsProvider);
+          final HijriSettingsController ctl = ref.read(
+            hijriSettingsProvider.notifier,
+          );
+          return SafeArea(
+            child: ListView(
+              shrinkWrap: true,
+              padding: const EdgeInsets.fromLTRB(24, 16, 24, 24),
+              children: [
+                Text(
+                  'CALENDAR BASIS',
+                  style: AppText.eyebrow.copyWith(color: AppColors.gold),
+                ),
+                const SizedBox(height: 8),
+                RadioGroup<HijriBasis>(
+                  groupValue: cfg.basis,
+                  onChanged: (HijriBasis? v) {
+                    if (v != null) ctl.setBasis(v);
+                  },
+                  child: const Column(
+                    children: [
+                      RadioListTile<HijriBasis>(
+                        value: HijriBasis.ummAlQura,
+                        title: Text('Umm al-Qura'),
+                        subtitle: Text(
+                          'The official calendar of Saudi Arabia, from the '
+                          'published table in the hijri package (1356-1500 AH).',
+                        ),
+                      ),
+                      RadioListTile<HijriBasis>(
+                        value: HijriBasis.tabular,
+                        title: Text('Tabular (arithmetic)'),
+                        subtitle: Text(
+                          'A fixed 30-year rule that does not observe the '
+                          'moon. It can differ from sighting by a day or two.',
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  'SHIFT ALL DATES',
+                  style: AppText.eyebrow.copyWith(color: AppColors.gold),
+                ),
+                Row(
+                  children: [
+                    IconButton(
+                      tooltip: 'One day earlier',
+                      onPressed: cfg.adjustDays > -HijriConfig.maxAdjust
+                          ? () => ctl.setAdjustDays(cfg.adjustDays - 1)
+                          : null,
+                      icon: const Icon(Icons.remove_circle_outline),
+                    ),
+                    Text(
+                      '${cfg.adjustDays > 0 ? '+' : ''}${cfg.adjustDays} days',
+                      style: AppText.label.copyWith(color: AppColors.sand),
+                    ),
+                    IconButton(
+                      tooltip: 'One day later',
+                      onPressed: cfg.adjustDays < HijriConfig.maxAdjust
+                          ? () => ctl.setAdjustDays(cfg.adjustDays + 1)
+                          : null,
+                      icon: const Icon(Icons.add_circle_outline),
+                    ),
+                  ],
+                ),
+                Text(
+                  'Use this if your country or community announced a month '
+                  'start a day away from the calculated one. A single shift '
+                  'is an approximation; it applies to the calendar, Ramadan, '
+                  'fasting days and Zakat reminders alike. For the start of '
+                  'Ramadan and the two Eids, follow your local announcement '
+                  'or ask a scholar.',
+                  style: AppText.caption,
+                ),
+              ],
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
+
+/// Gregorian to Hijri and back, using the calendar chosen above.
+class _ConverterCard extends StatefulWidget {
+  const _ConverterCard();
+
+  @override
+  State<_ConverterCard> createState() => _ConverterCardState();
+}
+
+class _ConverterCardState extends State<_ConverterCard> {
+  DateTime _picked = DateTime.now();
+
+  @override
+  Widget build(BuildContext context) {
+    final HijriDate h = HijriDate.fromGregorian(_picked);
+    return GlassCard(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SizedBox(height: 4),
+          Text(
+            'DATE CONVERTER',
+            style: AppText.eyebrow.copyWith(color: AppColors.gold),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            '${_picked.day}/${_picked.month}/${_picked.year}  =  '
+            '${h.day} ${h.monthNameEn} ${h.year} AH',
+            style: AppText.body.copyWith(color: AppColors.sand),
+          ),
+          const SizedBox(height: 4),
+          TextButton(
+            onPressed: () async {
+              final DateTime? d = await showDatePicker(
+                context: context,
+                initialDate: _picked,
+                firstDate: DateTime(1937),
+                lastDate: DateTime(2076),
+              );
+              if (d != null) setState(() => _picked = d);
+            },
+            child: const Text('Pick a Gregorian date'),
+          ),
+        ],
       ),
     );
   }
@@ -106,9 +288,24 @@ class _TodayCard extends StatelessWidget {
 }
 
 class _MonthCard extends StatelessWidget {
-  const _MonthCard({required this.hijri});
+  const _MonthCard({
+    required this.shown,
+    required this.today,
+    required this.onPrev,
+    required this.onNext,
+    required this.onToday,
+  });
 
-  final HijriDate hijri;
+  /// First day of the month being shown.
+  final HijriDate shown;
+
+  /// Today's Hijri date, for the highlight.
+  final HijriDate today;
+  final VoidCallback onPrev;
+  final VoidCallback onNext;
+  final VoidCallback? onToday;
+
+  HijriDate get hijri => shown;
 
   static const List<String> _weekdays = <String>[
     'M',
@@ -131,10 +328,29 @@ class _MonthCard extends StatelessWidget {
       child: Column(
         children: [
           const SizedBox(height: 4),
-          Text(
-            '${hijri.monthNameEn} ${hijri.year} · ${hijri.monthNameAr}',
-            style: AppText.label.copyWith(color: AppColors.gold),
+          Row(
+            children: [
+              IconButton(
+                tooltip: 'Previous month',
+                onPressed: onPrev,
+                icon: const Icon(Icons.chevron_left),
+              ),
+              Expanded(
+                child: Text(
+                  '${hijri.monthNameEn} ${hijri.year} · ${hijri.monthNameAr}',
+                  textAlign: TextAlign.center,
+                  style: AppText.label.copyWith(color: AppColors.gold),
+                ),
+              ),
+              IconButton(
+                tooltip: 'Next month',
+                onPressed: onNext,
+                icon: const Icon(Icons.chevron_right),
+              ),
+            ],
           ),
+          if (onToday != null)
+            TextButton(onPressed: onToday, child: const Text('Back to today')),
           const SizedBox(height: 12),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -165,7 +381,10 @@ class _MonthCard extends StatelessWidget {
                       valid:
                           row * 7 + col >= offset &&
                           row * 7 + col < offset + days,
-                      isToday: row * 7 + col - offset + 1 == hijri.day,
+                      isToday:
+                          hijri.year == today.year &&
+                          hijri.month == today.month &&
+                          row * 7 + col - offset + 1 == today.day,
                       markers:
                           row * 7 + col >= offset &&
                               row * 7 + col < offset + days

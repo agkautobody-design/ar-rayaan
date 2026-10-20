@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
 
 import '../../../app/theme/app_colors.dart';
@@ -8,23 +9,25 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../auth/presentation/widgets/auth_text_field.dart';
+import '../application/zakat_history_provider.dart';
 import '../domain/nisab.dart';
 import '../domain/zakat_calculation.dart';
 import '../domain/zakat_engine.dart';
+import '../domain/zakat_history.dart';
 import 'zakat_cards.dart';
 
 /// Guided Zakat Calculator — enter everything (cash, gold by karat, jewelry,
 /// stocks, retirement, crypto, business, mortgage) and Ar-Rayaan computes
 /// the obligation live. Madhab-aware; scholarly positions labeled, never
 /// ruled on. Live metal prices are a convenience — manual entry always works.
-class ZakatScreen extends StatefulWidget {
+class ZakatScreen extends ConsumerStatefulWidget {
   const ZakatScreen({super.key});
 
   @override
-  State<ZakatScreen> createState() => _ZakatScreenState();
+  ConsumerState<ZakatScreen> createState() => _ZakatScreenState();
 }
 
-class _ZakatScreenState extends State<ZakatScreen> {
+class _ZakatScreenState extends ConsumerState<ZakatScreen> {
   final Map<String, TextEditingController> _c = {
     for (final k in [
       'cash', 'savings', 'owed', 'receivables',
@@ -34,7 +37,7 @@ class _ZakatScreenState extends State<ZakatScreen> {
       'retirement', 'penalty',
       'bizCash', 'bizInventory', 'bizReceivables', 'rental', 'resale',
       'debts', 'mortgage', 'bills',
-      'goldPrice', 'silverPrice',
+      'goldPrice', 'silverPrice', 'currency',
     ])
       k: TextEditingController(),
   };
@@ -138,6 +141,30 @@ class _ZakatScreenState extends State<ZakatScreen> {
     }
   }
 
+  /// Saves today's result (never the balances) to this device.
+  Future<void> _saveCalculation(GuidedZakatResult r) async {
+    final DateTime now = DateTime.now();
+    await ref.read(zakatHistoryProvider.notifier).save(
+          ZakatRecord(
+            date: DateTime(now.year, now.month, now.day),
+            madhab: _madhab.name,
+            nisabBasis: _silverNisab ? 'silver' : 'gold',
+            tolaFigures: _tolaNisab,
+            netZakatable: r.netZakatable,
+            nisabValue: r.nisabValue,
+            zakatDue: r.zakatDue,
+            eligible: r.isEligible,
+            goldPricePerGram: _v('goldPrice'),
+            silverPricePerGram: _v('silverPrice'),
+            currency: _c['currency']!.text.trim(),
+          ),
+        );
+    if (!mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('Saved on this device.')),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final GuidedZakatResult r = ZakatEngine.compute(_input);
@@ -151,6 +178,19 @@ class _ZakatScreenState extends State<ZakatScreen> {
                 padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
                 children: [
                   _HeroCard(result: r, silverNisab: _silverNisab),
+                  const SizedBox(height: 8),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: TextButton.icon(
+                      key: const Key('save-calculation'),
+                      onPressed: r.nisabKnown ? () => _saveCalculation(r) : null,
+                      icon: const Icon(Icons.save_outlined, size: 16),
+                      label: const Text('Save this calculation'),
+                      style: TextButton.styleFrom(
+                        foregroundColor: AppColors.goldLight,
+                      ),
+                    ),
+                  ),
                   if (r.warnings.isNotEmpty) ...[
                     const SizedBox(height: 16),
                     _buildWarningsCard(r.warnings),
@@ -244,6 +284,8 @@ class _ZakatScreenState extends State<ZakatScreen> {
                   const SizedBox(height: 8),
                   if (r.notes.isNotEmpty) _buildNotesCard(r.notes),
                   const SizedBox(height: 16),
+                  const ZakatHistoryCard(),
+                  const SizedBox(height: 16),
                   const HawlCard(),
                   const SizedBox(height: 16),
                   const ZakatAlFitrCard(),
@@ -328,6 +370,19 @@ class _ZakatScreenState extends State<ZakatScreen> {
                 style: AppText.bodyMuted.copyWith(fontSize: 11)),
           _note('Live prices are in US dollars. If your balances are in '
               'another currency, type the prices in that currency instead.'),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 10),
+            child: TextField(
+              key: const Key('currency-label'),
+              controller: _c['currency'],
+              style: AppText.body,
+              maxLength: 6,
+              decoration: const InputDecoration(
+                hintText: 'Your currency (optional label, e.g. CAD)',
+                counterText: '',
+              ),
+            ),
+          ),
           const SizedBox(height: 4),
         ],
       ),

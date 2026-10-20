@@ -25,4 +25,17 @@ abstract final class ZakatAlFitr {
     if (perPerson <= 0) return 0;
     return clampPeople(people) * perPerson;
   }
+
+  /// Total when the user works from a staple food instead of a figure their
+  /// mosque announced: [people] x [kgPerPerson] x [pricePerKg]. Every number
+  /// is the user's own (the weight of a sa' differs between scholars and
+  /// schools, so the app supplies none); this is multiplication only.
+  static double totalFromStaple({
+    required int people,
+    required double kgPerPerson,
+    required double pricePerKg,
+  }) {
+    if (kgPerPerson <= 0 || pricePerKg <= 0) return 0;
+    return clampPeople(people) * kgPerPerson * pricePerKg;
+  }
 }
