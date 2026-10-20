@@ -157,6 +157,8 @@ abstract final class AcademyStrings {
       'hisn.body': 'The Fortress of the Muslim — every authentic dua and dhikr, categorized for the moment you are in.',
       'hajjpack.title': 'Hajj & Umrah Pack',
       'hajjpack.body': 'The journey in order — intention, the rites, the days — opening the real guides at every station.',
+      'ramadan.title': 'Ramadan Mode',
+      'ramadan.body': 'The month of taqwa — pillars, daily rhythm, and the doors of suhoor, iftar, and taraweeh.',
       'academy.title': 'Al-Wasia Academy of Sacred Knowledge',
       'academy.comingSoon': 'Coming soon — insha’Allah',
       'academy.continue': 'Continue where you left off',
