@@ -20,6 +20,7 @@ import '../features/academy/presentation/word_deck_screen.dart';
 import '../features/academy/presentation/tajweed_cards_screen.dart';
 import '../features/academy/presentation/hifz_planner_screen.dart';
 import '../features/academy/presentation/dua_school_screen.dart';
+import '../features/academy/presentation/understanding_school_screen.dart';
 import '../features/academy/presentation/audio_packs_screen.dart';
 import '../features/academy/presentation/dhikr_session_screen.dart';
 import '../features/doctor/presentation/founder_console_screen.dart';
@@ -485,7 +486,7 @@ GoRouter buildRouter({String initialLocation = '/'}) {
       ),
       GoRoute(
         path: '/academy/understanding',
-        pageBuilder: (context, state) => _fade(const SchoolPlaceholderScreen(schoolKey: 'school.understanding.title')),
+        pageBuilder: (context, state) => _fade(const UnderstandingSchoolScreen()),
       ),
       GoRoute(
         path: '/academy/lesson/:course/:unit/:lesson',
