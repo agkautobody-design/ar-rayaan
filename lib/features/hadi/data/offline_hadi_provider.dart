@@ -196,7 +196,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'the Dajjal (Sahih Muslim).',
   ),
   _Entry(
-    <String>['anxiety', 'anxious', 'worry', 'worried', 'stress', 'grief'],
+    <String>['anxiety', 'anxious', 'worry', 'worried', 'stress', 'grief', 'dua for anxiety', 'dua for worry', 'dua for stress'],
     'اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ — “O Allah, I '
     'seek refuge in You from worry and grief, from incapacity and '
     'laziness, from cowardice and miserliness, from the burden of debt '
@@ -254,7 +254,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'those who learn the Qur\'an and teach it.” (Sahih al-Bukhari 5027).',
   ),
   _Entry(
-    <String>['dua for anxiety', 'du\'a', 'dua', 'supplication'],
+    <String>['du\'a', 'dua', 'supplication'],
     'Du\'a is worship itself (Jami\' at-Tirmidhi 3372). For a need, '
     'begin with praise of Allah and salawat on the Prophet ﷺ, then ask '
     'with certainty. Your Dhikr & Du\'a screen carries the authentic '

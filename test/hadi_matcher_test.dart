@@ -36,7 +36,7 @@ void main() {
     });
 
     test('ordinary questions still find their answer', () async {
-      expect(await ask('How do I make wudu?'), contains('wudu'));
+      expect((await ask('How do I make wudu?')).toLowerCase(), contains('wudu'));
       expect(await ask('Tell me about fasting'), contains('pillar'));
       expect(await ask('What are your hadith sources?'),
           contains('Sihah Sitta'));

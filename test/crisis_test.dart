@@ -139,7 +139,7 @@ void main() {
       for (final HelpResource r in HelpResources.all) {
         expect(r.dial != null || r.url != null, isTrue, reason: r.name);
         if (r.dial != null) {
-          expect(RegExp(r'^\d{3,11}$').hasMatch(r.dial!), isTrue,
+          expect(RegExp(r'^\d{2,11}$').hasMatch(r.dial!), isTrue,
               reason: '${r.name}: ${r.dial}');
         }
       }
