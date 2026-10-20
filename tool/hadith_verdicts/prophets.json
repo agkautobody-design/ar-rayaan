@@ -111,6 +111,13 @@
   "note": "Abu Huraira, Nasibin jinn, bones and dung",
   "verdict": "ok"
  },
+ "bukhari:4485": {
+  "checked": "2026-10-20",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Huraira; chapter under Qur'an 2:136; neither believe nor disbelieve the People of the Scripture outright, affirm belief in Allah and what was revealed; verified by lead",
+  "verdict": "ok"
+ },
  "bukhari:461": {
   "checked": "2026-10-20",
   "grade": "Sahih",

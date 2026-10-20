@@ -507,7 +507,8 @@ class _EarlierAccounts extends StatelessWidget {
         Text(
           'These come from before the Qur’an (the Bible and Jewish or '
           'Christian tradition). Relating them is permitted (Sahih al-Bukhari '
-          '3461). They are sorted into three classes: confirmed by our '
+          '3461), but we neither believe nor disbelieve them outright '
+          '(Sahih al-Bukhari 4485). They are sorted into three classes: confirmed by our '
           'sources, silent (we neither believe nor disbelieve them), or '
           'contradicted, which are not told.',
           style: AppText.bodyMuted.copyWith(fontSize: 13, height: 1.5),
