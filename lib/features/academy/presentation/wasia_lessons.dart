@@ -13,6 +13,7 @@ import '../../../app/theme/widgets/speak_button.dart';
 import '../application/academy_providers.dart';
 import '../application/family_service.dart';
 import '../application/wasia_controller.dart';
+import '../domain/academy_models.dart' show LessonProgress;
 import 'widgets/wasia_thread.dart';
 
 class LessonStep {
@@ -81,7 +82,12 @@ class LettersLessonsScreen extends ConsumerWidget {
     final lessons = ref.watch(lettersCurriculumProvider);
     // Device-level completion: a tick on every letter lesson finished here,
     // whether or not a child is active in the Family Wing.
-    final progress = ref.watch(academyProgressProvider);
+    // The ticks are decoration: if device storage is not wired (a bare test
+    // harness) the list still renders, just without them.
+    Map<String, LessonProgress> progress = const <String, LessonProgress>{};
+    try {
+      progress = ref.watch(academyProgressProvider);
+    } catch (_) {}
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: lessons.when(
