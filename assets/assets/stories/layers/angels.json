@@ -1,0 +1,180 @@
+{
+ "schema": 1,
+ "subject": "angels",
+ "title": "The angels",
+ "kind": "unseen",
+ "checked": "2026-10-20",
+ "reviewStatus": "Not yet scholar-reviewed",
+ "quran": [
+  {
+   "surah": 2,
+   "from": 98,
+   "to": 98,
+   "note": "Jibril and Mika’il are named among the angels."
+  },
+  {
+   "surah": 35,
+   "from": 1,
+   "to": 1,
+   "note": "Angels as messengers with wings, two or three or four."
+  },
+  {
+   "surah": 16,
+   "from": 49,
+   "to": 50,
+   "note": "They prostrate and are not arrogant; they do what they are commanded."
+  },
+  {
+   "surah": 21,
+   "from": 26,
+   "to": 28,
+   "note": "Honoured servants who act by His command."
+  },
+  {
+   "surah": 66,
+   "from": 6,
+   "to": 6,
+   "note": "The angels over the Fire do not disobey."
+  },
+  {
+   "surah": 82,
+   "from": 10,
+   "to": 12,
+   "note": "The noble recording keepers."
+  }
+ ],
+ "hadith": [
+  {
+   "book": "muslim",
+   "number": "2996",
+   "narrator": "Aisha",
+   "grade": "Sahih",
+   "grader": "Muslim, in his Sahih",
+   "summary": "Aisha reported the Prophet ﷺ saying the angels were created from light.",
+   "verified": "2026-10-20"
+  },
+  {
+   "book": "bukhari",
+   "number": "3232",
+   "narrator": "Abdullah ibn Mas’ud",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "Ibn Mas’ud said that the Prophet ﷺ saw Jibril with six hundred wings, explaining the verses of Surat al-Najm about the vision.",
+   "verified": "2026-10-20"
+  },
+  {
+   "book": "muslim",
+   "number": "174",
+   "narrator": "Abdullah ibn Mas’ud",
+   "grade": "Sahih",
+   "grader": "Muslim, in his Sahih",
+   "summary": "The same report of Ibn Mas’ud in Sahih Muslim, in the chapter on the Lote-Tree of the Utmost Boundary: the Prophet ﷺ saw Jibril, who had six hundred wings.",
+   "verified": "2026-10-20"
+  },
+  {
+   "book": "bukhari",
+   "number": "3207",
+   "narrator": "Malik ibn Sa’sa’a",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "In the account of the night of the ascent, the Prophet ﷺ was shown al-Bayt al-Ma’mur in the seventh heaven: seventy thousand angels pray there each day, and those who leave never return.",
+   "verified": "2026-10-20"
+  },
+  {
+   "book": "abudawud",
+   "number": "4727",
+   "narrator": "Jabir ibn Abdullah",
+   "grade": "Sahih",
+   "grader": "al-Albani (as shown on sunnah.com)",
+   "summary": "The Prophet ﷺ said he had been permitted to speak of an angel among the bearers of the Throne, the distance from the lobe of whose ear to his shoulder is a journey of seven hundred years.",
+   "verified": "2026-10-20"
+  },
+  {
+   "book": "tirmidhi",
+   "number": "2312",
+   "narrator": "Abu Dharr",
+   "grade": "Hasan gharib",
+   "grader": "al-Tirmidhi (his own remark; sunnah.com shows no other grade)",
+   "summary": "Abu Dharr reported the Prophet ﷺ saying he saw what others do not see and heard what they do not hear: the heaven moans, and rightly so, for there is no spot the size of four fingers where an angel is not prostrating. The report is in the chapter on “if you knew what I know you would laugh little”.",
+   "verified": "2026-10-20",
+   "note": "Graded only by al-Tirmidhi (hasan gharib) on sunnah.com, with no other grade shown; handle it with that in mind."
+  },
+  {
+   "book": "bukhari",
+   "number": "3208",
+   "narrator": "Abdullah ibn Mas’ud",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "Ibn Mas’ud reported the Prophet ﷺ describing the stages of the child in the womb, after which an angel is sent and commanded to write four things: the person’s deeds, provision, lifespan, and whether they will be wretched or blessed.",
+   "verified": "2026-10-20"
+  },
+  {
+   "book": "bukhari",
+   "number": "3223",
+   "narrator": "Abu Huraira",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "Abu Huraira reported that angels take turns among you by night and by day and meet at the Fajr and Asr prayers; those who stayed with you go up, and Allah asks them how they left His servants.",
+   "verified": "2026-10-20"
+  },
+  {
+   "book": "bukhari",
+   "number": "6408",
+   "narrator": "Abu Huraira",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "Abu Huraira reported that Allah has angels who roam the roads looking for people who remember Allah, and who report on them to Him.",
+   "verified": "2026-10-20"
+  },
+  {
+   "book": "muslim",
+   "number": "2842",
+   "narrator": "Abdullah ibn Mas’ud",
+   "grade": "Sahih",
+   "grader": "Muslim, in his Sahih",
+   "summary": "Ibn Mas’ud reported that on the Day of Judgment Hell will be brought with seventy thousand bridles, each pulled by seventy thousand angels.",
+   "verified": "2026-10-20"
+  },
+  {
+   "book": "bukhari",
+   "number": "3231",
+   "narrator": "Aisha",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "Aisha asked the Prophet ﷺ about the hardest day he had known. He described the rejection at Ta’if; Jibril appeared in a cloud and the Angel of the Mountains offered to act against the people, but the Prophet ﷺ declined, hoping Allah would bring from them those who worship Him alone.",
+   "verified": "2026-10-20"
+  }
+ ],
+ "scholarly": [
+  {
+   "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+   "author": "Ibn Kathir",
+   "locator": "on 2:97-98",
+   "summary": "Calls Jibril “Ruh al-Qudus”, who brought the Qur’an to the Prophet’s ﷺ heart by Allah’s permission, and who carries out his missions by his Lord’s command and not on his own. It names Israfil as the one entrusted with blowing the Trumpet, and says that whoever is an enemy to any of them is an enemy to Allah."
+  },
+  {
+   "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+   "author": "Ibn Kathir",
+   "locator": "on 35:1",
+   "summary": "Says the angels are messengers with wings, some with two, some three, some four, and some more, and cites the report that the Prophet ﷺ saw Jibril with six hundred wings (the page does not name its compiler)."
+  }
+ ],
+ "differences": [
+  {
+   "question": "Who were Harut and Marut (2:102)?",
+   "views": [
+    {
+     "who": "Many of the Salaf, via al-Qurtubi",
+     "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com), on 2:102",
+     "view": "They were two angels sent down to earth as a trial. The abridged text names, among others, Ibn Mas’ud and Ibn Abbas. To reconcile this with angels not disobeying Allah (66:6), Ibn Kathir argues that Allah knew in His eternal knowledge what they would do, and compares Iblis."
+    },
+    {
+     "who": "A view quoted in the same passage",
+     "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com), on 2:102",
+     "view": "They were two ordinary men, not angels. Ibn Kathir states that this explanation “is not plausible”."
+    }
+   ],
+   "note": "The Qur’an says only that they taught people while saying “we are a trial, so do not disbelieve”. The abridged text does not discuss the tale of a woman named Zuhrah, so no verdict on it is reported here."
+  }
+ ]
+}

@@ -1,0 +1,24 @@
+{
+ "schema": 1,
+ "subject": "dawud",
+ "badge": "Not from the Qur’an",
+ "checked": "2026-10-20",
+ "items": [
+  {
+   "id": "dawud-goliath",
+   "class": "silent",
+   "origin": "Bible, 1 Samuel 17",
+   "claim": "David goes out against Goliath with his staff, a sling and five smooth stones, strikes him with one stone, and then kills him with the Philistine’s own sword.",
+   "ruling": "The Qur’an confirms that Dawud killed Jalut (2:251). The sling, the stones and the sword are not mentioned in the Qur’an or in the hadith we checked, so we neither believe nor disbelieve them.",
+   "basis": "Qur’an 2:251; the Bible text (1 Samuel 17:38-51, NRSVUE) read on BibleGateway"
+  },
+  {
+   "id": "dawud-two-adversaries",
+   "class": "silent",
+   "origin": "Later storytelling about 38:21-25",
+   "claim": "A long story told to explain what the two adversaries were and what Dawud’s trial was.",
+   "ruling": "Held back. Ibn Kathir (abridged) says the story usually told here is mostly based on Isra’iliyyat, that there is no report from the Prophet ﷺ that we could accept as true, and that it is better to speak briefly and refer the knowledge to Allah. We tell nothing beyond the verses.",
+   "basis": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com), on 38:21-25"
+  }
+ ]
+}

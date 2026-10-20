@@ -1,0 +1,758 @@
+{
+ "version": 1,
+ "checked": "2026-10-20",
+ "note": "Hadi's grounding corpus. Qur'an entries name verses only: the app prints Arabic and English from assets/quran/quran.json. Hadith entries are summaries or short excerpts written for this app (not copied from sunnah.com); number, collection and grade were checked on sunnah.com on the date shown. Anything not listed here Hadi cannot cite. Not yet reviewed by a named scholar.",
+ "quran": [
+  {
+   "ref": "2:255",
+   "topics": [
+    "ayat",
+    "al-kursi",
+    "throne",
+    "protection",
+    "allah",
+    "living",
+    "sustainer",
+    "tawhid"
+   ]
+  },
+  {
+   "ref": "112:1-4",
+   "topics": [
+    "tawhid",
+    "oneness",
+    "sincerity",
+    "ikhlas",
+    "allah",
+    "one",
+    "eternal",
+    "refuge"
+   ]
+  },
+  {
+   "ref": "94:5-6",
+   "topics": [
+    "hardship",
+    "ease",
+    "difficulty",
+    "relief",
+    "anxiety",
+    "stress",
+    "struggle"
+   ]
+  },
+  {
+   "ref": "13:28",
+   "topics": [
+    "remembrance",
+    "heart",
+    "peace",
+    "calm",
+    "tranquility",
+    "anxiety",
+    "worry",
+    "dhikr",
+    "assured"
+   ]
+  },
+  {
+   "ref": "2:286",
+   "topics": [
+    "burden",
+    "capacity",
+    "test",
+    "hardship",
+    "forgiveness",
+    "dua",
+    "overwhelmed"
+   ]
+  },
+  {
+   "ref": "2:153",
+   "topics": [
+    "patience",
+    "prayer",
+    "help",
+    "hardship",
+    "sabr",
+    "support"
+   ]
+  },
+  {
+   "ref": "2:155-156",
+   "topics": [
+    "test",
+    "trial",
+    "loss",
+    "patience",
+    "calamity",
+    "grief",
+    "hunger",
+    "fear"
+   ]
+  },
+  {
+   "ref": "65:2-3",
+   "topics": [
+    "taqwa",
+    "way",
+    "out",
+    "provision",
+    "trust",
+    "tawakkul",
+    "worry",
+    "rizq",
+    "income",
+    "job",
+    "money"
+   ]
+  },
+  {
+   "ref": "64:11",
+   "topics": [
+    "calamity",
+    "disaster",
+    "guidance",
+    "heart",
+    "permission"
+   ]
+  },
+  {
+   "ref": "3:139",
+   "topics": [
+    "grief",
+    "weak",
+    "sad",
+    "grieve",
+    "strength",
+    "believers"
+   ]
+  },
+  {
+   "ref": "9:40",
+   "topics": [
+    "grieve",
+    "fear",
+    "cave",
+    "allah",
+    "with",
+    "us"
+   ]
+  },
+  {
+   "ref": "3:173",
+   "topics": [
+    "sufficient",
+    "disposer",
+    "tawakkul",
+    "fear",
+    "trust",
+    "reliance"
+   ]
+  },
+  {
+   "ref": "39:53",
+   "topics": [
+    "mercy",
+    "forgive",
+    "forgiveness",
+    "sins",
+    "despair",
+    "repentance",
+    "tawbah",
+    "guilt",
+    "shame"
+   ]
+  },
+  {
+   "ref": "12:87",
+   "topics": [
+    "despair",
+    "relief",
+    "hope"
+   ]
+  },
+  {
+   "ref": "2:186",
+   "topics": [
+    "dua",
+    "supplication",
+    "near",
+    "answer",
+    "prayer",
+    "asking"
+   ]
+  },
+  {
+   "ref": "50:16",
+   "topics": [
+    "near",
+    "jugular",
+    "close",
+    "knows",
+    "soul",
+    "whispers",
+    "lonely"
+   ]
+  },
+  {
+   "ref": "57:4",
+   "topics": [
+    "with",
+    "you",
+    "wherever",
+    "lonely",
+    "alone",
+    "sees"
+   ]
+  },
+  {
+   "ref": "2:152",
+   "topics": [
+    "remember",
+    "remembrance",
+    "gratitude",
+    "dhikr"
+   ]
+  },
+  {
+   "ref": "14:7",
+   "topics": [
+    "gratitude",
+    "thankful",
+    "grateful",
+    "increase",
+    "shukr"
+   ]
+  },
+  {
+   "ref": "7:23",
+   "topics": [
+    "adam",
+    "repent",
+    "forgive",
+    "mistake",
+    "wronged",
+    "ourselves",
+    "dua"
+   ]
+  },
+  {
+   "ref": "21:87-88",
+   "topics": [
+    "yunus",
+    "jonah",
+    "distress",
+    "darkness",
+    "dua",
+    "whale"
+   ]
+  },
+  {
+   "ref": "21:83",
+   "topics": [
+    "ayyub",
+    "job",
+    "adversity",
+    "illness",
+    "sickness",
+    "mercy",
+    "dua"
+   ]
+  },
+  {
+   "ref": "12:86",
+   "topics": [
+    "yaqub",
+    "jacob",
+    "sorrow",
+    "grief",
+    "complain"
+   ]
+  },
+  {
+   "ref": "93:3-4",
+   "topics": [
+    "forsaken",
+    "abandoned",
+    "sad",
+    "low",
+    "hereafter",
+    "detested"
+   ]
+  },
+  {
+   "ref": "20:46",
+   "topics": [
+    "fear",
+    "musa",
+    "moses",
+    "allah",
+    "hearing",
+    "seeing"
+   ]
+  },
+  {
+   "ref": "17:23",
+   "topics": [
+    "parents",
+    "kindness",
+    "respect",
+    "old",
+    "age",
+    "mother",
+    "father"
+   ]
+  },
+  {
+   "ref": "31:14",
+   "topics": [
+    "parents",
+    "mother",
+    "gratitude",
+    "weakness"
+   ]
+  },
+  {
+   "ref": "17:24",
+   "topics": [
+    "parents",
+    "mercy",
+    "dua",
+    "humility"
+   ]
+  },
+  {
+   "ref": "4:36",
+   "topics": [
+    "neighbour",
+    "neighbor",
+    "parents",
+    "orphans",
+    "kindness",
+    "worship"
+   ]
+  },
+  {
+   "ref": "49:10",
+   "topics": [
+    "believers",
+    "brothers",
+    "reconcile",
+    "settlement",
+    "conflict",
+    "reconciliation"
+   ]
+  },
+  {
+   "ref": "49:11-12",
+   "topics": [
+    "ridicule",
+    "insult",
+    "backbite",
+    "suspicion",
+    "gossip",
+    "names"
+   ]
+  },
+  {
+   "ref": "49:13",
+   "topics": [
+    "mankind",
+    "peoples",
+    "tribes",
+    "equality",
+    "righteousness",
+    "racism"
+   ]
+  },
+  {
+   "ref": "3:134",
+   "topics": [
+    "anger",
+    "restrain",
+    "pardon",
+    "forgive",
+    "generosity"
+   ]
+  },
+  {
+   "ref": "41:34",
+   "topics": [
+    "repel",
+    "evil",
+    "better",
+    "enmity",
+    "friend",
+    "anger",
+    "conflict"
+   ]
+  },
+  {
+   "ref": "16:90",
+   "topics": [
+    "justice",
+    "kindness",
+    "oppression",
+    "relatives"
+   ]
+  },
+  {
+   "ref": "30:21",
+   "topics": [
+    "marriage",
+    "spouse",
+    "tranquility",
+    "mercy",
+    "affection",
+    "love",
+    "mates"
+   ]
+  },
+  {
+   "ref": "2:183",
+   "topics": [
+    "fasting",
+    "ramadan",
+    "righteousness"
+   ]
+  },
+  {
+   "ref": "2:185",
+   "topics": [
+    "ramadan",
+    "ease",
+    "hardship",
+    "fasting",
+    "illness",
+    "travel"
+   ]
+  },
+  {
+   "ref": "2:43",
+   "topics": [
+    "prayer",
+    "zakah",
+    "zakat",
+    "establish",
+    "salah"
+   ]
+  },
+  {
+   "ref": "29:45",
+   "topics": [
+    "prayer",
+    "wrongdoing",
+    "immorality",
+    "remembrance",
+    "salah"
+   ]
+  },
+  {
+   "ref": "20:14",
+   "topics": [
+    "prayer",
+    "establish",
+    "remembrance",
+    "worship",
+    "salah"
+   ]
+  },
+  {
+   "ref": "62:10",
+   "topics": [
+    "prayer",
+    "work",
+    "provision",
+    "seek",
+    "bounty",
+    "remember",
+    "jumuah",
+    "friday"
+   ]
+  },
+  {
+   "ref": "2:261",
+   "topics": [
+    "charity",
+    "spend",
+    "sadaqah",
+    "reward",
+    "multiply"
+   ]
+  },
+  {
+   "ref": "3:92",
+   "topics": [
+    "charity",
+    "spend",
+    "love",
+    "good",
+    "sadaqah"
+   ]
+  },
+  {
+   "ref": "58:11",
+   "topics": [
+    "knowledge",
+    "raise",
+    "ranks",
+    "learning",
+    "scholars"
+   ]
+  },
+  {
+   "ref": "20:114",
+   "topics": [
+    "knowledge",
+    "increase",
+    "dua",
+    "learning"
+   ]
+  },
+  {
+   "ref": "2:216",
+   "topics": [
+    "hate",
+    "good",
+    "wisdom",
+    "unknown",
+    "plans",
+    "dislike"
+   ]
+  },
+  {
+   "ref": "57:22-23",
+   "topics": [
+    "decree",
+    "calamity",
+    "despair",
+    "loss",
+    "qadar",
+    "fate"
+   ]
+  },
+  {
+   "ref": "33:41",
+   "topics": [
+    "remember",
+    "allah",
+    "dhikr",
+    "much"
+   ]
+  },
+  {
+   "ref": "3:8",
+   "topics": [
+    "guidance",
+    "hearts",
+    "deviate",
+    "dua",
+    "steadfast"
+   ]
+  },
+  {
+   "ref": "4:28",
+   "topics": [
+    "weak",
+    "human",
+    "lighten",
+    "difficulty"
+   ]
+  }
+ ],
+ "hadith": [
+  {
+   "id": "h:muslim-2747",
+   "collection": "Sahih Muslim",
+   "number": "2747",
+   "english": "Allah is more pleased with the repentance of His servant than a traveller who finds his lost camel again.",
+   "grade": "In Sahih Muslim",
+   "grader": "Included in Sahih Muslim; the collection gives no separate grade",
+   "topics": [
+    "repentance",
+    "tawbah",
+    "forgiveness",
+    "joy",
+    "camel",
+    "hope",
+    "sin"
+   ],
+   "verifiedAt": "https://sunnah.com/muslim:2747",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-20"
+  },
+  {
+   "id": "h:muslim-2749",
+   "collection": "Sahih Muslim",
+   "number": "2749",
+   "english": "If you did not sin, Allah would replace you with a people who sin, seek forgiveness, and are forgiven.",
+   "grade": "In Sahih Muslim",
+   "grader": "Included in Sahih Muslim; the collection gives no separate grade",
+   "topics": [
+    "sin",
+    "sins",
+    "mistakes",
+    "repentance",
+    "forgiveness",
+    "seek",
+    "forgiveness",
+    "istighfar"
+   ],
+   "verifiedAt": "https://sunnah.com/muslim:2749",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-20"
+  },
+  {
+   "id": "h:muslim-2766",
+   "collection": "Sahih Muslim",
+   "number": "2766",
+   "english": "A man who had killed ninety-nine people asked whether he could still repent, and the hadith tells us the door was open to him.",
+   "grade": "In Sahih Muslim",
+   "grader": "Included in Sahih Muslim; the collection gives no separate grade",
+   "topics": [
+    "repentance",
+    "killer",
+    "ninety-nine",
+    "hundred",
+    "hope",
+    "forgiveness",
+    "guilt",
+    "despair"
+   ],
+   "verifiedAt": "https://sunnah.com/muslim:2766",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-20"
+  },
+  {
+   "id": "h:muslim-2877",
+   "collection": "Sahih Muslim",
+   "number": "2877",
+   "english": "None of you should die except while thinking well of Allah.",
+   "grade": "In Sahih Muslim",
+   "grader": "Included in Sahih Muslim; the collection gives no separate grade",
+   "topics": [
+    "hope",
+    "good",
+    "opinion",
+    "husn",
+    "dhann",
+    "death",
+    "dying",
+    "trust"
+   ],
+   "verifiedAt": "https://sunnah.com/muslim:2877",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-20"
+  },
+  {
+   "id": "h:bukhari-5641",
+   "collection": "Sahih al-Bukhari",
+   "number": "5641",
+   "english": "No fatigue, illness, worry, grief, harm or distress touches a Muslim, even a thorn's prick, but Allah expiates some of his sins for it.",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "hardship",
+    "illness",
+    "sickness",
+    "worry",
+    "grief",
+    "anxiety",
+    "expiation",
+    "thorn",
+    "patience",
+    "pain"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:5641",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-20"
+  },
+  {
+   "id": "h:bukhari-7405",
+   "collection": "Sahih al-Bukhari",
+   "number": "7405",
+   "english": "Allah says: I am just as My servant thinks I am. If he comes to Me walking, I go to him running.",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "hope",
+    "good",
+    "opinion",
+    "nearness",
+    "remembrance",
+    "dhikr",
+    "walking",
+    "running",
+    "hadith",
+    "qudsi",
+    "trust"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:7405",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-20"
+  },
+  {
+   "id": "h:bukhari-1303",
+   "collection": "Sahih al-Bukhari",
+   "number": "1303",
+   "english": "The Prophet wept as his son Ibrahim was dying and said: “The eyes are shedding tears and the heart is grieved, and we will not say except what pleases our Lord.”",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "grief",
+    "tears",
+    "crying",
+    "mourning",
+    "death",
+    "child",
+    "son",
+    "loss",
+    "bereavement"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:1303",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-20"
+  },
+  {
+   "id": "h:tirmidhi-3537",
+   "collection": "Jamiʿ at-Tirmidhi",
+   "number": "3537",
+   "english": "Allah accepts the repentance of His servant until the soul reaches the throat.",
+   "grade": "Hasan",
+   "grader": "Darussalam (Tirmidhi himself calls it hasan gharib)",
+   "topics": [
+    "repentance",
+    "tawbah",
+    "death",
+    "dying",
+    "forgiveness",
+    "late"
+   ],
+   "verifiedAt": "https://sunnah.com/tirmidhi:3537",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-20"
+  },
+  {
+   "id": "h:tirmidhi-3895",
+   "collection": "Jamiʿ at-Tirmidhi",
+   "number": "3895",
+   "english": "The best of believers are those who are best to their wives (summary of the narration from A’ishah).",
+   "grade": "Sahih",
+   "grader": "Darussalam",
+   "topics": [
+    "marriage",
+    "husband",
+    "wife",
+    "wives",
+    "kindness",
+    "family",
+    "spouse",
+    "treatment"
+   ],
+   "verifiedAt": "https://sunnah.com/tirmidhi:3895",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-20"
+  }
+ ]
+}
