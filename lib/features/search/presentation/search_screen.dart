@@ -195,7 +195,7 @@ class _SearchState extends ConsumerState<SearchScreen> {
                               Text(
                                 h.shelf,
                                 style: AppText.bodyMuted.copyWith(
-                                    fontSize: 9, letterSpacing: 1.5),
+                                    fontSize: 12, letterSpacing: 1.5),
                               ),
                               Text(h.title,
                                   style: AppText.body.copyWith(
@@ -205,7 +205,7 @@ class _SearchState extends ConsumerState<SearchScreen> {
                                   maxLines: 2,
                                   overflow: TextOverflow.ellipsis,
                                   style: AppText.bodyMuted
-                                      .copyWith(fontSize: 10.5)),
+                                      .copyWith(fontSize: 12)),
                             ],
                           )),
                           const Icon(Icons.chevron_right,

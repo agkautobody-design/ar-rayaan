@@ -79,7 +79,7 @@ class _AdhkarScreenState extends ConsumerState<AdhkarScreen> {
                       Text(
                         'SOURCE: HISN AL-MUSLIM · PROGRESS RESETS DAILY',
                         style: AppText.eyebrow.copyWith(
-                          fontSize: 8,
+                          fontSize: 12,
                           color: AppColors.gold.withValues(alpha: 0.4),
                         ),
                         textAlign: TextAlign.center,
@@ -114,10 +114,14 @@ class _SetPicker extends StatelessWidget {
         for (int i = 0; i < sets.length; i++) ...[
           if (i > 0) const SizedBox(width: 8),
           Expanded(
-            child: GestureDetector(
+            child: Semantics(
+              button: true,
+              selected: sets[i].id == selected,
+              child: GestureDetector(
               onTap: () => onSelect(sets[i].id),
               child: AnimatedContainer(
                 duration: const Duration(milliseconds: 180),
+                constraints: const BoxConstraints(minHeight: 48),
                 padding: const EdgeInsets.symmetric(vertical: 11),
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
@@ -134,7 +138,7 @@ class _SetPicker extends StatelessWidget {
                 child: Text(
                   sets[i].titleEn,
                   style: AppText.caption.copyWith(
-                    fontSize: 11,
+                    fontSize: 12,
                     fontWeight: FontWeight.w600,
                     color: sets[i].id == selected
                         ? AppColors.goldLight
@@ -144,6 +148,7 @@ class _SetPicker extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
+            ),
             ),
           ),
         ],
@@ -190,7 +195,7 @@ class _ProgressCard extends ConsumerWidget {
                   Text(
                     '${(ratio * 100).round()}%',
                     style: AppText.caption.copyWith(
-                      fontSize: 10,
+                      fontSize: 12,
                       color: AppColors.goldLight,
                       fontWeight: FontWeight.w600,
                     ),
@@ -211,7 +216,7 @@ class _ProgressCard extends ConsumerWidget {
                   complete
                       ? 'Complete — may Allah accept it'
                       : '$done of $total repetitions · ${total - done} remaining',
-                  style: AppText.bodyMuted.copyWith(fontSize: 11),
+                  style: AppText.bodyMuted.copyWith(fontSize: 12),
                 ),
               ],
             ),
@@ -224,7 +229,7 @@ class _ProgressCard extends ConsumerWidget {
                 'Reset',
                 style: AppText.caption.copyWith(
                   color: AppColors.goldLight,
-                  fontSize: 11,
+                  fontSize: 12,
                 ),
               ),
             ),
@@ -288,7 +293,7 @@ class _DhikrCard extends ConsumerWidget {
                     'Source: ${dhikr.source!}',
                     key: Key('dhikr-${set.id}-${dhikr.number}-source'),
                     style: AppText.bodyMuted.copyWith(
-                      fontSize: 10.5,
+                      fontSize: 12,
                       fontStyle: FontStyle.italic,
                       color: AppColors.gold.withValues(alpha: 0.75),
                     ),
@@ -306,7 +311,7 @@ class _DhikrCard extends ConsumerWidget {
                       complete
                           ? 'Completed'
                           : '${dhikr.count} ${dhikr.count == 1 ? 'repetition' : 'repetitions'}',
-                      style: AppText.bodyMuted.copyWith(fontSize: 11),
+                      style: AppText.bodyMuted.copyWith(fontSize: 12),
                     ),
                   ],
                 ),
@@ -315,7 +320,13 @@ class _DhikrCard extends ConsumerWidget {
           ),
           const SizedBox(width: 12),
           // Tap-to-count button
-          GestureDetector(
+          Semantics(
+            button: true,
+            label: complete
+                ? 'Dhikr ${dhikr.number} complete'
+                : 'Count dhikr ${dhikr.number}, ${dhikr.count - done} left',
+            excludeSemantics: true,
+            child: GestureDetector(
             onTap: complete
                 ? null
                 : () => ref
@@ -349,6 +360,7 @@ class _DhikrCard extends ConsumerWidget {
                       ),
                     ),
             ),
+          ),
           ),
         ],
       ),

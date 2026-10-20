@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "arabic": {
+    "title": "Arabic Text · Tanzil Uthmani",
+    "credit": "Tanzil Project",
+    "url": "https://tanzil.net",
+    "note": "Verbatim copy of the Tanzil Uthmani text, 114 surahs and 6,236 ayahs. Tanzil asks that the text is never changed and that its source is named, so it is shown exactly as supplied."
+  },
+  "translation": {
+    "title": "Translation · Saheeh International",
+    "credit": "Saheeh International (Abul-Qasim Publishing House, 1997), supplied by the Tanzil Project",
+    "url": "https://tanzil.net/trans/en.sahih",
+    "note": "Shown verbatim as supplied by Tanzil, with its own punctuation and quotation marks, and nothing added or removed. A translation gives the meaning of the Qur’an, it is not the Qur’an itself. Licence status: the rights holder's own permission for this app has not yet been confirmed, so the translation stays marked as interim."
+  }
+}

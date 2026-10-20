@@ -194,7 +194,7 @@
    "title": "Quran Reader",
    "doc": "Quran Integrity spec",
    "status": "live",
-   "note": "word-by-word/tajweed/reciters arrive with the QF vault (founder's 5-min deploy)",
+   "note": "Bundled Tanzil Uthmani Arabic + Saheeh International (verbatim, with Tanzil credit and link), 9 selectable reciters streamed from everyayah.com, ayah bookmarks, collections and notes kept on the device. Word-by-word, tajweed colours and tafsir are not built (they need the QF vault).",
    "route": "/quran"
   },
   {
@@ -358,6 +358,22 @@
    "status": "live",
    "route": "/settings",
    "note": "Sound and language. Only the Settings labels are translated; see the language screen."
+  },
+  {
+   "id": "quran-bookmarks",
+   "title": "Qur'an bookmarks, collections and notes",
+   "doc": "Wave 2 (w6)",
+   "status": "live",
+   "route": "/quran/bookmarks",
+   "note": "Stored on the device only (ar.quran.marks.v1). Copy-as-text export; no sync."
+  },
+  {
+   "id": "content-policy",
+   "title": "How we handle religious content (policy page)",
+   "doc": "Wave 2 religious-content standard",
+   "status": "live",
+   "route": "/sources/policy",
+   "note": "States the hadith grading rule, the earlier-accounts badge and three classes, the no-prophet-images rule and 'Not yet scholar-reviewed'."
   }
  ]
 }

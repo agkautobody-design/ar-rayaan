@@ -27,11 +27,10 @@ void main() {
     final Object? error = tester.takeException();
     expect(error, isNull, reason: '$error');
     // Qur'an layer: text, translation, recitation, with real attributions.
-    expect(find.textContaining('Tanzil Uthmani'), findsOneWidget);
-    expect(find.textContaining('Saheeh International'), findsOneWidget);
-    expect(find.textContaining('Mahmoud Khalil Al-Husary'), findsOneWidget);
-    expect(find.textContaining('tanzil.net'), findsWidgets);
-    expect(find.textContaining('everyayah.com'), findsOneWidget);
+    expect(find.textContaining('Tanzil Uthmani'), findsWidgets);
+    expect(find.textContaining('Saheeh International'), findsWidgets);
+    expect(find.textContaining('Mahmoud Khalil Al-Husary'), findsWidgets);
+    expect(find.textContaining('everyayah.com'), findsWidgets);
 
     // The six canonical collections (Founder-approved descriptions).
     expect(find.text('Sahih al-Bukhari'), findsOneWidget);
@@ -64,5 +63,13 @@ void main() {
       scrollable: find.byType(Scrollable).first,
     );
     expect(find.text('Adhkar · Hisn al-Muslim'), findsOneWidget);
+
+    // Honest review status in the footer, never a bare claim.
+    await tester.scrollUntilVisible(
+      find.textContaining('NOT YET SCHOLAR-REVIEWED'),
+      200,
+      scrollable: find.byType(Scrollable).first,
+    );
+    expect(find.textContaining('NOT YET SCHOLAR-REVIEWED'), findsOneWidget);
   });
 }

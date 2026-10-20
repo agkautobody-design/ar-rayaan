@@ -105,3 +105,41 @@ readingPositionProvider =
     NotifierProvider<ReadingPositionController, ReadingPosition?>(
       ReadingPositionController.new,
     );
+
+/// Arabic text size in the reader, chosen by the person and kept on this
+/// device. It is separate from the system text scale so the mushaf text can
+/// be made larger without enlarging every label.
+class ArabicSizeController extends Notifier<double> {
+  static const String prefsKey = 'ar.quran.arabicSize';
+  static const double min = 16;
+  static const double max = 40;
+  static const double step = 2;
+  static const double defaultSize = 21;
+
+  @override
+  double build() {
+    try {
+      final double? v =
+          ref.watch(sharedPreferencesProvider).getDouble(prefsKey);
+      if (v != null) return v.clamp(min, max).toDouble();
+    } catch (_) {
+      // No storage: default size.
+    }
+    return defaultSize;
+  }
+
+  Future<void> _set(double v) async {
+    state = v.clamp(min, max).toDouble();
+    try {
+      await ref.read(sharedPreferencesProvider).setDouble(prefsKey, state);
+    } catch (_) {
+      // Session only.
+    }
+  }
+
+  Future<void> larger() => _set(state + step);
+  Future<void> smaller() => _set(state - step);
+}
+
+final NotifierProvider<ArabicSizeController, double> arabicSizeProvider =
+    NotifierProvider<ArabicSizeController, double>(ArabicSizeController.new);

@@ -61,6 +61,7 @@ import '../features/qibla/presentation/qibla_screen.dart';
 import '../features/sakina/presentation/sakina_screen.dart';
 import '../features/settings/presentation/settings_screen.dart';
 import '../features/share/presentation/share_screen.dart';
+import '../features/sources/presentation/content_policy_screen.dart';
 import '../features/sources/presentation/sources_screen.dart';
 import '../features/stories/presentation/stories_screen.dart';
 import '../features/stories/presentation/new_muslim_path_screen.dart';
@@ -86,6 +87,7 @@ import '../features/academy/presentation/academy_gate_screen.dart';
 import '../features/stories/presentation/story_reader_screen.dart';
 import '../features/stories/domain/story.dart';
 import '../features/zakat/presentation/zakat_screen.dart';
+import '../features/quran/presentation/quran_bookmarks_screen.dart';
 import '../features/quran/presentation/quran_screen.dart';
 import '../features/quran/presentation/surah_reader_screen.dart';
 import 'theme/widgets/app_bottom_nav.dart';
@@ -149,6 +151,8 @@ abstract final class AppRoutes {
   static const String share = '/share';
   static const String settings = '/settings';
   static const String sources = '/sources';
+  static const String sourcesPolicy = '/sources/policy';
+  static const String quranBookmarks = '/quran/bookmarks';
   static const String sakina = '/sakina';
   static String surah(int number) => '/quran/$number';
 
@@ -427,8 +431,16 @@ GoRouter buildRouter({String initialLocation = '/'}) {
         pageBuilder: (c, s) => _fade(const SourcesScreen()),
       ),
       GoRoute(
+        path: AppRoutes.sourcesPolicy,
+        pageBuilder: (c, s) => _fade(const ContentPolicyScreen()),
+      ),
+      GoRoute(
         path: AppRoutes.sakina,
         pageBuilder: (c, s) => _fade(const SakinaScreen()),
+      ),
+      GoRoute(
+        path: AppRoutes.quranBookmarks,
+        pageBuilder: (c, s) => _fade(const QuranBookmarksScreen()),
       ),
       GoRoute(
         path: '/quran/:surah',

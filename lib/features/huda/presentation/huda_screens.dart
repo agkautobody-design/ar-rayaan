@@ -206,10 +206,10 @@ class GuideScreen extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: const [
-                  _Pos(label: 'Qiyam', detail: 'standing'),
-                  _Pos(label: 'Ruku', detail: 'bowing'),
-                  _Pos(label: 'Sujud', detail: 'prostration'),
-                  _Pos(label: 'Julus', detail: 'sitting'),
+                  Expanded(child: _Pos(label: 'Qiyam', detail: 'standing')),
+                  Expanded(child: _Pos(label: 'Ruku', detail: 'bowing')),
+                  Expanded(child: _Pos(label: 'Sujud', detail: 'prostration')),
+                  Expanded(child: _Pos(label: 'Julus', detail: 'sitting')),
                 ],
               ),
             ),
@@ -252,7 +252,7 @@ class GuideScreen extends StatelessWidget {
                   child: Text(
                     '${i + 1}',
                     style: TextStyle(
-                      fontSize: 10,
+                      fontSize: 12,
                       color: AppColors.goldLight,
                     ),
                   ),
@@ -337,8 +337,12 @@ class _Pos extends StatelessWidget {
             style: const TextStyle(color: AppColors.goldLight, fontSize: 18)),
       ),
       const SizedBox(height: 3),
-      Text(label, style: const TextStyle(fontSize: 10.5, color: AppColors.sand)),
-      Text(detail, style: const TextStyle(fontSize: 8.5, color: AppColors.sand)),
+      Text(label,
+          textAlign: TextAlign.center,
+          style: const TextStyle(fontSize: 12, color: AppColors.sand)),
+      Text(detail,
+          textAlign: TextAlign.center,
+          style: const TextStyle(fontSize: 12, color: AppColors.sand)),
     ]);
   }
 }
