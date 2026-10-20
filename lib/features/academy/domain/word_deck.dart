@@ -8,6 +8,7 @@
 /// tap-a-word loop (the moat).
 library;
 
+import 'fsrs.dart';
 import 'mushaf_layout.dart' show AyahLocation;
 import 'recitation_audio.dart' show AyahRef;
 import 'spaced_repetition.dart';
@@ -124,7 +125,7 @@ abstract final class WordDeckEngine {
   }) {
     // Fresh cards (never reviewed) enter via the fresh lane only — a
     // new word is an introduction, not a failed review.
-    final List<WordCard> due = Sm2Engine.dueQueue(
+    final List<WordCard> due = Fsrs.dueQueue(
       deck.values
           // "Reviewed before" = scheduled at least once. A card graded
           // Again has repetitions == 0 but intervalDays == 1; it must
@@ -135,7 +136,7 @@ abstract final class WordDeckEngine {
           .toList(),
       now,
     ).map((ReviewCard r) => deck[r.wordKey]!).toList();
-    final List<WordCard> fresh = Sm2Engine.freshCards(
+    final List<WordCard> fresh = Fsrs.freshCards(
       deck.values.map((WordCard c) => c.review).toList(),
     ).map((ReviewCard r) => deck[r.wordKey]!).toList();
     final List<WordCard> session = <WordCard>[...due, ...fresh];
@@ -153,7 +154,7 @@ abstract final class WordDeckEngine {
   }) {
     final WordCard? card = deck[key];
     if (card == null) return deck;
-    final ReviewCard updated = Sm2Engine.schedule(card.review, grade, now);
+    final ReviewCard updated = Fsrs.schedule(card.review, grade, now);
     return <String, WordCard>{...deck, key: card.copyWith(review: updated)};
   }
 }

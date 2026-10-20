@@ -9,17 +9,23 @@ class AssessmentItem {
     required this.choices,
     required this.correctIndex,
     required this.reteachKey,
+    this.literal = false,
   });
 
   final String id;
 
-  /// String keys (AcademyStrings).
+  /// String keys (AcademyStrings) - or, when [literal] is true, the text
+  /// itself (used by generated recall checks, which have no string keys).
   final String promptKey;
   final List<String> choices;
   final int correctIndex;
 
   /// Shown when this item is answered wrong - the ayah/idea again, gently.
   final String reteachKey;
+
+  /// True when [promptKey], [choices] and [reteachKey] already hold display
+  /// text and must not be looked up in AcademyStrings.
+  final bool literal;
 }
 
 class AssessmentResult {

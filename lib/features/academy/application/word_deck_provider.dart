@@ -6,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../app/core/providers.dart';
 import '../data/word_deck_repository.dart';
+import '../domain/fsrs.dart';
 import '../domain/recitation_audio.dart';
 import '../domain/spaced_repetition.dart';
 import '../domain/word_deck.dart';
@@ -85,14 +86,33 @@ class WordDeckNotifier extends StateNotifier<Map<String, WordCard>> {
     await _save();
   }
 
-  /// Apply a self-grade; SM-2 reschedules and persists.
+  /// Apply a self-grade; FSRS reschedules, the answer is logged on-device
+  /// and the deck persists.
   Future<void> grade(String key, ReviewGrade grade) async {
+    final DateTime now = DateTime.now();
     state = WordDeckEngine.grade(
       deck: state,
       key: key,
       grade: grade,
-      now: DateTime.now(),
+      now: now,
     );
+    final WordCard? updated = state[key];
+    if (updated != null) {
+      try {
+        _prefs.setString(
+          ReviewLog.prefKey,
+          ReviewLog.append(
+            _prefs.getString(ReviewLog.prefKey),
+            ReviewLogEntry(
+              cardId: key,
+              grade: grade,
+              at: now,
+              scheduledDays: updated.review.intervalDays,
+            ),
+          ),
+        );
+      } catch (_) {}
+    }
     await _save();
   }
 

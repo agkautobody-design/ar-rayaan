@@ -55,7 +55,7 @@ void main() {
     await n.addFromReader(
         arabic: 'رَبّ', gloss: 'lord', sourceAyah: const AyahRef(1, 2));
     await n.grade('1:2:رَبّ', ReviewGrade.good);
-    expect(c.read(wordDeckProvider)['1:2:رَبّ']!.review.intervalDays, 1);
+    expect(c.read(wordDeckProvider)['1:2:رَبّ']!.review.intervalDays, 2);
     c.dispose();
   });
 

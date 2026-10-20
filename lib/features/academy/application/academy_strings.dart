@@ -847,6 +847,10 @@ abstract final class AcademyStrings {
       'common.back': 'Back',
       'common.done': 'Done',
       'common.open': 'Open',
+      'check.retry': 'Try once more',
+      'recall.title': 'Recall check',
+      'recall.note':
+          'Made from this lesson\u2019s own words. It checks that you remember what the lesson said \u2014 it is not a ruling and does not make the lesson more or less correct.',
       'check.title': 'Check your understanding',
       'check.passed': 'Alhamdulillah — every answer correct.',
       'check.tryAgain': 'Let’s look at it once more, gently.',
