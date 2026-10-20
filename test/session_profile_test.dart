@@ -108,7 +108,8 @@ void main() {
           .map((Text t) => t.data ?? '')
           .join(' | ');
       expect(find.text('Ahmed'), findsWidgets, reason: onScreen);
-      expect(find.text('View your profile'), findsOneWidget, reason: onScreen);
+      expect(find.text('Sign in to save your journey'), findsNothing,
+          reason: onScreen);
       expect(find.text('Guest'), findsNothing, reason: onScreen);
     });
   });
