@@ -15,7 +15,6 @@ import '../features/academy/presentation/request_nasheed_screen.dart';
 import '../features/academy/presentation/wasia_lessons.dart';
 import '../features/academy/presentation/academy_family.dart';
 import '../features/academy/presentation/player_screen.dart';
-import '../features/academy/presentation/school_placeholder_screen.dart';
 import '../features/academy/presentation/word_deck_screen.dart';
 import '../features/academy/presentation/tajweed_cards_screen.dart';
 import '../features/academy/presentation/hifz_planner_screen.dart';

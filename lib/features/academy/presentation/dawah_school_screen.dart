@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
-import '../../../app/theme/widgets/scenic_scaffold.dart';
+import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 
 class _DawLesson {
@@ -32,7 +32,7 @@ const List<_DawUnit> kDawahUnits = <_DawUnit>[
     lessons: <_DawLesson>[
       _DawLesson(
         title: 'Invite to the Oneness First',
-        body: 'When the Prophet \ufdfa sent Mus\u2019ab to Madinah, he did not send rulings — he sent the shahada. The first question in dawah is never 'what about hijab' or 'what about politics' — it is 'who is Allah, and what does He ask of you?' Start where the revelation started.',
+        body: 'When the Prophet \ufdfa sent Mus\u2019ab to Madinah, he did not send rulings — he sent the shahada. The first question in dawah is never \'what about hijab\' or \'what about politics\' — it is \'who is Allah, and what does He ask of you?\' Start where the revelation started.',
         practice: 'In your next conversation about Islam, begin with Allah\u2019s mercy and oneness — not the rules. Let the heart open before the law arrives.',
       ),
       _DawLesson(
@@ -58,7 +58,7 @@ const List<_DawUnit> kDawahUnits = <_DawUnit>[
     lessons: <_DawLesson>[
       _DawLesson(
         title: '"Why Do Bad Things Happen?"',
-        body: 'Do not say about anything 'I will do that tomorrow' without adding 'if Allah wills' (18:23-24). And: perhaps you dislike a thing and it is good for you (2:216). The answer is not a theodicy lecture — it is the trust that the Author sees the whole book while we read one page.',
+        body: 'Do not say about anything \'I will do that tomorrow\' without adding \'if Allah wills\' (18:23-24). And: perhaps you dislike a thing and it is good for you (2:216). The answer is not a theodicy lecture — it is the trust that the Author sees the whole book while we read one page.',
         practice: 'When someone asks this, answer with 2:216 and a story of your own life where the closed door opened a better one.',
       ),
       _DawLesson(
@@ -90,12 +90,12 @@ const List<_DawUnit> kDawahUnits = <_DawUnit>[
       _DawLesson(
         title: 'Knowledge Before Speech',
         body: 'Say: my Lord has only forbidden what is apparent of immorality and what is concealed (7:33). The caller must know before speaking — a half-answer delivered with confidence closes more doors than silence. When you do not know, say: I will find out. That sentence is dawah.',
-        practice: 'This week, when asked something you do not know, practice the sentence: 'That is a beautiful question — let me find out and come back to you.'',
+        practice: 'This week, when asked something you do not know, practice the sentence: \'That is a beautiful question — let me find out and come back to you.\'',
       ),
       _DawLesson(
         title: 'Release the Result',
         body: 'You are not over them a controller (88:22). Your job is to deliver the message clearly, kindly, and honestly; the heart that opens is Allah\u2019s to open. This releases the caller from the anxiety of rejection — you were never the one being rejected.',
-        practice: 'After your next dawah conversation, say quietly: 'I delivered it; You guide the hearts.' Then let it go.',
+        practice: 'After your next dawah conversation, say quietly: \'I delivered it; You guide the hearts.\' Then let it go.',
       ),
     ],
   ),

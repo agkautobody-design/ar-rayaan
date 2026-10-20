@@ -1,0 +1,107 @@
+name: PR Check
+
+# Compiles, analyzes and tests every pull request before it can reach main.
+# Results are posted back to the PR as a comment so they can be read without
+# downloading logs.
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: pr-check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Install dependencies
+        id: pub
+        run: flutter pub get 2>&1 | tee pub.log
+        continue-on-error: true
+
+      - name: Analyze
+        id: analyze
+        run: |
+          set -o pipefail
+          flutter analyze --no-fatal-infos --no-fatal-warnings 2>&1 | tee analyze.log
+        continue-on-error: true
+
+      - name: Test
+        id: test
+        run: |
+          set -o pipefail
+          flutter test --reporter expanded 2>&1 | tee test.log
+        continue-on-error: true
+
+      - name: Build web (compile check)
+        id: build
+        run: |
+          set -o pipefail
+          flutter build web --release 2>&1 | tee build.log
+        continue-on-error: true
+
+      - name: Post results
+        if: always() && github.event_name == 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.number }}
+        run: |
+          {
+            echo "## PR Check — ${GITHUB_SHA::7}"
+            echo ""
+            echo "| Step | Result |"
+            echo "| --- | --- |"
+            echo "| pub get | ${{ steps.pub.outcome }} |"
+            echo "| analyze | ${{ steps.analyze.outcome }} |"
+            echo "| test | ${{ steps.test.outcome }} |"
+            echo "| build web | ${{ steps.build.outcome }} |"
+            echo ""
+            echo "<details><summary>pub get (tail)</summary>"
+            echo ""
+            echo '```'
+            tail -n 25 pub.log 2>/dev/null
+            echo '```'
+            echo "</details>"
+            echo ""
+            echo "<details><summary>analyze errors and warnings</summary>"
+            echo ""
+            echo '```'
+            grep -E "^ *(error|warning) •" analyze.log 2>/dev/null | head -n 150
+            tail -n 3 analyze.log 2>/dev/null
+            echo '```'
+            echo "</details>"
+            echo ""
+            echo "<details><summary>test failures</summary>"
+            echo ""
+            echo '```'
+            grep -E "\[E\]|Error:|Expected:|Actual:|Some tests failed|All tests passed|^[0-9]+:[0-9]+ \+[0-9]+" test.log 2>/dev/null | tail -n 150
+            echo '```'
+            echo "</details>"
+            echo ""
+            echo "<details><summary>build web (tail)</summary>"
+            echo ""
+            echo '```'
+            grep -E "Error|error:" build.log 2>/dev/null | head -n 60
+            tail -n 10 build.log 2>/dev/null
+            echo '```'
+            echo "</details>"
+          } > report.md
+          gh pr comment "$PR" --body-file report.md
+
+      - name: Fail if any step failed
+        if: steps.pub.outcome != 'success' || steps.analyze.outcome != 'success' || steps.test.outcome != 'success' || steps.build.outcome != 'success'
+        run: exit 1

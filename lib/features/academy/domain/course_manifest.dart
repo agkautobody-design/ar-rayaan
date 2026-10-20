@@ -543,62 +543,8 @@ final List<AcademyCourse> kAcademyCourses = <AcademyCourse>[
     available: false,
     units: <AcademyUnit>[],
   ),
-  const AcademyCourse(
-    id: 'understanding',
-    titleKey: 'school.understanding.title',
-    subtitleKey: 'school.understanding.subtitle',
-    available: false,
-    units: <AcademyUnit>[],
-  ),
-];
-
-/// Assessment catalog (knowledge checks referenced by `check` steps).
-final Map<String, List<AssessmentItem>> kAssessments =
-    <String, List<AssessmentItem>>{
-  'fatihah.meaning': <AssessmentItem>[
-    const AssessmentItem(
-      id: 'fatihah.meaning.1',
-      promptKey: 'check.fatihah.q1',
-      choices: <String>[
-        'check.fatihah.q1.a',
-        'check.fatihah.q1.b',
-        'check.fatihah.q1.c',
-      ],
-      correctIndex: 0,
-      reteachKey: 'check.fatihah.q1.reteach',
-    ),
-  ],
-  'wudu.basics': <AssessmentItem>[
-    const AssessmentItem(
-      id: 'wudu.basics.1',
-      promptKey: 'check.wudu.q1',
-      choices: <String>['check.wudu.q1.a', 'check.wudu.q1.b', 'check.wudu.q1.c'],
-      correctIndex: 0,
-      reteachKey: 'check.wudu.q1.reteach',
-    ),
-    const AssessmentItem(
-      id: 'wudu.basics.2',
-      promptKey: 'check.wudu.q2',
-      choices: <String>['check.wudu.q1.a', 'check.wudu.q1.b', 'check.wudu.q1.c'],
-      correctIndex: 1,
-      reteachKey: 'check.wudu.q2.reteach',
-    ),
-  ],
-};
-
-/// Find a lesson by ids, or null.
-AcademyLesson? findLesson(String courseId, String unitId, String lessonId) {
-  for (final AcademyCourse c in kAcademyCourses) {
-    if (c.id != courseId) continue;
-    for (final AcademyUnit u in c.units) {
-      if (u.id != unitId) continue;
-      for (final AcademyLesson l in u.lessons) {
-        if (l.id == lessonId) return l;
-      }
-    }
-  }
-  return null;
-}    AcademyCourse(
+  // ── Manifest courses (Batch 6) ──
+    AcademyCourse(
       id: 'arabic-language',
       titleKey: 'course.arabic-language.title',
       subtitleKey: 'course.arabic-language.subtitle',
@@ -2150,4 +2096,52 @@ AcademyLesson? findLesson(String courseId, String unitId, String lessonId) {
       ),
       ],
     ),
+];
 
+/// Assessment catalog (knowledge checks referenced by `check` steps).
+final Map<String, List<AssessmentItem>> kAssessments =
+    <String, List<AssessmentItem>>{
+  'fatihah.meaning': <AssessmentItem>[
+    const AssessmentItem(
+      id: 'fatihah.meaning.1',
+      promptKey: 'check.fatihah.q1',
+      choices: <String>[
+        'check.fatihah.q1.a',
+        'check.fatihah.q1.b',
+        'check.fatihah.q1.c',
+      ],
+      correctIndex: 0,
+      reteachKey: 'check.fatihah.q1.reteach',
+    ),
+  ],
+  'wudu.basics': <AssessmentItem>[
+    const AssessmentItem(
+      id: 'wudu.basics.1',
+      promptKey: 'check.wudu.q1',
+      choices: <String>['check.wudu.q1.a', 'check.wudu.q1.b', 'check.wudu.q1.c'],
+      correctIndex: 0,
+      reteachKey: 'check.wudu.q1.reteach',
+    ),
+    const AssessmentItem(
+      id: 'wudu.basics.2',
+      promptKey: 'check.wudu.q2',
+      choices: <String>['check.wudu.q1.a', 'check.wudu.q1.b', 'check.wudu.q1.c'],
+      correctIndex: 1,
+      reteachKey: 'check.wudu.q2.reteach',
+    ),
+  ],
+};
+
+/// Find a lesson by ids, or null.
+AcademyLesson? findLesson(String courseId, String unitId, String lessonId) {
+  for (final AcademyCourse c in kAcademyCourses) {
+    if (c.id != courseId) continue;
+    for (final AcademyUnit u in c.units) {
+      if (u.id != unitId) continue;
+      for (final AcademyLesson l in u.lessons) {
+        if (l.id == lessonId) return l;
+      }
+    }
+  }
+  return null;
+}

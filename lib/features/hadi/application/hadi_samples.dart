@@ -18,9 +18,9 @@ const List<HadiExchange> kProposedHadiExchanges = [
         'a protection from the trial of the Dajjal. Shall I open it for you?',
   ),
   HadiExchange(
-    question: 'A du'a for anxiety',
+    question: 'A du\'a for anxiety',
     answer:
-        'Allahumma inni a'udhu bika min al-hammi wa al-hazn — "O Allah, I '
+        'Allahumma inni a\'udhu bika min al-hammi wa al-hazn — "O Allah, I '
         'seek refuge in You from worry and grief, from incapacity and '
         'laziness." (Bukhari). Repeat it morning and evening, and breathe — '
         'He is near. Would you like me to open the Sakina room for more?',
@@ -28,13 +28,13 @@ const List<HadiExchange> kProposedHadiExchanges = [
   HadiExchange(
     question: 'How do I pray Witr?',
     answer:
-        'Witr is prayed after 'Isha until Fajr, as an odd number of rak'ahs — '
-        'most simply one rak'ah. After ruku' you may recite Qunut: '
+        'Witr is prayed after \'Isha until Fajr, as an odd number of rak\'ahs — '
+        'most simply one rak\'ah. After ruku\' you may recite Qunut: '
         '"Allahumma ihdini fiman hadayt…" Would you like the full text?',
   ),
   HadiExchange(
     question: 'What can you do?',
-    answer: 'Three things, always: answer from the Qur'an and the '
+    answer: 'Three things, always: answer from the Qur\'an and the '
         'authentic Sunnah, teach you every room of this app, and '
         'walk you there myself. What would you like to explore first?',
   ),
@@ -42,45 +42,40 @@ const List<HadiExchange> kProposedHadiExchanges = [
     question: 'Who is Wasia?',
     answer: 'The AI teacher of the Wasia Academy — the letter '
         'school. She speaks to students, parents, and teachers. '
-        'Would you like me to take you to her?
-[GO:/academy]',
+        'Would you like me to take you to her?\n[GO:/academy]',
   ),
   HadiExchange(
     question: 'Take me to the Stories',
     answer: 'With pleasure. There are beautiful hadiths and khutbahs '
-        'waiting for you.
-[GO:/stories]',
+        'waiting for you.\n[GO:/stories]',
   ),
   HadiExchange(
-    question: 'A du'a before sleep',
+    question: 'A du\'a before sleep',
     answer: 'Bismika Allahumma amutu wa ahya — "In Your name, O '
         'Allah, I die and I live." (Sahih al-Bukhari 6324). It is '
         'in your evening adhkar. Shall I open the Daily Duas for you?',
   ),
   HadiExchange(
-    question: 'How do I pray two rak'ahs?',
+    question: 'How do I pray two rak\'ahs?',
     answer: 'With intention, raise the hands saying Allahu Akbar, '
         'recite Al-Fatihah, bow, rise, prostrate twice between '
         'sittings — the full method is in the Huda guides. '
-        'Shall I take you there?
-[GO:/huda]',
+        'Shall I take you there?\n[GO:/huda]',
   ),
   HadiExchange(
     question: 'Find the dua for leaving home',
-    answer: 'Bismillahi, tawakkaltu 'alallah — "In the name of '
+    answer: 'Bismillahi, tawakkaltu \'alallah — "In the name of '
         'Allah, I trust in Allah." It opens the Daily Duas pack. '
-        'Shall I take you there?
-[GO:/dailyduas]',
+        'Shall I take you there?\n[GO:/dailyduas]',
   ),
   // New exchanges — emotional & practical
   HadiExchange(
     question: 'I feel so alone',
     answer:
-        'Allah says: "And He is with you wherever you are." (Qur'an 57:4). '
+        'Allah says: "And He is with you wherever you are." (Qur\'an 57:4). '
         'The Prophet ﷺ said: "Allah says: I am as My servant thinks of Me." '
         '(Bukhari). You are not alone — the One who created you is closer than '
-        'your jugular vein. Shall I open the Sakina room?
-[GO:/sakina]',
+        'your jugular vein. Shall I open the Sakina room?\n[GO:/sakina]',
   ),
   HadiExchange(
     question: 'How do I make wudu?',
@@ -102,16 +97,15 @@ const List<HadiExchange> kProposedHadiExchanges = [
     question: 'I want to memorize Quran',
     answer:
         'The Prophet ﷺ said: "The best of you are those who learn the '
-        'Qur'an and teach it." (Bukhari). Start with one ayah, repeat it '
+        'Qur\'an and teach it." (Bukhari). Start with one ayah, repeat it '
         'ten times, connect to the next, and review daily. Shall I open '
-        'the Quran reader?
-[GO:/quran]',
+        'the Quran reader?\n[GO:/quran]',
   ),
   HadiExchange(
     question: 'Dua for my parents',
     answer:
         'Rabbi irhamhuma kama rabbayani saghira — "My Lord, have mercy upon '
-        'them as they brought me up when I was small." (Qur'an 17:24). '
+        'them as they brought me up when I was small." (Qur\'an 17:24). '
         'The Prophet ﷺ said: "The pleasure of the Lord is in the pleasure '
         'of the parent." (Tirmidhi).',
   ),
@@ -120,7 +114,7 @@ const List<HadiExchange> kProposedHadiExchanges = [
     answer:
         'Allah says: "Say, O My servants who have transgressed against '
         'themselves, do not despair of the mercy of Allah. Indeed, Allah '
-        'forgives all sins." (Qur'an 39:53). The door of tawbah is open '
+        'forgives all sins." (Qur\'an 39:53). The door of tawbah is open '
         'until the soul reaches the throat. Would you like the supplication '
         'of forgiveness?',
   ),
@@ -131,8 +125,7 @@ const List<HadiExchange> kProposedHadiExchanges = [
         '(approx. $400-500). The Prophet ﷺ said: "Whoever is made wealthy '
         'by Allah and does not pay its zakat, his wealth will be made into '
         'a bald snake on the Day of Resurrection." (Bukhari). '
-        'Shall I open the Zakat calculator?
-[GO:/zakat]',
+        'Shall I open the Zakat calculator?\n[GO:/zakat]',
   ),
   HadiExchange(
     question: 'How do I start fasting?',
@@ -151,10 +144,9 @@ const List<HadiExchange> kProposedHadiExchanges = [
         '(Muslim). Do not tell others about bad dreams.',
   ),
   HadiExchange(
-    question: 'Show me today's prayer times',
+    question: 'Show me today\'s prayer times',
     answer:
-        'I can take you to the prayer times right away.
-[GO:/prayer]',
+        'I can take you to the prayer times right away.\n[GO:/prayer]',
   ),
 ];
 

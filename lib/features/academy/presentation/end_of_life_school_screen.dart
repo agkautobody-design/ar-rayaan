@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
-import '../../../app/theme/widgets/scenic_scaffold.dart';
+import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 
 class _EolLesson {
@@ -34,7 +34,7 @@ const List<_EolUnit> kEndOfLifeUnits = <_EolUnit>[
       _EolLesson(
         title: 'Every Soul Will Taste It',
         body: 'Every soul will taste death, and only on the Day of Judgment will you be paid in full (3:185). The verse is not a threat; it is the calendar. The one who knows the appointment prepares for it — and preparation is worship.',
-        practice: 'Write one sentence: 'If I knew I had a year, I would...' Then start one item on that list this week.',
+        practice: 'Write one sentence: \'If I knew I had a year, I would...\' Then start one item on that list this week.',
       ),
       _EolLesson(
         title: 'The Will — Writing It Is a Sunna',
@@ -86,7 +86,7 @@ const List<_EolUnit> kEndOfLifeUnits = <_EolUnit>[
       _EolLesson(
         title: 'The Meeting You Are Walking Toward',
         body: 'Whoever loves to meet Allah, Allah loves to meet him (Bukhari 6502). The companions lived with this hadith the way travelers live with a map — not in dread of the road, but in anticipation of the arrival.',
-        practice: 'Say before sleep: 'O Allah, if You take my soul tonight, forgive it. If You leave it, protect it.' Three weeks of this changes the night.',
+        practice: 'Say before sleep: \'O Allah, if You take my soul tonight, forgive it. If You leave it, protect it.\' Three weeks of this changes the night.',
       ),
     ],
   ),

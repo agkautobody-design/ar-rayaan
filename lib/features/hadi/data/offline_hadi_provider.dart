@@ -1374,7 +1374,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'clean earth once with both hands, wipe the face, then wipe the back of '
     'the hands. Allah says: "And if you are ill or on a journey or one of you '
     'comes from the place of relieving himself or you have contacted women '
-    'and find no water, then seek clean earth." (Qur'an 4:43, 5:6).',
+    'and find no water, then seek clean earth." (Qur\'an 4:43, 5:6).',
   ),
   _Entry(
     <String>['ghusl', 'ritual bath', 'janabah', 'major impurity'],
@@ -1386,36 +1386,36 @@ const List<_Entry> _knowledge = <_Entry>[
   ),
   _Entry(
     <String>['fajr', 'dawn prayer', 'morning prayer', 'subh'],
-    'Fajr is two rak'ahs, prayed from true dawn until sunrise. The Prophet '
+    'Fajr is two rak\'ahs, prayed from true dawn until sunrise. The Prophet '
     'ﷺ said: "Whoever prays the two cool prayers (Fajr and Asr) will enter '
     'Paradise." (Sahih al-Bukhari 574). It is the prayer most often missed; '
     'the Prophet called it the prayer of the believers.',
   ),
   _Entry(
     <String>['dhuhr', 'zuhr', 'noon prayer', 'midday prayer'],
-    'Dhuhr is four rak'ahs, prayed after the sun passes its zenith until '
+    'Dhuhr is four rak\'ahs, prayed after the sun passes its zenith until '
     'the shadow of an object equals its length (plus the zenith shadow). The '
     'Prophet ﷺ said: "Whoever guards the prayers, they will be a light and '
     'proof for him on the Day of Resurrection." (Sahih Muslim 223).',
   ),
   _Entry(
     <String>['asr', 'afternoon prayer'],
-    'Asr is four rak'ahs, prayed from when the shadow of an object equals '
+    'Asr is four rak\'ahs, prayed from when the shadow of an object equals '
     'its length until sunset. The Prophet ﷺ said: "May Allah have mercy on '
-    'a man who prays four rak'ahs before Asr." (Sunan Abi Dawud, classed '
-    'sahih by al-Albani). Missing Asr is described as losing one's family '
+    'a man who prays four rak\'ahs before Asr." (Sunan Abi Dawud, classed '
+    'sahih by al-Albani). Missing Asr is described as losing one\'s family '
     'and wealth.',
   ),
   _Entry(
     <String>['maghrib', 'sunset prayer', 'evening prayer'],
-    'Maghrib is three rak'ahs, prayed immediately after sunset until '
+    'Maghrib is three rak\'ahs, prayed immediately after sunset until '
     'twilight disappears. The Prophet ﷺ said: "My Ummah will continue to be '
     'upon good as long as they hasten to break the fast and delay the suhur." '
     '(Sahih al-Bukhari 1957). Hastening Maghrib is from the sunnah.',
   ),
   _Entry(
     <String>['isha', 'night prayer'],
-    'Isha is four rak'ahs, prayed from the disappearance of twilight until '
+    'Isha is four rak\'ahs, prayed from the disappearance of twilight until '
     'midnight (or until dawn). The Prophet ﷺ said: "If someone prays Isha in '
     'congregation, it is as if he prayed half the night. And if he prays '
     'Fajr in congregation, it is as if he prayed the entire night." '
@@ -1425,7 +1425,7 @@ const List<_Entry> _knowledge = <_Entry>[
     <String>['sujood sahw', 'forgetfulness prostration', 'mistake in prayer'],
     'If you add, omit, or doubt a part of prayer, perform two prostrations '
     'of forgetfulness (sujood as-sahw) before the taslim. The Prophet ﷺ '
-    'prayed Zuhr with five rak'ahs, then performed two prostrations after '
+    'prayed Zuhr with five rak\'ahs, then performed two prostrations after '
     'the taslim when reminded. (Sahih al-Bukhari 401, Sahih Muslim 572).',
   ),
   _Entry(
@@ -1437,7 +1437,7 @@ const List<_Entry> _knowledge = <_Entry>[
   ),
   _Entry(
     <String>['taraweeh', 'tarawih', 'night ramadan prayer'],
-    'Taraweeh is the night prayer of Ramadan, prayed in sets of two rak'ahs. '
+    'Taraweeh is the night prayer of Ramadan, prayed in sets of two rak\'ahs. '
     'The Prophet ﷺ prayed it in congregation for three nights, then stopped '
     'fearing it would become obligatory. (Sahih al-Bukhari 1129, Sahih Muslim '
     '761). Umar later organized it behind one imam, calling it a blessed '
@@ -1445,9 +1445,9 @@ const List<_Entry> _knowledge = <_Entry>[
   ),
   _Entry(
     <String>['witr', 'witr prayer', 'odd prayer'],
-    'Witr is one rak'ah prayed after Isha, typically after Tahajjud or '
+    'Witr is one rak\'ah prayed after Isha, typically after Tahajjud or '
     'Taraweeh. The Prophet ﷺ said: "Allah has prescribed witr for you, so '
-    'pray witr." (Sunan al-Nasa'i, classed sahih by al-Albani). It is '
+    'pray witr." (Sunan al-Nasa\'i, classed sahih by al-Albani). It is '
     'strongly recommended and considered wajib by some scholars.',
   ),
   _Entry(
@@ -1457,7 +1457,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'gardens and springs, accepting what their Lord has given them. Indeed, '
     'they were before that doers of good. They used to sleep but little of '
     'the night, and in the hours before dawn they would ask forgiveness." '
-    '(Qur'an 51:15-18).',
+    '(Qur\'an 51:15-18).',
   ),
   _Entry(
     <String>['janazah', 'funeral prayer', 'dead prayer'],
@@ -1470,8 +1470,8 @@ const List<_Entry> _knowledge = <_Entry>[
   ),
   _Entry(
     <String>['eid prayer', 'eid salat', 'salat al eid'],
-    'Eid prayer is two rak'ahs with extra takbirs: seven in the first '
-    'rak'ah and five in the second (before recitation). The Prophet ﷺ said: '
+    'Eid prayer is two rak\'ahs with extra takbirs: seven in the first '
+    'rak\'ah and five in the second (before recitation). The Prophet ﷺ said: '
     '"Every nation has its day of celebration, and this is our day of '
     'celebration." (Sahih al-Bukhari 952, Sahih Muslim 892). It is '
     'recommended for women, children, and menstruating women to attend.',
@@ -1482,13 +1482,13 @@ const List<_Entry> _knowledge = <_Entry>[
     <String>['dua before sleep', 'sleeping dua', 'night dua'],
     'Before sleeping, say: "Bismika Allahumma amutu wa ahya" (In Your name, '
     'O Allah, I die and I live). The Prophet ﷺ also placed his right hand '
-    'under his cheek and said: "Allahumma qini adhabaka yawma tab'athu '
+    'under his cheek and said: "Allahumma qini adhabaka yawma tab\'athu '
     'ibadaka" (O Allah, protect me from Your punishment on the Day You '
     'resurrect Your servants). (Sahih al-Bukhari 247, Sahih Muslim 2710).',
   ),
   _Entry(
     <String>['dua after waking', 'morning dua', 'waking up'],
-    'Upon waking, say: "Alhamdu lillahi alladhi ahyana ba'da ma amatana '
+    'Upon waking, say: "Alhamdu lillahi alladhi ahyana ba\'da ma amatana '
     'wa ilayhi an-nushur" (All praise is for Allah who gave us life after '
     'having taken it from us, and to Him is the resurrection). (Sahih '
     'al-Bukhari 6324, Sahih Muslim 2711).',
@@ -1504,7 +1504,7 @@ const List<_Entry> _knowledge = <_Entry>[
   ),
   _Entry(
     <String>['dua after eating', 'finished eating'],
-    'After eating, say: "Alhamdu lillahi alladhi at'amani hadha wa '
+    'After eating, say: "Alhamdu lillahi alladhi at\'amani hadha wa '
     'razaqanihi min ghayri hawlin minni wa la quwwah" (All praise is for '
     'Allah who fed me this and provided it for me without any might or power '
     'from me). (Sunan Abi Dawud 3850, classed sahih by al-Albani).',
@@ -1512,15 +1512,15 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['dua entering home', 'entering house', 'coming home'],
     'When entering your home, say: "Bismillahi walajna, wa bismillahi '
-    'kharajna, wa 'ala rabbina tawakkalna" (In the name of Allah we enter, '
+    'kharajna, wa \'ala rabbina tawakkalna" (In the name of Allah we enter, '
     'and in the name of Allah we leave, and upon our Lord we rely). The '
-    'Prophet ﷺ said: "Then say: Allahumma inni as'aluka khayra al-mawliji '
+    'Prophet ﷺ said: "Then say: Allahumma inni as\'aluka khayra al-mawliji '
     'wa khayra al-makhraji" (O Allah, I ask You for the best of entering '
     'and the best of leaving). (Sunan Abi Dawud 5096).',
   ),
   _Entry(
     <String>['dua leaving home', 'leaving house', 'going out'],
-    'When leaving home, say: "Bismillahi, tawakkaltu 'ala Allah, la '
+    'When leaving home, say: "Bismillahi, tawakkaltu \'ala Allah, la '
     'hawla wa la quwwata illa billah" (In the name of Allah, I place my '
     'trust in Allah; there is no might and no power except with Allah). The '
     'Prophet ﷺ said: "It will be said to him: You are guided, sufficed, and '
@@ -1536,8 +1536,8 @@ const List<_Entry> _knowledge = <_Entry>[
   ),
   _Entry(
     <String>['dua for rizq', 'provision dua', 'money dua', 'wealth dua'],
-    'The Prophet ﷺ taught: "Allahumma akfini bi halalika 'an haramika, '
-    'wa aghnini bi fadlika 'amman siwaka" (O Allah, suffice me with what '
+    'The Prophet ﷺ taught: "Allahumma akfini bi halalika \'an haramika, '
+    'wa aghnini bi fadlika \'amman siwaka" (O Allah, suffice me with what '
     'You have made lawful against what You have made forbidden, and enrich '
     'me with Your bounty beyond anyone else). (Sunan al-Tirmidhi 3563, classed '
     'sahih by al-Albani).',
@@ -1545,26 +1545,26 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['dua for marriage', 'spouse dua', 'husband dua', 'wife dua'],
     'The Prophet ﷺ taught those seeking marriage to say: "Rabbana hab lana '
-    'min azwajina wa dhurriyyatina qurrata a'yunin wa-j'alna lil-muttaqina '
+    'min azwajina wa dhurriyyatina qurrata a\'yunin wa-j\'alna lil-muttaqina '
     'imama" (Our Lord, grant us from among our wives and offspring comfort '
-    'to our eyes and make us an example for the righteous). (Qur'an 25:74). '
-    'Also: "Allahumma inni as'aluka khayraha wa khayra ma jabaltaha 'alayhi, '
-    'wa a'udhu bika min sharriha wa sharri ma jabaltaha 'alayhi." '
+    'to our eyes and make us an example for the righteous). (Qur\'an 25:74). '
+    'Also: "Allahumma inni as\'aluka khayraha wa khayra ma jabaltaha \'alayhi, '
+    'wa a\'udhu bika min sharriha wa sharri ma jabaltaha \'alayhi." '
     '(Sunan Ibn Majah, classed sahih by al-Albani).',
   ),
   _Entry(
     <String>['dua for children', 'child dua', 'baby dua', 'pregnancy dua'],
     'The Prophet ﷺ taught: "Allahumma habbib ilayna al-iman wa zayyinhu '
-    'fi qulubina, wa karrih ilayna al-kufra wa al-fusuqa wa al-'isyan" '
+    'fi qulubina, wa karrih ilayna al-kufra wa al-fusuqa wa al-\'isyan" '
     '(O Allah, make faith beloved to us and adorn it in our hearts, and make '
     'disbelief, wickedness, and disobedience hateful to us). (Sahih Muslim '
     '516). For pregnancy: "Rabbi hab li min ladunka dhurriyyatan tayyibah" '
-    '(My Lord, grant me from Yourself a good offspring). (Qur'an 3:38).',
+    '(My Lord, grant me from Yourself a good offspring). (Qur\'an 3:38).',
   ),
   _Entry(
     <String>['dua for health', 'sickness dua', 'healing dua', 'shifa'],
     'The Prophet ﷺ said: "Whoever visits a sick person whose time has not '
-    'yet come, and says seven times: As'alu Allah al-'Azim Rabb al-'Arsh '
+    'yet come, and says seven times: As\'alu Allah al-\'Azim Rabb al-\'Arsh '
     'al-Karim an yashfiyaka — I ask Allah the Magnificent, Lord of the '
     'Glorious Throne, to heal you — Allah will heal him." (Sunan Abi Dawud '
     '3102, classed sahih by al-Albani).',
@@ -1572,16 +1572,16 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['dua for protection', 'protection dua', 'safe dua'],
     'The Prophet ﷺ said: "Whoever says three times every morning and '
-    'evening: Bismillahi alladhi la yadurru ma'asmihi shay'un fi al-ardi '
-    'wa la fi al-sama'i, wa huwa al-sami'u al-'alim — In the name of Allah, '
+    'evening: Bismillahi alladhi la yadurru ma\'asmihi shay\'un fi al-ardi '
+    'wa la fi al-sama\'i, wa huwa al-sami\'u al-\'alim — In the name of Allah, '
     'with whose name nothing on earth or in heaven can cause harm, and He is '
     'the All-Hearing, All-Knowing — nothing will harm him." (Sunan al-Tirmidhi '
     '3388, classed sahih by al-Albani).',
   ),
   _Entry(
     <String>['dua for exam', 'test dua', 'study dua', 'knowledge dua'],
-    'The Prophet ﷺ taught: "Allahumma infa'ni bima 'allamtani, wa '
-    ''allimni ma yanfa'uni, wa zidni 'ilman" (O Allah, benefit me with '
+    'The Prophet ﷺ taught: "Allahumma infa\'ni bima \'allamtani, wa '
+    '\'allimni ma yanfa\'uni, wa zidni \'ilman" (O Allah, benefit me with '
     'what You have taught me, teach me what benefits me, and increase me in '
     'knowledge). (Sunan Ibn Majah, classed sahih by al-Albani).',
   ),
@@ -1597,7 +1597,7 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['dua for debt', 'loan dua', 'owe money dua'],
     'The Prophet ﷺ said: "Whoever is burdened with debt and says: Allahumma '
-    'akfini bi halalika 'an haramika, wa aghnini bi fadlika 'amman siwaka — '
+    'akfini bi halalika \'an haramika, wa aghnini bi fadlika \'amman siwaka — '
     'O Allah, suffice me with Your lawful against Your forbidden, and enrich '
     'me with Your bounty beyond anyone else — Allah will suffice him." '
     '(Sunan al-Tirmidhi 3563, classed sahih by al-Albani).',
@@ -1605,24 +1605,24 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['dua for righteous death', 'good death', 'husn al-khatimah'],
     'The Prophet ﷺ said: "When you finish the obligatory prayer, say: '
-    'Allahumma inni a'udhu bika min al-jubni wa al-bukhl, wa a'udhu bika '
-    'min an uradda ila ardhal al-'umur, wa a'udhu bika min fitnat al-dunya '
+    'Allahumma inni a\'udhu bika min al-jubni wa al-bukhl, wa a\'udhu bika '
+    'min an uradda ila ardhal al-\'umur, wa a\'udhu bika min fitnat al-dunya '
     'wa fitnat al-qabr wa fitnat al-masih al-dajjal." (Sahih Muslim 588). '
-    'Also seek: "Allahumma inni as'aluka husn al-khatimah" (O Allah, I ask '
+    'Also seek: "Allahumma inni as\'aluka husn al-khatimah" (O Allah, I ask '
     'You for a good ending).',
   ),
   _Entry(
     <String>['dua entering masjid', 'masjid entrance', 'mosque dua'],
     'When entering the masjid, say: "Allahumma ftah li abwaba rahmatik" '
     '(O Allah, open for me the doors of Your mercy). When leaving, say: '
-    '"Allahumma inni as'aluka min fadlik" (O Allah, I ask You from Your '
+    '"Allahumma inni as\'aluka min fadlik" (O Allah, I ask You from Your '
     'bounty). (Sahih Muslim 713).',
   ),
   _Entry(
     <String>['dua for parents', 'father dua', 'mother dua', 'parents forgiveness'],
     'Allah says: "And lower to them the wing of humility out of mercy and '
     'say: My Lord, have mercy upon them as they brought me up when I was '
-    'small." (Qur'an 17:24). The Prophet ﷺ said: "The pleasure of the Lord '
+    'small." (Qur\'an 17:24). The Prophet ﷺ said: "The pleasure of the Lord '
     'is in the pleasure of the parent, and the displeasure of the Lord is in '
     'the displeasure of the parent." (Sunan al-Tirmidhi 1899, classed hasan '
     'by al-Albani).',
@@ -1631,8 +1631,8 @@ const List<_Entry> _knowledge = <_Entry>[
     <String>['dua for forgiveness', 'istighfar', 'seek forgiveness', 'sin'],
     'The Prophet ﷺ said: "The most superior way of asking for forgiveness '
     'is to say: Allahumma anta rabbi, la ilaha illa anta, khalaqtani wa ana '
-    ''abduka, wa ana 'ala ahdika wa wa'dika mastata'tu, a'udhu bika min '
-    'sharri ma sana'tu, abu'u laka bi ni'matika 'alayya, wa abu'u laka '
+    '\'abduka, wa ana \'ala ahdika wa wa\'dika mastata\'tu, a\'udhu bika min '
+    'sharri ma sana\'tu, abu\'u laka bi ni\'matika \'alayya, wa abu\'u laka '
     'bi dhanbi, fa ighfir li, fa innahu la yaghfiru al-dhunuba illa anta." '
     '(O Allah, You are my Lord. There is no god but You. You created me, and '
     'I am Your servant, and I am faithful to my covenant and promise to You '
@@ -1646,7 +1646,7 @@ const List<_Entry> _knowledge = <_Entry>[
     <String>['halal', 'haram', 'lawful', 'forbidden', 'permissible'],
     'Allah says: "He has only forbidden to you dead animals, blood, the '
     'flesh of swine, and that which has been dedicated to other than Allah." '
-    '(Qur'an 2:173). The Prophet ﷺ said: "What Allah has made lawful in His '
+    '(Qur\'an 2:173). The Prophet ﷺ said: "What Allah has made lawful in His '
     'Book is halal, what He has made forbidden is haram, and what He has '
     'remained silent about is a pardon." (Sunan al-Tirmidhi, classed hasan by '
     'al-Albani).',
@@ -1654,7 +1654,7 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['fard', 'obligatory', 'wajib', 'mandatory'],
     'Fard (obligatory) acts are those for which there is definitive evidence '
-    'in the Qur'an or mutawatir hadith. Neglecting them is sinful. Examples: '
+    'in the Qur\'an or mutawatir hadith. Neglecting them is sinful. Examples: '
     'the five daily prayers, fasting Ramadan, zakat, Hajj. The Prophet ﷺ said: '
     '"Islam is built upon five: testifying that there is no god but Allah and '
     'Muhammad is His Messenger, establishing prayer, giving zakat, fasting '
@@ -1663,9 +1663,9 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['sunnah', 'mustahabb', 'recommended', 'nafl', 'voluntary'],
     'Sunnah acts are those the Prophet ﷺ regularly performed and encouraged. '
-    'They are divided into: Sunnah muakkadah (emphasized, like the two rak'ahs '
+    'They are divided into: Sunnah muakkadah (emphasized, like the two rak\'ahs '
     'before Fajr) and Sunnah ghayr muakkadah (non-emphasized). The Prophet ﷺ '
-    'said: "Allah loves that His sunnahs are followed." (Sunan al-Nasa'i, '
+    'said: "Allah loves that His sunnahs are followed." (Sunan al-Nasa\'i, '
     'classed sahih by al-Albani).',
   ),
   _Entry(
@@ -1681,13 +1681,13 @@ const List<_Entry> _knowledge = <_Entry>[
     'The Prophet ﷺ said: "Whoever introduces into this matter of ours '
     '(Islam) something that is not part of it, it will be rejected." (Sahih '
     'al-Bukhari 2697, Sahih Muslim 1718). Bidah is any newly invented matter '
-    'in religion that has no basis in the Qur'an or authentic Sunnah. However, '
+    'in religion that has no basis in the Qur\'an or authentic Sunnah. However, '
     'worldly innovations (technology, medicine) are not bidah.',
   ),
   _Entry(
     <String>['shirk', 'associating partners', 'polytheism'],
     'Allah says: "Indeed, Allah does not forgive association with Him, but '
-    'He forgives what is less than that for whom He wills." (Qur'an 4:48). '
+    'He forgives what is less than that for whom He wills." (Qur\'an 4:48). '
     'Shirk is the greatest sin — associating partners with Allah in worship, '
     'lordship, or names/attributes. The Prophet ﷺ said: "Shall I not inform '
     'you of the greatest of major sins? They are: associating partners with '
@@ -1698,7 +1698,7 @@ const List<_Entry> _knowledge = <_Entry>[
     <String>['tawbah', 'repentance', 'turning back'],
     'Allah says: "Say, O My servants who have transgressed against '
     'themselves, do not despair of the mercy of Allah. Indeed, Allah forgives '
-    'all sins. Indeed, it is He who is the Forgiving, the Merciful." (Qur'an '
+    'all sins. Indeed, it is He who is the Forgiving, the Merciful." (Qur\'an '
     '39:53). The Prophet ﷺ said: "Allah is more delighted with the repentance '
     'of His servant than one of you who finds his lost camel." (Sahih '
     'al-Bukhari 6309, Sahih Muslim 2747).',
@@ -1706,7 +1706,7 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['tawakkul', 'trust in allah', 'reliance'],
     'Allah says: "And whoever relies upon Allah — then He is sufficient for '
-    'him." (Qur'an 65:3). The Prophet ﷺ said: "If you had relied upon Allah '
+    'him." (Qur\'an 65:3). The Prophet ﷺ said: "If you had relied upon Allah '
     'with true reliance, He would have provided for you as He provides for the '
     'bird: it goes out hungry in the morning and returns full in the evening." '
     '(Sunan al-Tirmidhi 2344, classed hasan by al-Albani).',
@@ -1714,10 +1714,10 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['ikhlas', 'sincerity', 'pure intention'],
     'Allah says: "And they were not commanded except to worship Allah, '
-    'being sincere to Him in religion, inclining to truth." (Qur'an 98:5). '
+    'being sincere to Him in religion, inclining to truth." (Qur\'an 98:5). '
     'The Prophet ﷺ said: "Actions are but by intentions, and every person '
     'will have what he intended." (Sahih al-Bukhari 1, Sahih Muslim 1907). '
-    'Ikhlas is doing everything solely for Allah's pleasure.',
+    'Ikhlas is doing everything solely for Allah\'s pleasure.',
   ),
   _Entry(
     <String>['ihsan', 'excellence', 'perfection'],
@@ -1737,10 +1737,10 @@ const List<_Entry> _knowledge = <_Entry>[
   ),
   _Entry(
     <String>['mahr', 'dowry', 'bride price'],
-    'Allah says: "And give the women their dowries graciously." (Qur'an '
-    '4:4). The mahr is the husband's gift to the wife, which becomes her '
+    'Allah says: "And give the women their dowries graciously." (Qur\'an '
+    '4:4). The mahr is the husband\'s gift to the wife, which becomes her '
     'exclusive property. The Prophet ﷺ said: "The best of mahrs is the '
-    'easiest." (Sunan al-Nasa'i, classed hasan by al-Albani).',
+    'easiest." (Sunan al-Nasa\'i, classed hasan by al-Albani).',
   ),
   _Entry(
     <String>['walima', 'wedding feast', 'marriage banquet'],
@@ -1753,7 +1753,7 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['divorce', 'talaq', 'ending marriage'],
     'Allah says: "Divorce is twice. Then, either keep her in an acceptable '
-    'manner or release her with good treatment." (Qur'an 2:229). The Prophet '
+    'manner or release her with good treatment." (Qur\'an 2:229). The Prophet '
     'ﷺ said: "The most hated of permissible things to Allah is divorce." '
     '(Sunan Abi Dawud, classed hasan by al-Albani). It must be pronounced '
     'clearly during a period of purity (not menstruation) without intimacy.',
@@ -1761,7 +1761,7 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['rights of wife', 'wife rights', 'husband duties'],
     'The Prophet ﷺ said in his farewell sermon: "Fear Allah concerning '
-    'women. Indeed, you have taken them under Allah's trust, and their '
+    'women. Indeed, you have taken them under Allah\'s trust, and their '
     'private parts are lawful to you by the word of Allah." (Sahih Muslim '
     '1218). Rights include: mahr, maintenance (food, clothing, housing), '
     'kind treatment, and not harming physically or emotionally.',
@@ -1785,7 +1785,7 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['breastfeeding', 'nursing', 'infant feeding'],
     'Allah says: "Mothers may breastfeed their children two complete years '
-    'for whoever wishes to complete the nursing period." (Qur'an 2:233). The '
+    'for whoever wishes to complete the nursing period." (Qur\'an 2:233). The '
     'Prophet ﷺ said: "There is no milk that a child drinks except that it '
     'is assigned to him with a specific portion of his character." (Sahih '
     'al-Bukhari 5192, Sahih Muslim 1453).',
@@ -1809,7 +1809,7 @@ const List<_Entry> _knowledge = <_Entry>[
   // ========== FINANCIAL ==========
   _Entry(
     <String>['zakat', 'zakah', 'alms', 'charity obligation'],
-    'Allah says: "And establish prayer and give zakat." (Qur'an 2:110). '
+    'Allah says: "And establish prayer and give zakat." (Qur\'an 2:110). '
     'Zakat is 2.5% of wealth held for one lunar year above the nisab '
     '(threshold, approximately $400-500 in gold value). It is due on gold, '
     'silver, cash, trade goods, and livestock. The Prophet ﷺ said: "Whoever '
@@ -1837,14 +1837,14 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['riba', 'interest', 'usury', 'bank interest'],
     'Allah says: "Allah has permitted trade and forbidden interest." '
-    '(Qur'an 2:275). The Prophet ﷺ said: "Allah has cursed the one who '
+    '(Qur\'an 2:275). The Prophet ﷺ said: "Allah has cursed the one who '
     'consumes riba, the one who gives it, the one who records it, and the '
     'two witnesses to it." (Sahih Muslim 1598). Conventional bank interest '
     'on savings and loans is riba and forbidden.',
   ),
   _Entry(
     <String>['stocks', 'shares', 'investment', 'halal investing'],
-    'Investing in stocks is permissible if the company's primary business '
+    'Investing in stocks is permissible if the company\'s primary business '
     'is halal and its debt-to-asset ratio is below 33% (majority scholarly '
     'view). The Prophet ﷺ said: "The upper hand is better than the lower '
     'hand." (Sahih al-Bukhari 1419, Sahih Muslim 2588). Avoid companies in '
@@ -1859,9 +1859,9 @@ const List<_Entry> _knowledge = <_Entry>[
     'transaction.',
   ),
   _Entry(
-    <String>['inheritance', 'mirath', 'wasiyyah', 'will'],
+    <String>['inheritance', 'mirath', 'wasiyyah', 'islamic will', 'writing a will'],
     'Allah says: "Allah instructs you concerning your children: for the '
-    'male, what is equal to the share of two females." (Qur'an 4:11). '
+    'male, what is equal to the share of two females." (Qur\'an 4:11). '
     'Islamic inheritance is obligatory (fard) and cannot be willed away. '
     'Only up to one-third can be bequeathed to non-heirs. The Prophet ﷺ said: '
     '"Allah has given everyone who has a right his right, so there is no '
@@ -1887,7 +1887,7 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['dua for deceased', 'dead person dua', 'funeral dua'],
     'The Prophet ﷺ taught: "Allahumma ighfir li hayyina wa mayyitina, wa '
-    'shahidina wa gha'ibina, wa saghirina wa kabirina, wa dhakarina wa '
+    'shahidina wa gha\'ibina, wa saghirina wa kabirina, wa dhakarina wa '
     'unthana" (O Allah, forgive our living and our dead, our present and '
     'our absent, our young and our old, our males and our females). (Sahih '
     'Muslim 2711).',
@@ -1903,7 +1903,7 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['day of judgment', 'qiyamah', 'last day', 'resurrection'],
     'Allah says: "The Day when every soul will find present what it did of '
-    'good and what it did of evil." (Qur'an 3:30). The Prophet ﷺ said: '
+    'good and what it did of evil." (Qur\'an 3:30). The Prophet ﷺ said: '
     '"The first thing a person will be asked about on the Day of '
     'Resurrection is his prayer. If it is sound, he will be successful; if '
     'not, he will be ruined." (Sunan al-Tirmidhi, classed hasan by al-Albani).',
@@ -1911,7 +1911,7 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['jannah', 'paradise', 'heaven'],
     'Allah says: "And no soul knows what has been hidden for them of '
-    'comfort for eyes as reward for what they used to do." (Qur'an 32:17). '
+    'comfort for eyes as reward for what they used to do." (Qur\'an 32:17). '
     'The Prophet ﷺ said: "Allah says: I have prepared for My righteous '
     'servants what no eye has seen, no ear has heard, and no heart has '
     'imagined." (Sahih al-Bukhari 3244, Sahih Muslim 2824).',
@@ -1919,7 +1919,7 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['jahannam', 'hellfire', 'hell', 'nar'],
     'Allah says: "Indeed, Hell has been lying in wait for the '
-    'transgressors." (Qur'an 78:21-22). The Prophet ﷺ said: "The fire was '
+    'transgressors." (Qur\'an 78:21-22). The Prophet ﷺ said: "The fire was '
     'kindled for one thousand years until it turned red, then for one '
     'thousand years until it turned white, then for one thousand years until '
     'it turned black. It is now utterly black." (Sahih Muslim 2843).',
@@ -1930,14 +1930,14 @@ const List<_Entry> _knowledge = <_Entry>[
     <String>['depression', 'sad', 'hopeless', 'empty'],
     'Allah says: "And We will surely test you with something of fear and '
     'hunger and a loss of wealth and lives and fruits, but give good tidings '
-    'to the patient." (Qur'an 2:155). The Prophet ﷺ experienced deep grief '
+    'to the patient." (Qur\'an 2:155). The Prophet ﷺ experienced deep grief '
     '— he wept for Ibrahim, he lost Khadijah and Abu Talib in the same year. '
     'Depression is not a lack of faith; it is a test. Seek help: medical, '
     'spiritual, and communal.',
   ),
   _Entry(
     <String>['loneliness', 'alone', 'no friends', 'isolated'],
-    'Allah says: "And He is with you wherever you are." (Qur'an 57:4). The '
+    'Allah says: "And He is with you wherever you are." (Qur\'an 57:4). The '
     'Prophet ﷺ said: "Allah says: I am as My servant thinks of Me. I am with '
     'him when he remembers Me." (Sahih al-Bukhari 7405, Sahih Muslim 2675). '
     'Loneliness is real, but you are never truly alone. The One who created '
@@ -1960,19 +1960,19 @@ const List<_Entry> _knowledge = <_Entry>[
     'breaks the emotional spiral.',
   ),
   _Entry(
-    <String>['laziness', 'procrastination', 'can't start', 'unmotivated'],
+    <String>['laziness', 'procrastination', 'can\'t start', 'unmotivated'],
     'Allah says: "So when you have finished your duties, devote yourself '
-    'to worship. And to your Lord direct your longing." (Qur'an 94:7-8). '
-    'The Prophet ﷺ sought refuge from laziness: "Allahumma inni a'udhu bika '
-    'min al-'ajzi wa al-kasal" (O Allah, I seek refuge in You from '
+    'to worship. And to your Lord direct your longing." (Qur\'an 94:7-8). '
+    'The Prophet ﷺ sought refuge from laziness: "Allahumma inni a\'udhu bika '
+    'min al-\'ajzi wa al-kasal" (O Allah, I seek refuge in You from '
     'incapacity and laziness). (Sahih al-Bukhari 6018, Sahih Muslim 2707).',
   ),
   _Entry(
     <String>['fear', 'scared', 'afraid', 'terror'],
     'Allah says: "Do not fear; indeed, I am with you both; I hear and I '
-    'see." (Qur'an 20:46). The Prophet ﷺ said: "Allah says: I am as My '
+    'see." (Qur\'an 20:46). The Prophet ﷺ said: "Allah says: I am as My '
     'servant expects of Me." (Sahih al-Bukhari 7405, Sahih Muslim 2675). Say '
-    'Hasbunallahu wa ni'mal wakeel (Allah is sufficient for us, and He is '
+    'Hasbunallahu wa ni\'mal wakeel (Allah is sufficient for us, and He is '
     'the best Disposer of affairs) — the same words Ibrahim said when thrown '
     'into the fire.',
   ),
@@ -1980,7 +1980,7 @@ const List<_Entry> _knowledge = <_Entry>[
     <String>['guilt', 'ashamed', 'regret', 'remorse'],
     'Allah says: "Say, O My servants who have transgressed against '
     'themselves, do not despair of the mercy of Allah. Indeed, Allah forgives '
-    'all sins." (Qur'an 39:53). Guilt that leads to repentance is from '
+    'all sins." (Qur\'an 39:53). Guilt that leads to repentance is from '
     'Allah. Guilt that leads to despair is from Shaytan. The door of tawbah '
     'is open until the soul reaches the throat.',
   ),
@@ -2015,13 +2015,13 @@ const List<_Entry> _knowledge = <_Entry>[
     <String>['laylatul qadr', 'night of decree', 'power night'],
     'Allah says: "Indeed, We sent it down during the Night of Decree. And '
     'what can make you know what is the Night of Decree? The Night of Decree '
-    'is better than a thousand months." (Qur'an 97:1-3). The Prophet ﷺ said: '
+    'is better than a thousand months." (Qur\'an 97:1-3). The Prophet ﷺ said: '
     '"Seek it in the last ten nights, on the odd nights." (Sahih al-Bukhari '
     '2017, Sahih Muslim 1169).',
   ),
   _Entry(
     <String>['itikaf', 'spiritual retreat', 'mosque retreat'],
-    'The Prophet ﷺ used to perform i'tikaf (spiritual retreat) in the last '
+    'The Prophet ﷺ used to perform i\'tikaf (spiritual retreat) in the last '
     'ten days of Ramadan every year until he died. (Sahih al-Bukhari 2025, '
     'Sahih Muslim 1172). It involves staying in the masjid with the '
     'intention of worship, abstaining from sins, and increasing in Quran, '
@@ -2029,7 +2029,7 @@ const List<_Entry> _knowledge = <_Entry>[
   ),
   _Entry(
     <String>['zakat ul fitr', 'fitrana', 'eid charity'],
-    'The Prophet ﷺ made zakat al-fitr obligatory: a sa' (approx. 2.5kg) of '
+    'The Prophet ﷺ made zakat al-fitr obligatory: a sa\' (approx. 2.5kg) of '
     'dates, barley, wheat, or raisins, or its monetary equivalent. It must be '
     'given before the Eid prayer. He said: "It is a purification for the '
     'fasting person from idle talk and obscenity, and food for the poor." '
@@ -2039,8 +2039,8 @@ const List<_Entry> _knowledge = <_Entry>[
     <String>['breaking fast', 'iftar', 'opening fast'],
     'The Prophet ﷺ said: "The people will remain upon goodness as long as '
     'they hasten to break the fast." (Sahih al-Bukhari 1957, Sahih Muslim '
-    '1098). Break with dates and water, saying: "Dhahaba al-zama'u wa '
-    'abtalat al-'uruq wa thabata al-ajru inshaAllah" (The thirst is gone, '
+    '1098). Break with dates and water, saying: "Dhahaba al-zama\'u wa '
+    'abtalat al-\'uruq wa thabata al-ajru inshaAllah" (The thirst is gone, '
     'the veins are moistened, and the reward is confirmed, if Allah wills).',
   ),
   _Entry(
@@ -2053,7 +2053,7 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['kaffarah', 'fast expiation', 'broken fast'],
     'Allah says: "And upon those who are able to fast but do not, a '
-    'fidya — feeding a poor person for each day." (Qur'an 2:184). For '
+    'fidya — feeding a poor person for each day." (Qur\'an 2:184). For '
     'deliberately breaking a fast without excuse: free a slave, or fast two '
     'consecutive months, or feed sixty poor people. (Sahih al-Bukhari 1936).',
   ),
@@ -2088,7 +2088,7 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['gold silk men', 'men wear gold', 'men silk'],
     'The Prophet ﷺ said: "Gold and silk have been permitted for the women '
-    'of my Ummah and forbidden for the men." (Sunan al-Nasa'i, classed sahih '
+    'of my Ummah and forbidden for the men." (Sunan al-Nasa\'i, classed sahih '
     'by al-Albani). Men may not wear gold rings, chains, or clothing with '
     'silk. Women may wear both.',
   ),
@@ -2111,24 +2111,24 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['tajweed', 'quran recitation', 'pronunciation'],
     'The Prophet ﷺ said: "The one who is proficient in the recitation of '
-    'the Qur'an will be with the honorable and obedient scribes (angels), '
-    'and he who recites the Qur'an and finds it difficult to recite, doing '
+    'the Qur\'an will be with the honorable and obedient scribes (angels), '
+    'and he who recites the Qur\'an and finds it difficult to recite, doing '
     'his best to recite it in the best way possible, will have a double '
     'reward." (Sahih al-Bukhari 4937, Sahih Muslim 798).',
   ),
   _Entry(
     <String>['memorize quran', 'hifz', 'memorization'],
-    'The Prophet ﷺ said: "The best of you are those who learn the Qur'an '
+    'The Prophet ﷺ said: "The best of you are those who learn the Qur\'an '
     'and teach it." (Sahih al-Bukhari 5027, Sahih Muslim 817). For '
     'memorization: (1) read with understanding, (2) repeat each ayah 10 '
     'times, (3) connect ayahs, (4) review daily, (5) recite in prayer.',
   ),
   _Entry(
     <String>['quran adab', 'quran manners', 'reading quran'],
-    'When reading the Qur'an: be in a state of wudu, face the qiblah if '
-    'possible, begin with ta'awwudh (a'udhu billahi min al-shaytan '
+    'When reading the Qur\'an: be in a state of wudu, face the qiblah if '
+    'possible, begin with ta\'awwudh (a\'udhu billahi min al-shaytan '
     'al-rajim), read with tartil (measured recitation), and weep or try to '
-    'weep. The Prophet ﷺ said: "Recite the Qur'an, for on the Day of '
+    'weep. The Prophet ﷺ said: "Recite the Qur\'an, for on the Day of '
     'Resurrection it will come as an intercessor for its companions." (Sahih '
     'Muslim 804).',
   ),
@@ -2136,8 +2136,8 @@ const List<_Entry> _knowledge = <_Entry>[
     <String>['ayat al kursi', 'throne verse', 'greatest verse'],
     'The Prophet ﷺ said: "Whoever recites Ayat al-Kursi at the end of every '
     'obligatory prayer, nothing prevents him from entering Paradise except '
-    'death." (Sunan al-Nasa'i, classed sahih by al-Albani). It is the '
-    'greatest verse of the Qur'an (Qur'an 2:255), containing the greatest '
+    'death." (Sunan al-Nasa\'i, classed sahih by al-Albani). It is the '
+    'greatest verse of the Qur\'an (Qur\'an 2:255), containing the greatest '
     'name of Allah.',
   ),
   _Entry(
@@ -2145,7 +2145,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'The Prophet ﷺ said: "Say: He is Allah, the One (Ikhlas) and the two '
     'surahs of refuge (Falaq and Nas) in the evening and morning three times '
     '— they will suffice you against everything." (Sunan al-Tirmidhi, classed '
-    'hasan by al-Albani). These three surahs are called al-Mu'awwidhatayn '
+    'hasan by al-Albani). These three surahs are called al-Mu\'awwidhatayn '
     'and are the strongest protection.',
   ),
   _Entry(
@@ -2159,18 +2159,18 @@ const List<_Entry> _knowledge = <_Entry>[
   // ========== SUNNAH PRACTICES ==========
   _Entry(
     <String>['dua after adhan', 'adhan response', 'call to prayer'],
-    'When the mu'adhin says "Hayya 'ala al-salah" and "Hayya 'ala '
+    'When the mu\'adhin says "Hayya \'ala al-salah" and "Hayya \'ala '
     'al-falah," say: "La hawla wa la quwwata illa billah." After the adhan, '
     'send blessings on the Prophet and say: "Allahumma rabba hadhihi '
-    'al-da'wati al-tammah, wa al-salati al-qaimah, ati Muhammadan '
-    'al-wasilata wa al-fadilah, wa b'athhu maqaman mahmudan alladhi wa'adtahu." '
+    'al-da\'wati al-tammah, wa al-salati al-qaimah, ati Muhammadan '
+    'al-wasilata wa al-fadilah, wa b\'athhu maqaman mahmudan alladhi wa\'adtahu." '
     '(Sahih al-Bukhari 614, Sahih Muslim 384).',
   ),
   _Entry(
     <String>['dua between sajdas', 'sujood', 'prostration'],
-    'In sujood, say: "Subhana rabbiy al-a'la" (Glory be to my Lord, the '
+    'In sujood, say: "Subhana rabbiy al-a\'la" (Glory be to my Lord, the '
     'Most High) at least three times. Between the two sajdas, say: "Rabbi '
-    'ighfir li, warhamni, wahdini, wa 'afini, warzuqni" (My Lord, forgive '
+    'ighfir li, warhamni, wahdini, wa \'afini, warzuqni" (My Lord, forgive '
     'me, have mercy on me, guide me, grant me well-being, and provide for me). '
     '(Sunan Abi Dawud, classed sahih by al-Albani).',
   ),
@@ -2186,7 +2186,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'The Prophet ﷺ said: "Alhamdulillah fills the scale." (Sahih Muslim '
     '223). Saying it after every blessing — a meal, safety, health — is the '
     'sign of a grateful heart. Allah says: "If you are grateful, I will '
-    'surely increase you." (Qur'an 14:7).',
+    'surely increase you." (Qur\'an 14:7).',
   ),
   _Entry(
     <String>['takbir', 'allahu akbar', 'magnification'],
@@ -2206,14 +2206,14 @@ const List<_Entry> _knowledge = <_Entry>[
     <String>['salawat', 'durud', 'blessings on prophet'],
     'The Prophet ﷺ said: "Whoever sends blessings upon me once, Allah will '
     'send blessings upon him ten times." (Sahih Muslim 408). The minimum is '
-    '"Allahumma salli 'ala Muhammad wa 'ala ali Muhammad." It is said in '
+    '"Allahumma salli \'ala Muhammad wa \'ala ali Muhammad." It is said in '
     'tashahhud, after adhan, when hearing his name, and in times of distress.',
   ),
   _Entry(
     <String>['morning adhkar', 'evening adhkar', 'daily adhkar'],
     'The Prophet ﷺ said: "Whoever says in the morning and evening: '
-    'Bismillahi alladhi la yadurru ma'asmihi shay'un fi al-ardi wa la fi '
-    'al-sama'i, wa huwa al-sami'u al-'alim — three times — nothing will '
+    'Bismillahi alladhi la yadurru ma\'asmihi shay\'un fi al-ardi wa la fi '
+    'al-sama\'i, wa huwa al-sami\'u al-\'alim — three times — nothing will '
     'harm him that day or night." (Sunan al-Tirmidhi 3388, classed sahih by '
     'al-Albani).',
   ),
@@ -2222,7 +2222,7 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['hajj', 'pilgrimage', 'fifth pillar'],
     'Allah says: "And Hajj to the House is a duty upon mankind for Allah, '
-    'for whoever is able to find a way." (Qur'an 3:97). The Prophet ﷺ said: '
+    'for whoever is able to find a way." (Qur\'an 3:97). The Prophet ﷺ said: '
     '"Whoever performs Hajj and does not commit any obscenity or '
     'transgression, he returns as the day his mother bore him." (Sahih '
     'al-Bukhari 1521, Sahih Muslim 1350).',
@@ -2231,7 +2231,7 @@ const List<_Entry> _knowledge = <_Entry>[
     <String>['umrah', 'minor pilgrimage', 'lesser pilgrimage'],
     'The Prophet ﷺ said: "Umrah is an expiation for what comes between it '
     'and the previous Umrah." (Sahih al-Bukhari 1773, Sahih Muslim 1349). It '
-    'can be performed any time of year and consists of: ihram, tawaf, sa'i, '
+    'can be performed any time of year and consists of: ihram, tawaf, sa\'i, '
     'and shaving or trimming the hair.',
   ),
   _Entry(
@@ -2252,8 +2252,8 @@ const List<_Entry> _knowledge = <_Entry>[
   ),
   _Entry(
     <String>['saee', 'safa marwa', 'running'],
-    'Sa'i is walking seven times between Safa and Marwa, commemorating '
-    'Hajar's search for water for Ismail. The Prophet ﷺ said: "May Allah '
+    'Sa\'i is walking seven times between Safa and Marwa, commemorating '
+    'Hajar\'s search for water for Ismail. The Prophet ﷺ said: "May Allah '
     'have mercy on the mother of Ismail. Had she not left the water flow, '
     'it would have been a flowing spring." (Sahih al-Bukhari 3365, Sahih '
     'Muslim 2273).',
@@ -2263,14 +2263,14 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['ruqyah', 'healing verses', 'spiritual healing'],
     'The Prophet ﷺ performed ruqyah by reciting: "Al-Fatiha, the last two '
-    'verses of Surah al-Baqarah, Ayat al-Kursi, and the Mu'awwidhatayn '
+    'verses of Surah al-Baqarah, Ayat al-Kursi, and the Mu\'awwidhatayn '
     '(Falaq and Nas)." (Sahih al-Bukhari 5017, Sahih Muslim 2191). Ruqyah is '
-    'permissible if: (1) using Allah's words or His names, (2) in Arabic or '
+    'permissible if: (1) using Allah\'s words or His names, (2) in Arabic or '
     'a language understood, (3) believing the cure is from Allah alone.',
   ),
   _Entry(
     <String>['black magic', 'sihr', 'witchcraft'],
-    'Allah says: "And from the evil of the blowers in knots." (Qur'an '
+    'Allah says: "And from the evil of the blowers in knots." (Qur\'an '
     '113:4). The Prophet ﷺ was affected by magic, and Allah revealed the '
     'last two surahs of protection for him. (Sahih al-Bukhari 3268, Sahih '
     'Muslim 2189). Treatment: (1) regular adhkar, (2) ruqyah, (3) medical '
@@ -2279,7 +2279,7 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['jinn', 'shaytan', 'devil', 'satan'],
     'Allah says: "Indeed, Satan is an enemy to you; so take him as an '
-    'enemy." (Qur'an 35:6). The Prophet ﷺ said: "Satan runs through the '
+    'enemy." (Qur\'an 35:6). The Prophet ﷺ said: "Satan runs through the '
     'son of Adam like blood runs through his veins." (Sahih al-Bukhari 3281, '
     'Sahih Muslim 2174). Protection: regular adhkar, seeking refuge before '
     'entering home and before eating, and avoiding sin.',
@@ -2295,7 +2295,7 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['salah on time', 'prayer punctuality', 'pray on time'],
     'Allah says: "Indeed, prayer has been decreed upon the believers a '
-    'decree of specified times." (Qur'an 4:103). The Prophet ﷺ said: "The '
+    'decree of specified times." (Qur\'an 4:103). The Prophet ﷺ said: "The '
     'first matter that the slave will be brought to account for on the Day of '
     'Judgment is the prayer. If it is sound, he will be successful." (Sunan '
     'al-Tirmidhi, classed hasan by al-Albani).',
@@ -2318,8 +2318,8 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['menstruation', 'period', 'menses', 'hayd'],
     'Allah says: "They ask you about menstruation. Say: It is harm, so '
-    'keep away from wives during menstruation." (Qur'an 2:222). A '
-    'menstruating woman does not pray, fast, touch the Qur'an, or enter '
+    'keep away from wives during menstruation." (Qur\'an 2:222). A '
+    'menstruating woman does not pray, fast, touch the Qur\'an, or enter '
     'the masjid. She makes up missed fasts but not prayers. The Prophet ﷺ '
     'said: "This is something Allah has decreed for the daughters of Adam." '
     '(Sahih al-Bukhari 294, Sahih Muslim 333).',
@@ -2359,7 +2359,7 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['backbiting', 'gossip', 'ghibah', 'slander'],
     'Allah says: "And do not backbite one another. Would one of you like '
-    'to eat the flesh of his dead brother?" (Qur'an 49:12). The Prophet ﷺ '
+    'to eat the flesh of his dead brother?" (Qur\'an 49:12). The Prophet ﷺ '
     'said: "Backbiting is to mention your brother with what he dislikes." '
     '(Sahih Muslim 2589). Even if true, it is forbidden.',
   ),
@@ -2381,7 +2381,7 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['forgiveness', 'forgive others', 'let go'],
     'Allah says: "Let them pardon and overlook. Would you not love for '
-    'Allah to forgive you?" (Qur'an 24:22). The Prophet ﷺ said: "The '
+    'Allah to forgive you?" (Qur\'an 24:22). The Prophet ﷺ said: "The '
     'strong is not the one who overcomes people by his strength, but the '
     'strong is the one who controls himself while in anger." (Sahih '
     'al-Bukhari 6114, Sahih Muslim 2609).',
@@ -2389,7 +2389,7 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['gratitude', 'shukr', 'thankful', 'appreciation'],
     'Allah says: "If you are grateful, I will surely increase you." '
-    '(Qur'an 14:7). The Prophet ﷺ said: "Whoever is not grateful to people '
+    '(Qur\'an 14:7). The Prophet ﷺ said: "Whoever is not grateful to people '
     'is not grateful to Allah." (Sunan Abi Dawud 4811, classed sahih by '
     'al-Albani). Gratitude is not just saying alhamdulillah — it is using '
     'blessings in obedience to Allah.',
@@ -2397,7 +2397,7 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['sabr', 'patience', 'endurance', 'perseverance'],
     'Allah says: "Indeed, the patient will be given their reward without '
-    'account." (Qur'an 39:10). The Prophet ﷺ said: "Patience is at the '
+    'account." (Qur\'an 39:10). The Prophet ﷺ said: "Patience is at the '
     'first stroke of calamity." (Sahih al-Bukhari 1302, Sahih Muslim 926). '
     'There are three types: patience in obedience, patience against sin, and '
     'patience in affliction.',
@@ -2406,7 +2406,7 @@ const List<_Entry> _knowledge = <_Entry>[
     <String>['contentment', 'qanaah', 'satisfied', 'enough'],
     'The Prophet ﷺ said: "Richness is not having many possessions. Rather, '
     'true richness is the richness of the soul." (Sahih al-Bukhari 6446, '
-    'Sahih Muslim 1051). Contentment (qana'ah) is a treasure that no one '
+    'Sahih Muslim 1051). Contentment (qana\'ah) is a treasure that no one '
     'can steal.',
   ),
   _Entry(
@@ -2432,7 +2432,7 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['wisdom', 'hikmah', 'understanding', 'insight'],
     'Allah says: "He gives wisdom to whom He wills, and whoever has been '
-    'given wisdom has certainly been given much good." (Qur'an 2:269). The '
+    'given wisdom has certainly been given much good." (Qur\'an 2:269). The '
     'Prophet ﷺ said: "The beginning of wisdom is the fear of Allah." (Sunan '
     'Abi Dawud, classed hasan by al-Albani).',
   ),
@@ -2440,27 +2440,27 @@ const List<_Entry> _knowledge = <_Entry>[
     <String>['justice', 'adl', 'fairness', 'equity'],
     'Allah says: "Indeed, Allah commands you to render trusts to whom they '
     'are due and when you judge between people to judge with justice." '
-    '(Qur'an 4:58). The Prophet ﷺ said: "The just will be with Allah on '
+    '(Qur\'an 4:58). The Prophet ﷺ said: "The just will be with Allah on '
     'pulpits of light." (Sahih Muslim 1827).',
   ),
   _Entry(
     <String>['unity', 'ummah', 'muslim unity', 'brotherhood'],
     'Allah says: "And hold fast to the rope of Allah all together and do '
-    'not become divided." (Qur'an 3:103). The Prophet ﷺ said: "The '
+    'not become divided." (Qur\'an 3:103). The Prophet ﷺ said: "The '
     'believers in their mutual love, mercy, and compassion are like a single '
     'body." (Sahih al-Bukhari 6011, Sahih Muslim 2586).',
   ),
   _Entry(
     <String>['dawah', 'inviting', 'calling to islam', 'share islam'],
     'Allah says: "Invite to the way of your Lord with wisdom and good '
-    'instruction, and argue with them in a way that is best." (Qur'an 16:125). '
+    'instruction, and argue with them in a way that is best." (Qur\'an 16:125). '
     'The Prophet ﷺ said: "Convey from me even if it is one verse." (Sahih '
     'al-Bukhari 3461).',
   ),
   _Entry(
     <String>['jihad', 'struggle', 'striving'],
     'Allah says: "And strive for Allah with the striving due to Him." '
-    '(Qur'an 22:78). The Prophet ﷺ said: "The best jihad is a word of '
+    '(Qur\'an 22:78). The Prophet ﷺ said: "The best jihad is a word of '
     'truth spoken to a tyrant." (Sunan Abi Dawud, classed hasan by al-Albani). '
     'Jihad of the soul (against desires) is the greater jihad.',
   ),
@@ -2478,7 +2478,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'understanding and application of that law. The Prophet ﷺ said: "The '
     'scholars are the heirs of the prophets." (Sunan Abi Dawud, classed '
     'hasan by al-Albani). There are four major schools of fiqh: Hanafi, '
-    'Maliki, Shafi'i, and Hanbali.',
+    'Maliki, Shafi\'i, and Hanbali.',
   ),
   _Entry(
     <String>['fiqh schools', 'madhab', 'hanafi', 'maliki', 'shafii', 'hanbali'],
@@ -2489,7 +2489,7 @@ const List<_Entry> _knowledge = <_Entry>[
   ),
   _Entry(
     <String>['ijtihad', 'scholarly reasoning', 'independent judgment'],
-    'Ijtihad is the effort to derive rulings from the Qur'an and Sunnah. '
+    'Ijtihad is the effort to derive rulings from the Qur\'an and Sunnah. '
     'The Prophet ﷺ said: "When a judge gives a ruling, striving to apply his '
     'reasoning, and is correct, he has two rewards. If he gives a ruling and '
     'errs, he has one reward." (Sahih al-Bukhari 7352, Sahih Muslim 1716).',
@@ -2497,9 +2497,9 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['qiyas', 'analogy', 'deductive reasoning'],
     'Qiyas is analogical reasoning: applying a known ruling to a new case '
-    'based on a shared underlying cause ('illah). It is accepted by the '
+    'based on a shared underlying cause (\'illah). It is accepted by the '
     'majority of scholars as a source of Islamic law, provided the original '
-    'ruling is from the Qur'an or authentic Sunnah.',
+    'ruling is from the Qur\'an or authentic Sunnah.',
   ),
   _Entry(
     <String>['ijma', 'consensus', 'scholarly agreement'],
@@ -2512,8 +2512,8 @@ const List<_Entry> _knowledge = <_Entry>[
     'The Prophet ﷺ said: "May Allah brighten a man who hears something from '
     'us and conveys it as he heard it." (Sunan al-Tirmidhi, classed hasan by '
     'al-Albani). Hadith authentication examines: (1) the chain (isnad), (2) '
-    'the text (matn), (3) the narrators' reliability. Classifications: '
-    'sahih, hasan, da'if, mawdu'.',
+    'the text (matn), (3) the narrators\' reliability. Classifications: '
+    'sahih, hasan, da\'if, mawdu\'.',
   ),
   _Entry(
     <String>['sahih', 'authentic hadith', 'sound hadith'],
@@ -2528,13 +2528,13 @@ const List<_Entry> _knowledge = <_Entry>[
     'Hasan is a hadith with a continuous chain of narrators who are mostly '
     'reliable but may have slight weaknesses. It is accepted as evidence in '
     'Islamic law. The collections of Sunan al-Tirmidhi, Sunan Abi Dawud, '
-    'Sunan al-Nasa'i, and Sunan Ibn Majah contain many hasan hadiths.',
+    'Sunan al-Nasa\'i, and Sunan Ibn Majah contain many hasan hadiths.',
   ),
   _Entry(
     <String>['daif', 'weak hadith', 'unreliable hadith'],
-    'Da'if is a hadith with a chain containing a narrator who is weak '
+    'Da\'if is a hadith with a chain containing a narrator who is weak '
     '(unreliable memory, unknown, or accused of lying). It cannot be used as '
-    'independent evidence for rulings but may be used for virtues (fada'il) '
+    'independent evidence for rulings but may be used for virtues (fada\'il) '
     'and encouragement (targhib).',
   ),
   _Entry(

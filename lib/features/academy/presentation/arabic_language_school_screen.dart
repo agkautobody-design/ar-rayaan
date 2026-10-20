@@ -11,7 +11,7 @@ import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
-import '../../../app/theme/widgets/scenic_scaffold.dart';
+import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 
 class _ArLesson {
@@ -101,7 +101,7 @@ const List<_ArUnit> kArabicUnits = <_ArUnit>[
       _ArLesson(
         title: 'The Simplest Sentence: Ism and Fi\'l',
         arabic: '\u0627\u0644\u0644\u0651\u0647\u064f \u0631\u064e\u0628\u0651\u064f\u0646\u064e\u0627',
-        body: 'Arabic needs only two words for a full sentence: a name (ism) and an action (fi\'l). Allah rabbuna — Allah is our Lord. The ism 'Allah' and the fi\'l 'rabbuna' carry the whole meaning. Every sentence you will ever read is built from these two.',
+        body: 'Arabic needs only two words for a full sentence: a name (ism) and an action (fi\'l). Allah rabbuna — Allah is our Lord. The ism \'Allah\' and the fi\'l \'rabbuna\' carry the whole meaning. Every sentence you will ever read is built from these two.',
         source: 'Grammar note',
       ),
       _ArLesson(
@@ -142,7 +142,7 @@ const List<_ArUnit> kArabicUnits = <_ArUnit>[
       _ArLesson(
         title: 'The Dual: Two of Something',
         arabic: '\u064a\u064e\u0648\u0652\u0645\u064e\u064a\u0652\u0646\u0650',
-        body: 'Yawm (day) becomes yawmayni (two days) — the dual ending -ayni. The Qur\'an uses it precisely: the two gardens of the man in Surah 18, the two days of creation in Surah 41. Arabic counts two as its own number, not as 'two ones.'',
+        body: 'Yawm (day) becomes yawmayni (two days) — the dual ending -ayni. The Qur\'an uses it precisely: the two gardens of the man in Surah 18, the two days of creation in Surah 41. Arabic counts two as its own number, not as \'two ones.\'',
         source: 'Qur\'an 18:32 (al-jannatani)',
       ),
     ],
@@ -153,13 +153,13 @@ const List<_ArUnit> kArabicUnits = <_ArUnit>[
       _ArLesson(
         title: 'The Idaafa: Possession in Two Words',
         arabic: '\u0643\u064e\u062a\u064e\u0627\u0628\u064f \u0627\u0644\u0644\u0651\u0647\u0650',
-        body: 'Kitabu Allah — the Book of Allah. Two nouns side by side, and the relationship is possession. The first word loses its 'the' (kitabu, not al-kitabu); the second keeps it (Allah, already definite). This construction is everywhere — every 'of' in translation is often an idaafa in Arabic.',
+        body: 'Kitabu Allah — the Book of Allah. Two nouns side by side, and the relationship is possession. The first word loses its \'the\' (kitabu, not al-kitabu); the second keeps it (Allah, already definite). This construction is everywhere — every \'of\' in translation is often an idaafa in Arabic.',
         source: 'Qur\'an 2:2 (kitabu Allah)',
       ),
       _ArLesson(
         title: 'The Diptotes: Names That Refuse',
         arabic: '\u0645\u064f\u062d\u064e\u0645\u0651\u064e\u062f\u064c \u0644\u0627 \u064a\u064e\u0642\u0628\u064e\u0644\u064f \u0627\u0644\u0652',
-        body: 'Proper names like Muhammad, Ahmad, and many broken plurals refuse the 'the' (al-) in certain positions. Muhammadun, not al-Muhammadun. The Qur\'an respects the name\'s dignity — learn to spot the names that stand without the article.',
+        body: 'Proper names like Muhammad, Ahmad, and many broken plurals refuse the \'the\' (al-) in certain positions. Muhammadun, not al-Muhammadun. The Qur\'an respects the name\'s dignity — learn to spot the names that stand without the article.',
         source: 'Qur\'an 3:144 (Muhammadun)',
       ),
       _ArLesson(
@@ -172,7 +172,6 @@ const List<_ArUnit> kArabicUnits = <_ArUnit>[
       ),
     ],
   ),
-];
 ];
 
 class ArabicLanguageSchoolScreen extends StatelessWidget {

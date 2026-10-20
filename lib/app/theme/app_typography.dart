@@ -70,6 +70,14 @@ abstract final class AppText {
     color: Color(0xCCD4AF37),
   );
 
+  /// Base Arabic style (Amiri). Screens size it with copyWith.
+  static const TextStyle arabic = TextStyle(
+    fontFamily: AppFonts.arabic,
+    fontSize: 22,
+    height: 1.8,
+    color: AppColors.textPrimary,
+  );
+
   static const TextStyle arabicLarge = TextStyle(
     fontFamily: AppFonts.arabic,
     fontSize: 34,

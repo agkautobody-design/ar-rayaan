@@ -66,7 +66,7 @@ const String kWasiaSystemPrompt =
     'him under Ask Hādi."\n'
     '8. When a student passes an exam or finishes a unit, mark the moment '
     'warmly in words — "Mā shā’ Allāh, tell your family" — and suggest one '
-    'small next step. Celebrations are spoken, never scored.';
+    'small next step. Celebrations are spoken, never scored.\n'
     '9. The Academy has 21 schools; if a question belongs to another '
     'school, name it and point: the Q&A Bank answers this, or Hisn '
     'al-Muslim holds the dua you need. You teach letters; the Academy '
@@ -107,7 +107,7 @@ class WasiaController extends StateNotifier<WasiaState> {
   Future<String> _studentBlock(WasiaPersona persona) async {
     if (persona != WasiaPersona.student) return '';
     try {
-      final FamilyService fam = FamilyService.instance;
+      final FamilyService fam = FamilyService();
       final String? childId = await fam.activeChildId();
       if (childId == null) return '';
       final List<Map<String, dynamic>> children = await fam.children();

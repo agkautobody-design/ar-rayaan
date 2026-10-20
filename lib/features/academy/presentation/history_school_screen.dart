@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
-import '../../../app/theme/widgets/scenic_scaffold.dart';
+import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 
 class _HistEra {
@@ -41,7 +41,7 @@ const List<_HistEra> kHistoryEras = <_HistEra>[
     chapters: <_HistChapter>[
       _HistChapter(
         title: 'Abu Bakr — The Steady One',
-        note: 'The first caliph: 'If you worship Muhammad, know that he has died; but if you worship Allah, He lives and does not die.' He saved zakat and saved the deen in two years.',
+        note: 'The first caliph: \'If you worship Muhammad, know that he has died; but if you worship Allah, He lives and does not die.\' He saved zakat and saved the deen in two years.',
         storyId: 'comp-abu-bakr',
       ),
       _HistChapter(
@@ -61,7 +61,7 @@ const List<_HistEra> kHistoryEras = <_HistEra>[
       ),
       _HistChapter(
         title: 'Ali — The Gate of Knowledge',
-        note: 'The fourth caliph, raised in the Prophet\u2019s house: 'I am the city of knowledge, and Ali is its gate' — the era\u2019s scholarship begins with him.',
+        note: 'The fourth caliph, raised in the Prophet\u2019s house: \'I am the city of knowledge, and Ali is its gate\' — the era\u2019s scholarship begins with him.',
         storyId: 'comp-ali',
       ),
     ],

@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
-import '../../../app/theme/widgets/scenic_scaffold.dart';
+import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 
 class _CharLesson {
@@ -34,11 +34,11 @@ const List<_CharUnit> kCharacterUnits = <_CharUnit>[
       _CharLesson(
         title: 'Sincerity — Cleaning the Why',
         body: 'Actions are only by intentions (Bukhari 1). The same prayer can be worship or theater depending on the why. The Prophet ﷺ called the first three generations the best because their deeds were built on ikhlas — and he warned that one day people would act for other than Allah\u2019s face.',
-        practice: 'Before one deed today, say 'for You alone' in your heart — then do it quietly.',
+        practice: 'Before one deed today, say \'for You alone\' in your heart — then do it quietly.',
       ),
       _CharLesson(
         title: 'Patience — The Standing Muscle',
-        body: 'Allah is with the patient (2:153). Patience is not the absence of pain; it is the presence of staying. Ya\u2019qub said 'I only complain of my suffering to Allah' (12:86) — grief and patience in the same sentence, and the Qur'an called his patience beautiful.',
+        body: 'Allah is with the patient (2:153). Patience is not the absence of pain; it is the presence of staying. Ya\u2019qub said \'I only complain of my suffering to Allah\' (12:86) — grief and patience in the same sentence, and the Qur\'an called his patience beautiful.',
         practice: 'Name one thing testing you this week. Stay in it one more day without quitting the dua.',
       ),
       _CharLesson(
@@ -64,7 +64,7 @@ const List<_CharUnit> kCharacterUnits = <_CharUnit>[
       ),
       _CharLesson(
         title: 'Envy — The Second Look',
-        body: 'Envy eats good deeds like fire eats wood (Abu Dawud 4253). The cure the Prophet ﭑ taught is not pretending the blessing isn\u2019t real — it is praying for the one who has it: 'O Allah, bless them in it.' The prayer converts the poison.',
+        body: 'Envy eats good deeds like fire eats wood (Abu Dawud 4253). The cure the Prophet ﭑ taught is not pretending the blessing isn\u2019t real — it is praying for the one who has it: \'O Allah, bless them in it.\' The prayer converts the poison.',
         practice: 'Find one person whose blessing stung you. Make dua for them by name today.',
       ),
       _CharLesson(

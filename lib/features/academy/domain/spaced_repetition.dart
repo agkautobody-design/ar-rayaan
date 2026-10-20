@@ -73,7 +73,7 @@ abstract final class Sm2Engine {
 
   static const Map<ReviewGrade, int> _quality = <ReviewGrade, int>{
     ReviewGrade.again: 1,
-    ReviewGrade.good: 3,
+    ReviewGrade.good: 4, // SM-2 "correct with hesitation" — keeps ease steady (3 drifted it down)
     ReviewGrade.easy: 5,
   };
 

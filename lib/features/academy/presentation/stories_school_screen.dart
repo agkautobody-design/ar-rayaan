@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
-import '../../../app/theme/widgets/scenic_scaffold.dart';
+import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 
 class _StoryChapter {
@@ -52,8 +52,8 @@ const List<_StoriesUnit> kStoriesUnits = <_StoriesUnit>[
       ),
       _StoryChapter(
         title: 'Ya\u2019qub — The Beautiful Patience',
-        virtue: 'He lost a son, then another — and said 'I only complain of my grief to Allah' (12:86). Grief and patience can share a chest.',
-        familyQuestion: 'What does 'beautiful patience' look like in our house this week?',
+        virtue: 'He lost a son, then another — and said \'I only complain of my grief to Allah\' (12:86). Grief and patience can share a chest.',
+        familyQuestion: 'What does \'beautiful patience\' look like in our house this week?',
         storyId: 'prophet-yaqub',
       ),
       _StoryChapter(
@@ -83,7 +83,7 @@ const List<_StoriesUnit> kStoriesUnits = <_StoriesUnit>[
       _StoryChapter(
         title: 'Musa — Before Pharaoh',
         virtue: 'A stuttering shepherd demanded freedom from the world\u2019s tyrant — with a staff and a brother. Courage is a stutter that keeps speaking.',
-        familyQuestion: 'What is your 'staff' — the small thing you carry that could face something big?',
+        familyQuestion: 'What is your \'staff\' — the small thing you carry that could face something big?',
         storyId: 'prophet-musa',
       ),
       _StoryChapter(
@@ -101,7 +101,7 @@ const List<_StoriesUnit> kStoriesUnits = <_StoriesUnit>[
       _StoryChapter(
         title: 'Sumayyah — The First to Give Everything',
         virtue: 'The first martyr of Islam: a slave woman who refused to curse the Prophet. She taught the ummah its first lesson in standing.',
-        familyQuestion: 'What does 'standing for something' cost, and what does it buy?',
+        familyQuestion: 'What does \'standing for something\' cost, and what does it buy?',
         storyId: 'woman-sumayyah',
       ),
     ],
@@ -125,12 +125,12 @@ const List<_StoriesUnit> kStoriesUnits = <_StoriesUnit>[
       _StoryChapter(
         title: 'Yunus — The Whale\u2019s Belly',
         virtue: 'He ran from the call and landed in the darkest place — and one sentence reached the Throne from inside a fish. No place is too dark for la ilaha illa anta.',
-        familyQuestion: 'What is your 'whale\u2019s belly' — the dark place you could pray from right now?',
+        familyQuestion: 'What is your \'whale\u2019s belly\' — the dark place you could pray from right now?',
         storyId: 'prophet-yunus',
       ),
       _StoryChapter(
         title: 'Umm Salama — Whose Question Became a Verse',
-        virtue: 'She said the dua of the afflicted — 'to You we return' — and her heartache became revelation. Grief itself can be worship.',
+        virtue: 'She said the dua of the afflicted — \'to You we return\' — and her heartache became revelation. Grief itself can be worship.',
         familyQuestion: 'What dua could turn your hardest day into an address to Allah?',
         storyId: 'woman-umm-salama',
       ),
@@ -148,26 +148,26 @@ const List<_StoriesUnit> kStoriesUnits = <_StoriesUnit>[
     chapters: <_StoryChapter>[
       _StoryChapter(
         title: 'Sulayman — The Kingdom',
-        virtue: 'A kingdom no one will have after him — and his dua was only 'make me grateful.' Might chose gratitude.',
+        virtue: 'A kingdom no one will have after him — and his dua was only \'make me grateful.\' Might chose gratitude.',
         familyQuestion: 'What do you have that you never asked for?',
         storyId: 'prophet-sulayman',
       ),
       _StoryChapter(
         title: 'The Two Gardens',
-        virtue: 'The man who counted his harvest forgot his Lord — one night of frost took it all. 'Wealth and children are adornment; the enduring deeds are better' (18:46).',
-        familyQuestion: 'What is your 'garden' — and what would remain if it vanished tonight?',
+        virtue: 'The man who counted his harvest forgot his Lord — one night of frost took it all. \'Wealth and children are adornment; the enduring deeds are better\' (18:46).',
+        familyQuestion: 'What is your \'garden\' — and what would remain if it vanished tonight?',
         storyId: 'tale-two-gardens',
       ),
       _StoryChapter(
         title: 'Hagar — She Ran Seven Times',
-        virtue: 'Alone in a desert with a crying child — and 'He will not waste us' became the walk between two hills that every pilgrim still walks.',
-        familyQuestion: 'Where are you 'running between the hills' right now?',
+        virtue: 'Alone in a desert with a crying child — and \'He will not waste us\' became the walk between two hills that every pilgrim still walks.',
+        familyQuestion: 'Where are you \'running between the hills\' right now?',
         storyId: 'woman-hagar',
       ),
       _StoryChapter(
         title: 'Asiya — A House Built Wrong',
         virtue: 'She lived in Pharaoh\u2019s palace and was heartbroken in it — and Allah showed her her house in Paradise. Sometimes the palace is the test.',
-        familyQuestion: 'What 'house' are you in that feels wrong — and what house are you building instead?',
+        familyQuestion: 'What \'house\' are you in that feels wrong — and what house are you building instead?',
         storyId: 'woman-asiya',
       ),
       _StoryChapter(
@@ -202,7 +202,7 @@ const List<_StoriesUnit> kStoriesUnits = <_StoriesUnit>[
       ),
       _StoryChapter(
         title: 'Ali — The Gate of Knowledge',
-        virtue: 'The fourth caliph, raised in the Prophet\u2019s house: 'I am the city of knowledge, and Ali is its gate.' The era\u2019s scholarship begins with him.',
+        virtue: 'The fourth caliph, raised in the Prophet\u2019s house: \'I am the city of knowledge, and Ali is its gate.\' The era\u2019s scholarship begins with him.',
         familyQuestion: 'What knowledge are you a gate to — who could you teach this month?',
         storyId: 'comp-ali',
       ),
@@ -250,7 +250,7 @@ const List<_StoriesUnit> kStoriesUnits = <_StoriesUnit>[
       ),
       _StoryChapter(
         title: 'Suhayb — The Arsonist\u2019s Price',
-        virtue: 'He bought his freedom from Quraysh with every dirham he owned. The Prophet\u2019s comment: 'Suhayb has profited.' Sometimes the price of freedom is everything you have — and it is still cheap.',
+        virtue: 'He bought his freedom from Quraysh with every dirham he owned. The Prophet\u2019s comment: \'Suhayb has profited.\' Sometimes the price of freedom is everything you have — and it is still cheap.',
         familyQuestion: 'What price would you pay for your freedom — and is it worth more than what you hold?',
         storyId: 'comp-suhayb',
       ),
