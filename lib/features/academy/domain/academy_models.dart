@@ -6,7 +6,7 @@
 /// knowledge check. One idea per step (Simplicity Charter).
 library;
 
-enum AcademyStepKind { text, action, embed, check }
+enum AcademyStepKind { text, action, embed, check, try_, demo }
 
 /// One teach/check/reflect beat. 30-90 seconds of attention, then action.
 class AcademyStep {
@@ -18,6 +18,7 @@ class AcademyStep {
     this.ref,
     this.assessmentId,
     this.honestyLabel,
+    this.clipId,
   });
 
   final AcademyStepKind kind;
@@ -37,6 +38,9 @@ class AcademyStep {
 
   /// Optional honesty label: '[Established]' / '[Interpretive]' / '[Reflection]'.
   final String? honestyLabel;
+
+  /// `demo` steps: id of the 3D instructor clip (e.g. 'wudu_wash_face').
+  final String? clipId;
 }
 
 class AcademyLesson {

@@ -56,6 +56,21 @@ class _LessonPlayerScreenState
   AcademyStep get _step => _lesson.steps[_index];
   bool get _isLast => _index == _lesson.steps.length - 1;
 
+  /// "Show me again": hop back to the nearest earlier teach beat
+  /// (text / embed / demo). Falls back to the lesson start. Never fails.
+  void _showAgain() {
+    for (int i = _index - 1; i >= 0; i--) {
+      final AcademyStepKind kind = _lesson.steps[i].kind;
+      if (kind == AcademyStepKind.text ||
+          kind == AcademyStepKind.embed ||
+          kind == AcademyStepKind.demo) {
+        setState(() => _index = i);
+        return;
+      }
+    }
+    setState(() => _index = 0);
+  }
+
   Future<void> _next() async {
     final notifier = ref.read(academyProgressProvider.notifier);
     if (_isLast) {
@@ -199,6 +214,8 @@ class _LessonPlayerScreenState
                       submitted: _checkSubmitted,
                       result: _result,
                       answers: _answers,
+                      onShowAgain: _showAgain,
+                      onAdvance: () => _next(),
                       onSelect: (int itemIdx, int choiceIdx) {
                         setState(() {
                           if (_answers.length <= itemIdx) {
@@ -212,6 +229,7 @@ class _LessonPlayerScreenState
                   ],
                 ),
               ),
+              if (step.kind != AcademyStepKind.try_)
               Padding(
                 padding: const EdgeInsets.fromLTRB(20, 0, 20, 16),
                 child: SizedBox(
@@ -255,6 +273,8 @@ class _StepBody extends StatelessWidget {
     required this.answers,
     required this.onSelect,
     required this.onSubmit,
+    this.onShowAgain,
+    this.onAdvance,
   });
 
   final AcademyStep step;
@@ -264,6 +284,8 @@ class _StepBody extends StatelessWidget {
   final List<int> answers;
   final void Function(int itemIdx, int choiceIdx) onSelect;
   final void Function(List<AssessmentItem> items) onSubmit;
+  final VoidCallback? onShowAgain;
+  final VoidCallback? onAdvance;
 
   @override
   Widget build(BuildContext context) {
@@ -334,6 +356,99 @@ class _StepBody extends StatelessWidget {
                 )
               else
                 Text(step.ref ?? '', style: AppText.caption),
+            ],
+          ),
+        );
+
+      case AcademyStepKind.try_:
+        return GlassCard(
+          strong: true,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(AcademyStrings.get('try.title'), style: AppText.eyebrow),
+              const SizedBox(height: 8),
+              Text(
+                AcademyStrings.get(step.bodyKey),
+                style: AppText.body.copyWith(height: 1.6),
+              ),
+              const SizedBox(height: 16),
+              Row(
+                children: <Widget>[
+                  Expanded(
+                    child: OutlinedButton(
+                      onPressed: onShowAgain,
+                      child: Text(
+                        AcademyStrings.get('try.again'),
+                        style: AppText.bodyMuted.copyWith(fontSize: 13),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: FilledButton(
+                      onPressed: onAdvance,
+                      style: FilledButton.styleFrom(
+                        backgroundColor: AppColors.gold,
+                        foregroundColor: AppColors.night,
+                      ),
+                      child: Text(
+                        AcademyStrings.get('try.remembered'),
+                        style: const TextStyle(fontSize: 13),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        );
+
+      case AcademyStepKind.demo:
+        return GlassCard(
+          strong: true,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(AcademyStrings.get('demo.eyebrow'), style: AppText.eyebrow),
+              const SizedBox(height: 8),
+              Text(AcademyStrings.get(step.bodyKey),
+                  style: AppText.titleMedium),
+              const SizedBox(height: 8),
+              AspectRatio(
+                aspectRatio: 16 / 9,
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: AppColors.night,
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(
+                      color: AppColors.gold.withValues(alpha: 0.4),
+                    ),
+                  ),
+                  child: Center(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        const Icon(
+                          Icons.play_circle_outline,
+                          size: 44,
+                          color: AppColors.gold,
+                        ),
+                        const SizedBox(height: 6),
+                        Text(
+                          step.clipId ?? '',
+                          style: AppText.bodyMuted.copyWith(fontSize: 11),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                AcademyStrings.get('demo.stageCaption'),
+                style: AppText.bodyMuted.copyWith(fontSize: 10, height: 1.4),
+              ),
             ],
           ),
         );

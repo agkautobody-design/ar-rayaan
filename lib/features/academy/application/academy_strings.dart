@@ -23,6 +23,12 @@ abstract final class AcademyStrings {
       'academy.dailyVerse': 'A verse for the learner',
       'academy.translationCredit':
           'Translation: Saheeh International (interim) — The Clear Quran® preferred, license pending',
+      'try.title': 'Do you remember?',
+      'try.body': 'Before moving on, say it back in your own words — out loud or in your heart.',
+      'try.remembered': 'I remembered it',
+      'try.again': 'Show me again',
+      'demo.eyebrow': 'WATCH AND FOLLOW',
+      'demo.stageCaption': '3D instructor — plays in the app with the avatar player',
       'common.next': 'Next',
       'common.back': 'Back',
       'common.done': 'Done',
