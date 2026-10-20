@@ -129,6 +129,8 @@ abstract final class AcademyStrings {
       'school.hifz.body': 'Memorize the Quran with the sabaq, sabqi, manzil cycle \u2014 your pace, your compass, never your judge.',
       'school.aqeedah.title': 'Aqeedah School',
       'school.aqeedah.body': 'Who Allah is, what He sent, and why it changes a life — taught from the Quran itself.',
+      'school.hadith.title': 'Hadith School',
+      'school.hadith.body': 'Imam an-Nawawi\u2019s Forty, taught one hadith at a time — text, meaning, and the character it builds.',
       'academy.title': 'Al-Wasia Academy of Sacred Knowledge',
       'academy.comingSoon': 'Coming soon — insha’Allah',
       'academy.continue': 'Continue where you left off',

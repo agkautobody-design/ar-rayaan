@@ -219,6 +219,14 @@ class _AcademyHomeScreenState
                 live: true,
               ),
               _SchoolRow(
+                icon: Icons.menu_book,
+                arabic: 'الحديث',
+                title: AcademyStrings.get('school.hadith.title'),
+                subtitle: AcademyStrings.get('school.hadith.body'),
+                route: '/academy/hadith',
+                live: true,
+              ),
+              _SchoolRow(
                 icon: Icons.graphic_eq,
                 arabic: '\u0627\u0644\u062a\u0651\u064e\u0644\u064e\u0627\u0648\u064e\u0629',
                 title: AcademyStrings.get('school.recitation.title'),
