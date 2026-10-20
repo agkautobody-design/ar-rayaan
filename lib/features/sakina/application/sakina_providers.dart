@@ -1,3 +1,5 @@
+import 'dart:ui' as ui;
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -35,3 +37,10 @@ class DaysReturnedController extends Notifier<int> {
 
 final NotifierProvider<DaysReturnedController, int> daysReturnedProvider =
     NotifierProvider<DaysReturnedController, int>(DaysReturnedController.new);
+
+/// The country (ISO 3166-1 alpha-2, upper case) of the device's locale, used
+/// only to put the right help lines first. Null when the locale carries no
+/// country. Never sent anywhere.
+final Provider<String?> deviceCountryProvider = Provider<String?>(
+  (_) => ui.PlatformDispatcher.instance.locale.countryCode,
+);

@@ -11,10 +11,45 @@ service cloud.firestore {
     }
 
     // ── Majlis ─────────────────────────────────────────────────────────
-    // The Adab Engine, made literal: public read, signed-in write, field
-    // validation, size caps, no impersonation beyond display names.
+    // Posts are NOT reviewed before they appear. What the rules do enforce:
+    // sign-in, field validation and size caps, server timestamps (so nobody
+    // can pin a thread with a future time), a 20-second gap between writes
+    // per person, reserved display names, a counter that can only move with
+    // a real reply, and reports that only moderators can read.
     // Rooms and seed threads are created by the founder (console/admin),
     // never by app clients.
+
+    // Names nobody may take: the app, its assistants, staff roles and
+    // scholarly titles. Whole-word match on letters only; the app also
+    // folds look-alike characters before it sends the name.
+    function reservedName(n) {
+      let s = n.lower();
+      return s.matches('.*ar[^a-z]*rayaan.*')
+        || s.matches('(.*[^a-z])?(hadi|sakina|noor|wasia|admin|moderator|mod|staff|team|official|support|founder|shaykh|sheikh|sheik|shaikh|imam|mufti|scholar|ustadh|ustaz|allama|hafiz)([^a-z].*)?');
+    }
+
+    function validAuthor(n) {
+      return validName(n) && n.size() >= 2 && !reservedName(n);
+    }
+
+    // The per-person write clock. Every thread or post write in the same
+    // batch must also move it, and it can only move once per 20 seconds.
+    match /majlis_rate/{uid} {
+      allow read: if false;
+      allow create: if signedIn() && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(['lastPostAt'])
+        && request.resource.data.lastPostAt == request.time;
+      allow update: if signedIn() && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(['lastPostAt'])
+        && request.resource.data.lastPostAt == request.time
+        && request.time > resource.data.lastPostAt + duration.value(20, 's');
+      allow delete: if false;
+    }
+
+    function rateMoved() {
+      return getAfter(/databases/$(database)/documents/majlis_rate/$(request.auth.uid)).data.lastPostAt == request.time;
+    }
+
     match /majlis_rooms/{room} {
       allow read: if true;
       allow write: if false;
@@ -23,34 +58,66 @@ service cloud.firestore {
       allow read: if true;
       allow create: if signedIn()
         && request.resource.data.keys().hasOnly(
-             ['title', 'authorName', 'uid', 'createdAt', 'lastActivity', 'replyCount'])
+             ['title', 'authorName', 'uid', 'createdAt', 'lastActivity', 'replyCount', 'lastPostId'])
         && request.resource.data.title is string
         && request.resource.data.title.size() >= 4
         && request.resource.data.title.size() <= 140
-        && validName(request.resource.data.authorName)
-        && request.resource.data.createdAt is timestamp
-        && request.resource.data.lastActivity is timestamp
+        && validAuthor(request.resource.data.authorName)
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.lastActivity == request.time
         && request.resource.data.replyCount == 1
-        && request.resource.data.uid == request.auth.uid;
-      // A reply bumps the counter by exactly one and touches the activity
-      // time; nothing else on the thread can change.
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.lastPostId is string
+        && existsAfter(/databases/$(database)/documents/majlis_rooms/$(room)/threads/$(thread)/posts/$(request.resource.data.lastPostId))
+        && rateMoved();
+      // A reply bumps the counter by exactly one, stamps the activity time
+      // with the server clock, and must arrive together with the post it
+      // counts.
       allow update: if signedIn()
         && request.resource.data.diff(resource.data).affectedKeys()
-             .hasOnly(['replyCount', 'lastActivity'])
+             .hasOnly(['replyCount', 'lastActivity', 'lastPostId'])
         && request.resource.data.replyCount == resource.data.replyCount + 1
-        && request.resource.data.lastActivity is timestamp;
+        && request.resource.data.lastActivity == request.time
+        && request.resource.data.lastPostId is string
+        && existsAfter(/databases/$(database)/documents/majlis_rooms/$(room)/threads/$(thread)/posts/$(request.resource.data.lastPostId))
+        && rateMoved();
       allow delete: if false;
     }
     match /majlis_rooms/{room}/threads/{thread}/posts/{post} {
       allow read: if true;
+      // A post is only valid together with the thread write that counts it
+      // (same batch), so posts cannot be dropped under a thread that does
+      // not exist and the counter cannot move without a post.
       allow create: if signedIn()
         && request.resource.data.keys().hasOnly(['body', 'authorName', 'uid', 'createdAt'])
         && request.resource.data.body is string
         && request.resource.data.body.size() >= 1
         && request.resource.data.body.size() <= 2000
-        && validName(request.resource.data.authorName)
-        && request.resource.data.createdAt is timestamp
-        && request.resource.data.uid == request.auth.uid;
+        && validAuthor(request.resource.data.authorName)
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.uid == request.auth.uid
+        && getAfter(/databases/$(database)/documents/majlis_rooms/$(room)/threads/$(thread)).data.lastPostId == post
+        && rateMoved();
+      allow update, delete: if false;
+    }
+
+    // Reports: anyone signed in can file one (once per target); nobody can
+    // read them from the app. Moderators use the console or admin tools.
+    match /majlis_reports/{id} {
+      allow read: if false;
+      allow create: if signedIn()
+        && request.resource.data.keys().hasOnly(
+             ['threadId', 'postId', 'target', 'reason', 'note', 'reporterUid', 'createdAt'])
+        && request.resource.data.reporterUid == request.auth.uid
+        && request.resource.data.threadId is string
+        && request.resource.data.target is string
+        && id == request.auth.uid + '_' + request.resource.data.target
+        && request.resource.data.reason in
+             ['harassment', 'hate', 'unsafe', 'misinformation', 'spam', 'other']
+        && (!('note' in request.resource.data)
+            || (request.resource.data.note is string
+                && request.resource.data.note.size() <= 300))
+        && request.resource.data.createdAt == request.time;
       allow update, delete: if false;
     }
 

@@ -6,6 +6,7 @@ import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/gold_button.dart';
+import '../../legal/legal_routes.dart';
 import '../application/auth_providers.dart';
 import '../application/auth_repository.dart';
 import 'widgets/auth_scaffold.dart';
@@ -18,6 +19,37 @@ class SignUpScreen extends ConsumerStatefulWidget {
 
   @override
   ConsumerState<SignUpScreen> createState() => _SignUpScreenState();
+}
+
+final TextStyle _legalStyle = AppText.caption.copyWith(
+  fontSize: 11,
+  color: Colors.white.withValues(alpha: 0.4),
+);
+
+class _LegalLink extends StatelessWidget {
+  const _LegalLink({required this.label, required this.onTap, super.key});
+
+  final String label;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      onPressed: onTap,
+      style: TextButton.styleFrom(
+        padding: const EdgeInsets.symmetric(horizontal: 4),
+        minimumSize: const Size(0, 28),
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+      ),
+      child: Text(
+        label,
+        style: _legalStyle.copyWith(
+          color: AppColors.goldLight,
+          decoration: TextDecoration.underline,
+        ),
+      ),
+    );
+  }
 }
 
 class _SignUpScreenState extends ConsumerState<SignUpScreen> {
@@ -152,13 +184,27 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
         const SizedBox(height: 8),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8),
-          child: Text(
-            'By creating an account you agree to our Terms of Service and Privacy Policy.',
-            textAlign: TextAlign.center,
-            style: AppText.caption.copyWith(
-              fontSize: 11,
-              color: Colors.white.withValues(alpha: 0.4),
-            ),
+          child: Wrap(
+            alignment: WrapAlignment.center,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            children: [
+              Text(
+                'By creating an account you agree to our',
+                style: _legalStyle,
+              ),
+              _LegalLink(
+                key: const Key('signup-terms'),
+                label: 'Terms of Service',
+                onTap: () => context.push(LegalRoutes.terms),
+              ),
+              Text('and', style: _legalStyle),
+              _LegalLink(
+                key: const Key('signup-privacy'),
+                label: 'Privacy Policy',
+                onTap: () => context.push(LegalRoutes.privacy),
+              ),
+              Text('.', style: _legalStyle),
+            ],
           ),
         ),
       ],

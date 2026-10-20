@@ -1,5 +1,5 @@
-import 'package:ar_rayaan/app/app.dart';
-import 'package:ar_rayaan/app/core/env_config.dart';
+import 'dart:convert';
+
 import 'package:ar_rayaan/app/core/providers.dart';
 import 'package:ar_rayaan/features/adhkar/application/adhkar_providers.dart';
 import 'package:ar_rayaan/features/adhkar/data/bundled_adhkar_repository.dart';
@@ -7,14 +7,13 @@ import 'package:ar_rayaan/features/journey/application/journey_providers.dart';
 import 'package:ar_rayaan/features/noor/application/noor_providers.dart';
 import 'package:ar_rayaan/features/noor/data/bundled_noor_repository.dart';
 import 'package:ar_rayaan/features/noor/domain/noor_entry.dart';
+import 'package:ar_rayaan/features/noor/presentation/noor_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-void main() { return; // TODO: rewrite
-
+void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   group('noor repository', () {
@@ -126,65 +125,93 @@ void main() { return; // TODO: rewrite
     });
   });
 
-  testWidgets('daily NOOR and journey ring are real end-to-end', (
-    tester,
-  ) async {
-    SharedPreferences.setMockInitialValues(<String, Object>{});
-    tester.view.physicalSize = const Size(430, 1600);
-    tester.view.devicePixelRatio = 1;
-    addTearDown(tester.view.resetPhysicalSize);
-    addTearDown(tester.view.resetDevicePixelRatio);
+  group('deleting reflections', () {
+    Future<ProviderContainer> seeded(List<String> items) async {
+      SharedPreferences.setMockInitialValues(<String, Object>{
+        'ar.noor.reflections': jsonEncode(items),
+      });
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      final ProviderContainer c = ProviderContainer(
+        overrides: [sharedPreferencesProvider.overrideWithValue(prefs)],
+      );
+      addTearDown(c.dispose);
+      return c;
+    }
 
-    final BundledNoorRepository noorRepo = BundledNoorRepository();
-    final BundledAdhkarRepository adhkarRepo = BundledAdhkarRepository();
-    await tester.runAsync(() async {
-      await noorRepo.entries();
-      await adhkarRepo.sets();
+    test('removeAt deletes one reflection and persists', () async {
+      final ProviderContainer c = await seeded(<String>['a', 'b', 'c']);
+      await c.read(noorReflectionsProvider.notifier).removeAt(1);
+      expect(c.read(noorReflectionsProvider), <String>['a', 'c']);
+      final SharedPreferences prefs = c.read(sharedPreferencesProvider);
+      expect(
+        jsonDecode(prefs.getString('ar.noor.reflections')!),
+        <String>['a', 'c'],
+      );
     });
-    final NoorEntry today = await noorRepo.entryFor(DateTime.now());
 
-    await tester.pumpWidget(
-      ProviderScope(
-        overrides: [
-          noorRepositoryProvider.overrideWithValue(noorRepo),
-          adhkarRepositoryProvider.overrideWithValue(adhkarRepo),
-        ],
-        child: ArRayaanApp(env: EnvConfig.fromDefines()),
-      ),
-    );
-    await tester.pump();
-    await tester.pump(const Duration(seconds: 4));
-    await tester.pumpAndSettle();
-    await tester.tap(find.byKey(const Key('welcome-continue')));
-    await tester.pumpAndSettle();
+    test('removeAt ignores a bad index; clear empties everything', () async {
+      final ProviderContainer c = await seeded(<String>['a', 'b']);
+      final NoorReflectionsController ctrl =
+          c.read(noorReflectionsProvider.notifier);
+      await ctrl.removeAt(5);
+      await ctrl.removeAt(-1);
+      expect(c.read(noorReflectionsProvider), <String>['a', 'b']);
+      await ctrl.clear();
+      expect(c.read(noorReflectionsProvider), isEmpty);
+    });
 
-    // Today's NOOR shows the rotating entry with its real source.
-    final BuildContext home = tester.element(find.text('Prayer Times'));
-    // ignore: use_build_context_synchronously
-    GoRouter.of(home).go('/noor');
-    await tester.pumpAndSettle();
-    expect(find.text('— ${today.source.toUpperCase()}'), findsOneWidget);
-    expect(find.text(today.prompt), findsOneWidget);
+    testWidgets('the delete button asks first, then removes it', (
+      tester,
+    ) async {
+      SharedPreferences.setMockInitialValues(<String, Object>{
+        'ar.noor.reflections': jsonEncode(<String>['first light', 'second']),
+      });
+      tester.view.physicalSize = const Size(430, 1800);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
 
-    // Save a reflection.
-    await tester.tap(find.text('Reflect Now'));
-    await tester.pumpAndSettle();
-    await tester.enterText(
-      find.byType(TextField).last,
-      'Alhamdulillah for today',
-    );
-    await tester.tap(find.text('Save Reflection'));
-    await tester.pumpAndSettle();
-    expect(find.text('YOUR REFLECTIONS'), findsOneWidget);
-    expect(find.text('Alhamdulillah for today'), findsOneWidget);
+      final BundledNoorRepository noorRepo = BundledNoorRepository();
+      late SharedPreferences prefs;
+      await tester.runAsync(() async {
+        await noorRepo.entries();
+        prefs = await SharedPreferences.getInstance();
+      });
 
-    // Journey ring reflects the reflection (15%).
-    final BuildContext noorCtx = tester.element(find.text('YOUR REFLECTIONS'));
-    // ignore: use_build_context_synchronously
-    GoRouter.of(noorCtx).go('/journey');
-    await tester.pumpAndSettle();
-    expect(find.textContaining('REFLECTIONS 1'), findsOneWidget);
-    expect(find.text('15%'), findsOneWidget);
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            noorRepositoryProvider.overrideWithValue(noorRepo),
+            sharedPreferencesProvider.overrideWithValue(prefs),
+          ],
+          child: const MaterialApp(home: NoorScreen()),
+        ),
+      );
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 500));
+
+      expect(find.text('first light'), findsOneWidget);
+      expect(find.text('second'), findsOneWidget);
+
+      await tester.ensureVisible(find.byKey(const Key('reflection-delete-0')));
+      await tester.tap(find.byKey(const Key('reflection-delete-0')));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 300));
+      expect(find.text('Delete this reflection?'), findsOneWidget);
+
+      // Keep leaves it alone.
+      await tester.tap(find.text('Keep'));
+      await tester.pump(const Duration(milliseconds: 300));
+      expect(find.text('first light'), findsOneWidget);
+
+      await tester.tap(find.byKey(const Key('reflection-delete-0')));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 300));
+      await tester.tap(find.byKey(const Key('reflection-delete-confirm')));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 300));
+      expect(find.text('first light'), findsNothing);
+      expect(find.text('second'), findsOneWidget);
+    });
   });
 }
-

@@ -51,6 +51,20 @@ class NoorReflectionsController extends Notifier<List<String>> {
     await _persist();
   }
 
+  /// Deletes the reflection at [index] (newest first, as shown).
+  Future<void> removeAt(int index) async {
+    if (index < 0 || index >= state.length) return;
+    final List<String> next = <String>[...state]..removeAt(index);
+    state = next;
+    await _persist();
+  }
+
+  /// Deletes every saved reflection.
+  Future<void> clear() async {
+    state = <String>[];
+    await _persist();
+  }
+
   Future<void> _persist() async {
     try {
       final SharedPreferences prefs = ref.read(sharedPreferencesProvider);
