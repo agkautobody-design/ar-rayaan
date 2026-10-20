@@ -88,7 +88,8 @@ jobs:
             echo "<details><summary>test failures</summary>"
             echo ""
             echo '```'
-            grep -E "\[E\]|Error:|Expected:|Actual:|Some tests failed|All tests passed|^[0-9]+:[0-9]+ \+[0-9]+" test.log 2>/dev/null | tail -n 150
+            grep -A 30 "\[E\]" test.log 2>/dev/null | grep -v "^[0-9][0-9]:[0-9][0-9] +[0-9]* .*: .*[^]]$" | head -n 400
+            grep -E "Some tests failed|All tests passed" test.log 2>/dev/null | tail -n 1
             echo '```'
             echo "</details>"
             echo ""
