@@ -5,6 +5,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../features/academy/domain/recitation_audio.dart'
+    show AyahRef, ReciterPack;
+
 /// Sound in Ar-Rayaan (Founder directive: "the whole app needs to be
 /// communicative verbally"):
 ///
@@ -12,7 +15,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 ///   Settings, per the locked splash artwork).
 /// * [AdhanService] — real Mecca adhan (MIT-licensed Muezzin recording)
 ///   playable from Prayer Times.
-/// * [RecitationService] — real reciter audio (Mishary Alafasy) streamed
+/// * [RecitationService] — real reciter audio (Sheikh Al-Husary) streamed
 ///   per ayah in the Qur'an reader. Never AI-generated voices for Qur'an.
 /// * [SpeechService] — device voices (flutter_tts) read English content
 ///   aloud: NOOR, Hādi answers, du'a translations.
@@ -265,10 +268,10 @@ int globalAyahNumber(int surah, int ayah) {
 }
 
 class RecitationService extends Notifier<RecitationState> {
-  /// Mahmoud Khalil Al-Husary, per ayah — the same reciter the verse-range
-  /// player bar names, so the label and the voice always match.
-  static const String _cdn =
-      'https://cdn.islamic.network/quran/audio/128/ar.husary';
+  /// Mahmoud Khalil Al-Husary, per ayah — the SAME pack (and so the same
+  /// host, everyayah.com) the verse-range player bar uses, so the label,
+  /// the voice and the CORS behaviour on web always match.
+  static const ReciterPack _pack = ReciterPack.alHusary;
 
   AudioPlayer? _player;
   StreamSubscription<void>? _completeSub;
@@ -326,7 +329,7 @@ class RecitationService extends Notifier<RecitationState> {
           await player.stop();
           if (gen != _generation) return;
           await player.play(
-            UrlSource('$_cdn/${globalAyahNumber(surah, ayah)}.mp3'),
+            UrlSource(_pack.ayahUrl(AyahRef(surah, ayah))),
           );
         } catch (_) {
           if (gen == _generation) state = RecitationState.idle;
