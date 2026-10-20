@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -70,7 +71,7 @@ class _LudoState extends State<LudoScreen> {
   String mySide = 'host';
   int myIdx = 0;
   int appliedMoves = 0;
-  Stream<dynamic>? _roomStream;
+  StreamSubscription<dynamic>? _roomSub;
 
   static const _hadiLudo = [
     'Hadi: The dice belong to Allah — the moves belong to you.',
@@ -84,6 +85,12 @@ class _LudoState extends State<LudoScreen> {
   void initState() {
     super.initState();
     _reset();
+  }
+
+  @override
+  void dispose() {
+    _roomSub?.cancel();
+    super.dispose();
   }
 
   void _reset() {
@@ -283,8 +290,8 @@ class _LudoState extends State<LudoScreen> {
           ? 'Table ${roomCode} — waiting for your opponent\u2026'
           : 'Joined ${roomCode} — you are Green';
     });
-    _roomStream = _rooms.watch(roomCode!);
-    _roomStream!.listen((snap) {
+    await _roomSub?.cancel();
+    _roomSub = _rooms.watch(roomCode!)?.listen((snap) {
       final data = (snap as dynamic).data() as Map<String, dynamic>?;
       if (data == null || !mounted) return;
       final moves = (data['moves'] as List<dynamic>? ?? []);
@@ -350,7 +357,11 @@ class _LudoState extends State<LudoScreen> {
                 Expanded(child: Text(status, style: AppText.body.copyWith(fontSize: 13))),
                 TextButton(
                   onPressed: () {
-                    if (mode == 3 && roomCode != null) _rooms.leave(roomCode!);
+                    if (mode == 3 && roomCode != null) {
+                      _rooms.leave(roomCode!);
+                      _roomSub?.cancel();
+                      _roomSub = null;
+                    }
                     setState(() { mode = 0; roomCode = null; _reset(); });
                   },
                   child: const Text('Leave', style: TextStyle(color: AppColors.goldLight, fontSize: 12))),

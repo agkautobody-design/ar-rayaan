@@ -592,7 +592,7 @@ final List<AcademyCourse> kAcademyCourses = <AcademyCourse>[
             titleKey: 'arabic.u1.l4.title',
             steps: <AcademyStep>[
               const AcademyStep(kind: AcademyStepKind.text, titleKey: 'arabic.u1.l4.s1.title', bodyKey: 'arabic.u1.l4.s1.body'),
-              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'arabic.u1.l4.s2.title', bodyKey: 'arabic.u1.l4.s2.body'),
+              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'arabic.u1.l4.s2.title', bodyKey: 'arabic.u1.l4.s2.body', route: '/quran'),
             ],
           ),
         ],
@@ -610,7 +610,7 @@ final List<AcademyCourse> kAcademyCourses = <AcademyCourse>[
             titleKey: 'arabic.u2.l1.title',
             steps: <AcademyStep>[
               const AcademyStep(kind: AcademyStepKind.text, titleKey: 'arabic.u2.l1.s1.title', bodyKey: 'arabic.u2.l1.s1.body'),
-              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'arabic.u2.l1.s2.title', bodyKey: 'arabic.u2.l1.s2.body'),
+              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'arabic.u2.l1.s2.title', bodyKey: 'arabic.u2.l1.s2.body', route: '/quran'),
             ],
           ),
           AcademyLesson(
@@ -685,7 +685,7 @@ final List<AcademyCourse> kAcademyCourses = <AcademyCourse>[
             titleKey: 'aqid.u1.l4.title',
             steps: <AcademyStep>[
               const AcademyStep(kind: AcademyStepKind.text, titleKey: 'aqid.u1.l4.s1.title', bodyKey: 'aqid.u1.l4.s1.body'),
-              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'aqid.u1.l4.s2.title', bodyKey: 'aqid.u1.l4.s2.body'),
+              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'aqid.u1.l4.s2.title', bodyKey: 'aqid.u1.l4.s2.body', route: '/games/names99'),
             ],
           ),
         ],
@@ -723,7 +723,7 @@ final List<AcademyCourse> kAcademyCourses = <AcademyCourse>[
             titleKey: 'aqid.u2.l3.title',
             steps: <AcademyStep>[
               const AcademyStep(kind: AcademyStepKind.text, titleKey: 'aqid.u2.l3.s1.title', bodyKey: 'aqid.u2.l3.s1.body'),
-              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'aqid.u2.l3.s2.title', bodyKey: 'aqid.u2.l3.s2.body'),
+              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'aqid.u2.l3.s2.title', bodyKey: 'aqid.u2.l3.s2.body', route: '/stories'),
             ],
           ),
         ],
@@ -2101,16 +2101,18 @@ final List<AcademyCourse> kAcademyCourses = <AcademyCourse>[
 /// Assessment catalog (knowledge checks referenced by `check` steps).
 final Map<String, List<AssessmentItem>> kAssessments =
     <String, List<AssessmentItem>>{
+  // Correct answers are deliberately NOT always first: the correct position
+  // varies across items so position carries no signal.
   'fatihah.meaning': <AssessmentItem>[
     const AssessmentItem(
       id: 'fatihah.meaning.1',
       promptKey: 'check.fatihah.q1',
       choices: <String>[
-        'check.fatihah.q1.a',
         'check.fatihah.q1.b',
         'check.fatihah.q1.c',
+        'check.fatihah.q1.a',
       ],
-      correctIndex: 0,
+      correctIndex: 2,
       reteachKey: 'check.fatihah.q1.reteach',
     ),
   ],
@@ -2118,14 +2120,14 @@ final Map<String, List<AssessmentItem>> kAssessments =
     const AssessmentItem(
       id: 'wudu.basics.1',
       promptKey: 'check.wudu.q1',
-      choices: <String>['check.wudu.q1.a', 'check.wudu.q1.b', 'check.wudu.q1.c'],
-      correctIndex: 0,
+      choices: <String>['check.wudu.q1.b', 'check.wudu.q1.a', 'check.wudu.q1.c'],
+      correctIndex: 1,
       reteachKey: 'check.wudu.q1.reteach',
     ),
     const AssessmentItem(
       id: 'wudu.basics.2',
       promptKey: 'check.wudu.q2',
-      choices: <String>['check.wudu.q1.a', 'check.wudu.q1.b', 'check.wudu.q1.c'],
+      choices: <String>['check.wudu.q2.a', 'check.wudu.q2.b', 'check.wudu.q2.c'],
       correctIndex: 1,
       reteachKey: 'check.wudu.q2.reteach',
     ),
@@ -2145,3 +2147,24 @@ AcademyLesson? findLesson(String courseId, String unitId, String lessonId) {
   }
   return null;
 }
+
+/// Find a lesson by its id alone (lesson ids are unique across the
+/// manifest), or null. Used by the review queue, which stores only ids.
+AcademyLesson? findLessonById(String lessonId) {
+  for (final AcademyCourse c in kAcademyCourses) {
+    for (final AcademyUnit u in c.units) {
+      for (final AcademyLesson l in u.lessons) {
+        if (l.id == lessonId) return l;
+      }
+    }
+  }
+  return null;
+}
+
+/// Total manifest entries (16) vs entries that carry lessons (13). The
+/// other three are taught by their own screens; see
+/// [AcademyCourse.hasLessons]. Tests pin both numbers so the UI and any
+/// copy stay honest if a course is added or finished.
+int get kManifestCourseCount => kAcademyCourses.length;
+int get kManifestCoursesWithLessons =>
+    kAcademyCourses.where((AcademyCourse c) => c.hasLessons).length;

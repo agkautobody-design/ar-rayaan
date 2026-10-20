@@ -10,6 +10,8 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/theme/widgets/speak_button.dart';
+import '../application/academy_providers.dart';
+import '../application/family_service.dart';
 import '../application/wasia_controller.dart';
 import 'widgets/wasia_thread.dart';
 
@@ -77,6 +79,9 @@ class LettersLessonsScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final lessons = ref.watch(lettersCurriculumProvider);
+    // Device-level completion: a tick on every letter lesson finished here,
+    // whether or not a child is active in the Family Wing.
+    final progress = ref.watch(academyProgressProvider);
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: lessons.when(
@@ -145,6 +150,12 @@ class LettersLessonsScreen extends ConsumerWidget {
                             const SizedBox(width: 12),
                             Expanded(child: Text(lesson.title, style: AppText.body.copyWith(
                                 fontSize: 13.5, fontWeight: FontWeight.w600))),
+                            if (progress[lesson.id]?.completed ?? false)
+                              const Padding(
+                                padding: EdgeInsets.only(right: 6),
+                                child: Icon(Icons.check_circle_outline,
+                                    color: AppColors.goldLight, size: 18),
+                              ),
                             const Icon(Icons.chevron_right,
                                 color: AppColors.gold, size: 18),
                           ],
@@ -197,6 +208,34 @@ class LessonRunnerScreen extends ConsumerStatefulWidget {
 class _LessonRunnerState extends ConsumerState<LessonRunnerScreen> {
   int _step = 0;
   int? _picked;
+  // True once any quiz in this run was answered wrongly (drives 'walked').
+  bool _quizMissed = false;
+  bool _finishing = false;
+
+  /// Record the lesson: device-level progress + review queue always, and
+  /// the Family Wing (lesson done + mastery 'met', plus 'walked' when every
+  /// quiz was right) for the active child. Without this nothing a child
+  /// finished was ever stored.
+  Future<void> _finish(Lesson lesson) async {
+    if (_finishing) return;
+    _finishing = true;
+    await ref.read(academyProgressProvider.notifier).complete(lesson.id);
+    ref.read(reviewQueueProvider.notifier).addLesson(lesson.id);
+    try {
+      final FamilyService fam = ref.read(familyServiceProvider);
+      final String? child = await fam.activeChildId();
+      if (child != null) {
+        await fam.markLessonDone(child, lesson.id, quizCorrect: !_quizMissed);
+        await fam.recordMastery(child, lesson.id, 'met');
+        if (!_quizMissed) await fam.recordMastery(child, lesson.id, 'walked');
+        ref.invalidate(progressProvider);
+      }
+    } catch (_) {
+      // The device-level record above is already saved; never trap the
+      // learner on the last step because the family record failed.
+    }
+    if (mounted) context.go('/academy/letters');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -298,7 +337,12 @@ class _LessonRunnerState extends ConsumerState<LessonRunnerScreen> {
                         Padding(
                           padding: const EdgeInsets.only(bottom: 8),
                           child: GlassCard(
-                            onTap: _picked == null ? () => setState(() => _picked = o) : null,
+                            onTap: _picked == null
+                                ? () => setState(() {
+                                      _picked = o;
+                                      if (o != current.answer) _quizMissed = true;
+                                    })
+                                : null,
                             child: Row(children: [
                               Expanded(child: Text(current.options![o],
                                   textAlign: TextAlign.center,
@@ -324,10 +368,16 @@ class _LessonRunnerState extends ConsumerState<LessonRunnerScreen> {
                 Align(
                   alignment: Alignment.centerRight,
                   child: TextButton.icon(
-                    onPressed: () => setState(() {
-                      _picked = null;
-                      if (!last) _step++;
-                    }),
+                    onPressed: () {
+                      if (last) {
+                        _finish(lesson);
+                        return;
+                      }
+                      setState(() {
+                        _picked = null;
+                        _step++;
+                      });
+                    },
                     iconAlignment: IconAlignment.end,
                     icon: const Icon(Icons.arrow_forward_ios,
                         size: 13, color: AppColors.gold),

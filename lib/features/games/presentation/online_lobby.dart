@@ -54,8 +54,8 @@ class _OnlineLobbyState extends State<OnlineLobby> {
     if (r == null) {
       setState(() {
         _busy = null;
-        _error = 'The online hall is not awake yet \u2014 flip the three '
-            'Firebase switches (Firestore, Anonymous sign-in, rules) and it breathes.';
+        _error = 'Online play is not available in this build, or you are '
+            'offline. You can still play on this device.';
       });
       return;
     }
@@ -69,8 +69,8 @@ class _OnlineLobbyState extends State<OnlineLobby> {
     if (r == null) {
       setState(() {
         _busy = null;
-        _error = 'The online hall is not awake yet \u2014 flip the three '
-            'Firebase switches and it breathes.';
+        _error = 'Online play is not available in this build, or you are '
+            'offline. You can still play on this device.';
       });
       return;
     }

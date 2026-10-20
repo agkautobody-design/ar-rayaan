@@ -8,18 +8,24 @@ library;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../application/academy_providers.dart';
 import '../application/academy_strings.dart';
+import '../application/family_service.dart';
 import '../application/sfx_provider.dart';
 import '../application/word_deck_provider.dart';
+import '../domain/academy_models.dart';
+import '../domain/course_manifest.dart';
 import '../domain/sfx.dart';
 import '../domain/spaced_repetition.dart';
 import '../domain/word_deck.dart';
+import 'wasia_lessons.dart';
 
 class ReviewSessionScreen extends ConsumerStatefulWidget {
   const ReviewSessionScreen({super.key});
@@ -31,12 +37,43 @@ class ReviewSessionScreen extends ConsumerStatefulWidget {
 
 class _ReviewSessionScreenState
     extends ConsumerState<ReviewSessionScreen> {
-  int _index = 0;
+  // Cards graded in this sitting. The provider recomputes the session after
+  // every grade (a graded card leaves it), so the card on screen is always
+  // session.first; indexing by a counter used to skip every other card.
+  int _graded = 0;
   bool _flipped = false;
 
   @override
   Widget build(BuildContext context) {
     final List<WordCard> session = ref.watch(todaySessionProvider);
+    final List<ReviewCard> lessonDue = ref.watch(lessonReviewsDueProvider);
+
+    // Lessons due for recall come first; when none are due the word deck
+    // takes over. Both lists shrink as cards are graded.
+    if (lessonDue.isNotEmpty) {
+      return ScenicScaffold.pattern(
+        body: SafeArea(
+          child: ListView(
+            padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
+            children: <Widget>[
+              ScreenHeader(title: AcademyStrings.get('academy.title')),
+              const SizedBox(height: 4),
+              Text(
+                '${AcademyStrings.get('academy.lessonReviews')} · '
+                '${lessonDue.length}',
+                style: AppText.caption,
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 16),
+              _LessonReviewCard(
+                key: ValueKey<String>(lessonDue.first.wordKey),
+                card: lessonDue.first,
+              ),
+            ],
+          ),
+        ),
+      );
+    }
 
     return ScenicScaffold.pattern(
       body: SafeArea(
@@ -50,13 +87,13 @@ class _ReviewSessionScreenState
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    '${_index + 1} / ${session.length}',
+                    '${_graded + 1} / ${_graded + session.length}',
                     style: AppText.caption,
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(height: 16),
                   _ReviewCardView(
-                    card: session[_index.clamp(0, session.length - 1)],
+                    card: session.first,
                     flipped: _flipped,
                     onFlip: () => setState(() => _flipped = !_flipped),
                   ),
@@ -93,10 +130,11 @@ class _ReviewSessionScreenState
     await SfxPlayer.play(Sfx.wordGraded, ref.read(soundSettingsProvider).tier);
     await ref
         .read(wordDeckProvider.notifier)
-        .grade(session[_index].key, g);
+        .grade(session.first.key, g);
+    if (!mounted) return;
     setState(() {
       _flipped = false;
-      _index++;
+      _graded++;
     });
   }
 }
@@ -218,6 +256,94 @@ class _EmptyState extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+
+/// One lesson due for recall: say what you remember, optionally re-open the
+/// lesson, then grade yourself. Good/Easy marks the lesson mastered on this
+/// device (and for the active child, in the Family Wing, if it is a letters
+/// lesson); Again brings it back tomorrow. Nothing is ever a fail state.
+class _LessonReviewCard extends ConsumerWidget {
+  const _LessonReviewCard({super.key, required this.card});
+
+  final ReviewCard card;
+
+  String get _lessonId => card.wordKey;
+  bool get _isLetters => _lessonId.startsWith('letters-');
+
+  Future<void> _grade(WidgetRef ref, ReviewGrade g) async {
+    await ref.read(reviewQueueProvider.notifier).grade(_lessonId, g);
+    if (_isLetters && g != ReviewGrade.again) {
+      final FamilyService fam = ref.read(familyServiceProvider);
+      final String? child = await fam.activeChildId();
+      if (child != null) await fam.recordMastery(child, _lessonId, 'mastered');
+    }
+  }
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    String title = _lessonId;
+    String? route;
+    final AcademyLesson? lesson = findLessonById(_lessonId);
+    if (lesson != null) {
+      title = AcademyStrings.get(lesson.titleKey);
+      route = '/academy/lesson/${lesson.courseId}/${lesson.unitId}/${lesson.id}';
+    } else if (_isLetters) {
+      route = '/academy/letters/lesson/$_lessonId';
+      final List<Lesson>? letters =
+          ref.watch(lettersLessonsProvider).valueOrNull;
+      if (letters != null) {
+        for (final Lesson l in letters) {
+          if (l.id == _lessonId) title = l.title;
+        }
+      }
+    }
+    final String? openRoute = route;
+    return GlassCard(
+      strong: true,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(title, style: AppText.titleMedium),
+          const SizedBox(height: 8),
+          Text(
+            'Before you open it: say aloud what this lesson taught. '
+            'Then check yourself and grade how it went.',
+            style: AppText.bodyMuted.copyWith(height: 1.5),
+          ),
+          if (openRoute != null) ...<Widget>[
+            const SizedBox(height: 12),
+            OutlinedButton.icon(
+              onPressed: () => context.push(openRoute),
+              icon: const Icon(Icons.open_in_new, size: 16),
+              label: const Text('Open the lesson'),
+            ),
+          ],
+          const SizedBox(height: 16),
+          Row(
+            children: <Widget>[
+              for (final (ReviewGrade g, String label, IconData ic)
+                  in <(ReviewGrade, String, IconData)>[
+                (ReviewGrade.again, 'Again', Icons.refresh),
+                (ReviewGrade.good, 'Good', Icons.check),
+                (ReviewGrade.easy, 'Easy', Icons.auto_awesome),
+              ])
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 4),
+                    child: _GradeButton(
+                      label: label,
+                      icon: ic,
+                      onPressed: () => _grade(ref, g),
+                    ),
+                  ),
+                ),
+            ],
+          ),
+        ],
       ),
     );
   }
