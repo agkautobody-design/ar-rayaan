@@ -70,7 +70,7 @@ const List<_WomUnit> kWomenUnits = <_WomUnit>[
       ),
       _WomLesson(
         title: 'Fatima — The Brightest House',
-        body: 'The Prophet ﷺ called her the leader of the women of Paradise — and she still ground barley until her hands bled and asked for a servant (Bukhari 3423). The highest rank and the grinding stone lived in the same hands.',
+        body: 'The Prophet ﷺ asked her whether she would be pleased to be the chief of the women of Paradise (Bukhari 3624) — and she complained of the hardship of grinding at the hand mill and went to ask for a servant (Bukhari 3113). The highest rank and the grinding stone lived in the same hands.',
         practice: 'Name one hard daily task you do that no one celebrates. It is written.',
         storyId: 'woman-fatima',
       ),
