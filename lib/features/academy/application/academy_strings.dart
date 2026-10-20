@@ -161,6 +161,8 @@ abstract final class AcademyStrings {
       'ramadan.body': 'The month of taqwa — pillars, daily rhythm, and the doors of suhoor, iftar, and taraweeh.',
       'versecards.title': 'Verse Cards',
       'versecards.body': 'Shareable Quran and hadith cards — framed in gold, one tap to send down any road a message can travel.',
+      'qabank.title': 'Q&A Bank',
+      'qabank.body': 'Curated questions with sourced answers — the starting points every Muslim needs.',
       'academy.title': 'Al-Wasia Academy of Sacred Knowledge',
       'academy.comingSoon': 'Coming soon — insha’Allah',
       'academy.continue': 'Continue where you left off',

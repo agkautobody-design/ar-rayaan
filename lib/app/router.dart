@@ -38,6 +38,7 @@ import '../features/academy/presentation/health_school_screen.dart';
 import '../features/academy/presentation/hisn_al_muslim_screen.dart';
 import '../features/academy/presentation/hajj_umrah_pack_screen.dart';
 import '../features/academy/presentation/ramadan_mode_screen.dart';
+import '../features/academy/presentation/qa_bank_screen.dart';
 import '../features/academy/presentation/audio_packs_screen.dart';
 import '../features/academy/presentation/dhikr_session_screen.dart';
 import '../features/doctor/presentation/founder_console_screen.dart';
@@ -519,6 +520,10 @@ GoRouter buildRouter({String initialLocation = '/'}) {
       GoRoute(
         path: '/ramadan',
         pageBuilder: (context, state) => _fade(const RamadanModeScreen()),
+      ),
+      GoRoute(
+        path: '/academy/qa',
+        pageBuilder: (context, state) => _fade(const QaBankScreen()),
       ),
       GoRoute(
         path: '/academy/dua',
