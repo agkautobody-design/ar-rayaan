@@ -12,6 +12,7 @@ import '../domain/academy_models.dart';
 import '../domain/course_manifest.dart';
 import '../domain/fsrs.dart';
 import '../domain/mushaf_layout.dart';
+import '../domain/path_ux.dart';
 import '../domain/spaced_repetition.dart';
 import '../data/mushaf_layout_pack.dart';
 
@@ -105,6 +106,7 @@ class AcademyProgressNotifier
       ...state,
       lessonId: current.copyWith(completed: true),
     };
+    ActivityLog.record(_prefs);
     await _save();
   }
 
@@ -216,6 +218,7 @@ class ReviewQueueNotifier extends StateNotifier<Map<String, ReviewCard>> {
 /// Append one answered review to the persisted log (never throws: a full or
 /// blocked store must not stop a learner from reviewing).
 void appendReviewLog(SharedPreferences prefs, ReviewLogEntry entry) {
+  ActivityLog.record(prefs, entry.at);
   try {
     prefs.setString(
       ReviewLog.prefKey,

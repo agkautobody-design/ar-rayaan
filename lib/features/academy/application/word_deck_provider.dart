@@ -7,6 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../../app/core/providers.dart';
 import '../data/word_deck_repository.dart';
 import '../domain/fsrs.dart';
+import '../domain/path_ux.dart';
 import '../domain/recitation_audio.dart';
 import '../domain/spaced_repetition.dart';
 import '../domain/word_deck.dart';
@@ -100,6 +101,7 @@ class WordDeckNotifier extends StateNotifier<Map<String, WordCard>> {
     );
     final WordCard? updated = state[key];
     if (updated != null) {
+      ActivityLog.record(_prefs, now);
       try {
         _prefs.setString(
           ReviewLog.prefKey,

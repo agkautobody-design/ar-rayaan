@@ -15,6 +15,7 @@ import '../application/family_service.dart';
 import '../application/wasia_controller.dart';
 import '../domain/academy_models.dart' show LessonProgress;
 import '../domain/letters_meta.dart';
+import 'widgets/path_ux_widgets.dart';
 import 'widgets/wasia_thread.dart';
 
 class LessonStep {
@@ -125,13 +126,15 @@ class LettersLessonsScreen extends ConsumerWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),
               child: Text(
-                'Four units, twenty-eight letters, an exam at the end of each unit. '
+                'Seven units: the twenty-eight letters, then vowels, sukun, shaddah, tanween and joining, with an exam at the end of each unit. '
                 'Wasia teaches every lesson, asks a gentle question, and records your child\u2019s growth.',
                 textAlign: TextAlign.center,
                 style: AppText.bodyMuted,
               ),
             ),
             const SizedBox(height: 16),
+            const PlacementQuizCard(),
+            const SizedBox(height: 12),
             for (final u in units)
               ...[
                 Padding(

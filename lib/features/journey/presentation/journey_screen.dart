@@ -24,6 +24,7 @@ class JourneyScreen extends ConsumerWidget {
   static const List<(IconData, String, String?)> _path = [
     (Icons.auto_stories_outlined, 'My Reflections', AppRoutes.noor),
     (Icons.school_outlined, 'My Learning', AppRoutes.academy),
+    (Icons.self_improvement_outlined, 'Dhikr Sessions', '/academy/dhikr'),
     (Icons.edit_note, 'Gratitude Journal', AppRoutes.notes),
     (Icons.bookmark_outline, 'Bookmarks', _bookmarks),
   ];
