@@ -219,6 +219,8 @@ void main() {
     await tester.pump();
     await tester.tap(find.byKey(const Key('dhikr-morning-2-remaining')));
     await tester.pump();
+    await tester.fling(find.byType(Scrollable).first, const Offset(0, 3000), 3000);
+    await tester.pumpAndSettle();
     expect(
       find.text('2 of $total repetitions \u00b7 ${total - 2} remaining'),
       findsOneWidget,
