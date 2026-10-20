@@ -261,21 +261,24 @@
    "title": "QF vault (word-by-word, tajweed colors, reciters, tafsir)",
    "doc": "QF credentials collected 2026-10-08",
    "status": "gated",
-   "note": "Legal gate: Quranic Foundations subscription API — requires account credentials."
+   "note": "Legal gate: Quranic Foundations subscription API — requires account credentials.",
+   "surface": "No client code or screen yet: held by the legal gate described in the note."
   },
   {
    "id": "sunnah-api",
    "title": "Six Books hadith via Sunnah.com",
    "doc": "request submitted 2026-10-08",
    "status": "gated",
-   "note": "Legal gate: Sunnah.com API key — requires free account registration."
+   "note": "Legal gate: Sunnah.com API key — requires free account registration.",
+   "surface": "No client code or screen yet: held by the legal gate described in the note."
   },
   {
    "id": "clear-quran",
    "title": "Al-Furqaan Clear Quran license",
    "doc": "application submitted, awaiting approval",
    "status": "gated",
-   "note": "Legal gate: the Clear Quran English licence application has been submitted and is awaiting approval. Not granted yet, so no Clear Quran text is bundled or enabled; the app's English translation today is Saheeh International."
+   "note": "Legal gate: the Clear Quran English licence application has been submitted and is awaiting approval. Not granted yet, so no Clear Quran text is bundled or enabled; the app's English translation today is Saheeh International.",
+   "surface": "No client code or screen yet: held by the legal gate described in the note."
   },
   {
    "id": "majlis-rooms",

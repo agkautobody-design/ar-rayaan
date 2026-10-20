@@ -131,7 +131,8 @@ jobs:
             echo "<details><summary>test failures</summary>"
             echo ""
             echo '```'
-            grep -A 30 "\[E\]" test.log 2>/dev/null | grep -v "^[0-9][0-9]:[0-9][0-9] +[0-9]* .*: .*[^]]$" | head -n 400
+            # The exception text is printed BEFORE the [E] line, so keep context on both sides.
+            grep -B 45 -A 12 "\[E\]" test.log 2>/dev/null | head -n 500
             grep -E "Some tests failed|All tests passed" test.log 2>/dev/null | tail -n 1
             echo '```'
             echo "</details>"
