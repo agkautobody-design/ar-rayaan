@@ -155,6 +155,8 @@ abstract final class AcademyStrings {
       'school.health.body': 'The body as an amanah — halal food, sleep, the Quran as medicine, the heart\u2019s health.',
       'hisn.title': 'Hisn al-Muslim',
       'hisn.body': 'The Fortress of the Muslim — every authentic dua and dhikr, categorized for the moment you are in.',
+      'hajjpack.title': 'Hajj & Umrah Pack',
+      'hajjpack.body': 'The journey in order — intention, the rites, the days — opening the real guides at every station.',
       'academy.title': 'Al-Wasia Academy of Sacred Knowledge',
       'academy.comingSoon': 'Coming soon — insha’Allah',
       'academy.continue': 'Continue where you left off',
