@@ -1,26 +1,25 @@
 {
- "note": "Ramadan 1448 AH expected ~17 Feb 2027 (crescent-dependent). Duas sourced; daily companion data.",
- "start": "2027-02-17",
+ "note": "Duas sourced; daily companion data. Ramadan's dates come from the app's own Umm al-Qura calendar, not from this file; confirm by local moon sighting.",
  "days": [
   {
    "day": 1,
    "theme": "Opening the month",
-   "arabic": "اللَّهُمَّ أَهِلَّهُ عَلَيْنَا بِالْأَمْنِ وَالْإِيمَانِ",
-   "text": "O Allah, bring it over us with security and faith, safety and Islam (the moon-sighting dua).",
-   "source": "Sunan at-Tirmidhi 3451"
+   "arabic": "اللَّهُمَّ أَهِلَّهُ عَلَيْنَا بِالْيُمْنِ وَالْإِيمَانِ وَالسَّلَامَةِ وَالْإِسْلَامِ رَبِّي وَرَبُّكَ اللَّهُ",
+   "text": "O Allah, bring it over us with blessing and faith, and security and Islam. My Lord and your Lord is Allah (said on sighting the new moon).",
+   "source": "Jami` at-Tirmidhi 3451 — graded da'if by Darussalam; al-Tirmidhi called it hasan gharib"
   },
   {
    "day": 2,
    "theme": "The fast's gate",
    "arabic": "وَبِصَوْمِ غَدٍ نَّوَيْتُ مِنْ شَهْرِ رَمَضَانَ",
    "text": "I intend the fast of tomorrow from the month of Ramadan.",
-   "source": "Sunan Abi Dawud 2450 (principle)"
+   "source": "Customary wording, not a narrated text — the intention (niyyah) is made in the heart. The ruling that the fast needs an intention before dawn: Sunan Abi Dawud 2454 (sahih per al-Albani)"
   },
   {
    "day": 3,
    "theme": "At suhoor",
-   "arabic": "إِنَّ اللَّهَ وَمَلَائِكَتَهُ يُصَلُّونَ عَلَى الْمُتَسَحِّرِينَ (meaning)",
-   "text": "The pre-dawn meal carries blessing — take suhoor, for in it is blessing.",
+   "arabic": "تَسَحَّرُوا فَإِنَّ فِي السَّحُورِ بَرَكَةً",
+   "text": "Eat suhoor, for in suhoor there is blessing.",
    "source": "Sahih al-Bukhari 1923"
   },
   {
@@ -28,7 +27,7 @@
    "theme": "Breaking fast",
    "arabic": "ذَهَبَ الظَّمَأُ وَابْتَلَّتِ الْعُرُوقُ وَثَبَتَ الْأَجْرُ إِنْ شَاءَ اللَّهُ",
    "text": "The thirst is gone, the veins are moistened, the reward is confirmed, if Allah wills.",
-   "source": "Sunan Abi Dawud 2357"
+   "source": "Sunan Abi Dawud 2357 — hasan per al-Albani"
   },
   {
    "day": 5,
@@ -56,14 +55,14 @@
    "theme": "Generosity",
    "arabic": "اللَّهُمَّ إِنِّي أَسْأَلُكَ فِعْلَ الْخَيْرَاتِ",
    "text": "O Allah, I ask You to enable good deeds, leave evil, and love the poor.",
-   "source": "Sahih Muslim 2721"
+   "source": "Jami` at-Tirmidhi 3235 — hasan sahih per al-Tirmidhi"
   },
   {
    "day": 9,
    "theme": "The Quran's month",
    "arabic": "اللَّهُمَّ اجْعَلِ الْقُرْآنَ رَبِيعَ قُلُوبِنَا",
    "text": "O Allah, make the Qur'an the spring of our hearts.",
-   "source": "Musnad Ahmad 3712 (meaning)"
+   "source": "General supplication — reported in Musnad Ahmad; check the grade with a scholar before relying on this wording"
   },
   {
    "day": 10,
@@ -77,7 +76,7 @@
    "theme": "Forgiveness flood",
    "arabic": "أَسْتَغْفِرُ اللَّهَ الَّذِي لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ وَأَتُوبُ إِلَيْهِ",
    "text": "I seek the forgiveness of Allah, besides whom none has the right to be worshipped — the Ever-Living, the Sustainer — and I repent to Him.",
-   "source": "Sunan at-Tirmidhi 3573"
+   "source": "Sunan Abi Dawud 1517 — sahih per al-Albani"
   },
   {
    "day": 12,
@@ -119,7 +118,7 @@
    "theme": "Quran completion",
    "arabic": "اللَّهُمَّ ارْحَمْنِي بِالْقُرْآنِ",
    "text": "O Allah, have mercy on me through the Qur'an.",
-   "source": "Part of the completion dua, Tirmidhi 3204"
+   "source": "General supplication (not a hadith) — permissible in your own words"
   },
   {
    "day": 18,
@@ -131,16 +130,16 @@
   {
    "day": 19,
    "theme": "The last ten's entry",
-   "arabic": "اللَّهُمَّ أَعِنَّا عَلَى الْعِتْاقِ فِي رَمَضَانَ",
+   "arabic": "اللَّهُمَّ أَعِنَّا عَلَى الْعِتْقِ فِي رَمَضَانَ",
    "text": "O Allah, help us to attain freedom from the Fire in this Ramadan.",
    "source": "General supplication (not a hadith) — permissible in your own words"
   },
   {
    "day": 20,
    "theme": "Itikaf intention",
-   "arabic": "نَوَيْتُ الْعِتْكَافَ لِلَّهِ",
+   "arabic": "نَوَيْتُ الِاعْتِكَافَ لِلَّهِ",
    "text": "I intend the spiritual retreat for Allah.",
-   "source": "Fiqh formula (all schools)"
+   "source": "Customary wording, not a narrated text — the intention is made in the heart"
   },
   {
    "day": 21,
@@ -154,21 +153,21 @@
    "theme": "For the departed",
    "arabic": "اللَّهُمَّ اغْفِرْ لِلْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ",
    "text": "O Allah, forgive the believing men and women.",
-   "source": "Sahih al-Bukhari 3724"
+   "source": "Qur'an 71:28 (Nuh's prayer, meaning)"
   },
   {
    "day": 23,
    "theme": "Contentment",
-   "arabic": "رَضِينَا بِاللَّهِ رَبًّا وَبِالْإِسْلَامِ دِينًا",
-   "text": "We are content with Allah as Lord, Islam as religion, and Muhammad ﷺ as messenger.",
-   "source": "Sunan Abi Dawud 3286"
+   "arabic": "رَضِيتُ بِاللَّهِ رَبًّا وَبِالْإِسْلَامِ دِينًا وَبِمُحَمَّدٍ رَسُولًا",
+   "text": "I am pleased with Allah as Lord, with Islam as religion, and with Muhammad ﷺ as Messenger.",
+   "source": "Sunan Abi Dawud 1529 — sahih per al-Albani"
   },
   {
    "day": 24,
    "theme": "Strength to finish",
    "arabic": "لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ",
    "text": "There is no might nor power except with Allah.",
-   "source": "Sahih al-Bukhari 6394"
+   "source": "Sahih al-Bukhari 6384"
   },
   {
    "day": 25,
@@ -196,7 +195,7 @@
    "theme": "Zakat al-fitr intention",
    "arabic": "نَوَيْتُ أَنْ أُخْرِجَ زَكَاةَ الْفِطْرِ عَنِّي وَعَمَّنْ أَعُولُ",
    "text": "I intend to give zakat al-fitr for myself and my dependents.",
-   "source": "Fiqh formula (all schools)"
+   "source": "Customary wording, not a narrated text — the intention is made in the heart"
   },
   {
    "day": 29,
