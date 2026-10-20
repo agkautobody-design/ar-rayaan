@@ -97,12 +97,11 @@ void main() {
     await tester.runAsync(
         () => rootBundle.loadString('assets/share/cards.json'));
 
-    // Collect framework errors so a failure names the exception.
-    final List<String> errors = <String>[];
-    final void Function(FlutterErrorDetails)? previous = FlutterError.onError;
-    FlutterError.onError = (FlutterErrorDetails d) =>
-        errors.add('${d.exceptionAsString()}\n${d.stack}');
-    addTearDown(() => FlutterError.onError = previous);
+    final List<String> seen = <String>[];
+    void drain(String step) {
+      final Object? e = tester.takeException();
+      if (e != null) seen.add('$step: $e');
+    }
 
     await tester.pumpWidget(
       ProviderScope(
@@ -112,11 +111,11 @@ void main() {
         child: MaterialApp(theme: AppTheme.dark(), home: const ShareScreen()),
       ),
     );
+    drain('pumpWidget');
     await tester.pump();
+    drain('pump');
     await tester.pump(const Duration(milliseconds: 300));
-
-    final Object? error = tester.takeException();
-    expect(error, isNull, reason: '$error');
+    drain('pump 300ms');
     expect(find.text('BETA \u00b7 INVITE A TESTER'), findsOneWidget);
     expect(find.byType(QrImageView), findsOneWidget);
     expect(find.text('https://beta.ar-rayaan.test'), findsOneWidget);
@@ -126,7 +125,9 @@ void main() {
 
     // Tear the screen down inside the test so dispose-time errors surface.
     await tester.pumpWidget(const SizedBox());
+    drain('dispose');
     await tester.pump();
-    expect(errors, isEmpty, reason: errors.join('\n---\n'));
+    drain('after dispose');
+    expect(seen, isEmpty, reason: seen.join('\n---\n'));
   });
 }
