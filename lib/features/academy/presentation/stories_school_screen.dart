@@ -508,7 +508,110 @@ const List<_StoriesUnit> kStoriesUnits = <_StoriesUnit>[
       ),
     ],
   ),
+  _StoriesUnit(
+    title: 'The Khutbahs — Sermons for the Heavy Days',
+    frame: 'The Friday sermon, distilled into its theme — for the day you need that exact word.',
+    chapters: <_StoryChapter>[
+      _StoryChapter(
+        title: 'Taif — Praying for Your Enemies\u2019 Grandchildren',
+        virtue: 'Stoned and bleeding, and he prayed for the grandchildren of the people who stoned him. The highest form of hope is a dua for your enemy\u2019s children.',
+        familyQuestion: 'Who has wronged you — and what would praying for their children look like?',
+        storyId: 'kh-taif',
+      ),
+      _StoryChapter(
+        title: 'The Weight of One Atom',
+        virtue: 'Whoever does an atom\u2019s weight of good will see it (99:7). The smallest deed is on a scale that never rounds down.',
+        familyQuestion: 'What atom-deed did you do today that no one saw?',
+        storyId: 'kh-atom',
+      ),
+      _StoryChapter(
+        title: 'The Beautiful Patience',
+        virtue: 'Ya\u2019qub said: I only complain of my suffering to Allah (12:86). Grief and patience can share the same chest — the sermon for the grieving.',
+        familyQuestion: 'Are you carrying a grief you have not named? Name it tonight.',
+        storyId: 'kh-yaqub',
+      ),
+      _StoryChapter(
+        title: 'The First Sermon of the First Caliph',
+        virtue: 'Abu Bakr\u2019s first words as caliph: I have been given authority over you, but I am not the best among you. Leadership begins with humility.',
+        familyQuestion: 'Where do you lead — and does your leadership begin with humility?',
+        storyId: 'kh-abubakr',
+      ),
+      _StoryChapter(
+        title: 'The Grammar of Loss',
+        virtue: 'Inna lillahi wa inna ilayhi raji\u2019un — to Allah we belong and to Him we return. The sentence that turns a hit into an address.',
+        familyQuestion: 'What loss in your life needs the grammar of return tonight?',
+        storyId: 'kh-innalillah',
+      ),
+      _StoryChapter(
+        title: 'The Phone in the Hand',
+        virtue: 'The sermon for the screen: the scroll that eats the hour, the feed that is not real. Your attention is an amanah too.',
+        familyQuestion: 'What did your phone eat today that you wish it had not?',
+        storyId: 'kh-phone',
+      ),
+      _StoryChapter(
+        title: 'Anxiety and the Medicine of Ta\u2019weel',
+        virtue: 'Perhaps you dislike a thing and it is good for you (2:216). The re-framing that turns the 3am ceiling into a conversation.',
+        familyQuestion: 'What are you anxious about — and what could the ta\u2019weel be?',
+        storyId: 'kh-anxiety',
+      ),
+      _StoryChapter(
+        title: 'The Quiet Chain',
+        virtue: 'Debt is a chain that gets heavier the longer it is ignored. The sermon for the debtor who is afraid to look at the number.',
+        familyQuestion: 'What number are you afraid to look at? Look at it tonight.',
+        storyId: 'kh-debt',
+      ),
+      _StoryChapter(
+        title: 'Loneliness in the Crowd',
+        virtue: 'Five hundred friends and no one to call. The sermon for the connected and the isolated — and the three doors back.',
+        familyQuestion: 'Who could you call tonight that you have not spoken to in a month?',
+        storyId: 'kh-lonely',
+      ),
+      _StoryChapter(
+        title: 'Raising Children in the Feed',
+        virtue: 'The parent\u2019s sermon: your child is growing up in a feed you did not grow up in. The rules are the same; the arena is new.',
+        familyQuestion: 'What rule from your childhood needs a new arena-appropriate version?',
+        storyId: 'kh-raising',
+      ),
+      _StoryChapter(
+        title: 'Built to Rest',
+        virtue: 'The burnout sermon: the cure is not more productivity — it is barakah. The sabbath of the soul is prayer in the middle of the hustle.',
+        familyQuestion: 'When did you last rest without guilt? Schedule one this week.',
+        storyId: 'kh-burnout',
+      ),
+      _StoryChapter(
+        title: 'The News That Ate the Heart',
+        virtue: 'The news cycle is designed to keep you angry and afraid. Guard your heart — and your duas — from the feed.',
+        familyQuestion: 'What news did you consume today that changed nothing you could act on?',
+        storyId: 'kh-news',
+      ),
+      _StoryChapter(
+        title: 'For the One Who Is Tired',
+        virtue: 'The sermon for exhaustion: with hardship comes ease, in the same sentence twice. The tired one is not the failed one.',
+        familyQuestion: 'Are you tired — and have you told Allah, or only the ceiling?',
+        storyId: 'kh-tired-013',
+      ),
+      _StoryChapter(
+        title: 'The Load She Carries',
+        virtue: 'The sermon for the woman who carries the house and the job and the faith: your load is seen, and it is not forever.',
+        familyQuestion: 'What load are you carrying that no one has named? Name it to someone this week.',
+        storyId: 'kh-women-carry',
+      ),
+      _StoryChapter(
+        title: 'The Door That Opens With the Pain',
+        virtue: 'Sabr is not waiting for the storm to pass — it is learning to stand in the rain. The sermon for the season that has lasted too long.',
+        familyQuestion: 'What storm are you standing in — and are you standing or running?',
+        storyId: 'kh-patience',
+      ),
+      _StoryChapter(
+        title: 'The Increase Clause',
+        virtue: 'If you are grateful, I will surely increase you (14:7). The contract with increase written into it.',
+        familyQuestion: 'Name three things before sleep tonight that you never earned.',
+        storyId: 'kh-gratitude',
+      ),
+    ],
+  ),
 ];
+
 
 
 
