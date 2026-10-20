@@ -132,6 +132,54 @@ const List<_WomUnit> kWomenUnits = <_WomUnit>[
       ),
     ],
   ),
+  _WomUnit(
+    title: 'The Wives — The Mothers of the Believers',
+    frame: 'The Prophet\u2019s wives were not a footnote; they were the teachers of a generation.',
+    lessons: <_WomLesson>[
+      _WomLesson(
+        title: 'Khadijah — The First Believer',
+        body: 'The first person to believe was a woman — a merchant who financed the mission when no one else would. When the Prophet ﭑ came down from Hira trembling, she wrapped him and said: Allah will never disgrace you.',
+        practice: 'Who believed in you before anyone else did? Thank them this week — by name.',
+        storyId: 'woman-khadijah',
+      ),
+      _WomLesson(
+        title: 'Aisha — The Scholar of Scholars',
+        body: 'The companions asked her about inheritance, medicine, poetry, and the Prophet\u2019s household. Her student Urwa said he had never seen anyone more knowledgeable in fiqh, medicine, or poetry.',
+        practice: 'Learn one thing deeply enough this month to teach it to someone else.',
+        storyId: 'woman-aisha',
+      ),
+      _WomLesson(
+        title: 'Zaynab — Generosity That Hurt',
+        body: 'She gave so much to the poor that the Prophet ﭑ told her to keep something for herself — and she answered that what she gave, Allah would replace. The wife who out-gave the household.',
+        practice: 'Give one thing this week that actually costs you — and tell no one.',
+        storyId: 'woman-zaynab',
+      ),
+      _WomLesson(
+        title: 'Juwayriyya — The Captive Who Freed a Hundred',
+        body: 'Taken in battle, she asked the Prophet ﭑ for her freedom; he offered more — marriage. Her mahr freed her whole clan. The captivity narrative ended in a wedding that freed a hundred families.',
+        practice: 'Who in your life is a captive of circumstance — and what could you free them from this month?',
+        storyId: 'woman-juwayriyya',
+      ),
+      _WomLesson(
+        title: 'Hafsa — The Keeper of the Book',
+        body: 'After the Prophet\u2019s passing, the first written Qur\u2019an was kept with Hafsa — the ummah\u2019s first librarian was a widow.',
+        practice: 'Guard one thing of value this week — a book, a memory, a person\u2019s secret.',
+        storyId: 'woman-hafsa',
+      ),
+      _WomLesson(
+        title: 'Safiyya — The Woman Who Answered',
+        body: 'Mocked for her Jewish ancestry, she answered the Prophet\u2019s question with the truth: 'Aaron is my father, Moses my uncle, and Muhammad my husband.' The answer that silenced the mockers.',
+        practice: 'When mocked for your faith or background, answer with the truth — once, calmly, and stop.',
+        storyId: 'woman-safiyya',
+      ),
+      _WomLesson(
+        title: 'Bilqis — The Queen Who Knew a Letter',
+        body: 'She ruled a kingdom, and a letter from Sulayman rearranged her throne. She kept her crown and found her Lord — the only woman in the Qur\u2019an whose submission is recorded in her own words.',
+        practice: 'What letter has reached you recently that deserves an answer like Bilqis\u2019s?',
+        storyId: 'woman-bilqis',
+      ),
+    ],
+  ),
 ];
 
 class WomensSchoolScreen extends StatelessWidget {
