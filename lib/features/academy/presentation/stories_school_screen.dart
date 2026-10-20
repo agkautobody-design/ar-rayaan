@@ -178,7 +178,86 @@ const List<_StoriesUnit> kStoriesUnits = <_StoriesUnit>[
       ),
     ],
   ),
+  _StoriesUnit(
+    title: 'The Companions — The Living Curriculum',
+    frame: 'The men who carried the message into the world. Each one teaches a trait by having lived it.',
+    chapters: <_StoryChapter>[
+      _StoryChapter(
+        title: 'Abu Bakr — The Steady One',
+        virtue: 'The first caliph who held the ummah together with two years of steady, unglamorous work. When others panicked, he was already planning.',
+        familyQuestion: 'Who holds your family together with steady, unglamorous work? Thank them.',
+        storyId: 'comp-abu-bakr',
+      ),
+      _StoryChapter(
+        title: 'Umar — Justice on Horseback',
+        virtue: 'The second caliph patrolled Medina at night and answered to no one but Allah. The milk-seller\u2019s story is his most told parable of fairness.',
+        familyQuestion: 'Who in your life models justice that no one can buy?',
+        storyId: 'comp-umar',
+      ),
+      _StoryChapter(
+        title: 'Uthman — The Gatherer',
+        virtue: 'The third caliph ordered the one mushaf and the ummah has read from it ever since. Gentleness and decisiveness in the same hands.',
+        familyQuestion: 'What could you gather or preserve that would outlive you?',
+        storyId: 'comp-uthman',
+      ),
+      _StoryChapter(
+        title: 'Ali — The Gate of Knowledge',
+        virtue: 'The fourth caliph, raised in the Prophet\u2019s house: 'I am the city of knowledge, and Ali is its gate.' The era\u2019s scholarship begins with him.',
+        familyQuestion: 'What knowledge are you a gate to — who could you teach this month?',
+        storyId: 'comp-ali',
+      ),
+      _StoryChapter(
+        title: 'Bilal — One Word',
+        virtue: 'The mountain of sand could not crush one word: Ahad. The word outlived the empire that buried him under it.',
+        familyQuestion: 'What is your one word — the thing you would not stop saying?',
+        storyId: 'comp-bilal',
+      ),
+      _StoryChapter(
+        title: 'Salman — The Seeker',
+        virtue: 'A Persian who left one religion after another searching for truth — and found it in the Prophet\u2019s description of a man between two marks. Seeking is a virtue when it is honest.',
+        familyQuestion: 'Are you still seeking — and is your seeking honest?',
+        storyId: 'comp-salman',
+      ),
+      _StoryChapter(
+        title: 'Abu Hurayrah — The Memorizer',
+        virtue: 'He came to Islam late and memorized more hadith than any companion — by hunger and repetition. The one who writes down what he hears outlasts the one who only listens.',
+        familyQuestion: 'What have you heard this month that you should write down before it is lost?',
+        storyId: 'comp-abu-hurayrah',
+      ),
+      _StoryChapter(
+        title: 'Khabbab — The Patient One',
+        virtue: 'He was tortured on burning coals and asked the Prophet: will you not ask Allah to help us? The Prophet\u2019s answer taught patience that counts in years, not days.',
+        familyQuestion: 'What are you asking for that might arrive in years, not days?',
+        storyId: 'comp-khabbab',
+      ),
+      _StoryChapter(
+        title: 'Ibn Masud — The Reciter',
+        virtue: 'A shepherd boy who followed the Prophet and became one of the greatest reciters. The first to recite Qur\u2019an aloud in Makkah — and the Quraysh beat him for it.',
+        familyQuestion: 'What are you willing to be beaten for?',
+        storyId: 'comp-ibn-masud',
+      ),
+      _StoryChapter(
+        title: 'Musab — The Handsome Ambassador',
+        virtue: 'Sent to Madinah alone to teach a city — he taught with the mushaf in one hand and adab in the other. Died at Uhud holding the flag.',
+        familyQuestion: 'Where are you an ambassador — and are you teaching adab or just facts?',
+        storyId: 'comp-musab',
+      ),
+      _StoryChapter(
+        title: 'Ammar — The Builder',
+        virtue: 'He built the masjid in the heat of the sun while others rested, and the Prophet\u2019s dua made the heat easy. Work done for Allah is never wasted.',
+        familyQuestion: 'What are you building that no one will credit you for?',
+        storyId: 'comp-ammar',
+      ),
+      _StoryChapter(
+        title: 'Suhayb — The Arsonist\u2019s Price',
+        virtue: 'He bought his freedom from Quraysh with every dirham he owned. The Prophet\u2019s comment: 'Suhayb has profited.' Sometimes the price of freedom is everything you have — and it is still cheap.',
+        familyQuestion: 'What price would you pay for your freedom — and is it worth more than what you hold?',
+        storyId: 'comp-suhayb',
+      ),
+    ],
+  ),
 ];
+
 
 class StoriesSchoolScreen extends StatelessWidget {
   const StoriesSchoolScreen({super.key});
