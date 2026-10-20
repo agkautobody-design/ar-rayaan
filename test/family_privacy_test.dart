@@ -264,17 +264,17 @@ void main() {
         examsTaken: 1,
       );
       expect(p.contains('Rayaan'), isFalse);
-      expect(p, contains('5 of 28'));
+      expect(p, contains('5 of 40'));
     });
 
     test('the student prompt carries progress only', () {
       final String p = personaPrompt(
         WasiaPersona.student,
         childName: 'Hadi',
-        studentBlock: 'This student has completed 3 of 28 letter lessons.',
+        studentBlock: 'This student has completed 3 of 40 letter lessons.',
       );
       expect(p.contains('Hadi'), isFalse);
-      expect(p, contains('3 of 28'));
+      expect(p, contains('3 of 40'));
     });
 
     test('the system prompt forbids asking for personal details', () {

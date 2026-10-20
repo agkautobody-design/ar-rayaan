@@ -10,6 +10,7 @@ import '../../hadi/application/hadi_provider.dart';
 import '../../sakina/domain/crisis_detector.dart';
 import '../../hadi/data/groq_hadi_provider.dart';
 import '../data/offline_wasia_provider.dart';
+import '../domain/letters_meta.dart';
 
 enum WasiaPersona { student, parent, teacher }
 
@@ -59,7 +60,7 @@ String personaPrompt(WasiaPersona p,
       return '$kWasiaSystemPrompt\n'
           'YOU ARE SPEAKING WITH A PARENT, '
           'gently, without jargon. '
-          '${lessonsDone != null ? "Progress so far: $lessonsDone of 28 letter lessons, ${examsTaken ?? 0} exams. " : ""}'
+          '${lessonsDone != null ? "Progress so far: $lessonsDone of $kLettersLessonCount letter lessons, ${examsTaken ?? 0} exams. " : ""}'
           'Encourage honestly, suggest ONE concrete practice, and always '
           'leave them feeling capable.';
     case WasiaPersona.teacher:
@@ -147,9 +148,19 @@ class WasiaController extends StateNotifier<WasiaState> {
       final Map<dynamic, dynamic> exams =
           prog['exams'] as Map<dynamic, dynamic>? ?? <String, dynamic>{};
       // Lesson titles from the curriculum — ids become names.
-      final Map<String, dynamic> cur = json.decode(
-              await ContentSync.load('academy/letters_curriculum.json'))
-          as Map<String, dynamic>;
+      Map<String, dynamic>? v2;
+      try {
+        v2 = json.decode(
+                await ContentSync.load('academy/letters_v2_curriculum.json'))
+            as Map<String, dynamic>;
+      } catch (_) {
+        v2 = null;
+      }
+      final Map<String, dynamic> cur = mergeLettersCurriculum(
+          json.decode(
+                  await ContentSync.load('academy/letters_curriculum.json'))
+              as Map<String, dynamic>,
+          v2);
       final Map<String, String> titles = <String, String>{};
       for (final dynamic u in cur['units'] as List<dynamic>? ?? <dynamic>[]) {
         final List<dynamic> ls =
@@ -165,7 +176,7 @@ class WasiaController extends StateNotifier<WasiaState> {
       // The child's name is deliberately NOT put in the prompt: it would be
       // sent to a third-party AI service. Progress only.
       final StringBuffer buf = StringBuffer('This student has completed '
-          '${done.length} of 28 letter lessons.');
+          '${done.length} of $kLettersLessonCount letter lessons.');
       if (done.isNotEmpty) {
         buf.write(' Most recent: ${done.last}.');
       }

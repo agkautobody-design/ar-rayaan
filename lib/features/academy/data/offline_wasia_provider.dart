@@ -195,15 +195,18 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(<String>['what do you teach', 'what can you teach', 'curriculum',
       'what is the academy', 'about the academy', 'wasia academy'],
     'Al-Wasia Academy teaches the letters of the Qur’an, one gentle step at a '
-    'time: 28 letters in 4 units, each unit ending with an exam. There are '
-    'also word decks, tajweed cards, and a du’a school in the Academy. '
+    'time: 28 letters in 4 units, then 3 more units on short and long '
+    'vowels, sukun, shaddah, tanween and joining letters into words, each '
+    'unit ending with an exam. There are also word decks, tajweed cards, and a du’a school in the Academy. '
     'Which would you like to explore — letters, words, or du’as?',
   ),
   _Entry(<String>['how many lessons', 'how many letters', 'how long',
       'how many units', 'structure'],
-    'The letters school has 28 lessons in 4 units of 7 lessons each — Unit 1 '
-    '“The First Letters”, Unit 2 “The Middle Letters”, Unit 3 “The Deep '
-    'Letters”, Unit 4 “The Final Letters”. One short lesson a day is a '
+    'The letters school has 40 lessons in 7 units — Unit 1 “The First Letters”, '
+    'Unit 2 “The Middle Letters”, Unit 3 “The Deep Letters”, Unit 4 “The '
+    'Final Letters” (the 28 letters, 7 lessons each), then Unit 5 “Short and '
+    'Long Vowels”, Unit 6 “Sukun, Shaddah and Tanween” and Unit 7 “Joining '
+    'Letters into Words”. One short lesson a day is a '
     'beautiful pace. Would you like to know what today’s lesson could be?',
   ),
   _Entry(<String>['unit 1', 'first letters', 'exam 1'],
@@ -294,7 +297,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'The Word Decks in the Academy practice reading real words from the '
     'Qur’an — short ones first, always with meaning. They are the perfect '
     'next step after the 28 letters are known. Has your student met all '
-    'four units yet?',
+    'seven units yet?',
   ),
   _Entry(<String>['no sound', 'audio not working', 'hear it', 'listening'],
     'Every letter lesson has a “hear it” — a short verified verse where the '

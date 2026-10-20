@@ -11,6 +11,7 @@ import '../../../app/theme/widgets/screen_header.dart';
 import '../application/family_service.dart';
 import '../application/wasia_controller.dart';
 import '../domain/children_privacy.dart';
+import '../domain/letters_meta.dart';
 import 'widgets/parent_gate.dart';
 import 'widgets/wasia_thread.dart';
 import 'wasia_lessons.dart';
@@ -201,7 +202,7 @@ class _ChildCard extends ConsumerWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      '$lessons / 28 letters lessons \u00b7 ${exams.length} exam(s) '
+                      '$lessons / $kLettersLessonCount letters lessons \u00b7 ${exams.length} exam(s) '
                       '${exams.isNotEmpty ? '\u00b7 best $bestPct%' : ''}',
                       style: AppText.bodyMuted,
                     ),
