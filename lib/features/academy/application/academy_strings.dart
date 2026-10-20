@@ -141,6 +141,8 @@ abstract final class AcademyStrings {
       'school.character.body': 'The heart\u2019s traits — sincerity, patience, gratitude, and their enemies — each with one practice for today.',
       'school.family.title': 'Family Life School',
       'school.family.body': 'Marriage, children, and the home as a place of worship — mercy between you, the trust of children.',
+      'school.youth.title': 'Youth School',
+      'school.youth.body': 'Identity, the phone, friends, and money — the tests of a generation, with one practice each.',
       'academy.title': 'Al-Wasia Academy of Sacred Knowledge',
       'academy.comingSoon': 'Coming soon — insha’Allah',
       'academy.continue': 'Continue where you left off',
