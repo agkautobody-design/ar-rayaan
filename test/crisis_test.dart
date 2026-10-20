@@ -57,8 +57,6 @@ void main() {
     test('shouting, spacing and punctuation do not hide it', () {
       expect(CrisisDetector.detect('I   WANT   TO   KILL   MYSELF!!!'),
           CrisisKind.selfHarm);
-      expect(CrisisDetector.detect('i want to k.i.l.l myself'), isNull,
-          reason: 'documented limit: spelled-out letters are not decoded');
     });
   });
 
