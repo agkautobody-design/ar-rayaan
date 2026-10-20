@@ -178,8 +178,18 @@ class _ReviewCardView extends StatelessWidget {
                 ),
               if (flipped) ...<Widget>[
                 const Divider(height: 24),
-                Text(card.gloss,
-                    style: AppText.titleMedium, textAlign: TextAlign.center),
+                if (card.hasMeaning)
+                  Text(card.gloss,
+                      style: AppText.titleMedium, textAlign: TextAlign.center)
+                else
+                  Text(
+                    card.sourceAyah != null
+                        ? 'Meaning not verified yet \u2014 read this word in '
+                            'its verse (${card.sourceAyah!.surah}:${card.sourceAyah!.ayah}).'
+                        : 'Meaning not verified yet.',
+                    style: AppText.bodyMuted,
+                    textAlign: TextAlign.center,
+                  ),
                 if (card.root != null) ...<Widget>[
                   const SizedBox(height: 8),
                   Text('Root: ${card.root}',

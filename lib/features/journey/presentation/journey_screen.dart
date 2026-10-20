@@ -12,6 +12,7 @@ import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
 import '../../habits/presentation/habits_card.dart';
 import '../application/journey_providers.dart';
+import 'saved_stories_sheet.dart';
 
 /// Screen 8 · My Journey — progress ring + My Path.
 ///
@@ -22,10 +23,13 @@ class JourneyScreen extends ConsumerWidget {
 
   static const List<(IconData, String, String?)> _path = [
     (Icons.auto_stories_outlined, 'My Reflections', AppRoutes.noor),
-    (Icons.track_changes, 'Goals', '/finance/floor'),
+    (Icons.school_outlined, 'My Learning', AppRoutes.academy),
     (Icons.edit_note, 'Gratitude Journal', AppRoutes.notes),
-    (Icons.bookmark_outline, 'Bookmarks', AppRoutes.stories),
+    (Icons.bookmark_outline, 'Bookmarks', _bookmarks),
   ];
+
+  /// Sentinel route: Bookmarks opens the saved-stories sheet, not a page.
+  static const String _bookmarks = '#bookmarks';
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -64,7 +68,7 @@ class JourneyScreen extends ConsumerWidget {
                               if (s != null) ...[
                                 const SizedBox(height: 12),
                                 Text(
-                                  'ADHKAR ${s.adhkarDone}/${s.adhkarTotal} · QUR’AN ${s.readingStarted ? 'STARTED' : '—'} · REFLECTIONS ${s.reflections}',
+                                  'ADHKAR ${s.adhkarDone}/${s.adhkarTotal} · QUR’AN ${s.readingStarted ? 'STARTED' : '—'} · REFLECTIONS ${s.reflections} · LESSONS ${s.lessonsDone}',
                                   style: AppText.eyebrow.copyWith(
                                     fontSize: 9,
                                     color: AppColors.sand.withValues(
@@ -99,7 +103,9 @@ class JourneyScreen extends ConsumerWidget {
                             child: InkWell(
                               onTap: _path[i].$3 == null
                                   ? null
-                                  : () => context.go(_path[i].$3!),
+                                  : _path[i].$3 == _bookmarks
+                                      ? () => showSavedStories(context)
+                                      : () => context.go(_path[i].$3!),
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(
                                   horizontal: 16,

@@ -44,6 +44,12 @@ class WordCard {
 
   final ReviewCard review;
 
+  /// True when [gloss] is a real word meaning. Older saved decks may still
+  /// hold the truncated verse snippets the first pack shipped as glosses
+  /// ("... (in context)"); those are never shown as a meaning.
+  bool get hasMeaning =>
+      gloss.trim().isNotEmpty && !gloss.contains('(in context)');
+
   WordCard copyWith({ReviewCard? review}) => WordCard(
         key: key,
         arabic: arabic,
