@@ -1,3 +1,4 @@
+import 'package:ar_rayaan/features/zakat/domain/nisab.dart';
 import 'package:ar_rayaan/features/zakat/domain/zakat_engine.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -18,6 +19,9 @@ GuidedZakatInput base({
   bool silver = true,
   double goldPrice = 100,
   double silverPrice = 1.5,
+  StockIntent intent = StockIntent.longTerm,
+  bool tola = false,
+  double silverGrams = 0,
 }) =>
     GuidedZakatInput(
       madhab: madhab,
@@ -34,29 +38,43 @@ GuidedZakatInput base({
       debtsDueThisYear: debts,
       mortgageYearInstallments: mortgageYear,
       useSilverNisab: silver,
+      useTolaNisab: tola,
+      stockIntent: intent,
+      silverGrams: silverGrams,
       goldPricePerGram: goldPrice,
       silverPricePerGram: silverPrice,
     );
 
 void main() {
   group('nisab', () {
-    test('silver standard = 612.36 g × price', () {
+    test('silver standard = 595 g × price (the default)', () {
       final r = ZakatEngine.compute(base(cash: 1000, silverPrice: 2));
-      expect(r.nisabValue, closeTo(612.36 * 2, 0.01));
+      expect(r.nisabValue, closeTo(595 * 2, 0.01));
     });
-    test('gold standard = 87.48 g × price', () {
+    test('gold standard = 85 g × price', () {
       final r =
           ZakatEngine.compute(base(cash: 1000, silver: false, goldPrice: 100));
-      expect(r.nisabValue, closeTo(8748, 0.01));
+      expect(r.nisabValue, closeTo(8500, 0.01));
+    });
+    test('tola figures are an explicit switch', () {
+      final s = ZakatEngine.compute(base(cash: 1000, silverPrice: 2, tola: true));
+      expect(s.nisabValue, closeTo(612.36 * 2, 0.01));
+      final g = ZakatEngine.compute(
+          base(cash: 1000, silver: false, goldPrice: 100, tola: true));
+      expect(g.nisabValue, closeTo(8748, 0.01));
+    });
+    test('engine and simple calculator share one nisab', () {
+      expect(ZakatEngine.silverNisabGrams, Nisab.silverGrams);
+      expect(ZakatEngine.goldNisabGrams, Nisab.goldGrams);
     });
     test('boundary: exactly at nisab is eligible', () {
-      final double nisab = 612.36 * 1.5;
+      final double nisab = 595 * 1.5;
       final r = ZakatEngine.compute(base(cash: nisab));
       expect(r.isEligible, isTrue);
       expect(r.zakatDue, closeTo(nisab * 0.025, 0.001));
     });
     test('just below nisab is not eligible', () {
-      final r = ZakatEngine.compute(base(cash: 612.36 * 1.5 - 1));
+      final r = ZakatEngine.compute(base(cash: 595 * 1.5 - 1));
       expect(r.isEligible, isFalse);
       expect(r.zakatDue, 0);
     });
@@ -64,6 +82,28 @@ void main() {
       final r = ZakatEngine.compute(base(cash: 99999, silverPrice: 0));
       expect(r.nisabKnown, isFalse);
       expect(r.isEligible, isFalse);
+    });
+  });
+
+  group('weights without a price are reported, not dropped silently', () {
+    test('gold grams with no gold price warn and add nothing', () {
+      final r = ZakatEngine.compute(base(goldGrams: 50, goldPrice: 0));
+      expect(r.totalAssets, 0);
+      expect(r.warnings.any((w) => w.contains('Gold weight')), isTrue);
+    });
+    test('silver grams with no silver price warn', () {
+      final r = ZakatEngine.compute(
+          base(silverGrams: 700, silverPrice: 0, cash: 10));
+      expect(r.warnings.any((w) => w.contains('Silver weight')), isTrue);
+    });
+    test('silver grams with a price are valued', () {
+      final r = ZakatEngine.compute(base(silverGrams: 700, silverPrice: 2));
+      expect(r.totalAssets, closeTo(1400, 0.01));
+      expect(r.warnings, isEmpty);
+    });
+    test('worn jewelry without a gold price warns', () {
+      final r = ZakatEngine.compute(base(jewelryGrams: 50, goldPrice: 0));
+      expect(r.warnings.any((w) => w.contains('Worn jewelry')), isTrue);
     });
   });
 
@@ -100,8 +140,19 @@ void main() {
 
   group('stocks', () {
     test('trader: full market value', () {
-      final r = ZakatEngine.compute(base(stocksTrader: 20000));
+      final r = ZakatEngine.compute(
+          base(stocksTrader: 20000, intent: StockIntent.trader));
       expect(r.totalAssets, closeTo(20000, 0.01));
+    });
+    test('only the chosen holding style counts, never both', () {
+      final trader = ZakatEngine.compute(base(
+          stocksTrader: 20000, stocksLong: 20000, intent: StockIntent.trader));
+      expect(trader.totalAssets, closeTo(20000, 0.01));
+      expect(trader.warnings, isNotEmpty);
+      final long = ZakatEngine.compute(
+          base(stocksTrader: 20000, stocksLong: 20000));
+      expect(long.totalAssets, closeTo(6000, 0.01));
+      expect(long.warnings, isNotEmpty);
     });
     test('long-term NZF 30% proxy', () {
       final r = ZakatEngine.compute(base(stocksLong: 20000));
