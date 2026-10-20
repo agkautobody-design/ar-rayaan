@@ -691,4 +691,135 @@ AcademyLesson? findLesson(String courseId, String unitId, String lessonId) {
       ),
       ],
     ),
+    AcademyCourse(
+      id: 'aqeedah',
+      titleKey: 'course.aqeedah.title',
+      subtitleKey: 'course.aqeedah.subtitle',
+      units: <AcademyUnit>[
+      AcademyUnit(
+        id: 'aqid.u1',
+        courseId: 'aqeedah',
+        titleKey: 'aqid.u1.title',
+        subtitleKey: 'aqid.u1.subtitle',
+        lessons: <AcademyLesson>[
+          AcademyLesson(
+            id: 'aqid.u1.l1',
+            unitId: 'aqid.u1',
+            courseId: 'aqeedah',
+            titleKey: 'aqid.u1.l1.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'aqid.u1.l1.s1.title', bodyKey: 'aqid.u1.l1.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'aqid.u1.l1.s2.title', bodyKey: 'aqid.u1.l1.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'aqid.u1.l2',
+            unitId: 'aqid.u1',
+            courseId: 'aqeedah',
+            titleKey: 'aqid.u1.l2.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'aqid.u1.l2.s1.title', bodyKey: 'aqid.u1.l2.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'aqid.u1.l2.s2.title', bodyKey: 'aqid.u1.l2.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'aqid.u1.l3',
+            unitId: 'aqid.u1',
+            courseId: 'aqeedah',
+            titleKey: 'aqid.u1.l3.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'aqid.u1.l3.s1.title', bodyKey: 'aqid.u1.l3.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'aqid.u1.l3.s2.title', bodyKey: 'aqid.u1.l3.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'aqid.u1.l4',
+            unitId: 'aqid.u1',
+            courseId: 'aqeedah',
+            titleKey: 'aqid.u1.l4.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'aqid.u1.l4.s1.title', bodyKey: 'aqid.u1.l4.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'aqid.u1.l4.s2.title', bodyKey: 'aqid.u1.l4.s2.body'),
+            ],
+          ),
+        ],
+      ),
+      AcademyUnit(
+        id: 'aqid.u2',
+        courseId: 'aqeedah',
+        titleKey: 'aqid.u2.title',
+        subtitleKey: 'aqid.u2.subtitle',
+        lessons: <AcademyLesson>[
+          AcademyLesson(
+            id: 'aqid.u2.l1',
+            unitId: 'aqid.u2',
+            courseId: 'aqeedah',
+            titleKey: 'aqid.u2.l1.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'aqid.u2.l1.s1.title', bodyKey: 'aqid.u2.l1.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'aqid.u2.l1.s2.title', bodyKey: 'aqid.u2.l1.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'aqid.u2.l2',
+            unitId: 'aqid.u2',
+            courseId: 'aqeedah',
+            titleKey: 'aqid.u2.l2.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'aqid.u2.l2.s1.title', bodyKey: 'aqid.u2.l2.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'aqid.u2.l2.s2.title', bodyKey: 'aqid.u2.l2.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'aqid.u2.l3',
+            unitId: 'aqid.u2',
+            courseId: 'aqeedah',
+            titleKey: 'aqid.u2.l3.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'aqid.u2.l3.s1.title', bodyKey: 'aqid.u2.l3.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'aqid.u2.l3.s2.title', bodyKey: 'aqid.u2.l3.s2.body'),
+            ],
+          ),
+        ],
+      ),
+      AcademyUnit(
+        id: 'aqid.u3',
+        courseId: 'aqeedah',
+        titleKey: 'aqid.u3.title',
+        subtitleKey: 'aqid.u3.subtitle',
+        lessons: <AcademyLesson>[
+          AcademyLesson(
+            id: 'aqid.u3.l1',
+            unitId: 'aqid.u3',
+            courseId: 'aqeedah',
+            titleKey: 'aqid.u3.l1.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'aqid.u3.l1.s1.title', bodyKey: 'aqid.u3.l1.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'aqid.u3.l1.s2.title', bodyKey: 'aqid.u3.l1.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'aqid.u3.l2',
+            unitId: 'aqid.u3',
+            courseId: 'aqeedah',
+            titleKey: 'aqid.u3.l2.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'aqid.u3.l2.s1.title', bodyKey: 'aqid.u3.l2.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'aqid.u3.l2.s2.title', bodyKey: 'aqid.u3.l2.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'aqid.u3.l3',
+            unitId: 'aqid.u3',
+            courseId: 'aqeedah',
+            titleKey: 'aqid.u3.l3.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'aqid.u3.l3.s1.title', bodyKey: 'aqid.u3.l3.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'aqid.u3.l3.s2.title', bodyKey: 'aqid.u3.l3.s2.body'),
+            ],
+          ),
+        ],
+      ),
+      ],
+    ),
 
