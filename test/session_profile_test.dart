@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:ar_rayaan/features/auth/application/auth_repository.dart';
 import 'package:ar_rayaan/features/auth/data/fake_auth_repository.dart';
 import 'package:ar_rayaan/features/profile/data/local_profile_repository.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
