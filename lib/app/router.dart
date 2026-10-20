@@ -47,6 +47,7 @@ import '../features/academy/presentation/review_session_screen.dart';
 import '../features/dev_tools/presentation/theme_demo_screen.dart';
 import '../features/explore/presentation/explore_screen.dart';
 import '../features/hadi/presentation/hadi_screen.dart';
+import '../features/legal/legal_routes.dart';
 import '../features/home/presentation/home_screen.dart';
 import '../features/journey/presentation/journey_screen.dart';
 import '../features/menu/presentation/menu_screen.dart';
@@ -189,6 +190,7 @@ GoRouter buildRouter({String initialLocation = '/'}) {
     // Any unknown link lands somewhere useful instead of a red error page.
     errorPageBuilder: (context, state) => _fade(const _NotFoundScreen()),
     routes: [
+      ...legalRoutes,
       // Onboarding flow (no bottom nav)
       // '/' is only an entry point: Home lives exactly once, inside the
       // bottom-nav shell at /home (the Home tab), so '/' forwards there.

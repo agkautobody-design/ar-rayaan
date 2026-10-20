@@ -161,6 +161,50 @@ class SettingsScreen extends ConsumerWidget {
                       ),
                       const SizedBox(height: 20),
                       Padding(
+                        padding: const EdgeInsets.only(left: 4),
+                        child: Text('LEGAL & ACCOUNT', style: AppText.eyebrow),
+                      ),
+                      Semantics(
+                        button: true,
+                        label: 'Open the Terms of Service',
+                        child: GestureDetector(
+                          onTap: () => context.push('/legal/terms'),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 4, top: 10),
+                            child: Text('Terms of Service →',
+                                style: AppText.bodyMuted.copyWith(
+                                    color: AppColors.gold, fontSize: 13)),
+                          ),
+                        ),
+                      ),
+                      Semantics(
+                        button: true,
+                        label: 'Open the Privacy Policy',
+                        child: GestureDetector(
+                          onTap: () => context.push('/legal/privacy'),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 4, top: 10),
+                            child: Text('Privacy Policy →',
+                                style: AppText.bodyMuted.copyWith(
+                                    color: AppColors.gold, fontSize: 13)),
+                          ),
+                        ),
+                      ),
+                      Semantics(
+                        button: true,
+                        label: 'Delete my account and data',
+                        child: GestureDetector(
+                          onTap: () => context.push('/legal/delete-account'),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 4, top: 10),
+                            child: Text('Delete my account →',
+                                style: AppText.bodyMuted.copyWith(
+                                    color: AppColors.gold, fontSize: 13)),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      Padding(
                         padding: const EdgeInsets.only(left: 4, bottom: 8),
                         child: Text('LANGUAGE', style: AppText.eyebrow),
                       ),

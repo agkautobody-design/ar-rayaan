@@ -9,15 +9,10 @@ analyzer:
   # Platform's four (widget, home_tiles, menu_attribution, session_profile)
   # are rewritten and already removed.
   exclude:
-    - test/auth_test.dart
     - test/hadith_adhkar_test.dart
-    - test/noor_journey_test.dart
-    - test/prayer_test.dart
-    - test/qibla_calendar_test.dart
     - test/quran_test.dart
     - test/share_test.dart
     - test/sources_test.dart
-    - test/zakat_test.dart
   language:
     strict-casts: true
     strict-inference: true
