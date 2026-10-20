@@ -190,9 +190,11 @@ GoRouter buildRouter({String initialLocation = '/'}) {
     errorPageBuilder: (context, state) => _fade(const _NotFoundScreen()),
     routes: [
       // Onboarding flow (no bottom nav)
+      // '/' is only an entry point: Home lives exactly once, inside the
+      // bottom-nav shell at /home (the Home tab), so '/' forwards there.
       GoRoute(
-          path: '/',
-          pageBuilder: (context, state) => _fade(const HomeScreen()),
+          path: AppRoutes.splash,
+          redirect: (context, state) => AppRoutes.home,
         ),
         // First-run gate: onboarding completes and sets ar.onboarded.v1.
         // main() routes here only when the pref is unset.
@@ -203,14 +205,6 @@ GoRouter buildRouter({String initialLocation = '/'}) {
         GoRoute(
           path: AppRoutes.search,
           pageBuilder: (context, state) => _fade(const SearchScreen()),
-        ),
-        GoRoute(
-          path: '/home',
-          pageBuilder: (context, state) => _fade(const HomeScreen()),
-        ),
-        GoRoute(
-          path: '/stories',
-          pageBuilder: (context, state) => _fade(const StoriesScreen()),
         ),
         GoRoute(
           path: '/ramadan',
@@ -232,10 +226,6 @@ GoRouter buildRouter({String initialLocation = '/'}) {
         GoRoute(
           path: '/settings/language',
           pageBuilder: (context, state) => _fade(const LanguageSettingsScreen()),
-        ),
-        GoRoute(
-          path: '/share',
-          pageBuilder: (context, state) => _fade(const ShareScreen()),
         ),
         GoRoute(
           path: '/masajid',
@@ -336,8 +326,12 @@ GoRouter buildRouter({String initialLocation = '/'}) {
         ),
         GoRoute(
           path: AppRoutes.hudaGuide,
+          // The guide travels in `extra`, which a browser refresh or a pasted
+          // link loses: fall back to the guide list instead of throwing.
+          redirect: (context, state) =>
+              state.extra is Guide ? null : AppRoutes.huda,
           pageBuilder: (context, state) =>
-              _fade(GuideScreen(guide: state.extra as Guide)),
+              _fade(GuideScreen(guide: state.extra! as Guide)),
         ),
         GoRoute(
           path: AppRoutes.familyTree,
@@ -351,7 +345,12 @@ GoRouter buildRouter({String initialLocation = '/'}) {
         ),
         GoRoute(
           path: AppRoutes.storyReader,
-          pageBuilder: (context, state) => _fade(StoryReaderScreen(story: state.extra as Story)),
+          // Same refresh/deep-link hazard as the Huda guide: no `extra`,
+          // no story - go back to the library rather than crash.
+          redirect: (context, state) =>
+              state.extra is Story ? null : AppRoutes.stories,
+          pageBuilder: (context, state) =>
+              _fade(StoryReaderScreen(story: state.extra! as Story)),
         ),
         GoRoute(
           path: AppRoutes.newMuslimPath,
