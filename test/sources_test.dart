@@ -27,11 +27,12 @@ void main() {
     final Object? error = tester.takeException();
     expect(error, isNull, reason: '$error');
     // Qur'an layer: text, translation, recitation, with real attributions.
-    expect(find.textContaining('Tanzil Uthmani'), findsOneWidget);
-    expect(find.textContaining('Saheeh International'), findsOneWidget);
-    expect(find.textContaining('Mahmoud Khalil Al-Husary'), findsOneWidget);
-    expect(find.textContaining('tanzil.net'), findsWidgets);
-    expect(find.textContaining('everyayah.com'), findsOneWidget);
+    expect(find.textContaining('Tanzil Uthmani'), findsWidgets);
+    expect(find.textContaining('Saheeh International'), findsWidgets);
+    expect(find.textContaining('Mahmoud Khalil Al-Husary'), findsWidgets);
+    expect(find.textContaining('everyayah.com'), findsWidgets);
+    // Honest review status, never a bare "scholar-reviewed" claim.
+    expect(find.textContaining('NOT YET SCHOLAR-REVIEWED'), findsWidgets);
 
     // The six canonical collections (Founder-approved descriptions).
     expect(find.text('Sahih al-Bukhari'), findsOneWidget);

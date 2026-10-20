@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../../quran/domain/quran_texts.dart';
+import '../../academy/domain/recitation_audio.dart';
 
 /// Our Sources — every text, translation, recitation, and scholarly
 /// reference used in Ar-Rayaan, chosen by the Founder.
@@ -13,7 +18,7 @@ import '../../../app/theme/widgets/screen_header.dart';
 /// Hadith sources: the six canonical collections (al-Kutub as-Sittah),
 /// approved by the Founder with his own descriptions. Knowledge & guidance: Shaykh Muhammad Saqib
 /// Iqbal. Recorded in Build Sheet v1.14 (O-5 hadith portion resolved).
-class SourcesScreen extends StatelessWidget {
+class SourcesScreen extends ConsumerWidget {
   const SourcesScreen({super.key});
 
   static final Uri _shaykhChannel = Uri.https(
@@ -62,7 +67,9 @@ class SourcesScreen extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final QuranTexts texts =
+        ref.watch(quranTextsProvider).value ?? QuranTexts.fallback;
     return ScenicScaffold.pattern(
       body: SafeArea(
         child: Column(
@@ -74,25 +81,35 @@ class SourcesScreen extends StatelessWidget {
                 children: [
                   // ---------------- THE QUR'AN ----------------
                   _SectionLabel('THE QUR’AN'),
-                  const GlassCard(
+                  GlassCard(
                     child: Column(
                       children: [
                         _SourceRow(
-                          title: 'Arabic Text · Tanzil Uthmani',
+                          title: texts.arabic.title,
                           subtitle:
-                              'The complete mushaf — 114 surahs, 6,236 ayahs — bundled for offline reading and search. Text from Tanzil.net (tanzil.net).',
+                              '${texts.arabic.note} Source: ${texts.arabic.credit}.',
+                          link: texts.arabic.url,
                         ),
-                        _Divider(),
+                        const _Divider(),
                         _SourceRow(
-                          title: 'Translation · Saheeh International',
+                          title: texts.translation.title,
                           subtitle:
-                              'The widely-used plain-English rendering, bundled alongside every ayah. Also supplied via Tanzil.net, whose copy omits verse-final punctuation.',
+                              '${texts.translation.note} Source: ${texts.translation.credit}.',
+                          link: texts.translation.url,
                         ),
-                        _Divider(),
+                        const _Divider(),
                         _SourceRow(
-                          title: 'Recitation · Shaykh Mahmoud Khalil Al-Husary',
+                          title: 'Recitation · ${ReciterPack.all.length} reciters',
                           subtitle:
-                              'Real recorded recitation streamed ayah-by-ayah from everyayah.com — never AI voices for Qur’an',
+                              'Real recorded recitation, never AI voices for Qur’an. Streamed ayah by ayah from everyayah.com: ${ReciterPack.all.map((ReciterPack r) => r.displayName).join('; ')}. Each reciter is named on screen while playing.',
+                          link: 'https://everyayah.com',
+                        ),
+                        const _Divider(),
+                        _SourceRow(
+                          title: 'How we handle religious content',
+                          subtitle:
+                              'What we quote, what we label, what we leave out: Qur’an, hadith grades, earlier accounts, images, and scholar review status.',
+                          onTap: () => context.push(AppRoutes.sourcesPolicy),
                         ),
                       ],
                     ),
@@ -127,7 +144,7 @@ class SourcesScreen extends StatelessWidget {
                     '(42 narrations) and the daily hadith. The full six-book '
                     'library arrives in a coming update.',
                     style: AppText.bodyMuted.copyWith(
-                      fontSize: 11,
+                      fontSize: 12,
                       height: 1.5,
                     ),
                   ),
@@ -169,7 +186,7 @@ class SourcesScreen extends StatelessWidget {
                               Text(
                                 'Lectures on creed, fiqh, seerah and purification of the heart · Official YouTube channel',
                                 style: AppText.bodyMuted.copyWith(
-                                  fontSize: 11,
+                                  fontSize: 12,
                                   height: 1.4,
                                 ),
                               ),
@@ -213,9 +230,9 @@ class SourcesScreen extends StatelessWidget {
 
                   const SizedBox(height: 24),
                   Text(
-                    'VERIFIED. AUTHENTIC. COMPASSIONATE.',
+                    'CHECKED · CITED · NOT YET SCHOLAR-REVIEWED',
                     style: AppText.eyebrow.copyWith(
-                      fontSize: 9,
+                      fontSize: 12,
                       color: AppColors.gold.withValues(alpha: 0.45),
                     ),
                     textAlign: TextAlign.center,
@@ -245,14 +262,34 @@ class _SectionLabel extends StatelessWidget {
 }
 
 class _SourceRow extends StatelessWidget {
-  const _SourceRow({required this.title, required this.subtitle});
+  const _SourceRow({
+    required this.title,
+    required this.subtitle,
+    this.link,
+    this.onTap,
+  });
 
   final String title;
   final String subtitle;
 
+  /// External page for the source (opened in the browser).
+  final String? link;
+
+  /// In-app destination; takes precedence over [link].
+  final VoidCallback? onTap;
+
+  Future<void> _open() async {
+    final String? l = link;
+    if (l == null) return;
+    try {
+      await launchUrl(Uri.parse(l), mode: LaunchMode.externalApplication);
+    } catch (_) {}
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    final bool tappable = onTap != null || link != null;
+    final Widget row = Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -277,13 +314,19 @@ class _SourceRow extends StatelessWidget {
                 const SizedBox(height: 2),
                 Text(
                   subtitle,
-                  style: AppText.bodyMuted.copyWith(fontSize: 11, height: 1.45),
+                  style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.45),
                 ),
               ],
             ),
           ),
         ],
       ),
+    );
+    if (!tappable) return row;
+    return Semantics(
+      button: true,
+      label: link != null ? '$title, opens $link' : title,
+      child: InkWell(onTap: onTap ?? _open, child: row),
     );
   }
 }
