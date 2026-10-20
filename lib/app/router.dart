@@ -27,6 +27,7 @@ import '../features/academy/presentation/hadith_school_screen.dart';
 import '../features/academy/presentation/seerah_school_screen.dart';
 import '../features/academy/presentation/history_school_screen.dart';
 import '../features/academy/presentation/stories_school_screen.dart';
+import '../features/academy/presentation/character_school_screen.dart';
 import '../features/academy/presentation/audio_packs_screen.dart';
 import '../features/academy/presentation/dhikr_session_screen.dart';
 import '../features/doctor/presentation/founder_console_screen.dart';
@@ -464,6 +465,10 @@ GoRouter buildRouter({String initialLocation = '/'}) {
       GoRoute(
         path: '/academy/stories',
         pageBuilder: (context, state) => _fade(const StoriesSchoolScreen()),
+      ),
+      GoRoute(
+        path: '/academy/character',
+        pageBuilder: (context, state) => _fade(const CharacterSchoolScreen()),
       ),
       GoRoute(
         path: '/academy/dua',

@@ -137,6 +137,8 @@ abstract final class AcademyStrings {
       'school.history.body': 'The centuries after the Prophet — the four caliphs, the scholars, and the ages they carried.',
       'school.stories.title': 'Stories School',
       'school.stories.body': 'The library\u2019s stories as a moral curriculum — patience, courage, mercy, and gratitude, each with a family question.',
+      'school.character.title': 'Character School',
+      'school.character.body': 'The heart\u2019s traits — sincerity, patience, gratitude, and their enemies — each with one practice for today.',
       'academy.title': 'Al-Wasia Academy of Sacred Knowledge',
       'academy.comingSoon': 'Coming soon — insha’Allah',
       'academy.continue': 'Continue where you left off',
