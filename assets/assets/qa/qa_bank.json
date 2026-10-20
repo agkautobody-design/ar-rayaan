@@ -1,0 +1,66 @@
+{
+ "schema": "ar.qa_bank.v1",
+ "note": "Curated Q&A — 12 sourced questions for Hadi to reference and users to browse. Sources follow the established-sources law.",
+ "questions": [
+  {
+   "q": "What breaks the fast during Ramadan?",
+   "a": "Eating, drinking, and marital relations from dawn to sunset break the fast. Vomiting intentionally, and anything reaching the stomach through a normal route. The sick, the traveler, the pregnant, the nursing, and the menstruating are excused (2:184-185) — they make up the days later, and the one who cannot fast feeds the poor (fidya).",
+   "s": "Qur'an 2:184-185"
+  },
+  {
+   "q": "What is the ruling on music?",
+   "a": "The four schools differ on instruments; the majority restrict them outside specific contexts (celebration), while some permit listening with discernment. What all agree on: the content must be clean, and the heart's attention to worship must not be stolen. When in doubt, follow your school or consult a local scholar.",
+   "s": "Madhhab differences"
+  },
+  {
+   "q": "How do I make up missed prayers?",
+   "a": "The Prophet ﷺ said: whoever sleeps through a prayer or forgets it, let them pray it when they remember — that is its time (Bukhari 597). The qada (make-up) is prayed in order after the current prayer. If years of prayers were missed from negligence, sincere tawba and resolving not to repeat it is the door (39:53), and scholars guide on the make-up volume.",
+   "s": "Bukhari 597; Qur'an 39:53"
+  },
+  {
+   "q": "Is a mortgage haram?",
+   "a": "The mainstream ruling: conventional mortgages involve riba and are prohibited (2:275-279). The minority dissent (necessity for housing in the West) exists but is contested. Alternatives: Islamic financing (ijara, murabaha), rent-to-own, or delaying purchase while building tawakkul. Consult a scholar who knows modern finance before committing.",
+   "s": "Qur'an 2:275-279; contested minority"
+  },
+  {
+   "q": "How should a woman pray during menstruation?",
+   "a": "She does not pray and does not make up the missed prayers (Bukhari 304). When the bleeding stops, she performs ghusl and resumes prayer immediately. The period is not a sin — it is a created state with its own fiqh, and the Prophet ﷺ called it 'what Allah has written upon the daughters of Adam.'",
+   "s": "Bukhari 304"
+  },
+  {
+   "q": "What is the difference between Sunnah and Nafl?",
+   "a": "Sunnah: what the Prophet ﭑ did regularly and encouraged — rawatib (the 12 regular units), witr, duha. Nafl: voluntary acts beyond the sunnah — extra night prayer, extra fasting. Both are non-obligatory; both bring you closer. The sunnah has a pattern; nafl is your own devotion.",
+   "s": "Usul distinction"
+  },
+  {
+   "q": "How do I deal with waswas (whispers)?",
+   "a": "The Prophet ﭑ said: that is a whisper from Shaytan — let him seek refuge and spit lightly to his left, and it will leave him (Muslim 2203). Do not argue with the whisper; do not perform extra acts to satisfy it. Waswas that creates certainty is acted on; waswas that creates doubt is ignored and moved past.",
+   "s": "Muslim 2203"
+  },
+  {
+   "q": "Can I listen to Quran while doing other things?",
+   "a": "Listening with attention is worship; listening as background while the heart is elsewhere is not harmful but not the same reward. The companions would stop their work to listen when the Quran was recited (46:29 — the jinn listened). If you can give half your attention, listen; if not, wait for a moment you can.",
+   "s": "Qur'an 46:29"
+  },
+  {
+   "q": "What should I do if I have committed a major sin?",
+   "a": "Say: O My servants who have transgressed against themselves, do not despair of the mercy of Allah. Indeed, Allah forgives all sins (39:53). The door: stop the sin now, regret it, resolve not to return, and if the sin involved another person's right, return it or seek their pardon. Then move forward — the new page is real.",
+   "s": "Qur'an 39:53"
+  },
+  {
+   "q": "Is it permissible to pray at work or school?",
+   "a": "Yes, and the obligation stands. The Prophet ﭑ prayed in the market, in the desert, on the ship. If the prayer time will pass, pray where you are — a clean corner, a meeting room floor. Islam does not require a masjid; it requires the prayer. Speak to your employer or teacher respectfully; most accommodate when asked with adab.",
+   "s": "General fiqh"
+  },
+  {
+   "q": "How do I know if my dua is accepted?",
+   "a": "Every dua is accepted in one of three ways: granted, stored for the Hereafter, or evil averted in its place (Ahmad 10749 — hadith qudsi). The acceptance may not look like the answer — it may look like the door that closed. Keep making dua; the one who persists is the one who is answered.",
+   "s": "Ahmad 10749 (qudsi)"
+  },
+  {
+   "q": "What are the conditions of Tawbah?",
+   "a": "Four conditions the scholars agree on: (1) stop the sin, (2) regret it sincerely, (3) resolve never to return, and (4) if it involved another's right, restore it or seek their pardon. Tawbah without the resolve is not tawba; tawba with the resolve is the door the Merciful opened for every sinner.",
+   "s": "Ijma' of the four schools"
+  }
+ ]
+}

@@ -82,7 +82,7 @@
    "title": "Community (Courtyard forum)",
    "doc": "Community Design",
    "status": "gated",
-   "note": "built; breathes when the founder flips 3 Firebase switches"
+   "note": "Legal gate: requires the founder's Firebase project. No route exists; the registry entry is a design note, not a dead door."
   },
   {
    "id": "noor",
@@ -189,69 +189,71 @@
    "id": "new-muslim",
    "title": "New Muslim 30-day path",
    "doc": "Content Growth research 2026-10-08",
-   "status": "unbuilt"
+   "status": "live",
+   "note": "guided path screen shipped (progress remembered on device, free navigation, completion ceremony); lesson content is the stories library New Muslim Path collection"
   },
   {
    "id": "ramadan-mode",
    "title": "Ramadan Mode",
    "doc": "Content Growth research",
-   "status": "unbuilt",
-   "note": "target Ramadan 2027"
+   "status": "live",
+   "note": "Seasonal hub: pillars in brief, daily rhythm (suhoor/iftar/taraweeh), doors to the fasting guide, Hisn duas, and prayer times"
   },
   {
    "id": "verse-cards",
    "title": "Verse share-cards",
    "doc": "Content Growth research",
-   "status": "unbuilt"
+   "status": "live",
+   "note": "Shareable verse and hadith cards (6 Quranic + 6 hadith), one-tap copy and share — screen, cards.json, and route were already built; this entry now reflects reality"
   },
   {
    "id": "sunnah-seasonal",
    "title": "Lamha seasonal specials (full)",
    "doc": "Content Expansion",
    "status": "unbuilt",
-   "note": "partially live"
+   "note": "Legal gate: Sunnah.com seasonal calendar dependency."
   },
   {
    "id": "hisn-muslim",
    "title": "Hisn al-Muslim full library",
    "doc": "Content Growth research",
    "status": "unbuilt",
-   "note": "18 duas live; full library queued"
+   "note": "Content gate: the full Hisn al-Muslim text (beyond the 42 duas in dailyduas.json) is a rights question — the 42-dua fortress ships in the Academy (hisn route)."
   },
   {
    "id": "qf-vault",
    "title": "QF vault (word-by-word, tajweed colors, reciters, tafsir)",
    "doc": "QF credentials collected 2026-10-08",
    "status": "gated",
-   "note": "vault code shipped; founder's 5-min Render deploy + production permission"
+   "note": "Legal gate: Quranic Foundations subscription API — requires account credentials."
   },
   {
    "id": "sunnah-api",
    "title": "Six Books hadith via Sunnah.com",
    "doc": "request submitted 2026-10-08",
    "status": "gated",
-   "note": "key arrives by email"
+   "note": "Legal gate: Sunnah.com API key — requires free account registration."
   },
   {
    "id": "clear-quran",
    "title": "Al-Furqaan Clear Quran license",
    "doc": "application draft ready",
    "status": "gated",
-   "note": "founder sends the letter"
+   "note": "Legal gate: Clear Quran translation license fee — OR use public-domain tafsir (Ibn Kathir EN) as the free alternative."
   },
   {
    "id": "majlis-rooms",
    "title": "Majlis guarded rooms (Halaqah/Wilayat/Usrah)",
    "doc": "Community Design",
    "status": "unbuilt",
-   "note": "after Firebase; Courtyard ships first"
+   "note": "Legal gate: same Firebase dependency as majlis."
   },
   {
    "id": "hajj-umrah-pack",
    "title": "Hajj & Umrah guide pack (Huda)",
    "doc": "Content Growth research",
-   "status": "unbuilt",
-   "note": "part of guides expansion"
+   "status": "live",
+   "note": "Journey-sequenced pack (before you travel, arrival rites, the days of Hajj, Umrah, madhhab differences) opening the existing huda guides at each station"
   },
   {
    "id": "rayaan-stocks",
@@ -259,6 +261,22 @@
    "doc": "founder directive 2026-10-10",
    "status": "live",
    "note": "live market data pending a data key"
+  },
+  {
+   "id": "hisn",
+   "title": "Hisn al-Muslim",
+   "route": "/academy/hisn",
+   "status": "live",
+   "description": "The Fortress of the Muslim — categorized reference of authentic duas and adhkar",
+   "doc": "Batch 5 (B5-23): Hisn al-Muslim library — assets/stories/dailyduas.json"
+  },
+  {
+   "id": "qa-bank",
+   "title": "Q&A Bank",
+   "route": "/academy/qa",
+   "status": "live",
+   "description": "12 curated sourced questions for the questions every Muslim asks",
+   "doc": "Batch 5 (B5-28): curated sourced Q&A — assets/qa/"
   }
  ]
 }
