@@ -11,6 +11,9 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../../app/core/providers.dart';
 
 import '../data/audioplayers_ayah_player.dart';
 
@@ -204,16 +207,51 @@ class RecitationPlayerNotifier
 // Production wiring (web + mobile). Tests override these with fakes.
 // ---------------------------------------------------------------------------
 
-/// On-device cache directory for ayah audio files. Created on first use.
-final audioCacheDirProvider = FutureProvider<Directory>((Ref ref) async {
+/// The reciter the person chose, saved on this device. One setting for the
+/// whole app: the reader, the range bar and every ayah button use it.
+class ReciterController extends Notifier<ReciterPack> {
+  static const String prefsKey = 'ar.quran.reciter';
+
+  @override
+  ReciterPack build() {
+    try {
+      final SharedPreferences p = ref.watch(sharedPreferencesProvider);
+      return ReciterPack.byId(p.getString(prefsKey));
+    } catch (_) {
+      return ReciterPack.alHusary;
+    }
+  }
+
+  Future<void> select(ReciterPack pack) async {
+    state = pack;
+    try {
+      await ref
+          .read(sharedPreferencesProvider)
+          .setString(prefsKey, pack.id);
+    } catch (_) {
+      // Kept for this session only.
+    }
+  }
+}
+
+final NotifierProvider<ReciterController, ReciterPack> selectedReciterProvider =
+    NotifierProvider<ReciterController, ReciterPack>(ReciterController.new);
+
+/// On-device cache directory for one reciter's ayah files. Created on first
+/// use. Al-Husary keeps its original folder so cached files stay valid.
+final FutureProviderFamily<Directory, String> audioCacheDirProvider =
+    FutureProvider.family<Directory, String>((Ref ref, String reciterId) async {
   final Directory base = await getApplicationSupportDirectory();
-  final Directory dir = Directory('${base.path}/recitation/husary');
+  final String name =
+      reciterId == ReciterPack.alHusary.id ? 'husary' : reciterId;
+  final Directory dir = Directory('${base.path}/recitation/$name');
   await dir.create(recursive: true);
   return dir;
 });
 
-/// The live recitation player. UI watches [StateNotifier] state;
-/// controls call playPlan/pause/resume/stop.
+/// The live recitation player: THE one audio engine for Qur'an recitation
+/// (reader ayah buttons, the range bar, Madinah view). UI watches
+/// [StateNotifier] state; controls call playPlan/pause/resume/stop.
 final recitationPlayerProvider =
     StateNotifierProvider<RecitationPlayerNotifier, RecitationPlaybackState>(
         (Ref ref) {
@@ -223,12 +261,13 @@ final recitationPlayerProvider =
     audio: audio,
     speedSetter: audio.setSpeed,
     sourceResolver: (PlaybackEvent event) async {
+      final ReciterPack pack = ref.read(selectedReciterProvider);
       // Web has no file system: stream the per-ayah file directly.
-      if (kIsWeb) return ReciterPack.alHusary.ayahUrl(event.ref);
-      final Directory dir = await ref.watch(audioCacheDirProvider.future);
+      if (kIsWeb) return pack.ayahUrl(event.ref);
+      final Directory dir = await ref.read(audioCacheDirProvider(pack.id).future);
       return resolvePlaybackSource(
         event: event,
-        pack: ReciterPack.alHusary,
+        pack: pack,
         cacheDir: dir,
       );
     },

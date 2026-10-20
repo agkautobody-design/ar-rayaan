@@ -15,11 +15,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 
-import '../../../app/core/sound/sound_services.dart'
-    show recitationServiceProvider;
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
+import '../../quran/presentation/reciter_picker.dart';
 import '../application/recitation_player_provider.dart';
 import '../domain/recitation_audio.dart';
 
@@ -82,8 +81,8 @@ class _VerseRangePlayerBarState extends ConsumerState<VerseRangePlayerBar> {
       await notifier.pause();
       return;
     }
-    // One voice at a time: silence the per-ayah button's player first.
-    await ref.read(recitationServiceProvider.notifier).stop();
+    // One engine serves the ayah buttons and this bar, so nothing else
+    // can be playing: no cross-stop is needed (and one would reset a pause).
     await notifier.setSpeed(_speed);
     if (current.paused) {
       // Pause means pause: continue from the exact utterance.
@@ -119,7 +118,7 @@ class _VerseRangePlayerBarState extends ConsumerState<VerseRangePlayerBar> {
 
     final RecitationPlaybackState state =
         ref.watch(recitationPlayerProvider);
-    final String reciter = ReciterPack.alHusary.displayName;
+    final String reciter = ref.watch(selectedReciterProvider).displayName;
 
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
@@ -132,6 +131,7 @@ class _VerseRangePlayerBarState extends ConsumerState<VerseRangePlayerBar> {
             Row(
               children: <Widget>[
                 IconButton(
+                  tooltip: state.playing ? 'Pause' : 'Play',
                   iconSize: 34,
                   color: AppColors.gold,
                   icon: Icon(
@@ -161,6 +161,13 @@ class _VerseRangePlayerBarState extends ConsumerState<VerseRangePlayerBar> {
                   ),
                 ),
                 IconButton(
+                  tooltip: 'Choose reciter',
+                  icon: const Icon(Icons.record_voice_over_outlined,
+                      color: AppColors.gold),
+                  onPressed: () => showReciterPicker(context, ref),
+                ),
+                IconButton(
+                  tooltip: _expanded ? 'Hide controls' : 'Show controls',
                   icon: Icon(
                     _expanded ? Icons.expand_more : Icons.tune,
                     color: AppColors.gold,

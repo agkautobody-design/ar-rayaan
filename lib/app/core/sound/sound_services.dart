@@ -5,8 +5,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../features/academy/application/recitation_player_provider.dart'
+    show RecitationPlaybackState, recitationPlayerProvider;
 import '../../../features/academy/domain/recitation_audio.dart'
-    show AyahRef, ReciterPack;
+    show AyahRange, AyahRef, PlaybackEvent, RecitationPlanEngine;
 
 /// Sound in Ar-Rayaan (Founder directive: "the whole app needs to be
 /// communicative verbally"):
@@ -15,8 +17,8 @@ import '../../../features/academy/domain/recitation_audio.dart'
 ///   Settings, per the locked splash artwork).
 /// * [AdhanService] — real Mecca adhan (MIT-licensed Muezzin recording)
 ///   playable from Prayer Times.
-/// * [RecitationService] — real reciter audio (Sheikh Al-Husary) streamed
-///   per ayah in the Qur'an reader. Never AI-generated voices for Qur'an.
+/// * [RecitationService] — real reciter audio (the reciter the person
+///   picked) streamed per ayah, on the one shared recitation engine. Never AI-generated voices for Qur'an.
 /// * [SpeechService] — device voices (flutter_tts) read English content
 ///   aloud: NOOR, Hādi answers, du'a translations.
 ///
@@ -228,7 +230,7 @@ final NotifierProvider<AdhanService, bool> adhanServiceProvider =
     NotifierProvider<AdhanService, bool>(AdhanService.new);
 
 // ---------------------------------------------------------------------------
-// Qur'an recitation — Al-Husary, streamed per ayah (AlQuran Cloud CDN).
+// Qur'an recitation — chosen reciter, streamed per ayah (everyayah.com).
 // ---------------------------------------------------------------------------
 
 class RecitationState {
@@ -266,25 +268,29 @@ int globalAyahNumber(int surah, int ayah) {
   return offset + ayah;
 }
 
+/// Qur'an recitation for single-ayah taps. There is ONE audio engine for
+/// recitation, [recitationPlayerProvider]: this class is a thin command
+/// facade over it ("play from this ayah to the end of the surah") that
+/// mirrors which ayah the engine is on, so a second player can never talk
+/// over the first and the same reciter, speed and cache apply everywhere.
 class RecitationService extends Notifier<RecitationState> {
-  /// Mahmoud Khalil Al-Husary, per ayah — the SAME pack (and so the same
-  /// host, everyayah.com) the verse-range player bar uses, so the label,
-  /// the voice and the CORS behaviour on web always match.
-  static const ReciterPack _pack = ReciterPack.alHusary;
-
-  AudioPlayer? _player;
-  StreamSubscription<void>? _completeSub;
-
-  /// Bumped on every play/stop so a late completion from an earlier ayah
-  /// can never advance (or skip) the current one.
-  int _generation = 0;
-
   @override
   RecitationState build() {
-    ref.onDispose(() {
-      _completeSub?.cancel();
-      final AudioPlayer? p = _player;
-      if (p != null) _swallow(p.dispose());
+    ref.listen<RecitationPlaybackState>(recitationPlayerProvider, (
+      RecitationPlaybackState? prev,
+      RecitationPlaybackState next,
+    ) {
+      if (next.failed || next.finished) {
+        state = RecitationState.idle;
+        return;
+      }
+      final bool active = next.playing || next.paused;
+      if (active && next.eventIndex < next.plan.length) {
+        final AyahRef r = next.plan[next.eventIndex].ref;
+        state = RecitationState(surah: r.surah, ayah: r.ayah);
+      } else if (!active && (prev?.playing ?? false)) {
+        state = RecitationState.idle;
+      }
     });
     return RecitationState.idle;
   }
@@ -300,59 +306,29 @@ class RecitationService extends Notifier<RecitationState> {
     }
   }
 
-  AudioPlayer? _ensurePlayer() {
-    if (_player != null) return _player;
-    final AudioPlayer? p = _tryCreatePlayer();
-    if (p == null) return null;
-    _player = p;
-    // One completion listener for the player's lifetime (a new listener
-    // per ayah stacked up and made recitation skip ayahs).
-    _completeSub = p.onPlayerComplete.listen((_) {
-      final int gen = _generation;
-      if (!state.isIdle) _advance(gen);
-    });
-    return p;
-  }
-
+  /// Recite [ayah] and carry on to the end of [surah] (continuous
+  /// listening), on the shared engine.
   Future<void> play(int surah, int ayah) async {
-    final int gen = ++_generation;
+    if (surah < 1 || surah > kSurahAyahCounts.length) return;
+    final int last = kSurahAyahCounts[surah - 1];
+    if (ayah < 1 || ayah > last) return;
     state = RecitationState(surah: surah, ayah: ayah);
-    final AudioPlayer? player = _ensurePlayer();
-    if (player == null) {
-      state = RecitationState.idle;
-      return;
-    }
-    _swallow(
-      Future(() async {
-        try {
-          await player.stop();
-          if (gen != _generation) return;
-          await player.play(
-            UrlSource(_pack.ayahUrl(AyahRef(surah, ayah))),
-          );
-        } catch (_) {
-          if (gen == _generation) state = RecitationState.idle;
-        }
-      }),
+    final List<PlaybackEvent> plan = RecitationPlanEngine.buildPlan(
+      range: AyahRange.withinSurah(
+        surah: surah,
+        fromAyah: ayah,
+        toAyah: last,
+      ).refs,
+      perAyahRepeat: 1,
+      gapMs: 0,
+      loopRange: 1,
     );
-  }
-
-  /// Auto-advance through the surah for continuous listening.
-  void _advance(int gen) {
-    if (gen != _generation || state.isIdle) return;
-    final int next = state.ayah + 1;
-    if (next <= kSurahAyahCounts[state.surah - 1]) {
-      unawaited(play(state.surah, next));
-    } else {
-      state = RecitationState.idle;
-    }
+    _swallow(ref.read(recitationPlayerProvider.notifier).playPlan(plan));
   }
 
   Future<void> stop() async {
-    _generation++;
     state = RecitationState.idle;
-    final AudioPlayer? player = _player;
-    if (player != null) _swallow(player.stop());
+    _swallow(ref.read(recitationPlayerProvider.notifier).stop());
   }
 }
 

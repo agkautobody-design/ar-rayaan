@@ -94,14 +94,14 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
                             const Icon(Icons.music_note_outlined,
                                 color: AppColors.gold, size: 30),
                             const SizedBox(height: 8),
-                            Text('The library is being recorded',
+                            Text('No nasheed library yet',
                                 style: AppText.titleMedium),
                             const SizedBox(height: 4),
                             Text(
-                              'Pack 1 — commissioned naat and nasheed in '
-                              'Arabic, Urdu, English and Indonesian — is '
-                              'in production. Request a nasheed you love '
-                              'and help us choose.',
+                              'No licensed nasheed library is bundled yet. '
+                              'Until one is, nasheeds are links to outside '
+                              'sites. Request a nasheed you love and help '
+                              'us choose.',
                               style: AppText.bodyMuted,
                               textAlign: TextAlign.center,
                             ),
@@ -312,7 +312,7 @@ class _BrowseSectionState extends ConsumerState<_BrowseSection> {
                 .toList(),
           };
     // Tracks the app can play come first; the rest are honestly labelled
-    // as links to the artist's official page.
+    // as external links (a YouTube search), never as ours.
     final List<Track> shown = <Track>[
       ...filtered.where((Track t) => t.hasAudio),
       ...filtered.where((Track t) => !t.hasAudio),
@@ -325,7 +325,8 @@ class _BrowseSectionState extends ConsumerState<_BrowseSection> {
         children: <Widget>[
           Text(
             '$playableCount of ${catalog.tracks.length} tracks play in the app. '
-            'The rest open the artist\u2019s official page.',
+            'The rest are external links: each opens a YouTube search for the '
+            'track. Ar-Rayaan does not host or hold a licence for them.',
             key: const Key('player-catalog-note'),
             style: AppText.caption,
           ),
@@ -373,7 +374,7 @@ class _BrowseSectionState extends ConsumerState<_BrowseSection> {
                 subtitle: Text(
                   t.hasAudio
                       ? '${t.artist} \u00b7 ${t.language}'
-                      : '${t.artist} \u00b7 ${t.language} \u00b7 opens artist\u2019s page',
+                      : '${t.artist} \u00b7 ${t.language} \u00b7 external link (YouTube search)',
                   style: AppText.caption,
                 ),
                 trailing: Icon(

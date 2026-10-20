@@ -1,7 +1,27 @@
+import 'dart:async';
+
 import 'package:ar_rayaan/app/core/sound/sound_services.dart';
+import 'package:ar_rayaan/features/academy/application/recitation_player_provider.dart';
+import 'package:ar_rayaan/features/academy/domain/recitation_audio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+/// Plays nothing and never completes, like a long utterance.
+class _NeverEndingAudio implements AyahAudioPlayer {
+  Completer<void>? _c;
+  @override
+  Future<void> play(String pathOrUrl) {
+    _c = Completer<void>();
+    return _c!.future;
+  }
+
+  @override
+  Future<void> stop() async {
+    _c?.complete();
+    _c = null;
+  }
+}
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -59,7 +79,19 @@ void main() {
     });
 
     test('recitation state machine: play, toggle off, idle', () async {
-      final ProviderContainer container = ProviderContainer();
+      // The single-ayah service rides the shared engine; a silent engine that
+      // never finishes an utterance stands in for the audio plugin.
+      final ProviderContainer container = ProviderContainer(
+        overrides: <Override>[
+          recitationPlayerProvider.overrideWith(
+            (ref) => RecitationPlayerNotifier(
+              audio: _NeverEndingAudio(),
+              sourceResolver: (PlaybackEvent e) async => 'src:${e.ref}',
+              sleeper: (int ms) async {},
+            ),
+          ),
+        ],
+      );
       addTearDown(container.dispose);
       expect(container.read(recitationServiceProvider).isIdle, isTrue);
       await container.read(recitationServiceProvider.notifier).play(2, 255);
