@@ -806,5 +806,69 @@
    "Sahih al-Bukhari 134, 1534-1542; Sahih Muslim 1184, 1409"
   ],
   "madhhabNote": "Which violations require which expiation (perfume vs shaving vs intimacy) differs by school and cause — this is precisely the case for a Hajj seminar or a trusted manual."
+ },
+ {
+  "id": "huda-zakat",
+  "collection": "huda",
+  "category": "Worship",
+  "title": "How Zakat Works — The Essentials",
+  "subtitle": "The third pillar: when it is due, on what, and where it goes",
+  "steps": [
+   "Know the obligation: zakat joins prayer in the Qur'an again and again — 'establish prayer and give zakat' (2:43). It is not a tip on surplus feelings; it is a pillar with a name that means purification and growth (9:103).",
+   "Know the threshold (nisab): zakat is due on zakatable wealth — cash, gold, silver, trade goods, and similar — that has been held above a minimum threshold for one lunar year (hawl). The classical nisab is the value of 85 grams of gold (or 595 grams of silver — the silver standard is lower and more protective of the poor; scholars differ on which to use).",
+   "Know the rate: the standard rate on savings and trade wealth is one-fortieth — 2.5%. On certain kinds of produce and harvests, the rates are one-tenth or one-twentieth according to the type of irrigation. When in doubt, a local scholar or a reputable calculator settles the specifics of your assets.",
+   "Know the recipients: the Qur'an names them in one verse (9:60) — the poor, the needy, zakat administrators, those whose hearts are to be reconciled, freeing captives, the debt-ridden, in the cause of Allah, and the stranded traveler. These categories are fixed by the verse; zakat is not a general donation fund.",
+   "Give it on time: the Prophet ﷺ sent collectors and would not leave zakat of the wealthy among the people to be delayed. Delay past its year is a debt to the poor, not a savings strategy. Many Muslims give zakat al-fitr before Eid prayer as a separate, per-person obligation — ask your local scholar about it."
+  ],
+  "sources": "Qur'an 2:43; Qur'an 9:103; Qur'an 9:60; Qur'an 70:24-25",
+  "madhhabNote": "The four schools agree on the obligation, the 2.5% rate on monetary wealth, and the hawl (lunar year). They differ on details — which nisab standard to apply, which assets count, and business-goods valuation. When your situation is complex (retirement accounts, business inventory, debts owed to you), ask a scholar who knows modern finance."
+ },
+ {
+  "id": "huda-sadaqah",
+  "collection": "huda",
+  "category": "Daily Adab",
+  "title": "Giving Beyond the Obligation",
+  "subtitle": "Sadaqah: the voluntary charity Allah multiplies and never wastes",
+  "steps": [
+   "Understand the promise: Allah compares the giver's wealth to a grain that grows seven ears, each ear holding a hundred grains — 'and Allah multiplies for whom He wills' (2:261). The multiplication is His job description, not a metaphor under review.",
+   "Prefer the hidden coin: 'If you disclose charity, it is well; but if you conceal it and give it to the poor, it is better for you' (2:271). The left hand not knowing what the right spent is the standard — secrecy protects the gift from pride and the receiver from shame.",
+   "Know that kind speech counts: 'Kind speech and forgiveness are better than charity followed by injury' (2:263). A word that lifts someone is written as giving. The ledger is wider than money.",
+   "Give in the lean seasons too: the Prophet ﷺ was asked which wealth is best and answered, in meaning, the one you guard and spend in its proper avenues — even a small, steady gift outranks a large, showy one. The woman who gave a date was praised; the scale weighs sincerity with the coin.",
+   "Never fear diminishment: 'Whatever you spend of good — it is to yourselves' (2:272). Giving in this deen is transferring wealth from one of your pockets to another one Allah holds for you — one that cannot burn, depreciate, or be inherited away."
+  ],
+  "sources": "Qur'an 2:261; Qur'an 2:263; Qur'an 2:271-272; Qur'an 57:18",
+  "madhhabNote": "Sadaqah is voluntary with no fixed rate, amount, or time — unlike zakat, which has all three. The schools agree on the general principles above; local custom governs the etiquette of giving (public collections for agreed community needs are an established exception to secrecy)."
+ },
+ {
+  "id": "huda-quran-daily",
+  "collection": "huda",
+  "category": "Worship",
+  "title": "A Daily Portion of Qur'an",
+  "subtitle": "Building a recitation practice that survives busy days",
+  "steps": [
+   "Set a fixed portion, however small: the early generations were asked to keep to a daily portion (wird) and not abandon it — 'the most beloved deeds to Allah are the most consistent, even if small' (Bukhari 6464). One page a day finishes the Qur'an in roughly eight months; half a page in a year. Small and daily beats large and abandoned.",
+   "Begin with purification: 'None touch it except the purified' (56:79). The Qur'an itself commands the state of purity for its recitation — make wudu, face the qiblah if easy, and begin with ta'awwudh (I seek refuge in Allah from the accursed Shaytan — 16:98).",
+   "Recite with measured beauty: 'And recite the Qur'an with measured recitation (tartil)' (73:4). Slow enough to hear yourself; the tongue's hesitation over a difficult verse is written as reward. Understanding even one verse deeply is better than racing ten pages past your comprehension.",
+   "Guard the relationship from abandonment: on the Day of Judgment the Qur'an itself will complain: 'My Lord, indeed my people have taken this Qur'an as a thing abandoned' (25:30). The warning is not about non-reciters alone, but about a book left on the shelf — if you have drifted, return today with one verse, not with guilt.",
+   "Bring it into the house: read aloud where children hear, even briefly. The companion who heard his father recite as a child carried it for life; hearing the Qur'an in the home is how love for it is inherited, not just taught."
+  ],
+  "sources": "Qur'an 56:79; Qur'an 73:4; Qur'an 25:30; Qur'an 16:98; Sahih al-Bukhari 6464",
+  "madhhabNote": "All schools encourage a daily wird; the juz (1/30th) system is a practical division, not a legal requirement. Listening to recitation while commuting or working is a blessed supplement — the recitation requirement itself is fulfilled by your own recitation."
+ },
+ {
+  "id": "huda-children-deen",
+  "collection": "huda",
+  "category": "Daily Adab",
+  "title": "Teaching Your Children the Deen",
+  "subtitle": "Luqman's method: short sentences, daily life, and a love they can stand on",
+  "steps": [
+   "Start with the foundation sentence: Luqman's first instruction to his son was tawhid — 'O my son, do not associate anything with Allah; indeed, association with Him is a great injustice' (31:13). Whatever else you teach, anchor them first to Who they are talking to.",
+   "Build the five anchors Luqman built: in a few verses he gave the whole curriculum — do not associate partners with Allah (31:13); be good to both parents even in their old age (31:14); establish prayer, enjoin what is right, forbid what is wrong, and be patient over what befalls you (31:17); be humble in your walk and lower your voice (31:18-19). Five sentences. A lifetime.",
+   "Use their age, not your ambition: the Prophet ﷺ taught that children be commanded to pray at seven and disciplined about it at ten (Sunan Abi Dawud 495), and that they sleep separately at ten. Before seven, the prayer is invited, not enforced — love first, law second, and the law lands softer.",
+   "Let them catch you in the act: children believe what they see repeated, not what they hear announced. Pray where they can walk past you; say alhamdulillah out loud when the news is bad; apologize to them when you were wrong — you are teaching them repentance by being seen practicing it.",
+   "Protect the prayer from becoming a battle you always win: the goal at ten is not a child who prays from fear of you, but an adult who prays when you are not there. Win the war for their hearts even if some battles for the prayer mat are lost patiently. Allah gave Luqman wisdom; He gave you this particular child."
+  ],
+  "sources": "Qur'an 31:13-19; Sunan Abi Dawud 495",
+  "madhhabNote": "The schools are united on gentleness in religious upbringing and on beginning prayer instruction young; they differ on the details of the 'at seven, at ten' narration's application. The principle every scholar affirms: mercy is the method, and the Prophet ﷺ said: 'He is not of us who does not show mercy to our young ones.'"
  }
 ]
