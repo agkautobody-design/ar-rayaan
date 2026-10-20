@@ -7,6 +7,9 @@ void main() {
     test('White Days 13–15 of every month are recommended', () {
       for (int month = 1; month <= 12; month++) {
         for (final int day in <int>[13, 14, 15]) {
+          // 11-13 Dhul-Hijjah are the days of Tashreeq: fasting is
+          // forbidden, and a prohibition always wins over a White Day.
+          if (month == 12 && day == 13) continue;
           final List<FastingMarker> markers = SunnahFasting.forDate(
             HijriDate(1447, month, day),
           );

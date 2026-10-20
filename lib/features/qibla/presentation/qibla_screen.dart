@@ -58,13 +58,7 @@ class QiblaScreen extends ConsumerWidget {
                   ),
                 ),
                 const SizedBox(height: 26),
-                Center(
-                  child: SizedBox(
-                    width: 272,
-                    height: 272,
-                    child: _LiveQibla(bearing: bearing),
-                  ),
-                ),
+                Center(child: _LiveQibla(bearing: bearing)),
                 const SizedBox(height: 18),
                 Center(
                   child: Column(
