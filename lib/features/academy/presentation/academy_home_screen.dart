@@ -195,6 +195,14 @@ class _AcademyHomeScreenState
                 live: true,
               ),
               _SchoolRow(
+                icon: Icons.translate,
+                arabic: '\u0627\u0644\u0639\u0631\u0628\u064a\u0629',
+                title: AcademyStrings.get('school.arabiclang.title'),
+                subtitle: AcademyStrings.get('school.arabiclang.body'),
+                route: '/academy/arabic-language',
+                live: true,
+              ),
+              _SchoolRow(
                 icon: Icons.graphic_eq,
                 arabic: '\u0627\u0644\u062a\u0651\u064e\u0644\u064e\u0627\u0648\u064e\u0629',
                 title: AcademyStrings.get('school.recitation.title'),

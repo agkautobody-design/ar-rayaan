@@ -123,6 +123,8 @@ abstract final class AcademyStrings {
       'path.u9.l4.title': 'Every Soul Will Taste Death',
       'school.dua.title': 'Du'a & Adhkar School',
       'school.dua.body': 'The daily words of remembrance — what they mean, when to say them, and where they come from.',
+      'school.arabiclang.title': 'Arabic Language School',
+      'school.arabiclang.body': 'The language of the Qur\u2019an itself \u2014 words, sentences, and grammar, taught from Qur\u2019anic examples.',
       'academy.title': 'Al-Wasia Academy of Sacred Knowledge',
       'academy.comingSoon': 'Coming soon — insha’Allah',
       'academy.continue': 'Continue where you left off',
