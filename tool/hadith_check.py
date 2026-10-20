@@ -102,8 +102,20 @@ def load_verdicts():
         d = json.load(open(p, encoding='utf8'))
         for k, val in d.items():
             if k in v and v[k]['verdict'] != val['verdict']:
+                pair = {v[k]['verdict'], val['verdict']}
+                if pair == {'ok', 'unverifiable'}:
+                    # A real check beats a 'could not check' (rate-limited).
+                    if val['verdict'] == 'ok':
+                        v[k] = val
+                    continue
+                # ok vs wrong (or wrong vs unverifiable): keep the stricter
+                # verdict so a human resolves it; never let ok hide a wrong.
                 print('conflicting verdicts for %s (%s)' % (k, p), file=sys.stderr)
-                v[k] = {**val, 'verdict': 'unverifiable'}
+                if 'wrong' in pair:
+                    if val['verdict'] == 'wrong':
+                        v[k] = val
+                else:
+                    v[k] = {**val, 'verdict': 'unverifiable'}
             else:
                 v[k] = val
     return v

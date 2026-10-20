@@ -36,9 +36,10 @@ class _ArRayaanAppState extends ConsumerState<ArRayaanApp> {
   String _startRoute() {
     if (widget.showOnboarding) return AppRoutes.onboarding;
     try {
-      final bool elder =
-          ref.read(sharedPreferencesProvider).getBool(ElderMode.pref) ?? false;
-      if (elder) return ElderMode.homeRoute;
+      return ElderMode.launchLocation(
+        ref.read(sharedPreferencesProvider),
+        fallback: AppRoutes.splash,
+      );
     } catch (_) {
       // Preferences unavailable (tests without a store): normal start.
     }

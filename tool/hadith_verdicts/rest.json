@@ -489,7 +489,7 @@
  },
  "bukhari:1131": {
   "verdict": "wrong",
-  "correct": "",
+  "correct": "none",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
@@ -505,7 +505,7 @@
  },
  "bukhari:1162": {
   "verdict": "wrong",
-  "correct": "",
+  "correct": "none",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
@@ -617,7 +617,7 @@
  },
  "bukhari:1330": {
   "verdict": "wrong",
-  "correct": "",
+  "correct": "none",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
@@ -641,7 +641,7 @@
  },
  "bukhari:1340": {
   "verdict": "wrong",
-  "correct": "",
+  "correct": "none",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
@@ -695,14 +695,6 @@
   "checked": "2026-10-20",
   "note": "upper hand (Hakim ibn Hizam)"
  },
- "bukhari:143": {
-  "verdict": "wrong",
-  "correct": "bukhari:141",
-  "grade": "",
-  "grader": "",
-  "checked": "2026-10-20",
-  "note": ""
- },
  "bukhari:1447": {
   "verdict": "ok",
   "correct": "",
@@ -753,7 +745,7 @@
  },
  "bukhari:1560": {
   "verdict": "wrong",
-  "correct": "",
+  "correct": "none",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
@@ -785,7 +777,7 @@
  },
  "bukhari:1603": {
   "verdict": "wrong",
-  "correct": "",
+  "correct": "none",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
@@ -793,7 +785,7 @@
  },
  "bukhari:1607": {
   "verdict": "wrong",
-  "correct": "",
+  "correct": "none",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
@@ -809,7 +801,7 @@
  },
  "bukhari:1615": {
   "verdict": "wrong",
-  "correct": "",
+  "correct": "none",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
@@ -873,7 +865,7 @@
  },
  "bukhari:1839": {
   "verdict": "wrong",
-  "correct": "",
+  "correct": "none",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
@@ -953,7 +945,7 @@
  },
  "bukhari:1944": {
   "verdict": "wrong",
-  "correct": "",
+  "correct": "none",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
@@ -1065,7 +1057,7 @@
  },
  "bukhari:2082": {
   "verdict": "wrong",
-  "correct": "",
+  "correct": "none",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
@@ -1081,7 +1073,7 @@
  },
  "bukhari:2115": {
   "verdict": "wrong",
-  "correct": "",
+  "correct": "none",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
@@ -1201,7 +1193,7 @@
  },
  "bukhari:2740": {
   "verdict": "wrong",
-  "correct": "",
+  "correct": "none",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
@@ -1401,7 +1393,7 @@
  },
  "bukhari:3423": {
   "verdict": "wrong",
-  "correct": "",
+  "correct": "none",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
@@ -1553,7 +1545,7 @@
  },
  "bukhari:4996": {
   "verdict": "wrong",
-  "correct": "",
+  "correct": "none",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
@@ -1601,7 +1593,7 @@
  },
  "bukhari:5049": {
   "verdict": "wrong",
-  "correct": "",
+  "correct": "none",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
@@ -1609,7 +1601,7 @@
  },
  "bukhari:509": {
   "verdict": "wrong",
-  "correct": "",
+  "correct": "none",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
@@ -1625,7 +1617,7 @@
  },
  "bukhari:5192": {
   "verdict": "wrong",
-  "correct": "",
+  "correct": "none",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
@@ -1633,7 +1625,7 @@
  },
  "bukhari:5356": {
   "verdict": "wrong",
-  "correct": "",
+  "correct": "none",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
@@ -1665,7 +1657,7 @@
  },
  "bukhari:5402": {
   "verdict": "wrong",
-  "correct": "",
+  "correct": "none",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
@@ -1729,7 +1721,7 @@
  },
  "bukhari:5654": {
   "verdict": "wrong",
-  "correct": "",
+  "correct": "none",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
@@ -2137,7 +2129,7 @@
  },
  "bukhari:657": {
   "verdict": "wrong",
-  "correct": "",
+  "correct": "none",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
@@ -2305,7 +2297,7 @@
  },
  "bukhari:883": {
   "verdict": "wrong",
-  "correct": "",
+  "correct": "none",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",

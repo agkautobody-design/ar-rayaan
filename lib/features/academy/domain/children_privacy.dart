@@ -25,9 +25,7 @@ const List<String> kChildrenPrivacyBullets = <String>[
 
 /// The Privacy Policy section (plain text, paragraphs separated by a blank
 /// line).
-const String kChildrenPrivacySection = '''
-Children and the Family Wing
-
+const String kChildrenPrivacyBody = '''
 Ar-Rayaan is a general-audience app. It is not directed to children under 13 (or the age of digital consent where you live), and we do not knowingly collect personal information from a child. The Family Wing lets a parent or guardian set up learning profiles for the children in their care; the parent is the person who uses the app and who gives consent.
 
 What a profile holds. For each child a parent adds, the app keeps on the device: a first name or nickname chosen by the parent (limited to 30 characters), the date the profile was created, and the child’s progress in the School of Letters (lessons finished, exam scores, mastery marks). We do not ask for or store a child’s age, date of birth, photo, voice, email address, phone number or location.
@@ -44,3 +42,7 @@ Advertising and analytics. The app contains no advertising and no analytics or c
 
 Contact. If you believe a child has given us personal information, or you have questions about this section, contact us using the address in the Terms and Privacy screens and we will help you delete it.
 ''';
+
+/// Title + body, as shown in the consent step.
+const String kChildrenPrivacySection =
+    '$kChildrenPrivacyTitle\n\n$kChildrenPrivacyBody';
