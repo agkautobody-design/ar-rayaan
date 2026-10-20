@@ -42,7 +42,12 @@ const List<_HajjDay> kHajjJourney = <_HajjDay>[
       _HajjStation(
         title: 'The Intention and the Ihram',
         note: 'Labbayk Allahumma Hajj — the talbiya begins everything. What ihram is, when to enter it, what it forbids.',
-        guideId: 'huda-hajj-ihram',
+        guideId: 'huda-ihram',
+      ),
+      _HajjStation(
+        title: 'Who Must Go, and When',
+        note: 'The obligation, the conditions of ability, what to settle before departure, and the reward of an accepted Hajj.',
+        guideId: 'huda-hajj-intro',
       ),
     ],
   ),
@@ -54,12 +59,12 @@ const List<_HajjDay> kHajjJourney = <_HajjDay>[
       _HajjStation(
         title: 'Tawaf — Circling the House',
         note: 'Seven circuits around the Kaaba, beginning at the Black Stone, in a state of purity. The detailed guide walks every circuit.',
-        guideId: 'huda-hajj-tawaf',
+        guideId: 'huda-tawaf',
       ),
       _HajjStation(
         title: 'Sa\u2019i — Between Safa and Marwah',
-        note: 'Seven lengths between the two hills, in memory of Hagar\u2019s search. The guide covers the stations, the dua, the pace.',
-        guideId: 'huda-hajj-sai',
+        note: 'Seven lengths between the two hills, in memory of Hagar\u2019s search. One guide, \u201cTawaf & Sa\u2019i\u201d, teaches both rites together.',
+        guideId: 'huda-tawaf',
       ),
     ],
   ),
@@ -71,12 +76,12 @@ const List<_HajjDay> kHajjJourney = <_HajjDay>[
       _HajjStation(
         title: 'The Day of Arafat — 9 Dhul Hijjah',
         note: 'The standing. The Prophet \ufdfa said Hajj is Arafat — no Hajj without this day. The guide covers the dua, the standing, the departure.',
-        guideId: 'huda-hajj-arafat',
+        guideId: 'huda-arafat',
       ),
       _HajjStation(
         title: 'Muzdalifah and Mina',
-        note: 'The night at Mash\u2019ar al-Haram and the days of stoning the jamarat — the rites of completion and the farewell tawaf.',
-        guideId: 'huda-hajj-mina-muzdalifah',
+        note: 'The night at Muzdalifah, the stoning, sacrifice and release, the days of Tashreeq at Mina and the farewell tawaf — walked through day by day in the Hajj walkthrough.',
+        guideId: 'huda-hajj-overview',
       ),
     ],
   ),
@@ -89,18 +94,6 @@ const List<_HajjDay> kHajjJourney = <_HajjDay>[
         title: 'How to Perform Umrah',
         note: 'The complete sequence from miqat to halq — the Prophet \ufdfa performed Umrah four times; the guide makes it simple.',
         guideId: 'huda-umrah',
-      ),
-    ],
-  ),
-  _HajjDay(
-    title: 'The Madhhab Differences',
-    frame:
-        'The four schools agree on the pillars and differ on details — the timing of ihram, the wajib acts, the women\u2019s rules. The guide lays them out without declaring war.',
-    stations: <_HajjStation>[
-      _HajjStation(
-        title: 'Differences Between the Schools',
-        note: 'Where Hanafi, Maliki, Shafi\u2019i, and Hanbali differ on the rites — and how to follow your school or your group leader with confidence.',
-        guideId: 'huda-hajj-differences',
       ),
     ],
   ),
@@ -164,12 +157,10 @@ class HajjUmrahPackScreen extends ConsumerWidget {
                                     .where((Guide g) => g.id == st.guideId)
                                     .firstOrNull;
                                 if (guide == null) {
-                                  return Text(
-                                    'Guide arrives with the next content wave',
-                                    style: AppText.bodyMuted.copyWith(
-                                        fontSize: 11,
-                                        color: AppColors.gold),
-                                  );
+                                  // Never reached for shipped stations (a
+                                  // test pins every guideId to a real guide);
+                                  // kept as a quiet fallback, not a promise.
+                                  return const SizedBox.shrink();
                                 }
                                 return GestureDetector(
                                   onTap: () =>

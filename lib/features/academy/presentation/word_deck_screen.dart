@@ -3,20 +3,28 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 
-class WordCard {
+/// A card in the plain flashcard viewer (the spaced-repetition deck lives in
+/// domain/word_deck.dart and is practised at /academy/review).
+class WordPackCard {
   final String arabic, gloss;
   final int occurrences, frequencyRank;
   final List<int> sourceAyah;
-  const WordCard({required this.arabic, required this.gloss,
+  const WordPackCard({required this.arabic, required this.gloss,
       required this.occurrences, required this.frequencyRank,
       required this.sourceAyah});
 
-  factory WordCard.fromJson(Map<String, dynamic> j) => WordCard(
+  /// False for pack cards whose meaning has not been verified (empty gloss)
+  /// or that still carry a truncated verse snippet from an older pack.
+  bool get hasMeaning =>
+      gloss.trim().isNotEmpty && !gloss.contains('(in context)');
+
+  factory WordPackCard.fromJson(Map<String, dynamic> j) => WordPackCard(
         arabic: j['arabic'] as String,
         gloss: j['gloss'] as String,
         occurrences: (j['occurrences'] as num).toInt(),
@@ -25,11 +33,11 @@ class WordCard {
       );
 }
 
-final wordDeckProvider = FutureProvider<List<WordCard>>((ref) async {
+final wordPackProvider = FutureProvider<List<WordPackCard>>((ref) async {
   final raw = await rootBundle.loadString('assets/academy/word_pack.json');
   final d = json.decode(raw) as Map<String, dynamic>;
   return (d['cards'] as List<dynamic>)
-      .map((e) => WordCard.fromJson(e as Map<String, dynamic>))
+      .map((e) => WordPackCard.fromJson(e as Map<String, dynamic>))
       .toList();
 });
 
@@ -48,7 +56,7 @@ class _WordDeckScreenState extends ConsumerState<WordDeckScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final deck = ref.watch(wordDeckProvider);
+    final deck = ref.watch(wordPackProvider);
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: deck.when(
@@ -87,7 +95,15 @@ class _WordDeckScreenState extends ConsumerState<WordDeckScreen> {
                             height: 1.6, color: Color(0xFFEAD9A8))),
                     if (_flipped) ...[
                       const SizedBox(height: 14),
-                      Text(c.gloss, style: AppText.titleMedium.copyWith(fontSize: 22)),
+                      if (c.hasMeaning)
+                        Text(c.gloss,
+                            style: AppText.titleMedium.copyWith(fontSize: 22))
+                      else
+                        Text(
+                          'Meaning not verified yet \u2014 read it in its verse.',
+                          textAlign: TextAlign.center,
+                          style: AppText.bodyMuted,
+                        ),
                       const SizedBox(height: 8),
                       Text(
                         'appears ${c.occurrences} times \u00b7 rank #${c.frequencyRank} \u00b7 '
@@ -127,11 +143,18 @@ class _WordDeckScreenState extends ConsumerState<WordDeckScreen> {
                 ],
               ),
               const SizedBox(height: 10),
+              Center(
+                child: TextButton(
+                  onPressed: () => context.go('/academy/review'),
+                  child: Text('Practise with spaced repetition \u2192',
+                      style: AppText.bodyMuted.copyWith(color: AppColors.gold)),
+                ),
+              ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 6),
                 child: Text(
-                  'These 300 words cover most of what you hear in every recitation. '
-                  'Ten words a day, and in a month the Qur\u2019an begins to speak to you directly.',
+                  'The 300 most frequent words of the Qur\u2019an, most common first. '
+                  'Some meanings are still being verified and show no gloss until they are.',
                   textAlign: TextAlign.center,
                   style: AppText.bodyMuted.copyWith(height: 1.55),
                 ),

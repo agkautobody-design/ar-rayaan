@@ -55,21 +55,21 @@ const List<_CharUnit> kCharacterUnits = <_CharUnit>[
   ),
   _CharUnit(
     title: 'The Heart\u2019s Enemies',
-    frame: 'Four viruses the Prophet ﭑ named by name — and their cures.',
+    frame: 'Four viruses the Prophet ﷺ named by name — and their cures.',
     lessons: <_CharLesson>[
       _CharLesson(
         title: 'Anger — The Ember',
-        body: 'The strong is not the wrestler; the strong is the one who controls himself at anger (Bukhari 6114). The Prophet ﭑ prescribed the physical cures: change posture, seek refuge from Shaytan, and if standing, sit; if sitting, lie down. Anger is cooled by the body before the mind.',
+        body: 'The strong is not the wrestler; the strong is the one who controls himself at anger (Bukhari 6114). The Prophet ﷺ prescribed the physical cures: change posture, seek refuge from Shaytan, and if standing, sit; if sitting, lie down. Anger is cooled by the body before the mind.',
         practice: 'Next time the heat rises: sit down if standing, say a\u2019udhu billah, and wait ninety seconds.',
       ),
       _CharLesson(
         title: 'Envy — The Second Look',
-        body: 'Envy eats good deeds like fire eats wood (Abu Dawud 4253). The cure the Prophet ﭑ taught is not pretending the blessing isn\u2019t real — it is praying for the one who has it: \'O Allah, bless them in it.\' The prayer converts the poison.',
+        body: 'Envy eats good deeds like fire eats wood (Abu Dawud 4253). The cure the Prophet ﷺ taught is not pretending the blessing isn\u2019t real — it is praying for the one who has it: \'O Allah, bless them in it.\' The prayer converts the poison.',
         practice: 'Find one person whose blessing stung you. Make dua for them by name today.',
       ),
       _CharLesson(
         title: 'Arrogance — The False Height',
-        body: 'No one with an atom\u2019s weight of arrogance enters Paradise (Muslim 91). The Prophet ﭑ defined it as refusing truth and despising people. Musa was called to speak despite his stutter; the Messenger ﭑ wept for his people. Greatness in this deen bends low.',
+        body: 'No one with an atom\u2019s weight of arrogance enters Paradise (Muslim 91). The Prophet ﷺ defined it as refusing truth and despising people. Musa was called to speak despite his stutter; the Messenger ﷺ wept for his people. Greatness in this deen bends low.',
         practice: 'Do one anonymous good deed this week — let no one know, including the one who benefits.',
       ),
       _CharLesson(
@@ -90,12 +90,12 @@ const List<_CharUnit> kCharacterUnits = <_CharUnit>[
       ),
       _CharLesson(
         title: 'Forgiveness — Releasing the Debtor',
-        body: 'The Prophet ﭑ was asked to curse the people of Taif and he prayed for their children instead. Allah described the servants of the Merciful as those who pardon people (3:134) — and the reward for pardoning is measured by Allah, who loves to pardon.',
+        body: 'The Prophet ﷺ was asked to curse the people of Taif and he prayed for their children instead. Allah described the servants of the Merciful as those who pardon people (3:134) — and the reward for pardoning is measured by Allah, who loves to pardon.',
         practice: 'Release one person from a debt of yours tonight — in your heart first, then in your behavior.',
       ),
       _CharLesson(
         title: 'Kindness — The Missing Dates',
-        body: 'Aisha was asked what the Prophet ﭑ did at home. She said: he was in the service of his family (Bukhari 676). The strongest man in the room served. Kindness is not weakness; in his house it was leadership.',
+        body: 'Aisha was asked what the Prophet ﷺ did at home. She said: he was in the service of his family (Bukhari 676). The strongest man in the room served. Kindness is not weakness; in his house it was leadership.',
         practice: 'Serve one person in your home today before being asked.',
       ),
       _CharLesson(
