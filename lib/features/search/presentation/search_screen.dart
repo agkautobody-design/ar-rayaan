@@ -11,12 +11,16 @@ import '../../adhkar/application/adhkar_providers.dart';
 import '../../adhkar/domain/adhkar_models.dart';
 import '../../hadith/application/hadith_providers.dart';
 import '../../hadith/domain/hadith_models.dart';
+import '../../quran/application/quran_providers.dart';
+import '../../quran/domain/quran_models.dart';
+import '../domain/quran_search.dart';
 import '../../stories/data/stories_repository.dart';
 import '../../stories/domain/story.dart';
 
-/// FIND ANYTHING — one search across every shelf: the 11 story packs
-/// (Prophets, Seerah, Khutbahs, Daily Duas, Modern Hadith…), the Forty
-/// Hadith of an-Nawawi, and the Hisn al-Muslim adhkar.
+/// FIND ANYTHING — one search across every shelf: the whole Qur'an
+/// (Arabic and English, or a verse key like 2:255 — offline), the 11 story
+/// packs (Prophets, Seerah, Khutbahs, Daily Duas, Modern Hadith…), the
+/// Forty Hadith of an-Nawawi, and the Hisn al-Muslim adhkar.
 class SearchScreen extends ConsumerStatefulWidget {
   const SearchScreen({super.key});
 
@@ -48,16 +52,46 @@ class _SearchState extends ConsumerState<SearchScreen> {
     final storiesAsync = ref.watch(storiesProvider);
     final hadithAsync = ref.watch(hadithCollectionProvider);
     final adhkarAsync = ref.watch(adhkarSetsProvider);
+    final quranAsync = ref.watch(quranAllProvider);
     final loading = storiesAsync.isLoading ||
         hadithAsync.isLoading ||
-        adhkarAsync.isLoading;
+        adhkarAsync.isLoading ||
+        quranAsync.isLoading;
+    final List<Surah> quran = quranAsync.value ?? const <Surah>[];
 
     final stories = storiesAsync.value ?? const <Story>[];
     final hadiths = hadithAsync.value ?? const <Hadith>[];
     final sets = adhkarAsync.value ?? const <AdhkarSet>[];
 
     final hits = <_Hit>[];
-    if (_q.length >= 2) {
+    int quranTotal = 0;
+    final bool arabicQuery = containsArabicLetters(_q);
+    final String foldedQ = foldArabic(_q);
+    final String skeletonQ = arabicSkeleton(_q);
+    bool arabicMatch(String text) =>
+        arabicQuery &&
+        skeletonQ.length >= 2 &&
+        (foldArabic(text).contains(foldedQ) ||
+            arabicSkeleton(text).contains(skeletonQ));
+    if (_q.length >= 2 || parseVerseKey(_q) != null) {
+      final List<QuranHit> quranHits = searchQuran(quran, _q, limit: 200);
+      quranTotal = quranHits.length;
+      for (final QuranHit h in quranHits.take(30)) {
+        hits.add(_Hit(
+          shelf: "QUR'AN ${h.key}",
+          title: '${h.surahName} · ayah ${h.ayah}',
+          kicker: containsArabicLetters(_q) ? h.arabic : h.english,
+          icon: Icons.menu_book_outlined,
+          open: () {
+            // Open the surah at this ayah (the reader resumes at the
+            // surah's saved ayah).
+            ref
+                .read(readingPositionProvider.notifier)
+                .save(ReadingPosition(surah: h.surah, ayah: h.ayah));
+            context.push(AppRoutes.surah(h.surah));
+          },
+        ));
+      }
       for (final s in stories) {
         if (s.title.toLowerCase().contains(_q) ||
             s.subtitle.toLowerCase().contains(_q) ||
@@ -74,8 +108,7 @@ class _SearchState extends ConsumerState<SearchScreen> {
         }
       }
       for (final h in hadiths) {
-        if (h.english.toLowerCase().contains(_q) ||
-            h.arabic.contains(_q)) {
+        if (h.english.toLowerCase().contains(_q) || arabicMatch(h.arabic)) {
           hits.add(_Hit(
             shelf: 'HADITH',
             title: 'Hadith ${h.number} — an-Nawawi 40',
@@ -87,10 +120,13 @@ class _SearchState extends ConsumerState<SearchScreen> {
           ));
         }
       }
+      final Set<String> seenDhikr = <String>{};
       for (final set in sets) {
         for (final d in set.items) {
           final t = d.translation ?? '';
-          if (t.toLowerCase().contains(_q) || d.arabic.contains(_q)) {
+          if (t.toLowerCase().contains(_q) || arabicMatch(d.arabic)) {
+            // Morning and evening sets share many identical adhkar.
+            if (!seenDhikr.add('${d.arabic}|$t')) continue;
             hits.add(_Hit(
               shelf: 'DHIKR',
               title: set.titleEn,
@@ -116,7 +152,7 @@ class _SearchState extends ConsumerState<SearchScreen> {
                 autofocus: true,
                 style: AppText.body,
                 decoration: const InputDecoration(
-                  hintText: 'Search every shelf — a name, a meaning, a theme…',
+                  hintText: 'Search the Qur\'an and every shelf — or type 2:255',
                   prefixIcon: Icon(Icons.search, color: AppColors.gold),
                 ),
                 onChanged: (v) => setState(() => _q = v.trim().toLowerCase()),
@@ -125,7 +161,7 @@ class _SearchState extends ConsumerState<SearchScreen> {
               if (_q.length < 2)
                 GlassCard(
                     child: Text(
-                        'Try "Yusuf", "patience", "before sleep", "Bismillah" — the story packs, the Forty Hadith, and the adhkar all answer here.',
+                        'Try "mercy", "بسم الله", "2:255", "Yusuf", "patience", "before sleep" — the whole Qur\'an (offline), the story packs, the Forty Hadith, and the adhkar all answer here.',
                         style: AppText.bodyMuted.copyWith(height: 1.6)))
               else if (loading)
                 const Center(
@@ -138,9 +174,13 @@ class _SearchState extends ConsumerState<SearchScreen> {
                         style: AppText.bodyMuted))
               else
                 Column(children: [
-                  Text('${hits.length} FOUND', style: AppText.eyebrow),
+                  Text(
+                      quranTotal > 30
+                          ? '${hits.length} SHOWN · $quranTotal${quranTotal >= 200 ? '+' : ''} IN THE QUR\'AN'
+                          : '${hits.length} FOUND',
+                      style: AppText.eyebrow),
                   const SizedBox(height: 8),
-                  for (final h in hits.take(40))
+                  for (final h in hits.take(70))
                     Padding(
                       padding: const EdgeInsets.only(bottom: 8),
                       child: GlassCard(

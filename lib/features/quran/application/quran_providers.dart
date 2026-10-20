@@ -23,6 +23,12 @@ final FutureProviderFamily<Surah, int> surahProvider =
       return ref.watch(quranRepositoryProvider).surah(number);
     });
 
+/// The whole Qur'an, for offline search (parsed once, held in memory).
+final FutureProvider<List<Surah>> quranAllProvider =
+    FutureProvider<List<Surah>>((ref) {
+      return ref.watch(quranRepositoryProvider).all();
+    });
+
 /// Continue-Reading position, persisted locally (syncs to the profile
 /// record when Firestore lands with O-4).
 class ReadingPositionController extends Notifier<ReadingPosition?> {

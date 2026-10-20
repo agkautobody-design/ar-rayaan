@@ -2,6 +2,7 @@
  {
   "id": "dua-waking",
   "collection": "dailyduas",
+  "hisnCategory": "waking-sleeping",
   "title": "On Waking",
   "kicker": "DAILY DUAS · WAKING",
   "subtitle": "The first words of the day — gratitude before the screen",
@@ -22,6 +23,7 @@
  {
   "id": "dua-sleep",
   "collection": "dailyduas",
+  "hisnCategory": "waking-sleeping",
   "title": "Before Sleep (1) — Ayat al-Kursi",
   "kicker": "DAILY DUAS · SLEEPING",
   "subtitle": "A guardian is promised for the whole night",
@@ -42,6 +44,7 @@
  {
   "id": "dua-sleep2",
   "collection": "dailyduas",
+  "hisnCategory": "waking-sleeping",
   "title": "Before Sleep (2) — The Three Quls",
   "kicker": "DAILY DUAS · SLEEPING",
   "subtitle": "The complete shield, wiped over the body",
@@ -62,6 +65,7 @@
  {
   "id": "dua-home-in",
   "collection": "dailyduas",
+  "hisnCategory": "home",
   "title": "Entering the Home",
   "kicker": "DAILY DUAS · HOME",
   "subtitle": "The threshold is a border — cross it with the Name",
@@ -83,6 +87,7 @@
  {
   "id": "dua-eat-before",
   "collection": "dailyduas",
+  "hisnCategory": "food",
   "title": "Before Eating",
   "kicker": "DAILY DUAS · FOOD",
   "subtitle": "Bismillah gathers the table",
@@ -103,6 +108,7 @@
  {
   "id": "dua-eat-after",
   "collection": "dailyduas",
+  "hisnCategory": "food",
   "title": "After Eating",
   "kicker": "DAILY DUAS · FOOD",
   "subtitle": "Praise for the morsel and the sip",
@@ -124,6 +130,7 @@
  {
   "id": "dua-travel",
   "collection": "dailyduas",
+  "hisnCategory": "travel",
   "title": "The Journey",
   "kicker": "DAILY DUAS · TRAVEL",
   "subtitle": "The journey dua — from camels to planes",
@@ -144,6 +151,7 @@
  {
   "id": "dua-anxiety",
   "collection": "dailyduas",
+  "hisnCategory": "hardship",
   "title": "The Heart's Unrest",
   "kicker": "DAILY DUAS · HARD TIMES",
   "subtitle": "The 3am dua for the racing heart",
@@ -164,6 +172,7 @@
  {
   "id": "dua-distress",
   "collection": "dailyduas",
+  "hisnCategory": "hardship",
   "title": "The Dua of Distress",
   "kicker": "DAILY DUAS · HARD TIMES",
   "subtitle": "Three lines that reach the Throne",
@@ -184,6 +193,7 @@
  {
   "id": "dua-debt",
   "collection": "dailyduas",
+  "hisnCategory": "hardship",
   "title": "The Debtor's Dua",
   "kicker": "DAILY DUAS · HARD TIMES",
   "subtitle": "Sufficiency from the only true sufficiency",
@@ -204,6 +214,7 @@
  {
   "id": "dua-illness",
   "collection": "dailyduas",
+  "hisnCategory": "hardship",
   "title": "For the Sick",
   "kicker": "DAILY DUAS · HARD TIMES",
   "subtitle": "Recite over the sick seven times",
@@ -224,6 +235,7 @@
  {
   "id": "dua-loss",
   "collection": "dailyduas",
+  "hisnCategory": "hardship",
   "title": "When Struck by Loss",
   "kicker": "DAILY DUAS · HARD TIMES",
   "subtitle": "Umm Salama's dua — and what replaced her loss",
@@ -244,6 +256,7 @@
  {
   "id": "dua-istikhara",
   "collection": "dailyduas",
+  "hisnCategory": "decisions",
   "title": "Istikhara's Heart",
   "kicker": "DAILY DUAS · DECISIONS",
   "subtitle": "The dua of surrender for every decision",
@@ -264,6 +277,7 @@
  {
   "id": "dua-parents",
   "collection": "dailyduas",
+  "hisnCategory": "family",
   "title": "For Parents",
   "kicker": "DAILY DUAS · FAMILY",
   "subtitle": "The dua embedded in their right",
@@ -284,6 +298,7 @@
  {
   "id": "dua-children",
   "collection": "dailyduas",
+  "hisnCategory": "family",
   "title": "For the Children",
   "kicker": "DAILY DUAS · FAMILY",
   "subtitle": "The family dua — and the named prayer",
@@ -304,6 +319,7 @@
  {
   "id": "dua-fasting",
   "collection": "dailyduas",
+  "hisnCategory": "fasting",
   "title": "Breaking the Fast",
   "kicker": "DAILY DUAS · WORSHIP",
   "subtitle": "The small door between two joys",
@@ -324,6 +340,7 @@
  {
   "id": "dua-rain",
   "collection": "dailyduas",
+  "hisnCategory": "rain",
   "title": "When It Rains",
   "kicker": "DAILY DUAS · WORLD",
   "subtitle": "Address the weather to its Owner",
@@ -344,6 +361,7 @@
  {
   "id": "dua-mosque",
   "collection": "dailyduas",
+  "hisnCategory": "prayer",
   "title": "Entering the Mosque",
   "kicker": "DAILY DUAS · WORSHIP",
   "subtitle": "Open the doors of mercy, then two rak'ahs",
@@ -364,6 +382,7 @@
  {
   "id": "dua-after-salah",
   "collection": "dailyduas",
+  "hisnCategory": "prayer",
   "title": "After the Prayer",
   "kicker": "DAILY DUAS · PRAYER",
   "subtitle": "Say it after every obligatory prayer, before the dhikr",
@@ -384,6 +403,7 @@
  {
   "id": "dua-istikhlas",
   "collection": "dailyduas",
+  "hisnCategory": "morning-evening",
   "title": "Sayyid al-Istighfar — the Master of Seeking Forgiveness",
   "kicker": "DAILY DUAS · PRAYER",
   "subtitle": "Whoever says it with conviction morning or evening and dies that day/night enters Paradise",
@@ -404,6 +424,7 @@
  {
   "id": "dua-rabbana-atina",
   "collection": "dailyduas",
+  "hisnCategory": "prayer",
   "title": "The Sum of all Duas",
   "kicker": "DAILY DUAS · QUR'AN",
   "subtitle": "The Prophet's ﷺ most frequent supplication (Bukhari 6389)",
@@ -424,6 +445,7 @@
  {
   "id": "dua-exit-home",
   "collection": "dailyduas",
+  "hisnCategory": "home",
   "title": "Leaving for Work or Study",
   "kicker": "DAILY DUAS · HOME",
   "subtitle": "Said when leaving the house — the caller says: you are guided, sufficed, and protected",
@@ -444,6 +466,8 @@
  {
   "id": "dua-enter-mosque2",
   "collection": "dailyduas",
+  "hisnCategory": "prayer",
+  "duplicateOf": "dua-mosque",
   "title": "Entering the Mosque (full form)",
   "kicker": "DAILY DUAS · PRAYER",
   "subtitle": "Then pray two rak'ahs of greeting before sitting",
@@ -464,6 +488,7 @@
  {
   "id": "dua-rain2",
   "collection": "dailyduas",
+  "hisnCategory": "rain",
   "title": "Asking for Rain",
   "kicker": "DAILY DUAS · WORLD",
   "subtitle": "When the rain hardens: O Allah, around us and not upon us",
@@ -484,6 +509,8 @@
  {
   "id": "dua-debt2",
   "collection": "dailyduas",
+  "hisnCategory": "hardship",
+  "duplicateOf": "dua-debt",
   "title": "For Relief of Debt",
   "kicker": "DAILY DUAS · HARD TIMES",
   "subtitle": "The dua of Ali (RA); whoever says it morning and evening, Allah suffices him",
@@ -504,6 +531,7 @@
  {
   "id": "dua-rizq",
   "collection": "dailyduas",
+  "hisnCategory": "hardship",
   "title": "Asking Provision",
   "kicker": "DAILY DUAS · HARD TIMES",
   "subtitle": "A customary supplication for halal provision",
@@ -524,6 +552,7 @@
  {
   "id": "dua-family2",
   "collection": "dailyduas",
+  "hisnCategory": "family",
   "title": "For the Whole Household",
   "kicker": "DAILY DUAS · FAMILY",
   "subtitle": "The dua of Ibrahim's tradition for a righteous house",
@@ -544,6 +573,7 @@
  {
   "id": "dua-hawqala",
   "collection": "dailyduas",
+  "hisnCategory": "hardship",
   "title": "The Hawqala — the Treasure of Paradise",
   "kicker": "DAILY DUAS · HARD TIMES",
   "subtitle": "A treasure of Paradise — said when matters weigh heavy",
@@ -564,6 +594,7 @@
  {
   "id": "dua-seeing-afflicted",
   "collection": "dailyduas",
+  "hisnCategory": "hardship",
   "title": "Seeing Someone Afflicted",
   "kicker": "DAILY DUAS · HARD TIMES",
   "subtitle": "Say it quietly — and never say it as pride, only gratitude",
@@ -584,6 +615,7 @@
  {
   "id": "dua-forgiveness-night",
   "collection": "dailyduas",
+  "hisnCategory": "prayer",
   "title": "The Night Prayer's Door",
   "kicker": "DAILY DUAS · HARD TIMES",
   "subtitle": "Aisha asked what to say in Laylat al-Qadr — this was the answer",
@@ -604,6 +636,7 @@
  {
   "id": "dua-istikhara-full",
   "collection": "dailyduas",
+  "hisnCategory": "decisions",
   "title": "Istikhara — Asking Allah to Choose",
   "kicker": "DAILY DUAS · DECISIONS",
   "subtitle": "Two rak'ahs, then this dua, naming the matter in your heart — then proceed with what unfolds",
@@ -624,6 +657,7 @@
  {
   "id": "dua-suhoor",
   "collection": "dailyduas",
+  "hisnCategory": "fasting",
   "title": "At Suhoor — the Fast Begins",
   "kicker": "DAILY DUAS · FASTING",
   "subtitle": "The Prophet ﷺ said: actions are by intentions — the fast is born at suhoor",
@@ -644,6 +678,8 @@
  {
   "id": "dua-iftar-full",
   "collection": "dailyduas",
+  "hisnCategory": "fasting",
+  "duplicateOf": "dua-fasting",
   "title": "Breaking the Fast — Complete",
   "kicker": "DAILY DUAS · FASTING",
   "subtitle": "The fast-breaker's dua is not rejected (Ibn Majah 1753)",
@@ -664,6 +700,7 @@
  {
   "id": "dua-travel-full",
   "collection": "dailyduas",
+  "hisnCategory": "travel",
   "title": "The Full Journey Dua",
   "kicker": "DAILY DUAS · TRAVEL",
   "subtitle": "Say the takbir three times when boarding; this when setting out",
@@ -684,6 +721,7 @@
  {
   "id": "dua-sajdah",
   "collection": "dailyduas",
+  "hisnCategory": "prayer",
   "title": "Inside the Prostration",
   "kicker": "DAILY DUAS · PRAYER",
   "subtitle": "Then pour out your own words — the slave is nearest to his Lord in sujud (Muslim 482)",
@@ -704,6 +742,7 @@
  {
   "id": "dua-between-sajdah",
   "collection": "dailyduas",
+  "hisnCategory": "prayer",
   "title": "Between the Two Prostrations",
   "kicker": "DAILY DUAS · PRAYER",
   "subtitle": "The sitting between sujud is built for asking",
@@ -724,6 +763,7 @@
  {
   "id": "dua-witr-qunut",
   "collection": "dailyduas",
+  "hisnCategory": "prayer",
   "title": "The Witr Qunut",
   "kicker": "DAILY DUAS · PRAYER",
   "subtitle": "Taught to a companion who could not master other recitations — mercy in simplicity",
@@ -744,6 +784,7 @@
  {
   "id": "dua-visit-sick",
   "collection": "dailyduas",
+  "hisnCategory": "hardship",
   "title": "Visiting the Sick",
   "kicker": "DAILY DUAS · HARD TIMES",
   "subtitle": "Say it seven times; the Prophet ﷺ visited a sick man and wiped his face until he rose healed",
@@ -764,6 +805,7 @@
  {
   "id": "dua-morning-master",
   "collection": "dailyduas",
+  "hisnCategory": "morning-evening",
   "title": "The Morning Shield (Complete)",
   "kicker": "DAILY DUAS · WAKING",
   "subtitle": "Three times in the evening — nothing harms the one who says it that night (Tirmidhi 3604); and whenever you stop at a place (Muslim 2708)",
@@ -785,6 +827,7 @@
  {
   "id": "dua-evening-shield",
   "collection": "dailyduas",
+  "hisnCategory": "waking-sleeping",
   "title": "The Evening Shield",
   "kicker": "DAILY DUAS · SLEEPING",
   "subtitle": "Said as the body settles — the night given back to its Owner",
@@ -805,6 +848,7 @@
  {
   "id": "dua-children-shield",
   "collection": "dailyduas",
+  "hisnCategory": "family",
   "title": "Over Your Children",
   "kicker": "DAILY DUAS · FAMILY",
   "subtitle": "The Prophet ﷺ said this over al-Hasan and al-Husayn, passing his hands over their heads",
@@ -825,6 +869,7 @@
  {
   "id": "dua-takbir-days",
   "collection": "dailyduas",
+  "hisnCategory": "prayer",
   "title": "The Ten Days' Takbir",
   "kicker": "DAILY DUAS · WORSHIP",
   "subtitle": "The loud glorification of Dhul-Hijjah's first ten days — the days Allah swears by (89:2)",

@@ -9,4 +9,7 @@ abstract interface class QuranRepository {
 
   /// Full text of one surah (Arabic + English).
   Future<Surah> surah(int number);
+
+  /// The whole Qur'an (all 114 surahs, in order) — for offline search.
+  Future<List<Surah>> all();
 }

@@ -18,7 +18,13 @@
   "sources": [
    "Sahih al-Bukhari 756, 812, 831; Sahih Muslim 397-401"
   ],
-  "madhhabNote": "Differences between the four schools (hand positions, recitation aloud vs silent, amin aloud) are all valid — the Huda rule: follow one school's fiqh completely, or ask a local teacher."
+  "madhhabNote": "Differences between the four schools (hand positions, recitation aloud vs silent, amin aloud) are all valid — the Huda rule: follow one school's fiqh completely, or ask a local teacher.",
+ "showPositions": true,
+ "goDeeper": {
+  "why": "Prayer is a meeting, not a performance — each position carries a meaning: standing in awe, bowing in humility, prostration in nearness (Muslim 482: the nearest a servant comes to his Lord is when he is prostrating, so make much supplication).",
+  "evidence": "Each step above carries its own source in brackets; the full list is under Sources below.",
+  "commonMistakes": "Rushing the words while the heart is elsewhere; looking around during prayer; treating wudu as a formality rather than the threshold of the meeting."
+ }
  },
  {
   "id": "huda-wudu",

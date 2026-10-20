@@ -20,6 +20,14 @@ class Guide {
   final List<String> sources;
   final String? madhhabNote;
 
+  /// Show the Qiyam/Ruku/Sujud/Julus strip (only guides of the prayer's
+  /// own movements set this in guides.json).
+  final bool showPositions;
+
+  /// Optional "GO DEEPER" block: keys why / evidence / commonMistakes.
+  /// Comes from the guide's own JSON — nothing is hard-coded per title.
+  final Map<String, String>? goDeeper;
+
   const Guide({
     required this.id,
     required this.category,
@@ -28,6 +36,8 @@ class Guide {
     required this.steps,
     required this.sources,
     this.madhhabNote,
+    this.showPositions = false,
+    this.goDeeper,
   });
 
   factory Guide.fromJson(Map<String, dynamic> j) => Guide(
@@ -38,6 +48,9 @@ class Guide {
         steps: (j['steps'] as List<dynamic>).cast<String>(),
         sources: (j['sources'] as List<dynamic>).cast<String>(),
         madhhabNote: j['madhhabNote'] as String?,
+        showPositions: j['showPositions'] as bool? ?? false,
+        goDeeper: (j['goDeeper'] as Map<String, dynamic>?)
+            ?.map((String k, dynamic v) => MapEntry<String, String>(k, '$v')),
       );
 }
 
@@ -85,7 +98,10 @@ class HudaScreen extends ConsumerWidget {
                     padding: const EdgeInsets.only(bottom: 10),
                     child: GlassCard(
                       onTap: () =>
-                          context.go(AppRoutes.hudaGuide, extra: g),
+                          context.go(
+                        '${AppRoutes.hudaGuide}?id=${Uri.encodeQueryComponent(g.id)}',
+                        extra: g,
+                      ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -101,6 +117,56 @@ class HudaScreen extends ConsumerWidget {
           );
         },
       ),
+    );
+  }
+}
+
+/// Route-level wrapper for /huda/guide. It resolves the guide from its id
+/// (the `?id=` query parameter) via [guidesProvider], so the page survives
+/// a browser reload or a deep link — navigation `extra` is only a fast
+/// path and is lost on reload.
+class GuideRouteScreen extends ConsumerWidget {
+  const GuideRouteScreen({super.key, this.guideId, this.guide});
+
+  final String? guideId;
+  final Guide? guide;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final Guide? given = guide;
+    if (given != null) return GuideScreen(guide: given);
+    final AsyncValue<List<Guide>> guides = ref.watch(guidesProvider);
+    return guides.when(
+      loading: () => const Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Center(child: CircularProgressIndicator(color: AppColors.gold)),
+      ),
+      error: (Object e, StackTrace _) => Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Center(
+          child: Text('Could not load this guide.', style: AppText.bodyMuted),
+        ),
+      ),
+      data: (List<Guide> all) {
+        for (final Guide g in all) {
+          if (g.id == guideId) return GuideScreen(guide: g);
+        }
+        return Scaffold(
+          backgroundColor: Colors.transparent,
+          body: ListView(
+            padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
+            children: <Widget>[
+              const ScreenHeader(title: 'Huda', close: true),
+              Text('That guide could not be found.', style: AppText.bodyMuted),
+              const SizedBox(height: 12),
+              TextButton(
+                onPressed: () => context.go(AppRoutes.huda),
+                child: const Text('Back to all guides'),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }
@@ -129,7 +195,7 @@ class GuideScreen extends StatelessWidget {
           ),
           const SizedBox(height: 4),
           Text(guide.subtitle, style: AppText.bodyMuted),
-          if (guide.title.toLowerCase().contains('pray')) ...[
+          if (guide.showPositions) ...[
             const SizedBox(height: 14),
             Container(
               padding: const EdgeInsets.symmetric(vertical: 10),
@@ -147,15 +213,22 @@ class GuideScreen extends StatelessWidget {
                 ],
               ),
             ),
+          ],
+          if (guide.goDeeper != null && guide.goDeeper!.isNotEmpty) ...[
             const SizedBox(height: 10),
             GlassCard(
               child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                 Text('GO DEEPER', style: AppText.eyebrow),
                 const SizedBox(height: 6),
                 Text(
-                  'WHY: prayer is a meeting, not a performance — each position carries a meaning: standing in awe, bowing in humility, prostration in nearness (Muslim 482: the slave is closest to his Lord in sujud).\n'
-                  'EVIDENCE: every step above carries its source (Bukhari 756, 812, 831).\n'
-                  'COMMON MISTAKES: rushing the words while the heart is elsewhere; looking around in sujud; treating wudu as a formality rather than the threshold of the meeting.',
+                  <String>[
+                    if (guide.goDeeper!['why'] != null)
+                      'WHY: ${guide.goDeeper!['why']}',
+                    if (guide.goDeeper!['evidence'] != null)
+                      'EVIDENCE: ${guide.goDeeper!['evidence']}',
+                    if (guide.goDeeper!['commonMistakes'] != null)
+                      'COMMON MISTAKES: ${guide.goDeeper!['commonMistakes']}',
+                  ].join('\n'),
                   style: AppText.bodyMuted.copyWith(height: 1.6, fontSize: 12),
                 ),
               ]),
