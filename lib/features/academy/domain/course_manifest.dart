@@ -1565,4 +1565,125 @@ AcademyLesson? findLesson(String courseId, String unitId, String lessonId) {
       ),
       ],
     ),
+    AcademyCourse(
+      id: 'endoflife',
+      titleKey: 'course.endoflife.title',
+      subtitleKey: 'course.endoflife.subtitle',
+      units: <AcademyUnit>[
+      AcademyUnit(
+        id: 'eol.u1',
+        courseId: 'endoflife',
+        titleKey: 'eol.u1.title',
+        subtitleKey: 'eol.u1.subtitle',
+        lessons: <AcademyLesson>[
+          AcademyLesson(
+            id: 'eol.u1.l1',
+            unitId: 'eol.u1',
+            courseId: 'endoflife',
+            titleKey: 'eol.u1.l1.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'eol.u1.l1.s1.title', bodyKey: 'eol.u1.l1.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'eol.u1.l1.s2.title', bodyKey: 'eol.u1.l1.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'eol.u1.l2',
+            unitId: 'eol.u1',
+            courseId: 'endoflife',
+            titleKey: 'eol.u1.l2.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'eol.u1.l2.s1.title', bodyKey: 'eol.u1.l2.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'eol.u1.l2.s2.title', bodyKey: 'eol.u1.l2.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'eol.u1.l3',
+            unitId: 'eol.u1',
+            courseId: 'endoflife',
+            titleKey: 'eol.u1.l3.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'eol.u1.l3.s1.title', bodyKey: 'eol.u1.l3.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'eol.u1.l3.s2.title', bodyKey: 'eol.u1.l3.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'eol.u1.l4',
+            unitId: 'eol.u1',
+            courseId: 'endoflife',
+            titleKey: 'eol.u1.l4.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'eol.u1.l4.s1.title', bodyKey: 'eol.u1.l4.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'eol.u1.l4.s2.title', bodyKey: 'eol.u1.l4.s2.body'),
+            ],
+          ),
+        ],
+      ),
+      AcademyUnit(
+        id: 'eol.u2',
+        courseId: 'endoflife',
+        titleKey: 'eol.u2.title',
+        subtitleKey: 'eol.u2.subtitle',
+        lessons: <AcademyLesson>[
+          AcademyLesson(
+            id: 'eol.u2.l1',
+            unitId: 'eol.u2',
+            courseId: 'endoflife',
+            titleKey: 'eol.u2.l1.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'eol.u2.l1.s1.title', bodyKey: 'eol.u2.l1.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'eol.u2.l1.s2.title', bodyKey: 'eol.u2.l1.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'eol.u2.l2',
+            unitId: 'eol.u2',
+            courseId: 'endoflife',
+            titleKey: 'eol.u2.l2.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'eol.u2.l2.s1.title', bodyKey: 'eol.u2.l2.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'eol.u2.l2.s2.title', bodyKey: 'eol.u2.l2.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'eol.u2.l3',
+            unitId: 'eol.u2',
+            courseId: 'endoflife',
+            titleKey: 'eol.u2.l3.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'eol.u2.l3.s1.title', bodyKey: 'eol.u2.l3.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'eol.u2.l3.s2.title', bodyKey: 'eol.u2.l3.s2.body'),
+            ],
+          ),
+        ],
+      ),
+      AcademyUnit(
+        id: 'eol.u3',
+        courseId: 'endoflife',
+        titleKey: 'eol.u3.title',
+        subtitleKey: 'eol.u3.subtitle',
+        lessons: <AcademyLesson>[
+          AcademyLesson(
+            id: 'eol.u3.l1',
+            unitId: 'eol.u3',
+            courseId: 'endoflife',
+            titleKey: 'eol.u3.l1.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'eol.u3.l1.s1.title', bodyKey: 'eol.u3.l1.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'eol.u3.l1.s2.title', bodyKey: 'eol.u3.l1.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'eol.u3.l2',
+            unitId: 'eol.u3',
+            courseId: 'endoflife',
+            titleKey: 'eol.u3.l2.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'eol.u3.l2.s1.title', bodyKey: 'eol.u3.l2.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'eol.u3.l2.s2.title', bodyKey: 'eol.u3.l2.s2.body'),
+            ],
+          ),
+        ],
+      ),
+      ],
+    ),
 
