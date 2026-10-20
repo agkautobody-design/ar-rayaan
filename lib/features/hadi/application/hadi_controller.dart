@@ -395,6 +395,14 @@ class HadiController extends Notifier<HadiState> {
         '/feelings', '/family-tree', '/huda', '/majlis', '/elder-care',
         '/qibla', '/hadith', '/sakina', '/share', '/notes', '/founder',
         '/academy', '/academy/gate', '/academy/family', '/home/quick',
+        '/new-muslim', '/academy/qa', '/academy/hisn', '/ramadan',
+        '/academy/transactions', '/academy/end-of-life', '/academy/dawah',
+        '/academy/health', '/academy/arabic-language', '/academy/aqeedah',
+        '/academy/hadith', '/academy/seerah', '/academy/history',
+        '/academy/stories', '/academy/character', '/academy/family',
+        '/academy/youth', '/academy/womens', '/academy/understanding',
+        '/academy/dua', '/academy/hifz', '/academy/recitation',
+        '/academy/quranic-arabic', '/academy/hajj-umrah-pack',
       };
       if (route != null && known.contains(route)) {
         navigationEvents.add(route);
