@@ -2,9 +2,41 @@ import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
 
+import 'router_source.dart';
+
 /// Every in-app link must land on a real route. Dead links used to slip in
 /// unnoticed (/names99, /guides/read, /academy/the-path, 'None').
 void main() {
+  test('every route path in the router is declared exactly once', () {
+    // Duplicate paths used to hide a screen: Home was declared both at the
+    // top level and inside the bottom-nav shell, so the shell copy (and its
+    // bottom nav) was unreachable. /stories (x3) and /share (x2) too.
+    final RouterSource router = RouterSource.read();
+    final Map<String, int> seen = <String, int>{};
+    for (final String p in router.absolutePaths) {
+      seen[p] = (seen[p] ?? 0) + 1;
+    }
+    final List<String> dupes = <String>[
+      for (final MapEntry<String, int> e in seen.entries)
+        if (e.value > 1) '${e.key} x${e.value}',
+    ];
+    expect(dupes, isEmpty, reason: 'duplicate route paths:\n${dupes.join('\n')}');
+    expect(router.absolutePaths.length, greaterThan(80));
+    expect(router.paths.any((String p) => p.startsWith('?')), isFalse,
+        reason: 'an AppRoutes constant in the router did not resolve');
+  });
+
+  test('Home lives once, inside the bottom-nav shell', () {
+    final String src = RouterSource.read().source;
+    // Exactly one HomeScreen page builder in the router...
+    expect(RegExp(r'_fade\(const HomeScreen\(\)\)').allMatches(src).length, 1);
+    // ...and it sits after the shell route begins.
+    final int shell = src.indexOf('StatefulShellRoute.indexedStack');
+    final int home = src.indexOf('_fade(const HomeScreen())');
+    expect(shell, greaterThan(0));
+    expect(home, greaterThan(shell));
+  });
+
   test('every literal in-app link resolves to a router path', () {
     final String router = File('lib/app/router.dart').readAsStringSync();
     final Map<String, String> consts = <String, String>{

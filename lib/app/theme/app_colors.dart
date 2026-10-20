@@ -15,10 +15,16 @@ abstract final class AppColors {
   static const Color glassFill = Color(0x1AFFFFFF);
 
   // Semantic
-  static const Color destructive = Color(0xFFC4524F);
+  // Lightened from 0xFFC4524F (4.4:1 on night, 2.9:1 on glass over navy) so
+  // destructive text meets WCAG AA (>= 4.5:1) on the app's dark surfaces.
+  static const Color destructive = Color(0xFFE06B68);
   static const Color textPrimary = sand;
-  static const Color textMuted = Color(0x99EAD6B4);
-  static const Color textFaint = Color(0x66EAD6B4);
+  // Contrast of sand-at-alpha over the dark surfaces (night, navy, and the
+  // 10% / 20% white glass over them) is pinned by test/audit/theme_a11y_test.
+  // textMuted (80%): >= 6.8:1 everywhere. textFaint (70%): >= 4.8:1 everywhere
+  // (it was 40% = 2.97:1, which failed AA).
+  static const Color textMuted = Color(0xCCEAD6B4);
+  static const Color textFaint = Color(0xB3EAD6B4);
 
   // Gradients
   static const LinearGradient goldGradient = LinearGradient(

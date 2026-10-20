@@ -1,31 +1,17 @@
-import 'package:ar_rayaan/app/app.dart';
-import 'package:ar_rayaan/app/core/env_config.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:ar_rayaan/features/academy/application/academy_providers.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-void main() { return; // TODO: rewrite
+import 'app_harness.dart';
 
+/// Home tiles show live/honest subtitles, and the Academy kill switch
+/// (ar.flag.academy) removes the Academy tile.
+void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   testWidgets('home tiles show live data, not stale placeholders', (
     tester,
   ) async {
-    SharedPreferences.setMockInitialValues(<String, Object>{});
-    tester.view.physicalSize = const Size(430, 1600);
-    tester.view.devicePixelRatio = 1;
-    addTearDown(tester.view.resetPhysicalSize);
-    addTearDown(tester.view.resetDevicePixelRatio);
-
-    await tester.pumpWidget(
-      ProviderScope(child: ArRayaanApp(env: EnvConfig.fromDefines())),
-    );
-    await tester.pump();
-    await tester.pump(const Duration(seconds: 4));
-    await tester.pumpAndSettle();
-    await tester.tap(find.byKey(const Key('welcome-continue')));
-    await tester.pumpAndSettle();
+    await AppHarness.boot(tester);
 
     // Stale placeholders are gone.
     expect(find.text('Riyad as-Salihin · Chapter 1'), findsNothing);
@@ -33,10 +19,44 @@ void main() { return; // TODO: rewrite
     expect(find.text('Morning Adhkar · 28 remaining'), findsNothing);
     expect(find.text('Continue Reading · Surah Al-Kahf'), findsNothing);
 
-    // Live content in their place.
+    // Live / honest content in their place.
     expect(find.text('The Forty Hadith · An-Nawawi'), findsOneWidget);
     expect(find.text('Begin Reading · Al-Fatihah'), findsOneWidget);
     expect(find.textContaining('Morning Adhkar'), findsWidgets);
+    // Knowledge opens the stories library, and says so.
+    expect(find.text('Stories, khutbahs & duas'), findsOneWidget);
+    expect(find.text('Articles, Lessons & Courses'), findsNothing);
+  });
+
+  testWidgets('all ten Home tiles are present with the Academy on', (
+    tester,
+  ) async {
+    await AppHarness.boot(tester);
+    for (final String title in <String>[
+      'Prayer Times',
+      'Qur’an',
+      'Dhikr & Du’a',
+      'Hadith',
+      'Today’s NOOR',
+      'Islamic Calendar',
+      'Knowledge',
+      'Wasia Academy',
+      'My Journey',
+    ]) {
+      expect(find.text(title), findsOneWidget, reason: title);
+    }
+  });
+
+  testWidgets('Academy kill switch removes the Academy tile from Home', (
+    tester,
+  ) async {
+    await AppHarness.boot(
+      tester,
+      overrides: [academyFlagProvider.overrideWith((ref) async => false)],
+    );
+    expect(find.text('Wasia Academy'), findsNothing);
+    // Everything else stays.
+    expect(find.text('Prayer Times'), findsOneWidget);
+    expect(find.text('My Journey'), findsOneWidget);
   });
 }
-

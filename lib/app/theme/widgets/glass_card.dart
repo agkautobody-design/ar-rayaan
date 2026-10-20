@@ -16,6 +16,7 @@ class GlassCard extends StatelessWidget {
     this.strong = false,
     this.onTap,
     this.borderRadius = 20,
+    this.blur = true,
   });
 
   final Widget child;
@@ -27,9 +28,22 @@ class GlassCard extends StatelessWidget {
   final VoidCallback? onTap;
   final double borderRadius;
 
+  /// Background blur. Each blurred card costs a compositing layer, so long
+  /// lists (stories index, ayah rows) should pass `blur: false` and keep the
+  /// translucent fill + border, which looks the same on this dark background.
+  final bool blur;
+
   @override
   Widget build(BuildContext context) {
     final BorderRadius radius = BorderRadius.circular(borderRadius);
+
+    final Widget inner = Material(
+      color: Colors.transparent,
+      child: Padding(
+        padding: padding ?? EdgeInsets.zero,
+        child: child,
+      ),
+    );
 
     final Widget card = Container(
       margin: margin,
@@ -62,24 +76,23 @@ class GlassCard extends StatelessWidget {
       ),
       child: ClipRRect(
         borderRadius: radius,
-        child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 24, sigmaY: 24),
-          child: Material(
-            color: Colors.transparent,
-            child: Padding(
-              padding: padding ?? EdgeInsets.zero,
-              child: child,
-            ),
-          ),
-        ),
+        child: blur
+            ? BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 24, sigmaY: 24),
+                child: inner,
+              )
+            : inner,
       ),
     );
 
     if (onTap == null) return card;
 
-    return Material(
-      type: MaterialType.transparency,
-      child: InkWell(onTap: onTap, borderRadius: radius, child: card),
+    return Semantics(
+      button: true,
+      child: Material(
+        type: MaterialType.transparency,
+        child: InkWell(onTap: onTap, borderRadius: radius, child: card),
+      ),
     );
   }
 }

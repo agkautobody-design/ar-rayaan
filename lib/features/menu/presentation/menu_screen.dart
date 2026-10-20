@@ -12,16 +12,36 @@ import '../../../app/theme/widgets/scenic_background.dart';
 import '../../auth/application/auth_providers.dart';
 import '../../academy/application/academy_providers.dart';
 
+/// One menu row: icon, label, route. A null route means "not built yet": the
+/// row is shown dimmed with a "Coming soon" caption instead of a dead tap.
+typedef MenuEntry = (IconData, String, String?);
+
+/// True when [route] belongs to the Academy (the `ar.flag.academy` switch).
+bool isAcademyRoute(String? route) =>
+    route != null && route.startsWith('/academy');
+
+/// The rows of a section that stay visible. With the Academy kill switch off
+/// every Academy entry point disappears - the row AND its divider, because the
+/// divider is drawn per visible row, never per source row.
+List<MenuEntry> visibleMenuEntries(
+  List<MenuEntry> items, {
+  required bool showAcademy,
+}) =>
+    <MenuEntry>[
+      for (final MenuEntry e in items)
+        if (showAcademy || !isAcademyRoute(e.$3)) e,
+    ];
+
 /// Screen 11 · Menu (Full List) — built to the locked §6.11 spec:
 /// three grouped lists (FAITH & WORSHIP · FAMILY & COMMUNITY ·
 /// TOOLS & RESOURCES), Settings · Help & Support row, My Profile card.
-/// Shipped module rows are wired; Marriage stays destination-less
-/// (NOOR Connect deferred, §10); other rows inert until phased.
+/// Shipped module rows are wired. Anything not built yet (Help & Support)
+/// says "Coming soon" instead of looking tappable.
 /// Log Out kept (auth flow necessity) below the locked content.
 class MenuScreen extends ConsumerWidget {
   const MenuScreen({super.key});
 
-  static const List<(String, List<(IconData, String, String?)>)> _sections = [
+  static const List<(String, List<MenuEntry>)> _sections = [
     (
       'Faith & Worship',
       [
@@ -48,13 +68,12 @@ class MenuScreen extends ConsumerWidget {
     (
       'Family & Community',
       [
-        (
-          Icons.handshake_outlined,
-          'Marriage',
-          null,
-        ), // NOOR Connect deferred (§10)
-        (Icons.child_care_outlined, 'Parenting', '/academy/family-life'),
-        (Icons.home_outlined, 'Family Life', AppRoutes.feelings),
+        // Marriage is the first unit of the Family Life school (verified in
+        // family_school_screen.dart). NOOR Connect matchmaking stays deferred.
+        (Icons.handshake_outlined, 'Marriage', '/academy/family-life'),
+        // The Family Wing: add children, follow their lessons, ask Wasia.
+        (Icons.child_care_outlined, 'Parenting', '/academy/family'),
+        (Icons.home_outlined, 'Family Life', '/academy/family-life'),
         (Icons.people_outline, 'Community', AppRoutes.community),
         (Icons.favorite_outline, 'Elder Care', '/elder-care'),
       ],
@@ -98,20 +117,23 @@ class MenuScreen extends ConsumerWidget {
                     GlassCard(
                       child: Column(
                         children: [
-                          for (int i = 0; i < items.length; i++) ...[
-                            if (showAcademy || items[i].$3 != AppRoutes.academy)
-                            if (i > 0 && (showAcademy || items[i].$3 != AppRoutes.academy))
+                          for (final (int i, MenuEntry e) in visibleMenuEntries(
+                            items,
+                            showAcademy: showAcademy,
+                          ).indexed) ...[
+                            if (i > 0)
                               Divider(
                                 height: 1,
                                 color: AppColors.gold.withValues(alpha: 0.1),
                                 indent: 64,
                               ),
                             _MenuRow(
-                              icon: items[i].$1,
-                              label: items[i].$2,
-                              onTap: items[i].$3 == null
+                              icon: e.$1,
+                              label: e.$2,
+                              comingSoon: e.$3 == null,
+                              onTap: e.$3 == null
                                   ? null
-                                  : () => context.go(items[i].$3!),
+                                  : () => context.go(e.$3!),
                             ),
                           ],
                         ],
@@ -123,13 +145,10 @@ class MenuScreen extends ConsumerWidget {
                     child: Row(
                       children: [
                         Expanded(
-                          child: InkWell(
+                          child: _MenuRow(
+                            icon: Icons.settings_outlined,
+                            label: 'Settings',
                             onTap: () => context.push(AppRoutes.settings),
-                            borderRadius: BorderRadius.circular(20),
-                            child: const _MenuRow(
-                              icon: Icons.settings_outlined,
-                              label: 'Settings',
-                            ),
                           ),
                         ),
                         Container(
@@ -138,9 +157,11 @@ class MenuScreen extends ConsumerWidget {
                           color: AppColors.gold.withValues(alpha: 0.1),
                         ),
                         const Expanded(
+                          // No help centre exists yet: shown as "Coming soon".
                           child: _MenuRow(
                             icon: Icons.help_outline,
                             label: 'Help & Support',
+                            comingSoon: true,
                           ),
                         ),
                       ],
@@ -183,9 +204,7 @@ class MenuScreen extends ConsumerWidget {
                   const SizedBox(height: 20),
                   Text(
                     'VERIFIED · AUTHENTIC · COMPASSIONATE',
-                    style: AppText.eyebrow.copyWith(
-                      color: AppColors.gold.withValues(alpha: 0.4),
-                    ),
+                    style: AppText.eyebrow,
                     textAlign: TextAlign.center,
                   ),
                 ],
@@ -205,6 +224,7 @@ class _MenuRow extends StatelessWidget {
     this.subtitle,
     this.onTap,
     this.destructive = false,
+    this.comingSoon = false,
   });
 
   final IconData icon;
@@ -213,52 +233,69 @@ class _MenuRow extends StatelessWidget {
   final VoidCallback? onTap;
   final bool destructive;
 
+  /// Not built yet: the row reads "Coming soon", is dimmed, has no chevron and
+  /// is announced as disabled, instead of looking tappable and doing nothing.
+  final bool comingSoon;
+
   @override
   Widget build(BuildContext context) {
     final Color color = destructive ? AppColors.destructive : AppColors.gold;
-    return Material(
-      type: MaterialType.transparency,
-      child: InkWell(
-        onTap: onTap,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-          child: Row(
-            children: [
-              IconTile(
-                icon: icon,
-                size: 32,
-                color: destructive ? AppColors.destructive : null,
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      label,
-                      style: AppText.body.copyWith(
-                        color: destructive
-                            ? AppColors.destructive
-                            : AppColors.sand.withValues(alpha: 0.9),
+    final bool soon = comingSoon;
+    final String? caption = soon ? 'Coming soon' : subtitle;
+    return Semantics(
+      button: true,
+      enabled: !soon,
+      child: Material(
+        type: MaterialType.transparency,
+        child: InkWell(
+          onTap: onTap,
+          child: Opacity(
+            opacity: soon ? 0.7 : 1,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+              child: Row(
+                children: [
+                  ExcludeSemantics(
+                    child: IconTile(
+                      icon: icon,
+                      size: 32,
+                      color: destructive ? AppColors.destructive : null,
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          label,
+                          style: AppText.body.copyWith(
+                            color: destructive
+                                ? AppColors.destructive
+                                : AppColors.sand.withValues(alpha: 0.9),
+                          ),
+                        ),
+                        if (caption != null)
+                          Text(
+                            caption,
+                            style: AppText.caption.copyWith(
+                              color: AppColors.textMuted,
+                            ),
+                          ),
+                      ],
+                    ),
+                  ),
+                  if (!destructive && !soon)
+                    ExcludeSemantics(
+                      child: Icon(
+                        Icons.chevron_right,
+                        size: 18,
+                        color: color.withValues(alpha: 0.6),
                       ),
                     ),
-                    if (subtitle != null)
-                      Text(
-                        subtitle!,
-                        style: AppText.caption.copyWith(
-                          color: AppColors.sand.withValues(alpha: 0.5),
-                        ),
-                      ),
-                  ],
-                ),
+                ],
               ),
-              if (!destructive)
-                Icon(
-                  Icons.chevron_right,
-                  size: 16,
-                  color: color.withValues(alpha: 0.5),
-                ),
-            ],
+            ),
           ),
         ),
       ),

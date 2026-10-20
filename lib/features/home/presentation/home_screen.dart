@@ -8,6 +8,8 @@ import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/core/modules/module_status.dart';
+import '../../academy/application/academy_providers.dart';
+import '../../menu/presentation/menu_screen.dart' show isAcademyRoute;
 import '../../hadith/presentation/daily_hadith_banner.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/gold_text.dart';
@@ -101,7 +103,12 @@ class HomeScreen extends ConsumerWidget {
         'Events & Observances',
         AppRoutes.calendar,
       ),
-      (Icons.school_outlined, 'Knowledge', 'Articles, Lessons & Courses', AppRoutes.stories),
+      (
+        Icons.school_outlined,
+        'Knowledge',
+        'Stories, khutbahs & duas',
+        AppRoutes.stories,
+      ),
       (
         Icons.child_care,
         'Wasia Academy',
@@ -115,6 +122,17 @@ class HomeScreen extends ConsumerWidget {
         AppRoutes.journey,
       ),
     ];
+
+    // Kill switch: ar.flag.academy=false removes every Academy entry point.
+    final bool showAcademy = ref.watch(academyFlagProvider).valueOrNull ?? true;
+    final List<(IconData, String, String, String?)> shownTiles = [
+      for (final t in tiles)
+        if (showAcademy || !isAcademyRoute(t.$4)) t,
+    ];
+    // Fixed-aspect tiles must grow with the system text size or the text
+    // overflows: give them proportionally more height.
+    final double textScale =
+        (MediaQuery.textScalerOf(context).scale(14) / 14).clamp(1.0, 2.0);
 
     return Scaffold(
       body: AtmosphereLayer(
@@ -151,16 +169,26 @@ class HomeScreen extends ConsumerWidget {
                   padding: const EdgeInsets.fromLTRB(20, 12, 20, 0),
                   child: Row(
                     children: [
-                      _HeaderIcon(
-                        icon: Icons.arrow_back,
-                        onTap: () => context.pop(),
-                      ),
-                      const SizedBox(width: 12),
+                      // Home is the root of the Home tab: there is nothing to go
+                      // back to unless something was pushed over it.
+                      if (context.canPop()) ...[
+                        _HeaderIcon(
+                          icon: Icons.arrow_back,
+                          tooltip: 'Back',
+                          onTap: () => context.pop(),
+                        ),
+                        const SizedBox(width: 12),
+                      ],
                       Expanded(
-                        child: GestureDetector(
+                        child: Semantics(
+                          button: true,
+                          label: 'Ask Hādi anything',
+                          excludeSemantics: true,
+                          onTap: () => context.go(AppRoutes.hadi),
+                          child: GestureDetector(
                           onTap: () => context.go(AppRoutes.hadi),
                           child: Container(
-                            height: 40,
+                            height: 44,
                             padding: const EdgeInsets.symmetric(horizontal: 16),
                             decoration: BoxDecoration(
                               color: AppColors.glassFill,
@@ -186,30 +214,22 @@ class HomeScreen extends ConsumerWidget {
                                     overflow: TextOverflow.ellipsis,
                                   ),
                                 ),
-                                Icon(
-                                  Icons.mic_none,
-                                  size: 16,
-                                  color: AppColors.gold.withValues(alpha: 0.7),
-                                ),
-                                const SizedBox(width: 8),
-                                Icon(
-                                  Icons.photo_camera_outlined,
-                                  size: 16,
-                                  color: AppColors.gold.withValues(alpha: 0.7),
-                                ),
                               ],
                             ),
                           ),
+                        ),
                         ),
                       ),
                       const SizedBox(width: 12),
                       _HeaderIcon(
                         icon: Icons.search,
+                        tooltip: 'Search',
                         onTap: () => context.push(AppRoutes.search),
                       ),
                       const SizedBox(width: 8),
                       _HeaderIcon(
                         icon: Icons.menu,
+                        tooltip: 'Menu',
                         onTap: () => context.push(AppRoutes.menu),
                       ),
                     ],
@@ -277,7 +297,7 @@ class HomeScreen extends ConsumerWidget {
                             fontWeight: FontWeight.w800, fontSize: 15, color: AppColors.goldLight,
                             letterSpacing: 1.2)),
                         Text('One tap \u2014 the app opens here for them every time. Big words. Three doors. Nothing else.',
-                            style: AppText.bodyMuted.copyWith(fontSize: 10.5)),
+                            style: AppText.bodyMuted.copyWith(fontSize: 12)),
                       ],
                     )),
                     const Icon(Icons.chevron_right, color: AppColors.gold, size: 22),
@@ -303,7 +323,7 @@ class HomeScreen extends ConsumerWidget {
                         Text('Quick Access', style: AppText.body.copyWith(
                             fontWeight: FontWeight.w700, fontSize: 13.5, color: AppColors.goldLight)),
                         Text('Academy \u00b7 Naats \u00b7 Games \u00b7 Elder Care \u00b7 Therapy \u00b7 Duas',
-                            style: AppText.bodyMuted.copyWith(fontSize: 10.5)),
+                            style: AppText.bodyMuted.copyWith(fontSize: 12)),
                       ],
                     )),
                     const Icon(Icons.chevron_right, color: AppColors.gold, size: 18),
@@ -322,11 +342,13 @@ class HomeScreen extends ConsumerWidget {
                         physics: const NeverScrollableScrollPhysics(),
                         mainAxisSpacing: 8,
                         crossAxisSpacing: 10,
-                        childAspectRatio: MediaQuery.of(context).size.width > 780
-                            ? 1.15
-                            : 1.0,
+                        childAspectRatio:
+                            (MediaQuery.of(context).size.width > 780
+                                    ? 1.15
+                                    : 1.0) /
+                                textScale,
                         children: [
-                          for (final (_, title, sub, route) in tiles)
+                          for (final (_, title, sub, route) in shownTiles)
                             _PictureTile(
                               image: _tileImage(title),
                               title: title,
@@ -364,7 +386,7 @@ class HomeScreen extends ConsumerWidget {
                                   child: Text(
                                     'View All',
                                     style: AppText.bodyMuted.copyWith(
-                                      fontSize: 10,
+                                      fontSize: 12,
                                       color: AppColors.gold,
                                     ),
                                   ),
@@ -393,7 +415,7 @@ class HomeScreen extends ConsumerWidget {
                                       Text(
                                         'And remember your Lord when you forget.',
                                         style: AppText.bodyMuted.copyWith(
-                                          fontSize: 11,
+                                          fontSize: 12,
                                           fontStyle: FontStyle.italic,
                                           height: 1.5,
                                         ),
@@ -402,7 +424,7 @@ class HomeScreen extends ConsumerWidget {
                                       Text(
                                         'QUR’AN 18:24',
                                         style: AppText.eyebrow.copyWith(
-                                          fontSize: 9,
+                                          fontSize: 12,
                                           letterSpacing: 2,
                                         ),
                                       ),
@@ -465,7 +487,7 @@ class _LamhaCard extends StatelessWidget {
                   'LAMHA · ${moment.title.toUpperCase()}',
                   style: AppText.eyebrow.copyWith(
                     color: AppColors.gold,
-                    fontSize: 9,
+                    fontSize: 12,
                   ),
                 ),
               ),
@@ -484,7 +506,7 @@ class _LamhaCard extends StatelessWidget {
           Text(
             moment.source,
             style: AppText.eyebrow.copyWith(
-              fontSize: 8,
+              fontSize: 12,
               color: AppColors.gold.withValues(alpha: 0.5),
             ),
           ),
@@ -495,30 +517,53 @@ class _LamhaCard extends StatelessWidget {
 }
 
 class _HeaderIcon extends StatelessWidget {
-  const _HeaderIcon({required this.icon, required this.onTap});
+  const _HeaderIcon({
+    required this.icon,
+    required this.tooltip,
+    required this.onTap,
+  });
 
   final IconData icon;
+  final String tooltip;
   final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      type: MaterialType.transparency,
-      child: InkWell(
-        onTap: onTap,
-        customBorder: const CircleBorder(),
-        child: Container(
-          width: 36,
-          height: 36,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: AppColors.glassFill,
-            border: Border.all(color: AppColors.gold.withValues(alpha: 0.2)),
-          ),
-          child: Icon(
-            icon,
-            size: 17,
-            color: AppColors.sand.withValues(alpha: 0.85),
+    return Semantics(
+      button: true,
+      label: tooltip,
+      excludeSemantics: true,
+      onTap: onTap,
+      child: Tooltip(
+        message: tooltip,
+        child: Material(
+          type: MaterialType.transparency,
+          child: InkWell(
+            onTap: onTap,
+            customBorder: const CircleBorder(),
+            // 44 px touch target around the 36 px circle.
+            child: SizedBox(
+              width: 44,
+              height: 44,
+              child: Center(
+                child: Container(
+                  width: 36,
+                  height: 36,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: AppColors.glassFill,
+                    border: Border.all(
+                      color: AppColors.gold.withValues(alpha: 0.2),
+                    ),
+                  ),
+                  child: Icon(
+                    icon,
+                    size: 18,
+                    color: AppColors.sand.withValues(alpha: 0.9),
+                  ),
+                ),
+              ),
+            ),
           ),
         ),
       ),
@@ -590,7 +635,12 @@ class _PictureTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return Semantics(
+      button: true,
+      label: badge == null ? '$title. $subtitle' : '$title, $badge. $subtitle',
+      excludeSemantics: true,
+      onTap: onTap,
+      child: GestureDetector(
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
@@ -636,7 +686,7 @@ class _PictureTile extends StatelessWidget {
                     child: Text(
                       badge!,
                       style: AppText.bodyMuted.copyWith(
-                        fontSize: 9,
+                        fontSize: 12,
                         color: AppColors.gold,
                         fontWeight: FontWeight.w700,
                       ),
@@ -647,7 +697,7 @@ class _PictureTile extends StatelessWidget {
               Text(
                 title,
                 style: AppText.body.copyWith(
-                  fontSize: 11.5,
+                  fontSize: 12,
                   fontWeight: FontWeight.w700,
                   color: AppColors.goldLight,
                   shadows: const [
@@ -661,7 +711,7 @@ class _PictureTile extends StatelessWidget {
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
                 style: AppText.bodyMuted.copyWith(
-                  fontSize: 8.5,
+                  fontSize: 12,
                   height: 1.3,
                   shadows: const [
                     Shadow(color: Colors.black, blurRadius: 6),
@@ -671,6 +721,7 @@ class _PictureTile extends StatelessWidget {
             ],
           ),
         ),
+      ),
       ),
     );
   }
