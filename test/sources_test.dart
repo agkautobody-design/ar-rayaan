@@ -1,51 +1,53 @@
-import 'package:ar_rayaan/app/router.dart';
+import 'package:ar_rayaan/app/theme/app_theme.dart';
+import 'package:ar_rayaan/features/sources/presentation/sources_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:go_router/go_router.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-void main() { return; // TODO: rewrite
-
+void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  Widget app() {
-    return ProviderScope(
-      child: MaterialApp.router(routerConfig: buildRouter()),
+  testWidgets('Our Sources is honest about the Qur’an, hadith and guidance',
+      (tester) async {
+    tester.view.physicalSize = const Size(430, 2400);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(
+      ProviderScope(
+        child: MaterialApp(
+          theme: AppTheme.dark(),
+          home: const SourcesScreen(),
+        ),
+      ),
     );
-  }
+    await tester.pump(const Duration(milliseconds: 300));
 
-  testWidgets('Our Sources shows Qur’an, the Authentic Six, and guidance', (
-    tester,
-  ) async {
-    SharedPreferences.setMockInitialValues(<String, Object>{});
-    await tester.pumpWidget(app());
-    await tester.pumpAndSettle();
-
-    // Skip the splash (it auto-advances after 4s; tap to skip).
-    await tester.tap(find.byType(GestureDetector).first);
-    await tester.pumpAndSettle();
-
-    // Navigate straight to /sources.
-    final BuildContext ctx = tester.element(find.byType(Scaffold).first);
-    GoRouter.of(ctx).go('/sources');
-    await tester.pumpAndSettle();
-
-    // Qur'an layer.
+    // Qur'an layer: text, translation, recitation, with real attributions.
     expect(find.textContaining('Tanzil Uthmani'), findsOneWidget);
     expect(find.textContaining('Saheeh International'), findsOneWidget);
     expect(find.textContaining('Mahmoud Khalil Al-Husary'), findsOneWidget);
+    expect(find.textContaining('tanzil.net'), findsWidgets);
+    expect(find.textContaining('everyayah.com'), findsOneWidget);
 
-    // The Authentic Six (Founder-approved).
+    // The six canonical collections (Founder-approved descriptions).
     expect(find.text('Sahih al-Bukhari'), findsOneWidget);
     expect(find.text('Sahih Muslim'), findsOneWidget);
     expect(find.text('Sunan Abu Dawood'), findsOneWidget);
     expect(find.text('Jami’ al-Tirmidhi'), findsOneWidget);
     expect(find.text('Sunan an-Nasa’i'), findsOneWidget);
     expect(find.text('Sunan Ibn Majah'), findsOneWidget);
-    expect(find.text('HADITH · THE AUTHENTIC SIX'), findsOneWidget);
+    expect(find.textContaining('al-Bukhari (d. 870 CE)'), findsOneWidget);
 
-    // Knowledge & guidance (scroll into view — the ListView builds lazily).
+    // Four of the six are Sunan, not all-sahih: the screen must not call
+    // the whole set "authentic", and must say how grades are handled.
+    expect(find.text('HADITH · THE SIX COLLECTIONS'), findsOneWidget);
+    expect(find.textContaining('Authentic Six'), findsNothing);
+    expect(find.textContaining('Only Bukhari and Muslim'), findsOneWidget);
+    expect(find.textContaining('fawazahmed0'), findsOneWidget);
+
+    // Knowledge & guidance (lazy list: scroll into view).
     await tester.scrollUntilVisible(
       find.text('Shaykh Muhammad Saqib Iqbal'),
       200,
@@ -53,8 +55,12 @@ void main() { return; // TODO: rewrite
     );
     expect(find.text('Shaykh Muhammad Saqib Iqbal'), findsOneWidget);
 
-    // The Authentic Six appear nowhere with wrong attributions.
-    expect(find.textContaining('al-Bukhari (d. 870 CE)'), findsOneWidget);
+    // Adhkar credit.
+    await tester.scrollUntilVisible(
+      find.text('Adhkar · Hisn al-Muslim'),
+      200,
+      scrollable: find.byType(Scrollable).first,
+    );
+    expect(find.text('Adhkar · Hisn al-Muslim'), findsOneWidget);
   });
 }
-

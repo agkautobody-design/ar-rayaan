@@ -91,4 +91,41 @@ void main() {
       expect(moments, lessThan(140)); // ceiling sanity
     });
   });
+
+  group('Lamha honesty', () {
+    test('the Sunday moment promises what its body delivers', () {
+      final LamhaMoment sunday = LamhaEngine.optInAnchors
+          .firstWhere((LamhaMoment m) => m.id == 'sunday-evening');
+      // Title and body used to disagree ("two rak'ah" vs reciting Al-Mulk).
+      expect(sunday.title, isNot(contains('rak')));
+      expect(sunday.title, contains('Al-Mulk'));
+      expect(sunday.body, contains('Al-Mulk'));
+      expect(sunday.source, contains('3404'));
+    });
+
+    test('no moment labels the weak home-entry dua as sahih', () {
+      DateTime d = DateTime(2026, 1, 1);
+      for (int i = 0; i < 366; i++) {
+        final LamhaMoment? m = LamhaEngine.forDate(d.add(Duration(days: i)));
+        if (m != null && m.source.contains('5096')) {
+          expect(m.source.toLowerCase(), contains('daʿif'));
+          expect(m.source.toLowerCase(), isNot(contains('sahih')));
+        }
+      }
+    });
+
+    test('every Wednesday has a moment and the rotation really rotates', () {
+      final Set<String> ids = <String>{};
+      // 2026 spans both daylight-saving changes in the northern hemisphere.
+      for (DateTime d = DateTime(2026, 1, 7);
+          d.year == 2026;
+          d = d.add(const Duration(days: 7))) {
+        expect(d.weekday, DateTime.wednesday);
+        final LamhaMoment? m = LamhaEngine.forDate(d);
+        expect(m, isNotNull, reason: '$d');
+        ids.add(m!.id);
+      }
+      expect(ids.length, greaterThan(8));
+    });
+  });
 }

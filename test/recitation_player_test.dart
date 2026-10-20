@@ -67,7 +67,7 @@ void main() {
       expect(calls, 1, reason: 'cache hit — no second network call');
     });
 
-    test('404 degrades honestly to the surah file', () async {
+    test('404 streams the SAME ayah, never the whole surah', () async {
       final client = MockClient((req) async => http.Response('nf', 404));
       final dir = await Directory.systemTemp.createTemp('ar_audio');
       addTearDown(() => dir.delete(recursive: true));
@@ -75,12 +75,15 @@ void main() {
       final s = await RecitationAudioRepository.resolve(
         pack: pack, ref: ref, cacheDir: dir, client: client,
       );
-      expect(s, isA<SurahFileSource>());
-      expect((s as SurahFileSource).surah, 1);
-      expect(s.url, pack.surahUrl(1));
+      expect(s, isNot(isA<SurahFileSource>()));
+      expect(s, isA<AyahFileSource>());
+      expect((s as AyahFileSource).url, pack.ayahUrl(ref));
+      expect(s.path, pack.ayahUrl(ref), reason: 'played as a stream');
+      expect(dir.listSync(), isEmpty, reason: 'an error page is not cached');
     });
 
-    test('offline with no cache degrades to surah file (no crash)', () async {
+    test('offline with no cache streams the ayah (no crash, no surah)',
+        () async {
       final client = MockClient((req) async =>
           throw const SocketException('offline'));
       final dir = await Directory.systemTemp.createTemp('ar_audio');
@@ -89,7 +92,30 @@ void main() {
       final s = await RecitationAudioRepository.resolve(
         pack: pack, ref: ref, cacheDir: dir, client: client,
       );
-      expect(s, isA<SurahFileSource>());
+      expect(s, isA<AyahFileSource>());
+      expect((s as AyahFileSource).url, pack.ayahUrl(ref));
+    });
+
+    test('an HTML 200 or an empty body is never cached as audio', () async {
+      final dir = await Directory.systemTemp.createTemp('ar_audio');
+      addTearDown(() => dir.delete(recursive: true));
+
+      final html = MockClient((req) async => http.Response(
+            '<html>captive portal</html>',
+            200,
+            headers: <String, String>{'content-type': 'text/html'},
+          ));
+      final s1 = await RecitationAudioRepository.resolve(
+        pack: pack, ref: ref, cacheDir: dir, client: html,
+      );
+      expect((s1 as AyahFileSource).path, pack.ayahUrl(ref));
+
+      final empty = MockClient((req) async => http.Response('', 200));
+      final s2 = await RecitationAudioRepository.resolve(
+        pack: pack, ref: ref, cacheDir: dir, client: empty,
+      );
+      expect((s2 as AyahFileSource).path, pack.ayahUrl(ref));
+      expect(dir.listSync(), isEmpty);
     });
   });
 
@@ -174,6 +200,67 @@ void main() {
       await Future<void>.delayed(Duration.zero);
       await notifier.stop();
       await done;
+      expect(notifier.state.playing, isFalse);
+      expect(notifier.state.finished, isFalse);
+    });
+
+    test('pause sets paused, resume clears it and finishes the plan',
+        () async {
+      final notifier = makeNotifier(hold: true);
+      final done = notifier.playPlan(<PlaybackEvent>[ev(1), ev(2)]);
+      await Future<void>.delayed(Duration.zero);
+      await notifier.pause();
+      await done;
+      expect(notifier.state.paused, isTrue);
+      expect(notifier.state.playing, isFalse);
+      expect(notifier.state.finished, isFalse);
+
+      final resumed = notifier.resume();
+      await Future<void>.delayed(Duration.zero);
+      expect(notifier.state.paused, isFalse);
+      expect(notifier.state.playing, isTrue);
+      holding!.releaseCurrent();
+      await Future<void>.delayed(Duration.zero);
+      holding!.releaseCurrent();
+      await resumed;
+      expect(notifier.state.finished, isTrue);
+      expect(played.last, 'src:2');
+    });
+
+    test('speed is applied before every utterance and can change mid-plan',
+        () async {
+      final List<double> speeds = <double>[];
+      final audio = _FakeAudio(played);
+      final notifier = RecitationPlayerNotifier(
+        audio: audio,
+        sourceResolver: (e) async => 'src:${e.ref.ayah}',
+        sleeper: (ms) async {},
+        speedSetter: (double s) async => speeds.add(s),
+      );
+      await notifier.setSpeed(0.75);
+      expect(speeds, <double>[0.75], reason: 'applied to the live player');
+      await notifier.playPlan(<PlaybackEvent>[ev(1), ev(2)]);
+      // 1 immediate + one before each of the two utterances.
+      expect(speeds.length, 3);
+      expect(speeds.every((double s) => s == 0.75), isTrue);
+      await notifier.setSpeed(1.25);
+      expect(speeds.last, 1.25);
+    });
+
+    test('a failing ayah stops the plan and reports it, no substitute audio',
+        () async {
+      final audio = _FakeAudio(played);
+      final notifier = RecitationPlayerNotifier(
+        audio: audio,
+        sourceResolver: (e) async {
+          if (e.ref.ayah == 2) throw const SocketException('offline');
+          return 'src:${e.ref.ayah}';
+        },
+        sleeper: (ms) async {},
+      );
+      await notifier.playPlan(<PlaybackEvent>[ev(1), ev(2), ev(3)]);
+      expect(played, <String>['src:1'], reason: 'ayah 3 must not play on');
+      expect(notifier.state.failed, isTrue);
       expect(notifier.state.playing, isFalse);
       expect(notifier.state.finished, isFalse);
     });

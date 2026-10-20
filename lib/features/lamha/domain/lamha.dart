@@ -130,7 +130,7 @@ abstract final class _Rotation {
           '“Whoever sends one blessing upon me, Allah sends ten blessings '
           'upon him.” The highest-return transaction you will ever make '
           'takes three seconds.',
-      source: 'Sahih Muslim 407',
+      source: 'Sahih Muslim 408',
     ),
     LamhaMoment(
       id: 'parents',

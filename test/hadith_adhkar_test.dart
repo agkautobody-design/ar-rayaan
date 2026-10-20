@@ -1,20 +1,17 @@
-import 'package:ar_rayaan/app/app.dart';
-import 'package:ar_rayaan/app/core/env_config.dart';
 import 'package:ar_rayaan/app/core/providers.dart';
 import 'package:ar_rayaan/features/adhkar/application/adhkar_providers.dart';
 import 'package:ar_rayaan/features/adhkar/data/bundled_adhkar_repository.dart';
 import 'package:ar_rayaan/features/adhkar/domain/adhkar_models.dart';
-import 'package:ar_rayaan/features/hadith/application/hadith_providers.dart';
 import 'package:ar_rayaan/features/hadith/data/bundled_hadith_repository.dart';
 import 'package:ar_rayaan/features/hadith/domain/hadith_models.dart';
+import 'package:ar_rayaan/app/theme/app_theme.dart';
+import 'package:ar_rayaan/features/adhkar/presentation/adhkar_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-void main() { return; // TODO: rewrite
-
+void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   group('hadith repository', () {
@@ -30,6 +27,14 @@ void main() { return; // TODO: rewrite
         isTrue,
       );
     });
+
+    test('no invisible bidi control characters hide in the Arabic', () async {
+      final List<Hadith> hadiths = await BundledHadithRepository().collection();
+      for (final Hadith h in hadiths) {
+        expect(h.arabic, isNot(contains('\u202b')), reason: 'hadith ${h.number}');
+        expect(h.arabic, isNot(contains('\u202c')), reason: 'hadith ${h.number}');
+      }
+    });
   });
 
   group('adhkar repository', () {
@@ -39,8 +44,15 @@ void main() { return; // TODO: rewrite
       expect(sets.length, 3);
       final AdhkarSet morning = sets.first;
       expect(morning.id, 'morning');
-      expect(morning.items.length, 24);
-      expect(morning.totalRepetitions, 354);
+      // 23 items: #23 (the evening-only "perfect words" dhikr) lives only in
+      // the evening set. Numbers are stable ids, so #23 is a gap here.
+      expect(morning.items.length, 23);
+      expect(morning.items.any((d) => d.number == 23), isFalse);
+      expect(
+        morning.totalRepetitions,
+        morning.items.fold<int>(0, (int s, Dhikr d) => s + d.count),
+      );
+      expect(morning.totalRepetitions, 357);
       expect(morning.items[1].count, 3);
       expect(morning.items.every((d) => d.arabic.isNotEmpty), isTrue);
     });
@@ -57,6 +69,46 @@ void main() { return; // TODO: rewrite
       }
     });
 
+    test('every dhikr names its source, and no markup artifacts remain',
+        () async {
+      final List<AdhkarSet> sets = await BundledAdhkarRepository().sets();
+      for (final AdhkarSet s in sets) {
+        for (final Dhikr d in s.items) {
+          final String why = '${s.id} #${d.number}';
+          expect(d.source, isNotNull, reason: why);
+          expect(d.source!.trim().length, greaterThan(8), reason: why);
+          expect(
+            d.source!,
+            matches(RegExp(
+                r"Qur.an|Bukhari|Muslim|Tirmidhi|Abi Dawud|Abu Dawud|Ibn Majah|Nasa|Ahmad|Hakim|Tabarani")),
+            reason: why,
+          );
+          expect(d.arabic, isNot(contains('((')), reason: why);
+          expect(d.arabic, isNot(contains('))')), reason: why);
+          expect(d.arabic, isNot(contains('*')), reason: why);
+        }
+      }
+    });
+
+    test('weak or disputed reports are labelled, not sold as guaranteed',
+        () async {
+      final List<AdhkarSet> sets = await BundledAdhkarRepository().sets();
+      final AdhkarSet morning = sets.firstWhere((s) => s.id == 'morning');
+      String src(int n) =>
+          morning.items.firstWhere((d) => d.number == n).source!;
+      String en(int n) =>
+          morning.items.firstWhere((d) => d.number == n).translation!;
+      expect(src(6), contains('daʿif'));
+      expect(src(9), contains('mawduʿ'));
+      expect(en(9), isNot(contains('Allah suffices you in the concerns')));
+      expect(src(24), contains('weak'));
+      expect(en(24), isNot(contains('he attains the Prophet')));
+      // Verified sahih anchors.
+      expect(src(3), contains('Muslim 2723'));
+      expect(src(5), contains('Bukhari 6306'));
+      expect(src(20), contains('Muslim 2726'));
+    });
+
     test('evening set uses authentic evening wording', () async {
       final BundledAdhkarRepository repo = BundledAdhkarRepository();
       final List<AdhkarSet> sets = await repo.sets();
@@ -69,6 +121,11 @@ void main() { return; // TODO: rewrite
       expect(ar(7), contains('أَمْسَى'));
       expect(ar(15), contains('اللَّيْلَةِ'));
       expect(ar(16), contains('أَمْسَيْنَا'));
+      // Morning-only items (said "when you wake") are not in the evening set.
+      for (final int n in <int>[19, 20, 21]) {
+        expect(evening.items.any((d) => d.number == n), isFalse,
+            reason: 'evening #$n is a morning-only dhikr');
+      }
       // Morning set must not leak evening notes.
       final AdhkarSet morning = sets.firstWhere((s) => s.id == 'morning');
       for (final Dhikr d in morning.items) {
@@ -122,66 +179,45 @@ void main() { return; // TODO: rewrite
     });
   });
 
-  testWidgets('hadith screen and adhkar counters work end-to-end', (
-    tester,
-  ) async {
+  testWidgets('adhkar counters work and show their source', (tester) async {
     SharedPreferences.setMockInitialValues(<String, Object>{});
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
     tester.view.physicalSize = const Size(430, 1600);
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
 
-    final BundledHadithRepository hadithRepo = BundledHadithRepository();
     final BundledAdhkarRepository adhkarRepo = BundledAdhkarRepository();
-    await tester.runAsync(() async {
-      await hadithRepo.collection();
-      await adhkarRepo.sets();
-    });
+    final List<AdhkarSet> sets =
+        (await tester.runAsync(() => adhkarRepo.sets()))!;
+    final int total = sets.first.totalRepetitions;
 
     await tester.pumpWidget(
       ProviderScope(
-        overrides: [
-          hadithRepositoryProvider.overrideWithValue(hadithRepo),
+        overrides: <Override>[
+          sharedPreferencesProvider.overrideWithValue(prefs),
           adhkarRepositoryProvider.overrideWithValue(adhkarRepo),
         ],
-        child: ArRayaanApp(env: EnvConfig.fromDefines()),
+        child: MaterialApp(theme: AppTheme.dark(), home: const AdhkarScreen()),
       ),
     );
-    await tester.pump();
-    await tester.pump(const Duration(seconds: 4));
-    await tester.pumpAndSettle();
-    await tester.tap(find.byKey(const Key('welcome-continue')));
     await tester.pumpAndSettle();
 
-    // Hadith tile → collection
-    await tester.tap(find.text('Hadith'));
-    await tester.pumpAndSettle();
+    expect(find.text('Morning Adhkar'), findsWidgets);
     expect(
-      find.text('The Forty Hadith of Imam an-Nawawi · 42 hadiths'),
+      find.text('0 of $total repetitions \u00b7 $total remaining'),
       findsOneWidget,
     );
-    expect(find.text('HADITH 1'), findsOneWidget);
+    expect(find.byKey(const Key('dhikr-morning-1-source')), findsOneWidget);
 
-    // Back home, then Dhikr & Du'a tile → counters
-    final BuildContext ctx = tester.element(find.text('HADITH 1'));
-    // ignore: use_build_context_synchronously
-    GoRouter.of(ctx).go('/home');
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('Dhikr & Du’a'));
-    await tester.pumpAndSettle();
-
+    // Item 2 prescribes 3 repetitions: two taps leave 1 of its 3 to do.
+    await tester.tap(find.byKey(const Key('dhikr-morning-2-remaining')));
+    await tester.pump();
+    await tester.tap(find.byKey(const Key('dhikr-morning-2-remaining')));
+    await tester.pump();
     expect(
-      find.text('Morning Adhkar'),
-      findsWidgets,
-    ); // picker chip + progress card
-    expect(find.text('0 of 354 repetitions · 354 remaining'), findsOneWidget);
-
-    // Item 2 prescribes 3 repetitions: tap its counter twice → 1 remains
-    await tester.tap(find.byKey(const Key('dhikr-morning-2-remaining')));
-    await tester.pump();
-    await tester.tap(find.byKey(const Key('dhikr-morning-2-remaining')));
-    await tester.pump();
-    expect(find.text('2 of 354 repetitions · 352 remaining'), findsOneWidget);
+      find.text('2 of $total repetitions \u00b7 ${total - 2} remaining'),
+      findsOneWidget,
+    );
   });
 }
-
