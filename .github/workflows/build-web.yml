@@ -32,6 +32,9 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           channel: stable
+          # Pinned for reproducible builds (the version CI resolved on 2026-10-20).
+          # Bump deliberately, in both workflows.
+          flutter-version: 3.47.7
           cache: true
 
       - name: Toolchain versions
