@@ -12,7 +12,7 @@ void main() {
 
   final storyIds = <String>{};
   for (final p in ['prophets', 'women', 'seerah', 'companions', 'ghayb',
-      'signs', 'tales', 'khutbahs', 'modernhadith', 'dailyduas']) {
+      'signs', 'tales', 'khutbahs', 'modernhadith', 'dailyduas', 'newmuslim']) {
     for (final e in readList('assets/stories/$p.json')) {
       storyIds.add((e as Map<String, dynamic>)['id'] as String);
     }

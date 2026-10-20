@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
-import '../../../app/theme/widgets/scenic_scaffold.dart';
+import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 
 class _YouthLesson {
@@ -29,17 +29,17 @@ class _YouthUnit {
 const List<_YouthUnit> kYouthUnits = <_YouthUnit>[
   _YouthUnit(
     title: 'Identity — Who You Are',
-    frame: 'Seventy percent of young Muslims have faced Islamophobia; the question 'who am I?' arrives earlier than it used to. The answer arrived first: you are a khaleefah — a successor of Adam (2:30), created with purpose, honored above much of creation (17:70).',
+    frame: 'Seventy percent of young Muslims have faced Islamophobia; the question \'who am I?\' arrives earlier than it used to. The answer arrived first: you are a khaleefah — a successor of Adam (2:30), created with purpose, honored above much of creation (17:70).',
     lessons: <_YouthLesson>[
       _YouthLesson(
         title: 'The Honor You Were Born With',
         body: 'Allah says He honored the children of Adam (17:70) — not some of them, not the famous ones. The bullying at school, the stares on the street — they are real, and they are not the verdict. The verdict was issued by the One who made you.',
-        practice: 'Write one sentence: 'Allah honored me because...' and finish it truthfully. Keep it where you will see it.',
+        practice: 'Write one sentence: \'Allah honored me because...\' and finish it truthfully. Keep it where you will see it.',
       ),
       _YouthLesson(
         title: 'Chosen — Adam\'s Answer',
         body: 'When Allah announced the khilafah to the angels, they asked about one who sheds blood; He said: I know that which you do not know (2:30). You were created with a purpose the angels could not see. Doubt about your worth is not humility — it is a miscount.',
-        practice: 'Name one thing you are good at that could serve the ummah — even small. That is the 'which you do not know' spoken over you.',
+        practice: 'Name one thing you are good at that could serve the ummah — even small. That is the \'which you do not know\' spoken over you.',
       ),
       _YouthLesson(
         title: 'The Best Generation',

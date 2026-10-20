@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
-import '../../../app/theme/widgets/scenic_scaffold.dart';
+import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 
 class _WomStory {
@@ -49,7 +49,7 @@ const List<_WomUnit> kWomenUnits = <_WomUnit>[
       _WomLesson(
         title: 'Asiya — The Palace of Pharaoh',
         body: 'She lived in the house of the tyrant and was heartbroken in it — and Allah showed her her house in Paradise (66:11). Sometimes the palace is the test, not the prize.',
-        practice: 'What 'house' are you in that feels wrong — and what house are you building instead?',
+        practice: 'What \'house\' are you in that feels wrong — and what house are you building instead?',
         storyId: 'woman-asiya',
       ),
       _WomLesson(
@@ -60,7 +60,7 @@ const List<_WomUnit> kWomenUnits = <_WomUnit>[
       ),
       _WomLesson(
         title: 'Hagar — She Ran Seven Times',
-        body: 'Alone in a barren valley with a crying child — and 'He will not waste us' became the walk between Safa and Marwah that every pilgrim still walks (2:158). Her tawakkul built a rite.',
+        body: 'Alone in a barren valley with a crying child — and \'He will not waste us\' became the walk between Safa and Marwah that every pilgrim still walks (2:158). Her tawakkul built a rite.',
         practice: 'Where are you running between the hills right now? Keep running — the water comes.',
         storyId: 'woman-hagar',
       ),
@@ -90,7 +90,7 @@ const List<_WomUnit> kWomenUnits = <_WomUnit>[
       ),
       _WomLesson(
         title: 'Umm Ayman — The One They Forgot to List',
-        body: 'She raised the Prophet ﭑ after his parents died — and he called her 'my mother after my mother.' The barakah of a household often lives with the person no one thinks to mention.',
+        body: 'She raised the Prophet ﭑ after his parents died — and he called her \'my mother after my mother.\' The barakah of a household often lives with the person no one thinks to mention.',
         practice: 'Thank one person who raised, fed, or cleaned for you — the invisible ones first.',
         storyId: 'woman-umm-ayman',
       ),
@@ -103,7 +103,7 @@ const List<_WomUnit> kWomenUnits = <_WomUnit>[
       _WomLesson(
         title: 'Sumayyah — The First to Give Everything',
         body: 'The first martyr of Islam was a slave woman. Abu Jahl\u2019s spear could not make her curse the Prophet — so she became the ummah\u2019s first lesson in standing.',
-        practice: 'What does 'standing for something' cost, and what does it buy? Answer aloud.',
+        practice: 'What does \'standing for something\' cost, and what does it buy? Answer aloud.',
         storyId: 'woman-sumayyah',
       ),
       _WomLesson(
@@ -126,7 +126,7 @@ const List<_WomUnit> kWomenUnits = <_WomUnit>[
       ),
       _WomLesson(
         title: 'Umm Salama — Whose Question Became a Verse',
-        body: 'She said the dua of the afflicted — 'to Allah we belong and to Him we return' — and her heartache became revelation (2:156). Her later question about 'the men only' brought the verse that included the women (33:35).',
+        body: 'She said the dua of the afflicted — \'to Allah we belong and to Him we return\' — and her heartache became revelation (2:156). Her later question about \'the men only\' brought the verse that included the women (33:35).',
         practice: 'What dua could turn your hardest day into an address to Allah? Say it tonight.',
         storyId: 'woman-umm-salama',
       ),
@@ -168,7 +168,7 @@ const List<_WomUnit> kWomenUnits = <_WomUnit>[
       ),
       _WomLesson(
         title: 'Safiyya — The Woman Who Answered',
-        body: 'Mocked for her Jewish ancestry, she answered the Prophet\u2019s question with the truth: 'Aaron is my father, Moses my uncle, and Muhammad my husband.' The answer that silenced the mockers.',
+        body: 'Mocked for her Jewish ancestry, she answered the Prophet\u2019s question with the truth: \'Aaron is my father, Moses my uncle, and Muhammad my husband.\' The answer that silenced the mockers.',
         practice: 'When mocked for your faith or background, answer with the truth — once, calmly, and stop.',
         storyId: 'woman-safiyya',
       ),

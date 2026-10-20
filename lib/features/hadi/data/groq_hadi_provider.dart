@@ -41,7 +41,7 @@ class OpenAIChatHadiProvider implements HadiProvider {
           },
           // Recent history for continuity (cap keeps context rich).
           for (final HadiMessage m in history.length > 16
-              ? history.sublist(history.length - 8)
+              ? history.sublist(history.length - 16)
               : history)
             <String, String>{
               'role': m.fromHadi ? 'assistant' : 'user',

@@ -267,14 +267,16 @@
    "title": "Hisn al-Muslim",
    "route": "/academy/hisn",
    "status": "live",
-   "description": "The Fortress of the Muslim — categorized reference of authentic duas and adhkar"
+   "description": "The Fortress of the Muslim — categorized reference of authentic duas and adhkar",
+   "doc": "Batch 5 (B5-23): Hisn al-Muslim library — assets/stories/dailyduas.json"
   },
   {
    "id": "qa-bank",
    "title": "Q&A Bank",
    "route": "/academy/qa",
    "status": "live",
-   "description": "12 curated sourced questions for the questions every Muslim asks"
+   "description": "12 curated sourced questions for the questions every Muslim asks",
+   "doc": "Batch 5 (B5-28): curated sourced Q&A — assets/qa/"
   }
  ]
 }

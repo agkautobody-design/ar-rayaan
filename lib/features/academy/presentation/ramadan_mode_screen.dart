@@ -10,7 +10,7 @@ import 'package:go_router/go_router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
-import '../../../app/theme/widgets/scenic_scaffold.dart';
+import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../huda/presentation/huda_screens.dart';
 
@@ -140,7 +140,7 @@ class RamadanModeScreen extends ConsumerWidget {
                               trailing: const Icon(Icons.chevron_right,
                                   color: AppColors.gold),
                               onTap: () => context
-                                  .push('/guides/read', extra: fasting),
+                                  .push('/huda/guide', extra: fasting),
                             ),
                           ),
                         ),

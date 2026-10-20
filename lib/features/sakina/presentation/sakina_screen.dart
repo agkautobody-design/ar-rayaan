@@ -264,10 +264,11 @@ class _HelpRow extends StatelessWidget {
     return InkWell(
       borderRadius: BorderRadius.circular(10),
       onTap: () {
-        final RegExp digits = RegExp(r'[\d-]{7,}');
-        final Match? m = digits.firstMatch(resource.contact);
-        if (m != null) {
-          launchUrl(Uri.parse('tel:${m.group(0)}'));
+        if (resource.dial != null) {
+          launchUrl(Uri.parse('tel:${resource.dial}'));
+        } else if (resource.url != null) {
+          launchUrl(Uri.parse(resource.url!),
+              mode: LaunchMode.externalApplication);
         }
       },
       child: Row(

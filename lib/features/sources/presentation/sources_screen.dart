@@ -90,7 +90,7 @@ class SourcesScreen extends StatelessWidget {
                         ),
                         _Divider(),
                         _SourceRow(
-                          title: 'Recitation · Shaykh Mishary Rashid Alafasy',
+                          title: 'Recitation · Shaykh Mahmoud Khalil Al-Husary',
                           subtitle:
                               'Real recorded recitation streamed ayah-by-ayah — never AI voices for Qur’an',
                         ),

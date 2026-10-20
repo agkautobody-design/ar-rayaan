@@ -17,7 +17,6 @@
  "stories/newmuslim.json": 2,
  "share/cards.json": 1,
  "finance/paper_market.json": 1,
- "updated": "2026-10-20",
- "system/module_registry.json": 1,
+ "system/module_registry.json": 2,
  "system/subscription.json": 1
 }

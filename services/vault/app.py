@@ -4,13 +4,17 @@ data to the app.
 
 Endpoints:
   GET /healthz            -> {"ok": true}
-  GET /qf/token           -> {"token": "...", "expires_in": 3600}
   GET /qf/content/<path>  -> proxied JSON from apis.quran.foundation
+                             (read-only Quran content paths only)
+
+The access token itself is never handed out: anyone could reuse it under
+Ar-Rayaan's Quran Foundation identity.
 
 Env (set in Render, never in git):
   QF_CLIENT_ID      public client id
   QF_CLIENT_SECRET  the qfcs_... secret (Rotate at any time in QF console)
-  VAULT_ORIGIN      optional; when set, CORS is restricted to it
+  VAULT_ORIGIN      the app's origin; requests from other sites are refused
+                    (default https://ar-rayaan.onrender.com)
 """
 import os
 import time
@@ -20,12 +24,21 @@ from flask import Flask, jsonify, request, Response
 
 app = Flask(__name__)
 
-QF_TOKEN_URL = "https://prelive-oauth2.quran.foundation/oauth2/token"
+# Production token and production content together (the token used to
+# come from the test "prelive" server while content came from production).
+QF_TOKEN_URL = "https://oauth2.quran.foundation/oauth2/token"
 QF_CONTENT = "https://apis.quran.foundation/content/api/v4/"
+
+# Only the read-only content the app needs; anything else is refused so the
+# vault is not an open proxy.
+_ALLOWED_PREFIXES = (
+    "chapters", "verses", "juzs", "recitations", "resources",
+    "tafsirs", "translations", "quran", "audio",
+)
 
 _client_id = os.environ["QF_CLIENT_ID"]
 _client_secret = os.environ["QF_CLIENT_SECRET"]
-_vault_origin = os.environ.get("VAULT_ORIGIN", "*")
+_vault_origin = os.environ.get("VAULT_ORIGIN", "https://ar-rayaan.onrender.com")
 
 _cache = {"token": None, "expires_at": 0.0}
 
@@ -58,18 +71,19 @@ def healthz():
     return jsonify(ok=True)
 
 
-@app.get("/qf/token")
-def token():
-    return jsonify(token=_token(), expires_in=3600)
-
-
 @app.get("/qf/content/<path:sub>")
 def content(sub):
+    origin = request.headers.get("Origin")
+    if origin is not None and origin != _vault_origin:
+        return jsonify(error="origin not allowed"), 403
+    if ".." in sub or not sub.startswith(_ALLOWED_PREFIXES):
+        return jsonify(error="path not allowed"), 404
     upstream = requests.get(
         QF_CONTENT + sub,
         params={k: v for k, v in request.args.items()},
         headers={
             "x-auth-token": _token(),
+            "x-client-id": _client_id,
             "Accept": "application/json",
         },
         timeout=30,

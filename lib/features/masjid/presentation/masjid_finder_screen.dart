@@ -81,7 +81,8 @@ class _MasjidState extends State<MasjidFinderScreen> {
     try {
       final res = await http.get(Uri.parse(
           'https://nominatim.openstreetmap.org/search?q='
-          '${Uri.encodeComponent(q)}&format=json&limit=1'));
+          '${Uri.encodeComponent(q)}&format=json&limit=1'))
+          .timeout(const Duration(seconds: 10));
       final list = json.decode(res.body) as List<dynamic>;
       if (list.isNotEmpty) {
         _lat = double.parse(list[0]['lat'] as String);
@@ -96,19 +97,36 @@ class _MasjidState extends State<MasjidFinderScreen> {
     setState(() => _loading = false);
   }
 
+  static const List<String> _overpassServers = <String>[
+    'https://overpass-api.de/api/interpreter',
+    'https://overpass.kumi.systems/api/interpreter',
+    'https://overpass.private.coffee/api/interpreter',
+  ];
+
   Future<void> _fetch() async {
     setState(() { _loading = true; _error = null; });
     final foodMode = _tab == 1;
     final tag = foodMode
         ? 'nwr["diet:halal"="yes"](around:6000,$_lat,$_lon);'
         : '(nwr["amenity"="place_of_worship"]["religion"="muslim"](around:6000,$_lat,$_lon););';
-    final query = '[out:json][timeout:25];$tag out center 50;';
+    final query = '[out:json][timeout:15];$tag out center 50;';
     try {
-      final res = await http.post(
-        Uri.parse('https://overpass-api.de/api/interpreter'),
-        body: {'data': query},
-      ).timeout(const Duration(seconds: 30));
-      final data = json.decode(res.body) as Map<String, dynamic>;
+      // The main Overpass server is often overloaded (one live request took
+      // 39 s); try mirrors in turn with a short timeout each.
+      Map<String, dynamic>? data;
+      for (final String server in _overpassServers) {
+        try {
+          final res = await http
+              .post(Uri.parse(server), body: {'data': query})
+              .timeout(const Duration(seconds: 12));
+          if (res.statusCode != 200) continue;
+          data = json.decode(res.body) as Map<String, dynamic>;
+          break;
+        } catch (_) {
+          continue;
+        }
+      }
+      if (data == null) throw Exception('all Overpass servers failed');
       final els = (data['elements'] as List<dynamic>? ?? []);
       if (!foodMode) {
         final out = <Mosque>[];
@@ -148,7 +166,11 @@ class _MasjidState extends State<MasjidFinderScreen> {
           };
         }).toList();
       }
-      _map.move(LatLng(_lat, _lon), 14);
+      try {
+        _map.move(LatLng(_lat, _lon), 14);
+      } catch (_) {
+        // Map not laid out yet; the results still show.
+      }
     } catch (_) {
       _error = 'Live search failed - check connection';
     }
@@ -227,6 +249,10 @@ class _MasjidState extends State<MasjidFinderScreen> {
                         urlTemplate:
                             'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
                         userAgentPackageName: 'com.arrayaan.app',
+                      ),
+                      // Required by the OpenStreetMap tile and data licence.
+                      const SimpleAttributionWidget(
+                        source: Text('OpenStreetMap contributors'),
                       ),
                       MarkerLayer(markers: [
                         Marker(

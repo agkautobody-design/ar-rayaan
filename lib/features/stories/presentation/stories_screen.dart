@@ -53,7 +53,7 @@ class StoriesScreen extends ConsumerWidget {
               child: Column(mainAxisSize: MainAxisSize.min, children: [
                 Text('The library could not load.', style: AppText.body),
                 const SizedBox(height: 6),
-                Text('${'\$e'}', textAlign: TextAlign.center,
+                Text('$e', textAlign: TextAlign.center,
                     style: AppText.bodyMuted.copyWith(fontSize: 10.5)),
                 const SizedBox(height: 10),
                 Text('TAP TO RETRY',
@@ -93,7 +93,7 @@ class StoriesScreen extends ConsumerWidget {
               else
                 Padding(
                   padding: const EdgeInsets.only(left: 4, bottom: 6),
-                  child: Text('\${all.length} STORIES LOADED',
+                  child: Text('${all.length} STORIES LOADED',
                       style: AppText.eyebrow),
                 ),
               Padding(

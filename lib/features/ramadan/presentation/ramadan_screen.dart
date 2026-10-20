@@ -10,6 +10,7 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../../calendar/domain/hijri_date.dart';
 import '../../prayer/application/prayer_providers.dart';
 
 class RamadanDay {
@@ -28,7 +29,19 @@ final ramadanDaysProvider = FutureProvider<List<RamadanDay>>((ref) async {
       .map((e) => RamadanDay.fromJson(e as Map<String, dynamic>)).toList();
 });
 
-final ramadanStart = DateTime(2027, 2, 17);
+/// First day of the current Ramadan (while in it) or the next one, from the
+/// app's own Umm al-Qura calendar — never a hard-coded date.
+DateTime get ramadanStart {
+  final HijriDate today = HijriDate.fromGregorian(DateTime.now());
+  final int year = today.month <= 9 ? today.year : today.year + 1;
+  return HijriDate(year, 9, 1).toGregorian();
+}
+
+/// First day of Shawwal after [ramadanStart] (Eid al-Fitr).
+DateTime get ramadanEnd {
+  final HijriDate start = HijriDate.fromGregorian(ramadanStart);
+  return HijriDate(start.year, 10, 1).toGregorian();
+}
 
 /// RAMADAN MODE — the complete season, both layers the founder demanded:
 /// WORSHIP (fasting log with three honest states, 30-juz khatam tracker,
@@ -88,7 +101,7 @@ class _RamadanState extends ConsumerState<RamadanScreen> {
 
   bool get _inRamadan {
     final now = DateTime.now();
-    return now.isAfter(ramadanStart) && now.isBefore(ramadanStart.add(const Duration(days: 30)));
+    return !now.isBefore(ramadanStart) && now.isBefore(ramadanEnd);
   }
 
   int get _ramadanDay => DateTime.now().difference(ramadanStart).inDays + 1;
@@ -188,7 +201,7 @@ class _RamadanState extends ConsumerState<RamadanScreen> {
 
   String _countdownText() {
     final d = ramadanStart.difference(DateTime.now()).inDays;
-    return d > 0 ? '\$d days \u00b7 crescent-willing' : 'Any day now';
+    return d > 0 ? '$d days \u00b7 crescent-willing' : 'Any day now';
   }
 
   Widget _countdownChip(String label, String time) => Container(

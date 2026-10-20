@@ -114,6 +114,12 @@ class FirebaseAuthRepository implements AuthRepository {
     } catch (_) {
       // Display name is cosmetic — never fail the sign-up over it.
     }
+    try {
+      // The verify screen tells the user to tap the link — send it.
+      await _auth.currentUser?.sendEmailVerification();
+    } catch (_) {
+      // Rate-limited or offline: the verify screen can resend.
+    }
     return AuthUser(uid: user.uid, email: user.email, name: name);
   }
 

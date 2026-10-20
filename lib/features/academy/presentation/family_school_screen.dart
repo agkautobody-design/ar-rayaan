@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
-import '../../../app/theme/widgets/scenic_scaffold.dart';
+import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 
 class _FamLesson {
@@ -43,7 +43,7 @@ const List<_FamUnit> kFamilyUnits = <_FamUnit>[
       ),
       _FamLesson(
         title: 'Mercy Between You',
-        body: 'Allah describes the spouses as 'garments' for one another (2:187) — the closest thing to the skin, covering faults, providing warmth. The garment does not criticize the body it covers.',
+        body: 'Allah describes the spouses as \'garments\' for one another (2:187) — the closest thing to the skin, covering faults, providing warmth. The garment does not criticize the body it covers.',
         practice: 'Cover one fault of your spouse or family member today — in speech, in complaint, in your own heart.',
       ),
     ],
@@ -91,7 +91,7 @@ const List<_FamUnit> kFamilyUnits = <_FamUnit>[
       _FamLesson(
         title: 'Forgiveness in the House',
         body: 'The Prophet \ufdfa said: Allah loves the one who is forgiving in buying, forgiving in selling, and forgiving in his claim (Muslim 1726). The house needs this most: forgive the harsh word before the day ends.',
-        practice: 'Tonight, say 'I forgive you' or its equivalent to one family member — first to say it is the stronger.',
+        practice: 'Tonight, say \'I forgive you\' or its equivalent to one family member — first to say it is the stronger.',
       ),
     ],
   ),

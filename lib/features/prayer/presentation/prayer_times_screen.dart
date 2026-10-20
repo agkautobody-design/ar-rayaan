@@ -13,6 +13,7 @@ import '../application/location_providers.dart';
 import '../application/prayer_alerts.dart';
 import '../application/prayer_providers.dart';
 import '../application/prayer_repository.dart';
+import '../application/prayer_settings.dart';
 import '../data/aladhan_prayer_repository.dart';
 import '../data/city_directory.dart';
 import '../domain/prayer_times.dart';
@@ -293,6 +294,20 @@ class _ScheduleState extends ConsumerState<_Schedule> {
           style: AppText.bodyMuted.copyWith(fontSize: 11),
           textAlign: TextAlign.center,
         ),
+        Center(
+          child: TextButton.icon(
+            onPressed: () => showModalBottomSheet<void>(
+              context: context,
+              isScrollControlled: true,
+              backgroundColor: const Color(0xFF0B1424),
+              builder: (_) => const _MethodSheet(),
+            ),
+            icon: const Icon(Icons.tune, size: 14),
+            label: const Text('Calculation method & Asr',
+                style: TextStyle(fontSize: 12)),
+            style: TextButton.styleFrom(foregroundColor: AppColors.goldLight),
+          ),
+        ),
         const SizedBox(height: 10),
         Text(
           'TIMES ARE APPROXIMATE · CONFIRM LOCALLY',
@@ -555,6 +570,73 @@ class _ErrorState extends StatelessWidget {
                 style: AppText.label.copyWith(color: AppColors.goldLight),
               ),
             ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// Pick the calculation convention and the Asr school.
+class _MethodSheet extends ConsumerWidget {
+  const _MethodSheet();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final PrayerSettings settings = ref.watch(prayerSettingsProvider);
+    final PrayerSettingsController ctrl =
+        ref.read(prayerSettingsProvider.notifier);
+    final PrayerLocation loc = ref.watch(prayerLocationProvider);
+    return SafeArea(
+      child: ConstrainedBox(
+        constraints: BoxConstraints(
+          maxHeight: MediaQuery.of(context).size.height * 0.85,
+        ),
+        child: ListView(
+          shrinkWrap: true,
+          padding: const EdgeInsets.fromLTRB(20, 16, 20, 24),
+          children: <Widget>[
+            Text('ASR', style: AppText.eyebrow),
+            SwitchListTile(
+              contentPadding: EdgeInsets.zero,
+              value: settings.hanafiAsr,
+              onChanged: ctrl.setHanafiAsr,
+              activeThumbColor: AppColors.gold,
+              title: Text('Hanafi Asr', style: AppText.body),
+              subtitle: Text(
+                settings.hanafiAsr
+                    ? 'Shadow twice the object\u2019s length (later Asr)'
+                    : 'Standard: Shafi\u2019i, Maliki, Hanbali',
+                style: AppText.bodyMuted.copyWith(fontSize: 11),
+              ),
+            ),
+            const SizedBox(height: 12),
+            Text('CALCULATION METHOD', style: AppText.eyebrow),
+            const SizedBox(height: 4),
+            Text(
+              'Your mosque\u2019s timetable is the reference — pick the method '
+              'that matches it.',
+              style: AppText.bodyMuted.copyWith(fontSize: 11),
+            ),
+            for (final PrayerMethodOption m in kPrayerMethods)
+              ListTile(
+                contentPadding: EdgeInsets.zero,
+                onTap: () => ctrl.setMethod(m.key),
+                leading: Icon(
+                  settings.method == m.key
+                      ? Icons.radio_button_checked
+                      : Icons.radio_button_unchecked,
+                  color: AppColors.gold,
+                  size: 20,
+                ),
+                title: Text(m.label, style: AppText.body),
+                subtitle: Text(
+                  m.key == 'auto'
+                      ? '${m.detail} — now: ${kPrayerMethods.firstWhere((PrayerMethodOption o) => o.key == autoMethodFor(loc)).label}'
+                      : m.detail,
+                  style: AppText.bodyMuted.copyWith(fontSize: 11),
+                ),
+              ),
           ],
         ),
       ),

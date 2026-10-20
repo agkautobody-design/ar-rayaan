@@ -46,115 +46,115 @@ class _Entry {
 const List<_Entry> _knowledge = <_Entry>[
   // Letter 1 of 28
   _Entry(<String>['alif', 'letter alif', 'the alif'],
-    'Alif (ا) — From the empty space of the mouth — open it fully. You meet it in words like الله. Open the Letters school in the Academy and tap 'Alif' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Alif (ا) — From the empty space of the mouth — open it fully. You meet it in words like الله. Open the Letters school in the Academy and tap \'Alif\' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
   ),
   // Letter 2 of 28
   _Entry(<String>['ba', 'baa', 'letter ba', 'the ba'],
-    'Bā (ب) — Both lips together. You meet it in words like بِسْمِ. Open the Letters school in the Academy and tap 'Bā' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Bā (ب) — Both lips together. You meet it in words like بِسْمِ. Open the Letters school in the Academy and tap \'Bā\' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
   ),
   // Letter 3 of 28
   _Entry(<String>['ta', 'taa', 'letter ta', 'the ta'],
-    'Tā (ت) — Tip of the tongue to the upper front teeth. You meet it in words like تَبَّتْ. Open the Letters school in the Academy and tap 'Tā' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Tā (ت) — Tip of the tongue to the upper front teeth. You meet it in words like تَبَّتْ. Open the Letters school in the Academy and tap \'Tā\' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
   ),
   // Letter 4 of 28
   _Entry(<String>['tha', 'letter tha', 'the tha'],
-    'Thā (ث) — Tongue tip between the front teeth (gentle). You meet it in words like ثُمَّ. Open the Letters school in the Academy and tap 'Thā' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Thā (ث) — Tongue tip between the front teeth (gentle). You meet it in words like ثُمَّ. Open the Letters school in the Academy and tap \'Thā\' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
   ),
   // Letter 5 of 28
   _Entry(<String>['jim', 'jeem', 'letter jim', 'the jim'],
-    'Jīm (ج) — Middle of the tongue with the palate. You meet it in words like جَنَّة. Open the Letters school in the Academy and tap 'Jīm' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Jīm (ج) — Middle of the tongue with the palate. You meet it in words like جَنَّة. Open the Letters school in the Academy and tap \'Jīm\' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
   ),
   // Letter 6 of 28
   _Entry(<String>['ha deep', 'deep ha', 'Ḥā', 'heavy ha', 'letter ḥā', 'the ḥā'],
-    'Ḥā (ḥ) — Deep in the throat, a gentle breath. You meet it in words like الرَّحْمَٰن. Open the Letters school in the Academy and tap 'Ḥā' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Ḥā (ḥ) — Deep in the throat, a gentle breath. You meet it in words like الرَّحْمَٰن. Open the Letters school in the Academy and tap \'Ḥā\' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
   ),
   // Letter 7 of 28
   _Entry(<String>['kha', 'letter kha', 'the kha'],
-    'Khā (خ) — Back of the tongue to the soft palate. You meet it in words like خَلَقَ. Open the Letters school in the Academy and tap 'Khā' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Khā (خ) — Back of the tongue to the soft palate. You meet it in words like خَلَقَ. Open the Letters school in the Academy and tap \'Khā\' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
   ),
   // Letter 8 of 28
   _Entry(<String>['dal', 'daal', 'letter dal', 'the dal'],
-    'Dāl (د) — Tongue tip to the upper teeth (heavy). You meet it in words like دِين. Open the Letters school in the Academy and tap 'Dāl' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Dāl (د) — Tongue tip to the upper teeth (heavy). You meet it in words like دِين. Open the Letters school in the Academy and tap \'Dāl\' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
   ),
   // Letter 9 of 28
   _Entry(<String>['dhal', 'dhaal', 'letter dhal', 'the dhal'],
-    'Dhāl (ذ) — Tongue tip between the teeth (heavy). You meet it in words like ذَٰلِك. Open the Letters school in the Academy and tap 'Dhāl' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Dhāl (ذ) — Tongue tip between the teeth (heavy). You meet it in words like ذَٰلِك. Open the Letters school in the Academy and tap \'Dhāl\' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
   ),
   // Letter 10 of 28
   _Entry(<String>['ra '],
-    'Rā (ر) — Tongue tip vibrates against the palate. You meet it in words like رَبِّ. Open the Letters school in the Academy and tap 'Rā' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Rā (ر) — Tongue tip vibrates against the palate. You meet it in words like رَبِّ. Open the Letters school in the Academy and tap \'Rā\' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
   ),
   // Letter 11 of 28
   _Entry(<String>['zay', 'zain', 'letter zay', 'the zay'],
-    'Zāy (ز) — Tongue tip to the teeth, voiced. You meet it in words like زَكَاة. Open the Letters school in the Academy and tap 'Zāy' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Zāy (ز) — Tongue tip to the teeth, voiced. You meet it in words like زَكَاة. Open the Letters school in the Academy and tap \'Zāy\' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
   ),
   // Letter 12 of 28
   _Entry(<String>['sin '],
-    'Sīn (س) — Tongue tip near the teeth, a whistle. You meet it in words like سَمَاء. Open the Letters school in the Academy and tap 'Sīn' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Sīn (س) — Tongue tip near the teeth, a whistle. You meet it in words like سَمَاء. Open the Letters school in the Academy and tap \'Sīn\' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
   ),
   // Letter 13 of 28
   _Entry(<String>['shin', 'letter shin', 'the shin'],
-    'Shīn (ش) — Tongue with the palate, wide. You meet it in words like شَمْس. Open the Letters school in the Academy and tap 'Shīn' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Shīn (ش) — Tongue with the palate, wide. You meet it in words like شَمْس. Open the Letters school in the Academy and tap \'Shīn\' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
   ),
   // Letter 14 of 28
   _Entry(<String>['sad heavy', 'heavy sad', 'ṣad', 'suad', 'letter ṣad', 'the ṣad'],
-    'Ṣād (ص) — Heavy: tongue flat, lips rounded. You meet it in words like صَلَاة. Open the Letters school in the Academy and tap 'Ṣād' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Ṣād (ص) — Heavy: tongue flat, lips rounded. You meet it in words like صَلَاة. Open the Letters school in the Academy and tap \'Ṣād\' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
   ),
   // Letter 15 of 28
   _Entry(<String>['dad heavy', 'heavy dad', 'ḍad', 'duad', 'letter ḍad', 'the ḍad'],
-    'Ḍād (ض) — Heavy: tongue side pressed to the molars. You meet it in words like ضَالَّ. Open the Letters school in the Academy and tap 'Ḍād' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Ḍād (ض) — Heavy: tongue side pressed to the molars. You meet it in words like ضَالَّ. Open the Letters school in the Academy and tap \'Ḍād\' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
   ),
   // Letter 16 of 28
   _Entry(<String>['ta heavy', 'heavy ta', 'ṭa', 'toa', 'letter ṭa', 'the ṭa'],
-    'Ṭā (ط) — Heavy: tongue tip to the gums firmly. You meet it in words like طَيِّبَة. Open the Letters school in the Academy and tap 'Ṭā' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Ṭā (ط) — Heavy: tongue tip to the gums firmly. You meet it in words like طَيِّبَة. Open the Letters school in the Academy and tap \'Ṭā\' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
   ),
   // Letter 17 of 28
   _Entry(<String>['za heavy', 'dha heavy', 'ẓa', 'zoha', 'letter ẓa', 'the ẓa'],
-    'Ẓā (ظ) — Heavy: tongue tip between the teeth. You meet it in words like ظَهَرَ. Open the Letters school in the Academy and tap 'Ẓā' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Ẓā (ظ) — Heavy: tongue tip between the teeth. You meet it in words like ظَهَرَ. Open the Letters school in the Academy and tap \'Ẓā\' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
   ),
   // Letter 18 of 28
   _Entry(<String>['ayn', 'ain', 'letter ayn', 'the ayn'],
-    'ʿAyn (ع) — Middle of the throat, voiced. You meet it in words like عِلْم. Open the Letters school in the Academy and tap 'ʿAyn' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'ʿAyn (ع) — Middle of the throat, voiced. You meet it in words like عِلْم. Open the Letters school in the Academy and tap \'ʿAyn\' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
   ),
   // Letter 19 of 28
   _Entry(<String>['ghayn', 'ghain', 'letter ghayn', 'the ghayn'],
-    'Ghayn (غ) — Back of the throat, voiced growl. You meet it in words like غَفُور. Open the Letters school in the Academy and tap 'Ghayn' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Ghayn (غ) — Back of the throat, voiced growl. You meet it in words like غَفُور. Open the Letters school in the Academy and tap \'Ghayn\' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
   ),
   // Letter 20 of 28
   _Entry(<String>['fa '],
-    'Fā (ف) — Lower lip to the upper front teeth. You meet it in words like فِي. Open the Letters school in the Academy and tap 'Fā' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Fā (ف) — Lower lip to the upper front teeth. You meet it in words like فِي. Open the Letters school in the Academy and tap \'Fā\' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
   ),
   // Letter 21 of 28
   _Entry(<String>['qaf', 'letter qaf', 'the qaf'],
-    'Qāf (ق) — Back of the tongue to the soft palate. You meet it in words like قُلْ. Open the Letters school in the Academy and tap 'Qāf' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Qāf (ق) — Back of the tongue to the soft palate. You meet it in words like قُلْ. Open the Letters school in the Academy and tap \'Qāf\' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
   ),
   // Letter 22 of 28
   _Entry(<String>['kaf', 'letter kaf', 'the kaf'],
-    'Kāf (ك) — Tongue to the palate, lighter than qāf. You meet it in words like كِتَاب. Open the Letters school in the Academy and tap 'Kāf' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Kāf (ك) — Tongue to the palate, lighter than qāf. You meet it in words like كِتَاب. Open the Letters school in the Academy and tap \'Kāf\' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
   ),
   // Letter 23 of 28
   _Entry(<String>['lam', 'laam', 'letter lam', 'the lam'],
-    'Lām (ل) — Tongue tip to the palate, flowing. You meet it in words like لِلَّه. Open the Letters school in the Academy and tap 'Lām' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Lām (ل) — Tongue tip to the palate, flowing. You meet it in words like لِلَّه. Open the Letters school in the Academy and tap \'Lām\' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
   ),
   // Letter 24 of 28
   _Entry(<String>['mim', 'meem', 'letter mim', 'the mim'],
-    'Mīm (م) — Both lips closed, humming. You meet it in words like مُحَمَّد. Open the Letters school in the Academy and tap 'Mīm' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Mīm (م) — Both lips closed, humming. You meet it in words like مُحَمَّد. Open the Letters school in the Academy and tap \'Mīm\' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
   ),
   // Letter 25 of 28
   _Entry(<String>['nun', 'letter nun', 'the nun'],
-    'Nūn (ن) — Tongue tip to the gums, voiced. You meet it in words like نُور. Open the Letters school in the Academy and tap 'Nūn' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Nūn (ن) — Tongue tip to the gums, voiced. You meet it in words like نُور. Open the Letters school in the Academy and tap \'Nūn\' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
   ),
   // Letter 26 of 28
   _Entry(<String>['ha light', 'light ha', 'soft ha', 'hā '],
-    'Hā (ه) — A light breath from the throat. You meet it in words like هُوَ. Open the Letters school in the Academy and tap 'Hā' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Hā (ه) — A light breath from the throat. You meet it in words like هُوَ. Open the Letters school in the Academy and tap \'Hā\' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
   ),
   // Letter 27 of 28
   _Entry(<String>['waw', 'waww', 'letter waw', 'the waw'],
-    'Wāw (و) — Lips rounded, then opened. You meet it in words like وَ. Open the Letters school in the Academy and tap 'Wāw' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Wāw (و) — Lips rounded, then opened. You meet it in words like وَ. Open the Letters school in the Academy and tap \'Wāw\' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
   ),
   // Letter 28 of 28
   _Entry(<String>['ya '],
-    'Yā (ي) — Middle of the tongue to the palate. You meet it in words like يَوْم. Open the Letters school in the Academy and tap 'Yā' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
+    'Yā (ي) — Middle of the tongue to the palate. You meet it in words like يَوْم. Open the Letters school in the Academy and tap \'Yā\' — you will see the letter, hear it in a verse, and practice it step by step. Say its name three times, slowly. Which letter did you learn just before this one?',
   ),
 
   // --- The curriculum: units, exams, pacing --------------------------------

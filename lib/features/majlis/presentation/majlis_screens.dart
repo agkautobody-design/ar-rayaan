@@ -29,7 +29,9 @@ class _MajlisScreenState extends ConsumerState<MajlisScreen> {
   @override
   void initState() {
     super.initState();
-    ref.read(majlisServiceProvider).seedIfEmpty();
+    // Seeding is the founder's job (rules deny client room writes); a
+    // denied attempt must not surface as an unhandled error.
+    ref.read(majlisServiceProvider).seedIfEmpty().catchError((Object _) {});
   }
 
   @override

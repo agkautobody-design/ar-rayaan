@@ -49,8 +49,11 @@ void main() {
                 expect(kEmbedRoutes.containsKey(s.ref), isTrue,
                     reason: 'unknown embed ref ${s.ref}');
               }
-              if (s.kind == AcademyStepKind.action) {
-                expect(s.route, isNotNull);
+              // Action steps either open a screen or are a real-world task
+              // (give in secret, forgive someone) with no screen to open.
+              if (s.kind == AcademyStepKind.action && s.route != null) {
+                expect(s.route!.startsWith('/'), isTrue,
+                    reason: '${l.id}: bad route ${s.route}');
               }
             }
           }

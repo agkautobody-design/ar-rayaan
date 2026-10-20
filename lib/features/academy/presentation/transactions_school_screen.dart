@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
-import '../../../app/theme/widgets/scenic_scaffold.dart';
+import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 
 class _TrxLesson {
@@ -58,7 +58,7 @@ const List<_TrxUnit> kTransactionUnits = <_TrxUnit>[
     lessons: <_TrxLesson>[
       _TrxLesson(
         title: 'What Riba Actually Is',
-        body: 'Riba is stipulated increase on a loan — interest, usury. Allah permitted trade and forbidden riba (2:275). The lender is not an investor; a loan is a trust, not a product. The distinction matters more as every app offers 'buy now, pay later.'',
+        body: 'Riba is stipulated increase on a loan — interest, usury. Allah permitted trade and forbidden riba (2:275). The lender is not an investor; a loan is a trust, not a product. The distinction matters more as every app offers \'buy now, pay later.\'',
         practice: 'Check one of your financial products this week: is any charge stipulated on the loan itself? Ask a scholar about it.',
       ),
       _TrxLesson(

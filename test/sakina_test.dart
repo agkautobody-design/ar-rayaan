@@ -57,6 +57,14 @@ void main() {
       for (final HelpResource r in HelpResources.all) {
         expect(r.contact, isNotEmpty);
         expect(r.region, isNotEmpty);
+        // Every row must do something when tapped: a crisis number that
+        // does not dial is worse than none.
+        expect(r.dial != null || r.url != null, isTrue,
+            reason: '${r.name} has no number to dial and no link');
+        if (r.dial != null) {
+          expect(RegExp(r'^\d{3,11}$').hasMatch(r.dial!), isTrue,
+              reason: '${r.name} dial must be digits only');
+        }
       }
     });
 

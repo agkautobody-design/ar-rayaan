@@ -53,7 +53,7 @@ class MenuScreen extends ConsumerWidget {
           'Marriage',
           null,
         ), // NOOR Connect deferred (§10)
-        (Icons.child_care_outlined, 'Parenting', '/academy/family'),
+        (Icons.child_care_outlined, 'Parenting', '/academy/family-life'),
         (Icons.home_outlined, 'Family Life', AppRoutes.feelings),
         (Icons.people_outline, 'Community', AppRoutes.community),
         (Icons.favorite_outline, 'Elder Care', '/elder-care'),
@@ -66,9 +66,8 @@ class MenuScreen extends ConsumerWidget {
         (Icons.bookmark_outline, 'Notes & Bookmarks', AppRoutes.notes),
         (Icons.download_outlined, 'Downloads', AppRoutes.downloads),
         (Icons.translate_outlined, 'Language & Voice \u00b7 your tongue, your choice', '/settings/language'),
-        (Icons.search, 'Saved Searches', AppRoutes.quran),
-        (Icons.dark_mode_outlined, 'Night Mode', AppRoutes.settings),
-        (Icons.monitor_heart_outlined, 'Ar-Rayaan Doctor (founder)', '/founder'),
+        if (kFounderTools)
+          (Icons.monitor_heart_outlined, 'Ar-Rayaan Doctor (founder)', '/founder'),
       ],
     ),
   ];

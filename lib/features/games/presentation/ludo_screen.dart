@@ -280,8 +280,8 @@ class _LudoState extends State<LudoScreen> {
       appliedMoves = 0;
       turn = 0;
       status = mySide == 'host'
-          ? 'Table \${roomCode} — waiting for your opponent\u2026'
-          : 'Joined \${roomCode} — you are Green';
+          ? 'Table ${roomCode} — waiting for your opponent\u2026'
+          : 'Joined ${roomCode} — you are Green';
     });
     _roomStream = _rooms.watch(roomCode!);
     _roomStream!.listen((snap) {

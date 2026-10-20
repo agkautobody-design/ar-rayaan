@@ -539,7 +539,7 @@ String _tileImage(String t) {
   }
   if (t.startsWith('Islamic')) return '$base/tile_calendar.jpg';
   if (t.startsWith('Knowledge')) return '$base/tile_knowledge.jpg';
-  // Fallback until assets/images/tiles/tile_academy.jpg ships
+  // Fallback until a dedicated Academy tile image ships
   // (see state/art_list.md, Wave 1 #1).
   if (t.startsWith('Wasia')) return '$base/tile_knowledge.jpg';
   return '$base/tile_journey.jpg';

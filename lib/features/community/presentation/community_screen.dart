@@ -13,10 +13,10 @@ class CommunityScreen extends StatelessWidget {
   const CommunityScreen({super.key});
 
   static const List<(IconData, String, String)> _items = [
-    (Icons.calendar_month_outlined, 'Events', 'Join upcoming events'),
-    (Icons.people_outline, 'Groups', 'Connect with others'),
-    (Icons.volunteer_activism_outlined, 'Volunteer', 'Make a difference'),
-    (Icons.campaign_outlined, 'Announcements', 'Stay updated'),
+    (Icons.calendar_month_outlined, 'Events', 'Coming soon'),
+    (Icons.people_outline, 'Groups', 'Coming soon'),
+    (Icons.volunteer_activism_outlined, 'Volunteer', 'Coming soon'),
+    (Icons.campaign_outlined, 'Announcements', 'Coming soon'),
   ];
 
   @override
@@ -71,7 +71,14 @@ class CommunityScreen extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.only(bottom: 10),
                           child: GlassCard(
-                            onTap: () {},
+                            // Not built yet: say so instead of a dead tap.
+                            onTap: () => ScaffoldMessenger.of(context)
+                                .showSnackBar(const SnackBar(
+                              content: Text(
+                                'Community opens once reporting, blocking '
+                                'and moderation are in place, in shaa Allah.',
+                              ),
+                            )),
                             padding: const EdgeInsets.symmetric(
                               horizontal: 16,
                               vertical: 14,

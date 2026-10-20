@@ -81,7 +81,7 @@ const List<_DuaLesson> kDuaLessons = <_DuaLesson>[
     arabic:
         'بِسْمِ اللَّهِ، تَوَكَّلْتُ عَلَى اللَّهِ، وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ',
     meaning:
-        'In the name of Allah; I place my trust in Allah; there is no might nor power except with Allah (Abu Dawud 5095). Taught as the morning's first sentence when the foot crosses the threshold.',
+        'In the name of Allah; I place my trust in Allah; there is no might nor power except with Allah (Abu Dawud 5095). Taught as the morning\'s first sentence when the foot crosses the threshold.',
     when: 'When leaving the house.',
     source: 'Abu Dawud 5095',
   ),
@@ -101,7 +101,7 @@ const List<_DuaLesson> kDuaLessons = <_DuaLesson>[
     arabic:
         'بِسْمِ اللَّهِ، اللَّهُمَّ إِنِّي أَسْأَلُكَ خَيْرَ الْمَوْلَجِ وَخَيْرَ الْمَخْرَجِ',
     meaning:
-        'In the name of Allah. O Allah, I ask You for the good of entering and the good of leaving (Abu Dawud 5096). The home is entered with His name, not with the day's residue.',
+        'In the name of Allah. O Allah, I ask You for the good of entering and the good of leaving (Abu Dawud 5096). The home is entered with His name, not with the day\'s residue.',
     when: 'When entering the house.',
     source: 'Abu Dawud 5096',
   ),
@@ -111,7 +111,7 @@ const List<_DuaLesson> kDuaLessons = <_DuaLesson>[
     title: 'Entering the mosque — asking the doors of mercy',
     arabic: 'اللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ',
     meaning:
-        'O Allah, open for me the doors of Your mercy (Muslim 713). Said with the right foot at the mosque's door.',
+        'O Allah, open for me the doors of Your mercy (Muslim 713). Said with the right foot at the mosque\'s door.',
     when: 'Entering the mosque.',
     source: 'Sahih Muslim 713',
   ),
@@ -120,7 +120,7 @@ const List<_DuaLesson> kDuaLessons = <_DuaLesson>[
     arabic:
         'أَسْتَغْفِرُ اللَّهَ (×٣) اللَّهُمَّ أَنْتَ السَّلَامُ وَمِنْكَ السَّلَامُ',
     meaning:
-        'I seek Allah's forgiveness (three times). O Allah, You are Peace and from You comes peace… (Muslim 591). The prayer does not end; it hands you to the next worship.',
+        'I seek Allah\'s forgiveness (three times). O Allah, You are Peace and from You comes peace… (Muslim 591). The prayer does not end; it hands you to the next worship.',
     when: 'After each obligatory prayer.',
     source: 'Sahih Muslim 591',
   ),
@@ -133,7 +133,7 @@ const List<_DuaLesson> kDuaLessons = <_DuaLesson>[
     meaning:
         'Glory to Him who subjected this to us, and we could never have accomplished it ourselves (43:13). The Prophet ﷺ recited it mounting his ride, then said Allahu Akbar three times (Muslim 1342).',
     when: 'Boarding a vehicle, mount, or seat of travel.',
-    source: 'Qur'an 43:13; Sahih Muslim 1342',
+    source: 'Qur\'an 43:13; Sahih Muslim 1342',
   ),
   _DuaLesson(
     title: 'In distress — the dua of the afflicted',
@@ -145,10 +145,10 @@ const List<_DuaLesson> kDuaLessons = <_DuaLesson>[
     source: 'Sahih al-Bukhari 6346',
   ),
   _DuaLesson(
-    title: 'Hasbunallahu wa ni'mal wakil — the sufficiency clause',
+    title: 'Hasbunallahu wa ni\'mal wakil — the sufficiency clause',
     arabic: 'حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ',
     meaning:
-        'Allah is sufficient for us, and He is the best Disposer of affairs (3:173) — the words of Ibrahim's household at the fire and of the Prophet ﷺ at Uhud. Spoken, the chest loosens.',
+        'Allah is sufficient for us, and He is the best Disposer of affairs (3:173) — the words of Ibrahim\'s household at the fire and of the Prophet ﷺ at Uhud. Spoken, the chest loosens.',
     when: 'When facing what you cannot control.',
     source: "Qur'an 3:173",
   ),

@@ -217,7 +217,7 @@ final List<AcademyCourse> kAcademyCourses = <AcademyCourse>[
             titleKey: 'path.u4.l3.title',
             steps: <AcademyStep>[
               const AcademyStep(kind: AcademyStepKind.text, titleKey: 'path.u4.l3.s1.title', bodyKey: 'path.u4.l3.s1.body'),
-              const AcademyStep(kind: AcademyStepKind.embed, titleKey: 'path.u4.l3.s2.title', bodyKey: 'path.u4.l3.s2.body'),
+              const AcademyStep(kind: AcademyStepKind.embed, ref: 'zakat.guided', titleKey: 'path.u4.l3.s2.title', bodyKey: 'path.u4.l3.s2.body'),
               const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'path.u4.l3.s3.title', bodyKey: 'path.u4.l3.s3.body'),
             ],
           ),
@@ -228,7 +228,7 @@ final List<AcademyCourse> kAcademyCourses = <AcademyCourse>[
             titleKey: 'path.u4.l4.title',
             steps: <AcademyStep>[
               const AcademyStep(kind: AcademyStepKind.text, titleKey: 'path.u4.l4.s1.title', bodyKey: 'path.u4.l4.s1.body'),
-              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'path.u4.l4.s2.title', bodyKey: 'path.u4.l4.s2.body', route: 'None'),
+              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'path.u4.l4.s2.title', bodyKey: 'path.u4.l4.s2.body'),
               const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'path.u4.l4.s3.title', bodyKey: 'path.u4.l4.s3.body'),
             ],
           ),
@@ -267,7 +267,7 @@ final List<AcademyCourse> kAcademyCourses = <AcademyCourse>[
             titleKey: 'path.u5.l2.title',
             steps: <AcademyStep>[
               const AcademyStep(kind: AcademyStepKind.text, titleKey: 'path.u5.l2.s1.title', bodyKey: 'path.u5.l2.s1.body'),
-              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'path.u5.l2.s2.title', bodyKey: 'path.u5.l2.s2.body', route: '/academy/the-path'),
+              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'path.u5.l2.s2.title', bodyKey: 'path.u5.l2.s2.body', route: '/huda'),
               const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'path.u5.l2.s3.title', bodyKey: 'path.u5.l2.s3.body'),
             ],
           ),
@@ -288,7 +288,7 @@ final List<AcademyCourse> kAcademyCourses = <AcademyCourse>[
             titleKey: 'path.u5.l4.title',
             steps: <AcademyStep>[
               const AcademyStep(kind: AcademyStepKind.text, titleKey: 'path.u5.l4.s1.title', bodyKey: 'path.u5.l4.s1.body'),
-              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'path.u5.l4.s2.title', bodyKey: 'path.u5.l4.s2.body', route: 'None'),
+              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'path.u5.l4.s2.title', bodyKey: 'path.u5.l4.s2.body'),
               const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'path.u5.l4.s3.title', bodyKey: 'path.u5.l4.s3.body'),
             ],
           ),
@@ -327,7 +327,7 @@ final List<AcademyCourse> kAcademyCourses = <AcademyCourse>[
             titleKey: 'path.u6.l2.title',
             steps: <AcademyStep>[
               const AcademyStep(kind: AcademyStepKind.text, titleKey: 'path.u6.l2.s1.title', bodyKey: 'path.u6.l2.s1.body'),
-              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'path.u6.l2.s2.title', bodyKey: 'path.u6.l2.s2.body', route: '/hajj-umrah'),
+              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'path.u6.l2.s2.title', bodyKey: 'path.u6.l2.s2.body', route: '/academy/hajj-umrah-pack'),
               const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'path.u6.l2.s3.title', bodyKey: 'path.u6.l2.s3.body'),
             ],
           ),
@@ -396,7 +396,7 @@ final List<AcademyCourse> kAcademyCourses = <AcademyCourse>[
             titleKey: 'path.u7.l4.title',
             steps: <AcademyStep>[
               const AcademyStep(kind: AcademyStepKind.text, titleKey: 'path.u7.l4.s1.title', bodyKey: 'path.u7.l4.s1.body'),
-              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'path.u7.l4.s2.title', bodyKey: 'path.u7.l4.s2.body', route: 'None'),
+              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'path.u7.l4.s2.title', bodyKey: 'path.u7.l4.s2.body'),
               const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'path.u7.l4.s3.title', bodyKey: 'path.u7.l4.s3.body'),
             ],
           ),
@@ -434,7 +434,7 @@ final List<AcademyCourse> kAcademyCourses = <AcademyCourse>[
             titleKey: 'path.u8.l2.title',
             steps: <AcademyStep>[
               const AcademyStep(kind: AcademyStepKind.text, titleKey: 'path.u8.l2.s1.title', bodyKey: 'path.u8.l2.s1.body'),
-              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'path.u8.l2.s2.title', bodyKey: 'path.u8.l2.s2.body', route: 'None'),
+              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'path.u8.l2.s2.title', bodyKey: 'path.u8.l2.s2.body'),
               const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'path.u8.l2.s3.title', bodyKey: 'path.u8.l2.s3.body'),
             ],
           ),
@@ -455,7 +455,7 @@ final List<AcademyCourse> kAcademyCourses = <AcademyCourse>[
             titleKey: 'path.u8.l4.title',
             steps: <AcademyStep>[
               const AcademyStep(kind: AcademyStepKind.text, titleKey: 'path.u8.l4.s1.title', bodyKey: 'path.u8.l4.s1.body'),
-              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'path.u8.l4.s2.title', bodyKey: 'path.u8.l4.s2.body', route: 'None'),
+              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'path.u8.l4.s2.title', bodyKey: 'path.u8.l4.s2.body'),
               const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'path.u8.l4.s3.title', bodyKey: 'path.u8.l4.s3.body'),
             ],
           ),
@@ -514,7 +514,7 @@ final List<AcademyCourse> kAcademyCourses = <AcademyCourse>[
             titleKey: 'path.u9.l4.title',
             steps: <AcademyStep>[
               const AcademyStep(kind: AcademyStepKind.text, titleKey: 'path.u9.l4.s1.title', bodyKey: 'path.u9.l4.s1.body'),
-              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'path.u9.l4.s2.title', bodyKey: 'path.u9.l4.s2.body', route: 'None'),
+              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'path.u9.l4.s2.title', bodyKey: 'path.u9.l4.s2.body'),
               const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'path.u9.l4.s3.title', bodyKey: 'path.u9.l4.s3.body'),
             ],
           ),
@@ -543,62 +543,8 @@ final List<AcademyCourse> kAcademyCourses = <AcademyCourse>[
     available: false,
     units: <AcademyUnit>[],
   ),
-  const AcademyCourse(
-    id: 'understanding',
-    titleKey: 'school.understanding.title',
-    subtitleKey: 'school.understanding.subtitle',
-    available: false,
-    units: <AcademyUnit>[],
-  ),
-];
-
-/// Assessment catalog (knowledge checks referenced by `check` steps).
-final Map<String, List<AssessmentItem>> kAssessments =
-    <String, List<AssessmentItem>>{
-  'fatihah.meaning': <AssessmentItem>[
-    const AssessmentItem(
-      id: 'fatihah.meaning.1',
-      promptKey: 'check.fatihah.q1',
-      choices: <String>[
-        'check.fatihah.q1.a',
-        'check.fatihah.q1.b',
-        'check.fatihah.q1.c',
-      ],
-      correctIndex: 0,
-      reteachKey: 'check.fatihah.q1.reteach',
-    ),
-  ],
-  'wudu.basics': <AssessmentItem>[
-    const AssessmentItem(
-      id: 'wudu.basics.1',
-      promptKey: 'check.wudu.q1',
-      choices: <String>['check.wudu.q1.a', 'check.wudu.q1.b', 'check.wudu.q1.c'],
-      correctIndex: 0,
-      reteachKey: 'check.wudu.q1.reteach',
-    ),
-    const AssessmentItem(
-      id: 'wudu.basics.2',
-      promptKey: 'check.wudu.q2',
-      choices: <String>['check.wudu.q1.a', 'check.wudu.q1.b', 'check.wudu.q1.c'],
-      correctIndex: 1,
-      reteachKey: 'check.wudu.q2.reteach',
-    ),
-  ],
-};
-
-/// Find a lesson by ids, or null.
-AcademyLesson? findLesson(String courseId, String unitId, String lessonId) {
-  for (final AcademyCourse c in kAcademyCourses) {
-    if (c.id != courseId) continue;
-    for (final AcademyUnit u in c.units) {
-      if (u.id != unitId) continue;
-      for (final AcademyLesson l in u.lessons) {
-        if (l.id == lessonId) return l;
-      }
-    }
-  }
-  return null;
-}    AcademyCourse(
+  // ── Manifest courses (Batch 6) ──
+    AcademyCourse(
       id: 'arabic-language',
       titleKey: 'course.arabic-language.title',
       subtitleKey: 'course.arabic-language.subtitle',
@@ -2150,4 +2096,52 @@ AcademyLesson? findLesson(String courseId, String unitId, String lessonId) {
       ),
       ],
     ),
+];
 
+/// Assessment catalog (knowledge checks referenced by `check` steps).
+final Map<String, List<AssessmentItem>> kAssessments =
+    <String, List<AssessmentItem>>{
+  'fatihah.meaning': <AssessmentItem>[
+    const AssessmentItem(
+      id: 'fatihah.meaning.1',
+      promptKey: 'check.fatihah.q1',
+      choices: <String>[
+        'check.fatihah.q1.a',
+        'check.fatihah.q1.b',
+        'check.fatihah.q1.c',
+      ],
+      correctIndex: 0,
+      reteachKey: 'check.fatihah.q1.reteach',
+    ),
+  ],
+  'wudu.basics': <AssessmentItem>[
+    const AssessmentItem(
+      id: 'wudu.basics.1',
+      promptKey: 'check.wudu.q1',
+      choices: <String>['check.wudu.q1.a', 'check.wudu.q1.b', 'check.wudu.q1.c'],
+      correctIndex: 0,
+      reteachKey: 'check.wudu.q1.reteach',
+    ),
+    const AssessmentItem(
+      id: 'wudu.basics.2',
+      promptKey: 'check.wudu.q2',
+      choices: <String>['check.wudu.q1.a', 'check.wudu.q1.b', 'check.wudu.q1.c'],
+      correctIndex: 1,
+      reteachKey: 'check.wudu.q2.reteach',
+    ),
+  ],
+};
+
+/// Find a lesson by ids, or null.
+AcademyLesson? findLesson(String courseId, String unitId, String lessonId) {
+  for (final AcademyCourse c in kAcademyCourses) {
+    if (c.id != courseId) continue;
+    for (final AcademyUnit u in c.units) {
+      if (u.id != unitId) continue;
+      for (final AcademyLesson l in u.lessons) {
+        if (l.id == lessonId) return l;
+      }
+    }
+  }
+  return null;
+}

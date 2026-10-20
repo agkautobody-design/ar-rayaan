@@ -10,7 +10,7 @@ import 'package:go_router/go_router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
-import '../../../app/theme/widgets/scenic_scaffold.dart';
+import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../huda/presentation/huda_screens.dart';
 
@@ -173,7 +173,7 @@ class HajjUmrahPackScreen extends ConsumerWidget {
                                 }
                                 return GestureDetector(
                                   onTap: () =>
-                                      context.push('/guides/read', extra: guide),
+                                      context.push('/huda/guide', extra: guide),
                                   child: Text('Open the guide \u2192',
                                       style: AppText.bodyMuted.copyWith(
                                           color: AppColors.gold, fontSize: 12)),

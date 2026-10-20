@@ -326,12 +326,16 @@ class _StepBody extends StatelessWidget {
                 AcademyStrings.get(step.bodyKey),
                 style: AppText.bodyMuted.copyWith(height: 1.5),
               ),
-              const SizedBox(height: 14),
-              FilledButton.icon(
-                onPressed: () => context.go(step.route!),
-                icon: const Icon(Icons.open_in_new, size: 18),
-                label: Text(AcademyStrings.get('common.open')),
-              ),
+              // Real-world tasks (give in secret, forgive someone) have no
+              // screen to open — the step is the task itself.
+              if (step.route != null) ...<Widget>[
+                const SizedBox(height: 14),
+                FilledButton.icon(
+                  onPressed: () => context.push(step.route!),
+                  icon: const Icon(Icons.open_in_new, size: 18),
+                  label: Text(AcademyStrings.get('common.open')),
+                ),
+              ],
             ],
           ),
         );

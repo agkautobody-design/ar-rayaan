@@ -174,7 +174,7 @@ class ReviewQueueNotifier extends StateNotifier<Map<String, ReviewCard>> {
   }
 
   /// Today's queue, oldest first, capped so review never becomes a chore.
-  List<ReviewCard> get due => ReviewCard.dueQueue(
+  List<ReviewCard> get due => Sm2Engine.dueQueue(
         state.values.toList(),
         DateTime.now(),
       ).take(dailyCap).toList();
@@ -186,7 +186,7 @@ class ReviewQueueNotifier extends StateNotifier<Map<String, ReviewCard>> {
   Future<void> grade(String lessonId, ReviewGrade grade) async {
     final card = state[lessonId];
     if (card == null) return;
-    _update(lessonId, ReviewCard.schedule(card, grade, DateTime.now()));
+    _update(lessonId, Sm2Engine.schedule(card, grade, DateTime.now()));
     if (grade != ReviewGrade.again) {
       final progress = _ref.read(academyProgressProvider.notifier);
       final current = progress.of(lessonId);
@@ -213,7 +213,9 @@ class AcademyTrackNotifier extends StateNotifier<String> {
     try {
       final prefs = _ref.read(sharedPreferencesProvider);
       final String? t = prefs.getString(_pref);
-      if (t == 'child' || t == 'teen' || t == 'parent') state = t;
+      if (t != null && (t == 'child' || t == 'teen' || t == 'parent')) {
+        state = t;
+      }
     } catch (_) {}
   }
 
