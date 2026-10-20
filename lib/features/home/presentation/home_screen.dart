@@ -7,6 +7,7 @@ import 'package:intl/intl.dart' show DateFormat;
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
+import '../../../app/core/modules/module_status.dart';
 import '../../hadith/presentation/daily_hadith_banner.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/gold_text.dart';
@@ -330,6 +331,7 @@ class HomeScreen extends ConsumerWidget {
                               image: _tileImage(title),
                               title: title,
                               subtitle: sub,
+                              badge: _badgeFor(ref, route),
                               onTap: () =>
                                   context.go(route ?? AppRoutes.explore),
                             ),
@@ -543,17 +545,47 @@ String _tileImage(String t) {
   return '$base/tile_journey.jpg';
 }
 
+
+/// Badge text for a tile's module, straight from the registry. Null when
+/// live, unmapped, or still loading — a tile is never badged on a guess.
+String? _badgeFor(WidgetRef ref, String? route) {
+  if (route == null) return null;
+  final String? moduleId = _tileModule[route];
+  if (moduleId == null) return null;
+  String status = 'live';
+  ref
+      .watch(moduleRegistryProvider)
+      .whenData((ModuleStatusService s) => status = s.statusOf(moduleId));
+  if (status == 'live') return null;
+  return 'Soon';
+}
+
+/// Which registry module each home tile answers to. Tiles without an
+/// entry are never badged — unknown must never be shamed.
+const Map<String, String> _tileModule = <String, String>{
+  '/prayer': 'prayer',
+  '/quran': 'quran',
+  '/adhkar': 'adhkar',
+  '/hadith': 'daily-hadith',
+  '/noor': 'noor',
+  '/hadi': 'hadi',
+  '/stories': 'stories',
+  '/academy/gate': 'academy',
+};
+
 class _PictureTile extends StatelessWidget {
   final String image;
   final String title;
   final String subtitle;
   final VoidCallback onTap;
+  final String? badge;
 
   const _PictureTile({
     required this.image,
     required this.title,
     required this.subtitle,
     required this.onTap,
+    this.badge,
   });
 
   @override
@@ -588,6 +620,30 @@ class _PictureTile extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              if (badge != null)
+                Align(
+                  alignment: Alignment.topRight,
+                  child: Container(
+                    margin: const EdgeInsets.only(top: 8),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 8, vertical: 3),
+                    decoration: BoxDecoration(
+                      color: const Color(0xCC05090F),
+                      borderRadius: BorderRadius.circular(20),
+                      border: Border.all(
+                          color: AppColors.gold.withValues(alpha: 0.6)),
+                    ),
+                    child: Text(
+                      badge!,
+                      style: AppText.bodyMuted.copyWith(
+                        fontSize: 9,
+                        color: AppColors.gold,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ),
+                ),
+              const Spacer(),
               Text(
                 title,
                 style: AppText.body.copyWith(

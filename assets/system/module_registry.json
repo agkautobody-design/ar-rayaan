@@ -189,7 +189,8 @@
    "id": "new-muslim",
    "title": "New Muslim 30-day path",
    "doc": "Content Growth research 2026-10-08",
-   "status": "unbuilt"
+   "status": "live",
+   "note": "guided path screen shipped (progress remembered on device, free navigation, completion ceremony); lesson content is the stories library New Muslim Path collection"
   },
   {
    "id": "ramadan-mode",
