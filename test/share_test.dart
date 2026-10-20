@@ -97,6 +97,13 @@ void main() {
     await tester.runAsync(
         () => rootBundle.loadString('assets/share/cards.json'));
 
+    // Collect framework errors so a failure names the exception.
+    final List<String> errors = <String>[];
+    final FlutterExceptionHandler? previous = FlutterError.onError;
+    FlutterError.onError = (FlutterErrorDetails d) =>
+        errors.add('${d.exceptionAsString()}\n${d.stack}');
+    addTearDown(() => FlutterError.onError = previous);
+
     await tester.pumpWidget(
       ProviderScope(
         overrides: <Override>[
@@ -116,5 +123,10 @@ void main() {
     expect(find.text('ADD TO ANY HOME SCREEN'), findsOneWidget);
     // First card is the Rahman verse, shown with its reference.
     expect(find.textContaining('55:13'), findsOneWidget);
+
+    // Tear the screen down inside the test so dispose-time errors surface.
+    await tester.pumpWidget(const SizedBox());
+    await tester.pump();
+    expect(errors, isEmpty, reason: errors.join('\n---\n'));
   });
 }
