@@ -1,0 +1,248 @@
+/// Stories school — the library\u2019s collections as a moral curriculum.
+/// Four themes, each a set of chapters that open real stories with the
+/// virtue they carry and a family question to talk through. Every story
+/// id references an existing collection entry.
+library;
+
+import 'package:flutter/material.dart';
+
+import '../../../app/theme/app_colors.dart';
+import '../../../app/theme/app_typography.dart';
+import '../../../app/theme/widgets/glass_card.dart';
+import '../../../app/theme/widgets/scenic_scaffold.dart';
+import '../../../app/theme/widgets/screen_header.dart';
+
+class _StoryChapter {
+  const _StoryChapter({
+    required this.title,
+    required this.virtue,
+    required this.familyQuestion,
+    required this.storyId,
+  });
+
+  final String title;
+  final String virtue;
+  final String familyQuestion;
+  final String storyId;
+}
+
+class _StoriesUnit {
+  const _StoriesUnit({required this.title, required this.frame, required this.chapters});
+  final String title;
+  final String frame;
+  final List<_StoryChapter> chapters;
+}
+
+const List<_StoriesUnit> kStoriesUnits = <_StoriesUnit>[
+  _StoriesUnit(
+    title: 'Patience & Trust',
+    frame: 'The Prophets were not supermen — they were the most patient men. These chapters teach waiting without despairing.',
+    chapters: <_StoryChapter>[
+      _StoryChapter(
+        title: 'Yusuf — From Well to Throne',
+        virtue: 'Betrayed by brothers, sold, imprisoned — and he forgave them by name. Patience that keeps its softness.',
+        familyQuestion: 'Has anyone wronged you that you could forgive by name?',
+        storyId: 'prophet-yusuf',
+      ),
+      _StoryChapter(
+        title: 'Ayyub — The Patient One',
+        virtue: 'Everything taken, years of illness, one dua at the end — and the mountain moved. Long patience, short words.',
+        familyQuestion: 'What would you say to Allah if you could only say one sentence?',
+        storyId: 'prophet-ayyub',
+      ),
+      _StoryChapter(
+        title: 'Ya\u2019qub — The Beautiful Patience',
+        virtue: 'He lost a son, then another — and said 'I only complain of my grief to Allah' (12:86). Grief and patience can share a chest.',
+        familyQuestion: 'What does 'beautiful patience' look like in our house this week?',
+        storyId: 'prophet-yaqub',
+      ),
+      _StoryChapter(
+        title: 'Nuh — The Long Building',
+        virtue: 'He built the ship for decades before a drop of rain, and called his people for 950 years. Persistence is a form of worship.',
+        familyQuestion: 'What are you building that no one can see yet?',
+        storyId: 'prophet-nuh',
+      ),
+      _StoryChapter(
+        title: 'The Man Who Killed 99',
+        virtue: 'The road to paradise is measured in miles — and he walked them. Repentance has a geography: move toward the righteous.',
+        familyQuestion: 'What is one step you could take toward a better place this month?',
+        storyId: 'tale-99',
+      ),
+    ],
+  ),
+  _StoriesUnit(
+    title: 'Courage & Conviction',
+    frame: 'Standing alone against everyone — and standing anyway.',
+    chapters: <_StoryChapter>[
+      _StoryChapter(
+        title: 'Ibrahim — The Two Rivers of Reason',
+        virtue: 'He argued a star, a moon, a sun into the ground, then walked into a fire that became cool. Conviction that reasons and then leaps.',
+        familyQuestion: 'What belief would you hold even if everyone mocked it?',
+        storyId: 'prophet-ibrahim',
+      ),
+      _StoryChapter(
+        title: 'Musa — Before Pharaoh',
+        virtue: 'A stuttering shepherd demanded freedom from the world\u2019s tyrant — with a staff and a brother. Courage is a stutter that keeps speaking.',
+        familyQuestion: 'What is your 'staff' — the small thing you carry that could face something big?',
+        storyId: 'prophet-musa',
+      ),
+      _StoryChapter(
+        title: 'Maryam — The Palm Tree',
+        virtue: 'Alone, laboring, accused — and the infant spoke from the cradle. Solitude with Allah is never abandonment.',
+        familyQuestion: 'When have you felt alone but not abandoned?',
+        storyId: 'woman-maryam',
+      ),
+      _StoryChapter(
+        title: 'Bilal — One Word',
+        virtue: 'The mountain of sand could not crush one word: Ahad. The word outlived the empire that buried him under it.',
+        familyQuestion: 'What is your one word — the thing you would not stop saying?',
+        storyId: 'comp-bilal',
+      ),
+      _StoryChapter(
+        title: 'Sumayyah — The First to Give Everything',
+        virtue: 'The first martyr of Islam: a slave woman who refused to curse the Prophet. She taught the ummah its first lesson in standing.',
+        familyQuestion: 'What does 'standing for something' cost, and what does it buy?',
+        storyId: 'woman-sumayyah',
+      ),
+    ],
+  ),
+  _StoriesUnit(
+    title: 'Mercy & Forgiveness',
+    frame: 'The strongest ones lowered the wing — and the door of repentance never closed.',
+    chapters: <_StoryChapter>[
+      _StoryChapter(
+        title: 'Adam — The First Repentance',
+        virtue: 'One honest sentence opened the door of mercy for every sinner after him. Repentance is the oldest human skill.',
+        familyQuestion: 'What does a real apology look like — from you to someone else, or to Allah?',
+        storyId: 'prophet-adam',
+      ),
+      _StoryChapter(
+        title: 'The Prostitute\u2019s Thirst',
+        virtue: 'One bowl of water for a thirsty dog — and her ledger was closed by mercy. No one is beyond a door Allah opens.',
+        familyQuestion: 'What small kindness might count more than you think?',
+        storyId: 'tale-dog',
+      ),
+      _StoryChapter(
+        title: 'Yunus — The Whale\u2019s Belly',
+        virtue: 'He ran from the call and landed in the darkest place — and one sentence reached the Throne from inside a fish. No place is too dark for la ilaha illa anta.',
+        familyQuestion: 'What is your 'whale\u2019s belly' — the dark place you could pray from right now?',
+        storyId: 'prophet-yunus',
+      ),
+      _StoryChapter(
+        title: 'Umm Salama — Whose Question Became a Verse',
+        virtue: 'She said the dua of the afflicted — 'to You we return' — and her heartache became revelation. Grief itself can be worship.',
+        familyQuestion: 'What dua could turn your hardest day into an address to Allah?',
+        storyId: 'woman-umm-salama',
+      ),
+      _StoryChapter(
+        title: 'The Man Who Asked for Water',
+        virtue: 'Barsisa\u2019s story warns — but within it lies the door: repentance has no statute of limitations while the heart beats.',
+        familyQuestion: 'What does this story warn you about — and what does it promise you?',
+        storyId: 'tale-barsisa',
+      ),
+    ],
+  ),
+  _StoriesUnit(
+    title: 'Gratitude & Contentment',
+    frame: 'The ones who counted their blessings instead of their lacks — and found the scale already tipped.',
+    chapters: <_StoryChapter>[
+      _StoryChapter(
+        title: 'Sulayman — The Kingdom',
+        virtue: 'A kingdom no one will have after him — and his dua was only 'make me grateful.' Might chose gratitude.',
+        familyQuestion: 'What do you have that you never asked for?',
+        storyId: 'prophet-sulayman',
+      ),
+      _StoryChapter(
+        title: 'The Two Gardens',
+        virtue: 'The man who counted his harvest forgot his Lord — one night of frost took it all. 'Wealth and children are adornment; the enduring deeds are better' (18:46).',
+        familyQuestion: 'What is your 'garden' — and what would remain if it vanished tonight?',
+        storyId: 'tale-two-gardens',
+      ),
+      _StoryChapter(
+        title: 'Hagar — She Ran Seven Times',
+        virtue: 'Alone in a desert with a crying child — and 'He will not waste us' became the walk between two hills that every pilgrim still walks.',
+        familyQuestion: 'Where are you 'running between the hills' right now?',
+        storyId: 'woman-hagar',
+      ),
+      _StoryChapter(
+        title: 'Asiya — A House Built Wrong',
+        virtue: 'She lived in Pharaoh\u2019s palace and was heartbroken in it — and Allah showed her her house in Paradise. Sometimes the palace is the test.',
+        familyQuestion: 'What 'house' are you in that feels wrong — and what house are you building instead?',
+        storyId: 'woman-asiya',
+      ),
+      _StoryChapter(
+        title: 'The Sleepers of the Cave',
+        virtue: 'They slept through an empire and woke to find their small faith had outlasted the world that hunted them. Hold what you have; time is on your side.',
+        familyQuestion: 'What small thing are you holding that history may one day vindicate?',
+        storyId: 'tale-cave-people',
+      ),
+    ],
+  ),
+];
+
+class StoriesSchoolScreen extends StatelessWidget {
+  const StoriesSchoolScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: ScenicScaffold.pattern(
+        body: SafeArea(
+          child: ListView(
+            padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
+            children: <Widget>[
+              const ScreenHeader(title: 'Stories', close: true),
+              Text('القصص',
+                  style: AppText.arabic.copyWith(fontSize: 28, color: AppColors.gold)),
+              const SizedBox(height: 6),
+              Text(
+                'The library\u2019s stories as a moral curriculum — patience, courage, mercy, gratitude',
+                style: AppText.bodyMuted,
+              ),
+              const SizedBox(height: 18),
+              for (final _StoriesUnit unit in kStoriesUnits) ...<Widget>[
+                Text(unit.title.toUpperCase(), style: AppText.eyebrow),
+                const SizedBox(height: 6),
+                Padding(
+                  padding: const EdgeInsets.only(left: 4, bottom: 8),
+                  child: Text(unit.frame,
+                      style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.55)),
+                ),
+                for (final _StoryChapter ch in unit.chapters)
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 8),
+                    child: GlassCard(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(ch.title, style: AppText.body.copyWith(
+                              fontWeight: FontWeight.w600, fontSize: 13.5)),
+                          const SizedBox(height: 4),
+                          Text(ch.virtue, style: AppText.bodyMuted.copyWith(
+                              fontSize: 11.5, height: 1.5)),
+                          const SizedBox(height: 6),
+                          Container(
+                            width: double.infinity,
+                            padding: const EdgeInsets.all(8),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8),
+                              border: Border.all(
+                                  color: AppColors.gold.withValues(alpha: 0.3)),
+                            ),
+                            child: Text('Talk it over: ${ch.familyQuestion}',
+                                style: AppText.bodyMuted.copyWith(
+                                    fontSize: 11, height: 1.5, color: AppColors.gold)),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                const SizedBox(height: 14),
+              ],
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

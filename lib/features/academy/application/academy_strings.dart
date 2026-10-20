@@ -135,6 +135,8 @@ abstract final class AcademyStrings {
       'school.seerah.body': 'The life of the Prophet (peace be upon him) era by era — every chapter opens the real story.',
       'school.history.title': 'History School',
       'school.history.body': 'The centuries after the Prophet — the four caliphs, the scholars, and the ages they carried.',
+      'school.stories.title': 'Stories School',
+      'school.stories.body': 'The library\u2019s stories as a moral curriculum — patience, courage, mercy, and gratitude, each with a family question.',
       'academy.title': 'Al-Wasia Academy of Sacred Knowledge',
       'academy.comingSoon': 'Coming soon — insha’Allah',
       'academy.continue': 'Continue where you left off',
