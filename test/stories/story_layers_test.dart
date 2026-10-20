@@ -57,7 +57,15 @@ void main() {
     for (final FileSystemEntity f in Directory('tool/hadith_verdicts').listSync()) {
       if (f is File && f.path.endsWith('.json')) {
         final dynamic j = json.decode(f.readAsStringSync());
-        if (j is Map<String, dynamic>) verdicts.addAll(j);
+        if (j is Map<String, dynamic>) {
+          // Same ranking as tool/hadith_check.py: ok > wrong > unverifiable.
+          j.forEach((String k, dynamic v) {
+            int rank(dynamic x) => (x is Map<String, dynamic>)
+                ? (x['verdict'] == 'ok' ? 3 : (x['verdict'] == 'wrong' ? 2 : 1))
+                : 0;
+            if (rank(v) > rank(verdicts[k])) verdicts[k] = v;
+          });
+        }
       }
     }
   });

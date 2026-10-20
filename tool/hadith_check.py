@@ -94,6 +94,9 @@ def extract(files=None):
     return res
 
 
+RANK = {'ok': 3, 'wrong': 2, 'unverifiable': 1}
+
+
 def load_verdicts():
     v = {}
     for p in sorted(glob.glob(os.path.join(VERDICT_DIR, '*.json'))):
@@ -102,20 +105,14 @@ def load_verdicts():
         d = json.load(open(p, encoding='utf8'))
         for k, val in d.items():
             if k in v and v[k]['verdict'] != val['verdict']:
-                pair = {v[k]['verdict'], val['verdict']}
-                if pair == {'ok', 'unverifiable'}:
-                    # A real check beats a 'could not check' (rate-limited).
-                    if val['verdict'] == 'ok':
-                        v[k] = val
-                    continue
-                # ok vs wrong (or wrong vs unverifiable): keep the stricter
-                # verdict so a human resolves it; never let ok hide a wrong.
+                # A verdict describes the NUMBER (what hadith it resolves to) or
+                # records that an OLD claim did not match it. Different files
+                # check different claims, so merge by rank: ok > wrong >
+                # unverifiable. An `ok` therefore never hides a surviving wrong
+                # claim without a note: conflicts are printed for human review.
                 print('conflicting verdicts for %s (%s)' % (k, p), file=sys.stderr)
-                if 'wrong' in pair:
-                    if val['verdict'] == 'wrong':
-                        v[k] = val
-                else:
-                    v[k] = {**val, 'verdict': 'unverifiable'}
+                if RANK[val['verdict']] > RANK[v[k]['verdict']]:
+                    v[k] = val
             else:
                 v[k] = val
     return v

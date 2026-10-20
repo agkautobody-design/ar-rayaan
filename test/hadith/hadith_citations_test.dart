@@ -99,6 +99,9 @@ List<_Cite> _extract() {
   return res;
 }
 
+int _rank(Object? verdict) =>
+    verdict == 'ok' ? 3 : (verdict == 'wrong' ? 2 : 1);
+
 Map<String, Map<String, dynamic>> _verdicts() {
   final Map<String, Map<String, dynamic>> out =
       <String, Map<String, dynamic>>{};
@@ -109,7 +112,12 @@ Map<String, Map<String, dynamic>> _verdicts() {
     final Map<String, dynamic> d =
         jsonDecode(e.readAsStringSync()) as Map<String, dynamic>;
     d.forEach((String k, dynamic v) {
-      out[k] = (v as Map<String, dynamic>);
+      final Map<String, dynamic> val = v as Map<String, dynamic>;
+      final Map<String, dynamic>? prev = out[k];
+      // Same ranking as tool/hadith_check.py: ok > wrong > unverifiable.
+      if (prev == null || _rank(val['verdict']) > _rank(prev['verdict'])) {
+        out[k] = val;
+      }
     });
   }
   return out;
