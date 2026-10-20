@@ -37,7 +37,15 @@ class AudioplayersAyahPlayer implements AyahAudioPlayer {
     final ap.Source source = isUrl
         ? ap.UrlSource(pathOrUrl)
         : ap.DeviceFileSource(pathOrUrl);
-    await _player.play(source);
+    try {
+      await _player.play(source);
+    } catch (_) {
+      // Could not start (404, CORS, decode...). Surface it so the plan
+      // reports the failure instead of waiting for a completion that will
+      // never come.
+      if (identical(_current, mine)) _current = null;
+      rethrow;
+    }
     return mine.future;
   }
 

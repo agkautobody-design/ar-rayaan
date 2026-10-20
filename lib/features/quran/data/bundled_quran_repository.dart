@@ -42,6 +42,9 @@ class BundledQuranRepository implements QuranRepository {
   }
 
   @override
+  Future<List<Surah>> all() => _load();
+
+  @override
   Future<List<SurahMeta>> index() async {
     return (await _load()).map((Surah s) => s.meta).toList(growable: false);
   }

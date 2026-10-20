@@ -1,8 +1,10 @@
 /// Recitation audio repository — fetch, on-device cache, honest fallback.
 ///
-/// Per-ayah files are tried first. A 404 (or network failure) NEVER
-/// crashes playback: the event degrades to the whole-surah file for
-/// that range — honest fallback over fake precision (§4A).
+/// Per-ayah files are tried first and cached on device. If the download
+/// fails (404, offline, anything), the SAME ayah's URL is streamed
+/// instead — playback never silently swaps in the whole-surah file (that
+/// used to play an entire surah for every single ayah event). If the
+/// stream fails too, the player reports the failure honestly.
 library;
 
 import 'dart:io';
@@ -24,7 +26,9 @@ class AyahFileSource extends PlaybackSource {
   final String url;
 }
 
-/// Fallback path: per-ayah file unavailable; use the whole-surah file.
+/// Whole-surah file. No longer returned by [RecitationAudioRepository.resolve]
+/// (per-ayah events must never play a whole surah); kept for callers that
+/// deliberately want a surah file.
 class SurahFileSource extends PlaybackSource {
   SurahFileSource(this.url, this.surah);
 
@@ -53,22 +57,32 @@ abstract final class RecitationAudioRepository {
     final Uri uri = Uri.parse(pack.ayahUrl(ref));
     try {
       final http.Response res = await c.get(uri);
-      if (res.statusCode == 200) {
+      final String contentType = res.headers['content-type'] ?? '';
+      final bool looksLikeAudio = contentType.isEmpty ||
+          contentType.contains('audio') ||
+          contentType.contains('octet-stream');
+      if (res.statusCode == 200 &&
+          looksLikeAudio &&
+          res.bodyBytes.isNotEmpty &&
+          res.bodyBytes.length <= maxAyahBytes) {
         await cacheDir.create(recursive: true);
         await target.writeAsBytes(res.bodyBytes, flush: true);
         return AyahFileSource(target.path, uri.toString());
       }
-    } on SocketException {
-      // Offline and not cached — fall through to surah URL (the caller
-      // may still stream it, or surface "download on Wi-Fi").
+    } on Exception {
+      // Offline / TLS / timeout / disk error — fall through and stream the
+      // same ayah URL below.
     }
-    // 404 or offline: honest fallback to the whole-surah file.
-    return SurahFileSource(pack.surahUrl(ref.surah), ref.surah);
+    // Not cacheable right now: stream this ayah's own URL. (AyahFileSource
+    // documents that `path` may equal the URL; the player treats an
+    // http(s) string as a stream.)
+    return AyahFileSource(uri.toString(), uri.toString());
   }
 
-  /// Byte size ceiling for one ayah at 64kbps (~30s) — sanity check so a
-  /// broken endpoint serving HTML error pages is never cached as "audio".
-  static const int maxAyahBytes = 1 << 20; // 1MB
+  /// Byte size ceiling for one ayah file (the longest ayah, 2:282, is a
+  /// few minutes at 128 kbps) — sanity check so a broken endpoint serving
+  /// an oversized error page is never cached as "audio".
+  static const int maxAyahBytes = 12 << 20; // 12 MB
 
   /// Download a full-surah audio file into [cacheDir] (surah key
   /// "surah_001.mp3"). Returns the local file path, or null on failure.

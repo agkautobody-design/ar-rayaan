@@ -283,6 +283,18 @@ class _DhikrCard extends ConsumerWidget {
                   ),
                   const SizedBox(height: 6),
                 ],
+                if (dhikr.source != null) ...[
+                  Text(
+                    'Source: ${dhikr.source!}',
+                    key: Key('dhikr-${set.id}-${dhikr.number}-source'),
+                    style: AppText.bodyMuted.copyWith(
+                      fontSize: 10.5,
+                      fontStyle: FontStyle.italic,
+                      color: AppColors.gold.withValues(alpha: 0.75),
+                    ),
+                  ),
+                  const SizedBox(height: 6),
+                ],
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [

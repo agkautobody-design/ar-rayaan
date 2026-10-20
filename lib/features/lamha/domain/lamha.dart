@@ -59,11 +59,12 @@ abstract final class _Weekly {
 
   static const LamhaMoment sunday = LamhaMoment(
     id: 'sunday-evening',
-    title: 'Tonight: two rak’ah before sleep',
+    title: 'Tonight: Al-Mulk before sleep',
     body:
-        'The Prophet ﷺ would not sleep until he recited Al-Mulk — it '
-        'intercedes for its companion in the grave.',
-    source: 'Jamiʿ at-Tirmidhi 2891 — hasan',
+        'The Prophet ﷺ would not sleep until he had recited Surah as-Sajdah '
+        'and Surah al-Mulk (Tabarak). He also said a surah of thirty verses '
+        'intercedes for its companion until he is forgiven.',
+    source: 'Jamiʿ at-Tirmidhi 3404 · 2891 — hasan (Darussalam)',
   );
 
   static const LamhaMoment wednesday = LamhaMoment(
@@ -86,7 +87,7 @@ abstract final class _Rotation {
           'Entering with Bismillah and the home dua brings blessing and '
           'keeps Shaytan out: “Bismillahi walajna, wa bismillahi kharajna, '
           'wa ’ala Rabbina tawakkalna.”',
-      source: 'Sunan Abi Dawud 5096 — sahih',
+      source: 'Sunan Abi Dawud 5096 — daʿif (weak chain)',
     ),
     LamhaMoment(
       id: 'sleep-dua',
@@ -129,7 +130,7 @@ abstract final class _Rotation {
           '“Whoever sends one blessing upon me, Allah sends ten blessings '
           'upon him.” The highest-return transaction you will ever make '
           'takes three seconds.',
-      source: 'Sahih Muslim 407',
+      source: 'Sahih Muslim 408',
     ),
     LamhaMoment(
       id: 'parents',
@@ -247,8 +248,11 @@ abstract final class LamhaEngine {
       case DateTime.friday:
         return _Weekly.friday;
       case DateTime.wednesday:
-        final int weekOfYear =
-            date.difference(DateTime(date.year, 1, 1)).inDays ~/ 7;
+        // UTC day arithmetic: immune to daylight-saving shifts.
+        final int weekOfYear = DateTime.utc(date.year, date.month, date.day)
+                .difference(DateTime.utc(date.year, 1, 1))
+                .inDays ~/
+            7;
         return _Rotation.all[weekOfYear % _Rotation.all.length];
       default:
         // All other days are quiet by default. Not overwhelming, by design.

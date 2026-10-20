@@ -27,6 +27,14 @@ class Story {
   final List<StoryChapter> chapters;
   final String familyQuestion;
 
+  /// Hisn al-Muslim gate this dua belongs to (dailyduas only; explicit in
+  /// the JSON so every dua is reachable).
+  final String? hisnCategory;
+
+  /// Id of the story this one repeats (identical dua listed twice); the
+  /// Hisn screen shows only the original.
+  final String? duplicateOf;
+
   const Story({
     required this.id,
     required this.collection,
@@ -37,6 +45,8 @@ class Story {
     required this.sources,
     required this.chapters,
     required this.familyQuestion,
+    this.hisnCategory,
+    this.duplicateOf,
   });
 
   factory Story.fromJson(Map<String, dynamic> j) => Story(
@@ -51,5 +61,7 @@ class Story {
             .map((e) => StoryChapter.fromJson(e as Map<String, dynamic>))
             .toList(),
         familyQuestion: j['familyQuestion'] as String,
+        hisnCategory: j['hisnCategory'] as String?,
+        duplicateOf: j['duplicateOf'] as String?,
       );
 }

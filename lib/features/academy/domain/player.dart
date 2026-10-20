@@ -30,6 +30,13 @@ class Track {
   final String? licenseLine;
   final String? officialUrl;
 
+  /// True when the app can actually play this track in-app. Catalog
+  /// entries without an audio file only link out to the artist's page.
+  bool get hasAudio => audioUrl.isNotEmpty;
+
+  /// True when there is somewhere to send the listener instead.
+  bool get hasOfficialLink => (officialUrl ?? '').isNotEmpty;
+
   Map<String, dynamic> toJson() => <String, dynamic>{
         'id': id, 'title': title, 'artist': artist,
         if (poet != null) 'poet': poet,
@@ -59,6 +66,9 @@ class Track {
 class Catalog {
   const Catalog(this.tracks);
   final List<Track> tracks;
+
+  /// Tracks the app can play itself.
+  List<Track> get playable => tracks.where((Track t) => t.hasAudio).toList();
 
   List<Track> byLanguage(String lang) =>
       tracks.where((Track t) => t.language == lang).toList();
@@ -127,7 +137,9 @@ abstract final class Mixes {
   /// Mood-seeded endless queue from the official catalog (all lawful by
   /// construction — the catalog gate enforces vocals-only at intake).
   static List<Track> seed(String mood, Catalog catalog, {int count = 25}) {
-    final List<Track> pool = catalog.tracks.where((Track t) => t.mood == mood).toList();
+    final List<Track> pool = catalog.tracks
+        .where((Track t) => t.mood == mood && t.hasAudio)
+        .toList();
     if (pool.isEmpty) return const <Track>[];
     final List<Track> out = <Track>[];
     for (var i = 0; i < count; i++) {

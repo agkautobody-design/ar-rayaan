@@ -67,6 +67,22 @@ void main() {
     });
   });
 
+  group('playable tracks', () {
+    test('hasAudio, hasOfficialLink and Catalog.playable tell them apart', () {
+      final Track link = Track(
+          id: 'l', title: 'Link only', artist: 'A', language: 'ur',
+          theme: 'naat', mood: 'devotion', audioUrl: '',
+          officialUrl: 'https://example.org/artist');
+      final Catalog c = Catalog(<Track>[link, t('a')]);
+      expect(link.hasAudio, isFalse);
+      expect(link.hasOfficialLink, isTrue);
+      expect(t('a').hasAudio, isTrue);
+      expect(t('a').hasOfficialLink, isFalse);
+      expect(c.playable.map((Track x) => x.id).toList(), <String>['a']);
+      expect(c.tracks.length, 2, reason: 'nothing is deleted from the catalog');
+    });
+  });
+
   group('Mixes', () {
     test('seed cycles the mood pool to the requested count', () {
       final Catalog c = Catalog(<Track>[t('a'), t('b'), t('c')]);
@@ -78,6 +94,18 @@ void main() {
     test('empty pool yields empty mix (no crash)', () {
       final Catalog c = Catalog(<Track>[t('a', mood: 'night')]);
       expect(Mixes.seed('morning', c), isEmpty);
+    });
+
+    test('tracks without an audio file never enter a mix', () {
+      final Track silent = Track(
+          id: 's', title: 'Link only', artist: 'A', language: 'ar',
+          theme: 'praise', mood: 'morning', audioUrl: '',
+          officialUrl: 'https://example.org/artist');
+      final Catalog c = Catalog(<Track>[silent, t('a')]);
+      final List<Track> mix = Mixes.seed('morning', c, count: 4);
+      expect(mix.every((Track x) => x.hasAudio), isTrue);
+      expect(mix.map((Track x) => x.id).toSet(), <String>{'a'});
+      expect(Mixes.seed('morning', Catalog(<Track>[silent])), isEmpty);
     });
 
     test('five moods are defined', () {

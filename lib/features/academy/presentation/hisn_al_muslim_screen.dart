@@ -18,22 +18,48 @@ import '../../../app/theme/widgets/screen_header.dart';
 import '../../stories/data/stories_repository.dart';
 
 class _HisnCategory {
-  const _HisnCategory({required this.title, required this.keyword});
+  const _HisnCategory({required this.title, required this.id});
 
   final String title;
-  final String keyword;
+
+  /// Matches `hisnCategory` in assets/stories/dailyduas.json.
+  final String id;
 }
 
+/// The gates of the fortress. Every dua in dailyduas.json names exactly
+/// one of these ids explicitly (no keyword guessing), and anything
+/// without a known id is shown under "More duas" rather than lost.
 const List<_HisnCategory> kHisnCategories = <_HisnCategory>[
-  _HisnCategory(title: 'Morning & Evening', keyword: 'morning'),
-  _HisnCategory(title: 'Waking & Sleeping', keyword: 'sleep'),
-  _HisnCategory(title: 'Leaving & Entering Home', keyword: 'home'),
-  _HisnCategory(title: 'Eating & Drinking', keyword: 'eat'),
-  _HisnCategory(title: 'Travel', keyword: 'travel'),
-  _HisnCategory(title: 'Hardship & Distress', keyword: 'distress'),
-  _HisnCategory(title: 'Prayer & Worship', keyword: 'prayer'),
-  _HisnCategory(title: 'Protection', keyword: 'protection'),
+  _HisnCategory(title: 'Morning & Evening', id: 'morning-evening'),
+  _HisnCategory(title: 'Waking & Sleeping', id: 'waking-sleeping'),
+  _HisnCategory(title: 'Leaving & Entering Home', id: 'home'),
+  _HisnCategory(title: 'Eating & Drinking', id: 'food'),
+  _HisnCategory(title: 'Travel', id: 'travel'),
+  _HisnCategory(title: 'Hardship & Distress', id: 'hardship'),
+  _HisnCategory(title: 'Prayer & Worship', id: 'prayer'),
+  _HisnCategory(title: 'Fasting', id: 'fasting'),
+  _HisnCategory(title: 'Family & Protection', id: 'family'),
+  _HisnCategory(title: 'Decisions', id: 'decisions'),
+  _HisnCategory(title: 'Rain', id: 'rain'),
 ];
+
+/// Groups [duas] by gate (duplicates removed). Public for tests.
+Map<String, List<Story>> groupHisnDuas(List<Story> duas) {
+  final Set<String> known = <String>{
+    for (final _HisnCategory c in kHisnCategories) c.id,
+  };
+  final Map<String, List<Story>> out = <String, List<Story>>{
+    for (final _HisnCategory c in kHisnCategories) c.id: <Story>[],
+    'more': <Story>[],
+  };
+  for (final Story s in duas) {
+    if (s.duplicateOf != null) continue;
+    final String? id = s.hisnCategory;
+    final String key = (id != null && known.contains(id)) ? id : 'more';
+    out[key]!.add(s);
+  }
+  return out;
+}
 
 class HisnAlMuslimScreen extends ConsumerWidget {
   const HisnAlMuslimScreen({super.key});
@@ -53,6 +79,13 @@ class HisnAlMuslimScreen extends ConsumerWidget {
             data: (all) {
               final repo = ref.read(storiesRepositoryProvider);
               final List<Story> duas = repo.byCollection(all, 'dailyduas');
+              final Map<String, List<Story>> grouped = groupHisnDuas(duas);
+              final List<_HisnCategory> gates = <_HisnCategory>[
+                ...kHisnCategories,
+                const _HisnCategory(title: 'More duas', id: 'more'),
+              ];
+              final int distinct = grouped.values
+                  .fold(0, (int n, List<Story> l) => n + l.length);
               return ListView(
                 padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
                 children: <Widget>[
@@ -62,20 +95,20 @@ class HisnAlMuslimScreen extends ConsumerWidget {
                           fontSize: 28, color: AppColors.gold)),
                   const SizedBox(height: 6),
                   Text(
-                    'The Fortress of the Muslim — every authentic dua and dhikr, for the moment you are in',
+                    'The Fortress of the Muslim — duas and dhikr from the Qur\'an and Sunnah, for the moment you are in. Each shows its source and strength.',
                     style: AppText.bodyMuted,
                   ),
                   const SizedBox(height: 18),
-                  for (final _HisnCategory cat in kHisnCategories) ...<Widget>[
+                  for (final _HisnCategory cat in gates)
+                    if (grouped[cat.id]!.isNotEmpty) ...<Widget>[
                     Text(cat.title.toUpperCase(), style: AppText.eyebrow),
                     const SizedBox(height: 8),
-                    for (final Story d in duas.where((Story s) =>
-                        (s.subtitle + s.title + s.kicker)
-                            .toLowerCase()
-                            .contains(cat.keyword)))
+                    for (final Story d in grouped[cat.id]!)
                       Padding(
                         padding: const EdgeInsets.only(bottom: 8),
                         child: GlassCard(
+                          onTap: () =>
+                              context.go(AppRoutes.storyReader, extra: d),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
@@ -112,7 +145,7 @@ class HisnAlMuslimScreen extends ConsumerWidget {
                     const SizedBox(height: 10),
                   ],
                   Text(
-                    '${duas.length} authentic duas in the fortress. The Du\'a School in the Academy teaches their meaning; this is the reference for the moment you are in.',
+                    '$distinct duas in ${gates.where((c) => grouped[c.id]!.isNotEmpty).length} gates. The Du\'a School in the Academy teaches their meaning; this is the reference for the moment you are in.',
                     style: AppText.bodyMuted.copyWith(fontSize: 11, height: 1.5),
                   ),
                 ],

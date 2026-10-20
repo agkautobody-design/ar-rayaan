@@ -9,10 +9,14 @@
 /// legal Riverpod pattern the production provider cannot use.
 library;
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 
+import '../../../app/core/sound/sound_services.dart'
+    show recitationServiceProvider;
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
@@ -73,10 +77,29 @@ class _VerseRangePlayerBarState extends ConsumerState<VerseRangePlayerBar> {
 
   Future<void> _togglePlay() async {
     final notifier = ref.read(recitationPlayerProvider.notifier);
-    if (ref.read(recitationPlayerProvider).playing) {
+    final RecitationPlaybackState current = ref.read(recitationPlayerProvider);
+    if (current.playing) {
       await notifier.pause();
+      return;
+    }
+    // One voice at a time: silence the per-ayah button's player first.
+    await ref.read(recitationServiceProvider.notifier).stop();
+    await notifier.setSpeed(_speed);
+    if (current.paused) {
+      // Pause means pause: continue from the exact utterance.
+      await notifier.resume();
     } else {
       await notifier.playPlan(_buildPlan());
+    }
+  }
+
+  /// Apply a settings edit. If playback is paused the old plan no longer
+  /// matches the controls, so it is dropped and the next press starts the
+  /// new plan.
+  void _edit(VoidCallback change) {
+    setState(change);
+    if (ref.read(recitationPlayerProvider).paused) {
+      unawaited(ref.read(recitationPlayerProvider.notifier).stop());
     }
   }
 
@@ -148,6 +171,16 @@ class _VerseRangePlayerBarState extends ConsumerState<VerseRangePlayerBar> {
               ],
             ),
 
+            if (state.failed)
+              Padding(
+                padding: const EdgeInsets.only(bottom: 6),
+                child: Text(
+                  'This ayah\'s audio could not be loaded. Check your '
+                  'connection and press play to try again.',
+                  style: AppText.caption.copyWith(color: AppColors.gold),
+                ),
+              ),
+
             // Expanded controls ---------------------------------------------
             if (_expanded) ...<Widget>[
               const Divider(height: 1),
@@ -157,14 +190,14 @@ class _VerseRangePlayerBarState extends ConsumerState<VerseRangePlayerBar> {
                 value: _loopRange,
                 min: 1,
                 max: 10,
-                onChanged: (v) => setState(() => _loopRange = v),
+                onChanged: (v) => _edit(() => _loopRange = v),
               ),
               _BoundedStepper(
                 label: 'Repeat each ayah',
                 value: _perAyahRepeat,
                 min: 1,
                 max: 5,
-                onChanged: (v) => setState(() => _perAyahRepeat = v),
+                onChanged: (v) => _edit(() => _perAyahRepeat = v),
               ),
               _RangeRow(
                 label: 'Pause between',
@@ -180,8 +213,7 @@ class _VerseRangePlayerBarState extends ConsumerState<VerseRangePlayerBar> {
                     min: 0.5,
                     max: 5.0,
                     divisions: 9,
-                    onChanged: (v) =>
-                        setState(() => _gapSeconds = v),
+                    onChanged: (v) => _edit(() => _gapSeconds = v),
                   ),
                 ),
               ),
@@ -199,7 +231,12 @@ class _VerseRangePlayerBarState extends ConsumerState<VerseRangePlayerBar> {
                     min: 0.75,
                     max: 1.25,
                     divisions: 2,
-                    onChanged: (v) => setState(() => _speed = v),
+                    onChanged: (v) {
+                      setState(() => _speed = v);
+                      unawaited(ref
+                          .read(recitationPlayerProvider.notifier)
+                          .setSpeed(v));
+                    },
                   ),
                 ),
               ),
@@ -208,7 +245,7 @@ class _VerseRangePlayerBarState extends ConsumerState<VerseRangePlayerBar> {
                 value: '$_startAyah',
                 child: _ayahChips(
                   selected: _startAyah,
-                  onSelect: (a) => setState(() {
+                  onSelect: (a) => _edit(() {
                     _startAyah = a.clamp(1, _endAyah);
                   }),
                 ),
@@ -218,7 +255,7 @@ class _VerseRangePlayerBarState extends ConsumerState<VerseRangePlayerBar> {
                 value: '$_endAyah',
                 child: _ayahChips(
                   selected: _endAyah,
-                  onSelect: (a) => setState(() {
+                  onSelect: (a) => _edit(() {
                     _endAyah = a.clamp(_startAyah, widget.ayahCount);
                   }),
                 ),

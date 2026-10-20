@@ -114,7 +114,8 @@ void main() {
       JourneyStats s = await c.read(journeyStatsProvider.future);
       expect(s.progress, 0);
       expect(s.adhkarDone, 0);
-      expect(s.adhkarTotal, greaterThan(700));
+      // Morning/evening sets no longer repeat each other's items (662 total).
+      expect(s.adhkarTotal, greaterThan(600));
       expect(s.readingStarted, isFalse);
       expect(s.reflections, 0);
 

@@ -2,6 +2,7 @@
  {
   "id": "dua-waking",
   "collection": "dailyduas",
+  "hisnCategory": "waking-sleeping",
   "title": "On Waking",
   "kicker": "DAILY DUAS · WAKING",
   "subtitle": "The first words of the day — gratitude before the screen",
@@ -22,6 +23,7 @@
  {
   "id": "dua-sleep",
   "collection": "dailyduas",
+  "hisnCategory": "waking-sleeping",
   "title": "Before Sleep (1) — Ayat al-Kursi",
   "kicker": "DAILY DUAS · SLEEPING",
   "subtitle": "A guardian is promised for the whole night",
@@ -42,6 +44,7 @@
  {
   "id": "dua-sleep2",
   "collection": "dailyduas",
+  "hisnCategory": "waking-sleeping",
   "title": "Before Sleep (2) — The Three Quls",
   "kicker": "DAILY DUAS · SLEEPING",
   "subtitle": "The complete shield, wiped over the body",
@@ -62,17 +65,19 @@
  {
   "id": "dua-home-in",
   "collection": "dailyduas",
+  "hisnCategory": "home",
   "title": "Entering the Home",
   "kicker": "DAILY DUAS · HOME",
   "subtitle": "The threshold is a border — cross it with the Name",
   "sourceLabel": "Established",
   "sources": [
-   "Sahih Muslim 2018"
+   "Sahih Muslim 2018 (saying Bismillah on entering)",
+   "Sunan Abi Dawud 5096 (the wording of this dua — graded daʿif by al-Albani)"
   ],
   "chapters": [
    {
     "heading": "Entering the Home",
-    "body": "'In the name of Allah. O Allah, I ask You the good of entering and the good of leaving. In the name of Allah we enter, in the name of Allah we leave, and upon our Lord we rely.' The Prophet ﷺ taught it as the entering-dua; with it, Shaytan tells his companion: 'no lodging or supper here tonight' (Muslim 2018). The threshold is a border — cross it with the Name and the house changes citizenship.",
+    "body": "'In the name of Allah. O Allah, I ask You the good of entering and the good of leaving. In the name of Allah we enter, in the name of Allah we leave, and upon our Lord we rely.' This wording is reported in Abu Dawud 5096, a narration scholars (al-Albani among them) grade daʿif, so treat the words as a customary dua, not a certain text. What is established is saying Bismillah on entering: then Shaytan tells his companion 'no lodging or supper here tonight' (Muslim 2018). The threshold is a border — cross it with the Name and the house changes citizenship.",
     "dua": "بِسْمِ اللَّهِ، اللَّهُمَّ إِنِّي أَسْأَلُكَ خَيْرَ الْمَوْلَجِ وَخَيْرَ الْمَخْرَجِ، بِسْمِ اللَّهِ وَلَجْنَا، وَبِسْمِ اللَّهِ خَرَجْنَا، وَعَلَى رَبِّنَا تَوَكَّلْنَا",
     "arabic": "بِسْمِ اللَّهِ اللَّهُمَّ إِنِّي أَسْأَلُكَ خَيْرَ الْمَوْلَجِ وَخَيْرَ الْمَخْرَجِ بِسْمِ اللَّهِ وَلَجْنَا وَبِسْمِ اللَّهِ خَرَجْنَا وَعَلَىٰ رَبِّنَا تَوَكَّلْنَا"
    }
@@ -82,6 +87,7 @@
  {
   "id": "dua-eat-before",
   "collection": "dailyduas",
+  "hisnCategory": "food",
   "title": "Before Eating",
   "kicker": "DAILY DUAS · FOOD",
   "subtitle": "Bismillah gathers the table",
@@ -102,17 +108,19 @@
  {
   "id": "dua-eat-after",
   "collection": "dailyduas",
+  "hisnCategory": "food",
   "title": "After Eating",
   "kicker": "DAILY DUAS · FOOD",
   "subtitle": "Praise for the morsel and the sip",
   "sourceLabel": "Established",
   "sources": [
-   "Sahih Muslim 2734"
+   "Sahih Muslim 2734 (praising Allah after a morsel and a sip)",
+   "Jamiʿ at-Tirmidhi 3457; Sunan Abi Dawud 3850 (the wording of this dua — graded daʿif)"
   ],
   "chapters": [
    {
     "heading": "After Eating",
-    "body": "'All praise is for Allah who fed us, gave us drink, and made us Muslims.' The Prophet ﷺ said: Allah is pleased with the servant who eats a morsel and praises Him for it, and drinks a sip and praises Him (Muslim 2734).",
+    "body": "'All praise is for Allah who fed us, gave us drink, and made us Muslims.' This exact wording is reported in Tirmidhi 3457 and Abu Dawud 3850, both graded daʿif; what is established is the praise itself — the Prophet ﷺ said Allah is pleased with the servant who says Alhamdulillah when taking a morsel of food or a drink (Muslim 2734).",
     "dua": "الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنَا وَسَقَانَا وَجَعَلَنَا مُسْلِمِينَ",
     "arabic": "الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنَا وَسَقَانَا وَجَعَلَنَا مُسْلِمِينَ"
    }
@@ -122,6 +130,7 @@
  {
   "id": "dua-travel",
   "collection": "dailyduas",
+  "hisnCategory": "travel",
   "title": "The Journey",
   "kicker": "DAILY DUAS · TRAVEL",
   "subtitle": "The journey dua — from camels to planes",
@@ -142,6 +151,7 @@
  {
   "id": "dua-anxiety",
   "collection": "dailyduas",
+  "hisnCategory": "hardship",
   "title": "The Heart's Unrest",
   "kicker": "DAILY DUAS · HARD TIMES",
   "subtitle": "The 3am dua for the racing heart",
@@ -162,6 +172,7 @@
  {
   "id": "dua-distress",
   "collection": "dailyduas",
+  "hisnCategory": "hardship",
   "title": "The Dua of Distress",
   "kicker": "DAILY DUAS · HARD TIMES",
   "subtitle": "Three lines that reach the Throne",
@@ -182,17 +193,18 @@
  {
   "id": "dua-debt",
   "collection": "dailyduas",
+  "hisnCategory": "hardship",
   "title": "The Debtor's Dua",
   "kicker": "DAILY DUAS · HARD TIMES",
   "subtitle": "Sufficiency from the only true sufficiency",
   "sourceLabel": "Established",
   "sources": [
-   "Sunan at-Tirmidhi 3565"
+   "Sunan at-Tirmidhi 3563"
   ],
   "chapters": [
    {
     "heading": "The Debtor's Dua",
-    "body": "'O Allah, suffice me with Your halal against Your haram, and enrich me by Your bounty from all besides You' (Tirmidhi 3565). The dua of Ali (RA) taught by the Prophet ﷺ. For every wallet stretched thin by a buy-now age.",
+    "body": "'O Allah, suffice me with Your halal against Your haram, and enrich me by Your bounty from all besides You' (Tirmidhi 3563). The dua of Ali (RA) taught by the Prophet ﷺ. For every wallet stretched thin by a buy-now age.",
     "dua": "اللَّهُمَّ اكْفِنِي بِحَلَالِكَ عَنْ حَرَامِكَ، وَأَغْنِنِي بِفَضْلِكَ عَمَّنْ سِوَاكَ",
     "arabic": "اللَّهُمَّ اكْفِنِي بِحَلَالِكَ عَنْ حَرَامِكَ وَأَغْنِنِي بِفَضْلِكَ عَمَّنْ سِوَاكَ"
    }
@@ -202,6 +214,7 @@
  {
   "id": "dua-illness",
   "collection": "dailyduas",
+  "hisnCategory": "hardship",
   "title": "For the Sick",
   "kicker": "DAILY DUAS · HARD TIMES",
   "subtitle": "Recite over the sick seven times",
@@ -222,17 +235,18 @@
  {
   "id": "dua-loss",
   "collection": "dailyduas",
+  "hisnCategory": "hardship",
   "title": "When Struck by Loss",
   "kicker": "DAILY DUAS · HARD TIMES",
   "subtitle": "Umm Salama's dua — and what replaced her loss",
   "sourceLabel": "Established",
   "sources": [
-   "Sahih Muslim 2123; Qur'an 2:155-157"
+   "Sahih Muslim 918; Qur'an 2:155-157"
   ],
   "chapters": [
    {
     "heading": "When Struck by Loss",
-    "body": "'Indeed we belong to Allah, and indeed to Him we will return. O Allah, reward me in my affliction and replace it for me with better.' Umm Salama said it at her husband's death, and the Prophet ﷺ said: 'if you do this, Allah will reward you and give you better' — and she was later married to the Messenger of Allah ﷺ (Muslim 2123). The loss is real; the return is real; the replacement is His specialty.",
+    "body": "'Indeed we belong to Allah, and indeed to Him we will return. O Allah, reward me in my affliction and replace it for me with better.' Umm Salama said it at her husband's death, and the Prophet ﷺ said: 'if you do this, Allah will reward you and give you better' — and she was later married to the Messenger of Allah ﷺ (Muslim 918). The loss is real; the return is real; the replacement is His specialty.",
     "dua": "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ، اللَّهُمَّ أْجُرْنِي فِي مُصِيبَتِي وَاخْلُفْ لِي خَيْرًا مِنْهَا",
     "arabic": "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ اللَّهُمَّ أْجُرْنِي فِي مُصِيبَتِي وَاخْلُفْ لِي خَيْرًا مِنْهَا"
    }
@@ -242,6 +256,7 @@
  {
   "id": "dua-istikhara",
   "collection": "dailyduas",
+  "hisnCategory": "decisions",
   "title": "Istikhara's Heart",
   "kicker": "DAILY DUAS · DECISIONS",
   "subtitle": "The dua of surrender for every decision",
@@ -262,6 +277,7 @@
  {
   "id": "dua-parents",
   "collection": "dailyduas",
+  "hisnCategory": "family",
   "title": "For Parents",
   "kicker": "DAILY DUAS · FAMILY",
   "subtitle": "The dua embedded in their right",
@@ -282,6 +298,7 @@
  {
   "id": "dua-children",
   "collection": "dailyduas",
+  "hisnCategory": "family",
   "title": "For the Children",
   "kicker": "DAILY DUAS · FAMILY",
   "subtitle": "The family dua — and the named prayer",
@@ -302,6 +319,7 @@
  {
   "id": "dua-fasting",
   "collection": "dailyduas",
+  "hisnCategory": "fasting",
   "title": "Breaking the Fast",
   "kicker": "DAILY DUAS · WORSHIP",
   "subtitle": "The small door between two joys",
@@ -322,6 +340,7 @@
  {
   "id": "dua-rain",
   "collection": "dailyduas",
+  "hisnCategory": "rain",
   "title": "When It Rains",
   "kicker": "DAILY DUAS · WORLD",
   "subtitle": "Address the weather to its Owner",
@@ -342,17 +361,18 @@
  {
   "id": "dua-mosque",
   "collection": "dailyduas",
+  "hisnCategory": "prayer",
   "title": "Entering the Mosque",
   "kicker": "DAILY DUAS · WORSHIP",
   "subtitle": "Open the doors of mercy, then two rak'ahs",
   "sourceLabel": "Established",
   "sources": [
-   "Sahih al-Bukhari 1163; Muslim 769"
+   "Sunan Abi Dawud 466 (the refuge phrase); Sunan Ibn Majah 771 (Bismillah, was-salamu ʿala Rasulillah); Sahih Muslim 713 (open for me the doors of Your mercy); Sahih al-Bukhari 444 (two rak'ahs before sitting)"
   ],
   "chapters": [
    {
     "heading": "Entering the Mosque",
-    "body": "'I seek refuge in Allah the Magnificent, in His noble countenance and His eternal authority, from the accursed devil. In the name of Allah; peace and blessings upon the Messenger of Allah. O Allah, open for me the doors of Your mercy.' Then two rak'ahs of greeting before sitting (Bukhari 1163).",
+    "body": "'I seek refuge in Allah the Magnificent, in His noble countenance and His eternal authority, from the accursed devil. In the name of Allah; peace and blessings upon the Messenger of Allah. O Allah, open for me the doors of Your mercy.' Then two rak'ahs of greeting before sitting (Bukhari 444).",
     "dua": "أَعُوذُ بِاللَّهِ الْعَظِيمِ وَبِوَجْهِهِ الْكَرِيمِ وَسُلْطَانِهِ الْقَدِيمِ مِنَ الشَّيْطَانِ الرَّجِيمِ، بِسْمِ اللَّهِ، وَالصَّلَاةُ وَالسَّلَامُ عَلَىٰ رَسُولِ اللَّهِ، اللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ",
     "arabic": "أَعُوذُ بِاللَّهِ الْعَظِيمِ وَبِوَجْهِهِ الْكَرِيمِ وَسُلْطَانِهِ الْقَدِيمِ مِنَ الشَّيْطَانِ الرَّجِيمِ بِسْمِ اللَّهِ وَالصَّلَاةُ وَالسَّلَامُ عَلَىٰ رَسُولِ اللَّهِ اللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ"
    }
@@ -362,6 +382,7 @@
  {
   "id": "dua-after-salah",
   "collection": "dailyduas",
+  "hisnCategory": "prayer",
   "title": "After the Prayer",
   "kicker": "DAILY DUAS · PRAYER",
   "subtitle": "Say it after every obligatory prayer, before the dhikr",
@@ -382,6 +403,7 @@
  {
   "id": "dua-istikhlas",
   "collection": "dailyduas",
+  "hisnCategory": "morning-evening",
   "title": "Sayyid al-Istighfar — the Master of Seeking Forgiveness",
   "kicker": "DAILY DUAS · PRAYER",
   "subtitle": "Whoever says it with conviction morning or evening and dies that day/night enters Paradise",
@@ -402,6 +424,7 @@
  {
   "id": "dua-rabbana-atina",
   "collection": "dailyduas",
+  "hisnCategory": "prayer",
   "title": "The Sum of all Duas",
   "kicker": "DAILY DUAS · QUR'AN",
   "subtitle": "The Prophet's ﷺ most frequent supplication (Bukhari 6389)",
@@ -422,6 +445,7 @@
  {
   "id": "dua-exit-home",
   "collection": "dailyduas",
+  "hisnCategory": "home",
   "title": "Leaving for Work or Study",
   "kicker": "DAILY DUAS · HOME",
   "subtitle": "Said when leaving the house — the caller says: you are guided, sufficed, and protected",
@@ -442,12 +466,14 @@
  {
   "id": "dua-enter-mosque2",
   "collection": "dailyduas",
+  "hisnCategory": "prayer",
+  "duplicateOf": "dua-mosque",
   "title": "Entering the Mosque (full form)",
   "kicker": "DAILY DUAS · PRAYER",
   "subtitle": "Then pray two rak'ahs of greeting before sitting",
   "sourceLabel": "Established",
   "sources": [
-   "Sahih Muslim 769"
+   "Sunan Abi Dawud 466; Sunan Ibn Majah 771; Sahih Muslim 713"
   ],
   "chapters": [
    {
@@ -462,6 +488,7 @@
  {
   "id": "dua-rain2",
   "collection": "dailyduas",
+  "hisnCategory": "rain",
   "title": "Asking for Rain",
   "kicker": "DAILY DUAS · WORLD",
   "subtitle": "When the rain hardens: O Allah, around us and not upon us",
@@ -482,12 +509,14 @@
  {
   "id": "dua-debt2",
   "collection": "dailyduas",
+  "hisnCategory": "hardship",
+  "duplicateOf": "dua-debt",
   "title": "For Relief of Debt",
   "kicker": "DAILY DUAS · HARD TIMES",
   "subtitle": "The dua of Ali (RA); whoever says it morning and evening, Allah suffices him",
   "sourceLabel": "Established",
   "sources": [
-   "Sunan at-Tirmidhi 3565"
+   "Sunan at-Tirmidhi 3563"
   ],
   "chapters": [
    {
@@ -502,12 +531,13 @@
  {
   "id": "dua-rizq",
   "collection": "dailyduas",
+  "hisnCategory": "hardship",
   "title": "Asking Provision",
   "kicker": "DAILY DUAS · HARD TIMES",
-  "subtitle": "Ask after Fajr, when doors of rizq are opened",
-  "sourceLabel": "Established",
+  "subtitle": "A customary supplication for halal provision",
+  "sourceLabel": "Interpretive",
   "sources": [
-   "Musnad Ahmad (sahih-form narration)"
+   "Traditional supplication — no sound source for these exact words has been verified; listed for scholarly review"
   ],
   "chapters": [
    {
@@ -522,6 +552,7 @@
  {
   "id": "dua-family2",
   "collection": "dailyduas",
+  "hisnCategory": "family",
   "title": "For the Whole Household",
   "kicker": "DAILY DUAS · FAMILY",
   "subtitle": "The dua of Ibrahim's tradition for a righteous house",
@@ -542,17 +573,18 @@
  {
   "id": "dua-hawqala",
   "collection": "dailyduas",
+  "hisnCategory": "hardship",
   "title": "The Hawqala — the Treasure of Paradise",
   "kicker": "DAILY DUAS · HARD TIMES",
   "subtitle": "A treasure of Paradise — said when matters weigh heavy",
   "sourceLabel": "Established",
   "sources": [
-   "Sahih al-Bukhari 6394"
+   "Sahih al-Bukhari 6384"
   ],
   "chapters": [
    {
     "heading": "The Hawqala — the Treasure of Paradise",
-    "body": "There is no might nor power except with Allah. The Prophet ﷺ said whoever says it has uttered a treasure of Paradise (Sahih al-Bukhari 6394), and Abu Dharr reported that it was the heaviest thing placed on the Scale (Muslim 2694). Say it when a matter feels larger than your strength — it is the sentence that moves the mountain from your chest to the heavens.",
+    "body": "There is no might nor power except with Allah. The Prophet ﷺ said whoever says it has uttered a treasure of Paradise (Sahih al-Bukhari 6384), and it is reported in Muslim 2704 as well. Say it when a matter feels larger than your strength — it is the sentence that moves the mountain from your chest to the heavens.",
     "arabic": "لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ",
     "dua": null
    }
@@ -562,6 +594,7 @@
  {
   "id": "dua-seeing-afflicted",
   "collection": "dailyduas",
+  "hisnCategory": "hardship",
   "title": "Seeing Someone Afflicted",
   "kicker": "DAILY DUAS · HARD TIMES",
   "subtitle": "Say it quietly — and never say it as pride, only gratitude",
@@ -582,6 +615,7 @@
  {
   "id": "dua-forgiveness-night",
   "collection": "dailyduas",
+  "hisnCategory": "prayer",
   "title": "The Night Prayer's Door",
   "kicker": "DAILY DUAS · HARD TIMES",
   "subtitle": "Aisha asked what to say in Laylat al-Qadr — this was the answer",
@@ -602,6 +636,7 @@
  {
   "id": "dua-istikhara-full",
   "collection": "dailyduas",
+  "hisnCategory": "decisions",
   "title": "Istikhara — Asking Allah to Choose",
   "kicker": "DAILY DUAS · DECISIONS",
   "subtitle": "Two rak'ahs, then this dua, naming the matter in your heart — then proceed with what unfolds",
@@ -622,17 +657,18 @@
  {
   "id": "dua-suhoor",
   "collection": "dailyduas",
+  "hisnCategory": "fasting",
   "title": "At Suhoor — the Fast Begins",
   "kicker": "DAILY DUAS · FASTING",
   "subtitle": "The Prophet ﷺ said: actions are by intentions — the fast is born at suhoor",
-  "sourceLabel": "Established",
+  "sourceLabel": "Interpretive",
   "sources": [
-   "Sunan Abi Dawud 2450 (intention principle)"
+   "Sahih al-Bukhari 1 (actions are by intentions) — the spoken wording is customary, not a reported text"
   ],
   "chapters": [
    {
     "heading": "At Suhoor — the Fast Begins",
-    "body": "I intend the fast of tomorrow from the month of Ramadan (intention in the heart; this phrase is the taught wording).",
+    "body": "I intend the fast of tomorrow from the month of Ramadan (the intention is in the heart; saying these words is customary, not a reported wording).",
     "arabic": "وَبِصَوْمِ غَدٍ نَّوَيْتُ مِنْ شَهْرِ رَمَضَانَ",
     "dua": null
    }
@@ -642,6 +678,8 @@
  {
   "id": "dua-iftar-full",
   "collection": "dailyduas",
+  "hisnCategory": "fasting",
+  "duplicateOf": "dua-fasting",
   "title": "Breaking the Fast — Complete",
   "kicker": "DAILY DUAS · FASTING",
   "subtitle": "The fast-breaker's dua is not rejected (Ibn Majah 1753)",
@@ -662,6 +700,7 @@
  {
   "id": "dua-travel-full",
   "collection": "dailyduas",
+  "hisnCategory": "travel",
   "title": "The Full Journey Dua",
   "kicker": "DAILY DUAS · TRAVEL",
   "subtitle": "Say the takbir three times when boarding; this when setting out",
@@ -682,6 +721,7 @@
  {
   "id": "dua-sajdah",
   "collection": "dailyduas",
+  "hisnCategory": "prayer",
   "title": "Inside the Prostration",
   "kicker": "DAILY DUAS · PRAYER",
   "subtitle": "Then pour out your own words — the slave is nearest to his Lord in sujud (Muslim 482)",
@@ -702,17 +742,18 @@
  {
   "id": "dua-between-sajdah",
   "collection": "dailyduas",
+  "hisnCategory": "prayer",
   "title": "Between the Two Prostrations",
   "kicker": "DAILY DUAS · PRAYER",
   "subtitle": "The sitting between sujud is built for asking",
   "sourceLabel": "Established",
   "sources": [
-   "Sunan Abi Dawud 875"
+   "Sunan Ibn Majah 897"
   ],
   "chapters": [
    {
     "heading": "Between the Two Prostrations",
-    "body": "My Lord, forgive me — my Lord, forgive me (said between the two prostrations, Abu Dawud 875). The sitting between sujud is built for asking: the body rests a breath, and the heart rises. Scholars call this station the small sitting — and its dua is deliberately short, so every tongue, new or old, can carry it. Add to it whatever you carry that day; the door is open and the Watcher is near.",
+    "body": "My Lord, forgive me — my Lord, forgive me (said between the two prostrations, Ibn Majah 897). The sitting between sujud is built for asking: the body rests a breath, and the heart rises. Scholars call this station the small sitting — and its dua is deliberately short, so every tongue, new or old, can carry it. Add to it whatever you carry that day; the door is open and the Watcher is near.",
     "arabic": "رَبِّ اغْفِرْ لِي، رَبِّ اغْفِرْ لِي",
     "dua": null
    }
@@ -722,6 +763,7 @@
  {
   "id": "dua-witr-qunut",
   "collection": "dailyduas",
+  "hisnCategory": "prayer",
   "title": "The Witr Qunut",
   "kicker": "DAILY DUAS · PRAYER",
   "subtitle": "Taught to a companion who could not master other recitations — mercy in simplicity",
@@ -742,6 +784,7 @@
  {
   "id": "dua-visit-sick",
   "collection": "dailyduas",
+  "hisnCategory": "hardship",
   "title": "Visiting the Sick",
   "kicker": "DAILY DUAS · HARD TIMES",
   "subtitle": "Say it seven times; the Prophet ﷺ visited a sick man and wiped his face until he rose healed",
@@ -762,12 +805,14 @@
  {
   "id": "dua-morning-master",
   "collection": "dailyduas",
+  "hisnCategory": "morning-evening",
   "title": "The Morning Shield (Complete)",
   "kicker": "DAILY DUAS · WAKING",
-  "subtitle": "Three times at morning — nothing harms the one who says it that day (Tirmidhi 3604)",
+  "subtitle": "Three times in the evening — nothing harms the one who says it that night (Tirmidhi 3604); and whenever you stop at a place (Muslim 2708)",
   "sourceLabel": "Established",
   "sources": [
-   "Sahih Muslim 2708"
+   "Sahih Muslim 2708",
+   "Jamiʿ at-Tirmidhi 3604"
   ],
   "chapters": [
    {
@@ -782,6 +827,7 @@
  {
   "id": "dua-evening-shield",
   "collection": "dailyduas",
+  "hisnCategory": "waking-sleeping",
   "title": "The Evening Shield",
   "kicker": "DAILY DUAS · SLEEPING",
   "subtitle": "Said as the body settles — the night given back to its Owner",
@@ -802,6 +848,7 @@
  {
   "id": "dua-children-shield",
   "collection": "dailyduas",
+  "hisnCategory": "family",
   "title": "Over Your Children",
   "kicker": "DAILY DUAS · FAMILY",
   "subtitle": "The Prophet ﷺ said this over al-Hasan and al-Husayn, passing his hands over their heads",
@@ -822,6 +869,7 @@
  {
   "id": "dua-takbir-days",
   "collection": "dailyduas",
+  "hisnCategory": "prayer",
   "title": "The Ten Days' Takbir",
   "kicker": "DAILY DUAS · WORSHIP",
   "subtitle": "The loud glorification of Dhul-Hijjah's first ten days — the days Allah swears by (89:2)",

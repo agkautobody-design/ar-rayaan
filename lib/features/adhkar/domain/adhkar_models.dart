@@ -8,6 +8,7 @@ class Dhikr {
     required this.arabic,
     required this.count,
     this.translation,
+    this.source,
   });
 
   final int number;
@@ -18,6 +19,10 @@ class Dhikr {
 
   /// English meaning of the dhikr (O-12). Null for legacy data.
   final String? translation;
+
+  /// Where the dhikr (and its stated virtue) is reported, with the grade
+  /// where one is known. Null for legacy/remote data without a source.
+  final String? source;
 }
 
 class AdhkarSet {

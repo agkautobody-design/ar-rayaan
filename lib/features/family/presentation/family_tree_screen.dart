@@ -44,6 +44,22 @@ class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
         data: (data) {
           final rows = <Widget>[];
           _buildNode(data, _rootId, 0, rows);
+          // Safety net: any node the walk (children + spouse links) cannot
+          // reach is listed here instead of silently vanishing.
+          final Set<String> reachable = reachableFrom(data, _rootId);
+          final List<FamilyNode> orphans = <FamilyNode>[
+            for (final FamilyNode n in data.nodes)
+              if (!reachable.contains(n.id)) n,
+          ];
+          if (orphans.isNotEmpty) {
+            rows.add(Padding(
+              padding: const EdgeInsets.fromLTRB(4, 14, 4, 8),
+              child: Text('ALSO IN THIS TREE', style: AppText.eyebrow),
+            ));
+            for (final FamilyNode n in orphans) {
+              _buildNode(data, n.id, 0, rows);
+            }
+          }
           return ListView(
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
             children: [
@@ -105,6 +121,10 @@ class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
   void _buildNode(FamilyTreeData data, String id, int depth, List<Widget> rows) {
     final node = data.byId[id];
     if (node == null) return;
+    final List<FamilyNode> spouses = <FamilyNode>[
+      for (final String s in node.spouses)
+        if (data.byId[s] != null) data.byId[s]!,
+    ];
     final hasKids = node.children.any((c) => data.byId.containsKey(c));
     final isOpen = _expanded.contains(id);
     final hasStory = node.story != null;
@@ -125,7 +145,10 @@ class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
             ),
           ),
           padding: EdgeInsets.only(left: depth == 0 ? 0 : 12),
-          child: Material(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+          Material(
             color: Colors.transparent,
             child: InkWell(
               borderRadius: BorderRadius.circular(12),
@@ -218,6 +241,37 @@ class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
               ),
             ),
           ),
+          if (spouses.isNotEmpty)
+            Padding(
+              padding: const EdgeInsets.only(left: 30, bottom: 6),
+              child: Wrap(
+                spacing: 6,
+                runSpacing: 4,
+                children: <Widget>[
+                  for (final FamilyNode sp in spouses)
+                    InkWell(
+                      borderRadius: BorderRadius.circular(20),
+                      onTap: () => _openNode(context, data, sp),
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 9, vertical: 3),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          border: Border.all(
+                            color: AppColors.gold.withValues(alpha: 0.3),
+                          ),
+                        ),
+                        child: Text(
+                          'Spouse \u00b7 ${sp.name}',
+                          style: AppText.bodyMuted.copyWith(fontSize: 10),
+                        ),
+                      ),
+                    ),
+                ],
+              ),
+            ),
+            ],
+          ),
         ),
       ),
     );
@@ -309,4 +363,21 @@ class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
       ),
     );
   }
+}
+
+/// Every node reachable from [rootId] by walking children AND spouse
+/// links (the tree draws spouses as chips on their partner's row).
+Set<String> reachableFrom(FamilyTreeData data, String rootId) {
+  final Set<String> seen = <String>{};
+  final List<String> stack = <String>[rootId];
+  while (stack.isNotEmpty) {
+    final String id = stack.removeLast();
+    if (!seen.add(id)) continue;
+    final FamilyNode? n = data.byId[id];
+    if (n == null) continue;
+    stack
+      ..addAll(n.children)
+      ..addAll(n.spouses);
+  }
+  return seen;
 }

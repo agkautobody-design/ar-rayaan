@@ -9,6 +9,7 @@ import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
+import '../domain/daily_hadith.dart' show dayOfYear;
 
 /// THE DAILY HADITH — the app's heartbeat. Every day the same hadith on
 /// every device (day-of-year over the living library, which the daily cron
@@ -26,8 +27,8 @@ class _DailyHadithBannerState extends State<DailyHadithBanner> {
   bool _on = true;
   bool _shownToday = false;
 
-  int get _dayOfYear =>
-      DateTime.now().difference(DateTime(DateTime.now().year, 1, 1)).inDays;
+  // Shared, DST-safe day-of-year (UTC date arithmetic).
+  int get _dayOfYear => dayOfYear(DateTime.now());
 
   @override
   void initState() {

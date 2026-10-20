@@ -30,6 +30,7 @@ class BundledAdhkarRepository implements AdhkarRepository {
                 arabic: i['ar'] as String,
                 count: i['count'] as int,
                 translation: i['en'] as String?,
+                source: i['source'] as String?,
               ),
           ],
         ),

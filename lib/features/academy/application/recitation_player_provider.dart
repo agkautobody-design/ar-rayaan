@@ -25,6 +25,8 @@ class RecitationPlaybackState {
     this.playing = false,
     this.finished = false,
     this.fallbackActive = false,
+    this.paused = false,
+    this.failed = false,
   });
 
   final List<PlaybackEvent> plan;
@@ -45,7 +47,17 @@ class RecitationPlaybackState {
   final bool finished;
 
   /// True once any event degraded to the surah fallback this session.
+  /// (Per-ayah events no longer fall back to a whole-surah file; the flag
+  /// is kept for API compatibility and stays false.)
   final bool fallbackActive;
+
+  /// True between [RecitationPlayerNotifier.pause] and the next resume /
+  /// stop / new plan — the UI resumes instead of restarting.
+  final bool paused;
+
+  /// True when an ayah's audio could not be loaded or played; playback
+  /// stopped at that ayah instead of playing something else.
+  final bool failed;
 
   RecitationPlaybackState copyWith({
     List<PlaybackEvent>? plan,
@@ -54,6 +66,8 @@ class RecitationPlaybackState {
     bool? playing,
     bool? finished,
     bool? fallbackActive,
+    bool? paused,
+    bool? failed,
   }) =>
       RecitationPlaybackState(
         plan: plan ?? this.plan,
@@ -62,6 +76,8 @@ class RecitationPlaybackState {
         playing: playing ?? this.playing,
         finished: finished ?? this.finished,
         fallbackActive: fallbackActive ?? this.fallbackActive,
+        paused: paused ?? this.paused,
+        failed: failed ?? this.failed,
       );
 }
 
@@ -73,7 +89,9 @@ class RecitationPlayerNotifier
     required AyahAudioPlayer audio,
     required Future<String> Function(PlaybackEvent event) sourceResolver,
     Sleeper? sleeper,
+    Future<void> Function(double speed)? speedSetter,
   })  : _audio = audio,
+        _speedSetter = speedSetter,
         _resolve = sourceResolver,
         _sleep = sleeper ?? ((int ms) => Future<void>.delayed(Duration(milliseconds: ms))),
         super(const RecitationPlaybackState());
@@ -81,7 +99,31 @@ class RecitationPlayerNotifier
   final AyahAudioPlayer _audio;
   final Future<String> Function(PlaybackEvent event) _resolve;
   final Sleeper _sleep;
+  final Future<void> Function(double speed)? _speedSetter;
+  double _speed = 1.0;
   bool _stopped = true;
+
+  /// Bumped by every [_runFrom]; a superseded loop (e.g. one still
+  /// sleeping through a gap when the user paused and resumed) exits
+  /// instead of running in parallel with its replacement.
+  int _run = 0;
+
+  /// Playback speed (0.75-1.25x). Applied to the current and every later
+  /// utterance. No-op for backends without a speed control.
+  Future<void> setSpeed(double speed) async {
+    _speed = speed;
+    await _applySpeed();
+  }
+
+  Future<void> _applySpeed() async {
+    final Future<void> Function(double speed)? setter = _speedSetter;
+    if (setter == null) return;
+    try {
+      await setter(_speed);
+    } catch (_) {
+      // Speed is best-effort; never break playback over it.
+    }
+  }
 
   /// Start (or restart) [plan]. Sources are resolved event by event so a
   /// fallback mid-plan degrades only what follows it.
@@ -94,24 +136,36 @@ class RecitationPlayerNotifier
   }
 
   Future<void> _runFrom(int eventIndex, int utterance) async {
+    final int token = ++_run;
     final List<PlaybackEvent> plan = state.plan;
     for (int e = eventIndex; e < plan.length; e++) {
       final PlaybackEvent event = plan[e];
       for (int u = (e == eventIndex ? utterance : 0); u < event.repeats; u++) {
-        if (_stopped) return;
+        if (_stopped || token != _run) return;
         state = state.copyWith(eventIndex: e, utteranceInEvent: u);
-        final String source = await _resolve(event);
-        if (_stopped) return;
-        await _audio.play(source);
-        if (_stopped) return;
+        try {
+          final String source = await _resolve(event);
+          if (_stopped || token != _run) return;
+          await _applySpeed();
+          await _audio.play(source);
+        } catch (_) {
+          // This ayah's audio could not be fetched or played. Stop here and
+          // say so; never substitute a different recording.
+          if (!_stopped && token == _run) {
+            _stopped = true;
+            state = state.copyWith(playing: false, failed: true);
+          }
+          return;
+        }
+        if (_stopped || token != _run) return;
         if (event.gapAfterMs > 0) {
           await _sleep(event.gapAfterMs);
-          if (_stopped) return;
+          if (_stopped || token != _run) return;
         }
       }
     }
-    if (!_stopped) {
-      state = state.copyWith(playing: false, finished: true);
+    if (!_stopped && token == _run) {
+      state = state.copyWith(playing: false, finished: true, paused: false);
     }
   }
 
@@ -119,7 +173,7 @@ class RecitationPlayerNotifier
   Future<void> pause() async {
     _stopped = true;
     await _audio.stop();
-    state = state.copyWith(playing: false);
+    state = state.copyWith(playing: false, paused: true);
   }
 
   /// Stop entirely: playback halts and position resets — the next
@@ -132,6 +186,7 @@ class RecitationPlayerNotifier
       finished: false,
       eventIndex: 0,
       utteranceInEvent: 0,
+      paused: false,
     );
   }
 
@@ -139,7 +194,7 @@ class RecitationPlayerNotifier
   Future<void> resume() async {
     if (state.playing || state.plan.isEmpty || state.finished) return;
     _stopped = false;
-    state = state.copyWith(playing: true);
+    state = state.copyWith(playing: true, paused: false, failed: false);
     await _runFrom(state.eventIndex, state.utteranceInEvent);
   }
 }
@@ -162,8 +217,11 @@ final audioCacheDirProvider = FutureProvider<Directory>((Ref ref) async {
 final recitationPlayerProvider =
     StateNotifierProvider<RecitationPlayerNotifier, RecitationPlaybackState>(
         (Ref ref) {
+  final AudioplayersAyahPlayer audio = AudioplayersAyahPlayer();
+  ref.onDispose(() => audio.dispose());
   final notifier = RecitationPlayerNotifier(
-    audio: AudioplayersAyahPlayer(),
+    audio: audio,
+    speedSetter: audio.setSpeed,
     sourceResolver: (PlaybackEvent event) async {
       // Web has no file system: stream the per-ayah file directly.
       if (kIsWeb) return ReciterPack.alHusary.ayahUrl(event.ref);

@@ -234,6 +234,12 @@ class _MixesRow extends ConsumerWidget {
     return catalogAsync.maybeWhen(
       data: (Catalog? c) {
         if (c == null || c.tracks.isEmpty) return const SizedBox.shrink();
+        final List<String> moods = <String>[
+          for (final String m in Mixes.kMoods)
+            if (Mixes.seed(m, c, count: 1).isNotEmpty) m,
+        ];
+        // No mix has audio yet: say nothing rather than show dead chips.
+        if (moods.isEmpty) return const SizedBox.shrink();
         return GlassCard(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -241,7 +247,7 @@ class _MixesRow extends ConsumerWidget {
               Text('Mixes', style: AppText.caption.copyWith(color: AppColors.gold)),
               const SizedBox(height: 8),
               Wrap(spacing: 8, runSpacing: 8, children: <Widget>[
-                for (final String mood in Mixes.kMoods)
+                for (final String mood in moods)
                   ActionChip(
                     label: Text(mood[0].toUpperCase() + mood.substring(1)),
                     onPressed: () => ref
@@ -258,7 +264,7 @@ class _MixesRow extends ConsumerWidget {
   }
 }
 
-class _BrowseSection extends ConsumerWidget {
+class _BrowseSection extends ConsumerStatefulWidget {
   const _BrowseSection({
     required this.catalog,
     required this.facet,
@@ -276,34 +282,63 @@ class _BrowseSection extends ConsumerWidget {
   ];
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<_BrowseSection> createState() => _BrowseSectionState();
+}
+
+class _BrowseSectionState extends ConsumerState<_BrowseSection> {
+  static const int _page = 25;
+  int _limit = _page;
+
+  @override
+  Widget build(BuildContext context) {
+    final Catalog catalog = widget.catalog;
+    final String facet = widget.facet;
+    final String? facetValue = widget.facetValue;
     final List<String> values = switch (facet) {
       'themes' => catalog.themes,
       'languages' => catalog.languages,
       'artists' => catalog.artists,
       _ => catalog.poets,
     };
-    final List<Track> shown = facetValue == null
+    final List<Track> filtered = facetValue == null
         ? catalog.tracks
         : switch (facet) {
-            'themes' => catalog.byTheme(facetValue!),
-            'languages' => catalog.byLanguage(facetValue!),
+            'themes' => catalog.byTheme(facetValue),
+            'languages' => catalog.byLanguage(facetValue),
             'artists' =>
               catalog.tracks.where((Track t) => t.artist == facetValue).toList(),
             _ => catalog.tracks
                 .where((Track t) => t.poet == facetValue)
                 .toList(),
           };
+    // Tracks the app can play come first; the rest are honestly labelled
+    // as links to the artist's official page.
+    final List<Track> shown = <Track>[
+      ...filtered.where((Track t) => t.hasAudio),
+      ...filtered.where((Track t) => !t.hasAudio),
+    ];
+    final int playableCount = catalog.playable.length;
+    final int visible = shown.length < _limit ? shown.length : _limit;
     return GlassCard(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
+          Text(
+            '$playableCount of ${catalog.tracks.length} tracks play in the app. '
+            'The rest open the artist\u2019s official page.',
+            key: const Key('player-catalog-note'),
+            style: AppText.caption,
+          ),
+          const SizedBox(height: 8),
           Wrap(spacing: 6, children: <Widget>[
-            for (final String f in _facets)
+            for (final String f in _BrowseSection._facets)
               ChoiceChip(
                 label: Text(f[0].toUpperCase() + f.substring(1)),
                 selected: facet == f,
-                onSelected: (_) => onFacet(f, null),
+                onSelected: (_) {
+                  setState(() => _limit = _page);
+                  widget.onFacet(f, null);
+                },
               ),
           ]),
           if (values.isNotEmpty) ...<Widget>[
@@ -318,7 +353,10 @@ class _BrowseSection extends ConsumerWidget {
                       padding: const EdgeInsets.only(right: 6),
                       child: ActionChip(
                         label: Text(v),
-                        onPressed: () => onFacet(facet, v),
+                        onPressed: () {
+                          setState(() => _limit = _page);
+                          widget.onFacet(facet, v);
+                        },
                       ),
                     ),
                 ],
@@ -326,28 +364,52 @@ class _BrowseSection extends ConsumerWidget {
             ),
           ],
           const Divider(height: 16),
-          for (final Track t in shown.take(12))
+          for (final Track t in shown.take(visible))
             Material(
-            color: Colors.transparent,
-            child: ListTile(
-              dense: true,
-              title: Text(t.title, style: AppText.body),
-              subtitle: Text('${t.artist} · ${t.language}',
-                  style: AppText.caption),
-              trailing: const Icon(Icons.play_arrow,
-                  color: AppColors.gold, size: 20),
-              onTap: () {
-                if (t.audioUrl.isEmpty && (t.officialUrl ?? '').isNotEmpty) {
-                  launchUrl(Uri.parse(t.officialUrl!),
-                      mode: LaunchMode.externalApplication);
-                  return;
-                }
-                final int i = catalog.tracks.indexWhere((Track x) => x.id == t.id);
-                ref.read(playerQueueProvider.notifier).playQueue(
-                    catalog.tracks.sublist(i),
-                    name: facetValue ?? facet);
-              },
-            )),
+              color: Colors.transparent,
+              child: ListTile(
+                dense: true,
+                title: Text(t.title, style: AppText.body),
+                subtitle: Text(
+                  t.hasAudio
+                      ? '${t.artist} \u00b7 ${t.language}'
+                      : '${t.artist} \u00b7 ${t.language} \u00b7 opens artist\u2019s page',
+                  style: AppText.caption,
+                ),
+                trailing: Icon(
+                  t.hasAudio ? Icons.play_arrow : Icons.open_in_new,
+                  color: AppColors.gold.withValues(alpha: t.hasAudio ? 1 : 0.6),
+                  size: 20,
+                ),
+                onTap: () {
+                  if (!t.hasAudio) {
+                    if (t.hasOfficialLink) {
+                      launchUrl(Uri.parse(t.officialUrl!),
+                          mode: LaunchMode.externalApplication);
+                    }
+                    return;
+                  }
+                  final List<Track> playable =
+                      shown.where((Track x) => x.hasAudio).toList();
+                  final int i =
+                      playable.indexWhere((Track x) => x.id == t.id);
+                  ref.read(playerQueueProvider.notifier).playQueue(
+                      playable.sublist(i < 0 ? 0 : i),
+                      name: facetValue ?? facet);
+                },
+              ),
+            ),
+          if (visible < shown.length)
+            Center(
+              child: TextButton(
+                key: const Key('player-show-more'),
+                onPressed: () => setState(() => _limit += _page),
+                child: Text(
+                  'Show more (${shown.length - visible} left)',
+                  style: const TextStyle(color: AppColors.gold),
+                ),
+              ),
+            ),
         ],
       ),
     );
