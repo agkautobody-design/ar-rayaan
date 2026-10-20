@@ -1,4 +1,5 @@
 import '../domain/prayer_times.dart';
+import '../domain/prayer_zone.dart';
 
 /// Location used for prayer-time calculation. O-11: coordinates come from
 /// device GPS (geolocator) or a curated offline city directory; the city
@@ -9,6 +10,7 @@ class PrayerLocation {
     required this.country,
     required this.latitude,
     required this.longitude,
+    this.zone,
   });
 
   final String city;
@@ -18,6 +20,10 @@ class PrayerLocation {
   final double latitude;
   final double longitude;
 
+  /// Time zone of a manually chosen city. Null for a GPS fix, where the
+  /// device zone is the user's zone.
+  final PrayerZone? zone;
+
   String get label => '$city, $country';
 
   PrayerLocation copyWith({
@@ -25,12 +31,14 @@ class PrayerLocation {
     String? country,
     double? latitude,
     double? longitude,
+    PrayerZone? zone,
   }) {
     return PrayerLocation(
       city: city ?? this.city,
       country: country ?? this.country,
       latitude: latitude ?? this.latitude,
       longitude: longitude ?? this.longitude,
+      zone: zone ?? this.zone,
     );
   }
 }

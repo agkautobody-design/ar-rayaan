@@ -3,6 +3,8 @@ import 'package:geolocator/geolocator.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../app/core/providers.dart';
+import '../data/city_directory.dart';
+import '../domain/prayer_zone.dart';
 import 'prayer_repository.dart';
 
 /// Result of a GPS attempt, surfaced to the UI for honest messaging.
@@ -18,6 +20,7 @@ class PrayerLocationController extends Notifier<PrayerLocation> {
   static const String _lngKey = 'ar.location.lng';
   static const String _cityKey = 'ar.location.city';
   static const String _countryKey = 'ar.location.country';
+  static const String _zoneKey = 'ar.location.zone';
 
   /// Default before any GPS fix or manual choice (previous behaviour).
   static const PrayerLocation fallback = PrayerLocation(
@@ -25,6 +28,7 @@ class PrayerLocationController extends Notifier<PrayerLocation> {
     country: 'Canada',
     latitude: 43.6532,
     longitude: -79.3832,
+    zone: PrayerZone(-300, DstRule.us),
   );
 
   GpsStatus gpsStatus = GpsStatus.idle;
@@ -36,17 +40,30 @@ class PrayerLocationController extends Notifier<PrayerLocation> {
       final double? lat = prefs.getDouble(_latKey);
       final double? lng = prefs.getDouble(_lngKey);
       if (lat != null && lng != null) {
+        final String city = prefs.getString(_cityKey) ?? 'My Location';
+        final String country = prefs.getString(_countryKey) ?? '';
         return PrayerLocation(
-          city: prefs.getString(_cityKey) ?? 'My Location',
-          country: prefs.getString(_countryKey) ?? '',
+          city: city,
+          country: country,
           latitude: lat,
           longitude: lng,
+          zone:
+              PrayerZone.parse(prefs.getString(_zoneKey)) ??
+              _directoryZone(city, country),
         );
       }
     } catch (_) {
       // In-memory fallback.
     }
     return fallback;
+  }
+
+  /// Zone of a curated city saved before zones were stored.
+  static PrayerZone? _directoryZone(String city, String country) {
+    for (final PrayerLocation c in CityDirectory.cities) {
+      if (c.city == city && c.country == country) return c.zone;
+    }
+    return null;
   }
 
   Future<void> _persist(PrayerLocation loc) async {
@@ -56,6 +73,12 @@ class PrayerLocationController extends Notifier<PrayerLocation> {
       await prefs.setDouble(_lngKey, loc.longitude);
       await prefs.setString(_cityKey, loc.city);
       await prefs.setString(_countryKey, loc.country);
+      final PrayerZone? zone = loc.zone;
+      if (zone == null) {
+        await prefs.remove(_zoneKey);
+      } else {
+        await prefs.setString(_zoneKey, zone.id);
+      }
     } catch (_) {
       // In-memory only.
     }
