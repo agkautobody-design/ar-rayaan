@@ -772,13 +772,16 @@ class _ChildPrivacyCardState extends ConsumerState<_ChildPrivacyCard> {
             ),
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              TextButton(
-                onPressed: _showPolicy,
-                child: const Text('Read the children\u2019s privacy text',
-                    style: TextStyle(color: AppColors.goldLight, fontSize: 12)),
+              Flexible(
+                child: TextButton(
+                  onPressed: _showPolicy,
+                  child: const Text('Read the children\u2019s privacy text',
+                      style:
+                          TextStyle(color: AppColors.goldLight, fontSize: 12)),
+                ),
               ),
-              const Spacer(),
               TextButton(
                 onPressed: _deleteAll,
                 child: const Text('Delete all',

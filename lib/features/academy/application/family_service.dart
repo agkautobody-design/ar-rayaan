@@ -108,7 +108,12 @@ class FamilyService {
   Future<String> addChild(String name) async {
     final prefs = await SharedPreferences.getInstance();
     final list = await children();
-    final id = 'c${DateTime.now().millisecondsSinceEpoch}';
+    // Unique even when two children are added in the same millisecond.
+    final Set<Object?> taken = <Object?>{for (final c in list) c['id']};
+    String id = 'c${DateTime.now().millisecondsSinceEpoch}';
+    for (int n = 2; taken.contains(id); n++) {
+      id = 'c${DateTime.now().millisecondsSinceEpoch}_$n';
+    }
     final String clean = name.trim();
     list.add({
       'id': id,

@@ -259,11 +259,11 @@ void main() {
     test('the parent prompt never contains the child name', () {
       final String p = personaPrompt(
         WasiaPersona.parent,
-        childName: 'Rayaan',
+        childName: 'Zaynab',
         lessonsDone: 5,
         examsTaken: 1,
       );
-      expect(p.contains('Rayaan'), isFalse);
+      expect(p.contains('Zaynab'), isFalse);
       expect(p, contains('5 of 40'));
     });
 
