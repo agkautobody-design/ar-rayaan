@@ -93,7 +93,7 @@ class HadithScreen extends ConsumerWidget {
                       ),
                     ),
                     const SizedBox(height: 16),
-                    // Founder-approved hadith sources: the Authentic Six.
+                    // Founder-approved hadith sources: the six canonical collections.
                     GlassCard(
                       onTap: () => context.push(AppRoutes.sources),
                       padding: const EdgeInsets.all(16),
@@ -101,7 +101,7 @@ class HadithScreen extends ConsumerWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'OUR HADITH SOURCES · THE AUTHENTIC SIX',
+                            'OUR HADITH SOURCES · THE SIX COLLECTIONS',
                             style: AppText.eyebrow.copyWith(fontSize: 9),
                           ),
                           const SizedBox(height: 10),
@@ -116,8 +116,8 @@ class HadithScreen extends ConsumerWidget {
                           ),
                           const SizedBox(height: 6),
                           Text(
-                            'The Sihah Sitta — the six canonical collections. '
-                            'Tap to see all our sources.',
+                            'The six canonical collections (al-Kutub as-Sittah); not every '
+                            'report in them is sahih. Tap to see all our sources.',
                             style: AppText.bodyMuted.copyWith(
                               fontSize: 11,
                               height: 1.4,

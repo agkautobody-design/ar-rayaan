@@ -10,8 +10,8 @@ import '../../../app/theme/widgets/screen_header.dart';
 /// Our Sources — every text, translation, recitation, and scholarly
 /// reference used in Ar-Rayaan, chosen by the Founder.
 ///
-/// Hadith sources: the Sihah Sitta (Authentic Six), approved by the Founder
-/// with his own descriptions. Knowledge & guidance: Shaykh Muhammad Saqib
+/// Hadith sources: the six canonical collections (al-Kutub as-Sittah),
+/// approved by the Founder with his own descriptions. Knowledge & guidance: Shaykh Muhammad Saqib
 /// Iqbal. Recorded in Build Sheet v1.14 (O-5 hadith portion resolved).
 class SourcesScreen extends StatelessWidget {
   const SourcesScreen({super.key});
@@ -21,7 +21,7 @@ class SourcesScreen extends StatelessWidget {
     '/@ShaykhSaqibIqbal',
   );
 
-  /// The Authentic Six — Founder-approved, with his descriptions.
+  /// The six canonical collections — Founder-approved, with his descriptions.
   static const List<(String, String, String)> _sixBooks = [
     (
       'Sahih al-Bukhari',
@@ -51,7 +51,7 @@ class SourcesScreen extends StatelessWidget {
     (
       'Sunan Ibn Majah',
       'Ibn Majah (d. 887 CE)',
-      'Added as the sixth book by the scholar Ibn al-Qaisarani in the 11th century — completing the Sihah Sitta (The Authentic Six).',
+      'Added as the sixth book by the scholar Ibn al-Qaisarani in the 11th century — completing the six canonical collections (al-Kutub as-Sittah).',
     ),
   ];
 
@@ -80,26 +80,26 @@ class SourcesScreen extends StatelessWidget {
                         _SourceRow(
                           title: 'Arabic Text · Tanzil Uthmani',
                           subtitle:
-                              'The complete mushaf — 114 surahs, 6,236 ayahs — bundled for offline reading',
+                              'The complete mushaf — 114 surahs, 6,236 ayahs — bundled for offline reading and search. Text from Tanzil.net (tanzil.net).',
                         ),
                         _Divider(),
                         _SourceRow(
                           title: 'Translation · Saheeh International',
                           subtitle:
-                              'The widely-used plain-English rendering, bundled alongside every ayah',
+                              'The widely-used plain-English rendering, bundled alongside every ayah. Also supplied via Tanzil.net, whose copy omits verse-final punctuation.',
                         ),
                         _Divider(),
                         _SourceRow(
                           title: 'Recitation · Shaykh Mahmoud Khalil Al-Husary',
                           subtitle:
-                              'Real recorded recitation streamed ayah-by-ayah — never AI voices for Qur’an',
+                              'Real recorded recitation streamed ayah-by-ayah from everyayah.com — never AI voices for Qur’an',
                         ),
                       ],
                     ),
                   ),
 
                   // ---------------- HADITH ----------------
-                  _SectionLabel('HADITH · THE AUTHENTIC SIX'),
+                  _SectionLabel('HADITH · THE SIX COLLECTIONS'),
                   GlassCard(
                     child: Column(
                       children: [
@@ -115,8 +115,17 @@ class SourcesScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    'Readable now in-app: The Forty Hadith of Imam an-Nawawi. '
-                    'The full six-book library arrives in a coming update.',
+                    'Only Bukhari and Muslim are known as the two Sahihayn. '
+                    'The four Sunan contain sahih, hasan and weaker reports, so '
+                    'every hadith in Ar-Rayaan names its collection and number '
+                    'and carries a grade only where one has been checked '
+                    '(against sunnah.com and the hadith-api editions of '
+                    'fawazahmed0, with grades from the compilers and '
+                    'al-Albani). Where a grade could not be checked, it is '
+                    'left off.\n\n'
+                    'Readable now in-app: The Forty Hadith of Imam an-Nawawi '
+                    '(42 narrations) and the daily hadith. The full six-book '
+                    'library arrives in a coming update.',
                     style: AppText.bodyMuted.copyWith(
                       fontSize: 11,
                       height: 1.5,
@@ -181,6 +190,12 @@ class SourcesScreen extends StatelessWidget {
                   const GlassCard(
                     child: Column(
                       children: [
+                        _SourceRow(
+                          title: 'Adhkar · Hisn al-Muslim',
+                          subtitle:
+                              'Arabic from the Hisn al-Muslim of Sa’id al-Qahtani (rn0x/Adhkar-json); English meanings abridged from the Darussalam rendering. Each dhikr lists its hadith source and grade where verified.',
+                        ),
+                        _Divider(),
                         _SourceRow(
                           title: 'Prayer Times · Aladhan',
                           subtitle:

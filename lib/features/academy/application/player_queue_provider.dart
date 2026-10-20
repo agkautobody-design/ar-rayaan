@@ -17,12 +17,16 @@ class PlayerQueueNotifier extends StateNotifier<PlayerQueue> {
   final AudioplayersAyahPlayer _audio;
 
   Future<void> playQueue(List<Track> tracks, {String? name}) async {
-    if (tracks.isEmpty) return;
-    state = PlayerQueue(tracks: tracks, index: 0, playlistName: name);
+    // Never queue entries with no audio file: they would play silence.
+    final List<Track> playable =
+        tracks.where((Track t) => t.hasAudio).toList();
+    if (playable.isEmpty) return;
+    state = PlayerQueue(tracks: playable, index: 0, playlistName: name);
     await _playCurrent();
   }
 
   Future<void> enqueue(Track t) async {
+    if (!t.hasAudio) return;
     state = state.enqueue(t);
     if (state.index == state.tracks.length - 1 && state.tracks.length == 1) {
       await _playCurrent();
@@ -30,6 +34,7 @@ class PlayerQueueNotifier extends StateNotifier<PlayerQueue> {
   }
 
   Future<void> playNext(Track t) async {
+    if (!t.hasAudio) return;
     state = state.playNext(t);
   }
 
@@ -64,7 +69,7 @@ class PlayerQueueNotifier extends StateNotifier<PlayerQueue> {
 
   Future<void> _playCurrent() async {
     final Track? t = state.current;
-    if (t == null) return;
+    if (t == null || !t.hasAudio) return;
     await _audio.play(t.audioUrl);
   }
 }
