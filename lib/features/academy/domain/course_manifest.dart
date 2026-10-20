@@ -2068,4 +2068,86 @@ AcademyLesson? findLesson(String courseId, String unitId, String lessonId) {
       ),
       ],
     ),
+    AcademyCourse(
+      id: 'hifz',
+      titleKey: 'course.hifz.title',
+      subtitleKey: 'course.hifz.subtitle',
+      units: <AcademyUnit>[
+      AcademyUnit(
+        id: 'hfz.u1',
+        courseId: 'hifz',
+        titleKey: 'hfz.u1.title',
+        subtitleKey: 'hfz.u1.subtitle',
+        lessons: <AcademyLesson>[
+          AcademyLesson(
+            id: 'hfz.u1.l1',
+            unitId: 'hfz.u1',
+            courseId: 'hifz',
+            titleKey: 'hfz.u1.l1.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'hfz.u1.l1.s1.title', bodyKey: 'hfz.u1.l1.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'hfz.u1.l1.s2.title', bodyKey: 'hfz.u1.l1.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'hfz.u1.l2',
+            unitId: 'hfz.u1',
+            courseId: 'hifz',
+            titleKey: 'hfz.u1.l2.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'hfz.u1.l2.s1.title', bodyKey: 'hfz.u1.l2.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'hfz.u1.l2.s2.title', bodyKey: 'hfz.u1.l2.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'hfz.u1.l3',
+            unitId: 'hfz.u1',
+            courseId: 'hifz',
+            titleKey: 'hfz.u1.l3.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'hfz.u1.l3.s1.title', bodyKey: 'hfz.u1.l3.s1.body', route: '/academy/hifz'),
+            ],
+          ),
+        ],
+      ),
+      AcademyUnit(
+        id: 'hfz.u2',
+        courseId: 'hifz',
+        titleKey: 'hfz.u2.title',
+        subtitleKey: 'hfz.u2.subtitle',
+        lessons: <AcademyLesson>[
+          AcademyLesson(
+            id: 'hfz.u2.l1',
+            unitId: 'hfz.u2',
+            courseId: 'hifz',
+            titleKey: 'hfz.u2.l1.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'hfz.u2.l1.s1.title', bodyKey: 'hfz.u2.l1.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'hfz.u2.l1.s2.title', bodyKey: 'hfz.u2.l1.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'hfz.u2.l2',
+            unitId: 'hfz.u2',
+            courseId: 'hifz',
+            titleKey: 'hfz.u2.l2.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'hfz.u2.l2.s1.title', bodyKey: 'hfz.u2.l2.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'hfz.u2.l2.s2.title', bodyKey: 'hfz.u2.l2.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'hfz.u2.l3',
+            unitId: 'hfz.u2',
+            courseId: 'hifz',
+            titleKey: 'hfz.u2.l3.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'hfz.u2.l3.s1.title', bodyKey: 'hfz.u2.l3.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'hfz.u2.l3.s2.title', bodyKey: 'hfz.u2.l3.s2.body'),
+            ],
+          ),
+        ],
+      ),
+      ],
+    ),
 
