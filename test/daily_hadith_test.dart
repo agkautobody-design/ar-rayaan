@@ -1,7 +1,9 @@
 import 'package:ar_rayaan/features/hadith/domain/daily_hadith.dart';
+import 'package:ar_rayaan/features/hadith/domain/hadith_models.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
+  gradeTests();
   group('DailyHadiths', () {
     test('exactly 60 hadiths, all sourced, all short', () {
       expect(DailyHadiths.all.length, 60);
@@ -81,6 +83,44 @@ void main() {
 
     test('byId falls back gracefully for unknown feelings', () {
       expect(MoodMap.byId('nonexistent').id, MoodMap.feelings.first.id);
+    });
+  });
+}
+
+void gradeTests() {
+  group('Hadith grades carry a named grader', () {
+    test('every daily hadith outside Bukhari/Muslim has grade AND grader', () {
+      for (final DailyHadith h in DailyHadiths.all) {
+        if (hadithSourceNeedsGrade(h.source)) {
+          expect(h.grade, isNotNull, reason: h.source);
+          expect(h.grader, isNotNull, reason: h.source);
+          expect(h.grader!.trim(), isNotEmpty, reason: h.source);
+          expect(h.sourceLine, contains(h.grader!), reason: h.source);
+        }
+      }
+    });
+
+    test('feeling hadith/dua responses outside Bukhari/Muslim are graded', () {
+      for (final Feeling f in MoodMap.feelings) {
+        for (final FeelingResponse r in f.responses) {
+          if ((r.kind == 'Hadith' || r.kind == 'Dua') &&
+              hadithSourceNeedsGrade(r.source)) {
+            expect(r.grade, isNotNull, reason: r.source);
+            expect(r.grader, isNotNull, reason: r.source);
+          }
+        }
+      }
+    });
+
+    test('HadithGrade needs both a grade and a grader', () {
+      expect(HadithGrade.fromJson(<String, dynamic>{'grade': 'hasan'}), isNull);
+      expect(
+        HadithGrade.fromJson(<String, dynamic>{
+          'grade': 'hasan',
+          'grader': 'at-Tirmidhi',
+        })!.label,
+        'Hasan — at-Tirmidhi',
+      );
     });
   });
 }

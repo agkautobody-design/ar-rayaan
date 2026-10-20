@@ -128,7 +128,8 @@ class HadithScreen extends ConsumerWidget {
                     ),
                     const SizedBox(height: 24),
                     Text(
-                      'SOURCE: FAWAZAHMED0 HADITH-API · ARABIC + ENGLISH',
+                      'SOURCE: FAWAZAHMED0 HADITH-API · ARABIC + ENGLISH\n'
+                      'GRADES: AS STATED BY THE NAMED GRADER ON EACH HADITH',
                       style: AppText.eyebrow.copyWith(
                         fontSize: 8,
                         color: AppColors.gold.withValues(alpha: 0.4),
@@ -187,6 +188,17 @@ class _HadithBlock extends StatelessWidget {
               ),
             ],
           ),
+          if (hadith.sourceLine != null) ...[
+            const SizedBox(height: 8),
+            Text(
+              hadith.sourceLine!.toUpperCase(),
+              key: ValueKey<String>('hadith-grade-${hadith.number}'),
+              style: AppText.eyebrow.copyWith(
+                fontSize: 9,
+                color: AppColors.gold.withValues(alpha: 0.75),
+              ),
+            ),
+          ],
           const SizedBox(height: 12),
           Text(
             hadith.arabic,

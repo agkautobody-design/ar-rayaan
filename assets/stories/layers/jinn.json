@@ -1,0 +1,164 @@
+{
+ "schema": 1,
+ "subject": "jinn",
+ "title": "The jinn",
+ "kind": "unseen",
+ "checked": "2026-10-20",
+ "reviewStatus": "Not yet scholar-reviewed",
+ "quran": [
+  {
+   "surah": 55,
+   "from": 14,
+   "to": 15,
+   "note": "Mankind from clay; the jinn from a smokeless flame of fire."
+  },
+  {
+   "surah": 18,
+   "from": 50,
+   "to": 50,
+   "note": "Iblis “was of the jinn”."
+  },
+  {
+   "surah": 7,
+   "from": 27,
+   "to": 27,
+   "note": "Satan and his tribe see us from where we do not see them."
+  },
+  {
+   "surah": 46,
+   "from": 29,
+   "to": 31,
+   "note": "A group of jinn listen to the Qur’an and return to their people as warners."
+  },
+  {
+   "surah": 72,
+   "from": 1,
+   "to": 6,
+   "note": "The jinn’s own words about what they heard."
+  },
+  {
+   "surah": 34,
+   "from": 14,
+   "to": 14,
+   "note": "When Sulayman died, the jinn learned they did not know the unseen."
+  }
+ ],
+ "hadith": [
+  {
+   "book": "muslim",
+   "number": "2996",
+   "narrator": "Aisha",
+   "grade": "Sahih",
+   "grader": "Muslim, in his Sahih",
+   "summary": "The Prophet ﷺ said, in Aisha’s report, that the angels were created from light, the jinn from a flame of fire, and Adam from what has been described to you in the Qur’an.",
+   "verified": "2026-10-20",
+   "note": "The sunnah.com English renders the jinn’s material as “the spark of fire”; the Arabic phrase is the one used in Qur’an 55:15."
+  },
+  {
+   "book": "muslim",
+   "number": "2814",
+   "narrator": "Abdullah ibn Mas’ud",
+   "grade": "Sahih",
+   "grader": "Muslim, in his Sahih",
+   "summary": "The Prophet ﷺ said every person has a companion from the jinn assigned to them. Asked whether this applied to him too, he said yes, but Allah helped him against it so that it submitted and commands him only to good.",
+   "verified": "2026-10-20",
+   "note": "The sunnah.com English renders the end of the report loosely (“I am safe from his hand”); the Arabic wording is “so it submitted”."
+  },
+  {
+   "book": "bukhari",
+   "number": "4921",
+   "narrator": "Abdullah ibn Abbas",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "Ibn Abbas reported that the devils were barred from hearing news of heaven and sent flames, and went searching the earth. Some came upon the Prophet ﷺ reciting in the Fajr prayer, were moved by the Qur’an and returned to their people; Surat al-Jinn was then revealed about it.",
+   "verified": "2026-10-20"
+  },
+  {
+   "book": "muslim",
+   "number": "449",
+   "narrator": "Abdullah ibn Abbas",
+   "grade": "Sahih",
+   "grader": "Muslim, in his Sahih",
+   "summary": "The same report of Ibn Abbas in Sahih Muslim: the jinn overheard the Prophet ﷺ reciting in the dawn prayer on the way to Ukaz; he neither recited to them nor saw them.",
+   "verified": "2026-10-20"
+  },
+  {
+   "book": "muslim",
+   "number": "450",
+   "narrator": "Abdullah ibn Mas’ud",
+   "grade": "Sahih",
+   "grader": "Muslim, in his Sahih",
+   "summary": "Ibn Mas’ud reported a night when the Prophet ﷺ was missing; he later explained that a summoner from the jinn had come and he had gone to recite the Qur’an to them. They asked for provision and he told them bones over which Allah’s name had been mentioned and animal dung would be their food, so he forbade using them to clean oneself. Ibn Mas’ud was not present that night.",
+   "verified": "2026-10-20"
+  },
+  {
+   "book": "bukhari",
+   "number": "3860",
+   "narrator": "Abu Huraira",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "Abu Huraira carried water for the Prophet ﷺ, who asked him for stones and not for bones or dung, saying these are the food of the jinn. He said a delegation of jinn from Nasibin had come to him and asked for provision, and he prayed for them.",
+   "verified": "2026-10-20"
+  }
+ ],
+ "scholarly": [
+  {
+   "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+   "author": "Ibn Kathir",
+   "locator": "on 18:50",
+   "summary": "Says Iblis was of the jinn and not an angel, quoting al-Hasan al-Basri that he was never an angel even for a moment, and says his original nature betrayed him. It supports “created from fire” with Qur’an 38:76 and a hadith of Aisha, and notes the angels were created from light."
+  },
+  {
+   "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+   "author": "Ibn Kathir",
+   "locator": "on 6:130",
+   "summary": "Concludes that messengers are only from mankind, attributing this to Mujahid, Ibn Jurayj and others of the Salaf and later scholars, and says no one has claimed that there were prophets from among the jinn. The jinn follow mankind in this and have warners, as in 46:29-32."
+  },
+  {
+   "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+   "author": "Ibn Kathir",
+   "locator": "on 46:29-32",
+   "summary": "Records that after the first listening the jinn came to the Prophet ﷺ in groups, one party after another, as successive delegations."
+  },
+  {
+   "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+   "author": "Ibn Kathir",
+   "locator": "on 34:14",
+   "summary": "Says that when Sulayman fell it became clear that the jinn do not know the unseen, as people had imagined."
+  }
+ ],
+ "differences": [
+  {
+   "question": "Did the Prophet ﷺ meet the jinn knowingly?",
+   "views": [
+    {
+     "who": "The report of Ibn Abbas (Sahih Muslim 449; the same event in Sahih al-Bukhari 4921)",
+     "work": "Sahih Muslim; Sahih al-Bukhari",
+     "view": "He did not recite to the jinn and did not see them. They overheard the Fajr prayer on the way to Ukaz."
+    },
+    {
+     "who": "The report of Ibn Mas’ud (Sahih Muslim 450)",
+     "work": "Sahih Muslim",
+     "view": "He went out at night in answer to a summoner from the jinn and recited the Qur’an to them. Ibn Mas’ud himself was not there."
+    }
+   ],
+   "note": "Both are in Muslim. Ibn Kathir (abridged), on 46:29-32, records both reports and says the jinn afterwards came to him in successive delegations. The abridged text does not say more than this about how the reports fit together."
+  },
+  {
+   "question": "Was Iblis an angel before his disobedience?",
+   "views": [
+    {
+     "who": "Al-Hasan al-Basri",
+     "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com), on 18:50",
+     "view": "Iblis was not one of the angels, not even for a moment; he was the origin of the jinn as Adam is of mankind."
+    },
+    {
+     "who": "Ibn Abbas, reported through Muhammad ibn Ishaq",
+     "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com), on 2:34",
+     "view": "He was from a kind called the jinn, but before his sin he was among the angels and was called Azazil."
+    }
+   ],
+   "note": "Qur’an 18:50 says he “was of the jinn”. Ibn Kathir’s own conclusion in the abridged text is that Iblis was not an angel."
+  }
+ ]
+}

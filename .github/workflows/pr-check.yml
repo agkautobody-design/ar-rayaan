@@ -28,6 +28,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Kutub al-Sittah citation gate (tool/hadith_check.py): every enforced
+      # "<book> <number>" reference must have an ok verdict in
+      # tool/hadith_verdicts/*.json. Needs only python3, so it runs first.
+      - name: Hadith citation check
+        id: hadith
+        run: |
+          set -o pipefail
+          python3 tool/hadith_check.py check 2>&1 | tee hadith.log
+        continue-on-error: true
+
       - uses: subosito/flutter-action@v2
         with:
           channel: stable
@@ -100,6 +110,7 @@ jobs:
             echo ""
             echo "| Step | Result |"
             echo "| --- | --- |"
+            echo "| hadith citations | ${{ steps.hadith.outcome }} |"
             echo "| pub get | ${{ steps.pub.outcome }} |"
             echo "| analyze | ${{ steps.analyze.outcome }} |"
             echo "| test | ${{ steps.test.outcome }} |"
@@ -118,6 +129,13 @@ jobs:
               echo "</details>"
               echo ""
             fi
+            echo "<details><summary>hadith citation check</summary>"
+            echo ""
+            echo '```'
+            head -n 80 hadith.log 2>/dev/null
+            echo '```'
+            echo "</details>"
+            echo ""
             echo "<details><summary>pub get (tail)</summary>"
             echo ""
             echo '```'
@@ -153,5 +171,51 @@ jobs:
           gh pr comment "$PR" --body-file report.md
 
       - name: Fail if any step failed
-        if: steps.pub.outcome != 'success' || steps.analyze.outcome != 'success' || steps.test.outcome != 'success' || steps.build.outcome != 'success'
+        if: steps.hadith.outcome != 'success' || steps.pub.outcome != 'success' || steps.analyze.outcome != 'success' || steps.test.outcome != 'success' || steps.build.outcome != 'success'
         run: exit 1
+
+  # Native compile check: builds the Android debug APK so a change that
+  # breaks the Android side (manifest, Gradle, a plugin) is caught in the PR
+  # and not at release time. The APK is attached to the run as an artifact
+  # (install it to test on a device). Debug-signed; this is not a release.
+  android-apk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: 3.47.7
+          cache: true
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build debug APK
+        id: apk
+        run: |
+          set -o pipefail
+          flutter build apk --debug 2>&1 | tee apk.log
+
+      - name: Upload debug APK
+        if: steps.apk.outcome == 'success'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ar-rayaan-debug-apk
+          path: build/app/outputs/flutter-apk/app-debug.apk
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Upload build log on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-build-log
+          path: apk.log

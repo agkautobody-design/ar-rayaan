@@ -1,7 +1,12 @@
-/// Recitation audio — domain models for the Al-Husary pack (mp3quran).
+/// Recitation audio — domain models for the reciter packs.
 ///
-/// Licensing: mp3quran.net library, free for app integration; founder
-/// courtesy-confirmation email drafted in the Wave 3 notes.
+/// Every reciter streams per-ayah files from everyayah.com (checked in a
+/// browser on 20 Oct 2026: these hosts answer cross-origin requests from
+/// the web app, see docs in the PR). Terms of use of everyayah.com are NOT
+/// stated on its site and have not been confirmed with the host: the
+/// courtesy request is a pending owner action. mp3quran.net is used only
+/// for whole-surah files of Al-Husary; no licence statement was found
+/// there either, so nothing here claims one.
 library;
 
 /// A location in the mushaf: surah (1-114) + ayah (1-based).
@@ -26,39 +31,116 @@ class AyahRef {
   String toString() => '$surah:$ayah';
 }
 
-/// The licensed reciter pack. ONE reciter at launch (parity rule);
-/// the picker is a stub until Phase 4.
+/// A recitation source: one reciter and style, streamed per ayah.
+///
+/// Source of truth for the folder names is everyayah.com/data/recitations.js
+/// (read 20 Oct 2026). Reciter names are shown on screen whenever audio
+/// plays. No female reciter is available from this host.
 class ReciterPack {
   const ReciterPack({
     required this.id,
     required this.displayName,
     required this.ayahBaseUrl,
-    required this.surahBaseUrl,
+    this.surahBaseUrl = '',
+    this.style = 'Murattal',
   });
 
-  /// Al-Husary murattal via mp3quran.
+  /// Al-Husary murattal (the default; the original single reciter).
   static const ReciterPack alHusary = ReciterPack(
     id: 'husary-mp3quran',
     displayName: 'Sheikh Mahmoud Khalil Al-Husary',
-    // Per-ayah files (muyawil server). Defensive fallback to surah files
-    // is handled by the repository when a per-ayah request 404s.
     // Per-ayah files: everyayah.com (mp3quran hosts whole surahs only;
     // its per-ayah paths 404).
     ayahBaseUrl: 'https://everyayah.com/data/Husary_128kbps',
     surahBaseUrl: 'https://server13.mp3quran.net/husr',
   );
 
+  static const ReciterPack husaryMuallim = ReciterPack(
+    id: 'husary-muallim',
+    displayName: 'Sheikh Mahmoud Khalil Al-Husary (Muallim, teaching)',
+    ayahBaseUrl: 'https://everyayah.com/data/Husary_Muallim_128kbps',
+    style: 'Muallim (slow, for learners)',
+  );
+
+  static const ReciterPack alafasy = ReciterPack(
+    id: 'alafasy',
+    displayName: 'Sheikh Mishary Rashid Alafasy',
+    ayahBaseUrl: 'https://everyayah.com/data/Alafasy_128kbps',
+  );
+
+  static const ReciterPack minshawy = ReciterPack(
+    id: 'minshawy-murattal',
+    displayName: 'Sheikh Muhammad Siddiq Al-Minshawi',
+    ayahBaseUrl: 'https://everyayah.com/data/Minshawy_Murattal_128kbps',
+  );
+
+  static const ReciterPack abdulBasit = ReciterPack(
+    id: 'abdul-basit-murattal',
+    displayName: 'Sheikh Abdul Basit Abdus-Samad',
+    ayahBaseUrl: 'https://everyayah.com/data/Abdul_Basit_Murattal_192kbps',
+  );
+
+  static const ReciterPack sudais = ReciterPack(
+    id: 'sudais',
+    displayName: 'Sheikh Abdur-Rahman As-Sudais',
+    ayahBaseUrl: 'https://everyayah.com/data/Abdurrahmaan_As-Sudais_192kbps',
+  );
+
+  static const ReciterPack shuraym = ReciterPack(
+    id: 'shuraym',
+    displayName: 'Sheikh Saud Ash-Shuraym',
+    ayahBaseUrl: 'https://everyayah.com/data/Saood_ash-Shuraym_128kbps',
+  );
+
+  static const ReciterPack hudhaify = ReciterPack(
+    id: 'hudhaify',
+    displayName: 'Sheikh Ali Al-Hudhaify',
+    ayahBaseUrl: 'https://everyayah.com/data/Hudhaify_128kbps',
+  );
+
+  static const ReciterPack muaiqly = ReciterPack(
+    id: 'muaiqly',
+    displayName: 'Sheikh Maher Al-Muaiqly',
+    ayahBaseUrl: 'https://everyayah.com/data/MaherAlMuaiqly128kbps',
+  );
+
+  /// Every selectable reciter, default first.
+  static const List<ReciterPack> all = <ReciterPack>[
+    alHusary,
+    husaryMuallim,
+    alafasy,
+    minshawy,
+    abdulBasit,
+    sudais,
+    shuraym,
+    hudhaify,
+    muaiqly,
+  ];
+
+  /// The pack saved under [id], or the default when unknown.
+  static ReciterPack byId(String? id) {
+    for (final ReciterPack p in all) {
+      if (p.id == id) return p;
+    }
+    return alHusary;
+  }
+
   final String id;
   final String displayName;
   final String ayahBaseUrl;
+
+  /// Whole-surah files, only where a host provides them ('' otherwise).
   final String surahBaseUrl;
+  final String style;
 
   /// Full URL for one ayah's audio file.
   String ayahUrl(AyahRef ref) => '$ayahBaseUrl/${ref.fileName}';
 
-  /// Full URL for a full-surah file (fallback + hifz whole-surah loop).
-  String surahUrl(int surah) =>
-      '$surahBaseUrl/${surah.toString().padLeft(3, '0')}.mp3';
+  /// Full URL for a full-surah file (hifz whole-surah loop). Empty when this
+  /// reciter has no whole-surah host.
+  String surahUrl(int surah) => surahBaseUrl.isEmpty
+      ? ''
+      : '$surahBaseUrl/${surah.toString().padLeft(3, '0')}.mp3';
 }
 
 /// One unit of sound in a playback plan: an ayah to fetch + how many

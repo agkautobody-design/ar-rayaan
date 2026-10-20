@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:adhan/adhan.dart' as adhan;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -31,11 +33,77 @@ const List<PrayerMethodOption> kPrayerMethods = <PrayerMethodOption>[
   PrayerMethodOption('singapore', 'Singapore', 'Fajr 20° · Isha 18°'),
   PrayerMethodOption('turkey', 'Diyanet (Turkey)', 'Fajr 18° · Isha 17°'),
   PrayerMethodOption('tehran', 'Institute of Geophysics, Tehran', 'Fajr 17.7° · Isha 14°'),
+  // The presets below are not in the `adhan` package; each is built from
+  // the angles the AlAdhan prayer-times API publishes for that authority
+  // (api.aladhan.com/v1/methods, read 20 Oct 2026).
+  PrayerMethodOption('jafari', 'Shia Ithna-Ashari (Leva Institute, Qum)', 'Fajr 16° · Maghrib 4° · Isha 14°'),
+  PrayerMethodOption('morocco', 'Morocco', 'Fajr 19° · Isha 17°'),
+  PrayerMethodOption('algeria', 'Algeria', 'Fajr 18° · Isha 17°'),
+  PrayerMethodOption('tunisia', 'Tunisia', 'Fajr 18° · Isha 18°'),
+  PrayerMethodOption('france_uoif', 'Union des organisations islamiques de France', 'Fajr 12° · Isha 12°'),
+  PrayerMethodOption('russia', 'Spiritual Administration of Muslims of Russia', 'Fajr 16° · Isha 15°'),
+  PrayerMethodOption('jakim', 'JAKIM (Malaysia)', 'Fajr 20° · Isha 18°'),
+  PrayerMethodOption('kemenag', 'Kemenag (Indonesia)', 'Fajr 20° · Isha 18°'),
 ];
+
+/// One way to treat twilight when the sun never sinks far enough below the
+/// horizon (summer at high latitudes). `auto` follows the `adhan` library's
+/// recommendation.
+class HighLatitudeOption {
+  const HighLatitudeOption(this.key, this.label, this.detail);
+
+  final String key;
+  final String label;
+  final String detail;
+}
+
+const List<HighLatitudeOption> kHighLatitudeRules = <HighLatitudeOption>[
+  HighLatitudeOption(
+    'auto',
+    'Automatic',
+    'Middle of the night up to 48°; seventh of the night beyond it '
+        '(the adhan library\u2019s recommendation)',
+  ),
+  HighLatitudeOption(
+    'middle_of_the_night',
+    'Middle of the night',
+    'Fajr is never earlier, and Isha never later, than the middle of the night',
+  ),
+  HighLatitudeOption(
+    'seventh_of_the_night',
+    'Seventh of the night',
+    'Fajr no earlier than the last seventh, Isha no later than the first '
+        'seventh of the night',
+  ),
+  HighLatitudeOption(
+    'twilight_angle',
+    'Twilight angle',
+    'Like seventh of the night, but the fraction is the method\u2019s angle '
+        'divided by 60',
+  ),
+];
+
+/// The times a minute offset can be applied to.
+const List<String> kOffsetPrayers = <String>[
+  'Fajr',
+  'Sunrise',
+  'Dhuhr',
+  'Asr',
+  'Maghrib',
+  'Isha',
+];
+
+/// Largest manual offset either way, in minutes.
+const int kMaxOffsetMinutes = 30;
 
 /// The user's prayer-time choices.
 class PrayerSettings {
-  const PrayerSettings({this.method = 'auto', this.hanafiAsr = false});
+  const PrayerSettings({
+    this.method = 'auto',
+    this.hanafiAsr = false,
+    this.highLatitude = 'auto',
+    this.offsets = const <String, int>{},
+  });
 
   /// A key from [kPrayerMethods].
   final String method;
@@ -44,10 +112,51 @@ class PrayerSettings {
   /// Shafi'i / Maliki / Hanbali time.
   final bool hanafiAsr;
 
-  PrayerSettings copyWith({String? method, bool? hanafiAsr}) => PrayerSettings(
-        method: method ?? this.method,
-        hanafiAsr: hanafiAsr ?? this.hanafiAsr,
-      );
+  /// A key from [kHighLatitudeRules].
+  final String highLatitude;
+
+  /// Manual minute offsets per time ([kOffsetPrayers]), each within
+  /// +/- [kMaxOffsetMinutes]. Missing means zero. A mosque timetable that
+  /// differs by a few minutes is the usual reason to set one.
+  final Map<String, int> offsets;
+
+  PrayerSettings copyWith({
+    String? method,
+    bool? hanafiAsr,
+    String? highLatitude,
+    Map<String, int>? offsets,
+  }) => PrayerSettings(
+    method: method ?? this.method,
+    hanafiAsr: hanafiAsr ?? this.hanafiAsr,
+    highLatitude: highLatitude ?? this.highLatitude,
+    offsets: offsets ?? this.offsets,
+  );
+
+  /// Offset in minutes for [prayer] (zero when unset).
+  int offsetFor(String prayer) => offsets[prayer] ?? 0;
+
+  /// True when any offset is non-zero.
+  bool get hasOffsets => offsets.values.any((int v) => v != 0);
+
+  /// [raw] offsets with unknown names dropped, zeros removed and every value
+  /// clamped to +/- [kMaxOffsetMinutes].
+  static Map<String, int> cleanOffsets(Map<String, int> raw) => <String, int>{
+    for (final MapEntry<String, int> e in raw.entries)
+      if (kOffsetPrayers.contains(e.key) && e.value != 0)
+        e.key: e.value.clamp(-kMaxOffsetMinutes, kMaxOffsetMinutes).toInt(),
+  };
+
+  /// The high-latitude rule that applies at [location].
+  adhan.HighLatitudeRule highLatitudeRuleFor(PrayerLocation location) =>
+      switch (highLatitude) {
+        'middle_of_the_night' => adhan.HighLatitudeRule.middle_of_the_night,
+        'seventh_of_the_night' => adhan.HighLatitudeRule.seventh_of_the_night,
+        'twilight_angle' => adhan.HighLatitudeRule.twilight_angle,
+        _ =>
+          location.latitude.abs() > 48
+              ? adhan.HighLatitudeRule.seventh_of_the_night
+              : adhan.HighLatitudeRule.middle_of_the_night,
+      };
 
   /// The concrete method for [location] (resolves `auto`).
   String resolvedMethod(PrayerLocation location) =>
@@ -75,7 +184,11 @@ class PrayerSettings {
     final String ramadan = ramadanIshaExtra(location, date)
         ? ' · Isha +30 min (Ramadan)'
         : '';
-    return '${method == 'auto' ? '$name (auto)' : name} · $asr$ramadan';
+    final String offs = hasOffsets ? ' · your minute offsets' : '';
+    final String lat = highLatitude == 'auto'
+        ? ''
+        : ' · ${kHighLatitudeRules.firstWhere((HighLatitudeOption r) => r.key == highLatitude, orElse: () => kHighLatitudeRules.first).label.toLowerCase()} rule';
+    return '${method == 'auto' ? '$name (auto)' : name} · $asr$ramadan$offs$lat';
   }
 
   /// adhan parameters for [location]. Pass the civil [date] so date-dependent
@@ -84,19 +197,43 @@ class PrayerSettings {
     PrayerLocation location, {
     DateTime? date,
   }) {
-    final adhan.CalculationParameters p =
-        _methodFor(resolvedMethod(location)).getParameters();
+    final adhan.CalculationParameters p = _baseParameters(
+      resolvedMethod(location),
+    );
     p.madhab = hanafiAsr ? adhan.Madhab.hanafi : adhan.Madhab.shafi;
-    if (ramadanIshaExtra(location, date)) {
-      p.adjustments.isha = 30;
-    }
-    // Far north or south, twilight can last all night in summer; split the
-    // night instead of returning no Fajr/Isha.
-    if (location.latitude.abs() >= 48) {
-      p.highLatitudeRule = adhan.HighLatitudeRule.middle_of_the_night;
-    }
+    p.adjustments.fajr = offsetFor('Fajr');
+    p.adjustments.sunrise = offsetFor('Sunrise');
+    p.adjustments.dhuhr = offsetFor('Dhuhr');
+    p.adjustments.asr = offsetFor('Asr');
+    p.adjustments.maghrib = offsetFor('Maghrib');
+    p.adjustments.isha =
+        offsetFor('Isha') + (ramadanIshaExtra(location, date) ? 30 : 0);
+    // Far north or south, twilight can last all night in summer; the rule
+    // decides how the night is split instead of returning no Fajr/Isha.
+    p.highLatitudeRule = highLatitudeRuleFor(location);
     return p;
   }
+
+  static adhan.CalculationParameters _baseParameters(String key) =>
+      switch (key) {
+        // Angle-only presets from the AlAdhan methods list.
+        'jafari' => adhan.CalculationParameters(
+          fajrAngle: 16,
+          maghribAngle: 4,
+          ishaAngle: 14,
+        ),
+        'morocco' => adhan.CalculationParameters(fajrAngle: 19, ishaAngle: 17),
+        'algeria' => adhan.CalculationParameters(fajrAngle: 18, ishaAngle: 17),
+        'tunisia' => adhan.CalculationParameters(fajrAngle: 18, ishaAngle: 18),
+        'france_uoif' => adhan.CalculationParameters(
+          fajrAngle: 12,
+          ishaAngle: 12,
+        ),
+        'russia' => adhan.CalculationParameters(fajrAngle: 16, ishaAngle: 15),
+        'jakim' => adhan.CalculationParameters(fajrAngle: 20, ishaAngle: 18),
+        'kemenag' => adhan.CalculationParameters(fajrAngle: 20, ishaAngle: 18),
+        _ => _methodFor(key).getParameters(),
+      };
 
   static adhan.CalculationMethod _methodFor(String key) => switch (key) {
         'north_america' => adhan.CalculationMethod.north_america,
@@ -144,6 +281,8 @@ String autoMethodFor(PrayerLocation l) {
 class PrayerSettingsController extends Notifier<PrayerSettings> {
   static const String _methodKey = 'ar.prayer.method';
   static const String _asrKey = 'ar.prayer.hanafiAsr';
+  static const String _highLatKey = 'ar.prayer.highLat';
+  static const String _offsetsKey = 'ar.prayer.offsets';
 
   @override
   PrayerSettings build() {
@@ -152,12 +291,31 @@ class PrayerSettingsController extends Notifier<PrayerSettings> {
       final String method = prefs.getString(_methodKey) ?? 'auto';
       final bool known =
           kPrayerMethods.any((PrayerMethodOption m) => m.key == method);
+      final String lat = prefs.getString(_highLatKey) ?? 'auto';
+      final bool latKnown =
+          kHighLatitudeRules.any((HighLatitudeOption r) => r.key == lat);
       return PrayerSettings(
         method: known ? method : 'auto',
         hanafiAsr: prefs.getBool(_asrKey) ?? false,
+        highLatitude: latKnown ? lat : 'auto',
+        offsets: _readOffsets(prefs.getString(_offsetsKey)),
       );
     } catch (_) {
       return const PrayerSettings();
+    }
+  }
+
+  static Map<String, int> _readOffsets(String? raw) {
+    if (raw == null) return const <String, int>{};
+    try {
+      final Object? j = jsonDecode(raw);
+      if (j is! Map<String, dynamic>) return const <String, int>{};
+      return PrayerSettings.cleanOffsets(<String, int>{
+        for (final MapEntry<String, dynamic> e in j.entries)
+          if (e.value is num) e.key: (e.value as num).toInt(),
+      });
+    } catch (_) {
+      return const <String, int>{};
     }
   }
 
@@ -172,6 +330,38 @@ class PrayerSettingsController extends Notifier<PrayerSettings> {
     state = state.copyWith(hanafiAsr: value);
     try {
       await ref.read(sharedPreferencesProvider).setBool(_asrKey, value);
+    } catch (_) {}
+  }
+
+  Future<void> setHighLatitude(String rule) async {
+    if (!kHighLatitudeRules.any((HighLatitudeOption r) => r.key == rule)) {
+      return;
+    }
+    state = state.copyWith(highLatitude: rule);
+    try {
+      await ref.read(sharedPreferencesProvider).setString(_highLatKey, rule);
+    } catch (_) {}
+  }
+
+  /// Sets one minute offset (clamped to +/- [kMaxOffsetMinutes]); zero
+  /// clears it.
+  Future<void> setOffset(String prayer, int minutes) async {
+    if (!kOffsetPrayers.contains(prayer)) return;
+    final Map<String, int> next = PrayerSettings.cleanOffsets(
+      <String, int>{...state.offsets, prayer: minutes},
+    );
+    state = state.copyWith(offsets: next);
+    try {
+      await ref
+          .read(sharedPreferencesProvider)
+          .setString(_offsetsKey, jsonEncode(next));
+    } catch (_) {}
+  }
+
+  Future<void> clearOffsets() async {
+    state = state.copyWith(offsets: const <String, int>{});
+    try {
+      await ref.read(sharedPreferencesProvider).remove(_offsetsKey);
     } catch (_) {}
   }
 }

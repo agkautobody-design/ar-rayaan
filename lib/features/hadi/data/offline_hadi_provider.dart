@@ -521,8 +521,9 @@ const List<_Entry> _knowledge = <_Entry>[
     'three times, then "As\'alullah al-\'Azim Rabbal-\'arshil-'
     'azim an yashfiyak" - I ask Allah the Magnificent, Lord of the '
     'Magnificent Throne, to cure you - seven times. (Sahih al-Bukhari '
-    '5675). And visiting the sick is an expiation: its fruits ripen '
-    'in Paradise. (Bukhari 5402)',
+    '5675). And the one who visits a sick person is, in the Prophet\'s '
+    'words, in the harvest of Paradise until he returns (Sahih Muslim, '
+    'Book of Righteousness and Good Manners).',
   ),
 
   // ── Character and heart ─────────────────────────────────────────────
@@ -575,7 +576,8 @@ const List<_Entry> _knowledge = <_Entry>[
     'smile in your brother\'s face is charity; removing harm from '
     'the path is charity." (Jami\' at-Tirmidhi 1956). The zakat '
     'calculator in this app handles the obligatory share; beyond it, '
-    'even half a date shields against the Fire. (Bukhari 5049)',
+    '"protect yourselves from the Fire even with half a date" '
+    '(Sahih al-Bukhari 1417).',
   ),
   _Entry(
     <String>['tawbah', 'repent', 'repentance', 'forgiveness', 'forgive me', 'sinned'],
@@ -593,7 +595,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'can find a way: "And to Allah is a duty upon mankind - the '
     'pilgrimage of the House - for whoever can make the way" (Al-'
     'Imran 97). "An accepted Hajj has no reward but Paradise." '
-    '(Sahih al-Bukhari 1521). Its rites gather at the Ka\'bah, '
+    '(Sahih al-Bukhari 1773). Its rites gather at the Ka\'bah, '
     'Arafat, Muzdalifah, and Mina across Dhul-Hijjah.',
   ),
   _Entry(
@@ -618,18 +620,20 @@ const List<_Entry> _knowledge = <_Entry>[
     'For any matter - marriage, a job, a move - pray two units of '
     'non-obligatory prayer, then the du\'a of istikhara taught by '
     'the Prophet himself: "Allahumma inni astakhiruka bi-\'ilmik..." '
-    '- O Allah, I seek Your choice by Your knowledge... Then choose '
-    'what feels settled in your heart, for the Prophet said: "If '
-    'one of you intends a matter, let him pray two rak\'ah." '
-    '(Sahih al-Bukhari 1162)',
+    '- O Allah, I seek Your choice by Your knowledge... Then go ahead '
+    'with what you decide and rely on Allah. The Prophet ﷺ taught the '
+    'istikhara to his companions as he taught them a surah of the '
+    'Qur\'an, saying: "If one of you is concerned about a matter, let '
+    'him pray two rak\'ahs other than the obligatory prayer." '
+    '(Sahih al-Bukhari 1166)',
   ),
   _Entry(
     <String>['laylatul qadr', 'night of decree', 'qadr', 'best night', 'odd nights'],
     'Laylatul Qadr, in the last ten nights of Ramadan - in the odd '
     'nights, the 21st, 23rd, 25th, 27th, 29th: "Better than a '
-    'thousand months" (Al-Qadr 3). Seek it in the odd nights: stand, '
-    'recite, ask - "There is no night in which the servants descend '
-    'more numerous..." (Bukhari 2017). What would you do with 83 '
+    'thousand months" (Al-Qadr 3). The Prophet ﷺ said: "Search for '
+    'it in the odd nights of the last ten nights of Ramadan" (Sahih '
+    'al-Bukhari 2017). So stand, recite, ask. What would you do with 83 '
     'years of worship in one night?',
   ),
   _Entry(
@@ -790,8 +794,10 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['eid', 'eid dua', 'eid mubarak', 'eid salah'],
     'The Prophet said: "Every nation has its festival, and this is '
-    'ours" - take a different route going and returning, praise '
-    'Allah on the way, and embrace. (Sahih al-Bukhari 952). The '
+    'ours" (Sahih al-Bukhari 952). He used to return from the Eid '
+    'prayer by a different road from the one he went by (Sahih '
+    'al-Bukhari 986). Allah says to complete the fast and glorify Him '
+    'for His guidance (Qur\'an 2:185). The '
     'takbeer: "Allahu Akbar, Allahu Akbar, la ilaha illallah, '
     'wallahu Akbar, Allahu Akbar wa lillahil hamd" - aloud on the '
     'roads, softly in the heart.',
@@ -916,7 +922,7 @@ const List<_Entry> _knowledge = <_Entry>[
     '(An-Nahl 69), and the Prophet said healing is in three: the '
     'cut of the cupper, a drink of honey, and cauterization with '
     'fire - but he forbade his ummah cauterization. (Sahih '
-    'al-Bukhari 5356). And black seed: "the healing for every '
+    'al-Bukhari, Book of Medicine). And black seed: "the healing for every '
     'disease except death" (Bukhari 5688). Medicine of the body '
     'and the ruqyah of the heart travel together.',
   ),
@@ -1292,8 +1298,9 @@ const List<_Entry> _knowledge = <_Entry>[
     'The menstruating woman does not pray and does not fast - the '
     'Prophet told Fatimah bint Abi Hubaysh: leave prayer during '
     'the days, then wash and pray. (Sahih al-Bukhari 306) She '
-    'makes up the fasts, not the prayers: "Your duty is the '
-    'fasting, not the prayer." (Bukhari 321) Worship does not '
+    'makes up the fasts, not the prayers: the Prophet ﷺ did not order '
+    'women to make up the prayers they missed in their periods (Sahih '
+    'al-Bukhari 321). Worship does not '
     'stop - dhikr, du\'a, Qur\'an listening and good deeds all '
     'remain open.',
   ),
@@ -1433,11 +1440,12 @@ const List<_Entry> _knowledge = <_Entry>[
     <String>['fidya', 'cannot fast', 'unable to fast', 'old age fasting', 'pregnant fasting'],
     'For the one who cannot fast from old age or lasting '
     'illness: "a ransom - a feeding of a poor person for each '
-    'day" (Al-Baqarah 184). The pregnant and nursing woman who '
-    'fears for herself or her child may break the fast and feed '
-    'the poor for each day - or fast them, in the choice of '
-    'the narration of Ibn Abbas. (Bukhari 1944, Abu Dawood '
-    '2318) Fiqh is mercy before it is arithmetic.',
+    'day" (Al-Baqarah 184); Ibn Abbas said this verse was not '
+    'abrogated for the old man and old woman who cannot fast (Sahih '
+    'al-Bukhari 4505). The pregnant or nursing woman who fears for '
+    'herself or her child: scholars differ on whether she makes the '
+    'fast up, feeds a poor person, or both - ask a scholar. '
+    'Fiqh is mercy before it is arithmetic.',
   ),
   _Entry(
     <String>['wasiyyah', 'write a will', 'write my will', 'my will', 'estate', 'one third will'],
@@ -1888,10 +1896,11 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['breastfeeding', 'nursing', 'infant feeding'],
     'Allah says: "Mothers may breastfeed their children two complete years '
-    'for whoever wishes to complete the nursing period." (Qur\'an 2:233). The '
-    'Prophet ﷺ said: "There is no milk that a child drinks except that it '
-    'is assigned to him with a specific portion of his character." (Sahih '
-    'al-Bukhari 5192, Sahih Muslim 1453).',
+    'for whoever wishes to complete the nursing period." (Qur\'an 2:233). '
+    'Nursing also creates family ties: among those a person may not marry '
+    'Allah lists "your [milk] mothers who nursed you, your sisters through '
+    'nursing" (Qur\'an 4:23). For the details of foster-nursing rulings, '
+    'ask a scholar.',
   ),
   _Entry(
     <String>['circumcision', 'khitan', 'sunan al-fitrah'],
@@ -1985,7 +1994,7 @@ const List<_Entry> _knowledge = <_Entry>[
     <String>['visiting graves', 'graveyard', 'cemetery'],
     'The Prophet ﷺ said: "I used to forbid you from visiting graves, but '
     'now visit them, for they remind you of the Hereafter." (Sahih '
-    'al-Bukhari 1330, Sahih Muslim 977). When visiting, greet the deceased '
+    'Muslim 977). When visiting, greet the deceased '
     'with peace, make dua for them, and reflect on death.',
   ),
   _Entry(
@@ -2348,8 +2357,8 @@ const List<_Entry> _knowledge = <_Entry>[
     'Tawaf is circling the Kaaba seven times, starting from the Black '
     'Stone, with the Kaaba on the left. The Prophet ﷺ said: "The Black '
     'Stone descended from Paradise whiter than milk, but the sins of the '
-    'sons of Adam turned it black." (Sahih al-Bukhari 1603, Sahih Muslim '
-    '1275).',
+    'sons of Adam turned it black." (reported in Jami\' at-Tirmidhi, Book '
+    'of Hajj; number and grade not yet verified in this app).',
   ),
   _Entry(
     <String>['saee', 'safa marwa', 'running'],
@@ -2363,9 +2372,9 @@ const List<_Entry> _knowledge = <_Entry>[
   // ========== PROTECTION & SPIRITUAL WARFARE ==========
   _Entry(
     <String>['ruqyah', 'healing verses', 'spiritual healing'],
-    'The Prophet ﷺ performed ruqyah by reciting: "Al-Fatiha, the last two '
-    'verses of Surah al-Baqarah, Ayat al-Kursi, and the Mu\'awwidhatayn '
-    '(Falaq and Nas)." (Sahih al-Bukhari 5017, Sahih Muslim 2191). Ruqyah is '
+    'Each night before sleeping the Prophet ﷺ recited Al-Ikhlas, Al-Falaq and '
+    'An-Nas into his cupped hands, blew into them and wiped over his body '
+    '(Sahih al-Bukhari 5017). Ruqyah is '
     'permissible if: (1) using Allah\'s words or His names, (2) in Arabic or '
     'a language understood, (3) believing the cure is from Allah alone.',
   ),
@@ -2420,10 +2429,11 @@ const List<_Entry> _knowledge = <_Entry>[
     <String>['menstruation', 'period', 'menses', 'hayd'],
     'Allah says: "They ask you about menstruation. Say: It is harm, so '
     'keep away from wives during menstruation." (Qur\'an 2:222). A '
-    'menstruating woman does not pray, fast, touch the Qur\'an, or enter '
-    'the masjid. She makes up missed fasts but not prayers. The Prophet ﷺ '
-    'said: "This is something Allah has decreed for the daughters of Adam." '
-    '(Sahih al-Bukhari 294, Sahih Muslim 333).',
+    'menstruating woman does not pray or fast (Sahih al-Bukhari 304); '
+    'scholars differ on touching the Qur\'an and entering the masjid - '
+    'ask a scholar. She makes up missed fasts but not prayers. The Prophet ﷺ '
+    'said to Aisha when her period came: "This is something Allah has '
+    'decreed for the daughters of Adam." (Sahih al-Bukhari 294).',
   ),
   _Entry(
     <String>['postpartum', 'nifas', 'bleeding after birth'],
@@ -2436,9 +2446,10 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['istihadha', 'irregular bleeding', 'spotting'],
     'Istihadha is bleeding outside the normal menstrual cycle. The woman '
-    'performs wudu for each prayer time and prays. The Prophet ﷺ told Umm '
-    'Habiba: "This is a vein, not menstruation. Perform wudu and pray." '
-    '(Sahih al-Bukhari 228, Sahih Muslim 333).',
+    'performs wudu for each prayer time and prays. The Prophet ﷺ told '
+    'Fatimah bint Abi Hubaysh that her bleeding was from a vein and not '
+    'menstruation: pause the prayer for the days of her real period, then '
+    'wash off the blood and pray. (Sahih al-Bukhari 228).',
   ),
 
   // ========== SOCIAL & COMMUNITY ==========
@@ -2475,9 +2486,10 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['cheating', 'dishonesty', 'fraud', 'deception'],
     'The Prophet ﷺ said: "Whoever cheats us is not one of us." (Sahih '
-    'Muslim 101). Cheating in business, exams, or relationships is a major '
-    'sin. The Prophet cursed the one who gives a false measure. (Sahih '
-    'al-Bukhari 2115, Sahih Muslim 101).',
+    'Muslim 101). Cheating in business, exams, or relationships is '
+    'forbidden. Allah says: "Woe to those who give less [than due], Who, '
+    'when they take a measure from people, take in full, But if they give '
+    'by measure or by weight to them, they cause loss." (Qur\'an 83:1-3).',
   ),
   _Entry(
     <String>['forgiveness', 'forgive others', 'let go'],

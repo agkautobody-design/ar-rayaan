@@ -5,7 +5,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import 'core/env_config.dart';
+import '../features/elder/application/elder_mode.dart';
 import 'core/i18n/app_locale.dart';
+import 'core/providers.dart';
 import 'core/sound/sound_services.dart';
 import 'l10n/generated/app_localizations.dart';
 import 'router.dart';
@@ -26,10 +28,23 @@ class ArRayaanApp extends ConsumerStatefulWidget {
 class _ArRayaanAppState extends ConsumerState<ArRayaanApp> {
   // The router lives in State so it is built once, not with every widget
   // rebuild (a locale change rebuilds MaterialApp but must keep navigation).
-  late final GoRouter _router = buildRouter(
-    initialLocation:
-        widget.showOnboarding ? AppRoutes.onboarding : AppRoutes.splash,
-  );
+  late final GoRouter _router = buildRouter(initialLocation: _startRoute());
+
+  /// Where a cold start lands: onboarding on first run; the Elder home when
+  /// Elder Mode is on (the flag is written by the Elder tile and read here,
+  /// so "the app opens here every time" is true); otherwise Home.
+  String _startRoute() {
+    if (widget.showOnboarding) return AppRoutes.onboarding;
+    try {
+      return ElderMode.launchLocation(
+        ref.read(sharedPreferencesProvider),
+        fallback: AppRoutes.splash,
+      );
+    } catch (_) {
+      // Preferences unavailable (tests without a store): normal start.
+    }
+    return AppRoutes.splash;
+  }
 
   @override
   void dispose() {

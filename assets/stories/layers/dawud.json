@@ -1,0 +1,123 @@
+{
+ "schema": 1,
+ "subject": "dawud",
+ "title": "Dawud (David)",
+ "kind": "prophet",
+ "checked": "2026-10-20",
+ "reviewStatus": "Not yet scholar-reviewed",
+ "quran": [
+  {
+   "surah": 2,
+   "from": 251,
+   "to": 251,
+   "note": "Dawud kills Jalut (Goliath); Allah gives him kingship and prophethood."
+  },
+  {
+   "surah": 38,
+   "from": 17,
+   "to": 20,
+   "note": "The servant who turned back to Allah; the mountains and birds praise with him."
+  },
+  {
+   "surah": 38,
+   "from": 21,
+   "to": 25,
+   "note": "The two adversaries; Dawud realises he has been tried and turns back."
+  },
+  {
+   "surah": 34,
+   "from": 10,
+   "to": 11,
+   "note": "Iron made pliable; the making of mail."
+  },
+  {
+   "surah": 17,
+   "from": 55,
+   "to": 55,
+   "note": "The Zabur given to Dawud."
+  }
+ ],
+ "hadith": [
+  {
+   "book": "bukhari",
+   "number": "3417",
+   "narrator": "Abu Huraira",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "The Prophet ﷺ said reciting the Zabur was made easy for Dawud: he would have his mounts saddled and finish reciting before they were ready, and he ate only from what his own hands earned.",
+   "verified": "2026-10-20"
+  },
+  {
+   "book": "bukhari",
+   "number": "2073",
+   "narrator": "Abu Huraira",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "The Prophet ﷺ said Dawud ate only from the earnings of his own manual work.",
+   "verified": "2026-10-20"
+  },
+  {
+   "book": "bukhari",
+   "number": "1131",
+   "narrator": "Abdullah ibn Amr ibn al-As",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "The Prophet ﷺ told Abdullah ibn Amr that the prayer most beloved to Allah is Dawud’s: he slept half the night, stood a third, slept a sixth, and fasted every other day.",
+   "verified": "2026-10-20"
+  },
+  {
+   "book": "bukhari",
+   "number": "3418",
+   "narrator": "Abdullah ibn Amr",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "Advising a man who had vowed to fast every day, the Prophet ﷺ pointed him to fasting on alternate days and called it the fast of Dawud.",
+   "verified": "2026-10-20"
+  },
+  {
+   "book": "bukhari",
+   "number": "5048",
+   "narrator": "Abu Musa al-Ash’ari",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "The Prophet ﷺ told Abu Musa al-Ash’ari that he had been given a beautiful voice in recitation like the voices of the family of Dawud.",
+   "verified": "2026-10-20"
+  },
+  {
+   "book": "bukhari",
+   "number": "3427",
+   "narrator": "Abu Huraira",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "The Prophet ﷺ told of two women and a wolf that took one woman’s child. Dawud ruled for the elder; his son Sulayman asked for a knife to divide the living child, and the younger woman’s cry showed who the mother was.",
+   "verified": "2026-10-20"
+  }
+ ],
+ "scholarly": [
+  {
+   "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+   "author": "Ibn Kathir",
+   "locator": "on 38:17-20",
+   "summary": "Explains “possessor of strength” as strength in knowledge and action, and records Mujahid’s gloss of “wisdom” as understanding and intelligence, Qatadah’s as the Book of Allah and acting on it, and al-Suddi’s as prophethood. For “discernment in speech” it gives Shurayh, al-Sha’bi and Qatadah (testimony and oaths) and Mujahid and al-Suddi (right judgment and grasp of the case)."
+  },
+  {
+   "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+   "author": "Ibn Kathir",
+   "locator": "on 34:10-11",
+   "summary": "Says the iron was made soft for him without fire or hammering, so that he could twist it like thread, and records Mujahid’s saying that the rivets should be neither too loose nor too tight and Qatadah’s that he was the first to make chain mail, where people had worn plate armour before."
+  },
+  {
+   "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+   "author": "Ibn Kathir",
+   "locator": "on 21:78-79",
+   "summary": "Relates, from Ibn Mas’ud, that the field was a vineyard and gives Dawud’s ruling and Sulayman’s alternative. It notes that Allah praised Sulayman without condemning Dawud, and quotes al-Hasan al-Basri’s three duties of a judge: not to sell judgment cheaply, not to follow whims, not to fear people."
+  },
+  {
+   "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+   "author": "Ibn Kathir",
+   "locator": "on 4:163",
+   "summary": "Says the Zabur is the name of the book revealed to Dawud."
+  }
+ ],
+ "differences": []
+}

@@ -9,6 +9,7 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../../habits/application/habits_providers.dart';
 import '../application/sfx_provider.dart';
 import '../domain/dhikr_session.dart';
 import '../domain/sfx.dart';
@@ -48,6 +49,7 @@ class _DhikrSessionScreenState
           Sfx.dhikrMilestone, ref.read(soundSettingsProvider).tier);
     }
     if (next.phase == DhikrPhase.complete) {
+      await ref.read(dhikrLedgerProvider.notifier).record(next.set.target);
       await SfxPlayer.play(
           Sfx.dayComplete, ref.read(soundSettingsProvider).tier);
     }

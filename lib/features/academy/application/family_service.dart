@@ -8,9 +8,21 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'cloud_handles.dart';
 
-/// The family wing: children under a parent's account, progress per child,
-/// shared with the parent dashboard. Cloud (Firestore) when Firebase's
-/// switches are on; on-device otherwise so the wing is never dead.
+/// The family wing: children under a parent's care, progress per child, shown
+/// on the parent dashboard.
+///
+/// CHILD PRIVACY (wave 2):
+///  * Everything lives on this device. Cloud sync is OFF unless a parent has
+///    recorded cloud consent ([cloudConsented], never offered in the UI yet:
+///    anonymous accounts are lost with app data, so syncing would only
+///    create orphaned records).
+///  * Even with consent, a child's NAME never leaves the device: the cloud
+///    document holds only the pseudonymous child id and progress
+///    ([cloudChildDoc]).
+///  * A parent can delete one child ([deleteChild]) or all of them
+///    ([deleteAllChildren]); progress, the active-child pointer and any
+///    cloud copy go with them.
+///  * Adding a child records a dated parent consent ([recordConsent]).
 class FamilyService {
   /// With no arguments the service picks up Firebase if `main.dart`
   /// initialised it (see [CloudHandles.current]) and stays on-device
@@ -25,6 +37,53 @@ class FamilyService {
   static const _childrenPref = 'ar.family.children';
   static const _progressPref = 'ar.family.progress';
   static const _activePref = 'ar.family.active';
+  static const _consentPref = 'ar.family.consent';
+  static const _cloudConsentPref = 'ar.family.cloud_consent';
+
+  /// Version of the children's privacy text the parent agreed to.
+  static const int consentVersion = 1;
+
+  /// What would be written to the cloud for a child: the pseudonymous id's
+  /// document body. Deliberately has NO name (see class doc).
+  static Map<String, dynamic> cloudChildDoc(Map<String, dynamic> child) =>
+      <String, dynamic>{'createdAt': child['createdAt']};
+
+  // ---- consent ----
+  Future<bool> hasConsent() async {
+    final prefs = await SharedPreferences.getInstance();
+    final raw = prefs.getString(_consentPref);
+    if (raw == null || raw.isEmpty) return false;
+    try {
+      final m = json.decode(raw) as Map<String, dynamic>;
+      return (m['version'] as num?)?.toInt() == consentVersion;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  /// Record that a parent or guardian agreed to the children's privacy text.
+  Future<void> recordConsent() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(
+      _consentPref,
+      json.encode(<String, dynamic>{
+        'version': consentVersion,
+        'at': DateTime.now().toIso8601String(),
+        'by': 'parent_or_guardian',
+      }),
+    );
+  }
+
+  /// Cloud sync is opt-in and not offered in the UI yet.
+  Future<bool> cloudConsented() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getBool(_cloudConsentPref) ?? false;
+  }
+
+  Future<void> setCloudConsent(bool value) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(_cloudConsentPref, value);
+  }
 
   Future<bool> cloudReady() async {
     try {
@@ -49,12 +108,72 @@ class FamilyService {
   Future<String> addChild(String name) async {
     final prefs = await SharedPreferences.getInstance();
     final list = await children();
-    final id = 'c${DateTime.now().millisecondsSinceEpoch}';
-    list.add({'id': id, 'name': name.trim(), 'createdAt': DateTime.now().toIso8601String()});
+    // Unique even when two children are added in the same millisecond.
+    final Set<Object?> taken = <Object?>{for (final c in list) c['id']};
+    String id = 'c${DateTime.now().millisecondsSinceEpoch}';
+    for (int n = 2; taken.contains(id); n++) {
+      id = 'c${DateTime.now().millisecondsSinceEpoch}_$n';
+    }
+    final String clean = name.trim();
+    list.add({
+      'id': id,
+      'name': clean.length > 30 ? clean.substring(0, 30) : clean,
+      'createdAt': DateTime.now().toIso8601String(),
+    });
     await prefs.setString(_childrenPref, json.encode(list));
     await setActiveChild(id);
     unawaited(_syncCloud());
     return id;
+  }
+
+  /// Delete one child: their record, progress and active-child pointer on
+  /// this device, and any cloud copy. Returns false when no such child.
+  Future<bool> deleteChild(String id) async {
+    final prefs = await SharedPreferences.getInstance();
+    final list = await children();
+    final before = list.length;
+    list.removeWhere((c) => c['id'] == id);
+    if (list.length == before) return false;
+    await prefs.setString(_childrenPref, json.encode(list));
+    await prefs.remove('$_progressPref.$id');
+    if (prefs.getString(_activePref) == id) {
+      if (list.isEmpty) {
+        await prefs.remove(_activePref);
+      } else {
+        await prefs.setString(_activePref, list.last['id'] as String);
+      }
+    }
+    unawaited(_deleteCloud(id));
+    return true;
+  }
+
+  /// Delete every child and all their progress, and withdraw consent.
+  Future<void> deleteAllChildren() async {
+    for (final c in await children()) {
+      await deleteChild(c['id'] as String);
+    }
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove(_childrenPref);
+    await prefs.remove(_activePref);
+    await prefs.remove(_consentPref);
+  }
+
+  Future<void> _deleteCloud(String childId) async {
+    try {
+      if (!await cloudConsented() || !await cloudReady()) return;
+      final uid = _auth!.currentUser!.uid;
+      final child =
+          _db!.collection('families').doc(uid).collection('children').doc(childId);
+      for (final sub in const ['exams', 'lessons', 'mastery']) {
+        final snap = await child.collection(sub).get();
+        for (final d in snap.docs) {
+          await d.reference.delete();
+        }
+      }
+      await child.delete();
+    } catch (_) {
+      // Best effort: the device copy is already gone.
+    }
   }
 
   Future<String?> activeChildId() async {
@@ -146,6 +265,8 @@ class FamilyService {
   }
 
   Future<void> _syncCloud() async {
+    // Off unless a parent opted in; never signs a child's family in silently.
+    if (!await cloudConsented()) return;
     if (!await cloudReady()) return;
     try {
       final uid = _auth!.currentUser!.uid;
@@ -153,10 +274,10 @@ class FamilyService {
       final fam = _db!.collection('families').doc(uid);
       await fam.set({'updatedAt': Timestamp.now()});
       for (final c in list) {
-        await fam.collection('children').doc(c['id'] as String).set({
-          'name': c['name'],
-          'createdAt': c['createdAt'],
-        });
+        await fam
+            .collection('children')
+            .doc(c['id'] as String)
+            .set(cloudChildDoc(c));
         final p = await progress(c['id'] as String);
         for (final e in (p['exams'] as Map).entries) {
           await fam.collection('children').doc(c['id'] as String)

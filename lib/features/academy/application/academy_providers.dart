@@ -10,7 +10,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../../app/core/providers.dart';
 import '../domain/academy_models.dart';
 import '../domain/course_manifest.dart';
+import '../domain/fsrs.dart';
 import '../domain/mushaf_layout.dart';
+import '../domain/path_ux.dart';
 import '../domain/spaced_repetition.dart';
 import '../data/mushaf_layout_pack.dart';
 
@@ -104,6 +106,7 @@ class AcademyProgressNotifier
       ...state,
       lessonId: current.copyWith(completed: true),
     };
+    ActivityLog.record(_prefs);
     await _save();
   }
 
@@ -177,20 +180,32 @@ class ReviewQueueNotifier extends StateNotifier<Map<String, ReviewCard>> {
   }
 
   /// Today's queue, oldest first, capped so review never becomes a chore.
-  List<ReviewCard> get due => Sm2Engine.dueQueue(
+  List<ReviewCard> get due => Fsrs.dueQueue(
         state.values.toList(),
         DateTime.now(),
       ).take(dailyCap).toList();
 
   int get dueCount => due.length;
 
-  /// Grade a review. good/easy -> mastered at device level; again -> the
-  /// lesson comes back tomorrow. Never a fail state.
+  /// Grade a review (FSRS). good/easy -> mastered at device level; hard keeps it in review;
+  /// again -> the lesson comes back soon. Never a fail state. Every answer is
+  /// appended to the on-device review log.
   Future<void> grade(String lessonId, ReviewGrade grade) async {
     final card = state[lessonId];
     if (card == null) return;
-    _update(lessonId, Sm2Engine.schedule(card, grade, DateTime.now()));
-    if (grade != ReviewGrade.again) {
+    final DateTime now = DateTime.now();
+    final ReviewCard next = Fsrs.schedule(card, grade, now);
+    _update(lessonId, next);
+    appendReviewLog(
+      _ref.read(sharedPreferencesProvider),
+      ReviewLogEntry(
+        cardId: lessonId,
+        grade: grade,
+        at: now,
+        scheduledDays: next.intervalDays,
+      ),
+    );
+    if (grade == ReviewGrade.good || grade == ReviewGrade.easy) {
       final progress = _ref.read(academyProgressProvider.notifier);
       final current = progress.of(lessonId);
       if (current.completed) {
@@ -198,6 +213,18 @@ class ReviewQueueNotifier extends StateNotifier<Map<String, ReviewCard>> {
       }
     }
   }
+}
+
+/// Append one answered review to the persisted log (never throws: a full or
+/// blocked store must not stop a learner from reviewing).
+void appendReviewLog(SharedPreferences prefs, ReviewLogEntry entry) {
+  ActivityLog.record(prefs, entry.at);
+  try {
+    prefs.setString(
+      ReviewLog.prefKey,
+      ReviewLog.append(prefs.getString(ReviewLog.prefKey), entry),
+    );
+  } catch (_) {}
 }
 
 /// Learning track — one door per learner, same schools behind each.
@@ -247,7 +274,7 @@ final reviewQueueProvider =
 /// plus School of Letters lessons (ids `letters-NN`).
 final lessonReviewsDueProvider = Provider<List<ReviewCard>>((Ref ref) {
   final Map<String, ReviewCard> cards = ref.watch(reviewQueueProvider);
-  return Sm2Engine.dueQueue(
+  return Fsrs.dueQueue(
     cards.values
         .where((ReviewCard c) =>
             findLessonById(c.wordKey) != null ||

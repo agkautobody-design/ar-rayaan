@@ -1,0 +1,4 @@
+{
+  "_comment": "Path prefixes whose hadith citations CI enforces. w1a owns the first three. Owners of other paths add their prefix when their verdict file lands (w1b: rest.json). The lead removes this file (enforce everything) when all verdicts are merged.",
+  "enforced": ["assets/stories/", "assets/share/", "assets/family/"]
+}

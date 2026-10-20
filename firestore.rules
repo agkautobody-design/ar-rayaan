@@ -167,6 +167,30 @@ service cloud.firestore {
       allow delete: if false;
     }
 
+    // ── Hadi reports ───────────────────────────────────────────────────
+    // "Report this answer" on a Hadi reply. Create-only; nobody can read
+    // them from the app. No user id is stored: the document holds the
+    // reason, an excerpt of the answer, the passages it showed, and the
+    // question only when the person chose to include it.
+    match /hadi_reports/{id} {
+      allow read: if false;
+      allow create: if signedIn()
+        && request.resource.data.keys().hasOnly(
+             ['reason', 'answer', 'question', 'sources', 'live', 'createdAt'])
+        && request.resource.data.reason in
+             ['wrong_quote', 'wrong_ruling', 'unsafe', 'unhelpful', 'other']
+        && request.resource.data.answer is string
+        && request.resource.data.answer.size() <= 1200
+        && (!('question' in request.resource.data)
+            || (request.resource.data.question is string
+                && request.resource.data.question.size() <= 500))
+        && request.resource.data.sources is list
+        && request.resource.data.sources.size() <= 5
+        && request.resource.data.live is bool
+        && request.resource.data.createdAt == request.time;
+      allow update, delete: if false;
+    }
+
     // Everything else is closed.
     match /{document=**} {
       allow read, write: if false;

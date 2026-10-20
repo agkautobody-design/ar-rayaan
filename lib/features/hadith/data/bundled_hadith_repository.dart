@@ -23,6 +23,8 @@ class BundledHadithRepository implements HadithRepository {
           number: h['n'] as int,
           arabic: h['ar'] as String,
           english: h['en'] as String,
+          source: h['src'] as String?,
+          grade: HadithGrade.fromJson(h),
         ),
     ];
     _cache = hadiths;

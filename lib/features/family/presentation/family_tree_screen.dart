@@ -7,10 +7,15 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../../stories/data/stories_repository.dart';
+import '../../stories/domain/story.dart';
 import '../data/family_tree_provider.dart';
 
 class FamilyTreeScreen extends ConsumerStatefulWidget {
-  const FamilyTreeScreen({super.key});
+  const FamilyTreeScreen({super.key, this.initiallyExpanded = const <String>{}});
+
+  /// Extra branches to open on first build (used by tests and deep links).
+  final Set<String> initiallyExpanded;
 
   @override
   ConsumerState<FamilyTreeScreen> createState() => _FamilyTreeScreenState();
@@ -18,7 +23,7 @@ class FamilyTreeScreen extends ConsumerStatefulWidget {
 
 class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
   static const _rootId = 'adam';
-  final Set<String> _expanded = {
+  late final Set<String> _expanded = <String>{
     'adam',
     'sheeth',
     'nuh-line',
@@ -27,6 +32,7 @@ class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
     'arfakhshadh',
     'ibrahim-line',
     'ibrahim',
+    ...widget.initiallyExpanded,
   };
 
   @override
@@ -49,7 +55,11 @@ class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
           final Set<String> reachable = reachableFrom(data, _rootId);
           final List<FamilyNode> orphans = <FamilyNode>[
             for (final FamilyNode n in data.nodes)
-              if (!reachable.contains(n.id)) n,
+              if (!reachable.contains(n.id) && !n.isUnplaced) n,
+          ];
+          final List<FamilyNode> unplaced = <FamilyNode>[
+            for (final FamilyNode n in data.nodes)
+              if (n.isUnplaced) n,
           ];
           if (orphans.isNotEmpty) {
             rows.add(Padding(
@@ -57,6 +67,27 @@ class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
               child: Text('ALSO IN THIS TREE', style: AppText.eyebrow),
             ));
             for (final FamilyNode n in orphans) {
+              _buildNode(data, n.id, 0, rows);
+            }
+          }
+          if (unplaced.isNotEmpty) {
+            rows.add(Padding(
+              padding: const EdgeInsets.fromLTRB(4, 18, 4, 6),
+              child: Text(
+                'PROPHETS THE SOURCES DO NOT PLACE IN THIS LINE',
+                style: AppText.eyebrow,
+              ),
+            ));
+            if (data.unplacedNote != null) {
+              rows.add(Padding(
+                padding: const EdgeInsets.fromLTRB(4, 0, 4, 10),
+                child: Text(
+                  data.unplacedNote!,
+                  style: AppText.bodyMuted.copyWith(height: 1.5),
+                ),
+              ));
+            }
+            for (final FamilyNode n in unplaced) {
               _buildNode(data, n.id, 0, rows);
             }
           }
@@ -94,6 +125,22 @@ class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
                   ],
                 ),
               ),
+              if (data.lineageWarning != null) ...<Widget>[
+                const SizedBox(height: 10),
+                GlassCard(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text('WHERE THE LINEAGE IS UNCERTAIN', style: AppText.eyebrow),
+                      const SizedBox(height: 4),
+                      Text(
+                        data.lineageWarning!,
+                        style: AppText.bodyMuted.copyWith(height: 1.55),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
               const SizedBox(height: 14),
               ...rows,
               const SizedBox(height: 14),
@@ -131,7 +178,9 @@ class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
 
     rows.add(
       Padding(
-        padding: EdgeInsets.only(left: depth * 16.0),
+        // Indent stops growing at depth 6 so deep branches (Maryam sits
+        // fourteen levels down) never run out of width on a phone.
+        padding: EdgeInsets.only(left: (depth > 6 ? 6 : depth) * 16.0),
         child: Container(
           margin: const EdgeInsets.only(bottom: 6),
           decoration: BoxDecoration(
@@ -160,19 +209,20 @@ class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
                       onTap: () => setState(() {
                         isOpen ? _expanded.remove(id) : _expanded.add(id);
                       }),
-                      child: Padding(
-                        padding: const EdgeInsets.all(6),
+                      child: SizedBox(
+                        width: 48,
+                        height: 48,
                         child: Icon(
                           isOpen
                               ? Icons.keyboard_arrow_down
                               : Icons.keyboard_arrow_right,
-                          size: 18,
+                          size: 20,
                           color: AppColors.gold,
                         ),
                       ),
                     )
                   else
-                    const SizedBox(width: 30),
+                    const SizedBox(width: 48),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -209,31 +259,27 @@ class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
                               (hasKids
                                   ? ' \u00b7 ${node.children.where((c) => data.byId.containsKey(c)).length} children'
                                   : ''),
-                          style: AppText.bodyMuted.copyWith(fontSize: 9.5),
+                          style: AppText.bodyMuted.copyWith(fontSize: 12),
                         ),
                       ],
                     ),
                   ),
                   Container(
                     padding:
-                        const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
+                        const EdgeInsets.symmetric(horizontal: 7, vertical: 3),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       border: Border.all(
-                        color: (node.sourceLabel == 'Established'
-                                ? AppColors.gold
-                                : AppColors.sand)
-                            .withValues(alpha: 0.35),
+                        color: _labelColor(node.sourceLabel)
+                            .withValues(alpha: 0.5),
                       ),
                     ),
                     child: Text(
                       node.sourceLabel,
                       style: TextStyle(
-                        fontSize: 8.5,
+                        fontSize: 12,
                         letterSpacing: 0.3,
-                        color: node.sourceLabel == 'Established'
-                            ? AppColors.goldLight
-                            : AppColors.sand,
+                        color: _labelColor(node.sourceLabel),
                       ),
                     ),
                   ),
@@ -263,7 +309,7 @@ class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
                         ),
                         child: Text(
                           'Spouse \u00b7 ${sp.name}',
-                          style: AppText.bodyMuted.copyWith(fontSize: 10),
+                          style: AppText.bodyMuted.copyWith(fontSize: 12),
                         ),
                       ),
                     ),
@@ -285,10 +331,40 @@ class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
     }
   }
 
+  /// Opens the real story for [node] in the reader; falls back to the shelf.
+  Future<void> _openStory(BuildContext context, FamilyNode node) async {
+    final String? id = node.story;
+    Story? found;
+    if (id != null) {
+      try {
+        final List<Story> all = await ref.read(storiesProvider.future);
+        for (final Story st in all) {
+          if (st.id == id) {
+            found = st;
+            break;
+          }
+        }
+      } catch (_) {
+        found = null;
+      }
+    }
+    if (!context.mounted) return;
+    if (found != null) {
+      context.go(AppRoutes.storyReader, extra: found);
+    } else {
+      context.go(AppRoutes.stories);
+    }
+  }
+
   void _openNode(BuildContext context, FamilyTreeData data, FamilyNode node) {
     final hasKids = node.children.any((c) => data.byId.containsKey(c));
+    final List<FamilyRelation> relations = <FamilyRelation>[
+      for (final FamilyRelation r in node.relations)
+        if (data.byId.containsKey(r.id)) r,
+    ];
     showModalBottomSheet<void>(
       context: context,
+      isScrollControlled: true,
       backgroundColor: const Color(0xFF0A0F18),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
@@ -303,14 +379,62 @@ class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
               Text(node.name, style: AppText.titleMedium),
               const SizedBox(height: 2),
               Text(
-                '${node.era} · ${node.sourceLabel}',
-                style: AppText.bodyMuted.copyWith(fontSize: 11),
+                '${node.era} \u00b7 ${node.sourceLabel}',
+                style: AppText.bodyMuted.copyWith(fontSize: 12),
               ),
               const SizedBox(height: 12),
               Text(
                 node.description,
                 style: AppText.body.copyWith(height: 1.6, fontSize: 13.5),
               ),
+              if (node.lineageNote != null) ...<Widget>[
+                const SizedBox(height: 12),
+                Text('HOW WE KNOW THIS LINK', style: AppText.eyebrow),
+                const SizedBox(height: 4),
+                Text(
+                  node.lineageNote!,
+                  style: AppText.bodyMuted.copyWith(height: 1.55, fontSize: 13),
+                ),
+              ],
+              if (relations.isNotEmpty) ...<Widget>[
+                const SizedBox(height: 12),
+                Text('ALSO RELATED', style: AppText.eyebrow),
+                const SizedBox(height: 4),
+                Wrap(
+                  spacing: 6,
+                  runSpacing: 4,
+                  children: <Widget>[
+                    for (final FamilyRelation r in relations)
+                      InkWell(
+                        borderRadius: BorderRadius.circular(20),
+                        onTap: () {
+                          final FamilyNode? other = data.byId[r.id];
+                          if (other == null) return;
+                          Navigator.of(ctx).pop();
+                          _openNode(context, data, other);
+                        },
+                        child: ConstrainedBox(
+                          constraints: const BoxConstraints(minHeight: 48),
+                          child: Container(
+                            alignment: Alignment.center,
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 4),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              border: Border.all(
+                                color: AppColors.gold.withValues(alpha: 0.3),
+                              ),
+                            ),
+                            child: Text(
+                              '${r.label} \u00b7 ${data.byId[r.id]!.name}',
+                              style: AppText.bodyMuted.copyWith(fontSize: 12.5),
+                            ),
+                          ),
+                        ),
+                      ),
+                  ],
+                ),
+              ],
               const SizedBox(height: 12),
               Text('SOURCES', style: AppText.eyebrow),
               const SizedBox(height: 4),
@@ -318,27 +442,30 @@ class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 2),
                   child:
-                      Text(s, style: AppText.bodyMuted.copyWith(fontSize: 11)),
+                      Text(s, style: AppText.bodyMuted.copyWith(fontSize: 12)),
                 ),
               const SizedBox(height: 16),
-              Row(
+              Wrap(
+                spacing: 10,
+                runSpacing: 8,
                 children: [
                   if (node.story != null)
                     ElevatedButton.icon(
                       onPressed: () {
                         Navigator.of(ctx).pop();
-                        context.go(AppRoutes.stories);
+                        _openStory(context, node);
                       },
                       icon: const Icon(Icons.auto_stories_outlined, size: 16),
-                      label: const Text('Story shelf'),
+                      label: const Text('Read the story'),
                       style: ElevatedButton.styleFrom(
+                        minimumSize: const Size(48, 48),
                         backgroundColor: AppColors.gold,
                         foregroundColor: const Color(0xFF0A0F18),
                       ),
                     ),
-                  if (hasKids) ...[
-                    if (node.story != null) const SizedBox(width: 10),
+                  if (hasKids)
                     TextButton(
+                      style: TextButton.styleFrom(minimumSize: const Size(48, 48)),
                       onPressed: () {
                         Navigator.of(ctx).pop();
                         setState(() {
@@ -354,7 +481,6 @@ class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
                         style: const TextStyle(color: AppColors.goldLight),
                       ),
                     ),
-                  ],
                 ],
               ),
             ],
@@ -362,6 +488,19 @@ class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
         ),
       ),
     );
+  }
+}
+
+/// Colour of a node's label chip: Established (gold), Interpretive (sand),
+/// Disputed in the sources (amber).
+Color _labelColor(String label) {
+  switch (label) {
+    case 'Established':
+      return AppColors.goldLight;
+    case 'Disputed in the sources':
+      return const Color(0xFFE6A96B);
+    default:
+      return AppColors.sand;
   }
 }
 

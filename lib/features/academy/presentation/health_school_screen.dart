@@ -28,7 +28,7 @@ class _HlUnit {
 const List<_HlUnit> kHealthUnits = <_HlUnit>[
   _HlUnit(
     title: 'The Body as an Amanah',
-    frame: 'Your body is a trust — you did not build it, you were lent it. The Prophet \ufdfa said: your body has a right over you (Bukhari 1839).',
+    frame: 'Your body is a trust — you did not build it, you were lent it. The Prophet \ufdfa said: your body has a right over you (Bukhari 1975).',
     lessons: <_HlLesson>[
       _HlLesson(
         title: 'Eat of the Good Things',

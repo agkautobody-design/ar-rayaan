@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/gold_button.dart';
+import '../../academy/domain/children_privacy.dart';
 import '../../auth/application/auth_providers.dart';
 import '../legal_routes.dart';
 
@@ -121,6 +122,7 @@ const List<LegalSection> kPrivacySections = <LegalSection>[
         'local data from your device settings, and ask us about any data '
         'we hold about you at the contact address [to be added by the app owner before public release].',
   ),
+  LegalSection(kChildrenPrivacyTitle, kChildrenPrivacyBody),
 ];
 
 class _LegalPage extends StatelessWidget {

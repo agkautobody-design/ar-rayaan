@@ -149,7 +149,7 @@ void main() {
     }
     final List<String> lost = <String>[
       for (final String id in byId.keys)
-        if (!seen.contains(id)) id,
+        if (!seen.contains(id) && byId[id]!['placement'] != 'unplaced') id,
     ];
     expect(lost, isEmpty, reason: 'unreachable: $lost');
     expect(seen.contains('maryam'), isTrue);

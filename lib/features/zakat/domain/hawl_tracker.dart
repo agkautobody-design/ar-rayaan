@@ -1,10 +1,10 @@
 /// Hawl — the lunar year a person's wealth must stay at or above nisab
 /// before zakat falls due. This tracks ONE date the user gives (the day their
 /// wealth first reached nisab) and tells them, on the Hijri calendar, when
-/// the year completes. It does not watch their balance: schools differ on
-/// whether the year restarts if wealth dips below nisab mid-year (Hanafi:
-/// nisab is needed at the start and the end), so that judgement stays with
-/// the user and their scholar.
+/// the year completes. It does not watch their balance: scholars differ on
+/// whether the year restarts if wealth dips below nisab mid-year, so that
+/// judgement stays with the user and their scholar. The calendar it counts on
+/// is the one the user chose (see `HijriDate.config`).
 library;
 
 import '../../calendar/domain/hijri_date.dart';

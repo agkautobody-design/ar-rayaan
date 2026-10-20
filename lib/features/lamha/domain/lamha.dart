@@ -33,10 +33,9 @@ abstract final class _Weekly {
     id: 'friday',
     title: 'It’s Jumu’ah',
     body:
-        'The best day the sun rises upon. Today: read Surah al-Kahf, send '
-        'many salawat upon the Prophet ﷺ, and catch the hour in which dua '
-        'is answered.',
-    source: 'Sahih al-Bukhari 893 · Sahih Muslim 854 · Abu Dawud 1048',
+        'The best day the sun rises upon. Today: send many salawat upon '
+        'the Prophet ﷺ, and catch the hour in which dua is answered.',
+    source: 'Sahih Muslim 854 · Sunan Abi Dawud 1048 · Sahih al-Bukhari 935',
   );
 
   static const LamhaMoment monday = LamhaMoment(
@@ -148,7 +147,7 @@ abstract final class _Rotation {
           'Every step to the mosque erases a sin, raises a rank, and writes '
           'a good deed. The light on the Day of Judgment is earned one '
           'step at a time.',
-      source: 'Sahih al-Bukhari 657 · Abu Dawud 561 — meaning',
+      source: 'Hadith on the reward of steps to the mosque — number to be verified',
     ),
   ];
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -7,15 +8,18 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../../hadi/grounding/corpus.dart';
+import '../../hadi/grounding/passage.dart';
+import '../../sakina/presentation/widgets/need_help_button.dart';
 
 /// Elder Care - a gentle, large-type room: big buttons, big words.
-class ElderCareScreen extends StatefulWidget {
+class ElderCareScreen extends ConsumerStatefulWidget {
   const ElderCareScreen({super.key});
   @override
-  State<ElderCareScreen> createState() => _ElderCareState();
+  ConsumerState<ElderCareScreen> createState() => _ElderCareState();
 }
 
-class _ElderCareState extends State<ElderCareScreen> {
+class _ElderCareState extends ConsumerState<ElderCareScreen> {
   int _count = 0;
 
   @override
@@ -39,8 +43,31 @@ class _ElderCareState extends State<ElderCareScreen> {
     await p.setInt('ar.elder.dhikr', 0);
   }
 
+  Future<void> _confirmReset() async {
+    final bool? ok = await showDialog<bool>(
+      context: context,
+      builder: (BuildContext ctx) => AlertDialog(
+        title: const Text('Start the count again?'),
+        content: const Text('The count will go back to 0.'),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(false),
+            child: const Text('Keep it'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(true),
+            child: const Text('Start again'),
+          ),
+        ],
+      ),
+    );
+    if (ok == true) await _reset();
+  }
+
   @override
   Widget build(BuildContext context) {
+    final Passage? kursi =
+        ref.watch(hadiCorpusProvider).valueOrNull?.resolve('q:2:255');
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: ListView(
@@ -51,7 +78,6 @@ class _ElderCareState extends State<ElderCareScreen> {
           const SizedBox(height: 16),
           GestureDetector(
             onTap: _tap,
-            onLongPress: _reset,
             child: Container(
               width: double.infinity,
               padding: const EdgeInsets.symmetric(vertical: 30),
@@ -66,29 +92,41 @@ class _ElderCareState extends State<ElderCareScreen> {
                 const SizedBox(height: 4),
                 Text('SUBHAN ALLAH', style: AppText.eyebrow.copyWith(fontSize: 14)),
                 const SizedBox(height: 2),
-                Text('tap to count \u00b7 hold to reset',
-                    style: AppText.bodyMuted.copyWith(fontSize: 11)),
+                Text('tap to count',
+                    style: AppText.bodyMuted.copyWith(fontSize: 14)),
               ]),
             ),
           ),
-          const SizedBox(height: 14),
-          GlassCard(
-            child: Column(children: [
-              Text('AYAT AL-KURSI \u2014 THE PROTECTION',
-                  style: AppText.eyebrow.copyWith(fontSize: 12)),
-              const SizedBox(height: 10),
-              Text(
-                '\u0627\u0644\u0644\u0651\u064e\u0647\u064f \u0644\u0627 \u0625\u0650\u0644\u064e\u0647\u064e \u0625\u0650\u0644\u0651\u064e\u0627 \u0647\u064f\u0648\u064e \u0627\u0644\u062d\u064e\u064a\u064f\u0651 \u0627\u0644\u0642\u064e\u064a\u064f\u0651\u0648\u0645\u064f',
-                textDirection: TextDirection.rtl,
-                textAlign: TextAlign.center,
-                style: const TextStyle(fontFamily: 'Amiri', fontSize: 26, height: 2,
-                    color: Color(0xFFEAD9A8)),
-              ),
-              const SizedBox(height: 6),
-              Text('Hold to it morning and evening.',
-                  textAlign: TextAlign.center, style: AppText.bodyMuted),
-            ]),
+          Align(
+            alignment: Alignment.centerRight,
+            child: TextButton(
+              onPressed: _confirmReset,
+              child: Text('Start the count again',
+                  style: AppText.bodyMuted.copyWith(fontSize: 14)),
+            ),
           ),
+          const SizedBox(height: 10),
+          const Center(child: NeedHelpNowButton(large: true)),
+          const SizedBox(height: 14),
+          if (kursi != null)
+            GlassCard(
+              child: Column(children: [
+                Text('AYAT AL-KURSI \u00b7 ${kursi.reference.toUpperCase()}',
+                    style: AppText.eyebrow.copyWith(fontSize: 12)),
+                const SizedBox(height: 10),
+                Text(
+                  kursi.arabic ?? '',
+                  textDirection: TextDirection.rtl,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(fontFamily: 'Amiri', fontSize: 26, height: 2,
+                      color: Color(0xFFEAD9A8)),
+                ),
+                const SizedBox(height: 8),
+                Text(kursi.english,
+                    textAlign: TextAlign.center,
+                    style: AppText.bodyMuted.copyWith(fontSize: 14, height: 1.6)),
+              ]),
+            ),
           const SizedBox(height: 12),
           for (final e in const [
             ('Morning & Evening Duas', Icons.wb_sunny_outlined, AppRoutes.stories),

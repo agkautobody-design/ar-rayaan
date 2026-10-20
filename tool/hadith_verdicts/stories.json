@@ -1,0 +1,2426 @@
+{
+ "abudawud:2357": {
+  "verdict": "ok",
+  "grade": "hasan",
+  "grader": "al-Albani",
+  "checked": "2026-10-20",
+  "note": "Ibn Umar via Marwan al-Muqaffa; dua when breaking fast"
+ },
+ "abudawud:2578": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "al-Albani",
+  "checked": "2026-10-20",
+  "note": "Aisha race with Prophet"
+ },
+ "abudawud:2602": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "al-Albani",
+  "checked": "2026-10-20",
+  "note": "Ali; dua on mounting animal"
+ },
+ "abudawud:2998": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "al-Albani",
+  "checked": "2026-10-20",
+  "note": "Anas; Safiyyah freed and married after Khaibar"
+ },
+ "abudawud:3641": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "al-Albani",
+  "checked": "2026-10-20",
+  "note": "Kathir ibn Qays; seeking knowledge, scholars heirs of prophets"
+ },
+ "abudawud:3767": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "al-Albani",
+  "checked": "2026-10-20",
+  "note": "Aisha; Bismillah before eating, if forget"
+ },
+ "abudawud:3850": {
+  "verdict": "ok",
+  "grade": "daif",
+  "grader": "al-Albani",
+  "checked": "2026-10-20",
+  "note": "Abu Said; thanks after meal"
+ },
+ "abudawud:4282": {
+  "verdict": "ok",
+  "grade": "hasan sahih",
+  "grader": "al-Albani",
+  "checked": "2026-10-20",
+  "note": "Ibn Masud; Mahdi from family"
+ },
+ "abudawud:466": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "al-Albani",
+  "checked": "2026-10-20",
+  "note": "Haiwah ibn Shuraih; refuge on entering mosque"
+ },
+ "abudawud:4753": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "al-Albani",
+  "checked": "2026-10-20",
+  "note": "Bara; grave questioning"
+ },
+ "abudawud:4782": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "al-Albani",
+  "checked": "2026-10-20",
+  "note": "Abu Dharr; angry standing sit"
+ },
+ "abudawud:4784": {
+  "verdict": "ok",
+  "grade": "daif",
+  "grader": "al-Albani",
+  "checked": "2026-10-20",
+  "note": "Atiyyah al-Sadi; anger from Satan do wudu"
+ },
+ "abudawud:5082": {
+  "verdict": "ok",
+  "grade": "hasan",
+  "grader": "al-Albani",
+  "checked": "2026-10-20",
+  "note": "Abdullah ibn Khubayb; three quls morning evening"
+ },
+ "abudawud:5095": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "al-Albani",
+  "checked": "2026-10-20",
+  "note": "Anas; dua leaving home"
+ },
+ "abudawud:5096": {
+  "verdict": "ok",
+  "grade": "daif",
+  "grader": "al-Albani",
+  "checked": "2026-10-20",
+  "note": "Abu Malik al-Ashari; dua entering home"
+ },
+ "abudawud:5217": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "al-Albani",
+  "checked": "2026-10-20",
+  "note": "Aisha; Prophet stood for Fatimah seated her"
+ },
+ "abudawud:775": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "al-Albani",
+  "checked": "2026-10-20",
+  "note": "Abu Said; night prayer opening, glorify+refuge from Satan"
+ },
+ "bukhari:1": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Umar; intentions"
+ },
+ "bukhari:10": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abdullah ibn Amr; Muslim safe tongue hands"
+ },
+ "bukhari:1012": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abdullah ibn Zayd; istisqa at musalla"
+ },
+ "bukhari:1014": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Anas; istisqa Friday sermon"
+ },
+ "bukhari:1032": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Aisha; dua on seeing rain"
+ },
+ "bukhari:1036": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Hurayrah; signs: knowledge lost, quakes, time shortens"
+ },
+ "bukhari:1142": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Hurayrah; satan's knots"
+ },
+ "bukhari:1303": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Anas; Prophet's grief at son Ibrahim's death"
+ },
+ "bukhari:1315": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "hasten the funeral"
+ },
+ "bukhari:1374": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Anas; grave questioning shown place"
+ },
+ "bukhari:1379": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Ibn Umar; shown place morning evening"
+ },
+ "bukhari:1385": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Hurayrah; fitrah"
+ },
+ "bukhari:1400": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Hurayrah; Abu Bakr fights zakat refusers"
+ },
+ "bukhari:1419": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Hurayrah; best charity healthy and stingy"
+ },
+ "bukhari:143": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Ibn Abbas; wudu water, prayer for understanding of religion"
+ },
+ "bukhari:18": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Ubadah; pledge to avoid shirk theft etc"
+ },
+ "bukhari:1904": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Hurayrah; fasting is shield"
+ },
+ "bukhari:2067": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Anas; kinship expands provision"
+ },
+ "bukhari:2072": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Miqdam; earnings by own hand, Dawud"
+ },
+ "bukhari:2215": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Ibn Umar; three men in cave"
+ },
+ "bukhari:2311": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Hurayrah; Ayat al-Kursi thief"
+ },
+ "bukhari:2365": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Ibn Umar; woman and the cat"
+ },
+ "bukhari:2476": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Hurayrah; Isa returns breaks cross kills swine"
+ },
+ "bukhari:2731": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Miswar; Hudaybiyyah terms"
+ },
+ "bukhari:2739": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Amr ibn al-Harith; Prophet left no money, mule weapons land"
+ },
+ "bukhari:2941": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Ibn Abbas; letter to Heraclius"
+ },
+ "bukhari:3": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Aisha; start of revelation Hira"
+ },
+ "bukhari:304": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Said; women charity, deficient intellect/religion"
+ },
+ "bukhari:3092": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Aisha; Fatimah's inheritance claim, Abu Bakr"
+ },
+ "bukhari:3231": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Aisha; Taif/Aqabah, mountains angel"
+ },
+ "bukhari:3232": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Jibril seen with six hundred wings"
+ },
+ "bukhari:3244": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Hurayrah; no eye has seen"
+ },
+ "bukhari:3268": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Aisha; healed from sorcery"
+ },
+ "bukhari:3275": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Hurayrah; Ayat al-Kursi thief"
+ },
+ "bukhari:3364": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Ibn Abbas; Hajar, Zamzam, Kaaba built"
+ },
+ "bukhari:3371": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Ibn Abbas; refuge for Hasan Husayn"
+ },
+ "bukhari:3391": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Hurayrah; Ayyub golden locusts (no long-suffering or strike-with-foot)"
+ },
+ "bukhari:3411": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Musa; perfect among women Asiya, Maryam"
+ },
+ "bukhari:3436": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Jurayj and the infant; Prophet narrates"
+ },
+ "bukhari:3467": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Hurayrah; woman forgiven for watering dog"
+ },
+ "bukhari:3470": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Said; killer of 99"
+ },
+ "bukhari:349": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Dharr; Isra heavens, fifty to five"
+ },
+ "bukhari:3612": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Khabbab; complaint of torture, Islam will prevail"
+ },
+ "bukhari:3616": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Ibn Abbas; la bas tahur ill bedouin"
+ },
+ "bukhari:3623": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Aisha; told Fatimah death near"
+ },
+ "bukhari:3624": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Aisha; Fatimah will join first (leader of women)"
+ },
+ "bukhari:3653": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Bakr; in the cave Allah with us"
+ },
+ "bukhari:3661": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Darda; Abu Bakr and Umar quarrel reconciled"
+ },
+ "bukhari:3680": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Hurayrah; dream Umar's palace, ghirah"
+ },
+ "bukhari:3714": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Miswar; Fatimah part of me"
+ },
+ "bukhari:3808": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Masruq; four to learn Quran from"
+ },
+ "bukhari:3818": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Aisha; jealousy of Khadijah, sheep to her friends"
+ },
+ "bukhari:3820": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Hurayrah; Jibril greet Khadijah palace"
+ },
+ "bukhari:3905": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Aisha; hijrah with Abu Bakr cave"
+ },
+ "bukhari:399": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Bara; qiblah change"
+ },
+ "bukhari:4043": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Bara; archers left post Uhud"
+ },
+ "bukhari:4280": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Urwah; Abu Sufyan sees forces entering Makkah, flag at Hajun"
+ },
+ "bukhari:444": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Qatadah; two rakah on entering mosque"
+ },
+ "bukhari:454": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Aisha; Ethiopians spears in mosque"
+ },
+ "bukhari:481": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Musa; bricks"
+ },
+ "bukhari:4987": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Anas; Uthman standardised mushaf"
+ },
+ "bukhari:5017": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Aisha; three quls into hands at bedtime"
+ },
+ "bukhari:52": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Numan; doubtful matters"
+ },
+ "bukhari:5641": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Said/Abu Hurayrah; hardship expiates sins even thorn"
+ },
+ "bukhari:5675": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Aisha; dua to heal the sick"
+ },
+ "bukhari:5976": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Bakrah; greatest major sins"
+ },
+ "bukhari:6011": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Numan ibn Bashir; believers like one body"
+ },
+ "bukhari:6018": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Hurayrah; speak good or be silent, neighbour guest"
+ },
+ "bukhari:608": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Hurayrah; Satan flees adhan"
+ },
+ "bukhari:6114": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Hurayrah; strong is who controls anger"
+ },
+ "bukhari:6247": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Anas; greeting children"
+ },
+ "bukhari:6306": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Shaddad ibn Aws; sayyid al-istighfar"
+ },
+ "bukhari:6324": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Hudhaifa; bedtime and waking supplication"
+ },
+ "bukhari:6346": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Ibn Abbas; dua in distress"
+ },
+ "bukhari:6369": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Anas; refuge from worry grief laziness cowardice debt"
+ },
+ "bukhari:6382": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Jabir; istikhara prayer and dua"
+ },
+ "bukhari:6384": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Musa; la hawla treasure of paradise"
+ },
+ "bukhari:6408": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Hurayrah; virtue of dhikr"
+ },
+ "bukhari:645": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Ibn Umar; congregation 27x"
+ },
+ "bukhari:6464": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Aisha; moderation, consistent small deeds"
+ },
+ "bukhari:6490": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Hurayrah; look at those below you"
+ },
+ "bukhari:660": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Hurayrah; seven shaded"
+ },
+ "bukhari:67": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Bakrah; sanctity of lives wealth honor, convey to absent"
+ },
+ "bukhari:676": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Aisha; household work then prayer"
+ },
+ "bukhari:6927": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Aisha; Jews' greeting, Allah loves gentleness"
+ },
+ "bukhari:709": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Anas; shortened prayer for crying child"
+ },
+ "bukhari:75": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Ibn Abbas; embraced, prayed for knowledge of Quran(book)"
+ },
+ "bukhari:756": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Ubadah; Fatiha obligatory"
+ },
+ "bukhari:8": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Ibn Umar; Islam built on five"
+ },
+ "bukhari:893": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Ibn Umar; everyone a shepherd"
+ },
+ "bukhari:9": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Hurayrah; faith 60 branches modesty"
+ },
+ "ibnmajah:2443": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Darussalam",
+  "checked": "2026-10-20",
+  "note": "Ibn Umar; give worker wages before sweat dries"
+ },
+ "ibnmajah:771": {
+  "verdict": "ok",
+  "grade": "daif",
+  "grader": "Darussalam",
+  "checked": "2026-10-20",
+  "note": "Fatimah; dua entering/leaving mosque"
+ },
+ "ibnmajah:897": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Darussalam",
+  "checked": "2026-10-20",
+  "note": "Hudhayfah; forgiveness between two prostrations"
+ },
+ "muslim:1031": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Hurayrah; seven shaded incl hidden charity"
+ },
+ "muslim:1218": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Jabir; Prophet's Hajj"
+ },
+ "muslim:131": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Ibn Abbas; intention good/evil"
+ },
+ "muslim:134": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Hurayrah; who created Allah doubts, affirm faith"
+ },
+ "muslim:1342": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Ibn Umar; travel dua"
+ },
+ "muslim:145": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Hurayrah; Islam began strange"
+ },
+ "muslim:1598": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Jabir; cursed all in riba"
+ },
+ "muslim:1599": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Numan; doubtful matters, heart"
+ },
+ "muslim:162": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Anas; Isra, prayers"
+ },
+ "muslim:1631": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Hurayrah; three ongoing deeds"
+ },
+ "muslim:1829": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Ibn Umar; everyone a shepherd"
+ },
+ "muslim:1893": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Masud; guide to good"
+ },
+ "muslim:1914": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Hurayrah; thorn branch, five martyrs"
+ },
+ "muslim:2018": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Jabir; Allah's name on entering home/eating"
+ },
+ "muslim:2188": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Ibn Abbas; evil eye real, bathing"
+ },
+ "muslim:223": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Malik al-Ashari; purity half of faith"
+ },
+ "muslim:2315": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Anas; Prophet's compassion and grief at Ibrahim's death"
+ },
+ "muslim:2398": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Aisha; muhaddathun, Umar"
+ },
+ "muslim:2404": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Sad; Ali to me as Harun to Musa"
+ },
+ "muslim:2424": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Aisha; cloak, purification verse"
+ },
+ "muslim:2432": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Hurayrah; Jibril: greet Khadijah, palace"
+ },
+ "muslim:2450": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Aisha; Fatimah wept then laughed"
+ },
+ "muslim:2542": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Usayr ibn Jabir; Uwais al-Qarani"
+ },
+ "muslim:2585": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Musa; believers like bricks"
+ },
+ "muslim:2588": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Hurayrah; charity forgiveness humility"
+ },
+ "muslim:2589": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Hurayrah; backbiting defined"
+ },
+ "muslim:2594": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Aisha; gentleness"
+ },
+ "muslim:2609": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Hurayrah; strong is who controls anger"
+ },
+ "muslim:2704": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Musa; lahawla treasure of paradise"
+ },
+ "muslim:2708": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Khawla bint Hakim; refuge in perfect words at stopping place"
+ },
+ "muslim:2732": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Dharr/Darda; dua for absent brother angel ameen"
+ },
+ "muslim:2734": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Anas; Allah pleased with praising after eating"
+ },
+ "muslim:2749": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Hurayrah; if you did not sin Allah would replace you (repentance)"
+ },
+ "muslim:2759": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Musa; Allah stretches His hand night and day for repentance"
+ },
+ "muslim:2766": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Said; killer of 99"
+ },
+ "muslim:2866": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Ibn Umar; shown place morning evening"
+ },
+ "muslim:2946": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Dajjal greatest trial since Adam"
+ },
+ "muslim:2963": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Hurayrah; look at those below you"
+ },
+ "muslim:2999": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Suhayb; believer's affair all good"
+ },
+ "muslim:35": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Hurayrah; faith branches modesty"
+ },
+ "muslim:45": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Anas; love for brother what you love for self"
+ },
+ "muslim:450": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Shabi; Prophet recited to jinn, bones dung jinn food"
+ },
+ "muslim:482": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Hurayrah; sujud nearest to Lord"
+ },
+ "muslim:55": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "TAMIM AL-DARI; religion is sincerity (not Abu Dharr)"
+ },
+ "muslim:591": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Thawban; istighfar after salah"
+ },
+ "muslim:713": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Usayd; dua entering/leaving mosque"
+ },
+ "muslim:772": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Hudhayfah; long night prayer"
+ },
+ "muslim:8": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Umar; Jibril hadith"
+ },
+ "muslim:854": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Hurayrah; Friday best day"
+ },
+ "muslim:90": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abdullah ibn Amr; insulting parents major sin"
+ },
+ "muslim:916": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Abu Said; prompt dying with shahada"
+ },
+ "muslim:918": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Umm Salama; istirja"
+ },
+ "muslim:927": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Ibn Umar; Umar told Hafsa; dead suffers family weeping"
+ },
+ "muslim:977": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-20",
+  "note": "Buraydah; visit graves permitted"
+ },
+ "nasai:1745": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Darussalam",
+  "checked": "2026-10-20",
+  "note": "Hasan ibn Ali; qunut witr"
+ },
+ "nasai:3104": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Darussalam",
+  "checked": "2026-10-20",
+  "note": "Muawiyah ibn Jahimah; stay with mother, paradise at her feet"
+ },
+ "nasai:3259": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Darussalam",
+  "checked": "2026-10-20",
+  "note": "Umar; offered Hafsah to Abu Bakr/Uthman"
+ },
+ "tirmidhi:1071": {
+  "verdict": "ok",
+  "grade": "hasan",
+  "grader": "Darussalam",
+  "checked": "2026-10-20",
+  "note": "Abu Hurayrah; angels question deceased in grave"
+ },
+ "tirmidhi:1162": {
+  "verdict": "ok",
+  "grade": "hasan",
+  "grader": "Darussalam",
+  "checked": "2026-10-20",
+  "note": "Abu Hurayrah; best character, best to wives"
+ },
+ "tirmidhi:1327": {
+  "verdict": "ok",
+  "grade": "daif",
+  "grader": "Darussalam",
+  "checked": "2026-10-20",
+  "note": "companions of Muadh; judge rules Quran sunnah ijtihad"
+ },
+ "tirmidhi:1633": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Darussalam",
+  "checked": "2026-10-20",
+  "note": "Abu Hurayrah; weeping from fear keeps from hell"
+ },
+ "tirmidhi:1900": {
+  "verdict": "ok",
+  "grade": "hasan",
+  "grader": "Darussalam",
+  "checked": "2026-10-20",
+  "note": "Abu Darda; father gateway to paradise"
+ },
+ "tirmidhi:1919": {
+  "verdict": "ok",
+  "grade": "hasan",
+  "grader": "Darussalam",
+  "checked": "2026-10-20",
+  "note": "Anas; mercy to young respect elders"
+ },
+ "tirmidhi:1924": {
+  "verdict": "ok",
+  "grade": "hasan",
+  "grader": "Darussalam",
+  "checked": "2026-10-20",
+  "note": "Abdullah ibn Amr; mercy"
+ },
+ "tirmidhi:1956": {
+  "verdict": "ok",
+  "grade": "hasan",
+  "grader": "Darussalam",
+  "checked": "2026-10-20",
+  "note": "Abu Dharr; smiling is charity"
+ },
+ "tirmidhi:2059": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Darussalam",
+  "checked": "2026-10-20",
+  "note": "Asma bint Umays; ruqyah for evil eye"
+ },
+ "tirmidhi:2210": {
+  "verdict": "ok",
+  "grade": "daif",
+  "grader": "Darussalam",
+  "checked": "2026-10-20",
+  "note": "Ali; fifteen deeds trials"
+ },
+ "tirmidhi:2318": {
+  "verdict": "ok",
+  "grade": "daif",
+  "grader": "Darussalam",
+  "checked": "2026-10-20",
+  "note": "Ali ibn Husayn; leaving what doesn't concern"
+ },
+ "tirmidhi:2344": {
+  "verdict": "ok",
+  "grade": "hasan",
+  "grader": "Darussalam",
+  "checked": "2026-10-20",
+  "note": "Umar; tawakkul birds"
+ },
+ "tirmidhi:2378": {
+  "verdict": "ok",
+  "grade": "hasan",
+  "grader": "Darussalam",
+  "checked": "2026-10-20",
+  "note": "Abu Hurayrah; friend's religion"
+ },
+ "tirmidhi:2417": {
+  "verdict": "ok",
+  "grade": "daif",
+  "grader": "Darussalam",
+  "checked": "2026-10-20",
+  "note": "Abu Barzah; questions on Day (Tirmidhi hasan sahih)"
+ },
+ "tirmidhi:2459": {
+  "verdict": "ok",
+  "grade": "daif",
+  "grader": "Darussalam",
+  "checked": "2026-10-20",
+  "note": "Shaddad ibn Aws; wise holds himself accountable"
+ },
+ "tirmidhi:2460": {
+  "verdict": "ok",
+  "grade": "daif",
+  "grader": "Darussalam",
+  "checked": "2026-10-20",
+  "note": "Abu Said; grave garden or pit"
+ },
+ "tirmidhi:2499": {
+  "verdict": "ok",
+  "grade": "daif",
+  "grader": "Darussalam",
+  "checked": "2026-10-20",
+  "note": "Anas; every son of Adam sins, best repent"
+ },
+ "tirmidhi:3431": {
+  "verdict": "ok",
+  "grade": "daif",
+  "grader": "Darussalam",
+  "checked": "2026-10-20",
+  "note": "Umar; praise on seeing afflicted"
+ },
+ "tirmidhi:3457": {
+  "verdict": "ok",
+  "grade": "daif",
+  "grader": "Darussalam",
+  "checked": "2026-10-20",
+  "note": "Abu Said; praise after eating"
+ },
+ "tirmidhi:3505": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Darussalam",
+  "checked": "2026-10-20",
+  "note": "Sad; Yunus dua"
+ },
+ "tirmidhi:3513": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Darussalam",
+  "checked": "2026-10-20",
+  "note": "Aisha; Laylat al-Qadr dua"
+ },
+ "tirmidhi:3537": {
+  "verdict": "ok",
+  "grade": "hasan",
+  "grader": "Darussalam",
+  "checked": "2026-10-20",
+  "note": "Ibn Umar; tawbah until death rattle"
+ },
+ "tirmidhi:3563": {
+  "verdict": "ok",
+  "grade": "hasan",
+  "grader": "Darussalam",
+  "checked": "2026-10-20",
+  "note": "Ali; debt dua"
+ },
+ "tirmidhi:3686": {
+  "verdict": "ok",
+  "grade": "hasan",
+  "grader": "Darussalam",
+  "checked": "2026-10-20",
+  "note": "Uqbah; if a prophet after me Umar"
+ },
+ "tirmidhi:3701": {
+  "verdict": "ok",
+  "grade": "hasan",
+  "grader": "Darussalam",
+  "checked": "2026-10-20",
+  "note": "Abd al-Rahman ibn Samurah; Uthman 1000 dinars"
+ },
+ "tirmidhi:3747": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Darussalam",
+  "checked": "2026-10-20",
+  "note": "Abd al-Rahman ibn Awf; ten promised paradise"
+ },
+ "tirmidhi:3749": {
+  "verdict": "ok",
+  "grade": "hasan",
+  "grader": "Darussalam",
+  "checked": "2026-10-20",
+  "note": "Aisha via Abu Salamah; prayer for Abd al-Rahman ibn Awf"
+ },
+ "tirmidhi:3768": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Darussalam",
+  "checked": "2026-10-20",
+  "note": "Abu Said; Hasan and Husayn chiefs of youth of Paradise"
+ },
+ "tirmidhi:3790": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Darussalam",
+  "checked": "2026-10-20",
+  "note": "Anas; each companion's distinction (Muadh halal/haram etc)"
+ },
+ "tirmidhi:3798": {
+  "verdict": "ok",
+  "grade": "hasan",
+  "grader": "Darussalam",
+  "checked": "2026-10-20",
+  "note": "Ali; Ammar pure and purified"
+ },
+ "tirmidhi:3895": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Darussalam",
+  "checked": "2026-10-20",
+  "note": "Aisha; best to family"
+ },
+ "abudawud:1551": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Shakl ibn Humayd; protection from harms of hearing sight speech heart desire",
+  "correct": "bukhari:6369"
+ },
+ "abudawud:2050": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Maqil ibn Yasar; marry loving fertile women",
+  "correct": "none"
+ },
+ "abudawud:3004": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Abd al-Rahman ibn Kab; Banu Nadir expulsion",
+  "correct": "none"
+ },
+ "abudawud:3927": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Amr ibn Shuaib; mukatab slave remains slave until pays",
+  "correct": "none"
+ },
+ "abudawud:4833": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Abu Hurayrah; friend's religion",
+  "correct": "none"
+ },
+ "abudawud:567": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Ibn Umar; women not barred from mosque, home better",
+  "correct": "none"
+ },
+ "ahmad:15492": {
+  "verdict": "unverifiable",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "Number removed from the content. Musnad Ahmad has no free numbered source to check against."
+ },
+ "ahmad:15493": {
+  "verdict": "unverifiable",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "Number removed from the content. Musnad Ahmad has no free numbered source to check against."
+ },
+ "ahmad:20885": {
+  "verdict": "unverifiable",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "Number removed from the content. Musnad Ahmad has no free numbered source to check against."
+ },
+ "ahmad:23114": {
+  "verdict": "unverifiable",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "Number removed from the content. Musnad Ahmad has no free numbered source to check against."
+ },
+ "ahmad:26674": {
+  "verdict": "unverifiable",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "Number removed from the content. Musnad Ahmad has no free numbered source to check against."
+ },
+ "ahmad:27580": {
+  "verdict": "unverifiable",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "Number removed from the content. Musnad Ahmad has no free numbered source to check against."
+ },
+ "ahmad:8952": {
+  "verdict": "unverifiable",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "Number removed from the content. Musnad Ahmad has no free numbered source to check against."
+ },
+ "bukhari:1145": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Abu Hurayrah; descent last third of night",
+  "correct": "none"
+ },
+ "bukhari:1296": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Abu Burdah; forbidden mourning acts",
+  "correct": "bukhari:1315"
+ },
+ "bukhari:1304": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Ibn Umar; Prophet wept at Sad ibn Ubadah; punished for wailing",
+  "correct": "bukhari:1303"
+ },
+ "bukhari:1330": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Aisha; graves as mosques",
+  "correct": "none"
+ },
+ "bukhari:1334": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Jabir; Najashi funeral four takbirs",
+  "correct": "bukhari:660"
+ },
+ "bukhari:1397": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Abu Hurayrah; Bedouin asks how to enter paradise",
+  "correct": "none"
+ },
+ "bukhari:1496": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Abu Mabad; Muadh to Yemen",
+  "correct": "none"
+ },
+ "bukhari:1809": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Ibn Abbas; blocked umrah Hudaybiyyah",
+  "correct": "none"
+ },
+ "bukhari:1951": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Abu Said; menstruating women excused prayer fasting",
+  "correct": "none"
+ },
+ "bukhari:2216": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Abd al-Rahman ibn Abi Bakr; Prophet buys sheep from pagan",
+  "correct": "none"
+ },
+ "bukhari:243": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Sahl; Fatimah cleaned blood from his face at Uhud (ash)",
+  "correct": "none"
+ },
+ "bukhari:2477": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Salamah ibn al-Akwa; Khaybar donkey pots",
+  "correct": "none"
+ },
+ "bukhari:2699": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Bara; Hudaybiyyah treaty, Hamza's daughter",
+  "correct": "none"
+ },
+ "bukhari:276": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Maymunah; ghusl",
+  "correct": "none"
+ },
+ "bukhari:2862": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Anas; borrowed Abu Talha's horse Mandub",
+  "correct": "none"
+ },
+ "bukhari:3044": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Anas; conquest: Ibn Khatal killed clinging to Kaaba",
+  "correct": "none"
+ },
+ "bukhari:3175": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Aisha; Prophet affected by sorcery",
+  "correct": "none"
+ },
+ "bukhari:329": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Ibn Abbas; menstruating woman after tawaf ifadah",
+  "correct": "none"
+ },
+ "bukhari:3304": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Jabir; keep children in at nightfall, devils spread, close doors",
+  "correct": "none"
+ },
+ "bukhari:3333": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Anas; angel in womb records",
+  "correct": "none"
+ },
+ "bukhari:334": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Aisha; necklace tayammum",
+  "correct": "none"
+ },
+ "bukhari:3348": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Abu Said; 999 of 1000 hell (Yajuj Majuj), Muslims small portion",
+  "correct": "none"
+ },
+ "bukhari:3397": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Ibn Abbas; Ashura fast",
+  "correct": "bukhari:3436"
+ },
+ "bukhari:3464": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Abu Hurayrah; leper bald blind",
+  "correct": "none"
+ },
+ "bukhari:3499": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Abu Hurayrah; arrogance Bedouins, faith in Yemen",
+  "correct": "none"
+ },
+ "bukhari:3527": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Abu Hurayrah; cannot shield relatives",
+  "correct": "none"
+ },
+ "bukhari:3606": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Hudhayfah; trials, stay with jamaah",
+  "correct": "none"
+ },
+ "bukhari:3609": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Abu Hurayrah; two groups same creed, thirty false prophets",
+  "correct": "none"
+ },
+ "bukhari:3665": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Ibn Umar; dragging robe, Abu Bakr not out of pride",
+  "correct": "none"
+ },
+ "bukhari:3675": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Anas; Uhud trembled",
+  "correct": "none"
+ },
+ "bukhari:3691": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Abu Said; dream Umar long shirt = religion",
+  "correct": "none"
+ },
+ "bukhari:3693": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Abu Musa; glad tidings Abu Bakr Umar Uthman",
+  "correct": "none"
+ },
+ "bukhari:3694": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Abdullah ibn Hisham; Prophet held Umar's hand",
+  "correct": "none"
+ },
+ "bukhari:3696": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Ubaydullah ibn Adi; Uthman defends, Walid flogged",
+  "correct": "none"
+ },
+ "bukhari:3697": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Ibn Umar; ranking Abu Bakr Umar Uthman",
+  "correct": "none"
+ },
+ "bukhari:3698": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Uthman ibn Muhib; Uthman missed Badr Uhud Ridwan",
+  "correct": "none"
+ },
+ "bukhari:3700": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Amr ibn Maymun; Umar's assassination and council",
+  "correct": "none"
+ },
+ "bukhari:3734": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Abdullah ibn Dinar; Ibn Umar re Usama/his son",
+  "correct": "none"
+ },
+ "bukhari:3742": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Alqamah; Abu Darda praises Ibn Masud",
+  "correct": "none"
+ },
+ "bukhari:3746": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Abu Bakrah; Hasan will reconcile two groups",
+  "correct": "none"
+ },
+ "bukhari:3751": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Ibn Umar; Abu Bakr: guard Muhammad via his family",
+  "correct": "none"
+ },
+ "bukhari:3883": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Abbas; Abu Talib lighter punishment",
+  "correct": "none"
+ },
+ "bukhari:3901": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Aisha; Sad prays to fight those who expelled Prophet",
+  "correct": "none"
+ },
+ "bukhari:3903": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Ibn Abbas; 13 years in Makkah, died at 63",
+  "correct": "none"
+ },
+ "bukhari:3960": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Ibn Masud; prayed against Quraysh leaders found dead at Badr",
+  "correct": "none"
+ },
+ "bukhari:4042": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Uqbah; prayed for Uhud martyrs eight years later",
+  "correct": "none"
+ },
+ "bukhari:4076": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Ibn Abbas; Prophet's face wounded Uhud",
+  "correct": "none"
+ },
+ "bukhari:4078": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Qatadah; 70 Ansar died Uhud Bir Mauna Yamama",
+  "correct": "none"
+ },
+ "bukhari:4190": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Kab ibn Ujrah; Hudaybiyyah lice fidyah",
+  "correct": "none"
+ },
+ "bukhari:4356": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Qais; Jarir destroys Dhu al-Khalasa",
+  "correct": "none"
+ },
+ "bukhari:4461": {
+  "verdict": "unverifiable",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "Number removed from the content. The sunnah.com page could not be read (HTTP 429 rate limit) or was not re-checked; claim kept without a number as \"reported\"."
+ },
+ "bukhari:4483": {
+  "verdict": "unverifiable",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "Number removed from the content. The sunnah.com page could not be read (HTTP 429 rate limit) or was not re-checked; claim kept without a number as \"reported\"."
+ },
+ "bukhari:4636": {
+  "verdict": "unverifiable",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "Number removed from the content. The sunnah.com page could not be read (HTTP 429 rate limit) or was not re-checked; claim kept without a number as \"reported\"."
+ },
+ "bukhari:4680": {
+  "verdict": "unverifiable",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "Number removed from the content. The sunnah.com page could not be read (HTTP 429 rate limit) or was not re-checked; claim kept without a number as \"reported\"."
+ },
+ "bukhari:47": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Abu Hurayrah; funeral qirat",
+  "correct": "bukhari:50"
+ },
+ "bukhari:4744": {
+  "verdict": "unverifiable",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "Number removed from the content. The sunnah.com page could not be read (HTTP 429 rate limit) or was not re-checked; claim kept without a number as \"reported\"."
+ },
+ "bukhari:4776": {
+  "verdict": "unverifiable",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "Number removed from the content. The sunnah.com page could not be read (HTTP 429 rate limit) or was not re-checked; claim kept without a number as \"reported\"."
+ },
+ "bukhari:4842": {
+  "verdict": "unverifiable",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "Number removed from the content. The sunnah.com page could not be read (HTTP 429 rate limit) or was not re-checked; claim kept without a number as \"reported\"."
+ },
+ "bukhari:4953": {
+  "verdict": "unverifiable",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "Number removed from the content. The sunnah.com page could not be read (HTTP 429 rate limit) or was not re-checked; claim kept without a number as \"reported\"."
+ },
+ "bukhari:4988": {
+  "verdict": "unverifiable",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "Number removed from the content. The sunnah.com page could not be read (HTTP 429 rate limit) or was not re-checked; claim kept without a number as \"reported\"."
+ },
+ "bukhari:5005": {
+  "verdict": "unverifiable",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "Number removed from the content. The sunnah.com page could not be read (HTTP 429 rate limit) or was not re-checked; claim kept without a number as \"reported\"."
+ },
+ "bukhari:5101": {
+  "verdict": "unverifiable",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "Number removed from the content. The sunnah.com page could not be read (HTTP 429 rate limit) or was not re-checked; claim kept without a number as \"reported\"."
+ },
+ "bukhari:528": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Abu Hurayrah; five prayers like river erase sins",
+  "correct": "none"
+ },
+ "bukhari:5763": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Aisha; Prophet bewitched by Labid",
+  "correct": "bukhari:6114"
+ },
+ "bukhari:6039": {
+  "verdict": "unverifiable",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "Number removed from the content. The sunnah.com page could not be read (HTTP 429 rate limit) or was not re-checked; claim kept without a number as \"reported\"."
+ },
+ "bukhari:6089": {
+  "verdict": "unverifiable",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "Number removed from the content. The sunnah.com page could not be read (HTTP 429 rate limit) or was not re-checked; claim kept without a number as \"reported\"."
+ },
+ "bukhari:6205": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Abu Hurayrah; most disliked name king of kings",
+  "correct": "none"
+ },
+ "bukhari:6389": {
+  "verdict": "unverifiable",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "Number removed from the content. The sunnah.com page could not be read (HTTP 429 rate limit) or was not re-checked; claim kept without a number as \"reported\"."
+ },
+ "bukhari:6409": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Abu Musa; la hawla treasure of paradise",
+  "correct": "bukhari:6408"
+ },
+ "bukhari:6449": {
+  "verdict": "unverifiable",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "Number removed from the content. The sunnah.com page could not be read (HTTP 429 rate limit) or was not re-checked; claim kept without a number as \"reported\"."
+ },
+ "bukhari:6469": {
+  "verdict": "unverifiable",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "Number removed from the content. The sunnah.com page could not be read (HTTP 429 rate limit) or was not re-checked; claim kept without a number as \"reported\"."
+ },
+ "bukhari:6521": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Sahl; Day of gathering white land",
+  "correct": "none"
+ },
+ "bukhari:6534": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Abu Hurayrah; seek forgiveness from those wronged",
+  "correct": "none"
+ },
+ "bukhari:7024": {
+  "verdict": "unverifiable",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "Number removed from the content. The sunnah.com page could not be read (HTTP 429 rate limit) or was not re-checked; claim kept without a number as \"reported\"."
+ },
+ "bukhari:7135": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Zaynab bint Jahsh; Gog and Magog breach",
+  "correct": "none"
+ },
+ "bukhari:7420": {
+  "verdict": "unverifiable",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "Number removed from the content. The sunnah.com page could not be read (HTTP 429 rate limit) or was not re-checked; claim kept without a number as \"reported\"."
+ },
+ "bukhari:7439": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Abu Said; seeing Allah on the Day",
+  "correct": "none"
+ },
+ "bukhari:98": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Ibn Abbas; preached to women, charity earrings",
+  "correct": "none"
+ },
+ "ibnmajah:1753": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Abdullah ibn Amr; fasting person's dua at iftar not rejected",
+  "correct": "none"
+ },
+ "muslim:130": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Abu Hurayrah; good intention recorded, evil not unless done",
+  "correct": "none"
+ },
+ "muslim:1348": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Aisha; Arafah frees most from hell",
+  "correct": "none"
+ },
+ "muslim:1365": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Anas; PAGE: Madinah sacred (Safiyyah? recheck)",
+  "correct": "none"
+ },
+ "muslim:1763": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Umar; angels at Badr, spoils lawful",
+  "correct": "none"
+ },
+ "muslim:182": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Abu Hurayrah; seeing Allah sun and moon",
+  "correct": "none"
+ },
+ "muslim:2052": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Jabir; vinegar good condiment",
+  "correct": "none"
+ },
+ "muslim:230": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Abu Anas; Uthman wudu description",
+  "correct": "none"
+ },
+ "muslim:2408": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Zayd ibn Arqam via Yazid ibn Hayyan; Book of Allah and Ahl al-Bayt",
+  "correct": "none"
+ },
+ "muslim:2448": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Aisha; eleven women, Umm Zar",
+  "correct": "none"
+ },
+ "muslim:2493": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Aisha; criticised Abu Hurayrah's quick narration",
+  "correct": "none"
+ },
+ "muslim:2548": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Abu Hurayrah; mother three times",
+  "correct": "tirmidhi:1162"
+ },
+ "muslim:2643": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Ibn Masud; angel records provision lifespan deeds",
+  "correct": "none"
+ },
+ "muslim:2688": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Anas; dont pray for punishment in dunya, rabbana atina",
+  "correct": "none"
+ },
+ "muslim:2731": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Abu Dharr; best words subhanallah wa bihamdihi",
+  "correct": "none"
+ },
+ "muslim:2870": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Anas; believer shown seat, grave expanded",
+  "correct": "none"
+ },
+ "muslim:2878": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Jabir; raised in state they die in, think well of Allah",
+  "correct": "none"
+ },
+ "muslim:2879": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Ibn Umar; when Allah punishes a people it strikes all, raised by deeds",
+  "correct": "none"
+ },
+ "muslim:2940": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Abdullah ibn Amr; Dajjal, Isa, trumpet?",
+  "correct": "none"
+ },
+ "muslim:2942": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Fatimah bint Qays; Jassasa/Tamim al-Dari Dajjal location",
+  "correct": "none"
+ },
+ "muslim:2947": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Abu Hurayrah; hurry before six signs",
+  "correct": "none"
+ },
+ "muslim:2949": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Ibn Masud; Hour only on worst of people",
+  "correct": "none"
+ },
+ "muslim:2984": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Abu Hurayrah; man garden cloud thirds",
+  "correct": "none"
+ },
+ "muslim:382": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Anas; dawn raid halted by adhan",
+  "correct": "none"
+ },
+ "muslim:552": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Anas; spitting in mosque",
+  "correct": "none"
+ },
+ "muslim:807": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Abd al-Rahman ibn Yazid; last two verses of Baqarah at night suffice",
+  "correct": "bukhari:3275"
+ },
+ "muslim:923": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Usama ibn Zayd; Prophet wept, mercy",
+  "correct": "muslim:2315"
+ },
+ "tirmidhi:2415": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Adi ibn Hatim; Allah speaks to each, half a date",
+  "correct": "none"
+ },
+ "tirmidhi:3050": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Bara; 5:93 asbab (drinkers before prohibition)",
+  "correct": "none"
+ },
+ "tirmidhi:3073": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Abu Hurayrah; good intention recorded (An'am tafsir)",
+  "correct": "none"
+ },
+ "tirmidhi:3095": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Adi ibn Hatim; scholars as lords",
+  "correct": "none"
+ },
+ "tirmidhi:3106": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Abu Darda; good news 10:64 righteous dream",
+  "correct": "none"
+ },
+ "tirmidhi:3143": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Bahz ibn Hakim; gathered on foot mounted dragged on faces",
+  "correct": "none"
+ },
+ "tirmidhi:3147": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Hudhayfah; did Prophet pray at Bayt al-Maqdis Night Journey",
+  "correct": "none"
+ },
+ "tirmidhi:3367": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Uqbah ibn Amir; Falaq and Nas unmatched verses",
+  "correct": "none"
+ },
+ "tirmidhi:3604": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Abu Hurayrah; PAGE SAID refuge from hell/grave/dajjal -- RECHECK vs claim 'evening three times nothing harms'",
+  "correct": "none"
+ },
+ "tirmidhi:3700": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Abd al-Rahman ibn Khabbab; Uthman camels army of hardship",
+  "correct": "none"
+ },
+ "tirmidhi:3754": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Sad; Prophet mentioned both parents at Uhud",
+  "correct": "none"
+ },
+ "tirmidhi:3797": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Anas; paradise longs for Ali Ammar Salman",
+  "correct": "none"
+ },
+ "tirmidhi:3835": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Abu Hurayrah; memory, spread cloak",
+  "correct": "none"
+ },
+ "tirmidhi:3882": {
+  "verdict": "wrong",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-20",
+  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Aisha; Jibril sends greetings",
+  "correct": "none"
+ }
+}

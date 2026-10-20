@@ -1,9 +1,9 @@
 {
  "files": {
   "family/tree.json": {
-   "bytes": 17977,
-   "sha256": "91fb19aff94f4727284ea4ec2b8aeb28243afdda87adcd9042083f5b9b7dc7aa",
-   "version": 1
+   "bytes": 28319,
+   "sha256": "af980650de8476828e8d334cd0ec399c9c4116a6fee8dc518b6e528eee340315",
+   "version": 2
   },
   "feelings/feelings.json": {
    "bytes": 26322,
@@ -26,74 +26,74 @@
    "version": 1
   },
   "guides/guides.json": {
-   "bytes": 65035,
-   "sha256": "a876a712de577e85e9e3e9b1fe7fa5138eee68601731b94955f4c36e4add514b",
-   "version": 3
+   "bytes": 66053,
+   "sha256": "e1f5d3f3743cbb9cb43714003d2637e0676e74f2a97ca6e5b653835cef67693f",
+   "version": 4
   },
   "share/cards.json": {
-   "bytes": 2571,
-   "sha256": "85d9356fd2fde681b29d9fbdc3b70e5f3a700be2332b570f6a107a88ed396e03",
-   "version": 1
+   "bytes": 2639,
+   "sha256": "f6eb3a284024dd1303a83da230f5bb9350294d281847e7b665582aa1bdcd6f8d",
+   "version": 2
   },
   "stories/companions.json": {
-   "bytes": 47086,
-   "sha256": "d1ffd9bac3d0969056f8a72bf1f472cab05f42a91112aeaff59752547f4c654a",
-   "version": 2
+   "bytes": 45078,
+   "sha256": "bc1902788ee11f44850690c5341d8087bef95d96750b4247b79c3d8d2a0f4f8e",
+   "version": 3
   },
   "stories/dailyduas.json": {
-   "bytes": 46860,
-   "sha256": "bd968fea87d6ea2e69927e8b22457f093a3146e7008c24f320ad2aaddda6e741",
-   "version": 4
+   "bytes": 47370,
+   "sha256": "f07d109c08ea8393d8f2b240f19560319a35b1929fde67402570ced7e91bb1c7",
+   "version": 5
   },
   "stories/ghayb.json": {
-   "bytes": 79984,
-   "sha256": "8fc2775c5ffb20b7f8c16d1b49b33b546f426ca33341942017800c4807531aeb",
-   "version": 1
+   "bytes": 80575,
+   "sha256": "7f67d8f287a8252cf7d4ff9c21513dbfcccb316404d032ca68dee44baf9c245f",
+   "version": 2
   },
   "stories/khutbahs.json": {
-   "bytes": 50716,
-   "sha256": "356ff2e85858e516572b4fa6cd6d585e18ea1ffa2c0e31d40acccaae9633a2ce",
-   "version": 4
+   "bytes": 50917,
+   "sha256": "3aae46190aece1633d24d77157157194f6ef1c3b6ecdbbdf9b5f1febad20849c",
+   "version": 5
   },
   "stories/modernhadith.json": {
-   "bytes": 47238,
-   "sha256": "4743c872e8e0dd2d61778d8c40d2e9650e9c44a3d28eec29f8ffc90dbe29a198",
-   "version": 7
+   "bytes": 47742,
+   "sha256": "a999e62a757299c92fe0095d4af650a84c8ebf1baada016e833c3560e4a3e995",
+   "version": 8
   },
   "stories/newmuslim.json": {
-   "bytes": 37158,
-   "sha256": "7d2e8ddc7ead5161b0707e34240688bb3813ccef657639e068725329b742edcf",
-   "version": 2
+   "bytes": 37317,
+   "sha256": "b478ff8f093df26c5740c22012de6fd8213ef970a1b39e21f6aad1cad19387f4",
+   "version": 3
   },
   "stories/prophets.json": {
-   "bytes": 61343,
-   "sha256": "2d4144b5804d1a7ff9400306bf731254cb3d161a93c398c12cb419cb97c63951",
-   "version": 2
+   "bytes": 61290,
+   "sha256": "38154f67ccf3907e118a820e1cdb5b883acc584100a3077d57d625595cf287a4",
+   "version": 3
   },
   "stories/seerah.json": {
-   "bytes": 55032,
-   "sha256": "968479cce7eb54d84266edd18e5e647a74d10682ae8f7ce28272c4e3efb45616",
-   "version": 2
+   "bytes": 55520,
+   "sha256": "783f6a31dcf4d3802f6074442a1874fcba88974c579d1e58238f96f0d4e5907f",
+   "version": 3
   },
   "stories/signs.json": {
-   "bytes": 19817,
-   "sha256": "ab6eeef87eb37b6755985990f219f1d8a6e71d9d476a9778ad317cddd3da58e1",
-   "version": 1
+   "bytes": 20381,
+   "sha256": "a99cec97fbb5b875e331f6bcc99037b8f1c7e99c9348818929f2452ded7bf5a1",
+   "version": 2
   },
   "stories/tales.json": {
-   "bytes": 21712,
-   "sha256": "b74e30ceb108d2e32646f30983e4e1f4e0c63ca3f6b71778b454d69a5088962a",
-   "version": 2
+   "bytes": 21840,
+   "sha256": "be69ed8f352a415f370c733e4cce45f303bacdb39bc45af62c4b5e52df54134e",
+   "version": 3
   },
   "stories/women.json": {
-   "bytes": 42150,
-   "sha256": "f8ebf06de4d92d5536bf0819b95acc9ec006358577680371cd06dc75350ce06d",
-   "version": 2
+   "bytes": 41637,
+   "sha256": "7922705c0746367b61a42c75546c2ab2b46192cf18fc4275f9d36ccb6880695e",
+   "version": 3
   },
   "system/module_registry.json": {
-   "bytes": 11968,
-   "sha256": "3408af4d7f9aeee2d17b557b8cbe30ece08ad57823b62c6a9525243a0cddd2cc",
-   "version": 2
+   "bytes": 12778,
+   "sha256": "ec64424b56152f0eff4d138e851c03e25b7482313026d9e7d9bdaa4816e6ce53",
+   "version": 3
   },
   "system/subscription.json": {
    "bytes": 784,

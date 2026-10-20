@@ -73,12 +73,13 @@ void main() {
       expect(session.length, 15);
     });
 
-    test('grade schedules through the deck (SM-2 wired end to end)', () {
+    test('grade schedules through the deck (FSRS wired end to end)', () {
       var deck = <String, WordCard>{};
       deck = WordDeckEngine.addCard(deck, card('a'));
       deck = WordDeckEngine.grade(
           deck: deck, key: 'a', grade: ReviewGrade.good, now: now);
-      expect(deck['a']!.review.intervalDays, 1);
+      expect(deck['a']!.review.intervalDays, 2,
+          reason: 'FSRS-6 first Good = 2 days');
       deck = WordDeckEngine.grade(
           deck: deck, key: 'a', grade: ReviewGrade.again, now: now);
       expect(deck['a']!.review.repetitions, 0,

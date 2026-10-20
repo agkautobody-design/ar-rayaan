@@ -34,6 +34,18 @@ enum CrisisKind {
   /// Someone is hurting, threatening or forcing the person (domestic
   /// violence, child abuse, sexual assault).
   abuse,
+
+  /// A child or young person is being pressured, groomed, blackmailed or
+  /// touched by someone (online or in person), or is being told to keep a
+  /// secret about it.
+  childSafety,
+
+  /// Starving, purging, bingeing or punishing the body through food.
+  eatingDisorder,
+
+  /// First-person intent to join or serve a violent group, or to hurt people
+  /// for their religion.
+  extremism,
 }
 
 /// One phrase to look for, with optional guards against known false alarms.
@@ -80,8 +92,11 @@ abstract final class CrisisDetector {
         continue;
       }
       // Arabic harakat, tatweel and dagger alef vanish.
-      if ((c >= 0x064B && c <= 0x065F) || c == 0x0640 || c == 0x0670) {
-        continue;
+      if ((c >= 0x064B && c <= 0x065F) ||
+          c == 0x0640 ||
+          c == 0x0670 ||
+          c == 0x0307) {
+        continue; // harakat, tatweel, dagger alef, combining dot above
       }
       // Fold letter variants so typing style does not matter.
       if (c == 0x0623 || c == 0x0625 || c == 0x0622) c = 0x0627; // alef forms
@@ -97,6 +112,8 @@ abstract final class CrisisDetector {
           c == 0x061B ||
           c == 0x061F ||
           c == 0x06D4 ||
+          c == 0x0964 ||
+          c == 0x0965 ||
           c == 0xD7;
       final bool keep = ascii || (c > 0x7F && !separatorSymbol);
       if (keep) {
@@ -337,6 +354,10 @@ abstract final class CrisisDetector {
     const _Pat('suicide attempt'),
     const _Pat('suicide note'),
     const _Pat('sucide'),
+    const _Pat('sucidal'),
+    const _Pat('suiciddal'),
+    const _Pat('suicidel'),
+    const _Pat('suicidial'),
     const _Pat('suicde'),
     const _Pat('suiside'),
     // Arabic
@@ -377,6 +398,184 @@ abstract final class CrisisDetector {
     const _Pat('ölmek istiyorum'),
     const _Pat('quiero morir'),
     const _Pat('quiero morirme'),
+    // Slang and indirect English
+    const _Pat('unalive myself'),
+    const _Pat('unalive me'),
+    const _Pat('unaliving myself'),
+    const _Pat('unalive'),
+    const _Pat('gonna kms'),
+    const _Pat('going to kms'),
+    const _Pat('wanna kms'),
+    const _Pat('want to kms'),
+    const _Pat('just kms'),
+    const _Pat('should kms'),
+    const _Pat('ima kms'),
+    const _Pat('ill kms'),
+    const _Pat('time to kms'),
+    const _Pat('to sleep forever'),
+    const _Pat('just sleep forever'),
+    const _Pat('and sleep forever'),
+    const _Pat('sleep and never wake up'),
+    const _Pat('wish i would never wake up'),
+    const _Pat('wish i never woke up'),
+    const _Pat('never want to wake up'),
+    const _Pat('wish i wasnt alive'),
+    const _Pat('wish i was not alive'),
+    const _Pat('wish i werent alive'),
+    const _Pat('wish i wasnt here'),
+    const _Pat('wish i was not here'),
+    const _Pat('dont want to be here'),
+    const _Pat('do not want to be here'),
+    const _Pat('world would be better without me'),
+    const _Pat('world is better without me'),
+    const _Pat('better without me'),
+    const _Pat('im a burden'),
+    const _Pat('i am a burden'),
+    const _Pat('im just a burden'),
+    const _Pat('i am just a burden'),
+    const _Pat('burden to everyone'),
+    const _Pat('burden on everyone'),
+    const _Pat('want to disappear'),
+    const _Pat('wanna disappear'),
+    const _Pat('disappear forever'),
+    const _Pat('ready to die', notFollowedBy: _religiousDeathContinuations),
+    const _Pat('giving up on living'),
+    const _Pat('give up on living'),
+    const _Pat('cant take it anymore'),
+    const _Pat('cant take this anymore'),
+    const _Pat('cant do this anymore'),
+    const _Pat('see no way out'),
+    const _Pat('there is no way out'),
+    const _Pat('theres no way out'),
+    const _Pat('end myself'),
+    const _Pat('off myself'),
+    const _Pat('offing myself'),
+    const _Pat('hanged myself'),
+    const _Pat('self injury'),
+    const _Pat('self injure'),
+    const _Pat('self injuring'),
+    const _Pat('burn myself on purpose'),
+    const _Pat('burning myself on purpose'),
+    const _Pat('burned myself on purpose'),
+    const _Pat('burn myself with a cigarette'),
+    const _Pat('ways to die', notFollowedBy: _religiousDeathContinuations),
+    const _Pat('way to die', notFollowedBy: _religiousDeathContinuations),
+    const _Pat('how to die', notFollowedBy: _religiousDeathContinuations),
+    const _Pat('how do i die'),
+    const _Pat('pills to die'),
+    const _Pat('swallow pills to die'),
+    // Religious framing of wanting death
+    const _Pat('wish allah would take me'),
+    const _Pat('wish allah would take my life'),
+    const _Pat('wish allah would take my soul'),
+    const _Pat('wish god would take me'),
+    const _Pat('wish god would take my life'),
+    const _Pat('ask allah to take my life'),
+    const _Pat('ask allah to take me'),
+    const _Pat('ask allah for death'),
+    const _Pat('pray for death'),
+    const _Pat('praying for death'),
+    const _Pat('praying to die'),
+    const _Pat('prayed to die'),
+    const _Pat('prayed for death'),
+    const _Pat('pray to die'),
+    const _Pat('pray that i die'),
+    // Arabic additions (ta marbuta spelling, Gulf and Levantine forms)
+    const _Pat('تعبت من الحياة'),
+    const _Pat('مليت من الحياة'),
+    const _Pat('زهقت من الحياة'),
+    const _Pat('كرهت حياتي'),
+    const _Pat('اكره حياتي'),
+    const _Pat('لا اريد الحياة'),
+    const _Pat('ليتني مت'),
+    const _Pat('ليتني كنت ميتا'),
+    const _Pat('اتمني لو مت'),
+    const _Pat('لا فائدة من الحياة'),
+    const _Pat('ساقتل نفسي'),
+    const _Pat('اريد ان اقتل نفسي'),
+    const _Pat('اريد ان ارتاح من الحياة'),
+    const _Pat('مش عايز اعيش'),
+    const _Pat('مش عاوز اعيش'),
+    const _Pat('عايز اموت'),
+    const _Pat('عاوز اموت'),
+    // Urdu script and Roman Urdu additions
+    const _Pat('مر جانا چاہتا ہوں'),
+    const _Pat('مر جانا چاہتی ہوں'),
+    const _Pat('جینا نہیں چاہتا'),
+    const _Pat('جینا نہیں چاہتی'),
+    const _Pat('زندگی ختم کرنا چاہتا ہوں'),
+    const _Pat('زندگی ختم کرنا چاہتی ہوں'),
+    const _Pat('خود کو مارنا چاہتا ہوں'),
+    const _Pat('خود کو مارنا چاہتی ہوں'),
+    const _Pat('mar jana chahta hoon'),
+    const _Pat('mar jana chahti hoon'),
+    const _Pat('mar jana chahta hun'),
+    const _Pat('mar jana chahti hun'),
+    const _Pat('jeena nahi chahta'),
+    const _Pat('jeena nahi chahti'),
+    const _Pat('jeene ka mann nahi'),
+    const _Pat('zindagi se tang aa gaya'),
+    const _Pat('zindagi se tang aa gayi'),
+    const _Pat('maut chahta hoon'),
+    const _Pat('maut chahti hoon'),
+    const _Pat('khud ko khatam'),
+    // Hindi
+    const _Pat('मरना चाहता हूं'),
+    const _Pat('मरना चाहता हूँ'),
+    const _Pat('मरना चाहती हूं'),
+    const _Pat('मरना चाहती हूँ'),
+    const _Pat('जीना नहीं चाहता'),
+    const _Pat('जीना नहीं चाहती'),
+    const _Pat('जीने का मन नहीं'),
+    const _Pat('खुद को खत्म'),
+    // Bengali
+    const _Pat('মরে যেতে চাই'),
+    const _Pat('মরতে চাই'),
+    const _Pat('বাঁচতে চাই না'),
+    // Turkish
+    const _Pat('intihar etmek istiyorum'),
+    const _Pat('yaşamak istemiyorum'),
+    const _Pat('kendimi öldürmek'),
+    const _Pat('kendimi öldüreceğim'),
+    const _Pat('hayatıma son vermek'),
+    // French
+    const _Pat('je veux mourir'),
+    const _Pat('jai envie de mourir'),
+    const _Pat('envie de mourir'),
+    const _Pat('je veux me tuer'),
+    const _Pat('je vais me tuer'),
+    const _Pat('me suicider'),
+    const _Pat('je veux en finir'),
+    const _Pat('en finir avec la vie'),
+    const _Pat('je ne veux plus vivre'),
+    const _Pat('je nai plus envie de vivre'),
+    const _Pat('plus envie de vivre'),
+    const _Pat('je veux disparaître'),
+    // Spanish
+    const _Pat('me quiero morir'),
+    const _Pat('quiero matarme'),
+    const _Pat('quiero suicidarme'),
+    const _Pat('no quiero vivir'),
+    const _Pat('no quiero seguir viviendo'),
+    const _Pat('voy a matarme'),
+    const _Pat('acabar con mi vida'),
+    const _Pat('quitarme la vida'),
+    // Indonesian / Malay
+    const _Pat('tidak mau hidup'),
+    const _Pat('tidak ingin hidup'),
+    const _Pat('tak nak hidup'),
+    const _Pat('tak mahu hidup'),
+    const _Pat('capek hidup'),
+    const _Pat('penat hidup'),
+    // Persian
+    const _Pat('می خواهم بمیرم'),
+    const _Pat('میخواهم بمیرم'),
+    const _Pat('می خوام بمیرم'),
+    const _Pat('میخوام بمیرم'),
+    const _Pat('دلم می خواهد بمیرم'),
+    const _Pat('نمی خواهم زندگی کنم'),
+    const _Pat('نمی خوام زندگی کنم'),
+    const _Pat('از زندگی خسته شدم'),
   ];
 
   /// Words that, alone, mean the subject of suicide has come up. Whether
@@ -424,6 +623,7 @@ abstract final class CrisisDetector {
     const _Pat('bunuh diri'),
     const _Pat('intihar'),
     const _Pat('आत्महत्या'),
+    const _Pat('আত্মহত্যা'),
     const _Pat('suicidio'),
     const _Pat('suicidarme'),
   ];
@@ -515,8 +715,49 @@ abstract final class CrisisDetector {
     'suddenly',
   ];
 
+  /// "my dad hits the gym" is not about violence at home.
+  static const List<String> _benignHits = <String>['the', 'a', 'an'];
+
+  /// "my dad beats me at chess" is not about violence at home.
+  static const List<String> _benignBeats = <String>[
+    'me at',
+    'me in',
+    'us at',
+    'the',
+    'a',
+    'an',
+  ];
+
+  /// "he beats me at chess" is a game, not violence. Only games and sports
+  /// are listed: "beats me at night" must still be caught.
+  static const List<String> _benignBeatsMe = <String>[
+    'at chess',
+    'at cards',
+    'at ludo',
+    'at games',
+    'at a game',
+    'at the game',
+    'at football',
+    'at soccer',
+    'at cricket',
+    'at tennis',
+    'at pool',
+    'at scrabble',
+    'at monopoly',
+    'at fifa',
+    'at video games',
+    'at every game',
+    'to it',
+    'to the punch',
+  ];
+
   static final List<_Pat> _abuse = <_Pat>[
-    const _Pat('beats me', needsPrevious: true, notAfter: _idiomPrevious),
+    const _Pat(
+      'beats me',
+      needsPrevious: true,
+      notAfter: _idiomPrevious,
+      notFollowedBy: _benignBeatsMe,
+    ),
     const _Pat('beating me'),
     const _Pat('beat me'),
     const _Pat('beaten me'),
@@ -550,18 +791,18 @@ abstract final class CrisisDetector {
     const _Pat('husband beat', notFollowedBy: <String>['his wife']),
     const _Pat('husband hit', notFollowedBy: <String>['his wife']),
     const _Pat('wife beats', notFollowedBy: <String>['her husband']),
-    const _Pat('father beats'),
-    const _Pat('father hits'),
-    const _Pat('dad beats'),
-    const _Pat('dad hits'),
-    const _Pat('mother beats'),
-    const _Pat('mother hits'),
-    const _Pat('mom beats'),
-    const _Pat('mom hits'),
-    const _Pat('mum beats'),
-    const _Pat('mum hits'),
-    const _Pat('brother beats'),
-    const _Pat('brother hits'),
+    const _Pat('father beats', notFollowedBy: _benignBeats),
+    const _Pat('father hits', notFollowedBy: _benignHits),
+    const _Pat('dad beats', notFollowedBy: _benignBeats),
+    const _Pat('dad hits', notFollowedBy: _benignHits),
+    const _Pat('mother beats', notFollowedBy: _benignBeats),
+    const _Pat('mother hits', notFollowedBy: _benignHits),
+    const _Pat('mom beats', notFollowedBy: _benignBeats),
+    const _Pat('mom hits', notFollowedBy: _benignHits),
+    const _Pat('mum beats', notFollowedBy: _benignBeats),
+    const _Pat('mum hits', notFollowedBy: _benignHits),
+    const _Pat('brother beats', notFollowedBy: _benignBeats),
+    const _Pat('brother hits', notFollowedBy: _benignHits),
     const _Pat('parents beat'),
     const _Pat('parents hit'),
     const _Pat('abuses me'),
@@ -638,9 +879,140 @@ abstract final class CrisisDetector {
     const _Pat('العنف الاسري'),
   ];
 
+  // ── Child safety: grooming, sextortion, secrecy ────────────────────
+
+  static final List<_Pat> _childSafety = <_Pat>[
+    const _Pat('asked me to send pictures'),
+    const _Pat('asked me to send photos'),
+    const _Pat('asked me to send nudes'),
+    const _Pat('asked me for nudes'),
+    const _Pat('asking me for nudes'),
+    const _Pat('asking me for pictures of my body'),
+    const _Pat('asking me to send pictures'),
+    const _Pat('asking me to send photos'),
+    const _Pat('asks me to send pictures'),
+    const _Pat('asks me to send photos'),
+    const _Pat('wants me to send pictures'),
+    const _Pat('wants me to send photos'),
+    const _Pat('wants nudes'),
+    const _Pat('nude pictures of me'),
+    const _Pat('nude photos of me'),
+    const _Pat('groomed me'),
+    const _Pat('grooming me'),
+    const _Pat('being groomed'),
+    const _Pat('online groomer'),
+    const _Pat('told me not to tell'),
+    const _Pat('tells me not to tell'),
+    const _Pat('told me to keep it secret'),
+    const _Pat('told me to keep it a secret'),
+    const _Pat('keep it a secret from my parents'),
+    const _Pat('keep it secret from my parents'),
+    const _Pat('dont tell your parents'),
+    const _Pat('do not tell your parents'),
+    const _Pat('older man online'),
+    const _Pat('older guy online'),
+    const _Pat('older boy online'),
+    const _Pat('adult online asked'),
+    const _Pat('stranger online asked'),
+    const _Pat('touched my private parts'),
+    const _Pat('touched me there'),
+    const _Pat('made me touch'),
+    const _Pat('showed me porn'),
+    const _Pat('showed me inappropriate videos'),
+    const _Pat('sextortion'),
+    const _Pat('blackmailing me with my pictures'),
+    const _Pat('blackmailing me with my photos'),
+    const _Pat('threatened to share my pictures'),
+    const _Pat('threatened to share my photos'),
+    const _Pat('threatens to leak my photos'),
+    const _Pat('threatens to leak my pictures'),
+    const _Pat('threatened to leak my photos'),
+  ];
+
+  // ── Eating disorders ───────────────────────────────────────────────
+
+  static final List<_Pat> _eating = <_Pat>[
+    const _Pat('starving myself'),
+    const _Pat('starve myself'),
+    const _Pat('starved myself'),
+    const _Pat('not eating for days'),
+    const _Pat('havent eaten in days'),
+    const _Pat('havent eaten for days'),
+    const _Pat('stopped eating completely'),
+    const _Pat('stopped eating altogether'),
+    const _Pat('make myself throw up'),
+    const _Pat('making myself throw up'),
+    const _Pat('make myself vomit'),
+    const _Pat('making myself vomit'),
+    const _Pat('made myself throw up'),
+    const _Pat('made myself vomit'),
+    const _Pat('binge and purge'),
+    const _Pat('purge after eating'),
+    const _Pat('purging after'),
+    const _Pat('i purge'),
+    const _Pat('i binge', notFollowedBy: <String>['watch', 'watched', 'watching', 'read', 'reading', 'listen']),
+    const _Pat('anorexia'),
+    const _Pat('anorexic'),
+    const _Pat('bulimia'),
+    const _Pat('bulimic'),
+    const _Pat('eating disorder'),
+    const _Pat('punish myself by not eating'),
+    const _Pat('punish myself with fasting'),
+    const _Pat('dont deserve to eat'),
+    const _Pat('do not deserve to eat'),
+    const _Pat('dont deserve food'),
+    const _Pat('taking laxatives to lose weight'),
+    const _Pat('laxatives to lose weight'),
+    const _Pat('اجوع نفسي'),
+    const _Pat('اتقيا عمدا'),
+    const _Pat('khud ko bhooka rakhta'),
+    const _Pat('khud ko bhooka rakhti'),
+  ];
+
+  // ── Extremism: first-person intent only ────────────────────────────
+
+  static final List<_Pat> _extremism = <_Pat>[
+    const _Pat('i want to join isis'),
+    const _Pat('i want to join daesh'),
+    const _Pat('i want to join al qaeda'),
+    const _Pat('i want to join al shabaab'),
+    const _Pat('i want to join a terrorist group'),
+    const _Pat('i want to join the terrorists'),
+    const _Pat('how do i join isis'),
+    const _Pat('how can i join isis'),
+    const _Pat('how to join isis'),
+    const _Pat('how do i join daesh'),
+    const _Pat('how can i join daesh'),
+    const _Pat('how to join daesh'),
+    const _Pat('how to join al qaeda'),
+    const _Pat('how do i join al qaeda'),
+    const _Pat('how to join a terrorist group'),
+    const _Pat('i want to kill kafirs'),
+    const _Pat('i want to kill non muslims'),
+    const _Pat('i want to kill all non muslims'),
+    const _Pat('i want to kill the kuffar'),
+    const _Pat('i want to kill all the kuffar'),
+    const _Pat('i want to kill christians'),
+    const _Pat('i want to kill jews'),
+    const _Pat('i want to kill shia'),
+    const _Pat('i want to become a suicide bomber'),
+    const _Pat('i want to be a suicide bomber'),
+    const _Pat('i want to blow myself up'),
+    const _Pat('how to make a bomb'),
+    const _Pat('how to build a bomb'),
+    const _Pat('i am planning an attack'),
+    const _Pat('im planning an attack'),
+    const _Pat('انضم الى داعش'),
+    const _Pat('اريد الانضمام الى داعش'),
+    const _Pat('اريد ان انضم الى داعش'),
+  ];
+
   static final List<_Pat> _selfHarmNormalized = _normalizeAll(_selfHarm);
   static final List<_Pat> _conceptNormalized = _normalizeAll(_suicideConcept);
   static final List<_Pat> _abuseNormalized = _normalizeAll(_abuse);
+  static final List<_Pat> _childNormalized = _normalizeAll(_childSafety);
+  static final List<_Pat> _eatingNormalized = _normalizeAll(_eating);
+  static final List<_Pat> _extremismNormalized = _normalizeAll(_extremism);
   static final List<String> _questionNormalized = <String>[
     for (final String m in _questionMarkers) normalize(m),
   ];
@@ -730,7 +1102,10 @@ abstract final class CrisisDetector {
       return question ? CrisisKind.suicideQuestion : CrisisKind.selfHarm;
     }
 
+    if (_anyMatch(tokens, _childNormalized)) return CrisisKind.childSafety;
     if (_anyMatch(tokens, _abuseNormalized)) return CrisisKind.abuse;
+    if (_anyMatch(tokens, _eatingNormalized)) return CrisisKind.eatingDisorder;
+    if (_anyMatch(tokens, _extremismNormalized)) return CrisisKind.extremism;
     return null;
   }
 }
@@ -756,6 +1131,20 @@ abstract final class CrisisResponses {
         };
       case CrisisKind.abuse:
         return const <HelpKind>{HelpKind.abuse, HelpKind.emergency};
+      case CrisisKind.childSafety:
+        return const <HelpKind>{
+          HelpKind.child,
+          HelpKind.abuse,
+          HelpKind.emergency,
+        };
+      case CrisisKind.eatingDisorder:
+        return const <HelpKind>{
+          HelpKind.eating,
+          HelpKind.suicide,
+          HelpKind.emergency,
+        };
+      case CrisisKind.extremism:
+        return const <HelpKind>{HelpKind.emergency};
     }
   }
 
@@ -804,14 +1193,13 @@ abstract final class CrisisResponses {
             'it honestly, but first: if you are asking because you are in '
             'pain yourself, or because you lost someone this way, you are '
             'not being judged here.\n\n'
-            'Most scholars teach that life is a trust from Allah that we '
-            'are not to end: “And do not kill yourselves [or one another]. '
-            'Indeed, Allah is to you ever Merciful.” (Qur’an 4:29). But '
-            'that is never the first thing a hurting person needs to hear, '
-            'and it is not the whole of what Islam says about you. '
-            'Judgement of any person belongs to Allah alone, and His mercy '
-            'is vaster than our fear. For a ruling about someone you lost, '
-            'please ask a qualified scholar in person.\n\n'
+            'The Qur’an says: “And do not kill yourselves [or one '
+            'another]. Indeed, Allah is to you ever Merciful.” (Qur’an '
+            '4:29). That is never the first thing a hurting person needs to '
+            'hear, and it is not the whole of what Islam says about you. '
+            'Judgement of any person belongs to Allah alone. For a ruling '
+            'about someone you lost, please ask a qualified scholar in '
+            'person.\n\n'
             '$_quran3953\n\n'
             'If any part of this is about you, please talk to a real '
             'person now:\n\n'
@@ -826,12 +1214,57 @@ abstract final class CrisisResponses {
             'anything tonight.\n\n'
             'If you are in danger right now, call your local emergency '
             'number. If you can leave safely, go to someone you trust. '
-            'These lines are confidential:\n\n'
+            'These lines are for people in your situation:\n\n'
             '$lines\n\n'
             'If you are asking for someone else, the same lines can advise '
             'you. A trusted imam or scholar can help too, and a good one '
             'will put your safety first. If you want to talk it through '
-            'here, I am listening.';
+            'here, I am listening, and I will keep this conversation on '
+            'your device.';
+      case CrisisKind.childSafety:
+        return 'I am glad you told me. Someone who asks for pictures, '
+            'tells you to keep a secret from your parents, or touches you '
+            'in a way that feels wrong is doing something wrong. It is not '
+            'your fault and you are not in trouble.\n\n'
+            'Please do three things: stop answering them (keep the '
+            'messages, they can help), tell a parent or another adult you '
+            'trust today, and if you are in danger right now call your '
+            'local emergency number.\n\n'
+            '$lines\n\n'
+            'These lines are for young people. If it feels too hard to say '
+            'it at home, a teacher, an imam you trust, or one of these '
+            'lines can help you find the words. I am an app, not a person, '
+            'so the people behind these lines matter more than anything I '
+            'can say.';
+      case CrisisKind.eatingDisorder:
+        return 'Thank you for telling me. Starving, purging or punishing '
+            'your body with food is a real struggle, not a failure of '
+            'faith or of character, and a doctor can help. You deserve '
+            'care.\n\n'
+            'The Qur’an, speaking about fasting, says: “Allah intends for '
+            'you ease and does not intend for you hardship.” (Qur’an '
+            '2:185) If fasting has become a way to punish or control '
+            'yourself, please talk to a doctor, and ask a qualified scholar '
+            'about your fasts. Your health comes first.\n\n'
+            '$lines\n\n'
+            'If you feel faint, have chest pain, or have thoughts of '
+            'ending your life, call your local emergency number now. I am '
+            'an app, not a doctor.';
+      case CrisisKind.extremism:
+        return 'I cannot help with that, and I will not. I am also not '
+            'going to lecture you. If something is pulling you toward '
+            'violence (anger at what you have seen, a group that wants '
+            'you, a voice telling you it is your duty), please talk to a '
+            'person you trust before you do anything: a local imam, a '
+            'teacher, a family member.\n\n'
+            'The Qur’an says: “…whoever kills a soul unless for a soul or '
+            'for corruption [done] in the land - it is as if he had slain '
+            'mankind entirely. And whoever saves one - it is as if he had '
+            'saved mankind entirely.” (Qur’an 5:32, a decree upon the '
+            'Children of Israel)\n\n'
+            'If you or anyone else is in danger right now, call your local '
+            'emergency number:\n\n'
+            '$lines';
     }
   }
 
@@ -839,13 +1272,50 @@ abstract final class CrisisResponses {
   /// already shown a moment ago (so a follow-up question is not blocked,
   /// but help stays in view).
   static String reminderFor(CrisisKind kind) {
-    if (kind == CrisisKind.abuse) {
-      return 'If you are in danger, please call your local emergency '
-          'number. The confidential help lines above are still there for '
-          'you.';
+    switch (kind) {
+      case CrisisKind.abuse:
+        return 'If you are in danger, please call your local emergency '
+            'number. The help lines above are still there for you.';
+      case CrisisKind.childSafety:
+        return 'If someone is hurting or pressuring you, tell a trusted '
+            'adult today. The lines above are for young people.';
+      case CrisisKind.eatingDisorder:
+        return 'A doctor can help with this. The lines above are still '
+            'there for you.';
+      case CrisisKind.extremism:
+        return 'If anyone is in danger, call your local emergency number.';
+      case CrisisKind.selfHarm:
+      case CrisisKind.suicideQuestion:
+        return 'If any part of this is about you, the help lines above are '
+            'still there, and your local emergency number is always an '
+            'option.';
     }
-    return 'If any part of this is about you, the help lines above are '
-        'still there, and your local emergency number is always an '
-        'option.';
+  }
+
+  /// A short fixed follow-up when the same moment continues. Never goes to
+  /// a live provider.
+  static String followUpFor(CrisisKind kind) {
+    switch (kind) {
+      case CrisisKind.abuse:
+        return 'I am here. Your safety comes first. If you are in danger '
+            'right now, call your local emergency number. The lines above '
+            'are for people in your situation, and I will keep this '
+            'conversation on your device.';
+      case CrisisKind.childSafety:
+        return 'You did the right thing by telling someone. Please also '
+            'tell a parent or another adult you trust today, and keep the '
+            'messages. The lines above are for young people.';
+      case CrisisKind.eatingDisorder:
+        return 'I hear you. This is worth telling a doctor, and the lines '
+            'above can help you find support. You do not have to fix it '
+            'alone or tonight.';
+      case CrisisKind.extremism:
+        return 'I will not help with that. Please talk to a person you '
+            'trust, such as a local imam, before you do anything. If anyone '
+            'is in danger, call your local emergency number.';
+      case CrisisKind.selfHarm:
+      case CrisisKind.suicideQuestion:
+        return reminderFor(kind);
+    }
   }
 }

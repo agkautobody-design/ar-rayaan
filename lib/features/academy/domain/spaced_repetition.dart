@@ -1,15 +1,19 @@
-/// Spaced repetition — the SM-2 scheduling engine for the word deck.
+/// Spaced repetition — the review-card model and the legacy SM-2 engine.
 ///
-/// Classic SuperMemo-2 (1987, public domain algorithm), implemented
-/// against our domain: each [ReviewCard] tracks easiness factor,
-/// interval days, and due date. Grades map to SM-2 quality 0–5.
+/// SCHEDULING NOW RUNS ON FSRS (see `fsrs.dart`): every grade in the app goes
+/// through `Fsrs.schedule`. [Sm2Engine] is kept (nothing is deleted) for its
+/// queue helpers ([Sm2Engine.dueQueue], [Sm2Engine.freshCards]) and so old
+/// saved cards can still be read; its `schedule` is no longer called by the
+/// app. Each [ReviewCard] still carries easiness / interval / repetitions so
+/// saved decks and the doctor probe keep working, and now also the FSRS state
+/// (stability, difficulty, last review, lapses).
 ///
 /// Dignity-first (Charter): "Again" never punishes emotionally — it
 /// simply schedules sooner. No streaks lost, no red UI.
 library;
 
-/// The learner's self-grade on a review card.
-enum ReviewGrade { again, good, easy }
+/// The learner's self-grade on a review card (FSRS's four buttons).
+enum ReviewGrade { again, hard, good, easy }
 
 /// Scheduling state for one card.
 class ReviewCard {
@@ -19,6 +23,10 @@ class ReviewCard {
     this.intervalDays = 0,
     this.repetitions = 0,
     required this.dueDate,
+    this.stability,
+    this.difficulty,
+    this.lastReviewed,
+    this.lapses = 0,
   });
 
   /// Stable identity — the deck word this card drills.
@@ -36,11 +44,28 @@ class ReviewCard {
   /// When the card comes due.
   final DateTime dueDate;
 
+  /// FSRS stability in days (null until the first FSRS review, or until a
+  /// legacy SM-2 card is migrated by `Fsrs.schedule`).
+  final double? stability;
+
+  /// FSRS difficulty, 1 (easy) to 10 (hard).
+  final double? difficulty;
+
+  /// When the card was last answered (null = never reviewed).
+  final DateTime? lastReviewed;
+
+  /// Times the card was forgotten after having been learned.
+  final int lapses;
+
   ReviewCard copyWith({
     double? easiness,
     int? intervalDays,
     int? repetitions,
     DateTime? dueDate,
+    double? stability,
+    double? difficulty,
+    DateTime? lastReviewed,
+    int? lapses,
   }) =>
       ReviewCard(
         wordKey: wordKey,
@@ -48,6 +73,10 @@ class ReviewCard {
         intervalDays: intervalDays ?? this.intervalDays,
         repetitions: repetitions ?? this.repetitions,
         dueDate: dueDate ?? this.dueDate,
+        stability: stability ?? this.stability,
+        difficulty: difficulty ?? this.difficulty,
+        lastReviewed: lastReviewed ?? this.lastReviewed,
+        lapses: lapses ?? this.lapses,
       );
 
   Map<String, dynamic> toJson() => <String, dynamic>{
@@ -56,6 +85,10 @@ class ReviewCard {
         'intervalDays': intervalDays,
         'repetitions': repetitions,
         'dueDate': dueDate.toIso8601String(),
+        if (stability != null) 'stability': stability,
+        if (difficulty != null) 'difficulty': difficulty,
+        if (lastReviewed != null) 'lastReviewed': lastReviewed!.toIso8601String(),
+        if (lapses != 0) 'lapses': lapses,
       };
 
   factory ReviewCard.fromJson(Map<String, dynamic> json) => ReviewCard(
@@ -64,6 +97,12 @@ class ReviewCard {
         intervalDays: (json['intervalDays'] as num?)?.toInt() ?? 0,
         repetitions: (json['repetitions'] as num?)?.toInt() ?? 0,
         dueDate: DateTime.parse(json['dueDate'] as String),
+        stability: (json['stability'] as num?)?.toDouble(),
+        difficulty: (json['difficulty'] as num?)?.toDouble(),
+        lastReviewed: json['lastReviewed'] == null
+            ? null
+            : DateTime.parse(json['lastReviewed'] as String),
+        lapses: (json['lapses'] as num?)?.toInt() ?? 0,
       );
 }
 
@@ -73,6 +112,7 @@ abstract final class Sm2Engine {
 
   static const Map<ReviewGrade, int> _quality = <ReviewGrade, int>{
     ReviewGrade.again: 1,
+    ReviewGrade.hard: 3,
     ReviewGrade.good: 4, // SM-2 "correct with hesitation" — keeps ease steady (3 drifted it down)
     ReviewGrade.easy: 5,
   };

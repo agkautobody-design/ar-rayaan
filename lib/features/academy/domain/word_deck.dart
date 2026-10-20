@@ -8,6 +8,7 @@
 /// tap-a-word loop (the moat).
 library;
 
+import 'fsrs.dart';
 import 'mushaf_layout.dart' show AyahLocation;
 import 'recitation_audio.dart' show AyahRef;
 import 'spaced_repetition.dart';
@@ -23,6 +24,7 @@ class WordCard {
 
     /// Three-letter (or topic) root in Arabic, e.g. ك ت ب.
     this.root,
+    this.glossSource,
     this.occurrences = 1,
     this.frequencyRank,
     this.sourceAyah,
@@ -35,6 +37,12 @@ class WordCard {
   final String arabic;
   final String gloss;
   final String? root;
+
+  /// Where [gloss] (and [root]) come from: a named, licence-checked source.
+  /// Without one the meaning is never shown (rule: never invent a gloss or
+  /// a root). The shipped pack has no licensed source yet, so its meanings
+  /// stay hidden; see docs in the PR.
+  final String? glossSource;
   final int occurrences;
   final int? frequencyRank;
   final AyahRef? sourceAyah;
@@ -48,13 +56,19 @@ class WordCard {
   /// hold the truncated verse snippets the first pack shipped as glosses
   /// ("... (in context)"); those are never shown as a meaning.
   bool get hasMeaning =>
-      gloss.trim().isNotEmpty && !gloss.contains('(in context)');
+      gloss.trim().isNotEmpty &&
+      !gloss.contains('(in context)') &&
+      hasSource;
+
+  /// True when a named source backs the meaning and root.
+  bool get hasSource => glossSource?.trim().isNotEmpty ?? false;
 
   WordCard copyWith({ReviewCard? review}) => WordCard(
         key: key,
         arabic: arabic,
         gloss: gloss,
         root: root,
+        glossSource: glossSource,
         occurrences: occurrences,
         frequencyRank: frequencyRank,
         sourceAyah: sourceAyah,
@@ -67,6 +81,7 @@ class WordCard {
         'arabic': arabic,
         'gloss': gloss,
         if (root != null) 'root': root,
+        if (glossSource != null) 'glossSource': glossSource,
         'occurrences': occurrences,
         if (frequencyRank != null) 'frequencyRank': frequencyRank,
         if (sourceAyah != null)
@@ -87,6 +102,7 @@ class WordCard {
       arabic: json['arabic'] as String,
       gloss: json['gloss'] as String,
       root: json['root'] as String?,
+      glossSource: json['glossSource'] as String?,
       occurrences: (json['occurrences'] as num?)?.toInt() ?? 1,
       frequencyRank: json['frequencyRank'] as int?,
       sourceAyah: sa == null ? null : AyahRef(sa[0] as int, sa[1] as int),
@@ -124,7 +140,7 @@ abstract final class WordDeckEngine {
   }) {
     // Fresh cards (never reviewed) enter via the fresh lane only — a
     // new word is an introduction, not a failed review.
-    final List<WordCard> due = Sm2Engine.dueQueue(
+    final List<WordCard> due = Fsrs.dueQueue(
       deck.values
           // "Reviewed before" = scheduled at least once. A card graded
           // Again has repetitions == 0 but intervalDays == 1; it must
@@ -135,7 +151,7 @@ abstract final class WordDeckEngine {
           .toList(),
       now,
     ).map((ReviewCard r) => deck[r.wordKey]!).toList();
-    final List<WordCard> fresh = Sm2Engine.freshCards(
+    final List<WordCard> fresh = Fsrs.freshCards(
       deck.values.map((WordCard c) => c.review).toList(),
     ).map((ReviewCard r) => deck[r.wordKey]!).toList();
     final List<WordCard> session = <WordCard>[...due, ...fresh];
@@ -153,7 +169,7 @@ abstract final class WordDeckEngine {
   }) {
     final WordCard? card = deck[key];
     if (card == null) return deck;
-    final ReviewCard updated = Sm2Engine.schedule(card.review, grade, now);
+    final ReviewCard updated = Fsrs.schedule(card.review, grade, now);
     return <String, WordCard>{...deck, key: card.copyWith(review: updated)};
   }
 }

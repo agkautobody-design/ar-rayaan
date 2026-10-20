@@ -8,6 +8,7 @@ import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/theme/widgets/speak_button.dart';
 import '../../hadi/application/hadi_controller.dart';
 import '../domain/story.dart';
+import 'story_layers_section.dart';
 
 class StoryReaderScreen extends StatefulWidget {
   final Story story;
@@ -139,6 +140,7 @@ class _StoryReaderScreenState extends State<StoryReaderScreen> {
             ],
           ),
           const SizedBox(height: 20),
+          StoryLayersSection(storyId: story.id),
           GlassCard(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

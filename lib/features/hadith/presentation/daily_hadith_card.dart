@@ -60,7 +60,7 @@ class DailyHadithHero extends ConsumerWidget {
           ),
           const SizedBox(height: 2),
           Text(
-            hadith.source,
+            hadith.sourceLine,
             style: AppText.eyebrow.copyWith(
               fontSize: 9,
               color: AppColors.gold.withValues(alpha: 0.7),
@@ -257,7 +257,7 @@ class _FeelingResponseView extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           Text(
-            r.source,
+            r.sourceLine,
             style: AppText.eyebrow.copyWith(
               fontSize: 8.5,
               color: AppColors.gold.withValues(alpha: 0.6),

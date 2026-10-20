@@ -7,6 +7,8 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../../sakina/domain/crisis_detector.dart';
+import '../../sakina/presentation/widgets/need_help_button.dart';
 
 /// On-device notes — private by design, nothing ever leaves the device.
 class NotesScreen extends StatefulWidget {
@@ -90,6 +92,20 @@ class _NotesScreenState extends State<NotesScreen> {
         });
       });
       await _save();
+      // A note is private and is never blocked. But if the words in it say
+      // someone may be in danger, the help lines are offered right away.
+      final CrisisKind? kind =
+          CrisisDetector.detect('${title.text} ${body.text}');
+      if (kind != null && mounted) {
+        await showNeedHelpSheet(
+          context,
+          kind: kind,
+          intro: 'Your note is saved, and only you can see it. It sounds '
+              'like things may be very hard. If you are in danger, call '
+              'your local emergency number. These lines are free to talk '
+              'to.',
+        );
+      }
     }
   }
 
@@ -109,7 +125,14 @@ class _NotesScreenState extends State<NotesScreen> {
           const ScreenHeader(title: 'Notes', close: true),
           Padding(
             padding: const EdgeInsets.only(left: 4, bottom: 10),
-            child: Text('ON THIS DEVICE ONLY', style: AppText.eyebrow),
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  child: Text('ON THIS DEVICE ONLY', style: AppText.eyebrow),
+                ),
+                const NeedHelpNowButton(),
+              ],
+            ),
           ),
           if (_notes.isEmpty)
             GlassCard(

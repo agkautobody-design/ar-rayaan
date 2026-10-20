@@ -53,8 +53,22 @@ class RecordingScheduler implements PrayerNotificationScheduler {
   Future<bool> requestPermission() async => true;
 
   @override
+  Future<ExactAlarmStatus> exactAlarmStatus() async =>
+      ExactAlarmStatus.notNeeded;
+
+  @override
+  Future<void> openExactAlarmSettings() async {}
+
+  @override
   Future<void> replaceAll(List<PlannedPrayerNotification> plan) async {
     plans.add(plan);
+  }
+
+  final List<List<PlannedReminder>> reminders = <List<PlannedReminder>>[];
+
+  @override
+  Future<void> replaceReminders(List<PlannedReminder> r) async {
+    reminders.add(r);
   }
 }
 

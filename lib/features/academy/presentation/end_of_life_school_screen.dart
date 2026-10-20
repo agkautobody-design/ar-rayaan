@@ -38,7 +38,7 @@ const List<_EolUnit> kEndOfLifeUnits = <_EolUnit>[
       ),
       _EolLesson(
         title: 'The Will — Writing It Is a Sunna',
-        body: 'The Prophet \ufdfa said: it is not right for a Muslim who has something to bequeath to sleep two nights without having his will written (Bukhari 2740). Two nights. The will is not for the dying; it is for the living who will grieve you.',
+        body: 'The Prophet \ufdfa said: it is not right for a Muslim who has something to bequeath to sleep two nights without having his will written (Bukhari 2738). Two nights. The will is not for the dying; it is for the living who will grieve you.',
         practice: 'Draft your will this month — even a page: debts, guardianship, the small bequests. Templates exist; the intention is the act.',
       ),
       _EolLesson(

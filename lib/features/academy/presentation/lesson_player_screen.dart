@@ -9,9 +9,11 @@ import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
 import '../application/academy_providers.dart';
 import '../application/academy_strings.dart';
+import '../application/recall_checks.dart';
 import '../domain/academy_models.dart';
 import '../domain/assessment_engine.dart';
 import '../domain/course_manifest.dart';
+import '../domain/lesson_provenance.dart';
 
 /// The teach/check/reflect lesson player. One idea per step, exact-step
 /// resume, inline knowledge checks with dignity-first feedback, and a
@@ -37,6 +39,9 @@ class _LessonPlayerScreenState
     extends ConsumerState<LessonPlayerScreen> {
   late int _index;
   late final AcademyLesson _lesson;
+
+  /// The lesson's steps plus its generated recall check (when it has one).
+  late final List<AcademyStep> _steps;
   final List<int> _answers = <int>[];
   bool _checkSubmitted = false;
   AssessmentResult? _result;
@@ -46,22 +51,23 @@ class _LessonPlayerScreenState
     super.initState();
     _lesson = findLesson(widget.courseId, widget.unitId, widget.lessonId) ??
         kAcademyCourses.first.units.first.lessons.first;
+    _steps = RecallChecks.stepsWithRecall(_lesson);
     final LessonProgress saved = ref
         .read(academyProgressProvider.notifier)
         .of(_lesson.id);
     _index = saved.completed
         ? 0
-        : saved.lastStep.clamp(0, _lesson.steps.length - 1);
+        : saved.lastStep.clamp(0, _steps.length - 1);
   }
 
-  AcademyStep get _step => _lesson.steps[_index];
-  bool get _isLast => _index == _lesson.steps.length - 1;
+  AcademyStep get _step => _steps[_index];
+  bool get _isLast => _index == _steps.length - 1;
 
   /// "Show me again": hop back to the nearest earlier teach beat
   /// (text / embed / demo). Falls back to the lesson start. Never fails.
   void _showAgain() {
     for (int i = _index - 1; i >= 0; i--) {
-      final AcademyStepKind kind = _lesson.steps[i].kind;
+      final AcademyStepKind kind = _steps[i].kind;
       if (kind == AcademyStepKind.text ||
           kind == AcademyStepKind.embed ||
           kind == AcademyStepKind.demo) {
@@ -129,6 +135,60 @@ class _LessonPlayerScreenState
     await notifier.advance(_lesson.id, _index);
   }
 
+  /// Provenance sheet: where the text comes from, its review status and every
+  /// Qur'an / hadith reference written in it.
+  Future<void> _showSources() async {
+    final LessonProvenance? prov = provenanceOf(_lesson.id);
+    final List<LessonSource> sources =
+        extractSources(RecallChecks.fullTextOf(_lesson));
+    await showModalBottomSheet<void>(
+      context: context,
+      backgroundColor: Colors.transparent,
+      builder: (BuildContext ctx) => Padding(
+        padding: const EdgeInsets.all(20),
+        child: GlassCard(
+          strong: true,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(prov?.label ?? kNotYetReviewedLabel,
+                  style: AppText.eyebrow.copyWith(color: AppColors.gold)),
+              const SizedBox(height: 8),
+              Text(prov?.origin ?? '', style: AppText.bodyMuted),
+              const SizedBox(height: 12),
+              Text(
+                sources.isEmpty
+                    ? 'This lesson cites no Qur\u2019an or hadith reference.'
+                    : 'Cited in this lesson: '
+                        '${sources.map((LessonSource s) => s.toString()).join(' \u00b7 ')}',
+                style: AppText.body,
+              ),
+              if (sources.any((LessonSource s) => s.kind == 'hadith'))
+                Padding(
+                  padding: const EdgeInsets.only(top: 8),
+                  child: Text(
+                    'Hadith are listed as the lesson states them; their grade '
+                    'is not shown here. Treat anything ungraded with care and '
+                    'ask a scholar before relying on it.',
+                    style: AppText.caption,
+                  ),
+                ),
+              const SizedBox(height: 14),
+              Align(
+                alignment: Alignment.centerRight,
+                child: TextButton(
+                  onPressed: () => Navigator.of(ctx).pop(),
+                  child: Text(AcademyStrings.get('common.done')),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
   void _back() {
     if (_index == 0) {
       context.go('/academy');
@@ -153,9 +213,8 @@ class _LessonPlayerScreenState
   @override
   Widget build(BuildContext context) {
     final AcademyStep step = _step;
-    final double progress = _lesson.steps.isEmpty
-        ? 0
-        : (_index + 1) / _lesson.steps.length;
+    final double progress =
+        _steps.isEmpty ? 0 : (_index + 1) / _steps.length;
 
     return Scaffold(
       body: ScenicScaffold.pattern(
@@ -186,12 +245,30 @@ class _LessonPlayerScreenState
                           ),
                         ),
                         Text(
-                          '${_index + 1}/${_lesson.steps.length}',
+                          '${_index + 1}/${_steps.length}',
                           style: AppText.caption,
                         ),
                       ],
                     ),
                     const SizedBox(height: 8),
+                    InkWell(
+                      onTap: _showSources,
+                      child: ConstrainedBox(
+                        constraints: const BoxConstraints(minHeight: 36),
+                        child: Row(
+                          children: <Widget>[
+                            const Icon(Icons.info_outline,
+                                size: 14, color: AppColors.gold),
+                            const SizedBox(width: 6),
+                            Text(
+                              '${provenanceOf(_lesson.id)?.label ?? kNotYetReviewedLabel}'
+                              ' \u00b7 sources',
+                              style: AppText.caption,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                     ClipRRect(
                       borderRadius: BorderRadius.circular(4),
                       child: LinearProgressIndicator(
@@ -227,6 +304,11 @@ class _LessonPlayerScreenState
                         });
                       },
                       onSubmit: _submitCheck,
+                      onRetry: () => setState(() {
+                        _checkSubmitted = false;
+                        _result = null;
+                        _answers.clear();
+                      }),
                     ),
                   ],
                 ),
@@ -241,8 +323,10 @@ class _LessonPlayerScreenState
                       if (step.kind == AcademyStepKind.check &&
                           !_checkSubmitted) {
                         final List<AssessmentItem> items =
-                            kAssessments[step.assessmentId!]!;
-                        if (_answers.length == items.length &&
+                            RecallChecks.itemsFor(step.assessmentId!) ??
+                                const <AssessmentItem>[];
+                        if (items.isNotEmpty &&
+                            _answers.length == items.length &&
                             !_answers.contains(-1)) {
                           _submitCheck(items);
                         }
@@ -277,6 +361,7 @@ class _StepBody extends StatelessWidget {
     required this.onSubmit,
     this.onShowAgain,
     this.onAdvance,
+    this.onRetry,
   });
 
   final AcademyStep step;
@@ -288,6 +373,7 @@ class _StepBody extends StatelessWidget {
   final void Function(List<AssessmentItem> items) onSubmit;
   final VoidCallback? onShowAgain;
   final VoidCallback? onAdvance;
+  final VoidCallback? onRetry;
 
   @override
   Widget build(BuildContext context) {
@@ -432,7 +518,11 @@ class _StepBody extends StatelessWidget {
         );
 
       case AcademyStepKind.check:
-        final List<AssessmentItem> items = kAssessments[step.assessmentId!]!;
+        final List<AssessmentItem> items =
+            RecallChecks.itemsFor(step.assessmentId!) ??
+                const <AssessmentItem>[];
+        final bool isRecall =
+            step.assessmentId!.startsWith(RecallChecks.idPrefix);
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -440,6 +530,13 @@ class _StepBody extends StatelessWidget {
               AcademyStrings.get(step.titleKey),
               style: AppText.titleMedium,
             ),
+            if (isRecall) ...<Widget>[
+              const SizedBox(height: 6),
+              Text(
+                AcademyStrings.get('recall.note'),
+                style: AppText.caption,
+              ),
+            ],
             const SizedBox(height: 12),
             for (int i = 0; i < items.length; i++)
               Padding(
@@ -465,11 +562,23 @@ class _StepBody extends StatelessWidget {
                     ),
                     const SizedBox(width: 10),
                     Expanded(
-                      child: Text(
-                        AcademyStrings.get(
-                          result!.passed ? 'check.passed' : 'check.tryAgain',
-                        ),
-                        style: AppText.body,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            AcademyStrings.get(
+                              result!.passed
+                                  ? 'check.passed'
+                                  : 'check.tryAgain',
+                            ),
+                            style: AppText.body,
+                          ),
+                          if (!result!.passed && onRetry != null)
+                            TextButton(
+                              onPressed: onRetry,
+                              child: Text(AcademyStrings.get('check.retry')),
+                            ),
+                        ],
                       ),
                     ),
                   ],
@@ -496,13 +605,17 @@ class _CheckItem extends StatelessWidget {
   final int selected;
   final void Function(int itemIdx, int choiceIdx) onSelect;
 
+  /// Display text: a string key, or the text itself for generated checks.
+  String _label(String keyOrText) =>
+      item.literal ? keyOrText : AcademyStrings.get(keyOrText);
+
   @override
   Widget build(BuildContext context) {
     return GlassCard(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(AcademyStrings.get(item.promptKey), style: AppText.body),
+          Text(_label(item.promptKey), style: AppText.body),
           const SizedBox(height: 8),
           RadioGroup<int>(
             groupValue: selected,
@@ -517,7 +630,7 @@ class _CheckItem extends StatelessWidget {
                     contentPadding: EdgeInsets.zero,
                     value: c,
                     title: Text(
-                      AcademyStrings.get(item.choices[c]),
+                      _label(item.choices[c]),
                       style: AppText.bodyMuted,
                     ),
                   ),
@@ -528,7 +641,7 @@ class _CheckItem extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 8),
               child: Text(
-                AcademyStrings.get(item.reteachKey),
+                _label(item.reteachKey),
                 style: AppText.caption.copyWith(color: AppColors.gold),
               ),
             ),

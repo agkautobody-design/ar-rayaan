@@ -18,10 +18,15 @@ import '../../../app/core/providers.dart';
 import '../application/hadi_controller.dart';
 import '../application/hadi_provider.dart';
 import '../application/hadi_samples.dart';
+import '../data/hadi_report_service.dart';
+import '../grounding/corpus.dart';
+import '../grounding/madhhab.dart';
+import '../grounding/passage.dart';
 import '../../sakina/application/sakina_providers.dart';
 import '../../sakina/domain/crisis_detector.dart';
 import '../../sakina/domain/sakina_content.dart';
 import '../../sakina/presentation/widgets/help_line_tile.dart';
+import '../../sakina/presentation/widgets/need_help_button.dart';
 
 /// Screen 6 · Ask Hādī — live AI guidance (Groq free tier, user's key) with
 /// a curated authentic offline fallback (O-7). Guardrails: Qur'an + Sihah
@@ -79,6 +84,142 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
     });
   }
 
+  Future<void> _openMadhhabSheet() async {
+    await showModalBottomSheet<void>(
+      context: context,
+      backgroundColor: AppColors.night,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+      ),
+      builder: (BuildContext ctx) => Consumer(
+        builder: (BuildContext c, WidgetRef r, Widget? _) {
+          final Madhhab current = r.watch(hadiControllerProvider).madhhab;
+          return SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(20, 24, 20, 16),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text('Your school of law', style: AppText.titleMedium),
+                  const SizedBox(height: 8),
+                  Text(
+                    '$kHadiScopeNote Where the four Sunni schools differ, '
+                    'Hādi names your school\u2019s view first and says that '
+                    'others differ. Stored on this device only.',
+                    style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.5),
+                  ),
+                  const SizedBox(height: 12),
+                  Wrap(
+                    spacing: 8,
+                    runSpacing: 8,
+                    children: <Widget>[
+                      for (final Madhhab m in Madhhab.values)
+                        ChoiceChip(
+                          label: Text(m.label),
+                          selected: current == m,
+                          onSelected: (_) => r
+                              .read(hadiControllerProvider.notifier)
+                              .setMadhhab(m),
+                        ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+
+  Future<void> _openReportSheet(HadiMessage m, String? question) async {
+    HadiReportReason reason = HadiReportReason.wrongQuote;
+    bool withQuestion = false;
+    await showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: AppColors.night,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+      ),
+      builder: (BuildContext ctx) => StatefulBuilder(
+        builder: (BuildContext c, StateSetter setSheet) => SafeArea(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.fromLTRB(20, 24, 20, 16),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text('Report this answer', style: AppText.titleMedium),
+                const SizedBox(height: 8),
+                Text(
+                  'This sends the answer and the passages it showed. Your '
+                  'name and account are not included. If a quote looks '
+                  'wrong, please also check it with a scholar.',
+                  style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.5),
+                ),
+                const SizedBox(height: 12),
+                Wrap(
+                  spacing: 8,
+                  runSpacing: 8,
+                  children: <Widget>[
+                    for (final HadiReportReason r in HadiReportReason.values)
+                      ChoiceChip(
+                        label: Text(r.label),
+                        selected: reason == r,
+                        onSelected: (_) => setSheet(() => reason = r),
+                      ),
+                  ],
+                ),
+                if (question != null)
+                  CheckboxListTile(
+                    contentPadding: EdgeInsets.zero,
+                    value: withQuestion,
+                    onChanged: (bool? v) =>
+                        setSheet(() => withQuestion = v ?? false),
+                    title: Text(
+                      'Include my question',
+                      style: AppText.caption.copyWith(color: AppColors.sand),
+                    ),
+                  ),
+                const SizedBox(height: 8),
+                FilledButton(
+                  onPressed: () async {
+                    final SharedPreferences prefs =
+                        ref.read(sharedPreferencesProvider);
+                    final ScaffoldMessengerState messenger =
+                        ScaffoldMessenger.of(context);
+                    Navigator.of(ctx).pop();
+                    final bool sent = await HadiReportService(prefs).submit(
+                      HadiReport(
+                        reason: reason,
+                        answer: m.text,
+                        question: withQuestion ? question : null,
+                        sources: m.sources,
+                        live: m.live,
+                      ),
+                    );
+                    messenger.showSnackBar(
+                      SnackBar(
+                        content: Text(sent
+                            ? 'Thank you. The report was sent.'
+                            : 'Thank you. It is saved on this device and '
+                                'will be sent when the app can reach the '
+                                'server.'),
+                      ),
+                    );
+                  },
+                  child: const Text('Send report'),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
   Future<void> _openKeySheet() async {
     final TextEditingController keyInput = TextEditingController();
     await showModalBottomSheet<void>(
@@ -114,8 +255,11 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
               'Settings are sent to the provider you choose, together with '
               'your key, with every question. The key is stored in plain '
               'text on this device, so use one you can revoke. Messages '
-              'about suicide or self-harm are answered here on your device '
-              'and are never sent.',
+              'about suicide, self-harm, abuse or anyone\u2019s safety are '
+              'answered here on your device and are never sent. Live '
+              'answers are checked against Hādi\u2019s own library: it '
+              'prints scripture itself and removes references it cannot '
+              'verify. Hādi is for adults and is not a scholar.',
               style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.5),
             ),
             const SizedBox(height: 12),
@@ -312,6 +456,16 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                   ),
                   const SizedBox(width: 8),
                   _HeaderIcon(
+                    icon: Icons.favorite_outline,
+                    onTap: () => showNeedHelpSheet(context),
+                  ),
+                  const SizedBox(width: 8),
+                  _HeaderIcon(
+                    icon: Icons.school_outlined,
+                    onTap: _openMadhhabSheet,
+                  ),
+                  const SizedBox(width: 8),
+                  _HeaderIcon(
                     icon: Icons.key_outlined,
                     onTap: _openKeySheet,
                   ),
@@ -334,8 +488,21 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                 controller: _scroll,
                 padding: const EdgeInsets.fromLTRB(20, 16, 20, 16),
                 children: [
-                  for (final HadiMessage m in hadi.messages)
-                    _Bubble(message: m),
+                  for (int i = 0; i < hadi.messages.length; i++)
+                    _Bubble(
+                      message: hadi.messages[i],
+                      onReport: hadi.messages[i].fromHadi &&
+                              i > 0 &&
+                              !hadi.messages[i].sensitive
+                          ? () => _openReportSheet(
+                                hadi.messages[i],
+                                !hadi.messages[i - 1].fromHadi &&
+                                        !hadi.messages[i - 1].sensitive
+                                    ? hadi.messages[i - 1].text
+                                    : null,
+                              )
+                          : null,
+                    ),
                   if (hadi.typing)
                     const Padding(
                       padding: EdgeInsets.only(bottom: 12),
@@ -481,13 +648,97 @@ class _CrisisHelpPanel extends ConsumerWidget {
   }
 }
 
-class _Bubble extends StatelessWidget {
-  const _Bubble({required this.message});
+/// A passage printed from Hādi's own library under a reply: the label, the
+/// citation, the Arabic and translation, and for a hadith its grade and who
+/// gave it.
+class _PassageCard extends StatelessWidget {
+  const _PassageCard({required this.passage});
 
-  final HadiMessage message;
+  final Passage passage;
 
   @override
   Widget build(BuildContext context) {
+    final String? grade = passage.gradeLine;
+    return Container(
+      width: double.infinity,
+      margin: const EdgeInsets.only(top: 8),
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: AppColors.gold.withValues(alpha: 0.06),
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: AppColors.gold.withValues(alpha: 0.25)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            '${passage.label} · ${passage.reference}',
+            style: AppText.caption.copyWith(
+              color: AppColors.gold,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+          if (passage.arabic != null) ...<Widget>[
+            const SizedBox(height: 6),
+            Directionality(
+              textDirection: TextDirection.rtl,
+              child: Text(
+                passage.arabic!,
+                style: AppText.body.copyWith(fontSize: 18, height: 1.8),
+              ),
+            ),
+          ],
+          const SizedBox(height: 6),
+          Text(
+            passage.english,
+            style: AppText.caption.copyWith(
+              color: AppColors.sand.withValues(alpha: 0.85),
+              height: 1.5,
+            ),
+          ),
+          if (grade != null) ...<Widget>[
+            const SizedBox(height: 6),
+            Text(
+              'Grade: $grade',
+              style: AppText.caption.copyWith(
+                color: AppColors.sand.withValues(alpha: 0.6),
+                fontSize: 11,
+              ),
+            ),
+          ],
+          if (passage.textKind != null) ...<Widget>[
+            Text(
+              passage.textKind == 'summary'
+                  ? 'Summary written for this app, not a translation.'
+                  : 'Excerpt written for this app, not a full translation.',
+              style: AppText.caption.copyWith(
+                color: AppColors.sand.withValues(alpha: 0.45),
+                fontSize: 10,
+              ),
+            ),
+          ],
+        ],
+      ),
+    );
+  }
+}
+
+class _Bubble extends ConsumerWidget {
+  const _Bubble({required this.message, this.onReport});
+
+  final HadiMessage message;
+  final VoidCallback? onReport;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final HadiCorpus? corpus = message.sources.isEmpty
+        ? null
+        : ref.watch(hadiCorpusProvider).valueOrNull;
+    final List<Passage> passages = <Passage>[
+      if (corpus != null)
+        for (final String id in message.sources)
+          if (corpus.resolve(id) != null) corpus.resolve(id)!,
+    ];
     final bool hadi = message.fromHadi;
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),
@@ -519,12 +770,37 @@ class _Bubble extends StatelessWidget {
                             color: AppColors.sand.withValues(alpha: 0.9),
                           ),
                         ),
+                        for (final Passage p in passages) _PassageCard(passage: p),
+                        for (final String n in message.notes)
+                          Padding(
+                            padding: const EdgeInsets.only(top: 6),
+                            child: Text(
+                              n,
+                              style: AppText.caption.copyWith(
+                                color: AppColors.sand.withValues(alpha: 0.55),
+                                fontSize: 11,
+                              ),
+                            ),
+                          ),
                         if (message.crisis != null)
                           _CrisisHelpPanel(kind: message.crisis!),
                         const SizedBox(height: 6),
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: SpeakButton(text: message.text),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: <Widget>[
+                            if (onReport != null)
+                              TextButton.icon(
+                                onPressed: onReport,
+                                icon: const Icon(Icons.flag_outlined, size: 14),
+                                label: const Text('Report'),
+                                style: TextButton.styleFrom(
+                                  foregroundColor:
+                                      AppColors.sand.withValues(alpha: 0.6),
+                                  visualDensity: VisualDensity.compact,
+                                ),
+                              ),
+                            SpeakButton(text: message.text),
+                          ],
                         ),
                       ],
                     ),
