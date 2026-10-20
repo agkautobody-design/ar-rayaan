@@ -174,7 +174,7 @@ class _HawlCardState extends ConsumerState<HawlCard> {
           if (s != null)
             _ReminderSwitch(
               keyName: 'hawl-reminder',
-              label: 'Remind me 3 days before and on the day (9:00)',
+              label: 'Remind me 3 days before and on the day at 9 am',
               value: reminders.hawl,
               onChanged: (bool on) =>
                   ref.read(zakatReminderProvider.notifier).setHawl(on),
@@ -403,7 +403,7 @@ class _ZakatAlFitrCardState extends ConsumerState<ZakatAlFitrCard> {
           ),
           _ReminderSwitch(
             keyName: 'fitr-reminder',
-            label: 'Remind me two days and one day before Eid (9:00)',
+            label: 'Remind me two days and one day before Eid at 9 am',
             value: reminders.fitr,
             onChanged: (bool on) =>
                 ref.read(zakatReminderProvider.notifier).setFitr(on),
