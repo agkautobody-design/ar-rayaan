@@ -142,12 +142,20 @@ class HelpResource {
     required this.detail,
     required this.contact,
     required this.region,
+    this.dial,
+    this.url,
   });
 
   final String name;
   final String detail;
   final String contact;
   final String region;
+
+  /// Number to dial when tapped (digits only), when the row is a phone line.
+  final String? dial;
+
+  /// Web address to open when tapped, when the row is a website.
+  final String? url;
 }
 
 abstract final class HelpResources {
@@ -157,30 +165,37 @@ abstract final class HelpResources {
       detail: 'Confidential, faith-sensitive listening, 7 days a week.',
       contact: '1-866-627-3342 (1-866-NASEEHA)',
       region: 'North America',
+      dial: '18666273342',
     ),
     HelpResource(
       name: 'Khalil Center',
       detail: 'Islamically-integrated professional therapy (TIIP model).',
       contact: 'khalilcenter.com',
       region: 'North America & online',
+      url: 'https://khalilcenter.com',
     ),
     HelpResource(
       name: '988 Suicide & Crisis Lifeline',
       detail: 'If you are thinking of harming yourself — call or text now. Free, 24/7.',
       contact: 'Call or text 988',
       region: 'United States',
+      dial: '988',
     ),
     HelpResource(
-      name: 'Talk Suicide Canada',
+      name: '9-8-8 Suicide Crisis Helpline',
       detail: 'If you are in crisis — call or text, 24/7.',
       contact: 'Call or text 9-8-8',
       region: 'Canada',
+      dial: '988',
     ),
     HelpResource(
       name: 'Emergency Services',
       detail: 'If you or someone near you is in immediate danger.',
       contact: '911 (US/CA) · 112 (EU) · 999 (UK)',
       region: 'Worldwide',
+      // 911 first, as shown; GSM mobiles in the EU and UK also route 911 to
+      // their emergency service.
+      dial: '911',
     ),
   ];
 }

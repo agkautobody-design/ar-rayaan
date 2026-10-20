@@ -51,7 +51,7 @@ const List<_HistEra> kHistoryEras = <_HistEra>[
       ),
       _HistChapter(
         title: 'The Milk and the Account',
-        note: 'Umar\u2019s son traded milk; Umar asked why it was not watered. The answer — 'if it is watered, the account is false' — became the era\u2019s definition of public honesty.',
+        note: 'Umar\u2019s son traded milk; Umar asked why it was not watered. The answer — \'if it is watered, the account is false\' — became the era\u2019s definition of public honesty.',
         storyId: 'tale-umar-milk',
       ),
       _HistChapter(

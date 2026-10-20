@@ -4,6 +4,7 @@
 /// in the full reader; this screen is the fortress gate.
 library;
 
+import '../../stories/domain/story.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';

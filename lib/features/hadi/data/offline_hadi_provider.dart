@@ -1811,7 +1811,8 @@ const List<_Entry> _knowledge = <_Entry>[
     <String>['zakat', 'zakah', 'alms', 'charity obligation'],
     'Allah says: "And establish prayer and give zakat." (Qur\'an 2:110). '
     'Zakat is 2.5% of wealth held for one lunar year above the nisab '
-    '(threshold, approximately $400-500 in gold value). It is due on gold, '
+    '(threshold: the value of 595 g of silver or 85 g of gold — the Zakat '
+    'calculator shows today\'s figure). It is due on gold, '
     'silver, cash, trade goods, and livestock. The Prophet ﷺ said: "Whoever '
     'is made wealthy by Allah and does not pay its zakat, his wealth will be '
     'made into a bald snake on the Day of Resurrection." (Sahih al-Bukhari '

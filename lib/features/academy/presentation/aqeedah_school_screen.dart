@@ -1,5 +1,5 @@
 /// Aqeedah school — what a Muslim believes and why, taught from the
-/// Qur\u2019an itself. Anchored on 20:5 (Ar-Rahman taught the Qur\u2019an).
+/// Qur\u2019an itself. Anchored on 55:1–2 (Ar-Rahman taught the Qur\u2019an).
 /// The 99 Names deck and the Ghayb / Signs collections continue the
 /// units as practice and narrative.
 library;
@@ -43,8 +43,8 @@ const List<_AqUnit> kAqeedahUnits = <_AqUnit>[
       _AqLesson(
         title: 'The Most Merciful Taught the Book',
         body:
-            "'The Most Merciful — He taught the Qur'an' (20:5). Before any rule, before any law, the Qur'an opens its knowledge of Allah with a mercy that teaches. Whatever you learn about Him, begin here: the One who taught you is the One who was Merciful to you first.",
-        source: "Qur'an 20:5",
+            "'The Most Merciful — He taught the Qur'an' (55:1–2). Before any rule, before any law, the Qur'an opens its knowledge of Allah with a mercy that teaches. Whatever you learn about Him, begin here: the One who taught you is the One who was Merciful to you first.",
+        source: "Qur'an 55:1–2",
       ),
       _AqLesson(
         title: 'No Slumber, No Sleep',
@@ -111,8 +111,8 @@ const List<_AqUnit> kAqeedahUnits = <_AqUnit>[
       _AqLesson(
         title: 'A Creed You Can Carry',
         body:
-            "Aqeedah is not an exam to pass; it is a Person to know. What you believe about Allah decides what you believe about your own life. The more beautiful your picture of Him, the braver your worship becomes. Begin where this unit began: Ar-Rahman taught the Qur'an (20:5).",
-        source: "Qur'an 20:5",
+            "Aqeedah is not an exam to pass; it is a Person to know. What you believe about Allah decides what you believe about your own life. The more beautiful your picture of Him, the braver your worship becomes. Begin where this unit began: Ar-Rahman taught the Qur'an (55:1–2).",
+        source: "Qur'an 55:1–2",
       ),
     ],
   ),

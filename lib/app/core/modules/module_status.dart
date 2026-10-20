@@ -13,7 +13,7 @@ class ModuleStatusService {
       : _byId = <String, Map<String, dynamic>>{
           for (final dynamic m in (json['modules'] as List<dynamic>? ??
               const <dynamic>[]))
-            (m as Map)['id'] as String: m,
+            (m as Map)['id'] as String: Map<String, dynamic>.from(m),
         };
 
   final Map<String, Map<String, dynamic>> _byId;

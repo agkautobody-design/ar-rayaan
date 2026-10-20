@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart' show kReleaseMode;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'subscription_service.dart';
@@ -71,6 +72,14 @@ class SandboxBillingGateway implements BillingGateway {
 
   Future<BillingResult> _grant() async {
     await Future<void>.delayed(const Duration(milliseconds: 400));
+    // Release builds must never hand out a fake entitlement: the sandbox
+    // key is not a real AI key, so "active" would be a false promise.
+    if (kReleaseMode) {
+      return BillingResult.failed(
+        'Subscriptions are not open yet. Hādi already works offline, and '
+        'with your own free key for live answers.',
+      );
+    }
     return BillingResult.ok(
       tier: 'plus',
       managedKey: 'sandbox-${DateTime.now().millisecondsSinceEpoch}',
@@ -88,7 +97,7 @@ final billingGatewayProvider = Provider<BillingGateway>(
 /// Shared activate path — every surface that grants an entitlement goes
 /// through here so keys, expiry, and state stay consistent.
 Future<String?> activateBillingResult(
-  Ref ref,
+  SubscriptionService subscription,
   BillingResult result,
 ) async {
   if (!result.success ||
@@ -97,8 +106,7 @@ Future<String?> activateBillingResult(
       result.expires == null) {
     return result.error ?? 'The purchase could not be completed.';
   }
-  await ref
-      .read(subscriptionServiceProvider.notifier)
-      .activate(result.tier!, result.managedKey!, result.expires!);
+  await subscription.activate(
+      result.tier!, result.managedKey!, result.expires!);
   return null;
 }

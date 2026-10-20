@@ -29,7 +29,7 @@ class PaperCo {
   /// date+symbol. Fundamentals stay fixed; the weather changes.
   double get todayPrice {
     final day = DateTime.now().toIso8601String().substring(0, 10);
-    final rnd = Random('$day\$sym'.hashCode);
+    final rnd = Random('$day$sym'.hashCode);
     final drift = (rnd.nextDouble() - 0.48) * 0.06;
     return double.parse((price * (1 + drift)).toStringAsFixed(2));
   }
@@ -117,12 +117,12 @@ class _FloorState extends ConsumerState<TradingFloorScreen> {
       if (buy) {
         _cash -= cost;
         _holdings[co.sym] = (_holdings[co.sym] ?? 0) + qty;
-        _trades.insert(0, 'BUY  \$qty ${co.sym} @ \$${co.todayPrice}');
+        _trades.insert(0, 'BUY  $qty ${co.sym} @ \$${co.todayPrice}');
       } else {
         _cash += cost;
         final left = (_holdings[co.sym] ?? 0) - qty;
         if (left == 0) { _holdings.remove(co.sym); } else { _holdings[co.sym] = left; }
-        _trades.insert(0, 'SELL \$qty ${co.sym} @ \$${co.todayPrice}');
+        _trades.insert(0, 'SELL $qty ${co.sym} @ \$${co.todayPrice}');
       }
     });
     _qty.clear();

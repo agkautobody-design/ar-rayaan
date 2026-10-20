@@ -213,7 +213,9 @@ class AcademyTrackNotifier extends StateNotifier<String> {
     try {
       final prefs = _ref.read(sharedPreferencesProvider);
       final String? t = prefs.getString(_pref);
-      if (t == 'child' || t == 'teen' || t == 'parent') state = t;
+      if (t != null && (t == 'child' || t == 'teen' || t == 'parent')) {
+        state = t;
+      }
     } catch (_) {}
   }
 

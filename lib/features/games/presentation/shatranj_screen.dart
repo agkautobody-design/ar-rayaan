@@ -375,8 +375,8 @@ class _ShatranjState extends State<ShatranjScreen> {
       _reset();
       appliedMoves = 0;
       status = mySide == 'host'
-          ? 'Table \${roomCode} — waiting for your opponent to join\u2026'
-          : 'Joined table \${roomCode} — you are Black';
+          ? 'Table ${roomCode} — waiting for your opponent to join\u2026'
+          : 'Joined table ${roomCode} — you are Black';
     });
     _roomStream = _rooms.watch(roomCode!);
     _roomStream!.listen((snap) {

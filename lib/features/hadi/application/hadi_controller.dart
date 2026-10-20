@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import '../../stories/domain/story.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -272,9 +273,9 @@ class HadiController extends Notifier<HadiState> {
   /// never has to think about which engine a key belongs to.
   static String detectProvider(String key) {
     final String k = key.trim();
-    if (k.startsWith('xai-') || k.startsWith('ai-')) return 'xai';
+    if (k.startsWith('xai-')) return 'xai';
     if (k.startsWith('sk-or-')) return 'openrouter';
-    if (k.startsWith('gsk-')) return 'groq';
+    if (k.startsWith('gsk_') || k.startsWith('gsk-')) return 'groq';
     return 'groq'; // default
   }
 
@@ -362,7 +363,13 @@ class HadiController extends Notifier<HadiState> {
             'claim to know the user\u2019s private data):\n$tocDigest\n$memoryContext\n'
             'User\u2019s question: $question';
       }
-      answer = await p.ask(q, state.messages);
+      // History = everything before this question (the question itself is
+      // sent once, as the final user turn). Live models get the app's
+      // table of contents and the opt-in name; the offline shelf matches on
+      // the user's own words only.
+      final List<HadiMessage> history =
+          state.messages.sublist(0, state.messages.length - 1);
+      answer = await p.ask(p is OfflineHadiProvider ? q : question, history);
     } catch (e) {
       // Live failure never dead-ends: the curated knowledge answers — but
       // say WHY, so a bad key, a blocked region, or CORS is visible instead
@@ -393,13 +400,16 @@ class HadiController extends Notifier<HadiState> {
       const known = <String>{
         '/home', '/stories', '/games', '/player', '/finance', '/masajid',
         '/feelings', '/family-tree', '/huda', '/majlis', '/elder-care',
-        '/qibla', '/hadith', '/sakina', '/share', '/notes', '/founder',
+        '/qibla', '/hadith', '/sakina', '/share', '/notes',
+        '/quran', '/prayer', '/zakat', '/calendar', '/adhkar', '/explore',
+        '/journey', '/community', '/settings', '/sources', '/hadi', '/noor',
+        '/academy/review', '/academy/letters', '/academy/audio-packs',
         '/academy', '/academy/gate', '/academy/family', '/home/quick',
         '/new-muslim', '/academy/qa', '/academy/hisn', '/ramadan',
         '/academy/transactions', '/academy/end-of-life', '/academy/dawah',
         '/academy/health', '/academy/arabic-language', '/academy/aqeedah',
         '/academy/hadith', '/academy/seerah', '/academy/history',
-        '/academy/stories', '/academy/character', '/academy/family',
+        '/academy/stories', '/academy/character',
         '/academy/youth', '/academy/womens', '/academy/understanding',
         '/academy/dua', '/academy/hifz', '/academy/recitation',
         '/academy/quranic-arabic', '/academy/hajj-umrah-pack',

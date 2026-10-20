@@ -192,8 +192,8 @@ abstract final class AcademyStrings {
       'arabic.u2.subtitle': 'Al-Fatiha word by word, and the pacing of recitation',
       'course.arabic-language.title': 'Arabic Language',
       'course.arabic-language.subtitle': 'The language of the Quran, taught from its own words',
-      'aqid.u1.l1.s1.title': '\'The Most Merciful — He taught the Quran\' (20:5). Before any rule, the Quran opens its knowledge of Allah with a mercy that teaches. Begin here.',
-      'aqid.u1.l1.s2.title': 'What does 20:5 teach about how Allah introduces Himself?',
+      'aqid.u1.l1.s1.title': '\'The Most Merciful — He taught the Quran\' (55:1–2). Before any rule, the Quran opens its knowledge of Allah with a mercy that teaches. Begin here.',
+      'aqid.u1.l1.s2.title': 'What does 55:1–2 teach about how Allah introduces Himself?',
       'aqid.u1.l1.title': 'The Most Merciful Taught the Book',
       'aqid.u1.l2.s1.title': '\'Allah — there is no god but He, the Ever-Living, the Sustainer... neither slumber nor sleep overtakes Him\' (2:255). Ayat al-Kursi — many say it after every prayer; now you know what it says.',
       'aqid.u1.l2.s2.title': 'Recite Ayat al-Kursi and name the two attributes that describe His wakefulness.',
@@ -819,6 +819,9 @@ abstract final class AcademyStrings {
       'course.hifz.title': 'Hifz',
       'course.hifz.subtitle': 'Memorize with the sabaq, sabqi, manzil cycle',
       'academy.title': 'Al-Wasia Academy of Sacred Knowledge',
+      'academy.schoolsEyebrow': 'The schools',
+      'academy.reviewsDue': 'Reviews due',
+      'track.eyebrow': 'Learning track',
       'academy.comingSoon': 'Coming soon — insha’Allah',
       'academy.continue': 'Continue where you left off',
       'academy.startPath': 'Begin the Path',
@@ -1095,7 +1098,11 @@ abstract final class AcademyStrings {
     final String? hit = table?[key];
     if (hit != null && hit.isNotEmpty) return hit;
     final String? en = _data[defaultLocale]?[key];
-    return (en != null && en.isNotEmpty) ? en : key;
+    if (en != null && en.isNotEmpty) return en;
+    // Some manifest lessons carry their whole text in the step title; a
+    // missing body is then simply empty — never a raw key on screen.
+    if (key.endsWith('.body')) return '';
+    return key;
   }
 
   /// Locales with at least partial coverage (scaffold).

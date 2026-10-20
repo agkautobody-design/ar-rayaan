@@ -37,7 +37,7 @@ class StoriesRepository {
         // the bundled pack is always the floor. A shelf may never die.
         try {
           list = json.decode(
-                  await rootBundle.loadString('assets/stories/\$pack.json'))
+                  await rootBundle.loadString('assets/stories/$pack.json'))
               as List<dynamic>;
         } catch (_) {}
       }

@@ -588,7 +588,8 @@ class _SubscriptionPanel extends ConsumerWidget {
               final gateway = ref.read(billingGatewayProvider);
               final BillingResult result = await gateway.restore();
               final String? error =
-                  await activateBillingResult(ref, result);
+                  await activateBillingResult(
+                      ref.read(subscriptionServiceProvider.notifier), result);
               if (context.mounted) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(

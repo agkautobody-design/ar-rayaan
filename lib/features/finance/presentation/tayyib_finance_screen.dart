@@ -252,7 +252,7 @@ class _TayyibState extends State<TayyibFinanceScreen> {
                     )),
                   if (_purify != null) ...[
                     const SizedBox(height: 10),
-                    Text('\${_purify!.toStringAsFixed(2)} to give in sadaqah',
+                    Text('\$${_purify!.toStringAsFixed(2)} to give in sadaqah',
                         style: AppText.body.copyWith(color: AppColors.goldLight,
                             fontWeight: FontWeight.w700, fontSize: 15)),
                     Text('The rest of the dividend is halal income, in shaa Allah.',

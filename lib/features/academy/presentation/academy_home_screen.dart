@@ -153,7 +153,7 @@ class _AcademyHomeScreenState
                 child: Column(
                   children: <Widget>[
                     Text(
-                      '\u0642\u064f\u0644\fa \u0647\u064e\u0644\fa \u064a\u064e\u0633\u0652\u062a\u064e\u0648\u0650\u064a \u0627\u0644\u0651\u064e\u0630\u0650\u064a\u0646\u064e \u064a\u064e\u0639\u0652\u0644\u064e\u0645\u064f\u0648\u0646\u064e \u0648\u064e\u0627\u0644\u0651\u064e\u0630\u0650\u064a\u0646\u064e \u0644\u0627 \u064a\u064e\u0639\u0652\u0644\u064e\u0645\u064f\u0648\u0646\u064e',
+                      '\u0642\u064f\u0644\u0652 \u0647\u064e\u0644\u0652 \u064a\u064e\u0633\u0652\u062a\u064e\u0648\u0650\u064a \u0627\u0644\u0651\u064e\u0630\u0650\u064a\u0646\u064e \u064a\u064e\u0639\u0652\u0644\u064e\u0645\u064f\u0648\u0646\u064e \u0648\u064e\u0627\u0644\u0651\u064e\u0630\u0650\u064a\u0646\u064e \u0644\u0627 \u064a\u064e\u0639\u0652\u0644\u064e\u0645\u064f\u0648\u0646\u064e',
                       textAlign: TextAlign.center,
                       textDirection: TextDirection.rtl,
                       style: const TextStyle(
@@ -182,7 +182,7 @@ class _AcademyHomeScreenState
                 icon: Icons.edit_outlined,
                 arabic: '\u0627\u0644\u062d\u064f\u0631\u064f\u0648\u0641',
                 title: AcademyStrings.get('school.letters.title'),
-                subtitle: AcademyStrings.get('school.letters.body'),
+                subtitle: AcademyStrings.get('school.letters.subtitle'),
                 route: '/academy/letters',
                 live: true,
               ),
@@ -358,15 +358,15 @@ class _AcademyHomeScreenState
                 icon: Icons.graphic_eq,
                 arabic: '\u0627\u0644\u062a\u0651\u064e\u0644\u064e\u0627\u0648\u064e\u0629',
                 title: AcademyStrings.get('school.recitation.title'),
-                subtitle: AcademyStrings.get('school.recitation.body'),
+                subtitle: AcademyStrings.get('school.recitation.subtitle'),
                 route: '/academy/recitation',
                 live: true,
               ),
               _SchoolRow(
                 icon: Icons.menu_book_outlined,
                 arabic: '\u0627\u0644\u0639\u064e\u0631\u064e\u0628\u0650\u064a\u064e\u0629 \u0627\u0644\u0642\u064f\u0631\u0670\u0646\u0650\u064a\u064e\u0629',
-                title: AcademyStrings.get('school.quranicArabic.title'),
-                subtitle: AcademyStrings.get('school.quranicArabic.body'),
+                title: AcademyStrings.get('school.arabic.title'),
+                subtitle: AcademyStrings.get('school.arabic.subtitle'),
                 route: '/academy/quranic-arabic',
                 live: true,
               ),
@@ -374,7 +374,7 @@ class _AcademyHomeScreenState
                 icon: Icons.lightbulb_outline,
                 arabic: '\u0627\u0644\u0641\u0650\u0642\u0647 \u0648\u064e\u0627\u0644\u0645\u064e\u0639\u0652\u0631\u0650\u0641\u064e\u0629',
                 title: AcademyStrings.get('school.understanding.title'),
-                subtitle: AcademyStrings.get('school.understanding.body'),
+                subtitle: AcademyStrings.get('school.understanding.subtitle'),
                 route: '/academy/understanding',
                 live: false,
               ),
