@@ -159,6 +159,8 @@ abstract final class AcademyStrings {
       'hajjpack.body': 'The journey in order — intention, the rites, the days — opening the real guides at every station.',
       'ramadan.title': 'Ramadan Mode',
       'ramadan.body': 'The month of taqwa — pillars, daily rhythm, and the doors of suhoor, iftar, and taraweeh.',
+      'versecards.title': 'Verse Cards',
+      'versecards.body': 'Shareable Quran and hadith cards — framed in gold, one tap to send down any road a message can travel.',
       'academy.title': 'Al-Wasia Academy of Sacred Knowledge',
       'academy.comingSoon': 'Coming soon — insha’Allah',
       'academy.continue': 'Continue where you left off',

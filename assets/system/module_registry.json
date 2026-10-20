@@ -203,7 +203,8 @@
    "id": "verse-cards",
    "title": "Verse share-cards",
    "doc": "Content Growth research",
-   "status": "unbuilt"
+   "status": "live",
+   "note": "Shareable verse and hadith cards (6 Quranic + 6 hadith), one-tap copy and share — screen, cards.json, and route were already built; this entry now reflects reality"
   },
   {
    "id": "sunnah-seasonal",
