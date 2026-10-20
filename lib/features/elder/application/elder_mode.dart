@@ -31,4 +31,19 @@ abstract final class ElderMode {
   /// otherwise [fallback].
   static Future<String> launchRoute({required String fallback}) async =>
       await isEnabled() ? homeRoute : fallback;
+
+  /// The same decision, read from preferences that are already loaded, so the
+  /// router can use it for `initialLocation` without waiting. `app.dart`
+  /// should build the router with
+  /// `ElderMode.launchLocation(prefs, fallback: AppRoutes.splash)`.
+  static String launchLocation(
+    SharedPreferences prefs, {
+    required String fallback,
+  }) {
+    try {
+      return (prefs.getBool(pref) ?? false) ? homeRoute : fallback;
+    } catch (_) {
+      return fallback;
+    }
+  }
 }

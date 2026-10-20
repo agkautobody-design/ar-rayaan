@@ -11,6 +11,8 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../../sakina/domain/crisis_detector.dart';
+import '../../sakina/presentation/widgets/need_help_button.dart';
 import '../../stories/data/stories_repository.dart';
 
 class Feeling {
@@ -131,6 +133,23 @@ class FeelingsScreen extends ConsumerWidget {
   }
 }
 
+/// Feelings that can sit heavy. For these a quiet support card is shown
+/// under the du'a. It never diagnoses; it only says where a person is.
+const Set<String> kHeavyFeelingIds = <String>{
+  'feel-sad',
+  'feel-lonely',
+  'feel-lost',
+  'feel-overwhelmed',
+  'feel-betrayed',
+  'feel-numb',
+  'feel-grieving',
+  'feel-heartbroken',
+  'feel-tired',
+  'feel-afraid',
+  'feel-guilty',
+  'feel-regretful',
+};
+
 class FeelingScreen extends ConsumerWidget {
   final String feelingId;
   const FeelingScreen({super.key, required this.feelingId});
@@ -196,16 +215,40 @@ class FeelingScreen extends ConsumerWidget {
                   ],
                 ),
               ),
+              if (kHeavyFeelingIds.contains(f.id)) ...<Widget>[
+                const SizedBox(height: 14),
+                GlassCard(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        'If this feeling has been heavy for a while, or it is '
+                        'getting hard to cope, you do not have to carry it '
+                        'alone. Talking to a person can help.',
+                        style: AppText.bodyMuted.copyWith(height: 1.5),
+                      ),
+                      const SizedBox(height: 10),
+                      const NeedHelpNowButton(),
+                    ],
+                  ),
+                ),
+              ],
               const SizedBox(height: 20),
               GestureDetector(
                 onTap: () async {
+                  final String seed =
+                      'I came from For Your Heart — I am feeling '
+                      '${f.feeling}. Can you walk with me?';
+                  // Safety first: if the hand-off itself would trip the
+                  // crisis layer, show the help lines before leaving.
+                  final CrisisKind? kind = CrisisDetector.detect(seed);
+                  if (kind != null) {
+                    await showNeedHelpSheet(context, kind: kind);
+                    if (!context.mounted) return;
+                  }
                   final SharedPreferences prefs =
                       await SharedPreferences.getInstance();
-                  await prefs.setString(
-                    'ar.hadi.seed',
-                    'I came from For Your Heart — I am feeling ${f.feeling}. '
-                    'Can you walk with me?',
-                  );
+                  await prefs.setString('ar.hadi.seed', seed);
                   if (context.mounted) context.go(AppRoutes.hadi);
                 },
                 child: Container(

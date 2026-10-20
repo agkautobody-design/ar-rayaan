@@ -36,7 +36,7 @@ void main() {
 
     test('39:53 leads the deck — mercy before everything', () {
       expect(ComfortCards.deck.first.source, contains('39:53'));
-      expect(ComfortCards.deck.first.text, contains('forgives ALL sins'));
+      expect(ComfortCards.deck.first.text, contains('forgives all sins'));
     });
 
     test('human help is always present with crisis lines', () {
@@ -57,6 +57,7 @@ void main() {
       for (final HelpResource r in HelpResources.all) {
         expect(r.contact, isNotEmpty);
         expect(r.region, isNotEmpty);
+        expect(r.detail, isNotEmpty);
         // Every row must do something when tapped: a crisis number that
         // does not dial is worse than none.
         expect(r.dial != null || r.url != null, isTrue,

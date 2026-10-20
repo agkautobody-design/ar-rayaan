@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
+import '../../sakina/presentation/widgets/need_help_button.dart';
 import '../application/elder_mode.dart';
 
 /// ELDER MODE - the whole home, simplified. Giant words, three doors,
@@ -54,11 +55,17 @@ class _ElderHomeState extends State<ElderHomeScreen> {
               const SizedBox(width: 10),
               Expanded(child: Text('As-salamu alaikum',
                   style: AppText.body.copyWith(fontSize: 20, fontWeight: FontWeight.w600))),
-              TextButton(
+              OutlinedButton(
                 onPressed: _exit,
-                child: Text('Exit', style: AppText.bodyMuted.copyWith(fontSize: 12)),
+                style: OutlinedButton.styleFrom(
+                  minimumSize: const Size(72, 48),
+                  foregroundColor: AppColors.goldLight,
+                ),
+                child: Text('Exit', style: AppText.body.copyWith(fontSize: 16)),
               ),
             ]),
+            const SizedBox(height: 14),
+            const Center(child: NeedHelpNowButton(large: true)),
             const SizedBox(height: 14),
             GestureDetector(
               onTap: _tap,
@@ -77,13 +84,15 @@ class _ElderHomeState extends State<ElderHomeScreen> {
                   const SizedBox(height: 6),
                   Text('SUBHAN ALLAH', style: AppText.eyebrow.copyWith(fontSize: 20)),
                   const SizedBox(height: 4),
-                  Text('tap to remember Allah \u00b7 hold nothing back',
+                  Text('tap to remember Allah',
                       style: AppText.bodyMuted.copyWith(fontSize: 14)),
                 ]),
               ),
             ),
             const SizedBox(height: 16),
             for (final e in const [
+              ('Qur\u2019an', 'Read and listen', Icons.menu_book_outlined, AppRoutes.quran),
+              ('Prayer times', 'When to pray today', Icons.access_time, AppRoutes.prayerTimes),
               ('Daily Duas', 'Prayers for morning and evening', Icons.wb_twilight, AppRoutes.adhkar),
               ('For Your Heart', 'How do you feel today?', Icons.favorite_border, AppRoutes.feelings),
               ('Comfort (Sakina)', 'Rest here a while', Icons.self_improvement, AppRoutes.sakina),
