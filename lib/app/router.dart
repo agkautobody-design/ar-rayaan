@@ -34,6 +34,7 @@ import '../features/academy/presentation/womens_school_screen.dart';
 import '../features/academy/presentation/transactions_school_screen.dart';
 import '../features/academy/presentation/end_of_life_school_screen.dart';
 import '../features/academy/presentation/dawah_school_screen.dart';
+import '../features/academy/presentation/health_school_screen.dart';
 import '../features/academy/presentation/audio_packs_screen.dart';
 import '../features/academy/presentation/dhikr_session_screen.dart';
 import '../features/doctor/presentation/founder_console_screen.dart';
@@ -499,6 +500,10 @@ GoRouter buildRouter({String initialLocation = '/'}) {
       GoRoute(
         path: '/academy/dawah',
         pageBuilder: (context, state) => _fade(const DawahSchoolScreen()),
+      ),
+      GoRoute(
+        path: '/academy/health',
+        pageBuilder: (context, state) => _fade(const HealthSchoolScreen()),
       ),
       GoRoute(
         path: '/academy/dua',

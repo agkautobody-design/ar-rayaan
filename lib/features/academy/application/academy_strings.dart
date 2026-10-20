@@ -151,6 +151,8 @@ abstract final class AcademyStrings {
       'school.endoflife.body': 'The will, the janazah, the last words — preparing to meet Allah with dignity and hope.',
       'school.dawah.title': 'Dawah School',
       'school.dawah.body': 'How to carry the message with wisdom — the Makkan method, answers to the hard questions, the caller\u2019s character.',
+      'school.health.title': 'Health & Ruqyah School',
+      'school.health.body': 'The body as an amanah — halal food, sleep, the Quran as medicine, the heart\u2019s health.',
       'academy.title': 'Al-Wasia Academy of Sacred Knowledge',
       'academy.comingSoon': 'Coming soon — insha’Allah',
       'academy.continue': 'Continue where you left off',
