@@ -598,4 +598,97 @@ AcademyLesson? findLesson(String courseId, String unitId, String lessonId) {
     }
   }
   return null;
-}
+}    AcademyCourse(
+      id: 'arabic-language',
+      titleKey: 'course.arabic-language.title',
+      subtitleKey: 'course.arabic-language.subtitle',
+      units: <AcademyUnit>[
+      AcademyUnit(
+        id: 'arabic.u1',
+        courseId: 'arabic-language',
+        titleKey: 'arabic.u1.title',
+        subtitleKey: 'arabic.u1.subtitle',
+        lessons: <AcademyLesson>[
+          AcademyLesson(
+            id: 'arabic.u1.l1',
+            unitId: 'arabic.u1',
+            courseId: 'arabic-language',
+            titleKey: 'arabic.u1.l1.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'arabic.u1.l1.s1.title', bodyKey: 'arabic.u1.l1.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'arabic.u1.l1.s2.title', bodyKey: 'arabic.u1.l1.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'arabic.u1.l2',
+            unitId: 'arabic.u1',
+            courseId: 'arabic-language',
+            titleKey: 'arabic.u1.l2.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'arabic.u1.l2.s1.title', bodyKey: 'arabic.u1.l2.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'arabic.u1.l2.s2.title', bodyKey: 'arabic.u1.l2.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'arabic.u1.l3',
+            unitId: 'arabic.u1',
+            courseId: 'arabic-language',
+            titleKey: 'arabic.u1.l3.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'arabic.u1.l3.s1.title', bodyKey: 'arabic.u1.l3.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'arabic.u1.l3.s2.title', bodyKey: 'arabic.u1.l3.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'arabic.u1.l4',
+            unitId: 'arabic.u1',
+            courseId: 'arabic-language',
+            titleKey: 'arabic.u1.l4.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'arabic.u1.l4.s1.title', bodyKey: 'arabic.u1.l4.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'arabic.u1.l4.s2.title', bodyKey: 'arabic.u1.l4.s2.body'),
+            ],
+          ),
+        ],
+      ),
+      AcademyUnit(
+        id: 'arabic.u2',
+        courseId: 'arabic-language',
+        titleKey: 'arabic.u2.title',
+        subtitleKey: 'arabic.u2.subtitle',
+        lessons: <AcademyLesson>[
+          AcademyLesson(
+            id: 'arabic.u2.l1',
+            unitId: 'arabic.u2',
+            courseId: 'arabic-language',
+            titleKey: 'arabic.u2.l1.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'arabic.u2.l1.s1.title', bodyKey: 'arabic.u2.l1.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'arabic.u2.l1.s2.title', bodyKey: 'arabic.u2.l1.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'arabic.u2.l2',
+            unitId: 'arabic.u2',
+            courseId: 'arabic-language',
+            titleKey: 'arabic.u2.l2.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'arabic.u2.l2.s1.title', bodyKey: 'arabic.u2.l2.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'arabic.u2.l2.s2.title', bodyKey: 'arabic.u2.l2.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'arabic.u2.l3',
+            unitId: 'arabic.u2',
+            courseId: 'arabic-language',
+            titleKey: 'arabic.u2.l3.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'arabic.u2.l3.s1.title', bodyKey: 'arabic.u2.l3.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'arabic.u2.l3.s2.title', bodyKey: 'arabic.u2.l3.s2.body'),
+            ],
+          ),
+        ],
+      ),
+      ],
+    ),
+
