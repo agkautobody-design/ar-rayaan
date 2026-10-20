@@ -235,6 +235,8 @@ class _AcademyHomeScreenState
               const SizedBox(height: 8),
               const SizedBox(height: 16),
 
+              const _TrackSwitcher(),
+
               // Today strip ----------------------------------------------------
               GlassCard(
                 child: Row(
@@ -439,6 +441,71 @@ class _LibraryRow extends StatelessWidget {
             const Icon(Icons.chevron_right, color: AppColors.gold, size: 16),
           ],
         ),
+      ),
+    );
+  }
+}
+
+/// Three doors, one school system. The track changes HOW lessons speak;
+/// the schools stay the same behind each door.
+class _TrackSwitcher extends ConsumerWidget {
+  const _TrackSwitcher();
+
+  static const List<String> _tracks = <String>['child', 'teen', 'parent'];
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final String current = ref.watch(academyTrackProvider);
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(20, 0, 20, 12),
+      child: Row(
+        children: <Widget>[
+          Text(AcademyStrings.get('track.eyebrow'), style: AppText.eyebrow),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Container(
+              padding: const EdgeInsets.all(3),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(
+                    color: AppColors.gold.withValues(alpha: 0.35)),
+              ),
+              child: Row(
+                children: <Widget>[
+                  for (final String t in _tracks)
+                    Expanded(
+                      child: GestureDetector(
+                        onTap: () => ref
+                            .read(academyTrackProvider.notifier)
+                            .set(t),
+                        child: AnimatedContainer(
+                          duration: const Duration(milliseconds: 150),
+                          padding: const EdgeInsets.symmetric(vertical: 6),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(16),
+                            color: current == t
+                                ? AppColors.gold.withValues(alpha: 0.9)
+                                : Colors.transparent,
+                          ),
+                          child: Text(
+                            AcademyStrings.get('track.$t'),
+                            textAlign: TextAlign.center,
+                            style: AppText.bodyMuted.copyWith(
+                              fontSize: 12,
+                              color: current == t ? AppColors.night : null,
+                              fontWeight: current == t
+                                  ? FontWeight.w700
+                                  : FontWeight.w400,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

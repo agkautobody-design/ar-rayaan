@@ -197,6 +197,40 @@ class ReviewQueueNotifier extends StateNotifier<Map<String, ReviewCard>> {
   }
 }
 
+/// Learning track — one door per learner, same schools behind each.
+/// 'child' (avatar-led, play-heavy) · 'teen'/'adult' (why-first, direct) ·
+/// 'parent' (teaching notes + Family Wing). Switchable anytime; stored
+/// per device.
+class AcademyTrackNotifier extends StateNotifier<String> {
+  AcademyTrackNotifier(this._ref) : super('teen') {
+    _load();
+  }
+
+  final Ref _ref;
+  static const String _pref = 'ar.academy.track';
+
+  void _load() {
+    try {
+      final prefs = _ref.read(sharedPreferencesProvider);
+      final String? t = prefs.getString(_pref);
+      if (t == 'child' || t == 'teen' || t == 'parent') state = t;
+    } catch (_) {}
+  }
+
+  Future<void> set(String track) async {
+    if (track != 'child' && track != 'teen' && track != 'parent') return;
+    state = track;
+    try {
+      final prefs = _ref.read(sharedPreferencesProvider);
+      await prefs.setString(_pref, track);
+    } catch (_) {}
+  }
+}
+
+final academyTrackProvider =
+    StateNotifierProvider<AcademyTrackNotifier, String>(
+        (ref) => AcademyTrackNotifier(ref));
+
 final reviewQueueProvider =
     StateNotifierProvider<ReviewQueueNotifier, Map<String, ReviewCard>>(
         (ref) => ReviewQueueNotifier(ref));
