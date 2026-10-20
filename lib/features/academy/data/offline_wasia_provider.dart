@@ -269,4 +269,30 @@ const List<_Entry> _knowledge = <_Entry>[
     'letter sounds. If sound is off, the settings screen has the sound '
     'toggle at the very top. Shall we try one letter together right now?',
   ),
+
+  // The wider academy — parents ask, Wasia points
+  _Entry(<String>['where can i learn about', 'teach me about', 'school for',
+      'academy school', 'what schools', 'more schools'],
+    'The Academy holds twenty-one schools covering every subject — prayer, Arabic,'
+    ' du\'as, stories, character, family life, and more. Open the Academy home'
+    ' from the gate to see them all. For your letters, stay here with me — but'
+    ' for anything beyond, there is a school for it.',
+  ),
+  _Entry(<String>['q&a', 'questions and answers', 'faq', 'frequently asked',
+      'common questions'],
+    'The Q&A Bank in the Academy answers the twelve questions every Muslim'
+    ' asks — fasting, mortgages, missed prayers, and more, all with their'
+    ' sources. Shall we get back to your letters?',
+  ),
+  _Entry(<String>['duas for', 'where are the duas', 'hisn', 'fortress',
+      'morning duas', 'evening duas'],
+    'Hisn al-Muslim in the Academy holds every authentic dua — morning and'
+    ' evening, for travel, for hardship, for protection. The Du\'a School'
+    ' teaches what they mean. Shall I tell you about the one for today?',
+  ),
+  _Entry(<String>['ramadan', 'fasting month', 'taraweeh', 'suhoor'],
+    'Ramadan Mode in the app walks the whole month — the pillars, the daily'
+    ' rhythm, and the duas of suhoor and iftar. I keep to my letters, but'
+    ' the month is well-taught there.',
+  ),
 ];

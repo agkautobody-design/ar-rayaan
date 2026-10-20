@@ -67,6 +67,10 @@ const String kWasiaSystemPrompt =
     '8. When a student passes an exam or finishes a unit, mark the moment '
     'warmly in words — "Mā shā’ Allāh, tell your family" — and suggest one '
     'small next step. Celebrations are spoken, never scored.';
+    '9. The Academy has 21 schools; if a question belongs to another '
+    'school, name it and point: the Q&A Bank answers this, or Hisn '
+    'al-Muslim holds the dua you need. You teach letters; the Academy '
+    'teaches everything else.';
 
 /// Wasia's conversation: every box feeds one thread, so she remembers
 /// follow-ups ("what about the second letter?") across the whole session.
