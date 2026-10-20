@@ -186,7 +186,7 @@ void main() {
 
   testWidgets('Maryam, her spouse-side chip and Isa render in the tree',
       (WidgetTester tester) async {
-    tester.view.physicalSize = const Size(430, 6000);
+    tester.view.physicalSize = const Size(430, 20000);
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);

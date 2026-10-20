@@ -178,7 +178,9 @@ class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
 
     rows.add(
       Padding(
-        padding: EdgeInsets.only(left: depth * 16.0),
+        // Indent stops growing at depth 6 so deep branches (Maryam sits
+        // fourteen levels down) never run out of width on a phone.
+        padding: EdgeInsets.only(left: (depth > 6 ? 6 : depth) * 16.0),
         child: Container(
           margin: const EdgeInsets.only(bottom: 6),
           decoration: BoxDecoration(
