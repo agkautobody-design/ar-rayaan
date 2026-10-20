@@ -11,6 +11,7 @@ import '../../../app/core/providers.dart';
 import '../domain/academy_models.dart';
 import '../domain/course_manifest.dart';
 import '../domain/mushaf_layout.dart';
+import '../domain/spaced_repetition.dart';
 import '../data/mushaf_layout_pack.dart';
 
 /// Feature flag. Default ON for the beta preview; flipping the stored
@@ -106,6 +107,12 @@ class AcademyProgressNotifier
     await _save();
   }
 
+  /// Direct write (used by the Review Queue for mastery marks).
+  Future<void> update(String lessonId, LessonProgress value) async {
+    state = <String, LessonProgress>{...state, lessonId: value};
+    await _save();
+  }
+
   Future<void> restart(String lessonId) async {
     state = <String, LessonProgress>{
       ...state,
@@ -114,6 +121,85 @@ class AcademyProgressNotifier
     await _save();
   }
 }
+
+/// The Review Queue — "Today's amana". One SM-2 card per completed lesson,
+/// any school. Completing a lesson enqueues it; grading a review reschedules
+/// it and (on good/easy) marks the lesson MASTERED in device progress.
+/// Interleaving is free: due cards sort by date across all schools.
+class ReviewQueueNotifier extends StateNotifier<Map<String, ReviewCard>> {
+  ReviewQueueNotifier(this._ref) : super(<String, ReviewCard>{}) {
+    _load();
+  }
+
+  final Ref _ref;
+  static const String _pref = 'ar.academy.review.v1';
+  static const int dailyCap = 10;
+
+  void _load() {
+    try {
+      final prefs = _ref.read(sharedPreferencesProvider);
+      final raw = prefs.getString(_pref);
+      if (raw == null || raw.isEmpty) return;
+      final List<dynamic> list = json.decode(raw) as List<dynamic>;
+      state = <String, ReviewCard>{
+        for (final dynamic e in list)
+          (e as Map)['wordKey'] as String:
+              ReviewCard.fromJson(Map<String, dynamic>.from(e as Map)),
+      };
+    } catch (_) {}
+  }
+
+  void _save() {
+    try {
+      final prefs = _ref.read(sharedPreferencesProvider);
+      prefs.setString(
+          _pref, json.encode(state.values.map((c) => c.toJson()).toList()));
+    } catch (_) {}
+  }
+
+  void _update(String lessonId, ReviewCard card) {
+    state = <String, ReviewCard>{...state, lessonId: card};
+    _save();
+  }
+
+  /// Enqueue (or reset) a lesson when it is completed.
+  void addLesson(String lessonId) {
+    _update(
+      lessonId,
+      ReviewCard(
+        wordKey: lessonId,
+        dueDate: DateTime.now().add(const Duration(days: 1)),
+      ),
+    );
+  }
+
+  /// Today's queue, oldest first, capped so review never becomes a chore.
+  List<ReviewCard> get due => ReviewCard.dueQueue(
+        state.values.toList(),
+        DateTime.now(),
+      ).take(dailyCap).toList();
+
+  int get dueCount => due.length;
+
+  /// Grade a review. good/easy -> mastered at device level; again -> the
+  /// lesson comes back tomorrow. Never a fail state.
+  Future<void> grade(String lessonId, ReviewGrade grade) async {
+    final card = state[lessonId];
+    if (card == null) return;
+    _update(lessonId, ReviewCard.schedule(card, grade, DateTime.now()));
+    if (grade != ReviewGrade.again) {
+      final progress = _ref.read(academyProgressProvider.notifier);
+      final current = progress.of(lessonId);
+      if (current.completed) {
+        progress.update(lessonId, current.copyWith(mastered: true));
+      }
+    }
+  }
+}
+
+final reviewQueueProvider =
+    StateNotifierProvider<ReviewQueueNotifier, Map<String, ReviewCard>>(
+        (ref) => ReviewQueueNotifier(ref));
 
 final academyProgressProvider = StateNotifierProvider<
     AcademyProgressNotifier, Map<String, LessonProgress>>((Ref ref) {

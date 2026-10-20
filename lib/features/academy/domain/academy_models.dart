@@ -95,24 +95,36 @@ class AcademyCourse {
 
 /// Per-lesson resume/completion state. Persisted on-device only.
 class LessonProgress {
-  const LessonProgress({this.lastStep = 0, this.completed = false});
+  const LessonProgress({
+    this.lastStep = 0,
+    this.completed = false,
+    this.mastered = false,
+  });
 
   final int lastStep;
   final bool completed;
 
-  LessonProgress copyWith({int? lastStep, bool? completed}) => LessonProgress(
-    lastStep: lastStep ?? this.lastStep,
-    completed: completed ?? this.completed,
-  );
+  /// Review Queue: recalled successfully in spaced review (not merely
+  /// completed once). The 'mastered' state at device level.
+  final bool mastered;
+
+  LessonProgress copyWith({int? lastStep, bool? completed, bool? mastered}) =>
+      LessonProgress(
+        lastStep: lastStep ?? this.lastStep,
+        completed: completed ?? this.completed,
+        mastered: mastered ?? this.mastered,
+      );
 
   Map<String, dynamic> toJson() => <String, dynamic>{
     'lastStep': lastStep,
     'completed': completed,
+    'mastered': mastered,
   };
 
   factory LessonProgress.fromJson(Map<String, dynamic> json) =>
       LessonProgress(
         lastStep: (json['lastStep'] as num?)?.toInt() ?? 0,
         completed: json['completed'] as bool? ?? false,
+        mastered: json['mastered'] as bool? ?? false,
       );
 }

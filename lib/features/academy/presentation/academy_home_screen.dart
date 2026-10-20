@@ -251,6 +251,13 @@ class _AcademyHomeScreenState
                           .toString(),
                     ),
                     _TodayStat(
+                      label: AcademyStrings.get('academy.reviewsDue'),
+                      value: ref
+                          .watch(reviewQueueProvider.notifier)
+                          .dueCount
+                          .toString(),
+                    ),
+                    _TodayStat(
                       label: AcademyStrings.get('academy.ayatListened'),
                       value: '0',
                     ),

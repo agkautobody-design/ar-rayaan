@@ -75,6 +75,7 @@ class _LessonPlayerScreenState
     final notifier = ref.read(academyProgressProvider.notifier);
     if (_isLast) {
       await notifier.complete(_lesson.id);
+      ref.read(reviewQueueProvider.notifier).addLesson(_lesson.id);
       if (mounted) {
         await showModalBottomSheet<void>(
           context: context,
