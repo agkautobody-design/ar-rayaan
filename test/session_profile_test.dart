@@ -102,9 +102,13 @@ void main() {
       await tester.tap(find.text('You'));
       await AppHarness.settle(tester);
 
-      expect(find.text('Ahmed'), findsWidgets);
-      expect(find.text('View your profile'), findsOneWidget);
-      expect(find.text('Guest'), findsNothing);
+      final String onScreen = tester
+          .widgetList<Text>(find.byType(Text))
+          .map((Text t) => t.data ?? '')
+          .join(' | ');
+      expect(find.text('Ahmed'), findsWidgets, reason: onScreen);
+      expect(find.text('View your profile'), findsOneWidget, reason: onScreen);
+      expect(find.text('Guest'), findsNothing, reason: onScreen);
     });
   });
 }
