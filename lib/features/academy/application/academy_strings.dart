@@ -133,6 +133,8 @@ abstract final class AcademyStrings {
       'school.hadith.body': 'Imam an-Nawawi\u2019s Forty, taught one hadith at a time — text, meaning, and the character it builds.',
       'school.seerah.title': 'Seerah School',
       'school.seerah.body': 'The life of the Prophet (peace be upon him) era by era — every chapter opens the real story.',
+      'school.history.title': 'History School',
+      'school.history.body': 'The centuries after the Prophet — the four caliphs, the scholars, and the ages they carried.',
       'academy.title': 'Al-Wasia Academy of Sacred Knowledge',
       'academy.comingSoon': 'Coming soon — insha’Allah',
       'academy.continue': 'Continue where you left off',
