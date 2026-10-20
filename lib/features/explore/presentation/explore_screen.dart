@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../app/router.dart';
+import '../../menu/presentation/menu_screen.dart'
+    show MenuEntry, visibleMenuEntries;
 import '../../academy/application/academy_providers.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
@@ -15,7 +17,7 @@ import '../../../app/theme/widgets/scenic_background.dart';
 class ExploreScreen extends ConsumerWidget {
   const ExploreScreen({super.key});
 
-  static const List<(String, List<(IconData, String, String?)>)> _sections = [
+  static const List<(String, List<MenuEntry>)> _sections = [
     (
       'Faith & Worship',
       [
@@ -53,9 +55,11 @@ class ExploreScreen extends ConsumerWidget {
     (
       'Family & Community',
       [
-        (Icons.handshake_outlined, 'Marriage', AppRoutes.huda),
-        (Icons.child_care_outlined, 'Parenting', '/academy/family-life'),
-        (Icons.home_outlined, 'Family Life', AppRoutes.feelings),
+        // Same targets as the Menu (verified: Family Life school opens with
+        // the Marriage unit; the Family Wing is the parents' space).
+        (Icons.handshake_outlined, 'Marriage', '/academy/family-life'),
+        (Icons.child_care_outlined, 'Parenting', '/academy/family'),
+        (Icons.home_outlined, 'Family Life', '/academy/family-life'),
         (Icons.people_outline, 'Community', AppRoutes.community),
         (Icons.favorite_outline, 'Elder Care', '/elder-care'),
       ],
@@ -66,8 +70,9 @@ class ExploreScreen extends ConsumerWidget {
         (Icons.local_library_outlined, 'Library', AppRoutes.stories),
         (Icons.bookmark_outline, 'Notes & Bookmarks', AppRoutes.notes),
         (Icons.download_outlined, 'Downloads', AppRoutes.downloads),
-        (Icons.search, 'Saved Searches', AppRoutes.quran),
-        (Icons.dark_mode_outlined, 'Night Mode', AppRoutes.settings),
+        (Icons.search, 'Search', AppRoutes.search),
+        // The app is dark-only today; a light theme is not built.
+        (Icons.light_mode_outlined, 'Light Theme', null),
       ],
     ),
   ];
@@ -103,20 +108,23 @@ class ExploreScreen extends ConsumerWidget {
                     GlassCard(
                       child: Column(
                         children: [
-                          for (int i = 0; i < items.length; i++) ...[
-                            if (showAcademy || items[i].$3 != AppRoutes.academyGate)
-                            if (i > 0 && (showAcademy || items[i].$3 != AppRoutes.academyGate))
+                          for (final (int i, MenuEntry e) in visibleMenuEntries(
+                            items,
+                            showAcademy: showAcademy,
+                          ).indexed) ...[
+                            if (i > 0)
                               Divider(
                                 height: 1,
                                 color: AppColors.gold.withValues(alpha: 0.1),
                                 indent: 64,
                               ),
                             _Row(
-                              icon: items[i].$1,
-                              label: items[i].$2,
-                              onTap: items[i].$3 == null
+                              icon: e.$1,
+                              label: e.$2,
+                              comingSoon: e.$3 == null,
+                              onTap: e.$3 == null
                                   ? null
-                                  : () => context.go(items[i].$3!),
+                                  : () => context.go(e.$3!),
                             ),
                           ],
                         ],
@@ -127,10 +135,11 @@ class ExploreScreen extends ConsumerWidget {
                   GlassCard(
                     child: Row(
                       children: [
-                        const Expanded(
+                        Expanded(
                           child: _Row(
                             icon: Icons.settings_outlined,
                             label: 'Settings',
+                            onTap: () => context.push(AppRoutes.settings),
                           ),
                         ),
                         Container(
@@ -142,6 +151,7 @@ class ExploreScreen extends ConsumerWidget {
                           child: _Row(
                             icon: Icons.help_outline,
                             label: 'Help & Support',
+                            comingSoon: true,
                           ),
                         ),
                       ],
@@ -173,6 +183,7 @@ class _Row extends StatelessWidget {
     required this.label,
     this.subtitle,
     this.onTap,
+    this.comingSoon = false,
   });
 
   final IconData icon;
@@ -180,42 +191,53 @@ class _Row extends StatelessWidget {
   final String? subtitle;
   final VoidCallback? onTap;
 
+  /// Not built yet: dimmed, "Coming soon", no chevron, announced as disabled.
+  final bool comingSoon;
+
   @override
   Widget build(BuildContext context) {
-    return Material(
-      type: MaterialType.transparency,
-      child: InkWell(
-        onTap: onTap,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-          child: Row(
-            children: [
-              IconTile(icon: icon, size: 32),
-              const SizedBox(width: 12),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      label,
-                      style: AppText.body.copyWith(
-                        color: AppColors.sand.withValues(alpha: 0.9),
+    final String? caption = comingSoon ? 'Coming soon' : subtitle;
+    return Semantics(
+      button: true,
+      enabled: !comingSoon,
+      child: Material(
+        type: MaterialType.transparency,
+        child: InkWell(
+          onTap: onTap,
+          child: Opacity(
+            opacity: comingSoon ? 0.7 : 1,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+              child: Row(
+                children: [
+                  ExcludeSemantics(child: IconTile(icon: icon, size: 32)),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          label,
+                          style: AppText.body.copyWith(
+                            color: AppColors.sand.withValues(alpha: 0.9),
+                          ),
+                        ),
+                        if (caption != null)
+                          Text(caption, style: AppText.bodyMuted),
+                      ],
+                    ),
+                  ),
+                  if (!comingSoon)
+                    ExcludeSemantics(
+                      child: Icon(
+                        Icons.chevron_right,
+                        size: 18,
+                        color: AppColors.gold.withValues(alpha: 0.6),
                       ),
                     ),
-                    if (subtitle != null)
-                      Text(
-                        subtitle!,
-                        style: AppText.bodyMuted.copyWith(fontSize: 10),
-                      ),
-                  ],
-                ),
+                ],
               ),
-              Icon(
-                Icons.chevron_right,
-                size: 16,
-                color: AppColors.gold.withValues(alpha: 0.5),
-              ),
-            ],
+            ),
           ),
         ),
       ),

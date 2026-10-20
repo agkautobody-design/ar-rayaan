@@ -22,6 +22,20 @@ class LocaleController extends StateNotifier<Locale> {
     Locale('ms'): 'Melayu',
   };
 
+  /// Languages written right-to-left. Choosing one flips the whole app's
+  /// layout direction (Flutter derives it from the locale).
+  static const Set<String> rtlLanguages = <String>{'ar', 'ur'};
+
+  static bool isRtl(Locale l) => rtlLanguages.contains(l.languageCode);
+
+  /// Languages that have a real translation of the Language & Voice settings
+  /// labels (L10n strings below). That is the ONLY app text translated into
+  /// them - lessons, stories, hadith, menus and prayer screens are English
+  /// with the original Arabic scripture. Used by the language screen so it
+  /// never claims more than exists.
+  static bool translatedChrome(Locale l) =>
+      L10n._strings.containsKey(l.languageCode);
+
   Future<void> _load() async {
     final p = await SharedPreferences.getInstance();
     final tag = p.getString(_pref);

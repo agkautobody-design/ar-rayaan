@@ -32,32 +32,54 @@ class LanguageSettingsScreen extends ConsumerWidget {
                   Text(l10n.t('settings.language'), style: AppText.eyebrow),
                   const SizedBox(height: 10),
                   for (final e in LocaleController.supported.entries)
-                    GestureDetector(
-                      onTap: () =>
-                          ref.read(localeProvider.notifier).setLocale(e.key),
-                      child: Container(
-                        margin: const EdgeInsets.only(bottom: 8),
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 12, vertical: 10),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(color: locale == e.key
-                              ? AppColors.gold
-                              : AppColors.sand.withValues(alpha: 0.2)),
+                    Semantics(
+                      button: true,
+                      selected: locale == e.key,
+                      child: GestureDetector(
+                        onTap: () =>
+                            ref.read(localeProvider.notifier).setLocale(e.key),
+                        child: Container(
+                          margin: const EdgeInsets.only(bottom: 8),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 12, vertical: 12),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(color: locale == e.key
+                                ? AppColors.gold
+                                : AppColors.sand.withValues(alpha: 0.2)),
+                          ),
+                          child: Row(children: [
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(e.value, style: AppText.body),
+                                  Text(
+                                    LocaleController.translatedChrome(e.key)
+                                        ? 'Settings labels translated'
+                                        : 'Layout and system dialogs only',
+                                    style: AppText.caption,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            if (locale == e.key)
+                              const Icon(Icons.check_circle,
+                                  color: AppColors.goldLight, size: 20),
+                          ]),
                         ),
-                        child: Row(children: [
-                          Expanded(child: Text(e.value, style: AppText.body)),
-                          if (locale == e.key)
-                            const Icon(Icons.check_circle,
-                                color: AppColors.goldLight, size: 18),
-                        ]),
                       ),
                     ),
                   const SizedBox(height: 6),
-                  Text('Content translations arrive by language as they are '
-                      'authored — Qur\u2019an and prayer are first. Stories and '
-                      'lessons follow, labeled honestly until their translation lands.',
-                      style: AppText.bodyMuted.copyWith(fontSize: 11)),
+                  Text('What is translated today: only the Language & Voice '
+                      'labels on this screen, and only for English, Arabic, '
+                      'Urdu and Indonesian. Every other screen - lessons, '
+                      'stories, hadith, prayer, menus - is still English, with '
+                      'the original Arabic for scripture. Choosing Arabic or '
+                      'Urdu also switches the app to right-to-left layout. '
+                      'Further translations will be added as they are written '
+                      'and checked.',
+                      style: AppText.bodyMuted.copyWith(height: 1.5)),
                 ]),
               ),
               const SizedBox(height: 12),
@@ -65,13 +87,12 @@ class LanguageSettingsScreen extends ConsumerWidget {
                 child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                   Text(l10n.t('settings.voice'), style: AppText.eyebrow),
                   const SizedBox(height: 4),
-                  Text(l10n.t('settings.voice.sub'), style: AppText.bodyMuted.copyWith(fontSize: 11.5)),
+                  Text(l10n.t('settings.voice.sub'), style: AppText.bodyMuted),
                   const SizedBox(height: 10),
-                  Text('The teachers\u2019 natural voice (warm, human-sounding, '
-                      '40+ languages) arrives with the voice relay — the founder\u2019s '
-                      'Thursday deploy, same vault pattern as the Quran service. '
-                      'Until then, the device reads the words.',
-                      style: AppText.bodyMuted.copyWith(fontSize: 11.5, height: 1.5)),
+                  Text('Natural, human-sounding voices are not available yet. '
+                      'Until they are, the device reads the words in its own '
+                      'voice.',
+                      style: AppText.bodyMuted.copyWith(height: 1.5)),
                 ]),
               ),
               const SizedBox(height: 12),

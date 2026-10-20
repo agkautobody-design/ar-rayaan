@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <!--
     If you are serving your web app in a path other than the root, change the
@@ -17,6 +17,9 @@
   <base href="$FLUTTER_BASE_HREF">
 
   <meta charset="UTF-8">
+  <!-- Pinch-zoom must stay possible (accessibility). Without this tag the
+       Flutter web engine injects one with user-scalable=no. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="Ar-Rayaan — Your Gateway to Allah. Prayer times, Qur'an, du'as, and your daily journey.">
   <meta name="theme-color" content="#05090F">
@@ -33,6 +36,32 @@
 
   <title>Ar-Rayaan</title>
   <link rel="manifest" href="manifest.json">
+
+  <!--
+    CONTENT-SECURITY-POLICY REVIEW (not enforced here on purpose: a wrong CSP
+    breaks the live site and cannot be tested from CI). To enforce, send it as
+    a response header from Render, in Report-Only mode first. What the app
+    genuinely needs, as of this review:
+      script-src   'self' 'wasm-unsafe-eval' https://www.gstatic.com  (CanvasKit)
+      connect-src  'self' https://*.googleapis.com https://*.firebaseio.com
+                   https://*.firebaseapp.com https://firebaseinstallations.googleapis.com
+                   https://api.aladhan.com https://api.gold-api.com
+                   https://overpass-api.de https://nominatim.openstreetmap.org
+                   https://raw.githubusercontent.com https://www.gstatic.com
+                   https://api.groq.com https://api.x.ai https://openrouter.ai
+                   https://everyayah.com https://cdn.islamic.network
+                   https://server13.mp3quran.net
+      img-src      'self' data: blob: https://*.tile.openstreetmap.org
+                   https://cdn.islamic.network https://www.gstatic.com
+      media-src    'self' blob: https://everyayah.com https://cdn.islamic.network
+                   https://server13.mp3quran.net
+      font-src     'self' https://fonts.gstatic.com https://www.gstatic.com
+      style-src    'self' 'unsafe-inline'      (boot splash + Flutter inline styles)
+      worker-src   'self' blob:
+      frame-src    https://*.firebaseapp.com   (Firebase Auth popup/iframe)
+      object-src   'none'; base-uri 'self'; frame-ancestors 'self'
+    Re-check this list whenever a new host is added to the app.
+  -->
 </head>
 <body style="margin:0;background:#05090F;">
   <!-- Branded boot splash — covered by the Flutter view once the first
@@ -45,6 +74,42 @@
     </div>
     <style>@keyframes ar-load{0%{margin-left:-40%}100%{margin-left:100%}}</style>
   </div>
+  <noscript>Ar-Rayaan needs JavaScript to run.</noscript>
+
+  <!-- Cache-busting. Every deploy is built with a unique build number (the
+       workflow run number), published in version.json. When it differs from
+       the build this browser last ran, drop the old service worker and its
+       caches and reload once, so a new deploy is never masked by a stale
+       offline copy. Any failure here is ignored: the app just loads. -->
+  <script>
+    (function () {
+      try {
+        fetch('version.json?cb=' + Date.now(), { cache: 'no-store' })
+          .then(function (r) { return r.ok ? r.json() : null; })
+          .then(function (v) {
+            if (!v) return;
+            var current = String(v.version) + '+' + String(v.build_number);
+            var seen = null;
+            try { seen = localStorage.getItem('ar.build'); } catch (e) {}
+            try { localStorage.setItem('ar.build', current); } catch (e) {}
+            if (seen === null || seen === current) return;
+            var jobs = [];
+            if (navigator.serviceWorker && navigator.serviceWorker.getRegistrations) {
+              jobs.push(navigator.serviceWorker.getRegistrations().then(function (rs) {
+                return Promise.all(rs.map(function (r) { return r.unregister(); }));
+              }));
+            }
+            if (window.caches && caches.keys) {
+              jobs.push(caches.keys().then(function (ks) {
+                return Promise.all(ks.map(function (k) { return caches.delete(k); }));
+              }));
+            }
+            Promise.all(jobs).then(function () { location.reload(); });
+          })
+          .catch(function () {});
+      } catch (e) {}
+    })();
+  </script>
   <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>
