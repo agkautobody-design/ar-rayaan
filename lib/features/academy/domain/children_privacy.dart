@@ -34,7 +34,7 @@ What a profile holds. For each child a parent adds, the app keeps on the device:
 
 Where it is kept. Child profiles and progress are stored only on the device, in the app’s local storage. They are not sent to our servers or to any third party. A child’s name is never included in any request to an AI service or to Firebase. Cloud sync of family data is switched off; if we ever offer it, it will be optional, will need a parent’s separate consent first, and will never include a child’s name.
 
-Wasia and AI services. When a child uses Wasia, answers come from the app’s own lesson content. Only if a parent turns on “Ask the AI service” for children, and has added their own key, is a child’s question sent to the AI service they chose (for example Groq, OpenRouter or xAI), without the child’s name and without other profile data. Parents can turn this off at any time.
+Wasia and AI services. When a child uses Wasia, answers come from the app’s own lesson content. Only if a parent turns on “Ask the AI service” for children is a child’s question sent to the AI service the app is connected to (the parent’s own key, or one managed with their subscription; for example Groq, OpenRouter or xAI), without the child’s name and without other profile data. Parents can turn this off at any time.
 
 Consent and parental controls. Before a first profile is created the parent confirms that they are the child’s parent or guardian and agrees to this section. Adding or removing a child, and the AI setting for children, sit behind a parent check. A parent can delete a single child or all children at any time; deletion removes the name and all progress from the device immediately, and withdraws the stored consent.
 
