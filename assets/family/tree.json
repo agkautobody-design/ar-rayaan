@@ -1,12 +1,16 @@
 {
  "meta": {
   "title": "The Messengers' Tree",
-  "note": "Qur'an-established links are labeled [Established]; lineage through tradition (Ibn Ishaq, al-Tabari) is labeled [Interpretive]. The gaps between Adnan and Ma'add, and between Ya'qub and the later prophets, are deliberately folded — honest gaps are part of the design.",
+  "note": "Three labels. Established: stated in the Qur'an, or in a hadith from the six books that we checked. Interpretive: from historical tradition (Ibn Ishaq, al-Tabari), which we have not been able to check against those works here. Disputed in the sources: named works differ. The label belongs to the person or fact; the line 'How we know this link' says what supports the connection to the parent. Gaps are deliberately folded — honest gaps are part of the design.",
   "sources": [
    "Qur'an 6:84-90 — the chain of prophets from Ibrahim",
    "Qur'an 37:101-113 — Ibrahim's two sons",
-   "Seerah: Ibn Ishaq/Ibn Hisham; History: al-Tabari"
-  ]
+   "Seerah: Ibn Ishaq/Ibn Hisham; History: al-Tabari",
+   "Qur'an 3:33-37; 66:12 — the family of Imran and Maryam's father",
+   "Qur'an 19:6 — Zakariya and the family of Ya'qub"
+  ],
+  "lineageWarning": "Between Adam and Nuh, between Sam and Ibrahim, between Ismail and Adnan, above Adnan, and between Ya'qub and the later prophets, the names come from historical tradition and not from the Qur'an or the six books. The tree shows those generations as folded rows, not as verified lists. Where we could not check a name against the work it comes from, the row says so.",
+  "unplacedNote": "The Qur'an names these prophets but does not give their parents or place them in a line we can verify. They are listed by name with what the Qur'an says, and are not attached to any family."
  },
  "nodes": [
   {
@@ -60,11 +64,13 @@
    ],
    "children": [],
    "river": "root",
-   "sourceLabel": "Established",
-   "description": "The accepted brother, killed by his brother — the first martyr, whose funeral a crow taught (Tales shelf).",
+   "sourceLabel": "Interpretive",
+   "description": "One of the two sons of Adam whose offering was accepted; his brother killed him (Qur'an 5:27-30). The Qur'an does not give the sons' names; tradition calls him Habil.",
    "sources": [
-    "Qur'an 5:27-31"
-   ]
+    "Qur'an 5:27-31",
+    "Names: tradition (not re-read here)"
+   ],
+   "lineageNote": "The Qur'an says only 'Adam's two sons' (5:27); the names Habil and Qabil are from tradition."
   },
   {
    "id": "qabil",
@@ -76,11 +82,13 @@
    ],
    "children": [],
    "river": "root",
-   "sourceLabel": "Established",
-   "description": "The first murderer; the Qur'an keeps him nameless — he is remembered by his deed.",
+   "sourceLabel": "Interpretive",
+   "description": "The brother who killed him; the Qur'an keeps him nameless and he is remembered by his deed (5:27-30). Tradition calls him Qabil.",
    "sources": [
-    "Qur'an 5:27-31"
-   ]
+    "Qur'an 5:27-31",
+    "Names: tradition (not re-read here)"
+   ],
+   "lineageNote": "The Qur'an says only 'Adam's two sons' (5:27); the names Habil and Qabil are from tradition."
   },
   {
    "id": "sheeth",
@@ -542,7 +550,8 @@
     "binyamin",
     "musa-line",
     "dawud-line",
-    "zakariya-line"
+    "zakariya-line",
+    "maryam-line"
    ],
    "river": "ishaq",
    "sourceLabel": "Established",
@@ -550,7 +559,8 @@
    "sources": [
     "Qur'an 2:132-133; 12"
    ],
-   "story": "prophet-yaqub"
+   "story": "prophet-yaqub",
+   "lineageNote": "That Musa, Dawud and Isa were sent to, or came from, the Children of Israel is in the Qur'an (17:2; 2:246; 5:78). The generations that connect each of them to Ya'qub are from tradition and are folded in this tree."
   },
   {
    "id": "yusuf",
@@ -577,15 +587,17 @@
    ],
    "children": [],
    "river": "ishaq",
-   "sourceLabel": "Established",
-   "description": "The youngest brother, retained in Egypt — the second grief of Ya'qub, and the second joy of the reunion.",
+   "sourceLabel": "Interpretive",
+   "description": "Yusuf's younger brother. The Qur'an speaks of 'a brother of yours from your father' and 'his brother' (12:59, 12:69) and never names him; tradition calls him Binyamin.",
    "sources": [
-    "Qur'an 12"
-   ]
+    "Qur'an 12:59; 12:69",
+    "Name: tradition (not re-read here)"
+   ],
+   "lineageNote": "Yusuf's brother is in the Qur'an; the name is from tradition."
   },
   {
    "id": "musa-line",
-   "name": "The House of Imran (I)",
+   "name": "…the generations to Musa's father…",
    "era": "Egypt & the Exodus",
    "parents": [
     "yaqub"
@@ -594,15 +606,17 @@
     "imran"
    ],
    "river": "ishaq",
-   "sourceLabel": "Established",
-   "description": "From Ya'qub's line came the house the Qur'an honors by name (3:33) — the family of Imran: Musa's mother, Maryam's mother, and through them the prophets of the river.",
+   "sourceLabel": "Interpretive",
+   "description": "The Qur'an places Musa among the Children of Israel, Ya'qub's descendants (17:2), but names neither his father nor his ancestors. Tradition supplies the generations; they are folded here.",
    "sources": [
-    "Qur'an 3:33-36; 66:11-12; 19:28"
-   ]
+    "Qur'an 17:2; 20:47",
+    "Generations: tradition (not re-read here)"
+   ],
+   "lineageNote": "Folded: the Qur'an gives no generations here."
   },
   {
    "id": "imran",
-   "name": "Imran (Amram)",
+   "name": "Imran (Amram) — Musa's father, by tradition",
    "era": "Egypt & the Exodus",
    "parents": [
     "musa-line"
@@ -612,10 +626,12 @@
    ],
    "river": "ishaq",
    "sourceLabel": "Interpretive",
-   "description": "Father of Musa and Harun; the Qur'an names the house of Imran, the historians fill the generations.",
+   "description": "Musa's father in the tradition's lists. The Qur'an does not name Musa's father. The Imran the Qur'an names (3:33-35; 66:12) is Maryam's father, and the Qur'an does not say he is Musa's father, so this tree keeps them as two separate nodes.",
    "sources": [
-    "Qur'an 3:33; Ibn Ishaq"
-   ]
+    "Tradition: Ibn Ishaq (not re-read here)",
+    "Qur'an 3:33-35; 66:12 (Maryam's father)"
+   ],
+   "lineageNote": "Musa's father is named only by tradition."
   },
   {
    "id": "musa-harun",
@@ -686,21 +702,81 @@
   },
   {
    "id": "zakariya-line",
-   "name": "The House of Imran (II)",
+   "name": "…the generations to Zakariya…",
    "era": "The Temple",
    "parents": [
     "yaqub"
    ],
    "children": [
-    "zakariya",
-    "maryam"
+    "zakariya"
    ],
    "river": "ishaq",
    "sourceLabel": "Interpretive",
-   "description": "Zakariya, Yahya, and Isa all descend from Ya'qub through the generations the historians record — united under the honored house of Imran.",
+   "description": "Zakariya prays for an heir 'who will inherit me and inherit from the family of Ya'qub' (19:6), so the Qur'an ties him to Ya'qub's family. It does not list the generations; tradition does, and they are folded here.",
    "sources": [
-    "Qur'an 3:33-44; 19:2-15; Ibn Ishaq"
-   ]
+    "Qur'an 19:6",
+    "Generations: tradition (not re-read here)"
+   ],
+   "lineageNote": "Qur'an 19:6 ties him to the family of Ya'qub; the generations are from tradition."
+  },
+  {
+   "id": "maryam-line",
+   "name": "…the generations to Maryam's father…",
+   "era": "The Temple",
+   "parents": [
+    "yaqub"
+   ],
+   "children": [
+    "imran-maryam"
+   ],
+   "river": "ishaq",
+   "sourceLabel": "Interpretive",
+   "description": "Maryam belongs to the Children of Israel: her son is sent to them (3:49). The Qur'an gives no generations between Ya'qub and her father Imran. Tradition supplies lists; they are folded here and not relied on.",
+   "sources": [
+    "Qur'an 3:49; 3:33-36",
+    "Generations: tradition (not re-read here)"
+   ],
+   "lineageNote": "Folded: the Qur'an gives the family of Imran (3:33) but not the generations before him."
+  },
+  {
+   "id": "imran-maryam",
+   "name": "Imran, father of Maryam",
+   "era": "The Annunciation",
+   "parents": [
+    "maryam-line"
+   ],
+   "children": [
+    "maryam"
+   ],
+   "river": "ishaq",
+   "sourceLabel": "Established",
+   "description": "The Qur'an calls Maryam 'daughter of Imran' (66:12) and names 'the family of Imran' among those Allah chose (3:33). His wife made the vow of 3:35.",
+   "sources": [
+    "Qur'an 3:33-36; 66:12"
+   ],
+   "spouses": [
+    "imran-wife"
+   ],
+   "lineageNote": "Stated in the Qur'an (66:12)."
+  },
+  {
+   "id": "imran-wife",
+   "name": "The wife of Imran",
+   "era": "The Annunciation",
+   "parents": [],
+   "children": [
+    "maryam"
+   ],
+   "river": "ishaq",
+   "sourceLabel": "Established",
+   "description": "She pledged the child in her womb to Allah (3:35) and, when a girl was born, named her Maryam (3:36). The Qur'an does not give her own name.",
+   "sources": [
+    "Qur'an 3:35-36"
+   ],
+   "spouses": [
+    "imran-maryam"
+   ],
+   "lineageNote": "Stated in the Qur'an (3:35-36); her own name is not given there."
   },
   {
    "id": "zakariya",
@@ -714,10 +790,17 @@
    ],
    "river": "ishaq",
    "sourceLabel": "Established",
-   "description": "The guardian of Maryam, given Yahya in old age — his whole supplication preserved (3:38; 21:89).",
+   "description": "The guardian of Maryam (3:37), given Yahya in old age; his supplication is preserved (3:38; 19:2-6; 21:89). He was her guardian; the Qur'an does not make him her father or husband.",
    "sources": [
     "Qur'an 3:37-41; 19:2-15; 21:89-90"
-   ]
+   ],
+   "relations": [
+    {
+     "id": "maryam",
+     "label": "Guardian of"
+    }
+   ],
+   "lineageNote": "His tie to Ya'qub's family is in his own prayer (19:6)."
   },
   {
    "id": "yahya",
@@ -739,18 +822,26 @@
    "name": "Maryam bint Imran",
    "era": "The Annunciation",
    "parents": [
-    "zakariya-line"
+    "imran-maryam",
+    "imran-wife"
    ],
    "children": [
     "isa"
    ],
    "river": "ishaq",
    "sourceLabel": "Established",
-   "description": "Chosen above the women of the worlds — mother of Isa without a father. Her portrait is in the Women shelf.",
+   "description": "Chosen above the women of the worlds, mother of Isa without a father. The Qur'an calls her daughter of Imran (66:12) and her guardian was Zakariya (3:37). Her portrait is in the Women shelf.",
    "sources": [
-    "Qur'an 3:42-51; 19:16-36"
+    "Qur'an 3:42-51; 19:16-36; 66:12"
    ],
-   "story": "woman-maryam"
+   "story": "woman-maryam",
+   "relations": [
+    {
+     "id": "zakariya",
+     "label": "Her guardian"
+    }
+   ],
+   "lineageNote": "Her father and mother are in the Qur'an (3:35; 66:12); Zakariya was her guardian, not her parent."
   },
   {
    "id": "isa",
@@ -766,7 +857,168 @@
    "sources": [
     "Qur'an 3:45-51; 4:157-159; 5:110-116"
    ],
-   "story": "prophet-isa"
+   "story": "prophet-isa",
+   "lineageNote": "The Qur'an gives Isa no father (3:47; 19:20-21); he is called the son of Maryam."
+  },
+  {
+   "id": "hud",
+   "name": "Hud",
+   "era": "The people of 'Ad",
+   "parents": [],
+   "children": [],
+   "river": "root",
+   "sourceLabel": "Established",
+   "description": "Sent to the people of 'Ad as 'their brother' (7:65), meaning one of their own people. The Qur'an gives no parents. Not attached to any family here.",
+   "sources": [
+    "Qur'an 7:65-72; 11:50-60; 26:123-140"
+   ],
+   "story": "prophet-hud",
+   "lineageNote": "Not given in the Qur'an; no parent is guessed.",
+   "placement": "unplaced"
+  },
+  {
+   "id": "salih",
+   "name": "Salih",
+   "era": "The people of Thamud",
+   "parents": [],
+   "children": [],
+   "river": "root",
+   "sourceLabel": "Established",
+   "description": "Sent to the people of Thamud as 'their brother' (7:73), meaning one of their own people; the she-camel was the sign. The Qur'an gives no parents. Not attached to any family here.",
+   "sources": [
+    "Qur'an 7:73-79; 11:61-68"
+   ],
+   "story": "prophet-salih",
+   "lineageNote": "Not given in the Qur'an; no parent is guessed.",
+   "placement": "unplaced"
+  },
+  {
+   "id": "shuayb",
+   "name": "Shu'ayb",
+   "era": "The people of Madyan",
+   "parents": [],
+   "children": [],
+   "river": "root",
+   "sourceLabel": "Established",
+   "description": "Sent to the people of Madyan as 'their brother' (7:85), calling them to full measure and weight. The Qur'an gives no parents. Not attached to any family here.",
+   "sources": [
+    "Qur'an 7:85-93; 11:84-95"
+   ],
+   "story": "prophet-shuayb",
+   "lineageNote": "Not given in the Qur'an; no parent is guessed.",
+   "placement": "unplaced"
+  },
+  {
+   "id": "lut",
+   "name": "Lut (Lot)",
+   "era": "The people of Lut",
+   "parents": [],
+   "children": [],
+   "river": "root",
+   "sourceLabel": "Established",
+   "description": "He believed Ibrahim (29:26) and was sent to his own people (29:28-30). The Qur'an does not say how he was related to Ibrahim, so he is not attached to Ibrahim's line here. The Qur'an gives no parents. Not attached to any family here.",
+   "sources": [
+    "Qur'an 29:26-30; 11:70-83; 66:10"
+   ],
+   "story": "prophet-lut",
+   "lineageNote": "Not given in the Qur'an; no parent is guessed.",
+   "placement": "unplaced"
+  },
+  {
+   "id": "idris",
+   "name": "Idris",
+   "era": "Named in the Qur'an",
+   "parents": [],
+   "children": [],
+   "river": "root",
+   "sourceLabel": "Established",
+   "description": "'A man of truth and a prophet'; Allah 'raised him to a high station' (19:56-57), and he is counted among the patient (21:85). The Qur'an gives no parents. Not attached to any family here.",
+   "sources": [
+    "Qur'an 19:56-57; 21:85-86"
+   ],
+   "story": "prophet-idris",
+   "lineageNote": "Not given in the Qur'an; no parent is guessed.",
+   "placement": "unplaced"
+  },
+  {
+   "id": "ayyub",
+   "name": "Ayyub (Job)",
+   "era": "Named in the Qur'an",
+   "parents": [],
+   "children": [],
+   "river": "root",
+   "sourceLabel": "Established",
+   "description": "Called on his Lord in affliction and was answered; his family was given back to him (21:83-84; 38:41-44). The Qur'an gives no parents. Not attached to any family here.",
+   "sources": [
+    "Qur'an 21:83-84; 38:41-44"
+   ],
+   "story": "prophet-ayyub",
+   "lineageNote": "Not given in the Qur'an; no parent is guessed.",
+   "placement": "unplaced"
+  },
+  {
+   "id": "yunus",
+   "name": "Yunus (Jonah)",
+   "era": "Named in the Qur'an",
+   "parents": [],
+   "children": [],
+   "river": "root",
+   "sourceLabel": "Established",
+   "description": "One of the messengers (37:139); the story of the ship and the fish is in 37:140-148 and his supplication in 21:87-88. The Qur'an gives no parents. Not attached to any family here.",
+   "sources": [
+    "Qur'an 37:139-148; 21:87-88"
+   ],
+   "story": "prophet-yunus",
+   "lineageNote": "Not given in the Qur'an; no parent is guessed.",
+   "placement": "unplaced"
+  },
+  {
+   "id": "ilyas",
+   "name": "Ilyas (Elias)",
+   "era": "Named in the Qur'an",
+   "parents": [],
+   "children": [],
+   "river": "root",
+   "sourceLabel": "Established",
+   "description": "One of the messengers, who asked his people why they called on Ba'l (37:123-125); counted among the righteous (6:85). The Qur'an gives no parents. Not attached to any family here.",
+   "sources": [
+    "Qur'an 37:123-132; 6:85"
+   ],
+   "story": "prophet-ilyas",
+   "lineageNote": "Not given in the Qur'an; no parent is guessed.",
+   "placement": "unplaced"
+  },
+  {
+   "id": "alyasa",
+   "name": "Al-Yasa' (Elisha)",
+   "era": "Named in the Qur'an",
+   "parents": [],
+   "children": [],
+   "river": "root",
+   "sourceLabel": "Established",
+   "description": "Named among those Allah preferred over the worlds (6:86) and among the outstanding (38:48). The Qur'an gives no parents. Not attached to any family here.",
+   "sources": [
+    "Qur'an 6:86; 38:48"
+   ],
+   "story": "prophet-alyasa",
+   "lineageNote": "Not given in the Qur'an; no parent is guessed.",
+   "placement": "unplaced"
+  },
+  {
+   "id": "dhul-kifl",
+   "name": "Dhul-Kifl",
+   "era": "Named in the Qur'an",
+   "parents": [],
+   "children": [],
+   "river": "root",
+   "sourceLabel": "Established",
+   "description": "Named among the patient (21:85-86) and among the outstanding (38:48). The Qur'an gives no parents. Not attached to any family here.",
+   "sources": [
+    "Qur'an 21:85-86; 38:48"
+   ],
+   "story": "prophet-dhul-kifl",
+   "lineageNote": "Not given in the Qur'an; no parent is guessed.",
+   "placement": "unplaced"
   }
  ]
 }

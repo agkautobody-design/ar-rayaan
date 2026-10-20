@@ -21,8 +21,8 @@ library;
 /// Fixed badge on every earlier account. Never reworded per item.
 const String kEarlierBadge = 'Not from the Qur’an';
 
-/// Fixed review banner. There is no named reviewer yet, so the app must
-/// never say "scholar-reviewed".
+/// Fixed review banner. There is no named reviewer yet, so the app only
+/// ever states that review has not happened.
 const String kReviewBanner = 'Not yet scholar-reviewed';
 
 /// Label printed on a disagreement between named works.

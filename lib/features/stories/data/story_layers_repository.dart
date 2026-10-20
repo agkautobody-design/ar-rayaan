@@ -48,6 +48,11 @@ class StoryLayersRepository {
   Future<String?> subjectFor(String storyId) async =>
       (await _index())[storyId];
 
+  /// Every story id that has layers beneath it (for the "Go deeper" mark on
+  /// the shelves).
+  Future<Set<String>> storyIdsWithLayers() async =>
+      (await _index()).keys.toSet();
+
   /// The layers for [storyId], or null.
   Future<StoryLayers?> loadFor(String storyId) async {
     final String? subject = await subjectFor(storyId);
@@ -85,4 +90,10 @@ final Provider<StoryLayersRepository> storyLayersRepositoryProvider =
 final FutureProviderFamily<StoryLayers?, String> storyLayersProvider =
     FutureProvider.family<StoryLayers?, String>((ref, String storyId) {
   return ref.watch(storyLayersRepositoryProvider).loadFor(storyId);
+});
+
+/// Story ids that have a "Go deeper" section.
+final FutureProvider<Set<String>> storyIdsWithLayersProvider =
+    FutureProvider<Set<String>>((ref) {
+  return ref.watch(storyLayersRepositoryProvider).storyIdsWithLayers();
 });

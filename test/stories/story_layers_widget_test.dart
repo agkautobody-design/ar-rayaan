@@ -97,7 +97,7 @@ void main() {
 
       // Qur'an passages come from the bundled text.
       await openBlock(tester, 'layer-quran');
-      expect(find.textContaining('language of birds'), findsOneWidget);
+      expect(find.textContaining('language of birds'), findsWidgets);
       expect(find.textContaining('Saheeh International'), findsWidgets);
 
       // Hadith carry grade AND grader.

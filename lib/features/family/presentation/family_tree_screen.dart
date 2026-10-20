@@ -12,7 +12,10 @@ import '../../stories/domain/story.dart';
 import '../data/family_tree_provider.dart';
 
 class FamilyTreeScreen extends ConsumerStatefulWidget {
-  const FamilyTreeScreen({super.key});
+  const FamilyTreeScreen({super.key, this.initiallyExpanded = const <String>{}});
+
+  /// Extra branches to open on first build (used by tests and deep links).
+  final Set<String> initiallyExpanded;
 
   @override
   ConsumerState<FamilyTreeScreen> createState() => _FamilyTreeScreenState();
@@ -20,7 +23,7 @@ class FamilyTreeScreen extends ConsumerStatefulWidget {
 
 class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
   static const _rootId = 'adam';
-  final Set<String> _expanded = {
+  late final Set<String> _expanded = <String>{
     'adam',
     'sheeth',
     'nuh-line',
@@ -29,6 +32,7 @@ class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
     'arfakhshadh',
     'ibrahim-line',
     'ibrahim',
+    ...widget.initiallyExpanded,
   };
 
   @override
