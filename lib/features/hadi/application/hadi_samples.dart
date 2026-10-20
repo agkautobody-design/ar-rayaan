@@ -80,8 +80,10 @@ const List<HadiExchange> kProposedHadiExchanges = [
   HadiExchange(
     question: 'How do I make wudu?',
     answer:
-        'Six steps: (1) intention, (2) wash face, (3) wash hands to elbows, '
-        '(4) wipe head, (5) wash feet to ankles, (6) maintain sequence. '
+        'The core steps: (1) intention, (2) wash the face, (3) wash the hands '
+        'and arms to the elbows, (4) wipe the head, (5) wash the feet to the '
+        'ankles. Most schools also keep this order (the Hanafis do not '
+        'require it). '
         'The Prophet ﷺ said: "Whoever performs wudu well, his sins leave '
         'from his body." (Muslim). Would you like a step-by-step guide?',
   ),
@@ -89,9 +91,10 @@ const List<HadiExchange> kProposedHadiExchanges = [
     question: 'What breaks my wudu?',
     answer:
         'Wudu is broken by: anything exiting private parts, deep sleep, '
-        'loss of consciousness, and touching private parts with the palm. '
-        'The Prophet ﷺ said: "Whoever touches his private part, let him '
-        'perform wudu." (Tirmidhi).',
+        'loss of consciousness; many scholars add touching the private parts '
+        'directly (the schools differ on this). The Prophet ﷺ said: '
+        '"Whoever touches his private part, let him perform wudu." '
+        '(Tirmidhi). Ask a qualified scholar about your own case.',
   ),
   HadiExchange(
     question: 'I want to memorize Quran',
@@ -131,10 +134,12 @@ const List<HadiExchange> kProposedHadiExchanges = [
   HadiExchange(
     question: 'How do I start fasting?',
     answer:
-        'The intention for Ramadan is made each night before Fajr. The '
-        'Prophet ﷺ said: "Whoever does not intend to fast before Fajr, '
-        'there is no fast for him." (Tirmidhi). Eat suhoor — even a date '
-        'and water — for there is blessing in it.',
+        'For Ramadan, make your intention for each day before Fajr; most '
+        'scholars take this from the narration "Whoever does not resolve to '
+        'fast before Fajr, there is no fast for him" (Abu Dawud, Tirmidhi), '
+        'though scholars discuss its chain and the schools differ on the '
+        'details. Eat suhoor — even a date or some water — the Prophet ﷺ '
+        'said there is blessing in it (Sahih al-Bukhari 1923).',
   ),
   HadiExchange(
     question: 'I had a bad dream',

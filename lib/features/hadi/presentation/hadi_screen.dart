@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -16,6 +18,10 @@ import '../../../app/core/providers.dart';
 import '../application/hadi_controller.dart';
 import '../application/hadi_provider.dart';
 import '../application/hadi_samples.dart';
+import '../../sakina/application/sakina_providers.dart';
+import '../../sakina/domain/crisis_detector.dart';
+import '../../sakina/domain/sakina_content.dart';
+import '../../sakina/presentation/widgets/help_line_tile.dart';
 
 /// Screen 6 · Ask Hādī — live AI guidance (Groq free tier, user's key) with
 /// a curated authentic offline fallback (O-7). Guardrails: Qur'an + Sihah
@@ -30,17 +36,23 @@ class HadiScreen extends ConsumerStatefulWidget {
 class _HadiScreenState extends ConsumerState<HadiScreen> {
   final TextEditingController _input = TextEditingController();
   final ScrollController _scroll = ScrollController();
+  StreamSubscription<String>? _navSub;
 
   @override
   void initState() {
     super.initState();
-    ref.read(hadiControllerProvider.notifier).navigationEvents.stream.listen((route) {
+    _navSub = ref
+        .read(hadiControllerProvider.notifier)
+        .navigationEvents
+        .stream
+        .listen((String route) {
       if (mounted) context.go(route);
     });
   }
 
   @override
   void dispose() {
+    unawaited(_navSub?.cancel());
     _input.dispose();
     _scroll.dispose();
     super.dispose();
@@ -95,9 +107,15 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
             Text('Live AI for Hādi', style: AppText.titleMedium),
             const SizedBox(height: 8),
             Text(
-              'Hādi answers from curated authentic knowledge offline. For '
-              'open conversation, add a free key from either provider — both '
-              'free, no card. The key never leaves your device.',
+              'Hādi answers from curated knowledge on your device, offline. '
+              'For open conversation you can add your own free key from '
+              'Groq, OpenRouter or xAI. With a key, what you type, the '
+              'recent conversation, and your name if you turned that on in '
+              'Settings are sent to the provider you choose, together with '
+              'your key, with every question. The key is stored in plain '
+              'text on this device, so use one you can revoke. Messages '
+              'about suicide or self-harm are answered here on your device '
+              'and are never sent.',
               style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.5),
             ),
             const SizedBox(height: 12),
@@ -428,6 +446,41 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
   }
 }
 
+/// Tappable, copyable help lines under a crisis reply, for the person's
+/// own country, with a way into Sakina for every other country.
+class _CrisisHelpPanel extends ConsumerWidget {
+  const _CrisisHelpPanel({required this.kind});
+
+  final CrisisKind kind;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final List<HelpResource> rows = CrisisResponses.resourcesFor(
+      kind,
+      ref.watch(deviceCountryProvider),
+    ).take(6).toList();
+    return Padding(
+      padding: const EdgeInsets.only(top: 10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          for (final HelpResource r in rows) ...<Widget>[
+            HelpLineTile(resource: r),
+            const SizedBox(height: 6),
+          ],
+          TextButton(
+            onPressed: () => context.push(AppRoutes.sakina),
+            child: Text(
+              'More help lines, every country (Sakina)',
+              style: AppText.caption.copyWith(color: AppColors.gold),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class _Bubble extends StatelessWidget {
   const _Bubble({required this.message});
 
@@ -460,12 +513,14 @@ class _Bubble extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(
-                          message.text,
+                          HadiTokens.strip(message.text),
                           style: AppText.body.copyWith(
                             height: 1.5,
                             color: AppColors.sand.withValues(alpha: 0.9),
                           ),
                         ),
+                        if (message.crisis != null)
+                          _CrisisHelpPanel(kind: message.crisis!),
                         const SizedBox(height: 6),
                         Align(
                           alignment: Alignment.centerRight,
