@@ -1,5 +1,5 @@
-/// Non-web stub: no sensor package is a dependency yet, so native builds
-/// have no live compass (the static dial and sun method still work).
+/// Fallback with no sensor access (platforms that are neither the browser
+/// nor a native build): the static dial and the sun method still work.
 abstract final class DeviceHeading {
   /// Whether this platform can supply a live compass heading.
   static bool get isSupported => false;

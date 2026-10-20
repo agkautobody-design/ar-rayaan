@@ -139,3 +139,39 @@ final NotifierProvider<AlertBannerController, String?> alertBannerProvider =
     NotifierProvider<AlertBannerController, String?>(
       AlertBannerController.new,
     );
+
+/// How long before each alerted prayer an extra "Asr in 15 minutes"
+/// notification is delivered (0 = none). Saved on this device.
+class NotificationLeadController extends Notifier<int> {
+  static const String _key = 'ar.prayer.leadMinutes';
+
+  /// The choices offered.
+  static const List<int> options = <int>[0, 5, 10, 15, 30];
+
+  @override
+  int build() {
+    try {
+      final int? v = ref.watch(sharedPreferencesProvider).getInt(_key);
+      if (v != null && options.contains(v)) return v;
+    } catch (_) {
+      // Default: none.
+    }
+    return 0;
+  }
+
+  Future<void> set(int minutes) async {
+    if (!options.contains(minutes)) return;
+    state = minutes;
+    try {
+      await ref.read(sharedPreferencesProvider).setInt(_key, minutes);
+    } catch (_) {
+      // In-memory only.
+    }
+  }
+}
+
+final NotifierProvider<NotificationLeadController, int>
+notificationLeadProvider =
+    NotifierProvider<NotificationLeadController, int>(
+      NotificationLeadController.new,
+    );

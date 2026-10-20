@@ -66,4 +66,32 @@ abstract final class CompassMath {
     required double qiblaBearing,
     required double trueHeading,
   }) => shortestDelta(trueHeading, qiblaBearing);
+
+  /// True when recent magnetic [headings] (oldest first) jump back and forth
+  /// instead of moving steadily, which is what a phone near metal, a magnet
+  /// or an uncalibrated sensor looks like. Turning on the spot gives a
+  /// one-way run of changes and is not flagged.
+  ///
+  /// Method: take the changes between consecutive readings, keep those larger
+  /// than [minStep] degrees, and flag the window when at least
+  /// [minSteps] such changes exist and [reversalShare] of neighbouring pairs
+  /// change direction.
+  static bool isErratic(
+    List<double> headings, {
+    double minStep = 4,
+    int minSteps = 6,
+    double reversalShare = 0.6,
+  }) {
+    final List<double> steps = <double>[];
+    for (int i = 1; i < headings.length; i++) {
+      final double d = shortestDelta(headings[i - 1], headings[i]);
+      if (d.abs() > minStep) steps.add(d);
+    }
+    if (steps.length < minSteps) return false;
+    int reversals = 0;
+    for (int i = 1; i < steps.length; i++) {
+      if ((steps[i] > 0) != (steps[i - 1] > 0)) reversals++;
+    }
+    return reversals / (steps.length - 1) >= reversalShare;
+  }
 }

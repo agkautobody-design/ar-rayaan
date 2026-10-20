@@ -10,6 +10,7 @@ import 'app/core/providers.dart';
 import 'features/auth/application/auth_providers.dart';
 import 'features/doctor/application/drift_guard.dart';
 import 'features/onboarding/presentation/onboarding_screen.dart';
+import 'features/prayer/presentation/worship_boot.dart';
 import 'features/doctor/application/feature_probes.dart';
 import 'features/auth/application/auth_repository.dart';
 import 'features/auth/data/fake_auth_repository.dart';
@@ -48,7 +49,9 @@ Future<void> main() async {
         sharedPreferencesProvider.overrideWithValue(prefs),
         authRepositoryProvider.overrideWithValue(authRepo),
       ],
-      child: ArRayaanApp(env: env, showOnboarding: showOnboarding),
+      child: WorshipBoot(
+        child: ArRayaanApp(env: env, showOnboarding: showOnboarding),
+      ),
     ),
   );
 }

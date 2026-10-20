@@ -32,6 +32,12 @@ dependencies:
   path_provider: ^2.1.6
   wakelock_plus: ^1.8.0
   crypto: ^3.0.7
+  # Native adhan notifications and live compass (worship wave). Pinned to
+  # versions verified on pub.dev on 2026-10-20. Every call site is behind a
+  # conditional import or a platform check, so the web build never runs them.
+  flutter_local_notifications: 22.3.2
+  timezone: 0.11.2
+  flutter_compass: 0.8.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

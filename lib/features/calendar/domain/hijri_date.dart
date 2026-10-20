@@ -5,15 +5,68 @@
 /// metadata and the year's major observances.
 ///
 /// NOTE (honesty): even official-calendar dates can differ ±1 day from
-/// local moon sighting in some countries. The app keeps an honesty note —
-/// a moon-sighting data source can refine this later without design changes.
+/// local moon sighting in some countries. The user can therefore pick the
+/// calendar BASIS and shift every date by whole days (see [HijriConfig]);
+/// every consumer (calendar, Ramadan, hawl, fasting markers) reads the same
+/// setting through [HijriDate.config], so they can never disagree.
 library;
 
 import 'package:hijri/hijri_calendar.dart';
 
+/// Which calendar the dates are computed from.
+enum HijriBasis {
+  /// The official Umm al-Qura calendar of Saudi Arabia (data table for
+  /// 1356-1500 AH, from the `hijri` package, a port of the van Gent tables).
+  ummAlQura,
+
+  /// The arithmetic "civil" tabular calendar (Kuwaiti algorithm): 30-year
+  /// cycle, odd months 30 days, even months 29. It does not observe the moon
+  /// at all, so it can differ from every sighting-based calendar by a day or
+  /// two; it is offered because some communities and tools use it.
+  tabular,
+}
+
+/// The user's calendar choice: a [basis] plus a whole-day shift.
+///
+/// A positive [adjustDays] makes every Hijri date LATER (the Hijri date shown
+/// for a given day moves forward), the usual way to follow a country whose
+/// announced month began a day before the calculated one. A uniform shift is
+/// only an approximation of month-by-month announcements; it is the same
+/// control other prayer apps offer.
+class HijriConfig {
+  const HijriConfig({this.basis = HijriBasis.ummAlQura, this.adjustDays = 0});
+
+  final HijriBasis basis;
+
+  /// -2 to +2.
+  final int adjustDays;
+
+  static const int maxAdjust = 2;
+
+  HijriConfig copyWith({HijriBasis? basis, int? adjustDays}) => HijriConfig(
+    basis: basis ?? this.basis,
+    adjustDays: (adjustDays ?? this.adjustDays)
+        .clamp(-maxAdjust, maxAdjust)
+        .toInt(),
+  );
+
+  @override
+  bool operator ==(Object other) =>
+      other is HijriConfig &&
+      other.basis == basis &&
+      other.adjustDays == adjustDays;
+
+  @override
+  int get hashCode => Object.hash(basis, adjustDays);
+}
+
 /// A date in the Hijri calendar.
 class HijriDate {
   const HijriDate(this.year, this.month, this.day);
+
+  /// The calendar every conversion uses. Set once at start-up from the saved
+  /// choice and again whenever the user changes it (see `hijriSettingsProvider`).
+  static HijriConfig config = const HijriConfig();
 
   final int year;
 
@@ -113,6 +166,10 @@ class HijriDate {
   /// where official-calendar data drives conversion.
   static bool inUmmAlQuraRange(int year) => year >= 1356 && year <= 1500;
 
+  /// Whether the Umm al-Qura table is the active source for [year].
+  static bool _useUmmAlQura(int year) =>
+      config.basis == HijriBasis.ummAlQura && inUmmAlQuraRange(year);
+
   /// Tabular (Kuwaiti) conversion — fallback outside the Umm al-Qura range.
   static HijriDate _fromGregorianTabular(DateTime date) {
     final int jd = gregorianToJd(date.year, date.month, date.day);
@@ -133,30 +190,44 @@ class HijriDate {
     return HijriDate(y, m, d);
   }
 
-  /// Hijri date for a Gregorian date — Umm al-Qura official calendar where
-  /// in range, tabular civil fallback otherwise.
+  /// Hijri date for a Gregorian date under the active [config]: the chosen
+  /// basis, shifted by the chosen number of days.
   static HijriDate fromGregorian(DateTime date) {
-    final HijriDate guess = _fromGregorianTabular(date);
-    if (!inUmmAlQuraRange(guess.year)) return guess;
+    final DateTime shifted = DateTime(
+      date.year,
+      date.month,
+      date.day + config.adjustDays,
+    );
+    final HijriDate guess = _fromGregorianTabular(shifted);
+    if (config.basis == HijriBasis.tabular || !inUmmAlQuraRange(guess.year)) {
+      return guess;
+    }
     try {
-      final HijriCalendar h = HijriCalendar.fromDate(date);
+      final HijriCalendar h = HijriCalendar.fromDate(shifted);
       return HijriDate(h.hYear, h.hMonth, h.hDay);
     } catch (_) {
       return guess;
     }
   }
 
-  /// Gregorian date for this Hijri date (midnight local) — Umm al-Qura
-  /// official calendar where in range, tabular civil fallback otherwise.
+  /// Gregorian date for this Hijri date (midnight local) under the active
+  /// [config] (the inverse of [fromGregorian]).
   DateTime toGregorian() {
-    if (inUmmAlQuraRange(year)) {
+    DateTime base;
+    if (_useUmmAlQura(year)) {
       try {
         final DateTime g = HijriCalendar().hijriToGregorian(year, month, day);
-        return DateTime(g.year, g.month, g.day);
+        base = DateTime(g.year, g.month, g.day);
       } catch (_) {
-        // Fall through to tabular.
+        base = _tabularToGregorian();
       }
+    } else {
+      base = _tabularToGregorian();
     }
+    return DateTime(base.year, base.month, base.day - config.adjustDays);
+  }
+
+  DateTime _tabularToGregorian() {
     final (int y, int m, int d) = jdToGregorian(hijriToJd(year, month, day));
     return DateTime(y, m, d);
   }
@@ -168,7 +239,7 @@ class HijriDate {
   static bool isLeapYear(int year) => ((11 * year + 14) % 30) < 11;
 
   static int monthLength(int year, int month) {
-    if (inUmmAlQuraRange(year)) {
+    if (_useUmmAlQura(year)) {
       try {
         return HijriCalendar().getDaysInMonth(year, month);
       } catch (_) {
