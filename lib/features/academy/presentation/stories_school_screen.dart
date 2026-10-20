@@ -394,7 +394,122 @@ const List<_StoriesUnit> kStoriesUnits = <_StoriesUnit>[
       ),
     ],
   ),
+  _StoriesUnit(
+    title: 'The Prophets — The Long Chain',
+    frame: 'Every prophet carried the same message to a different people. Together they are the longest curriculum in history.',
+    chapters: <_StoryChapter>[
+      _StoryChapter(
+        title: 'Adam — The First Repentance',
+        virtue: 'One honest sentence opened the door of mercy for every sinner after him. Repentance is the oldest human skill.',
+        familyQuestion: 'What does a real apology look like — from you to someone else, or to Allah?',
+        storyId: 'prophet-adam',
+      ),
+      _StoryChapter(
+        title: 'Idris — The Scribe',
+        virtue: 'He was raised to a high station (19:57) — the first to write by the pen, the first to study the stars for worship. Knowledge was worship before it was a profession.',
+        familyQuestion: 'What are you learning that could become worship?',
+        storyId: 'prophet-idris',
+      ),
+      _StoryChapter(
+        title: 'Nuh — The Long Building',
+        virtue: 'He built the ship for decades before a drop of rain, and called his people for 950 years. Persistence is a form of worship.',
+        familyQuestion: 'What are you building that no one can see yet?',
+        storyId: 'prophet-nuh',
+      ),
+      _StoryChapter(
+        title: 'Hud and Salih — The Clear Signs',
+        virtue: 'Two messengers to two mighty peoples (\u2019Ad and Thamud) — each brought a sign, each was rejected, each was vindicated. The sign is not the problem; the heart is.',
+        familyQuestion: 'What sign have you been shown that you have not yet followed?',
+        storyId: 'prophet-hud',
+      ),
+      _StoryChapter(
+        title: 'Lut — The Unheeded Warning',
+        virtue: 'He warned his people until the angels came — and even then he was told to leave by night. Some doors close while the caller is still calling.',
+        familyQuestion: 'When is it time to stop calling someone and start protecting your own household?',
+        storyId: 'prophet-lut',
+      ),
+      _StoryChapter(
+        title: 'Ibrahim, Ishaq, and Ya\u2019qub — The Household of Faith',
+        virtue: 'One household carried the message for three generations: the father who reasoned to tawhid, the son who submitted, the grandson who named it Israel. Faith is inherited when it is lived.',
+        familyQuestion: 'What are you passing down — by your actions, not your words?',
+        storyId: 'prophet-ibrahim',
+      ),
+      _StoryChapter(
+        title: 'Ismail — The Willing Son',
+        virtue: 'The son who said: O my father, do as you are commanded — you will find me, if Allah wills, of the patient (37:102). The ram replaced the boy, and the ummah still commemorates the surrender at every Eid.',
+        familyQuestion: 'What are you willing to surrender that you love — trusting the replacement will come?',
+        storyId: 'prophet-ismail',
+      ),
+      _StoryChapter(
+        title: 'Shu\u2019ayb — The Honest Measure',
+        virtue: 'He preached to the merchants: give full measure, weigh with the straight scale, do not diminish the people\u2019s goods (11:85). The first economic reformer was a prophet.',
+        familyQuestion: 'Is your measure full — at work, at home, in your promises?',
+        storyId: 'prophet-shuayb',
+      ),
+      _StoryChapter(
+        title: 'Musa and Harun — The Stutterer and His Brother',
+        virtue: 'Musa asked for Harun because he feared his stutter would fail the message; Allah answered the ask and sent both. Weakness acknowledged is strength assisted.',
+        familyQuestion: 'Who is your Harun — the one you can ask to stand beside you when your own voice shakes?',
+        storyId: 'prophet-musa',
+      ),
+      _StoryChapter(
+        title: 'Dawud and Sulayman — The Kingdoms',
+        virtue: 'Dawud ruled and recited; Sulayman asked for a kingdom no one would have after him and then asked only to be grateful. Power chose gratitude.',
+        familyQuestion: 'What would you ask for if you could ask for anything — and is gratitude in your asking?',
+        storyId: 'prophet-sulayman',
+      ),
+      _StoryChapter(
+        title: 'Ayyub — The Patient One',
+        virtue: 'Everything taken, years of illness, one dua at the end — and the mountain moved. Long patience, short words.',
+        familyQuestion: 'What would you say to Allah if you could only say one sentence?',
+        storyId: 'prophet-ayyub',
+      ),
+      _StoryChapter(
+        title: 'Dhul-Kifl — The Oath Kept',
+        virtue: 'He swore to judge between his people with justice, day and night. The oath kept is the character written.',
+        familyQuestion: 'What oath or promise have you made that you are still keeping?',
+        storyId: 'prophet-dhul-kifl',
+      ),
+      _StoryChapter(
+        title: 'Yunus — The Whale\u2019s Belly',
+        virtue: 'He ran from the call and landed in the darkest place — and one sentence reached the Throne. No place is too dark for la ilaha illa anta.',
+        familyQuestion: 'What is your whale\u2019s belly — and what would you pray from inside it?',
+        storyId: 'prophet-yunus',
+      ),
+      _StoryChapter(
+        title: 'Zakariya — The Private Call',
+        virtue: 'He asked for a child in a whisper only Allah heard, and the answer came while he was old. Private prayers are not small prayers.',
+        familyQuestion: 'What do you pray for that no one else knows — and are you still praying it?',
+        storyId: 'prophet-zakariya',
+      ),
+      _StoryChapter(
+        title: 'Isa — The Word from Him',
+        virtue: 'Born of a virgin, speaking from the cradle, healing by Allah\u2019s leave — and he said: I am the slave of Allah. The miracles served the message, never the man.',
+        familyQuestion: 'What gifts or abilities do you have — and do they serve the message or the ego?',
+        storyId: 'prophet-isa',
+      ),
+      _StoryChapter(
+        title: 'Ilyas and Al-Yasa — The Reminders',
+        virtue: 'Ilyas reminded his people to worship Allah alone (37:123-126); Al-Yasa succeeded him. The reminder is a relay, not a solo.',
+        familyQuestion: 'Who reminded you of Allah when you had forgotten — and have you thanked them?',
+        storyId: 'prophet-ilyas',
+      ),
+      _StoryChapter(
+        title: 'Ibrahim\u2019s Sons — The Splitting of the Way',
+        virtue: 'From Ishaq came Ya\u2019qub; from Ismail came Muhammad. One father, two branches, one final message. The family tree of faith is wide.',
+        familyQuestion: 'What branch of your own family tree could carry a message forward?',
+        storyId: 'prophet-ishaq',
+      ),
+      _StoryChapter(
+        title: 'Ibrahim — The Two Rivers of Reason',
+        virtue: 'He reasoned his way to tawhid before revelation came — and was thrown into the fire that became cool. Conviction that reasons and then leaps.',
+        familyQuestion: 'What belief would you hold even if everyone mocked it?',
+        storyId: 'prophet-ibrahim',
+      ),
+    ],
+  ),
 ];
+
 
 
 
