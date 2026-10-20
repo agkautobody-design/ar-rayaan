@@ -217,7 +217,7 @@ final List<AcademyCourse> kAcademyCourses = <AcademyCourse>[
             titleKey: 'path.u4.l3.title',
             steps: <AcademyStep>[
               const AcademyStep(kind: AcademyStepKind.text, titleKey: 'path.u4.l3.s1.title', bodyKey: 'path.u4.l3.s1.body'),
-              const AcademyStep(kind: AcademyStepKind.embed, titleKey: 'path.u4.l3.s2.title', bodyKey: 'path.u4.l3.s2.body'),
+              const AcademyStep(kind: AcademyStepKind.embed, ref: 'zakat.guided', titleKey: 'path.u4.l3.s2.title', bodyKey: 'path.u4.l3.s2.body'),
               const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'path.u4.l3.s3.title', bodyKey: 'path.u4.l3.s3.body'),
             ],
           ),
