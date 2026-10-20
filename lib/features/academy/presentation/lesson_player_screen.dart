@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'avatar_clip_player.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -416,35 +417,7 @@ class _StepBody extends StatelessWidget {
               Text(AcademyStrings.get(step.bodyKey),
                   style: AppText.titleMedium),
               const SizedBox(height: 8),
-              AspectRatio(
-                aspectRatio: 16 / 9,
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: AppColors.night,
-                    borderRadius: BorderRadius.circular(12),
-                    border: Border.all(
-                      color: AppColors.gold.withValues(alpha: 0.4),
-                    ),
-                  ),
-                  child: Center(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        const Icon(
-                          Icons.play_circle_outline,
-                          size: 44,
-                          color: AppColors.gold,
-                        ),
-                        const SizedBox(height: 6),
-                        Text(
-                          step.clipId ?? '',
-                          style: AppText.bodyMuted.copyWith(fontSize: 11),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
+              AvatarClipPlayer(clipId: step.clipId ?? ''),
               const SizedBox(height: 8),
               Text(
                 AcademyStrings.get('demo.stageCaption'),
