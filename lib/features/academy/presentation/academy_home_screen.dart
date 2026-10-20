@@ -283,6 +283,14 @@ class _AcademyHomeScreenState
                 live: true,
               ),
               _SchoolRow(
+                icon: Icons.payments_outlined,
+                arabic: 'المعاملات',
+                title: AcademyStrings.get('school.transactions.title'),
+                subtitle: AcademyStrings.get('school.transactions.body'),
+                route: '/academy/transactions',
+                live: true,
+              ),
+              _SchoolRow(
                 icon: Icons.graphic_eq,
                 arabic: '\u0627\u0644\u062a\u0651\u064e\u0644\u064e\u0627\u0648\u064e\u0629',
                 title: AcademyStrings.get('school.recitation.title'),

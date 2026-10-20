@@ -145,6 +145,8 @@ abstract final class AcademyStrings {
       'school.youth.body': 'Identity, the phone, friends, and money — the tests of a generation, with one practice each.',
       'school.womens.title': 'Women\u2019s School',
       'school.womens.body': 'The women of the Quran and the Prophet\u2019s household — iman that built, scholarship that taught, standing that changed history.',
+      'school.transactions.title': 'Transactions School',
+      'school.transactions.body': 'Halal earnings, riba, zakat in practice, and the barakah of honest work.',
       'academy.title': 'Al-Wasia Academy of Sacred Knowledge',
       'academy.comingSoon': 'Coming soon — insha’Allah',
       'academy.continue': 'Continue where you left off',
