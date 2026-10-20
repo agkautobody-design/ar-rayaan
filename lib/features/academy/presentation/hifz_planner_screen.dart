@@ -103,6 +103,28 @@ class _HifzPlannerScreenState extends State<HifzPlannerScreen> {
                   style: AppText.bodyMuted.copyWith(height: 1.5),
                 ),
               ),
+              const SizedBox(height: 12),
+              GlassCard(
+                strong: true,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text("Where to begin — the Prophet\u2019s counsel",
+                        style: AppText.titleMedium),
+                    const SizedBox(height: 8),
+                    Text(
+                      "Start with what the mosque recites most: the short surahs of Juz Amma. "
+                      "The Prophet \ufdfa said the one who recites the last ten surahs is like one who memorized the entire Qur\u2019an \u2014 "
+                      "and the most repeated surahs (Al-Ikhlas, Al-Falaq, An-Nas, Al-Kahf) are the first the heart owns. "
+                      "Begin where you already pray.",
+                      style: AppText.bodyMuted.copyWith(height: 1.5),
+                    ),
+                    const SizedBox(height: 10),
+                    Text("Tirmidhi 2942 \u00b7 [Interpretive: start-where-you-pray method]",
+                        style: AppText.bodyMuted.copyWith(fontSize: 10)),
+                  ],
+                ),
+              ),
             ],
           ),
         ),

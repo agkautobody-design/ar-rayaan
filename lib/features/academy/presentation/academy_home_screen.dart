@@ -203,6 +203,14 @@ class _AcademyHomeScreenState
                 live: true,
               ),
               _SchoolRow(
+                icon: Icons.auto_stories,
+                arabic: '\u0627\u0644\u062d\u0641\u0638',
+                title: AcademyStrings.get('school.hifz.title'),
+                subtitle: AcademyStrings.get('school.hifz.body'),
+                route: '/academy/hifz',
+                live: true,
+              ),
+              _SchoolRow(
                 icon: Icons.graphic_eq,
                 arabic: '\u0627\u0644\u062a\u0651\u064e\u0644\u064e\u0627\u0648\u064e\u0629',
                 title: AcademyStrings.get('school.recitation.title'),
