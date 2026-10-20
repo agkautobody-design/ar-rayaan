@@ -3,9 +3,23 @@ import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:shared_preferences/shared_preferences.dart';
 
-/// The Courtyard — phase 1 of the Majlis. Public read, authenticated write,
-/// seeded on first open so no room ever opens empty (Community Design law).
+import '../domain/majlis_policy.dart';
+
+/// A write the policy refused before it left the device. [message] is safe
+/// to show to the person.
+class MajlisRejected implements Exception {
+  const MajlisRejected(this.message);
+  final String message;
+  @override
+  String toString() => message;
+}
+
+/// The Courtyard — phase 1 of the Majlis. Public read, authenticated write.
+/// Posts are not reviewed before they appear; people can report them, and
+/// Firestore rules enforce server timestamps, size limits, reserved names and
+/// a minimum gap between writes.
 class MajlisService {
   MajlisService({FirebaseFirestore? firestore, FirebaseAuth? auth})
       : _db = firestore ?? FirebaseFirestore.instance,
@@ -37,28 +51,89 @@ class MajlisService {
       .orderBy('createdAt')
       .snapshots();
 
+  CollectionReference<Map<String, dynamic>> get _reports =>
+      _db.collection('majlis_reports');
+
+  DocumentReference<Map<String, dynamic>> _rateDoc(String uid) =>
+      _db.collection('majlis_rate').doc(uid);
+
+  /// Recent write times are kept on this device so the client can explain a
+  /// wait; the server enforces its own minimum gap regardless.
+  static const String _recentKey = 'ar.majlis.recent';
+
+  Future<List<DateTime>> _recentWrites() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      return (prefs.getStringList(_recentKey) ?? const <String>[])
+          .map(DateTime.tryParse)
+          .whereType<DateTime>()
+          .toList();
+    } catch (_) {
+      return <DateTime>[];
+    }
+  }
+
+  Future<void> _checkAllowedToWrite() async {
+    final wait =
+        MajlisPolicy.waitBeforeNextPost(await _recentWrites(), DateTime.now());
+    if (wait != null) {
+      throw MajlisRejected(
+        'Please wait ${wait.inSeconds + 1} seconds before posting again.',
+      );
+    }
+  }
+
+  Future<void> _noteWrite() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final hourAgo = DateTime.now().subtract(const Duration(hours: 1));
+      final kept = (await _recentWrites()).where((t) => t.isAfter(hourAgo));
+      await prefs.setStringList(
+        _recentKey,
+        <String>[
+          ...kept.map((t) => t.toIso8601String()),
+          DateTime.now().toIso8601String(),
+        ],
+      );
+    } catch (_) {}
+  }
+
   Future<String> createThread({
     required String title,
     required String authorName,
     required String firstPost,
   }) async {
+    final nameProblem = MajlisPolicy.validateName(authorName);
+    final problem = nameProblem ??
+        MajlisPolicy.validateTitle(title) ??
+        MajlisPolicy.validateBody(firstPost);
+    if (problem != null) throw MajlisRejected(problem);
+    await _checkAllowedToWrite();
     final String uid = await _uid();
-    final now = Timestamp.now();
-    final ref = await _threads.add({
+    final threadRef = _threads.doc();
+    final postRef = threadRef.collection('posts').doc();
+    final batch = _db.batch();
+    batch.set(threadRef, <String, dynamic>{
       'title': title.trim(),
       'authorName': authorName.trim(),
       'uid': uid,
-      'createdAt': now,
-      'lastActivity': now,
+      'createdAt': FieldValue.serverTimestamp(),
+      'lastActivity': FieldValue.serverTimestamp(),
       'replyCount': 1,
+      'lastPostId': postRef.id,
     });
-    await ref.collection('posts').add({
+    batch.set(postRef, <String, dynamic>{
       'body': firstPost.trim(),
       'authorName': authorName.trim(),
       'uid': uid,
-      'createdAt': now,
+      'createdAt': FieldValue.serverTimestamp(),
     });
-    return ref.id;
+    batch.set(_rateDoc(uid), <String, dynamic>{
+      'lastPostAt': FieldValue.serverTimestamp(),
+    });
+    await batch.commit();
+    await _noteWrite();
+    return threadRef.id;
   }
 
   Future<void> reply({
@@ -66,21 +141,63 @@ class MajlisService {
     required String body,
     required String authorName,
   }) async {
+    final problem =
+        MajlisPolicy.validateName(authorName) ?? MajlisPolicy.validateBody(body);
+    if (problem != null) throw MajlisRejected(problem);
+    await _checkAllowedToWrite();
     final String uid = await _uid();
     final threadRef = _threads.doc(threadId);
-    await threadRef.collection('posts').add({
+    final postRef = threadRef.collection('posts').doc();
+    final batch = _db.batch();
+    batch.set(postRef, <String, dynamic>{
       'body': body.trim(),
       'authorName': authorName.trim(),
       'uid': uid,
-      'createdAt': Timestamp.now(),
+      'createdAt': FieldValue.serverTimestamp(),
     });
-    await threadRef.update({
+    batch.update(threadRef, <String, dynamic>{
       'replyCount': FieldValue.increment(1),
-      'lastActivity': Timestamp.now(),
+      'lastActivity': FieldValue.serverTimestamp(),
+      'lastPostId': postRef.id,
+    });
+    batch.set(_rateDoc(uid), <String, dynamic>{
+      'lastPostAt': FieldValue.serverTimestamp(),
+    });
+    await batch.commit();
+    await _noteWrite();
+  }
+
+  /// Sends a report to the moderators' queue. One report per person per
+  /// target (the document id enforces it). [postId] is null when reporting
+  /// a whole thread.
+  Future<void> report({
+    required String threadId,
+    String? postId,
+    required String reason,
+    String? note,
+  }) async {
+    if (!MajlisPolicy.reportReasons.contains(reason)) {
+      throw const MajlisRejected('Please choose a reason.');
+    }
+    final String uid = await _uid();
+    final target = postId == null ? threadId : '${threadId}_$postId';
+    final trimmed = (note ?? '').trim();
+    await _reports.doc('${uid}_$target').set(<String, dynamic>{
+      'threadId': threadId,
+      if (postId != null) 'postId': postId,
+      'target': target,
+      'reason': reason,
+      if (trimmed.isNotEmpty)
+        'note': trimmed.length > 300 ? trimmed.substring(0, 300) : trimmed,
+      'reporterUid': uid,
+      'createdAt': FieldValue.serverTimestamp(),
     });
   }
 
-  /// Seeds the courtyard from bundled JSON if the room has no threads yet.
+  /// Founder tool, NOT called by the app: Firestore rules deny client writes
+  /// to rooms and seed threads, so this only works from an admin context.
+  /// `assets/majlis/seed.json` holds invented example people; do not seed it
+  /// into a live forum without replacing them.
   Future<void> seedIfEmpty() async {
     final snap = await _threads.limit(1).get();
     if (snap.docs.isNotEmpty) return;

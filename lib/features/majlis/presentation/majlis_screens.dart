@@ -10,6 +10,7 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../data/majlis_service.dart';
+import '../domain/majlis_policy.dart';
 
 final majlisServiceProvider = Provider<MajlisService>((ref) => MajlisService());
 
@@ -26,14 +27,8 @@ class MajlisScreen extends ConsumerStatefulWidget {
 }
 
 class _MajlisScreenState extends ConsumerState<MajlisScreen> {
-  @override
-  void initState() {
-    super.initState();
-    // Seeding is the founder's job (rules deny client room writes); a
-    // denied attempt must not surface as an unhandled error.
-    ref.read(majlisServiceProvider).seedIfEmpty().catchError((Object _) {});
-  }
-
+  // Seeding the room is a founder task (the rules deny client room writes),
+  // so the screen never attempts it.
   @override
   Widget build(BuildContext context) {
     final threads = ref.watch(_threadsProvider);
@@ -57,8 +52,11 @@ class _MajlisScreenState extends ConsumerState<MajlisScreen> {
           Padding(
             padding: const EdgeInsets.only(left: 4, bottom: 12),
             child: Text(
-              'Dua requests, questions, announcements. The Adab Engine guards the gate \u2014 '
-              'speak as if the Prophet \ufdfa is listening.',
+              'Dua requests, questions, announcements. Posts are not reviewed '
+              'before they appear \u2014 please speak as if the Prophet \ufdfa '
+              'is listening, and use Report on anything harmful. Nothing here '
+              'is a fatwa: for a ruling, ask a qualified scholar. If you or '
+              'someone else is in danger, contact local emergency services.',
               style: AppText.bodyMuted,
             ),
           ),
@@ -101,6 +99,13 @@ class _MajlisScreenState extends ConsumerState<MajlisScreen> {
                             '${d.data()['authorName'] as String? ?? ''} \u00b7 '
                             '${d.data()['replyCount'] ?? 1} post(s)',
                             style: AppText.bodyMuted.copyWith(fontSize: 11),
+                          ),
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: _ReportButton(
+                              threadId: d.id,
+                              what: 'thread',
+                            ),
                           ),
                         ],
                       ),
@@ -146,13 +151,25 @@ class _ThreadScreenState extends ConsumerState<ThreadScreen> {
   Future<void> _send() async {
     final body = _input.text.trim();
     if (body.isEmpty) return;
-    final name = await ref.read(displayNameProvider.future);
-    await ref.read(majlisServiceProvider).reply(
-          threadId: widget.threadId,
-          body: body,
-          authorName: name,
-        );
-    _input.clear();
+    try {
+      final name = await ref.read(displayNameProvider.future);
+      await ref.read(majlisServiceProvider).reply(
+            threadId: widget.threadId,
+            body: body,
+            authorName: name,
+          );
+      _input.clear();
+    } on MajlisRejected catch (e) {
+      _say(e.message);
+    } catch (_) {
+      _say('Could not post. Check your connection and try again.');
+    }
+  }
+
+  void _say(String message) {
+    if (!mounted) return;
+    ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text(message)));
   }
 
   @override
@@ -183,12 +200,23 @@ class _ThreadScreenState extends ConsumerState<ThreadScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
-                                d.data()['authorName'] as String? ?? '',
-                                style: AppText.bodyMuted.copyWith(
-                                  fontSize: 11,
-                                  color: AppColors.goldLight,
-                                ),
+                              Row(
+                                children: [
+                                  Expanded(
+                                    child: Text(
+                                      d.data()['authorName'] as String? ?? '',
+                                      style: AppText.bodyMuted.copyWith(
+                                        fontSize: 11,
+                                        color: AppColors.goldLight,
+                                      ),
+                                    ),
+                                  ),
+                                  _ReportButton(
+                                    threadId: widget.threadId,
+                                    postId: d.id,
+                                    what: 'post',
+                                  ),
+                                ],
                               ),
                               const SizedBox(height: 4),
                               Text(
@@ -214,7 +242,7 @@ class _ThreadScreenState extends ConsumerState<ThreadScreen> {
                       minLines: 1,
                       maxLines: 4,
                       decoration: InputDecoration(
-                        hintText: 'Reply with kindness\u2026',
+                        hintText: 'Reply with kindness (public, shown with your name)\u2026',
                         hintStyle: AppText.bodyMuted,
                       ),
                     ),
@@ -266,18 +294,38 @@ class _NewThreadScreenState extends ConsumerState<NewThreadScreen> {
   }
 
   Future<void> _submit() async {
-    if (_title.text.trim().length < 4 || _body.text.trim().isEmpty) return;
+    final name =
+        _name.text.trim().isEmpty ? 'Guest of the Courtyard' : _name.text.trim();
+    final problem = MajlisPolicy.validateName(name) ??
+        MajlisPolicy.validateTitle(_title.text) ??
+        MajlisPolicy.validateBody(_body.text);
+    if (problem != null) {
+      _say(problem);
+      return;
+    }
     setState(() => _busy = true);
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setString('ar.majlis.name', _name.text.trim());
-    await ref.read(majlisServiceProvider).createThread(
-          title: _title.text,
-          authorName: _name.text.trim().isEmpty
-              ? 'Guest of the Courtyard'
-              : _name.text,
-          firstPost: _body.text,
-        );
-    if (mounted) context.go(AppRoutes.majlis);
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setString('ar.majlis.name', name);
+      await ref.read(majlisServiceProvider).createThread(
+            title: _title.text,
+            authorName: name,
+            firstPost: _body.text,
+          );
+      if (mounted) context.go(AppRoutes.majlis);
+    } on MajlisRejected catch (e) {
+      _say(e.message);
+    } catch (_) {
+      _say('Could not open the thread. Check your connection and try again.');
+    } finally {
+      if (mounted) setState(() => _busy = false);
+    }
+  }
+
+  void _say(String message) {
+    if (!mounted) return;
+    ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text(message)));
   }
 
   @override
@@ -296,7 +344,7 @@ class _NewThreadScreenState extends ConsumerState<NewThreadScreen> {
                   controller: _name,
                   style: AppText.body,
                   decoration: const InputDecoration(
-                    hintText: 'Your display name (kept on this device)',
+                    hintText: 'Display name (shown publicly with your posts)',
                   ),
                 ),
                 const SizedBox(height: 10),
@@ -333,5 +381,68 @@ class _NewThreadScreenState extends ConsumerState<NewThreadScreen> {
         ],
       ),
     );
+  }
+}
+
+/// "Report" control for a thread or a single post. Opens a short reasons
+/// sheet and files the report with the moderators' queue.
+class _ReportButton extends ConsumerWidget {
+  const _ReportButton({required this.threadId, this.postId, required this.what});
+
+  final String threadId;
+  final String? postId;
+  final String what;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return TextButton.icon(
+      onPressed: () => _open(context, ref),
+      icon: const Icon(Icons.flag_outlined, size: 14),
+      label: const Text('Report'),
+      style: TextButton.styleFrom(
+        foregroundColor: AppColors.goldLight,
+        minimumSize: const Size(48, 32),
+        padding: const EdgeInsets.symmetric(horizontal: 8),
+        textStyle: const TextStyle(fontSize: 11),
+      ),
+    );
+  }
+
+  Future<void> _open(BuildContext context, WidgetRef ref) async {
+    final reason = await showModalBottomSheet<String>(
+      context: context,
+      builder: (ctx) => SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: Text('Report this $what \u2014 why?'),
+            ),
+            for (final r in MajlisPolicy.reportReasons)
+              ListTile(
+                title: Text(MajlisPolicy.reportLabels[r] ?? r),
+                onTap: () => Navigator.of(ctx).pop(r),
+              ),
+          ],
+        ),
+      ),
+    );
+    if (reason == null) return;
+    String message;
+    try {
+      await ref.read(majlisServiceProvider).report(
+            threadId: threadId,
+            postId: postId,
+            reason: reason,
+          );
+      message = 'Thank you. Your report was sent to the moderators.';
+    } catch (_) {
+      message = 'Could not send the report. Please try again.';
+    }
+    if (context.mounted) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(message)));
+    }
   }
 }
