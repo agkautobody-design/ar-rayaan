@@ -147,6 +147,8 @@ abstract final class AcademyStrings {
       'school.womens.body': 'The women of the Quran and the Prophet\u2019s household — iman that built, scholarship that taught, standing that changed history.',
       'school.transactions.title': 'Transactions School',
       'school.transactions.body': 'Halal earnings, riba, zakat in practice, and the barakah of honest work.',
+      'school.endoflife.title': 'End of Life School',
+      'school.endoflife.body': 'The will, the janazah, the last words — preparing to meet Allah with dignity and hope.',
       'academy.title': 'Al-Wasia Academy of Sacred Knowledge',
       'academy.comingSoon': 'Coming soon — insha’Allah',
       'academy.continue': 'Continue where you left off',

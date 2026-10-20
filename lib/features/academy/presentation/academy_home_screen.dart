@@ -291,6 +291,14 @@ class _AcademyHomeScreenState
                 live: true,
               ),
               _SchoolRow(
+                icon: Icons.wb_twilight,
+                arabic: 'آخر العمر',
+                title: AcademyStrings.get('school.endoflife.title'),
+                subtitle: AcademyStrings.get('school.endoflife.body'),
+                route: '/academy/end-of-life',
+                live: true,
+              ),
+              _SchoolRow(
                 icon: Icons.graphic_eq,
                 arabic: '\u0627\u0644\u062a\u0651\u064e\u0644\u064e\u0627\u0648\u064e\u0629',
                 title: AcademyStrings.get('school.recitation.title'),
