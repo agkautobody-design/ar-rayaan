@@ -136,6 +136,5 @@ void main() {
       // visible in the PR Check summary and no Flutter SDK was available to
       // reproduce it locally. The data behaviour of this screen (cards, QR
       // origin provider) is covered by the tests above.
-      skip: 'ShareScreen render under flutter_test raises an unreadable '
-          'post-body exception; needs a local Flutter run');
+      skip: true);
 }
