@@ -17,6 +17,11 @@ concurrency:
   group: pr-check-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  # Identical to the flags in build-web.yml, so a PR that passes here cannot
+  # be rejected by the deploy. Keep them in sync.
+  ANALYZE_FLAGS: --fatal-warnings --no-fatal-infos
+
 jobs:
   check:
     runs-on: ubuntu-latest
@@ -28,16 +33,41 @@ jobs:
           channel: stable
           cache: true
 
+      - name: Toolchain versions
+        run: flutter --version
+
       - name: Install dependencies
         id: pub
         run: flutter pub get 2>&1 | tee pub.log
         continue-on-error: true
 
+      # `flutter pub get` rewrites pubspec.lock when it is out of date. That
+      # is NOT a failure here; instead the regenerated lock is attached to the
+      # run (artifact) so a maintainer can commit it. Never hand-edit the lock.
+      - name: Detect pubspec.lock drift
+        id: lock
+        run: |
+          if git diff --quiet -- pubspec.lock; then
+            echo "drift=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "drift=true" >> "$GITHUB_OUTPUT"
+            git diff -- pubspec.lock > pubspec.lock.diff
+          fi
+
+      - name: Upload regenerated pubspec.lock
+        if: steps.lock.outputs.drift == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: pubspec-lock-regenerated
+          path: |
+            pubspec.lock
+            pubspec.lock.diff
+
       - name: Analyze
         id: analyze
         run: |
           set -o pipefail
-          flutter analyze --no-fatal-infos 2>&1 | tee analyze.log
+          flutter analyze $ANALYZE_FLAGS 2>&1 | tee analyze.log
         continue-on-error: true
 
       - name: Test
@@ -59,6 +89,8 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           PR: ${{ github.event.pull_request.number }}
+          LOCK_DRIFT: ${{ steps.lock.outputs.drift }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           {
             echo "## PR Check — ${GITHUB_SHA::7}"
@@ -70,6 +102,17 @@ jobs:
             echo "| test | ${{ steps.test.outcome }} |"
             echo "| build web | ${{ steps.build.outcome }} |"
             echo ""
+            if [ "$LOCK_DRIFT" = "true" ]; then
+              echo "**pubspec.lock is out of date.** \`flutter pub get\` regenerated it. Download the \`pubspec-lock-regenerated\` artifact from ${RUN_URL} and commit it (not a failure)."
+              echo ""
+              echo "<details><summary>pubspec.lock diff (first 120 lines)</summary>"
+              echo ""
+              echo '```diff'
+              head -n 120 pubspec.lock.diff
+              echo '```'
+              echo "</details>"
+              echo ""
+            fi
             echo "<details><summary>pub get (tail)</summary>"
             echo ""
             echo '```'

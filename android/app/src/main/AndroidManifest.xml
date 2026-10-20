@@ -1,6 +1,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Network: the release build could not reach any API without this
+         (it was only declared for debug/profile). -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- Location: prayer times, Qibla and the masjid finder (geolocator).
+         Foreground use only; no background location. -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <application
-        android:label="ar_rayaan"
+        android:label="Ar-Rayaan"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

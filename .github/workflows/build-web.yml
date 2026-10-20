@@ -1,5 +1,8 @@
 name: Build & Deploy Web
 
+# Runs on every push to main: analyze, test, build web, then publish the build
+# to the `render` branch, which Render serves as a static site.
+
 on:
   push:
     branches: [main]
@@ -7,6 +10,18 @@ on:
 
 permissions:
   contents: write
+
+# Two pushes to main close together (the content bots do this) must not
+# deploy at the same time: both would try to push to `render` and one would be
+# rejected as non-fast-forward. Queue them instead (never cancel a deploy that
+# is already publishing).
+concurrency:
+  group: deploy-render
+  cancel-in-progress: false
+
+env:
+  # Analyze flags are identical in pr-check.yml. Keep them in sync.
+  ANALYZE_FLAGS: --fatal-warnings --no-fatal-infos
 
 jobs:
   test-build-deploy:
@@ -19,18 +34,29 @@ jobs:
           channel: stable
           cache: true
 
+      - name: Toolchain versions
+        run: flutter --version
+
       - name: Install dependencies
         run: flutter pub get
 
       - name: Analyze
-        run: flutter analyze --no-fatal-infos
+        run: flutter analyze $ANALYZE_FLAGS
 
       - name: Run tests
         run: flutter test
 
+      # NOTE on the Firebase values below: a Firebase *web* API key is not a
+      # secret (it ships in the JS bundle by design), but it is only safe if
+      # it is restricted. In Google Cloud Console > APIs & Services >
+      # Credentials, restrict this key to HTTP referrers (the Render domain
+      # and the custom domain) and to the Firebase APIs actually used, and turn
+      # on Firebase App Check (reCAPTCHA) with Firestore rules that require it.
+      # Rules, App Check and the key restrictions are the real protection.
       - name: Build web (release)
         run: >-
           flutter build web --release
+          --build-number=${{ github.run_number }}
           --dart-define=FIREBASE_API_KEY=AIzaSyAB4e-12YGNZx4c9mX-3UInAePd-lRTTOY
           --dart-define=FIREBASE_APP_ID=1:967867528821:web:65ee3d9c67a2820cc42a3c
           --dart-define=FIREBASE_PROJECT_ID=ar-rayaan
@@ -47,10 +73,34 @@ jobs:
           git fetch origin render
           git checkout -- . 2>/dev/null || true
           git checkout render
-          # replace branch contents with the fresh web build
+          # replace branch contents with the fresh web build. This is a normal
+          # commit on top of `render` (history is kept, nothing is
+          # force-pushed), so a failed or raced push can never destroy it.
           git rm -r -q --cached . 2>/dev/null || true
           find . -maxdepth 1 -mindepth 1 ! -name .git -exec rm -rf {} +
           cp -r /tmp/webbuild/* .
           git add -A
+          if git diff --cached --quiet; then
+            echo "Build is identical to what is already deployed."
+            exit 0
+          fi
           git commit -m "Deploy ${GITHUB_SHA:0:7} via Actions"
           git push origin render
+
+  # A red X on a push-triggered workflow is easy to miss: open an issue.
+  notify-failure:
+    needs: test-build-deploy
+    if: failure()
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Open a GitHub issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          gh issue create \
+            --repo "$GITHUB_REPOSITORY" \
+            --title "Deploy failed for ${GITHUB_SHA::7}" \
+            --body "The Build & Deploy Web workflow failed on commit ${GITHUB_SHA} (pushed by ${GITHUB_ACTOR}). The live site was NOT updated. Run: ${RUN_URL}"
