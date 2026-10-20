@@ -256,7 +256,68 @@ const List<_StoriesUnit> kStoriesUnits = <_StoriesUnit>[
       ),
     ],
   ),
+  _StoriesUnit(
+    title: 'The Unseen World',
+    frame: 'The angels who write, the jinn who whisper, and the realities behind the veil — the ghayb that faith embraces.',
+    chapters: <_StoryChapter>[
+      _StoryChapter(
+        title: 'Jibril — The Trustworthy Spirit',
+        virtue: 'The angel who brought revelation to every prophet, who taught the Quran to Muhammad \ufdfa, who comforted Maryam. The most honored creature is a messenger — service is rank.',
+        familyQuestion: 'What message has been entrusted to you to deliver — and to whom?',
+        storyId: 'ghayb-jibril',
+      ),
+      _StoryChapter(
+        title: 'The Scribes — Who Write',
+        virtue: 'Honorable scribes record every word — sitting on the right and the left. You are being written; write well.',
+        familyQuestion: 'If your words today were published, would you sign them?',
+        storyId: 'ghayb-scribes',
+      ),
+      _StoryChapter(
+        title: 'Munkar and Nakir — The Questioners',
+        virtue: 'Two angels question every soul in the grave. The preparation for their questions is the preparation for every exam: know your Lord, your religion, your prophet.',
+        familyQuestion: 'What three answers would you give them today — are they ready?',
+        storyId: 'ghayb-munkar-nakir',
+      ),
+      _StoryChapter(
+        title: 'The Whisperer — Who Slips Away',
+        virtue: 'Shaytan whispers and then withdraws, leaving you to carry the doubt. Recognize the whisper as foreign — it is not your voice.',
+        familyQuestion: 'When doubt whispers, how do you answer it — and does your answer help?',
+        storyId: 'ghayb-whisper',
+      ),
+      _StoryChapter(
+        title: 'The Qarin — The Constant Companion',
+        virtue: 'Every human has a companion from the jinn assigned to them. The Prophet \ufdfa showed that this companionship can be turned to good — the qarin of a believer becomes a helper.',
+        familyQuestion: 'Is your constant companion helping you toward good — or are you helping it toward harm?',
+        storyId: 'ghayb-companion-qarin',
+      ),
+    ],
+  ),
+  _StoriesUnit(
+    title: 'The Last Days',
+    frame: 'The signs that precede the final hour — not to frighten, but to wake the sleeping heart.',
+    chapters: <_StoryChapter>[
+      _StoryChapter(
+        title: 'The Twelve Signs',
+        virtue: 'The Prophet \ufdfa described the major signs in order — the smoke, the beast, the rising of the sun from the west. They arrive like dominoes; the believer reads them as reminders, not as terror.',
+        familyQuestion: 'Which sign feels closest in your lifetime — and does it change how you live today?',
+        storyId: 'sign-01',
+      ),
+      _StoryChapter(
+        title: 'Knowledge Lost, Ignorance Widespread',
+        virtue: 'The Prophet \ufdfa foretold that knowledge would be taken away and ignorance would prevail — not because books vanished, but because the hearts that carried them did.',
+        familyQuestion: 'What knowledge are you responsible to keep alive in your family — and who are you teaching it to?',
+        storyId: 'sign-02',
+      ),
+      _StoryChapter(
+        title: 'The Hour Is Closer',
+        virtue: 'The Prophet \ufdfa was asked about the Hour and said: what have you prepared for it? The question turns every timeline into a to-do list.',
+        familyQuestion: 'What have you prepared? Name one thing — and one more you could add this month.',
+        storyId: 'sign-12',
+      ),
+    ],
+  ),
 ];
+
 
 
 class StoriesSchoolScreen extends StatelessWidget {
