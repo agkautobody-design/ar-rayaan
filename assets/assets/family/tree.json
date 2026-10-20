@@ -692,7 +692,8 @@
     "yaqub"
    ],
    "children": [
-    "zakariya"
+    "zakariya",
+    "maryam"
    ],
    "river": "ishaq",
    "sourceLabel": "Interpretive",
@@ -737,7 +738,9 @@
    "id": "maryam",
    "name": "Maryam bint Imran",
    "era": "The Annunciation",
-   "parents": [],
+   "parents": [
+    "zakariya-line"
+   ],
    "children": [
     "isa"
    ],

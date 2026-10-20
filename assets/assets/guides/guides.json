@@ -7,8 +7,8 @@
   "subtitle": "The five daily prayers, step by step from standing to salaam",
   "steps": [
    "Niyyah (intention) — settle the heart on which prayer and how many rak'ahs; the Prophet ﷺ said: actions are judged by intentions (Bukhari 1). Intention is in the heart, not spoken aloud.",
-   "Face the qiblah, standing. Men raise hands to the ears (women to the shoulders) saying Allahu Akbar — the prayer has begun; everything before this was worldly (Bukhari 756).",
-   "Recite the opening supplication (thana'), then Ayat al-Kursi or another passage, then Surah al-Fatihah — the Prophet ﷺ said there is no prayer for the one who does not recite it (Bukhari 756).",
+   "Face the qiblah, standing. Say Allahu Akbar raising the hands (to the level of the shoulders, as reported in Bukhari 735; to the ears is also reported, Muslim 391) — the prayer has begun: its opening is the takbir and its closing is the taslim (Abu Dawud 61).",
+   "Recite the opening supplication (thana') if you know it, then Surah al-Fatihah — the Prophet ﷺ said the prayer of one who does not recite it is not valid (Bukhari 756) — and then, in the first two rak'ahs, another surah or some verses of the Qur'an.",
    "Ruku' — bow with the back level, saying Subhana Rabbiyal-'Azim three times.",
    "Stand from ruku' saying Sami'allahu liman hamidah... Rabbana wa lakal-hamd.",
    "Sujud — prostrate on seven limbs: forehead (with nose), two hands, two knees, two feet — saying Subhana Rabbiyal-A'la three times (Bukhari 812).",
@@ -18,7 +18,13 @@
   "sources": [
    "Sahih al-Bukhari 756, 812, 831; Sahih Muslim 397-401"
   ],
-  "madhhabNote": "Differences between the four schools (hand positions, recitation aloud vs silent, amin aloud) are all valid — the Huda rule: follow one school's fiqh completely, or ask a local teacher."
+  "madhhabNote": "Differences between the four schools (hand positions, recitation aloud vs silent, amin aloud) are all valid — the Huda rule: follow one school's fiqh completely, or ask a local teacher.",
+ "showPositions": true,
+ "goDeeper": {
+  "why": "Prayer is a meeting, not a performance — each position carries a meaning: standing in awe, bowing in humility, prostration in nearness (Muslim 482: the nearest a servant comes to his Lord is when he is prostrating, so make much supplication).",
+  "evidence": "Each step above carries its own source in brackets; the full list is under Sources below.",
+  "commonMistakes": "Rushing the words while the heart is elsewhere; looking around during prayer; treating wudu as a formality rather than the threshold of the meeting."
+ }
  },
  {
   "id": "huda-wudu",
@@ -84,15 +90,15 @@
   "title": "The Adhan & Iqamah",
   "subtitle": "The call that empties the unseen world of devils",
   "steps": [
-   "The mu'adhin faces the qiblah, raises the voice, and calls: Allahu Akbar (4x), Ash-hadu an la ilaha illa Allah (2x), Ash-hadu anna Muhammadan Rasulullah (2x), Hayya 'alas-salah (2x), Hayya 'alal-falah (2x), Allahu Akbar (2x), La ilaha illa Allah (Bukhari 604).",
-   "In Fajr, after Hayya 'alal-falah: As-salatu khayrun minan-nawm (2x) (Bukhari 589).",
+   "The mu'adhin faces the qiblah, raises the voice, and calls: Allahu Akbar (4x), Ash-hadu an la ilaha illa Allah (2x), Ash-hadu anna Muhammadan Rasulullah (2x), Hayya 'alas-salah (2x), Hayya 'alal-falah (2x), Allahu Akbar (2x), La ilaha illa Allah (Muslim 379).",
+   "In Fajr, after Hayya 'alal-falah: As-salatu khayrun minan-nawm (2x) (Abu Dawud 500, sahih per al-Albani).",
    "The effect: Shaytan hears the adhan and flees, passing wind until he cannot hear it (Bukhari 608).",
    "Repeat after the mu'adhin, and after the last phrase send blessings on the Prophet ﷺ — your intercession becomes obligatory for him (Muslim 384).",
-   "Then ask: Allahumma rabba hadhihid-da'watit-tammah... — the Prophet ﷺ said whoever says it, my intercession for him becomes obligatory (Bukhari 589).",
+   "Then ask: Allahumma rabba hadhihid-da'watit-tammah... — the Prophet ﷺ said whoever says it, my intercession for him will be allowed on the Day of Resurrection (Bukhari 614).",
    "The iqamah: the same words as adhan, doubled phrases said once, ending with Qad qamatis-salat (2x) — prayed immediately after it (Abu Dawud 500)."
   ],
   "sources": [
-   "Sahih al-Bukhari 589, 604, 608; Sahih Muslim 384"
+   "Sahih al-Bukhari 614; Sahih Muslim 379, 384; Sunan Abi Dawud 500"
   ]
  },
  {
@@ -102,15 +108,15 @@
   "title": "Friday Prayer — The Essentials",
   "subtitle": "Jumu'ah: the weekly gathering with conditions and sunnahs",
   "steps": [
-   "Obligatory on every free, resident, adult Muslim man; women are exempt but rewarded for attending (Bukhari 876).",
+   "Obligatory on every Muslim except a slave, a woman, a boy and a sick person (Abu Dawud 1067, sahih per al-Albani).",
    "The ghusl before it is obligatory — the Prophet ﷺ commanded every accountable person to wash on Friday (Bukhari 877).",
    "Wear the best clean clothes; early arrival is multiplied — the Prophet ﷺ compared the stages of arrival to sacrifices: as if a camel, then a cow, then a sheep... (Bukhari 881).",
-   "Listen in silence: even saying 'be quiet' to a talker during the khutbah forfeits the reward (Bukhari 892).",
+   "Listen in silence: even saying 'be quiet' to a talker during the khutbah forfeits the reward (Bukhari 934).",
    "The prayer: two rak'ahs after the khutbah, led by the imam (Bukhari 883).",
    "The missed window: Jumu'ah has a fixed hour when no Muslim asks Allah but He grants it — the Prophet ﷺ indicated it is between the imam sitting and the prayer's end (Bukhari 935)."
   ],
   "sources": [
-   "Sahih al-Bukhari 876, 877, 881, 892, 935"
+   "Sahih al-Bukhari 877, 881, 934, 935; Sunan Abi Dawud 1067"
   ]
  },
  {
@@ -158,14 +164,14 @@
   "subtitle": "The adab of the house of Allah",
   "steps": [
    "Enter with the right foot and the dua: Bismillah, was-salatu was-salamu 'ala Rasulillah... (Bukhari 1131, abridged).",
-   "Pray the two rak'ahs of greeting (tahiyyat al-masjid) before sitting — 'when one of you enters the mosque, let him not sit until he prays two rak'ahs' (Bukhari 1163).",
+   "Pray the two rak'ahs of greeting (tahiyyat al-masjid) before sitting — 'when one of you enters the mosque, let him not sit until he prays two rak'ahs' (Bukhari 444).",
    "Keep the voice low: the Prophet ﷺ forbade raising voices in recitation in the mosque except at a level of self-reminder (Abu Dawud 1332).",
    "Do not pass in front of a praying person — the hadith likens that to a donkey passing before an archer (Bukhari 509).",
    "Leave with the left foot and the leaving-dua (inverse of the entering).",
    "Photography, eating, and trade are for elsewhere: 'whoever eats garlic or onions, let him keep away from us — or from our mosque' (Bukhari 545)."
   ],
   "sources": [
-   "Sahih al-Bukhari 509, 545, 1131, 1163"
+   "Sahih al-Bukhari 509, 545, 1131, 444"
   ]
  },
  {
@@ -193,12 +199,12 @@
   "steps": [
    "The one who washes is trustworthy, bathes first, and covers the body; men wash men, women wash women — spouses may wash each other (Bukhari 1254).",
    "The Prophet ﷺ said of the washer: 'wash her three times, or five, or seven — odd numbers — and begin with her right side and the places of wudu' (Bukhari 1253).",
-   "Camphor is used in the final wash — 'the best of your perfumes is camphor' (Bukhari 1242).",
+   "Camphor is used in the final wash — apply camphor at the last wash (Bukhari 1253, Umm Atiyyah).",
    "Comb the hair, wash gently; the Prophet ﷺ said: treat the deceased gently, for the believer is honored by Allah (Abu Dawud 3142).",
-   "The water used last is poured with the du'a for forgiveness — 'O Allah, forgive him, have mercy on him, pardon him...' (Muslim 916)."
+   "The water used last is poured with the du'a for forgiveness — 'O Allah, forgive him, have mercy on him, pardon him...' (Muslim 963; the Prophet ﷺ prayed this way over the deceased)."
   ],
   "sources": [
-   "Sahih al-Bukhari 1242, 1253-1254; Sahih Muslim 916"
+   "Sahih al-Bukhari 1253; Sahih Muslim 963"
   ]
  },
  {
@@ -209,13 +215,13 @@
   "subtitle": "Salat al-janazah — no ruku', no sujud, only dua",
   "steps": [
    "Stand in rows facing the qiblah; the imam stands at the head of a man, the middle of a woman (Bukhari 1331).",
-   "Four takbirs: Allahu Akbar, then the opening supplication (al-Thanaiya); Allahu Akbar, then blessings on the Prophet ﷺ; Allahu Akbar, then the dua for the deceased (Muslim 916).",
-   "The dua: Allahumma-ghfir lahu, warhamhu, wa 'afihi, wa'fu 'anhu... — the Prophet ﷺ taught it, and for a woman, the endings change (Bukhari 1334).",
+   "Four takbirs: Allahu Akbar, then the opening supplication (al-Thanaiya); Allahu Akbar, then blessings on the Prophet ﷺ; Allahu Akbar, then the dua for the deceased (four takbirs: Muslim 951; the dua: Muslim 963).",
+   "The dua: Allahumma-ghfir lahu, warhamhu, wa 'afihi, wa'fu 'anhu... — the Prophet ﷺ taught it, and for a woman, the endings change (Muslim 963).",
    "A fourth takbir, then one may add a personal dua; the salam follows — one salam to the right (most schools).",
    "The reward: 'whoever follows a funeral and prays over it, he earns a qirat; and whoever stays until the burial, two qirats' — the companions asked: what are two qirats? He said: like two great mountains (Bukhari 1325)."
   ],
   "sources": [
-   "Sahih al-Bukhari 1325, 1331, 1334; Sahih Muslim 916"
+   "Sahih al-Bukhari 1325; Sahih Muslim 951, 963"
   ]
  },
  {
@@ -227,13 +233,13 @@
   "steps": [
    "Hasten it: 'hasten with the deceased, for if it was righteous, you are forwarding it to good; and if otherwise, you are taking a burden off your necks' (Bukhari 1315).",
    "The grave: dug as a lahd (niche) where the ground allows; the body laid on its right side facing the qiblah.",
-   "The earth is thrown — three handfuls from the head's end, with: minha khalaqnakum... (Bukhari 1337).",
-   "No wailing, no fire-brands of grief, no bare heads from grief itself — 'the deceased is punished by the wailing of his family' (Bukhari 1296).",
+   "The earth is thrown — three handfuls from the head's end (Ibn Majah 1565, hasan per Darussalam). Many scholars add the words 'minha khalaqnakum...' (from Qur'an 20:55); that addition is reported in a weaker narration.",
+   "No wailing, no fire-brands of grief, no bare heads from grief itself — the Prophet ﷺ said 'the deceased is punished because of his family's weeping over him' (Muslim 927; scholars discuss exactly what this means, and Aisha (RA) explained it in Bukhari 1286-1288).",
    "Visiting graves: the Prophet ﷺ permitted it — 'I had forbidden you to visit graves, but now visit them, for they remind you of the Hereafter' (Muslim 977).",
    "The greeting of the grave: Assalamu 'alaykum ahlal-qubur... (Muslim 977)."
   ],
   "sources": [
-   "Sahih al-Bukhari 1296, 1315, 1337; Sahih Muslim 977"
+   "Sahih al-Bukhari 1286, 1315; Sahih Muslim 927, 977; Sunan Ibn Majah 1565"
   ]
  },
  {
@@ -243,15 +249,15 @@
   "title": "Consoling the Bereaved",
   "subtitle": "What to say when there is nothing to say",
   "steps": [
-   "The sunnah phrase: Inna lillahi wa inna ilayhi raji'un; Allahumma-jurni fi musibati, wakhluf li khayran minha — 'O Allah, reward me in my affliction and replace it for me with better' (Muslim 2123).",
-   "Say what eases: the Prophet ﷺ said: 'whoever consoles a bereaved person has a garment of honor upon him on the Day of Resurrection' (Tirmidhi 1075).",
+   "The sunnah phrase: Inna lillahi wa inna ilayhi raji'un; Allahumma-jurni fi musibati, wakhluf li khayran minha — 'O Allah, reward me in my affliction and replace it for me with better' (Muslim 918).",
+   "Say what eases: the Prophet ﷺ said: 'whoever consoles a person with an affliction has the same reward as him' (Tirmidhi 1073 — daʿif, so take it as encouragement, not a firm promise).",
    "Do not say 'it could be worse' or 'be strong' — the sunnah is to speak the phrases of tawhid and reward.",
-   "Serve the family: bring food — 'the family of Ja'far are preoccupied; feed them' (Abu Dawud 3128).",
+   "Serve the family: bring food — 'the family of Ja'far are preoccupied; feed them' (Abu Dawud 3132, hasan per al-Albani).",
    "The three-day gathering limit: it is for the relatives to prepare food for the bereaved, not the reverse (Bukhari 1340).",
-   "Pray for the dead in their absence: 'the prayer of the absent reaches' (Baihaqi, hasan)."
+   "Pray for the dead in their absence: a righteous child's prayer keeps reaching the dead (Muslim 1631)."
   ],
   "sources": [
-   "Sahih al-Bukhari 1340; Sahih Muslim 2123; Sunan al-Tirmidhi 1075"
+   "Sahih al-Bukhari 1340; Sahih Muslim 918; Sunan al-Tirmidhi 1073"
   ]
  },
  {
@@ -501,7 +507,7 @@
    "The command frame: 'marry the spouseless among you' (24:32); 'when the servant marries, he has completed half of his religion' (Baihaqi, hasan).",
    "The core condition: consent — the virgin is not married without her permission, and her silence is her permission (Bukhari 6946).",
    "The sermon: the Prophet ﷺ addressed marriages with praise of Allah and the dua for barakah — 'and the best of you is the best of you to their wives' (Tirmidhi 3895).",
-   "The witnesses: 'there is no marriage except with a wali and two witnesses of good character' (Abu Dawud 2085, graded hasan-sahih).",
+   "The witnesses: 'there is no marriage without the permission of a guardian' (Abu Dawud 2085, sahih per al-Albani); scholars also require two upright witnesses to the contract.",
    "The mahr: 'the most blessed mahr is the easiest' (Abu Dawud 2117) — a right owed, never a purchase.",
    "The spirit: 'the believers are but brothers' (49:10) begins at home — the Prophet ﷺ said the best of you is the best to his family, and he was the best to his (Tirmidhi 3895)."
   ],
@@ -699,13 +705,13 @@
   "steps": [
    "The distress dua: 'La ilaha illa Allah, al-'azim, al-halim. La ilaha illa Allah, Rabbul-'arshil-'azim...' — the Prophet ﷺ said: no servant supplicates with it concerning anything except that Allah answers him (Bukhari 6346).",
    "The anxious heart: 'Allahumma inni a'udhu bika minal-hammi wal-hazan...' — the Prophet ﷺ taught it to Abu Umamah, and his anxiety left him (Abu Dawud 1551).",
-   "The debt: 'Allahumma akfini bihalalika 'an haramika...' — 'O Allah, suffice me with Your halal against Your haram, and enrich me by Your bounty from all besides You' (Tirmidhi 3565).",
+   "The debt: 'Allahumma akfini bihalalika 'an haramika...' — 'O Allah, suffice me with Your halal against Your haram, and enrich me by Your bounty from all besides You' (Tirmidhi 3563).",
    "The grief response: 'there is no deity but Allah, the Great, the Clement; there is no deity but Allah, Lord of the magnificent Throne...' — recited upon every distress (Bukhari 6326).",
    "The patience anchor: 'amazing is the affair of the believer — all of it is good for him' (Muslim 2999).",
    "The exit guarantee: 'whoever leaves a thing for Allah, Allah will give him something better' (Ahmad)."
   ],
   "sources": [
-   "Sahih al-Bukhari 6326, 6346; Sunan Abi Dawud 1551; Sunan at-Tirmidhi 3565"
+   "Sahih al-Bukhari 6326, 6346; Sunan Abi Dawud 1551; Sunan at-Tirmidhi 3563"
   ]
  },
  {
@@ -719,11 +725,11 @@
    "The debt ledger: record every debt, every trust, every unresolved claim — the martyr's sins are forgiven but his debts are settled first (Muslim 1886).",
    "Teach your heirs the dua of the dying — 'whoever's last words are la ilaha illa Allah enters Paradise' (Abu Dawud 3116): practice saying it now, slowly, until it is the easiest sentence you own.",
    "The funeral instructions: leave word for a simple janazah, no wailing, swift burial — 'hasten with the deceased' (Bukhari 1315).",
-   "The continuing charity: establish one sadaqah jariyah before death — a well, a tree, a student's tuition — the three things that keep paying: ongoing charity, useful knowledge, a righteous child (Muslim 4222).",
+   "The continuing charity: establish one sadaqah jariyah before death — a well, a tree, a student's tuition — the three things that keep paying: ongoing charity, useful knowledge, a righteous child (Muslim 1631).",
    "The gentle end: keep the family reconciled — the Prophet ﷺ said: 'the doors of the Garden are opened on Mondays and Thursdays, and every servant who does not associate anything with Allah is forgiven except the two who are estranged' (Tirmidhi 3100)."
   ],
   "sources": [
-   "Qur'an 2:180; Sahih al-Bukhari 1315; Sahih Muslim 1886, 4222; Sunan at-Tirmidhi 2103, 3100"
+   "Qur'an 2:180; Sahih al-Bukhari 1315; Sahih Muslim 1886, 1631; Sunan at-Tirmidhi 2103, 3100"
   ]
  },
  {

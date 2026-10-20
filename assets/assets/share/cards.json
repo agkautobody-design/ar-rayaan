@@ -3,42 +3,42 @@
   {
    "id": "s-rahman",
    "kind": "Qur'an",
-   "arabic": "فَبِأَيِّ آلَاءِ رَبِّكُمَا تُكَذِّبَانِ",
-   "text": "Then which of the favors of your Lord will you deny?",
+   "arabic": "فَبِأَيِّ ءَالَآءِ رَبِّكُمَا تُكَذِّبَانِ",
+   "text": "So which of the favors of your Lord would you deny",
    "ref": "Qur'an 55:13"
   },
   {
    "id": "s-fajr",
    "kind": "Qur'an",
-   "arabic": "إِنَّ الَّذِي فَطَرَنِي فَهُوَ يَهْدِينِ",
-   "text": "Indeed, He who created me will guide me.",
+   "arabic": "ٱلَّذِي خَلَقَنِي فَهُوَ يَهۡدِينِ",
+   "text": "Who created me, and He [it is who] guides me",
    "ref": "Qur'an 26:78"
   },
   {
    "id": "s-insan",
    "kind": "Qur'an",
-   "arabic": "إِنَّ مَعَ الْعُسْرِ يُسْرًا",
-   "text": "Indeed, with hardship comes ease.",
+   "arabic": "إِنَّ مَعَ ٱلۡعُسۡرِ يُسۡرٗا",
+   "text": "Indeed, with hardship [will be] ease",
    "ref": "Qur'an 94:6"
   },
   {
    "id": "s-kahf",
    "kind": "Qur'an",
-   "arabic": "رَبِّ اجْعَلْنِي مُقِيمَ الصَّلَاةِ وَمِن ذُرِّيَّتِي",
-   "text": "My Lord, make me an establisher of prayer — and from my descendants too.",
+   "arabic": "رَبِّ ٱجۡعَلۡنِي مُقِيمَ ٱلصَّلَوٰةِ وَمِن ذُرِّيَّتِي",
+   "text": "My Lord, make me an establisher of prayer, and [many] from my descendants.",
    "ref": "Qur'an 14:40"
   },
   {
    "id": "s-ikhlas2",
    "kind": "Qur'an",
-   "arabic": "قُلْ هُوَ اللَّهُ أَحَدٌ",
-   "text": "Say: He is Allah, the One.",
+   "arabic": "قُلۡ هُوَ ٱللَّهُ أَحَدٌ",
+   "text": "Say, \"He is Allah, [who is] One",
    "ref": "Qur'an 112:1"
   },
   {
    "id": "s-nur",
    "kind": "Qur'an",
-   "arabic": "اللَّهُ نُورُ السَّمَاوَاتِ وَالْأَرْضِ",
+   "arabic": "ٱللَّهُ نُورُ ٱلسَّمَٰوَٰتِ وَٱلۡأَرۡضِ",
    "text": "Allah is the Light of the heavens and the earth.",
    "ref": "Qur'an 24:35"
   },
