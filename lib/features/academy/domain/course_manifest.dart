@@ -1827,4 +1827,125 @@ AcademyLesson? findLesson(String courseId, String unitId, String lessonId) {
       ),
       ],
     ),
+    AcademyCourse(
+      id: 'health',
+      titleKey: 'course.health.title',
+      subtitleKey: 'course.health.subtitle',
+      units: <AcademyUnit>[
+      AcademyUnit(
+        id: 'hlth.u1',
+        courseId: 'health',
+        titleKey: 'hlth.u1.title',
+        subtitleKey: 'hlth.u1.subtitle',
+        lessons: <AcademyLesson>[
+          AcademyLesson(
+            id: 'hlth.u1.l1',
+            unitId: 'hlth.u1',
+            courseId: 'health',
+            titleKey: 'hlth.u1.l1.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'hlth.u1.l1.s1.title', bodyKey: 'hlth.u1.l1.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'hlth.u1.l1.s2.title', bodyKey: 'hlth.u1.l1.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'hlth.u1.l2',
+            unitId: 'hlth.u1',
+            courseId: 'health',
+            titleKey: 'hlth.u1.l2.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'hlth.u1.l2.s1.title', bodyKey: 'hlth.u1.l2.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'hlth.u1.l2.s2.title', bodyKey: 'hlth.u1.l2.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'hlth.u1.l3',
+            unitId: 'hlth.u1',
+            courseId: 'health',
+            titleKey: 'hlth.u1.l3.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'hlth.u1.l3.s1.title', bodyKey: 'hlth.u1.l3.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'hlth.u1.l3.s2.title', bodyKey: 'hlth.u1.l3.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'hlth.u1.l4',
+            unitId: 'hlth.u1',
+            courseId: 'health',
+            titleKey: 'hlth.u1.l4.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'hlth.u1.l4.s1.title', bodyKey: 'hlth.u1.l4.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'hlth.u1.l4.s2.title', bodyKey: 'hlth.u1.l4.s2.body'),
+            ],
+          ),
+        ],
+      ),
+      AcademyUnit(
+        id: 'hlth.u2',
+        courseId: 'health',
+        titleKey: 'hlth.u2.title',
+        subtitleKey: 'hlth.u2.subtitle',
+        lessons: <AcademyLesson>[
+          AcademyLesson(
+            id: 'hlth.u2.l1',
+            unitId: 'hlth.u2',
+            courseId: 'health',
+            titleKey: 'hlth.u2.l1.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'hlth.u2.l1.s1.title', bodyKey: 'hlth.u2.l1.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'hlth.u2.l1.s2.title', bodyKey: 'hlth.u2.l1.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'hlth.u2.l2',
+            unitId: 'hlth.u2',
+            courseId: 'health',
+            titleKey: 'hlth.u2.l2.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'hlth.u2.l2.s1.title', bodyKey: 'hlth.u2.l2.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'hlth.u2.l2.s2.title', bodyKey: 'hlth.u2.l2.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'hlth.u2.l3',
+            unitId: 'hlth.u2',
+            courseId: 'health',
+            titleKey: 'hlth.u2.l3.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'hlth.u2.l3.s1.title', bodyKey: 'hlth.u2.l3.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'hlth.u2.l3.s2.title', bodyKey: 'hlth.u2.l3.s2.body'),
+            ],
+          ),
+        ],
+      ),
+      AcademyUnit(
+        id: 'hlth.u3',
+        courseId: 'health',
+        titleKey: 'hlth.u3.title',
+        subtitleKey: 'hlth.u3.subtitle',
+        lessons: <AcademyLesson>[
+          AcademyLesson(
+            id: 'hlth.u3.l1',
+            unitId: 'hlth.u3',
+            courseId: 'health',
+            titleKey: 'hlth.u3.l1.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'hlth.u3.l1.s1.title', bodyKey: 'hlth.u3.l1.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'hlth.u3.l1.s2.title', bodyKey: 'hlth.u3.l1.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'hlth.u3.l2',
+            unitId: 'hlth.u3',
+            courseId: 'health',
+            titleKey: 'hlth.u3.l2.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'hlth.u3.l2.s1.title', bodyKey: 'hlth.u3.l2.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'hlth.u3.l2.s2.title', bodyKey: 'hlth.u3.l2.s2.body'),
+            ],
+          ),
+        ],
+      ),
+      ],
+    ),
 
