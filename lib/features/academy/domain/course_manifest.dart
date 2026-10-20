@@ -1104,4 +1104,125 @@ AcademyLesson? findLesson(String courseId, String unitId, String lessonId) {
       ),
       ],
     ),
+    AcademyCourse(
+      id: 'youth',
+      titleKey: 'course.youth.title',
+      subtitleKey: 'course.youth.subtitle',
+      units: <AcademyUnit>[
+      AcademyUnit(
+        id: 'yth.u1',
+        courseId: 'youth',
+        titleKey: 'yth.u1.title',
+        subtitleKey: 'yth.u1.subtitle',
+        lessons: <AcademyLesson>[
+          AcademyLesson(
+            id: 'yth.u1.l1',
+            unitId: 'yth.u1',
+            courseId: 'youth',
+            titleKey: 'yth.u1.l1.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'yth.u1.l1.s1.title', bodyKey: 'yth.u1.l1.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'yth.u1.l1.s2.title', bodyKey: 'yth.u1.l1.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'yth.u1.l2',
+            unitId: 'yth.u1',
+            courseId: 'youth',
+            titleKey: 'yth.u1.l2.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'yth.u1.l2.s1.title', bodyKey: 'yth.u1.l2.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'yth.u1.l2.s2.title', bodyKey: 'yth.u1.l2.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'yth.u1.l3',
+            unitId: 'yth.u1',
+            courseId: 'youth',
+            titleKey: 'yth.u1.l3.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'yth.u1.l3.s1.title', bodyKey: 'yth.u1.l3.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'yth.u1.l3.s2.title', bodyKey: 'yth.u1.l3.s2.body'),
+            ],
+          ),
+        ],
+      ),
+      AcademyUnit(
+        id: 'yth.u2',
+        courseId: 'youth',
+        titleKey: 'yth.u2.title',
+        subtitleKey: 'yth.u2.subtitle',
+        lessons: <AcademyLesson>[
+          AcademyLesson(
+            id: 'yth.u2.l1',
+            unitId: 'yth.u2',
+            courseId: 'youth',
+            titleKey: 'yth.u2.l1.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'yth.u2.l1.s1.title', bodyKey: 'yth.u2.l1.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'yth.u2.l1.s2.title', bodyKey: 'yth.u2.l1.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'yth.u2.l2',
+            unitId: 'yth.u2',
+            courseId: 'youth',
+            titleKey: 'yth.u2.l2.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'yth.u2.l2.s1.title', bodyKey: 'yth.u2.l2.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'yth.u2.l2.s2.title', bodyKey: 'yth.u2.l2.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'yth.u2.l3',
+            unitId: 'yth.u2',
+            courseId: 'youth',
+            titleKey: 'yth.u2.l3.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'yth.u2.l3.s1.title', bodyKey: 'yth.u2.l3.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'yth.u2.l3.s2.title', bodyKey: 'yth.u2.l3.s2.body'),
+            ],
+          ),
+        ],
+      ),
+      AcademyUnit(
+        id: 'yth.u3',
+        courseId: 'youth',
+        titleKey: 'yth.u3.title',
+        subtitleKey: 'yth.u3.subtitle',
+        lessons: <AcademyLesson>[
+          AcademyLesson(
+            id: 'yth.u3.l1',
+            unitId: 'yth.u3',
+            courseId: 'youth',
+            titleKey: 'yth.u3.l1.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'yth.u3.l1.s1.title', bodyKey: 'yth.u3.l1.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'yth.u3.l1.s2.title', bodyKey: 'yth.u3.l1.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'yth.u3.l2',
+            unitId: 'yth.u3',
+            courseId: 'youth',
+            titleKey: 'yth.u3.l2.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'yth.u3.l2.s1.title', bodyKey: 'yth.u3.l2.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'yth.u3.l2.s2.title', bodyKey: 'yth.u3.l2.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'yth.u3.l3',
+            unitId: 'yth.u3',
+            courseId: 'youth',
+            titleKey: 'yth.u3.l3.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'yth.u3.l3.s1.title', bodyKey: 'yth.u3.l3.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'yth.u3.l3.s2.title', bodyKey: 'yth.u3.l3.s2.body'),
+            ],
+          ),
+        ],
+      ),
+      ],
+    ),
 
