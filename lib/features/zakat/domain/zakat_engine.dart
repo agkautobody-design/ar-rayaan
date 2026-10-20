@@ -6,9 +6,10 @@
 /// Sources behind the rules (full detail: "Ar-Rayaan Zakat — Deep Research
 /// & Calculator Design.md"):
 /// - Rate 1/40 (2.5%), hawl = one lunar year.
-/// - Nisab: 87.48 g gold (7.5 tola) / 612.36 g silver (52.5 tola). Most
-///   scholars recommend the silver standard today (lower threshold → more
-///   reaches the poor); both are shown, the user chooses.
+/// - Nisab: 85 g gold / 595 g silver (see `Nisab`); the South Asian tola
+///   figures (87.48 g / 612.36 g) are an optional switch. The silver
+///   standard is the default (lower threshold → more reaches the poor); both
+///   are shown, the user chooses.
 /// - Worn jewelry: Hanafi — zakatable (Abu Dawud 1563, 1565);
 ///   Maliki/Shafi'i/Hanbali — exempt if genuinely worn (stored jewelry is
 ///   zakatable in ALL schools).
@@ -24,6 +25,8 @@
 ///   whole principal). Shafi'i generally does not deduct debts; surfaced
 ///   as a note, not a forced rule.
 library;
+
+import 'nisab.dart';
 
 /// The four Sunni schools — drives the worn-jewelry rule and debt notes.
 enum Madhab { hanafi, maliki, shafii, hanbali }
@@ -87,6 +90,7 @@ class GuidedZakatInput {
     this.billsDue = 0,
     // Nisab
     this.useSilverNisab = true,
+    this.useTolaNisab = false,
     this.goldPricePerGram = 0,
     this.silverPricePerGram = 0,
   });
@@ -121,6 +125,9 @@ class GuidedZakatInput {
   final double mortgageYearInstallments;
   final double billsDue;
   final bool useSilverNisab;
+
+  /// Use the South Asian tola figures instead of 85 g / 595 g.
+  final bool useTolaNisab;
   final double goldPricePerGram;
   final double silverPricePerGram;
 }
@@ -138,6 +145,7 @@ class GuidedZakatResult {
     required this.isEligible,
     required this.zakatDue,
     required this.notes,
+    this.warnings = const <String>[],
   });
 
   final List<ZakatLine> assetLines;
@@ -152,11 +160,15 @@ class GuidedZakatResult {
 
   /// Scholarly position notes to surface on the result screen.
   final List<String> notes;
+
+  /// Things the user entered that are NOT in the total (for example gold
+  /// grams without a gold price), so the result is never silently partial.
+  final List<String> warnings;
 }
 
 abstract final class ZakatEngine {
-  static const double goldNisabGrams = 87.48; // 7.5 tola
-  static const double silverNisabGrams = 612.36; // 52.5 tola
+  static const double goldNisabGrams = Nisab.goldGrams;
+  static const double silverNisabGrams = Nisab.silverGrams;
   static const double rate = 0.025;
 
   /// Gold purity by karat.
@@ -174,16 +186,19 @@ abstract final class ZakatEngine {
   static double nisabValue(GuidedZakatInput i) {
     if (i.useSilverNisab) {
       return i.silverPricePerGram > 0
-          ? silverNisabGrams * i.silverPricePerGram
+          ? Nisab.silver(tola: i.useTolaNisab) * i.silverPricePerGram
           : 0;
     }
-    return i.goldPricePerGram > 0 ? goldNisabGrams * i.goldPricePerGram : 0;
+    return i.goldPricePerGram > 0
+        ? Nisab.gold(tola: i.useTolaNisab) * i.goldPricePerGram
+        : 0;
   }
 
   static GuidedZakatResult compute(GuidedZakatInput i) {
     final List<ZakatLine> assets = [];
     final List<ZakatLine> debts = [];
     final List<String> notes = [];
+    final List<String> warnings = [];
     void add(String label, double amount, [String? note]) {
       if (amount > 0) assets.add(ZakatLine(label, amount, note: note));
     }
@@ -198,19 +213,33 @@ abstract final class ZakatEngine {
     // Gold & silver — by value or by weight × purity × live price.
     add('Gold (by value)', i.goldValue);
     add('Silver (by value)', i.silverValue);
-    if (i.goldGrams > 0 && i.goldPricePerGram > 0) {
-      final double pure = i.goldGrams * karatPurity(i.goldKarat);
-      add('Gold ${i.goldGrams.toStringAsFixed(1)} g · ${i.goldKarat}k',
-          pure * i.goldPricePerGram,
-          '${pure.toStringAsFixed(1)} g pure × price');
+    if (i.goldGrams > 0) {
+      if (i.goldPricePerGram > 0) {
+        final double pure = i.goldGrams * karatPurity(i.goldKarat);
+        add('Gold ${i.goldGrams.toStringAsFixed(1)} g · ${i.goldKarat}k',
+            pure * i.goldPricePerGram,
+            '${pure.toStringAsFixed(1)} g pure × price');
+      } else {
+        warnings.add('Gold weight is not counted yet: enter the gold price '
+            'per gram (or the gold value).');
+      }
     }
-    if (i.silverGrams > 0 && i.silverPricePerGram > 0) {
-      add('Silver ${i.silverGrams.toStringAsFixed(1)} g',
-          i.silverGrams * i.silverPricePerGram);
+    if (i.silverGrams > 0) {
+      if (i.silverPricePerGram > 0) {
+        add('Silver ${i.silverGrams.toStringAsFixed(1)} g',
+            i.silverGrams * i.silverPricePerGram);
+      } else {
+        warnings.add('Silver weight is not counted yet: enter the silver '
+            'price per gram (or the silver value).');
+      }
     }
 
     // Worn jewelry — THE madhab split. Stored jewelry is zakatable in all
     // schools and belongs in the gold/silver fields above.
+    if (i.wornJewelryGoldGrams > 0 && i.goldPricePerGram <= 0) {
+      warnings.add('Worn jewelry is not counted yet: enter the gold price '
+          'per gram.');
+    }
     if (i.wornJewelryGoldGrams > 0 && i.goldPricePerGram > 0) {
       final double pure =
           i.wornJewelryGoldGrams * karatPurity(i.wornJewelryKarat);
@@ -226,8 +255,21 @@ abstract final class ZakatEngine {
     }
 
     // Investments.
-    add('Stocks — trading', i.stockTraderValue, 'full market value');
-    if (i.stockLongTermValue > 0) {
+    // Only the holding style the user chose is counted. The other field may
+    // still hold an old entry (the screen hides it), so it is reported, not
+    // added: entering 20,000 under both styles must not count 40,000.
+    final bool trader = i.stockIntent == StockIntent.trader;
+    if (trader) {
+      add('Stocks — trading', i.stockTraderValue, 'full market value');
+      if (i.stockLongTermValue > 0) {
+        warnings.add('Long-term holdings were entered but "I trade actively" '
+            'is selected, so they are not counted.');
+      }
+    } else if (i.stockTraderValue > 0) {
+      warnings.add('A trading portfolio was entered but "I hold long-term" '
+          'is selected, so it is not counted.');
+    }
+    if (!trader && i.stockLongTermValue > 0) {
       final double ratio = switch (i.longTermMethod) {
         LongTermMethod.ifg25 => 0.25,
         LongTermMethod.nzf30 => 0.30,
@@ -303,6 +345,7 @@ abstract final class ZakatEngine {
       isEligible: eligible,
       zakatDue: eligible ? net * rate : 0,
       notes: notes,
+      warnings: warnings,
     );
   }
 }

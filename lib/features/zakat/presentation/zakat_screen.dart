@@ -8,8 +8,10 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../auth/presentation/widgets/auth_text_field.dart';
+import '../domain/nisab.dart';
 import '../domain/zakat_calculation.dart';
 import '../domain/zakat_engine.dart';
+import 'zakat_cards.dart';
 
 /// Guided Zakat Calculator — enter everything (cash, gold by karat, jewelry,
 /// stocks, retirement, crypto, business, mortgage) and Ar-Rayaan computes
@@ -39,6 +41,7 @@ class _ZakatScreenState extends State<ZakatScreen> {
 
   Madhab _madhab = Madhab.hanafi;
   bool _silverNisab = true;
+  bool _tolaNisab = false;
   int _goldKarat = 24;
   int _jewelryKarat = 22;
   StockIntent _stockIntent = StockIntent.longTerm;
@@ -97,6 +100,7 @@ class _ZakatScreenState extends State<ZakatScreen> {
         mortgageYearInstallments: _v('mortgage'),
         billsDue: _v('bills'),
         useSilverNisab: _silverNisab,
+        useTolaNisab: _tolaNisab,
         goldPricePerGram: _v('goldPrice'),
         silverPricePerGram: _v('silverPrice'),
       );
@@ -146,7 +150,11 @@ class _ZakatScreenState extends State<ZakatScreen> {
               child: ListView(
                 padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
                 children: [
-                  _HeroCard(result: r),
+                  _HeroCard(result: r, silverNisab: _silverNisab),
+                  if (r.warnings.isNotEmpty) ...[
+                    const SizedBox(height: 16),
+                    _buildWarningsCard(r.warnings),
+                  ],
                   const SizedBox(height: 16),
                   _buildNisabCard(),
                   const SizedBox(height: 16),
@@ -236,6 +244,10 @@ class _ZakatScreenState extends State<ZakatScreen> {
                   const SizedBox(height: 8),
                   if (r.notes.isNotEmpty) _buildNotesCard(r.notes),
                   const SizedBox(height: 16),
+                  const HawlCard(),
+                  const SizedBox(height: 16),
+                  const ZakatAlFitrCard(),
+                  const SizedBox(height: 16),
                   Text(
                     'YOUR NUMBERS NEVER LEAVE THIS DEVICE · POSITIONS LABELED, '
                     'NEVER RULED ON — CONSULT YOUR SCHOLAR ON CONTESTED MATTERS',
@@ -263,15 +275,34 @@ class _ZakatScreenState extends State<ZakatScreen> {
               style: AppText.eyebrow.copyWith(color: AppColors.gold)),
           const SizedBox(height: 10),
           Row(children: [
-            _chip('Silver · 612 g (recommended)', _silverNisab,
+            _chip(
+                'Silver · ${Nisab.fmt(Nisab.silver(tola: _tolaNisab))} g (default)',
+                _silverNisab,
                 () => setState(() => _silverNisab = true)),
             const SizedBox(width: 8),
-            _chip('Gold · 87.5 g', !_silverNisab,
-                () => setState(() => _silverNisab = false)),
+            _chip('Gold · ${Nisab.fmt(Nisab.gold(tola: _tolaNisab))} g',
+                !_silverNisab, () => setState(() => _silverNisab = false)),
           ]),
           const SizedBox(height: 8),
-          _note('Most scholars recommend the silver standard today — the lower '
-              'threshold means more of your obligation reaches the poor.'),
+          _note('Silver is the default: its threshold is lower, so more of '
+              'what is owed reaches the poor, and many contemporary scholars '
+              'and bodies advise it. Gold gives a higher threshold and is '
+              'also used. Follow the one your scholar follows.'),
+          SwitchListTile(
+            contentPadding: EdgeInsets.zero,
+            dense: true,
+            value: _tolaNisab,
+            onChanged: (v) => setState(() => _tolaNisab = v),
+            activeThumbColor: AppColors.gold,
+            title: Text('Use South Asian tola figures',
+                style: AppText.label.copyWith(color: AppColors.sand)),
+            subtitle: Text(
+                'Default is ${Nisab.fmt(Nisab.goldGrams)} g gold / '
+                '${Nisab.fmt(Nisab.silverGrams)} g silver. Tola: '
+                '${Nisab.fmt(Nisab.tolaGoldGrams)} g / '
+                '${Nisab.fmt(Nisab.tolaSilverGrams)} g.',
+                style: AppText.bodyMuted.copyWith(fontSize: 11)),
+          ),
           const SizedBox(height: 10),
           _field('goldPrice', 'Gold price per gram', Icons.scale_outlined),
           _field('silverPrice', 'Silver price per gram', Icons.scale_outlined),
@@ -295,6 +326,8 @@ class _ZakatScreenState extends State<ZakatScreen> {
           if (_priceNote != null)
             Text(_priceNote!,
                 style: AppText.bodyMuted.copyWith(fontSize: 11)),
+          _note('Live prices are in US dollars. If your balances are in '
+              'another currency, type the prices in that currency instead.'),
           const SizedBox(height: 4),
         ],
       ),
@@ -325,9 +358,28 @@ class _ZakatScreenState extends State<ZakatScreen> {
             ],
           ),
           const SizedBox(height: 8),
-          _note('This changes how worn jewelry and debts are treated. '
-              'Every difference is labeled on screen — nothing is hidden.'),
+          _note('This changes how worn jewelry is treated, and which note about '
+              'debts is shown. Every difference is labeled on screen — '
+              'nothing is hidden.'),
           const SizedBox(height: 4),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildWarningsCard(List<String> warnings) {
+    return GlassCard(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text('NOT COUNTED YET',
+              style: AppText.eyebrow.copyWith(color: AppColors.destructive)),
+          const SizedBox(height: 8),
+          for (final w in warnings)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 6),
+              child: Text('· $w', style: AppText.bodyMuted),
+            ),
         ],
       ),
     );
@@ -498,15 +550,18 @@ class _ZakatScreenState extends State<ZakatScreen> {
 }
 
 class _HeroCard extends StatelessWidget {
-  const _HeroCard({required this.result});
+  const _HeroCard({required this.result, required this.silverNisab});
 
   final GuidedZakatResult result;
+  final bool silverNisab;
 
   @override
   Widget build(BuildContext context) {
     final String due = ZakatCalculation.formatAmount(result.zakatDue);
     final String status = !result.nisabKnown
-        ? 'Enter metal prices to set your nisab'
+        ? (silverNisab
+              ? 'Enter the silver price per gram to set your nisab'
+              : 'Enter the gold price per gram to set your nisab')
         : result.isEligible
             ? 'Your wealth is above nisab — may Allah accept it'
             : 'Below nisab — no zakat due, and your sadaqah is still loved';

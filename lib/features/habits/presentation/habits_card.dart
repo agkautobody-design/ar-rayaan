@@ -18,6 +18,7 @@ class HabitsCard extends ConsumerWidget {
     final FastingLogController fasting = ref.read(fastingLogProvider.notifier);
     ref.watch(fastingLogProvider);
     final bool fastedToday = fasting.fastedToday();
+    final bool fastedYesterday = fasting.fastedYesterday();
     final int yearCount = fasting.thisYear();
 
     return Column(
@@ -100,6 +101,8 @@ class HabitsCard extends ConsumerWidget {
           ),
         ),
         const SizedBox(height: 12),
+        const _DhikrLedgerRow(),
+        const SizedBox(height: 12),
         GlassCard(
           padding: const EdgeInsets.all(16),
           child: Row(
@@ -121,6 +124,24 @@ class HabitsCard extends ConsumerWidget {
                       style: AppText.caption.copyWith(
                         color: AppColors.sand.withValues(alpha: 0.6),
                         height: 1.4,
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        final DateTime n = DateTime.now();
+                        fasting.toggleDate(DateTime(n.year, n.month, n.day - 1));
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 6),
+                        child: Text(
+                          fastedYesterday
+                              ? 'Yesterday: fasted ✓ (tap to undo)'
+                              : 'I also fasted yesterday',
+                          style: AppText.caption.copyWith(
+                            color: AppColors.gold,
+                            decoration: TextDecoration.underline,
+                          ),
+                        ),
                       ),
                     ),
                   ],
@@ -182,6 +203,37 @@ class _StepperButton extends StatelessWidget {
           border: Border.all(color: AppColors.gold.withValues(alpha: 0.35)),
         ),
         child: Icon(icon, size: 14, color: AppColors.gold),
+      ),
+    );
+  }
+}
+
+/// Today's and this week's remembrances from the Dhikr School.
+class _DhikrLedgerRow extends ConsumerWidget {
+  const _DhikrLedgerRow();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.watch(dhikrLedgerProvider);
+    final DhikrLedgerController ledger = ref.read(dhikrLedgerProvider.notifier);
+    final int today = ledger.today;
+    final int week = ledger.lastSevenDays;
+    if (week == 0) return const SizedBox.shrink();
+    return GlassCard(
+      padding: const EdgeInsets.all(16),
+      child: Row(
+        children: [
+          Expanded(
+            child: Text(
+              'Dhikr',
+              style: AppText.body.copyWith(fontWeight: FontWeight.w600),
+            ),
+          ),
+          Text(
+            '$today today · $week this week',
+            style: AppText.caption.copyWith(color: AppColors.gold),
+          ),
+        ],
       ),
     );
   }

@@ -1,11 +1,14 @@
-/// Zakat calculation — nisab thresholds and the 2.5% obligation.
+/// Zakat calculation helpers — the simple nisab/2.5% model plus the money
+/// parsing and formatting the guided calculator uses.
 ///
-/// Pure math, works fully offline. Nisab follows the widely-held scholarly
-/// standard: 85 grams of gold or 595 grams of silver. The user enters the
+/// Pure math, works fully offline. Nisab thresholds come from `Nisab` (the
+/// single source of truth: 85 g gold / 595 g silver). The user enters the
 /// metal price per gram in their own currency, so no market feed is needed.
 /// Scholarly rulings differ by madhhab and asset type — the screen carries a
 /// "consult your scholar" note (content pending Founder/scholar review).
 library;
+
+import 'nisab.dart';
 
 /// Which precious metal sets the nisab threshold.
 enum NisabStandard { gold, silver }
@@ -71,9 +74,9 @@ class ZakatResult {
 }
 
 abstract final class ZakatCalculation {
-  /// Nisab in grams: 85g gold / 595g silver (widely-held standard).
-  static const double goldNisabGrams = 85;
-  static const double silverNisabGrams = 595;
+  /// Nisab in grams, from the single source of truth.
+  static const double goldNisabGrams = Nisab.goldGrams;
+  static const double silverNisabGrams = Nisab.silverGrams;
 
   /// Zakat rate: one-fortieth.
   static const double rate = 0.025;
@@ -104,15 +107,78 @@ abstract final class ZakatCalculation {
     );
   }
 
-  /// Parses a money field: trims, drops currency symbols, commas and spaces.
-  /// Empty or invalid → 0.
+  /// Parses a money or weight field typed on any keyboard.
+  ///
+  /// Handles `12,500.75`, `12.500,75`, `1 234,5`, `1'234.50`, `$3,000`,
+  /// `1,5` (= 1.5), Arabic-Indic digits and the Arabic decimal/thousands
+  /// marks. Rules:
+  /// - when both `.` and `,` appear, the LAST one is the decimal mark and
+  ///   the other is a thousands mark;
+  /// - a mark that appears more than once is a thousands mark;
+  /// - a lone `.` is a decimal point (`1.5`, `87.480`);
+  /// - a lone `,` is a thousands mark only when exactly three digits follow
+  ///   and one to three non-zero-led digits precede (`3,000` = 3000);
+  ///   otherwise it is a decimal comma (`1,5` = 1.5, `0,500` = 0.5).
+  /// Empty or invalid input gives 0.
   static double parseAmount(String raw) {
-    final String cleaned = raw
-        .replaceAll(RegExp(r'[^\d.,-]'), '')
-        .replaceAll(',', '')
-        .trim();
-    if (cleaned.isEmpty) return 0;
-    return double.tryParse(cleaned) ?? 0;
+    final StringBuffer norm = StringBuffer();
+    for (final int c in raw.runes) {
+      if (c >= 0x0660 && c <= 0x0669) {
+        norm.writeCharCode(0x30 + (c - 0x0660)); // Arabic-Indic digits
+      } else if (c >= 0x06F0 && c <= 0x06F9) {
+        norm.writeCharCode(0x30 + (c - 0x06F0)); // Eastern Arabic digits
+      } else if (c == 0x066B) {
+        norm.write('.'); // Arabic decimal separator
+      } else if (c == 0x066C) {
+        norm.write(','); // Arabic thousands separator
+      } else {
+        norm.writeCharCode(c);
+      }
+    }
+    String t = norm.toString().replaceAll(RegExp(r'[^\d.,-]'), '');
+    if (t.isEmpty) return 0;
+    final bool negative = t.startsWith('-');
+    t = t.replaceAll('-', '');
+    if (t.isEmpty) return 0;
+
+    final int lastDot = t.lastIndexOf('.');
+    final int lastComma = t.lastIndexOf(',');
+    final int dots = '.'.allMatches(t).length;
+    final int commas = ','.allMatches(t).length;
+    String intPart = t;
+    String frac = '';
+    if (lastDot >= 0 && lastComma >= 0) {
+      final int dec = lastDot > lastComma ? lastDot : lastComma;
+      intPart = t.substring(0, dec);
+      frac = t.substring(dec + 1);
+    } else if (lastDot >= 0) {
+      if (dots == 1) {
+        intPart = t.substring(0, lastDot);
+        frac = t.substring(lastDot + 1);
+      }
+    } else if (lastComma >= 0) {
+      if (commas == 1) {
+        final String before = t.substring(0, lastComma);
+        final String after = t.substring(lastComma + 1);
+        final bool thousands =
+            after.length == 3 &&
+            before.isNotEmpty &&
+            before.length <= 3 &&
+            !before.startsWith('0');
+        if (!thousands) {
+          intPart = before;
+          frac = after;
+        }
+      }
+    }
+    intPart = intPart.replaceAll(RegExp(r'[.,]'), '');
+    frac = frac.replaceAll(RegExp(r'[.,]'), '');
+    if (intPart.isEmpty && frac.isEmpty) return 0;
+    final double? v = double.tryParse(
+      '${intPart.isEmpty ? '0' : intPart}${frac.isEmpty ? '' : '.$frac'}',
+    );
+    if (v == null) return 0;
+    return negative ? -v : v;
   }
 
   /// Formats a currency amount with thousands separators, 2 decimals.

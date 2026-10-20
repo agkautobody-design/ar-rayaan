@@ -10,8 +10,10 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
-import '../../calendar/domain/hijri_date.dart';
 import '../../prayer/application/prayer_providers.dart';
+import '../../zakat/domain/zakat_calculation.dart';
+import '../../zakat/presentation/zakat_cards.dart';
+import '../domain/ramadan_season.dart';
 
 class RamadanDay {
   final int day; final String theme, arabic, text, source;
@@ -29,25 +31,15 @@ final ramadanDaysProvider = FutureProvider<List<RamadanDay>>((ref) async {
       .map((e) => RamadanDay.fromJson(e as Map<String, dynamic>)).toList();
 });
 
-/// First day of the current Ramadan (while in it) or the next one, from the
-/// app's own Umm al-Qura calendar — never a hard-coded date.
-DateTime get ramadanStart {
-  final HijriDate today = HijriDate.fromGregorian(DateTime.now());
-  final int year = today.month <= 9 ? today.year : today.year + 1;
-  return HijriDate(year, 9, 1).toGregorian();
-}
-
-/// First day of Shawwal after [ramadanStart] (Eid al-Fitr).
-DateTime get ramadanEnd {
-  final HijriDate start = HijriDate.fromGregorian(ramadanStart);
-  return HijriDate(start.year, 10, 1).toGregorian();
-}
-
 /// RAMADAN MODE — the complete season, both layers the founder demanded:
 /// WORSHIP (fasting log with three honest states, 30-juz khatam tracker,
 /// taraweeh notes, live suhoor/iftar countdowns from real prayer times)
 /// and HOUSEHOLD (sadaqah tracker, iftar table planner, zakat al-fitr
-/// reminder). Nothing cheapened: the season is the app's heartbeat.
+/// calculator). Nothing cheapened: the season is the app's heartbeat.
+///
+/// Everything the user records is saved per Ramadan (keyed by Hijri year),
+/// and the text fields keep their own controllers, so the 30-second clock
+/// tick never wipes what is being typed.
 class RamadanScreen extends ConsumerStatefulWidget {
   const RamadanScreen({super.key});
   @override
@@ -55,13 +47,23 @@ class RamadanScreen extends ConsumerStatefulWidget {
 }
 
 class _RamadanState extends ConsumerState<RamadanScreen> {
+  /// The Ramadan being tracked, fixed for the life of the screen.
+  late final RamadanSeason _season = RamadanSeason.forDate(DateTime.now());
+
   int _tab = 0;
   Map<int, int> _fast = {};            // day -> 0 none, 1 fasted, 2 excused, 3 makeup-due
   Set<int> _juz = {};                  // completed juz
-  String _taraweeh = '';
   List<String> _sadaqah = [];          // "$amount|note|date"
   List<String> _table = [];            // iftar table guests/dishes
   Timer? _tick;
+  Timer? _taraweehSave;
+
+  // Hoisted so a rebuild (the 30 s clock tick, any setState) never replaces
+  // them and never wipes half-typed text or the cursor position.
+  final TextEditingController _taraweehCtrl = TextEditingController();
+  final TextEditingController _sadaqahCtrl = TextEditingController();
+  final TextEditingController _noteCtrl = TextEditingController();
+  final TextEditingController _tableCtrl = TextEditingController();
 
   @override
   void initState() {
@@ -75,36 +77,84 @@ class _RamadanState extends ConsumerState<RamadanScreen> {
   @override
   void dispose() {
     _tick?.cancel();
+    if (_taraweehSave?.isActive ?? false) {
+      _taraweehSave!.cancel();
+      unawaited(_saveTaraweeh());
+    }
+    _taraweehCtrl.dispose();
+    _sadaqahCtrl.dispose();
+    _noteCtrl.dispose();
+    _tableCtrl.dispose();
     super.dispose();
+  }
+
+  /// Season-scoped read. The first release saved unscoped keys while it was
+  /// hard-wired to Ramadan 1448, so those old values are read for 1448 only
+  /// (and never deleted).
+  T? _read<T>(SharedPreferences p, String name, T? Function(String key) get) {
+    final T? scoped = get(_season.key(name));
+    if (scoped != null) return scoped;
+    if (_season.hijriYear == 1448) return get('ar.ramadan.$name');
+    return null;
   }
 
   Future<void> _load() async {
     final p = await SharedPreferences.getInstance();
+    if (!mounted) return;
     setState(() {
-      final f = p.getString('ar.ramadan.fast');
-      if (f != null) _fast = (json.decode(f) as Map).map((k, v) => MapEntry((k as num).toInt(), (v as num).toInt()));
-      _juz = (p.getStringList('ar.ramadan.juz') ?? []).map((e) => int.parse(e)).toSet();
-      _taraweeh = p.getString('ar.ramadan.taraweeh') ?? '';
-      _sadaqah = (p.getStringList('ar.ramadan.sadaqah') ?? []).toList();
-      _table = (p.getStringList('ar.ramadan.table') ?? []).toList();
+      final f = _read<String>(p, 'fast', p.getString);
+      if (f != null) {
+        try {
+          _fast = (json.decode(f) as Map).map((k, v) =>
+              MapEntry(int.parse('$k'), (v as num).toInt()));
+        } catch (_) {
+          _fast = {};
+        }
+      }
+      _juz = (_read<List<String>>(p, 'juz', p.getStringList) ?? [])
+          .map((e) => int.tryParse(e) ?? 0).where((e) => e > 0).toSet();
+      _taraweehCtrl.text = _read<String>(p, 'taraweeh', p.getString) ?? '';
+      _sadaqah = (_read<List<String>>(p, 'sadaqah', p.getStringList) ?? []).toList();
+      _table = (_read<List<String>>(p, 'table', p.getStringList) ?? []).toList();
     });
   }
 
-  Future<void> _save() async {
+  Future<void> _saveFast() async {
     final p = await SharedPreferences.getInstance();
-    await p.setString('ar.ramadan.fast', json.encode(_fast));
-    await p.setStringList('ar.ramadan.juz', _juz.map((e) => '$e').toList());
-    await p.setString('ar.ramadan.taraweeh', _taraweeh);
-    await p.setStringList('ar.ramadan.sadaqah', _sadaqah);
-    await p.setStringList('ar.ramadan.table', _table);
+    await p.setString(_season.key('fast'),
+        json.encode(_fast.map((k, v) => MapEntry('$k', v))));
   }
 
-  bool get _inRamadan {
-    final now = DateTime.now();
-    return !now.isBefore(ramadanStart) && now.isBefore(ramadanEnd);
+  Future<void> _saveJuz() async {
+    final p = await SharedPreferences.getInstance();
+    await p.setStringList(_season.key('juz'), _juz.map((e) => '$e').toList());
   }
 
-  int get _ramadanDay => DateTime.now().difference(ramadanStart).inDays + 1;
+  Future<void> _saveTaraweeh() async {
+    final p = await SharedPreferences.getInstance();
+    await p.setString(_season.key('taraweeh'), _taraweehCtrl.text);
+  }
+
+  Future<void> _saveSadaqah() async {
+    final p = await SharedPreferences.getInstance();
+    await p.setStringList(_season.key('sadaqah'), _sadaqah);
+  }
+
+  Future<void> _saveTable() async {
+    final p = await SharedPreferences.getInstance();
+    await p.setStringList(_season.key('table'), _table);
+  }
+
+  void _onTaraweehChanged(String _) {
+    _taraweehSave?.cancel();
+    _taraweehSave = Timer(const Duration(milliseconds: 600), () {
+      unawaited(_saveTaraweeh());
+    });
+  }
+
+  bool get _inRamadan => _season.contains(DateTime.now());
+
+  int get _ramadanDay => _season.dayOf(DateTime.now());
 
   @override
   Widget build(BuildContext context) {
@@ -121,14 +171,17 @@ class _RamadanState extends ConsumerState<RamadanScreen> {
               loading: () => const Center(child: CircularProgressIndicator(color: AppColors.gold)),
               error: (e, _) => Center(child: Text('Could not load Ramadan.', style: AppText.bodyMuted)),
               data: (list) {
-                final today = _inRamadan && _ramadanDay <= 30 ? list[_ramadanDay - 1] : null;
+                final day = _ramadanDay;
+                final today = _inRamadan && day >= 1 && day <= list.length
+                    ? list[day - 1] : null;
                 return ListView(
                   padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
                   children: [
                     // SEASON HEADER + LIVE COUNTDOWNS
                     GlassCard(strong: true, child: Column(children: [
-                      Text(_inRamadan ? 'RAMADAN 1448 \u00b7 DAY $_ramadanDay OF 30'
-                              : 'UNTIL RAMADAN 1448', style: AppText.eyebrow),
+                      Text(_inRamadan
+                              ? 'RAMADAN ${_season.hijriYear} · DAY $day OF ${_season.length}'
+                              : 'UNTIL RAMADAN ${_season.hijriYear}', style: AppText.eyebrow),
                       const SizedBox(height: 6),
                       Text(_inRamadan ? 'Ramadan Mubarak' : _countdownText(),
                           style: const TextStyle(fontFamily: 'PlayfairDisplay', fontSize: 24,
@@ -138,21 +191,24 @@ class _RamadanState extends ConsumerState<RamadanScreen> {
                         Text('Today\'s theme: ${today.theme}', style: AppText.bodyMuted),
                         Text(today.text, textAlign: TextAlign.center,
                             style: AppText.body.copyWith(height: 1.5, fontSize: 13)),
-                        Text(today.source, style: AppText.bodyMuted.copyWith(fontSize: 9.5)),
+                        Text(today.source, textAlign: TextAlign.center,
+                            style: AppText.bodyMuted.copyWith(fontSize: 9.5)),
                       ],
                       times.when(
                         loading: () => const SizedBox.shrink(),
                         error: (e, _) => const SizedBox.shrink(),
                         data: (t) {
                           if (!_inRamadan) return const SizedBox.shrink();
-                          final now = DateTime.now();
-                          final suhoor = _fmt(_until(t.fajr, now));
-                          final iftar = _fmt(_until(t.maghrib, now));
+                          final w = t.wallClock(DateTime.now());
                           return Padding(
                             padding: const EdgeInsets.only(top: 8),
                             child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-                              _countdownChip('SUHOOR ENDS', suhoor),
-                              _countdownChip('IFTAR', iftar),
+                              _countdownChip(
+                                  w.isBefore(t.fajr) ? 'SUHOOR ENDS IN' : 'NEXT SUHOOR ENDS IN',
+                                  _fmt(_untilNext(t.fajr, w))),
+                              _countdownChip(
+                                  w.isBefore(t.maghrib) ? 'IFTAR IN' : 'NEXT IFTAR IN',
+                                  _fmt(_untilNext(t.maghrib, w))),
                             ]),
                           );
                         },
@@ -179,7 +235,7 @@ class _RamadanState extends ConsumerState<RamadanScreen> {
                         )),
                     ]),
                     const SizedBox(height: 10),
-                    if (_tab == 0) _worship(list) else _household(),
+                    if (_tab == 0) _worship() else _household(),
                   ],
                 );
               },
@@ -190,8 +246,10 @@ class _RamadanState extends ConsumerState<RamadanScreen> {
     );
   }
 
-  Duration _until(DateTime t, DateTime now) {
-    var d = t.difference(now);
+  /// Time until the next occurrence of [target] (a wall-clock time today in
+  /// the schedule's zone): today's if still ahead, otherwise tomorrow's.
+  Duration _untilNext(DateTime target, DateTime wallNow) {
+    var d = target.difference(wallNow);
     if (d.isNegative) d = d + const Duration(hours: 24);
     return d;
   }
@@ -200,8 +258,8 @@ class _RamadanState extends ConsumerState<RamadanScreen> {
       '${d.inHours}:${(d.inMinutes % 60).toString().padLeft(2, '0')}';
 
   String _countdownText() {
-    final d = ramadanStart.difference(DateTime.now()).inDays;
-    return d > 0 ? '$d days \u00b7 crescent-willing' : 'Any day now';
+    final d = _season.daysUntilStart(DateTime.now());
+    return d > 0 ? '$d days · crescent-willing' : 'Any day now';
   }
 
   Widget _countdownChip(String label, String time) => Container(
@@ -218,20 +276,20 @@ class _RamadanState extends ConsumerState<RamadanScreen> {
   );
 
   // ---------------- WORSHIP LAYER ----------------
-  Widget _worship(List<RamadanDay> list) {
+  Widget _worship() {
     final fasted = _fast.values.where((v) => v == 1).length;
     final excused = _fast.values.where((v) => v == 2).length;
     final makeup = _fast.values.where((v) => v == 3).length;
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Text('FASTING LOG \u00b7 $fasted fasted \u00b7 $excused excused \u00b7 $makeup makeup-due',
+      Text('FASTING LOG · $fasted fasted · $excused excused · $makeup makeup-due',
           style: AppText.eyebrow),
       const SizedBox(height: 6),
       GlassCard(child: Wrap(spacing: 4, runSpacing: 4, children: [
-        for (var d = 1; d <= 30; d++)
+        for (var d = 1; d <= _season.length; d++)
           GestureDetector(
             onTap: () => setState(() {
               _fast[d] = ((_fast[d] ?? 0) + 1) % 4;
-              _save();
+              unawaited(_saveFast());
             }),
             child: Container(
               width: 34, height: 34,
@@ -250,17 +308,17 @@ class _RamadanState extends ConsumerState<RamadanScreen> {
             ),
           ),
       ])),
-      Text('tap cycles: none \u2192 fasted \u2192 excused \u2192 makeup-due \u00b7 the Gentle Ledger — '
+      Text('tap cycles: none → fasted → excused → makeup-due · the Gentle Ledger — '
           'missed fasts are debts to Allah, and He loves they be paid', style: AppText.bodyMuted.copyWith(fontSize: 9.5)),
       const SizedBox(height: 12),
-      Text('QUR\u2019AN KHATAM \u00b7 ${_juz.length}/30 ajza', style: AppText.eyebrow),
+      Text('QUR’AN KHATAM · ${_juz.length}/30 ajza', style: AppText.eyebrow),
       const SizedBox(height: 6),
       GlassCard(child: Wrap(spacing: 4, runSpacing: 4, children: [
         for (var j = 1; j <= 30; j++)
           GestureDetector(
             onTap: () => setState(() {
               _juz.contains(j) ? _juz.remove(j) : _juz.add(j);
-              _save();
+              unawaited(_saveJuz());
             }),
             child: Container(
               width: 34, height: 34,
@@ -279,82 +337,104 @@ class _RamadanState extends ConsumerState<RamadanScreen> {
       Text('TARAWEEH NOTES', style: AppText.eyebrow),
       const SizedBox(height: 6),
       GlassCard(child: TextField(
+        key: const Key('taraweeh-notes'),
         maxLines: 4, style: AppText.body,
-        controller: TextEditingController(text: _taraweeh)
-          ..selection = TextSelection.collapsed(offset: _taraweeh.length),
-        onChanged: (v) { _taraweeh = v; _save(); },
+        controller: _taraweehCtrl,
+        onChanged: _onTaraweehChanged,
         decoration: const InputDecoration(
-            hintText: 'Which surahs tonight \u00b7 the imam\u2019s recitation \u00b7 a verse that stopped you\u2026'),
+            hintText: 'Which surahs tonight · the imam’s recitation · a verse that stopped you…'),
       )),
     ]);
   }
 
   // ---------------- HOUSEHOLD LAYER ----------------
+  void _recordSadaqah() {
+    final amt = ZakatCalculation.parseAmount(_sadaqahCtrl.text);
+    if (amt <= 0) return;
+    final shown = amt == amt.roundToDouble() ? amt.toStringAsFixed(0) : amt.toStringAsFixed(2);
+    // '|' separates the stored fields, so it cannot appear inside the note.
+    final note = _noteCtrl.text.trim().replaceAll('|', '/');
+    setState(() {
+      _sadaqah.insert(0, '$shown|$note|${DateTime.now().toIso8601String().substring(0, 10)}');
+    });
+    unawaited(_saveSadaqah());
+    _sadaqahCtrl.clear();
+    _noteCtrl.clear();
+  }
+
+  static List<String> _fields(String entry) {
+    final parts = entry.split('|');
+    return [for (var i = 0; i < 3; i++) i < parts.length ? parts[i] : ''];
+  }
+
   Widget _household() {
     final total = _sadaqah.fold<double>(0, (a, e) =>
-        a + (double.tryParse(e.split('|')[0]) ?? 0));
-    final sadaqahCtrl = TextEditingController();
-    final noteCtrl = TextEditingController();
-    final tableCtrl = TextEditingController();
+        a + (double.tryParse(_fields(e)[0]) ?? 0));
+    final totalShown = total == total.roundToDouble()
+        ? total.toStringAsFixed(0) : total.toStringAsFixed(2);
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Text('SADAQAH TRACKER \u00b7 \$${total.toStringAsFixed(0)} given this season',
+      Text('SADAQAH TRACKER · $totalShown given this season',
           style: AppText.eyebrow),
       const SizedBox(height: 6),
       GlassCard(child: Column(children: [
         Row(children: [
-          Expanded(child: TextField(controller: sadaqahCtrl,
-              keyboardType: TextInputType.number, style: AppText.body,
-              decoration: const InputDecoration(hintText: 'Amount (\$)'))),
+          Expanded(child: TextField(controller: _sadaqahCtrl,
+              keyboardType: const TextInputType.numberWithOptions(decimal: true),
+              style: AppText.body,
+              decoration: const InputDecoration(hintText: 'Amount'))),
           const SizedBox(width: 8),
-          Expanded(flex: 2, child: TextField(controller: noteCtrl,
+          Expanded(flex: 2, child: TextField(controller: _noteCtrl,
               style: AppText.body,
               decoration: const InputDecoration(hintText: 'For whom / what cause'))),
         ]),
         const SizedBox(height: 8),
         SizedBox(width: double.infinity,
           child: ElevatedButton(
-            onPressed: () {
-              final amt = double.tryParse(sadaqahCtrl.text);
-              if (amt == null || amt <= 0) return;
-              setState(() {
-                _sadaqah.insert(0, '${amt.toStringAsFixed(0)}|${noteCtrl.text}|${DateTime.now().toIso8601String().substring(0, 10)}');
-                _save();
-              });
-              sadaqahCtrl.clear(); noteCtrl.clear();
-            },
+            onPressed: _recordSadaqah,
             style: ElevatedButton.styleFrom(backgroundColor: AppColors.gold,
                 foregroundColor: const Color(0xFF0A0F18)),
             child: const Text('Record sadaqah'),
           )),
-        for (final e in _sadaqah.take(6))
+        for (final e in _sadaqah.take(10))
           Padding(padding: const EdgeInsets.only(top: 6),
             child: Row(children: [
-              Text('\$${e.split('|')[0]}', style: AppText.body.copyWith(
+              Text(_fields(e)[0], style: AppText.body.copyWith(
                   color: AppColors.goldLight, fontWeight: FontWeight.w700, fontSize: 13)),
               const SizedBox(width: 8),
-              Expanded(child: Text('${e.split('|')[1]} \u00b7 ${e.split('|')[2]}',
+              Expanded(child: Text(
+                  [_fields(e)[1], _fields(e)[2]].where((s) => s.isNotEmpty).join(' · '),
                   style: AppText.bodyMuted.copyWith(fontSize: 11))),
+              GestureDetector(
+                  onTap: () {
+                    setState(() => _sadaqah.remove(e));
+                    unawaited(_saveSadaqah());
+                  },
+                  child: const Icon(Icons.close, size: 14, color: AppColors.sand)),
             ])),
       ])),
       const SizedBox(height: 12),
-      Text('IFTAR TABLE \u00b7 who\'s breaking fast with you', style: AppText.eyebrow),
+      Text('IFTAR TABLE · who\'s breaking fast with you', style: AppText.eyebrow),
       const SizedBox(height: 6),
       GlassCard(child: Column(children: [
         Row(children: [
-          Expanded(child: TextField(controller: tableCtrl, style: AppText.body,
-              decoration: const InputDecoration(hintText: 'A guest, a dish, a date to remember\u2026'))),
+          Expanded(child: TextField(controller: _tableCtrl, style: AppText.body,
+              decoration: const InputDecoration(hintText: 'A guest, a dish, a date to remember…'))),
           IconButton(icon: const Icon(Icons.add, color: AppColors.gold),
               onPressed: () {
-                if (tableCtrl.text.trim().isEmpty) return;
-                setState(() { _table.insert(0, tableCtrl.text.trim()); _save(); });
-                tableCtrl.clear();
+                if (_tableCtrl.text.trim().isEmpty) return;
+                setState(() => _table.insert(0, _tableCtrl.text.trim()));
+                unawaited(_saveTable());
+                _tableCtrl.clear();
               }),
         ]),
         for (final t in _table)
           Padding(padding: const EdgeInsets.only(top: 4),
             child: Row(children: [
               Expanded(child: Text(t, style: AppText.body.copyWith(fontSize: 13))),
-              GestureDetector(onTap: () => setState(() { _table.remove(t); _save(); }),
+              GestureDetector(onTap: () {
+                    setState(() => _table.remove(t));
+                    unawaited(_saveTable());
+                  },
                   child: const Icon(Icons.close, size: 14, color: AppColors.sand)),
             ])),
         if (_table.isEmpty)
@@ -362,12 +442,7 @@ class _RamadanState extends ConsumerState<RamadanScreen> {
               style: AppText.bodyMuted.copyWith(fontSize: 11, height: 1.5)),
       ])),
       const SizedBox(height: 12),
-      GlassCard(child: Row(children: [
-        const Icon(Icons.card_giftcard_outlined, color: AppColors.goldLight, size: 20),
-        const SizedBox(width: 10),
-        Expanded(child: Text('Zakat al-Fitr: due before the Eid prayer for every member of the household — the zakat engine holds the amount.',
-            style: AppText.bodyMuted.copyWith(fontSize: 11.5, height: 1.5))),
-      ])),
+      const ZakatAlFitrCard(),
     ]);
   }
 }

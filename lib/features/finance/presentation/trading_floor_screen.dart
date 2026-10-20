@@ -11,6 +11,7 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../../zakat/domain/zakat_calculation.dart';
 
 class PaperCo {
   final String sym, name, sector, blurb;
@@ -25,11 +26,30 @@ class PaperCo {
       debt: (j['debt'] as num).toDouble(), mcap: (j['mcap'] as num).toDouble(),
       interest: (j['interest'] as num).toDouble(),
       haram: (j['haram'] as num).toDouble());
+  /// The three screens the app teaches (Lesson 3 and the Tayyib screener):
+  /// haram revenue and interest income each at most 5% of revenue, debt at
+  /// most 30% of market cap. The Learn tab counts from this, never from a
+  /// hand-written number.
+  bool get passesScreens =>
+      rev > 0 && mcap > 0 &&
+      haram / rev <= 0.05 && interest / rev <= 0.05 && debt / mcap <= 0.30;
+
+  /// Stable hash — unlike `String.hashCode` it is identical on web and VM
+  /// (all intermediate values stay below 2^53, so JavaScript numbers are
+  /// exact), so today's prices match on every device.
+  static int _stableSeed(String text) {
+    var h = 7;
+    for (final unit in text.codeUnits) {
+      h = (h * 31 + unit) & 0x7fffffff;
+    }
+    return h;
+  }
+
   /// Deterministic daily drift so today's market is consistent, seeded by
   /// date+symbol. Fundamentals stay fixed; the weather changes.
   double get todayPrice {
     final day = DateTime.now().toIso8601String().substring(0, 10);
-    final rnd = Random('$day$sym'.hashCode);
+    final rnd = Random(_stableSeed('$day$sym'));
     final drift = (rnd.nextDouble() - 0.48) * 0.06;
     return double.parse((price * (1 + drift)).toStringAsFixed(2));
   }
@@ -81,6 +101,10 @@ class _FloorState extends ConsumerState<TradingFloorScreen> {
       }
       _trades = (p.getStringList('ar.rayaan.trades') ?? []).toList();
       _goalSaved.text = (p.getDouble('ar.rayaan.goal') ?? 0).toStringAsFixed(0);
+      _goalName.text = p.getString('ar.rayaan.goalName') ?? _goalName.text;
+      _goalTarget.text = p.getString('ar.rayaan.goalTarget') ?? _goalTarget.text;
+      _income.text = p.getString('ar.rayaan.income') ?? '';
+      _sadaqahPct.text = p.getString('ar.rayaan.sadaqahPct') ?? _sadaqahPct.text;
     });
   }
 
@@ -89,7 +113,22 @@ class _FloorState extends ConsumerState<TradingFloorScreen> {
     await p.setDouble('ar.rayaan.cash', _cash);
     await p.setString('ar.rayaan.holdings', json.encode(_holdings));
     await p.setStringList('ar.rayaan.trades', _trades);
-    await p.setDouble('ar.rayaan.goal', double.tryParse(_goalSaved.text) ?? 0);
+    await p.setDouble('ar.rayaan.goal',
+        ZakatCalculation.parseAmount(_goalSaved.text));
+    await p.setString('ar.rayaan.goalName', _goalName.text);
+    await p.setString('ar.rayaan.goalTarget', _goalTarget.text);
+    await p.setString('ar.rayaan.income', _income.text);
+    await p.setString('ar.rayaan.sadaqahPct', _sadaqahPct.text);
+  }
+
+  /// Start the paper account over: $100,000 cash, no holdings, empty log.
+  Future<void> _resetAccount() async {
+    setState(() {
+      _cash = 100000;
+      _holdings = {};
+      _trades = [];
+    });
+    await _save();
   }
 
   double _portfolioValue(List<PaperCo> market) {
@@ -184,7 +223,7 @@ class _FloorState extends ConsumerState<TradingFloorScreen> {
                     ),
                     const SizedBox(height: 10),
                     GlassCard(child: Text(
-                        'On this floor you trade with \$100,000 of paper money — no real wealth moves. The companies are fictional; their fundamentals are real ratios from the real market\'s playbook. Twelve companies, eight pass the halal screens, four do not. Nobody tells you which. The screen is your homework — Lesson 3 is your tool.',
+                        'On this floor you trade with \$100,000 of paper money — no real wealth moves. The companies are fictional; their fundamentals are ratios you can screen. ${mkt.length} companies: ${mkt.where((c) => c.passesScreens).length} pass the three halal screens taught here, ${mkt.where((c) => !c.passesScreens).length} do not. Nobody tells you which. The screen is your homework — Lesson 3 is your tool.',
                         style: AppText.bodyMuted.copyWith(height: 1.6))),
                   ]);
                 }
@@ -268,12 +307,22 @@ class _FloorState extends ConsumerState<TradingFloorScreen> {
         for (final t in _trades.take(8))
           Text(t, style: AppText.bodyMuted.copyWith(fontSize: 11)),
       ],
+      Align(
+        alignment: Alignment.centerLeft,
+        child: TextButton(
+          onPressed: _resetAccount,
+          child: Text('Reset paper account to \$100,000',
+              style: AppText.bodyMuted.copyWith(fontSize: 11, color: AppColors.gold)),
+        ),
+      ),
     ]);
   }
 
   Widget _budget() {
-    final income = double.tryParse(_income.text.replaceAll(',', '')) ?? 0;
-    final sadaqahPct = double.tryParse(_sadaqahPct.text) ?? 5;
+    final income = ZakatCalculation.parseAmount(_income.text);
+    final sadaqahPct = _sadaqahPct.text.trim().isEmpty
+        ? 5.0
+        : ZakatCalculation.parseAmount(_sadaqahPct.text);
     final sadaqah = income * sadaqahPct / 100;
     final rest = income - sadaqah;
     final needs = rest * 0.50, wants = rest * 0.30, savings = rest * 0.20;
@@ -281,13 +330,15 @@ class _FloorState extends ConsumerState<TradingFloorScreen> {
       Text('THE ISLAMIC BUDGET — sadaqah first, then 50 / 30 / 20', style: AppText.eyebrow),
       const SizedBox(height: 8),
       GlassCard(child: Column(children: [
-        TextField(controller: _income, keyboardType: TextInputType.number,
-            style: AppText.body, onChanged: (_) => setState(() {}),
+        TextField(controller: _income,
+            keyboardType: const TextInputType.numberWithOptions(decimal: true),
+            style: AppText.body, onChanged: (_) { setState(() {}); _save(); },
             decoration: const InputDecoration(hintText: 'Monthly household income (\$)')),
         const SizedBox(height: 8),
-        TextField(controller: _sadaqahPct, keyboardType: TextInputType.number,
-            style: AppText.body, onChanged: (_) => setState(() {}),
-            decoration: const InputDecoration(hintText: 'Sadaqah % (start at 2.5 — the zakat rate — and grow')),
+        TextField(controller: _sadaqahPct,
+            keyboardType: const TextInputType.numberWithOptions(decimal: true),
+            style: AppText.body, onChanged: (_) { setState(() {}); _save(); },
+            decoration: const InputDecoration(hintText: 'Sadaqah % (e.g. 2.5, the zakat rate, and grow)')),
       ])),
       const SizedBox(height: 10),
       if (income > 0) ...[
@@ -297,7 +348,7 @@ class _FloorState extends ConsumerState<TradingFloorScreen> {
         _budgetRow('SAVINGS (20%)', savings, 'provision and protection — savings is not miserliness'),
         const SizedBox(height: 8),
         GlassCard(child: Text(
-            '\u201cO you who believe, do not waste.\u201d (6:141, meaning) — the budget\'s fifth column is invisible: every dollar cut from waste returns to sadaqah or savings. Zakat is computed in the Tayyib engine when your savings pass the nisab for a lunar year.',
+            'Allah does not like the wasteful (6:141, meaning) — the budget\'s fifth column is invisible: every dollar cut from waste returns to sadaqah or savings. Zakat is computed in the Tayyib engine when your savings pass the nisab for a lunar year.',
             style: AppText.bodyMuted.copyWith(height: 1.6, fontSize: 12))),
       ] else
         GlassCard(child: Text('Enter your monthly income to see the plan. The framework: sadaqah first — then needs 50%, wants 30%, savings 20% of the remainder. Earned from halal sources; no riba anywhere inside it.',
@@ -318,21 +369,24 @@ class _FloorState extends ConsumerState<TradingFloorScreen> {
   );
 
   Widget _savings() {
-    final target = double.tryParse(_goalTarget.text.replaceAll(',', '')) ?? 0;
-    final saved = double.tryParse(_goalSaved.text.replaceAll(',', '')) ?? 0;
+    final target = ZakatCalculation.parseAmount(_goalTarget.text);
+    final saved = ZakatCalculation.parseAmount(_goalSaved.text);
     final pct = target > 0 ? (saved / target * 100).clamp(0, 100) : 0;
     return ListView(padding: const EdgeInsets.fromLTRB(20, 0, 20, 24), children: [
       Text('SAVINGS — provision with intention', style: AppText.eyebrow),
       const SizedBox(height: 8),
       GlassCard(child: Column(children: [
         TextField(controller: _goalName, style: AppText.body,
+            onChanged: (_) { setState(() {}); _save(); },
             decoration: const InputDecoration(hintText: 'Goal (Hajj fund is the classic)')),
         const SizedBox(height: 8),
-        TextField(controller: _goalTarget, keyboardType: TextInputType.number,
-            style: AppText.body, onChanged: (_) => setState(() {}),
+        TextField(controller: _goalTarget,
+            keyboardType: const TextInputType.numberWithOptions(decimal: true),
+            style: AppText.body, onChanged: (_) { setState(() {}); _save(); },
             decoration: const InputDecoration(hintText: 'Target (\$)')),
         const SizedBox(height: 8),
-        TextField(controller: _goalSaved, keyboardType: TextInputType.number,
+        TextField(controller: _goalSaved,
+            keyboardType: const TextInputType.numberWithOptions(decimal: true),
             style: AppText.body, onChanged: (_) { setState(() {}); _save(); },
             decoration: const InputDecoration(hintText: 'Saved so far (\$)')),
       ])),
@@ -353,7 +407,7 @@ class _FloorState extends ConsumerState<TradingFloorScreen> {
       ])),
       const SizedBox(height: 8),
       GlassCard(child: Text(
-          '\u201cSaving for a righteous intention is worship.\u201d The Prophet ﷺ guided a man who wanted to give everything away: keep some for your family\'s provision — that too is sadaqah (Bukhari 535). A Hajj fund saved over years, protected from waste, is a riyadah of the nafs — and when it finally carries you to Makkah, every dollar in it has a story.',
+          'The Prophet ﷺ advised Sa\'d ibn Abi Waqqas, who asked to give away most of his wealth, not to, and told him that whatever he spends seeking Allah\'s pleasure is rewarded, even the morsel he puts in his wife\'s mouth (Sahih al-Bukhari 1295). A Hajj fund saved over years, protected from waste, is a riyadah of the nafs — and when it finally carries you to Makkah, every dollar in it has a story.',
           style: AppText.bodyMuted.copyWith(height: 1.65, fontSize: 12.5))),
     ]);
   }

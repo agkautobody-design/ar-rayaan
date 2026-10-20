@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../app/core/providers.dart';
+import '../../calendar/domain/hijri_date.dart';
 import 'prayer_repository.dart';
 
 /// One calculation convention the user can pick.
@@ -52,22 +53,43 @@ class PrayerSettings {
   String resolvedMethod(PrayerLocation location) =>
       method == 'auto' ? autoMethodFor(location) : method;
 
+  /// True when Umm al-Qura's Ramadan rule applies on [date]: the method
+  /// fixes Isha at 90 minutes after Maghrib, and the adhan package's own
+  /// guidance is to add a +30 minute adjustment for Isha during Ramadan
+  /// (120 minutes), as the official Saudi timetable does.
+  bool ramadanIshaExtra(PrayerLocation location, DateTime? date) {
+    if (date == null || resolvedMethod(location) != 'umm_al_qura') {
+      return false;
+    }
+    return HijriDate.fromGregorian(date).month == 9;
+  }
+
   /// The label shown under the times.
-  String label(PrayerLocation location) {
+  String label(PrayerLocation location, {DateTime? date}) {
     final String key = resolvedMethod(location);
     final String name = kPrayerMethods
         .firstWhere((PrayerMethodOption m) => m.key == key,
             orElse: () => kPrayerMethods[2])
         .label;
     final String asr = hanafiAsr ? 'Hanafi Asr' : 'Standard Asr';
-    return '${method == 'auto' ? '$name (auto)' : name} · $asr';
+    final String ramadan = ramadanIshaExtra(location, date)
+        ? ' · Isha +30 min (Ramadan)'
+        : '';
+    return '${method == 'auto' ? '$name (auto)' : name} · $asr$ramadan';
   }
 
-  /// adhan parameters for [location].
-  adhan.CalculationParameters parameters(PrayerLocation location) {
+  /// adhan parameters for [location]. Pass the civil [date] so date-dependent
+  /// rules (Umm al-Qura's Ramadan Isha) can apply.
+  adhan.CalculationParameters parameters(
+    PrayerLocation location, {
+    DateTime? date,
+  }) {
     final adhan.CalculationParameters p =
         _methodFor(resolvedMethod(location)).getParameters();
     p.madhab = hanafiAsr ? adhan.Madhab.hanafi : adhan.Madhab.shafi;
+    if (ramadanIshaExtra(location, date)) {
+      p.adjustments.isha = 30;
+    }
     // Far north or south, twilight can last all night in summer; split the
     // night instead of returning no Fajr/Isha.
     if (location.latitude.abs() >= 48) {
@@ -103,8 +125,10 @@ String autoMethodFor(PrayerLocation l) {
   if (box(14, 72, -170, -50)) return 'north_america'; // US, Canada, Mexico
   if (box(16, 32.5, 34.5, 56)) {
     // Arabian Peninsula: specific Gulf conventions, else Umm al-Qura.
-    if (box(22.5, 26.5, 51, 56.5)) return 'dubai';
+    // Qatar's box lies inside the UAE box, so it must be tested first or
+    // Doha would resolve to Dubai.
     if (box(24.4, 26.3, 50.7, 51.7)) return 'qatar';
+    if (box(22.5, 26.5, 51, 56.5)) return 'dubai';
     if (box(28.5, 30.2, 46.5, 48.5)) return 'kuwait';
     return 'umm_al_qura';
   }
