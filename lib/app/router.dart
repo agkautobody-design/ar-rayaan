@@ -328,12 +328,12 @@ GoRouter buildRouter({String initialLocation = '/'}) {
         ),
         GoRoute(
           path: AppRoutes.hudaGuide,
-          // The guide travels in `extra`, which a browser refresh or a pasted
-          // link loses: fall back to the guide list instead of throwing.
-          redirect: (context, state) =>
-              state.extra is Guide ? null : AppRoutes.huda,
-          pageBuilder: (context, state) =>
-              _fade(GuideScreen(guide: state.extra! as Guide)),
+          // The guide id travels in `?id=` so a browser refresh or a pasted
+          // link still opens it; `extra` is only a fast path.
+          pageBuilder: (context, state) => _fade(GuideRouteScreen(
+            guideId: state.uri.queryParameters['id'],
+            guide: state.extra is Guide ? state.extra! as Guide : null,
+          )),
         ),
         GoRoute(
           path: AppRoutes.familyTree,
