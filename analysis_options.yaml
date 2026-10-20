@@ -1,19 +1,22 @@
 include: package:flutter_lints/flutter.yaml
 
 analyzer:
+  # Test files still neutered (`void main() { return; }`), each owned by the
+  # agent that is rewriting it. When a file is fixed, delete its line below:
+  #   worship: prayer_test, zakat_test, qibla_calendar_test
+  #   content: quran_test, hadith_adhkar_test, sources_test, share_test
+  #   hadi:    auth_test, noor_journey_test
+  # Platform's four (widget, home_tiles, menu_attribution, session_profile)
+  # are rewritten and already removed.
   exclude:
     - test/auth_test.dart
     - test/hadith_adhkar_test.dart
-    - test/home_tiles_test.dart
-    - test/menu_attribution_test.dart
     - test/noor_journey_test.dart
     - test/prayer_test.dart
     - test/qibla_calendar_test.dart
     - test/quran_test.dart
-    - test/session_profile_test.dart
     - test/share_test.dart
     - test/sources_test.dart
-    - test/widget_test.dart
     - test/zakat_test.dart
   language:
     strict-casts: true

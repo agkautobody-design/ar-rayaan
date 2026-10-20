@@ -1,18 +1,14 @@
-import 'package:ar_rayaan/app/app.dart';
-import 'package:ar_rayaan/app/core/env_config.dart';
-import 'package:ar_rayaan/app/core/providers.dart';
-import 'package:ar_rayaan/features/auth/application/auth_providers.dart';
+import 'dart:convert';
+
 import 'package:ar_rayaan/features/auth/application/auth_repository.dart';
 import 'package:ar_rayaan/features/auth/data/fake_auth_repository.dart';
 import 'package:ar_rayaan/features/profile/data/local_profile_repository.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-void main() { return; // TODO: rewrite
+import 'app_harness.dart';
 
+void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   group('session persistence', () {
@@ -78,72 +74,37 @@ void main() { return; // TODO: rewrite
     });
   });
 
-  group('profile screen data', () {
-    Future<void> pumpApp(
-      WidgetTester tester,
-      SharedPreferences prefs,
-      FakeAuthRepository authRepo,
+  group('profile tab', () {
+    testWidgets('guest sees the Guest card with a sign-in prompt', (
+      tester,
     ) async {
-      tester.view.physicalSize = const Size(430, 932);
-      tester.view.devicePixelRatio = 1;
-      addTearDown(tester.view.resetPhysicalSize);
-      addTearDown(tester.view.resetDevicePixelRatio);
-
-      await tester.pumpWidget(
-        ProviderScope(
-          overrides: [
-            sharedPreferencesProvider.overrideWithValue(prefs),
-            authRepositoryProvider.overrideWithValue(authRepo),
-          ],
-          child: ArRayaanApp(env: EnvConfig.fromDefines()),
-        ),
-      );
-      await tester.pump();
-      await tester.pump(const Duration(seconds: 4)); // splash
-      await tester.pumpAndSettle();
-      await tester.tap(find.byKey(const Key('welcome-continue')));
-      await tester.pumpAndSettle();
-    }
-
-    testWidgets('guest sees Guest card with sign-in prompt', (tester) async {
-      SharedPreferences.setMockInitialValues(<String, Object>{});
-      final SharedPreferences prefs = await SharedPreferences.getInstance();
-      await pumpApp(tester, prefs, FakeAuthRepository(prefs));
-
-      final BuildContext ctx = tester.element(find.text('Prayer Times'));
-      GoRouter.of(ctx).go('/profile');
-      await tester.pumpAndSettle();
+      await AppHarness.boot(tester);
+      await tester.tap(find.text('You'));
+      await AppHarness.settle(tester);
 
       expect(find.text('Guest'), findsOneWidget);
       expect(find.text('Sign in to save your journey'), findsOneWidget);
     });
 
-    testWidgets('signed-in user sees their name on the profile card', (
+    testWidgets('a restored session shows the name on the profile card', (
       tester,
     ) async {
-      SharedPreferences.setMockInitialValues(<String, Object>{});
-      final SharedPreferences prefs = await SharedPreferences.getInstance();
-      await pumpApp(tester, prefs, FakeAuthRepository(prefs));
-
-      // Sign in through the real UI.
-      GoRouter.of(tester.element(find.text('Prayer Times'))).go('/auth/login');
-      await tester.pumpAndSettle();
-      await tester.enterText(
-        find.byType(TextFormField).at(0),
-        'ahmed@example.com',
+      await AppHarness.boot(
+        tester,
+        prefsValues: <String, Object>{
+          'ar.auth.session': jsonEncode(<String, String>{
+            'uid': 'u1',
+            'email': 'ahmed@example.com',
+            'name': 'Ahmed',
+          }),
+        },
       );
-      await tester.enterText(find.byType(TextFormField).at(1), 'password123');
-      await tester.tap(find.byKey(const Key('login-submit')));
-      await tester.pump();
-      await tester.pump(const Duration(milliseconds: 800));
-      await tester.pumpAndSettle();
+      await tester.tap(find.text('You'));
+      await AppHarness.settle(tester);
 
-      // Fresh context — the pre-login one was deactivated by navigation.
-      GoRouter.of(tester.element(find.text('Prayer Times'))).go('/profile');
-      await tester.pumpAndSettle();
-      expect(find.text('Ahmed'), findsWidgets); // profile card name
+      expect(find.text('Ahmed'), findsWidgets);
       expect(find.text('View your profile'), findsOneWidget);
+      expect(find.text('Guest'), findsNothing);
     });
   });
 }
-
