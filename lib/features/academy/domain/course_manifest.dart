@@ -822,4 +822,155 @@ AcademyLesson? findLesson(String courseId, String unitId, String lessonId) {
       ),
       ],
     ),
+    AcademyCourse(
+      id: 'character',
+      titleKey: 'course.character.title',
+      subtitleKey: 'course.character.subtitle',
+      units: <AcademyUnit>[
+      AcademyUnit(
+        id: 'char.u1',
+        courseId: 'character',
+        titleKey: 'char.u1.title',
+        subtitleKey: 'char.u1.subtitle',
+        lessons: <AcademyLesson>[
+          AcademyLesson(
+            id: 'char.u1.l1',
+            unitId: 'char.u1',
+            courseId: 'character',
+            titleKey: 'char.u1.l1.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'char.u1.l1.s1.title', bodyKey: 'char.u1.l1.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'char.u1.l1.s2.title', bodyKey: 'char.u1.l1.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'char.u1.l2',
+            unitId: 'char.u1',
+            courseId: 'character',
+            titleKey: 'char.u1.l2.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'char.u1.l2.s1.title', bodyKey: 'char.u1.l2.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'char.u1.l2.s2.title', bodyKey: 'char.u1.l2.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'char.u1.l3',
+            unitId: 'char.u1',
+            courseId: 'character',
+            titleKey: 'char.u1.l3.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'char.u1.l3.s1.title', bodyKey: 'char.u1.l3.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'char.u1.l3.s2.title', bodyKey: 'char.u1.l3.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'char.u1.l4',
+            unitId: 'char.u1',
+            courseId: 'character',
+            titleKey: 'char.u1.l4.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'char.u1.l4.s1.title', bodyKey: 'char.u1.l4.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'char.u1.l4.s2.title', bodyKey: 'char.u1.l4.s2.body'),
+            ],
+          ),
+        ],
+      ),
+      AcademyUnit(
+        id: 'char.u2',
+        courseId: 'character',
+        titleKey: 'char.u2.title',
+        subtitleKey: 'char.u2.subtitle',
+        lessons: <AcademyLesson>[
+          AcademyLesson(
+            id: 'char.u2.l1',
+            unitId: 'char.u2',
+            courseId: 'character',
+            titleKey: 'char.u2.l1.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'char.u2.l1.s1.title', bodyKey: 'char.u2.l1.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'char.u2.l1.s2.title', bodyKey: 'char.u2.l1.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'char.u2.l2',
+            unitId: 'char.u2',
+            courseId: 'character',
+            titleKey: 'char.u2.l2.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'char.u2.l2.s1.title', bodyKey: 'char.u2.l2.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'char.u2.l2.s2.title', bodyKey: 'char.u2.l2.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'char.u2.l3',
+            unitId: 'char.u2',
+            courseId: 'character',
+            titleKey: 'char.u2.l3.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'char.u2.l3.s1.title', bodyKey: 'char.u2.l3.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'char.u2.l3.s2.title', bodyKey: 'char.u2.l3.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'char.u2.l4',
+            unitId: 'char.u2',
+            courseId: 'character',
+            titleKey: 'char.u2.l4.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'char.u2.l4.s1.title', bodyKey: 'char.u2.l4.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'char.u2.l4.s2.title', bodyKey: 'char.u2.l4.s2.body'),
+            ],
+          ),
+        ],
+      ),
+      AcademyUnit(
+        id: 'char.u3',
+        courseId: 'character',
+        titleKey: 'char.u3.title',
+        subtitleKey: 'char.u3.subtitle',
+        lessons: <AcademyLesson>[
+          AcademyLesson(
+            id: 'char.u3.l1',
+            unitId: 'char.u3',
+            courseId: 'character',
+            titleKey: 'char.u3.l1.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'char.u3.l1.s1.title', bodyKey: 'char.u3.l1.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'char.u3.l1.s2.title', bodyKey: 'char.u3.l1.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'char.u3.l2',
+            unitId: 'char.u3',
+            courseId: 'character',
+            titleKey: 'char.u3.l2.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'char.u3.l2.s1.title', bodyKey: 'char.u3.l2.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'char.u3.l2.s2.title', bodyKey: 'char.u3.l2.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'char.u3.l3',
+            unitId: 'char.u3',
+            courseId: 'character',
+            titleKey: 'char.u3.l3.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'char.u3.l3.s1.title', bodyKey: 'char.u3.l3.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'char.u3.l3.s2.title', bodyKey: 'char.u3.l3.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'char.u3.l4',
+            unitId: 'char.u3',
+            courseId: 'character',
+            titleKey: 'char.u3.l4.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'char.u3.l4.s1.title', bodyKey: 'char.u3.l4.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'char.u3.l4.s2.title', bodyKey: 'char.u3.l4.s2.body'),
+            ],
+          ),
+        ],
+      ),
+      ],
+    ),
 
