@@ -11,6 +11,7 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../../legal/legal_routes.dart';
 
 /// Settings — begins with the Sound toggle promised on the locked splash
 /// artwork ("Sound can be turned off in settings").
@@ -168,7 +169,7 @@ class SettingsScreen extends ConsumerWidget {
                         button: true,
                         label: 'Open the Terms of Service',
                         child: GestureDetector(
-                          onTap: () => context.push('/legal/terms'),
+                          onTap: () => context.push(LegalRoutes.terms),
                           child: Padding(
                             padding: const EdgeInsets.only(left: 4, top: 10),
                             child: Text('Terms of Service →',
@@ -181,7 +182,7 @@ class SettingsScreen extends ConsumerWidget {
                         button: true,
                         label: 'Open the Privacy Policy',
                         child: GestureDetector(
-                          onTap: () => context.push('/legal/privacy'),
+                          onTap: () => context.push(LegalRoutes.privacy),
                           child: Padding(
                             padding: const EdgeInsets.only(left: 4, top: 10),
                             child: Text('Privacy Policy →',
@@ -194,7 +195,7 @@ class SettingsScreen extends ConsumerWidget {
                         button: true,
                         label: 'Delete my account and data',
                         child: GestureDetector(
-                          onTap: () => context.push('/legal/delete-account'),
+                          onTap: () => context.push(LegalRoutes.deleteAccount),
                           child: Padding(
                             padding: const EdgeInsets.only(left: 4, top: 10),
                             child: Text('Delete my account →',
