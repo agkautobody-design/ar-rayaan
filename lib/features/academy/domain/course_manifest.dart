@@ -1686,4 +1686,145 @@ AcademyLesson? findLesson(String courseId, String unitId, String lessonId) {
       ),
       ],
     ),
+    AcademyCourse(
+      id: 'dawah',
+      titleKey: 'course.dawah.title',
+      subtitleKey: 'course.dawah.subtitle',
+      units: <AcademyUnit>[
+      AcademyUnit(
+        id: 'daw.u1',
+        courseId: 'dawah',
+        titleKey: 'daw.u1.title',
+        subtitleKey: 'daw.u1.subtitle',
+        lessons: <AcademyLesson>[
+          AcademyLesson(
+            id: 'daw.u1.l1',
+            unitId: 'daw.u1',
+            courseId: 'dawah',
+            titleKey: 'daw.u1.l1.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'daw.u1.l1.s1.title', bodyKey: 'daw.u1.l1.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'daw.u1.l1.s2.title', bodyKey: 'daw.u1.l1.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'daw.u1.l2',
+            unitId: 'daw.u1',
+            courseId: 'dawah',
+            titleKey: 'daw.u1.l2.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'daw.u1.l2.s1.title', bodyKey: 'daw.u1.l2.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'daw.u1.l2.s2.title', bodyKey: 'daw.u1.l2.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'daw.u1.l3',
+            unitId: 'daw.u1',
+            courseId: 'dawah',
+            titleKey: 'daw.u1.l3.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'daw.u1.l3.s1.title', bodyKey: 'daw.u1.l3.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'daw.u1.l3.s2.title', bodyKey: 'daw.u1.l3.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'daw.u1.l4',
+            unitId: 'daw.u1',
+            courseId: 'dawah',
+            titleKey: 'daw.u1.l4.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'daw.u1.l4.s1.title', bodyKey: 'daw.u1.l4.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'daw.u1.l4.s2.title', bodyKey: 'daw.u1.l4.s2.body'),
+            ],
+          ),
+        ],
+      ),
+      AcademyUnit(
+        id: 'daw.u2',
+        courseId: 'dawah',
+        titleKey: 'daw.u2.title',
+        subtitleKey: 'daw.u2.subtitle',
+        lessons: <AcademyLesson>[
+          AcademyLesson(
+            id: 'daw.u2.l1',
+            unitId: 'daw.u2',
+            courseId: 'dawah',
+            titleKey: 'daw.u2.l1.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'daw.u2.l1.s1.title', bodyKey: 'daw.u2.l1.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'daw.u2.l1.s2.title', bodyKey: 'daw.u2.l1.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'daw.u2.l2',
+            unitId: 'daw.u2',
+            courseId: 'dawah',
+            titleKey: 'daw.u2.l2.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'daw.u2.l2.s1.title', bodyKey: 'daw.u2.l2.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'daw.u2.l2.s2.title', bodyKey: 'daw.u2.l2.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'daw.u2.l3',
+            unitId: 'daw.u2',
+            courseId: 'dawah',
+            titleKey: 'daw.u2.l3.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'daw.u2.l3.s1.title', bodyKey: 'daw.u2.l3.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'daw.u2.l3.s2.title', bodyKey: 'daw.u2.l3.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'daw.u2.l4',
+            unitId: 'daw.u2',
+            courseId: 'dawah',
+            titleKey: 'daw.u2.l4.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'daw.u2.l4.s1.title', bodyKey: 'daw.u2.l4.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'daw.u2.l4.s2.title', bodyKey: 'daw.u2.l4.s2.body'),
+            ],
+          ),
+        ],
+      ),
+      AcademyUnit(
+        id: 'daw.u3',
+        courseId: 'dawah',
+        titleKey: 'daw.u3.title',
+        subtitleKey: 'daw.u3.subtitle',
+        lessons: <AcademyLesson>[
+          AcademyLesson(
+            id: 'daw.u3.l1',
+            unitId: 'daw.u3',
+            courseId: 'dawah',
+            titleKey: 'daw.u3.l1.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'daw.u3.l1.s1.title', bodyKey: 'daw.u3.l1.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'daw.u3.l1.s2.title', bodyKey: 'daw.u3.l1.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'daw.u3.l2',
+            unitId: 'daw.u3',
+            courseId: 'dawah',
+            titleKey: 'daw.u3.l2.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'daw.u3.l2.s1.title', bodyKey: 'daw.u3.l2.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'daw.u3.l2.s2.title', bodyKey: 'daw.u3.l2.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'daw.u3.l3',
+            unitId: 'daw.u3',
+            courseId: 'dawah',
+            titleKey: 'daw.u3.l3.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'daw.u3.l3.s1.title', bodyKey: 'daw.u3.l3.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'daw.u3.l3.s2.title', bodyKey: 'daw.u3.l3.s2.body'),
+            ],
+          ),
+        ],
+      ),
+      ],
+    ),
 
