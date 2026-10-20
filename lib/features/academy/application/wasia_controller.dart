@@ -2,6 +2,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../app/core/subscription/subscription_service.dart';
+import '../../../app/core/content/content_sync.dart';
+import 'family_service.dart';
+import 'dart:convert';
 
 import '../../hadi/application/hadi_provider.dart';
 import '../../hadi/data/groq_hadi_provider.dart';
@@ -14,10 +17,18 @@ enum WasiaPersona { student, parent, teacher }
 /// persona that NAMES its audience and context beats a generic role label —
 /// so each voice rides on top of Wasia's teaching laws, not instead of them.
 String personaPrompt(WasiaPersona p,
-    {String? childName, int? lessonsDone, int? examsTaken}) {
+    {String? childName, int? lessonsDone, int? examsTaken,
+    String? studentBlock}) {
   switch (p) {
     case WasiaPersona.student:
-      return kWasiaSystemPrompt;
+      return '$kWasiaSystemPrompt\n'
+          'STUDENT PROGRESS (real, from this device\u2019s Family Wing — '
+          'never guess beyond it):\n'
+          '${studentBlock?.trim().isNotEmpty == true ? studentBlock!.trim() : "No progress recorded yet."}\n'
+          'Use it to encourage specifically: name what they finished and '
+          'suggest one small next step. Never quiz the child on facts not '
+          'in this block. If the block is empty, simply teach with '
+          'warmth.';
     case WasiaPersona.parent:
       return '$kWasiaSystemPrompt\n'
           'YOU ARE SPEAKING WITH A PARENT'
@@ -83,6 +94,58 @@ class WasiaController extends StateNotifier<WasiaState> {
   final Ref ref;
 
   static const String _keyPref = 'ar.hadi.apikey';
+
+
+  /// Per-student detail for her student voice: the active child's real
+  /// progress from the Family Wing on THIS device (lessons with their
+  /// titles, last exam score). Empty string when there is no active
+  /// child — she simply teaches, and never invents progress.
+  Future<String> _studentBlock(WasiaPersona persona) async {
+    if (persona != WasiaPersona.student) return '';
+    try {
+      final FamilyService fam = FamilyService.instance;
+      final String? childId = await fam.activeChildId();
+      if (childId == null) return '';
+      final List<Map<String, dynamic>> children = await fam.children();
+      Map<String, dynamic>? child;
+      for (final Map<String, dynamic> c in children) {
+        if (c['id'] == childId) { child = c; break; }
+      }
+      final Map<String, dynamic> prog = await fam.progress(childId);
+      final Map lessons = prog['lessons'] as Map? ?? <String, dynamic>{};
+      final Map exams = prog['exams'] as Map? ?? <String, dynamic>{};
+      // Lesson titles from the curriculum — ids become names.
+      final Map<String, dynamic> cur = json.decode(
+              await ContentSync.load('academy/letters_curriculum.json'))
+          as Map<String, dynamic>;
+      final Map<String, String> titles = <String, String>{};
+      for (final dynamic u in cur['units'] as List<dynamic>? ?? <dynamic>[]) {
+        final List<dynamic> ls =
+            (u as Map)['lessons'] as List<dynamic>? ?? <dynamic>[];
+        for (final dynamic l in ls) {
+          titles[(l as Map)['id'] as String] = l['title'] as String;
+        }
+      }
+      final List<String> done = lessons.keys
+          .map((dynamic k) => titles[k as String] ?? k as String)
+          .toList()
+        ..sort();
+      final String name = child?['name'] as String? ?? 'your student';
+      final StringBuffer buf = StringBuffer('$name has completed '
+          '${done.length} of 28 letter lessons.');
+      if (done.isNotEmpty) {
+        buf.write(' Most recent: ${done.last}.');
+      }
+      if (exams.isNotEmpty) {
+        final String lastExam = exams.keys.last as String;
+        final Map e = exams[lastExam] as Map;
+        buf.write(' Last exam: ${e['score']}/${e['total'] ?? 10}.');
+      }
+      return buf.toString();
+    } catch (_) {
+      return '';
+    }
+  }
 
   Future<String?> _key() async {
     final prefs = await SharedPreferences.getInstance();
@@ -157,7 +220,8 @@ class WasiaController extends StateNotifier<WasiaState> {
       final voice = personaPrompt(persona,
           childName: childName,
           lessonsDone: lessonsDone,
-          examsTaken: examsTaken);
+          examsTaken: examsTaken,
+          studentBlock: await _studentBlock(persona));
       final who = switch (persona) {
         WasiaPersona.student => 'Student',
         WasiaPersona.parent => 'Parent',
