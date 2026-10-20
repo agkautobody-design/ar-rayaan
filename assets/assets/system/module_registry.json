@@ -14,197 +14,233 @@
    "id": "prayer",
    "title": "Prayer & Calendar",
    "doc": "Master Blueprint #1",
-   "status": "live"
+   "status": "live",
+   "route": "/prayer"
   },
   {
    "id": "adhkar",
    "title": "Adhkar & Du'a",
    "doc": "Master Blueprint #2",
-   "status": "live"
+   "status": "live",
+   "route": "/adhkar"
   },
   {
    "id": "hadi",
    "title": "Hadi AI (3 engines)",
    "doc": "Master Blueprint #3",
-   "status": "live"
+   "status": "live",
+   "route": "/hadi"
   },
   {
    "id": "lamha",
    "title": "Sunnah Engine / Lamha",
    "doc": "Master Blueprint #4",
-   "status": "live"
+   "status": "live",
+   "surface": "A card on the Home screen (LamhaEngine); it has no screen of its own, so no route."
   },
   {
    "id": "daily-hadith",
    "title": "Daily Hadith + check-in",
    "doc": "Master Blueprint #5",
-   "status": "live"
+   "status": "live",
+   "route": "/hadith"
   },
   {
    "id": "huda",
-   "title": "Huda - 40 worship guides",
+   "title": "Huda - worship guides",
    "doc": "Content Expansion",
-   "status": "live"
+   "status": "live",
+   "route": "/huda",
+   "note": "48 guides in 5 categories (Worship, Daily Adab, Sacred Spaces, The Last Day, Hajj & Umrah) as of 2026-10-20; assets/guides/guides.json is the source of truth."
   },
   {
    "id": "academy",
    "title": "Wasia Academy (gate, Wasia AI, curriculum, exams)",
    "doc": "Academy & Life Design",
-   "status": "live"
+   "status": "live",
+   "route": "/academy/gate"
   },
   {
    "id": "stories",
-   "title": "Stories library (7 collections)",
+   "title": "Stories library (11 collections)",
    "doc": "Stories Design",
-   "status": "live"
+   "status": "live",
+   "route": "/stories",
+   "note": "7 story collections (prophets, women, seerah, companions, ghayb, signs, tales) plus khutbahs, daily duas, hadiths for our times and the New Muslim path, all listed on the one /stories screen."
   },
   {
    "id": "family-tree",
    "title": "The Messengers' Tree",
    "doc": "Family Trees Design",
-   "status": "live"
+   "status": "live",
+   "route": "/family-tree"
   },
   {
    "id": "khutbahs",
    "title": "Khutbahs",
    "doc": "Content Expansion",
-   "status": "live"
+   "status": "live",
+   "route": "/stories",
+   "note": "Lives inside the Stories library (collection \"khutbahs\"); there is no khutbah-only screen."
   },
   {
    "id": "sakina",
    "title": "Healing (Sakina)",
    "doc": "Sakina Design",
    "status": "live",
-   "note": "pathways gated on clinician+scholar review - the law"
+   "note": "pathways gated on clinician+scholar review - the law",
+   "route": "/sakina"
   },
   {
    "id": "majlis",
    "title": "Community (Courtyard forum)",
    "doc": "Community Design",
    "status": "gated",
-   "note": "Legal gate: requires the founder's Firebase project. No route exists; the registry entry is a design note, not a dead door."
+   "note": "Routed (/majlis, /majlis/thread/:id, /majlis/new) and linked from Explore, but gated: it needs the founder's Firebase project, and the starter rooms/threads the client tries to seed are rejected by firestore.rules (rooms are write:false, seed threads use uid \"seed\"). Not live until the backend owner resolves seeding.",
+   "route": "/majlis"
   },
   {
    "id": "noor",
    "title": "Noor (daily wisdom)",
    "doc": "Noor Design",
-   "status": "live"
+   "status": "live",
+   "route": "/noor"
   },
   {
    "id": "masajid",
    "title": "Masjid Finder + Tayyib Food",
    "doc": "Masjid Finder Design + Halal Finder Design",
    "status": "live",
-   "note": "community verification posts ride the family cloud"
+   "note": "Mosque finder (OpenStreetMap Overpass + Nominatim) with a Tayyib Food tab; community verification posts ride the family cloud.",
+   "route": "/masajid"
   },
   {
    "id": "tayyib-finance",
    "title": "Tayyib Finance (zakat/sadaqah/halal stocks)",
    "doc": "founder recall 2026-10-10 + zakat engine",
    "status": "live",
-   "note": "live market data pending a free data key"
+   "note": "Metal prices come live from the keyless gold-api.com feed; stock lists are the bundled paper_market.json (no live equity feed yet).",
+   "route": "/finance"
   },
   {
    "id": "games",
    "title": "Games: Shatranj, Ludo, trivia, 99 Names, Lineage, Ayah, Hijrah",
    "doc": "Games Design (recreated from founder memory)",
    "status": "live",
-   "note": "online rooms ride the family cloud"
+   "note": "online rooms ride the family cloud",
+   "route": "/games"
   },
   {
    "id": "player",
    "title": "The Player (adhan/naats/nasheeds)",
    "doc": "founder recall + Player module",
-   "status": "live"
+   "status": "live",
+   "route": "/player"
   },
   {
    "id": "daily-duas",
    "title": "Daily Duas",
    "doc": "Content Expansion",
-   "status": "live"
+   "status": "live",
+   "route": "/stories",
+   "note": "Lives inside the Stories library (collection \"dailyduas\") and the Academy Hisn screen; /adhkar is the separate morning/evening adhkar module."
   },
   {
    "id": "modern-hadith",
    "title": "Hadiths for Our Times",
    "doc": "founder directive 2026-10-08",
    "status": "live",
-   "note": "grows weekly via automation"
+   "note": "Collection \"modernhadith\" inside the Stories library; entries are added by an external automation that commits to main.",
+   "route": "/stories"
   },
   {
    "id": "feelings",
    "title": "For Your Heart (feeling-guided)",
    "doc": "founder directive 2026-10-09",
-   "status": "live"
+   "status": "live",
+   "route": "/feelings"
   },
   {
    "id": "family-wing",
    "title": "Family Wing (children, progress, parent-Wasia)",
    "doc": "founder directive 2026-10-09",
-   "status": "live"
+   "status": "live",
+   "route": "/academy/family"
   },
   {
    "id": "elder",
    "title": "Elder Care + Elder Mode",
    "doc": "founder directive 2026-10-10",
-   "status": "live"
+   "status": "live",
+   "route": "/home/elder"
   },
   {
    "id": "quick-access",
    "title": "Quick Access second home page",
    "doc": "founder directive 2026-10-10",
-   "status": "live"
+   "status": "live",
+   "route": "/home/quick"
   },
   {
    "id": "doctor",
    "title": "Ar-Rayaan Doctor (self-diagnosis + watchdog)",
    "doc": "Doctor module + founder directive 2026-10-10",
-   "status": "live"
+   "status": "walled",
+   "route": "/founder",
+   "note": "Built and routed at /founder, but compiled in only for debug builds or a release built with --dart-define=FOUNDER_TOOLS=true. The production web deploy does not set it, so no visitor can reach it."
   },
   {
    "id": "quran",
    "title": "Quran Reader",
    "doc": "Quran Integrity spec",
    "status": "live",
-   "note": "word-by-word/tajweed/reciters arrive with the QF vault (founder's 5-min deploy)"
+   "note": "word-by-word/tajweed/reciters arrive with the QF vault (founder's 5-min deploy)",
+   "route": "/quran"
   },
   {
    "id": "qibla",
    "title": "Qibla",
    "doc": "locked spec",
-   "status": "live"
+   "status": "live",
+   "route": "/qibla"
   },
   {
    "id": "notes",
    "title": "Notes",
    "doc": "founder directive (dead buttons)",
-   "status": "live"
+   "status": "live",
+   "route": "/notes"
   },
   {
    "id": "downloads",
    "title": "Downloads",
    "doc": "founder directive (dead buttons)",
-   "status": "live"
+   "status": "live",
+   "route": "/downloads"
   },
   {
    "id": "new-muslim",
    "title": "New Muslim 30-day path",
    "doc": "Content Growth research 2026-10-08",
    "status": "live",
-   "note": "guided path screen shipped (progress remembered on device, free navigation, completion ceremony); lesson content is the stories library New Muslim Path collection"
+   "note": "guided path screen shipped (progress remembered on device, free navigation, completion ceremony); lesson content is the stories library New Muslim Path collection",
+   "route": "/new-muslim"
   },
   {
    "id": "ramadan-mode",
    "title": "Ramadan Mode",
    "doc": "Content Growth research",
    "status": "live",
-   "note": "Seasonal hub: pillars in brief, daily rhythm (suhoor/iftar/taraweeh), doors to the fasting guide, Hisn duas, and prayer times"
+   "note": "Two screens exist: /ramadan (the hub linked from Explore) and /academy/ramadan-mode (the Academy school). They overlap; consolidation is an open product decision.",
+   "route": "/ramadan"
   },
   {
    "id": "verse-cards",
    "title": "Verse share-cards",
    "doc": "Content Growth research",
    "status": "live",
-   "note": "Shareable verse and hadith cards (6 Quranic + 6 hadith), one-tap copy and share — screen, cards.json, and route were already built; this entry now reflects reality"
+   "note": "Shareable verse and hadith cards (6 Quranic + 6 hadith), one-tap copy and share — screen, cards.json, and route were already built; this entry now reflects reality",
+   "route": "/share"
   },
   {
    "id": "sunnah-seasonal",
@@ -225,21 +261,24 @@
    "title": "QF vault (word-by-word, tajweed colors, reciters, tafsir)",
    "doc": "QF credentials collected 2026-10-08",
    "status": "gated",
-   "note": "Legal gate: Quranic Foundations subscription API — requires account credentials."
+   "note": "Legal gate: Quranic Foundations subscription API — requires account credentials.",
+   "surface": "No client code or screen yet: held by the legal gate described in the note."
   },
   {
    "id": "sunnah-api",
    "title": "Six Books hadith via Sunnah.com",
    "doc": "request submitted 2026-10-08",
    "status": "gated",
-   "note": "Legal gate: Sunnah.com API key — requires free account registration."
+   "note": "Legal gate: Sunnah.com API key — requires free account registration.",
+   "surface": "No client code or screen yet: held by the legal gate described in the note."
   },
   {
    "id": "clear-quran",
    "title": "Al-Furqaan Clear Quran license",
-   "doc": "application draft ready",
+   "doc": "application submitted, awaiting approval",
    "status": "gated",
-   "note": "Legal gate: Clear Quran translation license fee — OR use public-domain tafsir (Ibn Kathir EN) as the free alternative."
+   "note": "Legal gate: the Clear Quran English licence application has been submitted and is awaiting approval. Not granted yet, so no Clear Quran text is bundled or enabled; the app's English translation today is Saheeh International.",
+   "surface": "No client code or screen yet: held by the legal gate described in the note."
   },
   {
    "id": "majlis-rooms",
@@ -253,14 +292,16 @@
    "title": "Hajj & Umrah guide pack (Huda)",
    "doc": "Content Growth research",
    "status": "live",
-   "note": "Journey-sequenced pack (before you travel, arrival rites, the days of Hajj, Umrah, madhhab differences) opening the existing huda guides at each station"
+   "note": "Journey-sequenced road map at /academy/hajj-umrah-pack. Each station opens the matching huda guide where one exists and otherwise says the guide is still to come; the station-to-guide ids are maintained by the Academy owner.",
+   "route": "/academy/hajj-umrah-pack"
   },
   {
    "id": "rayaan-stocks",
    "title": "Rayaan Stocks (halal financial learning)",
    "doc": "founder directive 2026-10-10",
    "status": "live",
-   "note": "live market data pending a data key"
+   "note": "Learning content and the paper-trading floor use bundled data; there is no live market data feed.",
+   "route": "/finance/rayaan"
   },
   {
    "id": "hisn",
@@ -277,6 +318,46 @@
    "status": "live",
    "description": "12 curated sourced questions for the questions every Muslim asks",
    "doc": "Batch 5 (B5-28): curated sourced Q&A — assets/qa/"
+  },
+  {
+   "id": "search",
+   "title": "Search",
+   "doc": "Audit 2026-10-20 (feature existed, unregistered)",
+   "status": "live",
+   "route": "/search",
+   "note": "Header search on Home."
+  },
+  {
+   "id": "zakat",
+   "title": "Zakat Calculator",
+   "doc": "Audit 2026-10-20 (feature existed, unregistered)",
+   "status": "live",
+   "route": "/zakat",
+   "note": "Uses zakat_engine.dart."
+  },
+  {
+   "id": "calendar",
+   "title": "Islamic Calendar",
+   "doc": "Audit 2026-10-20 (feature existed, unregistered)",
+   "status": "live",
+   "route": "/calendar",
+   "note": "Hijri calendar and observances; the \"prayer\" entry covers prayer times."
+  },
+  {
+   "id": "auth",
+   "title": "Sign in / sign up",
+   "doc": "Audit 2026-10-20 (feature existed, unregistered)",
+   "status": "live",
+   "route": "/auth/login",
+   "note": "Optional: signed-out users can reach everything."
+  },
+  {
+   "id": "settings",
+   "title": "Settings & language",
+   "doc": "Audit 2026-10-20 (feature existed, unregistered)",
+   "status": "live",
+   "route": "/settings",
+   "note": "Sound and language. Only the Settings labels are translated; see the language screen."
   }
  ]
 }
