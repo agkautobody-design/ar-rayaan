@@ -104,8 +104,23 @@ const List<_HistEra> kHistoryEras = <_HistEra>[
         'The story continues: Cordoba\u2019s libraries when Europe\u2019s were dark, Baghdad\u2019s House of Wisdom, the Ottoman centuries holding the two Harams. These eras are named here as the road ahead — the library\u2019s next historical chapters will walk them. What never changes: the carriers of this deen are remembered for their scholarship and their mercy, never their conquests.',
     chapters: <_HistChapter>[
       _HistChapter(
+        title: 'Baghdad\u2019s House of Wisdom',
+        note: 'In the 9th century, Baghdad\u2019s scholars translated the world\u2019s knowledge into Arabic — Greek philosophy, Indian mathematics, Persian medicine — and added to it algebra (al-Khwarizmi), optics (Ibn al-Haytham), and the hospitals. The empire\u2019s armies carried the message; its scholars carried the light.',
+        storyId: null,
+      ),
+      _HistChapter(
+        title: 'Cordoba — The City of Light',
+        note: 'While much of Europe\u2019s libraries were closed, Cordoba\u2019s were open — over 70,000 manuscripts, streetlights, and public baths, all while the Quran was recited in the Great Mosque. When the library of Cordoba was catalogued, it filled 44 volumes. The scholars outlived the swords.',
+        storyId: null,
+      ),
+      _HistChapter(
+        title: 'The Ottoman Centuries',
+        note: 'For 600 years, the Ottomans held the two Harams and the three continents — and their sultans slept in humility while the empire\u2019s greatest monuments were mosques and madrasas. The empire fell; the Quran it protected never did.',
+        storyId: null,
+      ),
+      _HistChapter(
         title: 'The Scholars Outlived the Empires',
-        note: 'Empires rose on the map and vanished from it; the Quran, the hadith collections, and the law schools remained — and still govern the daily life of two billion people. That is the history worth remembering.',
+        note: 'Empires rose on the map and vanished from it; the Quran, the hadith collections, and the law schools remained — and still govern the daily life of two billion people. Ibn Taymiyyah died in a citadel; Imam Ghazali died with his head on his books. Their works never died. That is the history worth remembering.',
         storyId: null,
       ),
     ],
