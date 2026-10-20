@@ -1,0 +1,62 @@
+{
+ "schema": 1,
+ "checked": "2026-10-20",
+ "subjects": [
+  {
+   "id": "angels",
+   "title": "The angels",
+   "kind": "unseen",
+   "stories": [
+    "ghayb-unseen-angels",
+    "ghayb-throne-bearers",
+    "ghayb-jibril"
+   ],
+   "earlier": false
+  },
+  {
+   "id": "dawud",
+   "title": "Dawud (David)",
+   "kind": "prophet",
+   "stories": [
+    "prophet-dawud"
+   ],
+   "earlier": true
+  },
+  {
+   "id": "gog-magog",
+   "title": "Ya’juj and Ma’juj (Gog and Magog)",
+   "kind": "unseen",
+   "stories": [
+    "ghayb-2am-gog",
+    "sign-10"
+   ],
+   "earlier": false
+  },
+  {
+   "id": "jinn",
+   "title": "The jinn",
+   "kind": "unseen",
+   "stories": [
+    "ghayb-jinn-created",
+    "ghayb-jinn-listen",
+    "ghayb-companion-qarin",
+    "ghayb-2am-jinn-room",
+    "ghayb-trial-of-unseen",
+    "ghayb-iblis-refuses"
+   ],
+   "earlier": false
+  },
+  {
+   "id": "sulayman",
+   "title": "Sulayman (Solomon)",
+   "kind": "prophet",
+   "stories": [
+    "prophet-sulayman",
+    "ghayb-sulayman-jinn",
+    "ghayb-ifrit",
+    "woman-bilqis"
+   ],
+   "earlier": true
+  }
+ ]
+}

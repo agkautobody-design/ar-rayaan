@@ -16,6 +16,23 @@ class FamilyNode {
   final List<String> sources;
   final String? story;
 
+  /// How we know the link to the parent(s): the basis of the lineage itself,
+  /// which can be weaker than the person (a prophet named in the Qur'an may
+  /// have a parent known only from tradition).
+  final String? lineageNote;
+
+  /// 'placed' (default) or 'unplaced': a person the sources name but do not
+  /// place in this line. Unplaced people have no parents or children here;
+  /// they are listed in their own section instead of being guessed into a
+  /// family.
+  final String placement;
+
+  /// Non-lineage links ("guardian of Maryam", "cousin of Isa"), each with the
+  /// id it points at and the plain label to print.
+  final List<FamilyRelation> relations;
+
+  bool get isUnplaced => placement == 'unplaced';
+
   const FamilyNode({
     required this.id,
     required this.name,
@@ -28,6 +45,9 @@ class FamilyNode {
     required this.description,
     required this.sources,
     this.story,
+    this.lineageNote,
+    this.placement = 'placed',
+    this.relations = const <FamilyRelation>[],
   });
 
   factory FamilyNode.fromJson(Map<String, dynamic> j) => FamilyNode(
@@ -42,6 +62,24 @@ class FamilyNode {
         description: j['description'] as String,
         sources: (j['sources'] as List<dynamic>).cast<String>(),
         story: j['story'] as String?,
+        lineageNote: j['lineageNote'] as String?,
+        placement: (j['placement'] as String?) ?? 'placed',
+        relations: (j['relations'] as List<dynamic>? ?? const <dynamic>[])
+            .map((dynamic e) =>
+                FamilyRelation.fromJson(e as Map<String, dynamic>))
+            .toList(),
+      );
+}
+
+/// A link that is not parent/child/spouse: guardian, cousin, uncle...
+class FamilyRelation {
+  final String id;
+  final String label;
+  const FamilyRelation({required this.id, required this.label});
+
+  factory FamilyRelation.fromJson(Map<String, dynamic> j) => FamilyRelation(
+        id: j['id'] as String,
+        label: j['label'] as String,
       );
 }
 
@@ -52,11 +90,19 @@ class FamilyTreeData {
   final List<FamilyNode> nodes;
   final Map<String, FamilyNode> byId;
 
+  /// Printed above the tree when present: where the lineage is uncertain.
+  final String? lineageWarning;
+
+  /// Printed above the section of people the sources do not place.
+  final String? unplacedNote;
+
   FamilyTreeData({
     required this.title,
     required this.note,
     required this.sources,
     required this.nodes,
+    this.lineageWarning,
+    this.unplacedNote,
   }) : byId = {for (final n in nodes) n.id: n};
 }
 
@@ -67,6 +113,8 @@ final familyTreeProvider = FutureProvider<FamilyTreeData>((ref) async {
     title: j['meta']['title'] as String,
     note: j['meta']['note'] as String,
     sources: (j['meta']['sources'] as List<dynamic>).cast<String>(),
+    lineageWarning: j['meta']['lineageWarning'] as String?,
+    unplacedNote: j['meta']['unplacedNote'] as String?,
     nodes: (j['nodes'] as List<dynamic>)
         .map((e) => FamilyNode.fromJson(e as Map<String, dynamic>))
         .toList(),

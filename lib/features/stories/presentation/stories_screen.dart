@@ -9,6 +9,7 @@ import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/router.dart';
 import '../data/stories_repository.dart';
+import '../data/story_layers_repository.dart';
 
 class StoriesScreen extends ConsumerWidget {
   const StoriesScreen({super.key});
@@ -64,6 +65,8 @@ class StoriesScreen extends ConsumerWidget {
         ),
         data: (all) {
           final repo = ref.read(storiesRepositoryProvider);
+          final Set<String> deeper =
+              ref.watch(storyIdsWithLayersProvider).valueOrNull ?? <String>{};
           return ListView(
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
             children: [
@@ -159,6 +162,19 @@ class StoriesScreen extends ConsumerWidget {
                               ),
                             ),
                             const SizedBox(width: 10),
+                            if (deeper.contains(story.id))
+                              Padding(
+                                padding: const EdgeInsets.only(right: 8),
+                                child: Tooltip(
+                                  message: 'Has a Go deeper section',
+                                  child: Icon(
+                                    Icons.layers_outlined,
+                                    size: 18,
+                                    color: AppColors.goldLight,
+                                    semanticLabel: 'Has a Go deeper section',
+                                  ),
+                                ),
+                              ),
                             _SourceChip(label: story.sourceLabel),
                           ],
                         ),

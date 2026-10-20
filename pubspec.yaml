@@ -56,6 +56,8 @@ flutter:
     - assets/adhkar/
     - assets/noor/
     - assets/stories/
+    - assets/stories/layers/
+    - assets/stories/earlier/
     - assets/family/
     - assets/guides/
     - assets/games/

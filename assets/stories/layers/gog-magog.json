@@ -1,0 +1,169 @@
+{
+ "schema": 1,
+ "subject": "gog-magog",
+ "title": "Ya’juj and Ma’juj (Gog and Magog)",
+ "kind": "unseen",
+ "checked": "2026-10-20",
+ "reviewStatus": "Not yet scholar-reviewed",
+ "quran": [
+  {
+   "surah": 18,
+   "from": 93,
+   "to": 99,
+   "note": "Dhul-Qarnayn builds the barrier; “when the promise of my Lord comes, He will make it level”."
+  },
+  {
+   "surah": 21,
+   "from": 96,
+   "to": 97,
+   "note": "The barrier opened and they descend from every elevation."
+  }
+ ],
+ "hadith": [
+  {
+   "book": "bukhari",
+   "number": "3598",
+   "narrator": "Zaynab bint Jahsh",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "Zaynab bint Jahsh reported that the Prophet ﷺ came to her alarmed and said that a gap, as large as the circle he made with his fingers, had opened in the barrier of Gog and Magog. When she asked whether they would be destroyed while the righteous were among them, he said yes, when wickedness increases.",
+   "verified": "2026-10-20"
+  },
+  {
+   "book": "muslim",
+   "number": "2880",
+   "narrator": "Zaynab bint Jahsh",
+   "grade": "Sahih",
+   "grader": "Muslim, in his Sahih",
+   "summary": "The same report of Zaynab bint Jahsh in Sahih Muslim: a gap has opened in the barrier of Ya’juj and Ma’juj, and destruction comes when evil becomes widespread.",
+   "verified": "2026-10-20"
+  },
+  {
+   "book": "bukhari",
+   "number": "3348",
+   "narrator": "Abu Sa’id al-Khudri",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "Abu Sa’id al-Khudri reported that on the Day of Judgment Allah will tell Adam to bring out the party of the Fire, nine hundred and ninety-nine of every thousand, and the report names Gog and Magog in this account of how many are taken for the Fire.",
+   "verified": "2026-10-20"
+  },
+  {
+   "book": "muslim",
+   "number": "2937",
+   "narrator": "al-Nawwas ibn Sam’an",
+   "grade": "Sahih",
+   "grader": "Muslim, in his Sahih",
+   "summary": "The long report of al-Nawwas ibn Sam’an on the Dajjal, the descent of Isa, and the release and destruction of Gog and Magog before the Last Hour.",
+   "verified": "2026-10-20"
+  },
+  {
+   "book": "tirmidhi",
+   "number": "3153",
+   "narrator": "Abu Hurairah",
+   "grade": "Hasan gharib; also Sahih",
+   "grader": "al-Tirmidhi (hasan gharib) and Darussalam (sahih), as shown on sunnah.com",
+   "summary": "Abu Hurairah reported that Gog and Magog dig through the barrier every day; each day their leader tells them to return and finish tomorrow, until Allah permits their release, when the leader adds “if Allah wills”.",
+   "verified": "2026-10-20",
+   "note": "Attributed to the Prophet ﷺ by this chain; see the disagreement below on whether that attribution holds."
+  },
+  {
+   "book": "ibnmajah",
+   "number": "4080",
+   "narrator": "Abu Hurairah",
+   "grade": "Sahih",
+   "grader": "Darussalam (as shown on sunnah.com)",
+   "summary": "The same digging report from Abu Hurairah in Ibn Majah, adding that Allah finally destroys them with a worm in the back of their necks.",
+   "verified": "2026-10-20"
+  }
+ ],
+ "scholarly": [
+  {
+   "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+   "author": "Ibn Kathir",
+   "locator": "on 18:93-96",
+   "summary": "Says Ya’juj and Ma’juj are among the children of Adam, supported by the hadith of Adam and the people of the Fire which it ascribes to the two Sahihs. The barrier was built of iron blocks piled up between the mountains, each weighing a Damascene qintar or more, with molten copper poured over it; scholars differed on its width and height."
+  },
+  {
+   "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+   "author": "Ibn Kathir",
+   "locator": "on 18:97-99",
+   "summary": "Explains that the barrier’s being levelled is the promise of 18:98, that on that day they surge over each other as 18:99 says, and that this comes before the Day of Resurrection, citing 21:96-97 and the hadiths. It cites Zaynab bint Jahsh’s report of the gap, grades it Sahih and says al-Bukhari and Muslim both recorded it."
+  },
+  {
+   "work": "Ma’ariful Qur’an (English edition, read on Quran.com)",
+   "author": "Mufti Muhammad Shafi’ Usmani",
+   "locator": "on 18:94-98",
+   "summary": "Says Ya’juj and Ma’juj are human peoples, that most hadith scholars and historians trace them to Yafith son of Nuh, and that the term may apply only to savage, uncivilised groups and not to later civilised peoples. It says the Qur’an and Sunnah allow that the wall has crumbled or that it still stands."
+  }
+ ],
+ "differences": [
+  {
+   "question": "Where is the barrier?",
+   "views": [
+    {
+     "who": "Historians and commentators cited by Ma’ariful Qur’an",
+     "work": "Ma’ariful Qur’an (English edition, read on Quran.com), on 18:94-98",
+     "view": "Proposed sites are walls near Darband in Daghestan or in the Caucasus; a Darband near Bukhara and Tirmidh is also mentioned but thought to be a mix-up. The author rejects the Great Wall of China, since it lies in the far east, not the north."
+    },
+    {
+     "who": "Anwar Shah Kashmiri",
+     "work": "Ma’ariful Qur’an (English edition, read on Quran.com), on 18:94-98",
+     "view": "Favoured the Caucasus wall (named in Ma’ariful Qur’an as the author’s teacher)."
+    }
+   ],
+   "note": "The text itself says the location is disputed and gives no definite answer."
+  },
+  {
+   "question": "Have they already come out?",
+   "views": [
+    {
+     "who": "Some Muslim historians",
+     "work": "Ma’ariful Qur’an (English edition, read on Quran.com), on 18:94-98",
+     "view": "The emergence has already happened, for example in the Tatar invasions, or it is Russia, China or Europe today."
+    },
+    {
+     "who": "The author of Ma’ariful Qur’an",
+     "work": "Ma’ariful Qur’an (English edition, read on Quran.com), on 18:94-98",
+     "view": "Rejects this: the great emergence follows the Dajjal and the descent of Isa, which have not yet happened. Some groups may have crossed, but not the final onslaught."
+    }
+   ]
+  },
+  {
+   "question": "Is the digging report sound?",
+   "views": [
+    {
+     "who": "Al-Tirmidhi; Darussalam",
+     "work": "Jami’ at-Tirmidhi 3153 as shown on sunnah.com",
+     "view": "Tirmidhi calls it hasan gharib; Darussalam grades it Sahih."
+    },
+    {
+     "who": "Ibn Kathir, as reported by Ma’ariful Qur’an",
+     "work": "Ma’ariful Qur’an (English edition, read on Quran.com), on 18:94-98",
+     "view": "He considered it defective (ma’lul) as a saying of the Prophet ﷺ, even though the chain of narrators looks sound, and found its attribution to the Prophet ﷺ insufficiently supported."
+    }
+   ],
+   "note": "The reports of Zaynab, Abu Sa’id and al-Nawwas are in the two Sahihs and are not affected by this."
+  },
+  {
+   "question": "Who was Dhul-Qarnayn?",
+   "views": [
+    {
+     "who": "Alexander of Macedon",
+     "work": "Ma’ariful Qur’an (English edition, read on Quran.com), on 18:83",
+     "view": "Ma’ariful Qur’an says this is wrong because Alexander was a polytheist, and names Ibn Kathir and Hifzur-Rahman as rejecting it. It adds that Abu Hayyan (al-Bahr al-Muhit) and al-Alusi (Ruh al-Ma’ani) identified the two, which it calls a misconception."
+    },
+    {
+     "who": "Cyrus the Great",
+     "work": "Ma’ariful Qur’an (English edition, read on Quran.com), on 18:83",
+     "view": "The view of Hifzur-Rahman in Qasas al-Qur’an, which Ma’ariful Qur’an follows in its summary."
+    },
+    {
+     "who": "A Himyarite king",
+     "work": "Ma’ariful Qur’an (English edition, read on Quran.com), on 18:83",
+     "view": "Named in al-Biruni’s al-Athar al-Baqiyah."
+    }
+   ],
+   "note": "The Qur’an does not name him. Ma’ariful Qur’an says it does not set out to weigh the opinions, and that most older accounts of him are full of Isra’iliyyat with no authentic source."
+  }
+ ]
+}
