@@ -1,0 +1,30 @@
+name: Update pubspec.lock
+
+# Manual: regenerates pubspec.lock with the pinned Flutter and pushes it to the
+# branch chore/pubspec-lock-regenerated (open a PR from it). Never hand-edit the lock.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  lock:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: 3.47.7
+          cache: true
+      - run: flutter pub get
+      - name: Commit regenerated lock
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet pubspec.lock; then echo "lock already current"; exit 0; fi
+          git checkout -b chore/pubspec-lock-regenerated
+          git add pubspec.lock
+          git commit -m "chore: regenerate pubspec.lock with Flutter 3.47.7"
+          git push -f origin chore/pubspec-lock-regenerated
