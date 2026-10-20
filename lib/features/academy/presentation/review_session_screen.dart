@@ -191,7 +191,7 @@ class _ReviewCardView extends StatelessWidget {
                     style: AppText.bodyMuted,
                     textAlign: TextAlign.center,
                   ),
-                if (card.root != null) ...<Widget>[
+                if (card.root != null && card.hasSource) ...<Widget>[
                   const SizedBox(height: 8),
                   Text('Root: ${card.root}',
                       style: AppText.bodyMuted, textAlign: TextAlign.center),

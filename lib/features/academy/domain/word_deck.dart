@@ -24,6 +24,7 @@ class WordCard {
 
     /// Three-letter (or topic) root in Arabic, e.g. ك ت ب.
     this.root,
+    this.glossSource,
     this.occurrences = 1,
     this.frequencyRank,
     this.sourceAyah,
@@ -36,6 +37,12 @@ class WordCard {
   final String arabic;
   final String gloss;
   final String? root;
+
+  /// Where [gloss] (and [root]) come from: a named, licence-checked source.
+  /// Without one the meaning is never shown (rule: never invent a gloss or
+  /// a root). The shipped pack has no licensed source yet, so its meanings
+  /// stay hidden; see docs in the PR.
+  final String? glossSource;
   final int occurrences;
   final int? frequencyRank;
   final AyahRef? sourceAyah;
@@ -49,13 +56,19 @@ class WordCard {
   /// hold the truncated verse snippets the first pack shipped as glosses
   /// ("... (in context)"); those are never shown as a meaning.
   bool get hasMeaning =>
-      gloss.trim().isNotEmpty && !gloss.contains('(in context)');
+      gloss.trim().isNotEmpty &&
+      !gloss.contains('(in context)') &&
+      hasSource;
+
+  /// True when a named source backs the meaning and root.
+  bool get hasSource => glossSource?.trim().isNotEmpty ?? false;
 
   WordCard copyWith({ReviewCard? review}) => WordCard(
         key: key,
         arabic: arabic,
         gloss: gloss,
         root: root,
+        glossSource: glossSource,
         occurrences: occurrences,
         frequencyRank: frequencyRank,
         sourceAyah: sourceAyah,
@@ -68,6 +81,7 @@ class WordCard {
         'arabic': arabic,
         'gloss': gloss,
         if (root != null) 'root': root,
+        if (glossSource != null) 'glossSource': glossSource,
         'occurrences': occurrences,
         if (frequencyRank != null) 'frequencyRank': frequencyRank,
         if (sourceAyah != null)
@@ -88,6 +102,7 @@ class WordCard {
       arabic: json['arabic'] as String,
       gloss: json['gloss'] as String,
       root: json['root'] as String?,
+      glossSource: json['glossSource'] as String?,
       occurrences: (json['occurrences'] as num?)?.toInt() ?? 1,
       frequencyRank: json['frequencyRank'] as int?,
       sourceAyah: sa == null ? null : AyahRef(sa[0] as int, sa[1] as int),

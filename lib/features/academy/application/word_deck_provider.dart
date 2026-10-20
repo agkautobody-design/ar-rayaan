@@ -70,6 +70,7 @@ class WordDeckNotifier extends StateNotifier<Map<String, WordCard>> {
     required String gloss,
     required AyahRef sourceAyah,
     String? root,
+    String? glossSource,
   }) async {
     final String key =
         '${sourceAyah.surah}:${sourceAyah.ayah}:$arabic';
@@ -79,6 +80,7 @@ class WordDeckNotifier extends StateNotifier<Map<String, WordCard>> {
       arabic: arabic,
       gloss: gloss,
       root: root,
+      glossSource: glossSource,
       sourceAyah: sourceAyah,
       review: ReviewCard(wordKey: key, dueDate: DateTime.now()),
     );
