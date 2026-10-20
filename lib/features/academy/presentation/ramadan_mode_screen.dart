@@ -31,22 +31,22 @@ const List<_RamadanSection> kRamadanPillars = <_RamadanSection>[
   ),
   _RamadanSection(
     title: 'The Fast of the Tongue',
-    body: 'The Prophet ﭑ said: whoever does not give up false speech and acting upon it, Allah has no need of his leaving food and drink (Bukhari 1903). The stomach\u2019s fast is the easy part; the tongue\u2019s fast is where taqwa is built.',
+    body: 'The Prophet ﷺ said: whoever does not give up false speech and acting upon it, Allah has no need of his leaving food and drink (Bukhari 1903). The stomach\u2019s fast is the easy part; the tongue\u2019s fast is where taqwa is built.',
   ),
 ];
 
 const List<_RamadanSection> kRamadanRhythm = <_RamadanSection>[
   _RamadanSection(
     title: 'Suhoor — The Blessed Meal',
-    body: 'The Prophet ﭑ said: take suhoor, for in suhoor there is blessing (Bukhari 1923). Eat before dawn; the angels seek forgiveness for the one who takes suhoor.',
+    body: 'The Prophet ﷺ said: take suhoor, for in suhoor there is blessing (Bukhari 1923). Eat before dawn; the angels seek forgiveness for the one who takes suhoor.',
   ),
   _RamadanSection(
     title: 'Iftar — The Breaking',
-    body: 'The Prophet ﭑ broke his fast with dates and water, and said: the fasting person has a dua at the time of breaking that is not rejected (Ibn Majah 1753). Break it with dates if you can; make the dua with intention.',
+    body: 'The Prophet ﷺ broke his fast with dates and water, and said: the fasting person has a dua at the time of breaking that is not rejected (Ibn Majah 1753). Break it with dates if you can; make the dua with intention.',
   ),
   _RamadanSection(
     title: 'Taraweeh — The Night Prayer',
-    body: 'The Prophet ﭑ prayed taraweeh in congregation, then prayed it alone for fear it would become obligatory. The standing of Ramadan is where the Quran is heard most — stand for a portion, even short, every night you can.',
+    body: 'The Prophet ﷺ prayed taraweeh in congregation, then prayed it alone for fear it would become obligatory. The standing of Ramadan is where the Quran is heard most — stand for a portion, even short, every night you can.',
   ),
 ];
 

@@ -195,31 +195,185 @@ class HijriDate {
   }
 }
 
+/// How firmly an observance rests on the Qur'an and authentic sunnah. Shown
+/// on screen so the app never presents a disputed practice as settled.
+enum ObservanceBasis {
+  /// Rests on the Qur'an or an authentic report.
+  established('Established in the Qur\u2019an and sunnah'),
+
+  /// The event is established but the date is a popular reckoning, not a
+  /// reported one.
+  dateUncertain('The event is established; the date is a popular reckoning'),
+
+  /// Scholars differ on whether marking it is part of the religion.
+  contested('Scholars differ on observing this day'),
+
+  /// A calendar marker with no prescribed act.
+  calendar('A calendar marker; no act of worship is prescribed for the day');
+
+  const ObservanceBasis(this.label);
+
+  final String label;
+}
+
 /// A major observance in the Islamic year.
 class Observance {
-  const Observance(this.month, this.day, this.nameEn, this.nameAr);
+  const Observance(
+    this.month,
+    this.day,
+    this.nameEn,
+    this.nameAr, {
+    this.basis = ObservanceBasis.established,
+    this.about = '',
+    this.source = '',
+  });
 
   final int month;
   final int day;
   final String nameEn;
   final String nameAr;
 
+  /// How firmly the observance is established (see [ObservanceBasis]).
+  final ObservanceBasis basis;
+
+  /// What the day is and how people meet it, in plain words.
+  final String about;
+
+  /// Source line (collection and number, or Qur'an reference).
+  final String source;
+
   HijriDate inYear(int hijriYear) => HijriDate(hijriYear, month, day);
 }
 
 /// The year's major observances (static religious data).
+///
+/// Texts were checked against sunnah.com / quran.com; where a date or a
+/// practice is disputed the entry says so instead of presenting it as fixed.
 abstract final class Observances {
   static const List<Observance> all = <Observance>[
-    Observance(1, 1, 'Islamic New Year', 'رأس السنة الهجرية'),
-    Observance(1, 10, 'Day of Ashura', 'يوم عاشوراء'),
-    Observance(3, 12, 'Mawlid an-Nabi ﷺ', 'المولد النبوي'),
-    Observance(7, 27, 'Isra’ & Mi’raj', 'الإسراء والمعراج'),
-    Observance(8, 15, 'Laylat al-Bara’ah', 'ليلة البراءة'),
-    Observance(9, 1, 'Ramadan Begins', 'بداية رمضان'),
-    Observance(9, 27, 'Laylat al-Qadr', 'ليلة القدر'),
-    Observance(10, 1, 'Eid al-Fitr', 'عيد الفطر'),
-    Observance(12, 9, 'Day of Arafah', 'يوم عرفة'),
-    Observance(12, 10, 'Eid al-Adha', 'عيد الأضحى'),
+    Observance(
+      1,
+      1,
+      'Islamic New Year',
+      'رأس السنة الهجرية',
+      basis: ObservanceBasis.calendar,
+      about:
+          'The first day of Muharram, the first month of the Hijri year. The '
+          'Hijri calendar counts years from the Prophet\u2019s \ufdfa migration to '
+          'Madinah. No special act is prescribed for the day itself; Muharram '
+          'is a sacred month, and the Prophet \ufdfa called fasting in it the best '
+          'fasting after Ramadan.',
+      source: 'Sahih Muslim 1163',
+    ),
+    Observance(
+      1,
+      10,
+      'Day of Ashura',
+      'يوم عاشوراء',
+      about:
+          'The Prophet \ufdfa fasted the 10th of Muharram and told the Muslims to '
+          'fast it; he intended to add the 9th as well. Fasting it expiates '
+          'the sins of the previous year.',
+      source: 'Sahih al-Bukhari 2004 · Sahih Muslim 1134, 1162',
+    ),
+    Observance(
+      3,
+      12,
+      'Mawlid an-Nabi \ufdfa',
+      'المولد النبوي',
+      basis: ObservanceBasis.contested,
+      about:
+          '12 Rabi\u02bf al-Awwal is the popular date for the birth of the '
+          'Prophet \ufdfa; the exact day is itself reported differently. Many '
+          'Muslims mark it with remembrance and salawat, while other scholars '
+          'hold that marking a birthday is not part of the religion. Love of '
+          'the Prophet \ufdfa is shown in following his sunnah and sending '
+          'salawat on him, which are encouraged every day.',
+    ),
+    Observance(
+      7,
+      27,
+      'Isra\u2019 & Mi\u2019raj',
+      'الإسراء والمعراج',
+      basis: ObservanceBasis.dateUncertain,
+      about:
+          'The Night Journey from Makkah to al-Aqsa is in the Qur\u2019an. The '
+          'date is not fixed by an authentic report; 27 Rajab is the popular '
+          'reckoning, and scholars differ on whether to mark it. The gift of '
+          'the night was the five daily prayers.',
+      source: 'Qur\u2019an 17:1 \u00b7 Sahih al-Bukhari 349',
+    ),
+    Observance(
+      8,
+      15,
+      'Laylat al-Bara\u2019ah',
+      'ليلة البراءة',
+      basis: ObservanceBasis.contested,
+      about:
+          'The night of 15 Sha\u2018ban is marked in some regions with night '
+          'prayer and fasting the next day. Scholars differ on whether '
+          'singling it out has an authentic basis, so this app does not '
+          'recommend a special practice for it. Fasting the White Days '
+          '(13\u201315) of every month is established.',
+    ),
+    Observance(
+      9,
+      1,
+      'Ramadan Begins',
+      'بداية رمضان',
+      about:
+          'The month of fasting. \u201cWhoever of you witnesses the month, let '
+          'him fast it.\u201d The month begins with the sighting of the new '
+          'moon; this app shows the Umm al-Qura calendar date, so confirm by '
+          'your local sighting.',
+      source: 'Qur\u2019an 2:185',
+    ),
+    Observance(
+      9,
+      27,
+      'Laylat al-Qadr',
+      'ليلة القدر',
+      basis: ObservanceBasis.dateUncertain,
+      about:
+          'The Night of Decree, better than a thousand months. Its exact night '
+          'is not known: the Prophet \ufdfa told us to seek it in the odd nights of '
+          'the last ten nights of Ramadan. 27 Ramadan is the popular guess and '
+          'is shown here only as a reminder to seek it on all of them.',
+      source: 'Qur\u2019an 97:1\u20133 \u00b7 Sahih al-Bukhari 2017',
+    ),
+    Observance(
+      10,
+      1,
+      'Eid al-Fitr',
+      'عيد الفطر',
+      about:
+          'The festival that ends Ramadan: the Eid prayer, charity (zakat '
+          'al-fitr) given before the prayer, and food and family. Fasting on '
+          'this day is prohibited.',
+      source:
+          'Sahih al-Bukhari 1503, 1991 · Sahih Muslim 1137',
+    ),
+    Observance(
+      12,
+      9,
+      'Day of Arafah',
+      'يوم عرفة',
+      about:
+          'The day the pilgrims stand at Arafah. For those not on Hajj, '
+          'fasting it expiates the sins of the previous and the coming year.',
+      source: 'Sahih Muslim 1162',
+    ),
+    Observance(
+      12,
+      10,
+      'Eid al-Adha',
+      'عيد الأضحى',
+      about:
+          'The festival of sacrifice on 10 Dhul-Hijjah: the Eid prayer, then '
+          'the sacrifice and sharing its meat. Fasting on this day, and on '
+          'the three days of Tashreeq after it, is prohibited.',
+      source: 'Sahih al-Bukhari 1991 · Sahih Muslim 1137, 1141',
+    ),
   ];
 
   /// Upcoming observances from [today] (Gregorian), soonest first, within the

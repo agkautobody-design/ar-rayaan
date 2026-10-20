@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -38,7 +39,7 @@ class _ShatranjState extends State<ShatranjScreen> {
   String? roomCode;
   String mySide = 'host';
   int appliedMoves = 0;
-  Stream<dynamic>? _roomStream;
+  StreamSubscription<dynamic>? _roomSub;
 
   static const _hadiLines = [
     'Hadi studies the board the way he studies a hadith — patiently.',
@@ -56,6 +57,12 @@ class _ShatranjState extends State<ShatranjScreen> {
   void initState() {
     super.initState();
     _reset();
+  }
+
+  @override
+  void dispose() {
+    _roomSub?.cancel();
+    super.dispose();
   }
 
   void _reset() {
@@ -348,7 +355,7 @@ class _ShatranjState extends State<ShatranjScreen> {
     setState(() {});
     if (mode == 3) {
       _rooms.sendMove(roomCode!, {
-        't': 'm', 'from': _sq(from), 'to': _sq(i),
+        't': 'm', 'by': mySide, 'from': _sq(from), 'to': _sq(i),
       });
       if (status.startsWith('Checkmate')) {
         _rooms.finish(roomCode!, mySide == 'host' ? 'White wins' : 'Black wins');
@@ -378,8 +385,8 @@ class _ShatranjState extends State<ShatranjScreen> {
           ? 'Table ${roomCode} — waiting for your opponent to join\u2026'
           : 'Joined table ${roomCode} — you are Black';
     });
-    _roomStream = _rooms.watch(roomCode!);
-    _roomStream!.listen((snap) {
+    await _roomSub?.cancel();
+    _roomSub = _rooms.watch(roomCode!)?.listen((snap) {
       final data = (snap as dynamic).data() as Map<String, dynamic>?;
       if (data == null || !mounted) return;
       final moves = (data['moves'] as List<dynamic>? ?? []);
@@ -391,6 +398,9 @@ class _ShatranjState extends State<ShatranjScreen> {
       while (appliedMoves < moves.length) {
         final m = Map<String, dynamic>.from(moves[appliedMoves] as Map);
         appliedMoves++;
+        // Our own move is already on the board (_commit ran locally);
+        // replaying it from the room stream would move an empty square.
+        if (m['by'] == mySide) continue;
         if (m['t'] == 'm') {
           _commit(_sqToIdx(m['from'] as String), _sqToIdx(m['to'] as String));
         }
@@ -424,7 +434,7 @@ class _ShatranjState extends State<ShatranjScreen> {
                   Icons.wifi, _onlineSetup),
               const SizedBox(height: 10),
               GlassCard(child: Text(
-                'Online rooms — play a friend across the city or the ocean — arrive with the family cloud, in shaa Allah. Castling and en passant follow in v2.',
+                'Online tables need an internet connection and a build with the online hall switched on; if it is unavailable you will be told when you try. Castling and en passant are not part of this version.',
                 style: AppText.bodyMuted.copyWith(height: 1.5))),
             ])
           else ...[
@@ -441,7 +451,11 @@ class _ShatranjState extends State<ShatranjScreen> {
                       child: CircularProgressIndicator(strokeWidth: 2, color: AppColors.gold)),
                 TextButton(
                   onPressed: () {
-                    if (mode == 3 && roomCode != null) _rooms.leave(roomCode!);
+                    if (mode == 3 && roomCode != null) {
+                      _rooms.leave(roomCode!);
+                      _roomSub?.cancel();
+                      _roomSub = null;
+                    }
                     setState(() { mode = 0; roomCode = null; _reset(); });
                   },
                   child: const Text('Leave', style: TextStyle(color: AppColors.goldLight, fontSize: 12)),

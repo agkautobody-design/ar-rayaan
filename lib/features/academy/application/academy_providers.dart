@@ -162,8 +162,11 @@ class ReviewQueueNotifier extends StateNotifier<Map<String, ReviewCard>> {
     _save();
   }
 
-  /// Enqueue (or reset) a lesson when it is completed.
+  /// Enqueue a lesson when it is completed. A lesson already in the queue
+  /// keeps its schedule: finishing it again during a review must not reset
+  /// the spacing it has earned.
   void addLesson(String lessonId) {
+    if (state.containsKey(lessonId)) return;
     _update(
       lessonId,
       ReviewCard(
@@ -236,6 +239,23 @@ final academyTrackProvider =
 final reviewQueueProvider =
     StateNotifierProvider<ReviewQueueNotifier, Map<String, ReviewCard>>(
         (ref) => ReviewQueueNotifier(ref));
+
+/// Lesson reviews due now (oldest first, capped). Watches the queue STATE,
+/// so the Today strip and the review screen rebuild when a lesson is
+/// completed or graded (reading `.notifier.dueCount` never rebuilt).
+/// Only lessons that can actually be opened are listed: manifest lessons,
+/// plus School of Letters lessons (ids `letters-NN`).
+final lessonReviewsDueProvider = Provider<List<ReviewCard>>((Ref ref) {
+  final Map<String, ReviewCard> cards = ref.watch(reviewQueueProvider);
+  return Sm2Engine.dueQueue(
+    cards.values
+        .where((ReviewCard c) =>
+            findLessonById(c.wordKey) != null ||
+            c.wordKey.startsWith('letters-'))
+        .toList(),
+    DateTime.now(),
+  ).take(ReviewQueueNotifier.dailyCap).toList();
+});
 
 final academyProgressProvider = StateNotifierProvider<
     AcademyProgressNotifier, Map<String, LessonProgress>>((Ref ref) {

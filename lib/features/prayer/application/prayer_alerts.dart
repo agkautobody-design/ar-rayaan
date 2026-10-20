@@ -61,10 +61,14 @@ prayerAlertsProvider =
     );
 
 /// Alert keys already fired ("yyyy-m-d:Fajr") — prevents repeats within
-/// the same minute/day, resets naturally with the date.
+/// the same minute/day. Rebuilt (emptied) whenever the calendar day changes
+/// in the active location's zone, so every alert re-arms for the new day.
 class FiredAlertsController extends Notifier<Set<String>> {
   @override
-  Set<String> build() => <String>{};
+  Set<String> build() {
+    ref.watch(prayerDayKeyProvider);
+    return <String>{};
+  }
 
   void markFired(String key) => state = <String>{...state, key};
 }
@@ -74,6 +78,35 @@ firedAlertsProvider =
     NotifierProvider<FiredAlertsController, Set<String>>(
       FiredAlertsController.new,
     );
+
+/// How long after its time a prayer still counts as "just arrived". The
+/// ticker runs every 30 s, but browsers throttle background tabs to about
+/// once a minute, so a one-minute window could be missed entirely.
+const Duration kAlertWindow = Duration(minutes: 2);
+
+/// The alerted prayer whose time arrived within [kAlertWindow] of [now] and
+/// that has not fired yet, or null. Pure; [now] is a real instant.
+String? dueAlert({
+  required PrayerTimes times,
+  required DateTime now,
+  required Set<String> enabled,
+  required Set<String> fired,
+}) {
+  if (enabled.isEmpty) return null;
+  final DateTime w = times.wallClock(now);
+  for (final (String name, DateTime time) in times.prayers) {
+    if (!enabled.contains(name)) continue;
+    final bool arrived = !time.isAfter(w) && w.difference(time) < kAlertWindow;
+    if (!arrived) continue;
+    if (fired.contains(alertKey(w, name))) continue;
+    return name;
+  }
+  return null;
+}
+
+/// "y-m-d:Prayer" key for a wall-clock day.
+String alertKey(DateTime wallClock, String prayer) =>
+    '${wallClock.year}-${wallClock.month}-${wallClock.day}:$prayer';
 
 /// The prayer whose alerted time has just arrived, or null. Fires once per
 /// prayer per day while the app is open.
@@ -85,16 +118,24 @@ final Provider<String?> activeAlertProvider = Provider<String?>((ref) {
   final Set<String> fired = ref.watch(firedAlertsProvider);
 
   final PrayerTimes? t = times.valueOrNull;
-  if (t == null || enabled.isEmpty) return null;
-
-  for (final (String name, DateTime time) in t.ordered) {
-    if (!enabled.contains(name)) continue;
-    final bool arrived =
-        !time.isAfter(now) && now.difference(time).inMinutes < 1;
-    if (!arrived) continue;
-    final String key = '${now.year}-${now.month}-${now.day}:$name';
-    if (fired.contains(key)) continue;
-    return name; // pure — the screen marks it fired when it reacts
-  }
-  return null;
+  if (t == null) return null;
+  // Pure — the screen marks it fired when it reacts.
+  return dueAlert(times: t, now: now, enabled: enabled, fired: fired);
 });
+
+/// The prayer whose alert banner is on screen. Unlike [activeAlertProvider]
+/// (which goes null the moment the alert is marked fired) this stays until
+/// the user dismisses it.
+class AlertBannerController extends Notifier<String?> {
+  @override
+  String? build() => null;
+
+  void show(String prayer) => state = prayer;
+
+  void dismiss() => state = null;
+}
+
+final NotifierProvider<AlertBannerController, String?> alertBannerProvider =
+    NotifierProvider<AlertBannerController, String?>(
+      AlertBannerController.new,
+    );

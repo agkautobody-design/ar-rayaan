@@ -67,6 +67,28 @@ class AuthController extends Notifier<AsyncValue<AuthUser?>> {
     }
   }
 
+  /// Result of an action that returns nothing: null on success, otherwise a
+  /// message that is safe to show.
+  Future<String?> _runVoid(Future<void> Function() action) async {
+    try {
+      await action();
+      return null;
+    } on AuthException catch (e) {
+      return e.message;
+    } catch (_) {
+      return 'Something went wrong. Please try again.';
+    }
+  }
+
+  /// Re-sends the verification email. Returns an error message, or null.
+  Future<String?> resendVerification() =>
+      _runVoid(_repo.sendEmailVerification);
+
+  /// Deletes the account after re-authentication. Returns an error message,
+  /// or null when the account is gone.
+  Future<String?> deleteAccount({String? password}) =>
+      _runVoid(() => _repo.deleteAccount(password: password));
+
   Future<void> signOut() => _repo.signOut();
 }
 

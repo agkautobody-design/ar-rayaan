@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
@@ -8,6 +7,7 @@ import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../application/sakina_providers.dart';
 import '../domain/sakina_content.dart';
+import 'widgets/help_line_tile.dart';
 
 /// Sakina — the soul of the app (crisis shell, Wave A4).
 /// Locked look: hero word of mercy → rooms → comfort deck → human help.
@@ -131,41 +131,7 @@ class SakinaScreen extends ConsumerWidget {
                   const SizedBox(height: 8),
 
                   // Human help — always on screen, never buried.
-                  GlassCard(
-                    padding: const EdgeInsets.all(16),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            const Icon(
-                              Icons.favorite_outline,
-                              size: 15,
-                              color: AppColors.gold,
-                            ),
-                            const SizedBox(width: 6),
-                            Text(
-                              'TALK TO A HUMAN — ANYTIME',
-                              style: AppText.eyebrow.copyWith(
-                                color: AppColors.gold,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 6),
-                        Text(
-                          'Sakina is a companion, not a clinician. Real people '
-                          'are ready to listen right now:',
-                          style: AppText.caption.copyWith(height: 1.5),
-                        ),
-                        const SizedBox(height: 10),
-                        for (final HelpResource r in HelpResources.all) ...[
-                          _HelpRow(resource: r),
-                          const SizedBox(height: 10),
-                        ],
-                      ],
-                    ),
-                  ),
+                  _HelpSection(countryCode: ref.watch(deviceCountryProvider)),
                   const SizedBox(height: 16),
                   Text(
                     'SAKINA DOES NOT DIAGNOSE · YOUR CHECK-INS AND VISITS '
@@ -187,13 +153,20 @@ class SakinaScreen extends ConsumerWidget {
   }
 }
 
-class _RoomCard extends StatelessWidget {
+class _RoomCard extends ConsumerWidget {
   const _RoomCard({required this.room});
 
   final SakinaRoom room;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final String? safety = room.safetyLine;
+    final List<HelpResource> roomHelp = room.helpKinds.isEmpty
+        ? const <HelpResource>[]
+        : HelpResources.forCountry(
+            ref.watch(deviceCountryProvider),
+            kinds: room.helpKinds,
+          ).take(4).toList();
     return GlassCard(
       padding: EdgeInsets.zero,
       child: Theme(
@@ -236,6 +209,20 @@ class _RoomCard extends StatelessWidget {
                 fontStyle: FontStyle.italic,
               ),
             ),
+            if (safety != null) ...<Widget>[
+              const SizedBox(height: 10),
+              Text(
+                safety,
+                style: AppText.caption.copyWith(
+                  color: AppColors.sand.withValues(alpha: 0.85),
+                  height: 1.5,
+                ),
+              ),
+            ],
+            for (final HelpResource r in roomHelp) ...<Widget>[
+              const SizedBox(height: 8),
+              HelpLineTile(resource: r),
+            ],
             const SizedBox(height: 8),
             Align(
               alignment: Alignment.centerLeft,
@@ -254,63 +241,86 @@ class _RoomCard extends StatelessWidget {
   }
 }
 
-class _HelpRow extends StatelessWidget {
-  const _HelpRow({required this.resource});
+/// The "talk to a human" card: the lines for the person's country first,
+/// every other country below, each tappable and copyable.
+class _HelpSection extends StatelessWidget {
+  const _HelpSection({required this.countryCode});
 
-  final HelpResource resource;
+  final String? countryCode;
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      borderRadius: BorderRadius.circular(10),
-      onTap: () {
-        if (resource.dial != null) {
-          launchUrl(Uri.parse('tel:${resource.dial}'));
-        } else if (resource.url != null) {
-          launchUrl(Uri.parse(resource.url!),
-              mode: LaunchMode.externalApplication);
-        }
-      },
-      child: Row(
+    final List<HelpResource> near = HelpResources.forCountry(countryCode);
+    final List<HelpResource> others = <HelpResource>[
+      for (final HelpResource r in HelpResources.all)
+        if (!near.contains(r)) r,
+    ];
+    final bool knowsCountry = near.any(
+      (HelpResource r) => r.countries.isNotEmpty,
+    );
+    return GlassCard(
+      padding: const EdgeInsets.all(16),
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            width: 6,
-            height: 6,
-            margin: const EdgeInsets.only(top: 6),
-            decoration: const BoxDecoration(
-              shape: BoxShape.circle,
-              color: AppColors.gold,
-            ),
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              const Icon(
+                Icons.favorite_outline,
+                size: 15,
+                color: AppColors.gold,
+              ),
+              const SizedBox(width: 6),
+              Text(
+                'TALK TO A HUMAN',
+                style: AppText.eyebrow.copyWith(color: AppColors.gold),
+              ),
+            ],
           ),
-          const SizedBox(width: 10),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  '${resource.name} · ${resource.region}',
-                  style: AppText.caption.copyWith(
-                    color: AppColors.sand,
-                    fontWeight: FontWeight.w600,
-                  ),
+          const SizedBox(height: 6),
+          Text(
+            'Sakina is a companion, not a clinician. These are real people '
+            'and services. Some lines answer day and night; others keep set '
+            'hours. If you are in danger right now, call your local '
+            'emergency number.',
+            style: AppText.caption.copyWith(height: 1.5),
+          ),
+          const SizedBox(height: 10),
+          if (!knowsCountry)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 10),
+              child: Text(
+                'We could not tell which country you are in, so the lines '
+                'for every country are listed below.',
+                style: AppText.caption.copyWith(
+                  color: AppColors.sand.withValues(alpha: 0.7),
+                  height: 1.4,
                 ),
-                const SizedBox(height: 2),
-                Text(
-                  resource.detail,
-                  style: AppText.caption.copyWith(
-                    color: AppColors.sand.withValues(alpha: 0.65),
-                    height: 1.4,
-                  ),
+              ),
+            ),
+          for (final HelpResource r in near) ...<Widget>[
+            HelpLineTile(resource: r),
+            const SizedBox(height: 8),
+          ],
+          Theme(
+            data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+            child: ExpansionTile(
+              tilePadding: EdgeInsets.zero,
+              initiallyExpanded: !knowsCountry,
+              iconColor: AppColors.gold,
+              collapsedIconColor: AppColors.gold.withValues(alpha: 0.6),
+              title: Text(
+                knowsCountry ? 'Other countries' : 'All countries',
+                style: AppText.caption.copyWith(
+                  color: AppColors.gold,
+                  fontWeight: FontWeight.w600,
                 ),
-                const SizedBox(height: 2),
-                Text(
-                  resource.contact,
-                  style: AppText.caption.copyWith(
-                    color: AppColors.gold,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
+              ),
+              children: <Widget>[
+                for (final HelpResource r in others) ...<Widget>[
+                  HelpLineTile(resource: r),
+                  const SizedBox(height: 8),
+                ],
               ],
             ),
           ),

@@ -4,6 +4,16 @@
 ///   flutter build web --release --dart-define=FLAVOR=prod
 ///
 /// Firebase activation is fully define-driven via FirebaseBootstrap (O-4).
+///
+/// Dead config, kept on purpose: nothing in the app reads [EnvConfig.isProd]
+/// or [EnvConfig.firebaseEnabled] to gate behaviour. The real switches are
+/// `kReleaseMode`, the `FOUNDER_TOOLS` define (router) and the `FIREBASE_*`
+/// defines read by FirebaseBootstrap. Do not rely on [AppFlavor] to hide
+/// anything from users.
+///
+/// The Quran Foundation "vault" (`services/vault`) is likewise NOT wired in:
+/// there is no `AR_VAULT_URL` define and no client code calls it. Screens
+/// that say "coming with the vault" are placeholders.
 library;
 
 import 'firebase/firebase_bootstrap.dart';

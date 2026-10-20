@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
+import '../application/elder_mode.dart';
 
 /// ELDER MODE - the whole home, simplified. Giant words, three doors,
 /// nothing else. Once a family turns this on, the app opens here every time
@@ -24,7 +25,7 @@ class _ElderHomeState extends State<ElderHomeScreen> {
     super.initState();
     Future.microtask(() async {
       final p = await SharedPreferences.getInstance();
-      await p.setBool('ar.elder.mode', true);
+      await ElderMode.set(true);
       if (mounted) setState(() => _count = p.getInt('ar.elder.dhikr') ?? 0);
     });
   }
@@ -36,8 +37,7 @@ class _ElderHomeState extends State<ElderHomeScreen> {
   }
 
   Future<void> _exit() async {
-    final p = await SharedPreferences.getInstance();
-    await p.setBool('ar.elder.mode', false);
+    await ElderMode.set(false);
     if (mounted) context.go(AppRoutes.home);
   }
 
@@ -84,7 +84,7 @@ class _ElderHomeState extends State<ElderHomeScreen> {
             ),
             const SizedBox(height: 16),
             for (final e in const [
-              ('Daily Duas', 'Prayers for morning and evening', Icons.wb_twilight, AppRoutes.stories),
+              ('Daily Duas', 'Prayers for morning and evening', Icons.wb_twilight, AppRoutes.adhkar),
               ('For Your Heart', 'How do you feel today?', Icons.favorite_border, AppRoutes.feelings),
               ('Comfort (Sakina)', 'Rest here a while', Icons.self_improvement, AppRoutes.sakina),
             ])

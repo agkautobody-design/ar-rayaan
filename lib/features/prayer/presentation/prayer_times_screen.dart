@@ -11,6 +11,7 @@ import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../application/location_providers.dart';
 import '../application/prayer_alerts.dart';
+import '../application/prayer_notification_plan.dart';
 import '../application/prayer_providers.dart';
 import '../application/prayer_repository.dart';
 import '../application/prayer_settings.dart';
@@ -18,8 +19,9 @@ import '../data/aladhan_prayer_repository.dart';
 import '../data/city_directory.dart';
 import '../domain/prayer_times.dart';
 
-/// Prayer Times — live schedule from Aladhan (O-5 approved source).
-/// New screen designed within the locked system — pending Founder approval.
+/// Prayer Times — calculated on the device (adhan math), in the clock of
+/// the chosen city. New screen designed within the locked system — pending
+/// Founder approval.
 class PrayerTimesScreen extends ConsumerWidget {
   const PrayerTimesScreen({super.key});
 
@@ -37,6 +39,8 @@ class PrayerTimesScreen extends ConsumerWidget {
     final AsyncValue<PrayerTimes> times = ref.watch(prayerTimesProvider);
     final DateTime now =
         ref.watch(nowTickerProvider).valueOrNull ?? DateTime.now();
+    // Keeps OS notifications (when a platform scheduler is provided) in step.
+    ref.watch(prayerNotificationSyncProvider);
 
     return ScenicScaffold.pattern(
       body: SafeArea(
@@ -45,13 +49,14 @@ class PrayerTimesScreen extends ConsumerWidget {
             const ScreenHeader(title: 'Prayer Times'),
             Expanded(
               child: times.when(
+                skipLoadingOnReload: true,
                 loading: () => const Center(
                   child: CircularProgressIndicator(color: AppColors.gold),
                 ),
                 error: (Object e, _) => _ErrorState(
                   message: e is PrayerTimesException
                       ? e.message
-                      : 'Connect to the internet to load today\'s prayer times.',
+                      : 'Could not work out today\'s prayer times. Try again, or pick your city.',
                   onRetry: () => ref.invalidate(prayerTimesProvider),
                 ),
                 data: (PrayerTimes data) => _Schedule(data: data, now: now),
@@ -82,11 +87,11 @@ class _ScheduleState extends ConsumerState<_Schedule> {
   /// in-app banner (via provider state), adhan sound, browser notification.
   void _onAlert(String? prayer) {
     if (prayer == null) return;
-    final DateTime n = now;
     ref
         .read(firedAlertsProvider.notifier)
-        .markFired('${n.year}-${n.month}-${n.day}:$prayer');
-    ref.read(adhanServiceProvider.notifier).toggle();
+        .markFired(alertKey(data.wallClock(now), prayer));
+    ref.read(alertBannerProvider.notifier).show(prayer);
+    ref.read(adhanServiceProvider.notifier).playAdhan();
     WebNotifier.show(
       'It is now $prayer time',
       '$prayer · ${data.locationLabel} — Ar-Rayaan',
@@ -94,7 +99,7 @@ class _ScheduleState extends ConsumerState<_Schedule> {
   }
 
   String _countdown(DateTime target) {
-    final Duration d = target.difference(now);
+    final Duration d = target.difference(data.wallClock(now));
     final int h = d.inHours;
     final int m = d.inMinutes.remainder(60);
     if (h > 0) return 'in ${h}h ${m}m';
@@ -106,7 +111,7 @@ class _ScheduleState extends ConsumerState<_Schedule> {
     ref.listen(activeAlertProvider, (_, String? next) => _onAlert(next));
     final (String nextName, DateTime nextTime) = data.nextPrayer(now);
     final bool adhanPlaying = ref.watch(adhanServiceProvider);
-    final String? alert = ref.watch(activeAlertProvider);
+    final String? alert = ref.watch(alertBannerProvider);
 
     return ListView(
       padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
@@ -136,6 +141,17 @@ class _ScheduleState extends ConsumerState<_Schedule> {
                       fontWeight: FontWeight.w600,
                       color: AppColors.goldLight,
                     ),
+                  ),
+                ),
+                IconButton(
+                  tooltip: 'Dismiss',
+                  visualDensity: VisualDensity.compact,
+                  onPressed: () =>
+                      ref.read(alertBannerProvider.notifier).dismiss(),
+                  icon: Icon(
+                    Icons.close,
+                    size: 18,
+                    color: AppColors.sand.withValues(alpha: 0.6),
                   ),
                 ),
               ],
@@ -269,13 +285,15 @@ class _ScheduleState extends ConsumerState<_Schedule> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Tahajjud tonight',
+                      data.wallClock(now).isBefore(data.fajr)
+                          ? 'Tahajjud (tonight, until Fajr)'
+                          : 'Tahajjud tonight',
                       style: AppText.body.copyWith(
                         fontWeight: FontWeight.w600,
                       ),
                     ),
                     Text(
-                      'The last third of the night begins ${DateFormat.jm().format(data.lastThirdStart)} — '
+                      'The last third of the night begins ${DateFormat.jm().format(data.lastThirdStartFor(now))} — '
                       '“Who calls upon Me that I may answer him?”',
                       style: AppText.bodyMuted.copyWith(
                         fontSize: 11,
@@ -294,6 +312,16 @@ class _ScheduleState extends ConsumerState<_Schedule> {
           style: AppText.bodyMuted.copyWith(fontSize: 11),
           textAlign: TextAlign.center,
         ),
+        if (data.zone != null)
+          Padding(
+            padding: const EdgeInsets.only(top: 4),
+            child: Text(
+              'Times are on the local clock of ${data.locationLabel}, '
+              'not your device\u2019s.',
+              style: AppText.bodyMuted.copyWith(fontSize: 11),
+              textAlign: TextAlign.center,
+            ),
+          ),
         Center(
           child: TextButton.icon(
             onPressed: () => showModalBottomSheet<void>(

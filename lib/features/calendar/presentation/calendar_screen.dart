@@ -8,7 +8,7 @@ import '../domain/hijri_date.dart';
 import '../domain/sunnah_fasting.dart';
 
 /// Islamic Calendar — today's Hijri date hero, month grid, and the year's
-/// upcoming observances. Tabular civil calculation, fully offline.
+/// upcoming observances. Official Umm al-Qura calendar, fully offline.
 class CalendarScreen extends StatelessWidget {
   const CalendarScreen({super.key});
 
@@ -496,13 +496,8 @@ class _ObservancesCard extends StatelessWidget {
             _ObservanceRow(
               observance: upcoming[i].$1,
               date: upcoming[i].$2,
-              daysAway:
-                  HijriDate.hijriToJd(
-                    upcoming[i].$2.year,
-                    upcoming[i].$2.month,
-                    upcoming[i].$2.day,
-                  ) -
-                  todayJd,
+              // Same calendar as the Gregorian date printed on the row.
+              daysAway: _daysUntil(upcoming[i].$2, todayJd),
             ),
           ],
           const SizedBox(height: 4),
@@ -510,6 +505,106 @@ class _ObservancesCard extends StatelessWidget {
       ),
     );
   }
+}
+
+/// Whole days from today ([todayJd]) to [date], measured on the Gregorian
+/// date the row itself prints (Umm al-Qura where in range), never on a
+/// second calendar.
+int _daysUntil(HijriDate date, int todayJd) {
+  final DateTime g = date.toGregorian();
+  return HijriDate.gregorianToJd(g.year, g.month, g.day) - todayJd;
+}
+
+/// What the day is, how firmly it is established, and its source.
+void showObservanceSheet(
+  BuildContext context,
+  Observance observance,
+  HijriDate date,
+  String gregorian,
+  String when,
+) {
+  showModalBottomSheet<void>(
+    context: context,
+    backgroundColor: AppColors.navy,
+    isScrollControlled: true,
+    shape: const RoundedRectangleBorder(
+      borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+    ),
+    builder: (BuildContext context) {
+      return SafeArea(
+        child: ListView(
+          shrinkWrap: true,
+          padding: const EdgeInsets.fromLTRB(24, 16, 24, 24),
+          children: [
+            Center(
+              child: Container(
+                width: 40,
+                height: 4,
+                decoration: BoxDecoration(
+                  color: AppColors.gold.withValues(alpha: 0.4),
+                  borderRadius: BorderRadius.circular(2),
+                ),
+              ),
+            ),
+            const SizedBox(height: 16),
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    observance.nameEn,
+                    style: AppText.label.copyWith(color: AppColors.sand),
+                  ),
+                ),
+                Text(
+                  observance.nameAr,
+                  style: AppText.caption.copyWith(
+                    fontFamily: AppFonts.arabic,
+                    color: AppColors.gold,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 6),
+            Text(
+              '${date.format()} · $gregorian · $when',
+              style: AppText.caption,
+            ),
+            const SizedBox(height: 12),
+            Text(
+              observance.basis.label.toUpperCase(),
+              style: AppText.eyebrow.copyWith(color: AppColors.gold),
+            ),
+            if (observance.about.isNotEmpty) ...[
+              const SizedBox(height: 8),
+              Text(
+                observance.about,
+                style: AppText.body.copyWith(
+                  color: AppColors.sand.withValues(alpha: 0.85),
+                  height: 1.5,
+                ),
+              ),
+            ],
+            if (observance.source.isNotEmpty) ...[
+              const SizedBox(height: 8),
+              Text(
+                observance.source,
+                style: AppText.eyebrow.copyWith(
+                  color: AppColors.gold.withValues(alpha: 0.6),
+                  fontSize: 9,
+                ),
+              ),
+            ],
+            const SizedBox(height: 12),
+            Text(
+              'Dates follow the Umm al-Qura calendar; confirm by local moon '
+              'sighting.',
+              style: AppText.caption,
+            ),
+          ],
+        ),
+      );
+    },
+  );
 }
 
 class _ObservanceRow extends StatelessWidget {
@@ -546,7 +641,12 @@ class _ObservanceRow extends StatelessWidget {
         ? 'Tomorrow'
         : 'in $daysAway days';
 
-    return Row(
+    final String gregorian = '${g.day} ${months[g.month - 1]} ${g.year}';
+    return InkWell(
+      key: Key('observance-${observance.nameEn}'),
+      onTap: () =>
+          showObservanceSheet(context, observance, date, gregorian, when),
+      child: Row(
       children: [
         Expanded(
           child: Column(
@@ -560,7 +660,7 @@ class _ObservanceRow extends StatelessWidget {
               ),
               const SizedBox(height: 2),
               Text(
-                '${date.format()} · ${g.day} ${months[g.month - 1]} ${g.year} · $when',
+                '${date.format()} · $gregorian · $when',
                 style: AppText.caption,
               ),
             ],
@@ -577,7 +677,13 @@ class _ObservanceRow extends StatelessWidget {
             textAlign: TextAlign.right,
           ),
         ),
+        Icon(
+          Icons.chevron_right,
+          size: 16,
+          color: AppColors.gold.withValues(alpha: 0.5),
+        ),
       ],
+      ),
     );
   }
 }

@@ -91,6 +91,13 @@ class AcademyCourse {
   final String subtitleKey;
   final List<AcademyUnit> units;
   final bool available;
+
+  /// True when the course actually carries lessons. Three manifest courses
+  /// (letters, recitation, quranic-arabic) are `available: false` with no
+  /// units: they are taught by their own dedicated screens, not by the
+  /// lesson player, and must never be listed as manifest lessons.
+  bool get hasLessons =>
+      available && units.any((AcademyUnit u) => u.lessons.isNotEmpty);
 }
 
 /// Per-lesson resume/completion state. Persisted on-device only.

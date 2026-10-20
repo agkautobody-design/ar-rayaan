@@ -12,6 +12,7 @@ import '../application/academy_providers.dart';
 import '../application/word_deck_provider.dart';
 import '../application/academy_strings.dart';
 import '../domain/academy_models.dart';
+import 'widgets/course_browser.dart';
 
 /// Al-Wasia Academy of Sacred Knowledge — home (Wave 1).
 /// Locked look: Playfair header · continue hero · The Path card ·
@@ -376,18 +377,24 @@ class _AcademyHomeScreenState
                 title: AcademyStrings.get('school.understanding.title'),
                 subtitle: AcademyStrings.get('school.understanding.subtitle'),
                 route: '/academy/understanding',
-                live: false,
+                live: true,
               ),
+              const SizedBox(height: 18),
+
+              // Every manifest lesson, by course ------------------------------
+              Text('COURSES \u00b7 LESSON BY LESSON', style: AppText.eyebrow),
+              const SizedBox(height: 10),
+              const CourseBrowser(),
               const SizedBox(height: 18),
 
               // The school's library --------------------------------------------
               Text('THE SCHOOL\u2019S LIBRARY', style: AppText.eyebrow),
               const SizedBox(height: 10),
               _LibraryRow(icon: Icons.auto_stories_outlined, title: 'Stories of the Prophets, the Women, the Seerah', route: AppRoutes.stories),
-              _LibraryRow(icon: Icons.bookmark_border, title: 'Daily Duas \u00b7 with Arabic', route: AppRoutes.stories),
-              _LibraryRow(icon: Icons.wb_twilight, title: 'Hadiths for Our Times', route: AppRoutes.stories),
-              _LibraryRow(icon: Icons.mic_none, title: 'Khutbahs for the classics and today', route: AppRoutes.stories),
-              _LibraryRow(icon: Icons.nightlight_round, title: 'Al-Ghayb \u00b7 the Unseen', route: AppRoutes.stories),
+              _LibraryRow(icon: Icons.bookmark_border, title: 'Daily Duas \u00b7 with Arabic (Stories shelf)', route: AppRoutes.stories),
+              _LibraryRow(icon: Icons.wb_twilight, title: 'Hadiths for Our Times (Stories shelf)', route: AppRoutes.stories),
+              _LibraryRow(icon: Icons.mic_none, title: 'Khutbahs for the classics and today (Stories shelf)', route: AppRoutes.stories),
+              _LibraryRow(icon: Icons.nightlight_round, title: 'Al-Ghayb \u00b7 the Unseen (Stories shelf)', route: AppRoutes.stories),
               _LibraryRow(icon: Icons.menu_book_outlined, title: 'Huda \u00b7 worship guides', route: AppRoutes.huda),
               _LibraryRow(icon: Icons.account_tree_outlined, title: 'The Messengers\u2019 Tree \u00b7 lineage', route: AppRoutes.familyTree),
               _LibraryRow(icon: Icons.spa_outlined, title: 'The 99 Names \u00b7 memory deck', route: AppRoutes.names99),
@@ -415,7 +422,7 @@ class _AcademyHomeScreenState
                       value: '$done',
                     ),
                     _TodayStat(
-                      label: AcademyStrings.get('academy.wordsReviewed'),
+                      label: AcademyStrings.get('academy.wordsDue'),
                       value: ref
                           .watch(wordsDueProvider)
                           .toString(),
@@ -423,13 +430,9 @@ class _AcademyHomeScreenState
                     _TodayStat(
                       label: AcademyStrings.get('academy.reviewsDue'),
                       value: ref
-                          .watch(reviewQueueProvider.notifier)
-                          .dueCount
+                          .watch(lessonReviewsDueProvider)
+                          .length
                           .toString(),
-                    ),
-                    _TodayStat(
-                      label: AcademyStrings.get('academy.ayatListened'),
-                      value: '0',
                     ),
                   ],
                 ),

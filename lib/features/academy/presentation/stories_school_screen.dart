@@ -262,25 +262,25 @@ const List<_StoriesUnit> kStoriesUnits = <_StoriesUnit>[
       ),
       _StoryChapter(
         title: 'Abu Ubaydah — The Trustworthy',
-        virtue: 'The commander the Prophet ﭑ trusted with the army — so trustworthy that the Prophet ﭑ said every ummah has a trustee, and Abu Ubaydah is the trustee of this ummah.',
+        virtue: 'The commander the Prophet ﷺ trusted with the army — so trustworthy that the Prophet ﷺ said every ummah has a trustee, and Abu Ubaydah is the trustee of this ummah.',
         familyQuestion: 'Who trusts you with what matters most — and are you worthy of the trust?',
         storyId: 'comp-ubayy',
       ),
       _StoryChapter(
         title: 'Sa\u2019d ibn Abi Waqqas — The Archer of Uhud',
-        virtue: 'The first to shoot an arrow in the path of Allah; the Prophet ﭑ gave him his own arrows and said: shoot, may my father and mother be your ransom.',
+        virtue: 'The first to shoot an arrow in the path of Allah; the Prophet ﷺ gave him his own arrows and said: shoot, may my father and mother be your ransom.',
         familyQuestion: 'What is your arrow — the skill you can aim for Allah\u2019s cause?',
         storyId: 'comp-saad',
       ),
       _StoryChapter(
         title: 'Talhah — The Shield of Uhud',
-        virtue: 'He shielded the Prophet ﭑ with his own body at Uhud, taking the arrows meant for him. The one who shields another carries the reward of both.',
+        virtue: 'He shielded the Prophet ﷺ with his own body at Uhud, taking the arrows meant for him. The one who shields another carries the reward of both.',
         familyQuestion: 'Who are you shielding — and what is it costing you?',
         storyId: 'comp-talha-zubayr',
       ),
       _StoryChapter(
         title: 'Az-Zubayr — The Disciplined',
-        virtue: 'The Prophet ﭑ said every prophet has a hawari and Az-Zubayr is mine — the disciple who carried the standard and the discipline.',
+        virtue: 'The Prophet ﷺ said every prophet has a hawari and Az-Zubayr is mine — the disciple who carried the standard and the discipline.',
         familyQuestion: 'Whose disciple are you — and what are you learning from them?',
         storyId: 'comp-hudhayfah',
       ),
@@ -304,7 +304,7 @@ const List<_StoriesUnit> kStoriesUnits = <_StoriesUnit>[
       ),
       _StoryChapter(
         title: 'Uthman ibn Maz\u2019un — The Ascetic',
-        virtue: 'The first muhajir to die in Madinah; he gave up everything and the Prophet ﭑ wept at his grave. The one who left the dunya before the dunya left him.',
+        virtue: 'The first muhajir to die in Madinah; he gave up everything and the Prophet ﷺ wept at his grave. The one who left the dunya before the dunya left him.',
         familyQuestion: 'What could you leave of the dunya today without regret?',
         storyId: 'comp-hudhayfah',
       ),
@@ -316,7 +316,7 @@ const List<_StoriesUnit> kStoriesUnits = <_StoriesUnit>[
       ),
       _StoryChapter(
         title: 'Anas ibn Malik — The Servant',
-        virtue: 'He served the Prophet ﭑ for ten years, from age ten to twenty — and the Prophet ﭑ never once said uff to him. Ten years, zero harsh words.',
+        virtue: 'He served the Prophet ﷺ for ten years, from age ten to twenty — and the Prophet ﷺ never once said uff to him. Ten years, zero harsh words.',
         familyQuestion: 'Who serves you — and have you said uff to them this month?',
         storyId: 'comp-anas',
       ),
@@ -334,7 +334,7 @@ const List<_StoriesUnit> kStoriesUnits = <_StoriesUnit>[
       ),
       _StoryChapter(
         title: 'Muadh ibn Jabal — The Scholar',
-        virtue: 'The Prophet ﭑ said the most knowledgeable of my ummah in halal and haram is Muadh — and sent him to Yemen to teach. Knowledge that travels.',
+        virtue: 'The Prophet ﷺ said the most knowledgeable of my ummah in halal and haram is Muadh — and sent him to Yemen to teach. Knowledge that travels.',
         familyQuestion: 'What knowledge do you have that needs to travel — and who is waiting to receive it?',
         storyId: 'comp-muadh',
       ),
@@ -424,7 +424,7 @@ const List<_StoriesUnit> kStoriesUnits = <_StoriesUnit>[
       ),
       _StoryChapter(
         title: 'The Upper Hand',
-        virtue: 'The upper hand gives; the lower hand receives. The Prophet ﭑ said the upper hand is better — and the one who gives while he fears poverty has outwitted Shaytan.',
+        virtue: 'The upper hand gives; the lower hand receives. The Prophet ﷺ said the upper hand is better — and the one who gives while he fears poverty has outwitted Shaytan.',
         familyQuestion: 'Which hand are you — and could you move it one notch upward this month?',
         storyId: 'mh-money-hand',
       ),
@@ -436,7 +436,7 @@ const List<_StoriesUnit> kStoriesUnits = <_StoriesUnit>[
       ),
       _StoryChapter(
         title: 'Solitude Is a Room',
-        virtue: 'You were not created for the crowd. The Prophet ﭑ sought the cave before the mission; the quiet hour is where the heart is furnished.',
+        virtue: 'You were not created for the crowd. The Prophet ﷺ sought the cave before the mission; the quiet hour is where the heart is furnished.',
         familyQuestion: 'Where is your cave — and when did you last sit in it?',
         storyId: 'mh-soul-solitude',
       ),
@@ -460,19 +460,19 @@ const List<_StoriesUnit> kStoriesUnits = <_StoriesUnit>[
       ),
       _StoryChapter(
         title: 'Visit the Graves',
-        virtue: 'The Prophet ﭑ said: I had forbidden you to visit the graves, but now visit them — they remind you of the Hereafter. The reminder that ends every distraction.',
+        virtue: 'The Prophet ﷺ said: I had forbidden you to visit the graves, but now visit them — they remind you of the Hereafter. The reminder that ends every distraction.',
         familyQuestion: 'When did you last stand at a grave — and what did it tell you?',
         storyId: 'mh-death-graves',
       ),
       _StoryChapter(
         title: 'The Work of Your Own Hand',
-        virtue: 'The Prophet ﭑ worked with his hands; no one ever fed him without his working. Dignity is in the labor, not the title.',
+        virtue: 'The Prophet ﷺ worked with his hands; no one ever fed him without his working. Dignity is in the labor, not the title.',
         familyQuestion: 'What work do you do with your own hands — and do you honor it?',
         storyId: 'mh-work-hand',
       ),
       _StoryChapter(
         title: 'The Eye Weeps and the Heart Grieves',
-        virtue: 'The Prophet ﭑ wept at his son\u2019s death and said: we say only what pleases our Lord. Permission to grieve, inside the permission to praise.',
+        virtue: 'The Prophet ﷺ wept at his son\u2019s death and said: we say only what pleases our Lord. Permission to grieve, inside the permission to praise.',
         familyQuestion: 'Are you carrying a grief you have not named — and could you name it to Allah tonight?',
         storyId: 'mh-grief-ibrahim',
       ),

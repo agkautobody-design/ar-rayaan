@@ -11,6 +11,7 @@ import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
 import '../application/profile_providers.dart';
 import '../domain/user_profile.dart';
+import '../../journey/presentation/saved_stories_sheet.dart';
 import '../../haramain/application/journey_stamp_provider.dart';
 import '../../haramain/domain/journey_stamp.dart';
 
@@ -20,12 +21,15 @@ class ProfileScreen extends ConsumerWidget {
   const ProfileScreen({super.key});
 
   static const List<(IconData, String, String?)> _items = [
-    (Icons.account_circle_outlined, 'My Profile', AppRoutes.settings),
     (Icons.trending_up, 'My Journey', AppRoutes.journey),
-    (Icons.bookmark_outline, 'Bookmarks', AppRoutes.stories),
+    (Icons.family_restroom_outlined, 'Family Wing', '/academy/family'),
+    (Icons.bookmark_outline, 'Bookmarks', _bookmarks),
     (Icons.sticky_note_2_outlined, 'Notes', AppRoutes.notes),
     (Icons.settings_outlined, 'Settings', AppRoutes.settings),
   ];
+
+  /// Sentinel route: Bookmarks opens the saved-stories sheet, not a page.
+  static const String _bookmarks = '#bookmarks';
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -36,7 +40,7 @@ class ProfileScreen extends ConsumerWidget {
     final bool signedIn = profile != null;
     final String name = signedIn ? profile.displayName : 'Guest';
     final String subtitle = signedIn
-        ? 'View your profile'
+        ? 'Account and settings'
         : 'Sign in to save your journey';
 
     return ScenicScaffold.pattern(
@@ -50,7 +54,10 @@ class ProfileScreen extends ConsumerWidget {
                 padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
                 children: [
                   GlassCard(
-                    onTap: signedIn ? () {} : () => context.go(AppRoutes.login),
+                    // Signed in: the account lives in Settings. Signed out:
+                    // the card is the way to sign in.
+                    onTap: () => context.go(
+                        signedIn ? AppRoutes.settings : AppRoutes.login),
                     padding: const EdgeInsets.all(16),
                     child: Row(
                       children: [
@@ -113,7 +120,9 @@ class ProfileScreen extends ConsumerWidget {
                             child: InkWell(
                               onTap: _items[i].$3 == null
                                   ? null
-                                  : () => context.go(_items[i].$3!),
+                                  : _items[i].$3 == _bookmarks
+                                      ? () => showSavedStories(context)
+                                      : () => context.go(_items[i].$3!),
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(
                                   horizontal: 16,

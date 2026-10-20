@@ -12,9 +12,56 @@ import '../../stories/data/stories_repository.dart';
 import '../../hadith/application/feeling_providers.dart';
 import '../../hadith/domain/daily_hadith.dart';
 import '../../../app/core/subscription/subscription_service.dart';
+import '../../sakina/application/sakina_providers.dart';
+import '../../sakina/domain/crisis_detector.dart';
 import '../data/groq_hadi_provider.dart';
 import '../data/offline_hadi_provider.dart';
 import 'hadi_provider.dart';
+
+/// Every screen Hādi is allowed to take a person to. Each entry MUST be a
+/// real route in router.dart (test/hadi_nav_test.dart parses router.dart and
+/// fails if one is not), and every path the system prompt advertises MUST
+/// be here (the same test checks that too).
+const Set<String> kHadiNavWhitelist = <String>{
+  '/home', '/stories', '/games', '/player', '/finance', '/masajid',
+  '/feelings', '/family-tree', '/huda', '/majlis', '/elder-care',
+  '/qibla', '/hadith', '/sakina', '/share', '/notes',
+  '/quran', '/prayer', '/zakat', '/calendar', '/adhkar', '/explore',
+  '/journey', '/community', '/settings', '/sources', '/hadi', '/noor',
+  '/search', '/profile', '/home/elder', '/games/trivia',
+  '/academy/review', '/academy/letters', '/academy/audio-packs',
+  '/academy', '/academy/gate', '/academy/family', '/home/quick',
+  '/new-muslim', '/academy/qa', '/academy/hisn', '/ramadan',
+  '/academy/ramadan-mode', '/academy/family-life', '/games/names99',
+  '/academy/transactions', '/academy/end-of-life', '/academy/dawah',
+  '/academy/health', '/academy/arabic-language', '/academy/aqeedah',
+  '/academy/hadith', '/academy/seerah', '/academy/history',
+  '/academy/stories', '/academy/character',
+  '/academy/youth', '/academy/womens', '/academy/understanding',
+  '/academy/dua', '/academy/hifz', '/academy/recitation',
+  '/academy/quranic-arabic', '/academy/hajj-umrah-pack',
+};
+
+/// Reads the [GO:] / [DO:] tokens a reply may carry. Pure, so it is tested
+/// without a controller.
+abstract final class HadiTokens {
+  static final RegExp _go = RegExp(r'\[GO:(/[a-z0-9\-/:]+)\]');
+  static final RegExp _goAny = RegExp(r'\s*\[GO:[^\]]*\]');
+  static final RegExp _doAny = RegExp(r'\s*\[DO:[^\]]*\]');
+
+  /// The first [GO:] route that is on the whitelist, or null.
+  static String? routeOf(String answer) {
+    for (final RegExpMatch m in _go.allMatches(answer)) {
+      final String? route = m.group(1);
+      if (route != null && kHadiNavWhitelist.contains(route)) return route;
+    }
+    return null;
+  }
+
+  /// [answer] with every [GO:] and [DO:] token removed.
+  static String strip(String answer) =>
+      answer.replaceAll(_goAny, '').replaceAll(_doAny, '').trim();
+}
 
 class HadiState {
   const HadiState({
@@ -75,6 +122,8 @@ class HadiController extends Notifier<HadiState> {
   /// Hadi's hands, level two: [DO:] tokens perform a small, reversible
   /// app action the USER explicitly asked for. Whitelist of three —
   /// nothing else is ever executed, and the token never reaches the UI.
+  /// Returns the reply text with the tokens removed and a plain
+  /// confirmation added for each action that really happened.
   Future<String> _executeActions(String answer) async {
     final List<RegExpMatch> actions =
         RegExp(r'\[DO:([a-z\-]+)(?::([^\]]+))?\]')
@@ -99,11 +148,19 @@ class HadiController extends Notifier<HadiState> {
               }
             }
           case 'save-hadith':
+            // Idempotent: asking to save never UN-saves a hadith that is
+            // already saved (the underlying controller toggles).
             final DailyHadith hadith = ref.read(todaysHadithProvider);
-            await ref
-                .read(savedDailyHadithsProvider.notifier)
-                .toggle(hadith.text);
-            confirmations.add("Today's hadith is saved for you.");
+            final bool already =
+                ref.read(savedDailyHadithsProvider).contains(hadith.text);
+            if (!already) {
+              await ref
+                  .read(savedDailyHadithsProvider.notifier)
+                  .toggle(hadith.text);
+            }
+            confirmations.add(already
+                ? "Today's hadith was already saved for you."
+                : "Today's hadith is saved for you.");
           case 'feeling':
             if (arg != null) {
               final List<dynamic> feelings =
@@ -126,14 +183,12 @@ class HadiController extends Notifier<HadiState> {
     if (confirmations.isNotEmpty) {
       clean = '$clean\n\n${confirmations.join(' ')}'.trim();
     }
-    final List<HadiMessage> msgs = <HadiMessage>[...state.messages];
-    msgs[msgs.length - 1] = HadiMessage(fromHadi: true, text: clean);
-    state = state.copy(messages: msgs);
     return clean;
   }
 
   /// Screen-jump requests extracted from Hadi's replies ([GO:/path] tokens).
-  final navigationEvents = StreamController<String>.broadcast();
+  final StreamController<String> navigationEvents =
+      StreamController<String>.broadcast();
   static const String _keyPref = 'ar.hadi.apikey';
   static const String _providerPref = 'ar.hadi.provider';
   static const String _threadPref = 'ar.hadi.thread';
@@ -142,6 +197,9 @@ class HadiController extends Notifier<HadiState> {
 
   @override
   HadiState build() {
+    ref.onDispose(() {
+      if (!navigationEvents.isClosed) navigationEvents.close();
+    });
     List<HadiMessage> messages = const <HadiMessage>[
       HadiMessage(fromHadi: true, text: kHadiGreeting),
     ];
@@ -193,9 +251,15 @@ class HadiController extends Notifier<HadiState> {
   void _persistThread(List<HadiMessage> messages) {
     try {
       final SharedPreferences prefs = ref.read(sharedPreferencesProvider);
-      final List<HadiMessage> tail = messages.length > 20
-          ? messages.sublist(messages.length - 20)
-          : messages;
+      // Anything said during a crisis exchange stays on screen for this
+      // visit only; it is never written to the device thread.
+      final List<HadiMessage> savable = <HadiMessage>[
+        for (final HadiMessage m in messages)
+          if (!m.sensitive) m,
+      ];
+      final List<HadiMessage> tail = savable.length > 20
+          ? savable.sublist(savable.length - 20)
+          : savable;
       prefs.setString(
         _threadPref,
         json.encode(<Map<String, dynamic>>[
@@ -225,10 +289,10 @@ class HadiController extends Notifier<HadiState> {
   /// founder key shipped in the app). Offline shelf when both are absent.
   String? get _apiKey {
     try {
-      final SharedPreferences prefs = ref.watch(sharedPreferencesProvider);
+      final SharedPreferences prefs = ref.read(sharedPreferencesProvider);
       final String? k = prefs.getString(_keyPref);
       if (k != null && k.trim().isNotEmpty) return k.trim();
-      return ref.watch(subscriptionServiceProvider.notifier).managedKey;
+      return ref.read(subscriptionServiceProvider.notifier).managedKey;
     } catch (_) {
       return null;
     }
@@ -250,7 +314,7 @@ class HadiController extends Notifier<HadiState> {
 
   String get _provider {
     try {
-      final SharedPreferences prefs = ref.watch(sharedPreferencesProvider);
+      final SharedPreferences prefs = ref.read(sharedPreferencesProvider);
       return prefs.getString(_providerPref) ?? 'groq';
     } catch (_) {
       return 'groq';
@@ -315,13 +379,90 @@ class HadiController extends Notifier<HadiState> {
     return const OfflineHadiProvider();
   }
 
+  /// True when a crisis reply was shown in the last few messages.
+  bool _crisisShownRecently() {
+    final List<HadiMessage> m = state.messages;
+    final int from = m.length > 6 ? m.length - 6 : 0;
+    for (int i = from; i < m.length; i++) {
+      if (m[i].crisis != null) return true;
+    }
+    return false;
+  }
+
+  /// Short, different replies for when a person keeps talking about wanting
+  /// to die. Never a question the offline shelf could not follow up.
+  static const List<String> _selfHarmFollowUps = <String>[
+    'I am still here, and I am glad you are telling me more. You do not '
+        'have to make sense of all of it tonight. Please keep the lines '
+        'above close, and stay near someone if you can.',
+    'I hear you. Pain this heavy is not weakness, and it does not mean '
+        'Allah has left you: He told His Prophet ﷺ, “Your Lord has not '
+        'taken leave of you, [O Muhammad], nor has He detested [you].” '
+        '(Qur’an 93:3). If '
+        'the thoughts get stronger, call the number for your country above '
+        'or your local emergency number right then.',
+    'I am staying right here. One small step: message or call one person '
+        'you trust and tell them just one sentence, “I am not okay.” You do '
+        'not need to explain more than that tonight.',
+  ];
+
+  /// The fixed reply for a crisis message, or null when the message should
+  /// go on to the normal flow (an abuse follow-up question).
+  String? _crisisReply(CrisisKind kind) {
+    final String? cc = ref.read(deviceCountryProvider);
+    if (!_crisisShownRecently()) {
+      return CrisisResponses.textFor(kind, countryCode: cc);
+    }
+    switch (kind) {
+      case CrisisKind.selfHarm:
+        final int n = state.messages
+            .where((HadiMessage m) => m.crisis == CrisisKind.selfHarm)
+            .length;
+        return _selfHarmFollowUps[n % _selfHarmFollowUps.length];
+      case CrisisKind.suicideQuestion:
+        return 'Judgement of any person belongs to Allah alone, and His '
+            'mercy is vast. For a ruling about a particular person, please '
+            'ask a qualified scholar in person; Our Sources lists one. If '
+            'any part of this is about you, the help lines above are still '
+            'here.';
+      case CrisisKind.abuse:
+        return null;
+    }
+  }
+
   Future<String> ask(String question, {HadiProvider? provider}) async {
     if (question.trim().isEmpty || state.typing) return '';
     final String q = question.trim();
+
+    // SAFETY FIRST. Runs before any provider — offline or live. When it
+    // fires, no provider is called, nothing is sent over the network, no
+    // quota is spent, and the exchange is never saved to the device.
+    final CrisisKind? crisis = CrisisDetector.detect(q);
+    if (crisis != null) {
+      final String? fixed = _crisisReply(crisis);
+      if (fixed != null) {
+        state = state.copy(
+          messages: <HadiMessage>[
+            ...state.messages,
+            HadiMessage(fromHadi: false, text: q, sensitive: true),
+            HadiMessage(
+              fromHadi: true,
+              text: fixed,
+              crisis: crisis,
+              sensitive: true,
+            ),
+          ],
+          typing: false,
+        );
+        _persistThread(state.messages);
+        return fixed;
+      }
+    }
+
     state = state.copy(
       messages: <HadiMessage>[
         ...state.messages,
-        HadiMessage(fromHadi: false, text: q),
+        HadiMessage(fromHadi: false, text: q, sensitive: crisis != null),
       ],
       typing: true,
     );
@@ -339,12 +480,20 @@ class HadiController extends Notifier<HadiState> {
             'shelf:\n\n';
       }
     }
+    // History = everything before this question, minus anything said during
+    // a crisis exchange (that never leaves the device).
+    final List<HadiMessage> history = <HadiMessage>[
+      for (final HadiMessage m
+          in state.messages.sublist(0, state.messages.length - 1))
+        if (!m.sensitive) m,
+    ];
     String answer;
     try {
-      final tocDigest = await _toc();
+      String liveQuestion = q;
+      final String tocDigest = await _toc();
       if (tocDigest.isNotEmpty) {
         // Opt-in memory: only what the user deliberately enabled, and only
-        // the name — nothing else leaves the device.
+        // the name. (Settings says so; the key sheet says where it goes.)
         String memoryContext = '';
         try {
           final SharedPreferences prefs = ref.read(sharedPreferencesProvider);
@@ -357,75 +506,51 @@ class HadiController extends Notifier<HadiState> {
             }
           }
         } catch (_) {}
-        question = 'The app\u2019s table of contents (so you can answer about '
-            'what the app CONTAINS, e.g. which stories or guides exist — never '
-            'claim to know the user\u2019s private data):\n$tocDigest\n$memoryContext\n'
-            'User\u2019s question: $question';
+        liveQuestion = 'The app\u2019s table of contents (so you can answer '
+            'about what the app CONTAINS, e.g. which stories or guides '
+            'exist — never claim to know the user\u2019s private data):\n'
+            '$tocDigest\n$memoryContext\n'
+            'User\u2019s question: $q';
       }
-      // History = everything before this question (the question itself is
-      // sent once, as the final user turn). Live models get the app's
-      // table of contents and the opt-in name; the offline shelf matches on
-      // the user's own words only.
-      final List<HadiMessage> history =
-          state.messages.sublist(0, state.messages.length - 1);
-      answer = await p.ask(p is OfflineHadiProvider ? q : question, history);
+      // The offline shelf matches on the user's own words only.
+      answer = await p.ask(p is OfflineHadiProvider ? q : liveQuestion, history);
     } catch (e) {
       // Live failure never dead-ends: the curated knowledge answers — but
       // say WHY, so a bad key, a blocked region, or CORS is visible instead
-      // of masquerading as ignorance.
+      // of masquerading as ignorance. Never the raw exception text.
       String offline;
       try {
-        offline = await const OfflineHadiProvider().ask(q, state.messages);
+        offline = await const OfflineHadiProvider().ask(q, history);
       } catch (_) {
         offline = OfflineHadiProvider.decline;
       }
-      answer = 'I could not reach my knowledge engine just now ($e). '
+      final String why = e is HadiProviderException
+          ? e.message
+          : 'I could not connect. Check your internet connection, or '
+              'whether your browser is blocking the AI service.';
+      answer = 'I could not reach my live knowledge engine just now ($why) '
           'Offline guidance: $offline';
+    }
+    if (quotaNote != null) answer = quotaNote + answer;
+    // Tokens are acted on, then removed, BEFORE the message is shown or
+    // saved — so the thread never holds a raw [GO:] / [DO:] token.
+    final String route = HadiTokens.routeOf(answer) ?? '';
+    String clean = HadiTokens.strip(await _executeActions(answer));
+    if (crisis != null) {
+      clean = '$clean\n\n${CrisisResponses.reminderFor(crisis)}';
     }
     state = state.copy(
       messages: <HadiMessage>[
         ...state.messages,
-        HadiMessage(fromHadi: true, text: answer),
+        HadiMessage(fromHadi: true, text: clean, sensitive: crisis != null),
       ],
       typing: false,
     );
-    if (quotaNote != null) answer = quotaNote + answer;
-    answer = await _executeActions(answer);
     _persistThread(state.messages);
-    // Hadi's hands: a [GO:/path] token means "take the user there".
-    final nav = RegExp(r'\[GO:(/[a-z0-9\-/:]+)\]').firstMatch(answer);
-    if (nav != null) {
-      final route = nav.group(1);
-      const known = <String>{
-        '/home', '/stories', '/games', '/player', '/finance', '/masajid',
-        '/feelings', '/family-tree', '/huda', '/majlis', '/elder-care',
-        '/qibla', '/hadith', '/sakina', '/share', '/notes',
-        '/quran', '/prayer', '/zakat', '/calendar', '/adhkar', '/explore',
-        '/journey', '/community', '/settings', '/sources', '/hadi', '/noor',
-        '/academy/review', '/academy/letters', '/academy/audio-packs',
-        '/academy', '/academy/gate', '/academy/family', '/home/quick',
-        '/new-muslim', '/academy/qa', '/academy/hisn', '/ramadan',
-        '/academy/ramadan-mode', '/academy/family-life', '/games/names99',
-        '/academy/transactions', '/academy/end-of-life', '/academy/dawah',
-        '/academy/health', '/academy/arabic-language', '/academy/aqeedah',
-        '/academy/hadith', '/academy/seerah', '/academy/history',
-        '/academy/stories', '/academy/character',
-        '/academy/youth', '/academy/womens', '/academy/understanding',
-        '/academy/dua', '/academy/hifz', '/academy/recitation',
-        '/academy/quranic-arabic', '/academy/hajj-umrah-pack',
-      };
-      if (route != null && known.contains(route)) {
-        navigationEvents.add(route);
-      }
-      final clean = answer.replaceAll(RegExp(r'\s*\[GO:[^\]]+\]'), '').trim();
-      if (clean.isNotEmpty && clean != answer) {
-        final msgs = [...state.messages];
-        msgs[msgs.length - 1] = HadiMessage(fromHadi: true, text: clean);
-        state = state.copy(messages: msgs);
-        return clean;
-      }
+    if (route.isNotEmpty && !navigationEvents.isClosed) {
+      navigationEvents.add(route);
     }
-    return answer;
+    return clean;
   }
 }
 

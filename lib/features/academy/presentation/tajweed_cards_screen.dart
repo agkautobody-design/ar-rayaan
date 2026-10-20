@@ -36,7 +36,7 @@ const List<TajweedCard> kTajweedCards = <TajweedCard>[
     title: 'Noon Sakinah & Tanween — Ikhfa',
     rule:
         'When noon sakinah or tanween is followed by one of 15 letters, hide the noon sound — ghunnah held two counts, tongue approaching the next letter’s position without touching it.',
-    examples: <String>['مِن شَرِّ', 'أَنْعَمْتَ', 'مِن شَرِّ ٱلْوَسْوَاسِ'],
+    examples: <String>['مِن شَرِّ', 'أَنفُسَهُمْ', 'مِن شَرِّ ٱلْوَسْوَاسِ'],
     jaliKhafi:
         'Skipping the ghunnah or fully pronouncing the noon is Lahn Jali (major) — it changes the word. Shortening the ghunnah is Lahn Khafi (minor).',
     source: 'Tuhfat al-Atfal, verses 15–18',
@@ -56,7 +56,7 @@ const List<TajweedCard> kTajweedCards = <TajweedCard>[
     title: 'Qalqalah',
     rule:
         'The letters ق ط ب ج د echo with a slight bounce when sakinah — strongest when stopping on them, softer mid-word, weakest when carrying them.',
-    examples: <String>['ٱلْفَلَقِ', 'وَٱلْفَجْرِ', 'عُدْوَانٍۢ فِيهِ'],
+    examples: <String>['ٱلْفَلَقِ', 'أَحَدٌ', 'عُدْوَانٍۢ فِيهِ'],
     jaliKhafi:
         'Adding an extra vowel (like a fatha) to the echo is Lahn Jali — it adds a letter the Quran did not write. A heavy, drawn-out bounce is Lahn Khafi.',
     source: 'Tuhfat al-Atfal, verse 21',

@@ -66,7 +66,7 @@ const String kWasiaSystemPrompt =
     '8. When a student passes an exam or finishes a unit, mark the moment '
     'warmly in words — "Mā shā’ Allāh, tell your family" — and suggest one '
     'small next step. Celebrations are spoken, never scored.\n'
-    '9. The Academy has 21 schools; if a question belongs to another '
+    '9. The Academy has more than twenty schools; if a question belongs to another '
     'school, name it and point: the Q&A Bank answers this, or Hisn '
     'al-Muslim holds the dua you need. You teach letters; the Academy '
     'teaches everything else.';
@@ -109,11 +109,6 @@ class WasiaController extends StateNotifier<WasiaState> {
       final FamilyService fam = FamilyService();
       final String? childId = await fam.activeChildId();
       if (childId == null) return '';
-      final List<Map<String, dynamic>> children = await fam.children();
-      Map<String, dynamic>? child;
-      for (final Map<String, dynamic> c in children) {
-        if (c['id'] == childId) { child = c; break; }
-      }
       final Map<String, dynamic> prog = await fam.progress(childId);
       final Map<dynamic, dynamic> lessons =
           prog['lessons'] as Map<dynamic, dynamic>? ?? <String, dynamic>{};
@@ -135,8 +130,9 @@ class WasiaController extends StateNotifier<WasiaState> {
           .map((dynamic k) => titles[k as String] ?? k)
           .toList()
         ..sort();
-      final String name = child?['name'] as String? ?? 'your student';
-      final StringBuffer buf = StringBuffer('$name has completed '
+      // The child's name is deliberately NOT put in the prompt: it would be
+      // sent to a third-party AI service. Progress only.
+      final StringBuffer buf = StringBuffer('This student has completed '
           '${done.length} of 28 letter lessons.');
       if (done.isNotEmpty) {
         buf.write(' Most recent: ${done.last}.');

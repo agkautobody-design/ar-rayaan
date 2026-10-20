@@ -1,8 +1,10 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart' as http;
 import 'package:latlong2/latlong.dart';
@@ -12,6 +14,9 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../../prayer/application/location_providers.dart';
+import '../../prayer/application/prayer_providers.dart';
+import '../../prayer/application/prayer_repository.dart';
 
 class Mosque {
   final String name;
@@ -36,27 +41,38 @@ double _dist(double a1, double o1, double a2, double o2) {
 /// MASAJID + TAYYIB - the community finders, per the locked design docs:
 /// night map, gold pins, distance-sorted list, rich profiles from OSM,
 /// honest confidence labels. Verification posts arrive with the family cloud.
-class MasjidFinderScreen extends StatefulWidget {
+class MasjidFinderScreen extends ConsumerStatefulWidget {
   const MasjidFinderScreen({super.key});
 
   @override
-  State<MasjidFinderScreen> createState() => _MasjidState();
+  ConsumerState<MasjidFinderScreen> createState() => _MasjidState();
 }
 
-class _MasjidState extends State<MasjidFinderScreen> {
+class _MasjidState extends ConsumerState<MasjidFinderScreen> {
   final _map = MapController();
   final _search = TextEditingController();
   bool _loading = false;
   String? _error;
   List<Mosque> _mosques = [];
   List<Map<String, dynamic>> _foods = [];
-  double _lat = 43.65, _lon = -79.38; // Toronto default until GPS grants
+  // Starts at the location saved for Prayer Times (GPS fix or chosen city).
+  late double _lat, _lon;
   int _tab = 0;
+  int _requestId = 0; // newest request wins; older answers are dropped
 
   @override
   void initState() {
     super.initState();
-    _locate();
+    final PrayerLocation saved = ref.read(prayerLocationProvider);
+    _lat = saved.latitude;
+    _lon = saved.longitude;
+    // Only ask the device when the user has not set a location of their own
+    // (the app's Toronto placeholder); otherwise trust their choice.
+    final bool placeholder =
+        saved.latitude == PrayerLocationController.fallback.latitude &&
+        saved.longitude == PrayerLocationController.fallback.longitude;
+    // Deferred a microtask so the first frame is not built while loading.
+    scheduleMicrotask(placeholder ? _locate : _fetch);
   }
 
   Future<void> _locate() async {
@@ -69,8 +85,10 @@ class _MasjidState extends State<MasjidFinderScreen> {
           perm == LocationPermission.whileInUse) {
         final pos = await Geolocator.getCurrentPosition();
         _lat = pos.latitude; _lon = pos.longitude;
+        if (!mounted) return;
       }
     } catch (_) {}
+    if (!mounted) return;
     await _fetch();
   }
 
@@ -90,10 +108,13 @@ class _MasjidState extends State<MasjidFinderScreen> {
         await _fetch();
         return;
       }
+      if (!mounted) return;
       setState(() => _error = 'Place not found');
     } catch (_) {
+      if (!mounted) return;
       setState(() => _error = 'Search failed - check connection');
     }
+    if (!mounted) return;
     setState(() => _loading = false);
   }
 
@@ -103,13 +124,19 @@ class _MasjidState extends State<MasjidFinderScreen> {
     'https://overpass.private.coffee/api/interpreter',
   ];
 
+  /// Reads a JSON number whether the server sent 43 or 43.0.
+  static double? _num(Object? v) => v is num ? v.toDouble() : null;
+
   Future<void> _fetch() async {
+    final int id = ++_requestId;
     setState(() { _loading = true; _error = null; });
     final foodMode = _tab == 1;
     final tag = foodMode
-        ? 'nwr["diet:halal"="yes"](around:6000,$_lat,$_lon);'
+        ? 'nwr["diet:halal"~"^(yes|only)\$"](around:6000,$_lat,$_lon);'
         : '(nwr["amenity"="place_of_worship"]["religion"="muslim"](around:6000,$_lat,$_lon););';
-    final query = '[out:json][timeout:15];$tag out center 50;';
+    // Overpass returns an arbitrary subset when capped, not the nearest, so
+    // ask for plenty and keep the nearest 50 after sorting on the device.
+    final query = '[out:json][timeout:15];$tag out center 300;';
     try {
       // The main Overpass server is often overloaded (one live request took
       // 39 s); try mirrors in turn with a short timeout each.
@@ -127,14 +154,15 @@ class _MasjidState extends State<MasjidFinderScreen> {
         }
       }
       if (data == null) throw Exception('all Overpass servers failed');
+      if (!mounted || id != _requestId) return; // a newer search took over
       final els = (data['elements'] as List<dynamic>? ?? []);
       if (!foodMode) {
         final out = <Mosque>[];
         for (final e in els) {
           final m = e as Map<String, dynamic>;
           final tags = (m['tags'] as Map?)?.cast<String, dynamic>() ?? {};
-          final lat = (m['lat'] ?? (m['center'] as Map?)?['lat']) as double?;
-          final lon = (m['lon'] ?? (m['center'] as Map?)?['lon']) as double?;
+          final lat = _num(m['lat'] ?? (m['center'] as Map?)?['lat']);
+          final lon = _num(m['lon'] ?? (m['center'] as Map?)?['lon']);
           if (lat == null || lon == null) continue;
           String? addr = tags['addr:street'] != null
               ? '${tags['addr:housenumber'] ?? ''} ${tags['addr:street']}, '
@@ -153,18 +181,25 @@ class _MasjidState extends State<MasjidFinderScreen> {
         }
         out.sort((a, b) => _dist(_lat, _lon, a.lat, a.lon)
             .compareTo(_dist(_lat, _lon, b.lat, b.lon)));
-        _mosques = out;
+        _mosques = out.take(50).toList();
       } else {
-        _foods = els.map((e) {
-          final m = (e as Map)['tags'] as Map? ?? {};
-          final lat = ((e)['lat'] ?? (e)['center']?['lat']);
-          final lon = ((e)['lon'] ?? (e)['center']?['lon']);
-          return <String, dynamic>{
+        final foods = <Map<String, dynamic>>[];
+        for (final e in els) {
+          final em = e as Map<String, dynamic>;
+          final m = (em['tags'] as Map?)?.cast<String, dynamic>() ?? {};
+          final lat = _num(em['lat'] ?? (em['center'] as Map?)?['lat']);
+          final lon = _num(em['lon'] ?? (em['center'] as Map?)?['lon']);
+          if (lat == null || lon == null) continue;
+          foods.add(<String, dynamic>{
             'name': m['name'] ?? 'Restaurant', 'lat': lat, 'lon': lon,
             'cuisine': m['cuisine'], 'addr': m['addr:street'],
             'phone': m['phone'], 'website': m['website'],
-          };
-        }).toList();
+            'only': m['diet:halal'] == 'only',
+          });
+        }
+        foods.sort((a, b) => _dist(_lat, _lon, a['lat'] as double, a['lon'] as double)
+            .compareTo(_dist(_lat, _lon, b['lat'] as double, b['lon'] as double)));
+        _foods = foods.take(50).toList();
       }
       try {
         _map.move(LatLng(_lat, _lon), 14);
@@ -172,8 +207,10 @@ class _MasjidState extends State<MasjidFinderScreen> {
         // Map not laid out yet; the results still show.
       }
     } catch (_) {
+      if (!mounted || id != _requestId) return;
       _error = 'Live search failed - check connection';
     }
+    if (!mounted || id != _requestId) return;
     setState(() => _loading = false);
   }
 
@@ -210,6 +247,15 @@ class _MasjidState extends State<MasjidFinderScreen> {
               ]),
             ),
             const SizedBox(height: 8),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Text(
+                'Privacy: searching sends your approximate location to '
+                'OpenStreetMap services (Overpass, Nominatim, map tiles).',
+                style: AppText.bodyMuted.copyWith(fontSize: 10),
+              ),
+            ),
+            const SizedBox(height: 6),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(children: [
@@ -269,7 +315,8 @@ class _MasjidState extends State<MasjidFinderScreen> {
                           if (m['lat'] != null && m['lon'] != null)
                             Marker(
                               point: LatLng(m['lat'] as double, m['lon'] as double),
-                              child: const Icon(Icons.mosque,
+                              child: Icon(
+                                  _tab == 0 ? Icons.mosque : Icons.restaurant,
                                   color: AppColors.goldLight, size: 22),
                             ),
                       ]),
@@ -306,8 +353,9 @@ class _MasjidState extends State<MasjidFinderScreen> {
                                 : '${(_dist(_lat, _lon, (f['lat'] ?? _lat) as double, (f['lon'] ?? _lon) as double) / 1000).toStringAsFixed(1)} km away',
                                 style: AppText.bodyMuted.copyWith(fontSize: 11.5)),
                             const SizedBox(height: 4),
-                            Text('Halal tag: from community map data \u2014 '
-                                'confirm before eating, in shaa Allah',
+                            Text(
+                                '${f['only'] == true ? 'Tagged fully halal' : 'Tagged halal'}'
+                                ' in community map data \u2014 confirm before eating, in shaa Allah',
                                 style: AppText.bodyMuted.copyWith(fontSize: 10)),
                           ],
                         ),

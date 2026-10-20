@@ -26,6 +26,30 @@ class NoorScreen extends ConsumerStatefulWidget {
 
 class _NoorScreenState extends ConsumerState<NoorScreen>
     with AmbientHost<NoorScreen> {
+  Future<void> _confirmDelete(int index) async {
+    final bool? yes = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: const Text('Delete this reflection?'),
+        content: const Text('It will be removed from this device.'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(false),
+            child: const Text('Keep'),
+          ),
+          TextButton(
+            key: const Key('reflection-delete-confirm'),
+            onPressed: () => Navigator.of(ctx).pop(true),
+            child: const Text('Delete'),
+          ),
+        ],
+      ),
+    );
+    if (yes ?? false) {
+      await ref.read(noorReflectionsProvider.notifier).removeAt(index);
+    }
+  }
+
   Future<void> _openReflectionSheet() async {
     final TextEditingController controller = TextEditingController();
     final String? saved = await showModalBottomSheet<String>(
@@ -280,7 +304,7 @@ class _NoorScreenState extends ConsumerState<NoorScreen>
                             style: AppText.eyebrow,
                           ),
                         ),
-                        for (final r in reflections)
+                        for (int i = 0; i < reflections.length; i++)
                           Padding(
                             padding: const EdgeInsets.only(bottom: 8),
                             child: GlassCard(
@@ -296,9 +320,22 @@ class _NoorScreenState extends ConsumerState<NoorScreen>
                                   const SizedBox(width: 12),
                                   Expanded(
                                     child: Text(
-                                      r,
+                                      reflections[i],
                                       style: AppText.body.copyWith(height: 1.5),
                                     ),
+                                  ),
+                                  IconButton(
+                                    key: Key('reflection-delete-$i'),
+                                    tooltip: 'Delete reflection',
+                                    visualDensity: VisualDensity.compact,
+                                    icon: Icon(
+                                      Icons.delete_outline,
+                                      size: 18,
+                                      color: AppColors.sand.withValues(
+                                        alpha: 0.7,
+                                      ),
+                                    ),
+                                    onPressed: () => _confirmDelete(i),
                                   ),
                                 ],
                               ),
