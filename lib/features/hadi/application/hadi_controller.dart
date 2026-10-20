@@ -11,7 +11,6 @@ import '../../stories/application/saved_stories_controller.dart';
 import '../../stories/data/stories_repository.dart';
 import '../../hadith/application/feeling_providers.dart';
 import '../../hadith/domain/daily_hadith.dart';
-import '../../../app/core/content/content_sync.dart';
 import '../../../app/core/subscription/subscription_service.dart';
 import '../data/groq_hadi_provider.dart';
 import '../data/offline_hadi_provider.dart';

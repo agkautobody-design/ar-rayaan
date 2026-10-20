@@ -12,14 +12,6 @@ import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 
-class _WomStory {
-  const _WomStory({required this.id, required this.title, required this.note});
-
-  final String id;
-  final String title;
-  final String note;
-}
-
 class _WomUnit {
   const _WomUnit({required this.title, required this.frame, required this.lessons});
   final String title;

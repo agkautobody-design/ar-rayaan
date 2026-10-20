@@ -8,7 +8,6 @@ import 'dart:convert';
 
 import '../../hadi/application/hadi_provider.dart';
 import '../../hadi/data/groq_hadi_provider.dart';
-import '../../hadi/data/offline_hadi_provider.dart';
 import '../data/offline_wasia_provider.dart';
 
 enum WasiaPersona { student, parent, teacher }
@@ -116,8 +115,10 @@ class WasiaController extends StateNotifier<WasiaState> {
         if (c['id'] == childId) { child = c; break; }
       }
       final Map<String, dynamic> prog = await fam.progress(childId);
-      final Map lessons = prog['lessons'] as Map? ?? <String, dynamic>{};
-      final Map exams = prog['exams'] as Map? ?? <String, dynamic>{};
+      final Map<dynamic, dynamic> lessons =
+          prog['lessons'] as Map<dynamic, dynamic>? ?? <String, dynamic>{};
+      final Map<dynamic, dynamic> exams =
+          prog['exams'] as Map<dynamic, dynamic>? ?? <String, dynamic>{};
       // Lesson titles from the curriculum — ids become names.
       final Map<String, dynamic> cur = json.decode(
               await ContentSync.load('academy/letters_curriculum.json'))
@@ -131,7 +132,7 @@ class WasiaController extends StateNotifier<WasiaState> {
         }
       }
       final List<String> done = lessons.keys
-          .map((dynamic k) => titles[k as String] ?? k as String)
+          .map((dynamic k) => titles[k as String] ?? k)
           .toList()
         ..sort();
       final String name = child?['name'] as String? ?? 'your student';
@@ -142,7 +143,7 @@ class WasiaController extends StateNotifier<WasiaState> {
       }
       if (exams.isNotEmpty) {
         final String lastExam = exams.keys.last as String;
-        final Map e = exams[lastExam] as Map;
+        final Map<dynamic, dynamic> e = exams[lastExam] as Map<dynamic, dynamic>;
         buf.write(' Last exam: ${e['score']}/${e['total'] ?? 10}.');
       }
       return buf.toString();

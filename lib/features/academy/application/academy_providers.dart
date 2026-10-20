@@ -144,7 +144,7 @@ class ReviewQueueNotifier extends StateNotifier<Map<String, ReviewCard>> {
       state = <String, ReviewCard>{
         for (final dynamic e in list)
           (e as Map)['wordKey'] as String:
-              ReviewCard.fromJson(Map<String, dynamic>.from(e as Map)),
+              ReviewCard.fromJson(Map<String, dynamic>.from(e)),
       };
     } catch (_) {}
   }
