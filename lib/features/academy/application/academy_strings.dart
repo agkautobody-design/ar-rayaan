@@ -127,6 +127,8 @@ abstract final class AcademyStrings {
       'school.arabiclang.body': 'The language of the Qur\u2019an itself \u2014 words, sentences, and grammar, taught from Qur\u2019anic examples.',
       'school.hifz.title': 'Hifz School',
       'school.hifz.body': 'Memorize the Quran with the sabaq, sabqi, manzil cycle \u2014 your pace, your compass, never your judge.',
+      'school.aqeedah.title': 'Aqeedah School',
+      'school.aqeedah.body': 'Who Allah is, what He sent, and why it changes a life — taught from the Quran itself.',
       'academy.title': 'Al-Wasia Academy of Sacred Knowledge',
       'academy.comingSoon': 'Coming soon — insha’Allah',
       'academy.continue': 'Continue where you left off',

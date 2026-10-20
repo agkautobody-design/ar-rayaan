@@ -22,6 +22,7 @@ import '../features/academy/presentation/hifz_planner_screen.dart';
 import '../features/academy/presentation/dua_school_screen.dart';
 import '../features/academy/presentation/understanding_school_screen.dart';
 import '../features/academy/presentation/arabic_language_school_screen.dart';
+import '../features/academy/presentation/aqeedah_school_screen.dart';
 import '../features/academy/presentation/audio_packs_screen.dart';
 import '../features/academy/presentation/dhikr_session_screen.dart';
 import '../features/doctor/presentation/founder_console_screen.dart';
@@ -439,6 +440,10 @@ GoRouter buildRouter({String initialLocation = '/'}) {
       GoRoute(
         path: '/academy/arabic-language',
         pageBuilder: (context, state) => _fade(const ArabicLanguageSchoolScreen()),
+      ),
+      GoRoute(
+        path: '/academy/aqeedah',
+        pageBuilder: (context, state) => _fade(const AqeedahSchoolScreen()),
       ),
       GoRoute(
         path: '/academy/dua',
