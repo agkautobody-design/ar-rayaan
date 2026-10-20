@@ -213,6 +213,8 @@ void main() {
     expect(find.byKey(const Key('dhikr-morning-1-source')), findsOneWidget);
 
     // Item 2 prescribes 3 repetitions: two taps leave 1 of its 3 to do.
+    await tester.ensureVisible(find.byKey(const Key('dhikr-morning-2-remaining')));
+    await tester.pump();
     await tester.tap(find.byKey(const Key('dhikr-morning-2-remaining')));
     await tester.pump();
     await tester.tap(find.byKey(const Key('dhikr-morning-2-remaining')));
