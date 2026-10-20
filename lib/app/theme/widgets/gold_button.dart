@@ -34,7 +34,8 @@ class _GoldButtonState extends State<GoldButton> {
       height: 52,
       decoration: BoxDecoration(
         gradient: enabled ? AppColors.goldGradient : null,
-        color: enabled ? null : AppColors.textFaint,
+        // Disabled controls are exempt from contrast rules; keep the dim fill.
+        color: enabled ? null : const Color(0x66EAD6B4),
         borderRadius: BorderRadius.circular(999),
         boxShadow: enabled
             ? const [

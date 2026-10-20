@@ -61,12 +61,14 @@ abstract final class AppText {
     color: AppColors.textPrimary,
   );
 
-  /// Eyebrow: 10px · medium · uppercase · 0.3em tracking · gold/80.
+  /// Eyebrow: 12px · medium · uppercase · wide tracking · gold/80.
+  /// (Was 10px with 3.0 tracking; 12px with 1.8 tracking occupies about the
+  /// same width but is legible, and never goes below the 12px floor.)
   static const TextStyle eyebrow = TextStyle(
     fontFamily: AppFonts.body,
-    fontSize: 10,
+    fontSize: 12,
     fontWeight: FontWeight.w500,
-    letterSpacing: 3.0,
+    letterSpacing: 1.8,
     color: Color(0xCCD4AF37),
   );
 
@@ -92,6 +94,9 @@ abstract final class AppText {
       titleMedium: titleMedium,
       bodyMedium: body,
       bodySmall: bodyMuted,
+      labelLarge: label,
+      labelMedium: caption,
+      labelSmall: caption,
     );
   }
 }

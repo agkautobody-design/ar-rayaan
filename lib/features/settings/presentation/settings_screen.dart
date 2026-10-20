@@ -28,7 +28,7 @@ class SettingsScreen extends ConsumerWidget {
           SafeArea(
             child: Column(
               children: [
-                const ScreenHeader(title: 'Settings'),
+                const ScreenHeader(title: 'Settings', showSettings: false),
                 Expanded(
                   child: ListView(
                     padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
@@ -57,7 +57,7 @@ class SettingsScreen extends ConsumerWidget {
                           ),
                           subtitle: Text(
                             'Gentle soundscape on arrival and NOOR',
-                            style: AppText.bodyMuted.copyWith(fontSize: 11),
+                            style: AppText.bodyMuted.copyWith(fontSize: 12),
                           ),
                           secondary: const Icon(
                             Icons.graphic_eq,
@@ -78,7 +78,7 @@ class SettingsScreen extends ConsumerWidget {
                         'when you tap them — this switch is only for the '
                         'background soundscape.',
                         style: AppText.bodyMuted.copyWith(
-                          fontSize: 11,
+                          fontSize: 12,
                           height: 1.5,
                         ),
                       ),
@@ -94,10 +94,16 @@ class SettingsScreen extends ConsumerWidget {
                         ),
                         child: StatefulBuilder(
                           builder: (context, setTile) {
-                            final SharedPreferences prefs =
-                                ref.watch(sharedPreferencesProvider);
+                            // Preferences may be unavailable (tests, a failed
+                            // storage init): show the switch off, not a crash.
+                            SharedPreferences? prefs;
+                            try {
+                              prefs = ref.watch(sharedPreferencesProvider);
+                            } catch (_) {
+                              prefs = null;
+                            }
                             final bool memoryOn =
-                                prefs.getBool('ar.hadi.memory') == true;
+                                prefs?.getBool('ar.hadi.memory') == true;
                             return SwitchListTile.adaptive(
                               contentPadding: EdgeInsets.zero,
                               value: memoryOn,
@@ -115,7 +121,7 @@ class SettingsScreen extends ConsumerWidget {
                                 'Share your name so Hādi can greet you '
                                 'personally. Stored on this device only.',
                                 style: AppText.bodyMuted.copyWith(
-                                  fontSize: 11,
+                                  fontSize: 12,
                                 ),
                               ),
                               secondary: const Icon(
@@ -123,10 +129,12 @@ class SettingsScreen extends ConsumerWidget {
                                 size: 18,
                                 color: AppColors.gold,
                               ),
-                              onChanged: (bool v) async {
-                                await prefs.setBool('ar.hadi.memory', v);
-                                setTile(() {});
-                              },
+                              onChanged: prefs == null
+                                  ? null
+                                  : (bool v) async {
+                                      await prefs!.setBool('ar.hadi.memory', v);
+                                      setTile(() {});
+                                    },
                             );
                           },
                         ),
@@ -137,7 +145,7 @@ class SettingsScreen extends ConsumerWidget {
                         'device, so you can pick up where you left off. Clear '
                         'it any time from the Hādi screen.',
                         style: AppText.bodyMuted.copyWith(
-                          fontSize: 11,
+                          fontSize: 12,
                           height: 1.5,
                         ),
                       ),
@@ -149,6 +157,50 @@ class SettingsScreen extends ConsumerWidget {
                           child: Text('Replay the introduction →',
                               style: AppText.bodyMuted.copyWith(
                                   color: AppColors.gold, fontSize: 13)),
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 4, bottom: 8),
+                        child: Text('LANGUAGE', style: AppText.eyebrow),
+                      ),
+                      GlassCard(
+                        onTap: () => context.push('/settings/language'),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 14,
+                        ),
+                        child: Row(
+                          children: [
+                            const Icon(
+                              Icons.translate_outlined,
+                              size: 18,
+                              color: AppColors.gold,
+                            ),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Language & Voice',
+                                    style: AppText.body.copyWith(fontSize: 14),
+                                  ),
+                                  Text(
+                                    'Pick a language. Only these settings '
+                                    'labels are translated so far; the rest of '
+                                    'the app is English.',
+                                    style: AppText.bodyMuted,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Icon(
+                              Icons.chevron_right,
+                              size: 16,
+                              color: AppColors.gold.withValues(alpha: 0.5),
+                            ),
+                          ],
                         ),
                       ),
                       const SizedBox(height: 20),
@@ -181,7 +233,7 @@ class SettingsScreen extends ConsumerWidget {
                                   Text(
                                     'Qur’an, the Authentic Six, and guidance — fully transparent',
                                     style: AppText.bodyMuted.copyWith(
-                                      fontSize: 11,
+                                      fontSize: 12,
                                     ),
                                   ),
                                 ],
