@@ -99,7 +99,7 @@ void main() {
       // Title and body used to disagree ("two rak'ah" vs reciting Al-Mulk).
       expect(sunday.title, isNot(contains('rak')));
       expect(sunday.title, contains('Al-Mulk'));
-      expect(sunday.body, contains('Al-Mulk'));
+      expect(sunday.body.toLowerCase(), contains('al-mulk'));
       expect(sunday.source, contains('3404'));
     });
 

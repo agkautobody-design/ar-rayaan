@@ -108,7 +108,9 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 300));
 
-    expect(find.text('BETA · INVITE A TESTER'), findsOneWidget);
+    final Object? error = tester.takeException();
+    expect(error, isNull, reason: '$error');
+    expect(find.text('BETA \u00b7 INVITE A TESTER'), findsOneWidget);
     expect(find.byType(QrImageView), findsOneWidget);
     expect(find.text('https://beta.ar-rayaan.test'), findsOneWidget);
     expect(find.text('ADD TO ANY HOME SCREEN'), findsOneWidget);

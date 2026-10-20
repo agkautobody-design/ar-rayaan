@@ -203,6 +203,8 @@ void main() {
     );
     await tester.pumpAndSettle();
 
+    final Object? error = tester.takeException();
+    expect(error, isNull, reason: '$error');
     expect(find.text('Morning Adhkar'), findsWidgets);
     expect(
       find.text('0 of $total repetitions \u00b7 $total remaining'),

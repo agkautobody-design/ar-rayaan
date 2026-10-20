@@ -115,6 +115,8 @@ void main() {
       );
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 100));
+      final Object? error = tester.takeException();
+      expect(error, isNull, reason: '$error');
       final Guide prayer = guides.firstWhere((Guide g) => g.id == 'huda-prayer');
       expect(find.text(prayer.title), findsWidgets);
       expect(find.text('GO DEEPER'), findsOneWidget);

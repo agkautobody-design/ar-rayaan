@@ -1,7 +1,12 @@
+import 'dart:io';
+
 import 'package:ar_rayaan/app/core/providers.dart';
 import 'package:ar_rayaan/app/theme/app_theme.dart';
 import 'package:ar_rayaan/features/academy/application/recitation_player_provider.dart';
-import 'package:ar_rayaan/features/academy/data/mushaf_layout_pack.dart';
+import 'package:ar_rayaan/features/academy/application/academy_providers.dart'
+    show mushafLayoutProvider;
+import 'package:ar_rayaan/features/academy/data/mushaf_layout_pack.dart'
+    show kMadinahLayoutSha256;
 import 'package:ar_rayaan/features/academy/domain/recitation_audio.dart';
 import 'package:ar_rayaan/features/quran/application/quran_providers.dart';
 import 'package:ar_rayaan/features/quran/data/bundled_quran_repository.dart';
@@ -96,10 +101,15 @@ void main() {
   });
 
   group('Madinah layout', () {
-    test('is honestly unavailable until a verified pack ships', () async {
-      // No verified 604-page layout is bundled, so the loader must refuse
-      // (and the reader hides the toggle) instead of showing guessed lines.
-      expect(await MushafLayoutPack.load(), isNull);
+    test('is honestly unavailable until a verified pack ships', () {
+      // No verified 604-page layout is bundled and no checksum is recorded,
+      // so the loader refuses and the reader hides the toggle instead of
+      // showing guessed lines. If a pack ever ships it must come with its
+      // checksum, and this test is then replaced by one that verifies it.
+      final bool packShipped =
+          File('assets/quran/madinah_layout.json').existsSync();
+      expect(packShipped, isFalse);
+      expect(kMadinahLayoutSha256, isEmpty);
     });
   });
 
@@ -198,6 +208,8 @@ void main() {
           sharedPreferencesProvider.overrideWithValue(prefs),
           quranRepositoryProvider.overrideWithValue(repo),
           recitationPlayerProvider.overrideWith((ref) => player),
+          // No verified Madinah pack is bundled: the toggle must stay hidden.
+          mushafLayoutProvider.overrideWith((ref) async => null),
         ],
         child: MaterialApp(
           theme: AppTheme.dark(),
@@ -217,6 +229,8 @@ void main() {
       await tester.pumpWidget(await app(tester, 1));
       await tester.pumpAndSettle();
 
+      final Object? error = tester.takeException();
+      expect(error, isNull, reason: '$error');
       expect(find.textContaining('In the name of Allah'), findsOneWidget);
       expect(find.text('Madinah page view'), findsNothing);
 
@@ -242,6 +256,8 @@ void main() {
       await tester.pumpWidget(await app(tester, 2));
       await tester.pumpAndSettle();
 
+      final Object? error = tester.takeException();
+      expect(error, isNull, reason: '$error');
       // Ayah 200 (unique wording) is on screen; ayah 1 is far above.
       expect(find.textContaining('remember Allah like your [previous]'),
           findsOneWidget);

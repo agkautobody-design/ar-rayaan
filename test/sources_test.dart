@@ -24,6 +24,8 @@ void main() {
     );
     await tester.pump(const Duration(milliseconds: 300));
 
+    final Object? error = tester.takeException();
+    expect(error, isNull, reason: '$error');
     // Qur'an layer: text, translation, recitation, with real attributions.
     expect(find.textContaining('Tanzil Uthmani'), findsOneWidget);
     expect(find.textContaining('Saheeh International'), findsOneWidget);
