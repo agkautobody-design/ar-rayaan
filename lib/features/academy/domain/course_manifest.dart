@@ -1434,4 +1434,135 @@ AcademyLesson? findLesson(String courseId, String unitId, String lessonId) {
       ),
       ],
     ),
+    AcademyCourse(
+      id: 'transactions',
+      titleKey: 'course.transactions.title',
+      subtitleKey: 'course.transactions.subtitle',
+      units: <AcademyUnit>[
+      AcademyUnit(
+        id: 'trx.u1',
+        courseId: 'transactions',
+        titleKey: 'trx.u1.title',
+        subtitleKey: 'trx.u1.subtitle',
+        lessons: <AcademyLesson>[
+          AcademyLesson(
+            id: 'trx.u1.l1',
+            unitId: 'trx.u1',
+            courseId: 'transactions',
+            titleKey: 'trx.u1.l1.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'trx.u1.l1.s1.title', bodyKey: 'trx.u1.l1.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'trx.u1.l1.s2.title', bodyKey: 'trx.u1.l1.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'trx.u1.l2',
+            unitId: 'trx.u1',
+            courseId: 'transactions',
+            titleKey: 'trx.u1.l2.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'trx.u1.l2.s1.title', bodyKey: 'trx.u1.l2.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'trx.u1.l2.s2.title', bodyKey: 'trx.u1.l2.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'trx.u1.l3',
+            unitId: 'trx.u1',
+            courseId: 'transactions',
+            titleKey: 'trx.u1.l3.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'trx.u1.l3.s1.title', bodyKey: 'trx.u1.l3.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'trx.u1.l3.s2.title', bodyKey: 'trx.u1.l3.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'trx.u1.l4',
+            unitId: 'trx.u1',
+            courseId: 'transactions',
+            titleKey: 'trx.u1.l4.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'trx.u1.l4.s1.title', bodyKey: 'trx.u1.l4.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'trx.u1.l4.s2.title', bodyKey: 'trx.u1.l4.s2.body'),
+            ],
+          ),
+        ],
+      ),
+      AcademyUnit(
+        id: 'trx.u2',
+        courseId: 'transactions',
+        titleKey: 'trx.u2.title',
+        subtitleKey: 'trx.u2.subtitle',
+        lessons: <AcademyLesson>[
+          AcademyLesson(
+            id: 'trx.u2.l1',
+            unitId: 'trx.u2',
+            courseId: 'transactions',
+            titleKey: 'trx.u2.l1.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'trx.u2.l1.s1.title', bodyKey: 'trx.u2.l1.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'trx.u2.l1.s2.title', bodyKey: 'trx.u2.l1.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'trx.u2.l2',
+            unitId: 'trx.u2',
+            courseId: 'transactions',
+            titleKey: 'trx.u2.l2.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'trx.u2.l2.s1.title', bodyKey: 'trx.u2.l2.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'trx.u2.l2.s2.title', bodyKey: 'trx.u2.l2.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'trx.u2.l3',
+            unitId: 'trx.u2',
+            courseId: 'transactions',
+            titleKey: 'trx.u2.l3.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'trx.u2.l3.s1.title', bodyKey: 'trx.u2.l3.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'trx.u2.l3.s2.title', bodyKey: 'trx.u2.l3.s2.body'),
+            ],
+          ),
+        ],
+      ),
+      AcademyUnit(
+        id: 'trx.u3',
+        courseId: 'transactions',
+        titleKey: 'trx.u3.title',
+        subtitleKey: 'trx.u3.subtitle',
+        lessons: <AcademyLesson>[
+          AcademyLesson(
+            id: 'trx.u3.l1',
+            unitId: 'trx.u3',
+            courseId: 'transactions',
+            titleKey: 'trx.u3.l1.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'trx.u3.l1.s1.title', bodyKey: 'trx.u3.l1.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'trx.u3.l1.s2.title', bodyKey: 'trx.u3.l1.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'trx.u3.l2',
+            unitId: 'trx.u3',
+            courseId: 'transactions',
+            titleKey: 'trx.u3.l2.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'trx.u3.l2.s1.title', bodyKey: 'trx.u3.l2.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'trx.u3.l2.s2.title', bodyKey: 'trx.u3.l2.s2.body'),
+            ],
+          ),
+          AcademyLesson(
+            id: 'trx.u3.l3',
+            unitId: 'trx.u3',
+            courseId: 'transactions',
+            titleKey: 'trx.u3.l3.title',
+            steps: <AcademyStep>[
+              const AcademyStep(kind: AcademyStepKind.text, titleKey: 'trx.u3.l3.s1.title', bodyKey: 'trx.u3.l3.s1.body'),
+              const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'trx.u3.l3.s2.title', bodyKey: 'trx.u3.l3.s2.body'),
+            ],
+          ),
+        ],
+      ),
+      ],
+    ),
 
