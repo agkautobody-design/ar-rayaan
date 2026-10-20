@@ -316,7 +316,86 @@ const List<_StoriesUnit> kStoriesUnits = <_StoriesUnit>[
       ),
     ],
   ),
+  _StoriesUnit(
+    title: 'The Modern Life',
+    frame: 'The hadith applied to the daily battles — the phone, the debt, the burnout, the feed.',
+    chapters: <_StoryChapter>[
+      _StoryChapter(
+        title: 'The Seven Under the Shade',
+        virtue: 'Seven whom Allah will shade — the youth in worship, the one who weeps alone, the one who gives in secret. Your youth is capital; spend it on the shade.',
+        familyQuestion: 'Which of the seven is within your reach this year?',
+        storyId: 'mh-youth-seven',
+      ),
+      _StoryChapter(
+        title: 'The Birds Leave Hungry',
+        virtue: 'Tawakkul is the bird\u2019s departure — the wings move, but the rizq is not the bird\u2019s to manage. Plan, then release.',
+        familyQuestion: 'What are you chasing in fear that you could chase with tawakkul instead?',
+        storyId: 'mh-money-birds',
+      ),
+      _StoryChapter(
+        title: 'The Refuge of the Debtor',
+        virtue: 'The debtor\u2019s supplication is answered until the debt is paid — but the debt must still be paid. Face the number, make the plan.',
+        familyQuestion: 'Do you know your total debt? Write it down — the first step of every exit.',
+        storyId: 'mh-money-debt',
+      ),
+      _StoryChapter(
+        title: 'The Upper Hand',
+        virtue: 'The upper hand gives; the lower hand receives. The Prophet ﭑ said the upper hand is better — and the one who gives while he fears poverty has outwitted Shaytan.',
+        familyQuestion: 'Which hand are you — and could you move it one notch upward this month?',
+        storyId: 'mh-money-hand',
+      ),
+      _StoryChapter(
+        title: 'The Weeping Eye',
+        virtue: 'The eye that weeps from the fear of Allah, and the eye that stays awake guarding the borders — both are written as worship. Tears are not weakness.',
+        familyQuestion: 'When did you last weep — for Allah, or for His creation? Is that too long?',
+        storyId: 'mh-soul-tears',
+      ),
+      _StoryChapter(
+        title: 'Solitude Is a Room',
+        virtue: 'You were not created for the crowd. The Prophet ﭑ sought the cave before the mission; the quiet hour is where the heart is furnished.',
+        familyQuestion: 'Where is your cave — and when did you last sit in it?',
+        storyId: 'mh-soul-solitude',
+      ),
+      _StoryChapter(
+        title: 'Speak Good or Stay Silent — Including Online',
+        virtue: 'The tongue\u2019s law applies to the keyboard. The comment section is the same fire; the anonymous handle is the same tongue.',
+        familyQuestion: 'Run your last five posts through the filter: would you say them with the person standing there?',
+        storyId: 'mh-society-tongue',
+      ),
+      _StoryChapter(
+        title: 'The Door That Never Closes',
+        virtue: 'The slave who ran from his master and returned — forgiven. The one who killed ninety-nine — forgiven. The door of repentance does not close until the sun rises from the west or the soul reaches the throat.',
+        familyQuestion: 'Is there a door you think is closed for you — and are you sure?',
+        storyId: 'mh-reflection-023',
+      ),
+      _StoryChapter(
+        title: 'The Returning Heart',
+        virtue: 'The heart is between two fingers of the Most Merciful — He turns it as He wills. Your inconsistency is not the end; it is the material of return.',
+        familyQuestion: 'When you drift, what calls you back — and who or what is that Caller?',
+        storyId: 'mh-reflection-24',
+      ),
+      _StoryChapter(
+        title: 'Visit the Graves',
+        virtue: 'The Prophet ﭑ said: I had forbidden you to visit the graves, but now visit them — they remind you of the Hereafter. The reminder that ends every distraction.',
+        familyQuestion: 'When did you last stand at a grave — and what did it tell you?',
+        storyId: 'mh-death-graves',
+      ),
+      _StoryChapter(
+        title: 'The Work of Your Own Hand',
+        virtue: 'The Prophet ﭑ worked with his hands; no one ever fed him without his working. Dignity is in the labor, not the title.',
+        familyQuestion: 'What work do you do with your own hands — and do you honor it?',
+        storyId: 'mh-work-hand',
+      ),
+      _StoryChapter(
+        title: 'The Eye Weeps and the Heart Grieves',
+        virtue: 'The Prophet ﭑ wept at his son\u2019s death and said: we say only what pleases our Lord. Permission to grieve, inside the permission to praise.',
+        familyQuestion: 'Are you carrying a grief you have not named — and could you name it to Allah tonight?',
+        storyId: 'mh-grief-ibrahim',
+      ),
+    ],
+  ),
 ];
+
 
 
 
