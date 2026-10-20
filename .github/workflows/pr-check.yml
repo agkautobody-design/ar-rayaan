@@ -34,7 +34,7 @@ jobs:
           cache: true
 
       - name: Toolchain versions
-        run: flutter --version
+        run: flutter --version 2>&1 | tee flutter.version
 
       - name: Install dependencies
         id: pub
@@ -101,6 +101,8 @@ jobs:
             echo "| analyze | ${{ steps.analyze.outcome }} |"
             echo "| test | ${{ steps.test.outcome }} |"
             echo "| build web | ${{ steps.build.outcome }} |"
+            echo ""
+            echo "Toolchain: \`$(head -n 2 flutter.version | tr '\n' ' ')\`"
             echo ""
             if [ "$LOCK_DRIFT" = "true" ]; then
               echo "**pubspec.lock is out of date.** \`flutter pub get\` regenerated it. Download the \`pubspec-lock-regenerated\` artifact from ${RUN_URL} and commit it (not a failure)."
