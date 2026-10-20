@@ -223,10 +223,13 @@ class FeelingScreen extends ConsumerWidget {
                       const Icon(Icons.favorite_outline,
                           size: 18, color: AppColors.gold),
                       const SizedBox(width: 10),
-                      Text(
-                        'Tell Hādi how you feel',
-                        style: AppText.body
-                            .copyWith(color: AppColors.gold, fontSize: 14),
+                      Flexible(
+                        child: Text(
+                          'Tell Hādi how you feel',
+                          textAlign: TextAlign.center,
+                          style: AppText.body
+                              .copyWith(color: AppColors.gold, fontSize: 14),
+                        ),
                       ),
                     ],
                   ),
