@@ -64,7 +64,11 @@ class FamilyService {
     final prefs = await SharedPreferences.getInstance();
     final raw = prefs.getString('$_progressPref.$childId');
     if (raw == null || raw.isEmpty) {
-      return {'lessons': <String, dynamic>{}, 'exams': <String, dynamic>{}};
+      return {
+        'lessons': <String, dynamic>{},
+        'exams': <String, dynamic>{},
+        'mastery': <String, dynamic>{},
+      };
     }
     return Map<String, dynamic>.from(json.decode(raw) as Map);
   }
@@ -79,6 +83,37 @@ class FamilyService {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString('$_progressPref.$childId', json.encode(p));
     await _syncCloud();
+  }
+
+  /// Mastery levels — the no-fail model. Upgrade only: a lesson can move
+  /// met -> walked -> mastered but never backwards. 'met' is set when the
+  /// lesson is first completed; 'walked' when its try steps are passed;
+  /// 'mastered' when the review queue sees it recalled later.
+  static const Map<String, int> masteryRank = <String, int>{
+    'met': 1,
+    'walked': 2,
+    'mastered': 3,
+  };
+
+  Future<void> recordMastery(String childId, String lessonId, String level) async {
+    final p = await progress(childId);
+    final m = (p['mastery'] as Map?) ?? <String, dynamic>{};
+    final prev = m[lessonId] as String?;
+    if (prev != null &&
+        (masteryRank[prev] ?? 0) >= (masteryRank[level] ?? 0)) {
+      return; // never downgrade
+    }
+    m[lessonId] = level;
+    p['mastery'] = m;
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('$_progressPref.$childId', json.encode(p));
+    await _syncCloud();
+  }
+
+  Future<String> masteryOf(String childId, String lessonId) async {
+    final p = await progress(childId);
+    final m = (p['mastery'] as Map?) ?? <String, dynamic>{};
+    return (m[lessonId] as String?) ?? 'new';
   }
 
   Future<void> recordExam(String childId, String examId,
@@ -116,6 +151,11 @@ class FamilyService {
           await fam.collection('children').doc(c['id'] as String)
               .collection('lessons').doc(l.key as String)
               .set(Map<String, dynamic>.from(l.value as Map));
+        }
+        for (final mv in ((p['mastery'] as Map?) ?? <String, dynamic>{}).entries) {
+          await fam.collection('children').doc(c['id'] as String)
+              .collection('mastery').doc(mv.key as String)
+              .set(<String, dynamic>{'level': mv.value});
         }
       }
     } catch (_) {
