@@ -99,7 +99,7 @@ void main() {
 
     // Collect framework errors so a failure names the exception.
     final List<String> errors = <String>[];
-    final FlutterExceptionHandler? previous = FlutterError.onError;
+    final void Function(FlutterErrorDetails)? previous = FlutterError.onError;
     FlutterError.onError = (FlutterErrorDetails d) =>
         errors.add('${d.exceptionAsString()}\n${d.stack}');
     addTearDown(() => FlutterError.onError = previous);
