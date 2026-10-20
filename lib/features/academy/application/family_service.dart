@@ -1,15 +1,23 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'cloud_handles.dart';
 
 /// The family wing: children under a parent's account, progress per child,
 /// shared with the parent dashboard. Cloud (Firestore) when Firebase's
 /// switches are on; on-device otherwise so the wing is never dead.
 class FamilyService {
+  /// With no arguments the service picks up Firebase if `main.dart`
+  /// initialised it (see [CloudHandles.current]) and stays on-device
+  /// otherwise. Tests may pass explicit handles (or none).
   FamilyService({FirebaseFirestore? db, FirebaseAuth? auth})
-      : _db = db, _auth = auth;
+      : _db = db ?? CloudHandles.current().db,
+        _auth = auth ?? CloudHandles.current().auth;
 
   final FirebaseFirestore? _db;
   final FirebaseAuth? _auth;
@@ -45,7 +53,7 @@ class FamilyService {
     list.add({'id': id, 'name': name.trim(), 'createdAt': DateTime.now().toIso8601String()});
     await prefs.setString(_childrenPref, json.encode(list));
     await setActiveChild(id);
-    await _syncCloud();
+    unawaited(_syncCloud());
     return id;
   }
 
@@ -82,7 +90,7 @@ class FamilyService {
     };
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString('$_progressPref.$childId', json.encode(p));
-    await _syncCloud();
+    unawaited(_syncCloud());
   }
 
   /// Mastery levels — the no-fail model. Upgrade only: a lesson can move
@@ -107,7 +115,7 @@ class FamilyService {
     p['mastery'] = m;
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString('$_progressPref.$childId', json.encode(p));
-    await _syncCloud();
+    unawaited(_syncCloud());
   }
 
   Future<String> masteryOf(String childId, String lessonId) async {
@@ -116,17 +124,25 @@ class FamilyService {
     return (m[lessonId] as String?) ?? 'new';
   }
 
+  /// Records an exam attempt. The stored result is the BEST attempt: a
+  /// weaker retake never overwrites a better score (it only bumps
+  /// `attempts` and the last-attempt time).
   Future<void> recordExam(String childId, String examId,
       {required int score, required int total}) async {
     final p = await progress(childId);
-    (p['exams'] as Map)[examId] = {
+    final Map<dynamic, dynamic> exams = p['exams'] as Map<dynamic, dynamic>;
+    final Map<dynamic, dynamic>? prev = exams[examId] as Map<dynamic, dynamic>?;
+    final int prevScore = (prev?['score'] as num?)?.toInt() ?? -1;
+    final int attempts = ((prev?['attempts'] as num?)?.toInt() ?? 0) + 1;
+    exams[examId] = {
       'at': DateTime.now().toIso8601String(),
-      'score': score,
+      'score': score > prevScore ? score : prevScore,
       'total': total,
+      'attempts': attempts,
     };
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString('$_progressPref.$childId', json.encode(p));
-    await _syncCloud();
+    unawaited(_syncCloud());
   }
 
   Future<void> _syncCloud() async {
@@ -163,3 +179,16 @@ class FamilyService {
     }
   }
 }
+
+final familyServiceProvider =
+    Provider<FamilyService>((Ref ref) => FamilyService());
+
+final childrenProvider =
+    FutureProvider<List<Map<String, dynamic>>>((Ref ref) async {
+  return ref.watch(familyServiceProvider).children();
+});
+
+final progressProvider = FutureProvider.family<Map<String, dynamic>, String>(
+    (Ref ref, String childId) async {
+  return ref.watch(familyServiceProvider).progress(childId);
+});

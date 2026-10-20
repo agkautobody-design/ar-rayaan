@@ -34,7 +34,7 @@ const List<_WomUnit> kWomenUnits = <_WomUnit>[
     lessons: <_WomLesson>[
       _WomLesson(
         title: 'Khadijah — The First Believer',
-        body: 'The first person to believe was a woman — a merchant of Quraysh who married the trustworthy orphan and financed the mission when no one else would. When the Prophet ﭑ came down from Hira trembling, she wrapped him and said: Allah will never disgrace you.',
+        body: 'The first person to believe was a woman — a merchant of Quraysh who married the trustworthy orphan and financed the mission when no one else would. When the Prophet ﷺ came down from Hira trembling, she wrapped him and said: Allah will never disgrace you.',
         practice: 'Who believed in you before anyone else did? Thank them this week — by name.',
         storyId: 'woman-khadijah',
       ),
@@ -70,7 +70,7 @@ const List<_WomUnit> kWomenUnits = <_WomUnit>[
       ),
       _WomLesson(
         title: 'Fatima — The Brightest House',
-        body: 'The Prophet ﭑ called her the leader of the women of Paradise — and she still ground barley until her hands bled and asked for a servant (Bukhari 3423). The highest rank and the grinding stone lived in the same hands.',
+        body: 'The Prophet ﷺ called her the leader of the women of Paradise — and she still ground barley until her hands bled and asked for a servant (Bukhari 3423). The highest rank and the grinding stone lived in the same hands.',
         practice: 'Name one hard daily task you do that no one celebrates. It is written.',
         storyId: 'woman-fatima',
       ),
@@ -82,7 +82,7 @@ const List<_WomUnit> kWomenUnits = <_WomUnit>[
       ),
       _WomLesson(
         title: 'Umm Ayman — The One They Forgot to List',
-        body: 'She raised the Prophet ﭑ after his parents died — and he called her \'my mother after my mother.\' The barakah of a household often lives with the person no one thinks to mention.',
+        body: 'She raised the Prophet ﷺ after his parents died — and he called her \'my mother after my mother.\' The barakah of a household often lives with the person no one thinks to mention.',
         practice: 'Thank one person who raised, fed, or cleaned for you — the invisible ones first.',
         storyId: 'woman-umm-ayman',
       ),
@@ -100,7 +100,7 @@ const List<_WomUnit> kWomenUnits = <_WomUnit>[
       ),
       _WomLesson(
         title: 'Nusaybah bint Ka\'b — Umm Ammarah',
-        body: 'At Uhud, when the line broke and men fled, she stood between the Prophet ﭑ and the swords — shielding him with her body until she was cut. The Prophet ﭑ said: wherever I turned, she was there.',
+        body: 'At Uhud, when the line broke and men fled, she stood between the Prophet ﷺ and the swords — shielding him with her body until she was cut. The Prophet ﷺ said: wherever I turned, she was there.',
         practice: 'Who do you shield? Name them, and stand there this week.',
         storyId: 'woman-umm-ammarah',
       ),
@@ -130,7 +130,7 @@ const List<_WomUnit> kWomenUnits = <_WomUnit>[
     lessons: <_WomLesson>[
       _WomLesson(
         title: 'Khadijah — The First Believer',
-        body: 'The first person to believe was a woman — a merchant who financed the mission when no one else would. When the Prophet ﭑ came down from Hira trembling, she wrapped him and said: Allah will never disgrace you.',
+        body: 'The first person to believe was a woman — a merchant who financed the mission when no one else would. When the Prophet ﷺ came down from Hira trembling, she wrapped him and said: Allah will never disgrace you.',
         practice: 'Who believed in you before anyone else did? Thank them this week — by name.',
         storyId: 'woman-khadijah',
       ),
@@ -142,13 +142,13 @@ const List<_WomUnit> kWomenUnits = <_WomUnit>[
       ),
       _WomLesson(
         title: 'Zaynab — Generosity That Hurt',
-        body: 'She gave so much to the poor that the Prophet ﭑ told her to keep something for herself — and she answered that what she gave, Allah would replace. The wife who out-gave the household.',
+        body: 'She gave so much to the poor that the Prophet ﷺ told her to keep something for herself — and she answered that what she gave, Allah would replace. The wife who out-gave the household.',
         practice: 'Give one thing this week that actually costs you — and tell no one.',
         storyId: 'woman-zaynab',
       ),
       _WomLesson(
         title: 'Juwayriyya — The Captive Who Freed a Hundred',
-        body: 'Taken in battle, she asked the Prophet ﭑ for her freedom; he offered more — marriage. Her mahr freed her whole clan. The captivity narrative ended in a wedding that freed a hundred families.',
+        body: 'Taken in battle, she asked the Prophet ﷺ for her freedom; he offered more — marriage. Her mahr freed her whole clan. The captivity narrative ended in a wedding that freed a hundred families.',
         practice: 'Who in your life is a captive of circumstance — and what could you free them from this month?',
         storyId: 'woman-juwayriyya',
       ),

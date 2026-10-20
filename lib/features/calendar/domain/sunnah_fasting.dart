@@ -132,7 +132,7 @@ abstract final class SunnahFasting {
     why:
         'The Prophet ﷺ prohibited fasting on the two Eid days. Eid al-Fitr '
         'is a day of eating, drinking and remembrance of Allah.',
-    source: 'Sahih al-Bukhari 1991 · Sahih Muslim 827',
+    source: 'Sahih al-Bukhari 1991 · Sahih Muslim 1137',
   );
 
   static const FastingMarker _eidAdha = FastingMarker(
@@ -140,7 +140,7 @@ abstract final class SunnahFasting {
     titleEn: 'Eid al-Adha — no fasting',
     titleAr: 'عيد الأضحى',
     why: 'The Prophet ﷺ prohibited fasting on the two Eid days.',
-    source: 'Sahih al-Bukhari 1991 · Sahih Muslim 827',
+    source: 'Sahih al-Bukhari 1991 · Sahih Muslim 1137',
   );
 
   static const FastingMarker _tashreeq = FastingMarker(
@@ -151,22 +151,22 @@ abstract final class SunnahFasting {
         'The days of Tashreeq (11–13 Dhul-Hijjah) are days of eating, '
         'drinking and remembrance of Allah; fasting them is prohibited '
         'except for the pilgrim who cannot afford a sacrificial animal.',
-    source: 'Sahih Muslim 1141',
+    source: 'Sahih Muslim 1141 · Sahih al-Bukhari 1997',
   );
 
   /// Every marker that applies to [date]. A date can carry several
-  /// (e.g. a White Day that falls on a Monday).
+  /// (e.g. a White Day that falls on a Monday). A prohibition always wins:
+  /// on a forbidden day (the two Eids, Tashreeq) only the prohibition is
+  /// returned, even when the day is also a Monday, a Thursday or in Shawwal.
   static List<FastingMarker> forDate(HijriDate date) {
     final List<FastingMarker> out = <FastingMarker>[];
 
-    // Forbidden days take precedence in spirit (they are never combined with
-    // a recommended marker in practice, since Eids/Tashreeq can't be White
-    // Days or Mon/Thu-only events — but the resolver stays declarative).
     if (date.month == 10 && date.day == 1) out.add(_eidFitr);
     if (date.month == 12 && date.day == 10) out.add(_eidAdha);
     if (date.month == 12 && date.day >= 11 && date.day <= 13) {
       out.add(_tashreeq);
     }
+    if (out.isNotEmpty) return out;
 
     // Weekly sunnah (Monday = weekday 1, Thursday = 4, Gregorian).
     final int weekday = date.toGregorian().weekday;

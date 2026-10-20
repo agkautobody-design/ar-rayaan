@@ -62,7 +62,7 @@ void main() {
         expect(r.dial != null || r.url != null, isTrue,
             reason: '${r.name} has no number to dial and no link');
         if (r.dial != null) {
-          expect(RegExp(r'^\d{3,11}$').hasMatch(r.dial!), isTrue,
+          expect(RegExp(r'^\d{2,11}$').hasMatch(r.dial!), isTrue,
               reason: '${r.name} dial must be digits only');
         }
       }

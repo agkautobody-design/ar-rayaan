@@ -1,9 +1,11 @@
+import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../app/core/providers.dart';
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
@@ -12,6 +14,8 @@ import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../prayer/application/location_providers.dart';
 import '../../prayer/application/prayer_repository.dart';
+import '../data/device_heading.dart';
+import '../domain/compass_math.dart';
 import '../domain/qibla_direction.dart';
 
 class QiblaScreen extends ConsumerWidget {
@@ -31,7 +35,11 @@ class QiblaScreen extends ConsumerWidget {
             loc.longitude == PrayerLocationController.fallback.longitude;
     final bool northern = loc.latitude >= 0;
     final bool tropics = loc.latitude.abs() < 23.5;
-    final String compass = _compassPoint(bearing);
+    final String compass = QiblaDirection.compassPoint(bearing);
+    final double km = QiblaDirection.distanceToKaabaKm(
+      (lat: loc.latitude, lng: loc.longitude),
+    );
+    final bool atMakkah = km < 20;
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: Stack(
@@ -50,13 +58,7 @@ class QiblaScreen extends ConsumerWidget {
                   ),
                 ),
                 const SizedBox(height: 26),
-                Center(
-                  child: SizedBox(
-                    width: 272,
-                    height: 272,
-                    child: _QiblaDial(bearing: bearing),
-                  ),
-                ),
+                Center(child: _LiveQibla(bearing: bearing)),
                 const SizedBox(height: 18),
                 Center(
                   child: Column(
@@ -77,7 +79,9 @@ class QiblaScreen extends ConsumerWidget {
                       ),
                       const SizedBox(height: 2),
                       Text(
-                        'from $place to the Kaaba',
+                        atMakkah
+                            ? 'You are in or very near Makkah \u2014 face the Kaaba itself'
+                            : 'from $place to the Kaaba \u00b7 about ${_km(km)} km',
                         style: AppText.bodyMuted.copyWith(fontSize: 11),
                       ),
                       if (isDefault) ...[
@@ -129,8 +133,12 @@ class QiblaScreen extends ConsumerWidget {
                       Text('HOW TO USE', style: AppText.eyebrow),
                       const SizedBox(height: 8),
                       Text(
-                        'Stand facing the needle \u2014 the top of the dial points to the '
-                        'Kaaba from $place. The sunnah is to face '
+                        'The gold needle points toward the Kaaba from $place, '
+                        'measured clockwise from true North (the N on the dial). '
+                        'Turn your body until you face that direction. With the live '
+                        'compass on, the dial turns with your phone: when the needle '
+                        'points straight up, the top of your phone faces the Qibla. '
+                        'The sunnah is to face '
                         'the qiblah in every prescribed prayer; when travelling, Allah says: '
                         '"Wherever you turn, there is the Face of Allah" (2:115) \u2014 the '
                         'concession of prayer on the move is vast.',
@@ -148,9 +156,14 @@ class QiblaScreen extends ConsumerWidget {
                       Text('A NOTE ON PRECISION', style: AppText.eyebrow),
                       const SizedBox(height: 8),
                       Text(
-                        'This dial is computed by great-circle mathematics \u2014 exact, and '
-                        'fully offline. A live, sensor-driven compass that turns with your '
-                        'phone arrives with the native app builds, in shaa Allah.',
+                        'The bearing is computed by great-circle mathematics \u2014 exact, '
+                        'and fully offline. The live compass reads your phone\u2019s '
+                        'magnetic sensor through the browser, so it is only as good as '
+                        'the sensor: keep away from metal and magnets, hold the phone '
+                        'flat, and confirm with the sun method above when it matters. '
+                        'It needs https and a phone with a compass; desktop browsers '
+                        'and the native builds show the static dial until a sensor '
+                        'plugin is added.',
                         style: AppText.body.copyWith(height: 1.55, fontSize: 13.5),
                       ),
                     ],
@@ -173,12 +186,216 @@ class QiblaScreen extends ConsumerWidget {
     );
   }
 
-  static String _compassPoint(double bearing) {
-    const points = <String>[
-      'N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE',
-      'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW',
-    ];
-    return points[((bearing % 360) / 22.5).round() % 16];
+  static String _km(double km) {
+    final int n = km.round();
+    final String digits = n.toString();
+    final StringBuffer out = StringBuffer();
+    for (int i = 0; i < digits.length; i++) {
+      if (i > 0 && (digits.length - i) % 3 == 0) out.write(',');
+      out.write(digits[i]);
+    }
+    return out.toString();
+  }
+}
+
+/// The dial plus the optional live compass. The dial is north-up by default;
+/// with the sensor on it turns so that its N follows true North.
+class _LiveQibla extends ConsumerStatefulWidget {
+  const _LiveQibla({required this.bearing});
+
+  final double bearing;
+
+  @override
+  ConsumerState<_LiveQibla> createState() => _LiveQiblaState();
+}
+
+enum _CompassStatus { idle, starting, live, denied, noData }
+
+class _LiveQiblaState extends ConsumerState<_LiveQibla> {
+  static const String _declKey = 'ar.qibla.declination';
+
+  StreamSubscription<double>? _sub;
+  Timer? _watchdog;
+  _CompassStatus _status = _CompassStatus.idle;
+  double? _magnetic;
+
+  /// Magnetic declination, degrees, east positive (set by the user).
+  double _declination = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    try {
+      _declination =
+          ref.read(sharedPreferencesProvider).getDouble(_declKey) ?? 0;
+    } catch (_) {
+      _declination = 0;
+    }
+  }
+
+  @override
+  void dispose() {
+    _watchdog?.cancel();
+    final StreamSubscription<double>? sub = _sub;
+    if (sub != null) unawaited(sub.cancel());
+    super.dispose();
+  }
+
+  Future<void> _start() async {
+    setState(() => _status = _CompassStatus.starting);
+    final bool granted = await DeviceHeading.requestPermission();
+    if (!mounted) return;
+    if (!granted) {
+      setState(() => _status = _CompassStatus.denied);
+      return;
+    }
+    _magnetic = null;
+    _sub = DeviceHeading.headings().listen((double h) {
+      if (!mounted) return;
+      final double? prev = _magnetic;
+      setState(() {
+        _magnetic = prev == null ? h : CompassMath.smooth(prev, h);
+        _status = _CompassStatus.live;
+      });
+    });
+    _watchdog = Timer(const Duration(seconds: 4), () {
+      if (mounted && _magnetic == null) {
+        setState(() => _status = _CompassStatus.noData);
+      }
+    });
+  }
+
+  Future<void> _stop() async {
+    _watchdog?.cancel();
+    final StreamSubscription<double>? sub = _sub;
+    _sub = null;
+    if (sub != null) await sub.cancel();
+    if (!mounted) return;
+    setState(() {
+      _status = _CompassStatus.idle;
+      _magnetic = null;
+    });
+  }
+
+  Future<void> _setDeclination(double value) async {
+    final double v = value.clamp(-60, 60).toDouble();
+    setState(() => _declination = v);
+    try {
+      await ref.read(sharedPreferencesProvider).setDouble(_declKey, v);
+    } catch (_) {
+      // Kept in memory for this visit.
+    }
+  }
+
+  String _declLabel() {
+    final int d = _declination.abs().round();
+    if (d == 0) return '0\u00b0';
+    return '$d\u00b0 ${_declination > 0 ? 'E' : 'W'}';
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final double? magnetic = _magnetic;
+    final double? trueHeading = magnetic == null
+        ? null
+        : CompassMath.trueHeading(magnetic, _declination);
+    final double? offset = trueHeading == null
+        ? null
+        : CompassMath.offsetToQibla(
+            qiblaBearing: widget.bearing,
+            trueHeading: trueHeading,
+          );
+    final bool aligned = offset != null && offset.abs() <= 5;
+
+    return Column(
+      children: [
+        SizedBox(
+          width: 272,
+          height: 272,
+          child: Transform.rotate(
+            angle: trueHeading == null ? 0 : -trueHeading * math.pi / 180,
+            child: _QiblaDial(bearing: widget.bearing),
+          ),
+        ),
+        const SizedBox(height: 14),
+        if (_status == _CompassStatus.live && offset != null) ...[
+          Text(
+            aligned
+                ? 'Facing the Qibla'
+                : offset > 0
+                ? 'Turn right ${offset.round()}\u00b0'
+                : 'Turn left ${(-offset).round()}\u00b0',
+            style: AppText.body.copyWith(
+              fontWeight: FontWeight.w600,
+              color: aligned ? AppColors.goldLight : AppColors.sand,
+            ),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            'Magnetic declination ${_declLabel()} \u00b7 set it for your city '
+            '(west is negative)',
+            style: AppText.bodyMuted.copyWith(fontSize: 11),
+            textAlign: TextAlign.center,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              IconButton(
+                tooltip: 'Declination 1\u00b0 more west',
+                onPressed: () => _setDeclination(_declination - 1),
+                icon: const Icon(Icons.remove_circle_outline, size: 20),
+                color: AppColors.gold,
+              ),
+              IconButton(
+                tooltip: 'Declination 1\u00b0 more east',
+                onPressed: () => _setDeclination(_declination + 1),
+                icon: const Icon(Icons.add_circle_outline, size: 20),
+                color: AppColors.gold,
+              ),
+              TextButton(
+                onPressed: _stop,
+                child: Text(
+                  'Stop compass',
+                  style: AppText.bodyMuted.copyWith(color: AppColors.gold),
+                ),
+              ),
+            ],
+          ),
+        ] else if (!DeviceHeading.isSupported)
+          Text(
+            'Live compass is not available in this build \u2014 use the dial '
+            'and the two methods below.',
+            style: AppText.bodyMuted.copyWith(fontSize: 11),
+            textAlign: TextAlign.center,
+          )
+        else ...[
+          TextButton.icon(
+            onPressed: _status == _CompassStatus.starting ? null : _start,
+            icon: const Icon(Icons.explore_outlined, size: 16),
+            label: Text(
+              _status == _CompassStatus.starting
+                  ? 'Starting\u2026'
+                  : 'Start live compass',
+            ),
+            style: TextButton.styleFrom(foregroundColor: AppColors.goldLight),
+          ),
+          if (_status == _CompassStatus.denied)
+            Text(
+              'Motion access was refused. Allow it for this site in your '
+              'browser settings, then try again.',
+              style: AppText.bodyMuted.copyWith(fontSize: 11),
+              textAlign: TextAlign.center,
+            ),
+          if (_status == _CompassStatus.noData)
+            Text(
+              'No compass data arrived. This needs a phone with a compass '
+              'sensor and an https page; desktops usually have none.',
+              style: AppText.bodyMuted.copyWith(fontSize: 11),
+              textAlign: TextAlign.center,
+            ),
+        ],
+      ],
+    );
   }
 }
 

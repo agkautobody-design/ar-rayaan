@@ -44,6 +44,12 @@ class WordCard {
 
   final ReviewCard review;
 
+  /// True when [gloss] is a real word meaning. Older saved decks may still
+  /// hold the truncated verse snippets the first pack shipped as glosses
+  /// ("... (in context)"); those are never shown as a meaning.
+  bool get hasMeaning =>
+      gloss.trim().isNotEmpty && !gloss.contains('(in context)');
+
   WordCard copyWith({ReviewCard? review}) => WordCard(
         key: key,
         arabic: arabic,
@@ -120,7 +126,11 @@ abstract final class WordDeckEngine {
     // new word is an introduction, not a failed review.
     final List<WordCard> due = Sm2Engine.dueQueue(
       deck.values
-          .where((WordCard c) => c.review.repetitions > 0)
+          // "Reviewed before" = scheduled at least once. A card graded
+          // Again has repetitions == 0 but intervalDays == 1; it must
+          // still come back when due (it used to fall between the lanes).
+          .where((WordCard c) =>
+              c.review.repetitions > 0 || c.review.intervalDays > 0)
           .map((WordCard c) => c.review)
           .toList(),
       now,

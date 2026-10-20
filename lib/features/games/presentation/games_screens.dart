@@ -22,6 +22,22 @@ class TriviaQ {
     id: j['id'] as String, category: j['category'] as String, question: j['question'] as String,
     options: (j['options'] as List).cast<String>(),
     answer: j['answer'] as int, why: j['why'] as String);
+
+  /// Same question with the options in a random order and [answer]
+  /// re-pointed at the right one, so the correct position carries no signal
+  /// whatever order the content pack ships in.
+  TriviaQ shuffled(Random rnd) {
+    final List<int> order = List<int>.generate(options.length, (int i) => i)
+      ..shuffle(rnd);
+    return TriviaQ(
+      id: id,
+      category: category,
+      question: question,
+      options: <String>[for (final int i in order) options[i]],
+      answer: order.indexOf(answer),
+      why: why,
+    );
+  }
 }
 
 final triviaProvider = FutureProvider<List<TriviaQ>>((ref) async {
@@ -153,8 +169,10 @@ class _TriviaScreenState extends ConsumerState<TriviaScreen> {
         data: (all) {
           if (_qs.isEmpty) {
             final rnd = Random();
-            _qs = List.of(all)..shuffle(rnd);
-            _qs = _qs.take(10).toList();
+            _qs = (List.of(all)..shuffle(rnd))
+                .take(10)
+                .map((TriviaQ q) => q.shuffled(rnd))
+                .toList();
           }
           if (_done) return _result();
           final q = _qs[_i];

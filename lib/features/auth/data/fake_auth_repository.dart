@@ -129,6 +129,29 @@ class FakeAuthRepository implements AuthRepository {
   }
 
   @override
+  Future<void> sendEmailVerification() async {
+    _refuseInRelease();
+    if (_user == null) {
+      throw const AuthException('Please sign in first.');
+    }
+    await Future<void>.delayed(_latency);
+  }
+
+  @override
+  Future<void> deleteAccount({String? password}) async {
+    _refuseInRelease();
+    final AuthUser? u = _user;
+    if (u == null) throw const AuthException('Please sign in first.');
+    await Future<void>.delayed(_latency);
+    if (u.usesPassword && (password == null || password.length < 6)) {
+      throw const AuthException('Email or password is incorrect.');
+    }
+    _user = null;
+    await _prefs?.remove(_sessionKey);
+    _controller.add(null);
+  }
+
+  @override
   Future<void> signOut() async {
     await Future<void>.delayed(const Duration(milliseconds: 300));
     _user = null;

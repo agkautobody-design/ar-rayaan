@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../academy/application/academy_providers.dart';
 import '../../adhkar/application/adhkar_providers.dart';
 import '../../adhkar/domain/adhkar_models.dart';
 import '../../noor/application/noor_providers.dart';
@@ -13,10 +14,12 @@ class JourneyStats {
     required this.adhkarTotal,
     required this.readingStarted,
     required this.reflections,
+    this.lessonsDone = 0,
   });
 
-  /// Composite 0..1: adhkar completion today (70%), Qur'an reading
-  /// started (15%), at least one reflection saved (15%).
+  /// Composite 0..1: adhkar completion today (55%), Qur'an reading
+  /// started (15%), at least one reflection saved (15%), at least one
+  /// Academy lesson completed (15%).
   final double progress;
 
   /// Repetitions completed today across all adhkar sets.
@@ -28,6 +31,9 @@ class JourneyStats {
 
   /// Saved NOOR reflections.
   final int reflections;
+
+  /// Academy lessons completed on this device.
+  final int lessonsDone;
 }
 
 final FutureProvider<JourneyStats> journeyStatsProvider =
@@ -47,11 +53,19 @@ final FutureProvider<JourneyStats> journeyStatsProvider =
       final bool readingStarted = ref.watch(readingPositionProvider) != null;
       final int reflections = ref.watch(noorReflectionsProvider).length;
 
+      int lessonsDone = 0;
+      try {
+        lessonsDone = ref.watch(lessonsDoneProvider);
+      } catch (_) {
+        // Academy progress unavailable (no prefs in a bare container).
+      }
+
       final double adhkarFraction = total == 0 ? 0 : done / total;
       final double progress =
-          adhkarFraction * 0.70 +
+          adhkarFraction * 0.55 +
           (readingStarted ? 0.15 : 0) +
-          (reflections > 0 ? 0.15 : 0);
+          (reflections > 0 ? 0.15 : 0) +
+          (lessonsDone > 0 ? 0.15 : 0);
 
       return JourneyStats(
         progress: progress,
@@ -59,5 +73,6 @@ final FutureProvider<JourneyStats> journeyStatsProvider =
         adhkarTotal: total,
         readingStarted: readingStarted,
         reflections: reflections,
+        lessonsDone: lessonsDone,
       );
     });

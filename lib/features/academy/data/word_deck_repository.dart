@@ -21,11 +21,14 @@ import '../domain/recitation_audio.dart';
 import '../domain/mushaf_layout.dart';
 import '../domain/word_deck.dart';
 
+/// Pack v2: the 251 cards whose gloss used to be a truncated verse snippet
+/// ("... (in context)") now carry an EMPTY gloss (the UI hides it rather than
+/// showing a snippet as a word meaning), and three wrong glosses were fixed.
 /// Recorded when the verified pack ships. Empty = pack absent, deck
 /// starts empty (the tap-a-word loop still works — cards can be added
 /// from the reader before the pack lands).
 const String kWordPackSha256 =
-    'd679b86a7126635e2c9dabf4a8788b3a71d8964bd0f42de2cb1215e9f6f40ccb';
+    '0d5cf6ff1fefd072b07d8d2f2ea93a7bde947e4836030f1e83b4883638bf64c7';
 
 abstract final class WordDeckRepository {
   static const String _deckKey = 'ar.academy.deck.v1';

@@ -3,14 +3,20 @@ import 'dart:math';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+import '../../academy/application/cloud_handles.dart';
+
 /// The online hall — game rooms synced through Firestore.
 /// Every game in the hall shares this: create a room, share the six-letter
 /// code, play. Moves are appended by the side that makes them; both clients
 /// listen and apply. Honest v1: dice rolled by the moving player are sent
 /// with the move (server-authoritative dice arrives with Cloud Functions).
 class GameRoomsService {
+  /// With no arguments the hall uses Firebase if `main.dart` initialised it
+  /// (see [CloudHandles.current]); otherwise [ready] is false and the lobby
+  /// says so honestly. Tests may pass explicit handles.
   GameRoomsService({FirebaseFirestore? db, FirebaseAuth? auth})
-      : _db = db, _auth = auth;
+      : _db = db ?? CloudHandles.current().db,
+        _auth = auth ?? CloudHandles.current().auth;
 
   final FirebaseFirestore? _db;
   final FirebaseAuth? _auth;

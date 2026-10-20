@@ -220,8 +220,8 @@ class _LessonPlayerScreenState
                       onAdvance: () => _next(),
                       onSelect: (int itemIdx, int choiceIdx) {
                         setState(() {
-                          if (_answers.length <= itemIdx) {
-                            _answers.length = itemIdx + 1;
+                          while (_answers.length <= itemIdx) {
+                            _answers.add(-1);
                           }
                           _answers[itemIdx] = choiceIdx;
                         });

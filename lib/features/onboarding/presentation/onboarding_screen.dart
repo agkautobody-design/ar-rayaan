@@ -24,7 +24,9 @@ class OnboardingScreen extends StatefulWidget {
       case 'peace':
         return Future.value(AppRoutes.sakina);
       case 'children':
-        return Future.value(AppRoutes.academyGate);
+        // "Teaching my children" lands on the Family Wing (add a child,
+        // then Wasia's letters school), not the generic Academy gate.
+        return Future.value('/academy/family');
       case 'pray':
         return Future.value(AppRoutes.prayerTimes);
       case 'new':

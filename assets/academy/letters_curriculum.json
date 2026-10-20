@@ -65,11 +65,11 @@
        "type": "quiz",
        "question": "Which letter did we meet today?",
        "options": [
-        "ب",
         "ث",
+        "ب",
         "ش"
        ],
-       "answer": 0,
+       "answer": 1,
        "why": "Today was Ba — ب. Review the card above and it will settle, in shaa Allah."
       },
       {
@@ -101,11 +101,11 @@
        "type": "quiz",
        "question": "Which letter did we meet today?",
        "options": [
-        "ت",
         "ج",
-        "ص"
+        "ص",
+        "ت"
        ],
-       "answer": 0,
+       "answer": 2,
        "why": "Today was Ta — ت. Review the card above and it will settle, in shaa Allah."
       },
       {
@@ -173,11 +173,11 @@
        "type": "quiz",
        "question": "Which letter did we meet today?",
        "options": [
-        "ج",
         "خ",
+        "ج",
         "ط"
        ],
-       "answer": 0,
+       "answer": 1,
        "why": "Today was Jeem — ج. Review the card above and it will settle, in shaa Allah."
       },
       {
@@ -209,11 +209,11 @@
        "type": "quiz",
        "question": "Which letter did we meet today?",
        "options": [
-        "ح",
         "د",
-        "ظ"
+        "ظ",
+        "ح"
        ],
-       "answer": 0,
+       "answer": 2,
        "why": "Today was Ha (deep) — ح. Review the card above and it will settle, in shaa Allah."
       },
       {
@@ -288,11 +288,11 @@
        "type": "quiz",
        "question": "Which letter did we meet today?",
        "options": [
-        "د",
         "ر",
+        "د",
         "غ"
        ],
-       "answer": 0,
+       "answer": 1,
        "why": "Today was Dal — د. Review the card above and it will settle, in shaa Allah."
       },
       {
@@ -324,11 +324,11 @@
        "type": "quiz",
        "question": "Which letter did we meet today?",
        "options": [
-        "ذ",
         "ز",
-        "ف"
+        "ف",
+        "ذ"
        ],
-       "answer": 0,
+       "answer": 2,
        "why": "Today was Dhal — ذ. Review the card above and it will settle, in shaa Allah."
       },
       {
@@ -396,11 +396,11 @@
        "type": "quiz",
        "question": "Which letter did we meet today?",
        "options": [
-        "ز",
         "ش",
+        "ز",
         "ك"
        ],
-       "answer": 0,
+       "answer": 1,
        "why": "Today was Zay — ز. Review the card above and it will settle, in shaa Allah."
       },
       {
@@ -432,11 +432,11 @@
        "type": "quiz",
        "question": "Which letter did we meet today?",
        "options": [
-        "س",
         "ص",
-        "ل"
+        "ل",
+        "س"
        ],
-       "answer": 0,
+       "answer": 2,
        "why": "Today was Seen — س. Review the card above and it will settle, in shaa Allah."
       },
       {
@@ -504,11 +504,11 @@
        "type": "quiz",
        "question": "Which letter did we meet today?",
        "options": [
-        "ص",
         "ط",
+        "ص",
         "ن"
        ],
-       "answer": 0,
+       "answer": 1,
        "why": "Today was Sad — ص. Review the card above and it will settle, in shaa Allah."
       },
       {
@@ -547,11 +547,11 @@
        "type": "quiz",
        "question": "Which letter did we meet today?",
        "options": [
-        "ض",
         "ظ",
-        "ه"
+        "ه",
+        "ض"
        ],
-       "answer": 0,
+       "answer": 2,
        "why": "Today was Dad — ض. Review the card above and it will settle, in shaa Allah."
       },
       {
@@ -619,11 +619,11 @@
        "type": "quiz",
        "question": "Which letter did we meet today?",
        "options": [
-        "ظ",
         "غ",
+        "ظ",
         "ي"
        ],
-       "answer": 0,
+       "answer": 1,
        "why": "Today was Za — ظ. Review the card above and it will settle, in shaa Allah."
       },
       {
@@ -655,11 +655,11 @@
        "type": "quiz",
        "question": "Which letter did we meet today?",
        "options": [
-        "ع",
         "ف",
-        "ا"
+        "ا",
+        "ع"
        ],
-       "answer": 0,
+       "answer": 2,
        "why": "Today was Ayn — ع. Review the card above and it will settle, in shaa Allah."
       },
       {
@@ -727,11 +727,11 @@
        "type": "quiz",
        "question": "Which letter did we meet today?",
        "options": [
-        "ف",
         "ك",
+        "ف",
         "ت"
        ],
-       "answer": 0,
+       "answer": 1,
        "why": "Today was Fa — ف. Review the card above and it will settle, in shaa Allah."
       },
       {
@@ -763,11 +763,11 @@
        "type": "quiz",
        "question": "Which letter did we meet today?",
        "options": [
-        "ق",
         "ل",
-        "ث"
+        "ث",
+        "ق"
        ],
-       "answer": 0,
+       "answer": 2,
        "why": "Today was Qaf — ق. Review the card above and it will settle, in shaa Allah."
       },
       {
@@ -842,11 +842,11 @@
        "type": "quiz",
        "question": "Which letter did we meet today?",
        "options": [
-        "ل",
         "ن",
+        "ل",
         "ح"
        ],
-       "answer": 0,
+       "answer": 1,
        "why": "Today was Lam — ل. Review the card above and it will settle, in shaa Allah."
       },
       {
@@ -878,11 +878,11 @@
        "type": "quiz",
        "question": "Which letter did we meet today?",
        "options": [
-        "م",
         "ه",
-        "خ"
+        "خ",
+        "م"
        ],
-       "answer": 0,
+       "answer": 2,
        "why": "Today was Meem — م. Review the card above and it will settle, in shaa Allah."
       },
       {
@@ -950,11 +950,11 @@
        "type": "quiz",
        "question": "Which letter did we meet today?",
        "options": [
-        "ه",
         "ي",
+        "ه",
         "ذ"
        ],
-       "answer": 0,
+       "answer": 1,
        "why": "Today was Ha — ه. Review the card above and it will settle, in shaa Allah."
       },
       {
@@ -986,11 +986,11 @@
        "type": "quiz",
        "question": "Which letter did we meet today?",
        "options": [
-        "و",
         "ا",
-        "ر"
+        "ر",
+        "و"
        ],
-       "answer": 0,
+       "answer": 2,
        "why": "Today was Waw — و. Review the card above and it will settle, in shaa Allah."
       },
       {
@@ -1058,41 +1058,41 @@
     {
      "q": "Which letter is Ba?",
      "options": [
-      "ب",
       "ت",
+      "ب",
       "ص"
      ],
-     "answer": 0,
+     "answer": 1,
      "why": "Ba is ب — as in بَاب."
     },
     {
      "q": "Which letter is Ta?",
      "options": [
-      "ت",
       "ث",
-      "ض"
+      "ض",
+      "ت"
      ],
-     "answer": 0,
+     "answer": 2,
      "why": "Ta is ت — as in تُفَّاح."
     },
     {
      "q": "Which letter is Tha?",
      "options": [
-      "ث",
       "ج",
+      "ث",
       "ط"
      ],
-     "answer": 0,
+     "answer": 1,
      "why": "Tha is ث — as in ثَوْب."
     },
     {
      "q": "Which letter is Jeem?",
      "options": [
-      "ج",
       "ح",
-      "ظ"
+      "ظ",
+      "ج"
      ],
-     "answer": 0,
+     "answer": 2,
      "why": "Jeem is ج — as in جَنَّة."
     },
     {
@@ -1108,11 +1108,11 @@
     {
      "q": "Which letter is Kha?",
      "options": [
-      "خ",
       "د",
-      "غ"
+      "غ",
+      "خ"
      ],
-     "answer": 0,
+     "answer": 2,
      "why": "Kha is خ — as in خَيْر."
     },
     {
@@ -1128,11 +1128,11 @@
     {
      "q": "The word بَاب begins with which letter?",
      "options": [
-      "ب",
       "د",
+      "ب",
       "ط"
      ],
-     "answer": 0,
+     "answer": 1,
      "why": "بَاب opens with ب (Ba)."
     },
     {
@@ -1156,41 +1156,41 @@
     {
      "q": "Which letter is Dal?",
      "options": [
-      "د",
       "ذ",
+      "د",
       "ف"
      ],
-     "answer": 0,
+     "answer": 1,
      "why": "Dal is د — as in دِين."
     },
     {
      "q": "Which letter is Dhal?",
      "options": [
-      "ذ",
       "ر",
-      "ق"
+      "ق",
+      "ذ"
      ],
-     "answer": 0,
+     "answer": 2,
      "why": "Dhal is ذ — as in ذِكْرى."
     },
     {
      "q": "Which letter is Ra?",
      "options": [
-      "ر",
       "ز",
+      "ر",
       "ك"
      ],
-     "answer": 0,
+     "answer": 1,
      "why": "Ra is ر — as in رَبّ."
     },
     {
      "q": "Which letter is Zay?",
      "options": [
-      "ز",
       "س",
-      "ل"
+      "ل",
+      "ز"
      ],
-     "answer": 0,
+     "answer": 2,
      "why": "Zay is ز — as in زَيْتون."
     },
     {
@@ -1206,11 +1206,11 @@
     {
      "q": "Which letter is Sheen?",
      "options": [
-      "ش",
       "ص",
-      "ن"
+      "ن",
+      "ش"
      ],
-     "answer": 0,
+     "answer": 2,
      "why": "Sheen is ش — as in شَمْس."
     },
     {
@@ -1226,11 +1226,11 @@
     {
      "q": "The word دِين begins with which letter?",
      "options": [
-      "د",
       "ص",
+      "د",
       "ك"
      ],
-     "answer": 0,
+     "answer": 1,
      "why": "دِين opens with د (Dal)."
     },
     {
@@ -1246,11 +1246,11 @@
     {
      "q": "The word رَبّ begins with which letter?",
      "options": [
-      "ر",
       "ط",
+      "ر",
       "م"
      ],
-     "answer": 0,
+     "answer": 1,
      "why": "رَبّ opens with ر (Ra)."
     }
    ]
@@ -1264,31 +1264,31 @@
     {
      "q": "Which letter is Dad?",
      "options": [
-      "ض",
       "ط",
-      "و"
+      "و",
+      "ض"
      ],
-     "answer": 0,
+     "answer": 2,
      "why": "Dad is ض — as in ضَيْف."
     },
     {
      "q": "Which letter is Ta (deep)?",
      "options": [
-      "ط",
       "ظ",
+      "ط",
       "ي"
      ],
-     "answer": 0,
+     "answer": 1,
      "why": "Ta (deep) is ط — as in طَهْ."
     },
     {
      "q": "Which letter is Za?",
      "options": [
-      "ظ",
       "ع",
-      "ا"
+      "ا",
+      "ظ"
      ],
-     "answer": 0,
+     "answer": 2,
      "why": "Za is ظ — as in ظِلّ."
     },
     {
@@ -1304,11 +1304,11 @@
     {
      "q": "Which letter is Ghayn?",
      "options": [
-      "غ",
       "ف",
-      "ت"
+      "ت",
+      "غ"
      ],
-     "answer": 0,
+     "answer": 2,
      "why": "Ghayn is غ — as in غَفُور."
     },
     {
@@ -1324,11 +1324,11 @@
     {
      "q": "Which letter is Qaf?",
      "options": [
-      "ق",
       "ك",
+      "ق",
       "ج"
      ],
-     "answer": 0,
+     "answer": 1,
      "why": "Qaf is ق — as in قَلْب."
     },
     {
@@ -1344,21 +1344,21 @@
     {
      "q": "The word طَهْ begins with which letter?",
      "options": [
-      "ط",
       "ك",
+      "ط",
       "ب"
      ],
-     "answer": 0,
+     "answer": 1,
      "why": "طَهْ opens with ط (Ta (deep))."
     },
     {
      "q": "The word ظِلّ begins with which letter?",
      "options": [
-      "ظ",
       "ل",
-      "ت"
+      "ت",
+      "ظ"
      ],
-     "answer": 0,
+     "answer": 2,
      "why": "ظِلّ opens with ظ (Za)."
     }
    ]
@@ -1372,21 +1372,21 @@
     {
      "q": "Which letter is Kaf?",
      "options": [
-      "ك",
       "ل",
+      "ك",
       "ح"
      ],
-     "answer": 0,
+     "answer": 1,
      "why": "Kaf is ك — as in كِتَاب."
     },
     {
      "q": "Which letter is Lam?",
      "options": [
-      "ل",
       "م",
-      "خ"
+      "خ",
+      "ل"
      ],
-     "answer": 0,
+     "answer": 2,
      "why": "Lam is ل — as in لَيْل."
     },
     {
@@ -1402,11 +1402,11 @@
     {
      "q": "Which letter is Noon?",
      "options": [
-      "ن",
       "ه",
-      "ذ"
+      "ذ",
+      "ن"
      ],
-     "answer": 0,
+     "answer": 2,
      "why": "Noon is ن — as in نُور."
     },
     {
@@ -1422,11 +1422,11 @@
     {
      "q": "Which letter is Waw?",
      "options": [
-      "و",
       "ي",
+      "و",
       "ز"
      ],
-     "answer": 0,
+     "answer": 1,
      "why": "Waw is و — as in وَحْي."
     },
     {
@@ -1442,35 +1442,35 @@
     {
      "q": "The word كِتَاب begins with which letter?",
      "options": [
-      "ك",
       "ي",
+      "ك",
       "د"
      ],
-     "answer": 0,
+     "answer": 1,
      "why": "كِتَاب opens with ك (Kaf)."
     },
     {
      "q": "The word لَيْل begins with which letter?",
      "options": [
-      "ل",
       "ا",
-      "ذ"
+      "ذ",
+      "ل"
      ],
-     "answer": 0,
+     "answer": 2,
      "why": "لَيْل opens with ل (Lam)."
     },
     {
      "q": "The word مَاء begins with which letter?",
      "options": [
-      "م",
       "ب",
+      "م",
       "ر"
      ],
-     "answer": 0,
+     "answer": 1,
      "why": "مَاء opens with م (Meem)."
     }
    ]
   }
  ],
- "source": "Classical Qaida sequence; example words from the Qur'an; pedagogy per the Academy & Life design"
+ "source": "Classical Qaida sequence; example words chosen to illustrate each letter; pedagogy per the Academy & Life design"
 }

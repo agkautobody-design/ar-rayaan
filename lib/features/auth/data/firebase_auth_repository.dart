@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart' as fb;
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 import '../application/auth_repository.dart';
 
@@ -16,6 +18,10 @@ class FirebaseAuthRepository implements AuthRepository {
       uid: u.uid,
       email: u.email ?? '',
       name: u.displayName,
+      usesPassword: u.providerData.any(
+        (fb.UserInfo i) => i.providerId == 'password',
+      ),
+      emailVerified: u.emailVerified,
     );
   }
 
@@ -43,6 +49,14 @@ class FirebaseAuthRepository implements AuthRepository {
         case 'too-many-requests':
           return const AuthException(
             'Too many attempts — please wait a moment and try again.',
+          );
+        case 'requires-recent-login':
+          return const AuthException(
+            'For your security, please enter your password again.',
+          );
+        case 'operation-not-allowed':
+          return const AuthException(
+            'This sign-in method is not turned on yet.',
           );
         case 'network-request-failed':
           return const AuthException(
@@ -123,14 +137,80 @@ class FirebaseAuthRepository implements AuthRepository {
     return AuthUser(uid: user.uid, email: user.email, name: name);
   }
 
+  /// Popup sign-in only exists on the web; on phones and desktop it would
+  /// throw an unimplemented error, so say so plainly instead.
+  static const AuthException socialUnavailable = AuthException(
+    'Google and Apple sign-in are available on the web version for now. '
+    'Please use your email and password here.',
+  );
+
   @override
   Future<AuthUser> signInWithGoogle() {
+    if (!kIsWeb) return Future<AuthUser>.error(socialUnavailable);
     return _guard(() => _auth.signInWithPopup(fb.GoogleAuthProvider()));
   }
 
   @override
   Future<AuthUser> signInWithApple() {
+    if (!kIsWeb) return Future<AuthUser>.error(socialUnavailable);
     return _guard(() => _auth.signInWithPopup(fb.OAuthProvider('apple.com')));
+  }
+
+  @override
+  Future<void> sendEmailVerification() async {
+    final fb.User? u = _auth.currentUser;
+    if (u == null) throw const AuthException('Please sign in first.');
+    try {
+      await u.sendEmailVerification();
+    } catch (e) {
+      throw mapError(e);
+    }
+  }
+
+  @override
+  Future<void> deleteAccount({String? password}) async {
+    final fb.User? u = _auth.currentUser;
+    if (u == null) throw const AuthException('Please sign in first.');
+    try {
+      final bool usesPassword = u.providerData.any(
+        (fb.UserInfo i) => i.providerId == 'password',
+      );
+      if (usesPassword) {
+        final String? email = u.email;
+        if (email == null || password == null || password.isEmpty) {
+          throw const AuthException('Please enter your password to continue.');
+        }
+        await u.reauthenticateWithCredential(
+          fb.EmailAuthProvider.credential(email: email, password: password),
+        );
+      } else if (kIsWeb) {
+        final bool apple = u.providerData.any(
+          (fb.UserInfo i) => i.providerId == 'apple.com',
+        );
+        await u.reauthenticateWithPopup(
+          apple ? fb.OAuthProvider('apple.com') : fb.GoogleAuthProvider(),
+        );
+      } else {
+        throw socialUnavailable;
+      }
+      // Remove the documents we keep about this person before the account
+      // itself (best effort).
+      final String uid = u.uid;
+      final FirebaseFirestore db = FirebaseFirestore.instance;
+      for (final String path in <String>['users', 'families']) {
+        try {
+          await db.collection(path).doc(uid).delete();
+        } catch (_) {
+          // Rules may deny deleting nested data; the account deletion below
+          // is what the person asked for and must still happen.
+        }
+      }
+      await u.delete();
+    } on AuthException {
+      rethrow;
+    } catch (e) {
+      throw mapError(e);
+    }
   }
 
   @override

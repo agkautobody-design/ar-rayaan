@@ -11,17 +11,6 @@ import '../application/wasia_controller.dart';
 import 'widgets/wasia_thread.dart';
 import 'wasia_lessons.dart';
 
-final familyServiceProvider = Provider<FamilyService>((ref) => FamilyService());
-
-final childrenProvider = FutureProvider<List<Map<String, dynamic>>>((ref) async {
-  return ref.watch(familyServiceProvider).children();
-});
-
-final progressProvider =
-    FutureProvider.family<Map<String, dynamic>, String>((ref, childId) async {
-  return ref.watch(familyServiceProvider).progress(childId);
-});
-
 /// The Family Wing — parents add children, watch their growth, and speak
 /// with Wasia about each child's learning.
 class FamilyScreen extends ConsumerWidget {
@@ -160,14 +149,22 @@ class _ChildCard extends ConsumerWidget {
                 final exams = (p['exams'] as Map).values
                     .map((e) => Map<String, dynamic>.from(e as Map))
                     .toList();
-                final totalScore = exams.fold<int>(
-                    0, (a, e) => a + ((e['score'] ?? 0) as int));
+                // Best single exam as a true percentage (score / total).
+                int bestPct = 0;
+                for (final e in exams) {
+                  final int sc = (e['score'] as num? ?? 0).toInt();
+                  final int tot = (e['total'] as num? ?? 0).toInt();
+                  if (tot > 0) {
+                    final int pct = (sc * 100 / tot).round();
+                    if (pct > bestPct) bestPct = pct;
+                  }
+                }
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       '$lessons / 28 letters lessons \u00b7 ${exams.length} exam(s) '
-                      '${exams.isNotEmpty ? '\u00b7 best ${totalScore > 0 ? (totalScore / exams.length).round() : 0}%' : ''}',
+                      '${exams.isNotEmpty ? '\u00b7 best $bestPct%' : ''}',
                       style: AppText.bodyMuted,
                     ),
                     if (exams.isNotEmpty) ...[
@@ -248,7 +245,6 @@ class _ParentWasiaBoxState extends ConsumerState<_ParentWasiaBox> {
                         .read(wasiaControllerProvider.notifier)
                         .ask(q,
                             persona: WasiaPersona.parent,
-                            childName: widget.childName,
                             lessonsDone: lessons,
                             examsTaken: exams);
                   },
@@ -327,6 +323,9 @@ class _ExamScreenState extends ConsumerState<ExamScreen> {
   int _score = 0;
   int? _picked;
   bool _done = false;
+  // Whether this result was stored for an active child. Without one the
+  // exam still runs, but the result screen must not claim it was recorded.
+  bool _recorded = false;
 
   @override
   Widget build(BuildContext context) {
@@ -424,8 +423,12 @@ class _ExamScreenState extends ConsumerState<ExamScreen> {
                                 child, widget.examId,
                                 score: _score, total: qs.length,
                               );
+                          ref.invalidate(progressProvider);
                         }
-                        setState(() => _done = true);
+                        setState(() {
+                          _recorded = child != null;
+                          _done = true;
+                        });
                       } else {
                         setState(() {
                           _picked = null;
@@ -462,13 +465,30 @@ class _ExamScreenState extends ConsumerState<ExamScreen> {
                     color: AppColors.goldLight)),
             const SizedBox(height: 8),
             Text(
-              pass
-                  ? 'Passed, alhamdulillah! Wasia has recorded this in your child\u2019s growth. The next unit is open.'
-                  : 'Not yet — no sadness. Wasia says: rest, review the letters, and retake it tomorrow. Growth is patient.',
+              (pass
+                      ? 'Passed, alhamdulillah! '
+                      : 'Not yet — no sadness. Wasia says: rest, review the letters, and retake it when you are ready. Growth is patient. ') +
+                  (_recorded
+                      ? (pass
+                          ? 'Wasia has recorded this in your child\u2019s growth (the best attempt is kept).'
+                          : 'Your best attempt so far is kept in your child\u2019s growth.')
+                      : 'No child is active, so this result was not saved — add a child in the Family Wing to keep a record.'),
               textAlign: TextAlign.center,
               style: AppText.bodyMuted.copyWith(height: 1.55),
             ),
             const SizedBox(height: 18),
+            if (!pass)
+              TextButton(
+                onPressed: () => setState(() {
+                  _i = 0;
+                  _score = 0;
+                  _picked = null;
+                  _done = false;
+                  _recorded = false;
+                }),
+                child: const Text('Retake the exam',
+                    style: TextStyle(color: AppColors.goldLight)),
+              ),
             TextButton(
               onPressed: () => context.go('/academy/letters'),
               child: const Text('Back to the School',

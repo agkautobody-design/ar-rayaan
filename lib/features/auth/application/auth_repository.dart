@@ -7,11 +7,23 @@
 library;
 
 class AuthUser {
-  const AuthUser({required this.uid, required this.email, this.name});
+  const AuthUser({
+    required this.uid,
+    required this.email,
+    this.name,
+    this.usesPassword = true,
+    this.emailVerified = false,
+  });
 
   final String uid;
   final String email;
   final String? name;
+
+  /// True when the account signs in with an email and password, so deleting
+  /// it needs the password again; false for Google / Apple accounts.
+  final bool usesPassword;
+
+  final bool emailVerified;
 }
 
 class AuthException implements Exception {
@@ -44,6 +56,14 @@ abstract interface class AuthRepository {
   Future<AuthUser> signInWithApple();
 
   Future<void> sendPasswordReset({required String email});
+
+  /// Sends (or re-sends) the verification link to the signed-in account.
+  /// Throws [AuthException] with a plain message when it cannot.
+  Future<void> sendEmailVerification();
+
+  /// Permanently deletes the signed-in account after re-authenticating.
+  /// [password] is required for email accounts. Throws [AuthException].
+  Future<void> deleteAccount({String? password});
 
   Future<void> signOut();
 }

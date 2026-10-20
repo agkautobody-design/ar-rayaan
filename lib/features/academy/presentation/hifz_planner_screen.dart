@@ -27,9 +27,8 @@ class _HifzPlannerScreenState extends State<HifzPlannerScreen> {
       targetSurah: _targetSurah,
       dailyNewAyat: _dailyAyat,
     );
-    final int ayatInSurah = 110; // Al-Kahf; full table ships with the surah index
-    final DateTime done =
-        plan.projectedCompletion(ayatInSurah, DateTime.now());
+    final int ayat = ayatInSurah(_targetSurah);
+    final DateTime done = plan.projectedCompletion(ayat, DateTime.now());
 
     return Scaffold(
       body: ScenicScaffold.pattern(
@@ -62,7 +61,7 @@ class _HifzPlannerScreenState extends State<HifzPlannerScreen> {
                     ),
                     const SizedBox(height: 12),
                     Text(
-                      'At $_dailyAyat ayat a day, Surah $_targetSurah completes around '
+                      'Surah $_targetSurah has $ayat ayat. At $_dailyAyat ayat a day it completes around '
                       '${done.year}-${done.month.toString().padLeft(2, '0')}-${done.day.toString().padLeft(2, '0')}. '
                       'A teacher may set a different pace — this is your compass, not your judge.',
                       style: AppText.bodyMuted.copyWith(height: 1.5),
@@ -99,7 +98,7 @@ class _HifzPlannerScreenState extends State<HifzPlannerScreen> {
               const SizedBox(height: 12),
               GlassCard(
                 child: Text(
-                  'Revision is the heart of memorization — the Quran is forgotten faster than it is learned unless the recent and long-range lanes are kept. Recite today’s blocks to your checker.',
+                  'Revision is the heart of memorization. The Prophet \ufdfa said: “Commit yourselves to the Qur’an, for it escapes from people’s memory faster than a camel from its tether” (Bukhari 5033, paraphrased). Recite today’s blocks to your checker.',
                   style: AppText.bodyMuted.copyWith(height: 1.5),
                 ),
               ),
@@ -109,18 +108,17 @@ class _HifzPlannerScreenState extends State<HifzPlannerScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text("Where to begin — the Prophet\u2019s counsel",
+                    Text("Where to begin",
                         style: AppText.titleMedium),
                     const SizedBox(height: 8),
                     Text(
-                      "Start with what the mosque recites most: the short surahs of Juz Amma. "
-                      "The Prophet \ufdfa said the one who recites the last ten surahs is like one who memorized the entire Qur\u2019an \u2014 "
-                      "and the most repeated surahs (Al-Ikhlas, Al-Falaq, An-Nas, Al-Kahf) are the first the heart owns. "
-                      "Begin where you already pray.",
+                      "Start with what you already pray: Al-Fatihah and the short surahs of Juz Amma "
+                      "(Al-Ikhlas, Al-Falaq, An-Nas). What you recite every day is the easiest to keep. "
+                      "Al-Kahf, the default target here, is a longer surah \u2014 set the surah above to the one you are working on.",
                       style: AppText.bodyMuted.copyWith(height: 1.5),
                     ),
                     const SizedBox(height: 10),
-                    Text("Tirmidhi 2942 \u00b7 [Interpretive: start-where-you-pray method]",
+                    Text("[Interpretive: start-where-you-pray method]",
                         style: AppText.bodyMuted.copyWith(fontSize: 10)),
                   ],
                 ),
