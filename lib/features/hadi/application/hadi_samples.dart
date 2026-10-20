@@ -66,7 +66,7 @@ const List<HadiExchange> kProposedHadiExchanges = [
     question: 'Find the dua for leaving home',
     answer: 'Bismillahi, tawakkaltu \'alallah — "In the name of '
         'Allah, I trust in Allah." It opens the Daily Duas pack. '
-        'Shall I take you there?\n[GO:/dailyduas]',
+        'Shall I take you there?\n[GO:/academy/hisn]',
   ),
   // New exchanges — emotional & practical
   HadiExchange(
