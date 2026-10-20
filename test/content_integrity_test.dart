@@ -80,7 +80,7 @@ void main() {
       'Abu Dawud 5096 — sahih': 'the home dua wording is daʿif',
       'Sunan Abi Dawud 5096 — sahih': 'the home dua wording is daʿif',
       'Bukhari 604).': 'adhan wording is Muslim 379',
-      'Bukhari 1374': 'invented citation',
+      'Muslim 2752 \u2014 the grave': 'Muslim 2752 is about mercy in 100 parts',
       "Muslim 407'": 'one blessing, ten returned is Muslim 408',
     };
     final List<String> hits = <String>[];
