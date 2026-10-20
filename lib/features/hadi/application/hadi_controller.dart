@@ -16,6 +16,12 @@ import '../../sakina/application/sakina_providers.dart';
 import '../../sakina/domain/crisis_detector.dart';
 import '../data/groq_hadi_provider.dart';
 import '../data/offline_hadi_provider.dart';
+import '../grounding/answer_verifier.dart';
+import '../grounding/corpus.dart';
+import '../grounding/madhhab.dart';
+import '../grounding/minor_signal.dart';
+import '../grounding/passage.dart';
+import '../grounding/ruling_gate.dart';
 import 'hadi_provider.dart';
 
 /// Every screen Hādi is allowed to take a person to. Each entry MUST be a
@@ -24,10 +30,10 @@ import 'hadi_provider.dart';
 /// be here (the same test checks that too).
 const Set<String> kHadiNavWhitelist = <String>{
   '/home', '/stories', '/games', '/player', '/finance', '/masajid',
-  '/feelings', '/family-tree', '/huda', '/majlis', '/elder-care',
+  '/feelings', '/family-tree', '/huda', '/elder-care',
   '/qibla', '/hadith', '/sakina', '/share', '/notes',
   '/quran', '/prayer', '/zakat', '/calendar', '/adhkar', '/explore',
-  '/journey', '/community', '/settings', '/sources', '/hadi', '/noor',
+  '/journey', '/settings', '/sources', '/hadi', '/noor',
   '/search', '/profile', '/home/elder', '/games/trivia',
   '/academy/review', '/academy/letters', '/academy/audio-packs',
   '/academy', '/academy/gate', '/academy/family', '/home/quick',
@@ -68,6 +74,7 @@ class HadiState {
     required this.messages,
     this.typing = false,
     this.live = false,
+    this.madhhab = Madhhab.notSure,
   });
 
   final List<HadiMessage> messages;
@@ -76,15 +83,20 @@ class HadiState {
   /// True when answering through the live provider (user key present).
   final bool live;
 
+  /// The school of law the person chose (kept on the device).
+  final Madhhab madhhab;
+
   HadiState copy({
     List<HadiMessage>? messages,
     bool? typing,
     bool? live,
+    Madhhab? madhhab,
   }) {
     return HadiState(
       messages: messages ?? this.messages,
       typing: typing ?? this.typing,
       live: live ?? this.live,
+      madhhab: madhhab ?? this.madhhab,
     );
   }
 }
@@ -213,6 +225,11 @@ class HadiController extends Notifier<HadiState> {
             HadiMessage(
               fromHadi: (e as Map)['fromHadi'] as bool,
               text: e['text'] as String,
+              sources: <String>[
+                for (final dynamic x in (e['sources'] as List<dynamic>? ??
+                    const <dynamic>[]))
+                  x as String,
+              ],
             ),
         ];
         if (restored.length > 1) {
@@ -245,7 +262,7 @@ class HadiController extends Notifier<HadiState> {
         Future<void>.microtask(() => ask(seed));
       }
     } catch (_) {}
-    return HadiState(messages: messages, live: _apiKey != null);
+    return HadiState(messages: messages, live: _apiKey != null, madhhab: madhhab);
   }
 
   void _persistThread(List<HadiMessage> messages) {
@@ -264,7 +281,11 @@ class HadiController extends Notifier<HadiState> {
         _threadPref,
         json.encode(<Map<String, dynamic>>[
           for (final HadiMessage m in tail)
-            <String, dynamic>{'fromHadi': m.fromHadi, 'text': m.text},
+            <String, dynamic>{
+              'fromHadi': m.fromHadi,
+              'text': m.text,
+              if (m.sources.isNotEmpty) 'sources': m.sources,
+            },
         ]),
       );
     } catch (_) {}
@@ -407,7 +428,8 @@ class HadiController extends Notifier<HadiState> {
   ];
 
   /// The fixed reply for a crisis message, or null when the message should
-  /// go on to the normal flow (an abuse follow-up question).
+  /// go on to the normal flow (an abuse follow-up question, answered from
+  /// the on-device shelf only).
   String? _crisisReply(CrisisKind kind) {
     final String? cc = ref.read(deviceCountryProvider);
     if (!_crisisShownRecently()) {
@@ -427,14 +449,78 @@ class HadiController extends Notifier<HadiState> {
             'here.';
       case CrisisKind.abuse:
         return null;
+      case CrisisKind.childSafety:
+      case CrisisKind.eatingDisorder:
+      case CrisisKind.extremism:
+        return CrisisResponses.followUpFor(kind);
     }
   }
+
+  // ── Madhhab ────────────────────────────────────────────────────────
+  static const String _madhhabPref = 'ar.hadi.madhhab';
+
+  Madhhab get madhhab {
+    try {
+      return Madhhab.fromCode(
+          ref.read(sharedPreferencesProvider).getString(_madhhabPref));
+    } catch (_) {
+      return Madhhab.notSure;
+    }
+  }
+
+  Future<void> setMadhhab(Madhhab m) async {
+    try {
+      await ref.read(sharedPreferencesProvider).setString(_madhhabPref, m.code);
+    } catch (_) {}
+    state = state.copy(madhhab: m);
+  }
+
+  // ── Grounding helpers (pure where possible) ────────────────────────
+  static final RegExp _navLike = RegExp(
+    r'\b(where|open|take me|go to|show me|how do i|how can i|app|feature|'
+    r'story|stories|khutbah|find|section|page|screen|academy|game|games|'
+    r'settings|bookmark|save|school|wasia|journey|notes|calendar|qibla|'
+    r'zakat|prayer times?|which|what do you have|contains?)\b',
+    caseSensitive: false,
+  );
+
+  /// True when the question is about the app itself, so the table of
+  /// contents is worth sending.
+  static bool isNavigationLike(String q) => _navLike.hasMatch(q);
+
+  Future<HadiCorpus> _corpus() async {
+    try {
+      return await ref.read(hadiCorpusProvider.future);
+    } catch (_) {
+      return HadiCorpus.fromJson(
+        corpus: <String, dynamic>{
+          'quran': <dynamic>[],
+          'hadith': <dynamic>[],
+          'checked': '',
+        },
+        quran: <dynamic>[],
+      );
+    }
+  }
+
+  void _append(HadiMessage m) {
+    state = state.copy(
+      messages: <HadiMessage>[...state.messages, m],
+      typing: false,
+    );
+    _persistThread(state.messages);
+  }
+
+  /// Set once a person says they are under 18. Memory only, this visit.
+  bool _minorSession = false;
 
   Future<String> ask(String question, {HadiProvider? provider}) async {
     if (question.trim().isEmpty || state.typing) return '';
     final String q = question.trim();
 
-    // SAFETY FIRST. Runs before any provider — offline or live. When it
+    if (MinorSignal.isMinor(q)) _minorSession = true;
+
+    // SAFETY FIRST. Runs before any provider, offline or live. When it
     // fires, no provider is called, nothing is sent over the network, no
     // quota is spent, and the exchange is never saved to the device.
     final CrisisKind? crisis = CrisisDetector.detect(q);
@@ -459,6 +545,57 @@ class HadiController extends Notifier<HadiState> {
       }
     }
 
+    // Hādi is for adults. Someone who says they are under 18 gets a short
+    // fixed reply and the children's lines; no live model is called.
+    if (_minorSession && crisis == null) {
+      final int prior = state.messages
+          .where((HadiMessage m) =>
+              m.fromHadi && m.crisis == CrisisKind.childSafety && m.sensitive)
+          .length;
+      final String reply = MinorSignal.replyFor(prior);
+      state = state.copy(
+        messages: <HadiMessage>[
+          ...state.messages,
+          HadiMessage(fromHadi: false, text: q, sensitive: true),
+          HadiMessage(
+            fromHadi: true,
+            text: reply,
+            crisis: CrisisKind.childSafety,
+            sensitive: true,
+          ),
+        ],
+        typing: false,
+      );
+      _persistThread(state.messages);
+      return reply;
+    }
+
+    // Rulings about one person's own case are never answered by a model.
+    final RulingClass ruling =
+        crisis == null ? RulingGate.classify(q) : RulingClass.none;
+    if (ruling == RulingClass.personal) {
+      final HadiCorpus corpus = await _corpus();
+      final Madhhab m = madhhab;
+      final String reply = RulingGate.personalReply(
+        schoolLabel: m == Madhhab.notSure ? null : m.label,
+      );
+      state = state.copy(
+        messages: <HadiMessage>[
+          ...state.messages,
+          HadiMessage(fromHadi: false, text: q),
+        ],
+        typing: false,
+      );
+      _append(HadiMessage(
+        fromHadi: true,
+        text: reply,
+        sources: <String>[
+          for (final Passage p in corpus.retrieve(q, limit: 2)) p.id,
+        ],
+      ));
+      return reply;
+    }
+
     state = state.copy(
       messages: <HadiMessage>[
         ...state.messages,
@@ -466,11 +603,18 @@ class HadiController extends Notifier<HadiState> {
       ],
       typing: true,
     );
-    HadiProvider p = provider ?? resolveProvider(_apiKey);
+    // An abuse follow-up stays on the device: the on-device shelf answers.
+    final bool onDeviceOnly = crisis != null;
+    HadiProvider p = onDeviceOnly
+        ? const OfflineHadiProvider()
+        : (provider ?? resolveProvider(_apiKey));
     // Subscription quota: managed-key calls count against the daily tier
     // quota. When the quota is spent, answer from the shelf and say so.
     String? quotaNote;
-    if (provider == null && _usingManagedKey && _apiKey != null) {
+    if (!onDeviceOnly &&
+        provider == null &&
+        _usingManagedKey &&
+        _apiKey != null) {
       final SubscriptionService sub =
           ref.read(subscriptionServiceProvider.notifier);
       if (sub.isEntitled && !sub.consumeQuestion()) {
@@ -487,30 +631,54 @@ class HadiController extends Notifier<HadiState> {
           in state.messages.sublist(0, state.messages.length - 1))
         if (!m.sensitive) m,
     ];
+    final HadiCorpus corpus = await _corpus();
+    bool usedLive = false;
     String answer;
     try {
       String liveQuestion = q;
-      final String tocDigest = await _toc();
-      if (tocDigest.isNotEmpty) {
+      if (p is! OfflineHadiProvider) {
+        usedLive = true;
+        final StringBuffer ctx = StringBuffer();
+        if (isNavigationLike(q)) {
+          final String tocDigest = await _toc();
+          if (tocDigest.isNotEmpty) {
+            ctx.write('The app’s table of contents (so you can answer '
+                'about what the app CONTAINS, e.g. which stories or guides '
+                'exist — never claim to know the user’s private '
+                'data):\n$tocDigest\n');
+          }
+        }
         // Opt-in memory: only what the user deliberately enabled, and only
         // the name. (Settings says so; the key sheet says where it goes.)
-        String memoryContext = '';
         try {
           final SharedPreferences prefs = ref.read(sharedPreferencesProvider);
           if (prefs.getBool(_memoryPref) == true) {
             final profile = await ref.read(userProfileProvider.future);
             final String? name = profile?.displayName;
             if (name != null && name.trim().isNotEmpty) {
-              memoryContext = 'The user chose to share their name with you: '
-                  '${name.trim()}. Use it once per answer, naturally.\n';
+              ctx.write('The user chose to share their name with you: '
+                  '${name.trim()}. Use it once per answer, naturally.\n');
             }
           }
         } catch (_) {}
-        liveQuestion = 'The app\u2019s table of contents (so you can answer '
-            'about what the app CONTAINS, e.g. which stories or guides '
-            'exist — never claim to know the user\u2019s private data):\n'
-            '$tocDigest\n$memoryContext\n'
-            'User\u2019s question: $q';
+        ctx.write('${madhhab.promptLine}\n');
+        if (ruling == RulingClass.general) {
+          ctx.write('This is a general question about a ruling. Explain the '
+              'general position and that schools differ. Do not apply it to '
+              'the user’s own case.\n');
+        }
+        final List<Passage> found = corpus.retrieve(q, limit: 4);
+        if (found.isEmpty) {
+          ctx.write('PASSAGES: none in the library match this question. Cite '
+              'no verse or hadith.\n');
+        } else {
+          ctx.write('PASSAGES you may cite (write only the ID token, never '
+              'the text):\n');
+          for (final Passage f in found) {
+            ctx.write('${HadiCorpus.describeForModel(f)}\n');
+          }
+        }
+        liveQuestion = '${ctx.toString()}\nUser’s question: $q';
       }
       // The offline shelf matches on the user's own words only.
       answer = await p.ask(p is OfflineHadiProvider ? q : liveQuestion, history);
@@ -518,6 +686,7 @@ class HadiController extends Notifier<HadiState> {
       // Live failure never dead-ends: the curated knowledge answers — but
       // say WHY, so a bad key, a blocked region, or CORS is visible instead
       // of masquerading as ignorance. Never the raw exception text.
+      usedLive = false;
       String offline;
       try {
         offline = await const OfflineHadiProvider().ask(q, history);
@@ -536,13 +705,45 @@ class HadiController extends Notifier<HadiState> {
     // saved — so the thread never holds a raw [GO:] / [DO:] token.
     final String route = HadiTokens.routeOf(answer) ?? '';
     String clean = HadiTokens.strip(await _executeActions(answer));
+
+    // Live answers are checked before anyone sees them.
+    List<String> sources = const <String>[];
+    final List<String> notes = <String>[];
+    if (usedLive) {
+      final VerifiedAnswer v = AnswerVerifier.verify(clean, corpus);
+      clean = v.text;
+      sources = v.sourceIds;
+      if (v.changed) {
+        notes.add('Hādi removed a reference or quotation it could not check '
+            'against its library.');
+      }
+      if (v.unsupportedGrade) {
+        notes.add('Any hadith grade in this reply is not checked. Grades '
+            'are shown only under passages from Hādi’s library.');
+      }
+      final ({String text, bool changed}) f = RulingGate.filterLive(clean);
+      if (f.changed) {
+        clean = f.text;
+        notes.add('A sentence about your own situation was removed.');
+      }
+    }
+    if (ruling == RulingClass.general) {
+      clean = '$clean\n\n${RulingGate.generalFooter}';
+    }
     if (crisis != null) {
       clean = '$clean\n\n${CrisisResponses.reminderFor(crisis)}';
     }
     state = state.copy(
       messages: <HadiMessage>[
         ...state.messages,
-        HadiMessage(fromHadi: true, text: clean, sensitive: crisis != null),
+        HadiMessage(
+          fromHadi: true,
+          text: clean,
+          sensitive: crisis != null,
+          sources: sources,
+          live: usedLive,
+          notes: notes,
+        ),
       ],
       typing: false,
     );

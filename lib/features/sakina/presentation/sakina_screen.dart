@@ -8,6 +8,8 @@ import '../../../app/theme/widgets/screen_header.dart';
 import '../application/sakina_providers.dart';
 import '../domain/sakina_content.dart';
 import 'widgets/help_line_tile.dart';
+import 'widgets/need_help_button.dart';
+import 'wellbeing_tools.dart';
 
 /// Sakina — the soul of the app (crisis shell, Wave A4).
 /// Locked look: hero word of mercy → rooms → comfort deck → human help.
@@ -19,9 +21,10 @@ class SakinaScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final int daysReturned = ref.watch(daysReturnedProvider);
-    final ComfortCard todaysComfort = ComfortCards.deck[
+    final List<ComfortCard> daily = ComfortCards.daily;
+    final ComfortCard todaysComfort = daily[
         DateTime.now().difference(DateTime(DateTime.now().year)).inDays %
-            ComfortCards.deck.length];
+            daily.length];
 
     return Scaffold(
       body: SafeArea(
@@ -32,16 +35,14 @@ class SakinaScreen extends ConsumerWidget {
               child: ListView(
                 padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
                 children: [
-                  // The door — the founder's covenant to every hurting user.
+                  // The door.
                   GlassCard(
                     strong: true,
                     padding: const EdgeInsets.all(18),
                     child: Column(
                       children: [
                         Text(
-                          'This space was built by a founder who has stood '
-                          'where you are standing — and is still walking the '
-                          'road. No judgment lives here. Only the door back.',
+                          'No judgment lives here. Only the door back.',
                           style: AppText.body.copyWith(
                             fontSize: 14,
                             height: 1.7,
@@ -75,6 +76,8 @@ class SakinaScreen extends ConsumerWidget {
                       ],
                     ),
                   ),
+                  const SizedBox(height: 12),
+                  const Center(child: NeedHelpNowButton()),
                   const SizedBox(height: 16),
 
                   // Today's comfort card.
@@ -109,6 +112,38 @@ class SakinaScreen extends ConsumerWidget {
                         ),
                       ],
                     ),
+                  ),
+                  const SizedBox(height: 16),
+
+                  // Small tools. Everything stays on this device.
+                  Text(
+                    'FOR A HARD MOMENT',
+                    style: AppText.eyebrow.copyWith(color: AppColors.gold),
+                  ),
+                  const SizedBox(height: 8),
+                  Wrap(
+                    spacing: 8,
+                    runSpacing: 8,
+                    children: <Widget>[
+                      ActionChip(
+                        avatar: const Icon(Icons.air, size: 16),
+                        label: const Text('Steady yourself'),
+                        onPressed: () =>
+                            openWellbeingTool(context, const SteadyScreen()),
+                      ),
+                      ActionChip(
+                        avatar: const Icon(Icons.edit_note, size: 16),
+                        label: const Text('How are you today?'),
+                        onPressed: () => openWellbeingTool(
+                            context, const MoodCheckInScreen()),
+                      ),
+                      ActionChip(
+                        avatar: const Icon(Icons.shield_outlined, size: 16),
+                        label: const Text('My safety plan'),
+                        onPressed: () => openWellbeingTool(
+                            context, const SafetyPlanScreen()),
+                      ),
+                    ],
                   ),
                   const SizedBox(height: 16),
 
@@ -209,6 +244,16 @@ class _RoomCard extends ConsumerWidget {
                 fontStyle: FontStyle.italic,
               ),
             ),
+            if (room.sources.isNotEmpty) ...<Widget>[
+              const SizedBox(height: 8),
+              Text(
+                'Quoted: ${room.sources}',
+                style: AppText.caption.copyWith(
+                  fontSize: 10.5,
+                  color: AppColors.gold.withValues(alpha: 0.7),
+                ),
+              ),
+            ],
             if (safety != null) ...<Widget>[
               const SizedBox(height: 10),
               Text(

@@ -88,6 +88,44 @@ void main() {
     }
   });
 
+  group('CrisisDetector: the newer kinds', () {
+    test('child safety', () {
+      for (final String t in <String>[
+        'a man online asked me to send nudes',
+        'my uncle touches me and told me not to tell',
+      ]) {
+        expect(CrisisDetector.detect(t), CrisisKind.childSafety, reason: t);
+      }
+    });
+
+    test('eating disorder', () {
+      expect(CrisisDetector.detect('I have been starving myself for a week'),
+          CrisisKind.eatingDisorder);
+    });
+
+    test('extremism', () {
+      expect(CrisisDetector.detect('I want to join a terrorist group'),
+          CrisisKind.extremism);
+    });
+
+    test('everyday sentences with the same words stay quiet', () {
+      for (final String t in <String>[
+        'my dad hits the gym every morning',
+        'my dad beats me at chess',
+        'I stopped eating sweets for Ramadan',
+      ]) {
+        expect(CrisisDetector.detect(t), isNull, reason: t);
+      }
+    });
+
+    test('every kind has a follow-up that keeps help in view', () {
+      for (final CrisisKind k in CrisisKind.values) {
+        expect(CrisisResponses.followUpFor(k), isNotEmpty);
+        expect(CrisisResponses.reminderFor(k), isNotEmpty);
+      }
+    });
+  });
+
   group('CrisisResponses', () {
     test('every kind gives a reply with real help in it', () {
       for (final CrisisKind k in CrisisKind.values) {

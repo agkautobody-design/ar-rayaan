@@ -5,7 +5,8 @@ import 'package:http/http.dart' as http;
 import '../application/hadi_provider.dart';
 
 /// Live AI over any OpenAI-compatible chat endpoint with the user's own key.
-/// Keys never leave the device. Two curated backends below (Groq, OpenRouter).
+/// The key is stored in plain text on this device and is sent only to the
+/// provider you chose. Two curated backends below (Groq, OpenRouter).
 class OpenAIChatHadiProvider implements HadiProvider {
   OpenAIChatHadiProvider({
     required this.apiKey,

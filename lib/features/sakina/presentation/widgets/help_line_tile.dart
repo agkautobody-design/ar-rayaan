@@ -131,6 +131,16 @@ class HelpLineTile extends StatelessWidget {
                           fontWeight: FontWeight.w600,
                         ),
                       ),
+                      if (!resource.verified)
+                        Text(
+                          'Not re-checked recently. If it does not connect, '
+                          'try another line or your local emergency number.',
+                          style: AppText.caption.copyWith(
+                            color: AppColors.sand.withValues(alpha: 0.5),
+                            fontSize: 10,
+                            height: 1.3,
+                          ),
+                        ),
                     ],
                   ),
                 ),
