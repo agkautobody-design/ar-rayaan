@@ -3,6 +3,7 @@ import 'package:ar_rayaan/features/academy/domain/assessment_engine.dart';
 import 'package:ar_rayaan/features/academy/domain/course_manifest.dart';
 import 'package:ar_rayaan/features/academy/application/academy_providers.dart';
 import 'package:ar_rayaan/features/academy/application/academy_strings.dart';
+import 'package:ar_rayaan/features/academy/application/recall_checks.dart';
 import 'package:ar_rayaan/features/academy/presentation/academy_home_screen.dart';
 import 'package:ar_rayaan/features/academy/presentation/lesson_player_screen.dart';
 import 'package:flutter/material.dart';
@@ -228,12 +229,18 @@ void main() {
       ));
       await tester.pumpAndSettle();
 
-      expect(find.text('1/4'), findsOneWidget);
+      // The lesson's own steps plus its generated recall check (if any).
+      final int total = RecallChecks.stepsWithRecall(
+        findLessonById('path.u0.l1')!,
+      ).length;
+      expect(find.text('1/$total'), findsOneWidget);
       expect(find.text('You are welcome here'), findsOneWidget);
+      // The provenance label is always on screen.
+      expect(find.textContaining('Not yet scholar-reviewed'), findsOneWidget);
 
       await tester.tap(find.text('Next'));
       await tester.pumpAndSettle();
-      expect(find.text('2/4'), findsOneWidget);
+      expect(find.text('2/$total'), findsOneWidget);
     });
   });
 }

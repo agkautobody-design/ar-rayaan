@@ -7,14 +7,41 @@ import 'family_service.dart';
 import 'dart:convert';
 
 import '../../hadi/application/hadi_provider.dart';
+import '../../sakina/domain/crisis_detector.dart';
 import '../../hadi/data/groq_hadi_provider.dart';
 import '../data/offline_wasia_provider.dart';
 
 enum WasiaPersona { student, parent, teacher }
 
+/// Parent-controlled switch: may a child's questions go to an AI service?
+/// Off by default. Even when on, the child's name is never sent.
+const String kWasiaChildLlmPref = 'ar.wasia.child_llm';
+
+/// Fixed reply when a message may describe self-harm, abuse or danger. It
+/// runs before ANY answer (shelf or live AI), nothing the person wrote is
+/// sent anywhere, and it never invents a phone number.
+String wasiaCrisisReply(WasiaPersona persona) {
+  const String help =
+      'If you or someone else is in danger right now, call your country\u2019s '
+      'emergency number. The Sakina section in the app lists help lines for '
+      'your country, and H\u0101di can talk with you gently.';
+  if (persona == WasiaPersona.student) {
+    return 'Thank you for telling me \u2014 I am so glad you did. This is '
+        'something a grown-up you trust needs to know about today: a parent, '
+        'a teacher, or another adult in your family. Please tell them '
+        'now. You are not in trouble, and you are not alone. $help';
+  }
+  return 'I am so sorry you are carrying this, and I am glad you wrote it '
+      'down. This needs a real person, not a lesson. Please reach out to '
+      'someone you trust today, or a local professional. $help';
+}
+
 /// One brain, three voices. Research-backed shape: a specific, in-domain
 /// persona that NAMES its audience and context beats a generic role label —
 /// so each voice rides on top of Wasia's teaching laws, not instead of them.
+/// [childName] is accepted for API compatibility but is NEVER written into
+/// the prompt: the prompt goes to a third-party AI service and a child's
+/// name must not leave the device.
 String personaPrompt(WasiaPersona p,
     {String? childName, int? lessonsDone, int? examsTaken,
     String? studentBlock}) {
@@ -30,8 +57,7 @@ String personaPrompt(WasiaPersona p,
           'warmth.';
     case WasiaPersona.parent:
       return '$kWasiaSystemPrompt\n'
-          'YOU ARE SPEAKING WITH A PARENT'
-          '${childName != null ? " — their child is $childName" : ""}, '
+          'YOU ARE SPEAKING WITH A PARENT, '
           'gently, without jargon. '
           '${lessonsDone != null ? "Progress so far: $lessonsDone of 28 letter lessons, ${examsTaken ?? 0} exams. " : ""}'
           'Encourage honestly, suggest ONE concrete practice, and always '
@@ -53,10 +79,13 @@ const String kWasiaSystemPrompt =
     'Teaching laws:\n'
     '1. Greet with warmth; praise effort, not just results.\n'
     '2. Teach in small steps; one idea at a time; end with a tiny question.\n'
-    '3. Never invent religious rulings — if fiqh arises, give the mainstream '
-    'view and advise asking a local scholar.\n'
+    '3. Never give a religious ruling. If fiqh arises, say you cannot rule on '
+    'it, point to Hādi (who names his sources) and advise asking a local '
+    'scholar.\n'
     '4. Keep answers under 90 words: gentle, clear, hopeful.\n'
-    '5. When teaching Qur\u2019an or hadith content, stay with the established text.\n'
+    '5. Do not quote Qur\u2019an or hadith from memory. Teach only what the '
+    'lesson in front of the student says; if you are not sure, say so and '
+    'point to the lesson or to Hādi.\n'
     '6. TEACH the app as well: when a parent asks about progress, explain the '
     'Family Wing shows each child\u2019s lessons and exams, and offer to help '
     'them write a progress report to send.\n'
@@ -69,7 +98,10 @@ const String kWasiaSystemPrompt =
     '9. The Academy has more than twenty schools; if a question belongs to another '
     'school, name it and point: the Q&A Bank answers this, or Hisn '
     'al-Muslim holds the dua you need. You teach letters; the Academy '
-    'teaches everything else.';
+    'teaches everything else.\n'
+    '10. Never ask for, repeat or use a child\u2019s name, age, school, '
+    'address or any personal detail. If a child says they are hurt, scared '
+    'or unsafe, tell them to speak to a trusted adult today.';
 
 /// Wasia's conversation: every box feeds one thread, so she remembers
 /// follow-ups ("what about the second letter?") across the whole session.
@@ -148,6 +180,21 @@ class WasiaController extends StateNotifier<WasiaState> {
     }
   }
 
+  /// Whether a parent has allowed a child's questions to reach an AI service.
+  static Future<bool> childLlmAllowed() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      return prefs.getBool(kWasiaChildLlmPref) ?? false;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  static Future<void> setChildLlmAllowed(bool value) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(kWasiaChildLlmPref, value);
+  }
+
   Future<String?> _key() async {
     final prefs = await SharedPreferences.getInstance();
     final k = prefs.getString(_keyPref);
@@ -169,17 +216,35 @@ class WasiaController extends StateNotifier<WasiaState> {
       int? examsTaken}) async {
     final q = question.trim();
     if (q.isEmpty || state.isLoading) return '';
+    // Safety net first: before the shelf, before any AI, nothing is sent.
+    final CrisisKind? crisis = CrisisDetector.detect(q);
+    if (crisis != null) {
+      final String reply = wasiaCrisisReply(persona);
+      state = state.copy(
+        messages: <HadiMessage>[
+          ...state.messages,
+          HadiMessage(fromHadi: false, text: q, sensitive: true),
+          HadiMessage(
+              fromHadi: true, text: reply, crisis: crisis, sensitive: true),
+        ],
+      );
+      return reply;
+    }
     // Keyless: Wasia teaches from her OWN curated shelf — the Academy
     // curriculum (letters, units, exams, parent FAQ). She never borrows
     // Hadi's religious shelf for a child's letter question, and never
     // invents what she does not know.
-    final k = await _key();
+    // A child's questions stay on the shelf unless a parent has switched the
+    // AI service on (and then no name is sent).
+    final bool aiAllowed = persona != WasiaPersona.student ||
+        await childLlmAllowed();
+    final k = aiAllowed ? await _key() : null;
     if (k == null) {
       // Quota spent (but still subscribed)? Say so honestly before the
       // shelf answer — never let a limit masquerade as ignorance.
       String? quotaNote;
       final sub = ref.read(subscriptionServiceProvider.notifier);
-      if (sub.isEntitled && sub.managedKey != null) {
+      if (aiAllowed && sub.isEntitled && sub.managedKey != null) {
         quotaNote = 'Your live questions for today are finished — the '
             'subscription resets at midnight. Meanwhile, from my lesson '
             'shelf:\n\n';
@@ -240,14 +305,15 @@ class WasiaController extends StateNotifier<WasiaState> {
       }
       state = state.copy(messages: msgs, isLoading: false);
       return answer;
-    } catch (e) {
+    } catch (_) {
       // A failed turn must not wedge the conversation: drop the pending
       // question so the user can rephrase.
       state = state.copy(
         isLoading: false,
         messages: state.messages.sublist(0, state.messages.length - 1),
       );
-      return 'Wasia could not reach her voice just now ($e). '
+      // The error text is never shown: it can carry a key, a URL or a stack.
+      return 'Wasia could not reach her voice just now. '
           'The lesson above still carries everything — keep walking it.';
     }
   }

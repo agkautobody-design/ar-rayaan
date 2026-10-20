@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -8,6 +10,8 @@ import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../application/family_service.dart';
 import '../application/wasia_controller.dart';
+import '../domain/children_privacy.dart';
+import 'widgets/parent_gate.dart';
 import 'widgets/wasia_thread.dart';
 import 'wasia_lessons.dart';
 
@@ -17,16 +21,37 @@ class FamilyScreen extends ConsumerWidget {
   const FamilyScreen({super.key});
 
   Future<void> _addChild(BuildContext context, WidgetRef ref) async {
+    if (!await requireParent(context, ref)) return;
+    if (!context.mounted) return;
+    final FamilyService fam = ref.read(familyServiceProvider);
+    if (!await fam.hasConsent()) {
+      final bool agreed = await showChildrenConsent(context);
+      if (!agreed) return;
+      await fam.recordConsent();
+    }
+    if (!context.mounted) return;
     final name = TextEditingController();
     final ok = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
         backgroundColor: const Color(0xFF0A0F18),
         title: Text('Add a child', style: AppText.titleMedium),
-        content: TextField(
-          controller: name,
-          style: AppText.body,
-          decoration: const InputDecoration(hintText: 'Child\u2019s name'),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            TextField(
+              controller: name,
+              maxLength: 30,
+              style: AppText.body,
+              decoration: const InputDecoration(
+                  hintText: 'First name or nickname'),
+            ),
+            Text(
+              'A nickname is enough. It stays on this device only.',
+              style: AppText.caption,
+            ),
+          ],
         ),
         actions: [
           TextButton(
@@ -40,13 +65,18 @@ class FamilyScreen extends ConsumerWidget {
       ),
     );
     if (ok == true && name.text.trim().isNotEmpty) {
-      await ref.read(familyServiceProvider).addChild(name.text);
+      await fam.addChild(name.text);
       ref.invalidate(childrenProvider);
     }
   }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // Watching the gate rebuilds this screen when a parent unlocks it.
+    ref.watch(parentGateProvider);
+    if (!ref.read(parentGateProvider.notifier).isOpen()) {
+      return const FamilyLockedView();
+    }
     final children = ref.watch(childrenProvider);
     return Scaffold(
       backgroundColor: Colors.transparent,
@@ -69,8 +99,9 @@ class FamilyScreen extends ConsumerWidget {
             padding: const EdgeInsets.only(left: 4, bottom: 14),
             child: Text(
               'Add your children, follow their lessons and exams, and ask Wasia '
-              'how to help them. Progress lives on this device and syncs to your '
-              'parent account when the family cloud is on.',
+              'how to help them. Everything about your children stays on this '
+              'device \u2014 nothing is sent to our servers or to any AI service, '
+              'and you can delete a child at any time.',
               style: AppText.bodyMuted,
             ),
           ),
@@ -93,6 +124,7 @@ class FamilyScreen extends ConsumerWidget {
                   ),
                 ),
               for (final c in list) _ChildCard(child: c),
+              const _ChildPrivacyCard(),
             ]),
           ),
         ],
@@ -137,6 +169,12 @@ class _ChildCard extends ConsumerWidget {
                   },
                   child: const Text('Switch to learning',
                       style: TextStyle(color: AppColors.goldLight, fontSize: 12)),
+                ),
+                IconButton(
+                  tooltip: 'Delete $name',
+                  icon: const Icon(Icons.delete_outline,
+                      size: 20, color: AppColors.goldLight),
+                  onPressed: () => _confirmDelete(context, ref, name),
                 ),
               ],
             ),
@@ -191,6 +229,39 @@ class _ChildCard extends ConsumerWidget {
   }
 
   String _examTitle(String id) => id.replaceAll('-exam', '').toUpperCase();
+
+  Future<void> _confirmDelete(
+      BuildContext context, WidgetRef ref, String name) async {
+    if (!await requireParent(context, ref)) return;
+    if (!context.mounted) return;
+    final bool? yes = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        backgroundColor: const Color(0xFF0A0F18),
+        title: Text('Delete $name?', style: AppText.titleMedium),
+        content: Text(
+          'This removes $name and all of their progress from this device '
+          'now. It cannot be undone.',
+          style: AppText.bodyMuted,
+        ),
+        actions: [
+          TextButton(
+              onPressed: () => Navigator.pop(ctx, false),
+              child: const Text('Keep')),
+          TextButton(
+              onPressed: () => Navigator.pop(ctx, true),
+              child: const Text('Delete',
+                  style: TextStyle(color: AppColors.goldLight))),
+        ],
+      ),
+    );
+    if (yes == true) {
+      await ref
+          .read(familyServiceProvider)
+          .deleteChild(child['id'] as String);
+      ref.invalidate(childrenProvider);
+    }
+  }
 }
 
 /// Parents speak with Wasia here — she coaches with the child's real stats.
@@ -218,7 +289,9 @@ class _ParentWasiaBoxState extends ConsumerState<_ParentWasiaBox> {
           child: TextField(
             controller: _input,
             style: AppText.body.copyWith(fontSize: 13),
-            decoration: const InputDecoration(hintText: 'How is my child doing? What should we practice?'),
+            decoration: const InputDecoration(
+                hintText: 'How is my child doing? What should we practice?',
+                helperText: 'Please do not type your child\u2019s name.'),
           ),
         ),
         const SizedBox(width: 8),
@@ -496,6 +569,223 @@ class _ExamScreenState extends ConsumerState<ExamScreen> {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+
+/// What a parent sees until the parent check is passed: no child names, no
+/// progress.
+class FamilyLockedView extends ConsumerWidget {
+  const FamilyLockedView({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      body: ListView(
+        padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
+        children: [
+          const ScreenHeader(title: 'The Family Wing', close: true),
+          GlassCard(
+            strong: true,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('FOR PARENTS AND GUARDIANS', style: AppText.eyebrow),
+                const SizedBox(height: 8),
+                Text(
+                  'This area holds your children\u2019s profiles and progress. '
+                  'Please answer a quick question to continue.',
+                  style: AppText.bodyMuted.copyWith(height: 1.5),
+                ),
+                const SizedBox(height: 14),
+                FilledButton(
+                  onPressed: () => requireParent(context, ref),
+                  child: const Text('I am a parent or guardian'),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// The consent step shown before the first child is added. True = agreed.
+Future<bool> showChildrenConsent(BuildContext context) async {
+  final bool? ok = await showDialog<bool>(
+    context: context,
+    builder: (BuildContext ctx) => const _ConsentDialog(),
+  );
+  return ok ?? false;
+}
+
+class _ConsentDialog extends StatefulWidget {
+  const _ConsentDialog();
+
+  @override
+  State<_ConsentDialog> createState() => _ConsentDialogState();
+}
+
+class _ConsentDialogState extends State<_ConsentDialog> {
+  bool _agree = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      backgroundColor: const Color(0xFF0A0F18),
+      title: Text(kChildrenPrivacyTitle, style: AppText.titleMedium),
+      content: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            for (final String b in kChildrenPrivacyBullets)
+              Padding(
+                padding: const EdgeInsets.only(bottom: 8),
+                child: Text('\u2022 $b',
+                    style: AppText.bodyMuted.copyWith(height: 1.45)),
+              ),
+            CheckboxListTile(
+              contentPadding: EdgeInsets.zero,
+              controlAffinity: ListTileControlAffinity.leading,
+              value: _agree,
+              onChanged: (bool? v) => setState(() => _agree = v ?? false),
+              title: Text(
+                'I am this child\u2019s parent or guardian, and I agree.',
+                style: AppText.body,
+              ),
+            ),
+          ],
+        ),
+      ),
+      actions: [
+        TextButton(
+            onPressed: () => Navigator.pop(context, false),
+            child: const Text('Not now')),
+        TextButton(
+            onPressed: _agree ? () => Navigator.pop(context, true) : null,
+            child: const Text('Continue',
+                style: TextStyle(color: AppColors.goldLight))),
+      ],
+    );
+  }
+}
+
+/// Privacy controls at the foot of the Family Wing: the AI switch for
+/// children, the full text, and delete-everything.
+class _ChildPrivacyCard extends ConsumerStatefulWidget {
+  const _ChildPrivacyCard();
+
+  @override
+  ConsumerState<_ChildPrivacyCard> createState() => _ChildPrivacyCardState();
+}
+
+class _ChildPrivacyCardState extends ConsumerState<_ChildPrivacyCard> {
+  bool _ai = false;
+
+  @override
+  void initState() {
+    super.initState();
+    unawaited(WasiaController.childLlmAllowed().then((bool v) {
+      if (mounted) setState(() => _ai = v);
+    }));
+  }
+
+  Future<void> _setAi(bool v) async {
+    if (!await requireParent(context, ref)) return;
+    await WasiaController.setChildLlmAllowed(v);
+    if (mounted) setState(() => _ai = v);
+  }
+
+  Future<void> _deleteAll() async {
+    if (!await requireParent(context, ref)) return;
+    if (!mounted) return;
+    final bool? yes = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        backgroundColor: const Color(0xFF0A0F18),
+        title: Text('Delete all children?', style: AppText.titleMedium),
+        content: Text(
+          'This removes every child and all progress from this device now, '
+          'and withdraws your consent. It cannot be undone.',
+          style: AppText.bodyMuted,
+        ),
+        actions: [
+          TextButton(
+              onPressed: () => Navigator.pop(ctx, false),
+              child: const Text('Keep')),
+          TextButton(
+              onPressed: () => Navigator.pop(ctx, true),
+              child: const Text('Delete everything',
+                  style: TextStyle(color: AppColors.goldLight))),
+        ],
+      ),
+    );
+    if (yes == true) {
+      await ref.read(familyServiceProvider).deleteAllChildren();
+      ref.invalidate(childrenProvider);
+    }
+  }
+
+  void _showPolicy() {
+    showDialog<void>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        backgroundColor: const Color(0xFF0A0F18),
+        title: Text(kChildrenPrivacyTitle, style: AppText.titleMedium),
+        content: SingleChildScrollView(
+          child: Text(kChildrenPrivacySection.trim(),
+              style: AppText.bodyMuted.copyWith(height: 1.5)),
+        ),
+        actions: [
+          TextButton(
+              onPressed: () => Navigator.pop(ctx),
+              child: const Text('Close')),
+        ],
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GlassCard(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text('PRIVACY AND CONTROLS', style: AppText.eyebrow),
+          SwitchListTile(
+            contentPadding: EdgeInsets.zero,
+            value: _ai,
+            onChanged: _setAi,
+            title: Text('Ask the AI service for my child',
+                style: AppText.body),
+            subtitle: Text(
+              'Off: Wasia answers a child only from the app\u2019s own '
+              'lessons. On: their questions go to the AI service you chose, '
+              'never with their name.',
+              style: AppText.caption,
+            ),
+          ),
+          Row(
+            children: [
+              TextButton(
+                onPressed: _showPolicy,
+                child: const Text('Read the children\u2019s privacy text',
+                    style: TextStyle(color: AppColors.goldLight, fontSize: 12)),
+              ),
+              const Spacer(),
+              TextButton(
+                onPressed: _deleteAll,
+                child: const Text('Delete all',
+                    style: TextStyle(color: AppColors.goldLight, fontSize: 12)),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

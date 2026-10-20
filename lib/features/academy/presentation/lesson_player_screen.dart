@@ -13,6 +13,7 @@ import '../application/recall_checks.dart';
 import '../domain/academy_models.dart';
 import '../domain/assessment_engine.dart';
 import '../domain/course_manifest.dart';
+import '../domain/lesson_provenance.dart';
 
 /// The teach/check/reflect lesson player. One idea per step, exact-step
 /// resume, inline knowledge checks with dignity-first feedback, and a
@@ -134,6 +135,60 @@ class _LessonPlayerScreenState
     await notifier.advance(_lesson.id, _index);
   }
 
+  /// Provenance sheet: where the text comes from, its review status and every
+  /// Qur'an / hadith reference written in it.
+  Future<void> _showSources() async {
+    final LessonProvenance? prov = provenanceOf(_lesson.id);
+    final List<LessonSource> sources =
+        extractSources(RecallChecks.fullTextOf(_lesson));
+    await showModalBottomSheet<void>(
+      context: context,
+      backgroundColor: Colors.transparent,
+      builder: (BuildContext ctx) => Padding(
+        padding: const EdgeInsets.all(20),
+        child: GlassCard(
+          strong: true,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(prov?.label ?? kNotYetReviewedLabel,
+                  style: AppText.eyebrow.copyWith(color: AppColors.gold)),
+              const SizedBox(height: 8),
+              Text(prov?.origin ?? '', style: AppText.bodyMuted),
+              const SizedBox(height: 12),
+              Text(
+                sources.isEmpty
+                    ? 'This lesson cites no Qur\u2019an or hadith reference.'
+                    : 'Cited in this lesson: '
+                        '${sources.map((LessonSource s) => s.toString()).join(' \u00b7 ')}',
+                style: AppText.body,
+              ),
+              if (sources.any((LessonSource s) => s.kind == 'hadith'))
+                Padding(
+                  padding: const EdgeInsets.only(top: 8),
+                  child: Text(
+                    'Hadith are listed as the lesson states them; their grade '
+                    'is not shown here. Treat anything ungraded with care and '
+                    'ask a scholar before relying on it.',
+                    style: AppText.caption,
+                  ),
+                ),
+              const SizedBox(height: 14),
+              Align(
+                alignment: Alignment.centerRight,
+                child: TextButton(
+                  onPressed: () => Navigator.of(ctx).pop(),
+                  child: Text(AcademyStrings.get('common.done')),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
   void _back() {
     if (_index == 0) {
       context.go('/academy');
@@ -196,6 +251,24 @@ class _LessonPlayerScreenState
                       ],
                     ),
                     const SizedBox(height: 8),
+                    InkWell(
+                      onTap: _showSources,
+                      child: ConstrainedBox(
+                        constraints: const BoxConstraints(minHeight: 36),
+                        child: Row(
+                          children: <Widget>[
+                            const Icon(Icons.info_outline,
+                                size: 14, color: AppColors.gold),
+                            const SizedBox(width: 6),
+                            Text(
+                              '${provenanceOf(_lesson.id)?.label ?? kNotYetReviewedLabel}'
+                              ' \u00b7 sources',
+                              style: AppText.caption,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                     ClipRRect(
                       borderRadius: BorderRadius.circular(4),
                       child: LinearProgressIndicator(

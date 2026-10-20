@@ -994,7 +994,7 @@ abstract final class AcademyStrings {
       'school.understanding.title': 'Understanding',
       'school.understanding.subtitle': 'Word-by-word meanings and roots',
       'school.soonBody':
-          'This school is being built with scholarly review — lesson by lesson. The Path is ready for you today.',
+          'This school is still being built, lesson by lesson. Lessons stay marked \u201cNot yet scholar-reviewed\u201d until a named scholar has reviewed them. The Path is ready for you today.',
     },
     'ar': <String, String>{
       'academy.title': 'أكاديمية الوسيع للعلوم الشرعية',
