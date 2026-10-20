@@ -226,7 +226,7 @@ final NotifierProvider<AdhanService, bool> adhanServiceProvider =
     NotifierProvider<AdhanService, bool>(AdhanService.new);
 
 // ---------------------------------------------------------------------------
-// Qur'an recitation — Mishary Alafasy, streamed per ayah (AlQuran Cloud CDN).
+// Qur'an recitation — Al-Husary, streamed per ayah (AlQuran Cloud CDN).
 // ---------------------------------------------------------------------------
 
 class RecitationState {
@@ -265,13 +265,27 @@ int globalAyahNumber(int surah, int ayah) {
 }
 
 class RecitationService extends Notifier<RecitationState> {
+  /// Mahmoud Khalil Al-Husary, per ayah — the same reciter the verse-range
+  /// player bar names, so the label and the voice always match.
   static const String _cdn =
-      'https://cdn.islamic.network/quran/audio/128/ar.alafasy';
+      'https://cdn.islamic.network/quran/audio/128/ar.husary';
 
   AudioPlayer? _player;
+  StreamSubscription<void>? _completeSub;
+
+  /// Bumped on every play/stop so a late completion from an earlier ayah
+  /// can never advance (or skip) the current one.
+  int _generation = 0;
 
   @override
-  RecitationState build() => RecitationState.idle;
+  RecitationState build() {
+    ref.onDispose(() {
+      _completeSub?.cancel();
+      final AudioPlayer? p = _player;
+      if (p != null) _swallow(p.dispose());
+    });
+    return RecitationState.idle;
+  }
 
   bool isPlaying(int surah, int ayah) =>
       state.surah == surah && state.ayah == ayah;
@@ -284,29 +298,46 @@ class RecitationService extends Notifier<RecitationState> {
     }
   }
 
+  AudioPlayer? _ensurePlayer() {
+    if (_player != null) return _player;
+    final AudioPlayer? p = _tryCreatePlayer();
+    if (p == null) return null;
+    _player = p;
+    // One completion listener for the player's lifetime (a new listener
+    // per ayah stacked up and made recitation skip ayahs).
+    _completeSub = p.onPlayerComplete.listen((_) {
+      final int gen = _generation;
+      if (!state.isIdle) _advance(gen);
+    });
+    return p;
+  }
+
   Future<void> play(int surah, int ayah) async {
+    final int gen = ++_generation;
     state = RecitationState(surah: surah, ayah: ayah);
-    _player ??= _tryCreatePlayer();
-    final AudioPlayer? player = _player;
-    if (player == null) return;
+    final AudioPlayer? player = _ensurePlayer();
+    if (player == null) {
+      state = RecitationState.idle;
+      return;
+    }
     _swallow(
       Future(() async {
         try {
           await player.stop();
+          if (gen != _generation) return;
           await player.play(
             UrlSource('$_cdn/${globalAyahNumber(surah, ayah)}.mp3'),
           );
         } catch (_) {
-          state = RecitationState.idle;
+          if (gen == _generation) state = RecitationState.idle;
         }
       }),
     );
-    _swallow(player.onPlayerComplete.first.then((_) => _advance()));
   }
 
   /// Auto-advance through the surah for continuous listening.
-  void _advance() {
-    if (state.isIdle) return;
+  void _advance(int gen) {
+    if (gen != _generation || state.isIdle) return;
     final int next = state.ayah + 1;
     if (next <= kSurahAyahCounts[state.surah - 1]) {
       unawaited(play(state.surah, next));
@@ -316,6 +347,7 @@ class RecitationService extends Notifier<RecitationState> {
   }
 
   Future<void> stop() async {
+    _generation++;
     state = RecitationState.idle;
     final AudioPlayer? player = _player;
     if (player != null) _swallow(player.stop());

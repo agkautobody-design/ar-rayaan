@@ -42,7 +42,9 @@ class ReciterPack {
     displayName: 'Sheikh Mahmoud Khalil Al-Husary',
     // Per-ayah files (muyawil server). Defensive fallback to surah files
     // is handled by the repository when a per-ayah request 404s.
-    ayahBaseUrl: 'https://server13.mp3quran.net/husr',
+    // Per-ayah files: everyayah.com (mp3quran hosts whole surahs only;
+    // its per-ayah paths 404).
+    ayahBaseUrl: 'https://everyayah.com/data/Husary_128kbps',
     surahBaseUrl: 'https://server13.mp3quran.net/husr',
   );
 

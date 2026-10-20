@@ -19,7 +19,7 @@ void main() {
     test('ayah URL pattern', () {
       expect(
         ReciterPack.alHusary.ayahUrl(const AyahRef(1, 4)),
-        'https://server13.mp3quran.net/husr/001004.mp3',
+        'https://everyayah.com/data/Husary_128kbps/001004.mp3',
       );
     });
 

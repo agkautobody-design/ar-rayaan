@@ -1,4 +1,5 @@
 /// Recitation player state — executes a [RecitationPlanEngine] plan.
+import 'package:flutter/foundation.dart' show kIsWeb;
 ///
 /// The audio backend is an interface so tests run silent: production
 /// wires [AudioplayersAyahPlayer], tests use a fake that completes
@@ -163,6 +164,8 @@ final recitationPlayerProvider =
   final notifier = RecitationPlayerNotifier(
     audio: AudioplayersAyahPlayer(),
     sourceResolver: (PlaybackEvent event) async {
+      // Web has no file system: stream the per-ayah file directly.
+      if (kIsWeb) return ReciterPack.alHusary.ayahUrl(event.ref);
       final Directory dir = await ref.watch(audioCacheDirProvider.future);
       return resolvePlaybackSource(
         event: event,

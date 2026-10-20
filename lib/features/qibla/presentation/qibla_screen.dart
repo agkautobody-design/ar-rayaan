@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../app/router.dart';
@@ -9,16 +10,27 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../../prayer/application/location_providers.dart';
+import '../../prayer/application/prayer_repository.dart';
 import '../domain/qibla_direction.dart';
 
-class QiblaScreen extends StatelessWidget {
+class QiblaScreen extends ConsumerWidget {
   const QiblaScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    // Same location as Prayer Times (GPS or chosen city; Toronto only until
+    // the user sets one).
+    final PrayerLocation loc = ref.watch(prayerLocationControllerProvider);
     final double bearing = QiblaDirection.bearingToKaaba(
-      QiblaDirection.defaultLocation,
+      (lat: loc.latitude, lng: loc.longitude),
     );
+    final String place = loc.city;
+    final bool isDefault =
+        loc.latitude == PrayerLocationController.fallback.latitude &&
+            loc.longitude == PrayerLocationController.fallback.longitude;
+    final bool northern = loc.latitude >= 0;
+    final bool tropics = loc.latitude.abs() < 23.5;
     final String compass = _compassPoint(bearing);
     return Scaffold(
       backgroundColor: Colors.transparent,
@@ -65,9 +77,20 @@ class QiblaScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: 2),
                       Text(
-                        'from ${QiblaDirection.defaultLocationName} to the Kaaba',
+                        'from $place to the Kaaba',
                         style: AppText.bodyMuted.copyWith(fontSize: 11),
                       ),
+                      if (isDefault) ...[
+                        const SizedBox(height: 6),
+                        TextButton(
+                          onPressed: () => context.push(AppRoutes.prayerTimes),
+                          child: Text(
+                            'Not in Toronto? Set your location in Prayer Times',
+                            style: AppText.bodyMuted.copyWith(
+                                fontSize: 12, color: AppColors.gold),
+                          ),
+                        ),
+                      ],
                     ],
                   ),
                 ),
@@ -79,12 +102,14 @@ class QiblaScreen extends StatelessWidget {
                       Text('TWO WAYS TO FACE THE KAABA', style: AppText.eyebrow),
                       const SizedBox(height: 8),
                       Text(
-                        '1 · THE EXACT BEARING (recommended) — the dial above is true North, computed by great-circle mathematics. No compass needed: at solar noon (when shadows are shortest) the sun is due south in Toronto and shadows point due NORTH — line your prayer mat along the shadow, then turn 55° clockwise. Fully offline, exact to a degree.',
+                        tropics
+                            ? '1 · THE EXACT BEARING (recommended) — the dial above is measured from true North by great-circle mathematics, fully offline. Near the equator the noon sun can stand north or south of you, so check true North with a map app or your phone\u2019s compass set to true North, then turn ${bearing.round()}° clockwise.'
+                            : '1 · THE EXACT BEARING (recommended) — the dial above is measured from true North by great-circle mathematics, fully offline. No compass needed: at solar noon (when shadows are shortest) the sun is due ${northern ? 'south' : 'north'} of $place, so shadows point due ${northern ? 'NORTH' : 'SOUTH'}. ${northern ? 'Line your prayer mat along the shadow' : 'Face opposite the shadow to face North'}, then turn ${bearing.round()}° clockwise.',
                         style: AppText.bodyMuted.copyWith(height: 1.6, fontSize: 12),
                       ),
                       const SizedBox(height: 8),
                       Text(
-                        '2 · A PHYSICAL COMPASS — WARNING: compasses read MAGNETIC North, and in Toronto magnetic North sits about 10° EAST of true North (2026; the offset drifts yearly and differs by city). Reading the dial against a compass without correcting the declination will point you ~10° off. Correct with your phone\\u2019s built-in compass app (most show true North), or subtract roughly 10° from the compass bearing.',
+                        '2 · A PHYSICAL COMPASS — compasses point to MAGNETIC North, which differs from true North by your local magnetic declination (for example about 10° west in Toronto in 2026; it differs by city and drifts every year). Either switch your phone\u2019s compass app to show true North, or look up your declination (NOAA\u2019s magnetic field calculator) and correct for it: with a WEST declination add it to ${bearing.round()}°, with an EAST declination subtract it.',
                         style: AppText.bodyMuted.copyWith(height: 1.6, fontSize: 12),
                       ),
                       const SizedBox(height: 8),
@@ -105,7 +130,7 @@ class QiblaScreen extends StatelessWidget {
                       const SizedBox(height: 8),
                       Text(
                         'Stand facing the needle \u2014 the top of the dial points to the '
-                        'Kaaba from ${QiblaDirection.defaultLocationName}. The sunnah is to face '
+                        'Kaaba from $place. The sunnah is to face '
                         'the qiblah in every prescribed prayer; when travelling, Allah says: '
                         '"Wherever you turn, there is the Face of Allah" (2:115) \u2014 the '
                         'concession of prayer on the move is vast.',

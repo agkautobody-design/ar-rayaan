@@ -34,7 +34,7 @@ void main() { return; // TODO: rewrite
     // Qur'an layer.
     expect(find.textContaining('Tanzil Uthmani'), findsOneWidget);
     expect(find.textContaining('Saheeh International'), findsOneWidget);
-    expect(find.textContaining('Mishary Rashid Alafasy'), findsOneWidget);
+    expect(find.textContaining('Mahmoud Khalil Al-Husary'), findsOneWidget);
 
     // The Authentic Six (Founder-approved).
     expect(find.text('Sahih al-Bukhari'), findsOneWidget);

@@ -70,7 +70,12 @@ class ContentSync {
         .timeout(const Duration(seconds: 6));
     if (res.statusCode != 200) return const {};
     final map = json.decode(res.body) as Map<String, dynamic>;
-    _versions = map.map((k, v) => MapEntry(k, (v as num).toInt()));
+    // Tolerant: a stray non-numeric entry (e.g. a date a bot added) must not
+    // knock out every content update.
+    _versions = <String, int>{
+      for (final e in map.entries)
+        if (e.value is num) e.key: (e.value as num).toInt(),
+    };
     return _versions!;
   }
 }
