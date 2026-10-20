@@ -88,9 +88,9 @@ class _ShareState extends State<ShareScreen> {
                     ),
                     const SizedBox(height: 4),
                     Text('ADD TO ANY HOME SCREEN',
-                        style: AppText.bodyMuted.copyWith(fontSize: 11)),
+                        style: AppText.bodyMuted.copyWith(fontSize: 12)),
                     Text('From a browser\'s menu: Add to Home Screen — it becomes a real app.',
-                        style: AppText.bodyMuted.copyWith(fontSize: 10)),
+                        style: AppText.bodyMuted.copyWith(fontSize: 12)),
                   ]),
                 );
               }),
@@ -124,15 +124,26 @@ class _ShareState extends State<ShareScreen> {
               const SizedBox(height: 16),
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 for (var i = 0; i < _cards!.length; i++)
-                  GestureDetector(
-                    onTap: () => setState(() { _i = i; _copied = false; }),
-                    child: Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 2.5),
-                      width: i == _i ? 18 : 6, height: 6,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(3),
-                        color: i == _i ? AppColors.gold
-                            : AppColors.sand.withValues(alpha: 0.2)),
+                  Semantics(
+                    button: true,
+                    selected: i == _i,
+                    label: 'Card ${i + 1} of ${_cards!.length}',
+                    excludeSemantics: true,
+                    child: GestureDetector(
+                      behavior: HitTestBehavior.opaque,
+                      onTap: () => setState(() { _i = i; _copied = false; }),
+                      // Padding makes the touch area 48 high; the dot stays small.
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 6, vertical: 21),
+                        child: Container(
+                          width: i == _i ? 18 : 6, height: 6,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(3),
+                            color: i == _i ? AppColors.gold
+                                : AppColors.sand.withValues(alpha: 0.2)),
+                        ),
+                      ),
                     ),
                   ),
               ]),
@@ -161,7 +172,7 @@ class _ShareState extends State<ShareScreen> {
               ]),
               const SizedBox(height: 8),
               Center(child: Text('Swipe the dots \u00b7 send one to someone tonight',
-                  style: AppText.bodyMuted.copyWith(fontSize: 11))),
+                  style: AppText.bodyMuted.copyWith(fontSize: 12))),
             ],
           ),
         ),

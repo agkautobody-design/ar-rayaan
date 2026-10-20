@@ -252,7 +252,7 @@ class GuideScreen extends StatelessWidget {
                   child: Text(
                     '${i + 1}',
                     style: TextStyle(
-                      fontSize: 10,
+                      fontSize: 12,
                       color: AppColors.goldLight,
                     ),
                   ),
@@ -337,8 +337,8 @@ class _Pos extends StatelessWidget {
             style: const TextStyle(color: AppColors.goldLight, fontSize: 18)),
       ),
       const SizedBox(height: 3),
-      Text(label, style: const TextStyle(fontSize: 10.5, color: AppColors.sand)),
-      Text(detail, style: const TextStyle(fontSize: 8.5, color: AppColors.sand)),
+      Text(label, style: const TextStyle(fontSize: 12, color: AppColors.sand)),
+      Text(detail, style: const TextStyle(fontSize: 12, color: AppColors.sand)),
     ]);
   }
 }

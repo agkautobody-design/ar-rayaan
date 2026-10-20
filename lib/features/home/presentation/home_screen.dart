@@ -273,7 +273,8 @@ class HomeScreen extends ConsumerWidget {
                       ),
                       const SizedBox(height: 16),
                       const DailyHadithBanner(),
-              GestureDetector(
+              _SemanticTap(
+                label: 'Elder Mode. Opens the large-text home for an elder.',
                 onTap: () async {
                   final p = await SharedPreferences.getInstance();
                   await p.setBool('ar.elder.mode', true);
@@ -304,7 +305,8 @@ class HomeScreen extends ConsumerWidget {
                   ]),
                 ),
               ),
-              GestureDetector(
+              _SemanticTap(
+                label: 'Quick Access. Academy, naats, games, elder care, therapy, duas.',
                 onTap: () => context.go('/home/quick'),
                 child: Container(
                   margin: const EdgeInsets.fromLTRB(4, 0, 4, 10),
@@ -381,7 +383,9 @@ class HomeScreen extends ConsumerWidget {
                                   ),
                                 ),
                                 const Spacer(),
-                                GestureDetector(
+                                _SemanticTap(
+                                  label: 'View all of Today for You',
+                                  minHeight: 48,
                                   onTap: () => context.go(AppRoutes.noor),
                                   child: Text(
                                     'View All',
@@ -722,6 +726,43 @@ class _PictureTile extends StatelessWidget {
           ),
         ),
       ),
+      ),
+    );
+  }
+}
+
+
+/// A tappable region that screen readers announce as a button, with an
+/// optional minimum touch height (48 for small text links).
+class _SemanticTap extends StatelessWidget {
+  const _SemanticTap({
+    required this.label,
+    required this.onTap,
+    required this.child,
+    this.minHeight = 0,
+  });
+
+  final String label;
+  final VoidCallback onTap;
+  final Widget child;
+  final double minHeight;
+
+  @override
+  Widget build(BuildContext context) {
+    return Semantics(
+      button: true,
+      label: label,
+      excludeSemantics: true,
+      onTap: onTap,
+      child: GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap: onTap,
+        child: minHeight > 0
+            ? ConstrainedBox(
+                constraints: BoxConstraints(minHeight: minHeight),
+                child: Align(alignment: Alignment.center, widthFactor: 1, child: child),
+              )
+            : child,
       ),
     );
   }

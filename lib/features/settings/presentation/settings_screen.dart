@@ -151,14 +151,19 @@ class SettingsScreen extends ConsumerWidget {
                         ),
                       ),
                       const SizedBox(height: 4),
-                      GestureDetector(
+                      Semantics(
+                        button: true,
+                        label: 'Replay the introduction',
+                        excludeSemantics: true,
+                        child: GestureDetector(
                         onTap: () => context.go(AppRoutes.onboarding),
                         child: Padding(
-                          padding: const EdgeInsets.only(left: 4),
+                          padding: const EdgeInsets.only(left: 4, top: 15, bottom: 15),
                           child: Text('Replay the introduction →',
                               style: AppText.bodyMuted.copyWith(
                                   color: AppColors.gold, fontSize: 13)),
                         ),
+                      ),
                       ),
                       const SizedBox(height: 20),
                       Padding(
@@ -171,7 +176,7 @@ class SettingsScreen extends ConsumerWidget {
                         child: GestureDetector(
                           onTap: () => context.push(LegalRoutes.terms),
                           child: Padding(
-                            padding: const EdgeInsets.only(left: 4, top: 10),
+                            padding: const EdgeInsets.only(left: 4, top: 15, bottom: 15),
                             child: Text('Terms of Service →',
                                 style: AppText.bodyMuted.copyWith(
                                     color: AppColors.gold, fontSize: 13)),
@@ -184,7 +189,7 @@ class SettingsScreen extends ConsumerWidget {
                         child: GestureDetector(
                           onTap: () => context.push(LegalRoutes.privacy),
                           child: Padding(
-                            padding: const EdgeInsets.only(left: 4, top: 10),
+                            padding: const EdgeInsets.only(left: 4, top: 15, bottom: 15),
                             child: Text('Privacy Policy →',
                                 style: AppText.bodyMuted.copyWith(
                                     color: AppColors.gold, fontSize: 13)),
@@ -197,7 +202,7 @@ class SettingsScreen extends ConsumerWidget {
                         child: GestureDetector(
                           onTap: () => context.push(LegalRoutes.deleteAccount),
                           child: Padding(
-                            padding: const EdgeInsets.only(left: 4, top: 10),
+                            padding: const EdgeInsets.only(left: 4, top: 15, bottom: 15),
                             child: Text('Delete my account →',
                                 style: AppText.bodyMuted.copyWith(
                                     color: AppColors.gold, fontSize: 13)),
