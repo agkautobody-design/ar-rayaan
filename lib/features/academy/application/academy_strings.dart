@@ -121,6 +121,8 @@ abstract final class AcademyStrings {
       'path.u9.l4.s3.title': 'Name the three things the Prophet ﷺ said outlive a person (knowledge, ongoing charity, and a ____ child).',
       'path.u9.l4.s3.body': 'Name the three things the Prophet ﷺ said outlive a person (knowledge, ongoing charity, and a ____ child).',
       'path.u9.l4.title': 'Every Soul Will Taste Death',
+      'school.dua.title': 'Du'a & Adhkar School',
+      'school.dua.body': 'The daily words of remembrance — what they mean, when to say them, and where they come from.',
       'academy.title': 'Al-Wasia Academy of Sacred Knowledge',
       'academy.comingSoon': 'Coming soon — insha’Allah',
       'academy.continue': 'Continue where you left off',

@@ -187,6 +187,14 @@ class _AcademyHomeScreenState
                 live: true,
               ),
               _SchoolRow(
+                icon: Icons.back_hand_outlined,
+                arabic: '\u0627\u0644\u062f\u0651\u064f\u0639\u0627\u0621',
+                title: AcademyStrings.get('school.dua.title'),
+                subtitle: AcademyStrings.get('school.dua.body'),
+                route: '/academy/dua',
+                live: true,
+              ),
+              _SchoolRow(
                 icon: Icons.graphic_eq,
                 arabic: '\u0627\u0644\u062a\u0651\u064e\u0644\u064e\u0627\u0648\u064e\u0629',
                 title: AcademyStrings.get('school.recitation.title'),

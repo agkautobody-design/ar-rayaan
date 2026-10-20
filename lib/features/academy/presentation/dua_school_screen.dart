@@ -66,6 +66,101 @@ const List<_DuaLesson> kDuaLessons = <_DuaLesson>[
     when: 'Before the first bite.',
     source: 'Muslim 2022',
   ),
+  // --- Morning & evening -----------------------------------------------
+  _DuaLesson(
+    title: 'The Three Quls — the evening shield',
+    arabic:
+        'قُلْ هُوَ اللَّهُ أَحَدٌ ۝ قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ ۝ قُلْ أَعُوذُ بِرَبِّ النَّاسِ',
+    meaning:
+        'Say: He is Allah, One… Say: I seek refuge in the Lord of daybreak… Say: I seek refuge in the Lord of mankind (112–114). The Prophet ﷺ taught them morning and evening three times — they suffice the servant against everything.',
+    when: 'Morning and evening, three times each.',
+    source: 'Abu Dawud 5082; Tirmidhi 3575',
+  ),
+  _DuaLesson(
+    title: 'Leaving the home — the morning departure',
+    arabic:
+        'بِسْمِ اللَّهِ، تَوَكَّلْتُ عَلَى اللَّهِ، وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ',
+    meaning:
+        'In the name of Allah; I place my trust in Allah; there is no might nor power except with Allah (Abu Dawud 5095). Taught as the morning's first sentence when the foot crosses the threshold.',
+    when: 'When leaving the house.',
+    source: 'Abu Dawud 5095',
+  ),
+
+  // --- Home & table ------------------------------------------------------
+  _DuaLesson(
+    title: 'After eating — the thanked meal',
+    arabic:
+        'الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنَا وَسَقَانَا وَجَعَلَنَا مُسْلِمِينَ',
+    meaning:
+        'Praise be to Allah who fed us, gave us drink, and made us Muslims (Tirmidhi 3457). The meal becomes worship when the end matches the beginning.',
+    when: 'After finishing a meal.',
+    source: 'Tirmidhi 3457',
+  ),
+  _DuaLesson(
+    title: 'Entering the home — the threshold greeting',
+    arabic:
+        'بِسْمِ اللَّهِ، اللَّهُمَّ إِنِّي أَسْأَلُكَ خَيْرَ الْمَوْلَجِ وَخَيْرَ الْمَخْرَجِ',
+    meaning:
+        'In the name of Allah. O Allah, I ask You for the good of entering and the good of leaving (Abu Dawud 5096). The home is entered with His name, not with the day's residue.',
+    when: 'When entering the house.',
+    source: 'Abu Dawud 5096',
+  ),
+
+  // --- Masjid ------------------------------------------------------------
+  _DuaLesson(
+    title: 'Entering the mosque — asking the doors of mercy',
+    arabic: 'اللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ',
+    meaning:
+        'O Allah, open for me the doors of Your mercy (Muslim 713). Said with the right foot at the mosque's door.',
+    when: 'Entering the mosque.',
+    source: 'Sahih Muslim 713',
+  ),
+  _DuaLesson(
+    title: 'After the prayer — the closing words',
+    arabic:
+        'أَسْتَغْفِرُ اللَّهَ (×٣) اللَّهُمَّ أَنْتَ السَّلَامُ وَمِنْكَ السَّلَامُ',
+    meaning:
+        'I seek Allah's forgiveness (three times). O Allah, You are Peace and from You comes peace… (Muslim 591). The prayer does not end; it hands you to the next worship.',
+    when: 'After each obligatory prayer.',
+    source: 'Sahih Muslim 591',
+  ),
+
+  // --- Travel & hardship -------------------------------------------------
+  _DuaLesson(
+    title: 'Boarding any transport — the borrowed ride',
+    arabic:
+        'سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَٰذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ',
+    meaning:
+        'Glory to Him who subjected this to us, and we could never have accomplished it ourselves (43:13). The Prophet ﷺ recited it mounting his ride, then said Allahu Akbar three times (Muslim 1342).',
+    when: 'Boarding a vehicle, mount, or seat of travel.',
+    source: 'Qur'an 43:13; Sahih Muslim 1342',
+  ),
+  _DuaLesson(
+    title: 'In distress — the dua of the afflicted',
+    arabic:
+        'لَا إِلَٰهَ إِلَّا اللَّهُ الْعَظِيمُ الْحَلِيمُ، لَا إِلَٰهَ إِلَّا اللَّهُ رَبُّ الْعَرْشِ الْعَظِيمِ',
+    meaning:
+        'There is no god but Allah, the Magnificent, the Forbearing; there is no god but Allah, Lord of the Mighty Throne (Bukhari 6346). The Prophet ﷺ taught it to the distressed as a prayer Allah does not refuse.',
+    when: 'In any hardship, anxiety, or tightness of the chest.',
+    source: 'Sahih al-Bukhari 6346',
+  ),
+  _DuaLesson(
+    title: 'Hasbunallahu wa ni'mal wakil — the sufficiency clause',
+    arabic: 'حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ',
+    meaning:
+        'Allah is sufficient for us, and He is the best Disposer of affairs (3:173) — the words of Ibrahim's household at the fire and of the Prophet ﷺ at Uhud. Spoken, the chest loosens.',
+    when: 'When facing what you cannot control.',
+    source: "Qur'an 3:173",
+  ),
+  _DuaLesson(
+    title: 'The master of forgiveness — morning anchor',
+    arabic:
+        'اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَٰهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ',
+    meaning:
+        'O Allah, You are my Lord; there is no god but You. You created me and I am Your servant… (Bukhari 6306). Whoever says it with conviction in the morning or evening and dies that day or night enters Paradise.',
+    when: 'Morning and evening.',
+    source: 'Sahih al-Bukhari 6306',
+  ),
 ];
 
 class DuaSchoolScreen extends StatelessWidget {
