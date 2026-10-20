@@ -30,6 +30,7 @@ import '../features/academy/presentation/stories_school_screen.dart';
 import '../features/academy/presentation/character_school_screen.dart';
 import '../features/academy/presentation/family_school_screen.dart';
 import '../features/academy/presentation/youth_school_screen.dart';
+import '../features/academy/presentation/womens_school_screen.dart';
 import '../features/academy/presentation/audio_packs_screen.dart';
 import '../features/academy/presentation/dhikr_session_screen.dart';
 import '../features/doctor/presentation/founder_console_screen.dart';
@@ -479,6 +480,10 @@ GoRouter buildRouter({String initialLocation = '/'}) {
       GoRoute(
         path: '/academy/youth',
         pageBuilder: (context, state) => _fade(const YouthSchoolScreen()),
+      ),
+      GoRoute(
+        path: '/academy/womens',
+        pageBuilder: (context, state) => _fade(const WomensSchoolScreen()),
       ),
       GoRoute(
         path: '/academy/dua',

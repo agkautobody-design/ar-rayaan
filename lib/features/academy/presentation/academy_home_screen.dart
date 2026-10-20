@@ -275,6 +275,14 @@ class _AcademyHomeScreenState
                 live: true,
               ),
               _SchoolRow(
+                icon: Icons.woman,
+                arabic: 'النساء',
+                title: AcademyStrings.get('school.womens.title'),
+                subtitle: AcademyStrings.get('school.womens.body'),
+                route: '/academy/womens',
+                live: true,
+              ),
+              _SchoolRow(
                 icon: Icons.graphic_eq,
                 arabic: '\u0627\u0644\u062a\u0651\u064e\u0644\u064e\u0627\u0648\u064e\u0629',
                 title: AcademyStrings.get('school.recitation.title'),
