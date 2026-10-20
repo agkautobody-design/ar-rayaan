@@ -9,6 +9,7 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../../zakat/domain/zakat_calculation.dart';
 
 /// TAYYIB FINANCE - the wealth wing. Purification, giving, and earning.
 /// Zakat links to the live engine; the stock screener teaches the AAOIFI
@@ -54,8 +55,8 @@ class _TayyibState extends State<TayyibFinanceScreen> {
   }
 
   void _calcPurify() {
-    final d = double.tryParse(_dividend.text.replaceAll(',', '').trim()) ?? 0;
-    final pct = double.tryParse(_haramPct.text.replaceAll('%', '').trim()) ?? 0;
+    final d = ZakatCalculation.parseAmount(_dividend.text);
+    final pct = ZakatCalculation.parseAmount(_haramPct.text);
     setState(() => _purify = d * pct / 100);
   }
 
@@ -89,7 +90,7 @@ class _TayyibState extends State<TayyibFinanceScreen> {
   }
 
   void _screen() {
-    double p(String s) => double.tryParse(s.replaceAll(',', '').trim()) ?? 0;
+    double p(String s) => ZakatCalculation.parseAmount(s);
     final haram = p(_haram.text), debt = p(_debt.text), mcap = p(_mcap.text),
         interest = p(_interest.text), revenue = p(_revenue.text);
     final out = <String>[];
@@ -134,7 +135,7 @@ class _TayyibState extends State<TayyibFinanceScreen> {
                   const SizedBox(width: 12),
                   Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                     Text('Zakat Calculator', style: AppText.body.copyWith(fontWeight: FontWeight.w700, fontSize: 15)),
-                    Text('Live gold nisab \u00b7 hawl tracking \u00b7 all four schools', style: AppText.bodyMuted.copyWith(fontSize: 11.5)),
+                    Text('Nisab from live or typed metal prices \u00b7 hawl tracker \u00b7 Zakat al-Fitr \u00b7 four schools', style: AppText.bodyMuted.copyWith(fontSize: 11.5)),
                   ])),
                   const Icon(Icons.chevron_right, color: AppColors.gold),
                 ]),
@@ -147,8 +148,8 @@ class _TayyibState extends State<TayyibFinanceScreen> {
                   Text(
                     'Zakat is the obligatory 2.5% of stored wealth; sadaqah is the voluntary river that never stops giving. '
                     'The Prophet \ufdfa said: \u201cCharity does not decrease wealth\u201d (Muslim 2588). '
-                    'The best sadaqah is the ongoing kind \u2014 a well, a tree, knowledge that keeps teaching \u2014 '
-                    'for it outlives the hand that gave it.',
+                    'Ongoing charity (sadaqah jariyah) \u2014 a well, a tree, knowledge that keeps teaching \u2014 '
+                    'keeps earning reward after the giver has died (Muslim 1631).',
                     style: AppText.bodyMuted.copyWith(height: 1.6),
                   ),
                   const SizedBox(height: 8),
@@ -176,7 +177,7 @@ class _TayyibState extends State<TayyibFinanceScreen> {
                       padding: const EdgeInsets.only(bottom: 8),
                       child: TextField(
                         controller: f.$2,
-                        keyboardType: TextInputType.number,
+                        keyboardType: const TextInputType.numberWithOptions(decimal: true),
                         style: AppText.body,
                         decoration: InputDecoration(
                           hintText: f.$1,
@@ -206,13 +207,6 @@ class _TayyibState extends State<TayyibFinanceScreen> {
                           foregroundColor: AppColors.goldLight),
                     ),
                   ),
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      onPressed: _screen,
-                      child: const Text('Run the screens'),
-                    ),
-                  ),
                   if (_verdict != null) ...[
                     const SizedBox(height: 10),
                     for (final v in _verdict!)
@@ -234,11 +228,11 @@ class _TayyibState extends State<TayyibFinanceScreen> {
                   Text('If a stock passes the screens with a tolerated haram portion, you donate that portion of your dividends \u2014 purifying the income, keeping the investment.',
                       style: AppText.bodyMuted.copyWith(height: 1.5, fontSize: 12)),
                   const SizedBox(height: 10),
-                  TextField(controller: _dividend, keyboardType: TextInputType.number,
+                  TextField(controller: _dividend, keyboardType: const TextInputType.numberWithOptions(decimal: true),
                       style: AppText.body,
                       decoration: const InputDecoration(hintText: 'Annual dividends received (\$)')),
                   const SizedBox(height: 8),
-                  TextField(controller: _haramPct, keyboardType: TextInputType.number,
+                  TextField(controller: _haramPct, keyboardType: const TextInputType.numberWithOptions(decimal: true),
                       style: AppText.body,
                       decoration: const InputDecoration(hintText: 'Haram revenue % (from the screen above)')),
                   const SizedBox(height: 10),
