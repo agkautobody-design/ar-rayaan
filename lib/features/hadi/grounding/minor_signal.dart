@@ -23,6 +23,67 @@ abstract final class MinorSignal {
     caseSensitive: false,
   );
 
+  /// "my 5 year old", "my son is 8 years old": a possessive up to a few
+  /// words before the number, with a copula allowed. Anchored to the end of
+  /// the text before the number, so it only sees what is right in front.
+  static final RegExp _possessiveBefore = RegExp(
+    r"\b(?:my|our|his|her|their|your)\s+(?:[a-z'’,-]+\s+){0,3}"
+    r"(?:(?:is|was|turned|turns|just\s+turned)\s+)?$",
+    caseSensitive: false,
+  );
+
+  /// First-person words: if the possessive stretch also names the speaker
+  /// ("my friend and I are 15"), the age is theirs.
+  static final RegExp _firstPerson = RegExp(
+    r"\b(?:i|me|we|us|im|i'm|i’m|myself)\b",
+    caseSensitive: false,
+  );
+
+  /// "me and my sister are 15": the speaker is part of the pair.
+  static final RegExp _andMe = RegExp(
+    r"\b(?:me|i|we|us)\s+(?:and|&)\s+$",
+    caseSensitive: false,
+  );
+
+  /// "I have a 6 year old", "teach a 10 year old": an article after a verb
+  /// that talks about another child. "as a 13 year old" and "I'm just a 14
+  /// year old" are NOT in this list on purpose: those are the speaker.
+  static final RegExp _articleAfterVerb = RegExp(
+    r"\b(?:teach|teaching|taught|tell|telling|told|met|know|knew|have|has|"
+    r"had|saw|see|seen|adopt|adopted|raising|raise|babysit|babysitting)"
+    r"\s+(?:a|an|the)\s+$",
+    caseSensitive: false,
+  );
+
+  /// A sentence that starts "A 10 year old girl asked me ...": about someone
+  /// else only when a third-person verb follows within a few words.
+  static final RegExp _sentenceStartArticle = RegExp(
+    r"(?:^|[.!?]\s+)(?:a|an|the)\s+$",
+    caseSensitive: false,
+  );
+  static final RegExp _thirdPersonVerb = RegExp(
+    r"^(?:\s+\w+){0,3}\s+(?:asked|told|came|said|wants?|doesn'?t|does\s+not|"
+    r"refuses?|won'?t|keeps?|is\s+asking)\b",
+    caseSensitive: false,
+  );
+
+  /// True when the "N years old" at [m] is said about someone else.
+  static bool _aboutSomeoneElse(String text, RegExpMatch m) {
+    final String before = text.substring(0, m.start);
+    final RegExpMatch? poss = _possessiveBefore.firstMatch(before);
+    if (poss != null &&
+        !_firstPerson.hasMatch(poss.group(0)!) &&
+        !_andMe.hasMatch(before.substring(0, poss.start))) {
+      return true;
+    }
+    if (_articleAfterVerb.hasMatch(before)) return true;
+    if (_sentenceStartArticle.hasMatch(before) &&
+        _thirdPersonVerb.hasMatch(text.substring(m.end))) {
+      return true;
+    }
+    return false;
+  }
+
   static bool isMinor(String text) {
     for (final RegExpMatch m in _age.allMatches(text)) {
       final int? n = int.tryParse(m.group(1)!);
@@ -30,7 +91,9 @@ abstract final class MinorSignal {
     }
     for (final RegExpMatch m in _yo.allMatches(text)) {
       final int? n = int.tryParse(m.group(1)!);
-      if (n != null && n >= 5 && n < 18) return true;
+      if (n == null || n < 5 || n >= 18) continue;
+      if (_aboutSomeoneElse(text, m)) continue;
+      return true;
     }
     return _words.hasMatch(text);
   }

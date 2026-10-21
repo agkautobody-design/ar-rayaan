@@ -15,18 +15,23 @@ abstract final class RulingGate {
     r'riba|interest loan|kaffarah|kaffara|fidyah|nikah|mahr|dowry|iddah|'
     r'iddat|zihar|polygam\w*|second wife|temporary marriage|'
     r'mutah|surrogacy|ivf|organ donation|apostasy|murtad|takfir|'
-    r'blasphemy|oath|vow|nadhr|missed fasts?|missed prayers?|'
+    r'blasphemy|oath|vow|nadhr|'
+    r'missed\s+(?:my\s+)?(?:\w+\s+)?(?:fasts?|prayers?|salah)|'
+    r'(?:make\s+up|catch\s+up|qada)\s+(?:on\s+)?(?:my\s+)?'
+    r'(?:missed\s+)?(?:fasts?|prayers?|salah)|'
+    r'prayers?\s+for\s+years|'
     r'breaking my fast)\b',
     caseSensitive: false,
   );
 
   static final RegExp _personal = RegExp(
     r"\b(my|our)\s+(wife|husband|marriage|nikah|divorce|spouse|case|"
-    r"situation|father|mother|parents?|fast|wudu|prayer|salah|"
+    r"situation|father|mother|parents?|fasts?|wudu|prayers?|salah|"
     r"inheritance|loan|mortgage|oath|vow|child|son|daughter)\b|"
     r"\b(should|can|could|must|may|do|did|am|have|will)\s+(i|we)\b|"
     r"\b(i|we)\s+(am|are|was|were|have|had|did|said|told|took|want\s+to|"
-    r"wanna|need\s+to|plan\s+to|swore|promised)\b|"
+    r"wanna|need\s+to|plan\s+to|swore|promised|missed|skipped|broke|"
+    r"forgot|owe)\b|"
     r"\bis\s+(it|my|our)\s+(valid|void|haram|halal|permissible|allowed)\b|"
     r"\bam\s+i\s+(still\s+)?(married|divorced|sinful|a\s+sinner|allowed)\b",
     caseSensitive: false,
@@ -38,12 +43,39 @@ abstract final class RulingGate {
     caseSensitive: false,
   );
 
+  // Arabic and Urdu. A regex word boundary does not see Arabic letters as word
+  // characters, so these use a look-behind for "not preceded by an Arabic
+  // letter" instead.
+  static const String _noArabicBefore = r'(?<![\u0600-\u06FF\u0750-\u077F])';
+
+  /// Ruling topics: divorce, inheritance, vows, expiation, abortion, interest,
+  /// making up missed prayers and fasts.
+  static final RegExp _topicArabic = RegExp(
+    '$_noArabicBefore'
+    r'(?:طلاق|طلقت|ميراث|إرث|ارث|وراثت|نذر|كفارة|كفارہ|إجهاض|اجهاض|'
+    r'ربا|قضاء\s+الصلاة|قضاء\s+الصوم|قضا\s+نماز|نماز\s+قضا|'
+    r'فاتتني|فاتني)',
+  );
+
+  /// "Is my divorce valid": the speaker's own case, in Arabic or Urdu.
+  static final RegExp _personalArabic = RegExp(
+    '$_noArabicBefore'
+    r'(?:طلاقي|زواجي|نذري|يميني|صلاتي|صيامي|زوجتي|زوجي|ابني|ابنتي|'
+    r'يجوز\s+لي|فاتتني|فاتني|طلقت|میری|میرا|میرے|مجھے|میں)',
+  );
+
+  /// "What is the ruling on…" in Arabic or Urdu.
+  static final RegExp _askArabic = RegExp(
+    '$_noArabicBefore'
+    r'(?:حكم|حكمه|فتوى|حلال|حرام|يجوز|جائز|ناجائز|حکم|فتویٰ|فتوی)',
+  );
+
   static RulingClass classify(String question) {
     final String q = question.toLowerCase();
-    final bool topic = _topic.hasMatch(q);
-    final bool ask = _generalAsk.hasMatch(q);
+    final bool topic = _topic.hasMatch(q) || _topicArabic.hasMatch(q);
+    final bool ask = _generalAsk.hasMatch(q) || _askArabic.hasMatch(q);
     if (!topic && !ask) return RulingClass.none;
-    final bool personal = _personal.hasMatch(q);
+    final bool personal = _personal.hasMatch(q) || _personalArabic.hasMatch(q);
     if (personal && topic) return RulingClass.personal;
     // "Is my divorce valid" has a topic word; "should I do X" with only a
     // ruling-word is general unless it is clearly about "me".

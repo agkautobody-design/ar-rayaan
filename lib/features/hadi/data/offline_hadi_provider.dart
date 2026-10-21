@@ -9,14 +9,26 @@ import '../application/hadi_provider.dart';
 /// finds "fast", "business" never finds "sin", "they" never finds "hey",
 /// and "beats" never finds "eat".
 class OfflineHadiProvider implements HadiProvider {
-  const OfflineHadiProvider();
+  /// [hasKey] is true when the person has a live key (their own or a
+  /// subscription's): the replies then never tell them to go and add one.
+  const OfflineHadiProvider({this.hasKey = false});
+
+  final bool hasKey;
 
   static const String decline =
       'I don\'t have enough authentic knowledge to answer that with '
-      'certainty, and I would rather not guess. For guided learning I '
-      'recommend Shaykh Muhammad Saqib Iqbal\'s channel (linked in Our '
-      'Sources), or a qualified local scholar. Add a free API key in Hādi '
-      'settings and I can reason further.';
+      'certainty, and I would rather not guess. A qualified local scholar, '
+      'or Shaykh Muhammad Saqib Iqbal\'s channel (linked in Our Sources), '
+      'can help. A free API key in Hādi settings lets me reason further.';
+
+  /// [decline] for someone who already has a live key.
+  static const String declineKeyed =
+      'I don\'t have enough authentic knowledge to answer that with '
+      'certainty, and I would rather not guess. A qualified local scholar, '
+      'or Shaykh Muhammad Saqib Iqbal\'s channel (linked in Our Sources), '
+      'can help.';
+
+  static String declineFor(bool hasKey) => hasKey ? declineKeyed : decline;
 
   /// For "is X halal / allowed?" questions the shelf has no entry for.
   static const String rulingDecline =
@@ -31,6 +43,66 @@ class OfflineHadiProvider implements HadiProvider {
       'This is a general answer. Rulings can differ between schools and '
       'depend on the details of your situation, so for your own case please '
       'ask a qualified scholar.';
+
+  /// For a question that has nothing to do with Islam or this app.
+  static const String offTopicReply =
+      'That one is outside what I can help with: I only cover Islam and '
+      'this app, meaning worship, the Qur’an, the Sunnah, du’as and where '
+      'things live in Ar-Rayaan. Ask me about any of those, or tell me what '
+      'is on your heart.';
+
+  /// For a rude or angry message aimed at Hādi. Calm, brief, no lecture.
+  static const List<String> rudeReplies = <String>[
+    'I am sorry I have not been useful. Tell me what you were looking for '
+        'in a few plain words and I will try again, or tap New conversation '
+        'to start fresh.',
+    'Fair enough, I may have missed what you meant. Say it again in '
+        'different words and I will do better, or start a new conversation '
+        'from the button at the top.',
+  ];
+
+  /// For a question written in Arabic, Urdu or another script the shelf
+  /// cannot read yet. Honest, and says what does work.
+  static const String scriptReply =
+      'I can see you wrote in a script I cannot match on this device yet. '
+      'My built-in shelf understands English words only, and I would rather '
+      'say so than guess. Try the key word in English, for example “wudu”, '
+      '“fasting” or “zakat”. A free API key in Hādi settings lets me answer '
+      'in more languages.';
+
+  /// [scriptReply] for someone who already has a live key.
+  static const String scriptReplyKeyed =
+      'I can see you wrote in a script I cannot match on this device yet. '
+      'My built-in shelf understands English words only, and I would rather '
+      'say so than guess. Try the key word in English, for example “wudu”, '
+      '“fasting” or “zakat”.';
+
+  /// For a message about a feeling that matches nothing on the shelf: be
+  /// with the person first, give one verse from the Qur’an, and offer the
+  /// two comfort pages in the app (shown to the person as buttons).
+  static const List<String> distressReplies = <String>[
+    'That sounds heavy, and I am glad you said it. I do not have a '
+        'precise answer for it, but I do not want to leave you with '
+        'nothing. Allah says: “Allah does not charge a soul except [with '
+        'that within] its capacity.” (Qur\'an 2:286). You are carrying '
+        'something real, and it is not a sign that you are failing. '
+        'Sakina is a quiet page in this app, and For Your Heart can help '
+        'you find words for what you feel. If you want to tell me more, I '
+        'am listening.\n[GO:/sakina]\n[GO:/feelings]',
+    'Thank you for telling me. What you feel matters, and you do not have '
+        'to make sense of all of it right now. Allah says: “For indeed, '
+        'with hardship [will be] ease. Indeed, with hardship [will be] '
+        'ease.” (Qur\'an 94:5-6). Sakina is there when the heart is heavy, '
+        'and For Your Heart has a du’a for each state. Tell me more if it '
+        'helps, and if it ever feels too much to carry alone, please let '
+        'someone you trust know.\n[GO:/sakina]\n[GO:/feelings]',
+    'I hear you, and I am staying with this. Allah says: “Unquestionably, '
+        'by the remembrance of Allah hearts are assured.” (Qur\'an 13:28). '
+        'Take it slowly, one breath and one small step. Sakina can sit '
+        'with you in the quiet, and For Your Heart can name what you are '
+        'feeling. I am here if you want to say more.'
+        '\n[GO:/sakina]\n[GO:/feelings]',
+  ];
 
   /// Words that make a question ask for a ruling.
   static const Set<String> _rulingWords = <String>{
@@ -147,7 +219,7 @@ class OfflineHadiProvider implements HadiProvider {
     // Nothing found, or only a tiny word inside a long question (a weak,
     // probably accidental match): decline honestly.
     if (bestScore == 0 || (bestScore < 5 && q.length > 5)) {
-      return rulingShaped ? rulingDecline : decline;
+      return _fallback(question, q, rulingShaped);
     }
     String answer = bestAnswer;
     // Near-tie: two plausible readings and the winner is weak — say so
@@ -167,7 +239,216 @@ class OfflineHadiProvider implements HadiProvider {
     }
     return answer;
   }
+
+  // ── What to say when nothing on the shelf fits ─────────────────────
+
+  /// A request to be taken somewhere ("take me to the Stories").
+  static const List<List<String>> _navLeads = <List<String>>[
+    <String>['take', 'me', 'to'],
+    <String>['bring', 'me', 'to'],
+    <String>['navigate', 'to'],
+    <String>['show', 'me'],
+    <String>['go', 'to'],
+    <String>['open'],
+    <String>['take', 'me'],
+    <String>['where', 'is'],
+    <String>['i', 'want', 'to', 'go', 'to'],
+    <String>['i', 'want', 'to', 'see'],
+    <String>['let', 'me', 'see'],
+  ];
+
+  /// Polite words that may come before the request.
+  static const Set<String> _navPolite = <String>{
+    'please',
+    'can',
+    'could',
+    'would',
+    'will',
+    'you',
+    'kindly',
+  };
+
+  /// Words that may sit between the request and the place.
+  static const Set<String> _navFiller = <String>{
+    'the',
+    'my',
+    'a',
+    'an',
+    'screen',
+    'page',
+    'section',
+    'room',
+    'tab',
+    'app',
+    'please',
+    'now',
+    'today',
+  };
+
+  static final List<_IndexedNav> _navIndex = <_IndexedNav>[
+    for (final _NavTarget t in _navTargets)
+      _IndexedNav(
+        t,
+        <String>{
+          for (final String a in t.aliases) tokens(a).join(' '),
+        },
+      ),
+  ];
+
+  /// The place a "take me to X" request names, or null. The words after the
+  /// request must be exactly the place (nothing else), so an ordinary
+  /// question is never mistaken for a request to move.
+  static _NavTarget? _navIntent(List<String> q) {
+    int i = 0;
+    while (i < q.length && _navPolite.contains(q[i])) {
+      i++;
+    }
+    for (final List<String> lead in _navLeads) {
+      if (i + lead.length > q.length) continue;
+      bool same = true;
+      for (int j = 0; j < lead.length; j++) {
+        if (q[i + j] != lead[j]) {
+          same = false;
+          break;
+        }
+      }
+      if (!same) continue;
+      final String rest = <String>[
+        for (int k = i + lead.length; k < q.length; k++)
+          if (!_navFiller.contains(q[k])) q[k],
+      ].join(' ');
+      if (rest.isEmpty) continue;
+      for (final _IndexedNav n in _navIndex) {
+        if (n.aliases.contains(rest)) return n.target;
+      }
+    }
+    return null;
+  }
+
+  /// Anger or insults aimed at Hādi (not at the person themself: "I feel
+  /// useless" is a feeling, "you are useless" is aimed at Hādi).
+  static final RegExp _rude = RegExp(
+    r'\b(?:(?:you|u)\s+(?:are|r)\s+(?:so\s+|really\s+|such\s+an?\s+|a\s+)*'
+    r'(?:useless|stupid|dumb|idiot|worthless|trash|garbage|rubbish|'
+    r'pathetic|moron|liar|annoying)|(?:youre|ur|ure)\s+'
+    r'(?:so\s+|really\s+|such\s+an?\s+|a\s+)*(?:useless|stupid|dumb|'
+    r'idiot|worthless|trash|garbage|rubbish|pathetic|moron|liar|annoying)|'
+    r'(?:stupid|useless|dumb|worthless|idiot)\s+(?:bot|app|ai|robot|machine)|'
+    r'shut\s+up|stfu|screw\s+you|hate\s+you|piece\s+of\s+(?:crap|shit)|'
+    r'fuck\w*|bullshit|wtf)\b',
+  );
+
+  /// A message about a feeling (checked only when nothing on the shelf fits).
+  static final RegExp _distress = RegExp(
+    r'\b(?:stress\w*|anxious|anxiety|overwhelm\w*|exhaust\w*|'
+    r'burn\w*\s+out|burnt\s+out|lonely|ashamed|shame|guilty|hopeless|'
+    r'worthless|numb|scared|afraid|terrified|depress\w*|crying|cried|'
+    r'struggl\w*|hurting|broken|heartbroken|miserable|unhappy|sad|tired|'
+    r'hates?\s+me|hate\s+myself|abandon\w*|punish\w*|'
+    r'cant\s+(?:cope|sleep|stop|go\s+on|take|breathe|focus|handle)|'
+    r'i\s+feel\s+(?:so|very|really|like|that|too|extremely|completely)|'
+    r'(?:i\s+feel|im|i\s+am)\s+(?:so\s+|very\s+|really\s+)?(?:stupid|'
+    r'useless|empty|lost|weak|dirty|invisible|unloved|unwanted|forgotten|'
+    r'helpless|trapped|stuck|drained|a\s+failure|a\s+burden)|'
+    r'cry|nothing\s+matters|no\s+one\s+cares|nobody\s+cares|'
+    r'im\s+feeling|i\s+am\s+feeling)\b',
+  );
+
+  /// Subjects that are plainly not about Islam or this app.
+  static final RegExp _offTopic = RegExp(
+    r'\b(?:football|soccer|world\s+cup|premier\s+league|nba|nfl|'
+    r'basketball|baseball|weather|forecast|movies?|netflix|tiktok|'
+    r'celebrity|horoscope|zodiac|jokes?|capital\s+of|who\s+won|'
+    r'who\s+will\s+win)\b',
+  );
+
+  static bool _hasOtherScript(String s) {
+    for (final int r in s.runes) {
+      // Greek to Indic scripts (Arabic and Urdu included), CJK, and the
+      // Arabic presentation forms. Latin with dots and macrons (ṣalāh) is
+      // not in these ranges.
+      if ((r >= 0x0370 && r <= 0x1DFF) ||
+          (r >= 0x3040 && r <= 0x9FFF) ||
+          (r >= 0xFB50 && r <= 0xFEFF)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  String _fallback(String question, List<String> q, bool rulingShaped) {
+    final _NavTarget? nav = _navIntent(q);
+    if (nav != null) {
+      return 'Here you are. Tap below to open ${nav.label}.\n'
+          '[GO:${nav.route}]';
+    }
+    if (rulingShaped) return rulingDecline;
+    if (_hasOtherScript(question)) {
+      return hasKey ? scriptReplyKeyed : scriptReply;
+    }
+    final String n = CrisisDetector.normalize(question);
+    final int pick = question.codeUnits.fold<int>(0, (int a, int b) => a + b);
+    if (_rude.hasMatch(n)) return rudeReplies[pick % rudeReplies.length];
+    if (_distress.hasMatch(n)) {
+      return distressReplies[pick % distressReplies.length];
+    }
+    if (_offTopic.hasMatch(n)) return offTopicReply;
+    return declineFor(hasKey);
+  }
 }
+
+class _NavTarget {
+  const _NavTarget(this.label, this.route, this.aliases);
+  final String label;
+  final String route;
+  final List<String> aliases;
+}
+
+class _IndexedNav {
+  const _IndexedNav(this.target, this.aliases);
+  final _NavTarget target;
+  final Set<String> aliases;
+}
+
+/// Places "take me to X" can reach. Every route MUST be on
+/// kHadiNavWhitelist (test/hadi_nav_test.dart checks the file for it).
+const List<_NavTarget> _navTargets = <_NavTarget>[
+  _NavTarget('Stories', '/stories',
+      <String>['stories', 'story', 'khutbahs', 'khutbah']),
+  _NavTarget('Prayer Times', '/prayer',
+      <String>['prayer times', 'prayer time', 'salah times']),
+  _NavTarget('Qibla', '/qibla', <String>['qibla', 'qiblah']),
+  _NavTarget('the Qur’an', '/quran',
+      <String>['quran', 'qur\'an', 'koran', 'quran reader']),
+  _NavTarget('the Zakat calculator', '/zakat',
+      <String>['zakat', 'zakat calculator']),
+  _NavTarget('the Islamic Calendar', '/calendar',
+      <String>['calendar', 'islamic calendar', 'hijri calendar']),
+  _NavTarget('the Forty Hadith', '/hadith',
+      <String>['hadith', 'forty hadith', '40 hadith']),
+  _NavTarget('Dhikr and Du’a', '/adhkar',
+      <String>['adhkar', 'dhikr', 'duas', 'dua']),
+  _NavTarget('Sakina', '/sakina', <String>['sakina']),
+  _NavTarget('For Your Heart', '/feelings',
+      <String>['feelings', 'for your heart']),
+  _NavTarget('the Games', '/games', <String>['games', 'game']),
+  _NavTarget('the Wasia Academy', '/academy',
+      <String>['academy', 'wasia', 'wasia academy']),
+  _NavTarget('the Huda guides', '/huda',
+      <String>['huda', 'huda guides', 'worship guides']),
+  _NavTarget('your Journey', '/journey', <String>['journey']),
+  _NavTarget('Notes', '/notes', <String>['notes']),
+  _NavTarget('Settings', '/settings', <String>['settings']),
+  _NavTarget('Find Anything', '/search',
+      <String>['search', 'find anything']),
+  _NavTarget('Our Sources', '/sources',
+      <String>['sources', 'our sources']),
+  _NavTarget('Masajid and Halal', '/masajid',
+      <String>['masajid', 'mosques', 'masjids']),
+  _NavTarget('the Messengers’ family tree', '/family-tree',
+      <String>['family tree']),
+  _NavTarget('Tayyib Finance', '/finance', <String>['finance']),
+];
 
 class _Hit {
   const _Hit(this.score, this.found);
@@ -189,14 +470,14 @@ class _Entry {
 
 const List<_Entry> _knowledge = <_Entry>[
   _Entry(
-    <String>['al-kahf', 'kahf', 'friday'],
+    <String>['al-kahf', 'kahf'],
     'The Prophet ﷺ said: “Whoever reads Surah Al-Kahf on Friday, a light '
     'will shine for him between the two Fridays.” (al-Bayhaqi, classed '
     'sahih). Its first ten verses are also a protection from the trial of '
     'the Dajjal (Sahih Muslim).',
   ),
   _Entry(
-    <String>['anxiety', 'anxious', 'worry', 'worried', 'stress', 'grief', 'dua for anxiety', 'dua for worry', 'dua for stress'],
+    <String>['anxiety', 'anxious', 'worry', 'worried', 'stress', 'stressed', 'grief', 'dua for anxiety', 'dua for worry', 'dua for stress'],
     'اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ — “O Allah, I '
     'seek refuge in You from worry and grief, from incapacity and '
     'laziness, from cowardice and miserliness, from the burden of debt '
@@ -204,7 +485,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'You will also find it in your Morning Adhkar set.',
   ),
   _Entry(
-    <String>['witr'],
+    <String>['witr', 'pray witr', 'how do i pray witr', 'how to pray witr'],
     'Witr is prayed after ‘Isha until Fajr, as an odd number of rak\'ahs — '
     'most simply one: the night prayer is two by two, and if dawn is near, '
     'one rak\'ah makes it witr (Sahih al-Bukhari 990). The Prophet ﷺ said '
@@ -245,17 +526,21 @@ const List<_Entry> _knowledge = <_Entry>[
     <String>['prayer time', 'prayer times', 'salah times', 'namaz time'],
     'Your Prayer Times screen calculates today\'s schedule right on your '
     'device — tap GPS or choose your city, and turn on the bell next to '
-    'any prayer to be alerted when its time arrives.',
+    'any prayer to be alerted when its time arrives.\n[GO:/prayer]',
   ),
   _Entry(
-    <String>['how do i pray', 'how to pray', 'salah', 'salaat', 'namaz', 'pray witr'],
+    <String>['how do i pray', 'how to pray', 'salah', 'salaat', 'namaz', 'two rakah', 'pray two', 'pray 2', 'namaz ka tareeqa', 'namaz ka tariqa', 'namaz kaise', 'method of prayer', 'how to perform salah', 'steps of prayer'],
     'Prayer is the second pillar. “Pray as you have seen me pray.” '
-    '(Sahih al-Bukhari 631). Five daily prayers are obligatory; the '
-    'Prophet\'s ﷺ complete method is recorded across the six books — '
-    'Shaykh Saqib Iqbal\'s channel (in Our Sources) walks through it '
-    'beautifully, step by step.',
-  ),
-  _Entry(
+    '(Sahih al-Bukhari 631). Five daily prayers are obligatory. A '
+    'two-rak\'ah prayer, in outline: make the intention, face the qibla '
+    'and say Allahu Akbar, recite al-Fatihah and a surah, bow (ruku\'), '
+    'rise, prostrate (sujud), sit briefly and prostrate again. Stand for '
+    'the second rak\'ah and repeat it, then sit for the tashahhud and '
+    'finish with the salam to the right and the left. Small details '
+    'differ between the schools, so learn them from a teacher. The Huda '
+    'guides in this app go step by step, and Shaykh Saqib Iqbal\'s '
+    'channel (in Our Sources) teaches it beautifully.\n[GO:/huda]',
+  ),  _Entry(
     <String>['quran', 'qur\'an', 'koran', 'recite', 'recitation'],
     'The Qur\'an screen holds all 114 surahs — tap any ayah to hear '
     'recitation by Shaykh Mishary Rashid Alafasy. “The best of you are '
@@ -296,7 +581,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'for du\'a — your Prayer Times screen shows tonight\'s window.',
   ),
   _Entry(
-    <String>['forgive', 'repent', 'tawbah', 'sin'],
+    <String>['forgive', 'repent', 'tawbah', 'sin', 'same sin', 'keep sinning', 'sin again', 'sinning again', 'repeated sin', 'fall into sin', 'sin over and over'],
     'Allah says: “do not despair of the mercy of Allah. Indeed, Allah '
     'forgives all sins.” (Qur\'an 39:53). The Prophet ﷺ said: “Every son of Adam '
     'sins, and the best of sinners are those who repent.” (Jami\' '
@@ -318,7 +603,7 @@ const List<_Entry> _knowledge = <_Entry>[
     '6306).',
   ),
   _Entry(
-    <String>['patience', 'sabr', 'hardship', 'difficult', 'trial'],
+    <String>['patience', 'sabr', 'hardship', 'difficult', 'trial', 'patience in the quran', 'patience in quran', 'what does allah say about patience'],
     '“Indeed, Allah is with the patient.” (Qur\'an 2:153). “Amazing is '
     'the affair of the believer: all of it is good for him — gratitude '
     'in ease, patience in hardship.” (Sahih Muslim 2999). This too '
@@ -376,100 +661,100 @@ const List<_Entry> _knowledge = <_Entry>[
   // ── Navigation packs (offline users get walked too) ─────────────────
   _Entry(
     <String>['quran screen', 'read the quran', 'recitation screen', 'open quran'],
-    'Opening the Qur\'an - tap any ayah to hear Shaykh Mishary '
+    'Here is the Qur\'an - tap any ayah to hear Shaykh Mishary '
     'Rashid Alafasy recite.\n[GO:/quran]',
   ),
   _Entry(
     <String>['prayer times screen', 'prayer screen', 'salah times screen'],
-    'Opening your Prayer Times - tap the bell beside any prayer to '
+    'Here is your Prayer Times - tap the bell beside any prayer to '
     'be alerted when its time arrives.\n[GO:/prayer]',
   ),
   _Entry(
     <String>['adhkar screen', 'dhikr screen', 'dua screen', 'du\'a screen'],
-    'Opening Dhikr & Du\'a - the Hisn al-Muslim sets with counters '
+    'Here is Dhikr & Du\'a - the Hisn al-Muslim sets with counters '
     'and meanings.\n[GO:/adhkar]',
   ),
   _Entry(
     <String>['zakat screen', 'zakat calculator'],
-    'Opening the Zakat calculator - it walks you through nisab and '
+    'Here is the Zakat calculator - it walks you through nisab and '
     'rates step by step.\n[GO:/zakat]',
   ),
   _Entry(
     <String>['stories screen', 'story screen', 'prophets screen'],
-    'Opening Stories - Prophets, Women, Seerah, Companions, duas '
+    'Here is Stories - Prophets, Women, Seerah, Companions, duas '
     'and khutbahs. Inside any story you can ask me about it as you '
     'read.\n[GO:/stories]',
   ),
   _Entry(
     <String>['search screen', 'find anything', 'find screen'],
-    'Opening Find Anything - one search across every shelf of the '
+    'Here is Find Anything - one search across every shelf of the '
     'app.\n[GO:/search]',
   ),
   _Entry(
     <String>['games screen', 'game screen'],
-    'Opening Games - Shatranj, Ludo, Trivia, and the 99 Names.\n[GO:/games]',
+    'Here is Games - Shatranj, Ludo, Trivia, and the 99 Names.\n[GO:/games]',
   ),
   _Entry(
     <String>['99 names screen', 'names screen', 'names of allah screen'],
-    'Opening the 99 Names - learn them one by one; "whoever '
+    'Here is the 99 Names - learn them one by one; "whoever '
     'preserves them enters Paradise."\n[GO:/games/names99]',
   ),
   _Entry(
     <String>['hadith screen', 'forty hadith', 'nawawi screen'],
-    'Opening the Forty Hadith of an-Nawawi, Arabic with meanings.\n[GO:/hadith]',
+    'Here is the Forty Hadith of an-Nawawi, Arabic with meanings.\n[GO:/hadith]',
   ),
   _Entry(
     <String>['qibla screen', 'find qibla', 'qibla direction', 'face qibla'],
-    'Opening Qibla - hold your phone flat and it points you to the '
+    'Here is Qibla - hold your phone flat and it points you to the '
     'Ka\'bah.\n[GO:/qibla]',
   ),
   _Entry(
     <String>['calendar screen', 'islamic calendar', 'ramadan dates', 'eid dates'],
-    'Opening the Islamic Calendar - this year\'s months, Ramadan '
+    'Here is the Islamic Calendar - this year\'s months, Ramadan '
     'and Eid dates.\n[GO:/calendar]',
   ),
   _Entry(
     <String>['finance screen', 'stocks screen', 'trading screen', 'halal stocks'],
-    'Opening Tayyib Finance - the halal stock screener and a paper '
+    'Here is Tayyib Finance - the halal stock screener and a paper '
     'trading floor to practice on.\n[GO:/finance]',
   ),
   _Entry(
     <String>['academy screen', 'school screen', 'letters screen', 'alphabet'],
-    'Opening Wasia Academy - where children learn the Arabic '
+    'Here is Wasia Academy - where children learn the Arabic '
     'letters with Wasia.\n[GO:/academy/gate]',
   ),
   _Entry(
     <String>['feelings screen', 'heart screen'],
-    'Opening For Your Heart - a gentle feelings guide with a du\'a '
+    'Here is For Your Heart - a gentle feelings guide with a du\'a '
     'for every state.\n[GO:/feelings]',
   ),
   _Entry(
     <String>['sakina', 'comfort screen', 'peace screen'],
-    'Opening Sakina - a page of stillness for when the heart is '
+    'Here is Sakina - a page of stillness for when the heart is '
     'heavy.\n[GO:/sakina]',
   ),
   _Entry(
     <String>['family tree screen', 'messengers screen'],
-    'Opening the Messengers\' family tree - from Adam to the '
+    'Here is the Messengers\' family tree - from Adam to the '
     'Prophet Muhammad (peace be upon them all).\n[GO:/family-tree]',
   ),
   _Entry(
     <String>['share screen', 'cards screen', 'verse cards'],
-    'Opening verse cards - share an ayah with someone you love.\n[GO:/share]',
+    'Here is verse cards - share an ayah with someone you love.\n[GO:/share]',
   ),
   _Entry(
     <String>['sources screen', 'our sources'],
-    'Opening Our Sources - every authority this app builds on.\n[GO:/sources]',
+    'Here is Our Sources - every authority this app builds on.\n[GO:/sources]',
   ),
   _Entry(
     <String>['settings screen', 'api key', 'apikey', 'add a key'],
-    'Opening Settings - in Hadi\'s section you can add your free '
+    'Here is Settings - in Hadi\'s section you can add your free '
     'API key so I can reason further; without one I still answer '
     'from the curated shelf.\n[GO:/settings]',
   ),
   _Entry(
     <String>['masajid', 'masjid', 'mosque', 'halal food', 'restaurants'],
-    'Opening Masajid & Halal - prayer spaces and halal food near '
+    'Here is Masajid & Halal - prayer spaces and halal food near '
     'you.\n[GO:/masajid]',
   ),
 
@@ -629,7 +914,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'lowest heaven asking who is calling upon Him. (Bukhari 1145)',
   ),
   _Entry(
-    <String>['istikhara', 'decision dua', 'should i do', 'big decision', 'choice dua'],
+    <String>['istikhara', 'decision dua', 'big decision', 'choice dua'],
     'For any matter - marriage, a job, a move - pray two units of '
     'non-obligatory prayer, then the du\'a of istikhara taught by '
     'the Prophet himself: "Allahumma inni astakhiruka bi-\'ilmik..." '
@@ -997,7 +1282,7 @@ const List<_Entry> _knowledge = <_Entry>[
 
   // ── Hard moments, held gently ───────────────────────────────────────
   _Entry(
-    <String>['someone died', 'death of a loved one', 'lost my mother', 'lost my father', 'grief', 'mourning', 'funeral', 'visiting graves', 'passed away', 'died', 'lost'],
+    <String>['someone died', 'death of a loved one', 'lost my mother', 'lost my father', 'grief', 'mourning', 'funeral', 'visiting graves', 'passed away', 'died', 'lost my mum', 'lost my mom', 'lost my parent', 'lost my parents', 'lost my son', 'lost my daughter', 'lost my husband', 'lost my wife', 'lost my brother', 'lost my sister', 'lost my grandmother', 'lost my grandfather', 'lost a loved one'],
     'When death takes someone you love: "Inna lillahi wa inna '
     'ilaihi raji\'un - Allahumma\'jurni fi musibati wakhluf li '
     'khayran minha" - To Allah we belong and to Him we return; O '
@@ -1510,7 +1795,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'beneath his fingernails (Sahih Muslim 245).',
   ),
   _Entry(
-    <String>['wudu nullifiers', 'breaks wudu', 'nullify wudu', 'lost wudu'],
+    <String>['wudu nullifiers', 'breaks wudu', 'break my wudu', 'nullify wudu', 'invalidate wudu', 'invalidates wudu', 'lost wudu'],
     'Wudu is nullified by: (1) anything exiting the private parts, (2) deep '
     'sleep, (3) loss of consciousness, (4) touching the private parts with '
     'the palm of the hand (directly, according to the stronger view). The '
@@ -2701,5 +2986,80 @@ const List<_Entry> _knowledge = <_Entry>[
     'open: “Do not despair of the mercy of Allah — indeed, Allah forgives '
     'all sins.” (Qur’an 39:53). For your specific situation, a trusted local '
     'scholar can walk with you privately.',
+  ),
+  // ── Added with the Hādi fixes: heavy moments, children, a surah's meaning ──
+  _Entry(
+    <String>[
+      'allah hates me',
+      'allah hate me',
+      'allah doesnt love me',
+      'allah does not love me',
+      'allah dont love me',
+      'allah is angry with me',
+      'allah is punishing me',
+      'allah abandoned me',
+      'allah has abandoned me',
+      'allah left me',
+      'allah forgot me',
+      'allah wont forgive me',
+      'allah will not forgive me',
+      'allah cant forgive me',
+    ],
+    'I am glad you said that out loud. Hear this first: Allah says, '
+    '“Your Lord has not taken leave of you, [O Muhammad], nor has He '
+    'detested [you].” (Qur\'an 93:3). That was revealed to the Prophet ﷺ '
+    'himself during a pause in the revelation. And to the one weighed '
+    'down by sins: “Say, O My servants who have '
+    'transgressed against themselves [by sinning], do not despair of the '
+    'mercy of Allah. Indeed, Allah forgives all sins.” (Qur\'an 39:53). '
+    'A heart that fears it has lost Allah is still turned toward Him. '
+    'Sakina is the quiet page of this app, and For Your Heart can help '
+    'you find words for what you feel. I am listening if you want to '
+    'tell me more.\n[GO:/sakina]\n[GO:/feelings]',
+  ),
+  _Entry(
+    <String>[
+      'old to pray',
+      'kid to pray',
+      'kids to pray',
+      'child to pray',
+      'children to pray',
+      'son to pray',
+      'daughter to pray',
+      'teach children',
+      'teach kids',
+      'teach my child',
+      'teach my son',
+      'teach my daughter',
+      'doesnt want to pray',
+      'does not want to pray',
+      'refuses to pray',
+      'wont pray',
+      'children and prayer',
+    ],
+    'Children learn prayer from love and from watching you. The Prophet '
+    'ﷺ said to command children to pray when they are seven and to '
+    'discipline them over it when they are ten (Sunan Abi Dawud 495, '
+    'hasan sahih per al-Albani). Begin gently: let them stand beside you, '
+    'praise every small step, and keep it short. If a child pushes back, '
+    'stay patient and keep praying in front of them, and make du\'a '
+    'for them. Allah says: “And enjoin prayer upon your family [and '
+    'people] and be steadfast therein.” (Qur\'an 20:132). For a child '
+    'who is struggling, a teacher at your masjid can help. The Wasia '
+    'Academy is made for learning step by step.\n[GO:/academy]',
+  ),
+  _Entry(
+    <String>[
+      'meaning of surah ikhlas',
+      'what does surah ikhlas mean',
+      'meaning of ikhlas',
+      'what does ikhlas mean',
+      'meaning of al ikhlas',
+    ],
+    'Surah al-Ikhlas (112) is four verses on the oneness of Allah: '
+    '“Say, He is Allah, [who is] One, Allah, the Eternal Refuge. He '
+    'neither begets nor is born, nor is there to Him any equivalent.” '
+    '(Qur\'an 112:1-4). The word ikhlas means pure sincerity: giving '
+    'Allah what is His alone.',
   ),
 ];

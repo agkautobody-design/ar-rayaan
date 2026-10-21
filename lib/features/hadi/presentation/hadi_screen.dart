@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -42,23 +40,9 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
   bool _allStarters = false;
   final TextEditingController _input = TextEditingController();
   final ScrollController _scroll = ScrollController();
-  StreamSubscription<String>? _navSub;
-
-  @override
-  void initState() {
-    super.initState();
-    _navSub = ref
-        .read(hadiControllerProvider.notifier)
-        .navigationEvents
-        .stream
-        .listen((String route) {
-      if (mounted) context.go(route);
-    });
-  }
 
   @override
   void dispose() {
-    unawaited(_navSub?.cancel());
     _input.dispose();
     _scroll.dispose();
     super.dispose();
@@ -67,10 +51,20 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
   Future<void> _send([String? preset]) async {
     final String q = (preset ?? _input.text).trim();
     if (q.isEmpty) return;
+    // Hādi is still answering: keep what was typed, do not swallow it.
+    if (ref.read(hadiControllerProvider).typing) return;
     if (preset == null) _input.clear();
     _scrollToEnd();
     await ref.read(hadiControllerProvider.notifier).ask(q);
     _scrollToEnd();
+  }
+
+  /// Suggestion chips go under the last reply, but never after a crisis
+  /// exchange and never while Hādi is still answering.
+  bool _showNext(HadiState hadi) {
+    if (hadi.typing || hadi.messages.isEmpty) return false;
+    final HadiMessage last = hadi.messages.last;
+    return last.fromHadi && !last.sensitive && last.crisis == null;
   }
 
   void _scrollToEnd() {
@@ -489,6 +483,19 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
               ),
               textAlign: TextAlign.center,
             ),
+            if (hadi.messages.length == 1)
+              Padding(
+                padding: const EdgeInsets.fromLTRB(24, 4, 24, 0),
+                child: Text(
+                  'A study aid, not a scholar. I will not rule on your own '
+                  'situation, and when I do not know, I will say so.',
+                  style: AppText.bodyMuted.copyWith(
+                    fontSize: 12,
+                    color: AppColors.textFaint,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
             Expanded(
               child: ListView(
                 controller: _scroll,
@@ -497,6 +504,12 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                   for (int i = 0; i < hadi.messages.length; i++)
                     _Bubble(
                       message: hadi.messages[i],
+                      onOpen: (String route) => context.go(route),
+                      onRetry: hadi.messages[i].retryQuestion != null &&
+                              i == hadi.messages.length - 1 &&
+                              !hadi.typing
+                          ? () => _send(hadi.messages[i].retryQuestion)
+                          : null,
                       onReport: hadi.messages[i].fromHadi &&
                               i > 0 &&
                               !hadi.messages[i].sensitive
@@ -536,31 +549,14 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                     Wrap(
                       spacing: 8,
                       runSpacing: 8,
-                      children: [
-                        for (final e in _allStarters
+                      children: <Widget>[
+                        for (final HadiExchange e in _allStarters
                             ? kProposedHadiExchanges
-                            : kProposedHadiExchanges.take(8))
-                          ActionChip(
-                            onPressed: () => _send(e.question),
-                            avatar: const Icon(
-                              Icons.check_circle_outline,
-                              size: 14,
-                              color: AppColors.gold,
-                            ),
-                            label: Text(e.question),
-                            labelStyle: AppText.bodyMuted.copyWith(
-                              fontSize: 12,
-                              color: AppColors.sand.withValues(alpha: 0.85),
-                            ),
-                            backgroundColor: AppColors.gold.withValues(
-                              alpha: 0.05,
-                            ),
-                            side: BorderSide(
-                              color: AppColors.gold.withValues(alpha: 0.3),
-                            ),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(999),
-                            ),
+                            : kProposedHadiExchanges
+                                .take(kHadiOpeningChipCount))
+                          _StarterChip(
+                            label: e.question,
+                            onTap: () => _send(e.question),
                           ),
                         if (!_allStarters)
                           ActionChip(
@@ -568,7 +564,7 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                                 setState(() => _allStarters = true),
                             label: const Text('More questions\u2026'),
                             labelStyle: AppText.bodyMuted.copyWith(
-                              fontSize: 12,
+                              fontSize: 13,
                               color: AppColors.goldLight,
                             ),
                             backgroundColor: Colors.transparent,
@@ -580,6 +576,26 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                             ),
                           ),
                       ],
+                    )
+                  else if (_showNext(hadi))
+                    Padding(
+                      padding: const EdgeInsets.only(top: 4),
+                      child: Wrap(
+                        spacing: 8,
+                        runSpacing: 8,
+                        children: <Widget>[
+                          for (final String question in hadiSuggestions(
+                            <String>[
+                              for (final HadiMessage m in hadi.messages)
+                                if (!m.fromHadi) m.text,
+                            ],
+                          ))
+                            _StarterChip(
+                              label: question,
+                              onTap: () => _send(question),
+                            ),
+                        ],
+                      ),
                     ),
                 ],
               ),
@@ -611,19 +627,29 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                         ),
                       ),
                     ),
-                    GestureDetector(
-                      onTap: () => _send(),
-                      child: Container(
-                        width: 36,
-                        height: 36,
-                        decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          gradient: AppColors.goldGradient,
-                        ),
-                        child: const Icon(
-                          Icons.send,
-                          size: 16,
-                          color: AppColors.night,
+                    Semantics(
+                      button: true,
+                      enabled: !hadi.typing,
+                      label: 'Send',
+                      excludeSemantics: true,
+                      onTap: hadi.typing ? null : _send,
+                      child: GestureDetector(
+                        onTap: hadi.typing ? null : _send,
+                        child: Opacity(
+                          opacity: hadi.typing ? 0.4 : 1,
+                          child: Container(
+                            width: 44,
+                            height: 44,
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              gradient: AppColors.goldGradient,
+                            ),
+                            child: const Icon(
+                              Icons.send,
+                              size: 18,
+                              color: AppColors.night,
+                            ),
+                          ),
                         ),
                       ),
                     ),
@@ -748,11 +774,52 @@ class _PassageCard extends StatelessWidget {
   }
 }
 
+/// A suggested question the person can tap instead of typing.
+class _StarterChip extends StatelessWidget {
+  const _StarterChip({required this.label, required this.onTap});
+
+  final String label;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return ActionChip(
+      onPressed: onTap,
+      avatar: const Icon(
+        Icons.chat_bubble_outline,
+        size: 14,
+        color: AppColors.gold,
+      ),
+      label: Text(label),
+      labelStyle: AppText.bodyMuted.copyWith(
+        fontSize: 13,
+        color: AppColors.sand.withValues(alpha: 0.85),
+      ),
+      backgroundColor: AppColors.gold.withValues(alpha: 0.05),
+      side: BorderSide(color: AppColors.gold.withValues(alpha: 0.3)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(999),
+      ),
+    );
+  }
+}
+
 class _Bubble extends ConsumerWidget {
-  const _Bubble({required this.message, this.onReport});
+  const _Bubble({
+    required this.message,
+    this.onReport,
+    this.onOpen,
+    this.onRetry,
+  });
 
   final HadiMessage message;
   final VoidCallback? onReport;
+
+  /// Called with a route when the person taps an "Open …" button.
+  final void Function(String route)? onOpen;
+
+  /// Set on a reply that fell back to the shelf because live failed.
+  final VoidCallback? onRetry;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -809,6 +876,55 @@ class _Bubble extends ConsumerWidget {
                           ),
                         if (message.crisis != null)
                           _CrisisHelpPanel(kind: message.crisis!),
+                        if (message.routes.isNotEmpty && onOpen != null)
+                          Padding(
+                            padding: const EdgeInsets.only(top: 8),
+                            child: Wrap(
+                              spacing: 8,
+                              runSpacing: 8,
+                              children: <Widget>[
+                                for (final String route in message.routes)
+                                  ActionChip(
+                                    avatar: const Icon(
+                                      Icons.arrow_forward,
+                                      size: 16,
+                                      color: AppColors.gold,
+                                    ),
+                                    label: Text(HadiTokens.labelFor(route)),
+                                    labelStyle: AppText.body.copyWith(
+                                      fontSize: 14,
+                                      color: AppColors.goldLight,
+                                    ),
+                                    backgroundColor:
+                                        AppColors.gold.withValues(alpha: 0.08),
+                                    side: BorderSide(
+                                      color: AppColors.gold
+                                          .withValues(alpha: 0.4),
+                                    ),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(999),
+                                    ),
+                                    onPressed: () => onOpen!(route),
+                                  ),
+                              ],
+                            ),
+                          ),
+                        if (onRetry != null)
+                          Padding(
+                            padding: const EdgeInsets.only(top: 8),
+                            child: OutlinedButton.icon(
+                              onPressed: onRetry,
+                              icon: const Icon(Icons.refresh, size: 16),
+                              label: const Text('Try the live answer again'),
+                              style: OutlinedButton.styleFrom(
+                                foregroundColor: AppColors.goldLight,
+                                side: BorderSide(
+                                  color: AppColors.gold.withValues(alpha: 0.4),
+                                ),
+                                minimumSize: const Size(0, 44),
+                              ),
+                            ),
+                          ),
                         const SizedBox(height: 6),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,

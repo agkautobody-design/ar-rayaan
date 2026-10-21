@@ -57,6 +57,28 @@ void main() {
       expect(HadiTokens.routeOf('no token here'), isNull);
     });
 
+    test('routesOf keeps order, drops repeats and strangers, and caps at two',
+        () {
+      expect(
+        HadiTokens.routesOf('a [GO:/sakina] b [GO:/sakina] c [GO:/feelings]'),
+        <String>['/sakina', '/feelings'],
+      );
+      expect(HadiTokens.routesOf('[GO:/evil] [GO:/quran]'), <String>['/quran']);
+      expect(
+        HadiTokens.routesOf('[GO:/quran][GO:/prayer][GO:/zakat]'),
+        <String>['/quran', '/prayer'],
+      );
+      expect(HadiTokens.routesOf('nothing here'), isEmpty);
+    });
+
+    test('every named button route is on the whitelist', () {
+      for (final String route in kHadiRouteNames.keys) {
+        expect(kHadiNavWhitelist.contains(route), isTrue, reason: route);
+      }
+      expect(HadiTokens.labelFor('/prayer'), 'Open Prayer Times');
+      expect(HadiTokens.labelFor('/somewhere-new'), 'Open this screen');
+    });
+
     test('strip removes every GO and DO token', () {
       const String raw =
           'Here you go.\n[GO:/stories]\n[DO:save-hadith]\n[DO:bookmark:abc]';

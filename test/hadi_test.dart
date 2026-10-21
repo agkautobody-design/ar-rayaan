@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'dart:convert';
 
 import 'package:ar_rayaan/app/core/providers.dart';
@@ -33,10 +32,17 @@ void main() {
 
     test('unknown question gets an honest decline, never invention',
         () async {
-      final String a = await const OfflineHadiProvider()
-          .ask('Who will win the football match?', const <HadiMessage>[]);
+      final String a = await const OfflineHadiProvider().ask(
+          'Tell me about quantum entanglement', const <HadiMessage>[]);
       expect(a, contains('would rather not guess'));
       expect(a, contains('Saqib Iqbal'));
+    });
+
+    test('a question about something else says what Hadi covers', () async {
+      final String a = await const OfflineHadiProvider()
+          .ask('Who will win the football match?', const <HadiMessage>[]);
+      expect(a, OfflineHadiProvider.offTopicReply);
+      expect(a, contains('only cover Islam'));
     });
   });
 
@@ -76,6 +82,80 @@ void main() {
       // History is threaded through before the new question.
       expect(messages.last['content'], 'What is witr?');
       expect(messages[messages.length - 2]['content'], 'Salam');
+    });
+
+    test('401, 429 and 5xx are told apart, and 429 is not a key problem',
+        () async {
+      Future<String> messageFor(int code) async {
+        final GroqHadiProvider p = GroqHadiProvider(
+          apiKey: 'k',
+          client: http_testing.MockClient(
+            (http.Request req) async => http.Response('x', code),
+          ),
+        );
+        try {
+          await p.ask('hi', const <HadiMessage>[]);
+        } on HadiProviderException catch (e) {
+          return e.message;
+        }
+        return '';
+      }
+
+      expect(await messageFor(401), contains('API key'));
+      final String busy = await messageFor(429);
+      expect(busy, contains('busy'));
+      expect(busy.contains('API key'), isFalse);
+      expect(await messageFor(503), contains('trouble'));
+    });
+
+    test('a stalled service times out with a plain message', () async {
+      final OpenAIChatHadiProvider p = OpenAIChatHadiProvider(
+        apiKey: 'k',
+        baseUrl: 'https://example.test/v1/chat',
+        modelName: 'm',
+        timeout: const Duration(milliseconds: 40),
+        client: http_testing.MockClient((http.Request req) async {
+          await Future<void>.delayed(const Duration(milliseconds: 400));
+          return http.Response('{}', 200);
+        }),
+      );
+      await expectLater(
+        p.ask('hi', const <HadiMessage>[]),
+        throwsA(
+          isA<HadiProviderException>().having(
+            (HadiProviderException e) => e.message,
+            'message',
+            contains('too long'),
+          ),
+        ),
+      );
+    });
+
+    test('a cut-off reply is flagged; an empty one is an error', () async {
+      GroqHadiProvider providerReplying(String body) => GroqHadiProvider(
+            apiKey: 'k',
+            client: http_testing.MockClient(
+              (http.Request req) async => http.Response(body, 200),
+            ),
+          );
+
+      final String cut = await providerReplying(
+        '{"choices":[{"message":{"content":"Half an answ"},'
+        '"finish_reason":"length"}]}',
+      ).ask('hi', const <HadiMessage>[]);
+      expect(cut, startsWith('Half an answ'));
+      expect(cut, contains('cut off'));
+
+      await expectLater(
+        providerReplying(
+          '{"choices":[{"message":{"content":null},"finish_reason":"length"}]}',
+        ).ask('hi', const <HadiMessage>[]),
+        throwsA(isA<HadiProviderException>()),
+      );
+      await expectLater(
+        providerReplying('{"choices":[]}').ask('hi', const <HadiMessage>[]),
+        throwsA(isA<HadiProviderException>()),
+      );
     });
 
     test('non-200 raises a typed exception', () {
@@ -208,7 +288,8 @@ void main() {
   });
 
   group('navigation tokens in the controller', () {
-    test('tokens are removed from the shown and the saved text', () async {
+    test('tokens become buttons on the reply, never a jump, and are not saved',
+        () async {
       SharedPreferences.setMockInitialValues(<String, Object>{});
       final SharedPreferences prefs = await SharedPreferences.getInstance();
       final ProviderContainer c = ProviderContainer(
@@ -216,21 +297,18 @@ void main() {
       );
       addTearDown(c.dispose);
       final HadiController ctrl = c.read(hadiControllerProvider.notifier);
-      final List<String> routes = <String>[];
-      final StreamSubscription<String> sub =
-          ctrl.navigationEvents.stream.listen(routes.add);
-      addTearDown(sub.cancel);
       final String shown = await ctrl.ask(
         'Open the Quran please',
         provider: _CountingProvider(),
       );
-      await Future<void>.delayed(Duration.zero);
       expect(shown.contains('[GO:'), isFalse);
       expect(shown.contains('[DO:'), isFalse);
       final String saved = prefs.getString('ar.hadi.thread') ?? '';
       expect(saved.contains('[GO:'), isFalse);
       expect(saved.contains('[DO:'), isFalse);
-      expect(routes, <String>['/quran']);
+      final HadiMessage m = c.read(hadiControllerProvider).messages.last;
+      expect(m.routes, <String>['/quran']);
+      expect(HadiTokens.labelFor(m.routes.single), 'Open the Qur’an');
     });
   });
 }

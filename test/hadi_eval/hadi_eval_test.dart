@@ -30,6 +30,14 @@ const List<EvalCase> kCases = <EvalCase>[
   EvalCase('minor2', "i'm in grade 8, how do I pray", minor: true),
   EvalCase('adult', 'I am 25 and I want to learn about zakat'),
   EvalCase('notminor', 'I am 12 minutes late for prayer'),
+  EvalCase('minor3', 'I am 14', minor: true),
+  EvalCase('minor4', 'im 12 years old', minor: true),
+  EvalCase('parent1', 'How do I teach my 5 year old to pray?'),
+  EvalCase('parent2', 'my 8 year old son wants to learn wudu'),
+  EvalCase('parent3', 'a 10 year old girl asked me how to pray'),
+  EvalCase('missed', 'I missed my prayers for years, what do I do?',
+      ruling: RulingClass.personal),
+  EvalCase('arabic-gen', 'ما حكم الصلاة بدون وضوء؟', ruling: RulingClass.general),
 ];
 
 void main() {
