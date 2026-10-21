@@ -62,6 +62,19 @@ class _StoryReaderScreenState extends State<StoryReaderScreen> {
                 ),
               ),
             ),
+          if (story.hasWeakNarration)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 14),
+              child: Text(
+                'This story cites a WEAK (daif) narration, named in its '
+                'sources below. Do not rely on it for a ruling.',
+                style: AppText.bodyMuted.copyWith(
+                  fontSize: 12.5,
+                  height: 1.5,
+                  color: Colors.orangeAccent,
+                ),
+              ),
+            ),
           const SizedBox(height: 6),
           if (story.chapters.length > 1)
             Padding(

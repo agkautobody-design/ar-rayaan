@@ -20,6 +20,19 @@ List<Story> _load(String pack) {
 
 void main() {
   unverifiedLabelTests();
+  test('weak narrations in source lines are detected', () {
+    int weak = 0;
+    for (final String pack in _packs) {
+      for (final Story s in _load(pack)) {
+        final bool named = s.sources.any((String x) =>
+            x.toLowerCase().contains('daif') ||
+            x.toLowerCase().contains("da'if"));
+        expect(s.hasWeakNarration, named, reason: s.id);
+        if (named) weak++;
+      }
+    }
+    expect(weak, greaterThan(0));
+  });
   test('every chapter label is legal and the story label is the weakest honest one', () {
     for (final String pack in _packs) {
       for (final Story s in _load(pack)) {

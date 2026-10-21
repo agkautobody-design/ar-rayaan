@@ -160,6 +160,7 @@ void main() {
     expect(kHadiSystemPrompt, contains('NEVER invent'));
     expect(kHadiSystemPrompt, contains('[[src:'));
     expect(kHadiSystemPrompt, contains('adults'));
+    expect(kHadiSystemPrompt, contains('UNVERIFIED MATERIAL'));
   });
 
   test('navigation-like questions are told apart', () {
