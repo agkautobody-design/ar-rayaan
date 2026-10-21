@@ -209,8 +209,8 @@ const List<_Entry> _knowledge = <_Entry>[
     'most simply one: the night prayer is two by two, and if dawn is near, '
     'one rak\'ah makes it witr (Sahih al-Bukhari 990). The Prophet ﷺ said '
     'Allah is single (witr) and loves what is single, and told the people '
-    'of the Qur\'an to pray witr (Sunan Abi Dawud 1416, sahih per '
-    'al-Albani). He also taught al-Hasan ibn Ali a Qunut supplication for '
+    'of the Qur\'an to pray witr '
+    '(Sunan Abi Dawud 1416, sahih per al-Albani). He also taught al-Hasan ibn Ali a Qunut supplication for '
     'Witr that begins “Allahumma ihdini fiman hadayt…” (Sunan Abi Dawud '
     '1425, sahih per al-Albani). That report does not say whether it is '
     'said before or after ruku‘: ask a scholar of your madhhab.',
@@ -221,8 +221,8 @@ const List<_Entry> _knowledge = <_Entry>[
     'after-prayer sets from Hisn al-Muslim with meanings. One report: '
     'whoever says a short “In the name of Allah…” formula three times in '
     'the morning is protected from sudden calamity until evening, and three '
-    'times in the evening until morning (Sunan Abi Dawud 5088, sahih per '
-    'al-Albani). Open it from Home and tap the counters as you recite.',
+    'times in the evening until morning '
+    '(Sunan Abi Dawud 5088, sahih per al-Albani). Open it from Home and tap the counters as you recite.',
   ),
   _Entry(
     <String>['ramadan', 'fasting', 'fast', 'sawm', 'siyam', 'roza', 'suhoor', 'iftar'],
@@ -513,8 +513,8 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['before eating', 'after eating', 'eating dua', 'food dua', 'eat dua'],
     'Before eating: "Bismillah" - and if you forget at the start, say '
-    '"Bismillahi awwalahu wa akhirahu" (Sunan Abi Dawud 3767, sahih per '
-    'al-Albani). After eating, the Prophet ﷺ is reported to have said: '
+    '"Bismillahi awwalahu wa akhirahu" '
+    '(Sunan Abi Dawud 3767, sahih per al-Albani). After eating, the Prophet ﷺ is reported to have said: '
     '"Alhamdulillahilladhi at\'amana wa saqana wa ja\'alana muslimin" - '
     'all praise to Allah who fed us, gave us drink, and made us Muslims '
     '(Sunan Abi Dawud 3850; sunnah.com shows al-Albani\'s grade as da\'if '
@@ -698,8 +698,8 @@ const List<_Entry> _knowledge = <_Entry>[
     <String>['names on the day of judgment', 'resurrection names', 'called by name', 'name on judgment day'],
     'It is reported that the Prophet said you will be called on the Day '
     'of Resurrection by your names and the names of your fathers, so make '
-    'your names beautiful (Sunan Abi Dawud 4948 - graded da\'if (weak) by '
-    'al-Albani, so held as a weak report only). A reflection, not a '
+    'your names beautiful '
+    '(Sunan Abi Dawud 4948 - graded da\'if (weak) by al-Albani, so held as a weak report only). A reflection, not a '
     'hadith: a name carried with goodness becomes a light.',
   ),
   _Entry(
@@ -717,8 +717,8 @@ const List<_Entry> _knowledge = <_Entry>[
     'Leaving home: "Bismillahi, tawakkaltu \'alallah, la hawla wa la '
     'quwwata illa billah" - In Allah\'s name, I trust in Allah; there '
     'is no might nor power except with Allah - it is said to you: you '
-    'are guided, sufficed, and protected. (Sunan Abi Dawud 5095, sahih '
-    'per al-Albani). Entering home: mention Allah\'s name as you enter '
+    'are guided, sufficed, and protected. '
+    '(Sunan Abi Dawud 5095, sahih per al-Albani). Entering home: mention Allah\'s name as you enter '
     '(Sahih Muslim 2018) and give greetings of peace (Qur\'an 24:61).',
   ),
   _Entry(
@@ -780,8 +780,8 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['new baby', 'newborn', 'baby born', 'child born', 'aqiqah', 'tahnik', 'baby'],
     'For the newborn: the Prophet ﷺ called the adhan in the ear of '
-    'al-Hasan when he was born (Sunan Abi Dawud 5105, hasan per '
-    'al-Albani). Tahnik: a softened date on the palate, and pray for the '
+    'al-Hasan when he was born '
+    '(Sunan Abi Dawud 5105, hasan per al-Albani). Tahnik: a softened date on the palate, and pray for the '
     'child. (Sahih al-Bukhari 5469). And the aqiqah: "Every child is '
     'pledged to its aqiqah" - an animal sacrificed on the seventh day, and '
     'the child named. (Tirmidhi 1513, hasan per Darussalam)',
@@ -922,11 +922,11 @@ const List<_Entry> _knowledge = <_Entry>[
     'see also Sahih Muslim 2017 and 2020). If you forget to mention Allah '
     'at the start, say: Bismillahi awwalahu wa akhirahu (Sunan Abi Dawud '
     '3767, sahih per al-Albani). Washing the hands before and after the '
-    'meal is reported to bring blessing in the food (Sunan Abi Dawud 3761 '
-    '- graded da\'if (weak) by al-Albani, so held as a weak report). Eat '
+    'meal is reported to bring blessing in the food '
+    '(Sunan Abi Dawud 3761 - graded da\'if (weak) by al-Albani, so held as a weak report). Eat '
     'together and mention Allah\'s name: the Prophet ﷺ told his Companions '
-    'that the food would then be blessed for them (Sunan Abi Dawud 3764, '
-    'hasan per al-Albani).',
+    'that the food would then be blessed for them '
+    '(Sunan Abi Dawud 3764, hasan per al-Albani).',
   ),
   _Entry(
     <String>['miswak', 'tooth stick', 'brush teeth sunnah'],
@@ -1047,9 +1047,8 @@ const List<_Entry> _knowledge = <_Entry>[
     'garments." (Al-Ahzab 59). The '
     'Prophet ﷺ is reported to have told Asma\' that once a woman reaches '
     'puberty, nothing should be shown of her but this and this - and he '
-    'pointed to his face and hands (Sunan Abi Dawud 4104 - Abu Dawud '
-    'himself called it mursal, meaning a link in the chain is missing; '
-    'al-Albani graded it sahih; scholars differ on how it applies, so ask '
+    'pointed to his face and hands '
+    '(Sunan Abi Dawud 4104 - Abu Dawud himself called it mursal, meaning a link in the chain is missing; al-Albani graded it sahih; scholars differ on how it applies, so ask '
     'a scholar of your madhhab). It is worship, obedience, and - for many '
     'who wear it - peace.',
   ),
@@ -1372,8 +1371,8 @@ const List<_Entry> _knowledge = <_Entry>[
     'nights, the resident for one day and night - then the wash '
     'is owed. (Sahih Muslim 276) Ali said he saw the Prophet ﷺ wipe the '
     'top of his leather socks, and that if religion were by opinion the '
-    'underside would seem more fitting to wipe (Sunan Abi Dawud 162, '
-    'sahih per al-Albani).',
+    'underside would seem more fitting to wipe '
+    '(Sunan Abi Dawud 162, sahih per al-Albani).',
   ),
 
   // ── Creed, gently held ──────────────────────────────────────────────
@@ -1711,8 +1710,8 @@ const List<_Entry> _knowledge = <_Entry>[
     'The Prophet ﷺ said that if someone visits a sick person whose time '
     'has not yet come and says seven times a supplication asking Allah, '
     'the Mighty, Lord of the Mighty Throne, to cure him, Allah will '
-    'relieve him of that illness (Sunan Abi Dawud 3106, sahih per '
-    'al-Albani).',
+    'relieve him of that illness '
+    '(Sunan Abi Dawud 3106, sahih per al-Albani).',
   ),
   _Entry(
     <String>['dua for protection', 'protection dua', 'safe dua'],
