@@ -1,14 +1,14 @@
 {
  "files": {
   "family/tree.json": {
-   "bytes": 36236,
-   "sha256": "2497b586cbac8bf924358598609109ad0138433915b33dd730098398322769f8",
-   "version": 3
+   "bytes": 36261,
+   "sha256": "e32bc2ceaf906f7bbdda6de441c3924ba30fb6981d1a5d7317ab1b393d4065ea",
+   "version": 4
   },
   "feelings/feelings.json": {
-   "bytes": 26382,
-   "sha256": "9a4625458fc45f6f9d96384da86fddf043e1f12e430b0c78b931cefa5721eafa",
-   "version": 4
+   "bytes": 26496,
+   "sha256": "ee4a8a32a13bce1bf5fba825f7b753a5df3ab59768d0b2f764512d15b9982bbd",
+   "version": 5
   },
   "finance/paper_market.json": {
    "bytes": 3108,
@@ -21,14 +21,14 @@
    "version": 1
   },
   "games/trivia.json": {
-   "bytes": 12315,
-   "sha256": "a5d6eb987fefd199cc35ec2714789405246050a356ca29bc7d03ac6a0690103e",
-   "version": 2
+   "bytes": 12480,
+   "sha256": "41f1f5836e187c9a31de7bd1014ccc213e65da5870a5190087af27c433b236e9",
+   "version": 3
   },
   "guides/guides.json": {
-   "bytes": 67889,
-   "sha256": "16098251d8f8c3bab7fe2a8f89a324be0bc22791f7042eb37aad5f8ab5000f94",
-   "version": 5
+   "bytes": 68412,
+   "sha256": "78ed1544e23bf9213913562307f21af5a1dba66cafad6d39fd4e7b8bce97070a",
+   "version": 6
   },
   "share/cards.json": {
    "bytes": 2639,
@@ -36,59 +36,59 @@
    "version": 2
   },
   "stories/companions.json": {
-   "bytes": 43818,
-   "sha256": "2afcca0be582897b2c89cfa925ec1fc326754416a6cbcf347ffee6c47224f7af",
-   "version": 4
-  },
-  "stories/dailyduas.json": {
-   "bytes": 47370,
-   "sha256": "f07d109c08ea8393d8f2b240f19560319a35b1929fde67402570ced7e91bb1c7",
+   "bytes": 46105,
+   "sha256": "383de04cc213acf017f2870a74aa10a48cd977d5fb8efb5d9e57eb7816c44d9f",
    "version": 5
   },
-  "stories/ghayb.json": {
-   "bytes": 81760,
-   "sha256": "52feb236a4013579e9f79c94e5ddf22eadddd9f49d7fede797c090e7bceb710f",
-   "version": 3
-  },
-  "stories/khutbahs.json": {
-   "bytes": 52349,
-   "sha256": "0f13bb70b5909af38184de35058592f2b85e151b3af75eeee2a2580dbbb5ffef",
+  "stories/dailyduas.json": {
+   "bytes": 47386,
+   "sha256": "3fb8a89c8050a2255afb803970fbd5eacf46156443d4491877dfa2b063302aee",
    "version": 6
   },
+  "stories/ghayb.json": {
+   "bytes": 83080,
+   "sha256": "c96f591cfb50e3821d29bf34ad622399acb7ccda177a194cdb4b62d4384debd1",
+   "version": 4
+  },
+  "stories/khutbahs.json": {
+   "bytes": 52790,
+   "sha256": "fb50c4d4f3aa418eae2214ba99ac403ca9d8849b1fa6a7df981a3d0806ac899f",
+   "version": 7
+  },
   "stories/modernhadith.json": {
-   "bytes": 48681,
-   "sha256": "7740429ff9a2db375c0ce7f6edcaf5ed6f28c825d43c681442429863ed1cffcf",
-   "version": 9
+   "bytes": 48759,
+   "sha256": "ce14addf1164031b619a29b5d9c92be3a2c196983d335d4e4b787103af5da2d0",
+   "version": 10
   },
   "stories/newmuslim.json": {
-   "bytes": 37317,
-   "sha256": "b478ff8f093df26c5740c22012de6fd8213ef970a1b39e21f6aad1cad19387f4",
-   "version": 3
+   "bytes": 37931,
+   "sha256": "1bf2f1b4b0509d98dc4c16f1420c424a1ed5df1c0ce18481f04c0bf210e17d5d",
+   "version": 4
   },
   "stories/prophets.json": {
-   "bytes": 61290,
-   "sha256": "38154f67ccf3907e118a820e1cdb5b883acc584100a3077d57d625595cf287a4",
-   "version": 3
+   "bytes": 62600,
+   "sha256": "871e0f1e7e4994dd3a7d0bbab3f8ebfbcc3f26d1121f874124d17e387504beef",
+   "version": 4
   },
   "stories/seerah.json": {
-   "bytes": 55644,
-   "sha256": "a50503078d8061c3b790c46338a25ffe5b3ff6371a428f8afef6e72d33da840a",
-   "version": 4
+   "bytes": 61249,
+   "sha256": "94f61d920e397d2eac746633ea96ffe543a4d9013f82b6a423449b806a60952c",
+   "version": 5
   },
   "stories/signs.json": {
-   "bytes": 20450,
-   "sha256": "87078670ea43b847e5cecf44a1d74826619d228f893f3e341baf32e8058e624f",
-   "version": 3
+   "bytes": 20746,
+   "sha256": "49ab2c6fcb59706d76639d9718e921ce355c6357631952b14605230d3744e9a0",
+   "version": 4
   },
   "stories/tales.json": {
-   "bytes": 24195,
-   "sha256": "50071cd7d98c498ef573d02a1f72b1f9929b389f3d0189967c4bcc03d62b79a8",
-   "version": 4
+   "bytes": 24607,
+   "sha256": "e61bd5812558a7d8eed8702f93382a6063769ae5f6bfa0841639d871a410b268",
+   "version": 5
   },
   "stories/women.json": {
-   "bytes": 39646,
-   "sha256": "dbcc6b71e23b3ba48ad4aa161c3b1dffc06552876b479944669b05de6cfe4968",
-   "version": 4
+   "bytes": 39948,
+   "sha256": "d0b7b23a19448957284baa6a365ae416cf8d264e14e32317a4643cb9104a9c86",
+   "version": 5
   },
   "system/module_registry.json": {
    "bytes": 12778,
