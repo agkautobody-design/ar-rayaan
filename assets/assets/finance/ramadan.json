@@ -47,7 +47,7 @@
    "day": 7,
    "theme": "For parents",
    "arabic": "رَبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا",
-   "text": "My Lord, have mercy on them as they raised me when small.",
+   "text": "My Lord, have mercy upon them as they brought me up [when I was] small.",
    "source": "Qur'an 17:24"
   },
   {
@@ -96,7 +96,7 @@
    "day": 14,
    "theme": "Mid-month review",
    "arabic": "حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ",
-   "text": "Allah is sufficient for us, and He is the best Disposer of affairs.",
+   "text": "Sufficient for us is Allah, and [He is] the best Disposer of affairs.",
    "source": "Qur'an 3:173"
   },
   {
@@ -151,9 +151,9 @@
   {
    "day": 22,
    "theme": "For the departed",
-   "arabic": "اللَّهُمَّ اغْفِرْ لِلْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ",
-   "text": "O Allah, forgive the believing men and women.",
-   "source": "Qur'an 71:28 (Nuh's prayer, meaning)"
+   "arabic": "وَلِلْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ",
+   "text": "and the believing men and believing women.",
+   "source": "Qur'an 71:28 (Nuh's prayer, final clause)"
   },
   {
    "day": 23,
@@ -173,7 +173,7 @@
    "day": 25,
    "theme": "Eyes' coolness",
    "arabic": "رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ",
-   "text": "Our Lord, grant us comfort of eyes from our families.",
+   "text": "Our Lord, grant us from among our wives and offspring comfort to our eyes.",
    "source": "Qur'an 25:74"
   },
   {
