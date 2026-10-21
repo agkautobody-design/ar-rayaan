@@ -3,10 +3,15 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'platform_scheduler.dart';
 
 /// Notification ids below this value belong to the prayer plan; ids at or
-/// above it belong to reminders (hawl, Zakat al-Fitr). Both stay under the
-/// 32-bit limit Android and iOS accept. Each `replace*` call cancels and
-/// replaces only its own range.
+/// above it belong to reminders (hawl, Zakat al-Fitr, Academy). All stay
+/// under the 32-bit limit Android and iOS accept. Each `replace*` call
+/// cancels and replaces only its own range.
 const int kReminderIdBase = 1500000000;
+
+/// Academy reminders (the daily lesson, lessons to revisit) sit in their own
+/// block of 1000 ids above the zakat reminders, so the two never cancel each
+/// other: [kReminderIdBase] up to here is zakat.
+const int kAcademyReminderIdBase = kReminderIdBase + 1000;
 
 /// Lead-time notifications ("Asr in 15 minutes") sit above the exact-time
 /// ones so the two never share an id.
@@ -107,9 +112,15 @@ abstract interface class PrayerNotificationScheduler {
   /// (ids below [kReminderIdBase]), cancelling every earlier prayer plan.
   Future<void> replaceAll(List<PlannedPrayerNotification> plan);
 
-  /// Make the OS hold exactly [reminders] among the reminder range, leaving
-  /// the prayer plan untouched.
+  /// Make the OS hold exactly [reminders] among the zakat reminder range
+  /// (ids from [kReminderIdBase] up to [kAcademyReminderIdBase]), leaving the
+  /// prayer plan and the Academy reminders untouched.
   Future<void> replaceReminders(List<PlannedReminder> reminders);
+
+  /// Make the OS hold exactly [reminders] among the Academy reminder range
+  /// (ids from [kAcademyReminderIdBase] up), leaving everything else
+  /// untouched.
+  Future<void> replaceAcademyReminders(List<PlannedReminder> reminders);
 }
 
 /// Does nothing; used on the web, desktop and in tests.
@@ -134,6 +145,11 @@ class NoopPrayerNotificationScheduler implements PrayerNotificationScheduler {
 
   @override
   Future<void> replaceReminders(List<PlannedReminder> reminders) async {}
+
+  @override
+  Future<void> replaceAcademyReminders(
+    List<PlannedReminder> reminders,
+  ) async {}
 }
 
 final Provider<PrayerNotificationScheduler>

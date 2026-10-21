@@ -15,6 +15,7 @@ import 'package:ar_rayaan/features/academy/domain/continue_hero.dart';
 import 'package:ar_rayaan/features/academy/domain/course_manifest.dart';
 import 'package:ar_rayaan/features/academy/domain/daily_verse.dart';
 import 'package:ar_rayaan/features/academy/domain/dhikr_session.dart';
+import 'package:ar_rayaan/features/academy/domain/lesson_grounding.dart';
 import 'package:ar_rayaan/features/academy/domain/letter_drills.dart';
 import 'package:ar_rayaan/features/academy/domain/letters_meta.dart';
 import 'package:ar_rayaan/features/academy/domain/next_lesson.dart';
@@ -179,6 +180,42 @@ void main() {
       }
     });
 
+    test('from a lesson the AI gets the lesson text and still no child data',
+        () async {
+      final _Rig r = await _rig(childAi: true, extra: <String, Object>{
+        'ar.family.children':
+            '[{"id":"c1","name":"Amal","createdAt":"2026-10-20T10:00:00.000"}]',
+        'ar.family.active': 'c1',
+      });
+      await r.wasia.ask(
+        'what is tawaf',
+        persona: WasiaPersona.student,
+        lesson: const LessonGrounding(
+          id: 'l1',
+          title: 'Tawaf',
+          text: 'Tawaf is walking around the Kaaba seven times.',
+        ),
+      );
+      expect(r.stub.asked, hasLength(1));
+      final String sent = r.stub.asked.single;
+      expect(sent, contains('walking around the Kaaba seven times'));
+      expect(sent.contains('Amal'), isFalse);
+    });
+
+    test('a ruling asked inside a lesson never reaches the AI', () async {
+      final _Rig r = await _rig(childAi: true);
+      await r.wasia.ask(
+        'is it halal to take a loan with interest',
+        persona: WasiaPersona.student,
+        lesson: const LessonGrounding(
+          id: 'l1',
+          title: 'Riba',
+          text: 'Riba is interest on a loan.',
+        ),
+      );
+      expect(r.stub.asked, isEmpty);
+    });
+
     test('a thread never mixes voices', () async {
       final _Rig r = await _rig(childAi: true);
       await r.wasia.ask('first', persona: WasiaPersona.student);
@@ -258,7 +295,7 @@ void main() {
       final String bullets = kChildrenPrivacyBullets.join('\n');
       expect(bullets, contains('never given a child’s name or progress'));
       expect(bullets, contains('off for children until you turn it on'));
-      expect(bullets, contains('only the question the child types is sent'));
+      expect(bullets, contains('the question the child types is sent'));
       expect(kChildrenPrivacyBody, contains('off for children by default'));
       expect(kChildrenPrivacyBody, contains('no lesson or exam progress'));
       expect(kChildrenPrivacyBody.contains('without other profile data'),
@@ -272,7 +309,7 @@ void main() {
 
     test('changed text needs fresh consent: version 1 consent is not enough',
         () async {
-      expect(kChildrenPrivacyVersion, 2);
+      expect(kChildrenPrivacyVersion, 3);
       expect(FamilyService.consentVersion, kChildrenPrivacyVersion);
       SharedPreferences.setMockInitialValues(<String, Object>{
         'ar.family.consent':

@@ -21,8 +21,12 @@ List<int> staleIds({
 /// True for ids owned by the prayer plan.
 bool isPrayerId(int id) => id < kReminderIdBase;
 
-/// True for ids owned by dated reminders.
-bool isReminderId(int id) => id >= kReminderIdBase;
+/// True for ids owned by the zakat reminders.
+bool isReminderId(int id) =>
+    id >= kReminderIdBase && id < kAcademyReminderIdBase;
+
+/// True for ids owned by the Academy reminders.
+bool isAcademyReminderId(int id) => id >= kAcademyReminderIdBase;
 
 /// The most notifications handed to the OS at once. iOS keeps only the 64
 /// soonest pending local notifications, so the plan is a rolling window

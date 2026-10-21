@@ -3,6 +3,8 @@
 /// silence at the end. Pure state machine — the screen renders it.
 library;
 
+import 'dart:convert';
+
 class DhikrSet {
   const DhikrSet({
     required this.id,
@@ -78,4 +80,51 @@ abstract final class DhikrSessionEngine {
 
   static DhikrSessionState reset(DhikrSet set) =>
       DhikrSessionState(set: set);
+}
+
+/// A half-finished session, kept on this device so leaving the screen (or
+/// the app) does not lose it. One snapshot, for today only: a session left
+/// from another day starts again rather than pretending it is still going.
+abstract final class DhikrSnapshot {
+  static const String prefKey = 'ar.academy.dhikr.session.v1';
+
+  static String _day(DateTime d) =>
+      '${d.year.toString().padLeft(4, '0')}-${d.month.toString().padLeft(2, '0')}-${d.day.toString().padLeft(2, '0')}';
+
+  /// The text to store for [s]. Null when there is nothing to keep (nothing
+  /// counted yet, or the set is complete).
+  static String? encode(DhikrSessionState s, DateTime now) {
+    if (s.count <= 0 || s.phase == DhikrPhase.complete) return null;
+    return jsonEncode(<String, Object>{
+      'set': s.set.id,
+      'count': s.count,
+      'day': _day(now),
+    });
+  }
+
+  /// The session stored in [raw], or null when there is none, it is from
+  /// another day, its set is unknown or its count does not fit the set.
+  static DhikrSessionState? decode(String? raw, DateTime now) {
+    if (raw == null || raw.isEmpty) return null;
+    try {
+      final Object? j = jsonDecode(raw);
+      if (j is! Map<String, dynamic>) return null;
+      if (j['day'] != _day(now)) return null;
+      final Object? id = j['set'];
+      final Object? count = j['count'];
+      if (id is! String || count is! int) return null;
+      for (final DhikrSet set in DhikrSet.classics) {
+        if (set.id != id) continue;
+        if (count <= 0 || count >= set.target) return null;
+        return DhikrSessionState(
+          set: set,
+          count: count,
+          phase: count % 33 == 0
+              ? DhikrPhase.milestonePause
+              : DhikrPhase.counting,
+        );
+      }
+    } catch (_) {}
+    return null;
+  }
 }

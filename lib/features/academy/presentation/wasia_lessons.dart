@@ -380,6 +380,7 @@ class _LessonRunnerState extends ConsumerState<LessonRunnerScreen> {
                   ),
                   child: Column(children: [
                     Text(current.arabic ?? '',
+                        semanticsLabel: current.translit ?? '',
                         textDirection: TextDirection.rtl,
                         style: const TextStyle(fontFamily: 'Amiri', fontSize: 64,
                             color: Color(0xFFEAD9A8))),
@@ -430,6 +431,8 @@ class _LessonRunnerState extends ConsumerState<LessonRunnerScreen> {
                         Padding(
                           padding: const EdgeInsets.only(bottom: 8),
                           child: GlassCard(
+                            semanticsLabel:
+                                'Answer ${o + 1}: ${current.options![o]}',
                             onTap: _solved
                                 ? null
                                 : () => setState(() {
@@ -450,12 +453,16 @@ class _LessonRunnerState extends ConsumerState<LessonRunnerScreen> {
                         ),
                       if (_picked != null) ...[
                         const SizedBox(height: 6),
-                        Text(
-                          _solved
-                              ? 'Correct, ma sha Allah! ${current.why ?? ''}'
-                              : 'Not quite \u2014 look again and try once more.',
-                          key: const Key('quiz-feedback'),
-                          style: AppText.bodyMuted.copyWith(height: 1.5),
+                        Semantics(
+                          liveRegion: true,
+                          child: Text(
+                            _solved
+                                ? 'Correct, ma sha Allah! ${current.why ?? ''}'
+                                : 'Not quite \u2014 look again and try once more.',
+                            key: const Key('quiz-feedback'),
+                            style: AppText.bodyMuted
+                                .copyWith(fontSize: 14, height: 1.5),
+                          ),
                         ),
                       ],
                     ],

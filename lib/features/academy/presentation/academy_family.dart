@@ -4,12 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../app/core/notifications/prayer_notification_scheduler.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../application/academy_reminder_providers.dart';
 import '../application/family_service.dart';
 import '../application/wasia_controller.dart';
+import '../domain/academy_reminders.dart';
 import '../domain/children_privacy.dart';
 import '../domain/letters_meta.dart';
 import 'widgets/active_child_banner.dart';
@@ -127,6 +130,7 @@ class FamilyScreen extends ConsumerWidget {
                 ),
               for (final c in list) _ChildCard(child: c),
               const _ChildPrivacyCard(),
+              const _ReminderCard(),
             ]),
           ),
         ],
@@ -395,6 +399,7 @@ class _ExamScreenState extends ConsumerState<ExamScreen> {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 8),
                   child: GlassCard(
+                    semanticsLabel: 'Answer ${o + 1}: ${options[o]}',
                     onTap: _picked == null ? () => setState(() => _picked = o) : null,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 6),
@@ -412,7 +417,7 @@ class _ExamScreenState extends ConsumerState<ExamScreen> {
                     (_picked == (q['answer'] as num).toInt()
                         ? 'Correct, ma sha Allah! '
                         : 'Not quite — ') + (q['why'] as String? ?? ''),
-                    style: AppText.bodyMuted.copyWith(height: 1.5),
+                    style: AppText.bodyMuted.copyWith(fontSize: 14, height: 1.5),
                   ),
                 ),
               const SizedBox(height: 12),
@@ -701,8 +706,10 @@ class _ChildPrivacyCardState extends ConsumerState<_ChildPrivacyCard> {
                 style: AppText.body),
             subtitle: Text(
               'Off (the default): Wasia answers a child only from the app\u2019s '
-              'own lessons. On: only the question the child types goes to the '
-              'AI service you chose \u2014 never their name or progress.',
+              'own lessons. On: the question the child types goes to the AI '
+              'service you chose, with the text of the lesson they are reading '
+              'when they ask from a lesson \u2014 never their name or '
+              'progress.',
               style: AppText.caption,
             ),
           ),
@@ -724,6 +731,113 @@ class _ChildPrivacyCardState extends ConsumerState<_ChildPrivacyCard> {
               ),
             ],
           ),
+        ],
+      ),
+    );
+  }
+}
+
+/// Parent-controlled, local-only Academy reminders. Both switches are off by
+/// default; turning one on (and changing the time) needs the parent gate.
+class _ReminderCard extends ConsumerWidget {
+  const _ReminderCard();
+
+  Future<void> _toggle(
+    BuildContext context,
+    WidgetRef ref,
+    Future<bool> Function(bool) set,
+    bool on,
+  ) async {
+    if (!await requireParent(context, ref)) return;
+    final bool shown = await set(on);
+    if (!context.mounted || !on || shown) return;
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text(
+          'Notifications are not available here, so this reminder cannot '
+          'show yet.',
+        ),
+      ),
+    );
+  }
+
+  Future<void> _pickTime(
+    BuildContext context,
+    WidgetRef ref,
+    AcademyReminderSettings s,
+  ) async {
+    if (!await requireParent(context, ref)) return;
+    if (!context.mounted) return;
+    final TimeOfDay? t = await showTimePicker(
+      context: context,
+      initialTime: TimeOfDay(hour: s.hour, minute: s.minute),
+    );
+    if (t == null) return;
+    await ref
+        .read(academyReminderProvider.notifier)
+        .setTime(t.hour, t.minute);
+  }
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final AcademyReminderSettings s = ref.watch(academyReminderProvider);
+    final PrayerNotificationScheduler sched = ref.watch(
+      prayerNotificationSchedulerProvider,
+    );
+    final AcademyReminderController c = ref.read(
+      academyReminderProvider.notifier,
+    );
+    final String time = MaterialLocalizations.of(context).formatTimeOfDay(
+      TimeOfDay(hour: s.hour, minute: s.minute),
+    );
+    return GlassCard(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text('REMINDERS', style: AppText.eyebrow),
+          const SizedBox(height: 4),
+          Text(
+            'Off by default. One quiet notification a day at most, on this '
+            'device only: nothing is sent anywhere, and it never mentions a '
+            'child or counts a streak.',
+            style: AppText.caption,
+          ),
+          SwitchListTile(
+            key: const ValueKey<String>('remind-lesson'),
+            contentPadding: EdgeInsets.zero,
+            value: s.lesson,
+            onChanged: (bool v) => _toggle(context, ref, c.setLesson, v),
+            title: Text('Daily lesson', style: AppText.body),
+          ),
+          SwitchListTile(
+            key: const ValueKey<String>('remind-reviews'),
+            contentPadding: EdgeInsets.zero,
+            value: s.reviews,
+            onChanged: (bool v) => _toggle(context, ref, c.setReviews, v),
+            title: Text('Lessons ready to revisit', style: AppText.body),
+            subtitle: Text(
+              'Only on days when something is waiting.',
+              style: AppText.caption,
+            ),
+          ),
+          if (s.any)
+            ListTile(
+              key: const ValueKey<String>('remind-time'),
+              contentPadding: EdgeInsets.zero,
+              minVerticalPadding: 12,
+              title: Text('Time: $time', style: AppText.body),
+              trailing: const Icon(Icons.schedule, size: 20),
+              onTap: () => _pickTime(context, ref, s),
+            ),
+          if (!sched.supported)
+            Padding(
+              padding: const EdgeInsets.only(top: 4),
+              child: Text(
+                'Notifications are not available on this device, so '
+                'reminders cannot show here.',
+                style: AppText.caption,
+              ),
+            ),
         ],
       ),
     );

@@ -2,24 +2,58 @@
 library;
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../app/core/providers.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../domain/hifz_planner.dart';
+import '../domain/hifz_progress.dart';
 
-class HifzPlannerScreen extends StatefulWidget {
+class HifzPlannerScreen extends ConsumerStatefulWidget {
   const HifzPlannerScreen({super.key});
 
   @override
-  State<HifzPlannerScreen> createState() => _HifzPlannerScreenState();
+  ConsumerState<HifzPlannerScreen> createState() => _HifzPlannerScreenState();
 }
 
-class _HifzPlannerScreenState extends State<HifzPlannerScreen> {
-  int _targetSurah = 18;
-  int _dailyAyat = 3;
+class _HifzPlannerScreenState extends ConsumerState<HifzPlannerScreen> {
+  /// The plan and the memorised ranges, kept on this device.
+  HifzState _hifz = const HifzState();
+
+  // The range being written down: ayat from..to of the target surah.
+  int _from = 1;
+  int _to = 1;
+
+  int get _targetSurah => _hifz.targetSurah;
+  int get _dailyAyat => _hifz.dailyNewAyat;
+
+  @override
+  void initState() {
+    super.initState();
+    try {
+      _hifz = HifzState.decode(
+          ref.read(sharedPreferencesProvider).getString(kHifzPref));
+    } catch (_) {
+      // No device storage (a bare test harness): the default plan.
+    }
+  }
+
+  void _set(HifzState next) {
+    setState(() {
+      _hifz = next;
+      final int max = ayatInSurah(next.targetSurah);
+      if (_from > max) _from = max;
+      if (_to > max) _to = max;
+      if (_to < _from) _to = _from;
+    });
+    try {
+      ref.read(sharedPreferencesProvider).setString(kHifzPref, next.encode());
+    } catch (_) {}
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +62,8 @@ class _HifzPlannerScreenState extends State<HifzPlannerScreen> {
       dailyNewAyat: _dailyAyat,
     );
     final int ayat = ayatInSurah(_targetSurah);
-    final DateTime done = plan.projectedCompletion(ayat, DateTime.now());
+    final int left = _hifz.remainingInTarget;
+    final DateTime done = plan.projectedCompletion(left, DateTime.now());
 
     return Scaffold(
       body: ScenicScaffold.pattern(
@@ -49,26 +84,37 @@ class _HifzPlannerScreenState extends State<HifzPlannerScreen> {
                         Expanded(
                           child: _Step(label: 'Surah', value: _targetSurah,
                               min: 1, max: 114,
-                              onChanged: (v) => setState(() => _targetSurah = v)),
+                              onChanged: (v) => _set(_hifz.withPlan(surah: v))),
                         ),
                         const SizedBox(width: 16),
                         Expanded(
                           child: _Step(label: 'New ayat/day', value: _dailyAyat,
                               min: 1, max: 20,
-                              onChanged: (v) => setState(() => _dailyAyat = v)),
+                              onChanged: (v) => _set(_hifz.withPlan(daily: v))),
                         ),
                       ],
                     ),
                     const SizedBox(height: 12),
                     Text(
-                      'Surah $_targetSurah has $ayat ayat. At $_dailyAyat ayat a day it completes around '
-                      '${done.year}-${done.month.toString().padLeft(2, '0')}-${done.day.toString().padLeft(2, '0')}. '
-                      'A teacher may set a different pace — this is your compass, not your judge.',
-                      style: AppText.bodyMuted.copyWith(height: 1.5),
+                      left == 0
+                          ? 'Surah $_targetSurah has $ayat ayat, and you have marked all of them as memorised. '
+                              'A teacher or checker confirms it; this is your own list.'
+                          : 'Surah $_targetSurah has $ayat ayat'
+                              '${left == ayat ? '' : ' ($left still to do)'}. '
+                              'At $_dailyAyat ayat a day it completes around '
+                              '${done.year}-${done.month.toString().padLeft(2, '0')}-${done.day.toString().padLeft(2, '0')}. '
+                              'A teacher may set a different pace — this is your compass, not your judge.',
+                      key: const Key('hifz-summary'),
+                      style: AppText.bodyMuted.copyWith(fontSize: 14, height: 1.5),
                     ),
+                    const SizedBox(height: 6),
+                    Text('Your plan is kept on this device.',
+                        style: AppText.caption),
                   ],
                 ),
               ),
+              const SizedBox(height: 12),
+              _memorisedCard(ayat),
               const SizedBox(height: 12),
               GlassCard(
                 child: Column(
@@ -129,6 +175,83 @@ class _HifzPlannerScreenState extends State<HifzPlannerScreen> {
       ),
     );
   }
+
+  /// The ayat of the target surah the learner marks as memorised, as ranges.
+  Widget _memorisedCard(int ayat) {
+    final List<AyahRange> mine =
+        _hifz.memorised[_targetSurah] ?? const <AyahRange>[];
+    return GlassCard(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text('What you have memorised',
+              style: AppText.titleMedium.copyWith(color: AppColors.gold)),
+          const SizedBox(height: 4),
+          Text(
+            'Your own list for Surah $_targetSurah. Write down a range when '
+            'you have recited it to your teacher or checker.',
+            style: AppText.bodyMuted.copyWith(fontSize: 14, height: 1.4),
+          ),
+          const SizedBox(height: 8),
+          if (mine.isEmpty)
+            Text('Nothing marked yet.',
+                key: const Key('hifz-none'), style: AppText.caption)
+          else
+            Wrap(
+              spacing: 8,
+              children: <Widget>[
+                for (int i = 0; i < mine.length; i++)
+                  InputChip(
+                    key: Key('hifz-range-$i'),
+                    label: Text('Ayat ${mine[i]}',
+                        style: const TextStyle(fontSize: 14)),
+                    onDeleted: () => _set(_hifz.removeRange(_targetSurah, i)),
+                    deleteButtonTooltipMessage: 'Remove this range',
+                  ),
+              ],
+            ),
+          const SizedBox(height: 8),
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: _Step(
+                    label: 'From ayah',
+                    value: _from,
+                    min: 1,
+                    max: ayat,
+                    onChanged: (int v) => setState(() {
+                          _from = v;
+                          if (_to < _from) _to = _from;
+                        })),
+              ),
+              const SizedBox(width: 16),
+              Expanded(
+                child: _Step(
+                    label: 'To ayah',
+                    value: _to,
+                    min: 1,
+                    max: ayat,
+                    onChanged: (int v) => setState(() {
+                          _to = v;
+                          if (_from > _to) _from = _to;
+                        })),
+              ),
+            ],
+          ),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: OutlinedButton.icon(
+              key: const Key('hifz-add'),
+              onPressed: () =>
+                  _set(_hifz.addRange(_targetSurah, _from, _to)),
+              icon: const Icon(Icons.add, size: 18),
+              label: const Text('Mark as memorised'),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }
 
 class _Step extends StatelessWidget {
@@ -147,10 +270,10 @@ class _Step extends StatelessWidget {
         Text(label, style: AppText.caption),
         Row(
           children: <Widget>[
-            IconButton(icon: const Icon(Icons.remove_circle_outline, color: AppColors.gold, size: 20),
+            IconButton(tooltip: 'Less: $label', icon: const Icon(Icons.remove_circle_outline, color: AppColors.gold, size: 20),
                 onPressed: value > min ? () => onChanged(value - 1) : null),
-            Text('$value', style: AppText.body.copyWith(color: AppColors.gold)),
-            IconButton(icon: const Icon(Icons.add_circle_outline, color: AppColors.gold, size: 20),
+            Semantics(label: '$label: $value', excludeSemantics: true, child: Text('$value', style: AppText.body.copyWith(color: AppColors.gold))),
+            IconButton(tooltip: 'More: $label', icon: const Icon(Icons.add_circle_outline, color: AppColors.gold, size: 20),
                 onPressed: value < max ? () => onChanged(value + 1) : null),
           ],
         ),

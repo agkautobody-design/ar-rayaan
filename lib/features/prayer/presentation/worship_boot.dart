@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../calendar/application/hijri_settings.dart';
+import '../../academy/application/academy_reminder_providers.dart';
 import '../../zakat/application/zakat_reminder_providers.dart';
 import '../application/prayer_notification_plan.dart';
 
@@ -45,6 +46,7 @@ class _WorshipBootState extends ConsumerState<WorshipBoot>
     if (state == AppLifecycleState.resumed) {
       ref.invalidate(prayerNotificationSyncProvider);
       ref.invalidate(zakatReminderSyncProvider);
+      ref.invalidate(academyReminderSyncProvider);
     }
   }
 
@@ -53,6 +55,7 @@ class _WorshipBootState extends ConsumerState<WorshipBoot>
     ref.watch(hijriSettingsProvider);
     ref.watch(prayerNotificationSyncProvider);
     ref.watch(zakatReminderSyncProvider);
+    ref.watch(academyReminderSyncProvider);
     return widget.child;
   }
 }

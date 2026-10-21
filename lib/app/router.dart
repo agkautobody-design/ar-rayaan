@@ -10,6 +10,7 @@ import '../features/onboarding/presentation/onboarding_screen.dart';
 import '../features/search/presentation/search_screen.dart';
 import '../features/community/presentation/community_screen.dart';
 import '../features/academy/presentation/academy_home_screen.dart';
+import '../features/academy/presentation/course_overview_screen.dart';
 import '../features/academy/presentation/lesson_player_screen.dart';
 import '../features/academy/presentation/my_additions_screen.dart';
 import '../features/academy/presentation/request_nasheed_screen.dart';
@@ -606,6 +607,13 @@ GoRouter buildRouter({String initialLocation = '/'}) {
       GoRoute(
         path: '/academy/understanding',
         pageBuilder: (context, state) => _fade(const UnderstandingSchoolScreen()),
+      ),
+      GoRoute(
+        path: '/academy/course/:course',
+        pageBuilder: (context, state) => _fade(CourseOverviewScreen(
+          key: ValueKey<String>('course-${state.pathParameters['course']!}'),
+          courseId: state.pathParameters['course']!,
+        )),
       ),
       GoRoute(
         path: '/academy/lesson/:course/:unit/:lesson',
