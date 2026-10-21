@@ -36,9 +36,9 @@
    "version": 2
   },
   "stories/companions.json": {
-   "bytes": 46666,
-   "sha256": "4d8aa9278ed2921111a11a403b9d7c2b33d2d810a8445bc67d4c932f7a0f7e85",
-   "version": 6
+   "bytes": 46966,
+   "sha256": "ef56cbfe273fbdd0b52017c003dc981b277baad0f64474a964e870bc2a85664e",
+   "version": 7
   },
   "stories/dailyduas.json": {
    "bytes": 47386,
@@ -81,14 +81,14 @@
    "version": 5
   },
   "stories/tales.json": {
-   "bytes": 24607,
-   "sha256": "e61bd5812558a7d8eed8702f93382a6063769ae5f6bfa0841639d871a410b268",
-   "version": 5
+   "bytes": 24708,
+   "sha256": "0e2f2f5379ebb5dbec20dd2929d3069b2610ad5575514c6f126742972e577412",
+   "version": 6
   },
   "stories/women.json": {
-   "bytes": 42715,
-   "sha256": "914c920482e10c91f873a59113bf142db0eb125f13a9b8debd600f5746307e9f",
-   "version": 6
+   "bytes": 44342,
+   "sha256": "7f52fd2e504c85b7f9e9131653a3314022608aaa518a46bdb2cf464ac42d2b7b",
+   "version": 7
   },
   "system/module_registry.json": {
    "bytes": 12778,
