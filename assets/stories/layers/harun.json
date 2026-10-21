@@ -1,0 +1,90 @@
+{
+ "schema": 1,
+ "subject": "harun",
+ "title": "Harun (Aaron)",
+ "kind": "prophet",
+ "checked": "2026-10-20",
+ "reviewStatus": "Not yet scholar-reviewed",
+ "quran": [
+  {
+   "surah": 19,
+   "from": 51,
+   "to": 53,
+   "note": "Musa is chosen, and his brother Harun is given to him as a prophet out of mercy."
+  },
+  {
+   "surah": 20,
+   "from": 29,
+   "to": 36,
+   "note": "Musa asks that Harun be made his minister and share his task; the request is granted."
+  },
+  {
+   "surah": 25,
+   "from": 35,
+   "to": 36,
+   "note": "Harun is appointed with Musa as an assistant, and both are sent to the people who denied the signs."
+  },
+  {
+   "surah": 7,
+   "from": 142,
+   "to": 145,
+   "note": "Musa, going up the mountain, tells Harun to take his place and do right among the people."
+  }
+ ],
+ "hadith": [
+  {
+   "book": "bukhari",
+   "number": "3207",
+   "narrator": "Malik ibn Sa’sa’a",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "In the account of the Night Journey, the Prophet ﷺ names the prophets he met in each heaven. Harun is in the fifth.",
+   "verified": "2026-10-20"
+  },
+  {
+   "book": "muslim",
+   "number": "2404",
+   "narrator": "Sa’d ibn Abi Waqqas",
+   "grade": "Sahih",
+   "grader": "Muslim, in his Sahih",
+   "summary": "The Prophet ﷺ said to Ali that he stood to him as Harun stood to Musa, except that there is no prophet after him.",
+   "verified": "2026-10-20",
+   "note": "Read in its context, the report compares position and succession in the Prophet’s absence. It is not a claim that Ali is a prophet, as the report itself excludes prophethood."
+  },
+  {
+   "book": "muslim",
+   "number": "2135",
+   "narrator": "al-Mughira ibn Shu’ba",
+   "grade": "Sahih",
+   "grader": "Muslim, in his Sahih",
+   "summary": "Sent to Najran, he was asked how the Qur’an calls Maryam “sister of Harun” when Musa was born long before Isa. On his return he asked the Prophet ﷺ, who said the people used to name their children after prophets and the righteous before them.",
+   "verified": "2026-10-20"
+  }
+ ],
+ "scholarly": [
+  {
+   "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+   "author": "Ibn Kathir",
+   "locator": "on 19:28",
+   "summary": "Gives three explanations of “sister of Harun”: that she resembled Harun in worship, that she descended from Musa’s brother Harun (reported from Ali ibn Abi Talha and al-Suddi), or that she was related to a righteous man named Harun. He states no preference."
+  }
+ ],
+ "differences": [
+  {
+   "question": "Who is the Harun of “O sister of Harun” (19:28)?",
+   "views": [
+    {
+     "who": "Ali ibn Abi Talha and al-Suddi, as quoted by Ibn Kathir",
+     "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com), on 19:28",
+     "view": "Harun the brother of Musa, as her ancestor."
+    },
+    {
+     "who": "The Prophet ﷺ in Sahih Muslim 2135",
+     "work": "Sahih Muslim 2135",
+     "view": "People of old were named after prophets and righteous people."
+    }
+   ],
+   "note": "Ibn Kathir lists these and a third (a righteous man of her own time) without choosing."
+  }
+ ]
+}
