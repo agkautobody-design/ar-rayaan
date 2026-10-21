@@ -193,9 +193,9 @@ const List<_HadithLesson> kHadithLessons = <_HadithLesson>[
   _HadithLesson(
     title: 'Lesson 22 — Lowering the Wing of Humility',
     meaning:
-        'Allah has revealed to me that you should humble yourselves until no one boasts over another and no one transgresses against another (Muslim 2865). Humility is a character you practise one conversation at a time.',
+        'Allah has revealed to me that you should humble yourselves until no one boasts over another and no one transgresses against another (Sunan Abi Dawud 4895, sahih per al-Albani). Humility is a character you practise one conversation at a time.',
     character: 'Lower your voice and your shoulder in one interaction today — let the other person walk taller.',
-    source: 'Muslim 2865',
+    source: 'Sunan Abi Dawud 4895 — sahih (al-Albani)',
   ),
   _HadithLesson(
     title: 'Lesson 23 — The Best of the Best',

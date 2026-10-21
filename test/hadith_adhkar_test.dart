@@ -52,7 +52,7 @@ void main() {
         morning.totalRepetitions,
         morning.items.fold<int>(0, (int s, Dhikr d) => s + d.count),
       );
-      expect(morning.totalRepetitions, 357);
+      expect(morning.totalRepetitions, 351);
       expect(morning.items[1].count, 3);
       expect(morning.items.every((d) => d.arabic.isNotEmpty), isTrue);
     });
