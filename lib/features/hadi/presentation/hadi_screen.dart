@@ -378,6 +378,7 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                 children: [
                   _HeaderIcon(
                     icon: Icons.arrow_back,
+                    label: 'Back to home',
                     onTap: () => context.go(AppRoutes.home),
                   ),
                   const SizedBox(width: 12),
