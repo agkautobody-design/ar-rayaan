@@ -27,10 +27,10 @@ const Set<String> _graded = <String>{
 };
 
 final RegExp _cite = RegExp(
-  r"(?:(bukhari)|((?<!new\s)muslim)(?![a-z])|((?:abu|abi)\s+dawu?o?d)|(tirmidhi)|(nasa['’ʿʼ]?i)|(ibn\s+maja?h?)|((?:musnad\s+)?ahmad))"
-  r"(?:\s*\)?\s*[:#]?\s*(?:no\.?\s*|hadith\s+)?)"
-  r"(\d{1,5}(?:\s*(?:,|&|/|and|;)\s*\d{1,5}(?![\d:]))*)"
-  r"(?![\d:]|\s*(?:days?|times|years|minutes|rak))",
+  r"(?:(bukhari)|((?<!new\s)muslim)(?![a-z])|((?:abu|abi)\s+da[wu]*[ou]*d)|(tirmidhi)|(nasa['’ʿʼ]?i)|(ibn\s+maja?h?)|((?:musnad\s+)?ahmad))"
+  r"(?:\s*\)?\s*[:#]?\s*\(?\s*(?:no\.?\s*|hadith\s+)?)"
+  r"(\d{1,5}(?:\s*(?:,|&|/|and|;)\s*\d{1,5}(?!\d|:\d))*)"
+  r"(?!\d|:\d|\s*(?:days?|times|years|minutes|rak))",
   caseSensitive: false,
 );
 final RegExp _num = RegExp(r'\d+');
@@ -65,34 +65,68 @@ List<File> _files() {
   return out;
 }
 
+// Adjacent Dart string literals ('Sahih al-Bukhari ' 'newline' '1234') are one
+// string at runtime, so a citation may be split across them. Mirrors
+// dart_logical() in tool/hadith_check.py: comment lines are blanked, adjacent
+// literals are joined, and every joined character keeps its original line.
+final RegExp _join = RegExp('(["\'])[ \\t]*\\n?[ \\t\\r\\n]*(["\'])');
+
+({String text, List<int> lines}) _logical(String raw, bool dart) {
+  String text = raw;
+  if (dart) {
+    text = raw
+        .split('\n')
+        .map((String l) => l.trimLeft().startsWith('//') ? ' ' * l.length : l)
+        .join('\n');
+  }
+  final List<int> lineAt = <int>[];
+  int ln = 1;
+  for (int i = 0; i < text.length; i++) {
+    lineAt.add(ln);
+    if (text.codeUnitAt(i) == 10) ln++;
+  }
+  if (!dart) return (text: text, lines: lineAt);
+  final StringBuffer out = StringBuffer();
+  final List<int> lines = <int>[];
+  int pos = 0;
+  for (final RegExpMatch m in _join.allMatches(text)) {
+    if (m.end - m.start == 2) continue;
+    out.write(text.substring(pos, m.start));
+    lines.addAll(lineAt.sublist(pos, m.start));
+    pos = m.end;
+  }
+  out.write(text.substring(pos));
+  lines.addAll(lineAt.sublist(pos));
+  return (text: out.toString(), lines: lines);
+}
+
 List<_Cite> _extract() {
   final List<_Cite> res = <_Cite>[];
   for (final File f in _files()) {
     final bool dart = f.path.endsWith('.dart');
     final String rel = f.path.replaceAll('\\', '/');
-    final List<String> lines = f.readAsLinesSync();
-    for (int i = 0; i < lines.length; i++) {
-      final String line = lines[i];
-      if (dart && line.trimLeft().startsWith('//')) continue;
-      for (final RegExpMatch m in _cite.allMatches(line)) {
-        int book = -1;
-        for (int g = 1; g <= 7; g++) {
-          if (m.group(g) != null) {
-            book = g - 1;
-            break;
-          }
+    final ({String text, List<int> lines}) lg =
+        _logical(f.readAsStringSync(), dart);
+    final String text = lg.text;
+    for (final RegExpMatch m in _cite.allMatches(text)) {
+      int book = -1;
+      for (int g = 1; g <= 7; g++) {
+        if (m.group(g) != null) {
+          book = g - 1;
+          break;
         }
-        if (book < 0) continue;
-        final int end = m.end;
-        final int tailEnd = end + 140 > line.length ? line.length : end + 140;
-        for (final RegExpMatch n in _num.allMatches(m.group(8)!)) {
-          res.add(_Cite(
-            '${_books[book]}:${int.parse(n.group(0)!)}',
-            rel,
-            i + 1,
-            line.substring(end, tailEnd),
-          ));
-        }
+      }
+      if (book < 0) continue;
+      final int end = m.end;
+      final int tailEnd = end + 140 > text.length ? text.length : end + 140;
+      final String tail = text.substring(end, tailEnd).split('\n').first;
+      for (final RegExpMatch n in _num.allMatches(m.group(8)!)) {
+        res.add(_Cite(
+          '${_books[book]}:${int.parse(n.group(0)!)}',
+          rel,
+          lg.lines[m.start],
+          tail,
+        ));
       }
     }
   }
@@ -226,5 +260,23 @@ void main() {
     expect(keysOf('MUSLIM PATH · DAY 3 OF 30'), '');
     expect(keysOf('Muslim Belal 2 days'), '');
     expect(keysOf('Musnad Ahmad 15493'), 'ahmad:15493');
+    expect(keysOf('Sahih Muslim (2276) says'), 'muslim:2276');
+    expect(keysOf('(Bukhari 1410: charity)'), 'bukhari:1410');
+    expect(keysOf('Sunan Abu Dawood 3755'), 'abudawud:3755');
+    expect(keysOf('Bukhari 12:34'), '');
+  });
+
+  test('citations wrapped across adjacent Dart string literals are joined', () {
+    final String wrapped = "const a = 'Sahih al-Bukhari '\n    '1234 (sahih)';";
+    final ({String text, List<int> lines}) lg = _logical(wrapped, true);
+    expect(_cite.firstMatch(lg.text), isNotNull);
+    expect(_cite.firstMatch(lg.text)!.group(8), '1234');
+    expect(lg.lines[_cite.firstMatch(lg.text)!.start], 1);
+    final ({String text, List<int> lines}) same =
+        _logical("final b = 'Sahih Muslim' ' 55';", true);
+    expect(_cite.firstMatch(same.text)!.group(8), '55');
+    final ({String text, List<int> lines}) commented =
+        _logical("// Bukhari 99\nfinal c = 'x';", true);
+    expect(_cite.firstMatch(commented.text), isNull);
   });
 }

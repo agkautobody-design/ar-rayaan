@@ -263,5 +263,26 @@ void main() {
           findsOneWidget);
       expect(find.textContaining('Alif, Lam, Meem'), findsNothing);
     });
+
+    testWidgets('Al-Baqarah is virtualised: only on-screen ayahs are built',
+        (tester) async {
+      SharedPreferences.setMockInitialValues(<String, Object>{});
+      tester.view.physicalSize = const Size(430, 1600);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+
+      await tester.pumpWidget(await app(tester, 2));
+      await tester.pumpAndSettle();
+
+      final int built =
+          find.byTooltip('Bookmark this ayah').evaluate().length;
+      expect(built, greaterThan(0));
+      expect(built, lessThan(40),
+          reason: 'only ayahs near the viewport may exist, not all 286');
+      // Ayah 286 is far below: not built until scrolled to.
+      expect(find.textContaining('Allah does not charge a soul'), findsNothing);
+      expect(find.byType(BackdropFilter).evaluate().length, lessThanOrEqualTo(3));
+    });
   });
 }
