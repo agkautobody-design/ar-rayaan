@@ -77,6 +77,36 @@ class OfflineHadiProvider implements HadiProvider {
       'say so than guess. Try the key word in English, for example “wudu”, '
       '“fasting” or “zakat”.';
 
+  /// [scriptReply] in Arabic, for a question written in Arabic.
+  static const String scriptReplyArabic =
+      'أرى أنك كتبت بالعربية. قاعدة معلوماتي المدمجة على هذا الجهاز تفهم '
+      'الكلمات الإنجليزية فقط حاليًا، وأفضّل أن أقول ذلك صراحةً بدلًا من '
+      'أن أخمّن. جرّب كتابة الكلمة الأساسية بالإنجليزية، مثل wudu أو '
+      'fasting أو zakat. ومفتاح مجاني في إعدادات هادي يتيح لي أن أجيب '
+      'بلغات أكثر.';
+
+  /// [scriptReplyArabic] for someone who already has a live key.
+  static const String scriptReplyArabicKeyed =
+      'أرى أنك كتبت بالعربية. قاعدة معلوماتي المدمجة على هذا الجهاز تفهم '
+      'الكلمات الإنجليزية فقط حاليًا، وأفضّل أن أقول ذلك صراحةً بدلًا من '
+      'أن أخمّن. جرّب كتابة الكلمة الأساسية بالإنجليزية، مثل wudu أو '
+      'fasting أو zakat.';
+
+  /// [scriptReply] in Urdu, for a question written in Urdu.
+  static const String scriptReplyUrdu =
+      'آپ نے اردو میں لکھا ہے۔ اس ڈیوائس پر موجود میری معلومات فی الحال صرف '
+      'انگریزی الفاظ سمجھتی ہیں، اور اندازہ لگانے کے بجائے یہ صاف بتانا '
+      'بہتر ہے۔ براہِ کرم اصل لفظ انگریزی میں لکھ کر دیکھیں، مثلاً wudu، '
+      'fasting یا zakat۔ ہادی کی سیٹنگز میں ایک مفت API کلید شامل کرنے سے '
+      'میں آپ کی زبان میں جواب دے سکوں گا۔';
+
+  /// [scriptReplyUrdu] for someone who already has a live key.
+  static const String scriptReplyUrduKeyed =
+      'آپ نے اردو میں لکھا ہے۔ اس ڈیوائس پر موجود میری معلومات فی الحال صرف '
+      'انگریزی الفاظ سمجھتی ہیں، اور اندازہ لگانے کے بجائے یہ صاف بتانا '
+      'بہتر ہے۔ براہِ کرم اصل لفظ انگریزی میں لکھ کر دیکھیں، مثلاً wudu، '
+      'fasting یا zakat۔';
+
   /// For a message about a feeling that matches nothing on the shelf: be
   /// with the person first, give one verse from the Qur’an, and offer the
   /// two comfort pages in the app (shown to the person as buttons).
@@ -141,50 +171,507 @@ class OfflineHadiProvider implements HadiProvider {
     return <String>[for (final String w in norm.split(' ')) _stem(w)];
   }
 
-  static bool _containsRun(List<String> haystack, List<String> needle) {
-    if (needle.isEmpty || needle.length > haystack.length) return false;
-    for (int i = 0; i + needle.length <= haystack.length; i++) {
-      bool same = true;
-      for (int j = 0; j < needle.length; j++) {
-        if (haystack[i + j] != needle[j]) {
-          same = false;
-          break;
+  // ── The matcher ────────────────────────────────────────────────────
+  //
+  // A question is scored against every shelf entry. Three kinds of evidence
+  // add up, each counted in whole words only:
+  //
+  //  1. a keyword phrase found as an exact run of words (the original rule);
+  //  2. a keyword phrase whose content words all appear close together in
+  //     any order ("breaks my wudu" finds "break wudu", "rights of a wife"
+  //     finds "rights of wife");
+  //  3. a how/what/why keyword whose topic word is in a question that asks
+  //     the same kind of thing ("how do I do wudu" finds "how to make wudu").
+  //
+  // A word counts for more when few entries use it (IDF), so a topic word
+  // such as "istikhara" beats a generic one such as "pray". Endings (-ed,
+  // -e, a doubled letter) and a typo in a long word are tolerated, at a
+  // discount, and only for words that are not themselves shelf words. The
+  // *weighted* score ranks the entries; the *plain letter* score decides
+  // whether a match is too weak to trust, exactly as before.
+  //
+  // This is mirrored line for line in the Python harness used to compare
+  // old and new replies (see the pull request that introduced it).
+
+  /// Longest question considered, in words.
+  static const int _maxWords = 80;
+
+  /// Words that carry no topic. Stemmed the same way as questions.
+  static const List<String> _stopRaw = <String>[
+    'a', 'an', 'the', 'i', 'me', 'my', 'we', 'us', 'our', 'you', 'your', //
+    'he', 'she', 'it', 'its', 'his', 'her', 'is', 'am', 'are', 'was', //
+    'were', 'be', 'been', 'do', 'does', 'did', 'to', 'of', 'in', 'on', //
+    'at', 'for', 'from', 'with', 'by', 'and', 'or', 'if', 'can', 'could', //
+    'would', 'should', 'will', 'may', 'might', 'must', 'shall', 'have', //
+    'has', 'had', 'this', 'that', 'there', 'as', 'so', 'than', 'about', //
+    'also', 'just', 'please', 'what', 'how', 'why', 'who', 'when', //
+    'where', 'which', 'whats', 'tell', 'explain', 'know', 'want', 'need', //
+    'vs', 'versus', 'through', 'between', 'during', 'without', 'within', //
+  ];
+
+  static final Set<String> _stop = <String>{
+    for (final String w in _stopRaw) _stem(w),
+  };
+
+  /// Words ignored when a phrase is matched out of order. "Islam" is in
+  /// every question to an Islamic app, so it says nothing about the topic.
+  static final Set<String> _setStop = <String>{
+    ..._stop,
+    for (final String w in const <String>['islam', 'islamic', 'muslim'])
+      _stem(w),
+  };
+
+  /// Ordinary verbs: "make" in "how to make wudu" may be missing from a
+  /// question that still asks the same thing.
+  static final Set<String> _light = <String>{
+    for (final String w in const <String>[
+      'make', 'do', 'perform', 'pray', 'offer', 'say', 'read', 'recite', //
+      'start', 'begin', 'get', 'give', 'learn', 'take', 'use', 'find', //
+      'write', //
+    ])
+      _stem(w),
+  };
+
+  /// The word that follows "how" in a how-to question.
+  static final Set<String> _howNext = <String>{
+    for (final String w in const <String>[
+      'do', 'does', 'to', 'can', 'should', 'could', 'would', 'shall', //
+      'may', 'i', 'we', 'you', 'one', 'did', 'will', 'is', 'are', //
+    ])
+      _stem(w),
+  };
+
+  /// English words that look like a shelf word with a typo but are not.
+  static const Set<String> _noFuzz = <String>{
+    'farther',
+    'decreased',
+    'auction',
+    'stranger',
+    'strangle',
+    'compiler',
+    'repeater',
+    'lighten',
+    'survived',
+  };
+
+  /// Keys next to each other on a QWERTY keyboard: a substitution typo in a
+  /// long word is only believed when the wrong key is a neighbour.
+  static const Map<String, String> _kbNear = <String, String>{
+    'a': 'qswxz',
+    'b': 'fghnv',
+    'c': 'dfsvx',
+    'd': 'cefrsvwx',
+    'e': 'dfrsw',
+    'f': 'bcdegrtv',
+    'g': 'bfhnrtvy',
+    'h': 'bgjmntuy',
+    'i': 'jklou',
+    'j': 'hikmnuy',
+    'k': 'ijlmou',
+    'l': 'ikop',
+    'm': 'hjkn',
+    'n': 'bghjm',
+    'o': 'iklp',
+    'p': 'lo',
+    'q': 'asw',
+    'r': 'defgt',
+    's': 'acdeqwxz',
+    't': 'fghry',
+    'u': 'hijky',
+    'v': 'bcdfg',
+    'w': 'adeqs',
+    'x': 'acdsz',
+    'y': 'ghjtu',
+    'z': 'asx',
+  };
+
+  static final List<_IndexedEntry> _index = _buildIndex();
+
+  /// In how many entries each (stemmed) keyword word appears.
+  static final Map<String, int> _df = _buildDf();
+
+  /// Every keyword word, for typo matching.
+  static final List<String> _vocab = <String>[
+    for (final String w in _df.keys)
+      if (!_stop.contains(w)) w,
+  ];
+
+  static List<_IndexedEntry> _buildIndex() {
+    final List<_IndexedEntry> out = <_IndexedEntry>[];
+    for (final _Entry e in _knowledge) {
+      // Insertion-ordered; a phrase listed twice is kept once, with a count.
+      final Map<String, _Key> seen = <String, _Key>{};
+      for (final String k in e.keywords) {
+        final List<String> t = tokens(k);
+        if (t.isEmpty) continue;
+        final String id = t.join(' ');
+        final _Key? have = seen[id];
+        if (have == null) {
+          seen[id] = _Key(t);
+        } else {
+          have.count++;
         }
       }
-      if (same) return true;
+      out.add(_IndexedEntry(seen.values.toList(), e.answer));
+    }
+    return out;
+  }
+
+  static Map<String, int> _buildDf() {
+    final Map<String, int> df = <String, int>{};
+    for (final _IndexedEntry e in _index) {
+      final Set<String> words = <String>{
+        for (final _Key k in e.keys) ...k.words,
+      };
+      for (final String w in words) {
+        df[w] = (df[w] ?? 0) + 1;
+      }
+    }
+    return df;
+  }
+
+  /// Percent weight of a word: the fewer entries use it, the more it says.
+  static int _pct(String w) {
+    final int d = _df[w] ?? 0;
+    if (d <= 1) return 120;
+    if (d == 2) return 110;
+    if (d <= 4) return 100;
+    if (d <= 8) return 85;
+    if (d <= 16) return 70;
+    return 55;
+  }
+
+  static bool _isAsciiAlpha(String s) {
+    if (s.isEmpty) return false;
+    for (int i = 0; i < s.length; i++) {
+      final int c = s.codeUnitAt(i);
+      if (c < 0x61 || c > 0x7a) return false;
+    }
+    return true;
+  }
+
+  /// One adjacent swap or key-neighbour substitution (7+ letters), or one
+  /// missing or extra letter (longer word 7+ letters; a mere change of
+  /// ending needs the shorter word to be 7+ too).
+  static bool _oneEdit(String t, String v) {
+    final int lt = t.length;
+    final int lv = v.length;
+    if (lt == lv) {
+      if (lt < 7) return false;
+      final List<int> d = <int>[
+        for (int i = 0; i < lt; i++)
+          if (t[i] != v[i]) i,
+      ];
+      if (d.length == 1) return (_kbNear[v[d[0]]] ?? '').contains(t[d[0]]);
+      return d.length == 2 &&
+          d[1] == d[0] + 1 &&
+          t[d[0]] == v[d[1]] &&
+          t[d[1]] == v[d[0]];
+    }
+    if ((lt - lv).abs() != 1) return false;
+    final String a = lt < lv ? t : v;
+    final String b = lt < lv ? v : t;
+    if (b.length < 7) return false;
+    if (b.startsWith(a) && a.length < 7) return false;
+    for (int i = 0; i < b.length; i++) {
+      if ('${b.substring(0, i)}${b.substring(i + 1)}' == a) return true;
     }
     return false;
   }
 
-  static final List<_IndexedEntry> _index = <_IndexedEntry>[
-    for (final _Entry e in _knowledge)
-      _IndexedEntry(
-        <List<String>>[
-          for (final String k in e.keywords)
-            if (tokens(k).isNotEmpty) tokens(k),
-        ],
-        e.answer,
-      ),
-  ];
+  /// [t] (a question word that is not a shelf word) is a typo of shelf word [v].
+  static bool _fuzzyOk(String t, String v) {
+    if (t == v) return true;
+    if (_noFuzz.contains(t)) return false;
+    if (t.length < 6 || v.length < 6 || t[0] != v[0]) return false;
+    if (!_isAsciiAlpha(t) || !_isAsciiAlpha(v)) return false;
+    return _oneEdit(t, v);
+  }
 
-  /// How well [entry] fits the question words: the summed length of every
-  /// keyword phrase found as whole words, plus a little for each extra word
-  /// of a phrase (a phrase is more specific than a word). Also reports which
-  /// keyword phrases were found.
-  static _Hit _score(_IndexedEntry entry, List<String> q) {
-    int score = 0;
-    final Set<String> found = <String>{};
-    for (final List<String> k in entry.keys) {
-      if (_containsRun(q, k)) {
-        int len = 0;
-        for (final String w in k) {
-          len += w.length;
+  /// Spelling neighbours of a question word: with or without a final "e",
+  /// with or without a doubled last letter ("waking" ~ "wake", "sin" ~
+  /// "sinning").
+  static List<String> _alts(String t) {
+    if (t.length < 4 || !_isAsciiAlpha(t)) return const <String>[];
+    final String last = t[t.length - 1];
+    return <String>[
+      if (t.endsWith('e')) t.substring(0, t.length - 1) else '${t}e',
+      if (last == t[t.length - 2] && last != 's' && last != 'l')
+        t.substring(0, t.length - 1)
+      else
+        '$t$last',
+    ];
+  }
+
+  /// For each question position: the shelf words it can stand for, 0 when it
+  /// is that very word and 1 when it is a spelling variant or typo of it.
+  static List<Map<String, int>> _positions(List<String> q) {
+    final List<Map<String, int>> out = <Map<String, int>>[];
+    for (final String t in q) {
+      final Map<String, int> m = <String, int>{t: 0};
+      for (final String a in _alts(t)) {
+        if (_df.containsKey(a) && !_stop.contains(a) && !m.containsKey(a)) {
+          m[a] = 1;
         }
-        score += len + 3 * (k.length - 1);
-        found.add(k.join(' '));
+      }
+      final String ie = t.length > 6 && t.endsWith('ied')
+          ? '${t.substring(0, t.length - 3)}y'
+          : '';
+      if (ie.isNotEmpty && _df.containsKey(ie)) {
+        m[ie] = 1;
+      } else if (t.length > 6 && t.endsWith('ed')) {
+        for (final String a in <String>[
+          t.substring(0, t.length - 2),
+          t.substring(0, t.length - 1),
+        ]) {
+          if (_df.containsKey(a) && !_stop.contains(a) && !m.containsKey(a)) {
+            m[a] = 1;
+          }
+        }
+      }
+      if (!_df.containsKey(t) && !_stop.contains(t)) {
+        for (final String v in _vocab) {
+          if (_fuzzyOk(t, v)) m[v] = 1;
+        }
+      }
+      out.add(m);
+    }
+    return out;
+  }
+
+  /// What kind of thing the question asks.
+  static _Intent _intentOf(List<String> q) {
+    for (int i = 0; i + 1 < q.length; i++) {
+      if (q[i] == 'how' && _howNext.contains(q[i + 1])) return _Intent.how;
+    }
+    if (q.contains('why')) return _Intent.why;
+    for (int i = 0; i + 1 < q.length; i++) {
+      final String w = q[i];
+      if ((w == 'should' || w == 'can' || w == 'may' || w == 'must') &&
+          (q[i + 1] == 'i' || q[i + 1] == 'we')) {
+        return _Intent.should;
+      }
+      if (w == 'am' && q[i + 1] == 'i') return _Intent.should;
+    }
+    if (q.contains('what') ||
+        q.contains('who') ||
+        q.contains('mean') ||
+        q.contains('define') ||
+        q.contains('explain')) {
+      return _Intent.what;
+    }
+    if (q.length >= 2 &&
+        q[0] == 'tell' &&
+        q[1] == 'me' &&
+        q.contains('about')) {
+      return _Intent.what;
+    }
+    return _Intent.none;
+  }
+
+  /// The kind of question a keyword phrase was written for.
+  static _Intent _cueOf(List<String> k) {
+    switch (k.first) {
+      case 'how':
+        return _Intent.how;
+      case 'why':
+        return _Intent.why;
+      case 'what':
+      case 'who':
+      case 'difference':
+        return _Intent.what;
+      default:
+        return _Intent.none;
+    }
+  }
+
+  static int _scaled(int v, int percent) => (v * percent) ~/ 100;
+
+  /// Evidence one keyword phrase gives for the question, or null.
+  static _PhraseHit? _phrase(
+    _Key key,
+    List<String> q,
+    List<Map<String, int>> pm,
+    _Intent intent,
+  ) {
+    final List<String> k = key.words;
+    final int n = k.length;
+
+    // 1. The phrase as an exact run of words (or of variants of them).
+    int? run;
+    for (int i = 0; i + n <= q.length; i++) {
+      int worst = 0;
+      bool ok = true;
+      for (int j = 0; j < n; j++) {
+        final int? m = pm[i + j][k[j]];
+        if (m == null) {
+          ok = false;
+          break;
+        }
+        if (m > worst) worst = m;
+      }
+      if (ok && (run == null || worst < run)) run = worst;
+      if (run == 0) break;
+    }
+    if (run != null) {
+      int letters = 0;
+      int weighted = 0;
+      int stops = 0;
+      for (final String w in k) {
+        letters += w.length;
+        if (_stop.contains(w)) {
+          stops++;
+          weighted += w.length * 40;
+        } else {
+          weighted += w.length * _pct(w);
+        }
+      }
+      final int content = n - stops;
+      int raw = letters * 100 + 300 * (n - 1);
+      int wt = weighted + 300 * (content > 0 ? content - 1 : 0) + 100 * stops;
+      if (run == 1) {
+        raw = _scaled(raw, 85);
+        wt = _scaled(wt, 85);
+      }
+      return _PhraseHit(
+        wt,
+        raw * key.count,
+        <String>[
+          for (final String w in k)
+            if (!_stop.contains(w)) w,
+        ],
+        false,
+      );
+    }
+
+    // 2. How/what/why phrases, then the words in any order.
+    final _Intent cue = _cueOf(k);
+    final List<String> c = <String>[
+      for (final String w in k)
+        if (!_setStop.contains(w)) w,
+    ];
+    bool seenAt(String w) => pm.any((Map<String, int> m) => m.containsKey(w));
+    bool exactAt(String w) => pm.any((Map<String, int> m) => m[w] == 0);
+
+    if (c.length == 1 && cue != _Intent.none && cue == intent && n >= 2) {
+      final String w = c[0];
+      if (!seenAt(w)) return null;
+      int raw = w.length * 100 + 150;
+      int wt = w.length * _pct(w) + 150;
+      if (!exactAt(w)) {
+        raw = _scaled(raw, 85);
+        wt = _scaled(wt, 85);
+      }
+      return _PhraseHit(wt, raw * key.count, <String>[w], true);
+    }
+
+    if (c.length >= 2 && cue != _Intent.none && cue == intent && n >= 3) {
+      final List<String> hit = <String>[
+        for (final String w in c)
+          if (seenAt(w)) w,
+      ];
+      final List<String> miss = <String>[
+        for (final String w in c)
+          if (!hit.contains(w)) w,
+      ];
+      if (miss.length == 1 &&
+          hit.isNotEmpty &&
+          _light.contains(miss[0]) &&
+          !_light.contains(hit[0]) &&
+          hit.length == c.length - 1 &&
+          hit.any((String w) => w.length >= 4 && _pct(w) >= 85)) {
+        int letters = 0;
+        int weighted = 0;
+        for (final String w in hit) {
+          letters += w.length;
+          weighted += w.length * _pct(w);
+        }
+        int raw = _scaled(letters * 100, 70) + 150;
+        int wt = _scaled(weighted, 70) + 150;
+        if (!hit.every(exactAt)) {
+          raw = _scaled(raw, 85);
+          wt = _scaled(wt, 85);
+        }
+        return _PhraseHit(wt, raw * key.count, hit, true);
       }
     }
-    return _Hit(score, found);
+
+    if (c.length < 2 || c.length > 4) return null;
+    if (!c.any((String w) => _pct(w) >= 85)) return null;
+    if (cue != _Intent.none && cue != intent) return null;
+
+    // Where in the question each content word is (first six places).
+    final List<List<int>> where = <List<int>>[];
+    for (final String w in c) {
+      final List<int> ps = <int>[
+        for (int i = 0; i < pm.length; i++)
+          if (pm[i].containsKey(w)) i,
+      ];
+      if (ps.isEmpty) return null;
+      where.add(ps.length > 6 ? ps.sublist(0, 6) : ps);
+    }
+    // The tightest way to place every word on a different position.
+    List<int>? best;
+    int bestSpan = 0;
+    void place(int idx, List<int> chosen) {
+      if (idx == where.length) {
+        final int lo = chosen.reduce((int a, int b) => a < b ? a : b);
+        final int hi = chosen.reduce((int a, int b) => a > b ? a : b);
+        final int span = hi - lo + 1;
+        if (best == null || span < bestSpan) {
+          bestSpan = span;
+          best = List<int>.of(chosen);
+        }
+        return;
+      }
+      for (final int p in where[idx]) {
+        if (chosen.contains(p)) continue;
+        chosen.add(p);
+        place(idx + 1, chosen);
+        chosen.removeLast();
+      }
+    }
+
+    place(0, <int>[]);
+    final List<int>? at = best;
+    if (at == null) return null;
+    final int lo = at.reduce((int a, int b) => a < b ? a : b);
+    final int hi = at.reduce((int a, int b) => a > b ? a : b);
+    int extra = 0;
+    int fillers = 0;
+    for (int i = lo; i <= hi; i++) {
+      if (at.contains(i)) continue;
+      if (_setStop.contains(q[i])) {
+        fillers++;
+      } else {
+        extra++;
+      }
+    }
+    if (extra > (c.length == 2 ? 1 : 2) || fillers > 3) return null;
+    bool fuzzy = false;
+    for (int i = 0; i < c.length; i++) {
+      if (pm[at[i]][c[i]] == 1) fuzzy = true;
+    }
+    int letters = 0;
+    int weighted = 0;
+    for (final String w in c) {
+      letters += w.length;
+      weighted += w.length * _pct(w);
+    }
+    final int tail = 100 * (c.length - 1) - 40 * extra - 10 * fillers;
+    int raw = _scaled(letters * 100, 70) + tail;
+    int wt = _scaled(weighted, 70) + tail;
+    if (fuzzy) {
+      raw = _scaled(raw, 85);
+      wt = _scaled(wt, 85);
+    }
+    // Words in a different order than the keyword are weaker evidence.
+    bool reversed = false;
+    for (int i = 0; i + 1 < at.length; i++) {
+      if (at[i] > at[i + 1]) reversed = true;
+    }
+    if (reversed) wt = _scaled(wt, 65);
+    return _PhraseHit(wt, raw * key.count, c, false);
   }
 
   @override
@@ -194,43 +681,87 @@ class OfflineHadiProvider implements HadiProvider {
     final CrisisKind? crisis = CrisisDetector.detect(question);
     if (crisis != null) return CrisisResponses.textFor(crisis);
 
-    final List<String> q = tokens(question);
+    List<String> q = tokens(question);
+    if (q.length > _maxWords) q = q.sublist(0, _maxWords);
     final bool rulingShaped = q.any(_rulingWords.contains);
-    int bestScore = 0;
-    int secondScore = 0;
+    final _Intent intent = _intentOf(q);
+    final _NavTarget? nav = _navIntent(q);
+    final List<Map<String, int>> pm = _positions(q);
+
+    int bestW = 0;
+    int bestRaw = 0;
+    bool bestTopic = false;
     String bestAnswer = '';
+    Set<String> bestWords = <String>{};
+    int secondW = 0;
     String secondAnswer = '';
-    Set<String> bestFound = <String>{};
-    Set<String> secondFound = <String>{};
+    Set<String> secondWords = <String>{};
     for (final _IndexedEntry e in _index) {
-      final _Hit hit = _score(e, q);
-      if (hit.score == 0) continue;
-      if (hit.score > bestScore) {
-        secondScore = bestScore;
+      int wt = 0;
+      int raw = 0;
+      int cueW = 0;
+      int cueRaw = 0;
+      bool topic = false;
+      final Set<String> words = <String>{};
+      for (final _Key k in e.keys) {
+        final _PhraseHit? h = _phrase(k, q, pm, intent);
+        if (h == null) continue;
+        if (h.cue) {
+          // Several how/what phrases saying the same thing count once.
+          if (h.weight > cueW) cueW = h.weight;
+          if (h.raw > cueRaw) cueRaw = h.raw;
+        } else {
+          wt += h.weight;
+          raw += h.raw;
+        }
+        words.addAll(h.words);
+        if (h.words.any((String w) => w.length >= 4 && _pct(w) >= 85)) {
+          topic = true;
+        }
+      }
+      wt += cueW;
+      raw += cueRaw;
+      if (wt <= 0) continue;
+      if (wt > bestW) {
+        secondW = bestW;
         secondAnswer = bestAnswer;
-        secondFound = bestFound;
-        bestScore = hit.score;
+        secondWords = bestWords;
+        bestW = wt;
+        bestRaw = raw;
+        bestTopic = topic;
         bestAnswer = e.answer;
-        bestFound = hit.found;
-      } else if (hit.score > secondScore && e.answer != bestAnswer) {
-        secondScore = hit.score;
+        bestWords = words;
+      } else if (wt > secondW && e.answer != bestAnswer) {
+        secondW = wt;
         secondAnswer = e.answer;
-        secondFound = hit.found;
+        secondWords = words;
       }
     }
-    // Nothing found, or only a tiny word inside a long question (a weak,
-    // probably accidental match): decline honestly.
-    if (bestScore == 0 || (bestScore < 5 && q.length > 5)) {
-      return _fallback(question, q, rulingShaped);
+    // Nothing found, or only a tiny word inside a long question or a
+    // should-I question (a weak, probably accidental match): decline
+    // honestly. A rare topic word of four letters or more is not "tiny".
+    bool weak = bestRaw < 500 &&
+        (q.length > 5 || intent == _Intent.should) &&
+        !bestTopic;
+    // A few letters of overlap in a question about something else entirely.
+    if (bestW > 0 &&
+        bestRaw < 1000 &&
+        _offTopic.hasMatch(CrisisDetector.normalize(question))) {
+      weak = true;
+    }
+    if (bestW == 0 || weak) return _fallback(question, q, rulingShaped);
+    // "Take me to the Qur'an" is a request to move, whatever else it mentions.
+    if (nav != null && !bestAnswer.contains('[GO:${nav.route}]')) {
+      return _navReply(nav);
     }
     String answer = bestAnswer;
     // Near-tie: two plausible readings and the winner is weak — say so
     // honestly instead of answering with false confidence. Two entries that
     // matched on the very same words are one topic, not an ambiguity.
-    final bool sameWords = secondFound.every(bestFound.contains);
-    if (secondScore > 0 &&
-        secondScore * 2 > bestScore &&
-        bestScore < 10 &&
+    final bool sameWords = secondWords.every(bestWords.contains);
+    if (secondW > 0 &&
+        secondW * 2 > bestW &&
+        bestRaw < 1000 &&
         secondAnswer != bestAnswer &&
         !sameWords) {
       answer = 'Perhaps you meant this?\n\n$bestAnswer\n\n'
@@ -364,7 +895,24 @@ class OfflineHadiProvider implements HadiProvider {
     r'who\s+will\s+win)\b',
   );
 
-  static bool _hasOtherScript(String s) {
+  /// Letters only Urdu uses (not Arabic, not Persian).
+  static const Set<int> _urduOnly = <int>{
+    0x0679, 0x0688, 0x0691, 0x06BA, 0x06BE, 0x06C1, 0x06D2, 0x06D3, //
+  };
+
+  /// Letters Urdu and Persian share and the Arabic keyboard does not have.
+  static const Set<int> _urduOrPersian = <int>{
+    0x067E, 0x0686, 0x0698, 0x06A9, 0x06AF, 0x06CC, //
+  };
+
+  /// Which script a message is written in. Arabic and Urdu are told apart so
+  /// the reply can be in the reader's own language; anything else that is
+  /// not Latin (Persian, Hindi, Chinese, …) is [HadiScript.other].
+  static HadiScript scriptOf(String s) {
+    bool arabicBlock = false;
+    bool urdu = false;
+    bool shared = false;
+    bool other = false;
     for (final int r in s.runes) {
       // Greek to Indic scripts (Arabic and Urdu included), CJK, and the
       // Arabic presentation forms. Latin with dots and macrons (ṣalāh) is
@@ -372,22 +920,50 @@ class OfflineHadiProvider implements HadiProvider {
       if ((r >= 0x0370 && r <= 0x1DFF) ||
           (r >= 0x3040 && r <= 0x9FFF) ||
           (r >= 0xFB50 && r <= 0xFEFF)) {
-        return true;
+        if (_urduOnly.contains(r)) {
+          urdu = true;
+        } else if (_urduOrPersian.contains(r)) {
+          shared = true;
+        } else if ((r >= 0x0600 && r <= 0x06FF) ||
+            (r >= 0x0750 && r <= 0x077F) ||
+            (r >= 0xFB50 && r <= 0xFDFF) ||
+            (r >= 0xFE70 && r <= 0xFEFF)) {
+          arabicBlock = true;
+        } else {
+          other = true;
+        }
       }
     }
-    return false;
+    if (!arabicBlock && !urdu && !shared && !other) return HadiScript.latin;
+    if (other) return HadiScript.other;
+    if (urdu) return HadiScript.urdu;
+    if (shared) return HadiScript.other;
+    return HadiScript.arabic;
+  }
+
+  String _scriptReply(HadiScript script) {
+    switch (script) {
+      case HadiScript.arabic:
+        return hasKey ? scriptReplyArabicKeyed : scriptReplyArabic;
+      case HadiScript.urdu:
+        return hasKey ? scriptReplyUrduKeyed : scriptReplyUrdu;
+      case HadiScript.other:
+      case HadiScript.latin:
+        return hasKey ? scriptReplyKeyed : scriptReply;
+    }
+  }
+
+  static String _navReply(_NavTarget nav) {
+    return 'Here you are. Tap below to open ${nav.label}.\n'
+        '[GO:${nav.route}]';
   }
 
   String _fallback(String question, List<String> q, bool rulingShaped) {
     final _NavTarget? nav = _navIntent(q);
-    if (nav != null) {
-      return 'Here you are. Tap below to open ${nav.label}.\n'
-          '[GO:${nav.route}]';
-    }
+    if (nav != null) return _navReply(nav);
     if (rulingShaped) return rulingDecline;
-    if (_hasOtherScript(question)) {
-      return hasKey ? scriptReplyKeyed : scriptReply;
-    }
+    final HadiScript script = scriptOf(question);
+    if (script != HadiScript.latin) return _scriptReply(script);
     final String n = CrisisDetector.normalize(question);
     final int pick = question.codeUnits.fold<int>(0, (int a, int b) => a + b);
     if (_rude.hasMatch(n)) return rudeReplies[pick % rudeReplies.length];
@@ -398,6 +974,9 @@ class OfflineHadiProvider implements HadiProvider {
     return declineFor(hasKey);
   }
 }
+
+/// The script a message is written in (see [OfflineHadiProvider.scriptOf]).
+enum HadiScript { latin, arabic, urdu, other }
 
 class _NavTarget {
   const _NavTarget(this.label, this.route, this.aliases);
@@ -452,15 +1031,30 @@ const List<_NavTarget> _navTargets = <_NavTarget>[
   _NavTarget('Tayyib Finance', '/finance', <String>['finance']),
 ];
 
-class _Hit {
-  const _Hit(this.score, this.found);
-  final int score;
-  final Set<String> found;
+/// What the question asks: how to do it, what it is, why, or whether one may.
+enum _Intent { none, how, why, should, what }
+
+/// A keyword phrase, in stemmed words, and how many times the entry lists it.
+class _Key {
+  _Key(this.words);
+  final List<String> words;
+  int count = 1;
+}
+
+/// The evidence one keyword phrase gives: [weight] ranks entries, [raw] (plain
+/// letters) decides whether the match is too weak, [cue] marks a how/what/why
+/// phrase.
+class _PhraseHit {
+  const _PhraseHit(this.weight, this.raw, this.words, this.cue);
+  final int weight;
+  final int raw;
+  final List<String> words;
+  final bool cue;
 }
 
 class _IndexedEntry {
   const _IndexedEntry(this.keys, this.answer);
-  final List<List<String>> keys;
+  final List<_Key> keys;
   final String answer;
 }
 
@@ -473,10 +1067,10 @@ class _Entry {
 const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['al-kahf', 'kahf'],
-    'The Prophet ﷺ said: “Whoever reads Surah Al-Kahf on Friday, a light '
-    'will shine for him between the two Fridays.” (al-Bayhaqi, classed '
-    'sahih). Its first ten verses are also a protection from the trial of '
-    'the Dajjal (Sahih Muslim).',
+    'Surah Al-Kahf (18) is the surah many Muslims recite on Fridays, '
+    'and memorising its opening verses is a widely taught practice. '
+    'Open the Qur\'an screen to read it, or ask a teacher about its '
+    'virtues so that they can show you the sources.',
   ),
   _Entry(
     <String>['anxiety', 'anxious', 'worry', 'worried', 'stress', 'stressed', 'grief', 'dua for anxiety', 'dua for worry', 'dua for stress'],
@@ -508,7 +1102,7 @@ const List<_Entry> _knowledge = <_Entry>[
     '(Sunan Abi Dawud 5088, sahih per al-Albani). Open it from Home and tap the counters as you recite.',
   ),
   _Entry(
-    <String>['ramadan', 'fasting', 'fast', 'sawm', 'siyam', 'roza', 'suhoor', 'iftar'],
+    <String>['ramadan', 'fasting', 'fast', 'sawm', 'siyam', 'roza', 'suhoor', 'iftar', 'ramadhan', 'ramzan', 'ramazan'],
     'Fasting Ramadan is the fourth pillar of Islam (Qur\'an 2:183-185). '
     '“Whoever fasts Ramadan out of faith and hope for reward, his past '
     'sins are forgiven.” (Sahih al-Bukhari 38). Take suhoor — “in suhoor '
@@ -531,7 +1125,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'any prayer to be alerted when its time arrives.\n[GO:/prayer]',
   ),
   _Entry(
-    <String>['how do i pray', 'how to pray', 'salah', 'salaat', 'namaz', 'two rakah', 'pray two', 'pray 2', 'namaz ka tareeqa', 'namaz ka tariqa', 'namaz kaise', 'method of prayer', 'how to perform salah', 'steps of prayer'],
+    <String>['how do i pray', 'how to pray', 'salah', 'salaat', 'salat', 'namaz', 'two rakah', 'pray two', 'pray 2', 'namaz ka tareeqa', 'namaz ka tariqa', 'namaz kaise', 'method of prayer', 'how to perform salah', 'steps of prayer'],
     'Prayer is the second pillar. “Pray as you have seen me pray.” '
     '(Sahih al-Bukhari 631). Five daily prayers are obligatory. A '
     'two-rak\'ah prayer, in outline: make the intention, face the qibla '
@@ -775,7 +1369,7 @@ const List<_Entry> _knowledge = <_Entry>[
     '- each established in the Qur\'an and the Sunnah.',
   ),
   _Entry(
-    <String>['wudu', 'ablution'],
+    <String>['wudu', 'ablution', 'wuzu', 'wudoo'],
     'Wudu is the purification before prayer: wash the face, hands '
     'to the elbows, wipe head and ears, wash the feet - with '
     'intention and in order. "Allah does not accept prayer without '
@@ -1087,13 +1681,13 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['friday', 'jumuah', 'jumma', 'surah kahf', 'best hour friday'],
     'Friday: purify and adorn, go early to the masjid, and leave '
-    'trading aside when the call is made - "And when the prayer has been '
-    'concluded, disperse within the land and seek from the bounty of '
-    'Allah" (Al-Jumuah 9-10). The Prophet said Friday has an hour in '
-    'which no Muslim happens to ask Allah for good but that He gives '
-    'it - and it is believed to be the last hour after Asr. (Sahih '
-    'al-Bukhari 935). Reciting Surah al-Kahf on Friday is reported to '
-    'bring light (reported; number and grade not verified here).',
+    'trading aside when the call is made - "And when the prayer has '
+    'been concluded, disperse within the land and seek from the bounty '
+    'of Allah" (Al-Jumuah 9-10). The Prophet said Friday has an hour in '
+    'which no Muslim happens to ask Allah for good but that He gives it '
+    '- and it is believed to be the last hour after Asr. (Sahih '
+    'al-Bukhari 935). Many scholars also encourage reciting Surah '
+    'al-Kahf on Friday.',
   ),
   _Entry(
     <String>['eid', 'eid dua', 'eid mubarak', 'eid salah'],
@@ -1145,11 +1739,9 @@ const List<_Entry> _knowledge = <_Entry>[
   // ── Weather, seasons, and the sky ───────────────────────────────────
   _Entry(
     <String>['rain dua', 'it\'s raining', 'rain blessing', 'rain shower', 'rain'],
-    'When the rain falls: "Allahumma sayyiban nafi\'an" - O Allah, '
-    'make it a beneficial rain. (Sahih al-Bukhari 1032). Make '
-    'du\'a at the time of rain; the specific report that the du\'a '
-    'under rain is not rejected is not verified here. Expose some of it to the '
-    'rain - it has newly come from its Lord.',
+    'When the rain falls: "Allahumma sayyiban nafi\'an" - O Allah, make '
+    'it a beneficial rain. (Sahih al-Bukhari 1032). Rain is a good time '
+    'to make du\'a, as many scholars encourage.',
   ),
   _Entry(
     <String>['wind dua', 'storm dua', 'strong wind', 'thunder dua', 'lightning', 'wind', 'storm'],
@@ -1174,13 +1766,14 @@ const List<_Entry> _knowledge = <_Entry>[
   // ── Earnings, trade, and the table ──────────────────────────────────
   _Entry(
     <String>['halal income', 'halal earnings', 'haram money', 'riba', 'interest', 'halal work'],
-    '"O people, Allah is Pure and accepts only what is pure - He commands '
-    'the believers as He commanded the messengers: eat of the good and do '
-    'righteous work." (Sahih Muslim 1015). Earnings built on riba are '
-    'fought by the Prophet himself: he cursed the one who consumes riba, '
-    'the one who gives it, the one who records it, and its two witnesses - '
-    '"they are alike." (Muslim 1598). Trade is blessed; the Prophet was a '
-    'merchant and praised the honest trader.',
+    '"O people, Allah is Pure and accepts only what is pure - He '
+    'commands the believers as He commanded the messengers: eat of the '
+    'good and do righteous work." (Sahih Muslim 1015). Earnings built '
+    'on riba are fought by the Prophet himself: he cursed the one who '
+    'consumes riba, the one who gives it, the one who records it, and '
+    'its two witnesses - "they are alike." (Muslim 1598). Honest trade '
+    'is a noble way to earn: the Prophet ﷺ himself traded before he '
+    'received revelation.',
   ),
   _Entry(
     <String>['gambling', 'lottery', 'betting', 'casino', 'poker'],
@@ -1246,11 +1839,11 @@ const List<_Entry> _knowledge = <_Entry>[
   ),
   _Entry(
     <String>['cupping', 'hijamah', 'blood cupping'],
-    'The Prophet praised cupping: "The best of your treatments is '
-    'hijamah" - and had it done on the veins at the back of his '
-    'neck, paying the cupper his wage. (reported; number not verified here). '
-    'Even treatment has an etiquette: seek the skilled, pay '
-    'fairly, and pair it with du\'a.',
+    'Cupping (hijamah) is a traditional treatment that many scholars '
+    'count as part of prophetic medicine. Even treatment has an '
+    'etiquette: seek the skilled, pay fairly, and pair it with du\'a. '
+    'Ask a trained practitioner, and your doctor if you have a medical '
+    'condition.',
   ),
   _Entry(
     <String>['cats', 'kittens', 'pet cat'],
@@ -1491,13 +2084,10 @@ const List<_Entry> _knowledge = <_Entry>[
   ),
   _Entry(
     <String>['ayat al-kursi', 'kursi', 'greatest verse', 'throne verse'],
-    'Ayat al-Kursi (Al-Baqarah 255) is the greatest verse of the '
-    'Qur\'an - the Prophet affirmed it when Ubayy asked. A report '
-    'in an-Nasa\'i says nothing prevents the one who recites it after '
-    'every obligatory prayer from Paradise except death (reported; '
-    'number and grade not verified here). '
-    'Its beginning: "Allah - there is no deity except Him, the '
-    'Ever-Living, the Sustainer of all."',
+    'Ayat al-Kursi (Al-Baqarah 255) is regarded as the greatest verse '
+    'of the Qur\'an, and it is widely recited after every obligatory '
+    'prayer and before sleep. Its beginning: "Allah - there is no deity '
+    'except Him, the Ever-Living, the Sustainer of all."',
   ),
   _Entry(
     <String>['ya-sin', 'yaseen', 'heart of the quran'],
@@ -1507,7 +2097,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'need) are not presented here as Sunnah: ask a scholar.',
   ),
   _Entry(
-    <String>['al-mulk', 'surah mulk', 'before sleep surah'],
+    <String>['al-mulk', 'surah mulk'],
     'Surah Al-Mulk (The Sovereignty) is reported to be a surah of thirty '
     'verses that pleads for its reciter until he is forgiven (Sunan Abi '
     'Dawud 1400, hasan per al-Albani; Jami at-Tirmidhi 2891, hasan per '
@@ -1676,13 +2266,12 @@ const List<_Entry> _knowledge = <_Entry>[
   ),
   _Entry(
     <String>['shirk', 'polytheism', 'associating partners'],
-    'Shirk - joining partners with Allah - is the gravest of '
-    'sins: "Indeed, Allah does not forgive association with Him, '
-    'but He forgives what is less than that for whom He wills" '
-    '(An-Nisa 48). It is not only idols - showing off in worship '
-    'is the hidden shirk the Prophet warned of (reported in Musnad Ahmad; '
-    'number and grade not checked). The cure '
-    'is what the caller to Islam repeats: La ilaha illallah.',
+    'Shirk - joining partners with Allah - is the gravest of sins: '
+    '"Indeed, Allah does not forgive association with Him, but He '
+    'forgives what is less than that for whom He wills" (An-Nisa 48). '
+    'It is not only idols - scholars warn that showing off in worship '
+    '(riya\') is a hidden form of shirk. The cure is what the caller to '
+    'Islam repeats: La ilaha illallah.',
   ),
   _Entry(
     <String>['qadar', 'destiny', 'predestination', 'qadr', 'why did allah allow'],
@@ -1789,7 +2378,7 @@ const List<_Entry> _knowledge = <_Entry>[
 
   // ========== PRAYER & WUDU ==========
   _Entry(
-    <String>['wudu', 'ablution', 'how to make wudu', 'wudhu'],
+    <String>['wudu', 'ablution', 'how to make wudu', 'wudhu', 'wuzu', 'wudoo'],
     'Wudu has six obligatory steps: (1) intention, (2) washing the face, '
     '(3) washing the hands to the elbows, (4) wiping the head, (5) washing '
     'the feet to the ankles, (6) maintaining sequence. The Prophet ﷺ said that '
@@ -1798,11 +2387,11 @@ const List<_Entry> _knowledge = <_Entry>[
   ),
   _Entry(
     <String>['wudu nullifiers', 'breaks wudu', 'break my wudu', 'nullify wudu', 'invalidate wudu', 'invalidates wudu', 'lost wudu'],
-    'Wudu is nullified by: (1) anything exiting the private parts, (2) deep '
-    'sleep, (3) loss of consciousness, (4) touching the private parts with '
-    'the palm of the hand (directly, according to the stronger view). The '
-    'Prophet ﷺ said: "Whoever touches his private part, let him perform '
-    'wudu." (Sunan al-Tirmidhi).',
+    'Wudu is nullified by: (1) anything exiting the private parts, (2) '
+    'deep sleep, (3) loss of consciousness, (4) according to many '
+    'scholars, touching the private parts directly with the hand (the '
+    'Hanafi school disagrees). Differences like this are why it is best '
+    'to learn wudu from a teacher of your own school.',
   ),
   _Entry(
     <String>['tayammum', 'dry ablution', 'no water', 'sand prayer'],
@@ -1822,10 +2411,11 @@ const List<_Entry> _knowledge = <_Entry>[
   ),
   _Entry(
     <String>['fajr', 'dawn prayer', 'morning prayer', 'subh'],
-    'Fajr is two rak\'ahs, prayed from true dawn until sunrise. The Prophet '
-    'ﷺ said: "Whoever prays the two cool prayers (Fajr and Asr) will enter '
-    'Paradise." (Sahih al-Bukhari 574). It is the prayer most often missed; '
-    'the Prophet called it the prayer of the believers.',
+    'Fajr is two rak\'ahs, prayed from true dawn until sunrise. The '
+    'Prophet ﷺ said: "Whoever prays the two cool prayers (Fajr and Asr) '
+    'will enter Paradise." (Sahih al-Bukhari 574). It is the prayer '
+    'most often missed, so many people set a second alarm and sleep '
+    'early.',
   ),
   _Entry(
     <String>['dhuhr', 'zuhr', 'noon prayer', 'midday prayer'],
@@ -1835,10 +2425,10 @@ const List<_Entry> _knowledge = <_Entry>[
   ),
   _Entry(
     <String>['asr', 'afternoon prayer'],
-    'Asr is four rak\'ahs, prayed from when the shadow of an object equals '
-    'its length until sunset. The Prophet ﷺ said: "May Allah have mercy on '
-    'a man who prays four rak\'ahs before Asr." (Sunan Abi Dawud). Missing '
-    'Asr is described as losing one\'s family and wealth.',
+    'Asr is four rak\'ahs, prayed from when the shadow of an object '
+    'equals its length until sunset. Some scholars encourage voluntary '
+    'rak\'ahs before it. Missing Asr on purpose is a grave loss, so '
+    'guard it.',
   ),
   _Entry(
     <String>['maghrib', 'sunset prayer', 'evening prayer'],
@@ -1881,12 +2471,11 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['witr', 'witr prayer', 'odd prayer'],
     'Witr is one rak\'ah prayed after Isha, typically after Tahajjud or '
-    'Taraweeh. The Prophet ﷺ said: "Allah has prescribed witr for you, so '
-    'pray witr." (Sunan al-Nasa\'i). It is strongly recommended and '
-    'considered wajib by some scholars.',
+    'Taraweeh. It is a strongly emphasised sunnah in most schools and '
+    'wajib in the Hanafi school.',
   ),
   _Entry(
-    <String>['tahajjud', 'night prayer', 'qiyam al-layl'],
+    <String>['tahajjud', 'night prayer', 'qiyam al-layl', 'tahajud'],
     'Tahajjud is the voluntary night prayer, best performed in the last '
     'third of the night. Allah says: "Indeed, the righteous will be among '
     'gardens and springs, accepting what their Lord has given them. Indeed, '
@@ -1979,13 +2568,11 @@ const List<_Entry> _knowledge = <_Entry>[
   ),
   _Entry(
     <String>['dua for marriage', 'spouse dua', 'husband dua', 'wife dua'],
-    'The Prophet ﷺ taught those seeking marriage to say: "Rabbana hab lana '
-    'min azwajina wa dhurriyyatina qurrata a\'yunin wa-j\'alna lil-muttaqina '
-    'imama" (Our Lord, grant us from among our wives and offspring comfort '
-    'to our eyes and make us an example for the righteous). (Qur\'an 25:74). '
-    'Also: "Allahumma inni as\'aluka khayraha wa khayra ma jabaltaha '
-    '\'alayhi, wa a\'udhu bika min sharriha wa sharri ma jabaltaha \'alayhi." '
-    '(Sunan Ibn Majah).',
+    'Allah describes His servants as those who say: "Rabbana hab lana '
+    'min azwajina wa dhurriyyatina qurrata a\'yunin wa-j\'alna '
+    'lil-muttaqina imama" (Our Lord, grant us from among our wives and '
+    'offspring comfort to our eyes and make us an example for the '
+    'righteous). (Qur\'an 25:74).',
   ),
   _Entry(
     <String>['dua for children', 'child dua', 'baby dua', 'pregnancy dua'],
@@ -2013,10 +2600,10 @@ const List<_Entry> _knowledge = <_Entry>[
   ),
   _Entry(
     <String>['dua for exam', 'test dua', 'study dua', 'knowledge dua'],
-    'The Prophet ﷺ taught: "Allahumma infa\'ni bima \'allamtani, wa \'allimni '
-    'ma yanfa\'uni, wa zidni \'ilman" (O Allah, benefit me with what You have '
-    'taught me, teach me what benefits me, and increase me in knowledge). '
-    '(Sunan Ibn Majah).',
+    'Before an exam, begin with Bismillah, ask Allah for ease, and '
+    'study as well as you can: trusting Allah does not replace '
+    'preparing. The Qur\'an gives a short du\'a to ask for knowledge: "My '
+    'Lord, increase me in knowledge." (Qur\'an 20:114).',
   ),
   _Entry(
     <String>['dua for distress', 'hardship dua', 'difficulty dua'],
@@ -2077,9 +2664,10 @@ const List<_Entry> _knowledge = <_Entry>[
     <String>['what is halal', 'what is haram', 'halal and haram', 'meaning of halal', 'meaning of haram'],
     'Allah says: "He has only forbidden to you dead animals, blood, the '
     'flesh of swine, and that which has been dedicated to other than '
-    'Allah." (Qur\'an 2:173). The Prophet ﷺ said: "What Allah has made '
-    'lawful in His Book is halal, what He has made forbidden is haram, and '
-    'what He has remained silent about is a pardon." (Sunan al-Tirmidhi; scholars discuss its chain). For a specific question, ask a qualified scholar.',
+    'Allah." (Qur\'an 2:173). Scholars state the general principle: what '
+    'Allah has made lawful is halal, what He has forbidden is haram, '
+    'and what He has not addressed is generally permitted. For a '
+    'specific question, ask a qualified scholar.',
   ),
   _Entry(
     <String>['fard', 'obligatory', 'wajib', 'mandatory'],
@@ -2093,18 +2681,15 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['sunnah', 'mustahabb', 'recommended', 'nafl', 'voluntary'],
     'Sunnah acts are those the Prophet ﷺ regularly performed and '
-    'encouraged. They are divided into: Sunnah muakkadah (emphasized, like '
-    'the two rak\'ahs before Fajr) and Sunnah ghayr muakkadah '
-    '(non-emphasized). The Prophet ﷺ said: "Allah loves that His sunnahs '
-    'are followed." (Sunan al-Nasa\'i).',
+    'encouraged. They are divided into: Sunnah muakkadah (emphasized, '
+    'like the two rak\'ahs before Fajr) and Sunnah ghayr muakkadah '
+    '(non-emphasized).',
   ),
   _Entry(
     <String>['makruh', 'disliked', 'discouraged'],
     'Makruh (disliked) acts are those for which there is evidence of '
     'discouragement but not prohibition. Examples: eating with the left '
-    'hand, wasting water during wudu, praying after Asr until sunset. The '
-    'Prophet ﷺ said: "Do not waste water, even if you are at a flowing '
-    'river." (Sunan Ibn Majah).',
+    'hand, wasting water during wudu, praying after Asr until sunset.',
   ),
   _Entry(
     <String>['bidah', 'innovation', 'biddah'],
@@ -2167,10 +2752,10 @@ const List<_Entry> _knowledge = <_Entry>[
   ),
   _Entry(
     <String>['mahr', 'dowry', 'bride price'],
-    'Allah says: "And give the women [upon marriage] their [bridal] gifts '
-    'graciously." (Qur\'an 4:4). The mahr is the husband\'s gift to the wife, which becomes her '
-    'exclusive property. The Prophet ﷺ said: "The best of mahrs is the '
-    'easiest." (Sunan al-Nasa\'i).',
+    'Allah says: "And give the women [upon marriage] their [bridal] '
+    'gifts graciously." (Qur\'an 4:4). The mahr is the husband\'s gift to '
+    'the wife, which becomes her exclusive property. Scholars encourage '
+    'keeping it modest and easy, so that marriage is not made hard.',
   ),
   _Entry(
     <String>['walima', 'wedding feast', 'marriage banquet'],
@@ -2182,11 +2767,11 @@ const List<_Entry> _knowledge = <_Entry>[
   ),
   _Entry(
     <String>['divorce', 'talaq', 'ending marriage'],
-    'Allah says: "Divorce is twice. Then, either keep her in an acceptable '
-    'manner or release her with good treatment." (Qur\'an 2:229). The '
-    'Prophet ﷺ said: "The most hated of permissible things to Allah is '
-    'divorce." (Sunan Abi Dawud). It must be pronounced clearly during a '
-    'period of purity (not menstruation) without intimacy.',
+    'Allah says: "Divorce is twice. Then, either keep her in an '
+    'acceptable manner or release her with good treatment." (Qur\'an '
+    '2:229). Divorce is permitted but widely regarded as a last resort, '
+    'after reconciliation has been tried. It must be pronounced clearly '
+    'during a period of purity (not menstruation) without intimacy.',
   ),
   _Entry(
     <String>['rights of wife', 'wife rights', 'husband duties'],
@@ -2198,13 +2783,12 @@ const List<_Entry> _knowledge = <_Entry>[
   ),
   _Entry(
     <String>['rights of husband', 'husband rights', 'wife duties'],
-    'A report about a wife who prays her five prayers, fasts her month, '
-    'guards her chastity and obeys her husband entering Paradise from any '
-    'gate she wishes is found in Musnad Ahmad; we could not check its '
-    'grading here, so we do not quote it. Rights are mutual; the usual '
-    'summary includes obedience in permissible matters, protection of '
-    'honor, and managing the household - ask a scholar of your madhhab '
-    'for specifics.',
+    'There are well-known teachings about a wife\'s rights and duties '
+    'toward her husband that this app has not checked, so it does not '
+    'quote them. Rights are mutual; the usual summary includes '
+    'obedience in permissible matters, protection of honor, and '
+    'managing the household - ask a scholar of your madhhab for '
+    'specifics.',
   ),
   _Entry(
     <String>['child rights', 'children rights', 'raising children'],
@@ -2296,10 +2880,10 @@ const List<_Entry> _knowledge = <_Entry>[
     <String>['inheritance', 'mirath', 'wasiyyah', 'islamic will', 'writing a will'],
     'Allah says: "Allah instructs you concerning your children: for the '
     'male, what is equal to the share of two females." (Qur\'an 4:11). '
-    'Islamic inheritance is obligatory (fard) and cannot be willed away. '
-    'Only up to one-third can be bequeathed to non-heirs. The Prophet ﷺ '
-    'said: "Allah has given everyone who has a right his right, so there is '
-    'no bequest for an heir." (Sunan al-Tirmidhi).',
+    'Islamic inheritance is obligatory (fard) and cannot be willed '
+    'away. Only up to one-third can be bequeathed to non-heirs, and '
+    'scholars hold that a bequest is not made to someone who is already '
+    'an heir, since their share is fixed.',
   ),
 
   // ========== DEATH & AFTERLIFE ==========
@@ -2328,19 +2912,16 @@ const List<_Entry> _knowledge = <_Entry>[
   ),
   _Entry(
     <String>['barzakh', 'grave life', 'punishment of grave'],
-    'The Prophet ﷺ said: "The grave is the first of the stages of the '
-    'Hereafter; whoever is saved from it, what comes after is easier, and '
-    'whoever is not saved from it, what comes after is harder." (Sunan '
-    'al-Tirmidhi). The soul experiences questioning by Munkar and Nakir, '
-    'and either comfort or punishment.',
+    'The grave is regarded as the first stage of the Hereafter. The '
+    'soul experiences questioning by Munkar and Nakir, and either '
+    'comfort or punishment, according to the creed of Ahl as-Sunnah.',
   ),
   _Entry(
     <String>['day of judgment', 'qiyamah', 'last day', 'resurrection'],
     'Allah says: "The Day every soul will find what it has done of good '
-    'present [before it] and what it has done of evil." (Qur\'an 3:30). The Prophet ﷺ said: "The '
-    'first thing a person will be asked about on the Day of Resurrection is '
-    'his prayer. If it is sound, he will be successful; if not, he will be '
-    'ruined." (Sunan al-Tirmidhi).',
+    'present [before it] and what it has done of evil." (Qur\'an 3:30). '
+    'Scholars remind us that prayer is the first deed a person is '
+    'accountable for, which is why guarding it matters.',
   ),
   _Entry(
     <String>['jannah', 'paradise', 'heaven'],
@@ -2462,11 +3043,12 @@ const List<_Entry> _knowledge = <_Entry>[
   ),
   _Entry(
     <String>['zakat ul fitr', 'fitrana', 'eid charity'],
-    'The Prophet ﷺ made zakat al-fitr obligatory: a sa\' (approx. 2.5kg) of '
-    'dates, barley, wheat, or raisins, or its monetary equivalent. It must '
-    'be given before the Eid prayer. He said: "It is a purification for the '
-    'fasting person from idle talk and obscenity, and food for the poor." '
-    '(Sunan Abi Dawud).',
+    'Zakat al-fitr (fitrana) is obligatory on every Muslim who has more '
+    'than their needs: about one sa\' (roughly 2.5kg) of a staple food '
+    'such as dates, barley, wheat, or raisins, or its monetary '
+    'equivalent in the view of many scholars. It must be given before '
+    'the Eid prayer. It purifies the fast from lapses and feeds the '
+    'poor.',
   ),
   _Entry(
     <String>['breaking fast', 'iftar', 'opening fast'],
@@ -2521,9 +3103,10 @@ const List<_Entry> _knowledge = <_Entry>[
   ),
   _Entry(
     <String>['gold silk men', 'men wear gold', 'men silk'],
-    'The Prophet ﷺ said: "Gold and silk have been permitted for the women '
-    'of my Ummah and forbidden for the men." (Sunan al-Nasa\'i). Men may not '
-    'wear gold rings, chains, or clothing with silk. Women may wear both.',
+    'Scholars agree that gold is forbidden for men and permitted for '
+    'women, and that pure silk is likewise forbidden for men. Men may '
+    'not wear gold rings, chains, or clothing with silk. Women may wear '
+    'both.',
   ),
   _Entry(
     <String>['beard', 'shave beard', 'trim beard'],
@@ -2567,18 +3150,17 @@ const List<_Entry> _knowledge = <_Entry>[
   ),
   _Entry(
     <String>['ayat al kursi', 'throne verse', 'greatest verse'],
-    'The Prophet ﷺ said: "Whoever recites Ayat al-Kursi at the end of every '
-    'obligatory prayer, nothing prevents him from entering Paradise except '
-    'death." (Sunan al-Nasa\'i). It is the greatest verse of the Qur\'an '
-    '(Qur\'an 2:255), containing the greatest name of Allah.',
+    'Scholars encourage reciting Ayat al-Kursi at the end of every '
+    'obligatory prayer. It is regarded as the greatest verse of the '
+    'Qur\'an (Qur\'an 2:255), containing the greatest name of Allah.',
   ),
   _Entry(
     <String>['surah ikhlas', 'surah falaq', 'surah nas', 'muawwidhat'],
-    'The Prophet ﷺ said: "Say: He is Allah, the One (Ikhlas) and the two '
-    'surahs of refuge (Falaq and Nas) in the evening and morning three '
-    'times — they will suffice you against everything." (Sunan '
-    'al-Tirmidhi). These three surahs are called al-Mu\'awwidhatayn and are '
-    'the strongest protection.',
+    'Each night before sleeping the Prophet ﷺ recited Al-Ikhlas, '
+    'Al-Falaq and An-Nas into his cupped hands, blew into them and '
+    'wiped over his body (Sahih al-Bukhari 5017). These three surahs '
+    'are called al-Mu\'awwidhat, and many Muslims recite them morning '
+    'and evening for protection.',
   ),
   _Entry(
     <String>['last two ayahs baqarah', 'baqarah end', 'amana rasul'],
@@ -2628,10 +3210,9 @@ const List<_Entry> _knowledge = <_Entry>[
   ),
   _Entry(
     <String>['tahlil', 'la ilaha illallah', 'oneness'],
-    'The Prophet ﷺ said: "The best dhikr is La ilaha illa Allah, and the '
-    'best supplication is Alhamdulillah." (Sunan al-Tirmidhi). It is the '
-    'word of tawhid, the key to Paradise, and the phrase that removes sins '
-    'like leaves fall from a tree.',
+    'La ilaha illa Allah is the word of tawhid, the first pillar of '
+    'Islam and the heart of all dhikr. Say it often, with understanding '
+    'and sincerity.',
   ),
   _Entry(
     <String>['salawat', 'durud', 'blessings on prophet'],
@@ -2666,19 +3247,18 @@ const List<_Entry> _knowledge = <_Entry>[
   ),
   _Entry(
     <String>['ihram', 'pilgrimage state', 'hajj clothes'],
-    'Ihram is the sacred state entered before Hajj or Umrah. For men: two '
-    'unstitched white cloths. For women: any modest clothing. Prohibitions '
-    'in ihram: cutting hair or nails, wearing perfume, hunting, marital '
-    'relations, and arguing. The Prophet ﷺ said: "The Hajj is Arafah." '
-    '(Sunan al-Tirmidhi).',
+    'Ihram is the sacred state entered before Hajj or Umrah. For men: '
+    'two unstitched white cloths. For women: any modest clothing. '
+    'Prohibitions in ihram: cutting hair or nails, wearing perfume, '
+    'hunting, marital relations, and arguing. The standing at Arafah is '
+    'the essential rite of Hajj: there is no Hajj without it.',
   ),
   _Entry(
     <String>['tawaf', 'circumambulation', 'kaaba'],
     'Tawaf is circling the Kaaba seven times, starting from the Black '
-    'Stone, with the Kaaba on the left. The Prophet ﷺ said: "The Black '
-    'Stone descended from Paradise whiter than milk, but the sins of the '
-    'sons of Adam turned it black." (reported in Jami\' at-Tirmidhi, Book '
-    'of Hajj; number and grade not yet verified in this app).',
+    'Stone, with the Kaaba on the left. At each circuit pilgrims touch '
+    'or kiss the Black Stone if they can, or point to it from a '
+    'distance.',
   ),
   _Entry(
     <String>['saee', 'safa marwa', 'running'],
@@ -2723,10 +3303,9 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['salah on time', 'prayer punctuality', 'pray on time'],
     'Allah says: "Indeed, prayer has been decreed upon the believers a '
-    'decree of specified times." (Qur\'an 4:103). The Prophet ﷺ said: "The '
-    'first matter that the slave will be brought to account for on the Day '
-    'of Judgment is the prayer. If it is sound, he will be successful." '
-    '(Sunan al-Tirmidhi).',
+    'decree of specified times." (Qur\'an 4:103). Praying on time '
+    'matters because prayer is the first deed a person is accountable '
+    'for.',
   ),
   _Entry(
     <String>['congregation', 'jamaah', 'praying together', 'group prayer'],
@@ -2850,10 +3429,9 @@ const List<_Entry> _knowledge = <_Entry>[
   ),
   _Entry(
     <String>['generosity', 'sakhaw', 'giving', 'charitable'],
-    'The Prophet ﷺ said: "The generous is close to Allah, close to '
-    'Paradise, close to people, and far from the Fire. The miser is far '
-    'from Allah, far from Paradise, far from people, and close to the '
-    'Fire." (Sunan al-Tirmidhi).',
+    'Generosity (sakha\') is a mark of faith: it draws a person closer '
+    'to Allah and to people, while miserliness does the opposite. Give '
+    'what you can, even if it is small, and give sincerely.',
   ),
   _Entry(
     <String>['courage', 'shajaah', 'brave', 'fearless'],
@@ -2864,10 +3442,10 @@ const List<_Entry> _knowledge = <_Entry>[
   ),
   _Entry(
     <String>['wisdom', 'hikmah', 'understanding', 'insight'],
-    'Allah says: "He gives wisdom to whom He wills, and whoever has been '
-    'given wisdom has certainly been given much good." (Qur\'an 2:269). The '
-    'Prophet ﷺ said: "The beginning of wisdom is the fear of Allah." (Sunan '
-    'Abi Dawud).',
+    'Allah says: "He gives wisdom to whom He wills, and whoever has '
+    'been given wisdom has certainly been given much good." (Qur\'an '
+    '2:269). Wisdom grows by learning, reflecting, and acting on what '
+    'you know.',
   ),
   _Entry(
     <String>['justice', 'adl', 'fairness', 'equity'],
@@ -2893,32 +3471,33 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['jihad', 'struggle', 'striving'],
     'Allah says: "And strive for Allah with the striving due to Him." '
-    '(Qur\'an 22:78). The Prophet ﷺ said: "The best jihad is a word of truth '
-    'spoken to a tyrant." (Sunan Abi Dawud). Restraining one\'s own desires '
-    'for Allah\'s sake is also a form of striving.',
+    '(Qur\'an 22:78). Jihad means striving. It includes striving against '
+    'one\'s own desires, in worship and in good character, and speaking '
+    'truth with wisdom and courage. Fighting, where it applies at all, '
+    'has strict conditions set by qualified scholars and lawful '
+    'authority: it is never for an individual to decide alone.',
   ),
   _Entry(
     <String>['caliphate', 'khilafah', 'islamic state', 'political islam'],
-    'The Prophet ﷺ said: "The caliphate will remain among my Ummah for '
-    'thirty years, then there will be kingship." (Sunan Abi Dawud). The '
-    'Rightly Guided Caliphs (Abu Bakr, Umar, Uthman, Ali) are the model. '
-    'Political engagement is part of Islam, but must be through legitimate '
-    'means.',
+    'The first four caliphs (Abu Bakr, Umar, Uthman, Ali) are known as '
+    'the Rightly Guided Caliphs and are the model. Political engagement '
+    'is part of Islam, but must be through legitimate means.',
   ),
   _Entry(
     <String>['shariah', 'islamic law', 'fiqh'],
     'Shariah is the divine law revealed by Allah. Fiqh is the human '
-    'understanding and application of that law. The Prophet ﷺ said: "The '
-    'scholars are the heirs of the prophets." (Sunan Abi Dawud). There are '
-    'four major schools of fiqh: Hanafi, Maliki, Shafi\'i, and Hanbali.',
+    'understanding and application of that law. The Prophet ﷺ said: '
+    '"The scholars are the heirs of the prophets." '
+    '(Sunan Abi Dawud 3641, sahih per al-Albani). There are four major '
+    'schools of fiqh: Hanafi, Maliki, Shafi\'i, and Hanbali.',
   ),
   _Entry(
     <String>['fiqh schools', 'madhab', 'hanafi', 'maliki', 'shafii', 'hanbali'],
-    'The four schools are valid paths to the same truth. The Prophet ﷺ '
-    'said: Differences between qualified scholars on questions open to '
-    'ijtihad are recognised as legitimate, and Muslims are asked to be '
-    'gentle with each other about them. A layperson should follow one '
-    'school consistently under a qualified teacher.',
+    'The four schools are valid paths to the same truth. Differences '
+    'between qualified scholars on questions open to ijtihad are '
+    'recognised as legitimate, and Muslims are asked to be gentle with '
+    'each other about them. A layperson should follow one school '
+    'consistently under a qualified teacher.',
   ),
   _Entry(
     <String>['ijtihad', 'scholarly reasoning', 'independent judgment'],
@@ -2937,24 +3516,21 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['ijma', 'consensus', 'scholarly agreement'],
     'Ijma is the consensus of the qualified scholars of the Ummah on a '
-    'particular issue. The Prophet ﷺ said: "My Ummah will not agree on an '
-    'error." (Sunan Ibn Majah).',
+    'particular issue. Scholars treat it as a binding source of law '
+    'after the Qur\'an and the Sunnah.',
   ),
   _Entry(
     <String>['hadith sciences', 'isnad', 'matn', 'hadith authentication'],
-    'The Prophet ﷺ said: "May Allah brighten a man who hears something from '
-    'us and conveys it as he heard it." (Sunan al-Tirmidhi). Hadith '
-    'authentication examines: (1) the chain (isnad), (2) the text (matn), '
-    '(3) the narrators\' reliability. Classifications: sahih, hasan, da\'if, '
-    'mawdu\'.',
+    'Hadith scholars built a science to protect the Prophet\'s words '
+    'from error and invention. Hadith authentication examines: (1) the '
+    'chain (isnad), (2) the text (matn), (3) the narrators\' '
+    'reliability. Classifications: sahih, hasan, da\'if, mawdu\'.',
   ),
   _Entry(
     <String>['sahih', 'authentic hadith', 'sound hadith'],
-    'Sahih is a hadith with a continuous chain of reliable narrators, free '
-    'from defects, and not contradictory to stronger evidence. The most '
-    'authentic collections are Sahih al-Bukhari and Sahih Muslim. The '
-    'Prophet ﷺ said: "May Allah have mercy on a man who hears a hadith from '
-    'us and memorizes it." (Sunan al-Tirmidhi).',
+    'Sahih is a hadith with a continuous chain of reliable narrators, '
+    'free from defects, and not contradictory to stronger evidence. The '
+    'most authentic collections are Sahih al-Bukhari and Sahih Muslim.',
   ),
   _Entry(
     <String>['hasan', 'good hadith', 'fair hadith'],

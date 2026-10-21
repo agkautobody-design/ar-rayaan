@@ -762,7 +762,11 @@ class HadiController extends Notifier<HadiState> {
     List<String> sources = const <String>[];
     final List<String> notes = <String>[];
     if (usedLive) {
-      final VerifiedAnswer v = AnswerVerifier.verify(clean, corpus);
+      final VerifiedAnswer v = AnswerVerifier.verify(
+        clean,
+        corpus,
+        keepUserScript: OfflineHadiProvider.scriptOf(q) != HadiScript.latin,
+      );
       clean = v.text;
       sources = v.sourceIds;
       if (v.changed) {
