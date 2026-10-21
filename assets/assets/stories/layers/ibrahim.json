@@ -1,0 +1,205 @@
+{
+ "schema": 1,
+ "subject": "ibrahim",
+ "title": "Ibrahim (Abraham)",
+ "kind": "prophet",
+ "checked": "2026-10-20",
+ "reviewStatus": "Not yet scholar-reviewed",
+ "quran": [
+  {
+   "surah": 2,
+   "from": 124,
+   "to": 129,
+   "note": "Tried with commands and made a leader; he and Ismail raise the foundations of the House and pray."
+  },
+  {
+   "surah": 2,
+   "from": 258,
+   "to": 258,
+   "note": "A king who had been given kingship argues with him about his Lord; Ibrahim says Allah brings the sun from the east. The Qur’an does not name the king."
+  },
+  {
+   "surah": 2,
+   "from": 260,
+   "to": 260,
+   "note": "He asks to be shown how Allah gives life to the dead, “only that my heart may be satisfied.”"
+  },
+  {
+   "surah": 6,
+   "from": 74,
+   "to": 79,
+   "note": "He tells his father Azar and his people that idols are error, and reasons from the star, moon and sun to “I have turned my face to Him who created the heavens and the earth.”"
+  },
+  {
+   "surah": 19,
+   "from": 41,
+   "to": 50,
+   "note": "A man of truth and a prophet; his gentle speech to his father and his father’s threat; he leaves them and is given Ishaq and Ya’qub."
+  },
+  {
+   "surah": 21,
+   "from": 57,
+   "to": 63,
+   "note": "He breaks the idols except the largest; his people ask who did it; “Rather, this, the largest of them, did it, so ask them.”"
+  },
+  {
+   "surah": 21,
+   "from": 68,
+   "to": 70,
+   "note": "They say, “Burn him”; Allah says, “O fire, be coolness and safety upon Abraham.”"
+  },
+  {
+   "surah": 11,
+   "from": 69,
+   "to": 76,
+   "note": "The messengers come to him with news of Ishaq, then tell him they are sent to the people of Lut; he pleads for them."
+  },
+  {
+   "surah": 14,
+   "from": 35,
+   "to": 41,
+   "note": "His prayer for a secure city, and for the descendants he settled near the Sacred House."
+  },
+  {
+   "surah": 37,
+   "from": 99,
+   "to": 107,
+   "note": "He asks for a righteous child, is given good news of a forbearing boy, sees the dream, and the boy is ransomed with a great sacrifice. The Qur’an does not name the boy."
+  },
+  {
+   "surah": 37,
+   "from": 108,
+   "to": 113,
+   "note": "Peace upon Ibrahim; then the good news of Ishaq, a prophet from among the righteous, is given."
+  }
+ ],
+ "hadith": [
+  {
+   "book": "bukhari",
+   "number": "3372",
+   "narrator": "Abu Huraira",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "The Prophet ﷺ said he was more deserving of doubt than Ibrahim, who asked how Allah gives life to the dead: Allah asked if he did not believe, and Ibrahim said he did but wanted his heart at ease. The same report has the Prophet ﷺ asking Allah’s mercy on Lut, who sought a strong support, and saying that had he stayed in prison as long as Yusuf he would have answered the call at once.",
+   "verified": "2026-10-20"
+  },
+  {
+   "book": "bukhari",
+   "number": "3364",
+   "narrator": "Ibn Abbas, through Sa’id ibn Jubayr",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "The long report of Hajar and Ismail. Ibrahim left them in an empty valley by the site of the Ka’ba with dates and water; Hajar asked if Allah had commanded it and, hearing yes, said He would not neglect them. She ran seven times between Safa and Marwa, an angel caused Zamzam to appear, and men of the Jurhum tribe settled by it. Ismail grew up among them, learned their Arabic and married a woman from among them. Ibrahim visited later, and he and Ismail raised the foundations of the Ka’ba together.",
+   "verified": "2026-10-20"
+  },
+  {
+   "book": "bukhari",
+   "number": "3358",
+   "narrator": "Abu Huraira",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "The Prophet ﷺ said Ibrahim spoke untruths on only three occasions, two of them for Allah’s sake: saying he was ill, and saying the largest idol had broken the others. The third was on a journey with Sarah, when he told a tyrant she was his sister, fearing for his life. The tyrant’s hand was seized each time he reached for her, and after the third time he gave Hajar to Sarah as a servant.",
+   "verified": "2026-10-20",
+   "note": "The word translated “untruths” is the one the report uses. Ibn Kathir (abridged), on 21:63, gives what Ibrahim hoped to achieve with the second statement; see the scholarly layer."
+  },
+  {
+   "book": "bukhari",
+   "number": "3350",
+   "narrator": "Abu Huraira",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "The Prophet ﷺ said that on the Day of Resurrection Ibrahim will meet his father with a dark and dusty face and will remind him that he warned him. Ibrahim will ask Allah how he could be left in disgrace on that day, and Allah will say He has forbidden Paradise to the disbelievers.",
+   "verified": "2026-10-20"
+  },
+  {
+   "book": "bukhari",
+   "number": "4563",
+   "narrator": "Ibn Abbas",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "Ibn Abbas said the words “Allah is sufficient for us and the best disposer of affairs” were first said by Ibrahim when he was thrown into the fire, and were said by Muhammad ﷺ when people told the believers that a great army had gathered against them.",
+   "verified": "2026-10-20"
+  },
+  {
+   "book": "muslim",
+   "number": "2369",
+   "narrator": "Anas ibn Malik",
+   "grade": "Sahih",
+   "grader": "Muslim, in his Sahih",
+   "summary": "A man called the Prophet ﷺ the best of creation and the Prophet ﷺ answered that this was Ibrahim.",
+   "verified": "2026-10-20"
+  },
+  {
+   "book": "bukhari",
+   "number": "3370",
+   "narrator": "Ka’b ibn Ujrah, through Abd al-Rahman ibn Abi Layla",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "The Companions asked how to ask for Allah’s blessing on the Prophet ﷺ and his family, since Allah had taught them how to greet him. He taught them a prayer that asks Allah to bless Muhammad and his family as He blessed Ibrahim and his family.",
+   "verified": "2026-10-20"
+  },
+  {
+   "book": "bukhari",
+   "number": "3207",
+   "narrator": "Malik ibn Sa’sa’a",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "In the Prophet’s ﷺ account of the night journey, Ibrahim is the prophet in the seventh heaven; he welcomed the Prophet ﷺ as a son and a prophet.",
+   "verified": "2026-10-20"
+  },
+  {
+   "book": "bukhari",
+   "number": "349",
+   "narrator": "Abu Dharr",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "In the account of how the prayers were prescribed, the narrator says the Prophet ﷺ met Ibrahim in the sixth heaven.",
+   "verified": "2026-10-20",
+   "note": "Sahih al-Bukhari 3207 puts Ibrahim in the seventh heaven and Musa in the sixth. Both reports are in the Sahih; we report them as they stand and do not harmonise them."
+  }
+ ],
+ "scholarly": [
+  {
+   "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+   "author": "Ibn Kathir",
+   "locator": "on 21:63",
+   "summary": "Explains “this one, the biggest of them, did it” as pointing to the idol he had left unbroken, in the hope that his people would admit of their own accord that the idols could not speak. Records that some said a hammer was put in the largest idol’s hands so that people would think it had broken the others out of jealousy. It cites the hadith of Abu Hurayrah from the two Sahihs that Ibrahim told untruths only three times, two of them for Allah’s sake (“I am sick” and the largest idol), and attaches the story of Sarah; it gives no further explanation of the hadith."
+  },
+  {
+   "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+   "author": "Ibn Kathir",
+   "locator": "on 37:102",
+   "summary": "Concludes that the son Ibrahim was told to sacrifice was Ismail, not Ishaq. Among his arguments: that the Qur’an gave the good news of Ishaq and, after him, Ya’qub (11:71), which an argument of Muhammad ibn Ka’b al-Qurazi takes to rule Ishaq out as a boy to be sacrificed; and a report from Safiyya bint Shayba, through Uthman ibn Talha, that the Prophet ﷺ saw the ram’s horns in the Ka’ba. The abridged text gives no grade for that report, and we have not checked it."
+  },
+  {
+   "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+   "author": "Ibn Kathir",
+   "locator": "on 2:258",
+   "summary": "Names the king as Nimrod and, from Mujahid, gives his line as son of Canaan, son of Kush, son of Sam, son of Nuh; the Qur’an does not name him. Records that Qatadah, Muhammad ibn Ishaq and al-Suddi explained the king’s claim to give life and death as ordering one condemned man killed and another pardoned, which Ibn Kathir says does not fit, since the king did not deny a Creator. It also reports al-Suddi saying the debate took place after Ibrahim was thrown into the fire."
+  },
+  {
+   "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+   "author": "Ibn Kathir",
+   "locator": "on 6:76",
+   "summary": "Presents the star, moon and sun passage as part of Ibrahim’s argument with his people against idol worship, not as a private search: each body follows an appointed course, so it cannot be a lord. It quotes Qatadah that “Ibrahim knew that his Lord is Eternal and never ceases.”"
+  }
+ ],
+ "differences": [
+  {
+   "question": "Which son was Ibrahim told to sacrifice (37:102)?",
+   "views": [
+    {
+     "who": "Ibn Abbas, Ibn Umar, Mujahid, al-Sha’bi, al-Hasan al-Basri, Imam Ahmad and others listed by Ibn Kathir",
+     "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com), on 37:102",
+     "view": "Ismail. Ibn Kathir holds this view and treats Ishaq as a mistaken identification."
+    },
+    {
+     "who": "The Jewish text, as Ibn Kathir describes it",
+     "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com), on 37:102; the Bible text (Genesis 22:1-14, NRSVUE) read on BibleGateway",
+     "view": "The Bible names the son as Isaac (Genesis 22:2, read by us on BibleGateway). Ibn Kathir argues that the name was inserted into the Jewish text."
+    }
+   ],
+   "note": "The Qur’an does not name the son (37:99-107). The good news of Ishaq is given afterwards (37:112)."
+  }
+ ]
+}

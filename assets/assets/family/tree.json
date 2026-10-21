@@ -7,9 +7,14 @@
    "Qur'an 37:101-113 — Ibrahim's two sons",
    "Seerah: Ibn Ishaq/Ibn Hisham; History: al-Tabari",
    "Qur'an 3:33-37; 66:12 — the family of Imran and Maryam's father",
-   "Qur'an 19:6 — Zakariya and the family of Ya'qub"
+   "Qur'an 19:6 — Zakariya and the family of Ya'qub",
+   "Sahih al-Bukhari 2731, 2864 — the Prophet’s father and grandfather by name",
+   "Sahih al-Bukhari 3491; Sahih Muslim 2276 — Mudar, an-Nadr ibn Kinana; Kinana, Quraysh, Banu Hashim",
+   "Sahih al-Bukhari 3884; Sahih Muslim 976, 2404 — Abu Talib; the Prophet’s mother; Ali",
+   "Sahih al-Bukhari 1303, 3698; Qur'an 33:6, 33:59 — the Prophet’s household",
+   "Sahih Muslim 162 — Isa and Yahya as maternal cousins"
   ],
-  "lineageWarning": "Between Adam and Nuh, between Sam and Ibrahim, between Ismail and Adnan, above Adnan, and between Ya'qub and the later prophets, the names come from historical tradition and not from the Qur'an or the six books. The tree shows those generations as folded rows, not as verified lists. Where we could not check a name against the work it comes from, the row says so.",
+  "lineageWarning": "Between Adam and Nuh, between Sam and Ibrahim, between Ismail and Adnan, above Adnan, and between Ya'qub and the later prophets, the names come from historical tradition and not from the Qur'an or the six books. The tree shows those generations as folded rows, not as verified lists. Where we could not check a name against the work it comes from, the row says so. Within the Prophet’s ﷺ own household, the names of his mother and of his other daughters are from tradition; that he had a mother, other daughters, a son Ibrahim and several wives is from the Qur’an or the hadith we checked. Ali’s father is named from tradition and from the way Ali is named in the hadith collections.",
   "unplacedNote": "The Qur'an names these prophets but does not give their parents or place them in a line we can verify. They are listed by name with what the Qur'an says, and are not attached to any family."
  },
  "nodes": [
@@ -284,10 +289,11 @@
    ],
    "river": "ismail",
    "sourceLabel": "Interpretive",
-   "description": "Ismail's twelve sons settled Arabia, the tradition says; Qaydar's line carried the Prophet's ancestry. Kept as one node.",
+   "description": "The historians say Ismail had twelve sons who settled Arabia and that the Prophet’s ﷺ line ran through Qaydar. We did not find Ismail’s sons listed in the Qur’an or in the hadith we checked. Kept as one node.",
    "sources": [
     "Ibn Ishaq; al-Tabari"
-   ]
+   ],
+   "lineageNote": "Uncertain. Between Ismail and Adnan the names are from historians (Ibn Ishaq; al-Tabari). We could not read their lists here and did not find these generations in the Qur’an or in the six books, so they are folded and not shown as verified."
   },
   {
    "id": "adnan",
@@ -301,10 +307,11 @@
    ],
    "river": "ismail",
    "sourceLabel": "Interpretive",
-   "description": "The ancestor where the scholars draw the line of certainty: from Adnan down the line is agreed; above him the names soften.",
+   "description": "The name the historians give for the ancestor where the Prophet’s ﷺ Arab line is traced back toward Ismail. Above Adnan the tree is uncertain: those generations are not in the Qur’an or in any hadith we checked.",
    "sources": [
     "Ibn Ishaq; al-Tabari"
-   ]
+   ],
+   "lineageNote": "Uncertain above this point. The link from Adnan up to Ismail is from the historians, not from the Qur’an or the six books, and has not been re-checked here."
   },
   {
    "id": "maadd",
@@ -318,10 +325,12 @@
    ],
    "river": "ismail",
    "sourceLabel": "Interpretive",
-   "description": "The generations between Adnan and Ma'add — estimated near forty — are deliberately folded; honesty about gaps is part of this tree's design.",
+   "description": "The generations the historians list between Adnan and Fihr are folded here, and we have not checked that list. What a hadith does tell us: the Prophet ﷺ was of the tribe of Mudar and of the offspring of an-Nadr ibn Kinana (Sahih al-Bukhari 3491, reported by Zaynab bint Abi Salama).",
    "sources": [
-    "Ibn Ishaq; al-Tabari"
-   ]
+    "Ibn Ishaq; al-Tabari",
+    "Sahih al-Bukhari 3491"
+   ],
+   "lineageNote": "The names in between are from the historians and are not shown as verified; Mudar and an-Nadr ibn Kinana as ancestors of the Prophet ﷺ are in Sahih al-Bukhari 3491."
   },
   {
    "id": "fihr",
@@ -335,9 +344,10 @@
    ],
    "river": "ismail",
    "sourceLabel": "Interpretive",
-   "description": "The progenitor of Quraysh, the tribe of the Prophet's house and the keepers of the Kaaba.",
+   "description": "The progenitor of Quraysh, the tribe of the Prophet's house and the keepers of the Kaaba. A hadith in Sahih Muslim (2276) says Allah chose Kinana from Ismail’s descendants, Quraysh from Kinana, Banu Hashim from Quraysh, and the Prophet ﷺ from Banu Hashim.",
    "sources": [
-    "Ibn Ishaq; al-Tabari"
+    "Ibn Ishaq; al-Tabari",
+    "Sahih Muslim 2276 (Wathila ibn al-Asqa’): the choosing of Kinana, Quraysh, Banu Hashim"
    ]
   },
   {
@@ -388,7 +398,8 @@
    "sourceLabel": "Interpretive",
    "description": "The clan's namesake; the tradition honors him with instituting the two caravan journeys that made Makkah's wealth.",
    "sources": [
-    "Ibn Ishaq; al-Tabari"
+    "Ibn Ishaq; al-Tabari",
+    "Sahih Muslim 2276: Banu Hashim chosen from Quraysh"
    ]
   },
   {
@@ -399,14 +410,43 @@
     "hashim"
    ],
    "children": [
-    "abdullah"
+    "abdullah",
+    "abu-talib"
    ],
    "river": "ismail",
    "sourceLabel": "Interpretive",
-   "description": "The Prophet's ﷺ grandfather; redug the well of Zamzam and shielded his grandson from the Quraysh.",
+   "description": "The Prophet’s ﷺ grandfather. At Hunayn the Prophet ﷺ called out “I am the son of Abdul-Muttalib” (Sahih al-Bukhari 2864).",
    "sources": [
+    "Sahih al-Bukhari 2864",
     "Ibn Ishaq; al-Tabari"
-   ]
+   ],
+   "lineageNote": "That Abdul-Muttalib was an ancestor of the Prophet ﷺ is in Sahih al-Bukhari 2864. His sons (Abdullah and Abu Talib) are from Ibn Ishaq/al-Tabari."
+  },
+  {
+   "id": "abu-talib",
+   "name": "Abu Talib",
+   "era": "The Age of Quraysh",
+   "parents": [
+    "abdul-muttalib"
+   ],
+   "children": [
+    "ali"
+   ],
+   "river": "ismail",
+   "sourceLabel": "Interpretive",
+   "description": "The Prophet’s ﷺ uncle: as he lay dying the Prophet ﷺ called him “O my uncle” and asked him to say the testimony of faith (Sahih al-Bukhari 3884). He is named as the father of Ali by Ali’s own name, ‘ibn Abi Talib’; that this is the same uncle is from the historians and has not been re-checked here.",
+   "sources": [
+    "Sahih al-Bukhari 3884 (Musayyab ibn Hazn): Abu Talib, “O my uncle”",
+    "Sahih Muslim 2404 (Ali named ‘ibn Abi Talib’ in the chapter heading)",
+    "Ibn Ishaq (his father; his son Ali)"
+   ],
+   "relations": [
+    {
+     "id": "muhammad",
+     "label": "Uncle of"
+    }
+   ],
+   "lineageNote": "His being the Prophet’s uncle is in Sahih al-Bukhari 3884. His father (Abdul-Muttalib) and his being Ali’s father are from Ibn Ishaq/al-Tabari and the usual way Ali is named; we have not re-read those works here."
   },
   {
    "id": "abdullah",
@@ -419,32 +459,63 @@
     "muhammad"
    ],
    "river": "ismail",
-   "sourceLabel": "Interpretive",
-   "description": "The Prophet's ﷺ father; died on a trading journey before his son's birth.",
+   "sourceLabel": "Established",
+   "description": "The Prophet’s ﷺ father. In the Hudaybiyyah treaty the Prophet ﷺ told them to write “Muhammad bin Abdullah” (Sahih al-Bukhari 2731). That he died on a trading journey before his son was born is from the historians.",
    "sources": [
-    "Ibn Ishaq; al-Tabari"
+    "Sahih al-Bukhari 2731",
+    "Ibn Ishaq; al-Tabari (his death; his father Abdul-Muttalib)"
+   ],
+   "lineageNote": "The Prophet’s father’s name is in Sahih al-Bukhari 2731. That Abdullah was Abdul-Muttalib’s son is from Ibn Ishaq/al-Tabari, which we have not re-read here.",
+   "spouses": [
+    "amina"
    ]
+  },
+  {
+   "id": "amina",
+   "name": "Amina",
+   "era": "The Age of Quraysh",
+   "parents": [],
+   "children": [
+    "muhammad"
+   ],
+   "river": "ismail",
+   "sourceLabel": "Interpretive",
+   "description": "The Prophet’s ﷺ mother. A hadith says only “his mother”: he asked his Lord’s permission to visit her grave and was given it (Sahih Muslim 976). Her name, and that she was Abdullah’s wife, are from Ibn Ishaq and have not been re-checked here.",
+   "sources": [
+    "Sahih Muslim 976 (Abu Huraira): his mother’s grave",
+    "Names: Ibn Ishaq (not re-read here)"
+   ],
+   "spouses": [
+    "abdullah"
+   ],
+   "lineageNote": "A mother is in Sahih Muslim 976; her name and marriage to Abdullah are from tradition."
   },
   {
    "id": "muhammad",
    "name": "Muhammad ﷺ",
    "era": "The Final Prophet",
    "parents": [
-    "abdullah"
+    "abdullah",
+    "amina"
    ],
    "children": [
-    "fatima"
+    "fatima",
+    "prophet-daughters",
+    "ibrahim-son"
    ],
    "river": "ismail",
    "sourceLabel": "Established",
-   "description": "The Seal of the Prophets — the first river of Ibrahim's house reaching its ocean. Read his life in the Seerah shelf.",
+   "description": "The Seal of the Prophets — the first river of Ibrahim’s house reaching its ocean. In the Hudaybiyyah treaty he had himself written as “Muhammad bin Abdullah” (Sahih al-Bukhari 2731). Read his life in the Seerah shelf.",
    "sources": [
-    "Qur'an 33:40; Seerah: Ibn Ishaq"
+    "Qur'an 33:40; Sahih al-Bukhari 2731",
+    "Seerah: Ibn Ishaq"
    ],
    "spouses": [
-    "khadijah"
+    "khadijah",
+    "prophet-wives"
    ],
-   "story": "seerah-01"
+   "story": "seerah-01",
+   "lineageNote": "His father’s name is in Sahih al-Bukhari 2731; the line above his father to Adnan is from the historians and is uncertain above Adnan."
   },
   {
    "id": "khadijah",
@@ -459,6 +530,23 @@
    "description": "The first to believe; mother of Fatima. Her portrait is in the Women shelf.",
    "sources": [
     "Sahih al-Bukhari 3"
+   ],
+   "spouses": [
+    "muhammad"
+   ]
+  },
+  {
+   "id": "prophet-wives",
+   "name": "His other wives — the Mothers of the Believers",
+   "era": "The Household",
+   "parents": [],
+   "children": [],
+   "river": "ismail",
+   "sourceLabel": "Established",
+   "description": "The Qur’an says the Prophet’s ﷺ wives are in the position of the believers’ mothers (33:6) and speaks to them directly (33:28-34). Several have their own portrait in the Women shelf: Aisha, Hafsa, Zaynab bint Jahsh, Umm Salama, Juwayriyya and Safiyya. They are folded into one node here; we do not give an order of marriages.",
+   "sources": [
+    "Qur'an 33:6",
+    "Qur'an 33:28-34"
    ],
    "spouses": [
     "muhammad"
@@ -486,6 +574,41 @@
    ]
   },
   {
+   "id": "prophet-daughters",
+   "name": "His other daughters",
+   "era": "The Household",
+   "parents": [
+    "muhammad"
+   ],
+   "children": [],
+   "river": "ismail",
+   "sourceLabel": "Established",
+   "description": "The Qur’an speaks of the Prophet’s ﷺ “daughters”, in the plural (33:59). A hadith in Sahih al-Bukhari (3698) says a daughter of the Prophet ﷺ was Uthman’s wife and was ill when Badr was fought. The names the tradition gives (Zaynab, Ruqayya, Umm Kulthum) are from the historians and have not been re-checked here.",
+   "sources": [
+    "Qur'an 33:59",
+    "Sahih al-Bukhari 3698 (Uthman ibn Mawhab, from Ibn Umar)",
+    "Names: tradition (not re-read here)"
+   ],
+   "lineageNote": "That he had daughters besides Fatima is in the Qur’an (33:59) and Sahih al-Bukhari 3698; their names and their mother are from tradition."
+  },
+  {
+   "id": "ibrahim-son",
+   "name": "Ibrahim ibn Muhammad ﷺ",
+   "era": "The Household",
+   "parents": [
+    "muhammad"
+   ],
+   "children": [],
+   "river": "ismail",
+   "sourceLabel": "Established",
+   "description": "The Prophet’s ﷺ young son. Anas saw the Prophet ﷺ take him, kiss him and smell him, and weep when he died, saying the eyes shed tears and the heart grieves (Sahih al-Bukhari 1303; Sahih Muslim 2315).",
+   "sources": [
+    "Sahih al-Bukhari 1303 (Anas ibn Malik)",
+    "Sahih Muslim 2315 (Anas ibn Malik)"
+   ],
+   "lineageNote": "The report calls him the Prophet’s son; it does not name his mother."
+  },
+  {
    "id": "hasan-husayn",
    "name": "Hasan & Husayn",
    "era": "The Household",
@@ -505,19 +628,23 @@
    "id": "ali",
    "name": "Ali ibn Abi Talib",
    "era": "The Household",
-   "parents": [],
+   "parents": [
+    "abu-talib"
+   ],
    "children": [
     "hasan-husayn"
    ],
    "river": "ismail",
    "sourceLabel": "Established",
-   "description": "The Prophet's ﷺ cousin and son-in-law; husband of Fatima. His portrait is in the Companions shelf.",
+   "description": "The Prophet’s ﷺ cousin and son-in-law; husband of Fatima. The Prophet ﷺ told him that he stood to him as Harun stood to Musa, except that there is no prophet after him (Sahih Muslim 2404). His portrait is in the Companions shelf.",
    "sources": [
-    "Seerah; Sahih al-Bukhari, number not re-checked"
+    "Sahih Muslim 2404 (Sa’d ibn Abi Waqqas)",
+    "Tradition: Ali son of Abu Talib"
    ],
    "spouses": [
     "fatima"
-   ]
+   ],
+   "lineageNote": "Ali is called ‘ibn Abi Talib’ in the hadith collections (for example the chapter heading of Sahih Muslim 2404). That his father is the Prophet’s uncle of Sahih al-Bukhari 3884 is from the historians and has not been re-checked here."
   },
   {
    "id": "ishaq",
@@ -814,7 +941,14 @@
    "sourceLabel": "Established",
    "description": "The son given to the barren house — 'Yahya, confirming a word from Allah' (3:39).",
    "sources": [
-    "Qur'an 3:39; 19:7-15; 21:90"
+    "Qur'an 3:39; 19:7-15; 21:90",
+    "Sahih Muslim 162 (Anas): Isa and Yahya, cousins on their mothers’ side"
+   ],
+   "relations": [
+    {
+     "id": "isa",
+     "label": "Maternal cousin"
+    }
    ]
   },
   {
@@ -855,10 +989,17 @@
    "sourceLabel": "Established",
    "description": "The final prophet of the second river — a word from Allah, raised to Him, and returning. In the Prophets shelf.",
    "sources": [
-    "Qur'an 3:45-51; 4:157-159; 5:110-116"
+    "Qur'an 3:45-51; 4:157-159; 5:110-116",
+    "Sahih Muslim 162 (Anas): Isa and Yahya, cousins on their mothers’ side"
    ],
    "story": "prophet-isa",
-   "lineageNote": "The Qur'an gives Isa no father (3:47; 19:20-21); he is called the son of Maryam."
+   "lineageNote": "The Qur'an gives Isa no father (3:47; 19:20-21); he is called the son of Maryam.",
+   "relations": [
+    {
+     "id": "yahya",
+     "label": "Maternal cousin"
+    }
+   ]
   },
   {
    "id": "hud",

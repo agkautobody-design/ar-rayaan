@@ -1,0 +1,169 @@
+{
+ "schema": 1,
+ "subject": "adam",
+ "title": "Adam",
+ "kind": "prophet",
+ "checked": "2026-10-20",
+ "reviewStatus": "Not yet scholar-reviewed",
+ "quran": [
+  {
+   "surah": 2,
+   "from": 30,
+   "to": 33,
+   "note": "Allah tells the angels He will place a successor on the earth; Adam is taught the names."
+  },
+  {
+   "surah": 2,
+   "from": 34,
+   "to": 39,
+   "note": "The angels prostrate and Iblis refuses; Adam and his wife are told not to approach the tree; Shaytan makes them slip; Adam receives words from his Lord and his repentance is accepted."
+  },
+  {
+   "surah": 7,
+   "from": 19,
+   "to": 25,
+   "note": "The same events again: Shaytan whispers to them, they taste of the tree, and they say, “Our Lord, we have wronged ourselves.”"
+  },
+  {
+   "surah": 20,
+   "from": 115,
+   "to": 123,
+   "note": "Adam’s forgetting, the whisper about “the tree of eternity”, and then, “his Lord chose him and turned to him in forgiveness and guided him.”"
+  },
+  {
+   "surah": 38,
+   "from": 71,
+   "to": 76,
+   "note": "Allah announces a human being from clay; the angels prostrate; Iblis says he is better because he was made from fire."
+  },
+  {
+   "surah": 3,
+   "from": 59,
+   "to": 59,
+   "note": "The example of Isa to Allah is like that of Adam: created from dust, then “Be”, and he was."
+  },
+  {
+   "surah": 3,
+   "from": 33,
+   "to": 33,
+   "note": "Allah chose Adam, Nuh, the family of Ibrahim and the family of Imran over the worlds."
+  },
+  {
+   "surah": 5,
+   "from": 27,
+   "to": 31,
+   "note": "The story of Adam’s two sons. The Qur’an does not name them."
+  }
+ ],
+ "hadith": [
+  {
+   "book": "bukhari",
+   "number": "3326",
+   "narrator": "Abu Huraira",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "The Prophet ﷺ said Allah created Adam sixty cubits tall and told him to greet a group of angels and listen to their reply, because that would be his greeting and the greeting of his descendants. Adam said peace be upon you; they answered with the same and added Allah’s mercy. The report adds that everyone who enters Paradise will be in Adam’s form, and that people have been getting smaller since.",
+   "verified": "2026-10-20"
+  },
+  {
+   "book": "muslim",
+   "number": "854",
+   "narrator": "Abu Huraira",
+   "grade": "Sahih",
+   "grader": "Muslim, in his Sahih",
+   "summary": "The Prophet ﷺ said Friday is the best day on which the sun rises: Adam was created on it, was admitted to Paradise on it, and was taken out of it on it.",
+   "verified": "2026-10-20"
+  },
+  {
+   "book": "bukhari",
+   "number": "3409",
+   "narrator": "Abu Huraira",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "The Prophet ﷺ related that Musa said to Adam that his error had caused him to be put out of Paradise. Adam replied that Allah had chosen Musa for His message and for speaking to him directly, and asked whether Musa blamed him for something Allah had decreed before he was created. The Prophet ﷺ said Adam won the argument, and repeated it twice.",
+   "verified": "2026-10-20"
+  },
+  {
+   "book": "bukhari",
+   "number": "3207",
+   "narrator": "Malik ibn Sa’sa’a",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "In the Prophet’s ﷺ account of the night journey, Adam is the prophet met in the first heaven; he welcomed the Prophet ﷺ as a son and a prophet.",
+   "verified": "2026-10-20"
+  },
+  {
+   "book": "bukhari",
+   "number": "349",
+   "narrator": "Abu Dharr",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "In the account of how the prayers were prescribed, the Prophet ﷺ is said to have met Adam in the nearest heaven, with the souls of his descendants on his right and left: those on one side were people of Paradise and those on the other people of the Fire.",
+   "verified": "2026-10-20",
+   "note": "This report puts Ibrahim in the sixth heaven; Sahih al-Bukhari 3207 puts him in the seventh. Both are reported here as they stand."
+  },
+  {
+   "book": "bukhari",
+   "number": "3340",
+   "narrator": "Abu Huraira",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "In the long report of the Day of Resurrection, people go to Adam to ask him to intercede. He says his Lord is angrier than ever before, reminds them of the tree he was forbidden, says he is concerned for himself, and sends them on to Nuh.",
+   "verified": "2026-10-20"
+  }
+ ],
+ "scholarly": [
+  {
+   "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+   "author": "Ibn Kathir",
+   "locator": "on 2:35",
+   "summary": "Says the verse shows Hawwa’ was created before Adam entered the Garden, and records from Muhammad ibn Ishaq that she was made from one of Adam’s left ribs while he slept, an account attributed to the People of the Book and to scholars such as Ibn Abbas. The abridged text gives it as a reported account and does not rule on it. The Qur’an itself says only that Allah created from the one soul “its mate” (4:1)."
+  },
+  {
+   "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+   "author": "Ibn Kathir",
+   "locator": "on 2:35",
+   "summary": "Holds that the Paradise Adam was placed in was in the heavens, as most scholars say, and refers the reader to his own al-Bidaya wa’l-Nihaya for the discussion."
+  },
+  {
+   "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+   "author": "Ibn Kathir",
+   "locator": "on 2:35",
+   "summary": "On the forbidden tree, lists reports that it was a grape vine, barley, a date palm or a fig, and others that it was a tree that relieves the call of nature or one the angels eat from to live for ever. He follows Ibn Jarir al-Tabari that Allah forbade a particular tree, that neither the Qur’an nor the authentic Sunnah says which one, and that knowing would bring no benefit. The abridged text ends “Allah knows best”."
+  }
+ ],
+ "differences": [
+  {
+   "question": "What was the forbidden tree (2:35)?",
+   "views": [
+    {
+     "who": "Reports listed without names",
+     "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+     "view": "A grape vine, barley, a date palm or a fig, among other suggestions."
+    },
+    {
+     "who": "Ibn Jarir al-Tabari, followed by Ibn Kathir",
+     "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+     "view": "It was a particular tree, but the Qur’an and the authentic Sunnah do not say which; knowing it gives no benefit."
+    }
+   ],
+   "note": "The Qur’an says only “this tree” (2:35; 7:19)."
+  },
+  {
+   "question": "Where did Adam come down to?",
+   "views": [
+    {
+     "who": "Ibn Abbas",
+     "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+     "view": "Dahna, between Makkah and Ta’if."
+    },
+    {
+     "who": "Al-Hasan al-Basri",
+     "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+     "view": "India, with Hawwa’ sent down at Jeddah."
+    }
+   ],
+   "note": "The Qur’an says only “Go down” (2:36; 7:24)."
+  }
+ ]
+}

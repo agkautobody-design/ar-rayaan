@@ -1,0 +1,90 @@
+{
+ "schema": 1,
+ "subject": "ishaq",
+ "title": "Ishaq (Isaac)",
+ "kind": "prophet",
+ "checked": "2026-10-20",
+ "reviewStatus": "Not yet scholar-reviewed",
+ "quran": [
+  {
+   "surah": 11,
+   "from": 69,
+   "to": 73,
+   "note": "The messengers give Ibrahim’s wife news of Ishaq, and after Ishaq, Ya’qub; she wonders, “shall I give birth while I am an old woman?”"
+  },
+  {
+   "surah": 15,
+   "from": 51,
+   "to": 56,
+   "note": "The guests of Ibrahim give him good news of a learned boy."
+  },
+  {
+   "surah": 37,
+   "from": 112,
+   "to": 113,
+   "note": "Good tidings of Ishaq, a prophet from among the righteous; Allah blessed him and Ibrahim."
+  },
+  {
+   "surah": 19,
+   "from": 49,
+   "to": 50,
+   "note": "Allah gave Ibrahim Ishaq and Ya’qub and made each a prophet."
+  },
+  {
+   "surah": 21,
+   "from": 72,
+   "to": 73,
+   "note": "Ishaq and Ya’qub made leaders guiding by Allah’s command."
+  },
+  {
+   "surah": 38,
+   "from": 45,
+   "to": 47,
+   "note": "Ibrahim, Ishaq and Ya’qub, “those of strength and [religious] vision”, chosen for remembrance of the Hereafter."
+  },
+  {
+   "surah": 29,
+   "from": 27,
+   "to": 27,
+   "note": "Prophethood and Scripture placed in Ibrahim’s descendants."
+  }
+ ],
+ "hadith": [
+  {
+   "book": "bukhari",
+   "number": "3353",
+   "narrator": "Abu Huraira",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "Asked who was the most honoured of people with Allah, the Prophet ﷺ said the most righteous. When they said that was not what they meant, he said Yusuf, a prophet of Allah, the son of a prophet, the son of a prophet, the son of the khalil of Allah. The report then turns to the Arabs and their understanding of the religion.",
+   "verified": "2026-10-20",
+   "note": "The report names no one but Yusuf; it is read as giving the line Yusuf, Ya’qub, Ishaq, Ibrahim, each described as a prophet. That reading is ours, from the order of the Qur’an (12:6; 2:133), not a statement in the report."
+  }
+ ],
+ "scholarly": [
+  {
+   "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+   "author": "Ibn Kathir",
+   "locator": "on 37:102",
+   "summary": "Records the argument of Muhammad ibn Ka’b al-Qurazi that Ishaq could not be the son Ibrahim was told to sacrifice, because 11:71 gave his mother the news of Ishaq and, after him, Ya’qub, so a son of Ishaq was promised before he could be sacrificed. Ibn Kathir concludes the son was Ismail. This is the view of that work; see the disagreement below."
+  }
+ ],
+ "differences": [
+  {
+   "question": "Which son was Ibrahim told to sacrifice (37:102)?",
+   "views": [
+    {
+     "who": "Ibn Abbas, Ibn Umar, Mujahid, al-Sha’bi, al-Hasan al-Basri, Imam Ahmad and others listed by Ibn Kathir",
+     "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com), on 37:102",
+     "view": "Ismail. Ibn Kathir holds this view and treats Ishaq as a mistaken identification."
+    },
+    {
+     "who": "The Jewish text, as Ibn Kathir describes it",
+     "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com), on 37:102; the Bible text (Genesis 22:1-14, NRSVUE) read on BibleGateway",
+     "view": "The Bible names the son as Isaac (Genesis 22:2, read by us on BibleGateway). Ibn Kathir argues that the name was inserted into the Jewish text."
+    }
+   ],
+   "note": "The Qur’an does not name the son (37:99-107). The good news of Ishaq is given afterwards (37:112)."
+  }
+ ]
+}

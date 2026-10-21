@@ -1,0 +1,32 @@
+{
+ "schema": 1,
+ "subject": "isa",
+ "badge": "Not from the Qur’an",
+ "checked": "2026-10-20",
+ "items": [
+  {
+   "id": "isa-crucifixion",
+   "class": "contradicted",
+   "origin": "Gospel of Matthew 27:32-50",
+   "claim": "Jesus is crucified between two rebels and dies on the cross.",
+   "ruling": "Not told here. The Qur’an says they did not kill him and did not crucify him, that another was made to resemble him, and that Allah raised him to Himself (4:157-158).",
+   "basis": "Qur’an 4:157-158; the Bible text (Matthew 27:32-50, NRSVUE) read on BibleGateway"
+  },
+  {
+   "id": "isa-word-was-god",
+   "class": "contradicted",
+   "origin": "Gospel of John 1:1, 14",
+   "claim": "The Word was God, and the Word became flesh and dwelt among people, a glory as of a father’s only son.",
+   "ruling": "Not told here. The Qur’an says the Messiah was a messenger of Allah and His word (4:171), says those who say Allah is the Messiah have disbelieved (5:72), and records Isa denying he told people to take him and his mother as deities (5:116-117). The Prophet ﷺ is reported to have counted among the testimonies that Isa is Allah’s servant, His messenger and His word (Sahih al-Bukhari 3435).",
+   "basis": "Qur’an 4:171; 5:72; 5:116-117; Sahih al-Bukhari 3435; the Bible text (John 1:1-14, NRSVUE) read on BibleGateway"
+  },
+  {
+   "id": "isa-bethlehem-manger",
+   "class": "silent",
+   "origin": "Gospel of Luke 2:1-7",
+   "claim": "Mary gives birth in Bethlehem during a census ordered by Caesar Augustus and lays the child in a manger because there was no room in the guest room.",
+   "ruling": "The Qur’an says she withdrew to a remote place and the pains of childbirth drove her to the trunk of a palm tree (19:22-23). It names no town, no census and no manger. We neither believe nor disbelieve Bethlehem or the manger.",
+   "basis": "Qur’an 19:22-23; the Bible text (Luke 2:1-7, NRSVUE) read on BibleGateway"
+  }
+ ]
+}

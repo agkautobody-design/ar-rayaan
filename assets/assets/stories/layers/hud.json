@@ -1,0 +1,92 @@
+{
+ "schema": 1,
+ "subject": "hud",
+ "title": "Hud",
+ "kind": "prophet",
+ "checked": "2026-10-20",
+ "reviewStatus": "Not yet scholar-reviewed",
+ "quran": [
+  {
+   "surah": 7,
+   "from": 65,
+   "to": 72,
+   "note": "Hud, the brother of ʿAad, calls them to worship Allah alone; the chiefs call him foolish and ask him to bring what he promises; Hud and those with him are saved."
+  },
+  {
+   "surah": 11,
+   "from": 50,
+   "to": 60,
+   "note": "The same call; “you have not brought us clear evidence”; the people of Hud are destroyed."
+  },
+  {
+   "surah": 26,
+   "from": 123,
+   "to": 134,
+   "note": "Hud warns ‘Aad, asks no payment, and reminds them of Allah’s favours."
+  },
+  {
+   "surah": 46,
+   "from": 21,
+   "to": 26,
+   "note": "Warning in al-Ahqaf; the cloud they took for rain was a wind with a painful punishment, and nothing was seen of them but their dwellings."
+  },
+  {
+   "surah": 69,
+   "from": 6,
+   "to": 8,
+   "note": "A violent wind for seven nights and eight days; “do you see any remains?”"
+  }
+ ],
+ "hadith": [
+  {
+   "book": "bukhari",
+   "number": "3205",
+   "narrator": "Ibn Abbas",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "The Prophet ﷺ said he was given victory by the Saba wind (the easterly) and that the people of ‘Ad were destroyed by the Dabur wind (the westerly).",
+   "verified": "2026-10-20"
+  },
+  {
+   "book": "bukhari",
+   "number": "4828",
+   "narrator": "Aisha",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "Aisha said she never saw the Prophet ﷺ laugh fully, only smile, and that when he saw a cloud or a strong wind it showed on his face. Asked why, he said he could not be sure it did not carry a punishment, since a people had been punished by a wind, and when they saw the punishment they said it was a cloud bringing rain.",
+   "verified": "2026-10-20",
+   "note": "The report does not name ‘Ad; it is placed in the Sahih under the commentary on Qur’an 46:24, which tells of the cloud that ‘Ad took for rain."
+  }
+ ],
+ "scholarly": [
+  {
+   "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+   "author": "Ibn Kathir",
+   "locator": "on 46:21",
+   "summary": "Calls Hud “the brother of ‘Ad”, sent to the first people of ‘Ad, who lived in al-Ahqaf. It says the cloud they took for rain was a wind that destroyed everything it could by Allah’s command, and that nothing could be seen but their dwellings. It cites, without grades, a report in Ibn Majah through Ibn Abbas (“May Allah have mercy on us and on the brother of ‘Ad”) and reports of Aisha in Ahmad, al-Bukhari and Muslim on the Prophet’s ﷺ unease at clouds and wind."
+  }
+ ],
+ "differences": [
+  {
+   "question": "What and where was al-Ahqaf (46:21)?",
+   "views": [
+    {
+     "who": "Ibn Zayd",
+     "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+     "view": "Ahqaf is the plural of haqf and means a sand dune."
+    },
+    {
+     "who": "Ikrima",
+     "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+     "view": "It means a mountain or a cave."
+    },
+    {
+     "who": "Qatadah",
+     "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+     "view": "‘Ad was a tribe in Yemen who lived among sand hills overlooking the sea, in a land called al-Shihr."
+    }
+   ],
+   "note": "The Qur’an gives only “al-Ahqaf”."
+  }
+ ]
+}

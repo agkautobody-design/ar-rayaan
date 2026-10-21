@@ -1,0 +1,55 @@
+{
+ "schema": 1,
+ "subject": "ayyub",
+ "title": "Ayyub (Job)",
+ "kind": "prophet",
+ "checked": "2026-10-20",
+ "reviewStatus": "Not yet scholar-reviewed",
+ "quran": [
+  {
+   "surah": 21,
+   "from": 83,
+   "to": 84,
+   "note": "Ayyub calls on his Lord in adversity; Allah removes it and gives back his family and the like of them."
+  },
+  {
+   "surah": 38,
+   "from": 41,
+   "to": 44,
+   "note": "Satan has touched him with hardship and torment; “Strike the ground with your foot”; his family given back; a bunch of grass and the oath."
+  },
+  {
+   "surah": 6,
+   "from": 84,
+   "to": 86,
+   "note": "Among those Allah guided from the descendants of Nuh."
+  },
+  {
+   "surah": 4,
+   "from": 163,
+   "to": 163,
+   "note": "Revelation to Ayyub is among the revelations to the prophets."
+  }
+ ],
+ "hadith": [
+  {
+   "book": "bukhari",
+   "number": "3391",
+   "narrator": "Abu Huraira",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "The Prophet ﷺ said that while Ayyub was bathing naked, golden locusts fell on him and he began gathering them into his garment. His Lord called, “Have I not made you rich enough to do without what you see?” and Ayyub said yes, but he could not do without His blessing.",
+   "verified": "2026-10-20",
+   "note": "The report says nothing of Ayyub’s illness or length of trial; those details are in the scholarly layer, from tafsir."
+  }
+ ],
+ "scholarly": [
+  {
+   "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+   "author": "Ibn Kathir",
+   "locator": "on 38:41",
+   "summary": "Says Allah tested Ayyub in body, wealth and children, that only his heart remained sound, that his wife stayed with him and worked for others to feed and look after him for nearly eighteen years, and that he was left on a city dump shunned by all but her. It gives the spring that came from the stamp of his foot (a second spring for drinking), and the bundle of grass with a hundred stems for his oath, without naming a narrator. It also relays a report of Anas ibn Malik (via Ibn Jarir and Ibn Abi Hatim) of eighteen years of affliction, and notes that the abridged text itself does not grade these reports."
+  }
+ ],
+ "differences": []
+}

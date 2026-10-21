@@ -1,0 +1,49 @@
+{
+ "schema": 1,
+ "subject": "dhul-kifl",
+ "title": "Dhul-Kifl",
+ "kind": "prophet",
+ "checked": "2026-10-20",
+ "reviewStatus": "Not yet scholar-reviewed",
+ "quran": [
+  {
+   "surah": 21,
+   "from": 85,
+   "to": 86,
+   "note": "Dhul-Kifl is named with Ismail and Idris among the patient and the righteous."
+  },
+  {
+   "surah": 38,
+   "from": 48,
+   "to": 48,
+   "note": "Dhul-Kifl is named with Ismail and Elisha among the outstanding."
+  }
+ ],
+ "hadith": [],
+ "scholarly": [
+  {
+   "work": "Ma’ariful Qur’an (English edition, read on Quran.com)",
+   "author": "Mufti Muhammad Shafi’",
+   "locator": "on 21:85",
+   "summary": "Records that Ibn Kathir thinks the mention beside the prophets shows he was a prophet, while others call him a pious man. Gives Mujahid’s report (through Ibn Jarir) that he was a deputy of Yasa’ who kept three conditions: fasting all year, praying all night, and not losing his temper. Says a Musnad Ahmad report from Ibn Umar about a man called “Kifl” is weak, is not in the six books and lacks “Dhul”, so it concerns someone else."
+  }
+ ],
+ "differences": [
+  {
+   "question": "Was Dhul-Kifl a prophet?",
+   "views": [
+    {
+     "who": "Ibn Kathir, as quoted in Ma’ariful Qur’an",
+     "work": "Ma’ariful Qur’an (English edition, read on Quran.com), on 21:85",
+     "view": "Yes; he is mentioned alongside prophets."
+    },
+    {
+     "who": "Others, as quoted in Ma’ariful Qur’an",
+     "work": "Ma’ariful Qur’an (English edition, read on Quran.com), on 21:85",
+     "view": "He was a pious man or saint, not a prophet."
+    }
+   ],
+   "note": "The Qur’an names him but tells no story. Everything about the three conditions comes from Mujahid, not from the Qur’an or a checked hadith."
+  }
+ ]
+}

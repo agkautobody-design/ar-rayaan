@@ -1,0 +1,73 @@
+{
+ "schema": 1,
+ "subject": "yaqub",
+ "title": "Ya’qub (Jacob)",
+ "kind": "prophet",
+ "checked": "2026-10-20",
+ "reviewStatus": "Not yet scholar-reviewed",
+ "quran": [
+  {
+   "surah": 2,
+   "from": 132,
+   "to": 133,
+   "note": "Ibrahim and Ya’qub instruct their sons not to die except as Muslims; at his death Ya’qub asks, “What will you worship after me?”"
+  },
+  {
+   "surah": 12,
+   "from": 4,
+   "to": 6,
+   "note": "Yusuf tells him his dream; Ya’qub tells him not to tell his brothers, and that Allah will complete His favour on the family of Ya’qub as on Ibrahim and Ishaq."
+  },
+  {
+   "surah": 12,
+   "from": 84,
+   "to": 87,
+   "note": "His grief, “I only complain of my suffering and my grief to Allah”; he tells his sons to find out about Yusuf and not to despair of relief from Allah."
+  },
+  {
+   "surah": 12,
+   "from": 93,
+   "to": 100,
+   "note": "The shirt over his face; the family comes to Egypt; Yusuf raises his parents upon the throne."
+  },
+  {
+   "surah": 19,
+   "from": 49,
+   "to": 50,
+   "note": "Allah gave Ibrahim Ishaq and Ya’qub and made each a prophet."
+  },
+  {
+   "surah": 38,
+   "from": 45,
+   "to": 47,
+   "note": "Ibrahim, Ishaq and Ya’qub, chosen for remembrance of the Hereafter."
+  }
+ ],
+ "hadith": [
+  {
+   "book": "bukhari",
+   "number": "3353",
+   "narrator": "Abu Huraira",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "Asked who was the most honoured of people with Allah, the Prophet ﷺ said the most righteous. When they said that was not what they meant, he said Yusuf, a prophet of Allah, the son of a prophet, the son of a prophet, the son of the khalil of Allah. The report then turns to the Arabs and their understanding of the religion.",
+   "verified": "2026-10-20",
+   "note": "The report names no one but Yusuf; it is read as giving the line Yusuf, Ya’qub, Ishaq, Ibrahim, each described as a prophet. That reading is ours, from the order of the Qur’an (12:6; 2:133), not a statement in the report."
+  }
+ ],
+ "scholarly": [
+  {
+   "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+   "author": "Ibn Kathir",
+   "locator": "on 12:4",
+   "summary": "Introduces Yusuf’s dream as told to his father Ya’qub, son of Ishaq, grandson of Ibrahim, and records Ibn Abbas that the dreams of prophets are revelation."
+  },
+  {
+   "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+   "author": "Ibn Kathir",
+   "locator": "on 12:84",
+   "summary": "Records from Muhammad ibn Ishaq that Ya’qub did not believe the news about Binyamin and Rubil and saw it as a repeat of what had been done to Yusuf, and says the new loss renewed the old sorrow he had kept to himself. It records that Qatadah and others said he suppressed his sorrow and complained to no created being, with al-Dahhak describing him as aggrieved, sorrowful and sad. A report through Sa’id ibn Jubayr says he lost his sight through the sorrow he held back. The names Binyamin and Rubil are given by Ibn Ishaq and are not in the Qur’an."
+  }
+ ],
+ "differences": []
+}

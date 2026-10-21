@@ -3,6 +3,24 @@
  "checked": "2026-10-20",
  "subjects": [
   {
+   "id": "adam",
+   "title": "Adam",
+   "kind": "prophet",
+   "stories": [
+    "prophet-adam"
+   ],
+   "earlier": true
+  },
+  {
+   "id": "alyasa",
+   "title": "Alyasa (Elisha)",
+   "kind": "prophet",
+   "stories": [
+    "prophet-alyasa"
+   ],
+   "earlier": false
+  },
+  {
    "id": "angels",
    "title": "The angels",
    "kind": "unseen",
@@ -10,6 +28,15 @@
     "ghayb-unseen-angels",
     "ghayb-throne-bearers",
     "ghayb-jibril"
+   ],
+   "earlier": false
+  },
+  {
+   "id": "ayyub",
+   "title": "Ayyub (Job)",
+   "kind": "prophet",
+   "stories": [
+    "prophet-ayyub"
    ],
    "earlier": false
   },
@@ -23,12 +50,95 @@
    "earlier": true
   },
   {
+   "id": "dhul-kifl",
+   "title": "Dhul-Kifl",
+   "kind": "prophet",
+   "stories": [
+    "prophet-dhul-kifl"
+   ],
+   "earlier": false
+  },
+  {
    "id": "gog-magog",
    "title": "Ya’juj and Ma’juj (Gog and Magog)",
    "kind": "unseen",
    "stories": [
     "ghayb-2am-gog",
     "sign-10"
+   ],
+   "earlier": false
+  },
+  {
+   "id": "harun",
+   "title": "Harun (Aaron)",
+   "kind": "prophet",
+   "stories": [
+    "prophet-harun"
+   ],
+   "earlier": false
+  },
+  {
+   "id": "hud",
+   "title": "Hud",
+   "kind": "prophet",
+   "stories": [
+    "prophet-hud"
+   ],
+   "earlier": false
+  },
+  {
+   "id": "ibrahim",
+   "title": "Ibrahim (Abraham)",
+   "kind": "prophet",
+   "stories": [
+    "prophet-ibrahim",
+    "woman-hagar"
+   ],
+   "earlier": true
+  },
+  {
+   "id": "idris",
+   "title": "Idris (Enoch)",
+   "kind": "prophet",
+   "stories": [
+    "prophet-idris"
+   ],
+   "earlier": false
+  },
+  {
+   "id": "ilyas",
+   "title": "Ilyas (Elias)",
+   "kind": "prophet",
+   "stories": [
+    "prophet-ilyas"
+   ],
+   "earlier": false
+  },
+  {
+   "id": "isa",
+   "title": "Isa (Jesus)",
+   "kind": "prophet",
+   "stories": [
+    "prophet-isa",
+    "sign-09"
+   ],
+   "earlier": true
+  },
+  {
+   "id": "ishaq",
+   "title": "Ishaq (Isaac)",
+   "kind": "prophet",
+   "stories": [
+    "prophet-ishaq"
+   ],
+   "earlier": false
+  },
+  {
+   "id": "ismail",
+   "title": "Ismail (Ishmael)",
+   "kind": "prophet",
+   "stories": [
+    "prophet-ismail"
    ],
    "earlier": false
   },
@@ -47,6 +157,71 @@
    "earlier": false
   },
   {
+   "id": "lut",
+   "title": "Lut (Lot)",
+   "kind": "prophet",
+   "stories": [
+    "prophet-lut"
+   ],
+   "earlier": true
+  },
+  {
+   "id": "maryam",
+   "title": "Maryam (Mary)",
+   "kind": "prophet",
+   "stories": [
+    "woman-maryam"
+   ],
+   "earlier": false
+  },
+  {
+   "id": "muhammad",
+   "title": "Muhammad ﷺ",
+   "kind": "prophet",
+   "stories": [
+    "seerah-04",
+    "seerah-31"
+   ],
+   "earlier": false
+  },
+  {
+   "id": "musa",
+   "title": "Musa (Moses)",
+   "kind": "prophet",
+   "stories": [
+    "prophet-musa",
+    "prophet-basket"
+   ],
+   "earlier": true
+  },
+  {
+   "id": "nuh",
+   "title": "Nuh (Noah)",
+   "kind": "prophet",
+   "stories": [
+    "prophet-nuh"
+   ],
+   "earlier": true
+  },
+  {
+   "id": "salih",
+   "title": "Salih",
+   "kind": "prophet",
+   "stories": [
+    "prophet-salih"
+   ],
+   "earlier": false
+  },
+  {
+   "id": "shuayb",
+   "title": "Shu’ayb",
+   "kind": "prophet",
+   "stories": [
+    "prophet-shuayb"
+   ],
+   "earlier": false
+  },
+  {
    "id": "sulayman",
    "title": "Sulayman (Solomon)",
    "kind": "prophet",
@@ -57,6 +232,42 @@
     "woman-bilqis"
    ],
    "earlier": true
+  },
+  {
+   "id": "yaqub",
+   "title": "Ya’qub (Jacob)",
+   "kind": "prophet",
+   "stories": [
+    "prophet-yaqub"
+   ],
+   "earlier": false
+  },
+  {
+   "id": "yunus",
+   "title": "Yunus (Jonah)",
+   "kind": "prophet",
+   "stories": [
+    "prophet-yunus"
+   ],
+   "earlier": false
+  },
+  {
+   "id": "yusuf",
+   "title": "Yusuf (Joseph)",
+   "kind": "prophet",
+   "stories": [
+    "prophet-yusuf"
+   ],
+   "earlier": true
+  },
+  {
+   "id": "zakariya",
+   "title": "Zakariya and Yahya (Zechariah and John)",
+   "kind": "prophet",
+   "stories": [
+    "prophet-zakariya"
+   ],
+   "earlier": false
   }
  ]
 }

@@ -1,0 +1,60 @@
+{
+ "schema": 1,
+ "subject": "idris",
+ "title": "Idris (Enoch)",
+ "kind": "prophet",
+ "checked": "2026-10-20",
+ "reviewStatus": "Not yet scholar-reviewed",
+ "quran": [
+  {
+   "surah": 19,
+   "from": 56,
+   "to": 57,
+   "note": "Idris is called a man of truth and a prophet, and Allah raised him to a high station."
+  },
+  {
+   "surah": 21,
+   "from": 85,
+   "to": 86,
+   "note": "Ismail, Idris and Dhul-Kifl are named among the patient and the righteous."
+  }
+ ],
+ "hadith": [
+  {
+   "book": "bukhari",
+   "number": "3207",
+   "narrator": "Malik ibn Sa’sa’a",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "In the account of the Night Journey, the Prophet ﷺ names the prophets he met in each heaven, with Idris in the fourth. The report does not say that this is the “high station” of 19:57.",
+   "verified": "2026-10-20",
+   "note": "The link between the fourth heaven and 19:57 is made by Mujahid as quoted in Ibn Kathir; the hadith itself does not make it."
+  }
+ ],
+ "scholarly": [
+  {
+   "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+   "author": "Ibn Kathir",
+   "locator": "on 19:57",
+   "summary": "Says Allah raised Idris to a high station. Quotes Mujahid (through Sufyan, from Mansur) that this is the fourth heaven, and al-Hasan and others that it is Paradise. He cites the Night Journey report of Idris in the fourth heaven."
+  }
+ ],
+ "differences": [
+  {
+   "question": "What is the “high station” of 19:57?",
+   "views": [
+    {
+     "who": "Mujahid, as quoted by Ibn Kathir",
+     "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com), on 19:57",
+     "view": "The fourth heaven."
+    },
+    {
+     "who": "al-Hasan and others, as quoted by Ibn Kathir",
+     "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com), on 19:57",
+     "view": "Paradise."
+    }
+   ],
+   "note": "The Qur’an gives no more than the phrase itself."
+  }
+ ]
+}

@@ -1,0 +1,24 @@
+{
+ "schema": 1,
+ "subject": "lut",
+ "badge": "Not from the Qur’an",
+ "checked": "2026-10-20",
+ "items": [
+  {
+   "id": "lut-daughters-offered",
+   "class": "silent",
+   "origin": "Bible, Genesis 19:4-8",
+   "claim": "The men of Sodom surround Lot’s house; Lot offers to bring out his two daughters “who have not known a man” for the crowd to do with as they wish.",
+   "ruling": "The Qur’an has Lut say, “these are my daughters; they are purer for you” (11:78; 15:71). Mujahid (in Ibn Kathir’s abridged commentary) said the women meant were women of his nation, not his own daughters. We neither believe nor disbelieve the details in Genesis, and we follow the Qur’an’s wording.",
+   "basis": "Qur’an 11:78; 15:71; Tafsir Ibn Kathir (abridged English edition, read on Quran.com), on 11:78; the Bible text (Genesis 19:1-26, NRSVUE) read on BibleGateway"
+  },
+  {
+   "id": "lut-wife-salt",
+   "class": "silent",
+   "origin": "Bible, Genesis 19:26",
+   "claim": "Lot’s wife looks back as they flee and becomes a pillar of salt.",
+   "ruling": "The Qur’an says Lut and his family were saved except his wife, who was among those who remained behind (7:83; 27:57; 29:32-33), and gives her as an example of those who betrayed (66:10). It does not say she looked back or became salt. We neither believe nor disbelieve the pillar of salt.",
+   "basis": "Qur’an 7:83; 27:57; 29:33; 66:10; the Bible text (Genesis 19:1-26, NRSVUE) read on BibleGateway"
+  }
+ ]
+}

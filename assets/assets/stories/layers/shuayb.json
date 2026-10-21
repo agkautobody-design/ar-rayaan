@@ -1,0 +1,67 @@
+{
+ "schema": 1,
+ "subject": "shuayb",
+ "title": "Shu’ayb",
+ "kind": "prophet",
+ "checked": "2026-10-20",
+ "reviewStatus": "Not yet scholar-reviewed",
+ "quran": [
+  {
+   "surah": 7,
+   "from": 85,
+   "to": 93,
+   "note": "Shu’ayb, brother of Madyan: give full measure, do not sit on every path; the chiefs threaten to evict him; the earthquake seizes them."
+  },
+  {
+   "surah": 11,
+   "from": 84,
+   "to": 95,
+   "note": "Do not decrease the measure and the scale; the shriek seizes the wrongdoers."
+  },
+  {
+   "surah": 26,
+   "from": 176,
+   "to": 184,
+   "note": "The companions of the thicket deny; Shu’ayb, a trustworthy messenger, says give full measure."
+  },
+  {
+   "surah": 26,
+   "from": 185,
+   "to": 191,
+   "note": "They call him bewitched and ask for a piece of the sky to fall; the punishment of the day of the black cloud seizes them."
+  },
+  {
+   "surah": 29,
+   "from": 36,
+   "to": 37,
+   "note": "Shu’ayb to Madyan: worship Allah and expect the Last Day; the earthquake seizes them."
+  }
+ ],
+ "hadith": [],
+ "scholarly": [
+  {
+   "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+   "author": "Ibn Kathir",
+   "locator": "on 26:176",
+   "summary": "Holds that the companions of al-Aykah (the thicket) were the people of Madyan and that Shu’ayb was one of them; the verse does not call him “their brother” because they called themselves by a name taken from their worship of the thicket. He says some people thought al-Aykah was a separate nation and that Shu’ayb was sent to two nations, or three, and states “the correct view is that they were one nation, but they are described differently in different places”, citing Shu’ayb’s command to be fair in weights and measures in both stories. The abridged text ends “Allah knows best”."
+  }
+ ],
+ "differences": [
+  {
+   "question": "Were the people of Madyan and the companions of al-Aykah one nation?",
+   "views": [
+    {
+     "who": "Ibn Kathir",
+     "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+     "view": "One nation, described differently in different places; Shu’ayb’s command to give fair measure is in both accounts."
+    },
+    {
+     "who": "Some, unnamed in the abridged text",
+     "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+     "view": "Al-Aykah was a separate nation, and Shu’ayb was sent to two nations, or three."
+    }
+   ],
+   "note": "The Qur’an says “their brother Shu’ayb” for Madyan (7:85) and “the companions of the thicket” elsewhere (26:176). No hadith in the six books that we checked settles it."
+  }
+ ]
+}

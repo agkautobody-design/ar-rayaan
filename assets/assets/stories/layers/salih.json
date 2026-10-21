@@ -1,0 +1,82 @@
+{
+ "schema": 1,
+ "subject": "salih",
+ "title": "Salih",
+ "kind": "prophet",
+ "checked": "2026-10-20",
+ "reviewStatus": "Not yet scholar-reviewed",
+ "quran": [
+  {
+   "surah": 7,
+   "from": 73,
+   "to": 79,
+   "note": "Salih brings the she-camel of Allah as a sign; they hamstring her; the earthquake seizes them."
+  },
+  {
+   "surah": 11,
+   "from": 61,
+   "to": 68,
+   "note": "The she-camel is a sign, “enjoy yourselves in your homes for three days”; the shriek seizes the wrongdoers."
+  },
+  {
+   "surah": 26,
+   "from": 141,
+   "to": 145,
+   "note": "Salih, a trustworthy messenger, asks no payment."
+  },
+  {
+   "surah": 26,
+   "from": 153,
+   "to": 158,
+   "note": "They say he is bewitched and ask for a sign; the she-camel has a day to drink and so do they; they hamstring her and the punishment seizes them."
+  },
+  {
+   "surah": 54,
+   "from": 27,
+   "to": 31,
+   "note": "The she-camel is sent as a trial; the water is shared by turns; one blast leaves them like dry fragments of a pen."
+  },
+  {
+   "surah": 91,
+   "from": 11,
+   "to": 15,
+   "note": "Thamud deny by reason of their transgression; the most wretched of them is sent forth."
+  },
+  {
+   "surah": 15,
+   "from": 80,
+   "to": 84,
+   "note": "Those who carved homes from the mountains, feeling secure, are seized by the shriek."
+  }
+ ],
+ "hadith": [
+  {
+   "book": "bukhari",
+   "number": "4942",
+   "narrator": "Abdullah ibn Zam’a",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "Ibn Zam’a heard the Prophet ﷺ give a sermon about the she-camel and the man who hamstrung her. He recited “when the most wretched of them was sent forth” (91:12) and described the man as strong and protected by his people. The report goes on to other advice not about Salih.",
+   "verified": "2026-10-20",
+   "note": "The report does not name Salih or Thamud; it is placed in the Sahih under the commentary on Surat al-Shams (91), where Salih’s she-camel is told."
+  },
+  {
+   "book": "bukhari",
+   "number": "4419",
+   "narrator": "Abdullah ibn Umar",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "Passing al-Hijr on the way to Tabuk, the Prophet ﷺ told the Companions not to enter the homes of those who had wronged themselves unless they entered weeping, so that the same would not befall them. He covered his head and hurried until he had left the valley.",
+   "verified": "2026-10-20"
+  }
+ ],
+ "scholarly": [
+  {
+   "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+   "author": "Ibn Kathir",
+   "locator": "on 15:80",
+   "summary": "Says the people of al-Hijr were Thamud, who denied their prophet Salih, and that their houses were carved from the mountains. It records that the she-camel was brought out of solid rock in answer to Salih’s prayer; she grazed on their land and they watered on alternate known days. After they killed her Salih told them to enjoy themselves for three days, and the Sayhah seized them early on the fourth. It also quotes, without naming a collection, narrator or grade, the report that the Prophet ﷺ passed al-Hijr on the way to Tabuk, covered his head and hurried his camel."
+  }
+ ],
+ "differences": []
+}

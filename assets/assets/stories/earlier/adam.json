@@ -1,0 +1,24 @@
+{
+ "schema": 1,
+ "subject": "adam",
+ "badge": "Not from the Qur’an",
+ "checked": "2026-10-20",
+ "items": [
+  {
+   "id": "adam-rib",
+   "class": "silent",
+   "origin": "Bible, Genesis 2:21-23 (also relayed in tafsir)",
+   "claim": "God takes one of the man’s ribs while he sleeps and forms the woman from it.",
+   "ruling": "The Qur’an says Allah created from the one soul “its mate” (4:1) and does not mention a rib. A hadith in Sahih al-Bukhari (3331) compares a woman to a rib when it advises kindness, but it does not say how Hawwa’ was made. Ibn Kathir (abridged) relays the rib account from Ibn Ishaq as an account attributed to the People of the Book. We neither believe nor disbelieve it.",
+   "basis": "Qur’an 4:1; Sahih al-Bukhari 3331; Tafsir Ibn Kathir (abridged English edition, read on Quran.com), on 2:35; the Bible text (Genesis 2:21-23, NRSVUE) read on BibleGateway"
+  },
+  {
+   "id": "adam-serpent",
+   "class": "silent",
+   "origin": "Bible, Genesis 3:1-7; a Tawrah report cited by Ibn Kathir",
+   "claim": "A serpent speaks to the woman; she eats the fruit first and gives some to her husband, who eats it too.",
+   "ruling": "The Qur’an says Shaytan whispered to them (7:20; 20:120) and that both ate (20:121). It names no serpent and does not say who ate first. Ibn Kathir (abridged) mentions the Tawrah report that Iblis hid in a snake’s mouth. We neither believe nor disbelieve the serpent or the order.",
+   "basis": "Qur’an 7:19-22; 20:120-121; Tafsir Ibn Kathir (abridged English edition, read on Quran.com), on 2:35; the Bible text (Genesis 3:1-7, NRSVUE) read on BibleGateway"
+  }
+ ]
+}
