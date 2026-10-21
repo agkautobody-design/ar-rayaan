@@ -174,6 +174,7 @@ class _PathState extends ConsumerState<NewMuslimPathScreen> {
                   child: GestureDetector(
                     onLongPress: () => _mark(d.id, !_walked.contains(d.id)),
                     child: GlassCard(
+                      blur: false,
                     onTap: () {
                       _mark(d.id, true);
                       context.go(AppRoutes.storyReader, extra: d);

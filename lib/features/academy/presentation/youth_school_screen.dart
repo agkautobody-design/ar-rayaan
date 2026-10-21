@@ -124,6 +124,7 @@ class YouthSchoolScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(bottom: 8),
                     child: GlassCard(
+                      blur: false,
                       strong: true,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,

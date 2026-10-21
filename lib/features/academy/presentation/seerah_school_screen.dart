@@ -121,6 +121,7 @@ class SeerahSchoolScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(bottom: 8),
                     child: GlassCard(
+                      blur: false,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[

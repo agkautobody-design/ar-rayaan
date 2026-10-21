@@ -75,7 +75,10 @@ class QuranScreen extends ConsumerWidget {
                       ),
                     ),
                     const SizedBox(height: 16),
+                    // 114 rows under one card: no backdrop blur (one huge
+                    // blurred layer), same translucent fill and border.
                     GlassCard(
+                      blur: false,
                       padding: EdgeInsets.zero,
                       child: ListView.separated(
                         shrinkWrap: true,
