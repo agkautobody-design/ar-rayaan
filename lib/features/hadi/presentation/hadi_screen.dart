@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -20,11 +21,16 @@ import '../data/hadi_report_service.dart';
 import '../grounding/corpus.dart';
 import '../grounding/madhhab.dart';
 import '../grounding/passage.dart';
+import 'hadi_markdown.dart';
+import 'hadi_widgets.dart';
 import '../../sakina/application/sakina_providers.dart';
 import '../../sakina/domain/crisis_detector.dart';
 import '../../sakina/domain/sakina_content.dart';
 import '../../sakina/presentation/widgets/help_line_tile.dart';
 import '../../sakina/presentation/widgets/need_help_button.dart';
+
+/// The items under the ⋮ button in the header.
+enum _HadiMenu { newConversation, school, advanced }
 
 /// Screen 6 · Ask Hādī — live AI guidance (Groq free tier, user's key) with
 /// a curated authentic offline fallback (O-7). Guardrails: Qur'an + Sihah
@@ -79,9 +85,45 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
     });
   }
 
+  Future<void> _confirmNewConversation() async {
+    final bool? ok = await showDialog<bool>(
+      context: context,
+      builder: (BuildContext ctx) => AlertDialog(
+        backgroundColor: AppColors.night,
+        title: Text(
+          'New conversation?',
+          style: AppText.body.copyWith(color: AppColors.goldLight),
+        ),
+        content: Text(
+          'Hādi will forget this conversation on this device and we will '
+          'start fresh.',
+          style: AppText.bodyMuted,
+        ),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(false),
+            child: Text('Cancel', style: AppText.bodyMuted),
+          ),
+          ElevatedButton(
+            onPressed: () => Navigator.of(ctx).pop(true),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: AppColors.gold,
+              foregroundColor: AppColors.night,
+            ),
+            child: const Text('Start fresh'),
+          ),
+        ],
+      ),
+    );
+    if (ok == true) {
+      await ref.read(hadiControllerProvider.notifier).clearThread();
+    }
+  }
+
   Future<void> _openMadhhabSheet() async {
     await showModalBottomSheet<void>(
       context: context,
+      isScrollControlled: true,
       backgroundColor: AppColors.night,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
@@ -90,7 +132,7 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
         builder: (BuildContext c, WidgetRef r, Widget? _) {
           final Madhhab current = r.watch(hadiControllerProvider).madhhab;
           return SafeArea(
-            child: Padding(
+            child: SingleChildScrollView(
               padding: const EdgeInsets.fromLTRB(20, 24, 20, 16),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -99,10 +141,13 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                   Text('Your school of law', style: AppText.titleMedium),
                   const SizedBox(height: 8),
                   Text(
-                    '$kHadiScopeNote Where the four Sunni schools differ, '
-                    'Hādi names your school\u2019s view first and says that '
-                    'others differ. Stored on this device only.',
-                    style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.5),
+                    '$kHadiScopeNote With a live key, where the four Sunni '
+                    'schools differ, Hādi names your school\u2019s view first '
+                    'and says that others differ. On the built-in shelf it '
+                    'holds no verified text for a single school, so it tells '
+                    'you when an answer is the general view and points you to '
+                    'a scholar of your school. Stored on this device only.',
+                    style: AppText.bodyMuted.copyWith(fontSize: 13, height: 1.5),
                   ),
                   const SizedBox(height: 12),
                   Wrap(
@@ -215,6 +260,9 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
     );
   }
 
+  /// Advanced: live AI. The key is optional; the built-in shelf needs none.
+  /// What is sent, where the key is kept and what is checked are short
+  /// sections that open on a tap, so the sheet is not a wall of small print.
   Future<void> _openKeySheet() async {
     final TextEditingController keyInput = TextEditingController();
     await showModalBottomSheet<void>(
@@ -229,128 +277,157 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
             .read(hadiControllerProvider.notifier)
             .providerName;
         return StatefulBuilder(
-          builder: (BuildContext ctx2, StateSetter setSheet) => Padding(
-        padding: EdgeInsets.fromLTRB(
-          20,
-          24,
-          20,
-          16 + MediaQuery.of(ctx).viewInsets.bottom,
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('Live AI for Hādi', style: AppText.titleMedium),
-            const SizedBox(height: 8),
-            Text(
-              'Hādi answers from curated knowledge on your device, offline. '
-              'For open conversation you can add your own free key from '
-              'Groq, OpenRouter or xAI. With a key, what you type, the '
-              'recent conversation, and your name if you turned that on in '
-              'Settings are sent to the provider you choose, together with '
-              'your key, with every question. The key is stored in plain '
-              'text on this device, so use one you can revoke. Messages '
-              'about suicide, self-harm, abuse or anyone\u2019s safety are '
-              'answered here on your device and are never sent. Live '
-              'answers are checked against Hādi\u2019s own library: it '
-              'prints scripture itself and removes references it cannot '
-              'verify. Hādi is for adults and is not a scholar.',
-              style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.5),
-            ),
-            const SizedBox(height: 12),
-            _SubscriptionPanel(),
-            const SizedBox(height: 12),
-            Wrap(
-              spacing: 8,
-              children: [
-                ChoiceChip(
-                  label: const Text('Groq'),
-                  selected: providerChoice == 'groq',
-                  onSelected: (_) =>
-                      setSheet(() => providerChoice = 'groq'),
-                ),
-                ChoiceChip(
-                  label: const Text('OpenRouter'),
-                  selected: providerChoice == 'openrouter',
-                  onSelected: (_) =>
-                      setSheet(() => providerChoice = 'openrouter'),
-                ),
-                ChoiceChip(
-                  label: const Text('xAI (Grok)'),
-                  selected: providerChoice == 'xai',
-                  onSelected: (_) =>
-                      setSheet(() => providerChoice = 'xai'),
-                ),
-              ],
-            ),
-            const SizedBox(height: 12),
-            TextField(
-              controller: keyInput,
-              obscureText: true,
-              style: AppText.body,
-              onChanged: (v) {
-                if (v.trim().isEmpty) return;
-                final String detected = HadiController.detectProvider(v);
-                if (detected != providerChoice) {
-                  setSheet(() => providerChoice = detected);
-                }
-              },
-              decoration: InputDecoration(
-                hintText: providerChoice == 'groq'
-                    ? 'gsk_…'
-                    : providerChoice == 'openrouter'
-                        ? 'sk-or-…'
-                        : 'xai-…',
-                hintStyle: AppText.bodyMuted,
-                filled: true,
-                fillColor: AppColors.glassFill,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                  borderSide: BorderSide(
-                    color: AppColors.gold.withValues(alpha: 0.25),
-                  ),
-                ),
+          builder: (BuildContext ctx2, StateSetter setSheet) => SafeArea(
+            child: SingleChildScrollView(
+              padding: EdgeInsets.fromLTRB(
+                20,
+                24,
+                20,
+                16 + MediaQuery.of(ctx).viewInsets.bottom,
               ),
-            ),
-            const SizedBox(height: 14),
-            Row(
-              children: [
-                Expanded(
-                  child: TextButton(
-                    onPressed: () async {
-                      await ref
-                          .read(hadiControllerProvider.notifier)
-                          .saveApiKey('');
-                      if (ctx.mounted) Navigator.of(ctx).pop();
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text('Advanced · live AI', style: AppText.titleMedium),
+                  const SizedBox(height: 8),
+                  Text(
+                    'Hādi answers from curated knowledge on your device, '
+                    'offline, and that needs no key. For open conversation '
+                    'you can add your own free key from Groq, OpenRouter or '
+                    'xAI.',
+                    style: AppText.bodyMuted.copyWith(
+                      fontSize: 14,
+                      height: 1.5,
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  const _PrivacyNote(
+                    title: 'What is sent with a key',
+                    body: 'What you type, the recent conversation, and your '
+                        'name if you turned that on in Settings go to the '
+                        'provider you choose, together with your key, with '
+                        'every question.',
+                  ),
+                  const _PrivacyNote(
+                    title: 'Where your key is kept',
+                    body: 'On this device, in plain text. Use a key you can '
+                        'revoke.',
+                  ),
+                  const _PrivacyNote(
+                    title: 'What never leaves your device',
+                    body: 'Messages about suicide, self-harm, abuse or '
+                        'anyone\u2019s safety are answered here on your '
+                        'device and are never sent.',
+                  ),
+                  const _PrivacyNote(
+                    title: 'How live answers are checked',
+                    body: 'Hādi prints scripture itself from its own '
+                        'library and removes references it cannot verify. '
+                        'Hādi is for adults and is not a scholar.',
+                  ),
+                  const SizedBox(height: 8),
+                  const _SubscriptionPanel(),
+                  const SizedBox(height: 12),
+                  Wrap(
+                    spacing: 8,
+                    children: <Widget>[
+                      ChoiceChip(
+                        label: const Text('Groq'),
+                        selected: providerChoice == 'groq',
+                        onSelected: (_) =>
+                            setSheet(() => providerChoice = 'groq'),
+                      ),
+                      ChoiceChip(
+                        label: const Text('OpenRouter'),
+                        selected: providerChoice == 'openrouter',
+                        onSelected: (_) =>
+                            setSheet(() => providerChoice = 'openrouter'),
+                      ),
+                      ChoiceChip(
+                        label: const Text('xAI (Grok)'),
+                        selected: providerChoice == 'xai',
+                        onSelected: (_) =>
+                            setSheet(() => providerChoice = 'xai'),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 12),
+                  TextField(
+                    controller: keyInput,
+                    obscureText: true,
+                    autocorrect: false,
+                    enableSuggestions: false,
+                    style: AppText.body,
+                    onChanged: (String v) {
+                      if (v.trim().isEmpty) return;
+                      final String detected = HadiController.detectProvider(v);
+                      if (detected != providerChoice) {
+                        setSheet(() => providerChoice = detected);
+                      }
                     },
-                    child: Text(
-                      'Remove key',
-                      style: AppText.caption.copyWith(
-                        color: AppColors.sand.withValues(alpha: 0.7),
+                    decoration: InputDecoration(
+                      hintText: providerChoice == 'groq'
+                          ? 'gsk_…'
+                          : providerChoice == 'openrouter'
+                              ? 'sk-or-…'
+                              : 'xai-…',
+                      hintStyle: AppText.bodyMuted,
+                      filled: true,
+                      fillColor: AppColors.glassFill,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: BorderSide(
+                          color: AppColors.gold.withValues(alpha: 0.25),
+                        ),
                       ),
                     ),
                   ),
-                ),
-                Expanded(
-                  child: ElevatedButton(
-                    onPressed: () async {
-                      final notifier = ref
-                          .read(hadiControllerProvider.notifier);
-                      await notifier.saveApiProvider(providerChoice);
-                      await notifier.saveApiKey(keyInput.text);
-                      if (ctx.mounted) Navigator.of(ctx).pop();
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.gold,
-                      foregroundColor: AppColors.night,
-                    ),
-                    child: const Text('Save'),
+                  const SizedBox(height: 14),
+                  Row(
+                    children: <Widget>[
+                      Expanded(
+                        child: TextButton(
+                          onPressed: () async {
+                            await ref
+                                .read(hadiControllerProvider.notifier)
+                                .saveApiKey('');
+                            if (ctx.mounted) Navigator.of(ctx).pop();
+                          },
+                          style: TextButton.styleFrom(
+                            minimumSize: const Size(48, 48),
+                          ),
+                          child: Text(
+                            'Remove key',
+                            style: AppText.caption.copyWith(
+                              fontSize: 14,
+                              color: AppColors.sand.withValues(alpha: 0.8),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () async {
+                            final HadiController notifier =
+                                ref.read(hadiControllerProvider.notifier);
+                            await notifier.saveApiProvider(providerChoice);
+                            await notifier.saveApiKey(keyInput.text);
+                            if (ctx.mounted) Navigator.of(ctx).pop();
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: AppColors.gold,
+                            foregroundColor: AppColors.night,
+                            minimumSize: const Size(48, 48),
+                          ),
+                          child: const Text('Save'),
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ],
-        ),
           ),
         );
       },
@@ -367,7 +444,7 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(20, 12, 20, 0),
+              padding: const EdgeInsets.fromLTRB(12, 8, 12, 0),
               child: Row(
                 children: [
                   _HeaderIcon(
@@ -375,14 +452,17 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                     label: 'Back to home',
                     onTap: () => context.go(AppRoutes.home),
                   ),
-                  const SizedBox(width: 12),
+                  const SizedBox(width: 4),
                   Expanded(
                     child: Container(
-                      height: 40,
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      constraints: const BoxConstraints(minHeight: 40),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 16,
+                        vertical: 8,
+                      ),
                       decoration: BoxDecoration(
                         color: AppColors.glassFill,
-                        borderRadius: BorderRadius.circular(999),
+                        borderRadius: BorderRadius.circular(20),
                         border: Border.all(
                           color: AppColors.gold.withValues(alpha: 0.25),
                         ),
@@ -400,74 +480,58 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                               hadi.live
                                   ? 'Hādi · live AI (guardrailed)'
                                   : 'Hādi · authentic offline knowledge',
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
                               style: AppText.bodyMuted.copyWith(
                                 color: AppColors.textFaint,
                               ),
-                              overflow: TextOverflow.ellipsis,
                             ),
                           ),
                         ],
                       ),
                     ),
                   ),
-                  const SizedBox(width: 12),
-                  _HeaderIcon(
-                    icon: Icons.restart_alt,
-                    label: 'New conversation',
-                    onTap: () async {
-                      final bool? ok = await showDialog<bool>(
-                        context: context,
-                        builder: (ctx) => AlertDialog(
-                          backgroundColor: AppColors.night,
-                          title: Text('New conversation?',
-                              style: AppText.body.copyWith(
-                                  color: AppColors.goldLight)),
-                          content: Text(
-                            'Hādi will forget this conversation on this '
-                            'device and we will start fresh.',
-                            style: AppText.bodyMuted,
-                          ),
-                          actions: [
-                            TextButton(
-                              onPressed: () => Navigator.of(ctx).pop(false),
-                              child: Text('Cancel',
-                                  style: AppText.bodyMuted),
-                            ),
-                            ElevatedButton(
-                              onPressed: () => Navigator.of(ctx).pop(true),
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: AppColors.gold,
-                                foregroundColor: AppColors.night,
-                              ),
-                              child: const Text('Start fresh'),
-                            ),
-                          ],
-                        ),
-                      );
-                      if (ok == true) {
-                        await ref
-                            .read(hadiControllerProvider.notifier)
-                            .clearThread();
-                      }
-                    },
-                  ),
-                  const SizedBox(width: 8),
+                  const SizedBox(width: 4),
                   _HeaderIcon(
                     icon: Icons.favorite_outline,
                     label: 'Need help now',
                     onTap: () => showNeedHelpSheet(context),
                   ),
-                  const SizedBox(width: 8),
-                  _HeaderIcon(
-                    icon: Icons.school_outlined,
-                    label: 'Choose your school of thought',
-                    onTap: _openMadhhabSheet,
-                  ),
-                  const SizedBox(width: 8),
-                  _HeaderIcon(
-                    icon: Icons.key_outlined,
-                    label: 'Add an AI key for live answers',
-                    onTap: _openKeySheet,
+                  PopupMenuButton<_HadiMenu>(
+                    tooltip: 'More options',
+                    icon: Icon(
+                      Icons.more_vert,
+                      color: AppColors.sand.withValues(alpha: 0.85),
+                    ),
+                    color: AppColors.night,
+                    onSelected: (_HadiMenu m) {
+                      switch (m) {
+                        case _HadiMenu.newConversation:
+                          _confirmNewConversation();
+                        case _HadiMenu.school:
+                          _openMadhhabSheet();
+                        case _HadiMenu.advanced:
+                          _openKeySheet();
+                      }
+                    },
+                    itemBuilder: (BuildContext _) =>
+                        <PopupMenuEntry<_HadiMenu>>[
+                      PopupMenuItem<_HadiMenu>(
+                        value: _HadiMenu.newConversation,
+                        child: Text('New conversation', style: AppText.body),
+                      ),
+                      PopupMenuItem<_HadiMenu>(
+                        value: _HadiMenu.school,
+                        child: Text('Your school of law', style: AppText.body),
+                      ),
+                      PopupMenuItem<_HadiMenu>(
+                        value: _HadiMenu.advanced,
+                        child: Text(
+                          'Advanced · live AI key',
+                          style: AppText.body,
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -476,7 +540,7 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
             Text(
               hadi.live
                   ? 'Live answers · Qur\'an & Sihah Sitta guardrails'
-                  : 'Offline mode · add a free key for live AI (tap the key icon)',
+                  : 'Offline mode · live AI is under ⋮ › Advanced',
               style: AppText.bodyMuted.copyWith(
                 fontSize: 12,
                 color: AppColors.textFaint,
@@ -504,6 +568,7 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                   for (int i = 0; i < hadi.messages.length; i++)
                     _Bubble(
                       message: hadi.messages[i],
+                      isLatest: i == hadi.messages.length - 1 && !hadi.typing,
                       onOpen: (String route) => context.go(route),
                       onRetry: hadi.messages[i].retryQuestion != null &&
                               i == hadi.messages.length - 1 &&
@@ -526,21 +591,15 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                     const Padding(
                       padding: EdgeInsets.only(bottom: 12),
                       child: Row(
-                        children: [
+                        children: <Widget>[
                           IconTile(icon: Icons.auto_awesome, size: 28),
                           SizedBox(width: 8),
                           GlassCard(
                             padding: EdgeInsets.symmetric(
                               horizontal: 16,
-                              vertical: 12,
+                              vertical: 14,
                             ),
-                            child: Text(
-                              '· · ·',
-                              style: TextStyle(
-                                color: AppColors.gold,
-                                fontSize: 16,
-                              ),
-                            ),
+                            child: HadiTypingIndicator(),
                           ),
                         ],
                       ),
@@ -603,27 +662,46 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 0, 20, 16),
               child: GlassCard(
-                borderRadius: 999,
+                borderRadius: 28,
                 padding: const EdgeInsets.only(
                   left: 16,
-                  right: 6,
+                  right: 4,
                   top: 4,
                   bottom: 4,
                 ),
                 child: Row(
-                  children: [
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: <Widget>[
                     Expanded(
-                      child: TextField(
-                        controller: _input,
-                        onSubmitted: _send,
-                        style: AppText.body,
-                        decoration: InputDecoration(
-                          hintText: 'Ask Hādi anything…',
-                          hintStyle: AppText.bodyMuted.copyWith(
-                            color: AppColors.textFaint,
-                          ),
-                          border: InputBorder.none,
-                          isDense: true,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 12),
+                        child: ValueListenableBuilder<TextEditingValue>(
+                          valueListenable: _input,
+                          builder: (BuildContext _, TextEditingValue v,
+                              Widget? __) {
+                            return TextField(
+                              controller: _input,
+                              onSubmitted: (String _) => _send(),
+                              minLines: 1,
+                              maxLines: 5,
+                              keyboardType: TextInputType.multiline,
+                              textInputAction: TextInputAction.send,
+                              textCapitalization:
+                                  TextCapitalization.sentences,
+                              textDirection: HadiMarkdown.isMostlyRtl(v.text)
+                                  ? TextDirection.rtl
+                                  : null,
+                              style: AppText.body,
+                              decoration: InputDecoration(
+                                hintText: 'Ask Hādi anything…',
+                                hintStyle: AppText.bodyMuted.copyWith(
+                                  color: AppColors.textFaint,
+                                ),
+                                border: InputBorder.none,
+                                isDense: true,
+                              ),
+                            );
+                          },
                         ),
                       ),
                     ),
@@ -634,20 +712,27 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                       excludeSemantics: true,
                       onTap: hadi.typing ? null : _send,
                       child: GestureDetector(
+                        behavior: HitTestBehavior.opaque,
                         onTap: hadi.typing ? null : _send,
-                        child: Opacity(
-                          opacity: hadi.typing ? 0.4 : 1,
-                          child: Container(
-                            width: 44,
-                            height: 44,
-                            decoration: const BoxDecoration(
-                              shape: BoxShape.circle,
-                              gradient: AppColors.goldGradient,
-                            ),
-                            child: const Icon(
-                              Icons.send,
-                              size: 18,
-                              color: AppColors.night,
+                        child: SizedBox(
+                          width: 48,
+                          height: 48,
+                          child: Center(
+                            child: Opacity(
+                              opacity: hadi.typing ? 0.4 : 1,
+                              child: Container(
+                                width: 44,
+                                height: 44,
+                                decoration: const BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  gradient: AppColors.goldGradient,
+                                ),
+                                child: const Icon(
+                                  Icons.send,
+                                  size: 18,
+                                  color: AppColors.night,
+                                ),
+                              ),
                             ),
                           ),
                         ),
@@ -810,9 +895,14 @@ class _Bubble extends ConsumerWidget {
     this.onReport,
     this.onOpen,
     this.onRetry,
+    this.isLatest = false,
   });
 
   final HadiMessage message;
+
+  /// True for the newest reply: a screen reader announces it when it
+  /// arrives.
+  final bool isLatest;
   final VoidCallback? onReport;
 
   /// Called with a route when the person taps an "Open …" button.
@@ -820,6 +910,15 @@ class _Bubble extends ConsumerWidget {
 
   /// Set on a reply that fell back to the shelf because live failed.
   final VoidCallback? onRetry;
+
+  /// Puts the reply on the clipboard (without markup) and says so.
+  static Future<void> _copy(BuildContext context, String text) async {
+    final ScaffoldMessengerState messenger = ScaffoldMessenger.of(context);
+    await Clipboard.setData(ClipboardData(text: HadiMarkdown.plain(text)));
+    messenger.showSnackBar(
+      const SnackBar(content: Text('Copied to the clipboard.')),
+    );
+  }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -832,6 +931,7 @@ class _Bubble extends ConsumerWidget {
           if (corpus.resolve(id) != null) corpus.resolve(id)!,
     ];
     final bool hadi = message.fromHadi;
+    final String shown = HadiTokens.strip(message.text);
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),
       child: Row(
@@ -846,7 +946,10 @@ class _Bubble extends ConsumerWidget {
           ],
           Flexible(
             child: hadi
-                ? GlassCard(
+                ? Semantics(
+                    container: true,
+                    liveRegion: isLatest,
+                    child: GlassCard(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 16,
                       vertical: 10,
@@ -854,26 +957,17 @@ class _Bubble extends ConsumerWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          HadiTokens.strip(message.text),
+                      children: <Widget>[
+                        HadiRichText(
+                          text: shown,
                           style: AppText.body.copyWith(
                             height: 1.5,
                             color: AppColors.sand.withValues(alpha: 0.9),
                           ),
                         ),
                         for (final Passage p in passages) _PassageCard(passage: p),
-                        for (final String n in message.notes)
-                          Padding(
-                            padding: const EdgeInsets.only(top: 6),
-                            child: Text(
-                              n,
-                              style: AppText.caption.copyWith(
-                                color: AppColors.sand.withValues(alpha: 0.7),
-                                fontSize: 12,
-                              ),
-                            ),
-                          ),
+                        if (message.notes.isNotEmpty)
+                          HadiNotesPanel(notes: message.notes),
                         if (message.crisis != null)
                           _CrisisHelpPanel(kind: message.crisis!),
                         if (message.routes.isNotEmpty && onOpen != null)
@@ -921,30 +1015,52 @@ class _Bubble extends ConsumerWidget {
                                 side: BorderSide(
                                   color: AppColors.gold.withValues(alpha: 0.4),
                                 ),
-                                minimumSize: const Size(0, 44),
+                                minimumSize: const Size(0, 48),
                               ),
                             ),
                           ),
                         const SizedBox(height: 6),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: <Widget>[
-                            if (onReport != null)
-                              TextButton.icon(
-                                onPressed: onReport,
-                                icon: const Icon(Icons.flag_outlined, size: 14),
-                                label: const Text('Report'),
-                                style: TextButton.styleFrom(
-                                  foregroundColor:
-                                      AppColors.sand.withValues(alpha: 0.6),
-                                  visualDensity: VisualDensity.compact,
+                        Align(
+                          alignment: AlignmentDirectional.centerEnd,
+                          child: Wrap(
+                            alignment: WrapAlignment.end,
+                            crossAxisAlignment: WrapCrossAlignment.center,
+                            children: <Widget>[
+                              if (onReport != null)
+                                TextButton.icon(
+                                  onPressed: onReport,
+                                  icon: const Icon(
+                                    Icons.flag_outlined,
+                                    size: 16,
+                                  ),
+                                  label: const Text('Report'),
+                                  style: TextButton.styleFrom(
+                                    foregroundColor:
+                                        AppColors.sand.withValues(alpha: 0.75),
+                                    minimumSize: const Size(48, 48),
+                                  ),
+                                ),
+                              IconButton(
+                                tooltip: 'Copy this reply',
+                                onPressed: () => _copy(context, shown),
+                                icon: const Icon(Icons.copy_outlined, size: 18),
+                                color: AppColors.sand.withValues(alpha: 0.75),
+                                constraints: const BoxConstraints(
+                                  minWidth: 48,
+                                  minHeight: 48,
                                 ),
                               ),
-                            SpeakButton(text: message.text),
-                          ],
+                              SpeakButton(
+                                text: HadiMarkdown.plain(shown),
+                                minTapTarget: 48,
+                                semanticLabel: 'Read this reply aloud',
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),
+                  ),
                   )
                 : Container(
                     padding: const EdgeInsets.symmetric(
@@ -960,8 +1076,11 @@ class _Bubble extends ConsumerWidget {
                         bottomRight: Radius.circular(4),
                       ),
                     ),
-                    child: Text(
+                    child: SelectableText(
                       message.text,
+                      textDirection: HadiMarkdown.isMostlyRtl(message.text)
+                          ? TextDirection.rtl
+                          : null,
                       style: AppText.body.copyWith(
                         color: AppColors.night,
                         height: 1.4,
@@ -985,39 +1104,67 @@ class _HeaderIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // The circle is 40 dp; the area that answers a tap is 48 dp.
     return Tooltip(
       message: label,
       child: Semantics(
-      button: true,
-      label: label,
-      excludeSemantics: true,
-      onTap: onTap,
-      child: Material(
-      type: MaterialType.transparency,
-      child: InkWell(
+        button: true,
+        label: label,
+        excludeSemantics: true,
         onTap: onTap,
-        customBorder: const CircleBorder(),
-        child: Container(
-          width: 40,
-          height: 40,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: AppColors.glassFill,
-            border: Border.all(color: AppColors.gold.withValues(alpha: 0.2)),
-          ),
-          child: Icon(
-            icon,
-            size: 17,
-            color: AppColors.sand.withValues(alpha: 0.85),
+        child: Material(
+          type: MaterialType.transparency,
+          child: InkWell(
+            onTap: onTap,
+            customBorder: const CircleBorder(),
+            child: SizedBox(
+              width: 48,
+              height: 48,
+              child: Center(
+                child: Container(
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: AppColors.glassFill,
+                    border: Border.all(
+                      color: AppColors.gold.withValues(alpha: 0.2),
+                    ),
+                  ),
+                  child: Icon(
+                    icon,
+                    size: 18,
+                    color: AppColors.sand.withValues(alpha: 0.85),
+                  ),
+                ),
+              ),
+            ),
           ),
         ),
-      ),
-      ),
       ),
     );
   }
 }
 
+/// One short privacy section in the Advanced sheet: a heading that opens to
+/// a sentence or two.
+class _PrivacyNote extends StatelessWidget {
+  const _PrivacyNote({required this.title, required this.body});
+
+  final String title;
+  final String body;
+
+  @override
+  Widget build(BuildContext context) {
+    return HadiDisclosure(
+      title: title,
+      child: Text(
+        body,
+        style: AppText.bodyMuted.copyWith(fontSize: 14, height: 1.5),
+      ),
+    );
+  }
+}
 
 /// Subscription status inside the key sheet: tier, quota, expiry, and the
 /// restore flow (placeholder until billing plugs into the same contract).
@@ -1061,13 +1208,18 @@ class _SubscriptionPanel extends ConsumerWidget {
                 ? '${sub.remainingToday} live questions left today'
                     '${expiryLabel.isEmpty ? '' : ' · renews $expiryLabel'}'
                 : 'Live AI comes with a subscription — pricing lands soon. '
-                    'Until then, add your own free key above, or use my '
+                    'Until then, add your own free key below, or use my '
                     'built-in shelf: it never runs out.',
             style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.5),
           ),
           const SizedBox(height: 8),
-          GestureDetector(
-            onTap: () async {
+          TextButton(
+            style: TextButton.styleFrom(
+              minimumSize: const Size(48, 48),
+              padding: EdgeInsets.zero,
+              alignment: AlignmentDirectional.centerStart,
+            ),
+            onPressed: () async {
               final gateway = ref.read(billingGatewayProvider);
               final BillingResult result = await gateway.restore();
               final String? error =
@@ -1084,7 +1236,7 @@ class _SubscriptionPanel extends ConsumerWidget {
             },
             child: Text('Restore purchase →',
                 style: AppText.bodyMuted.copyWith(
-                    color: AppColors.gold, fontSize: 12)),
+                    color: AppColors.gold, fontSize: 14)),
           ),
         ],
       ),

@@ -782,6 +782,27 @@ class HadiController extends Notifier<HadiState> {
         clean = f.text;
         notes.add('A sentence about your own situation was removed.');
       }
+    } else if (crisis == null) {
+      // The built-in shelf is written by hand. Whatever Qur'an verse or
+      // library hadith its answer cites is printed under it from the app's
+      // own library (Arabic, translation, grade), exactly as for a live
+      // answer. A reference that is not in the library gets no card.
+      sources = AnswerVerifier.citedIds(clean, corpus);
+      // The school of law applies to the shelf's fiqh answers only where
+      // the shelf holds a verified text for that school. It holds none, so
+      // say so plainly and offer the scholar hand-off; never guess a ruling.
+      final Madhhab school = madhhab;
+      if (school != Madhhab.notSure) {
+        final String? schoolNote = OfflineHadiProvider.schoolNote(
+          question: q,
+          answer: clean,
+          schoolLabel: school.label,
+        );
+        if (schoolNote != null) {
+          clean = '$clean\n\n$schoolNote';
+          if (!routes.contains('/sources')) routes.add('/sources');
+        }
+      }
     }
     if (ruling == RulingClass.general) {
       clean = '$clean\n\n${RulingGate.generalFooter}';

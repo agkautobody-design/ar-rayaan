@@ -104,6 +104,46 @@ abstract final class AnswerVerifier {
   static String condense(String s) =>
       s.toLowerCase().replaceAll(RegExp('[^a-z0-9]'), '');
 
+  /// The passages [text] cites by reference, in order of appearance, at
+  /// most [limit]: a Qur'an reference that exists in the bundled Qur'an
+  /// (`Qur'an 2:183-185`, `(94:5)`) and a hadith that is in the corpus
+  /// (`Sahih Muslim 2749`). Nothing else resolves, so a reference that is not
+  /// in Hādi's library never gets a card. Used for the built-in shelf, whose
+  /// answers are written by hand: the app prints the Arabic, translation and
+  /// grade from its own library under them, as it does for live answers.
+  static List<String> citedIds(
+    String text,
+    HadiCorpus corpus, {
+    int limit = 5,
+  }) {
+    final List<({int at, String id})> found = <({int at, String id})>[];
+    for (final RegExpMatch m in _hadithRef.allMatches(text)) {
+      final Passage? p = corpus.hadithByRef(m.group(1)!, m.group(2)!);
+      if (p != null) found.add((at: m.start, id: p.id));
+    }
+    void quran(RegExpMatch m) {
+      final int surah = int.parse(m.group(1)!);
+      final int from = int.parse(m.group(2)!);
+      final String? toRaw = m.group(3);
+      final int to = toRaw == null ? from : int.parse(toRaw);
+      final Passage? p = corpus.quranRange(surah, from, to);
+      if (p != null) found.add((at: m.start, id: p.id));
+    }
+
+    _quranRefWord.allMatches(text).forEach(quran);
+    _quranRefParen.allMatches(text).forEach(quran);
+    found.sort(
+      (({int at, String id}) a, ({int at, String id}) b) =>
+          a.at.compareTo(b.at),
+    );
+    final List<String> out = <String>[];
+    for (final ({int at, String id}) f in found) {
+      if (!out.contains(f.id)) out.add(f.id);
+      if (out.length >= limit) break;
+    }
+    return out;
+  }
+
   /// Verifies [raw] against [corpus].
   ///
   /// When [keepUserScript] is true the user wrote in Arabic or Urdu script, so
@@ -141,7 +181,7 @@ abstract final class AnswerVerifier {
         return m.group(0)!;
       }
       removedRefs++;
-      return '(reference removed: not in Hādi’s library)';
+      return '';
     });
 
     // 3. Qur'an references typed by hand: a real ayah is kept and its text
@@ -157,7 +197,7 @@ abstract final class AnswerVerifier {
         return m.group(0)!;
       }
       removedRefs++;
-      return '(verse reference removed: not verifiable)';
+      return '';
     }
 
     text = text.replaceAllMapped(_quranRefWord, quranRef);
@@ -197,7 +237,7 @@ abstract final class AnswerVerifier {
         if (q.isNotEmpty && s.contains(q)) return m.group(0)!;
       }
       removedQuotes++;
-      return '(a quotation Hādi could not verify was removed)';
+      return '';
     });
 
     // 6. A grade claim needs a hadith from the library to stand on.
@@ -205,10 +245,13 @@ abstract final class AnswerVerifier {
     final bool hasHadith = sources.any((String id) => id.startsWith('h:'));
     if (!hasHadith && _gradeClaim.hasMatch(text)) unsupportedGrade = true;
 
-    // Tidy the gaps the removals leave behind.
+    // Tidy the gaps the removals leave behind. Nothing is written into the
+    // reply to mark a removal: the screen shows a collapsed note under it.
     text = text
+        .replaceAll(RegExp(r'\(\s*\)|“\s*”|"\s*"'), '')
         .replaceAll(RegExp(r'[ \t]{2,}'), ' ')
-        .replaceAll(RegExp(r' +([,.;:!?])'), r'$1')
+        .replaceAllMapped(RegExp(r' +([,.;:!?])'), (Match m) => m.group(1)!)
+        .replaceAll(RegExp(r'\s*[:;,]\s*(?=[.!?](?:\s|$))'), '')
         .replaceAll(RegExp(r'\n{3,}'), '\n\n')
         .trim();
 
