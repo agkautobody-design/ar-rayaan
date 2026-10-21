@@ -1,0 +1,24 @@
+{
+ "schema": 1,
+ "subject": "dhul-qarnayn",
+ "badge": "Not from the Qur’an",
+ "checked": "2026-10-20",
+ "items": [
+  {
+   "id": "dq-alexander-legend",
+   "class": "contradicted",
+   "origin": "The Alexander legends told in later storytelling",
+   "claim": "Dhul-Qarnayn was Alexander the Great, who travelled to the ends of the earth, reached the place where the sun sets, and walled in Gog and Magog.",
+   "ruling": "Not told here. Ibn Kathir (abridged) calls the storytellers’ accounts of the sun’s setting-place myths of the People of the Book, and Ma’ariful Qur’an, following Ibn Kathir, rejects the identification with Alexander of Macedon because Alexander was a polytheist, while noting that Abu Hayyan and al-Alusi held it. The Qur’an itself names no such person.",
+   "basis": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com), on 18:85-88; Ma’ariful Qur’an (English edition, read on Quran.com), on 18:83"
+  },
+  {
+   "id": "dq-cyrus",
+   "class": "silent",
+   "origin": "A modern scholarly identification, reported in Ma’ariful Qur’an",
+   "claim": "Dhul-Qarnayn was Cyrus the Great of Persia, who freed the Israelites from Babylon.",
+   "ruling": "The Qur’an does not name him. Ma’ariful Qur’an reports this as the research of Hifzur-Rahman in Qasas al-Qur’an and says it does not decide between the views. We neither believe nor disbelieve it, and the story here tells only what the verses say.",
+   "basis": "Ma’ariful Qur’an (English edition, read on Quran.com), on 18:83"
+  }
+ ]
+}

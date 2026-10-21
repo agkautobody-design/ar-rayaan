@@ -59,6 +59,15 @@
    "earlier": false
   },
   {
+   "id": "dhul-qarnayn",
+   "title": "Dhul-Qarnayn",
+   "kind": "unseen",
+   "stories": [
+    "tale-dhul-qarnayn"
+   ],
+   "earlier": true
+  },
+  {
    "id": "gog-magog",
    "title": "Ya’juj and Ma’juj (Gog and Magog)",
    "kind": "unseen",
