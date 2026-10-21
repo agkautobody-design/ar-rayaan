@@ -177,8 +177,15 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.text('Al-Wasia Academy of Sacred Knowledge'), findsOneWidget);
-      expect(find.text('Continue where you left off'), findsOneWidget);
+      // First run: nothing has been opened, so it says "Start here", never
+      // "Continue where you left off" with a part-filled bar.
+      expect(find.text('Start here'), findsOneWidget);
+      expect(find.text('Continue where you left off'), findsNothing);
       expect(find.text('Your first step'), findsOneWidget);
+      final LinearProgressIndicator bar =
+          tester.widget<LinearProgressIndicator>(
+              find.byType(LinearProgressIndicator).first);
+      expect(bar.value, 0);
 
       final scrollable = find.byType(Scrollable).first;
       await tester.scrollUntilVisible(find.textContaining('39:9'), 250,
@@ -206,14 +213,14 @@ void main() {
       expect(find.text('The Path'), findsOneWidget);
 
       // Offstage-aware: the rows live in a lazy list; find them wherever
-      // they are built. Three schools open (LIVE), one honest SOON.
-      for (final t in <String>[
-        'Letters', 'Recitation', 'Quranic Arabic', 'Understanding',
-      ]) {
+      // they are built. Rows say what they are (LESSONS / READ / TOOL), and
+      // the Quranic Arabic row is hidden until its meanings are sourced.
+      for (final t in <String>['Letters', 'Recitation', 'Understanding']) {
         expect(find.text(t, skipOffstage: false), findsOneWidget);
       }
-      expect(find.text('LIVE', skipOffstage: false), findsNWidgets(3));
-      expect(find.text('SOON', skipOffstage: false), findsOneWidget);
+      expect(find.text('Quranic Arabic', skipOffstage: false), findsNothing);
+      expect(find.text('LIVE', skipOffstage: false), findsNothing);
+      expect(find.text('LESSONS', skipOffstage: false), findsOneWidget);
     // TODO(harness): lazy-list offstage finder; re-enable after scrollable audit.
     }, skip: true);
 

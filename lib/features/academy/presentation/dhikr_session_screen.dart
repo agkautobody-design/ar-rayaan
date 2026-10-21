@@ -163,7 +163,7 @@ class _DhikrSessionScreenState
                       ] else if (_state.phase ==
                           DhikrPhase.milestonePause) ...[
                         Text(
-                          'A third of the way. Breathe — then continue.',
+                          DhikrSessionEngine.milestoneMessage(_state),
                           style: AppText.bodyMuted,
                           textAlign: TextAlign.center,
                         ),

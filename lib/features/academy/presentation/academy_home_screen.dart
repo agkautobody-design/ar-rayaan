@@ -12,6 +12,8 @@ import '../application/academy_providers.dart';
 import '../application/word_deck_provider.dart';
 import '../application/academy_strings.dart';
 import '../domain/academy_models.dart';
+import '../domain/continue_hero.dart';
+import '../domain/daily_verse.dart';
 import 'widgets/course_browser.dart';
 import 'widgets/path_ux_widgets.dart';
 
@@ -38,11 +40,6 @@ class _AcademyHomeScreenState
     });
   }
 
-
-  static const String _verseRef = 'Qur’an 39:9';
-  static const String _verseText =
-      'Say: Are those who know equal to those who do not know?';
-
   @override
   Widget build(BuildContext context) {
     final List<AcademyCourse> courses = ref.watch(academyCoursesProvider);
@@ -51,8 +48,12 @@ class _AcademyHomeScreenState
     );
     
     final AcademyLesson? cont = ref.watch(continueLessonProvider);
+    final ContinueHero hero = cont == null
+        ? const ContinueHero(started: false, progress: 0)
+        : _hero(ref, cont);
     final int done = ref.watch(lessonsDoneProvider);
     final String s = AcademyStrings.get('academy.title');
+    final DailyVerse verse = dailyVerseFor(DateTime.now());
 
     return Scaffold(
       body: ScenicScaffold.pattern(
@@ -77,7 +78,9 @@ class _AcademyHomeScreenState
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        AcademyStrings.get('academy.continue'),
+                        AcademyStrings.get(hero.started
+                            ? 'academy.continue'
+                            : 'academy.startHere'),
                         style: AppText.caption,
                       ),
                       const SizedBox(height: 6),
@@ -89,7 +92,7 @@ class _AcademyHomeScreenState
                       ClipRRect(
                         borderRadius: BorderRadius.circular(4),
                         child: LinearProgressIndicator(
-                          value: _progress(ref, cont),
+                          value: hero.progress,
                           minHeight: 4,
                           backgroundColor: AppColors.gold.withValues(alpha: 0.15),
                           valueColor: const AlwaysStoppedAnimation<Color>(
@@ -188,7 +191,7 @@ class _AcademyHomeScreenState
                 title: AcademyStrings.get('school.letters.title'),
                 subtitle: AcademyStrings.get('school.letters.subtitle'),
                 route: '/academy/letters',
-                live: true,
+                kind: _RowKind.lessons,
               ),
               _SchoolRow(
                 icon: Icons.back_hand_outlined,
@@ -196,7 +199,7 @@ class _AcademyHomeScreenState
                 title: AcademyStrings.get('school.dua.title'),
                 subtitle: AcademyStrings.get('school.dua.body'),
                 route: '/academy/dua',
-                live: true,
+                kind: _RowKind.reading,
               ),
               _SchoolRow(
                 icon: Icons.translate,
@@ -204,7 +207,7 @@ class _AcademyHomeScreenState
                 title: AcademyStrings.get('school.arabiclang.title'),
                 subtitle: AcademyStrings.get('school.arabiclang.body'),
                 route: '/academy/arabic-language',
-                live: true,
+                kind: _RowKind.reading,
               ),
               _SchoolRow(
                 icon: Icons.auto_stories,
@@ -212,7 +215,7 @@ class _AcademyHomeScreenState
                 title: AcademyStrings.get('school.hifz.title'),
                 subtitle: AcademyStrings.get('school.hifz.body'),
                 route: '/academy/hifz',
-                live: true,
+                kind: _RowKind.tool,
               ),
               _SchoolRow(
                 icon: Icons.brightness_5,
@@ -220,7 +223,7 @@ class _AcademyHomeScreenState
                 title: AcademyStrings.get('school.aqeedah.title'),
                 subtitle: AcademyStrings.get('school.aqeedah.body'),
                 route: '/academy/aqeedah',
-                live: true,
+                kind: _RowKind.reading,
               ),
               _SchoolRow(
                 icon: Icons.menu_book,
@@ -228,7 +231,7 @@ class _AcademyHomeScreenState
                 title: AcademyStrings.get('school.hadith.title'),
                 subtitle: AcademyStrings.get('school.hadith.body'),
                 route: '/academy/hadith',
-                live: true,
+                kind: _RowKind.reading,
               ),
               _SchoolRow(
                 icon: Icons.route,
@@ -236,7 +239,7 @@ class _AcademyHomeScreenState
                 title: AcademyStrings.get('school.seerah.title'),
                 subtitle: AcademyStrings.get('school.seerah.body'),
                 route: '/academy/seerah',
-                live: true,
+                kind: _RowKind.reading,
               ),
               _SchoolRow(
                 icon: Icons.account_balance,
@@ -244,7 +247,7 @@ class _AcademyHomeScreenState
                 title: AcademyStrings.get('school.history.title'),
                 subtitle: AcademyStrings.get('school.history.body'),
                 route: '/academy/history',
-                live: true,
+                kind: _RowKind.reading,
               ),
               _SchoolRow(
                 icon: Icons.auto_stories_outlined,
@@ -252,7 +255,7 @@ class _AcademyHomeScreenState
                 title: AcademyStrings.get('school.stories.title'),
                 subtitle: AcademyStrings.get('school.stories.body'),
                 route: '/academy/stories',
-                live: true,
+                kind: _RowKind.reading,
               ),
               _SchoolRow(
                 icon: Icons.favorite_outline,
@@ -260,7 +263,7 @@ class _AcademyHomeScreenState
                 title: AcademyStrings.get('school.character.title'),
                 subtitle: AcademyStrings.get('school.character.body'),
                 route: '/academy/character',
-                live: true,
+                kind: _RowKind.reading,
               ),
               _SchoolRow(
                 icon: Icons.home_outlined,
@@ -268,7 +271,7 @@ class _AcademyHomeScreenState
                 title: AcademyStrings.get('school.family.title'),
                 subtitle: AcademyStrings.get('school.family.body'),
                 route: '/academy/family-life',
-                live: true,
+                kind: _RowKind.reading,
               ),
               _SchoolRow(
                 icon: Icons.school_outlined,
@@ -276,7 +279,7 @@ class _AcademyHomeScreenState
                 title: AcademyStrings.get('school.youth.title'),
                 subtitle: AcademyStrings.get('school.youth.body'),
                 route: '/academy/youth',
-                live: true,
+                kind: _RowKind.reading,
               ),
               _SchoolRow(
                 icon: Icons.woman,
@@ -284,7 +287,7 @@ class _AcademyHomeScreenState
                 title: AcademyStrings.get('school.womens.title'),
                 subtitle: AcademyStrings.get('school.womens.body'),
                 route: '/academy/womens',
-                live: true,
+                kind: _RowKind.reading,
               ),
               _SchoolRow(
                 icon: Icons.payments_outlined,
@@ -292,7 +295,7 @@ class _AcademyHomeScreenState
                 title: AcademyStrings.get('school.transactions.title'),
                 subtitle: AcademyStrings.get('school.transactions.body'),
                 route: '/academy/transactions',
-                live: true,
+                kind: _RowKind.reading,
               ),
               _SchoolRow(
                 icon: Icons.wb_twilight,
@@ -300,7 +303,7 @@ class _AcademyHomeScreenState
                 title: AcademyStrings.get('school.endoflife.title'),
                 subtitle: AcademyStrings.get('school.endoflife.body'),
                 route: '/academy/end-of-life',
-                live: true,
+                kind: _RowKind.reading,
               ),
               _SchoolRow(
                 icon: Icons.record_voice_over,
@@ -308,7 +311,7 @@ class _AcademyHomeScreenState
                 title: AcademyStrings.get('school.dawah.title'),
                 subtitle: AcademyStrings.get('school.dawah.body'),
                 route: '/academy/dawah',
-                live: true,
+                kind: _RowKind.reading,
               ),
               _SchoolRow(
                 icon: Icons.healing,
@@ -316,7 +319,7 @@ class _AcademyHomeScreenState
                 title: AcademyStrings.get('school.health.title'),
                 subtitle: AcademyStrings.get('school.health.body'),
                 route: '/academy/health',
-                live: true,
+                kind: _RowKind.reading,
               ),
               _SchoolRow(
                 icon: Icons.shield_outlined,
@@ -324,7 +327,7 @@ class _AcademyHomeScreenState
                 title: AcademyStrings.get('hisn.title'),
                 subtitle: AcademyStrings.get('hisn.body'),
                 route: '/academy/hisn',
-                live: true,
+                kind: _RowKind.reading,
               ),
               _SchoolRow(
                 icon: Icons.directions_walk,
@@ -332,7 +335,7 @@ class _AcademyHomeScreenState
                 title: AcademyStrings.get('hajjpack.title'),
                 subtitle: AcademyStrings.get('hajjpack.body'),
                 route: '/academy/hajj-umrah-pack',
-                live: true,
+                kind: _RowKind.reading,
               ),
               _SchoolRow(
                 icon: Icons.nightlight_round,
@@ -340,7 +343,7 @@ class _AcademyHomeScreenState
                 title: AcademyStrings.get('ramadan.title'),
                 subtitle: AcademyStrings.get('ramadan.body'),
                 route: '/academy/ramadan-mode',
-                live: true,
+                kind: _RowKind.tool,
               ),
               _SchoolRow(
                 icon: Icons.style,
@@ -348,7 +351,7 @@ class _AcademyHomeScreenState
                 title: AcademyStrings.get('versecards.title'),
                 subtitle: AcademyStrings.get('versecards.body'),
                 route: '/share',
-                live: true,
+                kind: _RowKind.tool,
               ),
               _SchoolRow(
                 icon: Icons.quiz_outlined,
@@ -356,7 +359,7 @@ class _AcademyHomeScreenState
                 title: AcademyStrings.get('qabank.title'),
                 subtitle: AcademyStrings.get('qabank.body'),
                 route: '/academy/qa',
-                live: true,
+                kind: _RowKind.reading,
               ),
               _SchoolRow(
                 icon: Icons.graphic_eq,
@@ -364,15 +367,7 @@ class _AcademyHomeScreenState
                 title: AcademyStrings.get('school.recitation.title'),
                 subtitle: AcademyStrings.get('school.recitation.subtitle'),
                 route: '/academy/recitation',
-                live: true,
-              ),
-              _SchoolRow(
-                icon: Icons.menu_book_outlined,
-                arabic: '\u0627\u0644\u0639\u064e\u0631\u064e\u0628\u0650\u064a\u064e\u0629 \u0627\u0644\u0642\u064f\u0631\u0670\u0646\u0650\u064a\u064e\u0629',
-                title: AcademyStrings.get('school.arabic.title'),
-                subtitle: AcademyStrings.get('school.arabic.subtitle'),
-                route: '/academy/quranic-arabic',
-                live: true,
+                kind: _RowKind.reading,
               ),
               _SchoolRow(
                 icon: Icons.lightbulb_outline,
@@ -380,7 +375,7 @@ class _AcademyHomeScreenState
                 title: AcademyStrings.get('school.understanding.title'),
                 subtitle: AcademyStrings.get('school.understanding.subtitle'),
                 route: '/academy/understanding',
-                live: true,
+                kind: _RowKind.reading,
               ),
               const SizedBox(height: 18),
 
@@ -444,7 +439,7 @@ class _AcademyHomeScreenState
 
               // Daily verse -----------------------------------------------------
               GlassCard(
-                onTap: () => context.go('/quran/39'),
+                onTap: () => context.go('/quran/${verse.surah}'),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -453,10 +448,11 @@ class _AcademyHomeScreenState
                       style: AppText.caption,
                     ),
                     const SizedBox(height: 8),
-                    Text(_verseText, style: AppText.titleMedium),
+                    Text('\u201c${verse.text}\u201d',
+                        style: AppText.titleMedium),
                     const SizedBox(height: 6),
                     Text(
-                      '$_verseRef · ${AcademyStrings.get('academy.translationCredit')}',
+                      'Qur\u2019an ${verse.ref} · ${AcademyStrings.get('academy.translationCredit')}',
                       style: AppText.bodyMuted,
                     ),
                   ],
@@ -471,17 +467,13 @@ class _AcademyHomeScreenState
     );
   }
 
-  double _progress(WidgetRef ref, AcademyLesson lesson) {
-    final LessonProgress p = ref.watch(
+  ContinueHero _hero(WidgetRef ref, AcademyLesson lesson) {
+    final LessonProgress? saved = ref.watch(
       academyProgressProvider.select(
-        (Map<String, LessonProgress> m) =>
-            m[lesson.id] ?? const LessonProgress(),
+        (Map<String, LessonProgress> m) => m[lesson.id],
       ),
     );
-    final int total = lesson.steps.length;
-    if (total == 0) return 0;
-    final int idx = p.lastStep.clamp(0, total - 1);
-    return p.completed ? 1 : (idx + 1) / total;
+    return continueHeroFor(saved, lesson.steps.length);
   }
 }
 
@@ -503,6 +495,22 @@ class _TodayStat extends StatelessWidget {
   }
 }
 
+/// What a school row really is. Every row used to say LIVE, including pages
+/// that only show text and keep no progress.
+enum _RowKind {
+  /// Tracked lessons with questions and saved progress.
+  lessons('LESSONS'),
+
+  /// A page to read. No questions, no saved progress.
+  reading('READ'),
+
+  /// An interactive tool (planner, mode, card maker), not a course.
+  tool('TOOL');
+
+  const _RowKind(this.label);
+  final String label;
+}
+
 class _SchoolRow extends StatelessWidget {
   const _SchoolRow({
     required this.icon,
@@ -510,7 +518,7 @@ class _SchoolRow extends StatelessWidget {
     required this.title,
     required this.subtitle,
     required this.route,
-    required this.live,
+    required this.kind,
   });
 
   final IconData icon;
@@ -518,7 +526,7 @@ class _SchoolRow extends StatelessWidget {
   final String title;
   final String subtitle;
   final String route;
-  final bool live;
+  final _RowKind kind;
 
   @override
   Widget build(BuildContext context) {
@@ -565,21 +573,17 @@ class _SchoolRow extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 8),
-            if (live)
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: AppColors.gold.withValues(alpha: 0.45)),
-                ),
-                child: Text('LIVE',
-                    style: TextStyle(fontSize: 12, color: AppColors.goldLight)),
-              )
-            else
-              Text('SOON',
-                  style: TextStyle(
-                      fontSize: 12,
-                      color: AppColors.sand.withValues(alpha: 0.7))),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                border:
+                    Border.all(color: AppColors.gold.withValues(alpha: 0.45)),
+              ),
+              child: Text(kind.label,
+                  style: const TextStyle(
+                      fontSize: 12, color: AppColors.goldLight)),
+            ),
             const Icon(Icons.chevron_right, color: AppColors.gold, size: 18),
           ],
         ),

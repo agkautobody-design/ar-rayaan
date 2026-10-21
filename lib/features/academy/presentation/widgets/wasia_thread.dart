@@ -15,7 +15,9 @@ class WasiaThread extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final s = ref.watch(wasiaControllerProvider);
-    if (s.messages.isEmpty) return const SizedBox.shrink();
+    if (s.messages.isEmpty && s.notice == null) {
+      return const SizedBox.shrink();
+    }
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       Row(children: [
         Expanded(child: Text('CONVERSATION', style: AppText.eyebrow)),
@@ -57,7 +59,14 @@ class WasiaThread extends ConsumerWidget {
                         .copyWith(fontSize: 13, height: 1.4)),
           ),
         ),
-      if (s.isLoading && !s.messages.last.fromHadi)
+      if (s.notice != null)
+        Padding(
+          padding: const EdgeInsets.only(left: 4, bottom: 6),
+          child: Text(s.notice!,
+              key: const Key('wasia-notice'),
+              style: AppText.bodyMuted.copyWith(fontSize: 13, height: 1.45)),
+        ),
+      if (s.isLoading && s.messages.isNotEmpty && !s.messages.last.fromHadi)
         Padding(
           padding: const EdgeInsets.only(left: 4, bottom: 6),
           child: Text('Wasia is thinking\u2026',

@@ -575,7 +575,13 @@ GoRouter buildRouter({String initialLocation = '/'}) {
           GoRoute(
             path: 'lesson/:id',
             pageBuilder: (context, state) => _fade(
-              LessonRunnerScreen(lessonId: state.pathParameters['id']!),
+              // Keyed by lesson: "Next lesson" lands on the same route
+              // pattern, and without a key the old screen state would be
+              // reused (wrong lesson, old step).
+              LessonRunnerScreen(
+                key: ValueKey<String>('letters-${state.pathParameters['id']!}'),
+                lessonId: state.pathParameters['id']!,
+              ),
             ),
           ),
         ],
@@ -606,6 +612,7 @@ GoRouter buildRouter({String initialLocation = '/'}) {
         pageBuilder: (context, state) {
           final p = state.pathParameters;
           return _fade(LessonPlayerScreen(
+            key: ValueKey<String>('lesson-${p['lesson']!}'),
             courseId: p['course']!,
             unitId: p['unit']!,
             lessonId: p['lesson']!,

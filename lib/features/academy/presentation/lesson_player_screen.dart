@@ -14,6 +14,7 @@ import '../domain/academy_models.dart';
 import '../domain/assessment_engine.dart';
 import '../domain/course_manifest.dart';
 import '../domain/lesson_provenance.dart';
+import '../domain/next_lesson.dart';
 
 /// The teach/check/reflect lesson player. One idea per step, exact-step
 /// resume, inline knowledge checks with dignity-first feedback, and a
@@ -84,6 +85,7 @@ class _LessonPlayerScreenState
       await notifier.complete(_lesson.id);
       ref.read(reviewQueueProvider.notifier).addLesson(_lesson.id);
       if (mounted) {
+        final AcademyLesson? next = nextLessonAfter(_lesson.id);
         await showModalBottomSheet<void>(
           context: context,
           backgroundColor: Colors.transparent,
@@ -111,13 +113,29 @@ class _LessonPlayerScreenState
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(height: 16),
-                  FilledButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                      context.go('/academy');
-                    },
-                    child: Text(AcademyStrings.get('common.done')),
-                  ),
+                  if (next != null) ...<Widget>[
+                    FilledButton(
+                      key: const Key('next-lesson'),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                        context.go(lessonRoute(next));
+                      },
+                      child: Text(
+                          '${AcademyStrings.get('lesson.nextLesson')}: '
+                          '${AcademyStrings.get(next.titleKey)}',
+                          textAlign: TextAlign.center),
+                    ),
+                    const SizedBox(height: 8),
+                  ],
+                  next == null
+                      ? FilledButton(
+                          onPressed: () => _leave(context),
+                          child: Text(AcademyStrings.get('common.done')),
+                        )
+                      : TextButton(
+                          onPressed: () => _leave(context),
+                          child: Text(AcademyStrings.get('common.done')),
+                        ),
                 ],
               ),
             ),
@@ -133,6 +151,18 @@ class _LessonPlayerScreenState
       _answers.clear();
     });
     await notifier.advance(_lesson.id, _index);
+  }
+
+  /// Leave a finished lesson. Opened from the review queue (pushed on top of
+  /// it) the learner goes back there; otherwise to the Academy home.
+  void _leave(BuildContext sheetContext) {
+    Navigator.of(sheetContext).pop();
+    if (!mounted) return;
+    if (context.canPop()) {
+      context.pop();
+    } else {
+      context.go('/academy');
+    }
   }
 
   /// Provenance sheet: where the text comes from, its review status and every
@@ -350,6 +380,14 @@ class _LessonPlayerScreenState
   }
 }
 
+/// The text a Try card shows. Some lessons keep their whole prompt in the
+/// step title and have no body; the card used to show an empty box there
+/// (13 lessons). Fall back to the title, never to a blank.
+String tryPromptFor(AcademyStep step) {
+  final String body = AcademyStrings.get(step.bodyKey);
+  return body.trim().isNotEmpty ? body : AcademyStrings.get(step.titleKey);
+}
+
 class _StepBody extends StatelessWidget {
   const _StepBody({
     required this.step,
@@ -461,7 +499,8 @@ class _StepBody extends StatelessWidget {
               Text(AcademyStrings.get('try.title'), style: AppText.eyebrow),
               const SizedBox(height: 8),
               Text(
-                AcademyStrings.get(step.bodyKey),
+                tryPromptFor(step),
+                key: const Key('try-prompt'),
                 style: AppText.body.copyWith(height: 1.6),
               ),
               const SizedBox(height: 16),

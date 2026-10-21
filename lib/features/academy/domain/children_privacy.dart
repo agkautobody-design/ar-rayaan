@@ -9,7 +9,7 @@
 library;
 
 /// Bump when the text changes in a way a parent must agree to again.
-const int kChildrenPrivacyVersion = 1;
+const int kChildrenPrivacyVersion = 2;
 
 const String kChildrenPrivacyTitle = 'Children and the Family Wing';
 
@@ -17,8 +17,9 @@ const String kChildrenPrivacyTitle = 'Children and the Family Wing';
 const List<String> kChildrenPrivacyBullets = <String>[
   'The Family Wing is for parents and guardians. A parent adds a child; a child never needs an account.',
   'We store a first name or nickname you choose, and the child’s lesson and exam progress. Nothing else: no age, photo, voice, contact details or location.',
-  'All of it stays on this device. It is not sent to our servers, to Firebase, or to any AI service. Wasia is never given a child’s name.',
-  'Questions a child asks Wasia are answered from the app’s own lessons. They go to an AI service only if you turn that on, and you can turn it off again.',
+  'All of it stays on this device. It is not sent to our servers, to Firebase, or to any AI service. Wasia is never given a child’s name or progress.',
+  'Questions a child asks Wasia are answered from the app’s own lessons. The AI service is off for children until you turn it on. If you do, only the question the child types is sent, with no name, progress or profile, and you can turn it off again.',
+  'What you type as a parent into “Ask Wasia” in the Family Wing is your own question. If an AI key or subscription is set up, it may be sent to the AI service while the parent check is open, with no child’s name or progress.',
   'You can delete one child, or everything, at any time from the Family Wing. Deleting removes the name and all progress from this device straight away.',
   'There is no advertising, no tracking and no analytics about children in the app.',
 ];
@@ -32,7 +33,7 @@ What a profile holds. For each child a parent adds, the app keeps on the device:
 
 Where it is kept. Child profiles and progress are stored only on the device, in the app’s local storage. They are not sent to our servers or to any third party. A child’s name is never included in any request to an AI service or to Firebase. Cloud sync of family data is switched off; if we ever offer it, it will be optional, will need a parent’s separate consent first, and will never include a child’s name.
 
-Wasia and AI services. When a child uses Wasia, answers come from the app’s own lesson content. Only if a parent turns on “Ask the AI service” for children is a child’s question sent to the AI service the app is connected to (the parent’s own key, or one managed with their subscription; for example Groq, OpenRouter or xAI), without the child’s name and without other profile data. Parents can turn this off at any time.
+Wasia and AI services. When a child uses Wasia, answers come from the app’s own lesson content. The AI service is off for children by default. Only if a parent turns on “Ask the AI service for my child” is the question the child types sent to the AI service the app is connected to (the parent’s own key, or one managed with their subscription; for example Groq, OpenRouter or xAI). Nothing else is sent with it: no name, no lesson or exam progress, no profile data. Parents can turn this off at any time. Wasia is never given a child’s name or progress, in any mode. A parent’s own typed question in the Family Wing may be sent to the AI service while the parent check is open, again without a child’s name or progress.
 
 Consent and parental controls. Before a first profile is created the parent confirms that they are the child’s parent or guardian and agrees to this section. Adding or removing a child, and the AI setting for children, sit behind a parent check. A parent can delete a single child or all children at any time; deletion removes the name and all progress from the device immediately, and withdraws the stored consent.
 

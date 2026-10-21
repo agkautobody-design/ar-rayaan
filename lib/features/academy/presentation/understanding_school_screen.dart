@@ -92,7 +92,7 @@ const List<_UUnit> kUnderstandingUnits = <_UUnit>[
       _ULesson(
         title: 'A Fixed Portion, However Small',
         body:
-            'The most beloved deeds to Allah are the most consistent, even if small (Bukhari 6464). One page a day finishes the Qur\'an in about eight months. Small and daily beats large and abandoned — always.',
+            'The most beloved deeds to Allah are the most consistent, even if small (Bukhari 6464). A standard mushaf has 604 pages, so one page a day finishes the Qur\'an in about twenty months. Small and daily beats large and abandoned — always.',
         source: 'Sahih al-Bukhari 6464',
       ),
       _ULesson(

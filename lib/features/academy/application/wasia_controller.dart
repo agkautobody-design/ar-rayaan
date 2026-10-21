@@ -2,15 +2,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../app/core/subscription/subscription_service.dart';
-import '../../../app/core/content/content_sync.dart';
-import 'family_service.dart';
-import 'dart:convert';
-
 import '../../hadi/application/hadi_provider.dart';
 import '../../sakina/domain/crisis_detector.dart';
 import '../../hadi/data/groq_hadi_provider.dart';
 import '../data/offline_wasia_provider.dart';
-import '../domain/letters_meta.dart';
 
 enum WasiaPersona { student, parent, teacher }
 
@@ -40,27 +35,27 @@ String wasiaCrisisReply(WasiaPersona persona) {
 /// One brain, three voices. Research-backed shape: a specific, in-domain
 /// persona that NAMES its audience and context beats a generic role label —
 /// so each voice rides on top of Wasia's teaching laws, not instead of them.
-/// [childName] is accepted for API compatibility but is NEVER written into
-/// the prompt: the prompt goes to a third-party AI service and a child's
-/// name must not leave the device.
-String personaPrompt(WasiaPersona p,
-    {String? childName, int? lessonsDone, int? examsTaken,
-    String? studentBlock}) {
+///
+/// PRIVACY: nothing about a child ever goes into a prompt. Not the name (also
+/// accepted only for API compatibility and never written), and not the
+/// child's progress either: the prompt goes to a third-party AI service, and
+/// the children's privacy text promises that no profile data leaves the
+/// device. If you add a field here, change `children_privacy.dart` in the
+/// same commit.
+String personaPrompt(WasiaPersona p, {String? childName}) {
   switch (p) {
     case WasiaPersona.student:
       return '$kWasiaSystemPrompt\n'
-          'STUDENT PROGRESS (real, from this device\u2019s Family Wing — '
-          'never guess beyond it):\n'
-          '${studentBlock?.trim().isNotEmpty == true ? studentBlock!.trim() : "No progress recorded yet."}\n'
-          'Use it to encourage specifically: name what they finished and '
-          'suggest one small next step. Never quiz the child on facts not '
-          'in this block. If the block is empty, simply teach with '
-          'warmth.';
+          'YOU ARE SPEAKING WITH A STUDENT. You are told nothing about them: '
+          'no name, no progress, no history. Never claim to know what they '
+          'have or have not finished. Teach with warmth and suggest one '
+          'small next step.';
     case WasiaPersona.parent:
       return '$kWasiaSystemPrompt\n'
           'YOU ARE SPEAKING WITH A PARENT, '
-          'gently, without jargon. '
-          '${lessonsDone != null ? "Progress so far: $lessonsDone of $kLettersLessonCount letter lessons, ${examsTaken ?? 0} exams. " : ""}'
+          'gently, without jargon. You are not given their child\u2019s name '
+          'or progress; if they ask how their child is doing, say the Family '
+          'Wing shows each child\u2019s lessons and exams. '
           'Encourage honestly, suggest ONE concrete practice, and always '
           'leave them feeling capable.';
     case WasiaPersona.teacher:
@@ -110,86 +105,45 @@ class WasiaState {
   const WasiaState({
     this.messages = const <HadiMessage>[],
     this.isLoading = false,
+    this.notice,
   });
 
   final List<HadiMessage> messages;
   final bool isLoading;
 
-  WasiaState copy({List<HadiMessage>? messages, bool? isLoading}) {
+  /// A plain note for the person when the last question could not be
+  /// answered (for example Wasia could not reach her voice). Cleared by the
+  /// next question.
+  final String? notice;
+
+  WasiaState copy({
+    List<HadiMessage>? messages,
+    bool? isLoading,
+    String? notice,
+    bool clearNotice = false,
+  }) {
     return WasiaState(
       messages: messages ?? this.messages,
       isLoading: isLoading ?? this.isLoading,
+      notice: clearNotice ? null : (notice ?? this.notice),
     );
   }
 }
 
 /// Wasia reuses the same user-owned AI key as Hadi — one key, both teachers.
 class WasiaController extends StateNotifier<WasiaState> {
-  WasiaController(this.ref) : super(const WasiaState());
+  WasiaController(
+    this.ref, {
+    HadiProvider Function(String name, String key)? providerFor,
+  })  : _providerFor = providerFor,
+        super(const WasiaState());
 
   final Ref ref;
 
+  /// Test seam: builds the live provider. Null = the real one.
+  final HadiProvider Function(String name, String key)? _providerFor;
+
   static const String _keyPref = 'ar.hadi.apikey';
-
-
-  /// Per-student detail for her student voice: the active child's real
-  /// progress from the Family Wing on THIS device (lessons with their
-  /// titles, last exam score). Empty string when there is no active
-  /// child — she simply teaches, and never invents progress.
-  Future<String> _studentBlock(WasiaPersona persona) async {
-    if (persona != WasiaPersona.student) return '';
-    try {
-      final FamilyService fam = FamilyService();
-      final String? childId = await fam.activeChildId();
-      if (childId == null) return '';
-      final Map<String, dynamic> prog = await fam.progress(childId);
-      final Map<dynamic, dynamic> lessons =
-          prog['lessons'] as Map<dynamic, dynamic>? ?? <String, dynamic>{};
-      final Map<dynamic, dynamic> exams =
-          prog['exams'] as Map<dynamic, dynamic>? ?? <String, dynamic>{};
-      // Lesson titles from the curriculum — ids become names.
-      Map<String, dynamic>? v2;
-      try {
-        v2 = json.decode(
-                await ContentSync.load('academy/letters_v2_curriculum.json'))
-            as Map<String, dynamic>;
-      } catch (_) {
-        v2 = null;
-      }
-      final Map<String, dynamic> cur = mergeLettersCurriculum(
-          json.decode(
-                  await ContentSync.load('academy/letters_curriculum.json'))
-              as Map<String, dynamic>,
-          v2);
-      final Map<String, String> titles = <String, String>{};
-      for (final dynamic u in cur['units'] as List<dynamic>? ?? <dynamic>[]) {
-        final List<dynamic> ls =
-            (u as Map)['lessons'] as List<dynamic>? ?? <dynamic>[];
-        for (final dynamic l in ls) {
-          titles[(l as Map)['id'] as String] = l['title'] as String;
-        }
-      }
-      final List<String> done = lessons.keys
-          .map((dynamic k) => titles[k as String] ?? k)
-          .toList()
-        ..sort();
-      // The child's name is deliberately NOT put in the prompt: it would be
-      // sent to a third-party AI service. Progress only.
-      final StringBuffer buf = StringBuffer('This student has completed '
-          '${done.length} of $kLettersLessonCount letter lessons.');
-      if (done.isNotEmpty) {
-        buf.write(' Most recent: ${done.last}.');
-      }
-      if (exams.isNotEmpty) {
-        final String lastExam = exams.keys.last as String;
-        final Map<dynamic, dynamic> e = exams[lastExam] as Map<dynamic, dynamic>;
-        buf.write(' Last exam: ${e['score']}/${e['total'] ?? 10}.');
-      }
-      return buf.toString();
-    } catch (_) {
-      return '';
-    }
-  }
 
   /// Whether a parent has allowed a child's questions to reach an AI service.
   static Future<bool> childLlmAllowed() async {
@@ -217,21 +171,49 @@ class WasiaController extends StateNotifier<WasiaState> {
     return null;
   }
 
+  /// Whose voice the current thread was started in. A thread never mixes
+  /// voices: the persona prompt is sent once, with the first message, so a
+  /// parent's words must not ride along into a child's conversation.
+  WasiaPersona? _threadPersona;
+
   /// Start a fresh conversation with Wasia.
-  void clear() => state = const WasiaState();
+  void clear() {
+    _threadPersona = null;
+    state = const WasiaState();
+  }
+
+  /// Whether this voice may reach an AI service at all. DEFAULT-DENY:
+  ///  * a student: only when a parent switched the child AI route on;
+  ///  * a parent: only when the caller has just passed the parent check
+  ///    ([parentVerified]);
+  ///  * a teacher: never (there is no screen for it; the shelf answers).
+  Future<bool> aiAllowedFor(WasiaPersona persona,
+      {bool parentVerified = false}) async {
+    switch (persona) {
+      case WasiaPersona.student:
+        return childLlmAllowed();
+      case WasiaPersona.parent:
+        return parentVerified;
+      case WasiaPersona.teacher:
+        return false;
+    }
+  }
 
   Future<String> ask(String question,
       {WasiaPersona persona = WasiaPersona.student,
-      String? childName,
-      int? lessonsDone,
-      int? examsTaken}) async {
+      bool parentVerified = false}) async {
     final q = question.trim();
     if (q.isEmpty || state.isLoading) return '';
+    if (_threadPersona != persona) {
+      _threadPersona = persona;
+      state = const WasiaState();
+    }
     // Safety net first: before the shelf, before any AI, nothing is sent.
     final CrisisKind? crisis = CrisisDetector.detect(q);
     if (crisis != null) {
       final String reply = wasiaCrisisReply(persona);
       state = state.copy(
+        clearNotice: true,
         messages: <HadiMessage>[
           ...state.messages,
           HadiMessage(fromHadi: false, text: q, sensitive: true),
@@ -247,8 +229,8 @@ class WasiaController extends StateNotifier<WasiaState> {
     // invents what she does not know.
     // A child's questions stay on the shelf unless a parent has switched the
     // AI service on (and then no name is sent).
-    final bool aiAllowed = persona != WasiaPersona.student ||
-        await childLlmAllowed();
+    final bool aiAllowed =
+        await aiAllowedFor(persona, parentVerified: parentVerified);
     final k = aiAllowed ? await _key() : null;
     if (k == null) {
       // Quota spent (but still subscribed)? Say so honestly before the
@@ -267,6 +249,7 @@ class WasiaController extends StateNotifier<WasiaState> {
       offline = offline.replaceAll(RegExp(r'\[GO:[^\]]+\]'), '').trim();
       if (quotaNote != null) offline = quotaNote + offline;
       state = state.copy(
+        clearNotice: true,
         messages: <HadiMessage>[
           ...state.messages,
           HadiMessage(fromHadi: false, text: q),
@@ -279,6 +262,7 @@ class WasiaController extends StateNotifier<WasiaState> {
     final first = state.messages.isEmpty;
     state = state.copy(
       isLoading: true,
+      clearNotice: true,
       messages: <HadiMessage>[
         ...state.messages,
         HadiMessage(fromHadi: false, text: q),
@@ -287,18 +271,17 @@ class WasiaController extends StateNotifier<WasiaState> {
     try {
       final prefs = await SharedPreferences.getInstance();
       final provider = prefs.getString('ar.hadi.provider') ?? 'groq';
-      final HadiProvider p = switch (provider) {
-        'openrouter' => OpenRouterHadiProvider(apiKey: k),
-        'xai' => XaiHadiProvider(apiKey: k),
-        _ => GroqHadiProvider(apiKey: k),
-      };
+      final HadiProvider Function(String, String)? make = _providerFor;
+      final HadiProvider p = make != null
+          ? make(provider, k)
+          : switch (provider) {
+              'openrouter' => OpenRouterHadiProvider(apiKey: k),
+              'xai' => XaiHadiProvider(apiKey: k),
+              _ => GroqHadiProvider(apiKey: k),
+            };
       // The voice lands in the FIRST message only, like a system prompt;
       // follow-ups ride the conversation history.
-      final voice = personaPrompt(persona,
-          childName: childName,
-          lessonsDone: lessonsDone,
-          examsTaken: examsTaken,
-          studentBlock: await _studentBlock(persona));
+      final voice = personaPrompt(persona);
       final who = switch (persona) {
         WasiaPersona.student => 'Student',
         WasiaPersona.parent => 'Parent',
@@ -318,14 +301,16 @@ class WasiaController extends StateNotifier<WasiaState> {
       return answer;
     } catch (_) {
       // A failed turn must not wedge the conversation: drop the pending
-      // question so the user can rephrase.
+      // question so the user can rephrase, and say so on screen.
+      // The error text is never shown: it can carry a key, a URL or a stack.
+      const String note = 'Wasia could not reach her voice just now. '
+          'The lesson above still carries everything — keep walking it.';
       state = state.copy(
         isLoading: false,
+        notice: note,
         messages: state.messages.sublist(0, state.messages.length - 1),
       );
-      // The error text is never shown: it can carry a key, a URL or a stack.
-      return 'Wasia could not reach her voice just now. '
-          'The lesson above still carries everything — keep walking it.';
+      return note;
     }
   }
 }

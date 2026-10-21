@@ -48,14 +48,50 @@ class OfflineWasiaProvider implements HadiProvider {
     return normalisedQuestion.contains(' $k ');
   }
 
+  /// Letter names that are also ordinary English words or fragments
+  /// ("is it a sin", "ain't", "I have seen", "a nun", "the shin"). A bare
+  /// one of these answers with the letter only when the question gives a
+  /// letter cue (see [hasLetterCue]); "letter sin" always works.
+  static const Set<String> _ambiguousLetterNames = <String>{
+    'ba', 'ta', 'ra', 'fa', 'ya', 'ha', 'sin', 'seen', 'ain', 'jim', 'nun',
+    'shin', 'dal', 'lam',
+  };
+
+  /// Words that say the question is about the alphabet.
+  static const List<String> _letterCues = <String>[
+    'letter', 'letters', 'harf', 'huruf', 'alphabet', 'arabic', 'pronounce',
+    'pronunciation', 'makhraj', 'lesson', 'unit', 'sound', 'sounds',
+  ];
+
+  /// True when [normalisedQuestion] is plainly about letters: it uses a cue
+  /// word, or it is just one or two words (a child typing a letter's name).
+  static bool hasLetterCue(String normalisedQuestion) {
+    final String t = normalisedQuestion.trim();
+    if (t.isEmpty) return false;
+    if (t.split(' ').length <= 2) return true;
+    for (final String c in _letterCues) {
+      if (normalisedQuestion.contains(' $c ')) return true;
+    }
+    return false;
+  }
+
+  /// A keyword that is a bare ambiguous letter name ("sin", "the sin").
+  static bool isGuardedKeyword(String keyword) {
+    final List<String> tokens = normalise(keyword).trim().split(' ');
+    if (tokens.contains('letter')) return false;
+    return _ambiguousLetterNames.contains(tokens.last);
+  }
+
   @override
   Future<String> ask(String question, List<HadiMessage> history) async {
     final String q = normalise(question);
+    final bool cue = hasLetterCue(q);
     int bestScore = 0;
     String bestAnswer = decline;
     for (final _Entry e in _knowledge) {
       int score = 0;
       for (final String k in e.keywords) {
+        if (!cue && isGuardedKeyword(k)) continue;
         if (matches(q, k)) score += k.trim().length;
       }
       if (score > bestScore) {
@@ -233,7 +269,8 @@ const List<_Entry> _knowledge = <_Entry>[
     'is known, and the word decks are the next adventure. How far along is '
     'your student?',
   ),
-  _Entry(<String>['exam', 'test', 'quiz', 'how do exams work', 'pass mark'],
+  _Entry(<String>['exam', 'unit test', 'letter test', 'quiz',
+      'how do exams work', 'pass mark'],
     'Each unit ends with a small exam: 10 gentle questions about the letter '
     'shapes and names, and a student passes with 7 correct. It is not a '
     'judgement — it only shows which letters want one more visit. In the '
@@ -261,7 +298,8 @@ const List<_Entry> _knowledge = <_Entry>[
       'create profile', 'family wing'],
     'Open the Academy and go to the Family Wing — there you add each child '
     'with a first name or nickname, and the Academy keeps their lessons and '
-    'exams for them on this device only. Nothing is sent anywhere, and you '
+    'exams for them on this device only. Their names and progress are never '
+    'sent to any server or AI service, and you '
     'can delete a child at any time. Would you like me to walk you through what the '
     'Family Wing shows?',
   ),
@@ -289,20 +327,27 @@ const List<_Entry> _knowledge = <_Entry>[
   ),
   _Entry(<String>['tajweed', 'pronunciation', 'makhraj', 'sound of'],
     'Tajweed means giving every letter its right — its own sound and its own '
-    'place in the mouth. The letters school teaches each letter’s sound with '
-    'a short verse you can hear. The Tajweed Cards in the Academy practice '
-    'the rules step by step. Would you like to start with the letters first?',
+    'place in the mouth. The letters school shows each letter’s name, shape '
+    'and where it is made, but it cannot yet play the sound: to hear a '
+    'letter, ask a teacher you trust or listen to a recitation in the app. '
+    'The Tajweed Cards in the Academy practice the rules step by step. '
+    'Would you like to start with the letters first?',
   ),
-  _Entry(<String>['word deck', 'words', 'practice words', 'vocabulary'],
-    'The Word Decks in the Academy practice reading real words from the '
-    'Qur’an — short ones first, always with meaning. They are the perfect '
-    'next step after the 28 letters are known. Has your student met all '
-    'seven units yet?',
+  _Entry(<String>['word deck', 'quran words', 'arabic words',
+      'practice words', 'vocabulary'],
+    'The Word Deck in the Academy shows real words from the Qur’an with the '
+    'verse each one comes from. Its meanings are not verified yet, so it '
+    'does not show a meaning until a named source backs it — read each word '
+    'in its verse. It is a gentle next step after the 28 letters are known. '
+    'Has your student met all seven units yet?',
   ),
-  _Entry(<String>['no sound', 'audio not working', 'hear it', 'listening'],
-    'Every letter lesson has a “hear it” — a short verified verse where the '
-    'letter sounds. If sound is off, the settings screen has the sound '
-    'toggle at the very top. Shall we try one letter together right now?',
+  _Entry(<String>['no sound', 'audio not working', 'hear it', 'listening',
+      'hear the letter', 'play the letter'],
+    'The letter lessons do not play a recording of each letter yet — they '
+    'show the letter, its name and how it is made, and you say it out loud. '
+    'A teacher you trust can say it with you, and recitation in the Quran '
+    'section can be played. If the app\'s tap sounds are off, the settings '
+    'screen has the sound toggle. Shall we meet one letter together now?',
   ),
 
   // The wider academy — parents ask, Wasia points

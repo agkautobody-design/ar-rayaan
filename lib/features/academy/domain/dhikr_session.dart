@@ -52,22 +52,29 @@ class DhikrSessionState {
 
 abstract final class DhikrSessionEngine {
   /// One tap of the tasbih. Milestone rule (Sonic §4): at each 33 the
-  /// session PAUSES (phase = milestonePause); the next tap resumes.
+  /// session PAUSES (phase = milestonePause); the next tap resumes AND
+  /// counts, so a 100-count set takes exactly 100 taps.
   /// Completing the target ends in silence (phase = complete).
   static DhikrSessionState tap(DhikrSessionState s) {
     if (s.phase == DhikrPhase.complete) return s;
-    if (s.phase == DhikrPhase.milestonePause) {
-      return s.copyWith(phase: DhikrPhase.counting);
-    }
-    final int next = s.count + 1;
-    if (next >= s.set.target) {
-      return s.copyWith(count: next, phase: DhikrPhase.complete);
+    final DhikrSessionState base = s.phase == DhikrPhase.milestonePause
+        ? s.copyWith(phase: DhikrPhase.counting)
+        : s;
+    final int next = base.count + 1;
+    if (next >= base.set.target) {
+      return base.copyWith(count: next, phase: DhikrPhase.complete);
     }
     if (next % 33 == 0) {
-      return s.copyWith(count: next, phase: DhikrPhase.milestonePause);
+      return base.copyWith(count: next, phase: DhikrPhase.milestonePause);
     }
-    return s.copyWith(count: next);
+    return base.copyWith(count: next);
   }
+
+  /// What to say during a milestone pause: the real position, never a
+  /// fraction that is only true once ("a third of the way" at 66 or 99
+  /// was wrong).
+  static String milestoneMessage(DhikrSessionState s) =>
+      '${s.count} of ${s.set.target}. Breathe \u2014 then continue.';
 
   static DhikrSessionState reset(DhikrSet set) =>
       DhikrSessionState(set: set);

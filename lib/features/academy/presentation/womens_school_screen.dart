@@ -46,7 +46,7 @@ const List<_WomUnit> kWomenUnits = <_WomUnit>[
       ),
       _WomLesson(
         title: 'Maryam — The Palm Tree',
-        body: 'Alone, in labor, accused — and the angels spoke to her (19:16-33). Allah named an entire surah after a woman; her name appears more times in the Qur\'an than in the entire Bible. Solitude with Allah is never abandonment.',
+        body: 'Alone, in labor, accused — and the angels spoke to her (19:16-33). Allah named an entire surah after a woman: surah 19, Maryam. Solitude with Allah is never abandonment.',
         practice: 'When have you felt alone but not abandoned? Write one sentence about that moment.',
         storyId: 'woman-maryam',
       ),
@@ -166,7 +166,7 @@ const List<_WomUnit> kWomenUnits = <_WomUnit>[
       ),
       _WomLesson(
         title: 'Bilqis — The Queen Who Knew a Letter',
-        body: 'She ruled a kingdom, and a letter from Sulayman rearranged her throne. She kept her crown and found her Lord — the only woman in the Qur\u2019an whose submission is recorded in her own words.',
+        body: 'She ruled a kingdom, and a letter from Sulayman rearranged her throne. She kept her crown and found her Lord. The Qur\u2019an does not name her; it describes a woman ruling them (27:23), and the name Bilqis comes from later tradition.',
         practice: 'What letter has reached you recently that deserves an answer like Bilqis\u2019s?',
         storyId: 'woman-bilqis',
       ),

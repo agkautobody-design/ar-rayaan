@@ -59,7 +59,7 @@ const List<_YouthUnit> kYouthUnits = <_YouthUnit>[
       ),
       _YouthLesson(
         title: 'The Feed Is Not Real',
-        body: 'You are comparing your inside to everyone else\'s outside. The filtered life is a storefront, not a home — and the Prophet \ufdfa said Allah does not look at your appearances or wealth but at your hearts and deeds (Muslim 2564), not likes. Imam Ghazali wrote nine hundred years ago about the dunya: it is like a dream; laugh a little, weep a little, and it is gone.',
+        body: 'You are comparing your inside to everyone else\'s outside. The filtered life is a storefront, not a home — and the Prophet \ufdfa said Allah does not look at your appearances or wealth but at your hearts and deeds (Muslim 2564), not likes.',
         practice: 'Unfollow five accounts that make you feel small. Follow one that makes you want to pray.',
       ),
       _YouthLesson(

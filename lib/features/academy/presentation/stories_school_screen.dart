@@ -201,9 +201,9 @@ const List<_StoriesUnit> kStoriesUnits = <_StoriesUnit>[
         storyId: 'comp-uthman',
       ),
       _StoryChapter(
-        title: 'Ali — The Gate of Knowledge',
-        virtue: 'The fourth caliph, raised in the Prophet\u2019s house: \'I am the city of knowledge, and Ali is its gate.\' The era\u2019s scholarship begins with him.',
-        familyQuestion: 'What knowledge are you a gate to — who could you teach this month?',
+        title: 'Ali — Raised in the Prophet\u2019s House',
+        virtue: 'The fourth caliph, raised in the Prophet\u2019s house. The era\u2019s scholarship begins with him.',
+        familyQuestion: 'What knowledge could you pass on — who could you teach this month?',
         storyId: 'comp-ali',
       ),
       _StoryChapter(

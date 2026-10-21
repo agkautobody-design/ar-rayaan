@@ -256,25 +256,24 @@ void main() {
   });
 
   group('no child name reaches an AI service', () {
-    test('the parent prompt never contains the child name', () {
+    test('the parent prompt never contains the child name or progress', () {
       final String p = personaPrompt(
         WasiaPersona.parent,
         childName: 'Zaynab',
-        lessonsDone: 5,
-        examsTaken: 1,
       );
       expect(p.contains('Zaynab'), isFalse);
-      expect(p, contains('5 of 40'));
+      expect(p.contains('of 40'), isFalse);
+      expect(p, contains('not given'));
     });
 
-    test('the student prompt carries progress only', () {
+    test('the student prompt carries neither name nor progress', () {
       final String p = personaPrompt(
         WasiaPersona.student,
         childName: 'Hadi',
-        studentBlock: 'This student has completed 3 of 40 letter lessons.',
       );
       expect(p.contains('Hadi'), isFalse);
-      expect(p, contains('3 of 40'));
+      expect(p.contains('of 40'), isFalse);
+      expect(p, contains('no progress'));
     });
 
     test('the system prompt forbids asking for personal details', () {
