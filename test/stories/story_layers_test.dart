@@ -318,6 +318,34 @@ void main() {
         reason: 'Ibn Abbas on the idols is a Companion saying');
   });
 
+  test('Dhul-Qarnayn: indexed, identity shown as disputed, not claimed', () {
+    final List<Map<String, dynamic>> subs = (readMap('assets/stories/layers/index.json')['subjects']
+            as List<dynamic>)
+        .cast<Map<String, dynamic>>();
+    final Map<String, dynamic> s = subs.firstWhere(
+      (Map<String, dynamic> m) => m['id'] == 'dhul-qarnayn',
+    );
+    expect(s['stories'], contains('tale-dhul-qarnayn'));
+    expect(s['earlier'], isTrue);
+    final Map<String, dynamic> l = readMap('assets/stories/layers/dhul-qarnayn.json');
+    expect(l['reviewStatus'], 'Not yet scholar-reviewed');
+    final List<dynamic> q = l['quran'] as List<dynamic>;
+    expect((q.first as Map<String, dynamic>)['from'], 83);
+    expect((q.last as Map<String, dynamic>)['to'], 98);
+    final List<dynamic> diffs = l['differences'] as List<dynamic>;
+    final Map<String, dynamic> who = diffs.cast<Map<String, dynamic>>().firstWhere(
+      (Map<String, dynamic> d) => (d['question'] as String).startsWith('Who was'),
+    );
+    expect((who['views'] as List<dynamic>).length, greaterThanOrEqualTo(3),
+        reason: 'the identity must be shown as a disagreement');
+    final Map<String, dynamic> e = readMap('assets/stories/earlier/dhul-qarnayn.json');
+    final List<dynamic> items = e['items'] as List<dynamic>;
+    final Map<String, dynamic> c = items.cast<Map<String, dynamic>>().firstWhere(
+      (Map<String, dynamic> i) => i['class'] == 'contradicted',
+    );
+    expect((c['ruling'] as String).startsWith('Not told here'), isTrue);
+  });
+
   test('model: a layers file with nothing in it is empty', () {
     final StoryLayers l = StoryLayers.fromJson(
       <String, dynamic>{'subject': 'x', 'title': 'X', 'kind': 'unseen'},

@@ -1,0 +1,180 @@
+{
+ "schema": 1,
+ "subject": "dhul-qarnayn",
+ "title": "Dhul-Qarnayn",
+ "kind": "unseen",
+ "checked": "2026-10-20",
+ "reviewStatus": "Not yet scholar-reviewed",
+ "quran": [
+  {
+   "surah": 18,
+   "from": 83,
+   "to": 84,
+   "note": "The question put to the Prophet ﷺ, the promise of “a report”, and the power Allah gave him."
+  },
+  {
+   "surah": 18,
+   "from": 85,
+   "to": 88,
+   "note": "The way to the west, and the choice: punish, or adopt goodness."
+  },
+  {
+   "surah": 18,
+   "from": 89,
+   "to": 91,
+   "note": "The way to the east, and the people with no shield from the sun."
+  },
+  {
+   "surah": 18,
+   "from": 92,
+   "to": 97,
+   "note": "The people between two mountains, Gog and Magog, and the dam of iron and copper."
+  },
+  {
+   "surah": 18,
+   "from": 98,
+   "to": 98,
+   "note": "“This is a mercy from my Lord”; the barrier will be levelled when the promise comes."
+  }
+ ],
+ "hadith": [
+  {
+   "book": "bukhari",
+   "number": "3598",
+   "narrator": "Zaynab bint Jahsh",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "Zaynab bint Jahsh reported that the Prophet ﷺ came to her alarmed and said that a gap, as large as the circle he made with his fingers, had opened in the barrier of Gog and Magog. When she asked whether they would be destroyed while the righteous were among them, he said yes, when wickedness increases.",
+   "verified": "2026-10-20",
+   "note": "This report does not name Dhul-Qarnayn; it is cited here only for the barrier mentioned in 18:94-98."
+  },
+  {
+   "book": "muslim",
+   "number": "2880",
+   "narrator": "Zaynab bint Jahsh",
+   "grade": "Sahih",
+   "grader": "Muslim, in his Sahih",
+   "summary": "The same report of Zaynab bint Jahsh in Sahih Muslim: a gap has opened in the barrier of Ya’juj and Ma’juj, and destruction comes when evil becomes widespread.",
+   "verified": "2026-10-20",
+   "note": "This report does not name Dhul-Qarnayn; it is cited here only for the barrier mentioned in 18:94-98."
+  },
+  {
+   "book": "tirmidhi",
+   "number": "3153",
+   "narrator": "Abu Hurairah",
+   "grade": "Hasan gharib; also Sahih",
+   "grader": "al-Tirmidhi (hasan gharib) and Darussalam (sahih), as shown on sunnah.com",
+   "summary": "Abu Hurairah reported that Gog and Magog dig through the barrier every day; each day their leader tells them to return and finish tomorrow, until Allah permits their release, when the leader adds “if Allah wills”.",
+   "verified": "2026-10-20",
+   "note": "This report does not name Dhul-Qarnayn; it is cited here only for the barrier mentioned in 18:94-98. Attributed to the Prophet ﷺ by this chain; see the disagreement below on whether that attribution holds."
+  }
+ ],
+ "scholarly": [
+  {
+   "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+   "author": "Ibn Kathir",
+   "locator": "on 18:83-84",
+   "summary": "Says the Makkans asked through the People of the Book. Takes “established him” to mean great power, with armies and equipment and dominion east and west, and says some gave the name “two horns” because he reached the two ends of the sun’s rising and setting. For “a way to everything” it relays knowledge (Ibn Abbas, Mujahid and others) and, from Qatadah, the features of the earth."
+  },
+  {
+   "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+   "author": "Ibn Kathir",
+   "locator": "on 18:85-88",
+   "summary": "Relays from Ibn Abbas and Mujahid that he followed different routes. Says the sun cannot literally reach a place in the sky and calls the storytellers’ tales about it myths from the People of the Book; the verse says he saw it “as if” setting. Relays from Qatadah that to punish meant to kill, and from Mujahid that the “mild words” were kindness."
+  },
+  {
+   "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+   "author": "Ibn Kathir",
+   "locator": "on 18:89-96",
+   "summary": "Relays from Mujahid and as-Suddi that Allah knew everything about him and his army. Says Gog and Magog are children of Adam, citing a hadith in the two Sahihs; explains the iron blocks as each a Damascene qintar or more, and the molten copper (qitr) as copper (Ibn Abbas, Mujahid and others). Notes that scholars differed on the dam’s width and height."
+  },
+  {
+   "work": "Ma’ariful Qur’an (English edition, read on Quran.com)",
+   "author": "Mufti Muhammad Shafi’ Usmani",
+   "locator": "on 18:83",
+   "summary": "Says the Qur’an does not give him the name Dhul-Qarnayn, that the name seems to have come from the Jews, and that the reasons given for it differ widely. Says the Qur’an tells only the part of his story useful for guidance and that most old historical accounts are full of Isra’ili tales with no authentic source."
+  },
+  {
+   "work": "Ma’ariful Qur’an (English edition, read on Quran.com)",
+   "author": "Mufti Muhammad Shafi’ Usmani",
+   "locator": "on 18:83",
+   "summary": "Sums up the Qur’an’s account as a righteous and just king who went west, east, and then to a mountain pass in the north, where he closed the pass with a wall of cast metal against Gog and Magog. Says scholars differ on whether he was a prophet, but all agree he was a righteous believer."
+  }
+ ],
+ "differences": [
+  {
+   "question": "Who was Dhul-Qarnayn?",
+   "views": [
+    {
+     "who": "Ibn Kathir (via al-Bidaya wa an-Nihaya, as reported)",
+     "work": "Ma’ariful Qur’an (English edition, read on Quran.com), on 18:83",
+     "view": "A believing, just king in the time of Ibrahim, with al-Khidr as his minister, and distinct from the later Alexander of Macedon."
+    },
+    {
+     "who": "Abu Rayhan al-Biruni (al-Athar al-Baqiyah, as reported)",
+     "work": "Ma’ariful Qur’an (English edition, read on Quran.com), on 18:83",
+     "view": "A Himyarite king of Yemen named Abu Bakr ibn Samma. Ma’ariful Qur’an adds that Ibn Kathir also mentions him as the first Tubba‘ of Yemen."
+    },
+    {
+     "who": "Hifzur-Rahman (Qasas al-Qur’an, as reported)",
+     "work": "Ma’ariful Qur’an (English edition, read on Quran.com), on 18:83",
+     "view": "Cyrus, the Persian king (Khorus to the Jews, Kai-Khusraw to the Arabs), from the era of Daniyal."
+    },
+    {
+     "who": "Abu Hayyan and al-Alusi",
+     "work": "Ma’ariful Qur’an (English edition, read on Quran.com), on 18:83",
+     "view": "Alexander of Macedon. Ma’ariful Qur’an calls this wrong, since Alexander was a polytheist."
+    }
+   ],
+   "note": "The Qur’an does not name him. Ma’ariful Qur’an says it reports these views without ruling between them."
+  },
+  {
+   "question": "Was he a prophet?",
+   "views": [
+    {
+     "who": "Ali ibn Abi Talib, via Abu al-Tufayl, as reported by Ibn Kathir",
+     "work": "Ma’ariful Qur’an (English edition, read on Quran.com), on 18:83",
+     "view": "He was neither a prophet nor an angel, but a righteous believer. Ma’ariful Qur’an says this is the weightier view among the majority of scholars."
+    },
+    {
+     "who": "Ibn Kathir, according to Ma’ariful Qur’an",
+     "work": "Ma’ariful Qur’an (English edition, read on Quran.com), on 18:83",
+     "view": "His words show that he leaned to the view that Dhul-Qarnayn was a prophet; Ma’ariful Qur’an notes that some scholars read his pronoun as referring to al-Khidr instead."
+    }
+   ],
+   "note": "All the sources cited agree that he was a righteous believer."
+  },
+  {
+   "question": "Why “Dhul-Qarnayn”, the one with two horns?",
+   "views": [
+    {
+     "who": "Some, as relayed by Ibn Kathir",
+     "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com), on 18:83-84",
+     "view": "Because he reached the two ends (“horns”) of the sun, in the east and the west."
+    },
+    {
+     "who": "Other views listed in Ma’ariful Qur’an",
+     "work": "Ma’ariful Qur’an (English edition, read on Quran.com), on 18:83",
+     "view": "Two curls of hair; rule over the East and West; marks on his head like horns; or wound marks on both sides of his head. The book concludes “Allah knows best”."
+    }
+   ],
+   "note": "Ma’ariful Qur’an says the name came from the Jews, not from the Qur’an."
+  },
+  {
+   "question": "What is the sun “setting in a spring”?",
+   "views": [
+    {
+     "who": "Ibn Kathir",
+     "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com), on 18:85-88",
+     "view": "The sun cannot reach a place in the sky; the verse says “as if”, so it is how the sea looked to him, and the storytellers’ tales are myths of the People of the Book."
+    },
+    {
+     "who": "Ma’ariful Qur’an",
+     "work": "Ma’ariful Qur’an (English edition, read on Quran.com), on 18:83",
+     "view": "The sunset is the onlooker’s perception, and most older accounts of such things are Isra’ili tales."
+    }
+   ],
+   "note": "Both sources read the verse as what he saw, not as a claim about where the sun goes."
+  }
+ ]
+}
