@@ -22,7 +22,7 @@ class SignUpScreen extends ConsumerStatefulWidget {
 }
 
 final TextStyle _legalStyle = AppText.caption.copyWith(
-  fontSize: 11,
+  fontSize: 12,
   color: Colors.white.withValues(alpha: 0.4),
 );
 
@@ -131,7 +131,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
           'Password must be at least 6 characters.',
           style: AppText.caption.copyWith(
             color: Colors.white.withValues(alpha: 0.45),
-            fontSize: 11,
+            fontSize: 12,
           ),
         ),
         const SizedBox(height: 16),

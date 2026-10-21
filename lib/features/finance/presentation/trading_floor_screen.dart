@@ -216,7 +216,7 @@ class _FloorState extends ConsumerState<TradingFloorScreen> {
                         Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                           Text('The 9-lesson course', style: AppText.body.copyWith(fontWeight: FontWeight.w700)),
                           Text('What stocks are, the three screens, purification, crypto\'s line, the trader\'s craft',
-                              style: AppText.bodyMuted.copyWith(fontSize: 11)),
+                              style: AppText.bodyMuted.copyWith(fontSize: 12)),
                         ])),
                         const Icon(Icons.chevron_right, color: AppColors.gold),
                       ]),
@@ -247,7 +247,7 @@ class _FloorState extends ConsumerState<TradingFloorScreen> {
           Text('\$${(_cash + holdingsValue).toStringAsFixed(2)}',
               style: const TextStyle(fontFamily: 'PlayfairDisplay', fontSize: 28, color: AppColors.goldLight)),
           Text('cash \$${_cash.toStringAsFixed(0)} \u00b7 holdings \$${holdingsValue.toStringAsFixed(0)}',
-              style: AppText.bodyMuted.copyWith(fontSize: 11)),
+              style: AppText.bodyMuted.copyWith(fontSize: 12)),
         ])),
         Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
           Text(holdingsValue + _cash >= 100000 ? '+' : '',
@@ -255,7 +255,7 @@ class _FloorState extends ConsumerState<TradingFloorScreen> {
           Text('\$${(holdingsValue + _cash - 100000).toStringAsFixed(2)}',
               style: TextStyle(color: holdingsValue + _cash >= 100000 ? AppColors.goldLight : Colors.orangeAccent,
                   fontSize: 16, fontWeight: FontWeight.w700)),
-          Text('vs \$100,000 start', style: AppText.bodyMuted.copyWith(fontSize: 9.5)),
+          Text('vs \$100,000 start', style: AppText.bodyMuted.copyWith(fontSize: 12)),
         ]),
       ])),
       const SizedBox(height: 10),
@@ -289,15 +289,15 @@ class _FloorState extends ConsumerState<TradingFloorScreen> {
             ]),
             const SizedBox(height: 4),
             Text('${co.sector} \u00b7 rev \$${co.rev}M \u00b7 debt \$${co.debt}M \u00b7 mcap \$${co.mcap}M \u00b7 interest \$${co.interest}M',
-                style: AppText.bodyMuted.copyWith(fontSize: 10.5)),
-            Text(co.blurb, style: AppText.bodyMuted.copyWith(fontSize: 10.5)),
+                style: AppText.bodyMuted.copyWith(fontSize: 12)),
+            Text(co.blurb, style: AppText.bodyMuted.copyWith(fontSize: 12)),
             Row(children: [
               TextButton(onPressed: () => _trade(co, true),
                   child: const Text('Buy', style: TextStyle(color: AppColors.goldLight, fontSize: 12))),
               TextButton(onPressed: () => _trade(co, false),
                   child: const Text('Sell', style: TextStyle(color: AppColors.sand, fontSize: 12))),
               if ((_holdings[co.sym] ?? 0) > 0)
-                Text('holding: ${_holdings[co.sym]}', style: AppText.bodyMuted.copyWith(fontSize: 10.5)),
+                Text('holding: ${_holdings[co.sym]}', style: AppText.bodyMuted.copyWith(fontSize: 12)),
             ]),
           ]),
         )),
@@ -305,14 +305,14 @@ class _FloorState extends ConsumerState<TradingFloorScreen> {
         const SizedBox(height: 6),
         Text('TRADE LOG', style: AppText.eyebrow),
         for (final t in _trades.take(8))
-          Text(t, style: AppText.bodyMuted.copyWith(fontSize: 11)),
+          Text(t, style: AppText.bodyMuted.copyWith(fontSize: 12)),
       ],
       Align(
         alignment: Alignment.centerLeft,
         child: TextButton(
           onPressed: _resetAccount,
           child: Text('Reset paper account to \$100,000',
-              style: AppText.bodyMuted.copyWith(fontSize: 11, color: AppColors.gold)),
+              style: AppText.bodyMuted.copyWith(fontSize: 12, color: AppColors.gold)),
         ),
       ),
     ]);
@@ -360,10 +360,10 @@ class _FloorState extends ConsumerState<TradingFloorScreen> {
     padding: const EdgeInsets.only(bottom: 8),
     child: GlassCard(child: Row(children: [
       Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Text(label, style: AppText.eyebrow.copyWith(fontSize: 10)),
+        Text(label, style: AppText.eyebrow.copyWith(fontSize: 12)),
         Text('\$${amount.toStringAsFixed(0)} / month',
             style: AppText.body.copyWith(fontWeight: FontWeight.w700, fontSize: 16)),
-        Text(note, style: AppText.bodyMuted.copyWith(fontSize: 10.5)),
+        Text(note, style: AppText.bodyMuted.copyWith(fontSize: 12)),
       ])),
     ])),
   );
@@ -403,7 +403,7 @@ class _FloorState extends ConsumerState<TradingFloorScreen> {
           )),
         const SizedBox(height: 6),
         Text('\$${saved.toStringAsFixed(0)} of \$${target.toStringAsFixed(0)} \u00b7 \$${(target - saved).toStringAsFixed(0)} to go',
-            style: AppText.bodyMuted.copyWith(fontSize: 11.5)),
+            style: AppText.bodyMuted.copyWith(fontSize: 12)),
       ])),
       const SizedBox(height: 8),
       GlassCard(child: Text(

@@ -428,7 +428,7 @@ class HadithSchoolScreen extends ConsumerWidget {
               const SizedBox(height: 8),
               Text(
                 'Forty lessons from the Prophet\u2019s teaching \u2014 many are hadith from an-Nawawi\u2019s Forty (shown with their Arabic and number); the rest come from other hadith or the Qur\u2019an and name their source. The complete Forty is in the reader above.',
-                style: AppText.bodyMuted.copyWith(fontSize: 11, height: 1.5),
+                style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.5),
               ),
             ],
           ),

@@ -344,7 +344,7 @@ class _LudoState extends State<LudoScreen> {
               board(),
               const SizedBox(height: 8),
               Text('Four-player tables and online rooms arrive with the family cloud.',
-                  style: AppText.bodyMuted.copyWith(fontSize: 11)),
+                  style: AppText.bodyMuted.copyWith(fontSize: 12)),
             ])
           else ...[
             Container(
@@ -402,7 +402,7 @@ class _LudoState extends State<LudoScreen> {
             if (rolled && !gameOver)
               Text('Tap a glowing token to move',
                   textAlign: TextAlign.center,
-                  style: AppText.bodyMuted.copyWith(fontSize: 11.5)),
+                  style: AppText.bodyMuted.copyWith(fontSize: 12)),
           ],
         ],
       ),
@@ -424,7 +424,7 @@ class _LudoState extends State<LudoScreen> {
           const SizedBox(width: 12),
           Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Text(t, style: AppText.body.copyWith(fontWeight: FontWeight.w700, fontSize: 14)),
-            Text(s, style: AppText.bodyMuted.copyWith(fontSize: 11.5)),
+            Text(s, style: AppText.bodyMuted.copyWith(fontSize: 12)),
           ])),
           const Icon(Icons.chevron_right, color: AppColors.gold),
         ]),

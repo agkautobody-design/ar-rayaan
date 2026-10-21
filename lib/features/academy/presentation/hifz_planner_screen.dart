@@ -119,7 +119,7 @@ class _HifzPlannerScreenState extends State<HifzPlannerScreen> {
                     ),
                     const SizedBox(height: 10),
                     Text("[Interpretive: start-where-you-pray method]",
-                        style: AppText.bodyMuted.copyWith(fontSize: 10)),
+                        style: AppText.bodyMuted.copyWith(fontSize: 12)),
                   ],
                 ),
               ),

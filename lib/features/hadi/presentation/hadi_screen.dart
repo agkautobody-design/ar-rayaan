@@ -331,7 +331,7 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                     child: Text(
                       'Remove key',
                       style: AppText.caption.copyWith(
-                        color: AppColors.sand.withValues(alpha: 0.6),
+                        color: AppColors.sand.withValues(alpha: 0.7),
                       ),
                     ),
                   ),
@@ -478,7 +478,7 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                   ? 'Live answers · Qur\'an & Sihah Sitta guardrails'
                   : 'Offline mode · add a free key for live AI (tap the key icon)',
               style: AppText.bodyMuted.copyWith(
-                fontSize: 10,
+                fontSize: 12,
                 color: AppColors.textFaint,
               ),
               textAlign: TextAlign.center,
@@ -701,8 +701,8 @@ class _PassageCard extends StatelessWidget {
             Text(
               'Grade: $grade',
               style: AppText.caption.copyWith(
-                color: AppColors.sand.withValues(alpha: 0.6),
-                fontSize: 11,
+                color: AppColors.sand.withValues(alpha: 0.7),
+                fontSize: 12,
               ),
             ),
           ],
@@ -712,8 +712,8 @@ class _PassageCard extends StatelessWidget {
                   ? 'Summary written for this app, not a translation.'
                   : 'Excerpt written for this app, not a full translation.',
               style: AppText.caption.copyWith(
-                color: AppColors.sand.withValues(alpha: 0.45),
-                fontSize: 10,
+                color: AppColors.sand.withValues(alpha: 0.7),
+                fontSize: 12,
               ),
             ),
           ],
@@ -777,8 +777,8 @@ class _Bubble extends ConsumerWidget {
                             child: Text(
                               n,
                               style: AppText.caption.copyWith(
-                                color: AppColors.sand.withValues(alpha: 0.55),
-                                fontSize: 11,
+                                color: AppColors.sand.withValues(alpha: 0.7),
+                                fontSize: 12,
                               ),
                             ),
                           ),
@@ -911,7 +911,7 @@ class _SubscriptionPanel extends ConsumerWidget {
                 : 'Live AI comes with a subscription — pricing lands soon. '
                     'Until then, add your own free key above, or use my '
                     'built-in shelf: it never runs out.',
-            style: AppText.bodyMuted.copyWith(fontSize: 11.5, height: 1.5),
+            style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.5),
           ),
           const SizedBox(height: 8),
           GestureDetector(

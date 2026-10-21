@@ -192,7 +192,7 @@ class _RamadanState extends ConsumerState<RamadanScreen> {
                         Text(today.text, textAlign: TextAlign.center,
                             style: AppText.body.copyWith(height: 1.5, fontSize: 13)),
                         Text(today.source, textAlign: TextAlign.center,
-                            style: AppText.bodyMuted.copyWith(fontSize: 9.5)),
+                            style: AppText.bodyMuted.copyWith(fontSize: 12)),
                       ],
                       times.when(
                         loading: () => const SizedBox.shrink(),
@@ -269,7 +269,7 @@ class _RamadanState extends ConsumerState<RamadanScreen> {
       border: Border.all(color: AppColors.gold.withValues(alpha: 0.4)),
     ),
     child: Column(children: [
-      Text(label, style: AppText.eyebrow.copyWith(fontSize: 8.5)),
+      Text(label, style: AppText.eyebrow.copyWith(fontSize: 12)),
       Text(time, style: AppText.body.copyWith(
           fontSize: 17, fontWeight: FontWeight.w700, color: AppColors.goldLight)),
     ]),
@@ -303,13 +303,13 @@ class _RamadanState extends ConsumerState<RamadanScreen> {
                 border: Border.all(color: AppColors.gold.withValues(alpha: 0.25)),
               ),
               child: Text('$d', style: TextStyle(
-                  fontSize: 10.5,
+                  fontSize: 12,
                   color: _fast[d] == 3 ? Colors.orangeAccent : AppColors.sand)),
             ),
           ),
       ])),
       Text('tap cycles: none → fasted → excused → makeup-due · the Gentle Ledger — '
-          'missed fasts are debts to Allah, and He loves they be paid', style: AppText.bodyMuted.copyWith(fontSize: 9.5)),
+          'missed fasts are debts to Allah, and He loves they be paid', style: AppText.bodyMuted.copyWith(fontSize: 12)),
       const SizedBox(height: 12),
       Text('QUR’AN KHATAM · ${_juz.length}/30 ajza', style: AppText.eyebrow),
       const SizedBox(height: 6),
@@ -328,7 +328,7 @@ class _RamadanState extends ConsumerState<RamadanScreen> {
                 color: _juz.contains(j) ? AppColors.gold.withValues(alpha: 0.4) : const Color(0x1405090F),
                 border: Border.all(color: AppColors.gold.withValues(alpha: 0.25)),
               ),
-              child: Text('$j', style: TextStyle(fontSize: 10.5,
+              child: Text('$j', style: TextStyle(fontSize: 12,
                   color: _juz.contains(j) ? AppColors.goldLight : AppColors.sand)),
             ),
           ),
@@ -403,7 +403,7 @@ class _RamadanState extends ConsumerState<RamadanScreen> {
               const SizedBox(width: 8),
               Expanded(child: Text(
                   [_fields(e)[1], _fields(e)[2]].where((s) => s.isNotEmpty).join(' · '),
-                  style: AppText.bodyMuted.copyWith(fontSize: 11))),
+                  style: AppText.bodyMuted.copyWith(fontSize: 12))),
               GestureDetector(
                   onTap: () {
                     setState(() => _sadaqah.remove(e));
@@ -439,7 +439,7 @@ class _RamadanState extends ConsumerState<RamadanScreen> {
             ])),
         if (_table.isEmpty)
           Text('The Prophet ﷺ said: whoever feeds a fasting person has a reward like theirs (Tirmidhi 807). Plan the table — the reward is booked by the intention.',
-              style: AppText.bodyMuted.copyWith(fontSize: 11, height: 1.5)),
+              style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.5)),
       ])),
       const SizedBox(height: 12),
       const ZakatAlFitrCard(),

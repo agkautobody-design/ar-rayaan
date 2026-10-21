@@ -511,7 +511,7 @@ class _StepBody extends StatelessWidget {
               const SizedBox(height: 8),
               Text(
                 AcademyStrings.get('demo.stageCaption'),
-                style: AppText.bodyMuted.copyWith(fontSize: 10, height: 1.4),
+                style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.4),
               ),
             ],
           ),

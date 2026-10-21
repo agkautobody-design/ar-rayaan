@@ -172,7 +172,7 @@ class _AcademyHomeScreenState
                       '\u201cAre those who know equal to those who do not '
                       'know?\u201d \u2014 Qur\u2019an 39:9',
                       textAlign: TextAlign.center,
-                      style: AppText.bodyMuted.copyWith(fontSize: 11.5),
+                      style: AppText.bodyMuted.copyWith(fontSize: 12),
                     ),
                   ],
                 ),
@@ -559,7 +559,7 @@ class _SchoolRow extends StatelessWidget {
                     subtitle,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style: AppText.bodyMuted.copyWith(fontSize: 11),
+                    style: AppText.bodyMuted.copyWith(fontSize: 12),
                   ),
                 ],
               ),
@@ -573,13 +573,13 @@ class _SchoolRow extends StatelessWidget {
                   border: Border.all(color: AppColors.gold.withValues(alpha: 0.45)),
                 ),
                 child: Text('LIVE',
-                    style: TextStyle(fontSize: 8.5, color: AppColors.goldLight)),
+                    style: TextStyle(fontSize: 12, color: AppColors.goldLight)),
               )
             else
               Text('SOON',
                   style: TextStyle(
-                      fontSize: 8.5,
-                      color: AppColors.sand.withValues(alpha: 0.6))),
+                      fontSize: 12,
+                      color: AppColors.sand.withValues(alpha: 0.7))),
             const Icon(Icons.chevron_right, color: AppColors.gold, size: 18),
           ],
         ),

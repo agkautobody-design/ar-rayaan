@@ -210,7 +210,7 @@ class FeelingScreen extends ConsumerWidget {
                     const SizedBox(height: 8),
                     Text(
                       f.dua.source,
-                      style: AppText.bodyMuted.copyWith(fontSize: 10.5),
+                      style: AppText.bodyMuted.copyWith(fontSize: 12),
                     ),
                   ],
                 ),

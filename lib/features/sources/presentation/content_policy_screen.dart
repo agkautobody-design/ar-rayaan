@@ -135,7 +135,7 @@ class ContentPolicyScreen extends StatelessWidget {
                     reviewStatus.toUpperCase(),
                     style: AppText.eyebrow.copyWith(
                       fontSize: 12,
-                      color: AppColors.gold.withValues(alpha: 0.7),
+                      color: AppColors.gold.withValues(alpha: 0.9),
                     ),
                     textAlign: TextAlign.center,
                   ),

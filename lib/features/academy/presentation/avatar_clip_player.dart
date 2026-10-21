@@ -56,7 +56,7 @@ class AvatarClipPlayer extends StatelessWidget {
               const SizedBox(height: 6),
               Text(
                 clipId,
-                style: AppText.bodyMuted.copyWith(fontSize: 11),
+                style: AppText.bodyMuted.copyWith(fontSize: 12),
               ),
               const SizedBox(height: 4),
               Text(
@@ -64,7 +64,7 @@ class AvatarClipPlayer extends StatelessWidget {
                     ? 'Instructor clip — ships with the avatar asset pack'
                     : 'Clip id not in the pose spec',
                 style: AppText.bodyMuted.copyWith(
-                    fontSize: 10, color: AppColors.gold),
+                    fontSize: 12, color: AppColors.gold),
               ),
             ],
           ),

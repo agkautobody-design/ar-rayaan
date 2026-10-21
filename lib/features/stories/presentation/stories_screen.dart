@@ -55,7 +55,7 @@ class StoriesScreen extends ConsumerWidget {
                 Text('The library could not load.', style: AppText.body),
                 const SizedBox(height: 6),
                 Text('$e', textAlign: TextAlign.center,
-                    style: AppText.bodyMuted.copyWith(fontSize: 10.5)),
+                    style: AppText.bodyMuted.copyWith(fontSize: 12)),
                 const SizedBox(height: 10),
                 Text('TAP TO RETRY',
                     style: AppText.eyebrow.copyWith(color: AppColors.goldLight)),
@@ -209,7 +209,7 @@ class _SourceChip extends StatelessWidget {
       child: Text(
         label,
         style: TextStyle(
-          fontSize: 10,
+          fontSize: 12,
           letterSpacing: 0.4,
           color: established ? AppColors.goldLight : AppColors.sand,
         ),

@@ -148,7 +148,7 @@ class _PathState extends ConsumerState<NewMuslimPathScreen> {
                           Expanded(
                             child: Text('$doneCount / ${days.length} walked',
                                 style: AppText.bodyMuted.copyWith(
-                                    fontSize: 11)),
+                                    fontSize: 12)),
                           ),
                           ElevatedButton(
                             onPressed: () {
@@ -198,7 +198,7 @@ class _PathState extends ConsumerState<NewMuslimPathScreen> {
                                 : Text(
                                     d.id.split('-').last,
                                     style: AppText.bodyMuted.copyWith(
-                                        fontSize: 11),
+                                        fontSize: 12),
                                   ),
                           ),
                         ),
@@ -218,7 +218,7 @@ class _PathState extends ConsumerState<NewMuslimPathScreen> {
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
                                   style: AppText.bodyMuted.copyWith(
-                                      fontSize: 11)),
+                                      fontSize: 12)),
                             ],
                           ),
                         ),
@@ -232,7 +232,7 @@ class _PathState extends ConsumerState<NewMuslimPathScreen> {
                 child: Text(
                   'Long-press a day to un-walk it. The full library is '
                   'always open under Knowledge → The New Muslim Path.',
-                  style: AppText.bodyMuted.copyWith(fontSize: 10.5),
+                  style: AppText.bodyMuted.copyWith(fontSize: 12),
                 ),
               ),
             ],

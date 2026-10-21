@@ -252,7 +252,7 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
               child: Text(
                 'Privacy: searching sends your approximate location to '
                 'OpenStreetMap services (Overpass, Nominatim, map tiles).',
-                style: AppText.bodyMuted.copyWith(fontSize: 10),
+                style: AppText.bodyMuted.copyWith(fontSize: 12),
               ),
             ),
             const SizedBox(height: 6),
@@ -351,12 +351,12 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
                                 ? '${f['cuisine']} \u00b7 ' +
                                     '${(_dist(_lat, _lon, (f['lat'] ?? _lat) as double, (f['lon'] ?? _lon) as double) / 1000).toStringAsFixed(1)} km'
                                 : '${(_dist(_lat, _lon, (f['lat'] ?? _lat) as double, (f['lon'] ?? _lon) as double) / 1000).toStringAsFixed(1)} km away',
-                                style: AppText.bodyMuted.copyWith(fontSize: 11.5)),
+                                style: AppText.bodyMuted.copyWith(fontSize: 12)),
                             const SizedBox(height: 4),
                             Text(
                                 '${f['only'] == true ? 'Tagged fully halal' : 'Tagged halal'}'
                                 ' in community map data \u2014 confirm before eating, in shaa Allah',
-                                style: AppText.bodyMuted.copyWith(fontSize: 10)),
+                                style: AppText.bodyMuted.copyWith(fontSize: 12)),
                           ],
                         ),
                       ),
@@ -393,7 +393,7 @@ class _MosqueCard extends StatelessWidget {
                 style: AppText.body.copyWith(color: AppColors.goldLight, fontSize: 12.5)),
           ]),
           if (m.addr != null)
-            Text(m.addr!, style: AppText.bodyMuted.copyWith(fontSize: 11.5)),
+            Text(m.addr!, style: AppText.bodyMuted.copyWith(fontSize: 12)),
           const SizedBox(height: 4),
           Wrap(spacing: 6, runSpacing: 4, children: [
             if (m.denomination != null)
@@ -433,6 +433,6 @@ class _MosqueCard extends StatelessWidget {
       borderRadius: BorderRadius.circular(20),
       border: Border.all(color: AppColors.gold.withValues(alpha: 0.3)),
     ),
-    child: Text(t, style: TextStyle(fontSize: 10, color: AppColors.sand)),
+    child: Text(t, style: TextStyle(fontSize: 12, color: AppColors.sand)),
   );
 }

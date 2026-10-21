@@ -57,7 +57,7 @@ class HabitsCard extends ConsumerWidget {
                 'consistent, even if small.” (Bukhari 6464)',
                 style: AppText.caption.copyWith(
                   height: 1.4,
-                  color: AppColors.sand.withValues(alpha: 0.6),
+                  color: AppColors.sand.withValues(alpha: 0.7),
                   fontStyle: FontStyle.italic,
                 ),
               ),
@@ -122,7 +122,7 @@ class HabitsCard extends ConsumerWidget {
                       '$yearCount ${yearCount == 1 ? 'day' : 'days'} fasted '
                       'this year — every one written.',
                       style: AppText.caption.copyWith(
-                        color: AppColors.sand.withValues(alpha: 0.6),
+                        color: AppColors.sand.withValues(alpha: 0.7),
                         height: 1.4,
                       ),
                     ),

@@ -90,7 +90,7 @@ class QiblaScreen extends ConsumerWidget {
                         atMakkah
                             ? 'You are in or very near Makkah \u2014 face the Kaaba itself'
                             : 'from $place to the Kaaba \u00b7 about ${_km(km)} km',
-                        style: AppText.bodyMuted.copyWith(fontSize: 11),
+                        style: AppText.bodyMuted.copyWith(fontSize: 12),
                       ),
                       if (isDefault) ...[
                         const SizedBox(height: 6),
@@ -385,7 +385,7 @@ class _LiveQiblaState extends ConsumerState<_LiveQibla> {
               'cases with magnets, then wave the phone slowly in a figure '
               'of eight to recalibrate it.',
               style: AppText.bodyMuted.copyWith(
-                fontSize: 11.5,
+                fontSize: 12,
                 color: AppColors.goldLight,
               ),
               textAlign: TextAlign.center,
@@ -398,14 +398,14 @@ class _LiveQiblaState extends ConsumerState<_LiveQibla> {
                       'the World Magnetic Model for your location'
                 : 'Magnetic declination ${_declLabel()} \u00b7 set by you '
                       '(west is negative)',
-            style: AppText.bodyMuted.copyWith(fontSize: 11),
+            style: AppText.bodyMuted.copyWith(fontSize: 12),
             textAlign: TextAlign.center,
           ),
           if (_manual == null && !model.withinValidity)
             Text(
               'This model was issued for 2025\u20132030 and today is outside '
               'that span, so the number may be off. You can set your own.',
-              style: AppText.bodyMuted.copyWith(fontSize: 11),
+              style: AppText.bodyMuted.copyWith(fontSize: 12),
               textAlign: TextAlign.center,
             ),
           Row(
@@ -443,14 +443,14 @@ class _LiveQiblaState extends ConsumerState<_LiveQibla> {
           Text(
             'Declination: World Magnetic Model 2025, produced by NOAA/NCEI '
             'and the British Geological Survey.',
-            style: AppText.bodyMuted.copyWith(fontSize: 10),
+            style: AppText.bodyMuted.copyWith(fontSize: 12),
             textAlign: TextAlign.center,
           ),
         ] else if (!DeviceHeading.isSupported)
           Text(
             'Live compass is not available here \u2014 use the dial '
             'and the two methods below.',
-            style: AppText.bodyMuted.copyWith(fontSize: 11),
+            style: AppText.bodyMuted.copyWith(fontSize: 12),
             textAlign: TextAlign.center,
           )
         else ...[
@@ -468,7 +468,7 @@ class _LiveQiblaState extends ConsumerState<_LiveQibla> {
             Text(
               'Motion access was refused. Allow it for this site in your '
               'browser settings, then try again.',
-              style: AppText.bodyMuted.copyWith(fontSize: 11),
+              style: AppText.bodyMuted.copyWith(fontSize: 12),
               textAlign: TextAlign.center,
             ),
           if (_status == _CompassStatus.noData)
@@ -476,7 +476,7 @@ class _LiveQiblaState extends ConsumerState<_LiveQibla> {
               'No compass data arrived. This needs a phone with a compass '
               'sensor (and an https page in a browser); desktops usually '
               'have none.',
-              style: AppText.bodyMuted.copyWith(fontSize: 11),
+              style: AppText.bodyMuted.copyWith(fontSize: 12),
               textAlign: TextAlign.center,
             ),
         ],

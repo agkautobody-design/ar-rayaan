@@ -179,7 +179,7 @@ class _RequestNasheedScreenState extends ConsumerState<RequestNasheedScreen> {
                                 ),
                                 child: Text('Pending review',
                                     style: AppText.bodyMuted
-                                        .copyWith(fontSize: 11)),
+                                        .copyWith(fontSize: 12)),
                               ),
                             ],
                           ),

@@ -63,6 +63,28 @@ void main() {
     });
   }
 
+  // Floors for text drawn with a translucent gold/sand colour (the low-alpha
+  // text colours found in the audit). Each floor was computed from the surfaces
+  // above; below it the colour is under 4.5:1.
+  test('translucent text colours used in lib meet 4.5:1 at their floors', () {
+    final Map<String, (Color, double)> floors = <String, (Color, double)>{
+      'gold@0.9': (AppColors.gold, 0.9),
+      'sand@0.7': (AppColors.sand, 0.7),
+      'goldLight@0.8': (AppColors.goldLight, 0.8),
+    };
+    for (final MapEntry<String, (Color, double)> e in floors.entries) {
+      final Color fg = e.value.$1.withValues(alpha: e.value.$2);
+      for (final MapEntry<String, Color> s in surfaces.entries) {
+        final double ratio = _contrast(_over(fg, s.value), s.value);
+        expect(
+          ratio,
+          greaterThanOrEqualTo(4.5),
+          reason: '${e.key} on ${s.key} is ${ratio.toStringAsFixed(2)}:1',
+        );
+      }
+    }
+  });
+
   test('destructive (Log Out) meets 4.5:1 on the page and on a glass card', () {
     for (final Color bg in <Color>[
       AppColors.night,
@@ -88,16 +110,10 @@ void main() {
     }
   });
 
-  test('the files this layer owns declare no text under 12 px', () {
+  test('no fontSize literal anywhere in lib is under 12 px', () {
     final RegExp size = RegExp(r'fontSize:\s*(\d+(?:\.\d+)?)');
     final List<String> small = <String>[];
-    for (final String dir in <String>[
-      'lib/app',
-      'lib/features/home',
-      'lib/features/menu',
-      'lib/features/explore',
-      'lib/features/settings',
-    ]) {
+    for (final String dir in <String>['lib']) {
       for (final FileSystemEntity f in Directory(dir).listSync(recursive: true)) {
         if (f is! File || !f.path.endsWith('.dart')) continue;
         if (f.path.contains('/generated/')) continue;

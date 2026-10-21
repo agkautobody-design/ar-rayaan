@@ -119,7 +119,7 @@ class HelpLineTile extends StatelessWidget {
                       Text(
                         resource.detail,
                         style: AppText.caption.copyWith(
-                          color: AppColors.sand.withValues(alpha: 0.65),
+                          color: AppColors.sand.withValues(alpha: 0.7),
                           height: 1.4,
                         ),
                       ),
@@ -136,8 +136,8 @@ class HelpLineTile extends StatelessWidget {
                           'Not re-checked recently. If it does not connect, '
                           'try another line or your local emergency number.',
                           style: AppText.caption.copyWith(
-                            color: AppColors.sand.withValues(alpha: 0.5),
-                            fontSize: 10,
+                            color: AppColors.sand.withValues(alpha: 0.7),
+                            fontSize: 12,
                             height: 1.3,
                           ),
                         ),

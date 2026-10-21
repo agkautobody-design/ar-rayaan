@@ -80,7 +80,7 @@ class _AdhkarScreenState extends ConsumerState<AdhkarScreen> {
                         'SOURCE: HISN AL-MUSLIM · PROGRESS RESETS DAILY',
                         style: AppText.eyebrow.copyWith(
                           fontSize: 12,
-                          color: AppColors.gold.withValues(alpha: 0.4),
+                          color: AppColors.gold.withValues(alpha: 0.9),
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -295,7 +295,7 @@ class _DhikrCard extends ConsumerWidget {
                     style: AppText.bodyMuted.copyWith(
                       fontSize: 12,
                       fontStyle: FontStyle.italic,
-                      color: AppColors.gold.withValues(alpha: 0.75),
+                      color: AppColors.gold.withValues(alpha: 0.9),
                     ),
                   ),
                   const SizedBox(height: 6),

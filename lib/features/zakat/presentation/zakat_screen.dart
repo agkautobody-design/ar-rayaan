@@ -294,8 +294,8 @@ class _ZakatScreenState extends ConsumerState<ZakatScreen> {
                     'YOUR NUMBERS NEVER LEAVE THIS DEVICE · POSITIONS LABELED, '
                     'NEVER RULED ON — CONSULT YOUR SCHOLAR ON CONTESTED MATTERS',
                     style: AppText.eyebrow.copyWith(
-                      color: AppColors.gold.withValues(alpha: 0.4),
-                      fontSize: 9,
+                      color: AppColors.gold.withValues(alpha: 0.9),
+                      fontSize: 12,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -343,7 +343,7 @@ class _ZakatScreenState extends ConsumerState<ZakatScreen> {
                 '${Nisab.fmt(Nisab.silverGrams)} g silver. Tola: '
                 '${Nisab.fmt(Nisab.tolaGoldGrams)} g / '
                 '${Nisab.fmt(Nisab.tolaSilverGrams)} g.',
-                style: AppText.bodyMuted.copyWith(fontSize: 11)),
+                style: AppText.bodyMuted.copyWith(fontSize: 12)),
           ),
           const SizedBox(height: 10),
           _field('goldPrice', 'Gold price per gram', Icons.scale_outlined),
@@ -367,7 +367,7 @@ class _ZakatScreenState extends ConsumerState<ZakatScreen> {
           ),
           if (_priceNote != null)
             Text(_priceNote!,
-                style: AppText.bodyMuted.copyWith(fontSize: 11)),
+                style: AppText.bodyMuted.copyWith(fontSize: 12)),
           _note('Live prices are in US dollars. If your balances are in '
               'another currency, type the prices in that currency instead.'),
           Padding(
@@ -499,7 +499,7 @@ class _ZakatScreenState extends ConsumerState<ZakatScreen> {
 
   Widget _note(String text) => Padding(
         padding: const EdgeInsets.only(bottom: 10),
-        child: Text(text, style: AppText.bodyMuted.copyWith(fontSize: 11)),
+        child: Text(text, style: AppText.bodyMuted.copyWith(fontSize: 12)),
       );
 
   Widget _chip(String label, bool selected, VoidCallback onTap,
@@ -630,7 +630,7 @@ class _HeroCard extends StatelessWidget {
           const SizedBox(height: 4),
           Text('PURIFY YOUR WEALTH · 2.5% ABOVE NISAB',
               style: AppText.eyebrow
-                  .copyWith(color: AppColors.sand.withValues(alpha: 0.5))),
+                  .copyWith(color: AppColors.sand.withValues(alpha: 0.7))),
           const SizedBox(height: 16),
           Text(due,
               style: AppText.displayLarge.copyWith(
@@ -661,7 +661,7 @@ class _HeroCard extends StatelessWidget {
           const SizedBox(height: 2),
           Text(label,
               style: AppText.eyebrow.copyWith(
-                  fontSize: 9, color: AppColors.sand.withValues(alpha: 0.45))),
+                  fontSize: 12, color: AppColors.sand.withValues(alpha: 0.7))),
         ],
       );
 }

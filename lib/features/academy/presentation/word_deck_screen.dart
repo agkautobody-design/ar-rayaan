@@ -113,12 +113,12 @@ class _WordDeckScreenState extends ConsumerState<WordDeckScreen> {
                       Text(
                         'appears ${c.occurrences} times \u00b7 rank #${c.frequencyRank} \u00b7 '
                         'first in ${c.sourceAyah[0]}:${c.sourceAyah[1]}',
-                        style: AppText.bodyMuted.copyWith(fontSize: 11.5),
+                        style: AppText.bodyMuted.copyWith(fontSize: 12),
                       ),
                     ] else ...[
                       const SizedBox(height: 10),
                       Text('tap to reveal the meaning',
-                          style: AppText.bodyMuted.copyWith(fontSize: 11)),
+                          style: AppText.bodyMuted.copyWith(fontSize: 12)),
                     ],
                   ]),
                 ),

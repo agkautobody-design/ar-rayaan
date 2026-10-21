@@ -740,7 +740,7 @@ class StoriesSchoolScreen extends StatelessWidget {
                               fontWeight: FontWeight.w600, fontSize: 13.5)),
                           const SizedBox(height: 4),
                           Text(ch.virtue, style: AppText.bodyMuted.copyWith(
-                              fontSize: 11.5, height: 1.5)),
+                              fontSize: 12, height: 1.5)),
                           const SizedBox(height: 6),
                           Container(
                             width: double.infinity,
@@ -752,7 +752,7 @@ class StoriesSchoolScreen extends StatelessWidget {
                             ),
                             child: Text('Talk it over: ${ch.familyQuestion}',
                                 style: AppText.bodyMuted.copyWith(
-                                    fontSize: 11, height: 1.5, color: AppColors.gold)),
+                                    fontSize: 12, height: 1.5, color: AppColors.gold)),
                           ),
                         ],
                       ),
