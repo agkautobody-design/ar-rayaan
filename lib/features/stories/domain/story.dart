@@ -105,6 +105,13 @@ class Story {
   /// Hisn screen shows only the original.
   final String? duplicateOf;
 
+  /// True when a source line names a weak (daif) narration, for example
+  /// "Sunan at-Tirmidhi 2318 (daif per Darussalam)".
+  bool get hasWeakNarration => sources.any((String s) {
+        final String l = s.toLowerCase();
+        return l.contains('daif') || l.contains("da'if");
+      });
+
   /// True when the story, or any chapter of it, is labelled unverified.
   bool get hasUnverified =>
       isUnverifiedLabel(sourceLabel) ||

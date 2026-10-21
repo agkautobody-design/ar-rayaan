@@ -101,7 +101,9 @@ class _SearchState extends ConsumerState<SearchScreen> {
           hits.add(_Hit(
             shelf: 'STORY',
             title: s.title,
-            kicker: s.kicker,
+            kicker: (s.hasUnverified || s.hasWeakNarration)
+                ? 'Unverified \u00b7 ${s.kicker}'
+                : s.kicker,
             icon: Icons.auto_stories_outlined,
             open: () => context.go(AppRoutes.storyReader, extra: s),
           ));

@@ -232,6 +232,19 @@ class _StoryCard extends StatelessWidget {
                   ),
                 ),
               ),
+            if (story.hasWeakNarration)
+              const Padding(
+                padding: EdgeInsets.only(right: 8),
+                child: Tooltip(
+                  message: 'Cites a weak (daif) narration',
+                  child: Icon(
+                    Icons.warning_amber_outlined,
+                    size: 18,
+                    color: Colors.orangeAccent,
+                    semanticLabel: 'Cites a weak narration',
+                  ),
+                ),
+              ),
             if (story.hasUnverified && !isUnverifiedLabel(story.sourceLabel))
               const Padding(
                 padding: EdgeInsets.only(right: 8),
