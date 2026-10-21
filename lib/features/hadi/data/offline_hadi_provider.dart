@@ -44,6 +44,70 @@ class OfflineHadiProvider implements HadiProvider {
       'depend on the details of your situation, so for your own case please '
       'ask a qualified scholar.';
 
+  static final RegExp _schoolWords = RegExp(
+    r'\b(?:madhhab|madhab|schools|scholars\s+(?:differ|disagree)|'
+    r'majority\s+of\s+(?:the\s+)?(?:contemporary\s+)?scholars|'
+    r'most\s+scholars|jurists|hanafi|shafi\W?i|maliki|hanbali)\b',
+    caseSensitive: false,
+  );
+
+  /// Every answer on the built-in shelf, for the tests that check them all
+  /// (citations, cards, markup). Not used by the app.
+  static List<String> get shelfAnswers => <String>[
+        for (final _Entry e in _knowledge) e.answer,
+      ];
+
+  /// True when [answer] is a real shelf answer and not one of the fixed
+  /// replies (declines, redirects, comfort replies, navigation).
+  static bool _isShelfAnswer(String answer) {
+    // "contains", not "equals": the controller may put a line in front of a
+    // fixed reply (a spent daily quota, a failed live call).
+    for (final String fixed in <String>[
+      decline,
+      declineKeyed,
+      rulingDecline,
+      offTopicReply,
+      scriptReply,
+      scriptReplyKeyed,
+      scriptReplyArabic,
+      scriptReplyArabicKeyed,
+      scriptReplyUrdu,
+      scriptReplyUrduKeyed,
+      ...rudeReplies,
+      ...distressReplies,
+    ]) {
+      if (answer.contains(fixed)) return false;
+    }
+    return !answer.startsWith('Here you are. Tap below to open ');
+  }
+
+  /// The plain line added under a built-in shelf answer when the person has
+  /// chosen a school of law ([schoolLabel], for example "Hanafi") and the
+  /// answer is a fiqh one: a ruling-shaped question, or an answer that talks
+  /// about the schools. The shelf holds no verified text for any single
+  /// school, so it says that what it gave is the general view and hands the
+  /// person to a scholar of their school. It never states a school's
+  /// position. Null when the answer is not a fiqh answer.
+  static String? schoolNote({
+    required String question,
+    required String answer,
+    required String schoolLabel,
+  }) {
+    if (!_isShelfAnswer(answer)) return null;
+    // The overview of the four schools is about the schools, not a ruling.
+    if (RegExp(r'\bfour\s+(?:major\s+)?schools\b', caseSensitive: false)
+        .hasMatch(answer)) {
+      return null;
+    }
+    final bool rulingShaped = tokens(question).any(_rulingWords.contains);
+    if (!rulingShaped && !_schoolWords.hasMatch(answer)) return null;
+    return 'You follow the $schoolLabel school. I have no verified '
+        '$schoolLabel text for this on my shelf, so what I gave you is the '
+        'general view, and the details in your school may differ. Please '
+        'ask a qualified scholar of your school, or your local masjid; '
+        'Our Sources lists one.';
+  }
+
   /// For a question that has nothing to do with Islam or this app.
   static const String offTopicReply =
       'That one is outside what I can help with: I only cover Islam and '

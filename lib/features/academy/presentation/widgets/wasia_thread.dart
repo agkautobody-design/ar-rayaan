@@ -52,7 +52,11 @@ class WasiaThread extends ConsumerWidget {
                             style: AppText.body
                                 .copyWith(fontSize: 13, height: 1.5))),
                     const SizedBox(width: 6),
-                    SpeakButton(text: m.text, size: 18),
+                    SpeakButton(
+                      text: m.text,
+                      size: 18,
+                      minTapTarget: SpeakButton.minTarget,
+                    ),
                   ])
                 : Text(m.text,
                     style: AppText.bodyMuted

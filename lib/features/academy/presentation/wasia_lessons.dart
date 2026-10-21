@@ -362,7 +362,10 @@ class _LessonRunnerState extends ConsumerState<LessonRunnerScreen> {
                     children: [
                       Row(children: [
                         Expanded(child: Text('WASIA \u00b7 YOUR TEACHER', style: AppText.eyebrow)),
-                        SpeakButton(text: current.text ?? ''),
+                        SpeakButton(
+                          text: current.text ?? '',
+                          minTapTarget: SpeakButton.minTarget,
+                        ),
                       ]),
                       const SizedBox(height: 8),
                       Text(current.text ?? '',
