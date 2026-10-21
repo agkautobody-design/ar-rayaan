@@ -55,11 +55,116 @@
   "note": "Ibn Mas'ud via Zirr: Jibril with 600 wings",
   "verdict": "ok"
  },
+ "bukhari:3326": {
+  "checked": "2026-10-20",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Huraira; creation of Adam, sixty cubits, the greeting; chapter The creation of Adam and his offspring",
+  "verdict": "ok"
+ },
+ "bukhari:3331": {
+  "checked": "2026-10-20",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Huraira; women like a rib, treat gently; does not name Adam or Hawwa in the text; chapter The creation of Adam and his offspring",
+  "verdict": "ok"
+ },
+ "bukhari:3339": {
+  "checked": "2026-10-20",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Said al-Khudri; Nuh asked if he conveyed, the Ummah testifies; chapter And indeed We sent Nuh",
+  "verdict": "ok"
+ },
+ "bukhari:3340": {
+  "checked": "2026-10-20",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Huraira; intercession, Adam then Nuh first messenger to people of earth; chapter And indeed We sent Nuh",
+  "verdict": "ok"
+ },
  "bukhari:3348": {
   "checked": "2026-10-20",
   "grade": "Sahih",
   "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
   "note": "Abu Sa'id; chapter The story of Gog and Magog; 999 of every thousand",
+  "verdict": "ok"
+ },
+ "bukhari:3350": {
+  "checked": "2026-10-20",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Huraira; Ibrahim meets his father on the Day, dust on his face; chapter And Allah did take Ibrahim as khalil",
+  "verdict": "ok"
+ },
+ "bukhari:3353": {
+  "checked": "2026-10-20",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Huraira; most honoured is Yusuf son of a prophet son of a prophet son of the khalil; chapter And Allah did take Ibrahim as khalil",
+  "verdict": "ok"
+ },
+ "bukhari:3358": {
+  "checked": "2026-10-20",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Huraira; three occasions, two for Allah, the tyrant and Sarah, Hajar given; chapter And Allah did take Ibrahim as khalil",
+  "verdict": "ok"
+ },
+ "bukhari:3370": {
+  "checked": "2026-10-20",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Kab ibn Ujrah; salawat on Muhammad as on Ibrahim and his family; book of Prophets",
+  "verdict": "ok"
+ },
+ "bukhari:3372": {
+  "checked": "2026-10-20",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Huraira; Yusuf in prison, would have answered the summoner; also Ibrahim and Lut",
+  "verdict": "ok"
+ },
+ "bukhari:3401": {
+  "checked": "2026-10-20",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Said ibn Jubayr from Ibn Abbas from Ubayy ibn Kab; Musa and al-Khidr, Yusha ibn Nun named; chapter The story of al-Khidr with Musa",
+  "verdict": "ok"
+ },
+ "bukhari:3404": {
+  "checked": "2026-10-20",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Huraira; Musa modest, the stone ran off with his clothes; book of Prophets",
+  "verdict": "ok"
+ },
+ "bukhari:3405": {
+  "checked": "2026-10-20",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Ibn Masud; Prophet prays mercy on Musa, hurt more than this and patient",
+  "verdict": "ok"
+ },
+ "bukhari:3407": {
+  "checked": "2026-10-20",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Huraira; angel of death and Musa; chapter The death of Musa",
+  "verdict": "ok"
+ },
+ "bukhari:3408": {
+  "checked": "2026-10-20",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Huraira; do not prefer me over Musa, Musa holding the Throne; chapter The death of Musa",
+  "verdict": "ok"
+ },
+ "bukhari:3409": {
+  "checked": "2026-10-20",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Huraira; Adam and Musa dispute, Adam wins; chapter The death of Musa",
   "verdict": "ok"
  },
  "bukhari:3417": {
@@ -90,6 +195,41 @@
   "note": "Two women, the wolf; Dawud and Sulayman; page shared with 3426; Abu Huraira",
   "verdict": "ok"
  },
+ "bukhari:3431": {
+  "checked": "2026-10-20",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Huraira via Said ibn al-Musayyib; Satan touches every child except Maryam and her son; chapter And mention in the Book Maryam",
+  "verdict": "ok"
+ },
+ "bukhari:3435": {
+  "checked": "2026-10-20",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Ubada ibn al-Samit; testimony including Isa servant messenger and word; chapter O People of the Scripture do not exceed the limits",
+  "verdict": "ok"
+ },
+ "bukhari:3443": {
+  "checked": "2026-10-20",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Huraira; closest to Isa, prophets brothers by different mothers; chapter And mention in the Book the story of Maryam",
+  "verdict": "ok"
+ },
+ "bukhari:3444": {
+  "checked": "2026-10-20",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Huraira; Isa sees a man stealing, believes the oath by Allah; chapter story of Maryam",
+  "verdict": "ok"
+ },
+ "bukhari:3445": {
+  "checked": "2026-10-20",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Umar ibn al-Khattab; do not exaggerate in praising me as Christians did Isa; chapter And mention in the Book the story of Maryam",
+  "verdict": "ok"
+ },
  "bukhari:3461": {
   "checked": "2026-10-20",
   "grade": "Sahih",
@@ -118,11 +258,25 @@
   "note": "Abu Huraira; chapter under Qur'an 2:136; neither believe nor disbelieve the People of the Scripture outright, affirm belief in Allah and what was revealed; verified by lead",
   "verdict": "ok"
  },
+ "bukhari:4563": {
+  "checked": "2026-10-20",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Ibn Abbas; hasbunallah said by Ibrahim in the fire and by Muhammad; tafsir of 3:173",
+  "verdict": "ok"
+ },
  "bukhari:461": {
   "checked": "2026-10-20",
   "grade": "Sahih",
   "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
   "note": "Prophet subdued a jinn in prayer, recalled Sulayman's du'a; Abu Huraira",
+  "verdict": "ok"
+ },
+ "bukhari:4920": {
+  "checked": "2026-10-20",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Ibn Abbas; Wadd Suwa Yaghuth Yauq Nasr, 71:23, names of righteous men; tafsir of 71:23",
   "verdict": "ok"
  },
  "bukhari:4921": {
@@ -165,6 +319,13 @@
   "grade": "Sahih",
   "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)",
   "note": "Ibn Mas'ud via Zirr: Jibril 600 wings; ref 174a",
+  "verdict": "ok"
+ },
+ "muslim:2369": {
+  "checked": "2026-10-20",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Anas; Ibrahim best of creation; chapter The virtues of Ibrahim; sunnah.com ref 2369a",
   "verdict": "ok"
  },
  "muslim:2814": {

@@ -1,0 +1,125 @@
+{
+ "schema": 1,
+ "subject": "nuh",
+ "title": "Nuh (Noah)",
+ "kind": "prophet",
+ "checked": "2026-10-20",
+ "reviewStatus": "Not yet scholar-reviewed",
+ "quran": [
+  {
+   "surah": 71,
+   "from": 1,
+   "to": 12,
+   "note": "He warns his people, calls them night and day, and tells them to ask forgiveness; they put their fingers in their ears."
+  },
+  {
+   "surah": 71,
+   "from": 21,
+   "to": 28,
+   "note": "He says they have disobeyed him; the names of their idols; his prayer."
+  },
+  {
+   "surah": 11,
+   "from": 25,
+   "to": 35,
+   "note": "He is sent as a clear warner; the chiefs say he is only a man like themselves."
+  },
+  {
+   "surah": 11,
+   "from": 36,
+   "to": 44,
+   "note": "He is told no one more will believe; he builds the ship while they ridicule him; the oven overflows; his son stays apart; the water is swallowed and the ship settles on al-Judiyy."
+  },
+  {
+   "surah": 11,
+   "from": 45,
+   "to": 49,
+   "note": "He calls on his Lord for his son and is told, “he is not of your family; indeed, he is [one whose] work was other than righteous.”"
+  },
+  {
+   "surah": 7,
+   "from": 59,
+   "to": 64,
+   "note": "He calls them to worship Allah alone; the ship saves those with him."
+  },
+  {
+   "surah": 54,
+   "from": 9,
+   "to": 15,
+   "note": "They say “a madman”; the gates of heaven open and the earth gushes springs; he is carried on planks and nails."
+  },
+  {
+   "surah": 29,
+   "from": 14,
+   "to": 15,
+   "note": "He remained among them a thousand years minus fifty; the flood seized them; the ship saves him and its companions."
+  },
+  {
+   "surah": 66,
+   "from": 10,
+   "to": 10,
+   "note": "The wife of Nuh and the wife of Lut as an example of those who disbelieved."
+  }
+ ],
+ "hadith": [
+  {
+   "book": "bukhari",
+   "number": "3339",
+   "narrator": "Abu Sa’id al-Khudri",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "The Prophet ﷺ said that on the Day of Resurrection Nuh and his people are called. Allah asks Nuh if he conveyed the message and he says yes; his people say no warner came to them. Nuh names Muhammad ﷺ and his community as his witnesses, and they bear witness that he conveyed it, which the Prophet ﷺ linked to the verse calling the Muslims a just community and witnesses over mankind.",
+   "verified": "2026-10-20"
+  },
+  {
+   "book": "bukhari",
+   "number": "3340",
+   "narrator": "Abu Huraira",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "In the long report of the Day of Resurrection, people come to Nuh, saying he is the first messenger to the people of the earth. He says his Lord is angrier than ever before, is concerned for himself, and sends them on to Muhammad ﷺ.",
+   "verified": "2026-10-20"
+  },
+  {
+   "book": "bukhari",
+   "number": "4920",
+   "narrator": "Ibn Abbas",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "Ibn Abbas said the idols named in Nuh’s story (Wadd, Suwa’, Yaghuth, Ya’uq and Nasr) later came to be worshipped by Arab tribes: Wadd by Kalb, Suwa’ by Hudhayl, Yaghuth by Murad and later Banu Ghutayf, Ya’uq by Hamdan and Nasr by Himyar. The names belonged to righteous men of Nuh’s people; after they died Satan prompted their people to set up stones where they used to sit and name them after them, and they were worshipped only after the original generation had died and knowledge of their purpose faded.",
+   "verified": "2026-10-20",
+   "note": "This is a saying of Ibn Abbas, a Companion, recorded in the Sahih in the commentary on 71:23. It is not a saying of the Prophet ﷺ."
+  }
+ ],
+ "scholarly": [
+  {
+   "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+   "author": "Ibn Kathir",
+   "locator": "on 11:40",
+   "summary": "On “the oven overflowed”: records Ibn Abbas that the oven (tannur) is the face of the earth, so the whole surface gushed with springs, and a second view, which it calls that of the majority of the Salaf and Khalaf, that water gushed even from the ovens, the places of fire. It records Ibn Abbas that there were eighty people on the ship with their women, and gives Nuh’s son Yam, who held apart, and Nuh’s wife as excluded because they were disbelievers. It reports without a named source that the first bird to enter was the parrot and the last animal the donkey."
+  },
+  {
+   "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+   "author": "Ibn Kathir",
+   "locator": "on 11:46",
+   "summary": "Reads “he is not of your family” as meaning the son was not among those promised salvation, which covered only believing family members; his drowning had been decreed because of his disbelief and opposition to his father. It records Ibn Abbas (via Abd al-Razzaq) that the son was Nuh’s own son but opposed him in deeds and intention, and Ikrima that some readings give “he did deeds that were not righteous”."
+  }
+ ],
+ "differences": [
+  {
+   "question": "What is the “oven” that overflowed (11:40)?",
+   "views": [
+    {
+     "who": "Ibn Abbas",
+     "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+     "view": "The face of the earth: its whole surface gushed with springs."
+    },
+    {
+     "who": "The majority of the Salaf and Khalaf, as Ibn Kathir reports",
+     "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+     "view": "Water gushed even from the ovens, the places of fire."
+    }
+   ]
+  }
+ ]
+}

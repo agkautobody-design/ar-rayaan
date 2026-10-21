@@ -3,6 +3,15 @@
  "checked": "2026-10-20",
  "subjects": [
   {
+   "id": "adam",
+   "title": "Adam",
+   "kind": "prophet",
+   "stories": [
+    "prophet-adam"
+   ],
+   "earlier": true
+  },
+  {
    "id": "angels",
    "title": "The angels",
    "kind": "unseen",
@@ -33,6 +42,26 @@
    "earlier": false
   },
   {
+   "id": "ibrahim",
+   "title": "Ibrahim (Abraham)",
+   "kind": "prophet",
+   "stories": [
+    "prophet-ibrahim",
+    "woman-hagar"
+   ],
+   "earlier": true
+  },
+  {
+   "id": "isa",
+   "title": "Isa (Jesus)",
+   "kind": "prophet",
+   "stories": [
+    "prophet-isa",
+    "sign-09"
+   ],
+   "earlier": true
+  },
+  {
    "id": "jinn",
    "title": "The jinn",
    "kind": "unseen",
@@ -47,6 +76,25 @@
    "earlier": false
   },
   {
+   "id": "musa",
+   "title": "Musa (Moses)",
+   "kind": "prophet",
+   "stories": [
+    "prophet-musa",
+    "prophet-basket"
+   ],
+   "earlier": true
+  },
+  {
+   "id": "nuh",
+   "title": "Nuh (Noah)",
+   "kind": "prophet",
+   "stories": [
+    "prophet-nuh"
+   ],
+   "earlier": true
+  },
+  {
    "id": "sulayman",
    "title": "Sulayman (Solomon)",
    "kind": "prophet",
@@ -55,6 +103,15 @@
     "ghayb-sulayman-jinn",
     "ghayb-ifrit",
     "woman-bilqis"
+   ],
+   "earlier": true
+  },
+  {
+   "id": "yusuf",
+   "title": "Yusuf (Joseph)",
+   "kind": "prophet",
+   "stories": [
+    "prophet-yusuf"
    ],
    "earlier": true
   }
