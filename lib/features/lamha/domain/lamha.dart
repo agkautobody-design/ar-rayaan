@@ -35,7 +35,7 @@ abstract final class _Weekly {
     body:
         'The best day the sun rises upon. Today: send many salawat upon '
         'the Prophet ﷺ, and catch the hour in which dua is answered.',
-    source: 'Sahih Muslim 854 · Sunan Abi Dawud 1048 · Sahih al-Bukhari 935',
+    source: 'Sahih Muslim 854 · Sunan Abi Dawud 1048, sahih per al-Albani · Sahih al-Bukhari 935',
   );
 
   static const LamhaMoment monday = LamhaMoment(
@@ -53,7 +53,7 @@ abstract final class _Weekly {
     body:
         'Deeds are presented to Allah on Mondays and Thursdays — the '
         'Prophet ﷺ loved his to be presented while he was fasting.',
-    source: 'Jamiʿ at-Tirmidhi 747',
+    source: 'Jamiʿ at-Tirmidhi 747, hasan per Darussalam',
   );
 
   static const LamhaMoment sunday = LamhaMoment(
@@ -86,7 +86,7 @@ abstract final class _Rotation {
           'Entering with Bismillah and the home dua brings blessing and '
           'keeps Shaytan out: “Bismillahi walajna, wa bismillahi kharajna, '
           'wa ’ala Rabbina tawakkalna.”',
-      source: 'Sunan Abi Dawud 5096 — daʿif (weak chain)',
+      source: 'Sunan Abi Dawud 5096 — daʿif per al-Albani (weak chain)',
     ),
     LamhaMoment(
       id: 'sleep-dua',
@@ -138,7 +138,7 @@ abstract final class _Rotation {
           'Paradise lies at the feet of mothers, and a father is the middle '
           'gate of Paradise. If they are alive, one call today is a door '
           'held open for you.',
-      source: 'Sunan an-Nasa’i 3106 · Sunan Ibn Majah 3663 — sahih',
+      source: 'Sunan an-Nasa’i 3104, sahih per Darussalam · Sunan Ibn Majah 3663 — sahih per Darussalam',
     ),
     LamhaMoment(
       id: 'mosque-walk',
@@ -164,7 +164,7 @@ abstract final class _Seasonal {
             'The 13th, 14th and 15th — the nights of the full moon — the '
             'Prophet ﷺ fasted them, and said three days of each month is '
             'like fasting a lifetime.',
-        source: 'Sunan an-Nasa’i 2420 · Sahih al-Bukhari 1979',
+        source: 'Sunan an-Nasa’i 2420, sahih per Darussalam · Sahih al-Bukhari 1979',
       );
     }
     // Ashura week (9–10 Muharram).
@@ -187,7 +187,7 @@ abstract final class _Seasonal {
             'For those not on Hajj: fasting today expiates the year before '
             'and the year after. And pour out dua — it is the best day of '
             'the year for it.',
-        source: 'Sahih Muslim 1162 · Jamiʿ at-Tirmidhi 3585',
+        source: 'Sahih Muslim 1162 · Jamiʿ at-Tirmidhi 3585, weak per Darussalam',
       );
     }
     // First days of Ramadan.
@@ -218,10 +218,10 @@ abstract final class _Seasonal {
         id: 'eid-adha',
         title: 'Eid al-Adha Mubarak',
         body:
-            'The greatest day in the sight of Allah. Takbir, sacrifice, '
+            'A day of takbir, sacrifice, '
             'family — and remember: it is neither the meat nor the blood '
             'that reaches Him, but your taqwa.',
-        source: 'Sunan Ibn Majah 3126 · Quran 22:37',
+        source: 'Quran 22:37',
       );
     }
     return null;

@@ -1,435 +1,435 @@
 {
  "abudawud:101": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "no wudu without mentioning Allah's name; content said hasan, grade per sunnah.com is sahih"
  },
  "abudawud:1048": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Friday hour when supplication is answered; lamha source"
  },
  "abudawud:1067": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Friday prayer obligatory except slave, woman, boy, sick"
  },
  "abudawud:1332": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "do not disturb one another by loud recitation in mosque/prayer; the 'self-reminder level' detail not confirmed, content softened"
  },
  "abudawud:1400": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "thirty-verse surah (al-Mulk) intercedes; hadith does not mention sleep, so 'before sleep' framing removed"
  },
  "abudawud:1438": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "abudawud:1439",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "page is about ending night prayer with witr, not 'no two witr'; the 'no two witr in one night' wording is 1439"
  },
  "abudawud:1517": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "istighfar formula forgiven even if fled battle (sunnah.com numbering)"
  },
  "abudawud:1522": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Prophet advises Mu'adh: dua to remember, thank, worship well after each prayer"
  },
  "abudawud:1523": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "protective surahs after each prayer"
  },
  "abudawud:1529": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "content with Allah, Islam, Muhammad; Paradise promised"
  },
  "abudawud:1551": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "bukhari:6369",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "page is the refuge dua from harm of hearing, sight, speech, heart, desire; not the anxiety/grief dua"
  },
  "abudawud:1563": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "woman with heavy gold bangles; zakat on jewelry asked"
  },
  "abudawud:1984": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih li ghairih",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "shaving not a duty on women, clipping is; fingertip length not in this hadith"
  },
  "abudawud:2085": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "marriage needs guardian consent; content label said 'witnesses', fixed"
  },
  "abudawud:2117": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "none",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "hadith is a dowerless-marriage/Khaybar bequest case; the 'easiest mahr most blessed' saying appears only as a doubtful addition. Not supporting the claim"
  },
  "abudawud:2357": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "iftar dua (thirst gone, veins moistened), Ibn Umar"
  },
  "abudawud:2380": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "none",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "page is about vomiting while fasting, not kohl; kohl claim dropped"
  },
  "abudawud:2449": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "encourages fasting 13th-15th of lunar month; does not mention Mondays/Thursdays"
  },
  "abudawud:2454": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "fast invalid without resolve before dawn"
  },
  "abudawud:2602": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "travel/mounting dua, Ali"
  },
  "abudawud:2628": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "none",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "page is about armies camping together; 'best companions four' not there"
  },
  "abudawud:2774": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "prostration of gratitude on good news"
  },
  "abudawud:2838": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "aqiqah on 7th day, shave head, name"
  },
  "abudawud:3116": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "prompting the dying to say the shahada; Paradise"
  },
  "abudawud:3132": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "food to be prepared for Ja'far's household (chapter: food for the family of the deceased)"
  },
  "abudawud:3142": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "washing and shrouding of the Prophet's daughter (lotus water, his garment); content reworded to match"
  },
  "abudawud:3641": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "seeking knowledge; scholars inherit from the prophets"
  },
  "abudawud:3767": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "bismillah before eating; if forgotten say it on remembering"
  },
  "abudawud:3850": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "daif",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "praise after meal for food, drink, Islam; weak per al-Albani"
  },
  "abudawud:3854": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "blessing for host who fed the Prophet; the iftar-host dua wording"
  },
  "abudawud:4253": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "abudawud:4903",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "page is about the community protected from error, not envy; envy-like-fire saying is 4903"
  },
  "abudawud:466": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "dua entering mosque, refuge from Satan"
  },
  "abudawud:4782": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "angry while standing: sit, then lie down"
  },
  "abudawud:4784": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "daif",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "anger from Satan, extinguish with wudu; weak per al-Albani"
  },
  "abudawud:4800": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "house at edge of Paradise for leaving argument though right"
  },
  "abudawud:4811": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "whoever does not thank people has not thanked Allah"
  },
  "abudawud:4843": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "honouring elderly Muslim, Quran bearer, just ruler; NOT about gratitude, so removed from the gratitude sources array"
  },
  "abudawud:4880": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan sahih",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "prohibition on backbiting and prying into faults; content states only that"
  },
  "abudawud:4941": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "the merciful are shown mercy; be merciful to those on earth"
  },
  "abudawud:4948": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "da'if",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "called by own and fathers' names on the Day; graded weak, content says reported/weak"
  },
  "abudawud:495": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan sahih",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "command children to pray at 7, discipline at 10, separate beds"
  },
  "abudawud:500": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "adhan wording incl. Fajr addition; page covers adhan only, NOT iqamah"
  },
  "abudawud:5069": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "da'if",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "reward for morning/evening testimony of tawhid and risalah; weak, content already says so"
  },
  "abudawud:5073": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "da'if",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "morning/evening gratitude dua; weak, content says so"
  },
  "abudawud:5074": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "morning/evening protection and forgiveness dua"
  },
  "abudawud:5081": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "mawdu",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "morning/evening phrase x7 against worries; graded fabricated as a Prophetic report, content labels it reported only"
  },
  "abudawud:5082": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Ikhlas and two Mu'awwidhat three times morning and evening suffice; page says morning and evening (not Fajr/Maghrib)"
  },
  "abudawud:5084": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "da'if",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "morning/evening dua for the day's blessing; weak, content says so"
  },
  "abudawud:5090": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "morning/evening dua incl. 'your mercy I hope for' (hasan in chain)"
  },
  "abudawud:5095": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "dua on leaving home: guided, sufficed, protected (Anas)"
  },
  "abudawud:5096": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "daif",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "dua entering home, then greet family; weak per al-Albani"
  },
  "abudawud:5105": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "adhan in newborn al-Hasan's ear"
  },
  "abudawud:5212": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "sins fall before two Muslims who shake hands part; content said hasan, fixed"
  },
  "abudawud:61": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan sahih",
+  "grader": "al-Albani",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "taharah is key to prayer; opens with takbir, closes with taslim"
  },
  "bukhari:1": {
   "verdict": "ok",
@@ -576,12 +576,12 @@
   "note": "Sad: 1/3, morsel in wife's mouth"
  },
  "bukhari:13": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "wishing for your brother what you wish for yourself"
  },
  "bukhari:1302": {
   "verdict": "ok",
@@ -672,12 +672,12 @@
   "note": "dua before intercourse 'Bismillah, Allahumma jannibna ash-shaytan' (Ibn Abbas)"
  },
  "bukhari:1417": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "protect yourself from the Fire even with half a date"
  },
  "bukhari:1419": {
   "verdict": "ok",
@@ -712,12 +712,12 @@
   "note": "zakat al-fitr one sa before Eid prayer (Ibn Umar)"
  },
  "bukhari:1513": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Hajj on behalf of frail elderly father; start of Hajj book range 1513-1560"
  },
  "bukhari:1521": {
   "verdict": "ok",
@@ -1448,12 +1448,12 @@
   "note": "Prophet asked Fatima if she would not like to be chief of women of Paradise (Aisha)"
  },
  "bukhari:38": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "fasting Ramadan with faith and reward: past sins forgiven"
  },
  "bukhari:39": {
   "verdict": "ok",
@@ -1576,12 +1576,12 @@
   "note": "Mu'awwidhat blown into palms before sleep (Aisha)"
  },
  "bukhari:5027": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "best of you learn the Quran and teach it"
  },
  "bukhari:5033": {
   "verdict": "ok",
@@ -1600,12 +1600,12 @@
   "note": "5049 = Prophet asks Ibn Masud to recite (Quran); half-date hadith is elsewhere"
  },
  "bukhari:509": {
-  "verdict": "wrong",
-  "correct": "none",
+  "verdict": "ok",
+  "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "509 = repel one passing before a praying person (Abu Said); no donkey/archer simile"
+  "note": "repel one who passes in front of a praying person (Abu Said); content states only that"
  },
  "bukhari:5173": {
   "verdict": "ok",
@@ -1728,36 +1728,36 @@
   "note": "5654 = Aisha: fever in Madinah, Abu Bakr and Bilal; not a Bedouin visit"
  },
  "bukhari:5675": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "dua for the sick: remove the harm, cure (Aisha)"
  },
  "bukhari:5676": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "bukhari:5678",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "page is Jabir's sickness visit and inheritance verse; the every-illness-has-a-cure saying is 5678"
  },
  "bukhari:5678": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Allah created a remedy for every illness"
  },
  "bukhari:5688": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "black seed heals everything except death"
  },
  "bukhari:574": {
   "verdict": "ok",
@@ -1768,44 +1768,44 @@
   "note": "two cool prayers (Abu Musa)"
  },
  "bukhari:5740": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "the evil eye is real"
  },
  "bukhari:5748": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "bukhari:5736",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "page is the Prophet reciting the three Quls and wiping his body before sleep; the Fatiha ruqyah story is 5736 (companion; the number of sheep not on the page)"
  },
  "bukhari:5763": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Prophet afflicted by sorcery from Labid; source and cure revealed"
  },
  "bukhari:5889": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "fitrah practices (circumcision, moustache, armpit hair etc.)"
  },
  "bukhari:5954": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "image-makers face severe punishment"
  },
  "bukhari:597": {
   "verdict": "ok",
@@ -1816,20 +1816,20 @@
   "note": "pray forgotten prayer when remembered (Anas)"
  },
  "bukhari:5971": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "mother three times then father for good companionship"
  },
  "bukhari:5975": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "forbids disobeying mothers (among other things); NO 'uff is lightest' statement, content reworded"
  },
  "bukhari:6": {
   "verdict": "ok",
@@ -1840,68 +1840,68 @@
   "note": "Prophet most generous in Ramadan"
  },
  "bukhari:6011": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "believers like one body in mutual compassion"
  },
  "bukhari:6013": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "who shows no mercy is shown none"
  },
  "bukhari:6014": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Jibril urged kindness to neighbours till heirship thought of"
  },
  "bukhari:6015": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "same, Jibril and the neighbour"
  },
  "bukhari:6016": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "oath: not a believer whose neighbour is not safe from his harm"
  },
  "bukhari:6018": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "neighbor, guest, speak good or be silent"
  },
  "bukhari:6019": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "honour guest and neighbour; speak good or be silent"
  },
  "bukhari:6058": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "two-faced person among the worst"
  },
  "bukhari:608": {
   "verdict": "ok",
@@ -1912,28 +1912,28 @@
   "note": "Shaytan flees adhan (Abu Hurayrah)"
  },
  "bukhari:6094": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "truth to righteousness to Paradise; lies to the Fire"
  },
  "bukhari:6114": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "the strong one is who controls himself in anger"
  },
  "bukhari:6115": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "say the refuge-from-Satan words when angry"
  },
  "bukhari:614": {
   "verdict": "ok",
@@ -1944,44 +1944,44 @@
   "note": "dua after adhan (Jabir)"
  },
  "bukhari:6224": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "sneezing etiquette"
  },
  "bukhari:6226": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "yawning from Satan, suppress it"
  },
  "bukhari:6306": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "sayyid al-istighfar"
  },
  "bukhari:6307": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Prophet sought forgiveness more than seventy times a day"
  },
  "bukhari:6309": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Allah delights more in repentance than man finding lost camel"
  },
  "bukhari:631": {
   "verdict": "ok",
@@ -1992,116 +1992,116 @@
   "note": "Malik ibn al-Huwayrith: pray as you saw me pray"
  },
  "bukhari:6312": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "dua on waking up"
  },
  "bukhari:6314": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "hand under cheek, Allahumma bismika amutu wa ahya (chapter heading says right cheek)"
  },
  "bukhari:6320": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "dust the bed, say 'in Your name my Lord'"
  },
  "bukhari:6324": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "sleep and waking duas"
  },
  "bukhari:6326": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "bukhari:6346",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "page is Abu Bakr's request for a dua (forgiveness); the distress dua is 6346"
  },
  "bukhari:6346": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "dua of distress (Ibn Abbas): oneness, Lord of the great throne"
  },
  "bukhari:6369": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "refuge from worry, grief, incapacity, laziness, cowardice, miserliness, debt, overpowering by men (Anas)"
  },
  "bukhari:6382": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "istikhara dua (Jabir)"
  },
  "bukhari:6384": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "la hawla wa la quwwata illa billah, treasure of Paradise; lower your voices (Abu Musa)"
  },
  "bukhari:6389": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "frequent dua for good in this world and the next, protection from the Fire"
  },
  "bukhari:6406": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "two light words heavy on the Scale"
  },
  "bukhari:6412": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "health and free time, two lost blessings"
  },
  "bukhari:6416": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "be in the world as a stranger or traveller"
  },
  "bukhari:6446": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "richness is richness of the soul"
  },
  "bukhari:645": {
   "verdict": "ok",
@@ -2112,20 +2112,20 @@
   "note": "congregation 27 degrees (Ibn Umar)"
  },
  "bukhari:6464": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "moderation; steady deeds; none enters Paradise by deeds alone"
  },
  "bukhari:6502": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "tirmidhi:2309",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "page is about love of those who draw near with nawafil; 'whoever loves to meet Allah' is tirmidhi:2309 (verified there, sahih Darussalam) / bukhari 6507 not fetched"
  },
  "bukhari:657": {
   "verdict": "wrong",
@@ -2144,20 +2144,20 @@
   "note": "seven shaded (Abu Hurayrah)"
  },
  "bukhari:6608": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "vow changes nothing; extracts from the miser"
  },
  "bukhari:6666": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "bukhari:631",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "page is about Hajj rites done out of order; the prayer-teaching claim is bukhari:631 / muslim:397"
  },
  "bukhari:67": {
   "verdict": "ok",
@@ -2176,28 +2176,28 @@
   "note": "Aisha: Prophet in service of family (Aswad)"
  },
  "bukhari:69": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "make things easy, give glad tidings, do not repel"
  },
  "bukhari:6927": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "reply to the Jews' distorted greeting with 'wa alaykum'; gentleness (Aisha)"
  },
  "bukhari:6946": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "consult women; virgin's silence is consent"
  },
  "bukhari:735": {
   "verdict": "ok",
@@ -2208,20 +2208,20 @@
   "note": "raising hands to shoulders (Ibn Umar)"
  },
  "bukhari:7352": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "judge who strives: two rewards if right, one if wrong"
  },
  "bukhari:7405": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "hadith qudsi: I am as My servant thinks; with him when he remembers Me"
  },
  "bukhari:756": {
   "verdict": "ok",
@@ -2352,12 +2352,12 @@
   "note": "there is an hour on Friday (Abu Hurayrah); does NOT specify imam sits to prayer end"
  },
  "bukhari:950": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Eid day celebration (spear display); cited as range 950-956 for Eid"
  },
  "bukhari:952": {
   "verdict": "ok",
@@ -2392,1971 +2392,2107 @@
   "note": "night prayer two by two (Ibn Umar)"
  },
  "ibnmajah:1565": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "three handfuls of earth from the head side"
  },
  "ibnmajah:1753": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "fasting person's dua at breaking fast not rejected"
  },
  "ibnmajah:1846": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "marriage is part of the sunnah; fast if unable"
  },
  "ibnmajah:224": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "da'if jiddan",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "seek-knowledge-is-a-duty narration; chain very weak, first part authentic through other routes"
  },
  "ibnmajah:2443": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "pay the worker before his sweat dries"
  },
  "ibnmajah:3062": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Zamzam is for what it is drunk for; no mention of righteous child or Ismail"
  },
  "ibnmajah:3126": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "none",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "page: sacrifice is the most beloved deed that day (weak); does not say 'greatest day in the sight of Allah'"
  },
  "ibnmajah:3349": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "stomach worst vessel; thirds"
  },
  "ibnmajah:3663": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "honouring parents; father the middle gate of Paradise"
  },
  "ibnmajah:3871": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "morning/evening dua for pardon and well-being; no 'contentment after the decree' in it, daily_hadith text corrected"
  },
  "ibnmajah:3878": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "none",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "page is dhikr on waking at night and forgiveness; not the rain dua"
  },
  "ibnmajah:3881": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "tirmidhi:3524",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "page is night prayer after waking; Ya Hayyu ya Qayyum is tirmidhi:3524"
  },
  "ibnmajah:4212": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "none",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "page is about kindness/kinship vs injustice; gratitude-for-little saying not here"
  },
  "ibnmajah:4250": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "da'if",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "repentant is like one without sin; weak"
  },
  "ibnmajah:771": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "daif",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "duas entering/leaving mosque (Fatimah); weak per Darussalam"
  },
  "ibnmajah:897": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "'rabbighfir li' between two prostrations (Hudhaifah)"
  },
  "ibnmajah:925": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "dua after Fajr: beneficial knowledge, good provision, accepted deeds"
  },
  "muslim:101": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "whoever deceives us is not one of us (arms and deception)"
  },
  "muslim:1015": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Allah is good and accepts only what is good; lawful earnings"
  },
  "muslim:102": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "seller hid wet grain; cheater not one of us"
  },
  "muslim:1051": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "true richness is richness of the soul; contentment"
  },
  "muslim:1055": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "muslim:2965",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "page is a dua for Muhammad's family sustenance; the pious/independent/hidden saying is muslim:2965"
  },
  "muslim:1095": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "suhoor is blessed; best close to dawn"
  },
  "muslim:1096": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "suhoor is the difference from the People of the Book's fast"
  },
  "muslim:1134": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Ashura fast; plan to add the ninth"
  },
  "muslim:1137": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "fasting forbidden on both Eid days"
  },
  "muslim:1141": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Tashriq days are for eating and drinking; remembrance wording is in the chapter title"
  },
  "muslim:1162": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "fasting Arafah expiates previous+coming year; Ashura previous year; Mon/Thu in chapter heading"
  },
  "muslim:1163": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Muharram best fast after Ramadan; night prayer best after obligatory"
  },
  "muslim:1164": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "six Shawwal days like fasting the year"
  },
  "muslim:1169": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "seek Laylat al-Qadr in last ten nights"
  },
  "muslim:1172": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "i'tikaf in last ten days of Ramadan; 'until he died' is not on this page, wording removed"
  },
  "muslim:1184": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Ibn Umar's report of the Prophet's talbiyah wording; the 'Jibril instructed me to raise it' claim not here, removed"
  },
  "muslim:1211": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "muslim:1218",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "page is Aisha's account of the Farewell Hajj rites; no green-markers/valley statement; sa'i claim reworded and cites muslim:1218 (Jabir's Hajj)"
  },
  "muslim:1218": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Jabir's long account of the Prophet's Hajj"
  },
  "muslim:1337": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Hajj once in a lifetime; had he said yes it would be yearly; 'voluntary' wording not on page, removed"
  },
  "muslim:134": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "waswasa about who created Allah: seek refuge, stop, affirm faith"
  },
  "muslim:1342": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "travel dua on mounting, plus return addition ayibuna ta'ibuna"
  },
  "muslim:1343": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "muslim:1342",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "page is refuge from travel hardships; the return words 'ayibuna' are in muslim:1342 (verified)"
  },
  "muslim:1348": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Day of Arafah: most people freed from Hellfire (Aisha)"
  },
  "muslim:1349": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Umrah to Umrah expiation; accepted Hajj reward is Paradise"
  },
  "muslim:1350": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Hajj without obscenity or sin: returns free of sin"
  },
  "muslim:1409": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "muhrim may not marry, be married off, or propose"
  },
  "muslim:1429": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "accept the walima invitation"
  },
  "muslim:1551": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "none",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "page is the Khaybar sharecropping (musaqah) agreement; not about returning rights or repentance"
  },
  "muslim:1574": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "keeping a dog besides herding/hunting loses qirats daily; farming only in chapter title"
  },
  "muslim:1598": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "riba: curse on taker, giver, writer, two witnesses (Jabir)"
  },
  "muslim:16": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "pillars of Islam hadith"
  },
  "muslim:1631": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "three ongoing deeds after death"
  },
  "muslim:1716": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "judge: two rewards if right, one if wrong"
  },
  "muslim:1718": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "innovation in the religion is rejected"
  },
  "muslim:1726": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "bukhari:2076",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "page is about milking another's livestock without consent; the leniency-in-trade saying is bukhari:2076 (Allah's mercy on the lenient man)"
  },
  "muslim:1742": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "none",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "page is about not wishing to meet the enemy, warfare conduct; not moon sighting"
  },
  "muslim:1827": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "the just on pulpits of light (judging, family, dependents)"
  },
  "muslim:1829": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "each is a shepherd and answerable for his flock"
  },
  "muslim:1886": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "martyr forgiven all but debt"
  },
  "muslim:1907": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "deeds by intentions"
  },
  "muslim:2003": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "every intoxicant is khamr/forbidden; forty-day prayer claim NOT here, removed"
  },
  "muslim:2017": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Satan shares food without Allah's name; forgotten-bismillah wording not here (tirmidhi:1858/abudawud:3767)"
  },
  "muslim:2018": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "naming Allah entering home and before eating denies Satan lodging and food"
  },
  "muslim:2020": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "eat and drink with the right hand; Satan uses the left"
  },
  "muslim:2022": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "boy taught: name Allah, right hand, food nearby"
  },
  "muslim:2116": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "none",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "page is forbidding striking animals on the face; not about a non-Muslim's Hajj/mirage; reworded with Qur'an 24:39"
  },
  "muslim:2123": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "muslim:918",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "page is the ban on false hair; the calamity dua is muslim:918"
  },
  "muslim:2137": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "four phrases most beloved to Allah (and a warning about names); the 'dearer than what the sun rises on' saying is muslim:2695"
  },
  "muslim:2162": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "five rights of a Muslim over a Muslim"
  },
  "muslim:2174": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Satan moves through a person like blood"
  },
  "muslim:2186": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "tirmidhi:3388",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "page is Gabriel's ruqyah for the Prophet in illness, not the a'udhu morning/evening dua; replaced by tirmidhi:3388"
  },
  "muslim:2187": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "the evil eye is real"
  },
  "muslim:2188": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "evil eye is real; wash when asked (Ibn Abbas)"
  },
  "muslim:2189": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Prophet affected by magic (Labid); last two surahs not mentioned here, claim removed"
  },
  "muslim:2202": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "hand on the painful spot, Bismillah x3, refuge dua x7; taught to the sufferer (not 'family fell ill' framing), content reworded"
  },
  "muslim:2203": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Uthman ibn Abi al-As: devil Khinzab disturbs prayer; seek refuge and spit three times to the left; 'lightly' removed"
  },
  "muslim:223": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "purity is half of faith; alhamdulillah fills the scale (Abu Malik al-Ashari)"
  },
  "muslim:224": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "prayer not accepted without purification (fetched as 224a; plain URL fails)"
  },
  "muslim:2261": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "disliked dream from Satan: spit left x3, seek refuge; 'do not tell others' not in this hadith, removed"
  },
  "muslim:2273": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "none",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "page could not be fetched (2273, 2273a); number dropped from content, reported only"
  },
  "muslim:2328": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "never struck anything with his hand except in Allah's cause (incl. women and servants)"
  },
  "muslim:234": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "shahada after wudu: eight gates of Paradise (234a)"
  },
  "muslim:244": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "sins leave with wudu water; the 'under the nails' detail not confirmed by the page summary"
  },
  "muslim:252": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "siwak at every prayer wished but not ordered"
  },
  "muslim:2552": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "finest kindness of a son: treat kindly his father's loved ones; guide wording corrected"
  },
  "muslim:2559": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "prohibition of envy/hatred/turning away (Anas); chapter heading and narrator confirmed, body text not shown to the checker"
  },
  "muslim:2564": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "a: Muslims are brothers, do not wrong/forsake/despise; c: Allah looks at hearts and deeds not faces and wealth"
  },
  "muslim:257": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "fitrah: moustache, nails, armpit hair (257a); beard/siwak not in it"
  },
  "muslim:2586": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "believers like one body in mutual mercy"
  },
  "muslim:2588": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "charity does not decrease wealth; forgiveness and humility raise honor"
  },
  "muslim:2589": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "definition of backbiting; false claims are slander"
  },
  "muslim:259": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "trim the moustache, let the beard grow (Ibn Umar); no 'differ from polytheists' here"
  },
  "muslim:2594": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "gentleness adorns; its removal mars (Aisha)"
  },
  "muslim:2609": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "the strong one controls himself in anger (Abu Hurayrah)"
  },
  "muslim:2625": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Jibril kept urging kindness to neighbours: heirship thought of"
  },
  "muslim:2643": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "womb stages 3x40 days then angel records provision/lifespan/deeds; text does not state 120 total (sum of stages)"
  },
  "muslim:2664": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "strong believer better; strive for benefit; do not say if only"
  },
  "muslim:2675": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "hadith qudsi: Allah near to servant's thought of Him, with him when he remembers"
  },
  "muslim:2691": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "SubhanAllahi wa bihamdihi x100: sins erased like sea foam; also tahlil x100"
  },
  "muslim:2693": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "tahlil x10 like freeing four slaves of Ismail's line"
  },
  "muslim:2698": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "SubhanAllah x100: thousand good deeds or thousand sins erased (Arabic 'or')"
  },
  "muslim:2699": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "conceal faults, relieve distress, path of knowledge"
  },
  "muslim:2702": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Aghar al-Muzani: Prophet seeks forgiveness 100 times a day"
  },
  "muslim:2704": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "be gentle with yourselves; Allah is near and hears; la hawla treasure of Paradise"
  },
  "muslim:2707": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "bukhari:6369",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "page: Prophet sought refuge from bad fate, misery, enemies' gloating; does not list incapacity/laziness (that dua is in 2722/ bukhari 6369)"
  },
  "muslim:2708": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "dua on alighting at a place: refuge in Allah's perfect words"
  },
  "muslim:2709": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "refuge in Allah's perfect words when stopping at a place / evening (2708b, 2709a)"
  },
  "muslim:2710": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "bedtime: wudu, right side, entrust oneself; NOT the last verses of al-Baqarah nor the qini 'adhabaka dua (claims removed/reattributed)"
  },
  "muslim:2711": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Bismika Allahumma amutu wa ahya and the waking dua; not the qini 'adhabaka dua nor the funeral dua"
  },
  "muslim:2721": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "dua for guidance, piety, chastity, sufficiency"
  },
  "muslim:2723": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Ibn Masud evening dua (amsayna wa amsal-mulku lillah)"
  },
  "muslim:2726": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Juwayriyyah: four dhikr phrases outweigh her morning dhikr"
  },
  "muslim:2734": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Allah is pleased with a servant who praises Him after eating or drinking (Anas)"
  },
  "muslim:2747": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Allah happier with repentance than man finding lost provisioned camel"
  },
  "muslim:2749": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "if you did not sin Allah would bring a people who sin and seek forgiveness"
  },
  "muslim:276": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "wiping khuffs: traveller / resident time limits (276a)"
  },
  "muslim:2766": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "man who killed a hundred; repentance accepted"
  },
  "muslim:2814": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "every person has an assigned jinn companion (qarin); the Prophet's submitted to good"
  },
  "muslim:2824": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "what no eye has seen prepared for the righteous"
  },
  "muslim:2843": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "muslim:2844",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "page: Hell's fire exceeds earthly fire in heat; the 'kindled thousand years until black' saying is not here (and the falling-stone one is 2844)"
  },
  "muslim:2858": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "world versus Hereafter: finger dipped in the sea"
  },
  "muslim:2865": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Iyad ibn Himar sermon; the summary did not confirm the humility clause -> human review"
  },
  "muslim:2877": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "none should die except thinking well of Allah"
  },
  "muslim:2901": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Hudhayfah ibn Usayd: ten signs, last a fire driving people to the gathering"
  },
  "muslim:2958": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "my wealth: you own only what you ate, wore out or gave"
  },
  "muslim:2999": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "believer's affair all good: gratitude in ease, patience in hardship"
  },
  "muslim:3": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "deliberately lying about the Prophet: Hellfire"
  },
  "muslim:30": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "FALSE POSITIVE: 'New Muslim 30-day path' in module_registry.json is not a citation; extractor patched. No real citation of muslim:30 exists"
  },
  "muslim:330": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "woman with braids: pour water over head for ghusl"
  },
  "muslim:362": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "doubt about wind does not remove certainty of purity"
  },
  "muslim:379": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "adhan taught to Abu Mahdhura: this version has repeated testimonies; the guide's 4x/2x wording differs, content reworded"
  },
  "muslim:384": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "repeat the muezzin, send blessings, ask al-wasila: intercession"
  },
  "muslim:391": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "raising hands at takbir/bowing; chapter heading says shoulders, no ears"
  },
  "muslim:397": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "man who prayed badly was taught; Fatiha-required wording is not in this hadith (it is 394)"
  },
  "muslim:408": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "one blessing on the Prophet: ten from Allah"
  },
  "muslim:442": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "do not prevent women from the mosque (addressed to men about wives)"
  },
  "muslim:47": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "faith: good speech or silence, neighbour, guest"
  },
  "muslim:482": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "closest to the Lord in sujud; make much dua"
  },
  "muslim:54": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "not enter Paradise until you believe/love; spread salam"
  },
  "muslim:55": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "religion is sincere advice (nasiha)"
  },
  "muslim:572": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "sujud sahw, act on likelier count"
  },
  "muslim:588": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "refuge from Hell, grave, life/death, Dajjal in tashahhud"
  },
  "muslim:59": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "signs of hypocrite: lie, break promise, betray trust"
  },
  "muslim:591": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "after salam: istighfar three times then Allahumma antas-salam (Thawban)"
  },
  "muslim:593": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "post-prayer: la ilaha illallah, none can withhold what You give"
  },
  "muslim:594": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Ibn az-Zubayr: post-salam la hawla wa la quwwata... la na'budu illa iyyah"
  },
  "muslim:597": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "33/33/33 + tahlil, sins forgiven like sea foam"
  },
  "muslim:650": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "congregation 27 degrees better than praying alone"
  },
  "muslim:656": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "reward of Isha and Fajr in congregation"
  },
  "muslim:681": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "sleep is not negligence; pray when you wake"
  },
  "muslim:684": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "only expiation for a forgotten prayer is to pray it"
  },
  "muslim:686": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "shortening prayer is a charity from Allah (Umar's question)"
  },
  "muslim:713": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "mosque duas: open the doors of mercy / ask Your bounty"
  },
  "muslim:725": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "two rak'ahs of Fajr better than the world"
  },
  "muslim:748": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "awwabin prayer when young camels feel the heat"
  },
  "muslim:772": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Hudhayfa: Prophet's long night prayer, Baqarah/Nisa/Al Imran, long ruku and sujud"
  },
  "muslim:798": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "skilled Quran reciter with the angels; the halting reciter doubled"
  },
  "muslim:8": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "hadith of Jibril: Islam, iman, ihsan, the Hour"
  },
  "muslim:804": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Quran comes as intercessor for its reciters"
  },
  "muslim:817": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "bukhari:5027",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "page is Umar and the freed slave appointed; the Quran raises some, lowers others; no 'best of you' wording (that is bukhari:5027)"
  },
  "muslim:854": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Friday best day the sun rises; Adam created then (Abu Hurayrah)"
  },
  "muslim:867": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "the Prophet's Friday khutbah wording (every innovation a misguidance appears within it)"
  },
  "muslim:87": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "gravest sins: shirk, mistreating parents, false speech"
  },
  "muslim:892": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "every people have a festival; girls singing in Aisha's house"
  },
  "muslim:899": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Prophet's unease at wind/clouds; relief at rain; chapter heading is refuge when wind appears; dua wording itself not shown in the page summary -- human review"
  },
  "muslim:904": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "none",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "page is the eclipse prayer (Jabir) with rukus and sujud; not a funeral hadith; claim removed"
  },
  "muslim:91": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "atom of arrogance bars Paradise; pride defined"
  },
  "muslim:918": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "dua of calamity (inna lillahi...), Umm Salama; a better replacement"
  },
  "muslim:926": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "patience at the first stroke of calamity"
  },
  "muslim:927": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Umar to Hafsa about wailing over the dead; page topic is wailing, not eyes shedding tears"
  },
  "muslim:944": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "hasten with the funeral bier"
  },
  "muslim:951": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Negus funeral prayer with four takbirs"
  },
  "muslim:963": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "funeral dua of Awf ibn Malik (963a/963b)"
  },
  "muslim:977": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "earlier bans on grave visiting, meat storage, nabidh vessels lifted"
  },
  "nasai:1745": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "qunut of witr taught to al-Hasan"
  },
  "nasai:2331": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "abudawud:2454",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "page: no fast without pre-dawn intention, graded weak on sunnah.com; replaced by abudawud:2454 (sahih al-Albani)"
  },
  "nasai:2420": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "three days each month like lifelong fasting; 13th-15th"
  },
  "nasai:3106": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "nasai:3104",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "page is best/worst person (fighter vs Quran reciter who ignores); mother's feet is nasai:3104"
  },
  "nasai:9927": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "none",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "no such page on sunnah.com's Sunan an-Nasa'i (fetch failed, not a rate limit); likely a Kubra / Amal al-Yawm number; number dropped, reported"
  },
  "tirmidhi:1071": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Munkar and Nakir question the deceased in the grave"
  },
  "tirmidhi:1073": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "da'if",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "consoling the afflicted: reward like theirs; weak; wording is any affliction"
  },
  "tirmidhi:1085": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "da'if",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "marry off suitor whose religion and character you approve; graded weak on sunnah.com, content labels it"
  },
  "tirmidhi:1162": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "most complete in faith are best in character; best to wives"
  },
  "tirmidhi:1190": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "none",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "page is about a woman seeking her sister's divorce; not cupping"
  },
  "tirmidhi:1209": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "da'if",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "truthful merchant with prophets/truthful/martyrs; weak, content must label"
  },
  "tirmidhi:1513": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "aqiqah two sheep boy one girl; silver-weight claim NOT in it, removed"
  },
  "tirmidhi:1535": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "swearing by other than Allah is forbidden/shirk"
  },
  "tirmidhi:1858": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Bismillah before eating; forgotten wording"
  },
  "tirmidhi:1899": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan",
+  "grader": "al-Tirmidhi",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Lord's pleasure in parent's pleasure; Tirmidhi preferred the version halting at the companion, so content says 'reported'"
  },
  "tirmidhi:1919": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "mercy to young and honour of elders"
  },
  "tirmidhi:1924": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "mercy to people brings Allah's mercy; kinship ties"
  },
  "tirmidhi:1952": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "da'if",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "father's best gift is good manners; weak/mursal; content must label"
  },
  "tirmidhi:1956": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "smile to brother is charity"
  },
  "tirmidhi:1987": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "fear Allah wherever you are; Tirmidhi: hasan sahih"
  },
  "tirmidhi:2018": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "best in manners nearest/most beloved to the Prophet"
  },
  "tirmidhi:2103": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "none",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "page is about maternal uncle inheriting; not a will hadith"
  },
  "tirmidhi:2307": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "remember often the destroyer of pleasures (death)"
  },
  "tirmidhi:2309": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "'whoever loves to meet Allah, Allah loves to meet him' (page verified); content now cites it for that"
  },
  "tirmidhi:2317": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "da'if",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "leaving what does not concern you is part of good Islam; sunnah.com shows weak, content said hasan"
  },
  "tirmidhi:2344": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "tawakkul and provision like birds; matches claim"
  },
  "tirmidhi:2378": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "a person follows his friend's way; choose friends carefully"
  },
  "tirmidhi:2380": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "stomach worst vessel; thirds"
  },
  "tirmidhi:2460": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "daif",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "grave garden or pit of Fire; weak per Darussalam, gharib per Tirmidhi; content already says scholars differ"
  },
  "tirmidhi:2485": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "spread salam, feed, night prayer: enter Paradise in peace"
  },
  "tirmidhi:2499": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "daif",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "every son of Adam sins, best are repenters; page grade weak per Darussalam (content graded hasan: fix)"
  },
  "tirmidhi:2517": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "tie the camel then trust in Allah; a transmitter-critic called this narration munkar, content notes it"
  },
  "tirmidhi:2518": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "leave what causes doubt; Tirmidhi hasan sahih"
  },
  "tirmidhi:2654": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "da'if",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "seeking knowledge to show off/argue: Fire; weak, content must label"
  },
  "tirmidhi:2810": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "none",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "page is about wearing white / shrouding; Surah al-Kahf light-between-Fridays is not this"
  },
  "tirmidhi:2887": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "da'if",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Ya-Sin heart of the Quran; weak; the 'ease for the dying' claim not in it"
  },
  "tirmidhi:2891": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "al-Mulk thirty verses intercedes until forgiven; no mention of grave punishment or sleep"
  },
  "tirmidhi:2910": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "reward per letter of Quran x10, alif a letter"
  },
  "tirmidhi:2969": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "dua is worship; Tirmidhi hasan sahih"
  },
  "tirmidhi:3100": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "none",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "page is Quran 9:108 Quba cleansing; Monday/Thursday doors of the Garden is a Muslim report (see muslim:2564 check)"
  },
  "tirmidhi:3124": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "names of the Fatiha (Umm al-Kitab); the 'no like it in Tawrah/Injil/Zabur' saying is tirmidhi:2875"
  },
  "tirmidhi:3211": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "woman asks why women unmentioned; 33:35 revealed; narrator Umm Umarah"
  },
  "tirmidhi:3235": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "dream: angels' debate; dua for good deeds and love of the poor/Allah; Tirmidhi: hasan sahih"
  },
  "tirmidhi:3372": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "dua is worship (Nu'man ibn Bashir); Tirmidhi hasan sahih"
  },
  "tirmidhi:3377": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "bukhari:6407",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "page is about dhikr being the best deed; no house or tree; living/dead comparison is bukhari:6407 (no house)"
  },
  "tirmidhi:3388": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "morning/evening 'in the name of Allah with whose name nothing harms'"
  },
  "tirmidhi:3391": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Allahumma bika asbahna morning/evening dua; Tirmidhi hasan"
  },
  "tirmidhi:3392": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan sahih",
+  "grader": "al-Tirmidhi",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "morning/evening/bedtime dua of Abu Bakr (alimal-ghaybi); no named modern grader on page"
  },
  "tirmidhi:3404": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Prophet recited as-Sajdah and al-Mulk before sleep"
  },
  "tirmidhi:3431": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "daif",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "dua on seeing someone afflicted; weak per Darussalam"
  },
  "tirmidhi:3433": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "tirmidhi:3431",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "page is closing-of-gathering dua; dua on seeing the afflicted is 3431 (weak per Darussalam)"
  },
  "tirmidhi:3451": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "da'if",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "dua at sighting the new moon; Darussalam weak, Tirmidhi hasan gharib; content states both"
  },
  "tirmidhi:3457": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "daif",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "dua after eating; weak per Darussalam"
  },
  "tirmidhi:3474": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "tawhid formula ten times after Fajr"
  },
  "tirmidhi:3505": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "dua of Yunus is answered"
  },
  "tirmidhi:3513": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "Laylat al-Qadr dua of pardon, Aisha"
  },
  "tirmidhi:3518": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "abudawud:5095",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "page is about tasbih/tahmid weighing heavily (weak); leaving-home dua is abudawud:5095"
  },
  "tirmidhi:3522": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "prophet's frequent dua: Turner of hearts, firm faith"
  },
  "tirmidhi:3537": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "repentance accepted until death rattle"
  },
  "tirmidhi:3563": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "debt-relief dua, Ali: sufficiency with the lawful"
  },
  "tirmidhi:3573": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "abudawud:1517",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "page: every dua is answered/granted/averted; the istighfar formula is abudawud:1517"
  },
  "tirmidhi:3575": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "three quls three times morning and evening; Tirmidhi hasan sahih gharib"
  },
  "tirmidhi:3585": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "da'if",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "best dua is the Day of Arafah dua; weak on sunnah.com, Tirmidhi hasan gharib"
  },
  "tirmidhi:3604": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "seek refuge from hell, grave, Dajjal, trials of life and death"
  },
  "tirmidhi:3781": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "none",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "page is angel's news about Fatimah, Hasan, Husain; not Ayat al-Kursi"
  },
  "tirmidhi:3895": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "best to family; best to wives"
  },
  "tirmidhi:428": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "four rak'ahs before and after Dhuhr protects from the Fire; content said hasan, fixed"
  },
  "tirmidhi:480": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "istikhara prayer and dua"
  },
  "tirmidhi:745": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "voluntary fasting Mondays and Thursdays (Aisha)"
  },
  "tirmidhi:747": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "hasan",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "deeds presented Monday/Thursday, Prophet wished to be fasting"
  },
  "tirmidhi:762": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "abudawud:2449",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "three days each month like a year; no 13/14/15 dates; graded weak. Replaced by abudawud:2449 for the white days"
  },
  "tirmidhi:807": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "reward of the fasting person for whoever provides iftar"
  },
  "tirmidhi:85": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "touching the private part likened to any other body part (Talq); offline KB claimed it breaks wudu, claim reworded as scholars differ"
  },
  "tirmidhi:889": {
-  "verdict": "unverifiable",
+  "verdict": "ok",
   "correct": "",
-  "grade": "",
-  "grader": "",
+  "grade": "sahih",
+  "grader": "Darussalam",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "the Hajj is Arafah; the before-Fajr condition in the page refers to Jam' (Muzdalifah), not Arafat; content reworded"
  },
  "tirmidhi:91": {
-  "verdict": "unverifiable",
-  "correct": "",
+  "verdict": "wrong",
+  "correct": "tirmidhi:92",
   "grade": "",
   "grader": "",
   "checked": "2026-10-20",
-  "note": "Not checked: sunnah.com fetches were rate-limited (HTTP 429) in this session; needs human or re-run verification."
+  "note": "page is dog/cat vessel washing; 'cats not impure' is 92"
+ },
+ "abudawud:1439": {
+  "verdict": "ok",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "al-Albani",
+  "checked": "2026-10-20",
+  "note": "no two witr in one night (Talq ibn Ali)"
+ },
+ "abudawud:4903": {
+  "verdict": "ok",
+  "correct": "",
+  "grade": "da'if",
+  "grader": "al-Albani",
+  "checked": "2026-10-20",
+  "note": "envy devours good deeds like fire dry fuel; graded weak, content must say reported/weak"
+ },
+ "tirmidhi:92": {
+  "verdict": "ok",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "Darussalam",
+  "checked": "2026-10-20",
+  "note": "cats not impure, among those who go about; water remains usable"
+ },
+ "tirmidhi:2875": {
+  "verdict": "ok",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "Darussalam",
+  "checked": "2026-10-20",
+  "note": "no like the Fatiha revealed in Tawrah, Injil, Zabur"
+ },
+ "bukhari:6407": {
+  "verdict": "ok",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
+  "checked": "2026-10-20",
+  "note": "one who remembers his Lord vs one who does not: living vs dead; no mention of a house"
+ },
+ "nasai:3104": {
+  "verdict": "ok",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "Darussalam",
+  "checked": "2026-10-20",
+  "note": "stay with your mother; Paradise at her feet"
+ },
+ "abudawud:2540": {
+  "verdict": "ok",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "al-Albani",
+  "checked": "2026-10-20",
+  "note": "two duas rarely rejected: at the call to prayer and in battle; the rain addition not accepted by al-Albani"
+ },
+ "tirmidhi:3524": {
+  "verdict": "ok",
+  "correct": "",
+  "grade": "hasan",
+  "grader": "Darussalam",
+  "checked": "2026-10-20",
+  "note": "Anas: when distressed the Prophet said Ya Hayyu ya Qayyum bi-rahmatika astaghith"
+ },
+ "bukhari:5736": {
+  "verdict": "ok",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
+  "checked": "2026-10-20",
+  "note": "companion recites Fatiha over a bitten chief; payment approved; flock size not stated"
+ },
+ "muslim:394": {
+  "verdict": "ok",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
+  "checked": "2026-10-20",
+  "note": "no prayer for one who does not recite the Fatiha (Ubadah)"
+ },
+ "muslim:2965": {
+  "verdict": "ok",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
+  "checked": "2026-10-20",
+  "note": "Allah loves the God-conscious, self-sufficient, hidden servant (Sa'd)"
+ },
+ "bukhari:2076": {
+  "verdict": "ok",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
+  "checked": "2026-10-20",
+  "note": "Allah's mercy on a man lenient in selling, buying, demanding"
+ },
+ "muslim:2695": {
+  "verdict": "ok",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
+  "checked": "2026-10-20",
+  "note": "four phrases dearer than all the sun rises upon"
+ },
+ "muslim:807": {
+  "verdict": "ok",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
+  "checked": "2026-10-20",
+  "note": "last two verses of al-Baqarah at night suffice"
+ },
+ "muslim:2844": {
+  "verdict": "ok",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
+  "checked": "2026-10-20",
+  "note": "stone dropped into Hell seventy years ago just reached the bottom"
+ },
+ "muslim:2565": {
+  "verdict": "ok",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
+  "checked": "2026-10-20",
+  "note": "gates of Paradise open Mon and Thursday; forgiven except the one with enmity toward his brother"
+ },
+ "muslim:1297": {
+  "verdict": "ok",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
+  "checked": "2026-10-20",
+  "note": "Prophet pelted Jamrat al-Aqabah on the day of sacrifice: learn the rites from me"
  }
 }

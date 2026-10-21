@@ -55,7 +55,7 @@ abstract final class SunnahFasting {
         'the day on which I was born and the day on which I was sent (with '
         'revelation)." Deeds are also presented on Mondays and Thursdays, and '
         'he ﷺ loved for his deeds to be presented while he was fasting.',
-    source: 'Sahih Muslim 1162 · Jamiʿ at-Tirmidhi 747',
+    source: 'Sahih Muslim 1162 · Jamiʿ at-Tirmidhi 747, hasan per Darussalam',
   );
 
   static const FastingMarker _thursday = FastingMarker(
@@ -65,7 +65,7 @@ abstract final class SunnahFasting {
     why:
         'Deeds are presented to Allah on Mondays and Thursdays, and the '
         'Prophet ﷺ loved for his deeds to be presented while he was fasting.',
-    source: 'Jamiʿ at-Tirmidhi 747 · Sahih Muslim 1162',
+    source: 'Jamiʿ at-Tirmidhi 747, hasan per Darussalam · Sahih Muslim 1162',
   );
 
   static const FastingMarker _whiteDays = FastingMarker(
@@ -76,7 +76,7 @@ abstract final class SunnahFasting {
         'The Prophet ﷺ advised fasting three days of every month — the 13th, '
         '14th and 15th, the nights of the full moon — and said fasting three '
         'days of each month is like fasting a lifetime.',
-    source: 'Sunan an-Nasa’i 2420 · Sahih al-Bukhari 1979',
+    source: 'Sunan an-Nasa’i 2420, sahih per Darussalam · Sahih al-Bukhari 1979',
   );
 
   static const FastingMarker _arafah = FastingMarker(

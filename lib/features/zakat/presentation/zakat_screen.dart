@@ -225,7 +225,7 @@ class _ZakatScreenState extends ConsumerState<ZakatScreen> {
                     _karatRow('Jewelry karat', _jewelryKarat,
                         (k) => setState(() => _jewelryKarat = k)),
                     _note(_madhab == Madhab.hanafi
-                        ? 'Hanafi: worn gold jewelry is zakatable (Abu Dawud 1563).'
+                        ? 'Hanafi: worn gold jewelry is zakatable (Abu Dawud 1563, hasan per al-Albani).'
                         : 'Maliki / Shafi\'i / Hanbali: genuinely worn jewelry is '
                             'exempt. Stored jewelry is zakatable in all schools — '
                             'enter it under Gold above.'),

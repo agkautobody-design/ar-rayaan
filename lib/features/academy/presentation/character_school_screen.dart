@@ -64,7 +64,7 @@ const List<_CharUnit> kCharacterUnits = <_CharUnit>[
       ),
       _CharLesson(
         title: 'Envy — The Second Look',
-        body: 'Envy eats good deeds like fire eats wood (Abu Dawud 4253). The cure the Prophet ﷺ taught is not pretending the blessing isn\u2019t real — it is praying for the one who has it: \'O Allah, bless them in it.\' The prayer converts the poison.',
+        body: 'Envy eats good deeds as fire eats dry wood — a report graded weak, so hold it as a reminder (Abu Dawud 4903, weak per al-Albani). The cure the Prophet ﷺ taught is not pretending the blessing isn\u2019t real — it is praying for the one who has it: \'O Allah, bless them in it.\' The prayer converts the poison.',
         practice: 'Find one person whose blessing stung you. Make dua for them by name today.',
       ),
       _CharLesson(

@@ -29,7 +29,7 @@ class _EolUnit {
 const List<_EolUnit> kEndOfLifeUnits = <_EolUnit>[
   _EolUnit(
     title: 'Preparing Before the Hour',
-    frame: 'The Prophet \ufdfa said: remember often the destroyer of pleasures — death (Tirmidhi 2307). Not to darken the day, but to brighten the scale.',
+    frame: 'The Prophet \ufdfa said: remember often the destroyer of pleasures — death (Tirmidhi 2307, hasan per Darussalam). Not to darken the day, but to brighten the scale.',
     lessons: <_EolLesson>[
       _EolLesson(
         title: 'Every Soul Will Taste It',
@@ -59,12 +59,12 @@ const List<_EolUnit> kEndOfLifeUnits = <_EolUnit>[
     lessons: <_EolLesson>[
       _EolLesson(
         title: 'La Ilaha Illa Allah — the Last Word',
-        body: 'The Prophet \ufdfa said: whoever\u2019s last words are la ilaha illa Allah enters Paradise (Abu Dawud 3116). And he advised: prompt your dying to say it, gently, without burden — the tongue loosens at the end, and the heart follows.',
+        body: 'The Prophet \ufdfa said: whoever\u2019s last words are la ilaha illa Allah enters Paradise (Abu Dawud 3116, sahih per al-Albani). And he advised: prompt your dying to say it, gently, without burden — the tongue loosens at the end, and the heart follows.',
         practice: 'Memorize the exact words to say beside a dying person. One day you will be the one holding the hand.',
       ),
       _EolLesson(
         title: 'The Prayer Over the Dead',
-        body: 'The janazah prayer has no ruku, no sujood — the Prophet \ufdfa explained: if there were, the women would do it, for it has more right to be prayed over (Muslim 904). Four takbirs, salawat on the Prophet, dua for the deceased, and the salah is complete. The community carries the dead to their Lord on its shoulders.',
+        body: 'The janazah prayer is offered standing, without bowing or prostration. Four takbirs, salawat on the Prophet, dua for the deceased, and the salah is complete. The community carries the dead to their Lord on its shoulders.',
         practice: 'Attend one janazah this month — even of someone you did not know. The angels attend every one.',
       ),
       _EolLesson(
@@ -80,12 +80,12 @@ const List<_EolUnit> kEndOfLifeUnits = <_EolUnit>[
     lessons: <_EolLesson>[
       _EolLesson(
         title: 'The Grave Is a Garden',
-        body: 'The Prophet \ufdfa said the grave is either a garden from the gardens of Paradise or a pit from the pits of Fire (Tirmidhi 2309). What you send ahead decides which — and the sending is still in your hands.',
+        body: 'The Prophet \ufdfa said the grave is either a garden from the gardens of Paradise or a pit from the pits of Fire (Tirmidhi 2460, weak per Darussalam — hold it as a reminder, not a ruling). What you send ahead decides which — and the sending is still in your hands.',
         practice: 'Do one deed today that you would want to meet you in the grave — a secret sadaqah, a forgiven debt, a repaired relationship.',
       ),
       _EolLesson(
         title: 'The Meeting You Are Walking Toward',
-        body: 'Whoever loves to meet Allah, Allah loves to meet him (Bukhari 6502). The companions lived with this hadith the way travelers live with a map — not in dread of the road, but in anticipation of the arrival.',
+        body: 'Whoever loves to meet Allah, Allah loves to meet him (Tirmidhi 2309, sahih per Darussalam). The companions lived with this hadith the way travelers live with a map — not in dread of the road, but in anticipation of the arrival.',
         practice: 'Say before sleep: \'O Allah, if You take my soul tonight, forgive it. If You leave it, protect it.\' Three weeks of this changes the night.',
       ),
     ],

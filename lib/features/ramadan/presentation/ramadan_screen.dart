@@ -438,7 +438,7 @@ class _RamadanState extends ConsumerState<RamadanScreen> {
                   child: const Icon(Icons.close, size: 14, color: AppColors.sand)),
             ])),
         if (_table.isEmpty)
-          Text('The Prophet ﷺ said: whoever feeds a fasting person has a reward like theirs (Tirmidhi 807). Plan the table — the reward is booked by the intention.',
+          Text('The Prophet ﷺ said: whoever feeds a fasting person has a reward like theirs (Tirmidhi 807, sahih per Darussalam). Plan the table — the reward is booked by the intention.',
               style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.5)),
       ])),
       const SizedBox(height: 12),

@@ -38,7 +38,7 @@ const List<_DuaLesson> kDuaLessons = <_DuaLesson>[
     meaning:
         'Allah — there is no god but He, the Ever-Living, the Sustainer. Neither drowsiness nor sleep overtakes Him… (2:255) — the Prophet ﷺ said nothing prevents him who recites it from entering Paradise but death (Nasai).',
     when: 'After each obligatory prayer, and morning/evening.',
-    source: 'Qur’an 2:255 · An-Nasa’i 9927 (wording per Ibn Hibban)',
+    source: 'Qur’an 2:255 · reported in an-Nasa’i (ungraded here; number not verified)',
   ),
   _DuaLesson(
     title: 'Sayyid al-Istighfar — the master of seeking forgiveness',
@@ -74,16 +74,16 @@ const List<_DuaLesson> kDuaLessons = <_DuaLesson>[
     meaning:
         'Say: He is Allah, One… Say: I seek refuge in the Lord of daybreak… Say: I seek refuge in the Lord of mankind (112–114). The Prophet ﷺ taught them morning and evening three times — they suffice the servant against everything.',
     when: 'Morning and evening, three times each.',
-    source: 'Abu Dawud 5082; Tirmidhi 3575',
+    source: 'Abu Dawud 5082, hasan per al-Albani; Tirmidhi 3575, hasan per Darussalam',
   ),
   _DuaLesson(
     title: 'Leaving the home — the morning departure',
     arabic:
         'بِسْمِ اللَّهِ، تَوَكَّلْتُ عَلَى اللَّهِ، وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ',
     meaning:
-        'In the name of Allah; I place my trust in Allah; there is no might nor power except with Allah (Abu Dawud 5095). Taught as the morning\'s first sentence when the foot crosses the threshold.',
+        'In the name of Allah; I place my trust in Allah; there is no might nor power except with Allah (Abu Dawud 5095, sahih per al-Albani). Taught as the morning\'s first sentence when the foot crosses the threshold.',
     when: 'When leaving the house.',
-    source: 'Abu Dawud 5095',
+    source: 'Abu Dawud 5095, sahih per al-Albani',
   ),
 
   // --- Home & table ------------------------------------------------------
@@ -92,18 +92,18 @@ const List<_DuaLesson> kDuaLessons = <_DuaLesson>[
     arabic:
         'الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنَا وَسَقَانَا وَجَعَلَنَا مُسْلِمِينَ',
     meaning:
-        'Praise be to Allah who fed us, gave us drink, and made us Muslims (Tirmidhi 3457). The meal becomes worship when the end matches the beginning.',
+        'Praise be to Allah who fed us, gave us drink, and made us Muslims (Tirmidhi 3457, weak per Darussalam). The meal becomes worship when the end matches the beginning.',
     when: 'After finishing a meal.',
-    source: 'Tirmidhi 3457',
+    source: 'Tirmidhi 3457, weak per Darussalam',
   ),
   _DuaLesson(
     title: 'Entering the home — the threshold greeting',
     arabic:
         'بِسْمِ اللَّهِ، اللَّهُمَّ إِنِّي أَسْأَلُكَ خَيْرَ الْمَوْلَجِ وَخَيْرَ الْمَخْرَجِ',
     meaning:
-        'In the name of Allah. O Allah, I ask You for the good of entering and the good of leaving (Abu Dawud 5096). The home is entered with His name, not with the day\'s residue.',
+        'In the name of Allah. O Allah, I ask You for the good of entering and the good of leaving (Abu Dawud 5096, weak per al-Albani). The home is entered with His name, not with the day\'s residue.',
     when: 'When entering the house.',
-    source: 'Abu Dawud 5096',
+    source: 'Abu Dawud 5096, weak per al-Albani',
   ),
 
   // --- Masjid ------------------------------------------------------------

@@ -49,7 +49,7 @@ GRADER_WINDOW = 140
 
 BOOKS = [
     ('bukhari', r'bukhari'),
-    ('muslim', r'muslim(?![a-z])'),
+    ('muslim', r'(?<!new\s)muslim(?![a-z])'),
     ('abudawud', r'(?:abu|abi)\s+dawu?o?d'),
     ('tirmidhi', r'tirmidhi'),
     ('nasai', r"nasa['’ʿʼ]?i"),
@@ -127,7 +127,7 @@ def load_scope():
     p = os.path.join(VERDICT_DIR, SCOPE)
     if not os.path.exists(p):
         return None
-    return json.load(open(p, encoding='utf8')).get('enforced', [])
+    return json.load(open(p, encoding='utf8')).get('enforced')
 
 
 def in_scope(rel, scope):

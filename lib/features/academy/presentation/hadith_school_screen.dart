@@ -152,16 +152,16 @@ const List<_HadithLesson> kHadithLessons = <_HadithLesson>[
   _HadithLesson(
     title: 'Lesson 16 — Anger: Change Your Posture',
     meaning:
-        'Anger inflames the heart, and the Prophet \ufdfa gave practical cures. If one of you becomes angry while standing, let him sit; if the anger goes, good, and if not, let him lie down (Abu Dawud 4782). Seeking refuge in Allah from Satan calms it too (Bukhari 3282). The body is the first battlefield.',
+        'Anger inflames the heart, and the Prophet \ufdfa gave practical cures. If one of you becomes angry while standing, let him sit; if the anger goes, good, and if not, let him lie down (Abu Dawud 4782, sahih per al-Albani). Seeking refuge in Allah from Satan calms it too (Bukhari 3282). The body is the first battlefield.',
     character: 'Ninety seconds: next time anger rises, sit down and stay silent for ninety seconds before speaking.',
-    source: 'Abu Dawud 4782; Bukhari 3282',
+    source: 'Abu Dawud 4782, sahih per al-Albani; Bukhari 3282',
   ),
   _HadithLesson(
     title: 'Lesson 17 — The Blessing of Provision',
     meaning:
         'If you were to rely upon Allah as He deserves to be relied upon, He would provide you as He provides the birds — they leave hungry in the morning and return full. Tawakkul is not passivity; it is the bird\'s departure — the wings still move, but the rizq is not the bird\'s to manage.',
     character: 'Name one provision you are anxious about. Plan, then release — go out hungry in the morning.',
-    source: 'Tirmidhi 2344',
+    source: 'Tirmidhi 2344, hasan per Darussalam',
   ),
   _HadithLesson(
     title: 'Lesson 18 — The Religion Is Sincere Counsel',

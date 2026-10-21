@@ -1,4 +1,4 @@
 {
-  "_comment": "Path prefixes whose hadith citations CI enforces. w1a owns the first three. Owners of other paths add their prefix when their verdict file lands (w1b: rest.json). The lead removes this file (enforce everything) when all verdicts are merged.",
-  "enforced": ["assets/stories/", "assets/share/", "assets/family/"]
+  "_comment": "No 'enforced' list: every citation in assets/ and lib/ is enforced (CI test and tool/hadith_check.py). All verdicts are merged and every cited key is ok; a new citation needs an ok verdict first.",
+  "enforce_all": true
 }
