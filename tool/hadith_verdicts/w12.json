@@ -1,0 +1,23 @@
+{
+ "muslim:2452": {
+  "checked": "2026-10-20",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Aisha: the wives and the longest hands; Zaynab bint Jahsh worked with her hands and gave in charity; no tanning or sewing, no creaking floor",
+  "verdict": "ok"
+ },
+ "muslim:3005": {
+  "checked": "2026-10-20",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Suhayb: the king, the sorcerer, the monk and the boy; the mountain shakes and the boat capsizes; it does not say Surah al-Buruj was revealed about it",
+  "verdict": "ok"
+ },
+ "tirmidhi:3892": {
+  "checked": "2026-10-20",
+  "grade": "Da'if (Darussalam); gharib (al-Tirmidhi)",
+  "grader": "Darussalam; al-Tirmidhi",
+  "note": "Safiyyah taunted by other wives; 'Harun is my father, Musa my uncle, Muhammad my husband'; weak per Darussalam so held lightly",
+  "verdict": "ok"
+ }
+}
