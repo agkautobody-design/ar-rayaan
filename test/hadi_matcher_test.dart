@@ -68,8 +68,15 @@ void main() {
       'lib/features/hadi/data/offline_hadi_provider.dart',
     ).readAsStringSync();
 
-    test('no unverified al-Albani gradings', () {
-      expect(src.contains('Albani'), isFalse);
+    test('al-Albani gradings only sit next to a citation checked on sunnah.com', () {
+      // The citation checker (hadith_citations_test.dart) proves each cited
+      // number has an ok verdict with a grade and grader; here we only make
+      // sure no free-floating "al-Albani" grading appears without a number.
+      final RegExp withNumber = RegExp(r'\d{2,5}.{0,160}Albani');
+      for (final String line in src.split('\n')) {
+        if (!line.contains('Albani')) continue;
+        expect(withNumber.hasMatch(line), isTrue, reason: line);
+      }
     });
 
     test('known wrong claims are gone', () {
