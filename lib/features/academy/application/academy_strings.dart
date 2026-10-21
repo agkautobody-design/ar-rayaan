@@ -917,7 +917,7 @@ abstract final class AcademyStrings {
       'path.u3.l1.title': 'Al-Fatihah, word by word',
       'path.u3.s1.title': 'Why Al-Fatihah matters',
       'path.u3.s1.body':
-          'The Prophet ﷺ said there is no prayer for the one who does not recite the Opening of the Book (Bukhari 756). Al-Fatihah is a conversation: Allah says “between Me and My servant is Al-Fatihah” (Ahmad). You praise, you ask, you worship.',
+          'The Prophet ﷺ said there is no prayer for the one who does not recite the Opening of the Book (Bukhari 756). Al-Fatihah is a conversation: Allah says He has divided the prayer between Himself and His servant, and each verse of Al-Fatihah is answered (Sahih Muslim 395). You praise, you ask, you worship.',
       'path.u3.s2.title': 'Read it now, slowly',
       'path.u3.s2.body':
           'Open the reader and recite Al-Fatihah — one ayah at a time. Pause after each ayah and hold its meaning: praise → mercy → the Day → guidance.',

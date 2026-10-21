@@ -871,7 +871,8 @@ const List<_Entry> _knowledge = <_Entry>[
     'sharriha..." - O Allah, I ask You for its good, the good in '
     'it, the good it was sent with, and I seek refuge in You from '
     'its evil. (Sahih Muslim 899). The thunder glorifies the praise '
-    'of its Lord - say Subhan Allah as it rolls. (Musnad Ahmad)',
+    'of its Lord - say Subhan Allah as it rolls (reported in Musnad Ahmad; '
+    'number and grade not checked).',
   ),
   _Entry(
     <String>['new moon', 'crescent moon', 'moon sighting', 'hilal', 'moon'],
@@ -1392,7 +1393,8 @@ const List<_Entry> _knowledge = <_Entry>[
     'sins: "Indeed, Allah does not forgive association with Him, '
     'but He forgives what is less than that for whom He wills" '
     '(An-Nisa 48). It is not only idols - showing off in worship '
-    'is the hidden shirk the Prophet warned of (Ahmad). The cure '
+    'is the hidden shirk the Prophet warned of (reported in Musnad Ahmad; '
+    'number and grade not checked). The cure '
     'is what the caller to Islam repeats: La ilaha illallah.',
   ),
   _Entry(

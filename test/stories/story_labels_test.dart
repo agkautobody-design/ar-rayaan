@@ -32,6 +32,8 @@ void main() {
           expect(s.sourceLabel, kLabelSeerahUnchecked, reason: s.id);
         } else if (labs.contains(kLabelHadithUnchecked)) {
           expect(s.sourceLabel, kLabelHadithUnchecked, reason: s.id);
+        } else if (labs.contains(kLabelSeerah)) {
+          expect(s.sourceLabel, kLabelSeerah, reason: s.id);
         }
       }
     }
@@ -43,6 +45,33 @@ void main() {
       for (final Story s in _load(pack)) {
         expect(audit.contains('| ${s.id} |'), isTrue,
             reason: '${s.id} missing from docs/story_audit.md');
+      }
+    }
+  });
+
+  test('a chapter labelled Seerah report names the book and page it was read in', () {
+    for (final String pack in _packs) {
+      final List<dynamic> raw = json.decode(
+        File('assets/stories/$pack.json').readAsStringSync(),
+      ) as List<dynamic>;
+      for (final dynamic e in raw) {
+        final Map<String, dynamic> m = e as Map<String, dynamic>;
+        final List<dynamic> chapters = m['chapters'] as List<dynamic>;
+        final bool has = chapters.any(
+            (dynamic c) => (c as Map<String, dynamic>)['label'] == kLabelSeerah);
+        if (!has) continue;
+        final String src = (m['sources'] as List<dynamic>).join(' ');
+        expect(RegExp(r'Ibn Hisham|al-Tabari|Ibn Kathir|Ibn Sa.d|al-Waqidi')
+            .hasMatch(src), isTrue, reason: '${m['id']}: names no book');
+        expect(RegExp(r'vol\. ?\d|ج ?\d|p\. ?\d|pp\. ?\d').hasMatch(src), isTrue,
+            reason: '${m['id']}: names no volume/page');
+        final String audit = File('docs/story_audit.md').readAsStringSync();
+        expect(
+            audit.split('\n').any((String l) =>
+                l.contains('| ${m['id']} |') &&
+                l.contains('Label: Seerah report. Read:')),
+            isTrue,
+            reason: '${m['id']}: no "Label: Seerah report. Read:" row in docs/story_audit.md');
       }
     }
   });
