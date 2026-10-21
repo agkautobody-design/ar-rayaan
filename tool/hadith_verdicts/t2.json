@@ -1,0 +1,93 @@
+{
+ "bukhari:2048": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-21",
+  "note": "Abd al-Rahman ibn Awf and Sa'd ibn al-Rabi'; half the wealth, the market, a wedding feast with one sheep"
+ },
+ "bukhari:2942": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-21",
+  "note": "Sahl ibn Sa'd; the banner at Khaybar, Ali's eyes cured"
+ },
+ "bukhari:3700": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-21",
+  "note": "Umar's death: stabbed during the prayer, the slave of al-Mughira; this is what the number is (earlier verdict recorded an old claim that did not match)"
+ },
+ "bukhari:3825": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-21",
+  "note": "Aisha; Hind bint Utba's words after she embraced Islam, and her question about Abu Sufyan's property"
+ },
+ "bukhari:3863": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-21",
+  "note": "Ibn Mas'ud; 'we have been powerful since Umar embraced Islam' only"
+ },
+ "bukhari:3906": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-21",
+  "note": "Suraqa: forelegs sink, written pledge for safety, Quba and Madinah"
+ },
+ "bukhari:3925": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-21",
+  "note": "al-Bara'; the joy of Madinah at his arrival, slave girls announcing him"
+ },
+ "bukhari:3959": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-21",
+  "note": "al-Bara'; companions at Badr over three hundred and ten"
+ },
+ "bukhari:4072": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-21",
+  "note": "Wahshi's account of killing Hamza; spear; master's promise of freedom"
+ },
+ "bukhari:4154": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-21",
+  "note": "Jabir; one thousand four hundred at Hudaybiyyah"
+ },
+ "bukhari:4177": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-21",
+  "note": "Umar; a sura (Al-Fath) revealed on a journey, opening verse recited; chapter filed under Hudaybiyyah"
+ },
+ "muslim:395": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-21",
+  "note": "Abu Hurayrah; Allah divides the prayer between Himself and His servant, verses of Al-Fatihah answered"
+ },
+ "tirmidhi:3458": {
+  "verdict": "ok",
+  "grade": "hasan",
+  "grader": "Darussalam",
+  "checked": "2026-10-21",
+  "note": "Mu'adh ibn Anas; dua after eating 'at'amani hadha wa razaqanihi min ghayri hawlin minni' (the old text cited this wording to Abu Dawud 3850, which is a different dua)"
+ }
+}

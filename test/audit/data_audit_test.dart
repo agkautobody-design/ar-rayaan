@@ -56,6 +56,7 @@ void main() {
           'Established',
           'Interpretive',
           'Reflection',
+          'Seerah report',
           'Seerah report (source not checked)',
           'Hadith report (reference not checked)',
         ];

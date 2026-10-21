@@ -47,6 +47,15 @@ GRADED = ('abudawud', 'tirmidhi', 'nasai', 'ibnmajah')
 GRADER_RE = re.compile(r"al-?albani|darussalam|zubair|al-?tirmidhi|tirmidhi himself|ungraded|not graded", re.I)
 GRADER_WINDOW = 140
 
+# Weak-graded citations (recorded grade da'if/weak/mawdu') must not be presented
+# as sound in the text that follows them.
+WEAK_RE = re.compile(r"da.?[iy]f|weak|mawd|munkar|fabricat|batil", re.I)
+STRONG_RE = re.compile(r"sa[h]+[ie]+h|authentic|\bhasan\b|\bsound\b", re.I)
+# Attributed to a named other grader, or negated, so not our own claim.
+ATTRIBUTED_RE = re.compile(
+    r"tirmidhi(?: himself)?\s+(?:called|graded|said)|called it|calls it|graded it|"
+    r"other chain|elsewhere|\bnot\b|\bno\b|hold|reported|disputed", re.I)
+
 BOOKS = [
     ('bukhari', r'bukhari'),
     ('muslim', r'(?<!new\s)muslim(?![a-z])'),
@@ -217,6 +226,52 @@ class Verifier:
         raise NotImplementedError('manual verdicts only until an API key exists')
 
 
+# Musnad Ahmad is outside the Six and has no free numbered source: any mention
+# of it as a source must say the number/grade was not checked (or give a
+# grade with a named grader), or sit on an allowlisted line.
+AHMAD_SRC_RE = re.compile(
+    r"Musnad(?: of| al-)?\s+(?:Imam\s+)?Ahmad|reported by Ahmad|\(Ahmad\)|in Ahmad,", re.I)
+AHMAD_OK_RE = re.compile(
+    r"not\s+(?:re-?)?(?:checked|verified)|unverified|could not check|weak|da.?[iy]f|"
+    r"grade|disputed", re.I)
+
+
+def ahmad_unlabelled(files=None):
+    """Return [(relpath, line, snippet)] for Musnad Ahmad mentions with no
+    'not checked' / grade wording within 160 characters before or 320 after."""
+    out = []
+    allow = load_allowlist()
+    for f in files or asset_files():
+        rel = os.path.relpath(f, ROOT).replace(os.sep, '/')
+        raw = open(f, encoding='utf8').read()
+        text = dart_logical(raw)[0] if f.endswith('.dart') else raw
+        for m in AHMAD_SRC_RE.finditer(text):
+            ctx = text[max(0, m.start() - 160):m.end() + 320]
+            if AHMAD_OK_RE.search(ctx):
+                continue
+            ln = text.count('\n', 0, m.start()) + 1
+            if 'ahmad@%s' % rel in allow:
+                continue
+            out.append((rel, ln, text[max(0, m.start() - 30):m.end() + 30].replace('\n', ' ')))
+    return out
+
+
+def sound_claim(tail):
+    """True if the text right after a citation calls it sound/authentic.
+    Looks only at the clause (up to ; . newline, a middot or the next number)."""
+    clause = re.split(r"[;\n·]|\.\s|,\s*\d{2,5}\b", tail, maxsplit=1)[0]
+    # First grade word must be a weak one (the recorded grade) ...
+    first = re.search(WEAK_RE.pattern + '|' + STRONG_RE.pattern, clause, re.I)
+    if first and not WEAK_RE.search(first.group(0)):
+        return True
+    # ... and a later strong word in the same clause is our own claim unless
+    # attributed to another named grader or negated.
+    for m in STRONG_RE.finditer(clause):
+        if first and m.start() > first.start() and not ATTRIBUTED_RE.search(clause):
+            return True
+    return False
+
+
 def check(strict=True, everything=False):
     v = load_verdicts()
     allow = load_allowlist()
@@ -236,6 +291,10 @@ def check(strict=True, everything=False):
             where = '%s:%d' % (f, ln)
             allowed = '%s@%s' % (key, f) in allow
             if val and val['verdict'] == 'ok':
+                if WEAK_RE.search(val.get('grade') or '') and sound_claim(tail) \
+                        and not allowed:
+                    errs.append('%s at %s: recorded grade is %r but the text calls it sound' % (
+                        key, where, val.get('grade')))
                 if key.split(':')[0] in GRADED and not GRADER_RE.search(tail) \
                         and not allowed:
                     errs.append('%s at %s: names no grader (al-Albani/Darussalam) after the citation' % (key, where))
@@ -247,6 +306,9 @@ def check(strict=True, everything=False):
             else:
                 errs.append('%s has no ok verdict (%s) at %s' % (
                     key, val['verdict'] if val else 'missing', where))
+    for rel, ln, snip in ahmad_unlabelled():
+        if in_scope(rel, scope):
+            errs.append('Musnad Ahmad cited without "not checked"/grade at %s:%d (%s)' % (rel, ln, snip))
     n = sum(len(x) for x in seen.values())
     print('citations enforced: %d occurrences, %d distinct; not yet enforced (other owners): %d; verdicts on file: %d'
           % (n, len(seen), outside, len(v)))

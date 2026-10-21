@@ -225,7 +225,7 @@ class HijrahMapScreen extends StatelessWidget {
 
   static const _stops = [
     ('Makkah', 'The night of the departure', 'Quraysh had voted to kill him — one man from every clan, so the blood-price would crush his family. The Prophet ﷺ slipped out while they watched his door.', 'Sahih al-Bukhari 3905'),
-    ('The Cave of Thawr', 'Three days in silence', 'With Abu Bakr beside him, and the hunters at the mouth of the cave, he said: \u201cdo not grieve; indeed Allah is with us\u201d (9:40). A spider\u2019s web covered the entrance.', 'Qur\u2019an 9:40'),
+    ('The Cave of Thawr', 'Three nights in the cave', 'With Abu Bakr beside him, and the hunters at the mouth of the cave, he said: \u201cdo not grieve; indeed Allah is with us\u201d (9:40). Later tradition adds a spider\u2019s web; it is not in the Qur\u2019an or in Bukhari 3905.', 'Qur\u2019an 9:40'),
     ('The Road North', 'Suraqa and the changing of the earth', 'The rider chasing the bounty — a hundred camels — was thrown twice from his horse as the ground seized it. He asked for a letter of safety and rode home guarding the document he had come to kill for.', 'Sahih al-Bukhari 3905'),
     ('Quba', 'The first mosque', 'Fourteen days building Masjid Quba — \u201ca mosque founded on righteousness from the first day\u201d (9:108) — before entering the city.', 'Qur\u2019an 9:108'),
     ('Madinah', 'The city that ran to meet him', 'Every roof emptied; every voice called the takbir; the date-palms were crowded with people. The hijrah was complete — and history\u2019s calendar began again from that year.', 'Seerah: Ibn Ishaq'),

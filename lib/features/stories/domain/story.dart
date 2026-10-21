@@ -6,6 +6,10 @@
 const kLabelEstablished = 'Established';
 const kLabelInterpretive = 'Interpretive';
 const kLabelReflection = 'Reflection';
+
+/// A Seerah report whose named book was opened and the passage read for the
+/// story audit (docs/story_audit.md records the book, volume and page).
+const kLabelSeerah = 'Seerah report';
 const kLabelSeerahUnchecked = 'Seerah report (source not checked)';
 const kLabelHadithUnchecked = 'Hadith report (reference not checked)';
 
@@ -14,6 +18,7 @@ const kStoryLabels = <String>[
   kLabelEstablished,
   kLabelInterpretive,
   kLabelReflection,
+  kLabelSeerah,
   kLabelSeerahUnchecked,
   kLabelHadithUnchecked,
 ];
@@ -27,6 +32,8 @@ String storyLabelMeaning(String label) {
       return 'Told from the sources with interpretation; read it as a reading, not a ruling.';
     case kLabelReflection:
       return 'A reflection written for this app. It adds no new fact about the past.';
+    case kLabelSeerah:
+      return 'Comes from the biographies of the Prophet. The passage was read in the named book for this audit, but a biography records reports, not revelation. Not yet scholar-reviewed.';
     case kLabelSeerahUnchecked:
       return 'Comes from the biographies of the Prophet. The book it comes from was not opened to check it. Treat the details as reports, not as established facts.';
     case kLabelHadithUnchecked:
