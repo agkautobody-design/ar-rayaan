@@ -3041,8 +3041,8 @@ const List<_Entry> _knowledge = <_Entry>[
     ],
     'Children learn prayer from love and from watching you. The Prophet '
     'ﷺ said to command children to pray when they are seven and to '
-    'discipline them over it when they are ten (Sunan Abi Dawud 495, '
-    'hasan sahih per al-Albani). Begin gently: let them stand beside you, '
+    'discipline them over it when they are ten '
+    '(Sunan Abi Dawud 495, hasan sahih per al-Albani). Begin gently: let them stand beside you, '
     'praise every small step, and keep it short. If a child pushes back, '
     'stay patient and keep praying in front of them, and make du\'a '
     'for them. Allah says: “And enjoin prayer upon your family [and '
