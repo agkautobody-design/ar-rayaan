@@ -7,6 +7,75 @@ import 'package:flutter_test/flutter_test.dart';
 Future<String> ask(String q) =>
     const OfflineHadiProvider().ask(q, const <HadiMessage>[]);
 
+final RegExp _cite = RegExp(
+  r"(?:(bukhari)|((?<!new\s)muslim)(?![a-z])|((?:abu|abi)\s+da[wu]*[ou]*d)|(tirmidhi)|(nasa['’ʿʼ]?i)|(ibn\s+maja?h?)|((?:musnad\s+)?ahmad))"
+  r"(?:\s*\)?\s*[:#]?\s*\(?\s*(?:no\.?\s*|hadith\s+)?)"
+  r"(\d{1,5}(?:\s*(?:,|&|/|and|;)\s*\d{1,5}(?!\d|:\d))*)"
+  r"(?!\d|:\d|\s*(?:days?|times|years|minutes|rak))",
+  caseSensitive: false,
+);
+
+final RegExp _attribution = RegExp(
+  r'(?:[Tt]he Prophet(?! [A-Z])|Prophet ﷺ|Messenger of Allah|Rasulullah|ﷺ)'
+  r'[^.\n]{0,50}?\b(?:said|says|taught|told|reported|called|forbade|praised|'
+  r'advised|promised|warned|likened|described|named|asked|saw|heard|recited|'
+  r'used to|commanded|ordered|made|affirmed|prescribed|declared|counselled|'
+  r'stated|mentioned|cursed|raised|permitted|prohibited)\b'
+  r'|\b(?:[Ii]t is reported|is reported|[Aa] report|reported that|narrated|'
+  r'reports? (?:in|from|that))\b',
+);
+
+final RegExp _literal = RegExp(
+  r"'((?:\\.|[^'\\])*)'|"
+  r'"((?:\\.|[^"\\])*)"',
+);
+
+List<String> shelfAnswers(String src) {
+  final String body = src
+      .substring(src.indexOf('const List<_Entry> _knowledge'))
+      .split('\n')
+      .where((String l) => !l.trimLeft().startsWith('//'))
+      .join('\n');
+  final List<String> out = <String>[];
+  for (final String block in body.split('_Entry(').skip(1)) {
+    final String rest = block.substring(block.indexOf('],') + 2);
+    final StringBuffer text = StringBuffer();
+    for (final RegExpMatch m in _literal.allMatches(rest)) {
+      final String raw = m.group(1) ?? m.group(2) ?? '';
+      text.write(raw.replaceAllMapped(RegExp(r'\\(.)'),
+          (Match e) => e[1] == 'n' ? '\n' : e[1]!));
+    }
+    out.add(text.toString());
+  }
+  return out;
+}
+
+/// The attributions in [answer] that no citation follows before the next
+/// group of attributions.
+List<String> uncited(String answer) {
+  final List<int> starts = <int>[
+    for (final RegExpMatch m in _attribution.allMatches(answer)) m.start,
+  ];
+  final List<int> cites = <int>[
+    for (final RegExpMatch m in _cite.allMatches(answer)) m.start,
+  ];
+  // Attributions less than 120 characters apart form one group.
+  final List<int> g = <int>[];
+  int prev = -1000;
+  for (final int s in starts) {
+    if (g.isEmpty || s - prev >= 120) g.add(s);
+    prev = s;
+  }
+  final List<String> bad = <String>[];
+  for (int i = 0; i < g.length; i++) {
+    final int end = i + 1 < g.length ? g[i + 1] : answer.length;
+    if (!cites.any((int c) => c >= g[i] && c < end)) {
+      bad.add(answer.substring(g[i], (g[i] + 70).clamp(0, answer.length)));
+    }
+  }
+  return bad;
+}
+
 void main() {
   group('offline matcher: whole words, not substrings', () {
     test('"breakfast" is not a Ramadan-fasting question', () async {
@@ -103,6 +172,117 @@ void main() {
 
     test('the self-harm entry no longer points at a missing feature', () {
       expect(src.contains('Prayer Times screen can connect you'), isFalse);
+    });
+  });
+  group('offline matcher: token-set, intent, stems, typos', () {
+    test('word order and filler do not hide the topic', () async {
+      for (final String q in <String>[
+        'what breaks my wudu',
+        'wudu breaks',
+        'does sleeping break wudu',
+      ]) {
+        expect(await ask(q), contains('nullified'), reason: q);
+      }
+    });
+
+    test('how-to intent picks the how-to entry, not the what-is one',
+        () async {
+      expect(await ask('how do i perform wudu'), contains('six obligatory'));
+      expect(await ask('what is zakat'), contains('third pillar'));
+      expect(await ask('how do i pay zakat'), contains('third pillar'));
+    });
+
+    test('generic words lose to topic words', () async {
+      final String a = await ask('should i pray istikhara');
+      expect(a, contains('non-obligatory prayer'));
+      expect(await ask('how do i stop sinning'), contains('mercy of Allah'));
+    });
+
+    test('spelling variants and a slipped key still find the topic', () async {
+      expect(await ask('ramadhan'), contains('Ramadan'));
+      expect(await ask('ramazan tips'), contains('Ramadan'));
+      expect(await ask('tahajud'), contains('Tahajjud'));
+      expect(await ask('how do i make wuduu'), contains('six obligatory'));
+    });
+
+    test('navigation requests still navigate', () async {
+      expect(await ask('take me to the qibla'), contains('[GO:/qibla]'));
+      expect(await ask('open the quran'), contains('[GO:/quran'));
+    });
+
+    test('fuzzy matching adds no false positives', () async {
+      for (final String q in <String>[
+        'breakfast',
+        'business',
+        'recipe for biryani',
+        'sacred',
+        'they',
+        'how do i make coffee',
+        'prayin',
+      ]) {
+        expect(await ask(q), OfflineHadiProvider.decline, reason: q);
+      }
+    });
+
+    test('a long paste is bounded and answered quickly', () async {
+      final String long = List<String>.filled(300, 'wudu').join(' ');
+      final Stopwatch sw = Stopwatch()..start();
+      await ask(long);
+      expect(sw.elapsedMilliseconds, lessThan(2000));
+    });
+  });
+
+  group('offline matcher: script handling', () {
+    test('script is detected', () {
+      expect(OfflineHadiProvider.scriptOf('how do i pray'), HadiScript.latin);
+      expect(OfflineHadiProvider.scriptOf('ما حكم الصلاة'), HadiScript.arabic);
+      expect(OfflineHadiProvider.scriptOf('مجھے نماز کا طریقہ بتائیں'),
+          HadiScript.urdu);
+      expect(OfflineHadiProvider.scriptOf('你好'), HadiScript.other);
+    });
+
+    test('Arabic and Urdu get a reply in their own language', () async {
+      expect(await ask('ما حكم الصلاة'),
+          OfflineHadiProvider.scriptReplyArabic);
+      expect(await ask('مجھے نماز کا طریقہ بتائیں'),
+          OfflineHadiProvider.scriptReplyUrdu);
+      expect(await ask('你好'), OfflineHadiProvider.scriptReply);
+    });
+
+    test('the script replies contain no scripture', () {
+      for (final String r in <String>[
+        OfflineHadiProvider.scriptReplyArabic,
+        OfflineHadiProvider.scriptReplyArabicKeyed,
+        OfflineHadiProvider.scriptReplyUrdu,
+        OfflineHadiProvider.scriptReplyUrduKeyed,
+      ]) {
+        // Plain prose carries a few vowel marks; vowelled scripture dozens.
+        final int marks = RegExp(
+          '[\u064B-\u0652\u0670\u06D6-\u06ED]',
+        ).allMatches(r).length;
+        expect(marks, lessThan(10));
+        expect(r.contains('\uFD3F'), isFalse);
+      }
+    });
+  });
+
+  group('offline shelf: every saying carries a citation', () {
+    final List<String> answers = shelfAnswers(
+        File('lib/features/hadi/data/offline_hadi_provider.dart')
+            .readAsStringSync());
+
+    test('the shelf was parsed', () {
+      expect(answers.length, greaterThan(250));
+    });
+
+    test('no attribution to the Prophet is left without a source', () {
+      final List<String> bad = <String>[];
+      for (int i = 0; i < answers.length; i++) {
+        for (final String u in uncited(answers[i])) {
+          bad.add('$i: ${u.replaceAll('\n', ' ')}');
+        }
+      }
+      expect(bad, isEmpty);
     });
   });
 }

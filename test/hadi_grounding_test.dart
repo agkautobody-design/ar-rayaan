@@ -174,6 +174,38 @@ void main() {
       expect(b.unsupportedGrade, isFalse);
     });
 
+    group('the reader\'s own script', () {
+      const String prose = 'آپ نماز اور روزہ کے بارے میں پوچھ رہے ہیں';
+      const String vowelled = 'إِنَّ مَعَ الْعُسْرِ يُسْرًا';
+
+      test('is stripped by default, as before', () {
+        final VerifiedAnswer v = AnswerVerifier.verify(prose, corpus);
+        expect(v.text.contains('نماز'), isFalse);
+        expect(v.removedArabic, isTrue);
+      });
+
+      test('plain Urdu or Arabic prose is kept for an Urdu or Arabic reader',
+          () {
+        final VerifiedAnswer v =
+            AnswerVerifier.verify(prose, corpus, keepUserScript: true);
+        expect(v.text, contains('نماز'));
+        expect(v.removedArabic, isFalse);
+      });
+
+      test('typed scripture and quoted Arabic are still removed', () {
+        final VerifiedAnswer a = AnswerVerifier.verify(
+            'Here it is: $vowelled', corpus,
+            keepUserScript: true);
+        expect(a.text.contains('الْعُسْرِ'), isFalse);
+        expect(a.removedArabic, isTrue);
+        final VerifiedAnswer b = AnswerVerifier.verify(
+            'Allah says “$prose”', corpus,
+            keepUserScript: true);
+        expect(b.text.contains('نماز'), isFalse);
+        expect(b.removedArabic, isTrue);
+      });
+    });
+
     for (final HostileCase h in kHostile) {
       test('hostile output neutralised: ${h.id}', () {
         final VerifiedAnswer v = AnswerVerifier.verify(h.raw, corpus);

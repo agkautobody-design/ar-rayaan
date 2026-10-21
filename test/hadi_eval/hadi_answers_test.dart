@@ -72,6 +72,10 @@ void main() {
     OfflineHadiProvider.offTopicReply,
     OfflineHadiProvider.scriptReply,
     OfflineHadiProvider.scriptReplyKeyed,
+    OfflineHadiProvider.scriptReplyArabic,
+    OfflineHadiProvider.scriptReplyArabicKeyed,
+    OfflineHadiProvider.scriptReplyUrdu,
+    OfflineHadiProvider.scriptReplyUrduKeyed,
     ...OfflineHadiProvider.rudeReplies,
     ...OfflineHadiProvider.distressReplies,
   };
@@ -194,16 +198,19 @@ void main() {
 
     test('Arabic and Urdu script is named honestly, not declined as unknown',
         () async {
-      for (final String q in <String>[
-        'ما حكم الصلاة بدون وضوء؟',
-        'مجھے نماز کا طریقہ بتائیں',
-      ]) {
-        expect(await offline(q), OfflineHadiProvider.scriptReply, reason: q);
-      }
+      expect(await offline('ما حكم الصلاة بدون وضوء؟'),
+          OfflineHadiProvider.scriptReplyArabic);
+      expect(await offline('مجھے نماز کا طریقہ بتائیں'),
+          OfflineHadiProvider.scriptReplyUrdu);
       expect(
         await const OfflineHadiProvider(hasKey: true)
             .ask('مجھے نماز کا طریقہ بتائیں', const <HadiMessage>[]),
-        OfflineHadiProvider.scriptReplyKeyed,
+        OfflineHadiProvider.scriptReplyUrduKeyed,
+      );
+      expect(
+        await const OfflineHadiProvider(hasKey: true)
+            .ask('ما حكم الصلاة بدون وضوء؟', const <HadiMessage>[]),
+        OfflineHadiProvider.scriptReplyArabicKeyed,
       );
     });
 

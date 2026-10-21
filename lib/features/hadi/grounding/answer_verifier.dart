@@ -74,6 +74,23 @@ abstract final class AnswerVerifier {
       r'\u0600-\u06FF\u0750-\u077F\uFB50-\uFDFF\uFE70-\uFEFF';
   static final RegExp _arabicRun = RegExp('[$_arabicChars][$_arabicChars\\s]*');
 
+  /// Arabic-script text inside quotation marks or Qur'anic brackets.
+  static final RegExp _quotedArabic = RegExp(
+    '(?:“[^”\\n]*”|"[^"\\n]*"|«[^»\\n]*»|﴿[^﴾\\n]*﴾|﴾[^﴿\\n]*﴿)',
+  );
+
+  /// Tashkeel and Qur'anic annotation marks, which ordinary Arabic or Urdu
+  /// prose does not carry in bulk but typed scripture does.
+  static final RegExp _tashkeel = RegExp(
+    '[\u064B-\u0652\u0670\u06D6-\u06ED]',
+  );
+
+  static int _arabicLetters(String s) =>
+      _arabicRun.allMatches(s).fold<int>(
+        0,
+        (int a, Match m) => a + m.group(0)!.replaceAll(RegExp(r'\s'), '').length,
+      );
+
   static final RegExp _quoted = RegExp(r'[“"]([^”"“\n]{40,600})[”"]');
 
   static final RegExp _gradeClaim = RegExp(
@@ -88,7 +105,15 @@ abstract final class AnswerVerifier {
       s.toLowerCase().replaceAll(RegExp('[^a-z0-9]'), '');
 
   /// Verifies [raw] against [corpus].
-  static VerifiedAnswer verify(String raw, HadiCorpus corpus) {
+  ///
+  /// When [keepUserScript] is true the user wrote in Arabic or Urdu script, so
+  /// ordinary prose in that script is kept. Quoted Arabic and any run that
+  /// looks like vowelled scripture is still removed.
+  static VerifiedAnswer verify(
+    String raw,
+    HadiCorpus corpus, {
+    bool keepUserScript = false,
+  }) {
     final Set<String> sources = <String>{};
     int dropped = 0;
     int removedRefs = 0;
@@ -139,10 +164,22 @@ abstract final class AnswerVerifier {
     text = text.replaceAllMapped(_quranRefParen, quranRef);
 
     // 4. The model must not type scripture in Arabic.
+    if (keepUserScript) {
+      text = text.replaceAllMapped(_quotedArabic, (Match m) {
+        if (_arabicLetters(m.group(0)!) >= 12) {
+          removedArabic = true;
+          return '';
+        }
+        return m.group(0)!;
+      });
+    }
     text = text.replaceAllMapped(_arabicRun, (Match m) {
       final String run = m.group(0)!;
       final int letters = run.replaceAll(RegExp(r'\s'), '').length;
       if (letters >= 12) {
+        if (keepUserScript && _tashkeel.allMatches(run).length < 2) {
+          return run;
+        }
         removedArabic = true;
         return '';
       }
