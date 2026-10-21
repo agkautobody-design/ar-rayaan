@@ -55,7 +55,12 @@ void main() {
     expect(find.byType(BackdropFilter), findsNothing);
 
     // Scrolling to the end builds the last story and its shelf heading.
-    await tester.drag(find.byType(ListView), const Offset(0, -200000));
+    await tester.scrollUntilVisible(
+      find.text('Perf story 299'),
+      600,
+      scrollable: find.byType(Scrollable).first,
+      maxScrolls: 400,
+    );
     await tester.pumpAndSettle();
     expect(find.text('Perf story 299'), findsOneWidget);
     expect(find.text('The Companions'), findsWidgets);
