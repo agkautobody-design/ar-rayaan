@@ -49,6 +49,19 @@ class _StoryReaderScreenState extends State<StoryReaderScreen> {
           const SizedBox(height: 14),
           if (story.sourceLabel != kLabelEstablished)
             SourceLabelNote(label: story.sourceLabel),
+          if (story.hasUnverified && !isUnverifiedLabel(story.sourceLabel))
+            Padding(
+              padding: const EdgeInsets.only(bottom: 14),
+              child: Text(
+                'Some chapters of this story are UNVERIFIED. They are marked '
+                'where they appear.',
+                style: AppText.bodyMuted.copyWith(
+                  fontSize: 12.5,
+                  height: 1.5,
+                  color: Colors.orangeAccent,
+                ),
+              ),
+            ),
           const SizedBox(height: 6),
           if (story.chapters.length > 1)
             Padding(

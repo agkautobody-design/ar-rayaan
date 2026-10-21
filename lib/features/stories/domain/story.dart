@@ -23,6 +23,23 @@ const kStoryLabels = <String>[
   kLabelHadithUnchecked,
 ];
 
+/// True for the labels that mean the report was NOT checked against its
+/// source. The app says so plainly ("Unverified") wherever they appear.
+bool isUnverifiedLabel(String? label) =>
+    label == kLabelSeerahUnchecked || label == kLabelHadithUnchecked;
+
+/// The text a label chip shows. Unchecked labels lead with "Unverified".
+String storyLabelDisplay(String label) {
+  switch (label) {
+    case kLabelSeerahUnchecked:
+      return 'Unverified \u00b7 Seerah report';
+    case kLabelHadithUnchecked:
+      return 'Unverified \u00b7 Hadith report';
+    default:
+      return label;
+  }
+}
+
 /// One plain sentence saying what a label means, shown beside the label.
 String storyLabelMeaning(String label) {
   switch (label) {
@@ -35,9 +52,9 @@ String storyLabelMeaning(String label) {
     case kLabelSeerah:
       return 'Comes from the biographies of the Prophet. The passage was read in the named book for this audit, but a biography records reports, not revelation. Not yet scholar-reviewed.';
     case kLabelSeerahUnchecked:
-      return 'Comes from the biographies of the Prophet. The book it comes from was not opened to check it. Treat the details as reports, not as established facts.';
+      return 'UNVERIFIED. Comes from the biographies of the Prophet. The book it comes from was not opened to check it. Treat the details as reports, not as established facts.';
     case kLabelHadithUnchecked:
-      return 'Comes from a hadith report whose collection and number were not checked. Treat the details as reports, not as established facts.';
+      return 'UNVERIFIED. Comes from a hadith report whose collection and number were not checked. Treat the details as reports, not as established facts.';
     default:
       return '';
   }
@@ -87,6 +104,11 @@ class Story {
   /// Id of the story this one repeats (identical dua listed twice); the
   /// Hisn screen shows only the original.
   final String? duplicateOf;
+
+  /// True when the story, or any chapter of it, is labelled unverified.
+  bool get hasUnverified =>
+      isUnverifiedLabel(sourceLabel) ||
+      chapters.any((StoryChapter c) => isUnverifiedLabel(c.label));
 
   const Story({
     required this.id,
