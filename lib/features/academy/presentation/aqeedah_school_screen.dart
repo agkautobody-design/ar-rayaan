@@ -42,25 +42,25 @@ const List<_AqUnit> kAqeedahUnits = <_AqUnit>[
       _AqLesson(
         title: 'The Most Merciful Taught the Book',
         body:
-            "'The Most Merciful — He taught the Qur'an' (55:1–2). Before any rule, before any law, the Qur'an opens its knowledge of Allah with a mercy that teaches. Whatever you learn about Him, begin here: the One who taught you is the One who was Merciful to you first.",
+            "'The Most Merciful Taught the Qur'an' (55:1–2). Before any rule, before any law, the Qur'an opens its knowledge of Allah with a mercy that teaches. Whatever you learn about Him, begin here: the One who taught you is the One who was Merciful to you first.",
         source: "Qur'an 55:1–2",
       ),
       _AqLesson(
         title: 'No Slumber, No Sleep',
         body:
-            "'Allah — there is no god but He, the Ever-Living, the Sustainer... neither slumber nor sleep overtakes Him' (2:255). He is not a distant clockmaker; He sustains every atom now. This verse is called Ayat al-Kursi — many Muslims say it after every prayer; now you know what it says.",
+            "'Allah - there is no deity except Him, the Ever-Living, the Sustainer of [all] existence. Neither drowsiness overtakes Him nor sleep' (2:255). He is not a distant clockmaker; He sustains every atom now. This verse is called Ayat al-Kursi — many Muslims say it after every prayer; now you know what it says.",
         source: "Qur'an 2:255",
       ),
       _AqLesson(
         title: 'The Attribute We Say Most',
         body:
-            "'In the name of Allah, the Most Merciful, the Especially Merciful' (1:1). Every surah but one opens with mercy named twice. Whatever else is true about Him, the name you say most often is the Merciful — that is the door He chose for you.",
+            "'In the name of Allah, the Entirely Merciful, the Especially Merciful' (1:1). Every surah but one opens with mercy named twice. Whatever else is true about Him, the name you say most often is the Merciful — that is the door He chose for you.",
         source: "Qur'an 1:1",
       ),
       _AqLesson(
         title: 'His Are the Most Beautiful Names',
         body:
-            "'And to Allah belong the most beautiful names, so call upon Him by them' (7:180). The 99 Names are not a list to recite dryly — they are His self-descriptions, each one an answer to a human need. Al-Rahman answers the afraid; Al-Wakeel answers the burdened.",
+            "'And to Allah belong the best names, so invoke Him by them' (7:180). The 99 Names are not a list to recite dryly — they are His self-descriptions, each one an answer to a human need. Al-Rahman answers the afraid; Al-Wakeel answers the burdened.",
         source: "Qur'an 7:180",
         actionRoute: '/games/names99',
         actionLabel: 'Meet them in the memory deck',
@@ -79,13 +79,13 @@ const List<_AqUnit> kAqeedahUnits = <_AqUnit>[
       _AqLesson(
         title: 'The Unseen Is Not Unheard',
         body:
-            "'That is the Book about which there is no doubt, a guidance for the God-conscious who believe in the unseen' (2:2-3). Faith begins where sight ends — angels, the Last Day, the reward. Believing in al-ghayb is not credulity; it is trust in the only One who has never lied.",
+            "'This is the Book about which there is no doubt, a guidance for those conscious of Allah - Who believe in the unseen' (2:2-3). Faith begins where sight ends — angels, the Last Day, the reward. Believing in al-ghayb is not credulity; it is trust in the only One who has never lied.",
         source: "Qur'an 2:2-3",
       ),
       _AqLesson(
         title: 'A Messenger to Every Nation',
         body:
-            "'And We certainly sent into every nation a messenger, saying: worship Allah and avoid false gods' (16:36). Ibrahim argued with a star; Musa stood before a sea; Isa healed by Allah's leave; Muhammad sealed the chain. One message, many voices, one Lord.",
+            "'And We certainly sent into every nation a messenger, [saying], Worship Allah and avoid Taghut' (16:36). Ibrahim argued with a star; Musa stood before a sea; Isa healed by Allah's leave; Muhammad sealed the chain. One message, many voices, one Lord.",
         source: "Qur'an 16:36",
         actionRoute: '/stories',
         actionLabel: 'Walk their stories',
@@ -98,7 +98,7 @@ const List<_AqUnit> kAqeedahUnits = <_AqUnit>[
       _AqLesson(
         title: 'He Is With You — the Three Ways',
         body:
-            "'He is with you wherever you are' (57:4). And 'We are closer to him than his jugular vein' (50:16). And 'Fear not, I am with you both; I hear and I see' (20:46). He is with all creation by knowledge, with the believers by help, with His awliya by love. You are never actually alone.",
+            "'He is with you wherever you are' (57:4). And 'We are closer to him than his jugular vein' (50:16). And 'Fear not. Indeed, I am with you both; I hear and I see' (20:46). He is with all creation by knowledge, with the believers by help, with His awliya by love. You are never actually alone.",
         source: "Qur'an 57:4; 50:16; 20:46",
       ),
       _AqLesson(

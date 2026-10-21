@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../app/core/modules/module_status.dart';
 import '../../../app/router.dart';
 import '../../menu/presentation/menu_screen.dart'
     show MenuEntry, visibleMenuEntries;
@@ -81,6 +82,10 @@ class ExploreScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     // Kill switch: ar.flag.academy=false removes every Academy entry point.
     final bool showAcademy = ref.watch(academyFlagProvider).valueOrNull ?? true;
+    // The Courtyard is an open forum with no moderation yet. The module
+    // registry says 'gated', so the entry point stays hidden until it is live.
+    final bool showMajlis =
+        ref.watch(moduleRegistryProvider).valueOrNull?.isLive('majlis') ?? false;
     return ScenicScaffold.pattern(
       body: SafeArea(
         bottom: false,
@@ -111,7 +116,7 @@ class ExploreScreen extends ConsumerWidget {
                           for (final (int i, MenuEntry e) in visibleMenuEntries(
                             items,
                             showAcademy: showAcademy,
-                          ).indexed) ...[
+                          ).where((MenuEntry e) => showMajlis || e.$3 != AppRoutes.majlis).toList().indexed) ...[
                             if (i > 0)
                               Divider(
                                 height: 1,

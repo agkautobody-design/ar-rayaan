@@ -7,15 +7,16 @@ is the same logic for running by hand: `python3 tool/quran_ref_check.py`).
 1. Every explicit Qur'an reference in assets/**/*.json and lib/**/*.dart must
    resolve in the bundled text (assets/quran/quran.json): "Qur'an 2:255",
    "Quran 94:5-6", "(2:255)", and named ones such as "(Al-Baqarah 255)".
-2. In the Hadi offline knowledge base (lib/features/hadi/**, assets/noor/**)
-   every quotation placed next to a reference must be inside the cited ayah(s),
-   word for word (case, punctuation and the translator's [brackets] ignored),
-   never quoted from memory. assets/noor/noor.json entries of kind "quran"
-   must match the bundled Arabic and English of their ref.
+2. Everywhere in the repo (not only the Hadi knowledge base) every quotation
+   placed next to a reference must be inside the cited ayah(s), word for word
+   in the bundled Saheeh International text (case, punctuation and the
+   translator's [brackets] ignored), never quoted from memory or paraphrased
+   inside quotation marks. The only exceptions are listed, each with a reason,
+   in tool/quran_quote_allowlist.json.
+3. assets/noor/noor.json entries of kind "quran" must match the bundled Arabic
+   and English of their ref.
 
-Run from the repo root. Exit 1 on failure. `--report` also lists quotations
-outside the Hadi scope that are not word for word in the cited ayah (paraphrases
-or wrong ayah: for human review, never a failure).
+Run from the repo root. Exit 1 on failure.
 """
 import glob
 import json
@@ -27,7 +28,10 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, 'tool'))
 import hadith_check as hc  # noqa: E402
 
-STRICT_PREFIXES = ('lib/features/hadi/', 'assets/noor/')
+# Justified exceptions: tool/quran_quote_allowlist.json, a list of
+# {"file", "quote", "reason"} objects. A quote listed there is skipped; an entry
+# that no longer matches anything, or has no reason, is itself a failure.
+ALLOWLIST_PATH = os.path.join(ROOT, 'tool', 'quran_quote_allowlist.json')
 
 QURAN = json.load(open(os.path.join(ROOT, 'assets', 'quran', 'quran.json'), encoding='utf8'))
 COUNT = {s['n']: s['c'] for s in QURAN}
@@ -54,8 +58,7 @@ NAMED_REF = re.compile(
 # itself, so only double and curly double quotes delimit a quotation there.
 QUOTE_ANY = re.compile(
     r"(?<![A-Za-z0-9])[‘'“\"]([^‘“\"”]{10,}?)['’”\"](?![A-Za-z0-9])")
-QUOTE_DART = re.compile(
-    r"(?<![A-Za-z0-9])[“\"]([^“\"”]{10,}?)[”\"](?![A-Za-z0-9])")
+QUOTE_DART = QUOTE_ANY  # Dart literals are decoded first (see dart_units)
 HADITH = re.compile(r"bukhari|muslim|tirmidhi|da[wu]*[ou]*d|nasa|majah|ahmad", re.I)
 WORD3 = re.compile(r"[A-Za-z]{3}.*[A-Za-z]{3}")
 
@@ -80,11 +83,81 @@ def norm_ar(t):
     return re.sub('[^ء-ي]+', ' ', t).strip()
 
 
+ESCAPES = {'n': '\n', 't': '\t', 'r': '\r', 'b': '\b', 'f': '\f', 'v': '\v'}
+
+
+def dart_units(raw):
+    """Decoded Dart string literals as (text, line). Adjacent literals (only
+    whitespace between them) are one unit, as at runtime. Comments are skipped;
+    ${...} interpolations are dropped."""
+    out, cur, cur_line, last_end = [], None, 0, -1
+    i, n, line = 0, len(raw), 1
+    while i < n:
+        c = raw[i]
+        if c == '\n':
+            line += 1
+            i += 1
+        elif raw.startswith('//', i):
+            while i < n and raw[i] != '\n':
+                i += 1
+        elif raw.startswith('/*', i):
+            j = raw.find('*/', i + 2)
+            j = n if j < 0 else j + 2
+            line += raw.count('\n', i, j)
+            i = j
+        elif c in '\'"':
+            is_raw = i > 0 and raw[i - 1] == 'r' and (i < 2 or not raw[i - 2].isalnum())
+            triple = raw.startswith(c * 3, i)
+            delim = c * 3 if triple else c
+            j = i + len(delim)
+            buf = []
+            start_line = line
+            while j < n and not raw.startswith(delim, j):
+                ch = raw[j]
+                if ch == '\n':
+                    line += 1
+                if ch == '\\' and not is_raw and j + 1 < n:
+                    nx = raw[j + 1]
+                    if nx == 'u':
+                        m = re.match(r"u\{([0-9a-fA-F]+)\}|u([0-9a-fA-F]{4})", raw[j + 1:j + 12])
+                        if m:
+                            buf.append(chr(int(m.group(1) or m.group(2), 16)))
+                            j += 1 + m.end()
+                            continue
+                    buf.append(ESCAPES.get(nx, nx))
+                    if nx == '\n':
+                        line += 1
+                    j += 2
+                    continue
+                if ch == '$' and not is_raw and raw.startswith('${', j):
+                    depth, j = 1, j + 2
+                    while j < n and depth:
+                        depth += {'{': 1, '}': -1}.get(raw[j], 0)
+                        j += 1
+                    continue
+                buf.append(ch)
+                j += 1
+            j = min(n, j + len(delim))
+            if cur is not None and not raw[last_end:i].strip():
+                cur.append(''.join(buf))
+            else:
+                if cur is not None:
+                    out.append((''.join(cur), cur_line))
+                cur, cur_line = [''.join(buf)], start_line
+            last_end = j
+            i = j
+        else:
+            i += 1
+    if cur is not None:
+        out.append((''.join(cur), cur_line))
+    return out
+
+
 def units(path):
     raw = open(path, encoding='utf8').read()
     if path.endswith('.dart'):
-        text, lines = hc.dart_logical(raw)
-        yield unescape(text), lines
+        for text, line in dart_units(raw):
+            yield text, line
         return
     try:
         doc = json.loads(raw)
@@ -143,7 +216,7 @@ def quote_ok(quote, s, a, b):
 
 
 def pair_quotes(text, refs, dart):
-    """Yield (quote, ref) for every quotation placed next to a valid ref."""
+    """Yield (quote, ref, position) for every quotation placed next to a valid ref."""
     for qm in (QUOTE_DART if dart else QUOTE_ANY).finditer(text):
         qt = qm.group(1)
         if not WORD3.search(qt):
@@ -163,15 +236,68 @@ def pair_quotes(text, refs, dart):
         yield qt, ref, qm.start()
 
 
+# Records that present a bundled-ayah as a card: {"arabic", "text"|"body",
+# "source": "Qur'an 94:5-6"} in JSON and FeelingResponse(kind: 'Quran', text:,
+# source: 'Quran 94:5–6') in Dart. The text (for "body": its first sentence)
+# must be word for word in the cited ayah(s).
+REC_SOURCE = re.compile(
+    r"^\s*(?:Qur['’]?an|Quran)\s*(\d{1,3}):(\d{1,3})(?:\s*[-–]\s*(\d{1,3}))?(?:\s*[(—·].*)?$")
+DART_REC = re.compile(
+    r"kind:\s*'Quran',\s*text:\s*'((?:[^'\\]|\\.)*)',\s*source:\s*'((?:[^'\\]|\\.)*)'")
+FIRST_SENTENCE = re.compile(r"^(.*?[.?!])(?:\s|$)", re.S)
+
+
+def record_checks(path, doc, rel):
+    """Yield (text, ref_tuple) for every Qur'an card record in a JSON doc."""
+    def walk(o):
+        if isinstance(o, dict):
+            src = o.get('source')
+            m = REC_SOURCE.match(src) if isinstance(src, str) else None
+            if m and 'arabic' in o:
+                s_, a_ = int(m.group(1)), int(m.group(2))
+                b_ = int(m.group(3)) if m.group(3) else a_
+                for key in ('text', 'body'):
+                    t = o.get(key)
+                    if isinstance(t, str):
+                        if key == 'body':
+                            fm = FIRST_SENTENCE.match(t)
+                            t = fm.group(1) if fm else t
+                        yield t, (s_, a_, b_, src)
+            for v in o.values():
+                yield from walk(v)
+        elif isinstance(o, list):
+            for v in o:
+                yield from walk(v)
+    yield from walk(doc)
+
+
+def dart_record_checks(raw):
+    for m in DART_REC.finditer(raw):
+        sm = REC_SOURCE.match(unescape(m.group(2)))
+        if sm:
+            a_ = int(sm.group(2))
+            yield unescape(m.group(1)), (int(sm.group(1)), a_, int(sm.group(3)) if sm.group(3) else a_, unescape(m.group(2)))
+
+
+def load_allowlist(errs):
+    allow = {}
+    if os.path.exists(ALLOWLIST_PATH):
+        for e in json.load(open(ALLOWLIST_PATH, encoding='utf8')):
+            if not str(e.get('reason', '')).strip():
+                errs.append('allowlist entry without a reason: %s' % e.get('quote', '')[:60])
+            allow[(e['file'], norm_en(e['quote'], False))] = e
+    return allow, set()
+
+
 def check(report=False):
-    errs, notes = [], []
+    errs = []
     files = [f for f in hc.asset_files()
              if '/assets/quran/' not in f.replace(os.sep, '/')
              and not f.endswith('content_manifest.json')]
     n_refs = n_quotes = 0
+    allow, used = load_allowlist(errs)
     for f in files:
         rel = os.path.relpath(f, ROOT).replace(os.sep, '/')
-        strict = rel.startswith(STRICT_PREFIXES)
         for text, lines in units(f):
             refs = find_refs(text)
             for r in refs:
@@ -182,9 +308,35 @@ def check(report=False):
             for qt, ref, pos in pair_quotes(text, valid, f.endswith('.dart')):
                 n_quotes += 1
                 if not quote_ok(qt, ref[2], ref[3], ref[4]):
-                    ln = (lines[pos] if lines else '?')
-                    msg = '%s:%s: "%s" is not word for word in %s' % (rel, ln, qt[:90], ref[5])
-                    (errs if strict else notes).append(msg)
+                    key = (rel, norm_en(qt, False))
+                    if key in allow:
+                        used.add(key)
+                        continue
+                    ln = lines if lines else '?'
+                    errs.append('%s:%s: "%s" is not word for word in %s' % (rel, ln, qt[:90], ref[5]))
+    n_rec = 0
+    for f in files:
+        rel = os.path.relpath(f, ROOT).replace(os.sep, '/')
+        if f.endswith('.json'):
+            try:
+                doc = json.load(open(f, encoding='utf8'))
+            except ValueError:
+                continue
+            recs = list(record_checks(f, doc, rel))
+        else:
+            recs = list(dart_record_checks(open(f, encoding='utf8').read()))
+        for text, (s_, a_, b_, label) in recs:
+            if not ref_valid(s_, a_, b_):
+                continue
+            n_rec += 1
+            if not quote_ok(text, s_, a_, b_):
+                key = (rel, norm_en(text, False))
+                if key in allow:
+                    used.add(key)
+                    continue
+                errs.append('%s: card text "%s" is not word for word in %s' % (rel, text[:90], label))
+    for key in sorted(set(allow) - used):
+        errs.append('allowlist entry matches nothing (remove it): %s "%s"' % key)
     # noor.json and the Hadi corpus
     nj = json.load(open(os.path.join(ROOT, 'assets', 'noor', 'noor.json'), encoding='utf8'))
     for e in nj['entries']:
@@ -208,13 +360,10 @@ def check(report=False):
         b = int(m.group(3)) if m.group(3) else a
         if not ref_valid(s, a, b):
             errs.append('assets/noor/hadi_corpus.json: ref %s does not exist' % q['ref'])
-    print('references checked: %d; quotations next to a reference: %d; strict-scope failures: %d; review notes: %d'
-          % (n_refs, n_quotes, len(errs), len(notes)))
+    print('references checked: %d; quotations next to a reference: %d; Qur\'an cards: %d; allowlisted: %d; failures: %d'
+          % (n_refs, n_quotes, n_rec, len(used), len(errs)))
     for e in errs:
         print('FAIL', e)
-    if report:
-        for n in notes:
-            print('REVIEW', n)
     return 1 if errs else 0
 
 

@@ -941,7 +941,7 @@ const List<_Entry> _knowledge = <_Entry>[
   // ── Prophetic medicine and creatures ────────────────────────────────
   _Entry(
     <String>['honey', 'black seed', 'tibben nabawi', 'prophetic medicine', 'natural remedy'],
-    'From the Sunnah of healing: honey - "healing for the people" '
+    'From the Sunnah of healing: honey - "healing for people" '
     '(An-Nahl 69), and the Prophet said healing is in three: the '
     'cut of the cupper, a drink of honey, and cauterization with '
     'fire - but he forbade his ummah cauterization. (Sahih '
@@ -1133,7 +1133,7 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['dawud', 'david', 'zabur', 'psalms'],
     'Dawud was given the Zabur - the Psalms - and iron was softened '
-    'for him: "Make coats of mail and measure the links well" '
+    'for him: "Make full coats of mail and calculate [precisely] the links" '
     '(Saba 10-11). Mountains and birds would echo his glorification '
     'with him (Saba 10). He judged between people with justice and '
     'repented at speed when rebuked by two disputants.',

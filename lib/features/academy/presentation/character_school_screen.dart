@@ -38,7 +38,7 @@ const List<_CharUnit> kCharacterUnits = <_CharUnit>[
       ),
       _CharLesson(
         title: 'Patience — The Standing Muscle',
-        body: 'Allah is with the patient (2:153). Patience is not the absence of pain; it is the presence of staying. Ya\u2019qub said \'I only complain of my suffering to Allah\' (12:86) — grief and patience in the same sentence, and the Qur\'an called his patience beautiful.',
+        body: 'Allah is with the patient (2:153). Patience is not the absence of pain; it is the presence of staying. Ya\u2019qub said \'I only complain of my suffering and my grief to Allah\' (12:86) — grief and patience in the same sentence, and the Qur\'an called his patience beautiful.',
         practice: 'Name one thing testing you this week. Stay in it one more day without quitting the dua.',
       ),
       _CharLesson(
