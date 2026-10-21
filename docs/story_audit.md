@@ -32,10 +32,10 @@ Chapters audited: 278, in 200 stories.
 
 | Chapter label applied | Chapters |
 |---|---|
-| unchanged (Established / Interpretive per story) | 157 |
-| Seerah report (named book read; see the rows marked Read:) | 17 |
-| Seerah report (source not checked) | 46 |
-| Hadith report (reference not checked) | 40 |
+| unchanged (Established / Interpretive per story) | 202 |
+| Seerah report (named book read; see the rows marked Read:) | 52 |
+| Seerah report (source not checked) | 6 |
+| Hadith report (reference not checked) | 0 |
 | Reflection | 18 |
 
 ## Table

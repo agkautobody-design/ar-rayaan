@@ -36,9 +36,9 @@
    "version": 2
   },
   "stories/companions.json": {
-   "bytes": 46105,
-   "sha256": "383de04cc213acf017f2870a74aa10a48cd977d5fb8efb5d9e57eb7816c44d9f",
-   "version": 5
+   "bytes": 46666,
+   "sha256": "4d8aa9278ed2921111a11a403b9d7c2b33d2d810a8445bc67d4c932f7a0f7e85",
+   "version": 6
   },
   "stories/dailyduas.json": {
    "bytes": 47386,
@@ -46,19 +46,19 @@
    "version": 6
   },
   "stories/ghayb.json": {
-   "bytes": 83080,
-   "sha256": "c96f591cfb50e3821d29bf34ad622399acb7ccda177a194cdb4b62d4384debd1",
-   "version": 4
+   "bytes": 84523,
+   "sha256": "da66d7714fb0aad69c500905362544af4cf2ad97e960dedd4d749d9db1dec387",
+   "version": 5
   },
   "stories/khutbahs.json": {
-   "bytes": 52790,
-   "sha256": "fb50c4d4f3aa418eae2214ba99ac403ca9d8849b1fa6a7df981a3d0806ac899f",
-   "version": 7
+   "bytes": 53868,
+   "sha256": "645392f3cff2179347cfdb29533efe81b970c428e02f71abc5c451ef431da65e",
+   "version": 8
   },
   "stories/modernhadith.json": {
-   "bytes": 48759,
-   "sha256": "ce14addf1164031b619a29b5d9c92be3a2c196983d335d4e4b787103af5da2d0",
-   "version": 10
+   "bytes": 49035,
+   "sha256": "9541a14902018352b5d50cee4ce2f284f9f63479fbbe2f56523f71e6d6d192ce",
+   "version": 11
   },
   "stories/newmuslim.json": {
    "bytes": 37931,
@@ -71,14 +71,14 @@
    "version": 4
   },
   "stories/seerah.json": {
-   "bytes": 61249,
-   "sha256": "94f61d920e397d2eac746633ea96ffe543a4d9013f82b6a423449b806a60952c",
-   "version": 5
+   "bytes": 66202,
+   "sha256": "1e5b8b783da34589bb924c693a32442a80b96f24bd80b5bb885ef6e78aa0c021",
+   "version": 6
   },
   "stories/signs.json": {
-   "bytes": 20746,
-   "sha256": "49ab2c6fcb59706d76639d9718e921ce355c6357631952b14605230d3744e9a0",
-   "version": 4
+   "bytes": 20623,
+   "sha256": "76da60a97f55e0559d47500cd11f72706dc54efc350447973d0a2099a0e0fdfa",
+   "version": 5
   },
   "stories/tales.json": {
    "bytes": 24607,
@@ -86,9 +86,9 @@
    "version": 5
   },
   "stories/women.json": {
-   "bytes": 39948,
-   "sha256": "d0b7b23a19448957284baa6a365ae416cf8d264e14e32317a4643cb9104a9c86",
-   "version": 5
+   "bytes": 42715,
+   "sha256": "914c920482e10c91f873a59113bf142db0eb125f13a9b8debd600f5746307e9f",
+   "version": 6
   },
   "system/module_registry.json": {
    "bytes": 12778,
