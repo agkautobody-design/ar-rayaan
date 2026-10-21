@@ -114,7 +114,9 @@ class _ArRayaanAppState extends ConsumerState<ArRayaanApp> {
                         if (!kDebugMode)
                           Positioned(
                             right: 12,
-                            bottom: 12,
+                            // Clears the bottom navigation bar so the pill
+                            // never covers a tab or a primary button.
+                            bottom: 96,
                             child: _AskHadiPill(router: _router),
                           ),
                       ],
@@ -178,7 +180,13 @@ class _AskHadiPill extends StatelessWidget {
         } catch (_) {
           path = '';
         }
-        if (path.startsWith('/hadi')) return const SizedBox.shrink();
+        // Hidden while talking to Hādi and on the first-run screens, where
+        // it would sit on top of the Next / Begin button.
+        if (path.startsWith('/hadi') ||
+            path == AppRoutes.splash ||
+            path.startsWith(AppRoutes.onboarding)) {
+          return const SizedBox.shrink();
+        }
         return SafeArea(
           child: Semantics(
             button: true,
