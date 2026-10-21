@@ -183,7 +183,7 @@ int dayOfYear(DateTime d) =>
 abstract final class MoodMap {
   static const List<Feeling> feelings = <Feeling>[
     Feeling(id: 'peace', label: 'At peace', emoji: '🕊️', responses: <FeelingResponse>[
-      FeelingResponse(kind: 'Quran', text: 'Verily, in the remembrance of Allah do hearts find rest.', source: 'Quran 13:28'),
+      FeelingResponse(kind: 'Quran', text: 'Unquestionably, by the remembrance of Allah hearts are assured.', source: 'Quran 13:28'),
       FeelingResponse(kind: 'Hadith', text: 'Amazing is the affair of the believer — all of it is good for him: if ease reaches him he is grateful, and if hardship strikes him he is patient.', source: 'Sahih Muslim 2999 — excerpt'),
       FeelingResponse(kind: 'Dua', text: 'O Allah, I ask You for pardon and well-being in this world and the Hereafter.', source: 'Taught by the Prophet ﷺ — Sunan Ibn Majah 3871 — excerpt', grade: 'sahih', grader: 'Darussalam'),
     ]),
@@ -193,12 +193,12 @@ abstract final class MoodMap {
       FeelingResponse(kind: 'Door', text: 'Sujud al-shukr — the prostration of gratitude. When a blessing reaches you, fall into prostration.', source: 'The practice of the Prophet ﷺ — Sunan Abi Dawud 2774 — sahih per al-Albani'),
     ]),
     Feeling(id: 'anxious', label: 'Anxious', emoji: '🌊', responses: <FeelingResponse>[
-      FeelingResponse(kind: 'Quran', text: 'Verily, in the remembrance of Allah do hearts find rest.', source: 'Quran 13:28'),
+      FeelingResponse(kind: 'Quran', text: 'Unquestionably, by the remembrance of Allah hearts are assured.', source: 'Quran 13:28'),
       FeelingResponse(kind: 'Dua', text: 'O Allah, Your mercy I hope for; do not leave me to myself even for the blink of an eye, and set right all my affairs. There is no god but You.', source: 'Sunan Abi Dawud 5090', grade: 'hasan', grader: 'al-Albani'),
       FeelingResponse(kind: 'Hadith', text: 'If you were to rely upon Allah with true reliance, He would provide for you as He provides for the birds: they leave hungry in the morning and return full.', source: 'Jamiʿ at-Tirmidhi 2344', grade: 'hasan', grader: 'Darussalam'),
     ]),
     Feeling(id: 'sad', label: 'Sad', emoji: '🌧️', responses: <FeelingResponse>[
-      FeelingResponse(kind: 'Quran', text: 'Indeed, with hardship comes ease. Indeed, with hardship comes ease.', source: 'Quran 94:5–6'),
+      FeelingResponse(kind: 'Quran', text: 'For indeed, with hardship [will be] ease.', source: 'Quran 94:5–6'),
       FeelingResponse(kind: 'Hadith', text: 'No fatigue, illness, anxiety, sorrow or grief touches a Muslim — not even a thorn — but that Allah expiates some of his sins by it.', source: 'Sahih al-Bukhari 5641 — excerpt'),
       FeelingResponse(kind: 'Dua', text: 'La ilaha illa anta, subhanaka, inni kuntu minaz-zalimin — the dua of Yunus in the three darknesses.', source: 'Quran 21:87 · Jamiʿ at-Tirmidhi 3505', grade: 'sahih', grader: 'Darussalam'),
     ]),
@@ -213,22 +213,22 @@ abstract final class MoodMap {
       FeelingResponse(kind: 'Hadith', text: 'The Quran will come as an intercessor for its companions on the Day of Resurrection.', source: 'Sahih Muslim 804 — meaning'),
     ]),
     Feeling(id: 'overwhelmed', label: 'Overwhelmed', emoji: '⛰️', responses: <FeelingResponse>[
-      FeelingResponse(kind: 'Quran', text: 'Allah does not burden a soul beyond what it can bear.', source: 'Quran 2:286 — excerpt'),
+      FeelingResponse(kind: 'Quran', text: 'Allah does not charge a soul except [with that within] its capacity.', source: 'Quran 2:286 — excerpt'),
       FeelingResponse(kind: 'Hadith', text: 'The most beloved deeds to Allah are the most consistent, even if small.', source: 'Sahih al-Bukhari 6464'),
       FeelingResponse(kind: 'Door', text: 'One row at a time. The deen was revealed over 23 years — you do not have to carry it all tonight.', source: 'The principle of gradualism — Quran 25:32'),
     ]),
     Feeling(id: 'hopeful', label: 'Hopeful', emoji: '🌅', responses: <FeelingResponse>[
       FeelingResponse(kind: 'Hadith', text: 'None of you should die except thinking well of Allah.', source: 'Sahih Muslim 2877'),
       FeelingResponse(kind: 'Hadith', text: 'Allah is happier with the repentance of His servant than a man who lost his camel in the desert — with his food and water on it — and then finds it.', source: 'Sahih Muslim 2747 — excerpt'),
-      FeelingResponse(kind: 'Quran', text: 'And never despair of the relief of Allah. Indeed, no one despairs of Allah’s relief except the disbelieving people.', source: 'Quran 12:87'),
+      FeelingResponse(kind: 'Quran', text: 'And despair not of relief from Allah. Indeed, no one despairs of relief from Allah except the disbelieving people.', source: 'Quran 12:87'),
     ]),
     Feeling(id: 'grieving', label: 'Grieving', emoji: '🕯️', responses: <FeelingResponse>[
-      FeelingResponse(kind: 'Quran', text: 'Who, when disaster strikes them, say: Indeed we belong to Allah, and indeed to Him we will return. Those are the ones upon whom are blessings and mercy from their Lord, and those are the guided.', source: 'Quran 2:155–157 — excerpt'),
+      FeelingResponse(kind: 'Quran', text: 'Who, when disaster strikes them, say, Indeed we belong to Allah, and indeed to Him we will return. Those are the ones upon whom are blessings from their Lord and mercy. And it is those who are the [rightly] guided.', source: 'Quran 2:155–157 — excerpt'),
       FeelingResponse(kind: 'Hadith', text: 'To Allah belongs what He took and what He gave, and everything with Him has an appointed term — so be patient and seek reward.', source: 'Sahih al-Bukhari 1284 — excerpt'),
       FeelingResponse(kind: 'Door', text: 'The Prophet ﷺ wept at the grave of his son Ibrahim and said: "The eye weeps and the heart grieves, and we say only what pleases our Lord."', source: 'Sahih al-Bukhari 1303 — excerpt'),
     ]),
     Feeling(id: 'sin', label: 'Struggling with sin', emoji: '🌱', responses: <FeelingResponse>[
-      FeelingResponse(kind: 'Quran', text: 'Say: O My servants who have transgressed against themselves, do not despair of the mercy of Allah. Indeed, Allah forgives all sins.', source: 'Quran 39:53 — excerpt'),
+      FeelingResponse(kind: 'Quran', text: 'Say, O My servants who have transgressed against themselves [by sinning], do not despair of the mercy of Allah. Indeed, Allah forgives all sins.', source: 'Quran 39:53 — excerpt'),
       FeelingResponse(kind: 'Hadith', text: 'Every son of Adam sins, and the best of those who sin are those who repent.', source: 'Jamiʿ at-Tirmidhi 2499', grade: 'daif', grader: 'Darussalam'),
       FeelingResponse(kind: 'Hadith', text: 'A man killed ninety-nine souls, then sought repentance — and Allah forgave him. No one stands between you and repentance but despair.', source: 'Sahih Muslim 2766 — the hundred-souls hadith, excerpt'),
     ]),

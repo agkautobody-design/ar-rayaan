@@ -118,7 +118,7 @@ const List<_WomUnit> kWomenUnits = <_WomUnit>[
       ),
       _WomLesson(
         title: 'Umm Salama — Whose Question Became a Verse',
-        body: 'She said the dua of the afflicted — \'to Allah we belong and to Him we return\' — and her heartache became revelation (2:156). Her later question about \'the men only\' brought the verse that included the women (33:35).',
+        body: 'She said the dua of the afflicted — \'Indeed we belong to Allah, and indeed to Him we will return\' — and her heartache became revelation (2:156). Her later question about whether the verses addressed only the men brought the verse that included the women (33:35).',
         practice: 'What dua could turn your hardest day into an address to Allah? Say it tonight.',
         storyId: 'woman-umm-salama',
       ),

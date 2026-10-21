@@ -268,7 +268,7 @@ class HijrahMapScreen extends StatelessWidget {
         ],
         const SizedBox(height: 8),
         GlassCard(strong: true, child: Text(
-          '\u201cThose who migrated for Allah after they were wronged — We will surely settle them in this world in a good place\u2026\u201d (16:41). The Hijrah is the proof that leaving everything for Allah is never a loss.',
+          '\u201cAnd those who emigrated for [the cause of] Allah after they had been wronged - We will surely settle them in this world in a good place\u2026\u201d (16:41). The Hijrah is the proof that leaving everything for Allah is never a loss.',
           style: AppText.body.copyWith(height: 1.6, fontSize: 13.5))),
       ]),
     );
