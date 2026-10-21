@@ -40,3 +40,23 @@ Notes for the lead:
 - Stories whose label went from unchecked to Established: comp-saad, comp-abdurrahman, comp-abu-hurayrah, comp-anas, comp-ibn-abbas, comp-khabbab, comp-ubayy, comp-abu-dharr.
 - tool/hadith_verdicts/vb.json holds the new verdicts; Muslim 1748 is the sunnah.com sub-entry 1748c (Sa'd and his mother).
 - tool/hadith_check.py prints "conflicting verdicts" warnings for 14 older keys in other verdict files; they are present on main and exit code stays 0.
+
+
+## Rows for docs/story_audit.md (to paste; the lead owns that file)
+
+The test `a chapter labelled Seerah report names the book and page it was read in` fails until each of these stories has a row containing `Label: Seerah report. Read:`. Use these lines as the action column text.
+
+| companions | comp-hamza | 1 | M | Read 2026-10-21 (verify_vb.md has the full list of what was removed): Hamza and Abu Jahl, the vow, 16:126, Wahshi. Label: Seerah report. Read: Ibn Hisham vol. 1 pp. 291-292; vol. 2 pp. 95-96, 99, 122. |
+| companions | comp-bilal | 1 | M | Read 2026-10-21 (verify_vb.md has the full list of what was removed): Bilal and the rock, the exchange, the adhan in the Kaaba; Bukhari 1149. Label: Seerah report. Read: Ibn Hisham vol. 1 p. 318; vol. 2 p. 413. |
+| companions | comp-salman | 1 | M | Read 2026-10-21 (verify_vb.md has the full list of what was removed): Salman's own account, mukataba, the rock at the Trench. Label: Seerah report. Read: Ibn Hisham vol. 1 pp. 214-221; vol. 2 p. 219. |
+| companions | comp-abu-ubaidah | 1 | M | Read 2026-10-21 (verify_vb.md has the full list of what was removed): helmet rings at Uhud; Bukhari 3744. Label: Seerah report. Read: Ibn Hisham vol. 2 p. 80. |
+| companions | comp-talha-zubayr | 1 | M | Read 2026-10-21 (verify_vb.md has the full list of what was removed): Talha at Uhud; Bukhari 3724. Label: Seerah report. Read: Ibn Hisham vol. 2 pp. 80, 83, 86. |
+| companions | comp-said-zayd | 1 | M | Read 2026-10-21 (verify_vb.md has the full list of what was removed): Zayd, Khadijah, the ransom, 33:5; Bukhari 1246; Fatima and Sa'id. Label: Seerah report. Read: Ibn Hisham vol. 1 pp. 247-249, 343. |
+| companions | comp-ibn-masud | 1 | M | Read 2026-10-21 (verify_vb.md has the full list of what was removed): recitation at the Maqam; Bukhari 3808. Label: Seerah report. Read: Ibn Hisham vol. 1 pp. 314-315. |
+| companions | comp-ammar | 1 | M | Read 2026-10-21 (verify_vb.md has the full list of what was removed): Ammar and Sumayya; Tirmidhi 3798; Bukhari 2812. Label: Seerah report. Read: Ibn Hisham vol. 1 pp. 319-320. |
+| companions | comp-muadh | 1 | M | Read 2026-10-21 (verify_vb.md has the full list of what was removed): sent to Yemen; Tirmidhi 1327 (weak), 3790. Label: Seerah report. Read: Ibn Hisham vol. 2 p. 590. |
+| companions | comp-hudhayfah | 1 | M | Read 2026-10-21 (verify_vb.md has the full list of what was removed): al-Yaman at Uhud; Muslim 1788, 2779. Label: Seerah report. Read: Ibn Hisham vol. 2 p. 87. |
+| companions | comp-musab | 1 | M | Read 2026-10-21 (verify_vb.md has the full list of what was removed): Mus'ab in Madinah, Usayd and Sa'd ibn Mu'adh; Bukhari 1276. Label: Seerah report. Read: Ibn Hisham vol. 1 pp. 434-437; vol. 2 p. 122. |
+| companions | comp-thawr | 2 | M | Read 2026-10-21 (verify_vb.md has the full list of what was removed): no spider or dove in the cave account. Label: Seerah report. Read: Ibn Hisham vol. 1 pp. 485-486. |
+| khutbahs | kh-taif | 1-2 | M | Read 2026-10-21 (verify_vb.md has the full list of what was removed): Taif, the three brothers, the garden, the prayer, Addas (did not embrace Islam). Label: Seerah report. Read: Ibn Hisham vol. 1 pp. 419-421. |
+| khutbahs | kh-abubakr | 1-2 | M | Read 2026-10-21 (verify_vb.md has the full list of what was removed): the death scene, 3:144, the speech. Label: Seerah report. Read: Ibn Hisham vol. 2 pp. 656, 661 (ids 1393, 1398). |
