@@ -10,6 +10,7 @@ import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/router.dart';
 import '../data/stories_repository.dart';
 import '../data/story_layers_repository.dart';
+import '../domain/story.dart';
 
 class StoriesScreen extends ConsumerWidget {
   const StoriesScreen({super.key});
@@ -64,127 +65,175 @@ class StoriesScreen extends ConsumerWidget {
           ),
         ),
         data: (all) {
-          final repo = ref.read(storiesRepositoryProvider);
           final Set<String> deeper =
               ref.watch(storyIdsWithLayersProvider).valueOrNull ?? <String>{};
-          return ListView(
-            padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
-            children: [
-              const ScreenHeader(title: 'Stories', close: true),
-              if (all.isEmpty)
-                Padding(
-                  padding: const EdgeInsets.all(24),
-                  child: GestureDetector(
-                    onTap: () async {
-                      final prefs = await SharedPreferences.getInstance();
-                      for (final k in prefs.getKeys()) {
-                        if (k.startsWith('cp_') || k.startsWith('cv_')) {
-                          await prefs.remove(k);
-                        }
-                      }
-                      ref.invalidate(storiesProvider);
-                    },
-                    child: Column(mainAxisSize: MainAxisSize.min, children: [
-                      Text('The shelves are empty — the packs did not load.',
-                          style: AppText.body),
-                      const SizedBox(height: 8),
-                      Text('TAP TO RETRY',
-                          style: AppText.eyebrow.copyWith(color: AppColors.goldLight)),
-                    ]),
-                  ),
-                )
-              else
-                Padding(
-                  padding: const EdgeInsets.only(left: 4, bottom: 6),
-                  child: Text('${all.length} STORIES LOADED',
-                      style: AppText.eyebrow),
-                ),
+          // Head rows are cheap and few; the shelves (hundreds of story
+          // cards) are built lazily, only while they are near the viewport.
+          final List<Widget> head = <Widget>[
+            const ScreenHeader(title: 'Stories', close: true),
+            if (all.isEmpty)
               Padding(
-                padding: const EdgeInsets.only(left: 4, bottom: 4),
-                child: Text(
-                  'READ WITH YOUR HEART',
-                  style: AppText.eyebrow,
+                padding: const EdgeInsets.all(24),
+                child: GestureDetector(
+                  onTap: () async {
+                    final prefs = await SharedPreferences.getInstance();
+                    for (final k in prefs.getKeys()) {
+                      if (k.startsWith('cp_') || k.startsWith('cv_')) {
+                        await prefs.remove(k);
+                      }
+                    }
+                    ref.invalidate(storiesProvider);
+                  },
+                  child: Column(mainAxisSize: MainAxisSize.min, children: [
+                    Text('The shelves are empty — the packs did not load.',
+                        style: AppText.body),
+                    const SizedBox(height: 8),
+                    Text('TAP TO RETRY',
+                        style: AppText.eyebrow
+                            .copyWith(color: AppColors.goldLight)),
+                  ]),
                 ),
+              )
+            else
+              Padding(
+                padding: const EdgeInsets.only(left: 4, bottom: 6),
+                child:
+                    Text('${all.length} STORIES LOADED', style: AppText.eyebrow),
               ),
-              for (final (key, title, subtitle) in _collections) ...[
-                if (repo.byCollection(all, key).isNotEmpty) ...[
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(4, 20, 4, 8),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(title, style: AppText.titleMedium),
-                        const SizedBox(height: 2),
-                        Text(
-                          subtitle,
-                          style: AppText.bodyMuted,
-                        ),
-                      ],
-                    ),
+            Padding(
+              padding: const EdgeInsets.only(left: 4, bottom: 4),
+              child: Text(
+                'READ WITH YOUR HEART',
+                style: AppText.eyebrow,
+              ),
+            ),
+          ];
+          final List<_ShelfRow> rows = _shelfRows(all);
+          return ListView.builder(
+            padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
+            itemCount: head.length + rows.length,
+            itemBuilder: (BuildContext context, int index) {
+              if (index < head.length) return head[index];
+              final _ShelfRow row = rows[index - head.length];
+              final Story? story = row.story;
+              if (story == null) {
+                return Padding(
+                  padding: const EdgeInsets.fromLTRB(4, 20, 4, 8),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(row.title, style: AppText.titleMedium),
+                      const SizedBox(height: 2),
+                      Text(row.subtitle, style: AppText.bodyMuted),
+                    ],
                   ),
-                  for (final story in repo.byCollection(all, key))
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 10),
-                      child: GlassCard(
-                        onTap: () =>
-                            context.go(AppRoutes.storyReader, extra: story),
-                        child: Row(
-                          children: [
-                            Container(
-                              width: 42,
-                              height: 42,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                border: Border.all(
-                                  color: AppColors.gold.withValues(alpha: 0.35),
-                                ),
-                              ),
-                              child: Icon(
-                                Icons.auto_stories_outlined,
-                                size: 20,
-                                color: AppColors.goldLight,
-                              ),
-                            ),
-                            const SizedBox(width: 14),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(story.title, style: AppText.titleMedium),
-                                  const SizedBox(height: 2),
-                                  Text(
-                                    story.subtitle,
-                                    maxLines: 2,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: AppText.bodyMuted,
-                                  ),
-                                ],
-                              ),
-                            ),
-                            const SizedBox(width: 10),
-                            if (deeper.contains(story.id))
-                              Padding(
-                                padding: const EdgeInsets.only(right: 8),
-                                child: Tooltip(
-                                  message: 'Has a Go deeper section',
-                                  child: Icon(
-                                    Icons.layers_outlined,
-                                    size: 18,
-                                    color: AppColors.goldLight,
-                                    semanticLabel: 'Has a Go deeper section',
-                                  ),
-                                ),
-                              ),
-                            _SourceChip(label: story.sourceLabel),
-                          ],
-                        ),
-                      ),
-                    ),
-                ],
-              ],
-            ],
+                );
+              }
+              return _StoryCard(story: story, hasLayers: deeper.contains(story.id));
+            },
           );
         },
+      ),
+    );
+  }
+
+  /// Flattens the shelves into one list of rows (a heading row, then one
+  /// row per story) in a single pass over [all].
+  static List<_ShelfRow> _shelfRows(List<Story> all) {
+    final Map<String, List<Story>> grouped = <String, List<Story>>{};
+    for (final Story s in all) {
+      (grouped[s.collection] ??= <Story>[]).add(s);
+    }
+    final List<_ShelfRow> rows = <_ShelfRow>[];
+    for (final (key, title, subtitle) in _collections) {
+      final List<Story>? list = grouped[key];
+      if (list == null || list.isEmpty) continue;
+      rows.add(_ShelfRow.heading(title, subtitle));
+      for (final Story s in list) {
+        rows.add(_ShelfRow.story(s));
+      }
+    }
+    return rows;
+  }
+}
+
+class _ShelfRow {
+  const _ShelfRow.heading(this.title, this.subtitle) : story = null;
+  _ShelfRow.story(this.story)
+      : title = '',
+        subtitle = '';
+
+  final String title;
+  final String subtitle;
+  final Story? story;
+}
+
+/// One story on a shelf. No backdrop blur: with hundreds of cards each blur
+/// is its own compositing layer; the translucent fill and gold border look
+/// the same on this dark background.
+class _StoryCard extends StatelessWidget {
+  const _StoryCard({required this.story, required this.hasLayers});
+
+  final Story story;
+  final bool hasLayers;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10),
+      child: GlassCard(
+        blur: false,
+        onTap: () => context.go(AppRoutes.storyReader, extra: story),
+        child: Row(
+          children: [
+            Container(
+              width: 42,
+              height: 42,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: AppColors.gold.withValues(alpha: 0.35),
+                ),
+              ),
+              child: Icon(
+                Icons.auto_stories_outlined,
+                size: 20,
+                color: AppColors.goldLight,
+              ),
+            ),
+            const SizedBox(width: 14),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(story.title, style: AppText.titleMedium),
+                  const SizedBox(height: 2),
+                  Text(
+                    story.subtitle,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: AppText.bodyMuted,
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(width: 10),
+            if (hasLayers)
+              Padding(
+                padding: const EdgeInsets.only(right: 8),
+                child: Tooltip(
+                  message: 'Has a Go deeper section',
+                  child: Icon(
+                    Icons.layers_outlined,
+                    size: 18,
+                    color: AppColors.goldLight,
+                    semanticLabel: 'Has a Go deeper section',
+                  ),
+                ),
+              ),
+            _SourceChip(label: story.sourceLabel),
+          ],
+        ),
       ),
     );
   }

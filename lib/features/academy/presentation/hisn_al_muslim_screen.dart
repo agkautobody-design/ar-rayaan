@@ -107,6 +107,7 @@ class HisnAlMuslimScreen extends ConsumerWidget {
                       Padding(
                         padding: const EdgeInsets.only(bottom: 8),
                         child: GlassCard(
+                          blur: false,
                           onTap: () =>
                               context.go(AppRoutes.storyReader, extra: d),
                           child: Column(

@@ -184,6 +184,7 @@ class _SearchState extends ConsumerState<SearchScreen> {
                     Padding(
                       padding: const EdgeInsets.only(bottom: 8),
                       child: GlassCard(
+                        blur: false,
                         onTap: h.open,
                         child: Row(children: [
                           Icon(h.icon, size: 17, color: AppColors.goldLight),

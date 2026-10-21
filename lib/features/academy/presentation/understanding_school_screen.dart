@@ -137,6 +137,7 @@ class UnderstandingSchoolScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(bottom: 10),
                     child: GlassCard(
+                      blur: false,
                       strong: true,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,

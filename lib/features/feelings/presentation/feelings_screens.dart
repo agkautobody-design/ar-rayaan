@@ -108,6 +108,7 @@ class FeelingsScreen extends ConsumerWidget {
               Padding(
                 padding: const EdgeInsets.only(bottom: 10),
                 child: GlassCard(
+                  blur: false,
                   onTap: () => context.go('${AppRoutes.feelings}/${f.id}'),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -294,6 +295,7 @@ class FeelingScreen extends ConsumerWidget {
                         return Padding(
                           padding: const EdgeInsets.only(bottom: 10),
                           child: GlassCard(
+                            blur: false,
                             onTap: story == null
                                 ? null
                                 : () => context.go(
