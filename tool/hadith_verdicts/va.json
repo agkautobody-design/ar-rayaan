@@ -1,0 +1,93 @@
+{
+ "bukhari:5224": {
+  "checked": "2026-10-21",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Asma: early marriage to az-Zubayr; date stones from his land about two miles; the Prophet offers her a ride; Abu Bakr sends a servant for the horse",
+  "verdict": "ok"
+ },
+ "bukhari:4200": {
+  "checked": "2026-10-21",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Anas: Khaybar; Safiyya first assigned to Dihya al-Kalbi, then came to the Prophet, who made her freedom her dowry",
+  "verdict": "ok"
+ },
+ "bukhari:3895": {
+  "checked": "2026-10-21",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Aisha: shown to the Prophet twice in a dream, in a piece of silk, 'this is your wife', he uncovered it and it was her; if it is from Allah it will be done",
+  "verdict": "ok"
+ },
+ "bukhari:3662": {
+  "checked": "2026-10-21",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Amr ibn al-As asks who is most beloved; answers in order Aisha, her father, Umar",
+  "verdict": "ok"
+ },
+ "bukhari:4750": {
+  "checked": "2026-10-21",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Aisha: the slander (ifk), Abdullah ibn Ubayy leads it, her month of illness, revelation of her innocence; quotes 24:11-20 and 24:22",
+  "verdict": "ok"
+ },
+ "bukhari:6503": {
+  "checked": "2026-10-21",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Sahl: the Prophet held up two fingers; he was sent and the Hour is near",
+  "verdict": "ok"
+ },
+ "bukhari:3636": {
+  "checked": "2026-10-21",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Ibn Mas'ud: the moon was split in two in the Prophet's lifetime; 'Bear witness'; no mountain in the text",
+  "verdict": "ok"
+ },
+ "bukhari:3637": {
+  "checked": "2026-10-21",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Anas: the people of Makkah asked for a sign and he showed them the splitting of the moon; no further detail",
+  "verdict": "ok"
+ },
+ "bukhari:80": {
+  "checked": "2026-10-21",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Anas: signs of the Hour: knowledge taken away, ignorance established, wine drunk widely, open fornication",
+  "verdict": "ok"
+ },
+ "bukhari:4635": {
+  "checked": "2026-10-21",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Hurayrah: the Hour not before the sun rises from the west; all will believe, then belief does not benefit one who had not believed before; no statement about repentance closing",
+  "verdict": "ok"
+ },
+ "bukhari:2732": {
+  "checked": "2026-10-21",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Same page as 2731: Hudaybiyyah, slaughter and shave, Umm Salama's counsel",
+  "verdict": "ok"
+ },
+ "tirmidhi:3187": {
+  "checked": "2026-10-21",
+  "grade": "Da'if (Darussalam); hasan (al-Tirmidhi)",
+  "grader": "Darussalam; al-Tirmidhi",
+  "note": "Abu Hurayrah: the Beast with the ring of Sulayman and staff of Musa; brightens the faces of believers and marks the noses of disbelievers; weak per Darussalam, al-Tirmidhi called it hasan",
+  "verdict": "ok"
+ },
+ "tirmidhi:3211": {
+  "checked": "2026-10-21",
+  "grade": "Hasan (Darussalam)",
+  "grader": "Darussalam",
+  "note": "Umm Umarah al-Ansariyyah asks why women are not mentioned; Qur'an 33:35 revealed; no Umm Salama in this report",
+  "verdict": "ok"
+ }
+}
