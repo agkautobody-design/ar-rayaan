@@ -243,7 +243,7 @@ class _ScheduleState extends ConsumerState<_Schedule> {
                     ),
                     Text(
                       'The call to prayer · Masjid al-Haram',
-                      style: AppText.bodyMuted.copyWith(fontSize: 11),
+                      style: AppText.bodyMuted.copyWith(fontSize: 12),
                     ),
                   ],
                 ),
@@ -311,7 +311,7 @@ class _ScheduleState extends ConsumerState<_Schedule> {
                       'The last third of the night begins ${DateFormat.jm().format(data.lastThirdStartFor(now))} — '
                       '“Who calls upon Me that I may answer him?”',
                       style: AppText.bodyMuted.copyWith(
-                        fontSize: 11,
+                        fontSize: 12,
                         height: 1.4,
                       ),
                     ),
@@ -330,7 +330,7 @@ class _ScheduleState extends ConsumerState<_Schedule> {
         const SizedBox(height: 24),
         Text(
           '${data.locationLabel} · ${data.methodLabel}',
-          style: AppText.bodyMuted.copyWith(fontSize: 11),
+          style: AppText.bodyMuted.copyWith(fontSize: 12),
           textAlign: TextAlign.center,
         ),
         if (data.zone != null)
@@ -339,7 +339,7 @@ class _ScheduleState extends ConsumerState<_Schedule> {
             child: Text(
               'Times are on the local clock of ${data.locationLabel}, '
               'not your device\u2019s.',
-              style: AppText.bodyMuted.copyWith(fontSize: 11),
+              style: AppText.bodyMuted.copyWith(fontSize: 12),
               textAlign: TextAlign.center,
             ),
           ),
@@ -361,7 +361,7 @@ class _ScheduleState extends ConsumerState<_Schedule> {
         Text(
           'TIMES ARE APPROXIMATE · CONFIRM LOCALLY',
           style: AppText.eyebrow.copyWith(
-            color: AppColors.gold.withValues(alpha: 0.4),
+            color: AppColors.gold.withValues(alpha: 0.9),
           ),
           textAlign: TextAlign.center,
         ),
@@ -433,12 +433,12 @@ class _PrayerRow extends ConsumerWidget {
                 if (iqamah != null)
                   Text(
                     'Iqamah ${DateFormat.jm().format(iqamah!)}',
-                    style: AppText.bodyMuted.copyWith(fontSize: 11),
+                    style: AppText.bodyMuted.copyWith(fontSize: 12),
                   ),
                 if (jumuah != null)
                   Text(
                     "Jumu'ah $jumuah",
-                    style: AppText.bodyMuted.copyWith(fontSize: 11),
+                    style: AppText.bodyMuted.copyWith(fontSize: 12),
                   ),
               ],
             ),
@@ -454,7 +454,7 @@ class _PrayerRow extends ConsumerWidget {
               child: Text(
                 'NEXT',
                 style: AppText.eyebrow.copyWith(
-                  fontSize: 8,
+                  fontSize: 12,
                   letterSpacing: 2,
                   color: AppColors.goldLight,
                 ),
@@ -522,7 +522,7 @@ class _LocationCard extends ConsumerWidget {
             const SizedBox(height: 4),
             Text(
               'Times are calculated on your device — no internet needed.',
-              style: AppText.bodyMuted.copyWith(fontSize: 11),
+              style: AppText.bodyMuted.copyWith(fontSize: 12),
             ),
             const SizedBox(height: 12),
             for (final PrayerLocation c in CityDirectory.cities)
@@ -534,7 +534,7 @@ class _LocationCard extends ConsumerWidget {
                     ? null
                     : Text(
                         c.country,
-                        style: AppText.bodyMuted.copyWith(fontSize: 11),
+                        style: AppText.bodyMuted.copyWith(fontSize: 12),
                       ),
                 onTap: () => Navigator.of(ctx).pop(c),
               ),
@@ -582,17 +582,17 @@ class _LocationCard extends ConsumerWidget {
                 if (status == GpsStatus.denied)
                   Text(
                     'Location permission denied — pick your city instead',
-                    style: AppText.bodyMuted.copyWith(fontSize: 10),
+                    style: AppText.bodyMuted.copyWith(fontSize: 12),
                   )
                 else if (status == GpsStatus.unavailable)
                   Text(
                     'Location is off on this device — pick your city instead',
-                    style: AppText.bodyMuted.copyWith(fontSize: 10),
+                    style: AppText.bodyMuted.copyWith(fontSize: 12),
                   )
                 else if (status == GpsStatus.error)
                   Text(
                     'Could not get your location — pick your city instead',
-                    style: AppText.bodyMuted.copyWith(fontSize: 10),
+                    style: AppText.bodyMuted.copyWith(fontSize: 12),
                   ),
               ],
             ),
@@ -690,7 +690,7 @@ class _MethodSheet extends ConsumerWidget {
                 settings.hanafiAsr
                     ? 'Shadow twice the object\u2019s length (later Asr)'
                     : 'Standard: Shafi\u2019i, Maliki, Hanbali',
-                style: AppText.bodyMuted.copyWith(fontSize: 11),
+                style: AppText.bodyMuted.copyWith(fontSize: 12),
               ),
             ),
             const SizedBox(height: 12),
@@ -699,7 +699,7 @@ class _MethodSheet extends ConsumerWidget {
             Text(
               'Your mosque\u2019s timetable is the reference — pick the method '
               'that matches it.',
-              style: AppText.bodyMuted.copyWith(fontSize: 11),
+              style: AppText.bodyMuted.copyWith(fontSize: 12),
             ),
             for (final PrayerMethodOption m in kPrayerMethods)
               ListTile(
@@ -717,14 +717,14 @@ class _MethodSheet extends ConsumerWidget {
                   m.key == 'auto'
                       ? '${m.detail} — now: ${kPrayerMethods.firstWhere((PrayerMethodOption o) => o.key == autoMethodFor(loc)).label}'
                       : m.detail,
-                  style: AppText.bodyMuted.copyWith(fontSize: 11),
+                  style: AppText.bodyMuted.copyWith(fontSize: 12),
                 ),
               ),
             Text(
               'Angles for the regional presets follow the list the AlAdhan '
               'prayer-times API publishes for each authority '
               '(api.aladhan.com/v1/methods).',
-              style: AppText.bodyMuted.copyWith(fontSize: 10.5),
+              style: AppText.bodyMuted.copyWith(fontSize: 12),
             ),
             const SizedBox(height: 16),
             Text('HIGH LATITUDES', style: AppText.eyebrow),
@@ -733,7 +733,7 @@ class _MethodSheet extends ConsumerWidget {
               'Far from the equator, twilight may never end in summer. This '
               'chooses how the night is shared out so Fajr and Isha stay '
               'sensible.',
-              style: AppText.bodyMuted.copyWith(fontSize: 11),
+              style: AppText.bodyMuted.copyWith(fontSize: 12),
             ),
             for (final HighLatitudeOption r in kHighLatitudeRules)
               ListTile(
@@ -749,7 +749,7 @@ class _MethodSheet extends ConsumerWidget {
                 title: Text(r.label, style: AppText.body),
                 subtitle: Text(
                   r.detail,
-                  style: AppText.bodyMuted.copyWith(fontSize: 11),
+                  style: AppText.bodyMuted.copyWith(fontSize: 12),
                 ),
               ),
             const SizedBox(height: 16),
@@ -759,7 +759,7 @@ class _MethodSheet extends ConsumerWidget {
               'If your mosque\u2019s timetable differs by a few minutes, nudge '
               'a time here (up to $kMaxOffsetMinutes either way). It moves the '
               'time on screen and the notification together.',
-              style: AppText.bodyMuted.copyWith(fontSize: 11),
+              style: AppText.bodyMuted.copyWith(fontSize: 12),
             ),
             for (final String name in kOffsetPrayers)
               Row(
@@ -862,13 +862,13 @@ class _PrayerLogCardState extends ConsumerState<_PrayerLogCard> {
                         'Not counted and never added to your make-up list. '
                         'Use it for any day prayer was not required of you or '
                         'not possible. For your own situation, ask a scholar.',
-                        style: AppText.bodyMuted.copyWith(fontSize: 11),
+                        style: AppText.bodyMuted.copyWith(fontSize: 12),
                       )
                     : m == PrayerMark.missed
                     ? Text(
                         'Adds one to the Qada counter on My Journey. How a '
                         'missed prayer is made up is for your scholar.',
-                        style: AppText.bodyMuted.copyWith(fontSize: 11),
+                        style: AppText.bodyMuted.copyWith(fontSize: 12),
                       )
                     : null,
                 trailing: current == m
@@ -927,7 +927,7 @@ class _PrayerLogCardState extends ConsumerState<_PrayerLogCard> {
           ),
           Text(
             'A private note to yourself on this device. No streaks, no totals.',
-            style: AppText.bodyMuted.copyWith(fontSize: 11),
+            style: AppText.bodyMuted.copyWith(fontSize: 12),
           ),
           const SizedBox(height: 6),
           for (final (String prayer, DateTime time) in widget.data.prayers)
@@ -953,7 +953,7 @@ class _PrayerLogCardState extends ConsumerState<_PrayerLogCard> {
                     future
                         ? 'at ${DateFormat.jm().format(time)}'
                         : (mark?.label ?? 'Tap to note it'),
-                    style: AppText.bodyMuted.copyWith(fontSize: 11),
+                    style: AppText.bodyMuted.copyWith(fontSize: 12),
                   ),
                   onTap: future ? null : () => _choose(day, prayer),
                 );
@@ -1022,7 +1022,7 @@ class _IqamahCardState extends ConsumerState<_IqamahCard> {
                     ? 'Add your mosque\u2019s iqamah gaps and Jumu\u2019ah time '
                           'and they appear beside each prayer.'
                     : 'Shown beside each prayer above. Tap to change.',
-                style: AppText.bodyMuted.copyWith(fontSize: 11),
+                style: AppText.bodyMuted.copyWith(fontSize: 12),
               ),
             ),
           if (_open) ...[
@@ -1031,7 +1031,7 @@ class _IqamahCardState extends ConsumerState<_IqamahCard> {
               'You enter these yourself from your mosque\u2019s notice board or '
               'website; Ar-Rayaan does not fetch mosque timetables. Iqamah is '
               'set as minutes after the adhan time shown.',
-              style: AppText.bodyMuted.copyWith(fontSize: 11, height: 1.5),
+              style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.5),
             ),
             const SizedBox(height: 8),
             for (final String p in IqamahController.prayers)
@@ -1167,7 +1167,7 @@ class _NotificationCardState extends ConsumerState<_NotificationCard>
               'In a browser, alerts only work while this page is open. The '
               'Android and iPhone apps can notify you at each prayer time you '
               'switch on (the bell) even when the app is closed.',
-              style: AppText.bodyMuted.copyWith(fontSize: 11.5, height: 1.5),
+              style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.5),
             )
           else ...[
             Text(
@@ -1175,7 +1175,7 @@ class _NotificationCardState extends ConsumerState<_NotificationCard>
               '(the bell), even with the app closed, in your phone\u2019s '
               'alert sound. The full adhan plays here in the app. The text '
               'shows only the prayer name, never your place.',
-              style: AppText.bodyMuted.copyWith(fontSize: 11.5, height: 1.5),
+              style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.5),
             ),
             const SizedBox(height: 8),
             Text('Also remind me before', style: AppText.label),
@@ -1200,7 +1200,7 @@ class _NotificationCardState extends ConsumerState<_NotificationCard>
                 'notifications may arrive a few minutes late. Allow '
                 '\u201cAlarms & reminders\u201d for the app to fix this.',
                 style: AppText.bodyMuted.copyWith(
-                  fontSize: 11.5,
+                  fontSize: 12,
                   height: 1.5,
                   color: AppColors.goldLight,
                 ),
@@ -1221,7 +1221,7 @@ class _NotificationCardState extends ConsumerState<_NotificationCard>
               'Some phone makers stop apps from waking up in the background. '
               'If a notification does not arrive, exempt Ar-Rayaan from '
               'battery optimisation in your phone\u2019s settings.',
-              style: AppText.bodyMuted.copyWith(fontSize: 11, height: 1.5),
+              style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.5),
             ),
             TextButton(
               onPressed: _openBatteryHelp,

@@ -197,7 +197,7 @@ class LettersLessonsScreen extends ConsumerWidget {
                                 style: AppText.body.copyWith(
                                     fontWeight: FontWeight.w700, fontSize: 13.5)),
                             Text('${(e['questions'] as List<dynamic>).length} questions \u00b7 pass at ${e['pass']} \u00b7 recorded to your child',
-                                style: AppText.bodyMuted.copyWith(fontSize: 11)),
+                                style: AppText.bodyMuted.copyWith(fontSize: 12)),
                           ],
                         )),
                         const Icon(Icons.chevron_right,
@@ -332,11 +332,11 @@ class _LessonRunnerState extends ConsumerState<LessonRunnerScreen> {
                         border: Border.all(color: AppColors.gold.withValues(alpha: 0.3)),
                       ),
                       child: Column(children: [
-                        Text('SAY IT WITH WASIA', style: AppText.eyebrow.copyWith(fontSize: 8.5)),
+                        Text('SAY IT WITH WASIA', style: AppText.eyebrow.copyWith(fontSize: 12)),
                         const SizedBox(height: 4),
                         Text('Repeat the letter three times, slowly — then tap the voice above to hear your teacher say it.',
                             textAlign: TextAlign.center,
-                            style: AppText.bodyMuted.copyWith(fontSize: 11, height: 1.5)),
+                            style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.5)),
                       ]),
                     ),
                   ]),
@@ -416,7 +416,7 @@ class _LessonRunnerState extends ConsumerState<LessonRunnerScreen> {
                         Text(
                           'Anything about this lesson — ask your teacher. '
                           '(Uses the AI connection set up for H\u0101di; your child\u2019s name is never sent.)',
-                          style: AppText.bodyMuted.copyWith(fontSize: 11.5),
+                          style: AppText.bodyMuted.copyWith(fontSize: 12),
                         ),
                         const _WasiaBox(),
                       ],

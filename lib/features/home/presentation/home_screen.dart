@@ -511,7 +511,7 @@ class _LamhaCard extends StatelessWidget {
             moment.source,
             style: AppText.eyebrow.copyWith(
               fontSize: 12,
-              color: AppColors.gold.withValues(alpha: 0.5),
+              color: AppColors.gold.withValues(alpha: 0.9),
             ),
           ),
         ],

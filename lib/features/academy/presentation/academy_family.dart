@@ -213,7 +213,7 @@ class _ChildCard extends ConsumerWidget {
                           final v = Map<String, dynamic>.from(e.value as Map);
                           return Text(
                             '\u2022 ${v['score']}/${v['total']} \u00b7 ${_examTitle(e.key as String)}',
-                            style: AppText.bodyMuted.copyWith(fontSize: 11.5),
+                            style: AppText.bodyMuted.copyWith(fontSize: 12),
                           );
                         }),
                     ],
@@ -283,7 +283,7 @@ class _ParentWasiaBoxState extends ConsumerState<_ParentWasiaBox> {
     final busy = ref.watch(wasiaControllerProvider).isLoading;
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       Text('ASK WASIA ABOUT ${widget.childName.toUpperCase()}',
-          style: AppText.eyebrow.copyWith(fontSize: 9.5)),
+          style: AppText.eyebrow.copyWith(fontSize: 12)),
       const SizedBox(height: 6),
       Row(children: [
         Expanded(
@@ -473,7 +473,7 @@ class _ExamScreenState extends ConsumerState<ExamScreen> {
                     const SizedBox(height: 4),
                     Text(
                       'Running a classroom or homeschool? Ask Wasia about sequencing, joining, exams, struggling students.',
-                      style: AppText.bodyMuted.copyWith(fontSize: 11),
+                      style: AppText.bodyMuted.copyWith(fontSize: 12),
                     ),
                     const SizedBox(height: 8),
                     const _TeacherWasiaBox(),

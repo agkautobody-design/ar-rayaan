@@ -67,7 +67,7 @@ class HadithScreen extends ConsumerWidget {
                           const SizedBox(height: 6),
                           Text(
                             'The Forty Hadith of Imam an-Nawawi · ${hadiths.length} hadiths',
-                            style: AppText.bodyMuted.copyWith(fontSize: 11),
+                            style: AppText.bodyMuted.copyWith(fontSize: 12),
                             textAlign: TextAlign.center,
                           ),
                         ],
@@ -102,7 +102,7 @@ class HadithScreen extends ConsumerWidget {
                         children: [
                           Text(
                             'OUR HADITH SOURCES · THE SIX COLLECTIONS',
-                            style: AppText.eyebrow.copyWith(fontSize: 9),
+                            style: AppText.eyebrow.copyWith(fontSize: 12),
                           ),
                           const SizedBox(height: 10),
                           Text(
@@ -119,7 +119,7 @@ class HadithScreen extends ConsumerWidget {
                             'The six canonical collections (al-Kutub as-Sittah); not every '
                             'report in them is sahih. Tap to see all our sources.',
                             style: AppText.bodyMuted.copyWith(
-                              fontSize: 11,
+                              fontSize: 12,
                               height: 1.4,
                             ),
                           ),
@@ -131,8 +131,8 @@ class HadithScreen extends ConsumerWidget {
                       'SOURCE: FAWAZAHMED0 HADITH-API · ARABIC + ENGLISH\n'
                       'GRADES: AS STATED BY THE NAMED GRADER ON EACH HADITH',
                       style: AppText.eyebrow.copyWith(
-                        fontSize: 8,
-                        color: AppColors.gold.withValues(alpha: 0.4),
+                        fontSize: 12,
+                        color: AppColors.gold.withValues(alpha: 0.9),
                       ),
                       textAlign: TextAlign.center,
                     ),
@@ -177,14 +177,14 @@ class _HadithBlock extends StatelessWidget {
                   style: AppText.caption.copyWith(
                     color: AppColors.goldLight,
                     fontWeight: FontWeight.w600,
-                    fontSize: 11,
+                    fontSize: 12,
                   ),
                 ),
               ),
               const SizedBox(width: 10),
               Text(
                 'HADITH ${hadith.number}',
-                style: AppText.eyebrow.copyWith(fontSize: 8),
+                style: AppText.eyebrow.copyWith(fontSize: 12),
               ),
             ],
           ),
@@ -194,8 +194,8 @@ class _HadithBlock extends StatelessWidget {
               hadith.sourceLine!.toUpperCase(),
               key: ValueKey<String>('hadith-grade-${hadith.number}'),
               style: AppText.eyebrow.copyWith(
-                fontSize: 9,
-                color: AppColors.gold.withValues(alpha: 0.75),
+                fontSize: 12,
+                color: AppColors.gold.withValues(alpha: 0.9),
               ),
             ),
           ],

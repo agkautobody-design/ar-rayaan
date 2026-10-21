@@ -35,6 +35,40 @@ void main() {
     }
   });
 
+  test('W7.1b letters v2: 12 lessons, 3 exams; v1 + v2 total 40 lessons', () {
+    final c = read('assets/academy/letters_v2_curriculum.json');
+    final v1 = read('assets/academy/letters_curriculum.json');
+    int count(Map<String, dynamic> m) => (m['units'] as List<dynamic>).fold<int>(
+        0, (a, u) => a + ((u as Map<String, dynamic>)['lessons'] as List<dynamic>).length);
+    final ids = <String>{};
+    for (final u in c['units'] as List<dynamic>) {
+      for (final l in (u as Map<String, dynamic>)['lessons'] as List<dynamic>) {
+        final m = l as Map<String, dynamic>;
+        expect(ids.add(m['id'] as String), isTrue, reason: 'duplicate ${m['id']}');
+        expect((m['title'] as String).isNotEmpty, isTrue);
+        expect((m['steps'] as List<dynamic>).isNotEmpty, isTrue, reason: m['id'] as String?);
+        expect(
+            (m['steps'] as List<dynamic>)
+                .where((s) => (s as Map<String, dynamic>)['type'] == 'quiz'),
+            isNotEmpty,
+            reason: '${m['id']} needs at least one quiz step');
+      }
+    }
+    expect(count(c), 12);
+    expect((c['exams'] as List<dynamic>).length, 3);
+    for (final e in c['exams'] as List<dynamic>) {
+      final em = e as Map<String, dynamic>;
+      expect((em['questions'] as List<dynamic>).length, 8, reason: em['id'] as String?);
+      for (final q in em['questions'] as List<dynamic>) {
+        final qm = q as Map<String, dynamic>;
+        expect((qm['answer'] as num).toInt(),
+            inInclusiveRange(0, (qm['options'] as List<dynamic>).length - 1));
+      }
+    }
+    expect(count(v1) + count(c), greaterThanOrEqualTo(40));
+    expect((v1['exams'] as List<dynamic>).length + (c['exams'] as List<dynamic>).length, 7);
+  });
+
   test('W7.2 player catalog: 200+ tracks, every entry licensed-honest', () {
     final tracks =
         (read('assets/academy/player_catalog.json')['tracks'] as List<dynamic>)

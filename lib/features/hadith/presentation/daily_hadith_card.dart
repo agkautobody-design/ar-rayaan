@@ -62,8 +62,8 @@ class DailyHadithHero extends ConsumerWidget {
           Text(
             hadith.sourceLine,
             style: AppText.eyebrow.copyWith(
-              fontSize: 9,
-              color: AppColors.gold.withValues(alpha: 0.7),
+              fontSize: 12,
+              color: AppColors.gold.withValues(alpha: 0.9),
             ),
           ),
           const SizedBox(height: 8),
@@ -241,8 +241,8 @@ class _FeelingResponseView extends StatelessWidget {
           Text(
             '${f.emoji}  FOR THE ${f.label.toUpperCase()} HEART · ${r.kind.toUpperCase()}',
             style: AppText.eyebrow.copyWith(
-              fontSize: 8,
-              color: AppColors.gold.withValues(alpha: 0.8),
+              fontSize: 12,
+              color: AppColors.gold.withValues(alpha: 0.9),
             ),
           ),
           const SizedBox(height: 8),
@@ -259,8 +259,8 @@ class _FeelingResponseView extends StatelessWidget {
           Text(
             r.sourceLine,
             style: AppText.eyebrow.copyWith(
-              fontSize: 8.5,
-              color: AppColors.gold.withValues(alpha: 0.6),
+              fontSize: 12,
+              color: AppColors.gold.withValues(alpha: 0.9),
             ),
           ),
           if (r.note != null) ...[
@@ -268,7 +268,7 @@ class _FeelingResponseView extends StatelessWidget {
             Text(
               r.note!,
               style: AppText.caption.copyWith(
-                color: AppColors.sand.withValues(alpha: 0.6),
+                color: AppColors.sand.withValues(alpha: 0.7),
               ),
             ),
           ],

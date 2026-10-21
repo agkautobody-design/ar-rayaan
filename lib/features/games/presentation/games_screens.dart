@@ -350,7 +350,7 @@ class _Names99ScreenState extends ConsumerState<Names99Screen> {
                                   style: AppText.body.copyWith(fontSize: 17, height: 1.5)),
                               const SizedBox(height: 8),
                               Text(d.ref,
-                                  style: AppText.bodyMuted.copyWith(fontSize: 11)),
+                                  style: AppText.bodyMuted.copyWith(fontSize: 12)),
                             ],
                           )
                         : Text(

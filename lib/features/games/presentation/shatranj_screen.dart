@@ -520,7 +520,7 @@ class _ShatranjState extends State<ShatranjScreen> {
                   moveLog.length <= 10
                       ? moveLog.join('  \u00b7  ')
                       : moveLog.sublist(moveLog.length - 10).join('  \u00b7  '),
-                  style: AppText.bodyMuted.copyWith(fontSize: 11),
+                  style: AppText.bodyMuted.copyWith(fontSize: 12),
                 ),
               ),
           ],
@@ -544,7 +544,7 @@ class _ShatranjState extends State<ShatranjScreen> {
         const SizedBox(width: 12),
         Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Text(title, style: AppText.body.copyWith(fontWeight: FontWeight.w700, fontSize: 14.5)),
-          Text(sub, style: AppText.bodyMuted.copyWith(fontSize: 11.5)),
+          Text(sub, style: AppText.bodyMuted.copyWith(fontSize: 12)),
         ])),
         const Icon(Icons.chevron_right, color: AppColors.gold),
       ]),

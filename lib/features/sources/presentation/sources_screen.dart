@@ -233,7 +233,7 @@ class SourcesScreen extends ConsumerWidget {
                     'CHECKED · CITED · NOT YET SCHOLAR-REVIEWED',
                     style: AppText.eyebrow.copyWith(
                       fontSize: 12,
-                      color: AppColors.gold.withValues(alpha: 0.45),
+                      color: AppColors.gold.withValues(alpha: 0.9),
                     ),
                     textAlign: TextAlign.center,
                   ),

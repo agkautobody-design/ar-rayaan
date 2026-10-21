@@ -73,14 +73,14 @@ class QaBankScreen extends ConsumerWidget {
                               height: 1.65, fontSize: 13)),
                           const SizedBox(height: 8),
                           Text(e.s, style: AppText.bodyMuted.copyWith(
-                              fontSize: 10.5)),
+                              fontSize: 12)),
                         ],
                       ),
                     ),
                   ),
                 Text(
                   'For questions beyond this bank, ask Hadi — he will point you to a qualified scholar, or your local masjid. These answers are starting points, not final rulings for your situation.',
-                  style: AppText.bodyMuted.copyWith(fontSize: 11, height: 1.5),
+                  style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.5),
                 ),
               ],
             ),

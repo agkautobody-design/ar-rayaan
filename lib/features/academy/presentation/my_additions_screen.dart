@@ -192,7 +192,7 @@ class _TrackRow extends ConsumerWidget {
               ),
               child: Text(
                 PersonalTrackPlayable.personalBadge,
-                style: AppText.bodyMuted.copyWith(fontSize: 11),
+                style: AppText.bodyMuted.copyWith(fontSize: 12),
               ),
             ),
             const SizedBox(height: 4),

@@ -119,7 +119,7 @@ class HisnAlMuslimScreen extends ConsumerWidget {
                               const SizedBox(height: 4),
                               Text(d.subtitle,
                                   style: AppText.bodyMuted
-                                      .copyWith(fontSize: 11.5, height: 1.5)),
+                                      .copyWith(fontSize: 12, height: 1.5)),
                               const SizedBox(height: 6),
                               Row(
                                 mainAxisAlignment:
@@ -127,7 +127,7 @@ class HisnAlMuslimScreen extends ConsumerWidget {
                                 children: <Widget>[
                                   Text(d.sourceLabel,
                                       style: AppText.bodyMuted
-                                          .copyWith(fontSize: 10)),
+                                          .copyWith(fontSize: 12)),
                                   GestureDetector(
                                     onTap: () => context
                                         .go(AppRoutes.storyReader, extra: d),
@@ -146,7 +146,7 @@ class HisnAlMuslimScreen extends ConsumerWidget {
                   ],
                   Text(
                     '$distinct duas in ${gates.where((c) => grouped[c.id]!.isNotEmpty).length} gates. The Du\'a School in the Academy teaches their meaning; this is the reference for the moment you are in.',
-                    style: AppText.bodyMuted.copyWith(fontSize: 11, height: 1.5),
+                    style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.5),
                   ),
                 ],
               );

@@ -136,7 +136,7 @@ class RamadanModeScreen extends ConsumerWidget {
                               subtitle: Text(
                                   'Who fasts, what breaks it, the exemptions',
                                   style: AppText.bodyMuted
-                                      .copyWith(fontSize: 11.5)),
+                                      .copyWith(fontSize: 12)),
                               trailing: const Icon(Icons.chevron_right,
                                   color: AppColors.gold),
                               onTap: () => context
@@ -160,7 +160,7 @@ class RamadanModeScreen extends ConsumerWidget {
                             subtitle: Text(
                                 'Suhoor, iftar, and the dua of breaking',
                                 style: AppText.bodyMuted
-                                    .copyWith(fontSize: 11.5)),
+                                    .copyWith(fontSize: 12)),
                             trailing: const Icon(Icons.chevron_right,
                                 color: AppColors.gold),
                             onTap: () => context.go('/academy/hisn'),
@@ -180,7 +180,7 @@ class RamadanModeScreen extends ConsumerWidget {
                                     fontSize: 13.5)),
                             subtitle: Text('Fajr, Maghrib, and the moments between',
                                 style: AppText.bodyMuted
-                                    .copyWith(fontSize: 11.5)),
+                                    .copyWith(fontSize: 12)),
                             trailing: const Icon(Icons.chevron_right,
                                 color: AppColors.gold),
                             onTap: () => context.go('/prayer'),

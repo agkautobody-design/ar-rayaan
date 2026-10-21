@@ -69,7 +69,7 @@ class RayaanStocksScreen extends ConsumerWidget {
                         Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                           Text('THE TRADING FLOOR', style: AppText.eyebrow.copyWith(color: AppColors.goldLight)),
                           Text('Practice with \$100,000 paper money \u00b7 budget \u00b7 Hajj savings',
-                              style: AppText.bodyMuted.copyWith(fontSize: 10.5)),
+                              style: AppText.bodyMuted.copyWith(fontSize: 12)),
                         ])),
                         const Icon(Icons.chevron_right, color: AppColors.gold, size: 18),
                       ]),
@@ -104,10 +104,10 @@ class RayaanStocksScreen extends ConsumerWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(l.kicker.split('· ').last.toUpperCase(),
-                                style: AppText.eyebrow.copyWith(fontSize: 9)),
+                                style: AppText.eyebrow.copyWith(fontSize: 12)),
                             Text(l.title, style: AppText.body.copyWith(
                                 fontWeight: FontWeight.w700, fontSize: 14)),
-                            Text(l.subtitle, style: AppText.bodyMuted.copyWith(fontSize: 11)),
+                            Text(l.subtitle, style: AppText.bodyMuted.copyWith(fontSize: 12)),
                           ],
                         )),
                         const Icon(Icons.chevron_right, color: AppColors.gold, size: 18),

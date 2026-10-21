@@ -62,7 +62,7 @@ class WasiaThread extends ConsumerWidget {
           padding: const EdgeInsets.only(left: 4, bottom: 6),
           child: Text('Wasia is thinking\u2026',
               style: AppText.bodyMuted
-                  .copyWith(fontSize: 11, fontStyle: FontStyle.italic)),
+                  .copyWith(fontSize: 12, fontStyle: FontStyle.italic)),
         ),
     ]);
   }

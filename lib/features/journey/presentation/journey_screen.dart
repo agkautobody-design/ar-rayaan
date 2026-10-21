@@ -71,9 +71,9 @@ class JourneyScreen extends ConsumerWidget {
                                 Text(
                                   'ADHKAR ${s.adhkarDone}/${s.adhkarTotal} · QUR’AN ${s.readingStarted ? 'STARTED' : '—'} · REFLECTIONS ${s.reflections} · LESSONS ${s.lessonsDone}',
                                   style: AppText.eyebrow.copyWith(
-                                    fontSize: 9,
+                                    fontSize: 12,
                                     color: AppColors.sand.withValues(
-                                      alpha: 0.45,
+                                      alpha: 0.7,
                                     ),
                                   ),
                                 ),
@@ -150,7 +150,7 @@ class JourneyScreen extends ConsumerWidget {
                       'وَقُل رَّبِّ زِدْنِي عِلْمًا',
                       style: AppText.arabicLarge.copyWith(
                         fontSize: 24,
-                        color: AppColors.gold.withValues(alpha: 0.6),
+                        color: AppColors.gold.withValues(alpha: 0.9),
                       ),
                       textAlign: TextAlign.center,
                     ),

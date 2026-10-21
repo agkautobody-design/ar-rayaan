@@ -81,8 +81,8 @@ class _CalendarScreenState extends ConsumerState<CalendarScreen> {
                         ? 'UMM AL-QURA TABLE (HIJRI PACKAGE, 1356-1500 AH) · CONFIRM BY LOCAL MOON SIGHTING'
                         : 'TABULAR (ARITHMETIC) CALENDAR · NOT MOON-SIGHTED · CONFIRM BY LOCAL MOON SIGHTING',
                     style: AppText.eyebrow.copyWith(
-                      color: AppColors.gold.withValues(alpha: 0.4),
-                      fontSize: 9,
+                      color: AppColors.gold.withValues(alpha: 0.9),
+                      fontSize: 12,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -362,7 +362,7 @@ class _MonthCard extends StatelessWidget {
                     w,
                     textAlign: TextAlign.center,
                     style: AppText.caption.copyWith(
-                      color: AppColors.sand.withValues(alpha: 0.4),
+                      color: AppColors.sand.withValues(alpha: 0.7),
                     ),
                   ),
                 ),
@@ -558,8 +558,8 @@ void showFastingKnowledgeSheet(
               Text(
                 markers[i].source,
                 style: AppText.eyebrow.copyWith(
-                  color: AppColors.gold.withValues(alpha: 0.6),
-                  fontSize: 9,
+                  color: AppColors.gold.withValues(alpha: 0.9),
+                  fontSize: 12,
                 ),
               ),
             ],
@@ -808,8 +808,8 @@ void showObservanceSheet(
               Text(
                 observance.source,
                 style: AppText.eyebrow.copyWith(
-                  color: AppColors.gold.withValues(alpha: 0.6),
-                  fontSize: 9,
+                  color: AppColors.gold.withValues(alpha: 0.9),
+                  fontSize: 12,
                 ),
               ),
             ],

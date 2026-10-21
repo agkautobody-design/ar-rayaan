@@ -264,7 +264,7 @@ class _OnboardingState extends State<OnboardingScreen> {
                   color: selected ? AppColors.goldLight : null)),
           const SizedBox(height: 4),
           Text(n.blurb, textAlign: TextAlign.center,
-              style: AppText.bodyMuted.copyWith(fontSize: 10, height: 1.4)),
+              style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.4)),
         ]),
       ),
     );

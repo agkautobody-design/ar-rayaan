@@ -101,7 +101,7 @@ class CommunityScreen extends StatelessWidget {
                                       Text(
                                         sub,
                                         style: AppText.bodyMuted.copyWith(
-                                          fontSize: 11,
+                                          fontSize: 12,
                                         ),
                                       ),
                                     ],
@@ -120,7 +120,7 @@ class CommunityScreen extends StatelessWidget {
                       Text(
                         'GUIDE. NEVER JUDGE.',
                         style: AppText.eyebrow.copyWith(
-                          color: AppColors.gold.withValues(alpha: 0.4),
+                          color: AppColors.gold.withValues(alpha: 0.9),
                         ),
                         textAlign: TextAlign.center,
                       ),

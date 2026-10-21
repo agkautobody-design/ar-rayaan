@@ -22,6 +22,30 @@ class DriftGuard {
   static const _baselinePref = 'ar.doctor.baseline';
   static const _lastPref = 'ar.doctor.last';
 
+  /// Letters v1 (28 lessons) + Letters v2 (12 lessons).
+  static const int minLetterLessons = 40;
+  static const List<String> letterCurricula = <String>[
+    'assets/academy/letters_curriculum.json',
+    'assets/academy/letters_v2_curriculum.json',
+  ];
+
+  /// Number of lessons in one letters curriculum file's JSON text.
+  static int lessonsIn(String raw) {
+    final Map<String, dynamic> cur = json.decode(raw) as Map<String, dynamic>;
+    return (cur['units'] as List<dynamic>).fold<int>(
+      0,
+      (int a, dynamic u) => a + ((u as Map<String, dynamic>)['lessons'] as List<dynamic>).length,
+    );
+  }
+
+  Future<int> _letterLessonCount() async {
+    int total = 0;
+    for (final String path in letterCurricula) {
+      total += lessonsIn(await rootBundle.loadString(path));
+    }
+    return total;
+  }
+
 
   Future<DriftReport> scan() async {
     final drifts = <String>[];
@@ -39,6 +63,7 @@ class DriftGuard {
       'assets/stories/seerah.json', 'assets/stories/companions.json',
       'assets/stories/ghayb.json', 'assets/stories/dailyduas.json',
       'assets/academy/letters_curriculum.json',
+      'assets/academy/letters_v2_curriculum.json',
       'assets/academy/player_catalog.json', 'assets/feelings/feelings.json',
     ];
     var loaded = 0;
@@ -53,15 +78,14 @@ class DriftGuard {
       drifts.add('${packs.length - loaded} content pack(s) failed to load');
     }
 
-    // 3. Curriculum depth (Wasia's classroom must be complete)
+    // 3. Curriculum depth (Wasia's classroom must be complete): v1 has 28
+    // lessons, Letters v2 adds 12, so 40 across both files.
     try {
-      final cur = json.decode(
-          await rootBundle.loadString('assets/academy/letters_curriculum.json'))
-          as Map<String, dynamic>;
-      final lessons = (cur['units'] as List<dynamic>)
-          .fold<int>(0, (a, u) => a + ((u as Map)['lessons'] as List).length);
+      final lessons = await _letterLessonCount();
       checks++;
-      if (lessons < 28) drifts.add('curriculum thinned: $lessons/28 lessons');
+      if (lessons < minLetterLessons) {
+        drifts.add('curriculum thinned: $lessons/$minLetterLessons lessons');
+      }
     } catch (_) {
       drifts.add('curriculum unreadable');
     }
@@ -85,11 +109,7 @@ class DriftGuard {
       'packs': loaded, 'lessons': 0, 'tracks': 0,
     };
     try {
-      final cur = json.decode(
-          await rootBundle.loadString('assets/academy/letters_curriculum.json'))
-          as Map<String, dynamic>;
-      now['lessons'] = (cur['units'] as List<dynamic>)
-          .fold<int>(0, (a, u) => a + ((u as Map)['lessons'] as List).length);
+      now['lessons'] = await _letterLessonCount();
       final cat = json.decode(await rootBundle
               .loadString('assets/academy/player_catalog.json'))
           as Map<String, dynamic>;

@@ -225,7 +225,7 @@ class _AskHadiAboutStoryState extends ConsumerState<_AskHadiAboutStory> {
           const SizedBox(height: 4),
           Text(
             'Ask about a character, a word, a meaning, "why did he…?" — Hadi answers from this story.',
-            style: AppText.bodyMuted.copyWith(fontSize: 11),
+            style: AppText.bodyMuted.copyWith(fontSize: 12),
           ),
           const SizedBox(height: 8),
           Row(children: [

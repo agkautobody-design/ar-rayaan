@@ -98,7 +98,7 @@ class _MajlisScreenState extends ConsumerState<MajlisScreen> {
                           Text(
                             '${d.data()['authorName'] as String? ?? ''} \u00b7 '
                             '${d.data()['replyCount'] ?? 1} post(s)',
-                            style: AppText.bodyMuted.copyWith(fontSize: 11),
+                            style: AppText.bodyMuted.copyWith(fontSize: 12),
                           ),
                           Align(
                             alignment: Alignment.centerRight,
@@ -206,7 +206,7 @@ class _ThreadScreenState extends ConsumerState<ThreadScreen> {
                                     child: Text(
                                       d.data()['authorName'] as String? ?? '',
                                       style: AppText.bodyMuted.copyWith(
-                                        fontSize: 11,
+                                        fontSize: 12,
                                         color: AppColors.goldLight,
                                       ),
                                     ),
@@ -403,7 +403,7 @@ class _ReportButton extends ConsumerWidget {
         foregroundColor: AppColors.goldLight,
         minimumSize: const Size(48, 32),
         padding: const EdgeInsets.symmetric(horizontal: 8),
-        textStyle: const TextStyle(fontSize: 11),
+        textStyle: const TextStyle(fontSize: 12),
       ),
     );
   }

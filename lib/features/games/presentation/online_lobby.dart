@@ -135,7 +135,7 @@ class _OnlineLobbyState extends State<OnlineLobby> {
             ),
           ]),
           const SizedBox(height: 8),
-          Text('Playing as your Majlis name.', style: AppText.bodyMuted.copyWith(fontSize: 11)),
+          Text('Playing as your Majlis name.', style: AppText.bodyMuted.copyWith(fontSize: 12)),
         ],
       ),
     );

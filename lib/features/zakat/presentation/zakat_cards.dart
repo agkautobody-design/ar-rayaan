@@ -169,7 +169,7 @@ class _HawlCardState extends ConsumerState<HawlCard> {
             'Scholars differ on whether the year restarts if you dip below '
             'nisab part-way. This tracker only counts the year; whether a dip '
             'matters is a question for your scholar.',
-            style: AppText.bodyMuted.copyWith(fontSize: 11, height: 1.5),
+            style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.5),
           ),
           if (s != null)
             _ReminderSwitch(
@@ -314,7 +314,7 @@ class _ZakatAlFitrCardState extends ConsumerState<ZakatAlFitrCard> {
             'whether its value in money may be given instead, so Ar-Rayaan '
             'sets no amount: use the figure your mosque, charity or scholar '
             'announces this year. ${ZakatAlFitr.source}',
-            style: AppText.bodyMuted.copyWith(fontSize: 11.5, height: 1.5),
+            style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.5),
           ),
           const SizedBox(height: 10),
           Wrap(

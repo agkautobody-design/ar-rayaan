@@ -135,7 +135,7 @@ class _TayyibState extends State<TayyibFinanceScreen> {
                   const SizedBox(width: 12),
                   Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                     Text('Zakat Calculator', style: AppText.body.copyWith(fontWeight: FontWeight.w700, fontSize: 15)),
-                    Text('Nisab from live or typed metal prices \u00b7 hawl tracker \u00b7 Zakat al-Fitr \u00b7 four schools', style: AppText.bodyMuted.copyWith(fontSize: 11.5)),
+                    Text('Nisab from live or typed metal prices \u00b7 hawl tracker \u00b7 Zakat al-Fitr \u00b7 four schools', style: AppText.bodyMuted.copyWith(fontSize: 12)),
                   ])),
                   const Icon(Icons.chevron_right, color: AppColors.gold),
                 ]),
@@ -217,7 +217,7 @@ class _TayyibState extends State<TayyibFinanceScreen> {
                   ],
                   const SizedBox(height: 6),
                   Text('Educational tool \u2014 for real portfolios, consult a qualified Sharia advisor. Live market screening arrives with a free data key.',
-                      style: AppText.bodyMuted.copyWith(fontSize: 10)),
+                      style: AppText.bodyMuted.copyWith(fontSize: 12)),
                 ]),
               ),
               const SizedBox(height: 14),
@@ -250,7 +250,7 @@ class _TayyibState extends State<TayyibFinanceScreen> {
                         style: AppText.body.copyWith(color: AppColors.goldLight,
                             fontWeight: FontWeight.w700, fontSize: 15)),
                     Text('The rest of the dividend is halal income, in shaa Allah.',
-                        style: AppText.bodyMuted.copyWith(fontSize: 11)),
+                        style: AppText.bodyMuted.copyWith(fontSize: 12)),
                   ],
                 ]),
               ),
@@ -266,7 +266,7 @@ class _TayyibState extends State<TayyibFinanceScreen> {
                   ]),
                   if (_watch.isEmpty)
                     Text('Companies you are researching \u2014 with your own notes and verdicts, remembered on this device.',
-                        style: AppText.bodyMuted.copyWith(fontSize: 11.5)),
+                        style: AppText.bodyMuted.copyWith(fontSize: 12)),
                   for (final w in _watch)
                     Padding(
                       padding: const EdgeInsets.only(bottom: 6),
@@ -275,7 +275,7 @@ class _TayyibState extends State<TayyibFinanceScreen> {
                           Text(w['name'] as String,
                               style: AppText.body.copyWith(fontWeight: FontWeight.w600, fontSize: 13.5)),
                           if ((w['note'] as String? ?? '').isNotEmpty)
-                            Text(w['note'] as String, style: AppText.bodyMuted.copyWith(fontSize: 11)),
+                            Text(w['note'] as String, style: AppText.bodyMuted.copyWith(fontSize: 12)),
                         ])),
                         GestureDetector(
                           onTap: () async {

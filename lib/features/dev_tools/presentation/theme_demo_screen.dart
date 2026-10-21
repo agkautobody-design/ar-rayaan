@@ -145,7 +145,7 @@ class ThemeDemoScreen extends StatelessWidget {
                   const SizedBox(height: 12),
                   Text(
                     'WP0 · FOUNDATION GATE — design system verification',
-                    style: AppText.eyebrow.copyWith(fontSize: 9),
+                    style: AppText.eyebrow.copyWith(fontSize: 12),
                     textAlign: TextAlign.center,
                   ),
                 ],
@@ -195,7 +195,7 @@ class _Swatch extends StatelessWidget {
         const SizedBox(height: 6),
         Text(
           name,
-          style: const TextStyle(fontSize: 9, color: AppColors.textMuted),
+          style: const TextStyle(fontSize: 12, color: AppColors.textMuted),
         ),
       ],
     );

@@ -128,7 +128,7 @@ class SeerahSchoolScreen extends StatelessWidget {
                               fontWeight: FontWeight.w600, fontSize: 13.5)),
                           const SizedBox(height: 4),
                           Text(st.note, style: AppText.bodyMuted.copyWith(
-                              fontSize: 11.5, height: 1.5)),
+                              fontSize: 12, height: 1.5)),
                         ],
                       ),
                     ),

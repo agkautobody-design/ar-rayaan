@@ -282,11 +282,11 @@ class HijrahMapScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(_stops[i].$1, style: AppText.body.copyWith(fontWeight: FontWeight.w700, fontSize: 14)),
-                Text(_stops[i].$2, style: AppText.bodyMuted.copyWith(fontSize: 11)),
+                Text(_stops[i].$2, style: AppText.bodyMuted.copyWith(fontSize: 12)),
                 const SizedBox(height: 6),
                 Text(_stops[i].$3, style: AppText.bodyMuted.copyWith(height: 1.55)),
                 const SizedBox(height: 4),
-                Text(_stops[i].$4, style: AppText.bodyMuted.copyWith(fontSize: 9.5)),
+                Text(_stops[i].$4, style: AppText.bodyMuted.copyWith(fontSize: 12)),
               ],
             ))),
           ]),

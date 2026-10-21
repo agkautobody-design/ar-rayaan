@@ -163,7 +163,7 @@ class ProfileScreen extends ConsumerWidget {
                   Text(
                     'INVITE. NEVER FORCE.',
                     style: AppText.eyebrow.copyWith(
-                      color: AppColors.gold.withValues(alpha: 0.4),
+                      color: AppColors.gold.withValues(alpha: 0.9),
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -242,7 +242,7 @@ class _JourneyStampsSection extends ConsumerWidget {
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Text('self-recorded',
-                              style: AppText.bodyMuted.copyWith(fontSize: 11)),
+                              style: AppText.bodyMuted.copyWith(fontSize: 12)),
                         ),
                         IconButton(
                           icon: const Icon(Icons.delete_outline,

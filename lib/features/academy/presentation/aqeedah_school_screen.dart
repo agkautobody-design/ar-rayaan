@@ -152,7 +152,7 @@ class AqeedahSchoolScreen extends StatelessWidget {
                           const SizedBox(height: 6),
                           Text(l.body, style: AppText.body.copyWith(height: 1.65)),
                           const SizedBox(height: 8),
-                          Text(l.source, style: AppText.bodyMuted.copyWith(fontSize: 10.5)),
+                          Text(l.source, style: AppText.bodyMuted.copyWith(fontSize: 12)),
                           if (l.actionRoute != null) ...<Widget>[
                             const SizedBox(height: 8),
                             GestureDetector(

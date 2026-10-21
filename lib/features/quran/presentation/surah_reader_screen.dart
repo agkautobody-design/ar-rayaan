@@ -417,7 +417,7 @@ class _ReaderFooter extends ConsumerWidget {
             'TAP AN AYAH TO SAVE YOUR PLACE',
             style: AppText.eyebrow.copyWith(
               fontSize: 12,
-              color: AppColors.gold.withValues(alpha: 0.7),
+              color: AppColors.gold.withValues(alpha: 0.9),
             ),
             textAlign: TextAlign.center,
           ),

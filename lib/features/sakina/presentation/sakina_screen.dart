@@ -106,8 +106,8 @@ class SakinaScreen extends ConsumerWidget {
                         Text(
                           todaysComfort.source,
                           style: AppText.eyebrow.copyWith(
-                            fontSize: 9,
-                            color: AppColors.gold.withValues(alpha: 0.7),
+                            fontSize: 12,
+                            color: AppColors.gold.withValues(alpha: 0.9),
                           ),
                         ),
                       ],
@@ -173,8 +173,8 @@ class SakinaScreen extends ConsumerWidget {
                     'NEVER LEAVE THIS DEVICE · YOU ARE LOVED BY THE ONE WHO '
                     'MADE YOU',
                     style: AppText.eyebrow.copyWith(
-                      color: AppColors.gold.withValues(alpha: 0.4),
-                      fontSize: 8.5,
+                      color: AppColors.gold.withValues(alpha: 0.9),
+                      fontSize: 12,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -226,7 +226,7 @@ class _RoomCard extends ConsumerWidget {
                     Text(
                       room.subtitle,
                       style: AppText.caption.copyWith(
-                        color: AppColors.sand.withValues(alpha: 0.6),
+                        color: AppColors.sand.withValues(alpha: 0.7),
                       ),
                     ),
                   ],
@@ -249,8 +249,8 @@ class _RoomCard extends ConsumerWidget {
               Text(
                 'Quoted: ${room.sources}',
                 style: AppText.caption.copyWith(
-                  fontSize: 10.5,
-                  color: AppColors.gold.withValues(alpha: 0.7),
+                  fontSize: 12,
+                  color: AppColors.gold.withValues(alpha: 0.9),
                 ),
               ),
             ],
@@ -274,8 +274,8 @@ class _RoomCard extends ConsumerWidget {
               child: Text(
                 'FULL PATHWAY · IN CLINICIAN + SCHOLAR REVIEW',
                 style: AppText.eyebrow.copyWith(
-                  fontSize: 8,
-                  color: AppColors.gold.withValues(alpha: 0.5),
+                  fontSize: 12,
+                  color: AppColors.gold.withValues(alpha: 0.9),
                 ),
               ),
             ),

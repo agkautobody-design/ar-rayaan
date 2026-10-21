@@ -88,7 +88,7 @@ class _DailyHadithBannerState extends State<DailyHadithBanner> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(children: [
-              Expanded(child: Text(kicker, style: AppText.eyebrow.copyWith(fontSize: 9.5))),
+              Expanded(child: Text(kicker, style: AppText.eyebrow.copyWith(fontSize: 12))),
               GestureDetector(
                 onTap: _toggle,
                 child: Icon(
@@ -104,7 +104,7 @@ class _DailyHadithBannerState extends State<DailyHadithBanner> {
             Text(snippet, style: AppText.body.copyWith(height: 1.55, fontSize: 13)),
             const SizedBox(height: 4),
             Text('tap for the full entry and its sources',
-                style: AppText.bodyMuted.copyWith(fontSize: 10)),
+                style: AppText.bodyMuted.copyWith(fontSize: 12)),
           ],
         ),
       ),
