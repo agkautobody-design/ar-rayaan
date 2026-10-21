@@ -58,8 +58,8 @@ const List<_HlUnit> kHealthUnits = <_HlUnit>[
     lessons: <_HlLesson>[
       _HlLesson(
         title: 'The Prophet\u2019s Own Ruqyah',
-        body: 'When any of his family fell ill, the Prophet \ufdfa would recite: in the name of Allah — I seek refuge in Allah\u2019s might and power from the evil of what I feel and fear (Muslim 2202). Seven times, blowing lightly over the body. The cure begins with refuge, not with the symptom.',
-        practice: 'Memorize the ruqyah this week — seven recitations, over your own chest or a loved one\u2019s.',
+        body: 'The Prophet \ufdfa taught someone in pain to place a hand on the spot that hurts, say bismillah three times, then say seven times: I seek refuge in Allah\u2019s might and power from the evil of what I feel and fear (Muslim 2202). The cure begins with refuge, not with the symptom.',
+        practice: 'Memorize this dua this week — and when something hurts, put your hand on the spot and say it seven times.',
       ),
       _HlLesson(
         title: 'The Evil Eye Is Real — and Curable',

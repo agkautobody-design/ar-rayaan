@@ -14,7 +14,9 @@ import '../application/academy_providers.dart';
 import '../application/family_service.dart';
 import '../application/wasia_controller.dart';
 import '../domain/academy_models.dart' show LessonProgress;
+import '../domain/letter_drills.dart';
 import '../domain/letters_meta.dart';
+import 'widgets/active_child_banner.dart';
 import 'widgets/path_ux_widgets.dart';
 import 'widgets/wasia_thread.dart';
 
@@ -28,8 +30,12 @@ class LessonStep {
   final List<String>? options;
   final int? answer;
   final String? why;
+
+  /// A big letter shown above a quiz's options (generated drills only).
+  final String? glyph;
   const LessonStep({required this.type, this.text, this.arabic, this.translit,
-      this.note, this.question, this.options, this.answer, this.why});
+      this.note, this.question, this.options, this.answer, this.why,
+      this.glyph});
 
   factory LessonStep.fromJson(Map<String, dynamic> j) => LessonStep(
         type: j['type'] as String,
@@ -76,12 +82,59 @@ final lettersCurriculumProvider =
 
 final lettersLessonsProvider = FutureProvider<List<Lesson>>((ref) async {
   final data = await ref.watch(lettersCurriculumProvider.future);
-  return [
+  return withLetterDrills([
     for (final u in data['units'] as List<dynamic>)
       for (final l in u['lessons'] as List<dynamic>)
         Lesson.fromJson(l as Map<String, dynamic>),
-  ];
+  ]);
 });
+
+/// The 28 letter lessons end with one question that can be answered by
+/// looking at the card two steps earlier ("Which letter did we meet
+/// today?"). Replace it with [buildLetterDrills]: today's letter, then
+/// earlier letters coming back. Every other lesson is returned untouched.
+List<Lesson> withLetterDrills(List<Lesson> lessons) {
+  final List<LetterCardInfo> alphabet = <LetterCardInfo>[];
+  final Map<String, int> indexOf = <String, int>{};
+  for (final Lesson l in lessons) {
+    final bool trivial = l.steps.any((LessonStep s) =>
+        s.type == 'quiz' && s.question == kTrivialLetterQuestion);
+    final LessonStep? card =
+        l.steps.where((LessonStep s) => s.type == 'card').firstOrNull;
+    if (!trivial || card == null) continue;
+    indexOf[l.id] = alphabet.length;
+    alphabet.add(LetterCardInfo(card.arabic ?? '', card.translit ?? ''));
+  }
+  return <Lesson>[
+    for (final Lesson l in lessons)
+      if (indexOf.containsKey(l.id))
+        Lesson(
+          id: l.id,
+          title: l.title,
+          arabic: l.arabic,
+          steps: <LessonStep>[
+            for (final LessonStep s in l.steps)
+              if (s.type == 'quiz' && s.question == kTrivialLetterQuestion)
+                for (final LetterDrill d in buildLetterDrills(
+                    lessonId: l.id,
+                    alphabet: alphabet,
+                    index: indexOf[l.id]!))
+                  LessonStep(
+                    type: 'quiz',
+                    question: d.question,
+                    glyph: d.glyph,
+                    options: d.options,
+                    answer: d.answer,
+                    why: d.why,
+                  )
+              else
+                s,
+          ],
+        )
+      else
+        l,
+  ];
+}
 
 /// The School of Letters — a path of lessons, each taught by Wasia.
 class LettersLessonsScreen extends ConsumerWidget {
@@ -127,12 +180,13 @@ class LettersLessonsScreen extends ConsumerWidget {
               padding: const EdgeInsets.symmetric(horizontal: 8),
               child: Text(
                 'Seven units: the twenty-eight letters, then vowels, sukun, shaddah, tanween and joining, with an exam at the end of each unit. '
-                'Wasia teaches every lesson, asks a gentle question, and records your child\u2019s growth.',
+                'Wasia teaches every lesson and asks a gentle question. When a child is chosen, finished lessons and exams are saved to them.',
                 textAlign: TextAlign.center,
                 style: AppText.bodyMuted,
               ),
             ),
             const SizedBox(height: 16),
+            const ActiveChildBanner(),
             const PlacementQuizCard(),
             const SizedBox(height: 12),
             for (final u in units)
@@ -196,7 +250,7 @@ class LettersLessonsScreen extends ConsumerWidget {
                             Text(e['title'] as String,
                                 style: AppText.body.copyWith(
                                     fontWeight: FontWeight.w700, fontSize: 13.5)),
-                            Text('${(e['questions'] as List<dynamic>).length} questions \u00b7 pass at ${e['pass']} \u00b7 recorded to your child',
+                            Text('${(e['questions'] as List<dynamic>).length} questions \u00b7 pass at ${e['pass']} \u00b7 saved to the chosen child',
                                 style: AppText.bodyMuted.copyWith(fontSize: 12)),
                           ],
                         )),
@@ -226,6 +280,9 @@ class LessonRunnerScreen extends ConsumerStatefulWidget {
 class _LessonRunnerState extends ConsumerState<LessonRunnerScreen> {
   int _step = 0;
   int? _picked;
+  // The current quiz is answered correctly. A wrong pick can be retried, so
+  // nobody gets past a question by skipping it or by guessing once.
+  bool _solved = false;
   // True once any quiz in this run was answered wrongly (drives 'walked').
   bool _quizMissed = false;
   bool _finishing = false;
@@ -234,7 +291,7 @@ class _LessonRunnerState extends ConsumerState<LessonRunnerScreen> {
   /// the Family Wing (lesson done + mastery 'met', plus 'walked' when every
   /// quiz was right) for the active child. Without this nothing a child
   /// finished was ever stored.
-  Future<void> _finish(Lesson lesson) async {
+  Future<void> _finish(Lesson lesson, {String? nextId}) async {
     if (_finishing) return;
     _finishing = true;
     await ref.read(academyProgressProvider.notifier).complete(lesson.id);
@@ -252,7 +309,10 @@ class _LessonRunnerState extends ConsumerState<LessonRunnerScreen> {
       // The device-level record above is already saved; never trap the
       // learner on the last step because the family record failed.
     }
-    if (mounted) context.go('/academy/letters');
+    if (!mounted) return;
+    context.go(nextId == null
+        ? '/academy/letters'
+        : '/academy/letters/lesson/$nextId');
   }
 
   @override
@@ -274,10 +334,16 @@ class _LessonRunnerState extends ConsumerState<LessonRunnerScreen> {
           final steps = lesson.steps;
           final current = steps[_step];
           final last = _step == steps.length - 1;
+          final int at = list.indexWhere((Lesson l) => l.id == lesson.id);
+          final String? nextId =
+              at >= 0 && at + 1 < list.length ? list[at + 1].id : null;
+          // A quiz must be answered correctly before the lesson moves on.
+          final bool blocked = current.type == 'quiz' && !_solved;
           return ListView(
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
             children: [
               ScreenHeader(title: lesson.title, close: true),
+              const ActiveChildBanner(),
               Row(children: [
                 for (var i = 0; i < steps.length; i++)
                   Expanded(child: Padding(
@@ -332,9 +398,9 @@ class _LessonRunnerState extends ConsumerState<LessonRunnerScreen> {
                         border: Border.all(color: AppColors.gold.withValues(alpha: 0.3)),
                       ),
                       child: Column(children: [
-                        Text('SAY IT WITH WASIA', style: AppText.eyebrow.copyWith(fontSize: 12)),
+                        Text('SAY IT OUT LOUD', style: AppText.eyebrow.copyWith(fontSize: 12)),
                         const SizedBox(height: 4),
-                        Text('Repeat the letter three times, slowly — then tap the voice above to hear your teacher say it.',
+                        Text('Look at the shape and say the name three times, slowly. A teacher you trust can say it with you.',
                             textAlign: TextAlign.center,
                             style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.5)),
                       ]),
@@ -350,31 +416,45 @@ class _LessonRunnerState extends ConsumerState<LessonRunnerScreen> {
                       const SizedBox(height: 8),
                       Text(current.question ?? '', style: AppText.body.copyWith(
                           fontSize: 15, fontWeight: FontWeight.w600)),
+                      if ((current.glyph ?? '').isNotEmpty) ...[
+                        const SizedBox(height: 8),
+                        Center(
+                          child: Text(current.glyph!,
+                              textDirection: TextDirection.rtl,
+                              style: const TextStyle(fontFamily: 'Amiri',
+                                  fontSize: 64, color: Color(0xFFEAD9A8))),
+                        ),
+                      ],
                       const SizedBox(height: 12),
                       for (var o = 0; o < (current.options?.length ?? 0); o++)
                         Padding(
                           padding: const EdgeInsets.only(bottom: 8),
                           child: GlassCard(
-                            onTap: _picked == null
-                                ? () => setState(() {
+                            onTap: _solved
+                                ? null
+                                : () => setState(() {
                                       _picked = o;
-                                      if (o != current.answer) _quizMissed = true;
-                                    })
-                                : null,
+                                      if (o == current.answer) {
+                                        _solved = true;
+                                      } else {
+                                        _quizMissed = true;
+                                      }
+                                    }),
                             child: Row(children: [
                               Expanded(child: Text(current.options![o],
+                                  key: Key('quiz-option-$o'),
                                   textAlign: TextAlign.center,
-                                  style: const TextStyle(fontFamily: 'Amiri',
-                                      fontSize: 26, color: Color(0xFFEAD9A8)))),
+                                  style: quizOptionStyle(current.options![o]))),
                             ]),
                           ),
                         ),
                       if (_picked != null) ...[
                         const SizedBox(height: 6),
                         Text(
-                          _picked == current.answer
+                          _solved
                               ? 'Correct, ma sha Allah! ${current.why ?? ''}'
-                              : 'Not quite — ${current.why ?? ''}',
+                              : 'Not quite \u2014 look again and try once more.',
+                          key: const Key('quiz-feedback'),
                           style: AppText.bodyMuted.copyWith(height: 1.5),
                         ),
                       ],
@@ -382,25 +462,41 @@ class _LessonRunnerState extends ConsumerState<LessonRunnerScreen> {
                   ),
                 ),
               const SizedBox(height: 14),
-              if (!(last && current.type == 'quiz' && _picked == null))
+              if (!blocked)
                 Align(
                   alignment: Alignment.centerRight,
-                  child: TextButton.icon(
-                    onPressed: () {
-                      if (last) {
-                        _finish(lesson);
-                        return;
-                      }
-                      setState(() {
-                        _picked = null;
-                        _step++;
-                      });
-                    },
-                    iconAlignment: IconAlignment.end,
-                    icon: const Icon(Icons.arrow_forward_ios,
-                        size: 13, color: AppColors.gold),
-                    label: Text(last ? 'Finish' : 'Next',
-                        style: AppText.bodyMuted),
+                  child: Wrap(
+                    alignment: WrapAlignment.end,
+                    children: [
+                      TextButton.icon(
+                        onPressed: () {
+                          if (last) {
+                            _finish(lesson);
+                            return;
+                          }
+                          setState(() {
+                            _picked = null;
+                            _solved = false;
+                            _step++;
+                          });
+                        },
+                        iconAlignment: IconAlignment.end,
+                        icon: const Icon(Icons.arrow_forward_ios,
+                            size: 13, color: AppColors.gold),
+                        label: Text(last ? 'Finish' : 'Next',
+                            style: AppText.bodyMuted),
+                      ),
+                      if (last && nextId != null)
+                        TextButton.icon(
+                          key: const Key('finish-next-lesson'),
+                          onPressed: () => _finish(lesson, nextId: nextId),
+                          iconAlignment: IconAlignment.end,
+                          icon: const Icon(Icons.skip_next,
+                              size: 16, color: AppColors.gold),
+                          label: Text('Finish and go to the next lesson',
+                              style: AppText.bodyMuted),
+                        ),
+                    ],
                   ),
                 ),
               if (last)
@@ -430,6 +526,15 @@ class _LessonRunnerState extends ConsumerState<LessonRunnerScreen> {
     );
   }
 }
+
+final RegExp _arabicScript = RegExp('[\u0600-\u06FF]');
+
+/// Arabic options are drawn large in Amiri; Latin names (the shape to name
+/// drills) in the normal body face.
+TextStyle quizOptionStyle(String option) => _arabicScript.hasMatch(option)
+    ? const TextStyle(
+        fontFamily: 'Amiri', fontSize: 26, color: Color(0xFFEAD9A8))
+    : AppText.body.copyWith(fontSize: 18, fontWeight: FontWeight.w600);
 
 class _WasiaBox extends ConsumerStatefulWidget {
   const _WasiaBox();
@@ -470,6 +575,13 @@ class _WasiaBoxState extends ConsumerState<_WasiaBox> {
                     await ref
                         .read(wasiaControllerProvider.notifier)
                         .ask(q);
+                    // The answer, or the reason there is none, is in the
+                    // thread below. Keep the words only when Wasia could not
+                    // answer, so a retry is one tap.
+                    if (!mounted) return;
+                    if (ref.read(wasiaControllerProvider).notice == null) {
+                      _input.clear();
+                    }
                   },
           ),
         ),

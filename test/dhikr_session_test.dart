@@ -13,7 +13,7 @@ void main() {
     expect(s.progress, closeTo(1 / 33, 0.001));
   });
 
-  test('milestone pause at 33 on a longer set: resume does not double-count', () {
+  test('milestone pause at 33 on a longer set: the resume tap counts once', () {
     // A 33-target set COMPLETES at 33 (completion beats milestone) — so
     // milestone behavior is exercised on a 100-target set instead.
     var s = DhikrSessionEngine.reset(const DhikrSet(
@@ -23,11 +23,11 @@ void main() {
     }
     expect(s.count, 33);
     expect(s.phase, DhikrPhase.milestonePause);
-    s = DhikrSessionEngine.tap(s); // resume
+    s = DhikrSessionEngine.tap(s); // resume AND count
     expect(s.phase, DhikrPhase.counting);
-    expect(s.count, 33, reason: 'resume does not count');
-    s = DhikrSessionEngine.tap(s); // 34
-    expect(s.count, 34);
+    expect(s.count, 34, reason: 'the tap that resumes is a remembrance too');
+    s = DhikrSessionEngine.tap(s); // 35
+    expect(s.count, 35);
   });
 
   test('reaching the target completes immediately at the count', () {
@@ -60,20 +60,19 @@ void main() {
       s = DhikrSessionEngine.tap(s);
     }
     expect(s.phase, DhikrPhase.milestonePause);
-    s = DhikrSessionEngine.tap(s); // resume
+    // The resume tap is the 34th remembrance; 32 more reach 66.
     for (var i = 0; i < 33; i++) {
       s = DhikrSessionEngine.tap(s);
     }
     expect(s.count, 66);
     expect(s.phase, DhikrPhase.milestonePause);
-    s = DhikrSessionEngine.tap(s);
     for (var i = 0; i < 33; i++) {
       s = DhikrSessionEngine.tap(s);
     }
     expect(s.count, 99);
     expect(s.phase, DhikrPhase.milestonePause);
-    s = DhikrSessionEngine.tap(s); // resume
-    s = DhikrSessionEngine.tap(s); // 100
+    s = DhikrSessionEngine.tap(s); // resume and count: the 100th
+    expect(s.count, 100);
     expect(s.phase, DhikrPhase.complete);
     expect(s.progress, 1.0);
   });

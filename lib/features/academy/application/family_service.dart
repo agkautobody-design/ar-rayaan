@@ -6,6 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../domain/children_privacy.dart';
 import 'cloud_handles.dart';
 
 /// The family wing: children under a parent's care, progress per child, shown
@@ -41,7 +42,7 @@ class FamilyService {
   static const _cloudConsentPref = 'ar.family.cloud_consent';
 
   /// Version of the children's privacy text the parent agreed to.
-  static const int consentVersion = 1;
+  static const int consentVersion = kChildrenPrivacyVersion;
 
   /// What would be written to the cloud for a child: the pseudonymous id's
   /// document body. Deliberately has NO name (see class doc).
@@ -186,6 +187,13 @@ class FamilyService {
     await prefs.setString(_activePref, id);
   }
 
+  /// Nobody is learning: lessons and exams are no longer saved to a child.
+  /// (The device-level lesson ticks are unaffected.)
+  Future<void> clearActiveChild() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove(_activePref);
+  }
+
   // ---- progress (on-device, cloud-synced when ready) ----
   Future<Map<String, dynamic>> progress(String childId) async {
     final prefs = await SharedPreferences.getInstance();
@@ -313,3 +321,21 @@ final progressProvider = FutureProvider.family<Map<String, dynamic>, String>(
     (Ref ref, String childId) async {
   return ref.watch(familyServiceProvider).progress(childId);
 });
+
+/// The child lessons and exams are being saved to right now (null = nobody).
+/// Invalidate after [FamilyService.setActiveChild] / [FamilyService.clearActiveChild].
+final activeChildProvider =
+    FutureProvider<Map<String, dynamic>?>((Ref ref) async {
+  final FamilyService fam = ref.watch(familyServiceProvider);
+  final List<Map<String, dynamic>> kids =
+      await ref.watch(childrenProvider.future);
+  final String? id = await fam.activeChildId();
+  if (id == null) return null;
+  for (final Map<String, dynamic> c in kids) {
+    if (c['id'] == id) return c;
+  }
+  return null;
+});
+
+/// True once someone has confirmed "who is learning" in this app session.
+final learnerConfirmedProvider = StateProvider<bool>((Ref ref) => false);

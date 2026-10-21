@@ -35,6 +35,20 @@ const Set<String> kRecallExcludedLessons = <String>{
   'wmns.u3.l3',
   'wmns.u3.l4',
   'wmns.u3.l5',
+  // 21 Oct Academy review: wording corrected or hedged, still awaiting a
+  // named reviewer. No generated check until then.
+  'path.u2.l1',
+  'path.u7.l3',
+  'path.u8.l2',
+  'path.u9.l1',
+  'und.u3.l1',
+  'hfz.u1.l2',
+  'yth.u1.l3',
+  'yth.u2.l2',
+  'wmns.u1.l3',
+  'wmns.u4.l4',
+  'hlth.u2.l1',
+  'trx.u3.l2',
 };
 
 /// The blank shown in the prompt.

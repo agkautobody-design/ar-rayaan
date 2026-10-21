@@ -12,6 +12,7 @@ import '../application/family_service.dart';
 import '../application/wasia_controller.dart';
 import '../domain/children_privacy.dart';
 import '../domain/letters_meta.dart';
+import 'widgets/active_child_banner.dart';
 import 'widgets/parent_gate.dart';
 import 'widgets/wasia_thread.dart';
 import 'wasia_lessons.dart';
@@ -100,9 +101,9 @@ class FamilyScreen extends ConsumerWidget {
             padding: const EdgeInsets.only(left: 4, bottom: 14),
             child: Text(
               'Add your children, follow their lessons and exams, and ask Wasia '
-              'how to help them. Everything about your children stays on this '
-              'device \u2014 nothing is sent to our servers or to any AI service, '
-              'and you can delete a child at any time.',
+              'how to help them. Your children\u2019s names and progress stay '
+              'on this device \u2014 they are never sent to our servers or to any '
+              'AI service, and you can delete a child at any time.',
               style: AppText.bodyMuted,
             ),
           ),
@@ -222,7 +223,7 @@ class _ChildCard extends ConsumerWidget {
               },
             ),
             const SizedBox(height: 8),
-            _ParentWasiaBox(childName: name, childId: child['id'] as String),
+            _ParentWasiaBox(childName: name),
           ],
         ),
       ),
@@ -265,11 +266,12 @@ class _ChildCard extends ConsumerWidget {
   }
 }
 
-/// Parents speak with Wasia here — she coaches with the child's real stats.
+/// Parents speak with Wasia here. She is never given the child's name or
+/// progress (see `children_privacy.dart`); a parent's own question may go to
+/// the AI service only while the parent check is open.
 class _ParentWasiaBox extends ConsumerStatefulWidget {
   final String childName;
-  final String childId;
-  const _ParentWasiaBox({required this.childName, required this.childId});
+  const _ParentWasiaBox({required this.childName});
 
   @override
   ConsumerState<_ParentWasiaBox> createState() => _ParentWasiaBoxState();
@@ -310,69 +312,17 @@ class _ParentWasiaBoxState extends ConsumerState<_ParentWasiaBox> {
                 : () async {
                     final q = _input.text.trim();
                     if (q.isEmpty) return;
-                    final p = await ref
-                        .read(familyServiceProvider)
-                        .progress(widget.childId);
-                    final lessons = (p['lessons'] as Map).length;
-                    final exams = (p['exams'] as Map).length;
-                    await ref
-                        .read(wasiaControllerProvider.notifier)
-                        .ask(q,
-                            persona: WasiaPersona.parent,
-                            lessonsDone: lessons,
-                            examsTaken: exams);
-                  },
-          ),
-        ),
-      ]),
-      const SizedBox(height: 8),
-      const WasiaThread(),
-    ]);
-  }
-}
-
-/// Teachers' corner — pedagogy voice on the same Wasia brain.
-class _TeacherWasiaBox extends ConsumerStatefulWidget {
-  const _TeacherWasiaBox();
-
-  @override
-  ConsumerState<_TeacherWasiaBox> createState() => _TeacherWasiaBoxState();
-}
-
-class _TeacherWasiaBoxState extends ConsumerState<_TeacherWasiaBox> {
-  final _input = TextEditingController();
-
-  @override
-  Widget build(BuildContext context) {
-    final busy = ref.watch(wasiaControllerProvider).isLoading;
-    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Row(children: [
-        Expanded(
-          child: TextField(
-            controller: _input,
-            style: AppText.body.copyWith(fontSize: 13),
-            decoration: const InputDecoration(
-                hintText: 'Sequence the letters? When to join? Exam tips?'),
-          ),
-        ),
-        const SizedBox(width: 8),
-        CircleAvatar(
-          backgroundColor: AppColors.gold,
-          radius: 20,
-          child: IconButton(
-            icon: busy
-                ? const SizedBox(width: 14, height: 14,
-                    child: CircularProgressIndicator(strokeWidth: 2,
-                        color: Color(0xFF0A0F18)))
-                : const Icon(Icons.send, size: 16, color: Color(0xFF0A0F18)),
-            onPressed: busy
-                ? null
-                : () async {
-                    final q = _input.text.trim();
-                    if (q.isEmpty) return;
-                    await ref
-                        .read(wasiaControllerProvider.notifier)
-                        .ask(q, persona: WasiaPersona.teacher);
+                    final bool verified =
+                        ref.read(parentGateProvider.notifier).isOpen();
+                    await ref.read(wasiaControllerProvider.notifier).ask(q,
+                        persona: WasiaPersona.parent,
+                        parentVerified: verified);
+                    // Keep the words when Wasia could not answer, so a retry
+                    // is one tap; otherwise start the next question clean.
+                    if (!mounted) return;
+                    if (ref.read(wasiaControllerProvider).notice == null) {
+                      _input.clear();
+                    }
                   },
           ),
         ),
@@ -432,6 +382,7 @@ class _ExamScreenState extends ConsumerState<ExamScreen> {
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
             children: [
               ScreenHeader(title: exam['title'] as String? ?? 'Exam', close: true),
+              const ActiveChildBanner(),
               Text('QUESTION ${_i + 1} OF ${qs.length} \u00b7 SCORE $_score',
                   style: AppText.eyebrow),
               const SizedBox(height: 12),
@@ -464,22 +415,6 @@ class _ExamScreenState extends ConsumerState<ExamScreen> {
                     style: AppText.bodyMuted.copyWith(height: 1.5),
                   ),
                 ),
-              const SizedBox(height: 10),
-              GlassCard(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text("TEACHERS' CORNER", style: AppText.eyebrow),
-                    const SizedBox(height: 4),
-                    Text(
-                      'Running a classroom or homeschool? Ask Wasia about sequencing, joining, exams, struggling students.',
-                      style: AppText.bodyMuted.copyWith(fontSize: 12),
-                    ),
-                    const SizedBox(height: 8),
-                    const _TeacherWasiaBox(),
-                  ],
-                ),
-              ),
               const SizedBox(height: 12),
               if (_picked != null)
                 Align(
@@ -765,9 +700,9 @@ class _ChildPrivacyCardState extends ConsumerState<_ChildPrivacyCard> {
             title: Text('Ask the AI service for my child',
                 style: AppText.body),
             subtitle: Text(
-              'Off: Wasia answers a child only from the app\u2019s own '
-              'lessons. On: their questions go to the AI service you chose, '
-              'never with their name.',
+              'Off (the default): Wasia answers a child only from the app\u2019s '
+              'own lessons. On: only the question the child types goes to the '
+              'AI service you chose \u2014 never their name or progress.',
               style: AppText.caption,
             ),
           ),

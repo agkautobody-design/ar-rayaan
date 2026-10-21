@@ -15,6 +15,7 @@ const Map<String, String> kEmbedRoutes = <String, String>{
   'quran.reader': '/quran',
   'adhkar.morning': '/adhkar',
   'hadith.daily': '/hadith',
+  'calendar.sunnah': '/calendar',
 };
 
 /// The Path - zero-to-practicing curriculum. Units 2-9 land in Wave 2
@@ -256,7 +257,7 @@ final List<AcademyCourse> kAcademyCourses = <AcademyCourse>[
                 kind: AcademyStepKind.embed,
                 titleKey: 'path.u5.s2.title',
                 bodyKey: 'path.u5.s2.body',
-                ref: 'adhkar.morning',
+                ref: 'calendar.sunnah',
               ),
             ],
           ),

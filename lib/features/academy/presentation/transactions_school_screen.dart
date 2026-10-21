@@ -84,7 +84,7 @@ const List<_TrxUnit> kTransactionUnits = <_TrxUnit>[
       ),
       _TrxLesson(
         title: 'Debt and the Door',
-        body: 'The Prophet \ufdfa said: whoever leaves a debt, Allah will pay it on their behalf (Bukhari 2387). And he would not pray the janazah of one who left a debt until someone pledged to cover it. Debt is a weight — but the weight has a door, and the door is intention plus effort.',
+        body: 'The Prophet \ufdfa said: whoever takes people\u2019s wealth intending to repay it, Allah will repay it for them (Bukhari 2387). Debt is a weight — but the weight has a door, and the door is intention plus effort.',
         practice: 'If you carry debt, write the total down, make a plan, and say the dua of the indebted. Face the number.',
       ),
       _TrxLesson(

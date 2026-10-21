@@ -130,17 +130,13 @@ abstract final class WordDeckEngine {
     return <String, WordCard>{...deck, card.key: card};
   }
 
-  /// Build today's session: due reviews first (oldest first), then fresh
-  /// introductions, capped at [sessionCap] (Simplicity: small daily
-  /// sessions beat marathon cramming).
-  static List<WordCard> buildSession({
+  /// Cards that were reviewed before and are due now (oldest first). Fresh
+  /// cards (never reviewed) are NOT due: a new word is an introduction.
+  static List<WordCard> dueCards({
     required Map<String, WordCard> deck,
     required DateTime now,
-    int sessionCap = 15,
   }) {
-    // Fresh cards (never reviewed) enter via the fresh lane only — a
-    // new word is an introduction, not a failed review.
-    final List<WordCard> due = Fsrs.dueQueue(
+    return Fsrs.dueQueue(
       deck.values
           // "Reviewed before" = scheduled at least once. A card graded
           // Again has repetitions == 0 but intervalDays == 1; it must
@@ -151,6 +147,19 @@ abstract final class WordDeckEngine {
           .toList(),
       now,
     ).map((ReviewCard r) => deck[r.wordKey]!).toList();
+  }
+
+  /// Build today's session: due reviews first (oldest first), then fresh
+  /// introductions, capped at [sessionCap] (Simplicity: small daily
+  /// sessions beat marathon cramming).
+  static List<WordCard> buildSession({
+    required Map<String, WordCard> deck,
+    required DateTime now,
+    int sessionCap = 15,
+  }) {
+    // Fresh cards (never reviewed) enter via the fresh lane only — a
+    // new word is an introduction, not a failed review.
+    final List<WordCard> due = dueCards(deck: deck, now: now);
     final List<WordCard> fresh = Fsrs.freshCards(
       deck.values.map((WordCard c) => c.review).toList(),
     ).map((ReviewCard r) => deck[r.wordKey]!).toList();

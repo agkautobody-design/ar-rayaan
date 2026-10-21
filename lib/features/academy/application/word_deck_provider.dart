@@ -26,9 +26,12 @@ final todaySessionProvider = Provider<List<WordCard>>((Ref ref) {
   return WordDeckEngine.buildSession(deck: deck, now: DateTime.now());
 });
 
-/// Count for the Academy home today-strip.
+/// Count for the Academy home today-strip: cards that are really DUE (seen
+/// before, review date reached). The 300 fresh cards the pack seeds are
+/// introductions, not due reviews, so they are never counted here.
 final wordsDueProvider = Provider<int>((Ref ref) {
-  return ref.watch(todaySessionProvider).length;
+  final Map<String, WordCard> deck = ref.watch(wordDeckProvider);
+  return WordDeckEngine.dueCards(deck: deck, now: DateTime.now()).length;
 });
 
 class WordDeckNotifier extends StateNotifier<Map<String, WordCard>> {

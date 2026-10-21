@@ -148,7 +148,7 @@ const List<_DuaLesson> kDuaLessons = <_DuaLesson>[
     title: 'Hasbunallahu wa ni\'mal wakil — the sufficiency clause',
     arabic: 'حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ',
     meaning:
-        'Allah is sufficient for us, and He is the best Disposer of affairs (3:173) — the words of Ibrahim\'s household at the fire and of the Prophet ﷺ at Uhud. Spoken, the chest loosens.',
+        'Allah is sufficient for us, and He is the best Disposer of affairs (3:173) — the words of the believers in 3:173 when they were warned that people had gathered against them. Spoken, the chest loosens.',
     when: 'When facing what you cannot control.',
     source: "Qur'an 3:173",
   ),

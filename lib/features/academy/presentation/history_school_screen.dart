@@ -60,8 +60,8 @@ const List<_HistEra> kHistoryEras = <_HistEra>[
         storyId: 'comp-uthman',
       ),
       _HistChapter(
-        title: 'Ali — The Gate of Knowledge',
-        note: 'The fourth caliph, raised in the Prophet\u2019s house: \'I am the city of knowledge, and Ali is its gate\' — the era\u2019s scholarship begins with him.',
+        title: 'Ali — Raised in the Prophet\u2019s House',
+        note: 'The fourth caliph, raised in the Prophet\u2019s house — the era\u2019s scholarship begins with him.',
         storyId: 'comp-ali',
       ),
     ],
