@@ -75,6 +75,7 @@ class HadithScreen extends ConsumerWidget {
                     ),
                     const SizedBox(height: 16),
                     GlassCard(
+                      blur: false,
                       padding: const EdgeInsets.symmetric(
                         horizontal: 16,
                         vertical: 8,

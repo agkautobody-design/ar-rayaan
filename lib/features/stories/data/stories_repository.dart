@@ -24,36 +24,43 @@ class StoriesRepository {
     'newmuslim',
   ];
 
+  /// Loads every pack concurrently (one slow or offline pack no longer
+  /// delays the next ten) and returns the stories in pack order.
   Future<List<Story>> loadAll() async {
+    final List<List<Story>> perPack =
+        await Future.wait(_packs.map(_loadPack));
+    return <Story>[for (final List<Story> p in perPack) ...p];
+  }
+
+  Future<List<Story>> _loadPack(String pack) async {
     final stories = <Story>[];
-    for (final pack in _packs) {
-      List<dynamic>? list;
+    List<dynamic>? list;
+    try {
+      list = json.decode(await ContentSync.load('stories/$pack.json'))
+          as List<dynamic>;
+    } catch (_) {}
+    if (list == null) {
+      // The synced copy failed (a poisoned cache, a filtered network) —
+      // the bundled pack is always the floor. A shelf may never die.
       try {
-        list = json.decode(await ContentSync.load('stories/$pack.json'))
+        list = json.decode(
+                await rootBundle.loadString('assets/stories/$pack.json'))
             as List<dynamic>;
       } catch (_) {}
-      if (list == null) {
-        // The synced copy failed (a poisoned cache, a filtered network) —
-        // the bundled pack is always the floor. A shelf may never die.
-        try {
-          list = json.decode(
-                  await rootBundle.loadString('assets/stories/$pack.json'))
-              as List<dynamic>;
-        } catch (_) {}
-      }
-      if (list != null) {
-        try {
-          stories.addAll(
-            list.map((e) => Story.fromJson(e as Map<String, dynamic>)),
-          );
-        } catch (_) {
-          // One malformed entry must not sink the whole shelf:
-          // load every healthy story in the pack.
-          for (final e in list) {
-            try {
-              stories.add(Story.fromJson(e as Map<String, dynamic>));
-            } catch (_) {}
-          }
+    }
+    if (list != null) {
+      try {
+        stories.addAll(
+          list.map((e) => Story.fromJson(e as Map<String, dynamic>)),
+        );
+      } catch (_) {
+        // One malformed entry must not sink the whole shelf:
+        // load every healthy story in the pack.
+        stories.clear();
+        for (final e in list) {
+          try {
+            stories.add(Story.fromJson(e as Map<String, dynamic>));
+          } catch (_) {}
         }
       }
     }

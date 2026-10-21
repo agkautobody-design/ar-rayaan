@@ -37,6 +37,10 @@ class ContentSync {
 
   static ContentManifest? _manifest;
 
+  /// The in-flight manifest request, shared so that many packs loading at
+  /// once (the stories shelves) cost one network call, not one each.
+  static Future<ContentManifest?>? _manifestInFlight;
+
   /// Loads the content at `assets/<assetPath>`.
   static Future<String> load(String assetPath) async {
     final bundled = await rootBundle.loadString('assets/$assetPath');
@@ -44,9 +48,12 @@ class ContentSync {
     return loadWith(
       assetPath: assetPath,
       bundled: bundled,
-      client: http.Client(),
+      client: _sharedClient ??= http.Client(),
+      useMemoizedManifest: true,
     );
   }
+
+  static http.Client? _sharedClient;
 
   /// The release-mode path, with its collaborators injected so tests can
   /// drive every outcome.
@@ -131,18 +138,37 @@ class ContentSync {
     http.Client client,
     bool memoize,
   ) async {
-    if (memoize && _manifest != null) return _manifest;
+    if (!memoize) return _requestManifest(client);
+    final ContentManifest? done = _manifest;
+    if (done != null) return done;
+    final Future<ContentManifest?> pending =
+        _manifestInFlight ??= _requestManifest(client).then(
+      (ContentManifest? m) {
+        _manifest = m;
+        _manifestInFlight = null;
+        return m;
+      },
+      onError: (Object e, StackTrace st) {
+        _manifestInFlight = null;
+        throw e;
+      },
+    );
+    return pending;
+  }
+
+  static Future<ContentManifest?> _requestManifest(http.Client client) async {
     final res = await client
         .get(Uri.parse('$remoteBase/content_manifest.json'))
         .timeout(const Duration(seconds: 6));
     if (res.statusCode != 200) return null;
-    final m = ContentManifest.parse(utf8.decode(res.bodyBytes));
-    if (memoize) _manifest = m;
-    return m;
+    return ContentManifest.parse(utf8.decode(res.bodyBytes));
   }
 
   @visibleForTesting
-  static void resetForTest() => _manifest = null;
+  static void resetForTest() {
+    _manifest = null;
+    _manifestInFlight = null;
+  }
 }
 
 /// One pack's entry in `content_manifest.json`.

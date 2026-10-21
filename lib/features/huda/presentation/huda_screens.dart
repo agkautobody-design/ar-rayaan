@@ -97,6 +97,7 @@ class HudaScreen extends ConsumerWidget {
                   Padding(
                     padding: const EdgeInsets.only(bottom: 10),
                     child: GlassCard(
+                      blur: false,
                       onTap: () =>
                           context.go(
                         '${AppRoutes.hudaGuide}?id=${Uri.encodeQueryComponent(g.id)}',
