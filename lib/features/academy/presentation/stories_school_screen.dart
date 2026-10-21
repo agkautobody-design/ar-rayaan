@@ -52,7 +52,7 @@ const List<_StoriesUnit> kStoriesUnits = <_StoriesUnit>[
       ),
       _StoryChapter(
         title: 'Ya\u2019qub — The Beautiful Patience',
-        virtue: 'He lost a son, then another — and said \'I only complain of my grief to Allah\' (12:86). Grief and patience can share a chest.',
+        virtue: 'He lost a son, then another — and said \'I only complain of my suffering and my grief to Allah\' (12:86). Grief and patience can share a chest.',
         familyQuestion: 'What does \'beautiful patience\' look like in our house this week?',
         storyId: 'prophet-yaqub',
       ),
@@ -154,7 +154,7 @@ const List<_StoriesUnit> kStoriesUnits = <_StoriesUnit>[
       ),
       _StoryChapter(
         title: 'The Two Gardens',
-        virtue: 'The man who counted his harvest forgot his Lord — one night of frost took it all. \'Wealth and children are adornment; the enduring deeds are better\' (18:46).',
+        virtue: 'The man who counted his harvest forgot his Lord — one night of frost took it all. \'Wealth and children are [but] adornment of the worldly life. But the enduring good deeds are better to your Lord for reward\' (18:46).',
         familyQuestion: 'What is your \'garden\' — and what would remain if it vanished tonight?',
         storyId: 'tale-two-gardens',
       ),

@@ -104,7 +104,7 @@ const List<_UUnit> kUnderstandingUnits = <_UUnit>[
       _ULesson(
         title: 'The Complaint of the Qur\'an',
         body:
-            "The Prophet \ufdfa said the Qur'an will complain on the Last Day: 'My Lord, my people abandoned me' (25:30). Abandonment is not only never opening it — it is opening it and hearing nothing. Read one verse today as if it were addressed to you. It is.",
+            "The Prophet \ufdfa said the Qur'an will complain on the Last Day: 'O my Lord, indeed my people have taken this Qur'an as [a thing] abandoned' (25:30). Abandonment is not only never opening it — it is opening it and hearing nothing. Read one verse today as if it were addressed to you. It is.",
         source: "Qur'an 25:30",
       ),
     ],
