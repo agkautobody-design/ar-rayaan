@@ -50,7 +50,7 @@ GRADER_WINDOW = 140
 BOOKS = [
     ('bukhari', r'bukhari'),
     ('muslim', r'(?<!new\s)muslim(?![a-z])'),
-    ('abudawud', r'(?:abu|abi)\s+dawu?o?d'),
+    ('abudawud', r'(?:abu|abi)\s+da[wu]*[ou]*d'),
     ('tirmidhi', r'tirmidhi'),
     ('nasai', r"nasa['’ʿʼ]?i"),
     ('ibnmajah', r'ibn\s+maja?h?'),
@@ -60,7 +60,7 @@ BOOK_RE = '|'.join('(?P<%s>%s)' % (k, v) for k, v in BOOKS)
 # optional "Sahih"/"Sunan"/"al-"/"an-"/"Jami'" prefixes are not needed in the
 # pattern: the book token itself is what we anchor on.
 CITE = re.compile(
-    r'(?:' + BOOK_RE + r')(?:\s*\)?\s*[:#]?\s*(?:no\.?\s*|hadith\s+)?)(?P<nums>\d{1,5}(?:\s*(?:,|&|/|and|;)\s*\d{1,5}(?![\d:]))*)(?![\d:]|\s*(?:days?|times|years|minutes|rak))',
+    r'(?:' + BOOK_RE + r')(?:\s*\)?\s*[:#]?\s*\(?\s*(?:no\.?\s*|hadith\s+)?)(?P<nums>\d{1,5}(?:\s*(?:,|&|/|and|;)\s*\d{1,5}(?!\d|:\d))*)(?!\d|:\d|\s*(?:days?|times|years|minutes|rak))',
     re.I)
 NUM = re.compile(r'\d+')
 # Strings that look like ids (muslim-12) are not citations: handled by the
@@ -74,23 +74,65 @@ def asset_files():
     return out
 
 
+# Dart: adjacent string literals ('Sahih al-Bukhari ' 'newline' '1234') are one
+# string at runtime, so a citation may be split across them (same line or
+# wrapped over several lines). We join them before matching.
+JOIN = re.compile(r"""(["'])[ \t]*\n?[ \t\r\n]*(["'])""")
+
+
+def dart_logical(text):
+    """Return (joined_text, line_of_each_char). Comment-only lines are blanked.
+    Adjacent literals are joined; real statement newlines are kept."""
+    src = []
+    for ln in text.split('\n'):
+        src.append(' ' * len(ln) if ln.lstrip().startswith('//') else ln)
+    text = '\n'.join(src)
+    line_at = []
+    ln = 1
+    for ch in text:
+        line_at.append(ln)
+        if ch == '\n':
+            ln += 1
+    out, lines = [], []
+    pos = 0
+    for m in JOIN.finditer(text):
+        # only a join when whitespace between the quotes is non-empty or spans
+        # a newline; two quotes touching ('' or "") are an empty string.
+        if m.end() - m.start() == 2:
+            continue
+        out.append(text[pos:m.start()])
+        lines.extend(line_at[pos:m.start()])
+        pos = m.end()
+    out.append(text[pos:])
+    lines.extend(line_at[pos:])
+    return ''.join(out), lines
+
+
 def extract(files=None):
     """Return list of (key, relpath, line_no, snippet, tail)."""
     res = []
     for f in files or asset_files():
         rel = os.path.relpath(f, ROOT).replace(os.sep, '/')
-        dart = f.endswith('.dart')
         with open(f, encoding='utf8') as fh:
-            for i, line in enumerate(fh, 1):
-                if dart and line.lstrip().startswith('//'):
-                    continue
-                for m in CITE.finditer(line):
-                    book = next(k for k, _ in BOOKS if m.group(k))
-                    for n in NUM.findall(m.group('nums')):
-                        s = max(0, m.start() - 30)
-                        res.append(('%s:%d' % (book, int(n)), rel, i,
-                                    line[s:m.end() + 10].strip(),
-                                    line[m.end():m.end() + GRADER_WINDOW]))
+            raw = fh.read()
+        if f.endswith('.dart'):
+            text, lines = dart_logical(raw)
+        else:
+            text = raw
+            lines = []
+            ln = 1
+            for ch in raw:
+                lines.append(ln)
+                if ch == '\n':
+                    ln += 1
+        for m in CITE.finditer(text):
+            book = next(k for k, _ in BOOKS if m.group(k))
+            line_no = lines[m.start()]
+            tail = text[m.end():m.end() + GRADER_WINDOW].split('\n')[0]
+            s = max(0, m.start() - 30)
+            snip = text[s:m.end() + 10].replace('\n', ' ').strip()
+            for n in NUM.findall(m.group('nums')):
+                res.append(('%s:%d' % (book, int(n)), rel, line_no, snip, tail))
     return res
 
 

@@ -1,0 +1,410 @@
+{
+  "abudawud:1400": {
+    "checked": "2026-10-20",
+    "correct": "",
+    "grade": "hasan",
+    "grader": "al-Albani",
+    "note": "Abu Hurayrah; a surah of thirty verses pleads for its reader until forgiven (Al-Mulk)",
+    "verdict": "ok"
+  },
+  "abudawud:1416": {
+    "checked": "2026-10-20",
+    "correct": "",
+    "grade": "sahih",
+    "grader": "al-Albani",
+    "note": "Ali; Allah is single (witr) and loves what is single; people of the Qur'an told to pray witr",
+    "verdict": "ok"
+  },
+  "abudawud:1425": {
+    "checked": "2026-10-20",
+    "correct": "",
+    "grade": "sahih",
+    "grader": "al-Albani",
+    "note": "al-Hasan ibn Ali taught the Qunut words for witr; page does not say before/after ruku",
+    "verdict": "ok"
+  },
+  "abudawud:162": {
+    "checked": "2026-10-20",
+    "correct": "",
+    "grade": "sahih",
+    "grader": "al-Albani",
+    "note": "Ali; saw the Prophet wipe the top of the khuffs; underside would be fitter by opinion; khuffs not socks",
+    "verdict": "ok"
+  },
+  "abudawud:181": {
+    "checked": "2026-10-20",
+    "correct": "",
+    "grade": "sahih",
+    "grader": "al-Albani",
+    "note": "Busrah bint Safwan; whoever touches his private part should make wudu",
+    "verdict": "ok"
+  },
+  "abudawud:2130": {
+    "checked": "2026-10-20",
+    "correct": "",
+    "grade": "sahih",
+    "grader": "al-Albani",
+    "note": "Abu Hurayrah; supplication for the newly married (barakallahu laka ... jama'a baynakuma fi khayr)",
+    "verdict": "ok"
+  },
+  "abudawud:2880": {
+    "checked": "2026-10-20",
+    "correct": "none",
+    "grade": "",
+    "grader": "",
+    "note": "cited for \"learn the faraid\": 2880 is the three deeds that continue after death (Abu Hurayrah); the faraid report is Ibn Majah 2719 (da'if per Darussalam)",
+    "verdict": "wrong"
+  },
+  "abudawud:3102": {
+    "checked": "2026-10-20",
+    "correct": "abudawud:3106",
+    "grade": "",
+    "grader": "",
+    "note": "cited for the visit-the-sick supplication; the hadith is Abu Dawud 3106 (checked on sunnah.com); 3102 not fetched",
+    "verdict": "wrong"
+  },
+  "abudawud:3106": {
+    "checked": "2026-10-20",
+    "correct": "",
+    "grade": "sahih",
+    "grader": "al-Albani",
+    "note": "Ibn Abbas; visiting the sick, seven times asking Allah, Lord of the Mighty Throne, to cure him",
+    "verdict": "ok"
+  },
+  "abudawud:3201": {
+    "checked": "2026-10-20",
+    "correct": "",
+    "grade": "sahih",
+    "grader": "al-Albani",
+    "note": "funeral prayer dua (forgive our living and our dead...), narrated by Abu Hurayrah; matches the app wording",
+    "verdict": "ok"
+  },
+  "abudawud:3755": {
+    "checked": "2026-10-20",
+    "correct": "none",
+    "grade": "",
+    "grader": "",
+    "note": "cited for washing hands before and after eating; 3755 is Ali and the decorated curtain (hasan per al-Albani); the washing report is 3761 (da'if)",
+    "verdict": "wrong"
+  },
+  "abudawud:3761": {
+    "checked": "2026-10-20",
+    "correct": "",
+    "grade": "da'if",
+    "grader": "al-Albani",
+    "note": "Salman al-Farsi; washing before and after the meal brings blessing; weak, app says weak report",
+    "verdict": "ok"
+  },
+  "abudawud:3764": {
+    "checked": "2026-10-20",
+    "correct": "",
+    "grade": "hasan",
+    "grader": "al-Albani",
+    "note": "Wahshi ibn Harb; eat together and mention Allah's name, blessed in it; page does not mention Satan, app claim removed",
+    "verdict": "ok"
+  },
+  "abudawud:3767": {
+    "checked": "2026-10-20",
+    "correct": "",
+    "grade": "sahih",
+    "grader": "al-Albani",
+    "note": "Aisha; if one forgets to mention Allah at the start of the meal say bismillah awwalahu wa akhirahu",
+    "verdict": "ok"
+  },
+  "abudawud:3850": {
+    "checked": "2026-10-20",
+    "correct": "",
+    "grade": "da'if",
+    "grader": "al-Albani",
+    "note": "Abu Sa'id al-Khudri; praise to Allah who fed and gave drink and made us Muslims; sunnah.com shows al-Albani grade as da'if, app says so",
+    "verdict": "ok"
+  },
+  "abudawud:4104": {
+    "checked": "2026-10-20",
+    "correct": "",
+    "grade": "sahih",
+    "grader": "al-Albani",
+    "note": "Aisha; Asma' in thin clothing; only face and hands; Abu Dawud himself says mursal, al-Albani grades sahih; app states both",
+    "verdict": "ok"
+  },
+  "abudawud:4895": {
+    "checked": "2026-10-20",
+    "correct": "",
+    "grade": "sahih",
+    "grader": "al-Albani",
+    "note": "Iyad ibn Himar; Allah revealed that you should be humble so none boasts over or wrongs another",
+    "verdict": "ok"
+  },
+  "abudawud:5045": {
+    "checked": "2026-10-20",
+    "correct": "",
+    "grade": "sahih",
+    "grader": "al-Albani",
+    "note": "dua asking protection from punishment on the day of resurrection when lying down, hand under cheek",
+    "verdict": "ok"
+  },
+  "abudawud:5088": {
+    "checked": "2026-10-20",
+    "correct": "",
+    "grade": "sahih",
+    "grader": "al-Albani",
+    "note": "Uthman ibn Affan; \"In the name of Allah\" formula three times morning and evening protects from sudden calamity; NOT the Ikhlas/Mu'awwidhatayn set",
+    "verdict": "ok"
+  },
+  "abudawud:802": {
+    "checked": "2026-10-20",
+    "correct": "none",
+    "grade": "",
+    "grader": "",
+    "note": "cited for \"have mercy on yourself\" to Ibn Umar; 802 is the Prophet standing long in the first rak'ah of Zuhr (Ibn Abi Awfa, da'if); the Ibn Umar claim could not be sourced and was removed",
+    "verdict": "wrong"
+  },
+  "bukhari:1403": {
+    "checked": "2026-10-20",
+    "correct": "",
+    "grade": "sahih",
+    "grader": "Included in Sahih al-Bukhari",
+    "note": "Abu Hurayrah; unpaid zakat wealth becomes a bald venomous snake; Prophet recited 3:180",
+    "verdict": "ok"
+  },
+  "bukhari:1410": {
+    "checked": "2026-10-20",
+    "correct": "",
+    "grade": "sahih",
+    "grader": "Included in Sahih al-Bukhari",
+    "note": "Abu Hurayrah; charity from lawful earnings even a date is accepted and grown; the \"extinguishes sin like water extinguishes fire\" wording is NOT here (it is Tirmidhi 2616)",
+    "verdict": "ok"
+  },
+  "bukhari:1782": {
+    "checked": "2026-10-20",
+    "correct": "",
+    "grade": "sahih",
+    "grader": "Included in Sahih al-Bukhari",
+    "note": "Ibn Abbas; Umrah in Ramadan equals Hajj (in reward), said to an Ansari woman; text does not say \"with me\"",
+    "verdict": "ok"
+  },
+  "bukhari:2044": {
+    "checked": "2026-10-20",
+    "correct": "",
+    "grade": "",
+    "grader": "",
+    "note": "Prophet did i'tikaf ten days each Ramadan, twenty in the year he died (Abu Hurayrah)",
+    "verdict": "ok"
+  },
+  "bukhari:2363": {
+    "checked": "2026-10-20",
+    "correct": "",
+    "grade": "",
+    "grader": "",
+    "note": "man gave water to a thirsty dog; Allah accepted the deed and forgave him",
+    "verdict": "ok"
+  },
+  "bukhari:4563": {
+    "checked": "2026-10-20",
+    "correct": "",
+    "grade": "sahih",
+    "grader": "Included in Sahih al-Bukhari",
+    "note": "Ibn Abbas; hasbunallah wa ni'mal wakil said first by Ibrahim in the fire and by the Prophet when told people had gathered (3:173)",
+    "verdict": "ok"
+  },
+  "bukhari:5009": {
+    "checked": "2026-10-20",
+    "correct": "",
+    "grade": "sahih",
+    "grader": "Included in Sahih al-Bukhari",
+    "note": "Abu Mas'ud; last two verses of al-Baqarah at night suffice him; no \"beneath the Throne\" clause here",
+    "verdict": "ok"
+  },
+  "bukhari:5376": {
+    "checked": "2026-10-20",
+    "correct": "",
+    "grade": "sahih",
+    "grader": "Included in Sahih al-Bukhari",
+    "note": "Umar ibn Abi Salama; mention Allah, eat with the right hand, from what is nearest",
+    "verdict": "ok"
+  },
+  "ibnmajah:2719": {
+    "checked": "2026-10-20",
+    "correct": "",
+    "grade": "da'if",
+    "grader": "Darussalam",
+    "note": "Abu Hurayrah; learn and teach inheritance, half of knowledge, first thing lifted",
+    "verdict": "ok"
+  },
+  "muslim:1098": {
+    "checked": "2026-10-20",
+    "correct": "",
+    "grade": "sahih",
+    "grader": "Included in Sahih Muslim",
+    "note": "Sahl ibn Sa'd; people remain in good while they hasten the iftar",
+    "verdict": "ok"
+  },
+  "muslim:2107": {
+    "checked": "2026-10-20",
+    "correct": "muslim:2109",
+    "grade": "",
+    "grader": "",
+    "note": "cited for the severest punishment for image makers; 2107 is the curtain/angels report (Abu Talha, Aisha)",
+    "verdict": "wrong"
+  },
+  "muslim:2109": {
+    "checked": "2026-10-20",
+    "correct": "",
+    "grade": "sahih",
+    "grader": "Included in Sahih Muslim",
+    "note": "Ibn Mas'ud; the makers of images are the most severely punished on the Day of Resurrection",
+    "verdict": "ok"
+  },
+  "muslim:244": {
+    "checked": "2026-10-20",
+    "correct": "muslim:245",
+    "grade": "",
+    "grader": "",
+    "note": "cited for sins leaving from beneath the nails; 244 (Abu Hurayrah) says sins of face, hands and feet leave with the water; the fingernails wording is Muslim 245 (Uthman)",
+    "verdict": "wrong"
+  },
+  "muslim:245": {
+    "checked": "2026-10-20",
+    "correct": "",
+    "grade": "sahih",
+    "grader": "Included in Sahih Muslim",
+    "note": "Uthman ibn Affan; whoever performs wudu well, his sins come out of his body, even from beneath his fingernails",
+    "verdict": "ok"
+  },
+  "muslim:2568": {
+    "checked": "2026-10-20",
+    "correct": "",
+    "grade": "sahih",
+    "grader": "Included in Sahih Muslim",
+    "note": "Thawban; the visitor of a sick person is in the fruit garden of Paradise until he returns",
+    "verdict": "ok"
+  },
+  "muslim:2605": {
+    "checked": "2026-10-20",
+    "correct": "",
+    "grade": "sahih",
+    "grader": "Included in Sahih Muslim",
+    "note": "Umm Kulthum; one who reconciles people by saying good is not a liar; the three permitted cases are Ibn Shihab al-Zuhri's comment, not the Prophet's words",
+    "verdict": "ok"
+  },
+  "muslim:2607": {
+    "checked": "2026-10-20",
+    "correct": "",
+    "grade": "sahih",
+    "grader": "Included in Sahih Muslim",
+    "note": "Ibn Mas'ud; truthfulness to righteousness to Paradise, lying to wickedness to the Fire; no exceptions here",
+    "verdict": "ok"
+  },
+  "muslim:2865": {
+    "checked": "2026-10-20",
+    "correct": "abudawud:4895",
+    "grade": "",
+    "grader": "",
+    "note": "humility clause (be humble so none boasts or wrongs another) is NOT on the Muslim 2865 page (Iyad ibn Himar long hadith: wealth, devils, people of Paradise and Hell); it is Abu Dawud 4895, sahih per al-Albani; app now cites 4895",
+    "verdict": "wrong"
+  },
+  "muslim:394": {
+    "checked": "2026-10-20",
+    "correct": "",
+    "grade": "",
+    "grader": "",
+    "note": "no valid prayer without the Opening of the Book",
+    "verdict": "ok"
+  },
+  "muslim:516": {
+    "checked": "2026-10-20",
+    "correct": "none",
+    "grade": "",
+    "grader": "",
+    "note": "cited for \"Allahumma habbib ilayna al-iman\"; 516 is about not praying in a single garment leaving the shoulder bare (Abu Hurayrah); the dua is not in Muslim; claim replaced by Qur'an 49:7",
+    "verdict": "wrong"
+  },
+  "muslim:54": {
+    "checked": "2026-10-20",
+    "correct": "",
+    "grade": "",
+    "grader": "",
+    "note": "you will not enter Paradise until you believe, nor believe until you love one another; spread salam",
+    "verdict": "ok"
+  },
+  "muslim:761": {
+    "checked": "2026-10-20",
+    "correct": "",
+    "grade": "sahih",
+    "grader": "Included in Sahih Muslim",
+    "note": "Aisha; the Prophet prayed in the mosque, people joined on two nights, stayed away on the third or fourth fearing it would be obligatory",
+    "verdict": "ok"
+  },
+  "muslim:808": {
+    "checked": "2026-10-20",
+    "correct": "",
+    "grade": "",
+    "grader": "",
+    "note": "the last two verses of al-Baqarah at night suffice (per the app wording)",
+    "verdict": "ok"
+  },
+  "muslim:899": {
+    "checked": "2026-10-20",
+    "correct": "",
+    "grade": "sahih",
+    "grader": "Included in Sahih Muslim",
+    "note": "Aisha; 899a: his unease at wind/clouds, relief at rain; 899b: the supplication asking for the wind's good and refuge from its evil; app claim matches 899b",
+    "verdict": "ok"
+  },
+  "nasai:3104": {
+    "checked": "2026-10-20",
+    "correct": "",
+    "grade": "sahih",
+    "grader": "Darussalam",
+    "note": "man asks to fight; Prophet says stay with her, Paradise is beneath her feet",
+    "verdict": "ok"
+  },
+  "tirmidhi:1155": {
+    "checked": "2026-10-20",
+    "correct": "none",
+    "grade": "",
+    "grader": "",
+    "note": "cited for the wife who prays, fasts, guards her chastity, obeys her husband; 1155 is Barirah's choice after being freed; that report is Musnad Ahmad (not checkable here), so the quote was removed",
+    "verdict": "wrong"
+  },
+  "tirmidhi:1862": {
+    "checked": "2026-10-20",
+    "correct": "",
+    "grade": "da'if",
+    "grader": "Darussalam",
+    "note": "Ibn Umar; prayer of one who drinks khamr not accepted for forty days; repents and Allah accepts; al-Tirmidhi himself called it hasan",
+    "verdict": "ok"
+  },
+  "tirmidhi:2616": {
+    "checked": "2026-10-20",
+    "correct": "",
+    "grade": "hasan",
+    "grader": "Darussalam",
+    "note": "Mu'adh ibn Jabal; charity extinguishes sins like water extinguishes fire (the long deeds hadith)",
+    "verdict": "ok"
+  },
+  "tirmidhi:2875": {
+    "checked": "2026-10-20",
+    "correct": "",
+    "grade": "sahih",
+    "grader": "Darussalam",
+    "note": "nothing like the Opening revealed in the Tawrah, Injil, Zabur or Furqan",
+    "verdict": "ok"
+  },
+  "tirmidhi:2890": {
+    "checked": "2026-10-20",
+    "correct": "",
+    "grade": "da'if",
+    "grader": "Darussalam",
+    "note": "Ibn Abbas; Surah al-Mulk delivers from the punishment of the grave; al-Tirmidhi called it hasan gharib",
+    "verdict": "ok"
+  },
+  "tirmidhi:3773": {
+    "checked": "2026-10-20",
+    "correct": "tirmidhi:1862",
+    "grade": "",
+    "grader": "",
+    "note": "cited for forty days of prayer not accepted; 3773 is the virtue of al-Hasan (Abu Bakrah); the khamr report is Tirmidhi 1862",
+    "verdict": "wrong"
+  }
+}
