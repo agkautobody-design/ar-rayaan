@@ -39,6 +39,7 @@ class HadiScreen extends ConsumerStatefulWidget {
 }
 
 class _HadiScreenState extends ConsumerState<HadiScreen> {
+  bool _allStarters = false;
   final TextEditingController _input = TextEditingController();
   final ScrollController _scroll = ScrollController();
   StreamSubscription<String>? _navSub;
@@ -377,6 +378,7 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                 children: [
                   _HeaderIcon(
                     icon: Icons.arrow_back,
+                    label: 'Back to home',
                     onTap: () => context.go(AppRoutes.home),
                   ),
                   const SizedBox(width: 12),
@@ -417,6 +419,7 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                   const SizedBox(width: 12),
                   _HeaderIcon(
                     icon: Icons.restart_alt,
+                    label: 'New conversation',
                     onTap: () async {
                       final bool? ok = await showDialog<bool>(
                         context: context,
@@ -457,16 +460,19 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                   const SizedBox(width: 8),
                   _HeaderIcon(
                     icon: Icons.favorite_outline,
+                    label: 'Need help now',
                     onTap: () => showNeedHelpSheet(context),
                   ),
                   const SizedBox(width: 8),
                   _HeaderIcon(
                     icon: Icons.school_outlined,
+                    label: 'Choose your school of thought',
                     onTap: _openMadhhabSheet,
                   ),
                   const SizedBox(width: 8),
                   _HeaderIcon(
                     icon: Icons.key_outlined,
+                    label: 'Add an AI key for live answers',
                     onTap: _openKeySheet,
                   ),
                 ],
@@ -531,7 +537,9 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                       spacing: 8,
                       runSpacing: 8,
                       children: [
-                        for (final e in kProposedHadiExchanges)
+                        for (final e in _allStarters
+                            ? kProposedHadiExchanges
+                            : kProposedHadiExchanges.take(8))
                           ActionChip(
                             onPressed: () => _send(e.question),
                             avatar: const Icon(
@@ -547,6 +555,23 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                             backgroundColor: AppColors.gold.withValues(
                               alpha: 0.05,
                             ),
+                            side: BorderSide(
+                              color: AppColors.gold.withValues(alpha: 0.3),
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(999),
+                            ),
+                          ),
+                        if (!_allStarters)
+                          ActionChip(
+                            onPressed: () =>
+                                setState(() => _allStarters = true),
+                            label: const Text('More questions\u2026'),
+                            labelStyle: AppText.bodyMuted.copyWith(
+                              fontSize: 12,
+                              color: AppColors.goldLight,
+                            ),
+                            backgroundColor: Colors.transparent,
                             side: BorderSide(
                               color: AppColors.gold.withValues(alpha: 0.3),
                             ),
@@ -835,21 +860,30 @@ class _Bubble extends ConsumerWidget {
 }
 
 class _HeaderIcon extends StatelessWidget {
-  const _HeaderIcon({required this.icon, required this.onTap});
+  const _HeaderIcon(
+      {required this.icon, required this.onTap, required this.label});
 
   final IconData icon;
+  final String label;
   final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Material(
+    return Tooltip(
+      message: label,
+      child: Semantics(
+      button: true,
+      label: label,
+      excludeSemantics: true,
+      onTap: onTap,
+      child: Material(
       type: MaterialType.transparency,
       child: InkWell(
         onTap: onTap,
         customBorder: const CircleBorder(),
         child: Container(
-          width: 36,
-          height: 36,
+          width: 40,
+          height: 40,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             color: AppColors.glassFill,
@@ -861,6 +895,8 @@ class _HeaderIcon extends StatelessWidget {
             color: AppColors.sand.withValues(alpha: 0.85),
           ),
         ),
+      ),
+      ),
       ),
     );
   }

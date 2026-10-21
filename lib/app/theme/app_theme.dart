@@ -34,6 +34,9 @@ abstract final class AppTheme {
       scaffoldBackgroundColor: AppColors.night,
       textTheme: AppText.textTheme(),
       fontFamily: AppFonts.body,
+      // Inter has no U+FDFA (the salawat ligature); Amiri does. Without this
+      // the Prophet's honorific can render as an empty box on the web.
+      fontFamilyFallback: const <String>[AppFonts.arabic],
       // InkSparkle's fragment shader isn't bundled in the widget-test
       // environment (taps throw FragmentProgram asset errors there), so
       // tests fall back to InkRipple; production keeps the sparkle.
