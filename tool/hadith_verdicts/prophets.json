@@ -20,6 +20,20 @@
   "note": "Dawud ate from earnings of his hands; Abu Huraira",
   "verdict": "ok"
  },
+ "bukhari:2864": {
+  "checked": "2026-10-20",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Al-Bara; Hunayn, Prophet says I am the son of Abdul Muttalib",
+  "verdict": "ok"
+ },
+ "bukhari:3205": {
+  "checked": "2026-10-20",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Ibn Abbas; helped by the Saba wind, Ad destroyed by the Dabur wind; chapter on the winds",
+  "verdict": "ok"
+ },
  "bukhari:3207": {
   "checked": "2026-10-20",
   "grade": "Sahih",
@@ -123,6 +137,13 @@
   "grade": "Sahih",
   "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
   "note": "Abu Huraira; Yusuf in prison, would have answered the summoner; also Ibrahim and Lut",
+  "verdict": "ok"
+ },
+ "bukhari:3395": {
+  "checked": "2026-10-20",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Ibn Abbas; no one should say I am better than Yunus ibn Matta; page 3395 also 3396",
   "verdict": "ok"
  },
  "bukhari:3401": {
@@ -237,6 +258,13 @@
   "note": "Abdullah ibn Amr: convey from me even a verse; narrate from Bani Israil without objection; do not lie about him",
   "verdict": "ok"
  },
+ "bukhari:3491": {
+  "checked": "2026-10-20",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Kulaib ibn Wail from Zaynab bint Abi Salama; Prophet of Mudar, offspring of an-Nadr ibn Kinana",
+  "verdict": "ok"
+ },
  "bukhari:3598": {
   "checked": "2026-10-20",
   "grade": "Sahih",
@@ -244,11 +272,32 @@
   "note": "Zaynab bint Jahsh: breach in barrier of Gog and Magog",
   "verdict": "ok"
  },
+ "bukhari:3698": {
+  "checked": "2026-10-20",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Uthman ibn Mawhab from Ibn Umar; Uthman missed Badr, wife the Prophet daughter was sick; text does not name her",
+  "verdict": "ok"
+ },
  "bukhari:3860": {
   "checked": "2026-10-20",
   "grade": "Sahih",
   "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
   "note": "Abu Huraira, Nasibin jinn, bones and dung",
+  "verdict": "ok"
+ },
+ "bukhari:3884": {
+  "checked": "2026-10-20",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Musayyab ibn Hazn; Abu Talib dying, Prophet calls him my uncle; chapter The story of Abu Talib",
+  "verdict": "ok"
+ },
+ "bukhari:4419": {
+  "checked": "2026-10-20",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Ibn Umar; dismounting at al-Hijr, do not enter dwellings of those who wronged themselves unless weeping; page does not name Thamud",
   "verdict": "ok"
  },
  "bukhari:4485": {
@@ -272,6 +321,13 @@
   "note": "Prophet subdued a jinn in prayer, recalled Sulayman's du'a; Abu Huraira",
   "verdict": "ok"
  },
+ "bukhari:4828": {
+  "checked": "2026-10-20",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Aisha; cloud and wind, face showed concern, a people punished by wind; tafsir of 46:24; page does not name Ad",
+  "verdict": "ok"
+ },
  "bukhari:4920": {
   "checked": "2026-10-20",
   "grade": "Sahih",
@@ -284,6 +340,13 @@
   "grade": "Sahih",
   "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
   "note": "Ibn Abbas: jinn overheard Fajr recitation, Surah al-Jinn",
+  "verdict": "ok"
+ },
+ "bukhari:4942": {
+  "checked": "2026-10-20",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abdullah ibn Zamaa; sermon on the she-camel and the man who hamstrung her, 91:12; page does not name Salih",
   "verdict": "ok"
  },
  "bukhari:5048": {
@@ -319,6 +382,13 @@
   "grade": "Sahih",
   "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)",
   "note": "Ibn Mas'ud via Zirr: Jibril 600 wings; ref 174a",
+  "verdict": "ok"
+ },
+ "muslim:2276": {
+  "checked": "2026-10-20",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Wathila ibn al-Asqa; Allah chose Kinana from Ismail, Quraysh from Kinana, Hashim from Quraysh, the Prophet from Banu Hashim",
   "verdict": "ok"
  },
  "muslim:2369": {
@@ -375,6 +445,13 @@
   "grade": "Sahih",
   "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)",
   "note": "Night of the jinn; bones and dung; Ibn Mas'ud; sunnah.com ref 450a",
+  "verdict": "ok"
+ },
+ "muslim:976": {
+  "checked": "2026-10-20",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Huraira; Prophet asked permission to visit his mothers grave, text does not name her",
   "verdict": "ok"
  },
  "nasai:693": {

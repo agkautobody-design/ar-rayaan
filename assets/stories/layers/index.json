@@ -23,6 +23,15 @@
    "earlier": false
   },
   {
+   "id": "ayyub",
+   "title": "Ayyub (Job)",
+   "kind": "prophet",
+   "stories": [
+    "prophet-ayyub"
+   ],
+   "earlier": false
+  },
+  {
    "id": "dawud",
    "title": "Dawud (David)",
    "kind": "prophet",
@@ -38,6 +47,15 @@
    "stories": [
     "ghayb-2am-gog",
     "sign-10"
+   ],
+   "earlier": false
+  },
+  {
+   "id": "hud",
+   "title": "Hud",
+   "kind": "prophet",
+   "stories": [
+    "prophet-hud"
    ],
    "earlier": false
   },
@@ -62,6 +80,24 @@
    "earlier": true
   },
   {
+   "id": "ishaq",
+   "title": "Ishaq (Isaac)",
+   "kind": "prophet",
+   "stories": [
+    "prophet-ishaq"
+   ],
+   "earlier": false
+  },
+  {
+   "id": "ismail",
+   "title": "Ismail (Ishmael)",
+   "kind": "prophet",
+   "stories": [
+    "prophet-ismail"
+   ],
+   "earlier": false
+  },
+  {
    "id": "jinn",
    "title": "The jinn",
    "kind": "unseen",
@@ -74,6 +110,15 @@
     "ghayb-iblis-refuses"
    ],
    "earlier": false
+  },
+  {
+   "id": "lut",
+   "title": "Lut (Lot)",
+   "kind": "prophet",
+   "stories": [
+    "prophet-lut"
+   ],
+   "earlier": true
   },
   {
    "id": "musa",
@@ -95,6 +140,24 @@
    "earlier": true
   },
   {
+   "id": "salih",
+   "title": "Salih",
+   "kind": "prophet",
+   "stories": [
+    "prophet-salih"
+   ],
+   "earlier": false
+  },
+  {
+   "id": "shuayb",
+   "title": "Shu’ayb",
+   "kind": "prophet",
+   "stories": [
+    "prophet-shuayb"
+   ],
+   "earlier": false
+  },
+  {
    "id": "sulayman",
    "title": "Sulayman (Solomon)",
    "kind": "prophet",
@@ -105,6 +168,24 @@
     "woman-bilqis"
    ],
    "earlier": true
+  },
+  {
+   "id": "yaqub",
+   "title": "Ya’qub (Jacob)",
+   "kind": "prophet",
+   "stories": [
+    "prophet-yaqub"
+   ],
+   "earlier": false
+  },
+  {
+   "id": "yunus",
+   "title": "Yunus (Jonah)",
+   "kind": "prophet",
+   "stories": [
+    "prophet-yunus"
+   ],
+   "earlier": false
   },
   {
    "id": "yusuf",

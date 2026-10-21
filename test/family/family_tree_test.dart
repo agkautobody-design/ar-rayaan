@@ -167,6 +167,121 @@ void main() {
     expect(note.contains('Disputed in the sources'), isTrue);
   });
 
+  test('the Prophet’s household is in the tree, each part with its source', () {
+    final Map<String, dynamic> m = byId['muhammad']!;
+    expect(list(m, 'parents'), <String>['abdullah', 'amina']);
+    expect(list(m, 'spouses'), containsAll(<String>['khadijah', 'prophet-wives']));
+    expect(list(m, 'children'),
+        containsAll(<String>['fatima', 'prophet-daughters', 'ibrahim-son']));
+    for (final String id in <String>[
+      'abdullah', 'amina', 'prophet-wives', 'prophet-daughters', 'ibrahim-son',
+    ]) {
+      final Map<String, dynamic> n = byId[id]!;
+      expect((n['sources'] as List<dynamic>).isNotEmpty, isTrue, reason: id);
+      expect((n['lineageNote'] as String? ?? n['description'] as String)
+          .trim()
+          .isNotEmpty, isTrue, reason: id);
+    }
+    // Facts the Qur'an or a checked hadith gives are Established; names and
+    // links that are only from the historians are not.
+    expect(byId['abdullah']!['sourceLabel'], 'Established');
+    expect(byId['prophet-wives']!['sourceLabel'], 'Established');
+    expect(byId['prophet-daughters']!['sourceLabel'], 'Established');
+    expect(byId['ibrahim-son']!['sourceLabel'], 'Established');
+    expect(byId['amina']!['sourceLabel'], 'Interpretive');
+    expect((byId['amina']!['lineageNote'] as String).contains('tradition'), isTrue);
+    expect(
+      (byId['prophet-daughters']!['description'] as String)
+          .contains('have not been re-checked'),
+      isTrue,
+      reason: 'the daughters’ names are from the historians and must say so',
+    );
+    // The mother of Ibrahim ibn Muhammad is not named in the report, so the
+    // tree does not guess one.
+    expect(list(byId['ibrahim-son']!, 'parents'), <String>['muhammad']);
+  });
+
+  test('Ali’s father is Abu Talib, and the node says what is not verified', () {
+    expect(list(byId['ali']!, 'parents'), <String>['abu-talib']);
+    expect(list(byId['abu-talib']!, 'children'), <String>['ali']);
+    expect(list(byId['abdul-muttalib']!, 'children'), contains('abu-talib'));
+    expect(byId['abu-talib']!['sourceLabel'], 'Interpretive');
+    expect((byId['ali']!['lineageNote'] as String).contains('re-checked'), isTrue);
+    final List<dynamic> rel = byId['abu-talib']!['relations'] as List<dynamic>;
+    expect(
+      rel.any((dynamic r) =>
+          (r as Map<String, dynamic>)['id'] == 'muhammad' &&
+          (r['label'] as String).contains('Uncle')),
+      isTrue,
+    );
+  });
+
+  test('everything above Adnan is marked uncertain and never Established', () {
+    for (final String id in <String>['qaydar', 'adnan']) {
+      final Map<String, dynamic> n = byId[id]!;
+      expect(n['sourceLabel'], 'Interpretive', reason: id);
+      expect((n['lineageNote'] as String).contains('Uncertain'), isTrue,
+          reason: '$id must say the line above Adnan is uncertain');
+    }
+    expect((raw['meta'] as Map<String, dynamic>)['lineageWarning'] as String,
+        contains('above Adnan'));
+  });
+
+  test('Isa and Yahya are linked as maternal cousins', () {
+    for (final List<String> pair in <List<String>>[
+      <String>['isa', 'yahya'],
+      <String>['yahya', 'isa'],
+    ]) {
+      final List<dynamic> rel = byId[pair[0]]!['relations'] as List<dynamic>;
+      expect(
+        rel.any((dynamic r) =>
+            (r as Map<String, dynamic>)['id'] == pair[1] &&
+            (r['label'] as String).contains('cousin')),
+        isTrue,
+        reason: '${pair[0]} -> ${pair[1]}',
+      );
+    }
+    // The cousin tie never replaces the parentage the Qur'an gives.
+    expect(list(byId['isa']!, 'parents'), <String>['maryam']);
+    expect(list(byId['yahya']!, 'parents'), <String>['zakariya']);
+  });
+
+  testWidgets('the whole tree builds on a 320 px phone with every branch open',
+      (WidgetTester tester) async {
+    tester.view.physicalSize = const Size(320, 12000);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    final FamilyTreeData d = data();
+    final Set<String> all = <String>{
+      for (final FamilyNode n in d.nodes) n.id,
+    };
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: <Override>[
+          familyTreeProvider.overrideWith((ref) async => d),
+        ],
+        child: MaterialApp(
+          theme: AppTheme.dark(),
+          home: FamilyTreeScreen(initiallyExpanded: all),
+        ),
+      ),
+    );
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
+
+    // A RenderFlex overflow or any build error would surface here.
+    expect(tester.takeException(), isNull);
+    expect(find.text('Abu Talib'), findsOneWidget);
+    expect(find.text('Ali ibn Abi Talib'), findsOneWidget);
+    expect(find.text('Ibrahim ibn Muhammad ﷺ'), findsOneWidget);
+    expect(find.text('His other daughters'), findsOneWidget);
+    expect(find.text('Spouse · Amina'), findsOneWidget);
+    expect(find.text('Maryam bint Imran'), findsOneWidget);
+    expect(find.text('Isa'), findsOneWidget);
+  });
+
   test('no node carries an image or a portrait', () {
     for (final Map<String, dynamic> n in nodes) {
       for (final String k in n.keys) {

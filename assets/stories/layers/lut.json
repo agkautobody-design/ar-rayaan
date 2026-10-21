@@ -1,0 +1,72 @@
+{
+ "schema": 1,
+ "subject": "lut",
+ "title": "Lut (Lot)",
+ "kind": "prophet",
+ "checked": "2026-10-20",
+ "reviewStatus": "Not yet scholar-reviewed",
+ "quran": [
+  {
+   "surah": 7,
+   "from": 80,
+   "to": 84,
+   "note": "Lut tells his people they commit an immorality no one before them did; he and his family are saved except his wife; a rain of stones falls."
+  },
+  {
+   "surah": 11,
+   "from": 77,
+   "to": 83,
+   "note": "The angels come to Lut; he is anguished for his guests; “If only I had against you some power or could take refuge in a strong support”; the angels say they are messengers of his Lord."
+  },
+  {
+   "surah": 15,
+   "from": 67,
+   "to": 77,
+   "note": "The people of the city come rejoicing; Lut asks them not to shame him before his guests; the shriek seizes them at sunrise and the city is turned upside down."
+  },
+  {
+   "surah": 26,
+   "from": 160,
+   "to": 171,
+   "note": "Lut, a trustworthy messenger, warns them; he and his family are saved except an old woman who remained behind."
+  },
+  {
+   "surah": 29,
+   "from": 28,
+   "to": 35,
+   "note": "Lut’s people; Ibrahim says “within it is Lot”; the angels say they will save him and his family except his wife; a sign is left."
+  },
+  {
+   "surah": 54,
+   "from": 33,
+   "to": 40,
+   "note": "Lut’s people deny the warning; they demanded his guests; Allah obliterated their eyes."
+  },
+  {
+   "surah": 66,
+   "from": 10,
+   "to": 10,
+   "note": "The wife of Nuh and the wife of Lut as an example of those who disbelieved."
+  }
+ ],
+ "hadith": [
+  {
+   "book": "bukhari",
+   "number": "3372",
+   "narrator": "Abu Huraira",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "The Prophet ﷺ asked Allah’s mercy on Lut, who sought refuge in a strong support. The same report has his remark about being more deserving of doubt than Ibrahim, and about Yusuf’s long stay in prison.",
+   "verified": "2026-10-20"
+  }
+ ],
+ "scholarly": [
+  {
+   "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+   "author": "Ibn Kathir",
+   "locator": "on 11:78",
+   "summary": "On “Here are my daughters”: records Mujahid that the women were not Lut’s own daughters but women of his nation, because every prophet is like a father to his people, with a similar saying from Qatadah and others. The abridged text adds that Lut was directing them toward their wives and cites 26:165-166 and 15:70-72. It records Ibn Abbas and others that “a trying day” meant a hard test, because he knew he had to defend his guests."
+  }
+ ],
+ "differences": []
+}
