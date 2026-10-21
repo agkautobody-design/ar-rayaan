@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../app/core/modules/module_status.dart';
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
@@ -19,6 +20,37 @@ final displayNameProvider = FutureProvider<String>((ref) async {
   return prefs.getString('ar.majlis.name') ?? 'Guest of the Courtyard';
 });
 
+/// What the Courtyard shows while it is gated.
+class MajlisClosed extends StatelessWidget {
+  const MajlisClosed({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      body: ListView(
+        padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
+        children: [
+          const ScreenHeader(title: 'Majlis', close: true),
+          Padding(
+            padding: const EdgeInsets.only(left: 4, bottom: 6),
+            child: Text('THE COURTYARD', style: AppText.eyebrow),
+          ),
+          GlassCard(
+            padding: const EdgeInsets.all(18),
+            child: Text(
+              'The Courtyard is not open yet. It will open only once there '
+              'are moderators, a way to report and block, and a way to delete '
+              'your own posts. Until then, nothing can be posted here.',
+              style: AppText.body.copyWith(fontSize: 14, height: 1.5),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class MajlisScreen extends ConsumerStatefulWidget {
   const MajlisScreen({super.key});
 
@@ -31,6 +63,11 @@ class _MajlisScreenState extends ConsumerState<MajlisScreen> {
   // so the screen never attempts it.
   @override
   Widget build(BuildContext context) {
+    // Gated: an open forum with no moderation, block or delete tools must not
+    // be reachable (not even by a typed link) until the registry says live.
+    final bool open =
+        ref.watch(moduleRegistryProvider).valueOrNull?.isLive('majlis') ?? false;
+    if (!open) return const MajlisClosed();
     final threads = ref.watch(_threadsProvider);
     return Scaffold(
       backgroundColor: Colors.transparent,
@@ -174,6 +211,10 @@ class _ThreadScreenState extends ConsumerState<ThreadScreen> {
 
   @override
   Widget build(BuildContext context) {
+    if (!(ref.watch(moduleRegistryProvider).valueOrNull?.isLive('majlis') ??
+        false)) {
+      return const MajlisClosed();
+    }
     final posts = ref.watch(_postsProvider(widget.threadId));
     return Scaffold(
       backgroundColor: Colors.transparent,
@@ -330,6 +371,10 @@ class _NewThreadScreenState extends ConsumerState<NewThreadScreen> {
 
   @override
   Widget build(BuildContext context) {
+    if (!(ref.watch(moduleRegistryProvider).valueOrNull?.isLive('majlis') ??
+        false)) {
+      return const MajlisClosed();
+    }
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: ListView(
