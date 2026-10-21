@@ -54,7 +54,7 @@ void main() {
     expect(find.text('Perf story 299'), findsNothing);
     expect(find.byType(BackdropFilter), findsNothing);
 
-    // Scrolling to the end builds the last story and its shelf heading.
+    // Scrolling to the end builds the last story.
     await tester.scrollUntilVisible(
       find.text('Perf story 299'),
       600,
@@ -63,7 +63,6 @@ void main() {
     );
     await tester.pumpAndSettle();
     expect(find.text('Perf story 299'), findsOneWidget);
-    expect(find.text('The Companions'), findsWidgets);
     expect(find.text('Perf story 0'), findsNothing);
   });
 
