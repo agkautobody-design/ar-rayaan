@@ -52,7 +52,14 @@ void main() {
           expect((s as String).trim().length, greaterThan(5),
               reason: '${m['id']}: suspiciously short source');
         }
-        expect(m['sourceLabel'] == 'Established' || m['sourceLabel'] == 'Interpretive',
+        const labels = [
+          'Established',
+          'Interpretive',
+          'Reflection',
+          'Seerah report (source not checked)',
+          'Hadith report (reference not checked)',
+        ];
+        expect(labels.contains(m['sourceLabel']),
             isTrue, reason: '${m['id']}: illegal sourceLabel');
         final chapters = m['chapters'] as List<dynamic>;
         expect(chapters, isNotEmpty, reason: '${m['id']}: no chapters');

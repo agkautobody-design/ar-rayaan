@@ -1,18 +1,64 @@
 /// Story model — Stories module (Master Blueprint row 8).
 /// Every story carries its source label and references per the
-/// Content Integrity law: Established (Qur'an / Sahih) or Interpretive.
+/// Content Integrity law.
+
+/// The honesty labels a story (or one chapter of it) may carry.
+const kLabelEstablished = 'Established';
+const kLabelInterpretive = 'Interpretive';
+const kLabelReflection = 'Reflection';
+const kLabelSeerahUnchecked = 'Seerah report (source not checked)';
+const kLabelHadithUnchecked = 'Hadith report (reference not checked)';
+
+/// Every legal value of [Story.sourceLabel] and [StoryChapter.label].
+const kStoryLabels = <String>[
+  kLabelEstablished,
+  kLabelInterpretive,
+  kLabelReflection,
+  kLabelSeerahUnchecked,
+  kLabelHadithUnchecked,
+];
+
+/// One plain sentence saying what a label means, shown beside the label.
+String storyLabelMeaning(String label) {
+  switch (label) {
+    case kLabelEstablished:
+      return 'Rests on the Qur\u2019an or on a hadith whose reference was checked.';
+    case kLabelInterpretive:
+      return 'Told from the sources with interpretation; read it as a reading, not a ruling.';
+    case kLabelReflection:
+      return 'A reflection written for this app. It adds no new fact about the past.';
+    case kLabelSeerahUnchecked:
+      return 'Comes from the biographies of the Prophet. The book it comes from was not opened to check it. Treat the details as reports, not as established facts.';
+    case kLabelHadithUnchecked:
+      return 'Comes from a hadith report whose collection and number were not checked. Treat the details as reports, not as established facts.';
+    default:
+      return '';
+  }
+}
+
 class StoryChapter {
   final String heading;
   final String body;
   final String? arabic;
   final String? dua;
-  const StoryChapter({required this.heading, required this.body, this.arabic, this.dua});
+
+  /// Optional honesty label for this chapter alone, used where the chapter
+  /// is weaker than the story as a whole (one of [kStoryLabels]).
+  final String? label;
+  const StoryChapter({
+    required this.heading,
+    required this.body,
+    this.arabic,
+    this.dua,
+    this.label,
+  });
 
   factory StoryChapter.fromJson(Map<String, dynamic> j) => StoryChapter(
         heading: j['heading'] as String,
         body: j['body'] as String,
         arabic: j['arabic'] as String?,
         dua: j['dua'] as String?,
+        label: j['label'] as String?,
       );
 }
 
@@ -22,7 +68,7 @@ class Story {
   final String title;
   final String kicker;
   final String subtitle;
-  final String sourceLabel; // Established | Interpretive
+  final String sourceLabel; // one of kStoryLabels
   final List<String> sources;
   final List<StoryChapter> chapters;
   final String familyQuestion;
