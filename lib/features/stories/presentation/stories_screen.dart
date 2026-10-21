@@ -232,6 +232,19 @@ class _StoryCard extends StatelessWidget {
                   ),
                 ),
               ),
+            if (story.hasUnverified && !isUnverifiedLabel(story.sourceLabel))
+              const Padding(
+                padding: EdgeInsets.only(right: 8),
+                child: Tooltip(
+                  message: 'Contains unverified chapters',
+                  child: Icon(
+                    Icons.report_gmailerrorred_outlined,
+                    size: 18,
+                    color: Colors.orangeAccent,
+                    semanticLabel: 'Contains unverified chapters',
+                  ),
+                ),
+              ),
             SourceLabelChip(label: story.sourceLabel),
           ],
         ),

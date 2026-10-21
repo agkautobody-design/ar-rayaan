@@ -19,6 +19,7 @@ List<Story> _load(String pack) {
 }
 
 void main() {
+  unverifiedLabelTests();
   test('every chapter label is legal and the story label is the weakest honest one', () {
     for (final String pack in _packs) {
       for (final Story s in _load(pack)) {
@@ -91,5 +92,19 @@ void main() {
         File('assets/stories/layers/dhul-qarnayn.json').readAsStringSync();
     expect(layers, contains('Not yet scholar-reviewed'));
     expect(File('assets/stories/earlier/dhul-qarnayn.json').existsSync(), isTrue);
+  });
+}
+
+void unverifiedLabelTests() {
+  group('unverified wording', () {
+    test('unchecked labels are shown as Unverified', () {
+      expect(isUnverifiedLabel(kLabelSeerahUnchecked), isTrue);
+      expect(isUnverifiedLabel(kLabelHadithUnchecked), isTrue);
+      expect(isUnverifiedLabel(kLabelSeerah), isFalse);
+      expect(storyLabelDisplay(kLabelSeerahUnchecked), startsWith('Unverified'));
+      expect(storyLabelDisplay(kLabelHadithUnchecked), startsWith('Unverified'));
+      expect(storyLabelMeaning(kLabelSeerahUnchecked), startsWith('UNVERIFIED'));
+      expect(storyLabelMeaning(kLabelHadithUnchecked), startsWith('UNVERIFIED'));
+    });
   });
 }

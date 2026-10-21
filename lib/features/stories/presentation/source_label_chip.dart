@@ -14,6 +14,7 @@ class SourceLabelChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final established = label == kLabelEstablished;
+    final unverified = isUnverifiedLabel(label);
     return ConstrainedBox(
       constraints: const BoxConstraints(maxWidth: 150),
       child: Container(
@@ -21,19 +22,27 @@ class SourceLabelChip extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(14),
           border: Border.all(
-            color: (established ? AppColors.gold : AppColors.sand)
-                .withValues(alpha: 0.4),
+            color: (established
+                    ? AppColors.gold
+                    : unverified
+                        ? Colors.orangeAccent
+                        : AppColors.sand)
+                .withValues(alpha: unverified ? 0.8 : 0.4),
           ),
         ),
         child: Text(
-          label,
+          storyLabelDisplay(label),
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 12,
             letterSpacing: 0.4,
-            color: established ? AppColors.goldLight : AppColors.sand,
+            color: established
+                ? AppColors.goldLight
+                : unverified
+                    ? Colors.orangeAccent
+                    : AppColors.sand,
           ),
         ),
       ),
