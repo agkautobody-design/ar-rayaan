@@ -5,6 +5,7 @@ import 'package:ar_rayaan/features/academy/application/academy_providers.dart';
 import 'package:ar_rayaan/features/academy/application/academy_strings.dart';
 import 'package:ar_rayaan/features/academy/application/recall_checks.dart';
 import 'package:ar_rayaan/features/academy/presentation/academy_home_screen.dart';
+import 'package:ar_rayaan/features/academy/presentation/course_overview_screen.dart';
 import 'package:ar_rayaan/features/academy/presentation/lesson_player_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -172,7 +173,11 @@ void main() {
   group('widgets', () {
     testWidgets('AcademyHomeScreen renders header, hero and the verse banner',
         (tester) async {
-      SharedPreferences.setMockInitialValues(<String, Object>{});
+      // The front door only shows on a true first run; this test is about
+      // the home page itself, so the learner has already chosen "returning".
+      SharedPreferences.setMockInitialValues(<String, Object>{
+        'ar.academy.door.v1': 'returning',
+      });
       await tester.pumpWidget(await wrapWithProviders(const AcademyHomeScreen()));
       await tester.pumpAndSettle();
 
@@ -191,6 +196,27 @@ void main() {
       await tester.scrollUntilVisible(find.textContaining('39:9'), 250,
           scrollable: scrollable);
       expect(find.textContaining('39:9'), findsOneWidget);
+    });
+
+    testWidgets('a true first run shows the front door with three ways in',
+        (tester) async {
+      SharedPreferences.setMockInitialValues(<String, Object>{});
+      await tester.pumpWidget(await wrapWithProviders(const AcademyHomeScreen()));
+      await tester.pumpAndSettle();
+      expect(find.byKey(const Key('door-new')), findsOneWidget);
+      expect(find.byKey(const Key('door-child')), findsOneWidget);
+      expect(find.byKey(const Key('door-returning')), findsOneWidget);
+    });
+
+    testWidgets('a course overview offers its first lesson and its lessons',
+        (tester) async {
+      SharedPreferences.setMockInitialValues(<String, Object>{});
+      await tester.pumpWidget(await wrapWithProviders(
+        const CourseOverviewScreen(courseId: 'the-path'),
+      ));
+      await tester.pumpAndSettle();
+      expect(find.byKey(const Key('course-start')), findsOneWidget);
+      expect(find.byKey(const Key('course-30day')), findsOneWidget);
     });
 
     testWidgets('AcademyHomeScreen shows the Path card and the open schools',

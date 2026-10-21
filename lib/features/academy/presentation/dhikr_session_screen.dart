@@ -4,6 +4,7 @@ library;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../app/core/providers.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
@@ -33,10 +34,65 @@ class _DhikrSessionScreenState
     duration: const Duration(seconds: 4),
   )..repeat(reverse: true);
 
+  /// True when this session was picked up from an earlier visit today.
+  bool _resumed = false;
+
+  @override
+  void initState() {
+    super.initState();
+    try {
+      final DhikrSessionState? saved = DhikrSnapshot.decode(
+        ref.read(sharedPreferencesProvider).getString(DhikrSnapshot.prefKey),
+        DateTime.now(),
+      );
+      if (saved != null) {
+        _set = saved.set;
+        _state = saved;
+        _resumed = true;
+      }
+    } catch (_) {
+      // No device storage (a bare test harness): start from zero.
+    }
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // Reduce motion: the light stays still instead of breathing.
+    if (MediaQuery.disableAnimationsOf(context)) {
+      _breathe.stop();
+      _breathe.value = 0.5;
+    } else if (!_breathe.isAnimating) {
+      _breathe.repeat(reverse: true);
+    }
+  }
+
   @override
   void dispose() {
     _breathe.dispose();
     super.dispose();
+  }
+
+  /// Keep (or clear) the half-finished session on this device.
+  void _persist() {
+    try {
+      final prefs = ref.read(sharedPreferencesProvider);
+      final String? raw = DhikrSnapshot.encode(_state, DateTime.now());
+      if (raw == null) {
+        prefs.remove(DhikrSnapshot.prefKey);
+      } else {
+        prefs.setString(DhikrSnapshot.prefKey, raw);
+      }
+    } catch (_) {}
+  }
+
+  void _startOver(DhikrSet set) {
+    setState(() {
+      _set = set;
+      _state = DhikrSessionEngine.reset(set);
+      _resumed = false;
+    });
+    _persist();
   }
 
   Future<void> _tap() async {
@@ -44,12 +100,15 @@ class _DhikrSessionScreenState
         Sfx.tasbihTap, ref.read(soundSettingsProvider).tier);
     final DhikrSessionState next = DhikrSessionEngine.tap(_state);
     setState(() => _state = next);
+    // Every tap is counted in the day's ledger and the session is kept, so a
+    // session left half way is not lost.
+    _persist();
+    await ref.read(dhikrLedgerProvider.notifier).record(1);
     if (next.phase == DhikrPhase.milestonePause) {
       await SfxPlayer.play(
           Sfx.dhikrMilestone, ref.read(soundSettingsProvider).tier);
     }
     if (next.phase == DhikrPhase.complete) {
-      await ref.read(dhikrLedgerProvider.notifier).record(next.set.target);
       await SfxPlayer.play(
           Sfx.dayComplete, ref.read(soundSettingsProvider).tier);
     }
@@ -72,10 +131,7 @@ class _DhikrSessionScreenState
                       ChoiceChip(
                         label: Text(s.meaning),
                         selected: _set.id == s.id,
-                        onSelected: (_) => setState(() {
-                          _set = s;
-                          _state = DhikrSessionEngine.reset(s);
-                        }),
+                        onSelected: (_) => _startOver(s),
                       ),
                   ],
                 ),
@@ -86,10 +142,19 @@ class _DhikrSessionScreenState
                 animation: _breathe,
                 builder: (context, _) {
                   final double glow = 0.35 + _breathe.value * 0.5;
-                  return GestureDetector(
-                    onTap: _state.phase == DhikrPhase.complete
-                        ? null
-                        : _tap,
+                  final bool finished = _state.phase == DhikrPhase.complete;
+                  return Semantics(
+                    button: true,
+                    enabled: !finished,
+                    label: 'Count one remembrance: ${_set.meaning}',
+                    value: finished
+                        ? 'Complete, ${_set.target} of ${_set.target}'
+                        : '${_state.count} of ${_set.target}',
+                    excludeSemantics: true,
+                    onTap: finished ? null : _tap,
+                    child: GestureDetector(
+                    key: const Key('dhikr-orb'),
+                    onTap: finished ? null : _tap,
                     child: Container(
                       width: 240,
                       height: 240,
@@ -130,10 +195,33 @@ class _DhikrSessionScreenState
                         ],
                       ),
                     ),
+                    ),
                   );
                 },
               ),
               const Spacer(),
+              if (_resumed)
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 0, 20, 8),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Flexible(
+                        child: Text(
+                          'Picked up where you left off today.',
+                          key: const Key('dhikr-resumed'),
+                          style: AppText.bodyMuted.copyWith(fontSize: 14),
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () => _startOver(_set),
+                        style: TextButton.styleFrom(
+                            minimumSize: const Size(48, 48)),
+                        child: const Text('Start over'),
+                      ),
+                    ],
+                  ),
+                ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
                 child: GlassCard(
@@ -162,10 +250,13 @@ class _DhikrSessionScreenState
                         ),
                       ] else if (_state.phase ==
                           DhikrPhase.milestonePause) ...[
-                        Text(
-                          DhikrSessionEngine.milestoneMessage(_state),
-                          style: AppText.bodyMuted,
-                          textAlign: TextAlign.center,
+                        Semantics(
+                          liveRegion: true,
+                          child: Text(
+                            DhikrSessionEngine.milestoneMessage(_state),
+                            style: AppText.bodyMuted.copyWith(fontSize: 14),
+                            textAlign: TextAlign.center,
+                          ),
                         ),
                       ] else ...[
                         Text(

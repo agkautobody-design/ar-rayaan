@@ -8,6 +8,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../app/core/providers.dart';
+import '../domain/academy_entry.dart';
 import '../domain/academy_models.dart';
 import '../domain/course_manifest.dart';
 import '../domain/fsrs.dart';
@@ -262,6 +263,36 @@ class AcademyTrackNotifier extends StateNotifier<String> {
 final academyTrackProvider =
     StateNotifierProvider<AcademyTrackNotifier, String>(
         (ref) => AcademyTrackNotifier(ref));
+
+/// The front door chosen on a first visit ("I'm new / it's for my child /
+/// I'm coming back"). Null until the person chooses; stored on this device
+/// only. Choosing a door also sets the learning track when the door has one.
+class AcademyDoorNotifier extends StateNotifier<AcademyDoor?> {
+  AcademyDoorNotifier(this._ref) : super(null) {
+    try {
+      final SharedPreferences prefs = _ref.read(sharedPreferencesProvider);
+      state = doorFromPref(prefs.getString(kDoorPref));
+    } catch (_) {}
+  }
+
+  final Ref _ref;
+
+  Future<void> choose(AcademyDoor door) async {
+    state = door;
+    final String? track = door.track;
+    if (track != null) {
+      await _ref.read(academyTrackProvider.notifier).set(track);
+    }
+    try {
+      final SharedPreferences prefs = _ref.read(sharedPreferencesProvider);
+      await prefs.setString(kDoorPref, door.prefValue);
+    } catch (_) {}
+  }
+}
+
+final academyDoorProvider =
+    StateNotifierProvider<AcademyDoorNotifier, AcademyDoor?>(
+        (Ref ref) => AcademyDoorNotifier(ref));
 
 final reviewQueueProvider =
     StateNotifierProvider<ReviewQueueNotifier, Map<String, ReviewCard>>(

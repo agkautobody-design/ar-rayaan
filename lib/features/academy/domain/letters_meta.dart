@@ -10,6 +10,10 @@ library;
 /// Lessons in the Letters school: 28 letters (units 1-4) plus units 5-7.
 const int kLettersLessonCount = 40;
 
+/// Letters of the alphabet taught one per lesson (units 1-4): lessons
+/// `letters-01` to `letters-28`.
+const int kLettersAlphabetCount = 28;
+
 /// Units in the Letters school.
 const int kLettersUnitCount = 7;
 

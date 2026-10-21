@@ -6,6 +6,8 @@
 /// is timed, nothing is red (Simplicity Charter).
 library;
 
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -18,10 +20,16 @@ import '../../../app/theme/widgets/screen_header.dart';
 import '../application/academy_providers.dart';
 import '../application/academy_strings.dart';
 import '../application/family_service.dart';
+import '../application/recall_checks.dart';
 import '../application/sfx_provider.dart';
 import '../application/word_deck_provider.dart';
 import '../domain/academy_models.dart';
+import '../domain/assessment_engine.dart' show AssessmentItem;
 import '../domain/course_manifest.dart';
+import '../domain/letter_drills.dart' show LetterCardInfo;
+import '../domain/letters_meta.dart';
+import '../domain/recall_check.dart' show RecallCheckBuilder;
+import '../domain/review_questions.dart';
 import '../domain/sfx.dart';
 import '../domain/spaced_repetition.dart';
 import '../domain/word_deck.dart';
@@ -66,7 +74,8 @@ class _ReviewSessionScreenState
               ),
               const SizedBox(height: 16),
               _LessonReviewCard(
-                key: ValueKey<String>(lessonDue.first.wordKey),
+                key: ValueKey<String>(
+                    '${lessonDue.first.wordKey}@${lessonDue.first.lastReviewed?.millisecondsSinceEpoch ?? 0}'),
                 card: lessonDue.first,
               ),
             ],
@@ -285,40 +294,160 @@ class _EmptyState extends StatelessWidget {
 }
 
 
-/// One lesson due for recall: say what you remember, optionally re-open the
-/// lesson, then grade yourself. Good/Easy marks the lesson mastered on this
-/// device (and for the active child, in the Family Wing, if it is a letters
-/// lesson); Again brings it back tomorrow. Nothing is ever a fail state.
-class _LessonReviewCard extends ConsumerWidget {
+/// The questions a review of [lessonId] asks, or an empty list when the
+/// lesson has no question of its own (the review is then a self-grade, and
+/// says so).
+///
+///  * a manifest lesson asks the check it already ends with, hand-written or
+///    generated;
+///  * one of the 28 letter lessons asks about THAT letter (its name from its
+///    shape, its shape from its name);
+///  * the vowel, sukun, shaddah, tanween and joining lessons ask their own
+///    quiz steps.
+///
+/// [letters] is the loaded Letters curriculum (null while it loads or in a
+/// test that does not need it). [round] varies the order of the choices from
+/// one review to the next.
+List<ReviewQuestion> reviewQuestionsForLesson(
+  String lessonId, {
+  List<Lesson>? letters,
+  int round = 0,
+}) {
+  final Random rng =
+      Random(RecallCheckBuilder.seedOf('$lessonId#order#$round'));
+  final AcademyLesson? manifest = findLessonById(lessonId);
+  if (manifest != null) {
+    final List<ReviewQuestion> out = <ReviewQuestion>[];
+    for (final AcademyStep step in RecallChecks.stepsWithRecall(manifest)) {
+      final String? id = step.assessmentId;
+      if (step.kind != AcademyStepKind.check || id == null) continue;
+      final List<AssessmentItem> items =
+          RecallChecks.itemsFor(id) ?? const <AssessmentItem>[];
+      for (final AssessmentItem item in items) {
+        final ReviewQuestion q =
+            ReviewQuestion.fromAssessment(item, AcademyStrings.get);
+        if (q.isValid) out.add(q.shuffled(rng));
+      }
+    }
+    return out;
+  }
+  final List<Lesson>? all = letters;
+  if (all == null || !lessonId.startsWith('letters-')) {
+    return const <ReviewQuestion>[];
+  }
+  final int? n = int.tryParse(lessonId.substring('letters-'.length));
+  if (n == null) return const <ReviewQuestion>[];
+  if (n >= 1 && n <= kLettersAlphabetCount) {
+    final List<LetterCardInfo> alphabet = <LetterCardInfo>[];
+    int index = -1;
+    for (final Lesson l in all) {
+      final int? ln = int.tryParse(l.id.replaceFirst('letters-', ''));
+      if (ln == null || ln < 1 || ln > kLettersAlphabetCount) continue;
+      LessonStep? card;
+      for (final LessonStep s in l.steps) {
+        if (s.type == 'card') {
+          card = s;
+          break;
+        }
+      }
+      if (card == null) continue;
+      if (l.id == lessonId) index = alphabet.length;
+      alphabet.add(LetterCardInfo(card.arabic ?? '', card.translit ?? ''));
+    }
+    if (index < 0) return const <ReviewQuestion>[];
+    return letterReviewQuestions(
+      lessonId: lessonId,
+      alphabet: alphabet,
+      index: index,
+      round: round,
+    );
+  }
+  for (final Lesson l in all) {
+    if (l.id != lessonId) continue;
+    final List<ReviewQuestion> out = <ReviewQuestion>[];
+    for (final LessonStep s in l.steps) {
+      if (s.type != 'quiz') continue;
+      final ReviewQuestion q = ReviewQuestion(
+        prompt: s.question ?? '',
+        glyph: s.glyph,
+        options: s.options ?? const <String>[],
+        answer: s.answer ?? -1,
+        why: s.why ?? '',
+      );
+      if (q.isValid && q.prompt.isNotEmpty) out.add(q.shuffled(rng));
+    }
+    return out;
+  }
+  return const <ReviewQuestion>[];
+}
+
+/// One lesson due for review. The lesson's own question is asked and the
+/// answers grade it (all right = Good, any miss = Again); only a lesson with
+/// no question of its own is graded by the learner. Good marks the lesson
+/// mastered on this device (and for the active child, in the Family Wing, if
+/// it is a letters lesson); Again brings it back soon. Never a fail state.
+class _LessonReviewCard extends ConsumerStatefulWidget {
   const _LessonReviewCard({super.key, required this.card});
 
   final ReviewCard card;
 
-  String get _lessonId => card.wordKey;
+  @override
+  ConsumerState<_LessonReviewCard> createState() => _LessonReviewCardState();
+}
+
+class _LessonReviewCardState extends ConsumerState<_LessonReviewCard> {
+  int _q = 0;
+  int? _picked;
+  final List<bool> _results = <bool>[];
+  bool _grading = false;
+
+  String get _lessonId => widget.card.wordKey;
   bool get _isLetters => _lessonId.startsWith('letters-');
 
-  Future<void> _grade(WidgetRef ref, ReviewGrade g) async {
+  Future<void> _grade(ReviewGrade g) async {
+    if (_grading) return;
+    _grading = true;
     await ref.read(reviewQueueProvider.notifier).grade(_lessonId, g);
-    if (_isLetters &&
-        (g == ReviewGrade.good || g == ReviewGrade.easy)) {
+    if (_isLetters && (g == ReviewGrade.good || g == ReviewGrade.easy)) {
       final FamilyService fam = ref.read(familyServiceProvider);
       final String? child = await fam.activeChildId();
       if (child != null) await fam.recordMastery(child, _lessonId, 'mastered');
     }
   }
 
+  void _pick(int i, ReviewQuestion q) {
+    if (_picked != null) return;
+    setState(() {
+      _picked = i;
+      _results.add(i == q.answer);
+    });
+  }
+
+  Future<void> _advance(int total) async {
+    if (_q + 1 < total) {
+      setState(() {
+        _q++;
+        _picked = null;
+      });
+      return;
+    }
+    await _grade(gradeForAnswers(_results));
+  }
+
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     String title = _lessonId;
     String? route;
     final AcademyLesson? lesson = findLessonById(_lessonId);
+    final AsyncValue<List<Lesson>> lettersAsync = _isLetters
+        ? ref.watch(lettersLessonsProvider)
+        : const AsyncValue<List<Lesson>>.data(<Lesson>[]);
+    final List<Lesson>? letters = lettersAsync.valueOrNull;
     if (lesson != null) {
       title = AcademyStrings.get(lesson.titleKey);
       route = '/academy/lesson/${lesson.courseId}/${lesson.unitId}/${lesson.id}';
     } else if (_isLetters) {
       route = '/academy/letters/lesson/$_lessonId';
-      final List<Lesson>? letters =
-          ref.watch(lettersLessonsProvider).valueOrNull;
       if (letters != null) {
         for (final Lesson l in letters) {
           if (l.id == _lessonId) title = l.title;
@@ -326,6 +455,14 @@ class _LessonReviewCard extends ConsumerWidget {
       }
     }
     final String? openRoute = route;
+    final bool loading = _isLetters && lettersAsync.isLoading;
+    final List<ReviewQuestion> questions = loading
+        ? const <ReviewQuestion>[]
+        : reviewQuestionsForLesson(
+            _lessonId,
+            letters: letters,
+            round: widget.card.repetitions + widget.card.lapses,
+          );
     return GlassCard(
       strong: true,
       child: Column(
@@ -333,43 +470,157 @@ class _LessonReviewCard extends ConsumerWidget {
         children: <Widget>[
           Text(title, style: AppText.titleMedium),
           const SizedBox(height: 8),
-          Text(
-            'Before you open it: say aloud what this lesson taught. '
-            'Then check yourself and grade how it went.',
-            style: AppText.bodyMuted.copyWith(height: 1.5),
-          ),
-          if (openRoute != null) ...<Widget>[
-            const SizedBox(height: 12),
-            OutlinedButton.icon(
-              onPressed: () => context.push(openRoute),
-              icon: const Icon(Icons.open_in_new, size: 16),
-              label: const Text('Open the lesson'),
-            ),
-          ],
-          const SizedBox(height: 16),
-          Row(
-            children: <Widget>[
-              for (final (ReviewGrade g, String label, IconData ic)
-                  in <(ReviewGrade, String, IconData)>[
-                (ReviewGrade.again, 'Again', Icons.refresh),
-                (ReviewGrade.hard, 'Hard', Icons.trending_flat),
-                (ReviewGrade.good, 'Good', Icons.check),
-                (ReviewGrade.easy, 'Easy', Icons.auto_awesome),
-              ])
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 4),
-                    child: _GradeButton(
-                      label: label,
-                      icon: ic,
-                      onPressed: () => _grade(ref, g),
-                    ),
-                  ),
-                ),
-            ],
-          ),
+          if (loading)
+            const Center(
+                child: CircularProgressIndicator(color: AppColors.gold))
+          else if (questions.isEmpty)
+            _selfGrade(openRoute)
+          else
+            _asking(questions, openRoute),
         ],
       ),
+    );
+  }
+
+  Widget _openButton(String? openRoute) {
+    if (openRoute == null) return const SizedBox.shrink();
+    return Padding(
+      padding: const EdgeInsets.only(top: 12),
+      child: OutlinedButton.icon(
+        onPressed: () => context.push(openRoute),
+        icon: const Icon(Icons.open_in_new, size: 16),
+        label: const Text('Open the lesson'),
+      ),
+    );
+  }
+
+  /// A lesson with no question of its own: say so, then the four buttons.
+  Widget _selfGrade(String? openRoute) {
+    return Column(
+      key: const Key('review-self-grade'),
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          'This lesson has no question of its own, so you grade it yourself. '
+          'Say aloud what it taught, then choose how it went.',
+          style: AppText.bodyMuted.copyWith(fontSize: 14, height: 1.5),
+        ),
+        _openButton(openRoute),
+        const SizedBox(height: 16),
+        Row(
+          children: <Widget>[
+            for (final (ReviewGrade g, String label, IconData ic)
+                in <(ReviewGrade, String, IconData)>[
+              (ReviewGrade.again, 'Again', Icons.refresh),
+              (ReviewGrade.hard, 'Hard', Icons.trending_flat),
+              (ReviewGrade.good, 'Good', Icons.check),
+              (ReviewGrade.easy, 'Easy', Icons.auto_awesome),
+            ])
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 4),
+                  child: _GradeButton(
+                    label: label,
+                    icon: ic,
+                    onPressed: () => _grade(g),
+                  ),
+                ),
+              ),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Widget _asking(List<ReviewQuestion> questions, String? openRoute) {
+    final int at = _q.clamp(0, questions.length - 1);
+    final ReviewQuestion q = questions[at];
+    final int? picked = _picked;
+    final bool last = at + 1 >= questions.length;
+    return Column(
+      key: const Key('review-question'),
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text('Question ${at + 1} of ${questions.length}',
+            style: AppText.caption),
+        const SizedBox(height: 8),
+        Text(q.prompt,
+            style: AppText.body.copyWith(
+                fontSize: 16, height: 1.5, fontWeight: FontWeight.w600)),
+        if ((q.glyph ?? '').isNotEmpty) ...<Widget>[
+          const SizedBox(height: 8),
+          Center(
+            child: Text(q.glyph!,
+                textDirection: TextDirection.rtl,
+                style: const TextStyle(
+                    fontFamily: 'Amiri',
+                    fontSize: 64,
+                    color: Color(0xFFEAD9A8))),
+          ),
+        ],
+        const SizedBox(height: 12),
+        for (int o = 0; o < q.options.length; o++)
+          Padding(
+            padding: const EdgeInsets.only(bottom: 8),
+            child: Semantics(
+              button: true,
+              selected: picked == o,
+              label: q.options[o],
+              excludeSemantics: true,
+              onTap: picked == null ? () => _pick(o, q) : null,
+              child: SizedBox(
+                width: double.infinity,
+                child: OutlinedButton(
+                  key: Key('review-option-$o'),
+                  onPressed: picked == null ? () => _pick(o, q) : null,
+                  style: OutlinedButton.styleFrom(
+                    minimumSize: const Size(0, 52),
+                    side: BorderSide(
+                      color: picked == null
+                          ? AppColors.gold.withValues(alpha: 0.4)
+                          : (o == q.answer
+                              ? AppColors.gold
+                              : AppColors.gold.withValues(alpha: 0.15)),
+                      width: picked != null && o == q.answer ? 2 : 1,
+                    ),
+                  ),
+                  child: Text(
+                    q.options[o],
+                    textAlign: TextAlign.center,
+                    style: quizOptionStyle(q.options[o]),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        if (picked != null) ...<Widget>[
+          const SizedBox(height: 4),
+          Text(
+            picked == q.answer
+                ? 'Correct, ma sha Allah! ${q.why}'
+                : 'Not quite. ${q.why}',
+            key: const Key('review-feedback'),
+            style: AppText.bodyMuted.copyWith(fontSize: 14, height: 1.5),
+          ),
+          const SizedBox(height: 12),
+          Align(
+            alignment: Alignment.centerRight,
+            child: FilledButton(
+              key: const Key('review-next'),
+              style: FilledButton.styleFrom(minimumSize: const Size(0, 48)),
+              onPressed: () => _advance(questions.length),
+              child: Text(last ? 'Finish' : 'Next question'),
+            ),
+          ),
+        ],
+        _openButton(openRoute),
+        const SizedBox(height: 10),
+        Text(
+          'Graded by your answers: every answer right marks the lesson as '
+          'recalled; a miss brings it back soon.',
+          style: AppText.caption,
+        ),
+      ],
     );
   }
 }

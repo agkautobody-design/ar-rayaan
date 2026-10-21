@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../app/core/providers.dart';
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
@@ -11,9 +12,11 @@ import '../../../app/theme/widgets/scenic_background.dart';
 import '../application/academy_providers.dart';
 import '../application/word_deck_provider.dart';
 import '../application/academy_strings.dart';
+import '../domain/academy_entry.dart';
 import '../domain/academy_models.dart';
 import '../domain/continue_hero.dart';
 import '../domain/daily_verse.dart';
+import 'wasia_lessons.dart' show Lesson, lettersLessonsProvider;
 import 'widgets/course_browser.dart';
 import 'widgets/path_ux_widgets.dart';
 
@@ -52,8 +55,250 @@ class _AcademyHomeScreenState
         ? const ContinueHero(started: false, progress: 0)
         : _hero(ref, cont);
     final int done = ref.watch(lessonsDoneProvider);
-    final String s = AcademyStrings.get('academy.title');
+    final String track = ref.watch(academyTrackProvider);
+    final TrackLayout layout = TrackLayout.of(track);
+    final AcademyDoor? door = ref.watch(academyDoorProvider);
+    // First visit only: nobody has chosen a door and nothing is finished.
+    final bool showDoor = door == null && done == 0;
+    final String s = AcademyStrings.get(
+        layout.simpleCopy ? 'child.title' : 'academy.title');
     final DailyVerse verse = dailyVerseFor(DateTime.now());
+
+    final List<Widget> browse = <Widget>[
+              // The schools -----------------------------------------------------
+              Text(AcademyStrings.get('academy.schoolsEyebrow'), style: AppText.eyebrow),
+              const SizedBox(height: 10),
+              _SchoolRow(
+                icon: Icons.route_outlined,
+                arabic: '\u0627\u0644\u0637\u0651\u064e\u0631\u0650\u064a\u0642',
+                title: AcademyStrings.get('path.title'),
+                subtitle: AcademyStrings.get('path.subtitle'),
+                route: courseRoute('the-path'),
+                kind: _RowKind.lessons,
+              ),
+              _SchoolRow(
+                icon: Icons.edit_outlined,
+                arabic: '\u0627\u0644\u062d\u064f\u0631\u064f\u0648\u0641',
+                title: AcademyStrings.get('school.letters.title'),
+                subtitle: AcademyStrings.get('school.letters.subtitle'),
+                route: '/academy/letters',
+                kind: _RowKind.lessons,
+              ),
+              _SchoolRow(
+                icon: Icons.back_hand_outlined,
+                arabic: '\u0627\u0644\u062f\u0651\u064f\u0639\u0627\u0621',
+                title: AcademyStrings.get('school.dua.title'),
+                subtitle: AcademyStrings.get('school.dua.body'),
+                route: '/academy/dua',
+                kind: _RowKind.reading,
+              ),
+              _SchoolRow(
+                icon: Icons.translate,
+                arabic: '\u0627\u0644\u0639\u0631\u0628\u064a\u0629',
+                title: AcademyStrings.get('school.arabiclang.title'),
+                subtitle: AcademyStrings.get('school.arabiclang.body'),
+                route: courseRoute('arabic-language'),
+                kind: _RowKind.lessons,
+              ),
+              _SchoolRow(
+                icon: Icons.auto_stories,
+                arabic: '\u0627\u0644\u062d\u0641\u0638',
+                title: AcademyStrings.get('school.hifz.title'),
+                subtitle: AcademyStrings.get('school.hifz.body'),
+                route: courseRoute('hifz'),
+                kind: _RowKind.lessons,
+              ),
+              _SchoolRow(
+                icon: Icons.brightness_5,
+                arabic: 'العقيدة',
+                title: AcademyStrings.get('school.aqeedah.title'),
+                subtitle: AcademyStrings.get('school.aqeedah.body'),
+                route: courseRoute('aqeedah'),
+                kind: _RowKind.lessons,
+              ),
+              _SchoolRow(
+                icon: Icons.menu_book,
+                arabic: 'الحديث',
+                title: AcademyStrings.get('school.hadith.title'),
+                subtitle: AcademyStrings.get('school.hadith.body'),
+                route: '/academy/hadith',
+                kind: _RowKind.reading,
+              ),
+              _SchoolRow(
+                icon: Icons.route,
+                arabic: 'السيرة',
+                title: AcademyStrings.get('school.seerah.title'),
+                subtitle: AcademyStrings.get('school.seerah.body'),
+                route: '/academy/seerah',
+                kind: _RowKind.reading,
+              ),
+              _SchoolRow(
+                icon: Icons.account_balance,
+                arabic: 'التاريخ',
+                title: AcademyStrings.get('school.history.title'),
+                subtitle: AcademyStrings.get('school.history.body'),
+                route: '/academy/history',
+                kind: _RowKind.reading,
+              ),
+              _SchoolRow(
+                icon: Icons.auto_stories_outlined,
+                arabic: 'القصص',
+                title: AcademyStrings.get('school.stories.title'),
+                subtitle: AcademyStrings.get('school.stories.body'),
+                route: '/academy/stories',
+                kind: _RowKind.reading,
+              ),
+              _SchoolRow(
+                icon: Icons.favorite_outline,
+                arabic: 'الأخلاق',
+                title: AcademyStrings.get('school.character.title'),
+                subtitle: AcademyStrings.get('school.character.body'),
+                route: courseRoute('character'),
+                kind: _RowKind.lessons,
+              ),
+              _SchoolRow(
+                icon: Icons.home_outlined,
+                arabic: 'الأسرة',
+                title: AcademyStrings.get('school.family.title'),
+                subtitle: AcademyStrings.get('school.family.body'),
+                route: courseRoute('family'),
+                kind: _RowKind.lessons,
+              ),
+              _SchoolRow(
+                icon: Icons.school_outlined,
+                arabic: 'الشباب',
+                title: AcademyStrings.get('school.youth.title'),
+                subtitle: AcademyStrings.get('school.youth.body'),
+                route: courseRoute('youth'),
+                kind: _RowKind.lessons,
+              ),
+              _SchoolRow(
+                icon: Icons.woman,
+                arabic: 'النساء',
+                title: AcademyStrings.get('school.womens.title'),
+                subtitle: AcademyStrings.get('school.womens.body'),
+                route: courseRoute('womens'),
+                kind: _RowKind.lessons,
+              ),
+              _SchoolRow(
+                icon: Icons.payments_outlined,
+                arabic: 'المعاملات',
+                title: AcademyStrings.get('school.transactions.title'),
+                subtitle: AcademyStrings.get('school.transactions.body'),
+                route: courseRoute('transactions'),
+                kind: _RowKind.lessons,
+              ),
+              _SchoolRow(
+                icon: Icons.wb_twilight,
+                arabic: 'آخر العمر',
+                title: AcademyStrings.get('school.endoflife.title'),
+                subtitle: AcademyStrings.get('school.endoflife.body'),
+                route: courseRoute('endoflife'),
+                kind: _RowKind.lessons,
+              ),
+              _SchoolRow(
+                icon: Icons.record_voice_over,
+                arabic: 'الدعوة',
+                title: AcademyStrings.get('school.dawah.title'),
+                subtitle: AcademyStrings.get('school.dawah.body'),
+                route: courseRoute('dawah'),
+                kind: _RowKind.lessons,
+              ),
+              _SchoolRow(
+                icon: Icons.healing,
+                arabic: 'الصحة',
+                title: AcademyStrings.get('school.health.title'),
+                subtitle: AcademyStrings.get('school.health.body'),
+                route: courseRoute('health'),
+                kind: _RowKind.lessons,
+              ),
+              _SchoolRow(
+                icon: Icons.shield_outlined,
+                arabic: 'حصن المسلم',
+                title: AcademyStrings.get('hisn.title'),
+                subtitle: AcademyStrings.get('hisn.body'),
+                route: '/academy/hisn',
+                kind: _RowKind.reading,
+              ),
+              _SchoolRow(
+                icon: Icons.directions_walk,
+                arabic: 'الحج',
+                title: AcademyStrings.get('hajjpack.title'),
+                subtitle: AcademyStrings.get('hajjpack.body'),
+                route: '/academy/hajj-umrah-pack',
+                kind: _RowKind.reading,
+              ),
+              _SchoolRow(
+                icon: Icons.nightlight_round,
+                arabic: 'رمضان',
+                title: AcademyStrings.get('ramadan.title'),
+                subtitle: AcademyStrings.get('ramadan.body'),
+                route: '/academy/ramadan-mode',
+                kind: _RowKind.tool,
+              ),
+              _SchoolRow(
+                icon: Icons.style,
+                arabic: 'الآيات',
+                title: AcademyStrings.get('versecards.title'),
+                subtitle: AcademyStrings.get('versecards.body'),
+                route: '/share',
+                kind: _RowKind.tool,
+              ),
+              _SchoolRow(
+                icon: Icons.quiz_outlined,
+                arabic: 'الأسئلة',
+                title: AcademyStrings.get('qabank.title'),
+                subtitle: AcademyStrings.get('qabank.body'),
+                route: '/academy/qa',
+                kind: _RowKind.reading,
+              ),
+              _SchoolRow(
+                icon: Icons.graphic_eq,
+                arabic: '\u0627\u0644\u062a\u0651\u064e\u0644\u064e\u0627\u0648\u064e\u0629',
+                title: AcademyStrings.get('school.recitation.title'),
+                subtitle: AcademyStrings.get('school.recitation.subtitle'),
+                route: '/academy/recitation',
+                kind: _RowKind.reading,
+              ),
+              _SchoolRow(
+                icon: Icons.lightbulb_outline,
+                arabic: '\u0627\u0644\u0641\u0650\u0642\u0647 \u0648\u064e\u0627\u0644\u0645\u064e\u0639\u0652\u0631\u0650\u0641\u064e\u0629',
+                title: AcademyStrings.get('school.understanding.title'),
+                subtitle: AcademyStrings.get('school.understanding.subtitle'),
+                route: courseRoute('understanding'),
+                kind: _RowKind.lessons,
+              ),
+              const SizedBox(height: 18),
+
+              // Every manifest lesson, by course ------------------------------
+              Text('COURSES \u00b7 LESSON BY LESSON', style: AppText.eyebrow),
+              const SizedBox(height: 10),
+              const CourseBrowser(),
+              const SizedBox(height: 18),
+
+              // The school's library --------------------------------------------
+              Text('THE SCHOOL\u2019S LIBRARY', style: AppText.eyebrow),
+              const SizedBox(height: 10),
+              _LibraryRow(icon: Icons.auto_stories_outlined, title: 'Stories of the Prophets, the Women, the Seerah', route: AppRoutes.stories),
+              _LibraryRow(icon: Icons.bookmark_border, title: 'Daily Duas \u00b7 with Arabic (Stories shelf)', route: AppRoutes.stories),
+              _LibraryRow(icon: Icons.wb_twilight, title: 'Hadiths for Our Times (Stories shelf)', route: AppRoutes.stories),
+              _LibraryRow(icon: Icons.mic_none, title: 'Khutbahs for the classics and today (Stories shelf)', route: AppRoutes.stories),
+              _LibraryRow(icon: Icons.nightlight_round, title: 'Al-Ghayb \u00b7 the Unseen (Stories shelf)', route: AppRoutes.stories),
+              _LibraryRow(icon: Icons.menu_book_outlined, title: 'Huda \u00b7 worship guides', route: AppRoutes.huda),
+              _LibraryRow(icon: Icons.account_tree_outlined, title: 'The Messengers\u2019 Tree \u00b7 lineage', route: AppRoutes.familyTree),
+              _LibraryRow(icon: Icons.spa_outlined, title: 'The 99 Names \u00b7 memory deck', route: AppRoutes.names99),
+              _LibraryRow(icon: Icons.favorite_border, title: 'For Your Heart \u00b7 guided by feeling', route: AppRoutes.feelings),
+              _LibraryRow(icon: Icons.family_restroom_outlined, title: 'The Family Wing \u00b7 parents & progress', route: '/academy/family'),
+              Text('THE PRACTICE ROOMS', style: AppText.eyebrow),
+              const SizedBox(height: 10),
+              _LibraryRow(icon: Icons.bookmark_border, title: 'The Hifz Planner \u00b7 memorization', route: '/academy/hifz'),
+              _LibraryRow(icon: Icons.back_hand_outlined, title: 'The Dua School', route: '/academy/dua'),
+              _LibraryRow(icon: Icons.graphic_eq, title: 'Recitation Audio Packs', route: '/academy/audio-packs'),
+              _LibraryRow(icon: Icons.self_improvement, title: 'The Dhikr School', route: '/academy/dhikr'),
+              _LibraryRow(icon: Icons.replay_outlined, title: 'Review Session \u00b7 spaced repetition', route: '/academy/review'),
+              const SizedBox(height: 8),
+              const SizedBox(height: 16),
+    ];
 
     return Scaffold(
       body: ScenicScaffold.pattern(
@@ -65,15 +310,27 @@ class _AcademyHomeScreenState
                 padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
             children: <Widget>[
               ScreenHeader(title: s),
+              const _TrackSwitcher(),
               const SizedBox(height: 8),
+              if (layout.familyCard && !showDoor) ...<Widget>[
+                const _FamilyCard(),
+                const SizedBox(height: 12),
+              ],
 
               // Continue hero -------------------------------------------------
-              if (cont != null)
+              if (showDoor)
+                const _FrontDoorCard()
+              else if (layout.lettersFirst)
+                const _LettersHero()
+              else if (cont != null)
                 GlassCard(
                   strong: true,
                   onTap: () => context.go(
                     '/academy/lesson/${cont.courseId}/${cont.unitId}/${cont.id}',
                   ),
+                  semanticsLabel:
+                      '${AcademyStrings.get(hero.started ? 'academy.continue' : 'academy.startHere')}: '
+                      '${AcademyStrings.get(cont.titleKey)}',
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
@@ -182,233 +439,10 @@ class _AcademyHomeScreenState
               ),
               const SizedBox(height: 18),
 
-              // The schools -----------------------------------------------------
-              Text(AcademyStrings.get('academy.schoolsEyebrow'), style: AppText.eyebrow),
-              const SizedBox(height: 10),
-              _SchoolRow(
-                icon: Icons.edit_outlined,
-                arabic: '\u0627\u0644\u062d\u064f\u0631\u064f\u0648\u0641',
-                title: AcademyStrings.get('school.letters.title'),
-                subtitle: AcademyStrings.get('school.letters.subtitle'),
-                route: '/academy/letters',
-                kind: _RowKind.lessons,
-              ),
-              _SchoolRow(
-                icon: Icons.back_hand_outlined,
-                arabic: '\u0627\u0644\u062f\u0651\u064f\u0639\u0627\u0621',
-                title: AcademyStrings.get('school.dua.title'),
-                subtitle: AcademyStrings.get('school.dua.body'),
-                route: '/academy/dua',
-                kind: _RowKind.reading,
-              ),
-              _SchoolRow(
-                icon: Icons.translate,
-                arabic: '\u0627\u0644\u0639\u0631\u0628\u064a\u0629',
-                title: AcademyStrings.get('school.arabiclang.title'),
-                subtitle: AcademyStrings.get('school.arabiclang.body'),
-                route: '/academy/arabic-language',
-                kind: _RowKind.reading,
-              ),
-              _SchoolRow(
-                icon: Icons.auto_stories,
-                arabic: '\u0627\u0644\u062d\u0641\u0638',
-                title: AcademyStrings.get('school.hifz.title'),
-                subtitle: AcademyStrings.get('school.hifz.body'),
-                route: '/academy/hifz',
-                kind: _RowKind.tool,
-              ),
-              _SchoolRow(
-                icon: Icons.brightness_5,
-                arabic: 'العقيدة',
-                title: AcademyStrings.get('school.aqeedah.title'),
-                subtitle: AcademyStrings.get('school.aqeedah.body'),
-                route: '/academy/aqeedah',
-                kind: _RowKind.reading,
-              ),
-              _SchoolRow(
-                icon: Icons.menu_book,
-                arabic: 'الحديث',
-                title: AcademyStrings.get('school.hadith.title'),
-                subtitle: AcademyStrings.get('school.hadith.body'),
-                route: '/academy/hadith',
-                kind: _RowKind.reading,
-              ),
-              _SchoolRow(
-                icon: Icons.route,
-                arabic: 'السيرة',
-                title: AcademyStrings.get('school.seerah.title'),
-                subtitle: AcademyStrings.get('school.seerah.body'),
-                route: '/academy/seerah',
-                kind: _RowKind.reading,
-              ),
-              _SchoolRow(
-                icon: Icons.account_balance,
-                arabic: 'التاريخ',
-                title: AcademyStrings.get('school.history.title'),
-                subtitle: AcademyStrings.get('school.history.body'),
-                route: '/academy/history',
-                kind: _RowKind.reading,
-              ),
-              _SchoolRow(
-                icon: Icons.auto_stories_outlined,
-                arabic: 'القصص',
-                title: AcademyStrings.get('school.stories.title'),
-                subtitle: AcademyStrings.get('school.stories.body'),
-                route: '/academy/stories',
-                kind: _RowKind.reading,
-              ),
-              _SchoolRow(
-                icon: Icons.favorite_outline,
-                arabic: 'الأخلاق',
-                title: AcademyStrings.get('school.character.title'),
-                subtitle: AcademyStrings.get('school.character.body'),
-                route: '/academy/character',
-                kind: _RowKind.reading,
-              ),
-              _SchoolRow(
-                icon: Icons.home_outlined,
-                arabic: 'الأسرة',
-                title: AcademyStrings.get('school.family.title'),
-                subtitle: AcademyStrings.get('school.family.body'),
-                route: '/academy/family-life',
-                kind: _RowKind.reading,
-              ),
-              _SchoolRow(
-                icon: Icons.school_outlined,
-                arabic: 'الشباب',
-                title: AcademyStrings.get('school.youth.title'),
-                subtitle: AcademyStrings.get('school.youth.body'),
-                route: '/academy/youth',
-                kind: _RowKind.reading,
-              ),
-              _SchoolRow(
-                icon: Icons.woman,
-                arabic: 'النساء',
-                title: AcademyStrings.get('school.womens.title'),
-                subtitle: AcademyStrings.get('school.womens.body'),
-                route: '/academy/womens',
-                kind: _RowKind.reading,
-              ),
-              _SchoolRow(
-                icon: Icons.payments_outlined,
-                arabic: 'المعاملات',
-                title: AcademyStrings.get('school.transactions.title'),
-                subtitle: AcademyStrings.get('school.transactions.body'),
-                route: '/academy/transactions',
-                kind: _RowKind.reading,
-              ),
-              _SchoolRow(
-                icon: Icons.wb_twilight,
-                arabic: 'آخر العمر',
-                title: AcademyStrings.get('school.endoflife.title'),
-                subtitle: AcademyStrings.get('school.endoflife.body'),
-                route: '/academy/end-of-life',
-                kind: _RowKind.reading,
-              ),
-              _SchoolRow(
-                icon: Icons.record_voice_over,
-                arabic: 'الدعوة',
-                title: AcademyStrings.get('school.dawah.title'),
-                subtitle: AcademyStrings.get('school.dawah.body'),
-                route: '/academy/dawah',
-                kind: _RowKind.reading,
-              ),
-              _SchoolRow(
-                icon: Icons.healing,
-                arabic: 'الصحة',
-                title: AcademyStrings.get('school.health.title'),
-                subtitle: AcademyStrings.get('school.health.body'),
-                route: '/academy/health',
-                kind: _RowKind.reading,
-              ),
-              _SchoolRow(
-                icon: Icons.shield_outlined,
-                arabic: 'حصن المسلم',
-                title: AcademyStrings.get('hisn.title'),
-                subtitle: AcademyStrings.get('hisn.body'),
-                route: '/academy/hisn',
-                kind: _RowKind.reading,
-              ),
-              _SchoolRow(
-                icon: Icons.directions_walk,
-                arabic: 'الحج',
-                title: AcademyStrings.get('hajjpack.title'),
-                subtitle: AcademyStrings.get('hajjpack.body'),
-                route: '/academy/hajj-umrah-pack',
-                kind: _RowKind.reading,
-              ),
-              _SchoolRow(
-                icon: Icons.nightlight_round,
-                arabic: 'رمضان',
-                title: AcademyStrings.get('ramadan.title'),
-                subtitle: AcademyStrings.get('ramadan.body'),
-                route: '/academy/ramadan-mode',
-                kind: _RowKind.tool,
-              ),
-              _SchoolRow(
-                icon: Icons.style,
-                arabic: 'الآيات',
-                title: AcademyStrings.get('versecards.title'),
-                subtitle: AcademyStrings.get('versecards.body'),
-                route: '/share',
-                kind: _RowKind.tool,
-              ),
-              _SchoolRow(
-                icon: Icons.quiz_outlined,
-                arabic: 'الأسئلة',
-                title: AcademyStrings.get('qabank.title'),
-                subtitle: AcademyStrings.get('qabank.body'),
-                route: '/academy/qa',
-                kind: _RowKind.reading,
-              ),
-              _SchoolRow(
-                icon: Icons.graphic_eq,
-                arabic: '\u0627\u0644\u062a\u0651\u064e\u0644\u064e\u0627\u0648\u064e\u0629',
-                title: AcademyStrings.get('school.recitation.title'),
-                subtitle: AcademyStrings.get('school.recitation.subtitle'),
-                route: '/academy/recitation',
-                kind: _RowKind.reading,
-              ),
-              _SchoolRow(
-                icon: Icons.lightbulb_outline,
-                arabic: '\u0627\u0644\u0641\u0650\u0642\u0647 \u0648\u064e\u0627\u0644\u0645\u064e\u0639\u0652\u0631\u0650\u0641\u064e\u0629',
-                title: AcademyStrings.get('school.understanding.title'),
-                subtitle: AcademyStrings.get('school.understanding.subtitle'),
-                route: '/academy/understanding',
-                kind: _RowKind.reading,
-              ),
-              const SizedBox(height: 18),
-
-              // Every manifest lesson, by course ------------------------------
-              Text('COURSES \u00b7 LESSON BY LESSON', style: AppText.eyebrow),
-              const SizedBox(height: 10),
-              const CourseBrowser(),
-              const SizedBox(height: 18),
-
-              // The school's library --------------------------------------------
-              Text('THE SCHOOL\u2019S LIBRARY', style: AppText.eyebrow),
-              const SizedBox(height: 10),
-              _LibraryRow(icon: Icons.auto_stories_outlined, title: 'Stories of the Prophets, the Women, the Seerah', route: AppRoutes.stories),
-              _LibraryRow(icon: Icons.bookmark_border, title: 'Daily Duas \u00b7 with Arabic (Stories shelf)', route: AppRoutes.stories),
-              _LibraryRow(icon: Icons.wb_twilight, title: 'Hadiths for Our Times (Stories shelf)', route: AppRoutes.stories),
-              _LibraryRow(icon: Icons.mic_none, title: 'Khutbahs for the classics and today (Stories shelf)', route: AppRoutes.stories),
-              _LibraryRow(icon: Icons.nightlight_round, title: 'Al-Ghayb \u00b7 the Unseen (Stories shelf)', route: AppRoutes.stories),
-              _LibraryRow(icon: Icons.menu_book_outlined, title: 'Huda \u00b7 worship guides', route: AppRoutes.huda),
-              _LibraryRow(icon: Icons.account_tree_outlined, title: 'The Messengers\u2019 Tree \u00b7 lineage', route: AppRoutes.familyTree),
-              _LibraryRow(icon: Icons.spa_outlined, title: 'The 99 Names \u00b7 memory deck', route: AppRoutes.names99),
-              _LibraryRow(icon: Icons.favorite_border, title: 'For Your Heart \u00b7 guided by feeling', route: AppRoutes.feelings),
-              _LibraryRow(icon: Icons.family_restroom_outlined, title: 'The Family Wing \u00b7 parents & progress', route: '/academy/family'),
-              Text('THE PRACTICE ROOMS', style: AppText.eyebrow),
-              const SizedBox(height: 10),
-              _LibraryRow(icon: Icons.bookmark_border, title: 'The Hifz Planner \u00b7 memorization', route: '/academy/hifz'),
-              _LibraryRow(icon: Icons.back_hand_outlined, title: 'The Dua School', route: '/academy/dua'),
-              _LibraryRow(icon: Icons.graphic_eq, title: 'Recitation Audio Packs', route: '/academy/audio-packs'),
-              _LibraryRow(icon: Icons.self_improvement, title: 'The Dhikr School', route: '/academy/dhikr'),
-              _LibraryRow(icon: Icons.replay_outlined, title: 'Review Session \u00b7 spaced repetition', route: '/academy/review'),
-              const SizedBox(height: 8),
-              const SizedBox(height: 16),
-
-              const _TrackSwitcher(),
+              if (layout.foldSchools)
+                _MoreSchools(children: browse)
+              else
+                ...browse,
 
               // Today strip ----------------------------------------------------
               GlassCard(
@@ -416,17 +450,22 @@ class _AcademyHomeScreenState
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
                     _TodayStat(
-                      label: AcademyStrings.get('academy.lessonsDone'),
+                      label: AcademyStrings.get(layout.simpleCopy
+                          ? 'child.today.done'
+                          : 'academy.lessonsDone'),
                       value: '$done',
                     ),
+                    if (!layout.simpleCopy)
+                      _TodayStat(
+                        label: AcademyStrings.get('academy.wordsDue'),
+                        value: ref
+                            .watch(wordsDueProvider)
+                            .toString(),
+                      ),
                     _TodayStat(
-                      label: AcademyStrings.get('academy.wordsDue'),
-                      value: ref
-                          .watch(wordsDueProvider)
-                          .toString(),
-                    ),
-                    _TodayStat(
-                      label: AcademyStrings.get('academy.reviewsDue'),
+                      label: AcademyStrings.get(layout.simpleCopy
+                          ? 'child.today.review'
+                          : 'academy.reviewsDue'),
                       value: ref
                           .watch(lessonReviewsDueProvider)
                           .length
@@ -534,6 +573,7 @@ class _SchoolRow extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 10),
       child: GlassCard(
         onTap: () => context.go(route),
+        semanticsLabel: '$title, ${kind.label.toLowerCase()}. $subtitle',
         child: Row(
           children: <Widget>[
             Container(
@@ -624,8 +664,10 @@ class _LibraryRow extends StatelessWidget {
   }
 }
 
-/// Three doors, one school system. The track changes HOW lessons speak;
-/// the schools stay the same behind each door.
+/// Three tracks, one school system. The track changes what the home page
+/// shows (a child sees the next letter first and the other schools folded
+/// away; a parent sees the Family Wing first); every school stays open on
+/// every track. It is a view on this device, not a child-safety control.
 class _TrackSwitcher extends ConsumerWidget {
   const _TrackSwitcher();
 
@@ -634,33 +676,44 @@ class _TrackSwitcher extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final String current = ref.watch(academyTrackProvider);
+    final bool still = MediaQuery.disableAnimationsOf(context);
     return Padding(
-      padding: const EdgeInsets.fromLTRB(20, 0, 20, 12),
-      child: Row(
+      padding: const EdgeInsets.fromLTRB(20, 0, 20, 4),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(AcademyStrings.get('track.eyebrow'), style: AppText.eyebrow),
-          const SizedBox(width: 10),
-          Expanded(
-            child: Container(
-              padding: const EdgeInsets.all(3),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                border: Border.all(
-                    color: AppColors.gold.withValues(alpha: 0.35)),
-              ),
-              child: Row(
-                children: <Widget>[
-                  for (final String t in _tracks)
-                    Expanded(
-                      child: GestureDetector(
-                        onTap: () => ref
-                            .read(academyTrackProvider.notifier)
-                            .set(t),
+          Container(
+            padding: const EdgeInsets.all(3),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(26),
+              border:
+                  Border.all(color: AppColors.gold.withValues(alpha: 0.35)),
+            ),
+            child: Row(
+              children: <Widget>[
+                for (final String t in _tracks)
+                  Expanded(
+                    child: Semantics(
+                      button: true,
+                      selected: current == t,
+                      label: '${AcademyStrings.get('track.eyebrow')}: '
+                          '${AcademyStrings.get('track.$t')}',
+                      excludeSemantics: true,
+                      onTap: () =>
+                          ref.read(academyTrackProvider.notifier).set(t),
+                      child: InkWell(
+                        key: Key('track-$t'),
+                        borderRadius: BorderRadius.circular(22),
+                        onTap: () =>
+                            ref.read(academyTrackProvider.notifier).set(t),
                         child: AnimatedContainer(
-                          duration: const Duration(milliseconds: 150),
-                          padding: const EdgeInsets.symmetric(vertical: 6),
+                          duration: still
+                              ? Duration.zero
+                              : const Duration(milliseconds: 150),
+                          constraints: const BoxConstraints(minHeight: 48),
+                          alignment: Alignment.center,
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(16),
+                            borderRadius: BorderRadius.circular(22),
                             color: current == t
                                 ? AppColors.gold.withValues(alpha: 0.9)
                                 : Colors.transparent,
@@ -669,7 +722,7 @@ class _TrackSwitcher extends ConsumerWidget {
                             AcademyStrings.get('track.$t'),
                             textAlign: TextAlign.center,
                             style: AppText.bodyMuted.copyWith(
-                              fontSize: 12,
+                              fontSize: 14,
                               color: current == t ? AppColors.night : null,
                               fontWeight: current == t
                                   ? FontWeight.w700
@@ -679,11 +732,218 @@ class _TrackSwitcher extends ConsumerWidget {
                         ),
                       ),
                     ),
-                ],
-              ),
+                  ),
+              ],
             ),
           ),
+          const SizedBox(height: 4),
+          Text(AcademyStrings.get('track.hint'), style: AppText.caption),
         ],
+      ),
+    );
+  }
+}
+
+/// The first-visit card: three plain doors instead of a long page.
+class _FrontDoorCard extends ConsumerWidget {
+  const _FrontDoorCard();
+
+  Future<void> _go(BuildContext context, WidgetRef ref, AcademyDoor d) async {
+    await ref.read(academyDoorProvider.notifier).choose(d);
+    final String? route = d.route;
+    if (route != null && context.mounted) context.go(route);
+  }
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    AcademyDoor? suggested;
+    try {
+      suggested = suggestedDoor(
+          ref.read(sharedPreferencesProvider).getString('ar.need'));
+    } catch (_) {}
+    Widget door(AcademyDoor d, String titleKey, String bodyKey, Key key) {
+      final bool primary = d == suggested;
+      final String title = AcademyStrings.get(titleKey);
+      final String body = AcademyStrings.get(bodyKey);
+      final Widget label = Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(title, style: AppText.label.copyWith(
+              color: primary ? AppColors.night : AppColors.goldLight)),
+          Text(body, style: AppText.caption.copyWith(
+              color: primary ? AppColors.night : null)),
+        ],
+      );
+      final ButtonStyle style = ButtonStyle(
+        minimumSize: const WidgetStatePropertyAll<Size>(Size(0, 56)),
+        alignment: Alignment.centerLeft,
+      );
+      return Padding(
+        padding: const EdgeInsets.only(bottom: 8),
+        child: SizedBox(
+          width: double.infinity,
+          child: primary
+              ? FilledButton(
+                  key: key,
+                  style: style.merge(FilledButton.styleFrom(
+                    backgroundColor: AppColors.gold,
+                    foregroundColor: AppColors.night,
+                  )),
+                  onPressed: () => _go(context, ref, d),
+                  child: label,
+                )
+              : OutlinedButton(
+                  key: key,
+                  style: style,
+                  onPressed: () => _go(context, ref, d),
+                  child: label,
+                ),
+        ),
+      );
+    }
+
+    return GlassCard(
+      strong: true,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Semantics(
+            header: true,
+            child: Text(AcademyStrings.get('door.title'),
+                style: AppText.titleMedium),
+          ),
+          const SizedBox(height: 12),
+          door(AcademyDoor.newToIslam, 'door.new', 'door.newBody',
+              const Key('door-new')),
+          door(AcademyDoor.myChild, 'door.child', 'door.childBody',
+              const Key('door-child')),
+          door(AcademyDoor.returning, 'door.returning', 'door.returningBody',
+              const Key('door-returning')),
+          Text(AcademyStrings.get('door.note'), style: AppText.caption),
+        ],
+      ),
+    );
+  }
+}
+
+/// The child's home starts here: the next unfinished Letters lesson.
+class _LettersHero extends ConsumerWidget {
+  const _LettersHero();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final List<Lesson> list =
+        ref.watch(lettersLessonsProvider).valueOrNull ?? const <Lesson>[];
+    final Map<String, LessonProgress> progress =
+        ref.watch(academyProgressProvider);
+    final String? nextId = firstUnfinishedLetterLesson(
+      <String>[for (final Lesson l in list) l.id],
+      progress,
+    );
+    final bool started =
+        list.any((Lesson l) => progress[l.id]?.completed ?? false);
+    final bool allDone = list.isNotEmpty && nextId == null;
+    String? nextTitle;
+    for (final Lesson l in list) {
+      if (l.id == nextId) nextTitle = l.title;
+    }
+    final String heading = allDone
+        ? AcademyStrings.get('child.lettersDone')
+        : AcademyStrings.get(
+            started ? 'child.lettersContinue' : 'child.lettersStart');
+    return GlassCard(
+      key: const Key('letters-hero'),
+      strong: true,
+      onTap: () => context.go(nextId == null
+          ? '/academy/letters'
+          : '/academy/letters/lesson/$nextId'),
+      semanticsLabel:
+          nextTitle == null ? heading : '$heading. $nextTitle',
+      child: Row(
+        children: <Widget>[
+          const Icon(Icons.edit_outlined, color: AppColors.gold, size: 30),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(AcademyStrings.get('child.lettersTitle'),
+                    style: AppText.caption),
+                const SizedBox(height: 4),
+                Text(heading, style: AppText.titleMedium),
+                if (nextTitle != null) ...<Widget>[
+                  const SizedBox(height: 4),
+                  Text(nextTitle,
+                      style: AppText.bodyMuted.copyWith(fontSize: 14)),
+                ],
+              ],
+            ),
+          ),
+          const Icon(Icons.chevron_right, color: AppColors.gold),
+        ],
+      ),
+    );
+  }
+}
+
+/// A parent's home starts with the Family Wing.
+class _FamilyCard extends StatelessWidget {
+  const _FamilyCard();
+
+  @override
+  Widget build(BuildContext context) {
+    return GlassCard(
+      key: const Key('family-card'),
+      onTap: () => context.go('/academy/family'),
+      semanticsLabel: '${AcademyStrings.get('parent.familyTitle')}. '
+          '${AcademyStrings.get('parent.familyBody')}',
+      child: Row(
+        children: <Widget>[
+          const Icon(Icons.family_restroom_outlined,
+              color: AppColors.gold, size: 28),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(AcademyStrings.get('parent.familyTitle'),
+                    style: AppText.titleMedium),
+                const SizedBox(height: 4),
+                Text(AcademyStrings.get('parent.familyBody'),
+                    style: AppText.bodyMuted.copyWith(fontSize: 14)),
+              ],
+            ),
+          ),
+          const Icon(Icons.chevron_right, color: AppColors.gold),
+        ],
+      ),
+    );
+  }
+}
+
+/// Every other school, folded behind one row on the child track.
+class _MoreSchools extends StatelessWidget {
+  const _MoreSchools({required this.children});
+
+  final List<Widget> children;
+
+  @override
+  Widget build(BuildContext context) {
+    return GlassCard(
+      child: Theme(
+        data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+        child: ExpansionTile(
+          key: const Key('more-schools'),
+          tilePadding: EdgeInsets.zero,
+          childrenPadding: EdgeInsets.zero,
+          iconColor: AppColors.gold,
+          collapsedIconColor: AppColors.gold,
+          title: Text(AcademyStrings.get('child.more'),
+              style: AppText.body.copyWith(fontWeight: FontWeight.w600)),
+          subtitle: Text(AcademyStrings.get('child.moreBody'),
+              style: AppText.caption),
+          children: children,
+        ),
       ),
     );
   }

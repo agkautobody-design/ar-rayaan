@@ -4,8 +4,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../../app/core/subscription/subscription_service.dart';
 import '../../hadi/application/hadi_provider.dart';
 import '../../sakina/domain/crisis_detector.dart';
+import '../../hadi/grounding/ruling_gate.dart';
 import '../../hadi/data/groq_hadi_provider.dart';
 import '../data/offline_wasia_provider.dart';
+import '../domain/lesson_grounding.dart';
 
 enum WasiaPersona { student, parent, teacher }
 
@@ -66,6 +68,24 @@ String personaPrompt(WasiaPersona p, {String? childName}) {
           'struggling student. Be collegial, practical, and cite the '
           'lessons by name.';
   }
+}
+
+/// Most characters of a lesson sent as the ground of an answer.
+const int kWasiaLessonTextCap = 6000;
+
+/// The block that makes the lesson text the only ground of a live answer. It
+/// is the app's own lesson wording: nothing about the learner is in it.
+String lessonGroundingBlock(LessonGrounding lesson) {
+  final String text = lesson.text.length > kWasiaLessonTextCap
+      ? lesson.text.substring(0, kWasiaLessonTextCap)
+      : lesson.text;
+  return 'THE LESSON IN FRONT OF THE STUDENT: ${lesson.title}\n'
+      'Answer ONLY from the lesson text below. If the answer is not in it, '
+      'say you cannot find it in this lesson and point to Hādi or a teacher. '
+      'Add no fact, ruling, hadith, verse reference or Arabic that is not in '
+      'this text. Never give a ruling.\n'
+      'LESSON TEXT (between the two lines of dashes):\n'
+      '-----\n$text\n-----';
 }
 
 const String kWasiaSystemPrompt =
@@ -176,9 +196,23 @@ class WasiaController extends StateNotifier<WasiaState> {
   /// parent's words must not ride along into a child's conversation.
   WasiaPersona? _threadPersona;
 
+  /// The lesson the current thread is about (null = a thread outside any
+  /// lesson). A thread never carries one lesson's questions into another, so
+  /// the lesson text is sent once, with the first message, and a new lesson
+  /// starts a new thread.
+  String? _threadLesson;
+
+  /// Called when a screen about [lessonId] opens (null = a screen outside any
+  /// lesson): a thread that belongs to another lesson is dropped, so the
+  /// learner never sees, or continues, a conversation about a different one.
+  void openLesson(String? lessonId) {
+    if (_threadLesson != lessonId && state.messages.isNotEmpty) clear();
+  }
+
   /// Start a fresh conversation with Wasia.
   void clear() {
     _threadPersona = null;
+    _threadLesson = null;
     state = const WasiaState();
   }
 
@@ -199,13 +233,20 @@ class WasiaController extends StateNotifier<WasiaState> {
     }
   }
 
+  /// Ask Wasia a question. With [lesson] she answers about THAT lesson only:
+  /// offline from the lesson's own sentences, or (when this voice may reach an
+  /// AI service) from the AI with the lesson text as the only ground and every
+  /// reply checked by [WasiaAnswerVerifier]. A question that asks for a ruling
+  /// is never sent anywhere.
   Future<String> ask(String question,
       {WasiaPersona persona = WasiaPersona.student,
-      bool parentVerified = false}) async {
+      bool parentVerified = false,
+      LessonGrounding? lesson}) async {
     final q = question.trim();
     if (q.isEmpty || state.isLoading) return '';
-    if (_threadPersona != persona) {
+    if (_threadPersona != persona || _threadLesson != lesson?.id) {
       _threadPersona = persona;
+      _threadLesson = lesson?.id;
       state = const WasiaState();
     }
     // Safety net first: before the shelf, before any AI, nothing is sent.
@@ -229,7 +270,11 @@ class WasiaController extends StateNotifier<WasiaState> {
     // invents what she does not know.
     // A child's questions stay on the shelf unless a parent has switched the
     // AI service on (and then no name is sent).
-    final bool aiAllowed =
+    // A ruling question inside a lesson is answered with a fixed redirect:
+    // nothing about it goes to an AI service.
+    final bool ruled =
+        lesson != null && RulingGate.classify(q) != RulingClass.none;
+    final bool aiAllowed = !ruled &&
         await aiAllowedFor(persona, parentVerified: parentVerified);
     final k = aiAllowed ? await _key() : null;
     if (k == null) {
@@ -244,8 +289,11 @@ class WasiaController extends StateNotifier<WasiaState> {
       }
       // Wasia's own shelf — the Academy curriculum, not Hadi's. She
       // doesn't navigate: strip any [GO:] token so her thread stays clean.
-      var offline =
-          await const OfflineWasiaProvider().ask(q, state.messages);
+      var offline = lesson != null
+          ? (ruled
+              ? kWasiaNoRulings
+              : LessonAnswerer.answer(q, lesson.text) ?? kWasiaNotInLesson)
+          : await const OfflineWasiaProvider().ask(q, state.messages);
       offline = offline.replaceAll(RegExp(r'\[GO:[^\]]+\]'), '').trim();
       if (quotaNote != null) offline = quotaNote + offline;
       state = state.copy(
@@ -287,8 +335,21 @@ class WasiaController extends StateNotifier<WasiaState> {
         WasiaPersona.parent => 'Parent',
         WasiaPersona.teacher => 'Teacher',
       };
-      final content = first ? '$voice\n\n$who asks: $q' : q;
-      final answer = await p.ask(content, state.messages);
+      final String grounding =
+          lesson == null ? '' : '\n\n${lessonGroundingBlock(lesson)}';
+      final content = first ? '$voice$grounding\n\n$who asks: $q' : q;
+      String answer = await p.ask(content, state.messages);
+      if (lesson != null) {
+        // The reply is checked against the lesson before anyone sees it:
+        // a reference, quotation, Arabic or hadith grade the lesson does not
+        // carry is removed, and so is a verdict on the person's own case.
+        final VerifiedWasiaAnswer v =
+            WasiaAnswerVerifier.verify(answer, lesson.text);
+        final ({String text, bool changed}) f =
+            RulingGate.filterLive(v.text);
+        answer = f.text;
+        if (v.changed || f.changed) answer = '$answer\n\n$kWasiaRemovedNote';
+      }
       var msgs = <HadiMessage>[
         ...state.messages,
         HadiMessage(fromHadi: true, text: answer),

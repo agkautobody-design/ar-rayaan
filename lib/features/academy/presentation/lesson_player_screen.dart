@@ -10,11 +10,15 @@ import '../../../app/theme/widgets/scenic_background.dart';
 import '../application/academy_providers.dart';
 import '../application/academy_strings.dart';
 import '../application/recall_checks.dart';
+import '../application/wasia_controller.dart';
 import '../domain/academy_models.dart';
 import '../domain/assessment_engine.dart';
 import '../domain/course_manifest.dart';
+import '../domain/lesson_grounding.dart';
 import '../domain/lesson_provenance.dart';
 import '../domain/next_lesson.dart';
+import 'widgets/glossary_text.dart';
+import 'widgets/wasia_thread.dart';
 
 /// The teach/check/reflect lesson player. One idea per step, exact-step
 /// resume, inline knowledge checks with dignity-first feedback, and a
@@ -165,6 +169,27 @@ class _LessonPlayerScreenState
     }
   }
 
+  /// The lesson Wasia is grounded to: this lesson's own words, nothing else.
+  LessonGrounding get _grounding => LessonGrounding(
+        id: _lesson.id,
+        title: AcademyStrings.get(_lesson.titleKey),
+        text: RecallChecks.fullTextOf(_lesson),
+      );
+
+  Future<void> _askWasia() async {
+    final LessonGrounding g = _grounding;
+    ref.read(wasiaControllerProvider.notifier).openLesson(g.id);
+    await showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (BuildContext ctx) => Padding(
+        padding: EdgeInsets.only(bottom: MediaQuery.viewInsetsOf(ctx).bottom),
+        child: _LessonWasiaSheet(lesson: g),
+      ),
+    );
+  }
+
   /// Provenance sheet: where the text comes from, its review status and every
   /// Qur'an / hadith reference written in it.
   Future<void> _showSources() async {
@@ -274,6 +299,13 @@ class _LessonPlayerScreenState
                             overflow: TextOverflow.ellipsis,
                           ),
                         ),
+                        IconButton(
+                          key: const Key('ask-wasia'),
+                          tooltip: 'Ask Wasia about this lesson',
+                          icon: const Icon(Icons.forum_outlined,
+                              color: AppColors.gold, size: 22),
+                          onPressed: _askWasia,
+                        ),
                         Text(
                           '${_index + 1}/${_steps.length}',
                           style: AppText.caption,
@@ -284,7 +316,7 @@ class _LessonPlayerScreenState
                     InkWell(
                       onTap: _showSources,
                       child: ConstrainedBox(
-                        constraints: const BoxConstraints(minHeight: 36),
+                        constraints: const BoxConstraints(minHeight: 48),
                         child: Row(
                           children: <Widget>[
                             const Icon(Icons.info_outline,
@@ -430,7 +462,7 @@ class _StepBody extends StatelessWidget {
               if (step.honestyLabel != null) const SizedBox(height: 6),
               Text(AcademyStrings.get(step.titleKey), style: AppText.titleMedium),
               const SizedBox(height: 10),
-              Text(
+              GlossaryText(
                 AcademyStrings.get(step.bodyKey),
                 style: AppText.body.copyWith(height: 1.6),
               ),
@@ -446,9 +478,9 @@ class _StepBody extends StatelessWidget {
             children: <Widget>[
               Text(AcademyStrings.get(step.titleKey), style: AppText.titleMedium),
               const SizedBox(height: 8),
-              Text(
+              GlossaryText(
                 AcademyStrings.get(step.bodyKey),
-                style: AppText.bodyMuted.copyWith(height: 1.5),
+                style: AppText.bodyMuted.copyWith(fontSize: 14, height: 1.5),
               ),
               // Real-world tasks (give in secret, forgive someone) have no
               // screen to open — the step is the task itself.
@@ -473,9 +505,9 @@ class _StepBody extends StatelessWidget {
             children: <Widget>[
               Text(AcademyStrings.get(step.titleKey), style: AppText.titleMedium),
               const SizedBox(height: 8),
-              Text(
+              GlossaryText(
                 AcademyStrings.get(step.bodyKey),
-                style: AppText.bodyMuted.copyWith(height: 1.5),
+                style: AppText.bodyMuted.copyWith(fontSize: 14, height: 1.5),
               ),
               const SizedBox(height: 14),
               if (route != null)
@@ -498,7 +530,7 @@ class _StepBody extends StatelessWidget {
             children: <Widget>[
               Text(AcademyStrings.get('try.title'), style: AppText.eyebrow),
               const SizedBox(height: 8),
-              Text(
+              GlossaryText(
                 tryPromptFor(step),
                 key: const Key('try-prompt'),
                 style: AppText.body.copyWith(height: 1.6),
@@ -509,9 +541,11 @@ class _StepBody extends StatelessWidget {
                   Expanded(
                     child: OutlinedButton(
                       onPressed: onShowAgain,
+                      style: OutlinedButton.styleFrom(
+                          minimumSize: const Size(0, 48)),
                       child: Text(
                         AcademyStrings.get('try.again'),
-                        style: AppText.bodyMuted.copyWith(fontSize: 13),
+                        style: AppText.bodyMuted.copyWith(fontSize: 14),
                       ),
                     ),
                   ),
@@ -522,10 +556,11 @@ class _StepBody extends StatelessWidget {
                       style: FilledButton.styleFrom(
                         backgroundColor: AppColors.gold,
                         foregroundColor: AppColors.night,
+                        minimumSize: const Size(0, 48),
                       ),
                       child: Text(
                         AcademyStrings.get('try.remembered'),
-                        style: const TextStyle(fontSize: 13),
+                        style: const TextStyle(fontSize: 14),
                       ),
                     ),
                   ),
@@ -654,7 +689,8 @@ class _CheckItem extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(_label(item.promptKey), style: AppText.body),
+          Text(_label(item.promptKey),
+              style: AppText.body.copyWith(fontSize: 15, height: 1.5)),
           const SizedBox(height: 8),
           RadioGroup<int>(
             groupValue: selected,
@@ -665,12 +701,12 @@ class _CheckItem extends StatelessWidget {
               children: <Widget>[
                 for (int c = 0; c < item.choices.length; c++)
                   RadioListTile<int>(
-                    dense: true,
+                    key: Key('check-option-$itemIdx-$c'),
                     contentPadding: EdgeInsets.zero,
                     value: c,
                     title: Text(
                       _label(item.choices[c]),
-                      style: AppText.bodyMuted,
+                      style: AppText.body.copyWith(fontSize: 15),
                     ),
                   ),
               ],
@@ -681,10 +717,109 @@ class _CheckItem extends StatelessWidget {
               padding: const EdgeInsets.only(top: 8),
               child: Text(
                 _label(item.reteachKey),
-                style: AppText.caption.copyWith(color: AppColors.gold),
+                style: AppText.caption.copyWith(
+                    fontSize: 14, color: AppColors.gold),
               ),
             ),
         ],
+      ),
+    );
+  }
+}
+
+/// Ask Wasia about THIS lesson. She answers from the lesson's own words (and,
+/// where a parent has allowed the AI service for children, from the AI with
+/// the lesson as the only ground, every reply checked first).
+class _LessonWasiaSheet extends ConsumerStatefulWidget {
+  const _LessonWasiaSheet({required this.lesson});
+
+  final LessonGrounding lesson;
+
+  @override
+  ConsumerState<_LessonWasiaSheet> createState() => _LessonWasiaSheetState();
+}
+
+class _LessonWasiaSheetState extends ConsumerState<_LessonWasiaSheet> {
+  final TextEditingController _input = TextEditingController();
+
+  @override
+  void dispose() {
+    _input.dispose();
+    super.dispose();
+  }
+
+  Future<void> _send() async {
+    final String q = _input.text.trim();
+    if (q.isEmpty) return;
+    await ref
+        .read(wasiaControllerProvider.notifier)
+        .ask(q, lesson: widget.lesson);
+    if (!mounted) return;
+    // Keep the words when Wasia could not answer, so a retry is one tap.
+    if (ref.read(wasiaControllerProvider).notice == null) _input.clear();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final bool busy = ref.watch(wasiaControllerProvider).isLoading;
+    return Padding(
+      padding: const EdgeInsets.all(20),
+      child: GlassCard(
+        strong: true,
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text('ASK WASIA', style: AppText.eyebrow),
+              const SizedBox(height: 4),
+              Text(widget.lesson.title, style: AppText.titleMedium),
+              const SizedBox(height: 6),
+              Text(
+                'Wasia answers from the words of this lesson only. She does '
+                'not give rulings: for those, ask H\u0101di or a scholar.',
+                style: AppText.bodyMuted.copyWith(fontSize: 14, height: 1.45),
+              ),
+              const SizedBox(height: 10),
+              Row(
+                children: <Widget>[
+                  Expanded(
+                    child: TextField(
+                      key: const Key('lesson-wasia-field'),
+                      controller: _input,
+                      style: AppText.body,
+                      textInputAction: TextInputAction.send,
+                      onSubmitted: (_) => _send(),
+                      decoration: const InputDecoration(
+                          hintText: 'Ask about this lesson\u2026'),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  IconButton.filled(
+                    key: const Key('lesson-wasia-send'),
+                    tooltip: 'Ask',
+                    style: IconButton.styleFrom(
+                      backgroundColor: AppColors.gold,
+                      foregroundColor: AppColors.night,
+                      minimumSize: const Size(48, 48),
+                    ),
+                    onPressed: busy ? null : _send,
+                    icon: busy
+                        ? const SizedBox(
+                            width: 16,
+                            height: 16,
+                            child: CircularProgressIndicator(
+                                strokeWidth: 2, color: AppColors.night),
+                          )
+                        : const Icon(Icons.send, size: 18),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 8),
+              const WasiaThread(),
+            ],
+          ),
+        ),
       ),
     );
   }

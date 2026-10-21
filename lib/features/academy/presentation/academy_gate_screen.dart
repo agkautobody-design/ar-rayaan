@@ -3,6 +3,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
@@ -11,22 +12,59 @@ import '../../../app/theme/app_typography.dart';
 /// The gate of Wasia Academy — entered the way Ar-Rayaan itself is entered:
 /// a threshold of light. Bismillah in calligraphy, the knowledge verse,
 /// one tap to step inside.
+///
+/// The pause before the tap works is 3 seconds the first time and well under
+/// a second after that; there is no pause for a screen reader or when the
+/// system asks for reduced motion.
 class AcademyGateScreen extends StatefulWidget {
   const AcademyGateScreen({super.key});
   @override
   State<AcademyGateScreen> createState() => _AcademyGateState();
 }
 
+/// How long the gate waits the first time, and on every later visit.
+const Duration kGateFirstDwell = Duration(seconds: 3);
+const Duration kGateReturningDwell = Duration(milliseconds: 600);
+
+/// Stored once the gate has been entered, so later visits are short.
+const String kGateSeenPref = 'ar.academy.gate.seen';
+
 class _AcademyGateState extends State<AcademyGateScreen> {
   Timer? _dwell;
   bool _minElapsed = false;
+  bool _started = false;
 
   @override
-  void initState() {
-    super.initState();
-    _dwell = Timer(const Duration(seconds: 3), () {
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (_started) return;
+    _started = true;
+    final bool skip = MediaQuery.accessibleNavigationOf(context) ||
+        MediaQuery.disableAnimationsOf(context);
+    if (skip) {
+      _minElapsed = true;
+    } else {
+      _begin();
+    }
+  }
+
+  Future<void> _begin() async {
+    bool seen = false;
+    try {
+      final SharedPreferences p = await SharedPreferences.getInstance();
+      seen = p.getBool(kGateSeenPref) ?? false;
+    } catch (_) {}
+    if (!mounted) return;
+    _dwell = Timer(seen ? kGateReturningDwell : kGateFirstDwell, () {
       if (mounted) setState(() => _minElapsed = true);
     });
+  }
+
+  Future<void> _remember() async {
+    try {
+      final SharedPreferences p = await SharedPreferences.getInstance();
+      await p.setBool(kGateSeenPref, true);
+    } catch (_) {}
   }
 
   @override
@@ -37,6 +75,7 @@ class _AcademyGateState extends State<AcademyGateScreen> {
 
   void _enter(BuildContext context) {
     if (!_minElapsed) return;
+    _remember();
     context.go(AppRoutes.academy);
   }
 
@@ -44,7 +83,17 @@ class _AcademyGateState extends State<AcademyGateScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.transparent,
-      body: GestureDetector(
+      body: Semantics(
+        button: true,
+        enabled: _minElapsed,
+        label: 'Wasia Academy, the school that carries her name. '
+            'Are those who know equal to those who do not know? '
+            'Qur\u2019an 39:9. '
+            '${_minElapsed ? 'Double tap to enter.' : 'Entering the school, one moment.'}',
+        excludeSemantics: true,
+        onTap: _minElapsed ? () => _enter(context) : null,
+        child: GestureDetector(
+        key: const Key('academy-gate'),
         onTap: () => _enter(context),
         child: Stack(
           fit: StackFit.expand,
@@ -156,6 +205,7 @@ class _AcademyGateState extends State<AcademyGateScreen> {
               ),
             ),
           ],
+        ),
         ),
       ),
     );

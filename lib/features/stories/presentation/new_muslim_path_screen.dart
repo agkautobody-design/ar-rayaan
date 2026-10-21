@@ -103,6 +103,37 @@ class _PathState extends ConsumerState<NewMuslimPathScreen> {
                   style: AppText.bodyMuted,
                 ),
               ),
+              GlassCard(
+                key: const Key('nm-academy-path'),
+                blur: false,
+                onTap: () => context.push('/academy/course/the-path'),
+                semanticsLabel: 'Also in the Academy: The Path, the same '
+                    'ground lesson by lesson, with questions and saved '
+                    'progress',
+                child: Row(
+                  children: [
+                    const Icon(Icons.school_outlined,
+                        size: 22, color: AppColors.gold),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('ALSO IN THE ACADEMY', style: AppText.eyebrow),
+                          const SizedBox(height: 2),
+                          Text(
+                            'The Path: lesson by lesson, with questions',
+                            style: AppText.body.copyWith(fontSize: 14),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const Icon(Icons.chevron_right,
+                        size: 18, color: AppColors.gold),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 14),
               if (complete)
                 GlassCard(
                   strong: true,

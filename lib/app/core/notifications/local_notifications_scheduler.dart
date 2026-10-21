@@ -34,6 +34,7 @@ class LocalNotificationsScheduler implements PrayerNotificationScheduler {
 
   static const String _prayerChannel = 'prayer_times';
   static const String _reminderChannel = 'zakat_reminders';
+  static const String _academyChannel = 'academy_reminders';
 
   @override
   bool get supported => Platform.isAndroid || Platform.isIOS;
@@ -119,13 +120,19 @@ class LocalNotificationsScheduler implements PrayerNotificationScheduler {
 
   NotificationDetails _details(String channel) {
     final bool prayer = channel == _prayerChannel;
+    final bool academy = channel == _academyChannel;
     return NotificationDetails(
       android: AndroidNotificationDetails(
         channel,
-        prayer ? 'Prayer times' : 'Zakat reminders',
+        prayer
+            ? 'Prayer times'
+            : (academy ? 'Academy reminders' : 'Zakat reminders'),
         channelDescription: prayer
             ? 'A notification at each prayer time you switched on.'
-            : 'Reminders for your zakat year and Zakat al-Fitr.',
+            : (academy
+                ? 'A quiet daily reminder for the Academy lesson or lessons '
+                    'to revisit, only if a parent switched it on.'
+                : 'Reminders for your zakat year and Zakat al-Fitr.'),
         importance: Importance.high,
         priority: Priority.high,
       ),
@@ -210,6 +217,32 @@ class LocalNotificationsScheduler implements PrayerNotificationScheduler {
           body: r.body,
           scheduledDate: _zoned(r.at),
           notificationDetails: _details(_reminderChannel),
+          androidScheduleMode: mode,
+        );
+      }
+    } catch (_) {
+      // Reminders are best effort.
+    }
+  }
+
+  @override
+  Future<void> replaceAcademyReminders(List<PlannedReminder> reminders) async {
+    if (!await _init()) return;
+    try {
+      await _cancelStale(
+        wanted: <int>{for (final PlannedReminder r in reminders) r.id},
+        inRange: isAcademyReminderId,
+      );
+      final AndroidScheduleMode mode = await _mode();
+      final DateTime now = DateTime.now().toUtc();
+      for (final PlannedReminder r in reminders) {
+        if (!r.at.toUtc().isAfter(now)) continue;
+        await _plugin.zonedSchedule(
+          id: r.id,
+          title: r.title,
+          body: r.body,
+          scheduledDate: _zoned(r.at),
+          notificationDetails: _details(_academyChannel),
           androidScheduleMode: mode,
         );
       }

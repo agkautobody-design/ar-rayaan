@@ -17,6 +17,7 @@ class GlassCard extends StatelessWidget {
     this.onTap,
     this.borderRadius = 20,
     this.blur = true,
+    this.semanticsLabel,
   });
 
   final Widget child;
@@ -32,6 +33,14 @@ class GlassCard extends StatelessWidget {
   /// lists (stories index, ayah rows) should pass `blur: false` and keep the
   /// translucent fill + border, which looks the same on this dark background.
   final bool blur;
+
+  /// What a screen reader says for a tappable card. When null the card reads
+  /// out the text inside it; give a label when that text alone would be
+  /// unclear (an icon-only card, or a row that needs its state spoken).
+  final String? semanticsLabel;
+
+  /// A tappable card is never shorter than this, so it is easy to hit.
+  static const double minTapHeight = 48;
 
   @override
   Widget build(BuildContext context) {
@@ -87,12 +96,25 @@ class GlassCard extends StatelessWidget {
 
     if (onTap == null) return card;
 
+    final Widget tappable = Material(
+      type: MaterialType.transparency,
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: radius,
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(minHeight: minTapHeight),
+          child: card,
+        ),
+      ),
+    );
+    final String? label = semanticsLabel;
+    if (label == null) return Semantics(button: true, child: tappable);
     return Semantics(
       button: true,
-      child: Material(
-        type: MaterialType.transparency,
-        child: InkWell(onTap: onTap, borderRadius: radius, child: card),
-      ),
+      label: label,
+      excludeSemantics: true,
+      onTap: onTap,
+      child: tappable,
     );
   }
 }

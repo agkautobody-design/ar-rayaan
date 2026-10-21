@@ -70,6 +70,14 @@ class RecordingScheduler implements PrayerNotificationScheduler {
   Future<void> replaceReminders(List<PlannedReminder> r) async {
     reminders.add(r);
   }
+
+  final List<List<PlannedReminder>> academyReminders =
+      <List<PlannedReminder>>[];
+
+  @override
+  Future<void> replaceAcademyReminders(List<PlannedReminder> r) async {
+    academyReminders.add(r);
+  }
 }
 
 Future<void> settle() async {

@@ -24,6 +24,9 @@ class SpeakButton extends ConsumerWidget {
   final double minTapTarget;
   final String semanticLabel;
 
+  /// The smallest touch target (Material and WCAG guidance).
+  static const double minTarget = 48;
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     void speak() => ref.read(speechServiceProvider).speak(text);
