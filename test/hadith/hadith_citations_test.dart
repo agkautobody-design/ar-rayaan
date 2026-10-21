@@ -27,7 +27,7 @@ const Set<String> _graded = <String>{
 };
 
 final RegExp _cite = RegExp(
-  r"(?:(bukhari)|(muslim)(?![a-z])|((?:abu|abi)\s+dawu?o?d)|(tirmidhi)|(nasa['’ʿʼ]?i)|(ibn\s+maja?h?)|((?:musnad\s+)?ahmad))"
+  r"(?:(bukhari)|((?<!new\s)muslim)(?![a-z])|((?:abu|abi)\s+dawu?o?d)|(tirmidhi)|(nasa['’ʿʼ]?i)|(ibn\s+maja?h?)|((?:musnad\s+)?ahmad))"
   r"(?:\s*\)?\s*[:#]?\s*(?:no\.?\s*|hadith\s+)?)"
   r"(\d{1,5}(?:\s*(?:,|&|/|and|;)\s*\d{1,5}(?![\d:]))*)"
   r"(?![\d:]|\s*(?:days?|times|years|minutes|rak))",

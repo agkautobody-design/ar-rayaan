@@ -10,7 +10,7 @@
 ///   figures (87.48 g / 612.36 g) are an optional switch. The silver
 ///   standard is the default (lower threshold → more reaches the poor); both
 ///   are shown, the user chooses.
-/// - Worn jewelry: Hanafi — zakatable (Abu Dawud 1563, 1565);
+/// - Worn jewelry: Hanafi — zakatable (Abu Dawud 1563, hasan per al-Albani);
 ///   Maliki/Shafi'i/Hanbali — exempt if genuinely worn (stored jewelry is
 ///   zakatable in ALL schools).
 /// - Stocks held long-term: zakatable base = proportional share of the
@@ -245,7 +245,7 @@ abstract final class ZakatEngine {
           i.wornJewelryGoldGrams * karatPurity(i.wornJewelryKarat);
       if (i.madhab == Madhab.hanafi) {
         add('Worn gold jewelry (Hanafi)', pure * i.goldPricePerGram,
-            '${pure.toStringAsFixed(1)} g pure · Abu Dawud 1563');
+            '${pure.toStringAsFixed(1)} g pure · Abu Dawud 1563, hasan per al-Albani');
       } else {
         notes.add(
             'Worn jewelry: exempt in the Maliki, Shafi\'i and Hanbali schools '

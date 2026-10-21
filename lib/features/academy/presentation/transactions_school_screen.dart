@@ -37,7 +37,7 @@ const List<_TrxUnit> kTransactionUnits = <_TrxUnit>[
       ),
       _TrxLesson(
         title: 'The Birds Leave Hungry',
-        body: 'The Prophet \ufdfa said: if you relied upon Allah as He should be relied upon, He would provide you as He provides the birds — they leave hungry in the morning and return full (Tirmidhi 2344). Rizq is not chased; it is met.',
+        body: 'The Prophet \ufdfa said: if you relied upon Allah as He should be relied upon, He would provide you as He provides the birds — they leave hungry in the morning and return full (Tirmidhi 2344, hasan per Darussalam). Rizq is not chased; it is met.',
         practice: 'Name one thing you chase in fear. This week, chase it with tawakkul instead — plan, then release.',
       ),
       _TrxLesson(
@@ -47,7 +47,7 @@ const List<_TrxUnit> kTransactionUnits = <_TrxUnit>[
       ),
       _TrxLesson(
         title: 'Honest Work Over Easy Wealth',
-        body: 'The Prophet \ufdfa said: Allah loves a servant who is pious, independent, and hidden (Muslim 1055). And the honest laborer is better than the one who begs persistently — the hand that works is raised in dua, the hand that only receives is lowered.',
+        body: 'The Prophet \ufdfa said: Allah loves a servant who is pious, independent, and hidden (Muslim 2965). And the honest laborer is better than the one who begs persistently — the hand that works is raised in dua, the hand that only receives is lowered.',
         practice: 'Do one hour of honest work this week that no one will see or praise — write, build, fix, deliver.',
       ),
     ],

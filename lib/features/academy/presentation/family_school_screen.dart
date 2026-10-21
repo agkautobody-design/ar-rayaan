@@ -38,7 +38,7 @@ const List<_FamUnit> kFamilyUnits = <_FamUnit>[
       ),
       _FamLesson(
         title: 'The Best of You',
-        body: 'The best of you is the one who is best to his wife (Tirmidhi 3895). And the most complete believer in faith is the one with the best character (Tirmidhi 1162). The measure of a Muslim is not the masjid face; it is the kitchen face.',
+        body: 'The best of you is the one who is best to his wife (Tirmidhi 3895, sahih per Darussalam). And the most complete believer in faith is the one with the best character (Tirmidhi 1162, hasan per Darussalam). The measure of a Muslim is not the masjid face; it is the kitchen face.',
         practice: 'Be gentler at home today than you were at any meeting. Let the family see the best version first.',
       ),
       _FamLesson(
@@ -59,7 +59,7 @@ const List<_FamUnit> kFamilyUnits = <_FamUnit>[
       ),
       _FamLesson(
         title: 'Teaching the Prayer',
-        body: 'Command your children to pray at seven and discipline them about it at ten, and separate their beds (Abu Dawud 495). Before seven the prayer is invited, not enforced — love first, law second, so the law lands softer.',
+        body: 'Command your children to pray at seven and discipline them about it at ten, and separate their beds (Abu Dawud 495, hasan sahih per al-Albani). Before seven the prayer is invited, not enforced — love first, law second, so the law lands softer.',
         practice: 'If you have children: pray one prayer this week beside them, unhurried. If you are the child: pray one prayer your parents can see.',
       ),
       _FamLesson(
@@ -69,7 +69,7 @@ const List<_FamUnit> kFamilyUnits = <_FamUnit>[
       ),
       _FamLesson(
         title: 'The Best Provision',
-        body: 'The best thing a father can give his child is good manners (Tirmidhi 1952). And the most precious inheritance is taqwa — it is the only wealth that cannot be lost, taxed, or inherited away.',
+        body: 'The best thing a father can give his child is good manners (Tirmidhi 1952, weak per Darussalam). And the most precious inheritance is taqwa — it is the only wealth that cannot be lost, taxed, or inherited away.',
         practice: 'Teach one adab today — how to eat, how to greet, how to knock — by doing it beside them.',
       ),
     ],
@@ -85,12 +85,12 @@ const List<_FamUnit> kFamilyUnits = <_FamUnit>[
       ),
       _FamLesson(
         title: 'The Family That Prays',
-        body: 'The Prophet \ufdfa said: the example of a home where dhikr is made is that of a living tree; and the home where it is not is like a dead tree (Tirmidhi 3377). Dhikr at the door, before meals, at sleep — small phrases that keep the tree alive.',
+        body: 'The Prophet \ufdfa said: the one who remembers his Lord and the one who does not are like the living and the dead (Bukhari 6407). Dhikr at the door, before meals, at sleep — small phrases that keep the heart alive.',
         practice: 'Start one dhikr habit at home this week — after Fajr together, or before sleep as a family.',
       ),
       _FamLesson(
         title: 'Forgiveness in the House',
-        body: 'The Prophet \ufdfa said: Allah loves the one who is forgiving in buying, forgiving in selling, and forgiving in his claim (Muslim 1726). The house needs this most: forgive the harsh word before the day ends.',
+        body: 'The Prophet \ufdfa said: Allah has mercy on the man who is lenient when he sells, when he buys, and when he asks for what is owed (Bukhari 2076). The house needs this most: forgive the harsh word before the day ends.',
         practice: 'Tonight, say \'I forgive you\' or its equivalent to one family member — first to say it is the stronger.',
       ),
     ],

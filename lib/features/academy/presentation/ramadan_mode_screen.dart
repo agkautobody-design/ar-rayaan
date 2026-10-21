@@ -42,7 +42,7 @@ const List<_RamadanSection> kRamadanRhythm = <_RamadanSection>[
   ),
   _RamadanSection(
     title: 'Iftar — The Breaking',
-    body: 'The Prophet ﷺ broke his fast with dates and water, and said: the fasting person has a dua at the time of breaking that is not rejected (Ibn Majah 1753). Break it with dates if you can; make the dua with intention.',
+    body: 'The Prophet ﷺ broke his fast with dates and water, and said: the fasting person has a dua at the time of breaking that is not rejected (Ibn Majah 1753, hasan per Darussalam). Break it with dates if you can; make the dua with intention.',
   ),
   _RamadanSection(
     title: 'Taraweeh — The Night Prayer',

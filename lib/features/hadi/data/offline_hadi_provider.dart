@@ -255,7 +255,7 @@ const List<_Entry> _knowledge = <_Entry>[
   ),
   _Entry(
     <String>['du\'a', 'dua', 'supplication'],
-    'Du\'a is worship itself (Jami\' at-Tirmidhi 3372). For a need, '
+    'Du\'a is worship itself (Jami\' at-Tirmidhi 3372, sahih per Darussalam). For a need, '
     'begin with praise of Allah and salawat on the Prophet ﷺ, then ask '
     'with certainty. Your Dhikr & Du\'a screen carries the authentic '
     'daily supplications with their meanings.',
@@ -292,7 +292,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'Allah says: “Do not despair of Allah\'s mercy; indeed Allah forgives '
     'all sins.” (Qur\'an 39:53). The Prophet ﷺ said: “Every son of Adam '
     'sins, and the best of sinners are those who repent.” (Jami\' '
-    'at-Tirmidhi 2499, sahih). The door is open — walk through it.',
+    'at-Tirmidhi 2499, weak per Darussalam). The door is open — walk through it.',
   ),
   _Entry(
     <String>['mother', 'father', 'parents'],
@@ -488,7 +488,7 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['grave', 'after death', 'hereafter'],
     'The Prophet (peace be upon him) said: "Remember often the '
-    'destroyer of pleasures - death." (Jami\' at-Tirmidhi 2307). '
+    'destroyer of pleasures - death." (Jami\' at-Tirmidhi 2307, hasan per Darussalam). '
     'Live each prayer as if it were your last; the grave is a '
     'garden from Paradise or a pit from the Fire - and its morning '
     'is near.',
@@ -532,9 +532,9 @@ const List<_Entry> _knowledge = <_Entry>[
     'For a heavy heart: "Hasbunallahu wa ni\'mal wakeel" - Allah is '
     'sufficient for us, and He is the best Disposer of affairs '
     '(Al-Imran 173) - the words of Ibrahim and our Prophet in '
-    'distress. And the Prophet (peace be upon him) said: "There is '
-    'no worry or grief for the servant who, in hardship, says: Ya '
-    'Hayyu ya Qayyum, bi-rahmatika astagheeth." (Sunan Ibn Majah 3881). '
+    'distress. And when something distressed him, the Prophet (peace be upon him) '
+    'would say: "Ya Hayyu ya Qayyum, bi-rahmatika astagheeth." '
+    '(Jami\' at-Tirmidhi 3524, hasan per Darussalam). '
     'Sakina is in this app for you too.',
   ),
   _Entry(
@@ -548,7 +548,7 @@ const List<_Entry> _knowledge = <_Entry>[
     <String>['mercy', 'be kind', 'kindness', 'gentle', 'compassion'],
     '"The merciful are shown mercy by Ar-Rahman. Be merciful to '
     'those on earth, and the One above the heavens will be merciful '
-    'to you." (Jami\' at-Tirmidhi 1924). "He who does not show mercy '
+    'to you." (Jami\' at-Tirmidhi 1924, hasan per Darussalam). "He who does not show mercy '
     'will not be shown mercy." (Sahih al-Bukhari 6013). Kindness - '
     'rifq - beautifies everything it touches.',
   ),
@@ -574,7 +574,7 @@ const List<_Entry> _knowledge = <_Entry>[
     <String>['sadaqah', 'charity', 'give money', 'donate'],
     '"Charity does not decrease wealth." (Sahih Muslim 2588). "Your '
     'smile in your brother\'s face is charity; removing harm from '
-    'the path is charity." (Jami\' at-Tirmidhi 1956). The zakat '
+    'the path is charity." (Jami\' at-Tirmidhi 1956, hasan per Darussalam). The zakat '
     'calculator in this app handles the obligatory share; beyond it, '
     '"protect yourselves from the Fire even with half a date" '
     '(Sahih al-Bukhari 1417).',
@@ -642,7 +642,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'al-urooqu wa thabata al-ajru in sha Allah" - The thirst is gone, '
     'the veins are moistened, and the reward is fixed, if Allah '
     'wills. (Sunan Abu Dawood 2357). The fasting person has a du\'a '
-    'at the moment of breaking that is not rejected. (Ibn Majah 1753)',
+    'at the moment of breaking that is not rejected. (Ibn Majah 1753, hasan per Darussalam)',
   ),
   _Entry(
     <String>['durood', 'salawat', 'bless the prophet', 'blessings on the prophet'],
@@ -664,7 +664,7 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['seeking knowledge', 'learn islam', 'study', 'ilm', 'become a scholar'],
     '"Seeking knowledge is an obligation upon every Muslim." (Sunan '
-    'Ibn Majah 224 - the chain is debated, but the meaning is '
+    'Ibn Majah 224, very weak per Darussalam - the chain is debated, but the meaning is '
     'carried by the whole religion). The best of you, said the '
     'Prophet, are those who learn the Qur\'an and teach it. (Sahih '
     'al-Bukhari 5027). Ten minutes daily outlasts a weekend of '
@@ -737,8 +737,8 @@ const List<_Entry> _knowledge = <_Entry>[
     'The shield: Ayat al-Kursi, the three Quls said morning and '
     'evening, and "la ilaha illallah wahdahu la sharika lah..." for '
     'one hundred mornings. For ruqyah, the greatest of it is '
-    'Al-Fatiha - the Prophet once healed a tribesman with it and '
-    'was paid thirty sheep. (Bukhari 5748)',
+    'Al-Fatiha - a Companion once recited it over a tribal chief who had been bitten, and '
+    'the Prophet approved the payment he accepted. (Bukhari 5736)',
   ),
 
   // ── Family milestones ───────────────────────────────────────────────
@@ -747,7 +747,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'The Prophet\'s counsel: "When someone whose religion and '
     'character pleases you proposes to you, then marry him. If you '
     'do not, there will be corruption in the land and widespread '
-    'evil." (Jami\' at-Tirmidhi 1085). Religion first - beauty and '
+    'evil." (Jami\' at-Tirmidhi 1085, weak per Darussalam). Religion first - beauty and '
     'wealth open like flowers and close like them; faith is the '
     'root that stays.',
   ),
@@ -767,7 +767,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'Dawood 5105). Tahnik: a softened date on the palate, and pray for the '
     'child. (Sahih al-Bukhari 5469). And the aqiqah: "Every child is '
     'pledged to its aqiqah" - an animal sacrificed on the seventh day, and '
-    'the child named. (Tirmidhi 1513)',
+    'the child named. (Tirmidhi 1513, hasan per Darussalam)',
   ),
   _Entry(
     <String>['children', 'raising kids', 'my child', 'teaching children', 'kids behavior'],
@@ -776,7 +776,7 @@ const List<_Entry> _knowledge = <_Entry>[
     '(Zoroastrian)." (Sahih al-Bukhari 1385). Be the first kindness they '
     'know: the Prophet carried children, shortened the prayer when he heard '
     'a baby cry, and said: "He is not of us who does not have mercy on our '
-    'young." (Tirmidhi 1919)',
+    'young." (Tirmidhi 1919, hasan per Darussalam)',
   ),
 
   // ── Friday, Eid, and the rhythm of the week ─────────────────────────
@@ -788,8 +788,8 @@ const List<_Entry> _knowledge = <_Entry>[
     'Allah" (Al-Jumuah 9-10). The Prophet said Friday has an hour in '
     'which no Muslim happens to ask Allah for good but that He gives '
     'it - and it is believed to be the last hour after Asr. (Sahih '
-    'al-Bukhari 935). Recite Surah al-Kahf: "a light between this '
-    'Friday and the next." (Tirmidhi 2810)',
+    'al-Bukhari 935). Reciting Surah al-Kahf on Friday is reported to '
+    'bring light (reported; number and grade not verified here).',
   ),
   _Entry(
     <String>['eid', 'eid dua', 'eid mubarak', 'eid salah'],
@@ -807,8 +807,8 @@ const List<_Entry> _knowledge = <_Entry>[
     'Beyond Ramadan: fasting Ramadan then six days of Shawwal "is '
     'like fasting the whole year" (Sahih Muslim 1164). The Prophet '
     'fasted Mondays and Thursdays - deeds are presented on those '
-    'days (Jami\' at-Tirmidhi 747) - and the three white days, the '
-    '13th, 14th, and 15th of the lunar month (Tirmidhi 762). The '
+    'days (Jami\' at-Tirmidhi 747, hasan per Darussalam) - and the three white days, the '
+    '13th, 14th, and 15th of the lunar month (Abu Dawud 2449, sahih per al-Albani). The '
     'most beloved fast to Allah is Dawud\'s: a day on, a day off. '
     '(Sahih al-Bukhari 3420)',
   ),
@@ -834,7 +834,7 @@ const List<_Entry> _knowledge = <_Entry>[
     '"Whoever provides the food for a fasting person to break his '
     'fast earns the same reward as his, without the fasting '
     'person\'s reward being diminished in any way." (Jami\' '
-    'at-Tirmidhi 807). A date and a glass of milk suffice - and the '
+    'at-Tirmidhi 807, sahih per Darussalam). A date and a glass of milk suffice - and the '
     'angels make du\'a for the giver all that evening.',
   ),
 
@@ -842,10 +842,9 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['rain dua', 'it\'s raining', 'rain blessing', 'rain shower', 'rain'],
     'When the rain falls: "Allahumma sayyiban nafi\'an" - O Allah, '
-    'make it a beneficial rain. (Sahih al-Bukhari 1032). And the '
-    'downpour is an hour of answer: "Two are not rejected - the '
-    'du\'a at the time of rain and the du\'a of the oppressed." '
-    '(Abu Dawood 2540, Ibn Majah 3878). Expose some of it to the '
+    'make it a beneficial rain. (Sahih al-Bukhari 1032). Make '
+    'du\'a at the time of rain; the specific report that the du\'a '
+    'under rain is not rejected is not verified here. Expose some of it to the '
     'rain - it has newly come from its Lord.',
   ),
   _Entry(
@@ -862,7 +861,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'Seeing the new crescent: "Allahumma ahillahu \'alaina bil '
     'amni wal iman, was-salamati wal islam..." - O Allah, let this '
     'moon rise over us with security, faith, safety, and Islam. '
-    '(Sahih Muslim 1742). The sighting ties the ummah to the sky - '
+    '(Jami\' at-Tirmidhi 3451, weak per Darussalam; at-Tirmidhi himself called it hasan gharib). The sighting ties the ummah to the sky - '
     'the month begins when the crescent is seen, not when the '
     'calendar guesses.',
   ),
@@ -930,7 +929,7 @@ const List<_Entry> _knowledge = <_Entry>[
     <String>['zamzam', 'drinking zamzam', 'umrah zamzam'],
     '"The water of Zamzam is for whatever it is drunk for" - drink '
     'it with an intention: knowledge, healing, forgiveness, a '
-    'righteous child. (Sunan Ibn Majah 3062). It sprang for Ismail '
+    'righteous child. (Sunan Ibn Majah 3062, hasan per Darussalam). It sprang for Ismail '
     'in the desert of Makkah and has not ceased - five thousand '
     'years of answered thirst.',
   ),
@@ -938,18 +937,15 @@ const List<_Entry> _knowledge = <_Entry>[
     <String>['cupping', 'hijamah', 'blood cupping'],
     'The Prophet praised cupping: "The best of your treatments is '
     'hijamah" - and had it done on the veins at the back of his '
-    'neck, paying the cupper his wage. (Jami\' at-Tirmidhi 1190). '
+    'neck, paying the cupper his wage. (reported; number not verified here). '
     'Even treatment has an etiquette: seek the skilled, pay '
     'fairly, and pair it with du\'a.',
   ),
   _Entry(
     <String>['cats', 'kittens', 'pet cat'],
-    'Kindness to cats is from the Sunnah: a cat once slept on the '
-    'Prophet\'s cloak; he cut the sleeve off rather than wake it '
-    'when he stood for prayer - and he used its water for wudu. '
-    'Cats are not impure, he said; they are among those who go '
-    'about among you. (Jami\' at-Tirmidhi 91). Muezza, they say, '
-    'was the name of his own.',
+    'Kindness to cats is from the Sunnah: cats are not impure, the '
+    'Prophet said; they are among those who go about among you, and '
+    'water a cat has drunk from remains usable. (Jami\' at-Tirmidhi 92, sahih per Darussalam).',
   ),
 
   // ── Sleep, waking, and the night ────────────────────────────────────
@@ -971,7 +967,7 @@ const List<_Entry> _knowledge = <_Entry>[
     '\'afani mimabtalaaka bihi wa faddalani \'ala kathirin mimman '
     'khalaqa tafdila" - praise to Allah who spared me what He '
     'afflicted you with and favored me over much of His creation. '
-    '(Jami\' at-Tirmidhi 3433). Gratitude without the afflicted '
+    '(Jami\' at-Tirmidhi 3431, weak per Darussalam). Gratitude without the afflicted '
     'hearing it; the reward and the mercy both remain.',
   ),
 
@@ -996,11 +992,11 @@ const List<_Entry> _knowledge = <_Entry>[
     'The Prophet said: "If you relied upon Allah as He should be relied '
     'upon, He would provide for you as He provides for the birds - they '
     'leave in the morning with empty stomachs and return full." (Jami\' '
-    'at-Tirmidhi 2344). And: "Tie your camel, then trust in Allah." '
-    '(Tirmidhi 2517). Tawakkul is not the abandonment of means - it is the '
+    'at-Tirmidhi 2344, hasan per Darussalam). And: "Tie your camel, then trust in Allah." '
+    '(Tirmidhi 2517, hasan per Darussalam). Tawakkul is not the abandonment of means - it is the '
     'heart\'s grip on Allah while the hand grips the rope. Rizq is written '
-    'for each person when the soul is breathed into the body, after 120 '
-    'days in the womb (Sahih al-Bukhari 3208, Sahih Muslim 2643); what is '
+    'for each person when the angel is sent to breathe in the soul, after '
+    'three stages of forty days in the womb (Sahih al-Bukhari 3208, Sahih Muslim 2643); what is '
     'yours will walk to you.',
   ),
   _Entry(
@@ -1176,22 +1172,23 @@ const List<_Entry> _knowledge = <_Entry>[
     'without: "There is no prayer for the one who does not recite '
     'the Fatiha" (Sahih Muslim 397). It is Umm al-Kitab, the mother '
     'of the Book, and the Prophet said no revelation like it came '
-    'in the Tawrah, the Injil, or the Zabur (Tirmidhi 3124). Allah '
+    'in the Tawrah, the Injil, or the Zabur (Tirmidhi 3124, sahih per Darussalam). Allah '
     'answers between the aamin.',
   ),
   _Entry(
     <String>['ayat al-kursi', 'kursi', 'greatest verse', 'throne verse'],
     'Ayat al-Kursi (Al-Baqarah 255) is the greatest verse of the '
-    'Qur\'an - the Prophet affirmed it when Ubayy asked. Whoever '
-    'recites it after every obligatory prayer, nothing prevents '
-    'him from Paradise except death. (Tirmidhi 3781, an-Nasa\'i). '
+    'Qur\'an - the Prophet affirmed it when Ubayy asked. A report '
+    'in an-Nasa\'i says nothing prevents the one who recites it after '
+    'every obligatory prayer from Paradise except death (reported; '
+    'number and grade not verified here). '
     'Its beginning: "Allah - there is no deity except Him, the '
     'Ever-Living, the Sustainer of all."',
   ),
   _Entry(
     <String>['ya-sin', 'yaseen', 'heart of the quran'],
     'Ya-Sin is the heart of the Qur\'an, as the Prophet named it '
-    '(Jami\' at-Tirmidhi 2887). Recite it for the dying - it '
+    '(Jami\' at-Tirmidhi 2887, weak per Darussalam). Recite it for the dying - it '
     'comes with ease at the passing of the soul - and for the '
     'living, over any need, as the tradition teaches.',
   ),
@@ -1199,7 +1196,7 @@ const List<_Entry> _knowledge = <_Entry>[
     <String>['al-mulk', 'surah mulk', 'before sleep surah'],
     'Surah Al-Mulk (The Sovereignty) is the rescuer: "A surah of '
     'thirty verses which intercedes for its companion until he is '
-    'forgiven" (Abu Dawood 1400, Tirmidhi 2891). Recited before '
+    'forgiven" (Abu Dawood 1400, Tirmidhi 2891, hasan per Darussalam). Recited before '
     'sleep, it shields from the punishment of the grave.',
   ),
   _Entry(
@@ -1224,7 +1221,7 @@ const List<_Entry> _knowledge = <_Entry>[
     '"Whoever recites a letter of the Book of Allah has a reward '
     'for it, and each reward is multiplied ten times - I do not '
     'say alif-lam-mim is a letter, but alif is a letter..." '
-    '(Jami\' at-Tirmidhi 2910). A slow page outearns a rushed '
+    '(Jami\' at-Tirmidhi 2910, hasan per Darussalam). A slow page outearns a rushed '
     'volume.',
   ),
   _Entry(
@@ -1289,7 +1286,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'What nullifies wudu: anything that exits the two private '
     'passes; deep sleep; and loss of consciousness or sanity. '
     'Touching the private part, in the strongest narration, also '
-    'breaks it (Abu Dawood 181, Tirmidhi 85). What does not: '
+    'breaks it (Abu Dawood 181, Tirmidhi 85, sahih per Darussalam). What does not: '
     'eating camel meat per the majority, ordinary touch, doubt - '
     'and certainty is not removed by doubt. (Sahih Muslim 362)',
   ),
@@ -1409,7 +1406,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'spell and was healed by Jibreel with the Mu\'awwidhat. '
     '(Sahih al-Bukhari 5763) The defense is not fear but '
     'remembrance: the three Quls, Ayat al-Kursi, and the dua '
-    '"Allahumma inni a\'udhu bika min sharri..." (Muslim 2186) - '
+    '"Bismillahilladhi la yadurru ma\'a ismihi shay\'un..." (Jami\' at-Tirmidhi 3388, hasan per Darussalam) - '
     'nothing harms the one who says them morning and evening.',
   ),
   _Entry(
@@ -1615,14 +1612,14 @@ const List<_Entry> _knowledge = <_Entry>[
     'awwalihi wa akhirihi" (In the name of Allah at its beginning and at '
     'its end). The Prophet ﷺ said: "When one of you eats, let him mention '
     'the name of Allah. If he forgets at the beginning, let him say: '
-    'Bismillahi fi awwalihi wa akhirihi." (Sunan al-Tirmidhi 1858).',
+    'Bismillahi fi awwalihi wa akhirihi." (Sunan al-Tirmidhi 1858, sahih per Darussalam).',
   ),
   _Entry(
     <String>['dua after eating', 'finished eating'],
     'After eating, say: "Alhamdu lillahi alladhi at\'amani hadha wa '
     'razaqanihi min ghayri hawlin minni wa la quwwah" (All praise is for '
     'Allah who fed me this and provided it for me without any might or '
-    'power from me). (Sunan Abi Dawud 3850).',
+    'power from me). (Sunan Abi Dawud 3850, weak per al-Albani).',
   ),
   _Entry(
     <String>['dua entering home', 'entering house', 'coming home'],
@@ -1631,7 +1628,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'and in the name of Allah we leave, and upon our Lord we rely). The '
     'Prophet ﷺ said: "Then say: Allahumma inni as\'aluka khayra al-mawliji '
     'wa khayra al-makhraji" (O Allah, I ask You for the best of entering '
-    'and the best of leaving). (Sunan Abi Dawud 5096).',
+    'and the best of leaving). (Sunan Abi Dawud 5096, weak per al-Albani).',
   ),
   _Entry(
     <String>['dua leaving home', 'leaving house', 'going out'],
@@ -1639,7 +1636,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'wa la quwwata illa billah" (In the name of Allah, I place my trust in '
     'Allah; there is no might and no power except with Allah). The Prophet '
     'ﷺ said: "It will be said to him: You are guided, sufficed, and '
-    'protected." (Sunan al-Tirmidhi 3518).',
+    'protected." (Sunan Abi Dawud 5095, sahih per al-Albani).',
   ),
   _Entry(
     <String>['dua for travel', 'traveling dua', 'safar'],
@@ -1654,7 +1651,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'The Prophet ﷺ taught: "Allahumma akfini bi halalika \'an haramika, wa '
     'aghnini bi fadlika \'amman siwaka" (O Allah, suffice me with what You '
     'have made lawful against what You have made forbidden, and enrich me '
-    'with Your bounty beyond anyone else). (Sunan al-Tirmidhi 3563).',
+    'with Your bounty beyond anyone else). (Sunan al-Tirmidhi 3563, hasan per Darussalam).',
   ),
   _Entry(
     <String>['dua for marriage', 'spouse dua', 'husband dua', 'wife dua'],
@@ -1690,7 +1687,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'la fi al-sama\'i, wa huwa al-sami\'u al-\'alim — In the name of Allah, '
     'with whose name nothing on earth or in heaven can cause harm, and He '
     'is the All-Hearing, All-Knowing — nothing will harm him." (Sunan '
-    'al-Tirmidhi 3388).',
+    'al-Tirmidhi 3388, hasan per Darussalam).',
   ),
   _Entry(
     <String>['dua for exam', 'test dua', 'study dua', 'knowledge dua'],
@@ -1705,7 +1702,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'supplicated while in the belly of the whale: La ilaha illa anta, '
     'subhanaka, inni kuntu min al-zalimin — There is no god but You, glory '
     'be to You, indeed I was among the wrongdoers. No Muslim supplicates '
-    'with it for anything but Allah answers him." (Sunan al-Tirmidhi 3505).',
+    'with it for anything but Allah answers him." (Sunan al-Tirmidhi 3505, sahih per Darussalam).',
   ),
   _Entry(
     <String>['dua for debt', 'loan dua', 'owe money dua'],
@@ -1713,7 +1710,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'akfini bi halalika \'an haramika, wa aghnini bi fadlika \'amman siwaka — '
     'O Allah, suffice me with Your lawful against Your forbidden, and '
     'enrich me with Your bounty beyond anyone else — Allah will suffice '
-    'him." (Sunan al-Tirmidhi 3563).',
+    'him." (Sunan al-Tirmidhi 3563, hasan per Darussalam).',
   ),
   _Entry(
     <String>['dua for righteous death', 'good death', 'husn al-khatimah'],
@@ -1737,7 +1734,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'say: My Lord, have mercy upon them as they brought me up when I was '
     'small." (Qur\'an 17:24). The Prophet ﷺ said: "The pleasure of the Lord '
     'is in the pleasure of the parent, and the displeasure of the Lord is '
-    'in the displeasure of the parent." (Sunan al-Tirmidhi 1899).',
+    'in the displeasure of the parent." (Sunan al-Tirmidhi 1899, hasan per al-Tirmidhi).',
   ),
   _Entry(
     <String>['dua for forgiveness', 'istighfar', 'seek forgiveness', 'sin'],
@@ -1820,7 +1817,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'him." (Qur\'an 65:3). The Prophet ﷺ said: "If you had relied upon Allah '
     'with true reliance, He would have provided for you as He provides for '
     'the bird: it goes out hungry in the morning and returns full in the '
-    'evening." (Sunan al-Tirmidhi 2344).',
+    'evening." (Sunan al-Tirmidhi 2344, hasan per Darussalam).',
   ),
   _Entry(
     <String>['ikhlas', 'sincerity', 'pure intention'],
@@ -1842,7 +1839,7 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['marriage', 'nikah', 'getting married', 'wedding'],
     'The Prophet ﷺ said: "Marriage is part of my sunnah, and whoever does '
-    'not follow my sunnah is not of me." (Sunan Ibn Majah 1846). The '
+    'not follow my sunnah is not of me." (Sunan Ibn Majah 1846, hasan per Darussalam). The '
     'essential conditions are: offer and acceptance, mahr (dowry), two '
     'witnesses, and the wali (guardian) for the bride.',
   ),
@@ -1914,7 +1911,7 @@ const List<_Entry> _knowledge = <_Entry>[
     <String>['aqiqah', 'newborn sacrifice', 'baby sacrifice'],
     'The Prophet ﷺ said: "Every child is held in pledge for his aqiqah, '
     'which is sacrificed for him on his seventh day, and he is named on his '
-    'seventh day, and his head is shaved." (Sunan Abi Dawud 2838). Two '
+    'seventh day, and his head is shaved." (Sunan Abi Dawud 2838, sahih per al-Albani). Two '
     'sheep for a boy and one for a girl.',
   ),
 
@@ -2032,10 +2029,9 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['jahannam', 'hellfire', 'hell', 'nar'],
     'Allah says: "Indeed, Hell has been lying in wait for the '
-    'transgressors." (Qur\'an 78:21-22). The Prophet ﷺ said: "The fire was '
-    'kindled for one thousand years until it turned red, then for one '
-    'thousand years until it turned white, then for one thousand years until '
-    'it turned black. It is now utterly black." (Sahih Muslim 2843).',
+    'transgressors." (Qur\'an 78:21-22). The Prophet ﷺ said that a stone '
+    'thrown into Hell seventy years ago was still falling until it '
+    'only now reached the bottom. (Sahih Muslim 2844).',
   ),
 
   // ========== EMOTIONAL SUPPORT ==========
@@ -2078,7 +2074,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'to worship. And to your Lord direct your longing." (Qur\'an 94:7-8). '
     'The Prophet ﷺ sought refuge from laziness: "Allahumma inni a\'udhu bika '
     'min al-\'ajzi wa al-kasal" (O Allah, I seek refuge in You from '
-    'incapacity and laziness). (Sahih al-Bukhari 6018, Sahih Muslim 2707).',
+    'incapacity and laziness). (Sahih al-Bukhari 6369).',
   ),
   _Entry(
     <String>['fear', 'scared', 'afraid', 'terror'],
@@ -2231,7 +2227,7 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['memorize quran', 'hifz', 'memorization'],
     'The Prophet ﷺ said: "The best of you are those who learn the Qur\'an '
-    'and teach it." (Sahih al-Bukhari 5027, Sahih Muslim 817). For '
+    'and teach it." (Sahih al-Bukhari 5027). For '
     'memorization: (1) read with understanding, (2) repeat each ayah 10 '
     'times, (3) connect ayahs, (4) review daily, (5) recite in prayer.',
   ),
@@ -2325,7 +2321,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'The Prophet ﷺ said: "Whoever says in the morning and evening: '
     'Bismillahi alladhi la yadurru ma\'asmihi shay\'un fi al-ardi wa la fi '
     'al-sama\'i, wa huwa al-sami\'u al-\'alim — three times — nothing will '
-    'harm him that day or night." (Sunan al-Tirmidhi 3388).',
+    'harm him that day or night." (Sunan al-Tirmidhi 3388, hasan per Darussalam).',
   ),
 
   // ========== HAJJ & UMRAH ==========
@@ -2365,8 +2361,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'Sa\'i is walking seven times between Safa and Marwa, commemorating '
     'Hajar\'s search for water for Ismail. The Prophet ﷺ said: "May Allah '
     'have mercy on the mother of Ismail. Had she not left the water flow, '
-    'it would have been a flowing spring." (Sahih al-Bukhari 3365, Sahih '
-    'Muslim 2273).',
+    'it would have been a flowing spring." (Sahih al-Bukhari 3365).',
   ),
 
   // ========== PROTECTION & SPIRITUAL WARFARE ==========
@@ -2503,7 +2498,7 @@ const List<_Entry> _knowledge = <_Entry>[
     <String>['gratitude', 'shukr', 'thankful', 'appreciation'],
     'Allah says: "If you are grateful, I will surely increase you." (Qur\'an '
     '14:7). The Prophet ﷺ said: "Whoever is not grateful to people is not '
-    'grateful to Allah." (Sunan Abi Dawud 4811). Gratitude is not just '
+    'grateful to Allah." (Sunan Abi Dawud 4811, sahih per al-Albani). Gratitude is not just '
     'saying alhamdulillah — it is using blessings in obedience to Allah.',
   ),
   _Entry(

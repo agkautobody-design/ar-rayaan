@@ -75,12 +75,12 @@ const List<_YouthUnit> kYouthUnits = <_YouthUnit>[
     lessons: <_YouthLesson>[
       _YouthLesson(
         title: 'You Are the Average of Your Five',
-        body: 'A person is upon the religion of his friend — so let one of you look at whom he befriends (Tirmidhi 2378). The friend who drags you to prayer is worth more than the one who drags you to everything else. Choose the friend your future self will thank you for.',
+        body: 'A person is upon the religion of his friend — so let one of you look at whom he befriends (Tirmidhi 2378, hasan per Darussalam). The friend who drags you to prayer is worth more than the one who drags you to everything else. Choose the friend your future self will thank you for.',
         practice: 'Name your closest three friends. Which one would you become if you became exactly like them?',
       ),
       _YouthLesson(
         title: 'Halal Money — Even the Penny',
-        body: 'The Prophet \ufdfa said: leave that which makes you doubt for that which does not (Tirmidhi 2518). The gig economy, the hustle, the side scheme — the barakah is in the clean dirham, even when the unclean one is bigger.',
+        body: 'The Prophet \ufdfa said: leave that which makes you doubt for that which does not (Tirmidhi 2518, sahih per Darussalam). The gig economy, the hustle, the side scheme — the barakah is in the clean dirham, even when the unclean one is bigger.',
         practice: 'Check one source of your money or a deal you are considering. Run the doubt test.',
       ),
       _YouthLesson(

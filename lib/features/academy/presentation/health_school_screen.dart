@@ -37,7 +37,7 @@ const List<_HlUnit> kHealthUnits = <_HlUnit>[
       ),
       _HlLesson(
         title: 'The Third of the Stomach',
-        body: 'The Prophet \ufdfa said: the son of Adam does not fill any vessel worse than his stomach — a few morsels for his back to stand straight; if he must fill it, then a third for food, a third for drink, a third for breath (Tirmidhi 2380). The oldest diet advice in history, from the one who knew the body\u2019s design.',
+        body: 'The Prophet \ufdfa said: the son of Adam does not fill any vessel worse than his stomach — a few morsels for his back to stand straight; if he must fill it, then a third for food, a third for drink, a third for breath (Tirmidhi 2380, sahih per Darussalam). The oldest diet advice in history, from the one who knew the body\u2019s design.',
         practice: 'Stop eating at two-thirds full for one meal this week. Notice how the afternoon changes.',
       ),
       _HlLesson(
