@@ -1,0 +1,32 @@
+{
+ "schema": 1,
+ "subject": "musa",
+ "badge": "Not from the Qur’an",
+ "checked": "2026-10-20",
+ "items": [
+  {
+   "id": "musa-basket",
+   "class": "confirmed",
+   "origin": "Bible, Exodus 2:1-10",
+   "claim": "A Levite woman hides her baby for three months, then puts him in a sealed papyrus basket among the reeds of the river. His sister watches from a distance, and his own mother is brought to nurse him.",
+   "ruling": "The Qur’an confirms the outline: the mother is told to cast him into the river (28:7), his sister follows him and watches from a distance (28:11), and he is returned to his mother (28:12-13). The basket, the sealing and the three months are not in the Qur’an or the hadith we checked, so for those details we neither believe nor disbelieve.",
+   "basis": "Qur’an 28:7-13; the Bible text (Exodus 2:1-10, NRSVUE) read on BibleGateway"
+  },
+  {
+   "id": "musa-who-lifted",
+   "class": "silent",
+   "origin": "Bible, Exodus 2:5-10",
+   "claim": "Pharaoh’s daughter finds the basket, takes the child as her son and names him Moses.",
+   "ruling": "The Qur’an says the family of Pharaoh picked him up (28:8) and that the wife of Pharaoh asked that he not be killed and be taken as a son (28:9). It does not say a daughter found him. We neither believe nor disbelieve who lifted him out; for who asked to keep him we follow the Qur’an.",
+   "basis": "Qur’an 28:8-9; the Bible text (Exodus 2:5-10, NRSVUE) read on BibleGateway"
+  },
+  {
+   "id": "musa-golden-calf",
+   "class": "contradicted",
+   "origin": "Bible, Exodus 32:1-6",
+   "claim": "Aaron collects the people’s gold, casts a calf himself, builds an altar before it and proclaims a festival.",
+   "ruling": "Not told here. The Qur’an says the Samiri led the people astray and brought out the calf (20:85, 20:88), and that Harun had already told them, “you are only being tested by it” (20:90) and later explained himself to Musa (20:92-94). A calf made by Harun contradicts that.",
+   "basis": "Qur’an 20:85-98; the Bible text (Exodus 32:1-6, NRSVUE) read on BibleGateway"
+  }
+ ]
+}

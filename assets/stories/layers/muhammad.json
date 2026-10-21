@@ -1,0 +1,83 @@
+{
+ "schema": 1,
+ "subject": "muhammad",
+ "title": "Muhammad ﷺ",
+ "kind": "prophet",
+ "checked": "2026-10-20",
+ "reviewStatus": "Not yet scholar-reviewed",
+ "quran": [
+  {
+   "surah": 96,
+   "from": 1,
+   "to": 5,
+   "note": "The opening of the first revelation: read in the name of your Lord who created."
+  },
+  {
+   "surah": 33,
+   "from": 40,
+   "to": 40,
+   "note": "He is the Messenger of Allah and the last of the prophets."
+  },
+  {
+   "surah": 48,
+   "from": 29,
+   "to": 29,
+   "note": "Muhammad is the Messenger of Allah, and those with him are firm against the disbelievers and merciful among themselves."
+  },
+  {
+   "surah": 68,
+   "from": 4,
+   "to": 4,
+   "note": "He is of great moral character."
+  },
+  {
+   "surah": 21,
+   "from": 107,
+   "to": 107,
+   "note": "He was sent only as a mercy to the worlds."
+  },
+  {
+   "surah": 9,
+   "from": 128,
+   "to": 128,
+   "note": "A messenger from among themselves, to whom their hardship is grievous, concerned for them and kind to the believers."
+  },
+  {
+   "surah": 61,
+   "from": 6,
+   "to": 6,
+   "note": "Isa gives the news of a messenger to come after him."
+  }
+ ],
+ "hadith": [
+  {
+   "book": "bukhari",
+   "number": "3",
+   "narrator": "Aisha",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "Revelation began with true dreams. He then loved seclusion and worshipped in the cave of Hira. The angel came and told him to read, he said he could not read, and he was pressed hard three times before the first words of Surah al-Alaq were recited. He went home frightened to Khadija, who reassured him, and took him to her cousin Waraqa, who knew the earlier scripture. Waraqa said this was the one who had been sent to Musa, and died soon afterwards; revelation then paused.",
+   "verified": "2026-10-20"
+  },
+  {
+   "book": "muslim",
+   "number": "2276",
+   "narrator": "Wathila ibn al-Asqa’",
+   "grade": "Sahih",
+   "grader": "Muslim, in his Sahih",
+   "summary": "The Prophet ﷺ said Allah chose Kinana from the descendants of Ismail, Quraysh from Kinana, Banu Hashim from Quraysh, and himself from Banu Hashim.",
+   "verified": "2026-10-20"
+  },
+  {
+   "book": "muslim",
+   "number": "2404",
+   "narrator": "Sa’d ibn Abi Waqqas",
+   "grade": "Sahih",
+   "grader": "Muslim, in his Sahih",
+   "summary": "The Prophet ﷺ told Ali he stood to him as Harun stood to Musa, except that there is no prophet after him.",
+   "verified": "2026-10-20"
+  }
+ ],
+ "scholarly": [],
+ "differences": []
+}

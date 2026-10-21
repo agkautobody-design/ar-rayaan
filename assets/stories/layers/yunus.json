@@ -1,0 +1,55 @@
+{
+ "schema": 1,
+ "subject": "yunus",
+ "title": "Yunus (Jonah)",
+ "kind": "prophet",
+ "checked": "2026-10-20",
+ "reviewStatus": "Not yet scholar-reviewed",
+ "quran": [
+  {
+   "surah": 37,
+   "from": 139,
+   "to": 148,
+   "note": "A messenger who ran away to the laden ship; the lots; the fish swallowed him; had he not been of those who exalt Allah he would have stayed there; the gourd vine; sent to a hundred thousand or more, and they believed."
+  },
+  {
+   "surah": 21,
+   "from": 87,
+   "to": 88,
+   "note": "The man of the fish went off in anger and called out in the darknesses; Allah responded and saved him."
+  },
+  {
+   "surah": 10,
+   "from": 98,
+   "to": 98,
+   "note": "No city believed and benefited from its faith except the people of Jonah."
+  },
+  {
+   "surah": 68,
+   "from": 48,
+   "to": 50,
+   "note": "Be patient and do not be like the companion of the fish; his Lord chose him and made him of the righteous."
+  }
+ ],
+ "hadith": [
+  {
+   "book": "bukhari",
+   "number": "3395",
+   "narrator": "Ibn Abbas",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "Ibn Abbas reports that the Prophet ﷺ said no servant should say “I am better than Yunus ibn Matta”; the report names Yunus’s father, Matta. The report goes on to other matters that we do not use here.",
+   "verified": "2026-10-20",
+   "note": "Sahih al-Bukhari 3395-3396 is a long report; we use only the line about Yunus."
+  }
+ ],
+ "scholarly": [
+  {
+   "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+   "author": "Ibn Kathir",
+   "locator": "on 21:87",
+   "summary": "Says Yunus left his people in anger after they kept rejecting him and after he had warned them of punishment in three days; the only view on the anger itself is al-Dahhak’s “anger towards his people”. For “We would not restrain him” it gives Ibn Abbas, Mujahid, al-Dahhak and others, preferred by Ibn Jarir (citing 65:7), that Allah would constrict him in the fish’s belly. It lists the three darknesses (the fish’s belly, the sea and the night) from Ibn Mas’ud, Ibn Abbas, Amr ibn Maymun, Sa’id ibn Jubayr, Muhammad ibn Ka’b, al-Dahhak, al-Hasan and Qatadah. It names no duration for his stay in the fish. The Saheeh International translation printed in this app reads the phrase as “thought that We would not decree [anything] upon him”; the Arabic is the same."
+  }
+ ],
+ "differences": []
+}

@@ -296,6 +296,28 @@ void main() {
     expect(hits, isEmpty, reason: 'no prophet imagery: ${hits.join(', ')}');
   });
 
+  test('priority prophets are present with the caveats that must stay', () {
+    final List<String> ids = (readMap('assets/stories/layers/index.json')['subjects']
+            as List<dynamic>)
+        .cast<Map<String, dynamic>>()
+        .map((Map<String, dynamic> m) => m['id'] as String)
+        .toList();
+    for (final String id in <String>[
+      'musa', 'ibrahim', 'yusuf', 'isa', 'nuh', 'adam', 'muhammad', 'maryam',
+    ]) {
+      expect(ids, contains(id), reason: 'subject $id must be indexed');
+      final Map<String, dynamic> l = readMap('assets/stories/layers/$id.json');
+      expect((l['quran'] as List<dynamic>).length, greaterThanOrEqualTo(3),
+          reason: '$id needs Qur\'an references');
+    }
+    final String ibrahim = File('assets/stories/layers/ibrahim.json').readAsStringSync();
+    expect(ibrahim.contains('3207') && ibrahim.contains('349'), isTrue,
+        reason: 'the two heavens for Ibrahim must both be reported');
+    final String nuh = File('assets/stories/layers/nuh.json').readAsStringSync();
+    expect(nuh.contains('not a saying of the Prophet'), isTrue,
+        reason: 'Ibn Abbas on the idols is a Companion saying');
+  });
+
   test('model: a layers file with nothing in it is empty', () {
     final StoryLayers l = StoryLayers.fromJson(
       <String, dynamic>{'subject': 'x', 'title': 'X', 'kind': 'unseen'},

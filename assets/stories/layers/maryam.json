@@ -1,0 +1,84 @@
+{
+ "schema": 1,
+ "subject": "maryam",
+ "title": "Maryam (Mary)",
+ "kind": "prophet",
+ "checked": "2026-10-20",
+ "reviewStatus": "Not yet scholar-reviewed",
+ "quran": [
+  {
+   "surah": 3,
+   "from": 35,
+   "to": 37,
+   "note": "Her mother vows what is in her womb; Maryam is accepted and put in Zakariya’s care, and finds provision with her."
+  },
+  {
+   "surah": 3,
+   "from": 42,
+   "to": 47,
+   "note": "The angels say Allah has chosen and purified her; she is given news of a word from Him."
+  },
+  {
+   "surah": 19,
+   "from": 16,
+   "to": 26,
+   "note": "She withdraws; the angel comes and she is told of a pure boy; she gives birth by a palm tree."
+  },
+  {
+   "surah": 66,
+   "from": 12,
+   "to": 12,
+   "note": "Maryam daughter of Imran guarded her chastity, believed in the words of her Lord and was devoutly obedient."
+  },
+  {
+   "surah": 21,
+   "from": 91,
+   "to": 91,
+   "note": "She and her son are made a sign for the worlds."
+  }
+ ],
+ "hadith": [
+  {
+   "book": "bukhari",
+   "number": "3411",
+   "narrator": "Abu Musa al-Ash’ari",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "The Prophet ﷺ said that many men reached perfection but, among women, only Asiya the wife of Pharaoh and Maryam daughter of Imran.",
+   "verified": "2026-10-20"
+  },
+  {
+   "book": "bukhari",
+   "number": "3431",
+   "narrator": "Abu Huraira",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "The Prophet ﷺ said that Satan touches every child at birth, except Maryam and her son.",
+   "verified": "2026-10-20"
+  },
+  {
+   "book": "muslim",
+   "number": "2135",
+   "narrator": "al-Mughira ibn Shu’ba",
+   "grade": "Sahih",
+   "grader": "Muslim, in his Sahih",
+   "summary": "Asked by the Christians of Najran about “sister of Harun”, the Prophet ﷺ said people used to take the names of prophets and righteous predecessors.",
+   "verified": "2026-10-20"
+  }
+ ],
+ "scholarly": [
+  {
+   "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+   "author": "Ibn Kathir",
+   "locator": "on 3:37",
+   "summary": "Says Allah accepted her through her mother’s vow and Zakariya was her guardian. Ibn Ishaq and Ibn Jarir say he was the husband of her maternal aunt; the text also mentions a Sahih report that he was her brother-in-law. Mujahid, Ikrimah, Qatadah and others said she had summer fruits in winter and winter fruits in summer."
+  },
+  {
+   "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+   "author": "Ibn Kathir",
+   "locator": "on 19:28",
+   "summary": "Gives three explanations of “sister of Harun” and prefers none."
+  }
+ ],
+ "differences": []
+}

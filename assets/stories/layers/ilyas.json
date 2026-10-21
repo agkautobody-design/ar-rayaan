@@ -1,0 +1,48 @@
+{
+ "schema": 1,
+ "subject": "ilyas",
+ "title": "Ilyas (Elias)",
+ "kind": "prophet",
+ "checked": "2026-10-20",
+ "reviewStatus": "Not yet scholar-reviewed",
+ "quran": [
+  {
+   "surah": 37,
+   "from": 123,
+   "to": 132,
+   "note": "Ilyas asks his people why they call on Ba’l and leave the best of creators; they deny him, and he is left a favourable mention."
+  },
+  {
+   "surah": 6,
+   "from": 85,
+   "to": 85,
+   "note": "Ilyas is listed among the righteous."
+  }
+ ],
+ "hadith": [],
+ "scholarly": [
+  {
+   "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+   "author": "Ibn Kathir",
+   "locator": "on 37:123",
+   "summary": "Explains “Ba’l” as lord. Quotes Ibn Abbas, Mujahid, Ikrimah, Qatadah and al-Suddi on the word. Ikrimah and Qatadah tie it to the Yemeni language, Abd al-Rahman ibn Zayd ibn Aslam says it was an idol at Baalbek, and al-Dahhak says it was an idol. He says “Ilyasin” is a dialect form of the name from Bani Asad. He names no king."
+  }
+ ],
+ "differences": [
+  {
+   "question": "What was Ba’l (37:125)?",
+   "views": [
+    {
+     "who": "Ikrimah and Qatadah, as quoted by Ibn Kathir",
+     "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com), on 37:123",
+     "view": "The word means “lord” in the language of Yemen."
+    },
+    {
+     "who": "Abd al-Rahman ibn Zayd ibn Aslam, as quoted by Ibn Kathir",
+     "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com), on 37:123",
+     "view": "An idol at Baalbek."
+    }
+   ]
+  }
+ ]
+}

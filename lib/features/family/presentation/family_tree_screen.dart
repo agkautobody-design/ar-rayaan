@@ -202,7 +202,31 @@ class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
             child: InkWell(
               borderRadius: BorderRadius.circular(12),
               onTap: () => _openNode(context, data, node),
-              child: Row(
+              child: LayoutBuilder(
+                builder: (BuildContext context, BoxConstraints box) {
+                  // On a narrow row (deep branch on a phone) the label chip
+                  // drops under the name instead of squeezing it to nothing.
+                  final bool narrow = box.maxWidth < 240;
+                  final Widget labelChip = Container(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 7, vertical: 3),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      border: Border.all(
+                        color: _labelColor(node.sourceLabel)
+                            .withValues(alpha: 0.5),
+                      ),
+                    ),
+                    child: Text(
+                      node.sourceLabel,
+                      style: TextStyle(
+                        fontSize: 12,
+                        letterSpacing: 0.3,
+                        color: _labelColor(node.sourceLabel),
+                      ),
+                    ),
+                  );
+                  return Row(
                 children: [
                   if (hasKids)
                     GestureDetector(
@@ -261,29 +285,18 @@ class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
                                   : ''),
                           style: AppText.bodyMuted.copyWith(fontSize: 12),
                         ),
+                        if (narrow)
+                          Padding(
+                            padding: const EdgeInsets.only(top: 4),
+                            child: labelChip,
+                          ),
                       ],
                     ),
                   ),
-                  Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 7, vertical: 3),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      border: Border.all(
-                        color: _labelColor(node.sourceLabel)
-                            .withValues(alpha: 0.5),
-                      ),
-                    ),
-                    child: Text(
-                      node.sourceLabel,
-                      style: TextStyle(
-                        fontSize: 12,
-                        letterSpacing: 0.3,
-                        color: _labelColor(node.sourceLabel),
-                      ),
-                    ),
-                  ),
+                  if (!narrow) labelChip,
                 ],
+              );
+                },
               ),
             ),
           ),

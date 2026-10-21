@@ -1,0 +1,90 @@
+{
+ "schema": 1,
+ "subject": "zakariya",
+ "title": "Zakariya and Yahya (Zechariah and John)",
+ "kind": "prophet",
+ "checked": "2026-10-20",
+ "reviewStatus": "Not yet scholar-reviewed",
+ "quran": [
+  {
+   "surah": 19,
+   "from": 2,
+   "to": 6,
+   "note": "Zakariya calls on his Lord in private, saying his bones are weak, and asks for an heir."
+  },
+  {
+   "surah": 19,
+   "from": 7,
+   "to": 15,
+   "note": "He is given the news of Yahya, a sign of three nights’ silence, and Yahya is given judgement as a boy."
+  },
+  {
+   "surah": 3,
+   "from": 37,
+   "to": 41,
+   "note": "Maryam is placed in Zakariya’s care; he asks for offspring and is told of Yahya."
+  },
+  {
+   "surah": 21,
+   "from": 89,
+   "to": 90,
+   "note": "Zakariya asks not to be left alone; he is given Yahya, and his wife is amended for him."
+  }
+ ],
+ "hadith": [
+  {
+   "book": "muslim",
+   "number": "2379",
+   "narrator": "Abu Huraira",
+   "grade": "Sahih",
+   "grader": "Muslim, in his Sahih",
+   "summary": "The Prophet ﷺ said Zakariya was a carpenter.",
+   "verified": "2026-10-20"
+  },
+  {
+   "book": "muslim",
+   "number": "162",
+   "narrator": "Anas ibn Malik",
+   "grade": "Sahih",
+   "grader": "Muslim, in his Sahih",
+   "summary": "In the Night Journey report, the Prophet ﷺ meets Yahya and Isa in the second heaven and calls them maternal cousins.",
+   "verified": "2026-10-20"
+  }
+ ],
+ "scholarly": [
+  {
+   "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+   "author": "Ibn Kathir",
+   "locator": "on 19:2-6",
+   "summary": "Says the call was secret (Qatadah) and “mawali” are the relatives who will succeed him (Mujahid, Qatadah, al-Suddi). On “inherit me”, he reasons it means prophethood, not wealth; Mujahid says knowledge, and Abu Salih says a prophet like his forefathers. He cites the report that Zakariya was a carpenter."
+  },
+  {
+   "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+   "author": "Ibn Kathir",
+   "locator": "on 19:12-13",
+   "summary": "On “hanan”, quotes Ibn Abbas (through Ali ibn Abi Talha), Ikrimah, Qatadah and al-Dahhak for mercy from Allah and Mujahid for gentleness. On “zakah” he gives purity, a righteous deed (Qatadah) and a pure deed (al-Dahhak, Ibn Jurayj)."
+  }
+ ],
+ "differences": [
+  {
+   "question": "What did Zakariya ask to be inherited (19:6)?",
+   "views": [
+    {
+     "who": "Ibn Kathir",
+     "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com), on 19:2-6",
+     "view": "Prophethood, not wealth."
+    },
+    {
+     "who": "Mujahid, as quoted by Ibn Kathir",
+     "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com), on 19:2-6",
+     "view": "Knowledge."
+    },
+    {
+     "who": "Abu Salih, as quoted by Ibn Kathir",
+     "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com), on 19:2-6",
+     "view": "A prophet like his forefathers."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,24 @@
+{
+ "schema": 1,
+ "subject": "yusuf",
+ "badge": "Not from the Qur’an",
+ "checked": "2026-10-20",
+ "items": [
+  {
+   "id": "yusuf-sold-twenty",
+   "class": "silent",
+   "origin": "Bible, Genesis 37:28",
+   "claim": "Joseph is drawn out of the pit and sold to the Ishmaelites for twenty pieces of silver.",
+   "ruling": "The Qur’an says only that they sold him for a reduced price, a few dirhams (12:20). It gives no figure. We neither believe nor disbelieve twenty pieces.",
+   "basis": "Qur’an 12:19-20; the Bible text (Genesis 37:18-36, NRSVUE) read on BibleGateway"
+  },
+  {
+   "id": "yusuf-reuben-judah",
+   "class": "silent",
+   "origin": "Bible, Genesis 37:21-27",
+   "claim": "Reuben says they should not take his life and proposes the pit, meaning to rescue him; Judah proposes selling him instead of killing him.",
+   "ruling": "The Qur’an has “a speaker among them” say not to kill Yusuf but to throw him into the well (12:10) and names no brother. We neither believe nor disbelieve which brother said what.",
+   "basis": "Qur’an 12:8-10; the Bible text (Genesis 37:18-36, NRSVUE) read on BibleGateway"
+  }
+ ]
+}

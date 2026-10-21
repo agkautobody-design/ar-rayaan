@@ -1,0 +1,32 @@
+{
+ "schema": 1,
+ "subject": "alyasa",
+ "title": "Alyasa (Elisha)",
+ "kind": "prophet",
+ "checked": "2026-10-20",
+ "reviewStatus": "Not yet scholar-reviewed",
+ "quran": [
+  {
+   "surah": 6,
+   "from": 86,
+   "to": 86,
+   "note": "Elisha is named with Ismail, Yunus and Lut, all preferred over the worlds."
+  },
+  {
+   "surah": 38,
+   "from": 48,
+   "to": 48,
+   "note": "Elisha is named with Ismail and Dhul-Kifl among the outstanding."
+  }
+ ],
+ "hadith": [],
+ "scholarly": [
+  {
+   "work": "Ma’ariful Qur’an (English edition, read on Quran.com)",
+   "author": "Mufti Muhammad Shafi’",
+   "locator": "on 21:85",
+   "summary": "Reports from Mujahid, through Ibn Jarir, that Dhul-Kifl was a deputy of Yasa’. The author concludes he was Yasa’s deputy. This is the only link to Alyasa in the work."
+  }
+ ],
+ "differences": []
+}

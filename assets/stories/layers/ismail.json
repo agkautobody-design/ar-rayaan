@@ -1,0 +1,98 @@
+{
+ "schema": 1,
+ "subject": "ismail",
+ "title": "Ismail (Ishmael)",
+ "kind": "prophet",
+ "checked": "2026-10-20",
+ "reviewStatus": "Not yet scholar-reviewed",
+ "quran": [
+  {
+   "surah": 19,
+   "from": 54,
+   "to": 55,
+   "note": "True to his promise, a messenger and a prophet who enjoined prayer and zakah on his people."
+  },
+  {
+   "surah": 2,
+   "from": 125,
+   "to": 129,
+   "note": "Ibrahim and Ismail raise the foundations of the House and pray for a messenger from among their descendants."
+  },
+  {
+   "surah": 14,
+   "from": 35,
+   "to": 41,
+   "note": "Ibrahim settles some of his descendants in an uncultivated valley near the Sacred House."
+  },
+  {
+   "surah": 37,
+   "from": 99,
+   "to": 107,
+   "note": "The forbearing boy and the dream; the boy is ransomed with a great sacrifice. The Qur’an does not name him here."
+  },
+  {
+   "surah": 21,
+   "from": 85,
+   "to": 86,
+   "note": "Ismail, Idris and Dhul-Kifl, all of the patient."
+  },
+  {
+   "surah": 38,
+   "from": 48,
+   "to": 48,
+   "note": "Ismail, Elisha and Dhul-Kifl are among the outstanding."
+  },
+  {
+   "surah": 2,
+   "from": 133,
+   "to": 133,
+   "note": "Ya’qub’s sons say they will worship the God of Ibrahim, Ismail and Ishaq."
+  }
+ ],
+ "hadith": [
+  {
+   "book": "bukhari",
+   "number": "3364",
+   "narrator": "Ibn Abbas, through Sa’id ibn Jubayr",
+   "grade": "Sahih",
+   "grader": "al-Bukhari, in his Sahih",
+   "summary": "In the long report of Hajar and Ismail, Ismail grew up among the Jurhum tribe who settled near Zamzam, learned their Arabic and married a woman from among them. His father Ibrahim visited twice while he was away and then met him near Zamzam, sharpening arrows; they raised the foundations of the Ka’ba together and prayed that Allah accept their work. The report does not mention a sacrifice.",
+   "verified": "2026-10-20"
+  },
+  {
+   "book": "muslim",
+   "number": "2276",
+   "narrator": "Wathila ibn al-Asqa’",
+   "grade": "Sahih",
+   "grader": "Muslim, in his Sahih",
+   "summary": "The Prophet ﷺ said Allah chose Kinana from the descendants of Ismail, Quraysh from Kinana, Banu Hashim from Quraysh, and himself from Banu Hashim.",
+   "verified": "2026-10-20"
+  }
+ ],
+ "scholarly": [
+  {
+   "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com)",
+   "author": "Ibn Kathir",
+   "locator": "on 37:102",
+   "summary": "Concludes that the son Ibrahim was told to sacrifice was Ismail. Names Ibn Abbas (reported through Sa’id ibn Jubayr, al-Sha’bi, Yusuf ibn Mihran, Mujahid and Ata’), Ibn Umar, al-Sha’bi (who said he saw the ram’s horns in the Ka’ba), al-Hasan al-Basri, Muhammad ibn Ka’b al-Qurazi, Umar ibn Abd al-Aziz and Imam Ahmad as holding it. He also cites a report from Safiyya bint Shayba, through Uthman ibn Talha, that the Prophet ﷺ saw the ram’s horns in the Ka’ba. The abridged text gives no grade for that report and we have not checked it."
+  }
+ ],
+ "differences": [
+  {
+   "question": "Which son was Ibrahim told to sacrifice (37:102)?",
+   "views": [
+    {
+     "who": "Ibn Abbas, Ibn Umar, Mujahid, al-Sha’bi, al-Hasan al-Basri, Imam Ahmad and others listed by Ibn Kathir",
+     "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com), on 37:102",
+     "view": "Ismail. Ibn Kathir holds this view and treats Ishaq as a mistaken identification."
+    },
+    {
+     "who": "The Jewish text, as Ibn Kathir describes it",
+     "work": "Tafsir Ibn Kathir (abridged English edition, read on Quran.com), on 37:102; the Bible text (Genesis 22:1-14, NRSVUE) read on BibleGateway",
+     "view": "The Bible names the son as Isaac (Genesis 22:2, read by us on BibleGateway). Ibn Kathir argues that the name was inserted into the Jewish text."
+    }
+   ],
+   "note": "The Qur’an does not name the son (37:99-107). The good news of Ishaq is given afterwards (37:112)."
+  }
+ ]
+}

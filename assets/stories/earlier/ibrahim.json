@@ -1,0 +1,32 @@
+{
+ "schema": 1,
+ "subject": "ibrahim",
+ "badge": "Not from the Qur’an",
+ "checked": "2026-10-20",
+ "items": [
+  {
+   "id": "ibrahim-sacrifice-isaac",
+   "class": "silent",
+   "origin": "Bible, Genesis 22:1-14",
+   "claim": "God tells Abraham to take “your son, your only son Isaac” and offer him as a burnt offering; a ram caught by its horns is offered in his place.",
+   "ruling": "The Qur’an tells of the dream, the son’s answer and the ransom with a great sacrifice, but does not name the son (37:102-107). Ibn Kathir (abridged) holds that the son was Ismail and that the name Ishaq entered the Jewish text. We report that argument as his view and do not decide for the reader beyond what the Qur’an says.",
+   "basis": "Qur’an 37:99-113; Tafsir Ibn Kathir (abridged English edition, read on Quran.com), on 37:102; the Bible text (Genesis 22:1-14, NRSVUE) read on BibleGateway"
+  },
+  {
+   "id": "ibrahim-hagar-sent-away",
+   "class": "silent",
+   "origin": "Bible, Genesis 21:8-21",
+   "claim": "Sarah sees Ishmael playing with Isaac and asks Abraham to send Hagar and her son away; Abraham gives them bread and a skin of water, and they wander in the wilderness of Beer-sheba.",
+   "ruling": "The Qur’an says only that Ibrahim settled some of his descendants in an uncultivated valley near the Sacred House (14:37). Sahih al-Bukhari 3364 (Ibn Abbas) says he left Hajar and Ismail by the site of the Ka’ba and that Hajar asked whether Allah had commanded it. Sarah’s request and the reason given in Genesis are not in either, so we neither believe nor disbelieve them; for the place we follow the Qur’an and the hadith.",
+   "basis": "Qur’an 14:37; Sahih al-Bukhari 3364; the Bible text (Genesis 21:8-21, NRSVUE) read on BibleGateway"
+  },
+  {
+   "id": "ibrahim-egyptian-wife",
+   "class": "contradicted",
+   "origin": "Bible, Genesis 21:21",
+   "claim": "Hagar gets a wife for Ishmael from the land of Egypt.",
+   "ruling": "Not told here. Sahih al-Bukhari 3364 (Ibn Abbas) says Ismail grew up among the tribe of Jurhum, learned their Arabic and married a woman from among them.",
+   "basis": "Sahih al-Bukhari 3364; the Bible text (Genesis 21:21, NRSVUE) read on BibleGateway"
+  }
+ ]
+}

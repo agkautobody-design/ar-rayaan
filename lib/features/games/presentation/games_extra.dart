@@ -11,6 +11,7 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../data/lineage_rounds.dart';
 
 Future<Map<String, dynamic>> _loadTree() async =>
     json.decode(await rootBundle.loadString('assets/family/tree.json'))
@@ -47,37 +48,10 @@ class _LineageState extends ConsumerState<LineageChallengeScreen> {
 
   Future<void> _build() async {
     final tree = await _loadTree();
-    final nodes = (tree['nodes'] as List<dynamic>)
-        .map((e) => Map<String, dynamic>.from(e as Map)).toList();
-    final byId = {for (final n in nodes) n['id'] as String: n};
-    final rnd = Random();
-    final rounds = <_Round>[];
-    final people = nodes.where((n) => (n['parents'] as List).isNotEmpty &&
-        (n['parents'] as List).every((p) => byId.containsKey(p))).toList()
-      ..shuffle(rnd);
-    for (final n in people.take(6)) {
-      final parentId = (n['parents'] as List).first as String;
-      final parent = byId[parentId]!;
-      final distractors = nodes.where((x) => x['id'] != parentId &&
-          (x['parents'] as List).isEmpty != true).toList()..shuffle(rnd);
-      final opts = [parent['name'] as String,
-        distractors[0]['name'] as String, distractors[1]['name'] as String]..shuffle(rnd);
-      rounds.add(_Round(
-        'Who is the parent of ${n['name']}?',
-        opts, opts.indexOf(parent['name'] as String),
-        '${n['name']} descends from ${parent['name']} — ${n['era']}.',
-      ));
-    }
-    for (final n in nodes.where((n) => (n['river'] as String) != 'root').toList()..shuffle(rnd)) {
-      if (rounds.length >= 8) break;
-      final river = n['river'] as String;
-      final riverName = river == 'ismail' ? "the first river (to the Prophet ﷺ)" : "the second river (to Musa, Dawud, and Isa)";
-      rounds.add(_Round(
-        '${n['name']} belongs to which river of Ibrahim\u2019s house?',
-        [riverName, 'the other river', 'neither river'],
-        0, '${n['name']} carries the line of Ismail — ${n['era']}.',
-      ));
-    }
+    final rounds = <_Round>[
+      for (final LineageRound r in buildLineageRounds(tree, Random()))
+        _Round(r.prompt, r.options, r.answer, r.why),
+    ];
     setState(() => _rounds = rounds);
   }
 

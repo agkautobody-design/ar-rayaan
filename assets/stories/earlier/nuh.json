@@ -1,0 +1,24 @@
+{
+ "schema": 1,
+ "subject": "nuh",
+ "badge": "Not from the Qur’an",
+ "checked": "2026-10-20",
+ "items": [
+  {
+   "id": "nuh-all-sons-aboard",
+   "class": "contradicted",
+   "origin": "Bible, Genesis 7:7, 13",
+   "claim": "Noah, his wife, his three sons Shem, Ham and Japheth, and their wives all enter the ark.",
+   "ruling": "Not told here. The Qur’an has Nuh call to a son who stayed apart and was drowned (11:42-43), and gives the wife of Nuh as an example of those who disbelieved (66:10). The family taken aboard is “your family, except those about whom the word has preceded” (11:40).",
+   "basis": "Qur’an 11:40-43; 66:10; the Bible text (Genesis 7:1-13, NRSVUE) read on BibleGateway"
+  },
+  {
+   "id": "nuh-age-600",
+   "class": "silent",
+   "origin": "Bible, Genesis 7:6",
+   "claim": "Noah is six hundred years old when the flood comes.",
+   "ruling": "The Qur’an says he remained among his people a thousand years minus fifty (29:14); it does not give his age at the flood. Ibn Kathir (abridged, on 11:40) says he called his people for 950 years. We neither believe nor disbelieve six hundred.",
+   "basis": "Qur’an 29:14; Tafsir Ibn Kathir (abridged English edition, read on Quran.com), on 11:40; the Bible text (Genesis 7:1-13, NRSVUE) read on BibleGateway"
+  }
+ ]
+}
