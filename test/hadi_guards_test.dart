@@ -20,6 +20,28 @@ void main() {
       }
     });
 
+    test('missed prayers and fasts in the first person go to a scholar', () {
+      for (final String q in <String>[
+        'I missed my prayers for years, what do I do?',
+        'How do I make up my missed prayers?',
+        'I missed many fasts, what is the kaffarah?',
+        'Can I make up salah I skipped?',
+      ]) {
+        expect(RulingGate.classify(q), RulingClass.personal, reason: q);
+      }
+      expect(RulingGate.classify('Why is the dawn prayer special?'),
+          RulingClass.none);
+    });
+
+    test('Arabic and Urdu ruling questions are recognised', () {
+      expect(RulingGate.classify('ما حكم الصلاة بدون وضوء؟'),
+          RulingClass.general);
+      expect(RulingGate.classify('ما حكم الطلاق؟'), RulingClass.general);
+      expect(RulingGate.classify('هل طلاقي صحيح؟'), RulingClass.personal);
+      expect(RulingGate.classify('مجھے نماز کا طریقہ بتائیں'),
+          RulingClass.none);
+    });
+
     test('general rulings and ordinary questions are not personal', () {
       expect(RulingGate.classify('What is the ruling on interest loan in Islam?'),
           RulingClass.general);
@@ -60,6 +82,37 @@ void main() {
         'I am a 12 year old girl',
       ]) {
         expect(MinorSignal.isMinor(q), isTrue, reason: q);
+      }
+    });
+
+    test('real minors are still caught when they say it plainly', () {
+      for (final String q in <String>[
+        'I am 14',
+        'im 12 years old',
+        "i'm just a 14 year old",
+        'as a 13 year old muslim I want to fast',
+        '14 yo here, how do I pray',
+        'A 14 year old muslim asking about hijab',
+        'I am 14 and my brother is 8 years old',
+        'me and my sister are 15 years old',
+      ]) {
+        expect(MinorSignal.isMinor(q), isTrue, reason: q);
+      }
+    });
+
+    test('an age said about someone else does not lock the session', () {
+      for (final String q in <String>[
+        'How do I teach my 5 year old to pray?',
+        'my 5 year old',
+        'my 8-year-old son wants to learn wudu',
+        'my son is 9 years old and will not pray',
+        'my daughter, who is 7 years old, wants to fast',
+        'I have a 6 year old daughter who will not pray',
+        'a 10 year old girl asked me how to pray',
+        'Teach a 10 year old to pray',
+        'our 6 year old keeps asking about Allah',
+      ]) {
+        expect(MinorSignal.isMinor(q), isFalse, reason: q);
       }
     });
 

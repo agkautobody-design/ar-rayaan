@@ -44,8 +44,16 @@ void main() {
 
     test('an unrelated question is declined, not matched to nonsense',
         () async {
-      expect(await ask('Who will win the football match?'),
+      expect(await ask('Tell me about quantum entanglement'),
           OfflineHadiProvider.decline);
+    });
+
+    test('a question about something else is told so, not sent to a scholar',
+        () async {
+      expect(await ask('Who will win the football match?'),
+          OfflineHadiProvider.offTopicReply);
+      expect(await ask('Who won the world cup?'),
+          OfflineHadiProvider.offTopicReply);
     });
   });
 

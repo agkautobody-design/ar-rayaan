@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
@@ -13,6 +14,7 @@ class OpenAIChatHadiProvider implements HadiProvider {
     required this.baseUrl,
     required this.modelName,
     this.extraHeaders = const <String, String>{},
+    this.timeout = requestTimeout,
     http.Client? client,
   }) : _client = client ?? http.Client();
 
@@ -20,11 +22,79 @@ class OpenAIChatHadiProvider implements HadiProvider {
   final String baseUrl;
   final String modelName;
   final Map<String, String> extraHeaders;
+
+  /// How long to wait for the service (shortened in tests).
+  final Duration timeout;
   final http.Client _client;
+
+  /// How long a live answer may take before Hādi gives up and says so.
+  static const Duration requestTimeout = Duration(seconds: 30);
+
+  /// The room a reply has. Reasoning models spend part of it thinking, so
+  /// it is generous; the prompt keeps answers short.
+  static const int maxTokens = 1500;
+
+  /// A plain sentence for each kind of failure, so a rate limit is not
+  /// reported as a bad key.
+  static String describeStatus(int code) {
+    if (code == 401 || code == 403) {
+      return 'The guidance service did not accept your API key. Check it in '
+          'Hādi settings.';
+    }
+    if (code == 429) {
+      return 'The guidance service is busy, or the free limit for now is '
+          'used up. Try again in a minute.';
+    }
+    if (code >= 500) {
+      return 'The guidance service is having trouble right now. Try again '
+          'shortly.';
+    }
+    return 'The guidance service returned $code.';
+  }
 
   @override
   Future<String> ask(String question, List<HadiMessage> history) async {
-    final http.Response resp = await _client.post(
+    final http.Response resp;
+    try {
+      resp = await _post(question, history).timeout(timeout);
+    } on TimeoutException {
+      throw const HadiProviderException(
+        'The guidance service took too long to answer.',
+      );
+    }
+    if (resp.statusCode != 200) {
+      throw HadiProviderException(describeStatus(resp.statusCode));
+    }
+    final Object? body = jsonDecode(resp.body);
+    final Object? choices = body is Map<String, dynamic> ? body['choices'] : null;
+    if (choices is! List<dynamic> || choices.isEmpty) {
+      throw const HadiProviderException(
+        'The guidance service sent an empty reply.',
+      );
+    }
+    final Object? first = choices.first;
+    final Object? message = first is Map<String, dynamic> ? first['message'] : null;
+    final Object? content =
+        message is Map<String, dynamic> ? message['content'] : null;
+    final String text = content is String ? content.trim() : '';
+    final bool cutOff =
+        first is Map<String, dynamic> && first['finish_reason'] == 'length';
+    if (text.isEmpty) {
+      throw HadiProviderException(
+        cutOff
+            ? 'The answer ran out of room before it began. Please ask again.'
+            : 'The guidance service sent an empty reply.',
+      );
+    }
+    if (cutOff) {
+      return '$text\n\n(This answer was cut off. Ask me to continue and I '
+          'will carry on.)';
+    }
+    return text;
+  }
+
+  Future<http.Response> _post(String question, List<HadiMessage> history) {
+    return _client.post(
       Uri.parse(baseUrl),
       headers: <String, String>{
         'Authorization': 'Bearer $apiKey',
@@ -34,7 +104,7 @@ class OpenAIChatHadiProvider implements HadiProvider {
       body: jsonEncode(<String, dynamic>{
         'model': modelName,
         'temperature': 0.5, // low drift — authenticity over creativity
-        'max_tokens': 750,
+        'max_tokens': maxTokens,
         'messages': <Map<String, String>>[
           const <String, String>{
             'role': 'system',
@@ -52,21 +122,6 @@ class OpenAIChatHadiProvider implements HadiProvider {
         ],
       }),
     );
-    if (resp.statusCode != 200) {
-      throw HadiProviderException(
-        'The guidance service returned ${resp.statusCode}. '
-        'Check your API key in Hādi settings.',
-      );
-    }
-    final Map<String, dynamic> body =
-        jsonDecode(resp.body) as Map<String, dynamic>;
-    final List<dynamic> choices = body['choices'] as List<dynamic>;
-    if (choices.isEmpty) throw const HadiProviderException('Empty reply.');
-    final String text =
-        ((choices.first as Map<String, dynamic>)['message']
-                as Map<String, dynamic>)['content']
-            as String;
-    return text.trim();
   }
 }
 

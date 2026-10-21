@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'dart:convert';
 import '../../stories/domain/story.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -48,6 +47,36 @@ const Set<String> kHadiNavWhitelist = <String>{
   '/academy/quranic-arabic', '/academy/hajj-umrah-pack',
 };
 
+/// Short names for the screens Hādi offers as buttons. A route that is not
+/// listed still works; its button says "Open this screen".
+const Map<String, String> kHadiRouteNames = <String, String>{
+  '/stories': 'Stories',
+  '/prayer': 'Prayer Times',
+  '/qibla': 'Qibla',
+  '/quran': 'the Qur’an',
+  '/zakat': 'the Zakat calculator',
+  '/calendar': 'the Islamic Calendar',
+  '/hadith': 'the Forty Hadith',
+  '/adhkar': 'Dhikr and Du’a',
+  '/sakina': 'Sakina',
+  '/feelings': 'For Your Heart',
+  '/games': 'the Games',
+  '/games/names99': 'the 99 Names',
+  '/academy': 'the Wasia Academy',
+  '/academy/gate': 'the Wasia Academy',
+  '/academy/hisn': 'the Daily Duas',
+  '/huda': 'the Huda guides',
+  '/journey': 'your Journey',
+  '/notes': 'Notes',
+  '/settings': 'Settings',
+  '/search': 'Find Anything',
+  '/sources': 'Our Sources',
+  '/masajid': 'Masajid and Halal',
+  '/family-tree': 'the Messengers’ family tree',
+  '/finance': 'Tayyib Finance',
+  '/share': 'verse cards',
+};
+
 /// Reads the [GO:] / [DO:] tokens a reply may carry. Pure, so it is tested
 /// without a controller.
 abstract final class HadiTokens {
@@ -63,6 +92,26 @@ abstract final class HadiTokens {
     }
     return null;
   }
+
+  /// Every distinct whitelisted [GO:] route in [answer], in order, at most
+  /// [limit]. Each becomes an "Open …" button; nothing moves on its own.
+  static List<String> routesOf(String answer, {int limit = 2}) {
+    final List<String> out = <String>[];
+    for (final RegExpMatch m in _go.allMatches(answer)) {
+      final String? route = m.group(1);
+      if (route != null &&
+          kHadiNavWhitelist.contains(route) &&
+          !out.contains(route)) {
+        out.add(route);
+        if (out.length >= limit) break;
+      }
+    }
+    return out;
+  }
+
+  /// Button text for [route], for example "Open Prayer Times".
+  static String labelFor(String route) =>
+      'Open ${kHadiRouteNames[route] ?? 'this screen'}';
 
   /// [answer] with every [GO:] and [DO:] token removed.
   static String strip(String answer) =>
@@ -198,9 +247,6 @@ class HadiController extends Notifier<HadiState> {
     return clean;
   }
 
-  /// Screen-jump requests extracted from Hadi's replies ([GO:/path] tokens).
-  final StreamController<String> navigationEvents =
-      StreamController<String>.broadcast();
   static const String _keyPref = 'ar.hadi.apikey';
   static const String _providerPref = 'ar.hadi.provider';
   static const String _threadPref = 'ar.hadi.thread';
@@ -209,9 +255,6 @@ class HadiController extends Notifier<HadiState> {
 
   @override
   HadiState build() {
-    ref.onDispose(() {
-      if (!navigationEvents.isClosed) navigationEvents.close();
-    });
     List<HadiMessage> messages = const <HadiMessage>[
       HadiMessage(fromHadi: true, text: kHadiGreeting),
     ];
@@ -222,32 +265,31 @@ class HadiController extends Notifier<HadiState> {
         final List<dynamic> decoded = json.decode(raw) as List<dynamic>;
         final List<HadiMessage> restored = <HadiMessage>[
           for (final dynamic e in decoded)
-            HadiMessage(
-              fromHadi: (e as Map)['fromHadi'] as bool,
-              text: e['text'] as String,
-              sources: <String>[
-                for (final dynamic x in (e['sources'] as List<dynamic>? ??
-                    const <dynamic>[]))
-                  x as String,
-              ],
-            ),
+            if (!_isWelcomeBack((e as Map)['text'] as String))
+              HadiMessage(
+                fromHadi: e['fromHadi'] as bool,
+                text: e['text'] as String,
+                sources: <String>[
+                  for (final dynamic x in (e['sources'] as List<dynamic>? ??
+                      const <dynamic>[]))
+                    x as String,
+                ],
+                routes: <String>[
+                  for (final dynamic x in (e['routes'] as List<dynamic>? ??
+                      const <dynamic>[]))
+                    x as String,
+                ],
+              ),
         ];
         if (restored.length > 1) {
-          String topic = '';
-          for (final HadiMessage m in restored.reversed) {
-            if (!m.fromHadi) {
-              topic = m.text.split(' ').take(8).join(' ');
-              break;
-            }
-          }
+          // A short line for this visit only: it never repeats what the
+          // person said last time, and it is not saved.
           messages = <HadiMessage>[
             ...restored,
-            HadiMessage(
+            const HadiMessage(
               fromHadi: true,
-              text: topic.isEmpty
-                  ? 'Welcome back. Where shall we continue?'
-                  : 'Welcome back. Last time we spoke about "$topic". '
-                      'How is it going?',
+              text: 'Welcome back. Where shall we continue?',
+              ephemeral: true,
             ),
           ];
         } else if (restored.isNotEmpty) {
@@ -265,6 +307,10 @@ class HadiController extends Notifier<HadiState> {
     return HadiState(messages: messages, live: _apiKey != null, madhhab: madhhab);
   }
 
+  /// Older versions saved their "Welcome back" line into the thread; drop it
+  /// when the thread is read so it does not pile up.
+  static bool _isWelcomeBack(String text) => text.startsWith('Welcome back.');
+
   void _persistThread(List<HadiMessage> messages) {
     try {
       final SharedPreferences prefs = ref.read(sharedPreferencesProvider);
@@ -272,7 +318,7 @@ class HadiController extends Notifier<HadiState> {
       // visit only; it is never written to the device thread.
       final List<HadiMessage> savable = <HadiMessage>[
         for (final HadiMessage m in messages)
-          if (!m.sensitive) m,
+          if (!m.sensitive && !m.ephemeral) m,
       ];
       final List<HadiMessage> tail = savable.length > 20
           ? savable.sublist(savable.length - 20)
@@ -285,6 +331,7 @@ class HadiController extends Notifier<HadiState> {
               'fromHadi': m.fromHadi,
               'text': m.text,
               if (m.sources.isNotEmpty) 'sources': m.sources,
+              if (m.routes.isNotEmpty) 'routes': m.routes,
             },
         ]),
       );
@@ -297,6 +344,8 @@ class HadiController extends Notifier<HadiState> {
       final SharedPreferences prefs = ref.read(sharedPreferencesProvider);
       await prefs.remove(_threadPref);
     } catch (_) {}
+    // A fresh conversation starts with no age on record.
+    _minorSession = false;
     state = HadiState(
       messages: const <HadiMessage>[
         HadiMessage(fromHadi: true, text: kHadiGreeting),
@@ -629,10 +678,11 @@ class HadiController extends Notifier<HadiState> {
     final List<HadiMessage> history = <HadiMessage>[
       for (final HadiMessage m
           in state.messages.sublist(0, state.messages.length - 1))
-        if (!m.sensitive) m,
+        if (!m.sensitive && !m.ephemeral) m,
     ];
     final HadiCorpus corpus = await _corpus();
     bool usedLive = false;
+    bool failedLive = false;
     String answer;
     try {
       String liveQuestion = q;
@@ -689,10 +739,12 @@ class HadiController extends Notifier<HadiState> {
       usedLive = false;
       String offline;
       try {
-        offline = await const OfflineHadiProvider().ask(q, history);
+        offline = await OfflineHadiProvider(hasKey: _apiKey != null)
+            .ask(q, history);
       } catch (_) {
-        offline = OfflineHadiProvider.decline;
+        offline = OfflineHadiProvider.declineFor(_apiKey != null);
       }
+      failedLive = true;
       final String why = e is HadiProviderException
           ? e.message
           : 'I could not connect. Check your internet connection, or '
@@ -703,7 +755,7 @@ class HadiController extends Notifier<HadiState> {
     if (quotaNote != null) answer = quotaNote + answer;
     // Tokens are acted on, then removed, BEFORE the message is shown or
     // saved — so the thread never holds a raw [GO:] / [DO:] token.
-    final String route = HadiTokens.routeOf(answer) ?? '';
+    final List<String> routes = HadiTokens.routesOf(answer);
     String clean = HadiTokens.strip(await _executeActions(answer));
 
     // Live answers are checked before anyone sees them.
@@ -743,14 +795,13 @@ class HadiController extends Notifier<HadiState> {
           sources: sources,
           live: usedLive,
           notes: notes,
+          routes: routes,
+          retryQuestion: failedLive ? q : null,
         ),
       ],
       typing: false,
     );
     _persistThread(state.messages);
-    if (route.isNotEmpty && !navigationEvents.isClosed) {
-      navigationEvents.add(route);
-    }
     return clean;
   }
 }

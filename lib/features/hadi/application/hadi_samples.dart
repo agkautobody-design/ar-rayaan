@@ -1,6 +1,7 @@
-/// Suggested questions and static answers for the Hādī screen.
-/// These exchanges demonstrate Hadi's warmth, knowledge, and navigation ability.
-/// Approved for live use — expanded to 20 exchanges covering diverse needs.
+/// Suggested questions for the Hādī screen. Only `question` is used: it is
+/// sent like anything the person types, and the offline shelf answers it
+/// (test/hadi_chips_test.dart pins every chip to a real, on-topic answer).
+/// `answer` is a short note on what a good reply covers; it is never shown.
 class HadiExchange {
   const HadiExchange({required this.question, required this.answer});
 
@@ -9,14 +10,9 @@ class HadiExchange {
 }
 
 const List<HadiExchange> kProposedHadiExchanges = [
-  // Spiritual foundations
-  HadiExchange(
-    question: 'What is the virtue of Surah Al-Kahf?',
-    answer:
-        'The Prophet ﷺ said: "Whoever reads Surah Al-Kahf on Friday, a light '
-        'will shine for him between the two Fridays." (al-Bayhaqi). It is also '
-        'a protection from the trial of the Dajjal. Shall I open it for you?',
-  ),
+  // The first five are the opening chips; the rest sit behind "More
+  // questions". Only `question` is sent: the offline shelf answers it, and
+  // test/hadi_chips_test.dart checks every one lands on a real answer.
   HadiExchange(
     question: 'A du\'a for anxiety',
     answer:
@@ -26,11 +22,27 @@ const List<HadiExchange> kProposedHadiExchanges = [
         'He is near. Would you like me to open the Sakina room for more?',
   ),
   HadiExchange(
-    question: 'How do I pray Witr?',
+    question: 'How do I make wudu?',
     answer:
-        'Witr is prayed after \'Isha until Fajr, as an odd number of rak\'ahs — '
-        'most simply one rak\'ah. After ruku\' you may recite Qunut: '
-        '"Allahumma ihdini fiman hadayt…" Would you like the full text?',
+        'The core steps: (1) intention, (2) wash the face, (3) wash the hands '
+        'and arms to the elbows, (4) wipe the head, (5) wash the feet to the '
+        'ankles. Most schools also keep this order (the Hanafis do not '
+        'require it). '
+        'The Prophet ﷺ said: "Whoever performs wudu well, his sins leave '
+        'from his body." (Muslim). Would you like a step-by-step guide?',
+  ),
+  HadiExchange(
+    question: 'I feel so alone',
+    answer:
+        'Allah says: "And He is with you wherever you are." (Qur\'an 57:4). '
+        'The Prophet ﷺ said: "Allah says: I am as My servant thinks of Me." '
+        '(Bukhari). You are not alone — the One who created you is closer than '
+        'your jugular vein. Shall I open the Sakina room?\n[GO:/sakina]',
+  ),
+  HadiExchange(
+    question: 'Take me to the Stories',
+    answer: 'With pleasure. There are beautiful hadiths and khutbahs '
+        'waiting for you.\n[GO:/stories]',
   ),
   HadiExchange(
     question: 'What can you do?',
@@ -39,15 +51,24 @@ const List<HadiExchange> kProposedHadiExchanges = [
         'walk you there myself. What would you like to explore first?',
   ),
   HadiExchange(
+    question: 'What is the virtue of Surah Al-Kahf?',
+    answer:
+        'The Prophet ﷺ said: "Whoever reads Surah Al-Kahf on Friday, a light '
+        'will shine for him between the two Fridays." (al-Bayhaqi). It is also '
+        'a protection from the trial of the Dajjal. Shall I open it for you?',
+  ),
+  HadiExchange(
+    question: 'How do I pray Witr?',
+    answer:
+        'Witr is prayed after \'Isha until Fajr, as an odd number of rak\'ahs — '
+        'most simply one rak\'ah. After ruku\' you may recite Qunut: '
+        '"Allahumma ihdini fiman hadayt…" Would you like the full text?',
+  ),
+  HadiExchange(
     question: 'Who is Wasia?',
     answer: 'The AI teacher of the Wasia Academy — the letter '
         'school. She speaks to students, parents, and teachers. '
         'Would you like me to take you to her?\n[GO:/academy]',
-  ),
-  HadiExchange(
-    question: 'Take me to the Stories',
-    answer: 'With pleasure. There are beautiful hadiths and khutbahs '
-        'waiting for you.\n[GO:/stories]',
   ),
   HadiExchange(
     question: 'A du\'a before sleep',
@@ -67,25 +88,6 @@ const List<HadiExchange> kProposedHadiExchanges = [
     answer: 'Bismillahi, tawakkaltu \'alallah — "In the name of '
         'Allah, I trust in Allah." It opens the Daily Duas pack. '
         'Shall I take you there?\n[GO:/academy/hisn]',
-  ),
-  // New exchanges — emotional & practical
-  HadiExchange(
-    question: 'I feel so alone',
-    answer:
-        'Allah says: "And He is with you wherever you are." (Qur\'an 57:4). '
-        'The Prophet ﷺ said: "Allah says: I am as My servant thinks of Me." '
-        '(Bukhari). You are not alone — the One who created you is closer than '
-        'your jugular vein. Shall I open the Sakina room?\n[GO:/sakina]',
-  ),
-  HadiExchange(
-    question: 'How do I make wudu?',
-    answer:
-        'The core steps: (1) intention, (2) wash the face, (3) wash the hands '
-        'and arms to the elbows, (4) wipe the head, (5) wash the feet to the '
-        'ankles. Most schools also keep this order (the Hanafis do not '
-        'require it). '
-        'The Prophet ﷺ said: "Whoever performs wudu well, his sins leave '
-        'from his body." (Muslim). Would you like a step-by-step guide?',
   ),
   HadiExchange(
     question: 'What breaks my wudu?',
@@ -156,11 +158,19 @@ const List<HadiExchange> kProposedHadiExchanges = [
   ),
 ];
 
-const String kHadiGreeting =
-    'As-Salaamu Alaikum. I am Hādi — walking beside you as you seek authentic '
-    'knowledge. Ask me anything, or tap a question below to begin.';
 
-const String kHadiFallback =
-    'A beautiful question. Let me search the authentic sources for you. '
-    'In the meantime, try one of the questions above, or ask me about '
-    'prayer, dua, Quran, or anything on your heart.';
+/// How many chips show before the person asks for more.
+const int kHadiOpeningChipCount = 5;
+
+/// Up to [count] starter questions the person has not asked yet, in order.
+/// [asked] is the text of what they have already said, so a chip never
+/// offers a question they just used.
+List<String> hadiSuggestions(Iterable<String> asked, {int count = 3}) {
+  final Set<String> done = <String>{
+    for (final String a in asked) a.trim().toLowerCase(),
+  };
+  return <String>[
+    for (final HadiExchange e in kProposedHadiExchanges)
+      if (!done.contains(e.question.toLowerCase())) e.question,
+  ].take(count).toList();
+}

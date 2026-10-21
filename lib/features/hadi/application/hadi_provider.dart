@@ -14,6 +14,9 @@ class HadiMessage {
     this.sources = const <String>[],
     this.live = false,
     this.notes = const <String>[],
+    this.routes = const <String>[],
+    this.ephemeral = false,
+    this.retryQuestion,
   });
 
   final bool fromHadi;
@@ -38,6 +41,18 @@ class HadiMessage {
   /// Short plain notes shown under the reply, for example that a reference
   /// was removed because it could not be verified.
   final List<String> notes;
+
+  /// Screens this reply offers, as app routes. The screen shows each as an
+  /// "Open …" button under the reply; the app never moves on its own.
+  final List<String> routes;
+
+  /// True for a line shown for this visit only (for example "Welcome
+  /// back"). It is never saved and never sent to a live provider.
+  final bool ephemeral;
+
+  /// Set when the live engine could not be reached: the question to send
+  /// again if the person taps "Try the live answer again".
+  final String? retryQuestion;
 }
 
 abstract interface class HadiProvider {
