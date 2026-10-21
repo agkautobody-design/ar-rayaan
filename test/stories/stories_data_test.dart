@@ -18,10 +18,16 @@ void main() {
         expect(s.title, isNotEmpty);
         expect(s.sources, isNotEmpty, reason: 'every story must cite its sources');
         expect(
-          s.sourceLabel == 'Established' || s.sourceLabel == 'Interpretive',
+          kStoryLabels.contains(s.sourceLabel),
           isTrue,
           reason: 'source label must follow the integrity law',
         );
+        for (final c in s.chapters) {
+          if (c.label != null) {
+            expect(kStoryLabels.contains(c.label), isTrue,
+                reason: '${s.id}: illegal chapter label ${c.label}');
+          }
+        }
         expect(s.chapters, isNotEmpty);
         expect(s.familyQuestion, isNotEmpty);
         for (final c in s.chapters) {

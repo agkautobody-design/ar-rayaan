@@ -8,6 +8,7 @@ import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/theme/widgets/speak_button.dart';
 import '../../hadi/application/hadi_controller.dart';
 import '../domain/story.dart';
+import 'source_label_chip.dart';
 import 'story_layers_section.dart';
 
 class StoryReaderScreen extends StatefulWidget {
@@ -45,7 +46,10 @@ class _StoryReaderScreenState extends State<StoryReaderScreen> {
           ),
           const SizedBox(height: 6),
           Text(story.subtitle, style: AppText.bodyMuted),
-          const SizedBox(height: 20),
+          const SizedBox(height: 14),
+          if (story.sourceLabel != kLabelEstablished)
+            SourceLabelNote(label: story.sourceLabel),
+          const SizedBox(height: 6),
           if (story.chapters.length > 1)
             Padding(
               padding: const EdgeInsets.only(bottom: 12),
@@ -72,6 +76,8 @@ class _StoryReaderScreenState extends State<StoryReaderScreen> {
                 ],
               ),
             ),
+          if (current.label != null && current.label != story.sourceLabel)
+            SourceLabelNote(label: current.label!, prefix: 'This chapter:'),
           if (current.heading.isNotEmpty) ...[
             Text(
               current.heading,

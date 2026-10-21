@@ -1,0 +1,321 @@
+# Story audit (workstream w12)
+
+Every chapter of the story packs `companions`, `women`, `seerah`, `ghayb`, `tales`, `khutbahs`, `modernhadith` and `signs` was classified on 2026-10-20. Nothing was deleted. Where a chapter stated detail that no source we could read supports, it was relabelled, and details that were almost certainly wrong, invented, or only in the Bible were reworded to what the sources support. No source was invented: a hadith number appears only where `tool/hadith_verdicts/*.json` has a verified verdict; Seerah reports whose named books were not opened are labelled "Seerah report (source not checked)".
+
+Everything here remains Not yet scholar-reviewed.
+
+## Legend
+
+| Code | Meaning |
+|---|---|
+| C | Verified citation |
+| Q | Qur'an |
+| CQ | Verified citation + Qur'an |
+| M | Mixed: supported core, unsourced detail |
+| U | Unsourced colour |
+| RF | Unsourced colour (reflection only) |
+
+Chapter labels used (shown in the app as a chip and note): Reflection; Seerah report (source not checked); Hadith report (reference not checked). A story takes the weakest label of its chapters: any Seerah-labelled chapter makes it a Seerah report, else any Hadith-labelled chapter makes it a Hadith report, else Reflection if every chapter is a reflection, else its original label (Established or Interpretive).
+
+## Counts
+
+Chapters audited: 278, in 200 stories.
+
+| Classification | Chapters |
+|---|---|
+| Verified citation (C) | 37 |
+| Qur'an (Q) | 39 |
+| Verified citation + Qur'an (CQ) | 15 |
+| Mixed: supported core, unsourced detail (M) | 146 |
+| Unsourced colour (U) | 23 |
+| Unsourced colour (reflection only) (RF) | 18 |
+
+| Chapter label applied | Chapters |
+|---|---|
+| unchanged (Established / Interpretive per story) | 157 |
+| Seerah report (source not checked) | 62 |
+| Hadith report (reference not checked) | 41 |
+| Reflection | 18 |
+
+## Table
+
+| pack | story id | chapter | classification | action |
+|---|---|---|---|---|
+| tales | tale-uwais | 1 | M | Muslim 2542 re-read on sunnah.com 2026-10-20: it has Umar relaying the description (white patch cured except a dirham-sized spot; only his mother left in Yemen; ask him to seek forgiveness). The Ali dialogue, the greetings, the shoulder sign and "Allah grants whatever he asks" are not in it. Body rewritten to what it says; subtitle and source line corrected. |
+| tales | tale-jurayj | 1 | M | Bukhari 3436 re-read 2026-10-20: the tempter was a woman (not shepherds), the report does not say the mother called three times, and it has no finger-to-mouth detail; he prayed after wudu. Body corrected to the report; closing line hedged. |
+| tales | tale-cave | 1 | M | Bukhari 2215 re-read 2026-10-20: the second man left a cousin who had asked 100 dinars (she said fear Allah, no orphans); the third hired ONE worker whose millet became cattle and a shepherd; the rock moved a bit, then two thirds, then fully. Body rewritten to the report. |
+| tales | tale-99 | 1 | M | Bukhari 3470 supports the story; the closing claim that the scholar was later killed by the same man is not in it (the man killed the one who said there was no repentance, before he found the scholar). Removed; "counted among the people of paradise" softened to "forgiven". |
+| tales | tale-dog | 1 | C | Bukhari 3467 supports the narrative; the "theology" paragraph is commentary. No change. |
+| tales | tale-barsisa | 1 | U | Already stated in the text and the sources as not from the Qur’an or an authentic hadith, neither believe nor disbelieve. Left as Interpretive; no source to check. |
+| tales | tale-boy-king | 1 | M | Muslim 3005 re-read 2026-10-20 and the number added. The hadith has the mountain shaking, then a boat capsizing (not beasts at his feet), and it does not say Surah al-Buruj was revealed about it; both corrected. |
+| tales | tale-yasin | 1 | Q | Qur’an 36:20-27. The line that the city "answered by killing him" is not stated in the verses; reworded to what they say. |
+| tales | tale-umar-milk | 1 | U | Night-walk episode attributed to Ibn al-Jawzi and "the historians"; no text opened. Relabelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| tales | tale-khalid-letter | 1 | U | Deathbed words attributed to Ibn al-Athir/al-Tabari; no text opened. The "letter to his brother", "asked to be carried against the enemy", "grave dug with his own hands" and the quoted burial words are not supported and were removed; "in his old age" removed. Relabelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| tales | tale-crow | 1 | Q | Qur’an 5:27-31 supports the narrative; the closing lines are commentary. No change. |
+| tales | tale-cave-people | 1 | M | Qur’an 18:9-26. "A king who demanded worship he had not earned" is not in the verses; removed. |
+| tales | tale-cave-people | 2 | Q | Qur’an 18:11, 18:18, 18:25. No change. |
+| tales | tale-cave-people | 3 | M | Qur’an 18:19-21. The wall was wrongly given to the victors; 18:21 has one group say "construct over them a structure" and those who prevailed say "we will surely take a masjid over them". Corrected to the verse. |
+| tales | tale-two-gardens | 1 | Q | Qur’an 18:32-44. No change. |
+| tales | tale-two-gardens | 2 | Q | Qur’an 18:34-40. No change. |
+| tales | tale-two-gardens | 3 | M | Qur’an 18:40-46. "A whirlwind with fire" is the picture of 2:266, not of this garden, and the night, the frost and the rich man sleeping are not in the verses. Heading and body corrected to 18:40 and 18:42. |
+| signs | sign-01 | 1 | M | Qur’an 20:15 and 33:63 support the opening. The claim that the Prophet asked Jibril about the first sign and was told "ten major signs" mixes two hadith (the hadith of Jibril, Muslim 8, asks about signs but does not list the ten); reworded. The two-fingers hadith has no number checked. Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
+| signs | sign-02 | 1 | M | Qur’an 54:1-2 supports the opening. The named witnesses (Walid, Abu Jahl), "swearing to what they had seen", "confirmed the event they denied" and "called the Quraysh in the moonlight" are not in any text we checked; reworded to what the verse says and what the reports say in general. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| signs | sign-03 | 1 | M | Bukhari 1036 and Tirmidhi 2210 (daif per Darussalam) are verified; the remaining hadith (knowledge lifted, drink and music, barefoot builders) carry "number not re-checked" in the text. Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
+| signs | sign-04 | 1 | U | The ten signs are in a hadith in Muslim (Hudhayfa ibn Asid), but the number is unchecked. The claims that "the collections agree on the order" and that the signs come in the order listed are not supported (that hadith lists them without stating an order, and this card listed a different order); the "mercy in the sequence" commentary rested on that order. Rewritten; subtitle corrected. Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
+| signs | sign-05 | 1 | M | Qur’an 44:10-11 supports the verse. The effect on believer and disbeliever and the forty days were attributed to Bukhari without a number; they are not matched to a collection we checked, so they are now marked as a report with the collection unverified. Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
+| signs | sign-06 | 1 | U | Qur’an 27:82 supports the verse. "Three letters between its eyes, readable by all, striking the forehead of every person" is not matched to any hadith we checked (the letters between the eyes belong to the Dajjal reports); removed and replaced with a general statement. Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
+| signs | sign-07 | 1 | M | Qur’an 6:158 and 25:62 support the verses; the sunrise from the west and the closing of repentance are in the hadith literature but the numbers are unchecked. "The scholars draw the circle precisely" had no named scholar; reworded. Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
+| signs | sign-08 | 1 | C | Muslim 2937 (long report of al-Nawwas) and Muslim 2946 are verified on file; the surah al-Kahf protection keeps its "number not re-checked" mark. Title/subtitle said "Seven days" and "the week" while the text says forty days; corrected. Source line given the verified number. |
+| signs | sign-09 | 1 | M | Bukhari 2476 and Muslim 2937 are verified on file and now cited. "Praying behind the Mahdi" is not in those reports (they speak of a leader from among the Muslims); reworded. 4:159 is given as one reading of the verse. |
+| signs | sign-10 | 1 | M | The daily digging report was attributed to Muslim; it is Tirmidhi 3153 (hasan gharib per al-Tirmidhi, sahih per Darussalam) and Ibn Majah 4080, both verified on file. The drying of Lake Tiberias, the withdrawal to Mount Tur and the worm are in Muslim 2937. Citations corrected. |
+| signs | sign-11 | 1 | U | Qur’an 39:68-69 and 36:51 support the verses. The angel sent to the east who breathes on every living soul is not in any text we checked (and the "companion tradition" reference was garbled); removed. The fire/wind reports are unchecked. Subtitle corrected. Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
+| signs | sign-12 | 1 | Q | Qur’an 21:104, 39:69, 98:8. No change. |
+| women | woman-maryam | 1 | Q | Qur’an 3:42, 3:37, 19:17-21. No change. |
+| women | woman-maryam | 2 | M | Qur’an 19:23-31 and 5:75. "Her son called her truthful" is not in the verses; reworded so only Allah’s description (5:75) is claimed. |
+| women | woman-asiya | 1 | Q | Qur’an 28:8-9 and 66:11. No change. |
+| women | woman-asiya | 2 | M | Qur’an 66:11 and Bukhari 3411 support the core. The torture, death and smile are tafsir reports not opened here; hedged. |
+| women | woman-khadijah | 1 | M | Bukhari 3 and 3818 verified. "Fifteen years" and the certainty that she was the very first human believer are not in the hadith; reworded to a seerah report. |
+| women | woman-khadijah | 2 | M | Bukhari 3818 verified. Her refusal of nobles, the boycott funding and the "Year of Sorrow" are seerah reports (source not opened). Reworded and labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| women | woman-aisha | 1 | M | The dream hadith is in Bukhari/Muslim but the number is unchecked; the dream wording is corrected to a man carrying her in silk. Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
+| women | woman-aisha | 2 | M | Bukhari 304 is Abu Said’s report of the Eid address to women, not Aisha asking; fixed. "Which of your wives" corrected to "which of the people"; the hadith count hedged; numbers unchecked. Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
+| women | woman-fatima | 1 | M | Abu Dawud 5217, Bukhari 3714, Muslim 2424 verified. "Youngest daughter", "a title he gave no other" and "boycott" are not supported; the 33:35 scene is reworded to the cloak (Muslim 2424). |
+| women | woman-fatima | 2 | M | Bukhari 3092, 3624 and Muslim 2450 verified. Scholarly "brief disagreement" claim and Karbala line removed or hedged. |
+| women | woman-hafsa | 1 | M | Nasa’i 3259 verified. Husband "in the battles of Badr and Uhud" is imprecise; reworded to "widowed". |
+| women | woman-hafsa | 2 | M | Bukhari 4986-4987 content: Zayd compiled the sheets, which then passed to Abu Bakr, Umar and Hafsa; Uthman sent to her for them. "The caliphate had to honor her terms" is not in it; removed. |
+| women | woman-zaynab | 1 | M | Qur’an 33:37. The verse does not name her; "no woman had her biography written into the revelation" removed. |
+| women | woman-zaynab | 2 | M | The creaking-floor quote, tanning and sewing are not in any text we checked; replaced by Muslim 2452 (longest hands, she worked with her hands and gave charity, read on sunnah.com 2026-10-20). "First of the wives to die" hedged as a history report; the wives’ choice (33:28-29) reworded. |
+| women | woman-umm-salama | 1 | M | Muslim 918 verified. The early-years details (beaten, separated) and "within a year" are seerah reports not opened here; hedged. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| women | woman-umm-salama | 2 | M | Bukhari 2731-2732 verified. The occasion of 33:35 is a hadith report (not checked here); reworded to say so. Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
+| women | woman-juwayriyya | 1 | U | Seerah (Ibn Ishaq/Ibn Hisham) not opened. Invented dialogue (companions’ reply, "she is with you") and "one hundred families or more" removed; father’s conversion removed. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| women | woman-juwayriyya | 2 | U | The Aisha remark is reported in a collection not checked here; the claims of a hundred households and the lesson are now marked as reflection. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| women | woman-umm-ayman | 1 | U | Ibn Sa’d not opened. Reworded to "the seerah reports say"; "Abyssinian" and "gave him into her care" removed. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| women | woman-umm-ayman | 2 | U | Ibn Sa’d not opened. The invented dialogue and "her son Ayman martyred at Uhud" are wrong or unsupported (Ayman was martyred at Hunayn per the sources); Zayd married her, their son was Usama. Removed. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| women | woman-sumayyah | 1 | M | Ibn Ishaq/Ibn Hisham not opened. 85:4-8 is cited only as an illustration (it does not name her); "three continents", the certainty of "first martyr" reworded to a seerah report. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| women | woman-sumayyah | 2 | M | Qur’an 16:106 supports the verse; the commentators’ occasion for Ammar is a tafsir report. "When the Prophet named the first martyrs" and "memorized the revelation, served in every battle" removed. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| women | woman-umm-ammarah | 1 | U | Ibn Ishaq/Ibn Hisham not opened. "More than a dozen wounds", the quoted "yesterday I saw your family" and "among the very first to give the oath" reworded to hedged seerah reports. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| women | woman-umm-ammarah | 2 | U | Musnad Ahmad number unverified. The garbled dialogue and the "scholars of the generation" claim removed; the report is stated at the level the source supports. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| women | woman-asma | 1 | U | Bukhari title Dhat an-Nitaqayn number not re-checked. The encounter with Abu Jahl, the earring, the Abu Quhafa riddle and the "two belts on waist and chest" are not in any text we checked; removed. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| women | woman-asma | 2 | U | The grinding/Zubayr "more right" scene, "ten children" and the charity line are unsourced; replaced by a hedged Bukhari-reported heavy-work line. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| women | woman-khawlah | 1 | M | Qur’an 58:1; Ibn Kathir on 58:1 read 2026-10-20 (from Aisha via Ibn Abi Hatim: Khawlah bint Tha’labah, husband Aws ibn as-Samit; her words quoted there). The earlier quote was not in it; replaced. "Zihar was abolished" corrected; "only chapter named for a woman’s legal plea" removed. |
+| women | woman-khawlah | 2 | M | Qur’an 58:1-4. "Freedman must free a slave" corrected; the garbled "Her brother…" line and the claim that Aws applied the ruling exactly removed; "first complete family-law ruling" softened. The zihar rulings are for a scholar. |
+| women | woman-safiyya | 1 | M | Abu Dawud 2998 verified. The choice offered to her and the details are from Ibn Sa’d/al-Tabari, not opened; source line now says so. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| women | woman-safiyya | 2 | U | The anecdotes attributed to Ibn Sa’d/al-Tabari (wives unkind, the husband/father question, her death date) were not opened and are removed; replaced by Tirmidhi 3892 (da’if per Darussalam; gharib), read on sunnah.com 2026-10-20. The closing "Interpretive" sentence removed. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| women | woman-bilqis | 1 | Q | Qur’an 27:29-34. The name Bilqis is from the tradition, not the verses; noted. |
+| women | woman-bilqis | 2 | Q | Qur’an 27:38-42. No change. |
+| women | woman-bilqis | 3 | Q | Qur’an 27:44. "The only woman whose submission is recorded in her own words" softened. |
+| women | woman-hagar | 1 | C | Bukhari 3364 re-read 2026-10-20: the report has "Then He will not neglect us", not "waste us"; corrected. |
+| women | woman-hagar | 2 | C | Bukhari 3364: seven runs. Wording of her saying corrected. |
+| women | woman-hagar | 3 | M | Bukhari 3364 re-read: the angel dug with his heel (or his wing), she scooped the water, and the Prophet said Allah have mercy on Ismail’s mother, had she left Zamzam (or not scooped) it would be a flowing spring. The baby’s heel and the "gush" quote were not in it; body rewritten. |
+| seerah | seerah-01 | 1 | M | Qur’an 105:1-5 supported. Abraha’s cathedral and the date are Ibn Ishaq reports (not opened). 'Months before' the birth reworded. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| seerah | seerah-02 | 1 | M | Qur’an 93:6 supported. Fosterage, Halimah, Abwa and Abdul-Muttalib details are Ibn Ishaq/Ibn Hisham reports (not opened). Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| seerah | seerah-03 | 1 | M | Bukhari 3 verified for Khadijah’s words. Maysarah, the angels’ shade, the proposal and 'Al-Amin' are seerah reports (not opened). Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| seerah | seerah-04 | 1 | M | Bukhari 3 and Qur’an 96:1-5 support the core; month and age are seerah detail. |
+| seerah | seerah-04 | 2 | M | Bukhari 3 verified. 'The first believer' reworded to 'his wife'. |
+| seerah | seerah-05 | 1 | M | Qur’an 26:214 and the Safa call (Bukhari/Muslim, numbers unchecked) supported. The order of the first believers is discussed in the sources; the meal for Banu Hashim stays marked 'Disputed in the sources'. Heading and subtitle corrected. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| seerah | seerah-06 | 1 | U | Ibn Ishaq not opened. The quoted words attributed to Abu Bakr are not supported and were removed. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| seerah | seerah-07 | 1 | M | Bukhari 349 and Muslim 162 verified. The date ('Year of Sorrow') and 'no veil between him and his Lord' are not in them; removed. The closing quote reworded to the narration. |
+| seerah | seerah-08 | 1 | M | Qur’an 111 supported. The document, the valley, the leaves, the termites and Khadijah’s wealth are Ibn Ishaq reports (not opened). Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| seerah | seerah-09 | 1 | M | Ibn Ishaq/Ahmad not opened. The boycott came after the first emigration to Abyssinia; 'first community in history' removed. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| seerah | seerah-10 | 1 | U | Ibn Ishaq not opened; Bukhari 3680 (dream of the palace) is not about this account. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| seerah | seerah-11 | 1 | M | Bukhari 3231 (the angel of the mountains and the Prophet’s hope) is the cited core. The supplication is not in Bukhari 3231 (the text already marks it as an Ibn Ishaq report); the vineyard and the stoning are seerah. The claim that he later entered Taif and spared it is wrong (see seerah-25) and was removed. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| seerah | seerah-12 | 1 | M | Bukhari 18 verified for the terms of the pledge. The numbers, 'drawn swords' and Mus’ab’s timing are Ibn Ishaq reports; Mus’ab was sent after the first pledge. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| seerah | seerah-13 | 1 | M | Qur’an 9:40 supported (the Prophet’s words, soldiers 'you did not see'). The spider and dove’s nest are not in the Qur’an or in Bukhari 3905 and no chain was verified; removed as fact. 'I only fear for you' and the date-palms leaning are unsourced; removed. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| seerah | seerah-14 | 1 | M | Qur’an 9:108 supported. The entry scenes, the camel and the brotherhood (Ansari offering half his wealth) are reports not checked here; the 'guest room above the house with steps beside the family’s' detail removed. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| seerah | seerah-15 | 1 | M | Ibn Ishaq/Ibn Hisham not opened. The Abdullah ibn Salam anecdote and 'first written constitution of a plural state' were unsupported; reworded. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| seerah | seerah-16 | 1 | M | Qur’an 2:142-150 supported. Bukhari 399 gives sixteen or seventeen months and does not name the Banu Salama zuhr prayer (a later tradition); the taunt of the Jews is not in it. Reworded. |
+| seerah | seerah-17 | 1 | M | Qur’an 3:123-126 supported. 'Named the day before it happened' is false (8:41 was revealed afterwards); horses/camels, the night under a tree and the arrow are Ibn Ishaq/Ahmad details not opened. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| seerah | seerah-18 | 1 | M | Qur’an 8:67-70 supported. 'Fed from his own table' and the ransom of teaching ten children are Ibn Ishaq/Ahmad reports not opened (the attribution was uncertain); softened. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| seerah | seerah-19 | 1 | M | Qur’an 3:144, 3:152 and Bukhari 4043-4044 support the core. 'Abu Bakr found him' is unsupported; removed. Khalid’s flanking cavalry and the tooth are seerah detail. |
+| seerah | seerah-20 | 1 | U | Qur’an 16:126-128 supported; the occasion and the mutilation are seerah reports not opened. Hind’s verses removed as unsourced; Hamza’s description softened. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| seerah | seerah-21 | 1 | M | Qur’an 33:9-11 supported. The 'Persians’ trench' remark, Nu’aym and the Banu Nadir role are Ibn Ishaq details not opened; 'plotting from within' was wrong (the Nadir were exiled). Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| seerah | seerah-22 | 1 | M | Qur’an 48:1-3 supported; Bukhari 2731-2732 verified. The number of men, the treaty terms and Umar’s objection (numbers unchecked) are corrected; 'Umar later called it…' is unsupported and removed. Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
+| seerah | seerah-23 | 1 | M | Bukhari 2941 (letter to Heraclius) verified. Heraclius’s scripture check, the fate of Persia ‘as the letter warned’ and the Khaybar tribute/market claims are unsupported; reworded. Title said Khaybar but the chapter is about the letters. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| seerah | seerah-24 | 1 | M | Qur’an 110 supported. The words 'Go, for you are free', the amnesty details and 'Abu Sufyan offered him death' are Ibn Ishaq reports not opened (the last is unsupported and removed). Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| seerah | seerah-25 | 1 | M | Qur’an 9:25-27 supported; the Ansar speech is in Bukhari/Muslim (numbers unchecked). The Taif ending was wrong: the siege was lifted and the people came later as a delegation; the governor and mosque details are unsupported. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| seerah | seerah-26 | 1 | M | Qur’an 9:38-59 and 9:117-118 supported. The story of Ka’b ibn Malik and his companions is a hadith whose number was not checked here; the Byzantine mobilisation is a seerah report. Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
+| seerah | seerah-27 | 1 | M | Bukhari 67 and Muslim 1218 verified for the sacred sanctity of lives, usury and blood feud. 'Cloth tied to a staff', 'Satan has despaired' (not in those reports), 'recited at every wedding' and 'less than a hundred days' were unsupported; removed or reworded. |
+| seerah | seerah-28 | 1 | M | Qur’an 3:144 supported. The sources of Aisha’s account, Abu Bakr’s words and Monday are Bukhari/Muslim (numbers unchecked). 'Dipped a stick in a cup', Umar’s 'sword drawn' and the claim about the caliphate were unsupported; reworded. Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
+| seerah | seerah-29 | 1 | M | Bukhari 2739 and 3092 verified. 'A third of humanity answered his call to prayer', 'Atlantic to Oxus', 'the sentence that ended dynasty and doubt' and the claim about the founders of faiths were unsupported; reworded. The last counsel and the Ahmad hadith have no verified number. Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
+| seerah | seerah-30 | 1 | RF | Reflection on the preceding chapters. Qur’an 33:21 is the only text it rests on. 'The poor inherit the earth' (a Biblical line) and 'scholars of every generation answered' reworded. Labelled Reflection. Label: Reflection. |
+| seerah | seerah-31 | 1 | M | Qur’an 96:1-5; Bukhari 3 (not cited here) says the angel came and pressed him; 'in the form of a man' removed. |
+| seerah | seerah-31 | 2 | Q | Qur’an 96:1-5. No change. |
+| seerah | seerah-31 | 3 | M | Khadijah’s words (Bukhari 3) paraphrased; the rest is reflection on the verse. |
+| companions | comp-abu-bakr | 1 | M | Qur’an 9:40, Bukhari 3661 verified. The scorpions/snakes and garment details, the named list of those he freed, and 'the first free man' are Ibn Ishaq-level reports not opened; removed or hedged. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| companions | comp-umar | 1 | M | Bukhari 3680, Muslim 2398 and Tirmidhi 3686 verified. The woman baking stones, 'a slave he had refused to harm' and 'Umar answered with tears' are unsourced; removed. The histories (calendar, garrisons, the mule saying) are marked as not from the six books. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| companions | comp-uthman | 1 | M | Tirmidhi 3701 verified; Bukhari 4987 is the source for the copying of the mushaf. The besiegers ‘ridden his charity’, the quoted pact and the blood on the pages are history reports not opened. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| companions | comp-ali | 1 | M | Muslim 2404 verified. The green cloak, 'barely twenty', the duel with Walid, the detention and the trusts, the Kufa sermons as ‘the grammar of Arabic’ and 'the boat of Noah' are not supported by a text we checked; reworded or removed. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| companions | comp-hamza | 1 | M | Ibn Ishaq not opened; Qur’an 16:126 supported. 'Two earrings in Paradise' is unsourced; removed. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| companions | comp-bilal | 1 | M | Ibn Ishaq not opened. The story of the single adhan for Umar is unsourced and hedged; the footsteps hadith is reported in Bukhari/Muslim (numbers unchecked). Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| companions | comp-salman | 1 | U | Ibn Ishaq/Ibn Hisham not opened. The long search, the rock at the Trench and the 'seal between the shoulders' are seerah reports. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| companions | comp-abu-ubaidah | 1 | M | The 'trustee of this ummah' hadith is in Bukhari (number unchecked). 'Teeth like a camel’s' is unsourced; removed. The tooth story and Amwas are seerah reports not opened. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| companions | comp-saad | 1 | M | Tirmidhi 3747 verified; Muslim 1748 is the source for his mother. The 'letters to Umar from memory of the Prophet’s face' ending is an invention; replaced with a hedged history line. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| companions | comp-talha-zubayr | 1 | M | Tirmidhi 3747 verified. Talha’s hand hanging useless and his call 'the Messenger is killed!', the seven hundred camels (duplicated from Abdur-Rahman) and Asma’s hands are unsupported; removed. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| companions | comp-abdurrahman | 1 | M | Tirmidhi 3747, 3749 verified. The seven hundred camels, the ‘take, and beware of sin’ quote and the ‘market of the hypocrites’ ascribed to Ibn Ishaq were not opened and are unsupported; replaced by a hedged line. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| companions | comp-said-zayd | 1 | M | Qur’an 33:5 and Tirmidhi 3747 verified. Ibn Ishaq not opened. Sa’id did not embrace Islam at Umar’s hands (the reports have it the other way round); the Mu’tah and 'only companion' lines reworded. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| companions | comp-ibn-masud | 1 | M | Bukhari 3808 verified. 'Ninety-plus surahs' and 'more than half the laws' are unsupported; the 'no clan to avenge' quote was inverted (the reports say the companions feared for him because he had no clan to protect him); 'what did the enemies of Allah do' removed. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| companions | comp-ammar | 1 | M | Tirmidhi 3798 verified; 16:106 is reported by commentators as revealed about him. 'Forty years later at Siffin', the old man pulled from under the fallen and the Prophet wiping the dust are unsupported; reworded to the hadith of the rebelling party (Muslim, number unchecked). Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| companions | comp-abu-hurayrah | 1 | M | The hunger and memory accounts are Bukhari/Muslim (numbers unchecked). 'The Sahih of Bukhari opens on his authority' is false (it opens with the hadith of intentions, from Umar); the cats/kunya story is unsourced. Source line and body corrected. Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
+| companions | comp-anas | 1 | M | Bukhari narrations (numbers unchecked) for Anas’s serving the Prophet. Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
+| companions | comp-ibn-abbas | 1 | M | Bukhari 75 and 143 verified. The council of Madinah’s jurists, the 'four layers' of the Qur'an and 'dying man’s prayer' are unsourced or wrong; reworded. Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
+| companions | comp-muadh | 1 | M | Tirmidhi 1327 (daif) and 3790 verified. The raised-hands dua, the Prophet weeping and 'valleys’ roads', and the deathbed dictation are unsourced; removed. Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
+| companions | comp-hudhayfah | 1 | M | The Trench scouting is in Muslim (number unchecked). His father al-Yaman was killed by mistake at Uhud (not the Trench) and he forgave; the list of hypocrites is reported; 'outlived nearly all the companions' and 'the names went with him as commanded' are wrong or unsourced. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| companions | comp-khabbab | 1 | M | Bukhari 3612 verified: it has Khabbab and others complaining to the Prophet while he rested in the shade of the Kaaba, not the branding scene; the Kufa market deathbed and the grave sign are invented. Reworded. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| companions | comp-suhayb | 1 | M | Ibn Ishaq not opened. Leading prayers happened after Umar was stabbed, not at the Prophet’s death; 'forty years later' unsupported. Reworded. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| companions | comp-musab | 1 | U | Ibn Ishaq not opened; Bukhari burial in a single cloth number unchecked. Mus’ab was sent after the first pledge, not the second; reworded. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| companions | comp-ibn-umar | 1 | RF | No source cited or found for the palm-groves anecdote or the 'one oath for sixty years' subtitle; softened and relabelled Reflection. Label: Reflection. |
+| companions | comp-ubayy | 1 | M | The hadith 'Allah has commanded me to recite to you' is in Bukhari and Muslim (numbers unchecked). The praise-response saying and the 'ear before the tongue' teaching are unsourced; removed. Subtitle corrected. Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
+| companions | comp-abu-dharr | 1 | M | Muslim 55 verified (Tamim al-Dari). The conversion account, the criticism of wealth and the exile to al-Rabadhah are reports not checked here. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| companions | comp-thawr | 1 | M | Qur’an 9:40, Bukhari 3653 verified (‘two whose third is Allah’). Abu Bakr’s fear was that the hunters might see them, not 'for the Prophet’s neck'. |
+| companions | comp-thawr | 2 | U | The spider and dove are not in the Qur’an or Bukhari 3653 and no chain was verified; stated as later tradition. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| companions | comp-thawr | 3 | RF | Reflection on the cave; no new factual claim. Label: Reflection. |
+| ghayb | ghayb-jibril | 1 | C | Qur’an 2:97, 26:193-194, 96:1; Bukhari 3232 and Muslim 8 verified. No change. |
+| ghayb | ghayb-mikail | 1 | Q | Qur’an 2:98. The body already states that the charge of rain and provision is later tradition. The heading (left over from a removed story) corrected. |
+| ghayb | ghayb-israfil | 1 | M | Qur’an 39:68-69 supported. The hadith naming Israfil has no verified number and the attribution to Muslim is unverified; hedged. The claim that the Qur'an calls the interval a sleep in the graves was wrong (39:69 speaks of the earth shining and the record); fixed. Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
+| ghayb | ghayb-malak-mawt | 1 | M | Qur’an 32:11 and 16:32 support the core. The waterskin hadith is attributed to Muslim without a number and was not matched; hedged. Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
+| ghayb | ghayb-scribes | 1 | M | Qur’an 50:17-18, 82:10-12, 17:14 supported. Muslim 131 is about an intended deed being written only when done (or as a good deed if left for Allah’s sake); the ‘left-hand recorder ordered to wait’ detail is not in it and was removed. |
+| ghayb | ghayb-munkar-nakir | 1 | M | Tirmidhi 1071 verified (the questioning). The widened grave, the door to Paradise and the caller are from the longer report of al-Bara’ (Abu Dawud 4753, verified); attribution corrected and 'sleeps in the garden of the barzakh' removed. |
+| ghayb | ghayb-unseen-angels | 1 | M | Bukhari 6408 and Muslim 2732 verified; the qarin hadith is Muslim 2814 (verified), not Bukhari. The angel who carries the salawat 'before you finish the sentence' is not in any text checked; hedged. The ‘companion from the angels commands good…’ wording is not in Muslim 2814; reworded. Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
+| ghayb | ghayb-throne-bearers | 1 | M | Qur’an 69:17, 39:75, 40:7; Bukhari 3232 verified (Jibril with six hundred wings). The scenery at Ajyad and the claim that the Throne-bearers recite the quoted formula (attributed to Muslim without number) are unsupported; removed. |
+| ghayb | ghayb-jinn-created | 1 | Q | Qur’an 15:27, 55:15, 51:56. ‘Prophets’ among the jinn is not stated in the verses; reworded. |
+| ghayb | ghayb-iblis-refuses | 1 | Q | Qur’an 2:34, 7:12, 15:34-39, 18:50. ‘Worshipping for eons among the angels’ is not stated; reworded. |
+| ghayb | ghayb-shaytan-vow | 1 | Q | Qur’an 15:36-43, 7:16-17. ‘Every direction except straight up’ is a reflection on 7:17. No change. |
+| ghayb | ghayb-whisper | 1 | M | Qur’an 114:4-6 and 7:200 supported; Muslim 134 is about seeking refuge from doubts (who created Allah), not about the whisperer retreating ‘humiliated’; reworded. ‘The scholars compare it to a passing bird’ is an unnamed attribution; softened. |
+| ghayb | ghayb-companion-qarin | 1 | C | The qarin hadith is Muslim 2814 (verified), not Bukhari; citation corrected. |
+| ghayb | ghayb-possession | 1 | M | Muslim 2188 and Tirmidhi 2059 verified; Bukhari 3268 reports that the Prophet was bewitched and cured, but the knots and the Mu’awwidhatan are tafsir/seerah details not in it (verdict note). Reworded. |
+| ghayb | ghayb-sulayman-jinn | 1 | Q | Qur’an 34:12-14, 38:37-38. No change. |
+| ghayb | ghayb-ifrit | 1 | Q | Qur’an 27:38-40. ‘Hundreds of miles away’ is not in the verses; removed. |
+| ghayb | ghayb-jinn-listen | 1 | M | Qur’an 72:1-2 and 46:29-32 supported. The name 'Nādir' in the heading is not in any source; removed. The Fajr setting is a hadith report (number not checked); a 'caravan' is the story’s image for a group. Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
+| ghayb | ghayb-jinn-faithful | 1 | M | Bukhari 608 and Muslim 450 verified. 'Forbidden to attend the mosque' is not in them; the questioning of jinn in the grave is unsourced; both removed. The source lines (a Muslim line about the ummah being shown mercy, and a Bukhari 3275 line that did not match) corrected. |
+| ghayb | ghayb-trial-of-unseen | 1 | Q | Qur’an 7:27, 50:22. 'The scholars say' (unnamed) softened. |
+| ghayb | ghayb-protection | 1 | C | Bukhari 3275, 1142, Muslim 134 and Abu Dawud 5082 verified. 'The adhan for the house and the car' is not a report; removed. |
+| ghayb | ghayb-pb-comparison | 1 | CQ | Qur’an 20:122, 7:12, Muslim 2963 verified. No change. |
+| ghayb | ghayb-pb-despair | 1 | Q | Qur’an 39:53, 12:87. No change. |
+| ghayb | ghayb-pb-delay | 1 | M | Qur’an 59:18-19 supported. 'Hasten to deeds before seven' is attributed to Bukhari without a number and was not found there; recast as a report of unchecked collection. Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
+| ghayb | ghayb-pb-loop | 1 | CQ | Qur’an 3:135; Tirmidhi 3537 verified. No change. |
+| ghayb | ghayb-pb-anger | 1 | CQ | Qur’an 41:34; Abu Dawud 4782, 4784 and Bukhari 6114 verified, with the weak narration marked. No change. |
+| ghayb | ghayb-pb-fame | 1 | M | Bukhari 660 verified. The hadith of the first three judged (scholar, martyr, generous man) is in Muslim but the number was not checked. Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
+| ghayb | ghayb-jr-lastbreath | 1 | CQ | Qur’an 50:19; Muslim 916, 927, 1631 verified. No change. |
+| ghayb | ghayb-jr-soul | 1 | M | Qur’an 3:169-170 and 100:9-11 supported. The waterskin and green-bird reports have no verified number; the quoted grave saying (attributed to Tabarani, ‘hasan’) was not checked; hedged. Typo 'checkeda' fixed. Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
+| ghayb | ghayb-jr-grave | 1 | C | Tirmidhi 2460 (da’if), Bukhari 1379, Muslim 2866, Abu Dawud 4753 verified and graded in the text. No change. |
+| ghayb | ghayb-jr-barzakh | 1 | M | Qur’an 23:100 and 36:51-52 supported. The 'hadith' wording about the grave being a sleep that only the Trumpet wakes, and 'made a place of prayer and light', is not an established report; replaced with the verses and a hedged mention of the first-station report. Subtitle softened. |
+| ghayb | ghayb-jr-gravepunish | 1 | M | Bukhari 1374 verified (the questioning and being shown the place); 'ribs interlock' is not in it, and the Friday/adhkar shields are a Tirmidhi report whose number was not checked. Heading and wording corrected. Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
+| ghayb | ghayb-jr-trumpet | 1 | M | Qur’an 39:67-68 and 27:87 supported. The 'forty years' detail is a hadith in which the narrator declined to say whether days, months or years (reference not checked); 'Throne alone upright' and 'the dead fill the earth’s crust' unsourced; removed. Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
+| ghayb | ghayb-jr-resurrection | 1 | M | Qur’an 36:51-52, 18:47, 14:48, 22:2 supported. The bread-board earth, barefoot gathering and the three companies are in Bukhari/Muslim, numbers unchecked. Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
+| ghayb | ghayb-jr-scales | 1 | CQ | Qur’an 7:8-9, 99:7-8, 101:6-8; Bukhari 5641 verified. No change. |
+| ghayb | ghayb-jr-bridge | 1 | M | Qur’an 19:71-72 supported. 'Inevitity' typo fixed; 'the verse this app was named for' removed; the hair/sword bridge hadith was attributed to Bukhari without a number and is not matched there; the light-by-faith narration has no verified reference. Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
+| ghayb | ghayb-2am-why | 1 | M | Qur’an 51:56 and 67:2 supported. The hanif saying (a hadith qudsi) is in Muslim, not Bukhari; the number is unchecked. Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
+| ghayb | ghayb-2am-death | 1 | Q | Qur’an 32:11, 23:100, 36:51-52, 69:18. No change. |
+| ghayb | ghayb-2am-where-allah | 1 | M | Qur’an 20:5, 50:16, 2:255 supported. The slave-girl hadith is in Muslim (number unchecked). A creed-neutral note on the scholarly difference over istiwa added; this needs a scholar. Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
+| ghayb | ghayb-2am-jinn-room | 1 | M | Qur’an 72:6; the appointed companion is Muslim 2814 (verified), not Bukhari; the claim about jinn in abandoned places had no source and is marked so; 'the adhan for the house' is not a report and was removed. Abu Dawud 5082 verified. |
+| ghayb | ghayb-2am-sins | 1 | CQ | Qur’an 39:53, 4:48, 8:38, 25:68-70; Bukhari 3470 verified. No change. |
+| ghayb | ghayb-2am-purpose | 1 | M | Qur’an 2:286, 67:2, 4:19, 2:30; Muslim 2999 verified. 'The largest Qur’anic teaching … the doctrine of al-ta’weel' is this app’s own framing, not a Qur’anic term for this; softened and the story relabelled Interpretive. |
+| ghayb | ghayb-2am-signs | 1 | M | Qur’an 33:63, 47:18, 7:187 supported. The 'beads' saying was attributed to Muslim without a number (compare the Signs pack); the minor signs list is in Bukhari/Muslim, numbers unchecked. Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
+| ghayb | ghayb-2am-mahdi-jesus | 1 | M | Bukhari 2476 and Abu Dawud 4282 verified. The white minaret and the Dajjal’s killing are in Muslim 2937 (verified) and not in Bukhari 2476; 'praying behind the Mahdi' is not named in the reports (scholars differ on how they relate). Reworded. |
+| ghayb | ghayb-2am-dajjal | 1 | M | Muslim 2946 verified. The other Bukhari/Muslim reports (every prophet warned; the Kahf protection; his signs) are cited without numbers. Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
+| ghayb | ghayb-2am-gog | 1 | Q | Qur’an 18:94-98, 21:96. A pointer to the new Dhul-Qarnayn story added, since his identity is disputed. |
+| ghayb | ghayb-2am-shroud | 1 | M | Qur’an 6:164, 16:128, 50:19 supported. 'Die before you die' has no verified hadith reference (the citation was garbled); presented as a quoted saying only. The veil-lifted report has no verified reference. Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
+| ghayb | ghayb-2am-intercession | 1 | M | Qur’an 2:255, 4:85, 17:79, 82:19 supported. The hadith of intercession and the martyrs/believers interceding are cited without numbers. Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
+| ghayb | ghayb-2am-hell | 1 | M | Qur’an 2:167, 4:56, 77:36 supported. The 'hooks draw burned logs' and 'forehead-locks' wording is not an established quotation; replaced by the hedged content of the reports (the river of life). The duration of the Fire is discussed by scholars; this needs a scholar. Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
+| ghayb | ghayb-2am-paradise | 1 | M | Bukhari 3244 and Qur’an 32:17, 9:72 verified. 'The Prophet said … descriptions are a courtesy' is not a report; reworded as an interpretation. |
+| ghayb | ghayb-2am-why-worship | 1 | M | Qur’an 20:14, 29:45 and Muslim 162 verified. The prayer-covenant saying is in the Sunan of Tirmidhi and an-Nasa’i, not Bukhari, and its reference/grading was not checked; a scholars-differ note added (the ruling on one who neglects prayer is for a scholar). Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
+| khutbahs | kh-taif | 1 | M | Ibn Ishaq not opened. 'It is a Tuesday' is unsourced and removed; the chief’s remark, the stoning and the sandals are Ibn Ishaq reports. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| khutbahs | kh-taif | 2 | M | The supplication is not in Bukhari (verdict for Bukhari 3231 confirms the stoning/sandals and the supplication are not in it); Addas and the vineyard are Ibn Ishaq. Corrected and labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| khutbahs | kh-taif | 3 | M | Bukhari 3231 verified for the angel of the mountains and the Prophet’s hope. 'Within a decade… within two, its sons carried the Qur’an' reworded to a seerah report of a later delegation. |
+| khutbahs | kh-taif | 4 | RF | Khutbah application (closing sermon); no new factual claim. Labelled Reflection. Label: Reflection. |
+| khutbahs | kh-atom | 1 | Q | Qur’an verses cited; no change. |
+| khutbahs | kh-atom | 2 | M | Bukhari 3467 is about a woman of Bani Israel who watered a dog, not 'a man'; fixed. Bukhari 2365 verified. Heading 'The Thief of Mice' corrected. |
+| khutbahs | kh-atom | 3 | M | Bukhari 5641 verified. Sumayyah/Ammar claims reworded to a hedged seerah report. |
+| khutbahs | kh-atom | 4 | RF | Khutbah application (closing sermon); no new factual claim. Labelled Reflection. Label: Reflection. |
+| khutbahs | kh-yaqub | 1 | Q | Qur’an verses cited; no change. |
+| khutbahs | kh-yaqub | 2 | Q | Qur’an verses cited; no change. |
+| khutbahs | kh-yaqub | 3 | Q | Qur’an verses cited; no change. |
+| khutbahs | kh-yaqub | 4 | RF | Khutbah application (closing sermon); no new factual claim. Labelled Reflection. Label: Reflection. |
+| khutbahs | kh-abubakr | 1 | M | Qur’an 3:144 supported. The sermon is in Bukhari (not cited); 'two days after' and the scene are seerah reports. Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| khutbahs | kh-abubakr | 2 | M | The text of the sermon is a historians’ report (Ibn Ishaq/Ibn Hisham, not opened). Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| khutbahs | kh-abubakr | 3 | M | Wars of riddah, the 27 months, the cloak and the burial request are history reports not opened (Bukhari 1400 is the source for 'fight whoever separates prayer and zakat'). Labelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| khutbahs | kh-abubakr | 4 | RF | Khutbah application (closing sermon); no new factual claim. Labelled Reflection. Label: Reflection. |
+| khutbahs | kh-innalillah | 1 | Q | Qur’an 2:155-157. 'After the Prophet’s words at Uhud' is unsupported; removed. |
+| khutbahs | kh-innalillah | 2 | C | Hadith citations verified on file; no change. |
+| khutbahs | kh-innalillah | 3 | C | Muslim 918 verified. 'Within a year she was married' reworded. |
+| khutbahs | kh-innalillah | 4 | RF | Khutbah application (closing sermon); no new factual claim. Labelled Reflection. Label: Reflection. |
+| khutbahs | kh-phone | 1 | CQ | Bukhari 1036 verified; 'scholars of the past' (unnamed) softened. |
+| khutbahs | kh-phone | 2 | M | Bukhari 6018, Muslim 1914, Tirmidhi 2318 (daif) verified. The Tirmidhi line was quoted as a command ('Do not ask…'); it says leaving what does not concern one is part of the excellence of Islam. 'The Prophet’s households had one gathering and one focus' removed as unsourced. |
+| khutbahs | kh-phone | 3 | CQ | Abu Dawud 5082 verified; Qur’an 64:14-15. |
+| khutbahs | kh-phone | 4 | RF | Khutbah application (closing sermon); no new factual claim. Labelled Reflection. Label: Reflection. |
+| khutbahs | kh-anxiety | 1 | CQ | Hadith citations verified on file and Qur’an verses present; no change. |
+| khutbahs | kh-anxiety | 2 | M | Qur’an 4:19, 2:216, 2:30; Muslim 2999 verified. 'What the Qur’an prescribes… has a name: al-ta’weel' is this khutbah’s own framing, not a Qur’anic prescription for anxiety; reworded and the story relabelled Interpretive. |
+| khutbahs | kh-anxiety | 3 | C | Hadith citations verified on file; no change. |
+| khutbahs | kh-anxiety | 4 | RF | Khutbah application (closing sermon); no new factual claim. Labelled Reflection. Label: Reflection. |
+| khutbahs | kh-debt | 1 | M | Qur’an 2:275. 'Such a one sins and sins and laughs' (attributed to Bukhari, no number) is not a matched report; replaced with the hedged hadith of the indebted person’s speech and promises. |
+| khutbahs | kh-debt | 2 | CQ | Hadith citations verified on file and Qur’an verses present; no change. |
+| khutbahs | kh-debt | 3 | M | Ibn Majah 2443 verified. Bukhari 1410 does not contain the 'water extinguishes fire' wording (verdict has no note for it); that saying is attributed to the Sunan, reference unchecked. Reworded. |
+| khutbahs | kh-debt | 4 | RF | Khutbah application (closing sermon); no new factual claim. Labelled Reflection. Label: Reflection. |
+| khutbahs | kh-lonely | 1 | CQ | Hadith citations verified on file and Qur’an verses present; no change. |
+| khutbahs | kh-lonely | 2 | C | Hadith citations verified on file; no change. |
+| khutbahs | kh-lonely | 3 | Q | Qur’an verses cited; no change. |
+| khutbahs | kh-lonely | 4 | RF | Khutbah application (closing sermon); no new factual claim. Labelled Reflection. Label: Reflection. |
+| khutbahs | kh-raising | 1 | C | Hadith citations verified on file; no change. |
+| khutbahs | kh-raising | 2 | M | Bukhari 709, 6247, 454 verified. 'The Prophet never struck a child' is unsourced; removed. The quoted 'I am only human; I make mistakes…' is not the first caliph’s recorded wording (his sermon has 'if I do wrong, correct me'); corrected. |
+| khutbahs | kh-raising | 3 | C | Hadith citations verified on file; no change. |
+| khutbahs | kh-raising | 4 | RF | Khutbah application (closing sermon); no new factual claim. Labelled Reflection. Label: Reflection. |
+| khutbahs | kh-burnout | 1 | Q | Qur’an verses cited; no change. |
+| khutbahs | kh-burnout | 2 | M | Abu Dawud 2578 and Tirmidhi 2344 verified. Bukhari 676 says he was in the service of his family and went out to prayer when it was called; mending and milking are other reports (not in it). Reworded; 'the prayer lengthened' removed. |
+| khutbahs | kh-burnout | 3 | CQ | Qur’an 62:9. 'The scholars note' (unnamed) softened. |
+| khutbahs | kh-burnout | 4 | RF | Khutbah application (closing sermon); no new factual claim. Labelled Reflection. Label: Reflection. |
+| khutbahs | kh-news | 1 | M | Muslim 55 verified. The quoted line was ascribed to Tirmidhi 2459 (daif); that report says the wise person holds himself to account — the quoted wording is a well-known saying whose reference was not checked. Reworded. |
+| khutbahs | kh-news | 2 | CQ | Hadith citations verified on file and Qur’an verses present; no change. |
+| khutbahs | kh-news | 3 | U | No source cited; no factual claim beyond the cited material. |
+| khutbahs | kh-news | 4 | RF | Khutbah application (closing sermon); no new factual claim. Labelled Reflection. Label: Reflection. |
+| khutbahs | kh-tired-013 | 1 | U | No source cited; no factual claim beyond the cited material. |
+| khutbahs | kh-tired-013 | 2 | Q | Qur’an verses cited; no change. |
+| khutbahs | kh-tired-013 | 3 | C | Hadith citations verified on file; no change. |
+| khutbahs | kh-tired-013 | 4 | RF | Khutbah application (closing sermon); no new factual claim. Labelled Reflection. Label: Reflection. |
+| khutbahs | kh-women-carry | 1 | RF | No source; a descriptive reflection. Labelled Reflection. Label: Reflection. |
+| khutbahs | kh-women-carry | 2 | M | Bukhari 3, 676 and Tirmidhi 1162 verified. Bukhari 676 does not mention mending, milking or sweeping; separated. |
+| khutbahs | kh-women-carry | 3 | Q | Qur’an verses cited; no change. |
+| khutbahs | kh-women-carry | 4 | RF | Khutbah application (closing sermon); no new factual claim. Labelled Reflection. Label: Reflection. |
+| khutbahs | kh-patience | 1 | Q | Qur’an verses cited; no change. |
+| khutbahs | kh-patience | 2 | Q | Qur’an 21:83-84 and 38:41-42: 'strike the ground’ is in Sad (38:42), not 21:84; fixed. |
+| khutbahs | kh-patience | 3 | Q | Qur’an 94:5-6. The grammar remark is a commonly cited one, not checked against a named work; hedged. |
+| khutbahs | kh-patience | 4 | M | Qur’an 12:86 supported; 'the Prophet taught that helping the oppressed is required' has no report checked; hedged. |
+| khutbahs | kh-gratitude | 1 | Q | Qur’an verses cited; no change. |
+| khutbahs | kh-gratitude | 2 | Q | Qur’an verses cited; no change. |
+| khutbahs | kh-gratitude | 3 | M | Bukhari 1303 (not cited in this story): the Prophet wept at the death of his son Ibrahim; 'at the grave' is not what the report says. Reworded. |
+| khutbahs | kh-gratitude | 4 | M | Qur’an 2:152. The supplications at eating, dressing, rising are in the collections; references not checked, hedged. |
+| modernhadith | mh-youth-seven | 1 | C | Hadith citations verified on file; no change. |
+| modernhadith | mh-youth-feet | 1 | C | Hadith citations verified on file; no change. |
+| modernhadith | mh-youth-friends | 1 | M | Tirmidhi 2378 verified. The Abu Dawud line ('do not sit with them, for then Allah will make you like them') had no number and was not matched; replaced with Qur’an 4:140 (checked against the bundled text). |
+| modernhadith | mh-money-birds | 1 | C | Hadith citations verified on file; no change. |
+| modernhadith | mh-money-debt | 1 | M | Muslim 1598 and Tirmidhi 3563 verified. 'Such a one sins and sins and laughs' (attributed to Bukhari, no number) is not a matched report; replaced with the hedged hadith about the indebted person’s speech. |
+| modernhadith | mh-money-hand | 1 | C | Bukhari 1419, Muslim 2588 verified. 'Swore by Allah' is not in Muslim 2588; reworded. |
+| modernhadith | mh-marriage-half | 1 | M | Qur’an 23:5-6 supported. The 'half the religion' saying is cited to al-Baihaqi with the grade not checked. Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
+| modernhadith | mh-marriage-kindness | 1 | M | Bukhari 676 and Tirmidhi 3895 verified. Bukhari 676 does not contain mending clothes, milking the goat or 'as if he did not know us'; separated as other reports (not checked here). |
+| modernhadith | mh-marriage-children | 1 | C | Hadith citations verified on file; no change. |
+| modernhadith | mh-parents-feet | 1 | CQ | Hadith citations verified on file and Qur’an verses present; no change. |
+| modernhadith | mh-parents-door | 1 | C | Bukhari 5976 and Tirmidhi 1900 verified. The subtitle claim that the three questions of the grave start with how we treated parents is unsourced; removed. |
+| modernhadith | mh-elders-young | 1 | C | Hadith citations verified on file; no change. |
+| modernhadith | mh-elders-wisdom | 1 | C | Muslim 90 and Tirmidhi 1919 verified. The first quotation was given as 'the curse of Allah is upon…'; Muslim 90 says it is among the major sins for a man to curse his parents. Reworded. |
+| modernhadith | mh-soul-heart | 1 | CQ | Hadith citations verified on file and Qur’an verses present; no change. |
+| modernhadith | mh-soul-tears | 1 | M | Bukhari 660, 1303, Tirmidhi 1633 verified. 'Umar wept and the companions wept with him' has no source; marked as unchecked. |
+| modernhadith | mh-soul-solitude | 1 | M | Qur’an 7:205 supported. The 'best prayer in his house' hadith has no verified number; the Hira seclusion is in Bukhari 3 (not cited). Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
+| modernhadith | mh-society-news | 1 | C | Muslim 55, Bukhari 52, Tirmidhi 2318 (daif) verified. The Tirmidhi line was quoted as a command; it says leaving what does not concern one is part of the excellence of Islam. Reworded. |
+| modernhadith | mh-society-tongue | 1 | C | Hadith citations verified on file; no change. |
+| modernhadith | mh-society-muslim | 1 | M | Bukhari 10 verified. The 'no faith for the one without trustworthiness' saying is cited to al-Baihaqi without a reference or grade; hedged. Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
+| modernhadith | mh-society-ummah | 1 | C | Hadith citations verified on file; no change. |
+| modernhadith | mh-family-021 | 1 | C | Hadith citations verified on file; no change. |
+| modernhadith | mh-jumuah-022 | 1 | C | Muslim 854 verified. The hour of acceptance on Friday is mentioned without a number; marked as such. |
+| modernhadith | mh-reflection-023 | 1 | C | Hadith citations verified on file; no change. |
+| modernhadith | mh-reflection-24 | 1 | M | Muslim 2749 verified. The lost-camel hadith has no number; marked. 'Sunday is a gift' has no basis in the hadith; replaced. |
+| modernhadith | mh-death-graves | 1 | M | Muslim 977 verified (earlier bans lifted). No Bukhari number was found for the quoted wording; source line and citation corrected. The explanation of why the ban was temporary is an interpretation; hedged. |
+| modernhadith | mh-hijab-modesty | 1 | C | Hadith citations verified on file; no change. |
+| modernhadith | mh-men-shepherd | 1 | M | Bukhari 893 and Muslim 1829 verified. 'He mended his own clothes… and never raised his hand to those under his care' is unsourced here; replaced by Bukhari 676 (serving his household) and Bukhari 1303 (weeping at his son’s death), both verified. |
+| modernhadith | mh-migration-strangers | 1 | C | Hadith citations verified on file; no change. |
+| modernhadith | mh-envy-below | 1 | C | Hadith citations verified on file; no change. |
+| modernhadith | mh-forgive-anger | 1 | C | Hadith citations verified on file; no change. |
+| modernhadith | mh-addiction-ninetynine | 1 | C | Bukhari 3470 and Muslim 2766 verified. The monk/scholar sequence and the measuring of the land (‘a span’) corrected to the hadith. |
+| modernhadith | mh-work-hand | 1 | C | Hadith citations verified on file; no change. |
+| modernhadith | mh-grief-ibrahim | 1 | C | Bukhari 1303 and Muslim 2315 verified. 'The child who died is already in a garden' is stated as certain without a cited report; removed. |
+| modernhadith | mh-community-structure | 1 | C | Hadith citations verified on file; no change. |
+| tales | tale-dhul-qarnayn | 1 | Q | New story, written from the bundled Qur’an 18:83-98 with short quoted phrases only; no detail beyond the verses; identity pointed to the Go deeper "Disputed in the sources" layer. |
+| tales | tale-dhul-qarnayn | 2 | Q | New story, written from the bundled Qur’an 18:83-98 with short quoted phrases only; no detail beyond the verses; identity pointed to the Go deeper "Disputed in the sources" layer. |
+| tales | tale-dhul-qarnayn | 3 | Q | New story, written from the bundled Qur’an 18:83-98 with short quoted phrases only; no detail beyond the verses; identity pointed to the Go deeper "Disputed in the sources" layer. |

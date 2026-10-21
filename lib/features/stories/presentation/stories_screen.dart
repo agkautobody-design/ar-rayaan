@@ -11,6 +11,7 @@ import '../../../app/router.dart';
 import '../data/stories_repository.dart';
 import '../data/story_layers_repository.dart';
 import '../domain/story.dart';
+import 'source_label_chip.dart';
 
 class StoriesScreen extends ConsumerWidget {
   const StoriesScreen({super.key});
@@ -231,36 +232,8 @@ class _StoryCard extends StatelessWidget {
                   ),
                 ),
               ),
-            _SourceChip(label: story.sourceLabel),
+            SourceLabelChip(label: story.sourceLabel),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class _SourceChip extends StatelessWidget {
-  final String label;
-  const _SourceChip({required this.label});
-
-  @override
-  Widget build(BuildContext context) {
-    final established = label == 'Established';
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        border: Border.all(
-          color: (established ? AppColors.gold : AppColors.sand)
-              .withValues(alpha: 0.4),
-        ),
-      ),
-      child: Text(
-        label,
-        style: TextStyle(
-          fontSize: 12,
-          letterSpacing: 0.4,
-          color: established ? AppColors.goldLight : AppColors.sand,
         ),
       ),
     );
