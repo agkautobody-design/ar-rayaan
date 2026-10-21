@@ -1656,7 +1656,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'After eating, say: "Alhamdu lillahi alladhi at\'amani hadha wa '
     'razaqanihi min ghayri hawlin minni wa la quwwah" (All praise is for '
     'Allah who fed me this and provided it for me without any might or '
-    'power from me). (Sunan Abi Dawud 3850, weak per al-Albani).',
+    'power from me). (Jami\' at-Tirmidhi 3458, hasan per Darussalam).',
   ),
   _Entry(
     <String>['dua entering home', 'entering house', 'coming home'],

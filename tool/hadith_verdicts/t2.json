@@ -82,5 +82,12 @@
   "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
   "checked": "2026-10-21",
   "note": "Abu Hurayrah; Allah divides the prayer between Himself and His servant, verses of Al-Fatihah answered"
+ },
+ "tirmidhi:3458": {
+  "verdict": "ok",
+  "grade": "hasan",
+  "grader": "Darussalam",
+  "checked": "2026-10-21",
+  "note": "Mu'adh ibn Anas; dua after eating 'at'amani hadha wa razaqanihi min ghayri hawlin minni' (the old text cited this wording to Abu Dawud 3850, which is a different dua)"
  }
 }
