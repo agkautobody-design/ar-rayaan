@@ -75,7 +75,7 @@ void main() {
             (dynamic c) => (c as Map<String, dynamic>)['label'] == kLabelSeerah);
         if (!has) continue;
         final String src = (m['sources'] as List<dynamic>).join(' ');
-        expect(RegExp(r'Ibn Hisham|al-Tabari|Ibn Kathir|Ibn Sa.d|al-Waqidi')
+        expect(RegExp(r'Ibn Hisham|al-Tabari|Ibn Kathir|Ibn al-Athir|Ibn Sa.d|al-Waqidi')
             .hasMatch(src), isTrue, reason: '${m['id']}: names no book');
         expect(RegExp(r'vol\. ?\d|ج ?\d|p\. ?\d|pp\. ?\d').hasMatch(src), isTrue,
             reason: '${m['id']}: names no volume/page');
