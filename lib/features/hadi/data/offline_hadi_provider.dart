@@ -116,6 +116,8 @@ class OfflineHadiProvider implements HadiProvider {
     'sinful',
     'fatwa',
     'ruling',
+    // "ruling" after the "-ing" stem: without it the word never matched.
+    'rul',
   };
 
   /// Stem: drops a plural "s" and "-ing". Applied equally to questions and
