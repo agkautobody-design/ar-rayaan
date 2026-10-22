@@ -130,7 +130,7 @@ class HisnAlMuslimScreen extends ConsumerWidget {
                                           .copyWith(fontSize: 12)),
                                   GestureDetector(
                                     onTap: () => context
-                                        .go(AppRoutes.storyReader, extra: d),
+                                        .open(AppRoutes.storyReader, extra: d),
                                     child: Text('Open \u2192',
                                         style: AppText.bodyMuted.copyWith(
                                             color: AppColors.gold,
