@@ -115,6 +115,14 @@ jobs:
           } | tee size.log
         continue-on-error: true
 
+      - name: Surface failures as annotations
+        if: always()
+        run: |
+          grep -E "^ *(error|warning) •" analyze.log 2>/dev/null | head -n 40 | while IFS= read -r l; do echo "::error title=analyze::${l:0:400}"; done
+          grep -E "\[E\]" test.log 2>/dev/null | head -n 40 | while IFS= read -r l; do echo "::error title=test::${l:0:300}"; done
+          grep -B 12 -m 3 "\[E\]" test.log 2>/dev/null | grep -vE "^\s*$" | head -n 60 | while IFS= read -r l; do echo "::warning title=testctx::${l:0:300}"; done
+          grep -E "Error|error:" build.log 2>/dev/null | head -n 20 | while IFS= read -r l; do echo "::error title=build::${l:0:300}"; done
+
       - name: Post results
         if: always() && github.event_name == 'pull_request'
         env:
