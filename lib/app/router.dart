@@ -17,6 +17,7 @@ import '../features/academy/presentation/request_nasheed_screen.dart';
 import '../features/academy/presentation/wasia_lessons.dart';
 import '../features/academy/presentation/academy_family.dart';
 import '../features/academy/presentation/player_screen.dart';
+import '../features/academy/presentation/playlists_screen.dart';
 import '../features/academy/presentation/word_deck_screen.dart';
 import '../features/academy/presentation/tajweed_cards_screen.dart';
 import '../features/academy/presentation/hifz_planner_screen.dart';
@@ -117,6 +118,7 @@ abstract final class AppRoutes {
   static const String academyGate = '/academy/gate';
   static const String player = '/player';
   static const String myAdditions = '/player/my-additions';
+  static const String myPlaylists = '/player/playlists';
   static const String requestNasheed = '/player/request';
   static String academyLesson(String c, String u, String l) =>
       '/academy/lesson/$c/$u/$l';
@@ -456,6 +458,10 @@ GoRouter buildRouter({String initialLocation = '/'}) {
       GoRoute(
         path: AppRoutes.myAdditions,
         pageBuilder: (c, s) => _fade(const MyAdditionsScreen()),
+      ),
+      GoRoute(
+        path: AppRoutes.myPlaylists,
+        pageBuilder: (c, s) => _fade(const PlaylistsScreen()),
       ),
       GoRoute(
         path: AppRoutes.requestNasheed,

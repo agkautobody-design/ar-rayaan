@@ -4,11 +4,18 @@ library;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../data/audioplayers_ayah_player.dart';
+import '../data/player_sources_pack.dart';
 import '../domain/player.dart';
 import 'package:ar_rayaan/features/academy/data/player_catalog_pack.dart';
 
 final playerCatalogProvider = FutureProvider<Catalog?>((Ref ref) {
   return PlayerCatalogPack.load();
+});
+
+/// Approved YouTube / Spotify sources, by catalogue track id.
+final playerSourcesProvider =
+    FutureProvider<Map<String, TrackSources>>((Ref ref) {
+  return PlayerSourcesPack.load();
 });
 
 class PlayerQueueNotifier extends StateNotifier<PlayerQueue> {

@@ -32,6 +32,7 @@ abstract final class RouteTitles {
     '/games/names99': 'The 99 Names',
     '/player': 'Nasheed Player',
     '/player/my-additions': 'My Additions',
+    '/player/playlists': 'My Playlists',
     '/player/request': 'Request a Nasheed',
     '/majlis': 'Majlis',
     '/majlis/new': 'New Thread',
