@@ -582,7 +582,6 @@ void main() {
       await tester.tap(find.text('Home'));
       await tester.pumpAndSettle();
       expect(find.text('HOME PAGE'), findsOneWidget);
-      ErrorWidget.builder = original;
     });
 
     testWidgets('Play again starts a new round', (tester) async {
