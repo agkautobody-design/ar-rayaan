@@ -92,6 +92,8 @@ import '../features/quran/presentation/quran_bookmarks_screen.dart';
 import '../features/quran/presentation/quran_screen.dart';
 import '../features/quran/presentation/surah_reader_screen.dart';
 import 'theme/widgets/app_bottom_nav.dart';
+import 'theme/widgets/ask_hadi_pill.dart';
+import 'theme/widgets/not_found_view.dart';
 
 /// Application routes (GoRouter) — Master Build Sheet §5.
 /// Developer and founder tools are compiled into release builds only when
@@ -162,14 +164,47 @@ abstract final class AppRoutes {
   static const String themeDemo = '/dev/theme';
 }
 
-CustomTransitionPage<void> _fade(Widget child) {
+/// Routes that are tabs of the bottom-navigation shell. Opening one of these
+/// with `push` would stack a second copy inside the shell, so they are
+/// always reached with `go`.
+const Set<String> kShellTabPaths = <String>{
+  AppRoutes.home,
+  AppRoutes.noor,
+  AppRoutes.journey,
+  AppRoutes.explore,
+  AppRoutes.family,
+  AppRoutes.community,
+  AppRoutes.hadi,
+  AppRoutes.profile,
+};
+
+/// Navigation that keeps Back honest.
+extension AppNavigation on BuildContext {
+  /// Opens [route] ON TOP of the current screen, so Back / Close return to
+  /// it (a hub's list, a reader's shelf) instead of jumping to Home. Shell
+  /// tabs are reached with `go`, as they replace the stack by design.
+  void open(String route, {Object? extra}) {
+    final String path = Uri.tryParse(route)?.path ?? route;
+    if (kShellTabPaths.contains(path)) {
+      go(route, extra: extra);
+    } else {
+      push(route, extra: extra);
+    }
+  }
+}
+
+/// One page of the soft-fade transition. [pill] adds the "Ask Hādi" pill
+/// inside the page (see [AskHadiPillHost]); pass false for the tabs of the
+/// bottom-navigation shell, first-run, boards and readers whose content the
+/// pill would cover.
+CustomTransitionPage<void> _fade(Widget child, {bool pill = true}) {
   // The soft transition: every screen breathes in with a gentle fade and a
   // whisper of rise. Built to dodge the web's stuck-grey-veil freeze the
   // founders hit: NO ScaleTransition (texture compositing was the trigger),
   // NO secondaryAnimation parallax, symmetric reverse, short durations, and
   // an easeOutCubic that settles fast even when the user taps mid-flight.
   return CustomTransitionPage<void>(
-    child: child,
+    child: pill ? AskHadiPillHost(child: child) : child,
     transitionDuration: const Duration(milliseconds: 280),
     reverseTransitionDuration: const Duration(milliseconds: 220),
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
@@ -195,7 +230,8 @@ GoRouter buildRouter({String initialLocation = '/'}) {
   return GoRouter(
     initialLocation: initialLocation,
     // Any unknown link lands somewhere useful instead of a red error page.
-    errorPageBuilder: (context, state) => _fade(const _NotFoundScreen()),
+    errorPageBuilder: (context, state) =>
+        _fade(const NotFoundScreen(), pill: false),
     routes: [
       ...legalRoutes,
       // Onboarding flow (no bottom nav)
@@ -209,7 +245,7 @@ GoRouter buildRouter({String initialLocation = '/'}) {
         // main() routes here only when the pref is unset.
         GoRoute(
           path: AppRoutes.onboarding,
-          pageBuilder: (context, state) => _fade(const OnboardingScreen()),
+          pageBuilder: (context, state) => _fade(const OnboardingScreen(), pill: false),
         ),
         GoRoute(
           path: AppRoutes.search,
@@ -258,11 +294,11 @@ GoRouter buildRouter({String initialLocation = '/'}) {
         ),
         GoRoute(
           path: '/games/ludo',
-          pageBuilder: (context, state) => _fade(const LudoScreen()),
+          pageBuilder: (context, state) => _fade(const LudoScreen(), pill: false),
         ),
         GoRoute(
           path: '/games/shatranj',
-          pageBuilder: (context, state) => _fade(const ShatranjScreen()),
+          pageBuilder: (context, state) => _fade(const ShatranjScreen(), pill: false),
         ),
         GoRoute(
           path: '/games/lineage',
@@ -369,19 +405,19 @@ GoRouter buildRouter({String initialLocation = '/'}) {
       // Auth flow (no bottom nav)
       GoRoute(
         path: AppRoutes.login,
-        pageBuilder: (c, s) => _fade(const LoginScreen()),
+        pageBuilder: (c, s) => _fade(const LoginScreen(), pill: false),
       ),
       GoRoute(
         path: AppRoutes.signup,
-        pageBuilder: (c, s) => _fade(const SignUpScreen()),
+        pageBuilder: (c, s) => _fade(const SignUpScreen(), pill: false),
       ),
       GoRoute(
         path: AppRoutes.reset,
-        pageBuilder: (c, s) => _fade(const ResetScreen()),
+        pageBuilder: (c, s) => _fade(const ResetScreen(), pill: false),
       ),
       GoRoute(
         path: AppRoutes.verify,
-        pageBuilder: (c, s) => _fade(const VerifyScreen()),
+        pageBuilder: (c, s) => _fade(const VerifyScreen(), pill: false),
       ),
 
       // Feature modules (no bottom nav)
@@ -448,8 +484,16 @@ GoRouter buildRouter({String initialLocation = '/'}) {
       GoRoute(
         path: '/quran/:surah',
         pageBuilder: (c, s) {
-          final int number = int.tryParse(s.pathParameters['surah'] ?? '') ?? 1;
-          return _fade(SurahReaderScreen(number: number.clamp(1, 114)));
+          final int? number = int.tryParse(s.pathParameters['surah'] ?? '');
+          // A surah is 1-114; anything else is a page that is not there
+          // (it used to open Al-Fatihah or An-Nas silently).
+          if (number == null || number < 1 || number > 114) {
+            return _fade(
+              const NotFoundScreen(message: 'That surah is not here.'),
+              pill: false,
+            );
+          }
+          return _fade(SurahReaderScreen(number: number), pill: false);
         },
       ),
 
@@ -466,10 +510,26 @@ GoRouter buildRouter({String initialLocation = '/'}) {
         path: '/quran/madinah/:surah/:count',
         pageBuilder: (context, state) {
           final p = state.pathParameters;
-          return _fade(MadinahReaderView(
-            surah: int.parse(p['surah']!),
-            ayahCount: int.parse(p['count']!),
-          ));
+          // A link can carry anything: a surah is 1-114 and an ayah count is
+          // a whole number of at least 1 (the longest surah has 286). Anything
+          // else is a page that is not there, never an exception.
+          final int? surah = int.tryParse(p['surah'] ?? '');
+          final int? count = int.tryParse(p['count'] ?? '');
+          if (surah == null ||
+              count == null ||
+              surah < 1 ||
+              surah > 114 ||
+              count < 1 ||
+              count > 286) {
+            return _fade(
+              const NotFoundScreen(message: 'That page of the Qur\u2019an is not here.'),
+              pill: false,
+            );
+          }
+          return _fade(
+            MadinahReaderView(surah: surah, ayahCount: count),
+            pill: false,
+          );
         },
       ),
       GoRoute(
@@ -565,11 +625,11 @@ GoRouter buildRouter({String initialLocation = '/'}) {
       ),
       GoRoute(
         path: '/academy/dhikr',
-        pageBuilder: (context, state) => _fade(const DhikrSessionScreen()),
+        pageBuilder: (context, state) => _fade(const DhikrSessionScreen(), pill: false),
       ),
       GoRoute(
         path: '/academy/review',
-        pageBuilder: (context, state) => _fade(const ReviewSessionScreen()),
+        pageBuilder: (context, state) => _fade(const ReviewSessionScreen(), pill: false),
       ),
       GoRoute(
         path: '/academy/letters',
@@ -585,18 +645,20 @@ GoRouter buildRouter({String initialLocation = '/'}) {
                 key: ValueKey<String>('letters-${state.pathParameters['id']!}'),
                 lessonId: state.pathParameters['id']!,
               ),
+              pill: false,
             ),
           ),
         ],
       ),
       GoRoute(
         path: '/academy/family',
-        pageBuilder: (context, state) => _fade(const FamilyScreen()),
+        pageBuilder: (context, state) =>
+            _fade(const FamilyScreen(), pill: false),
       ),
       GoRoute(
         path: '/academy/exam/:id',
         pageBuilder: (context, state) =>
-            _fade(ExamScreen(examId: state.pathParameters['id']!)),
+            _fade(ExamScreen(examId: state.pathParameters['id']!), pill: false),
       ),
       GoRoute(
         path: '/academy/recitation',
@@ -626,7 +688,7 @@ GoRouter buildRouter({String initialLocation = '/'}) {
             courseId: p['course']!,
             unitId: p['unit']!,
             lessonId: p['lesson']!,
-          ));
+          ), pill: false);
         },
       ),
       if (kFounderTools)
@@ -648,15 +710,15 @@ GoRouter buildRouter({String initialLocation = '/'}) {
             routes: [
               GoRoute(
                 path: AppRoutes.home,
-                pageBuilder: (c, s) => _fade(const HomeScreen()),
+                pageBuilder: (c, s) => _fade(const HomeScreen(), pill: false),
               ),
               GoRoute(
                 path: AppRoutes.noor,
-                pageBuilder: (c, s) => _fade(const NoorScreen()),
+                pageBuilder: (c, s) => _fade(const NoorScreen(), pill: false),
               ),
               GoRoute(
                 path: AppRoutes.journey,
-                pageBuilder: (c, s) => _fade(const JourneyScreen()),
+                pageBuilder: (c, s) => _fade(const JourneyScreen(), pill: false),
               ),
             ],
           ),
@@ -664,7 +726,7 @@ GoRouter buildRouter({String initialLocation = '/'}) {
             routes: [
               GoRoute(
                 path: AppRoutes.explore,
-                pageBuilder: (c, s) => _fade(const ExploreScreen()),
+                pageBuilder: (c, s) => _fade(const ExploreScreen(), pill: false),
               ),
             ],
           ),
@@ -673,11 +735,11 @@ GoRouter buildRouter({String initialLocation = '/'}) {
               // First route = what the Family tab opens: the Family Wing.
               GoRoute(
                 path: AppRoutes.family,
-                pageBuilder: (c, s) => _fade(const FamilyScreen()),
+                pageBuilder: (c, s) => _fade(const FamilyScreen(), pill: false),
               ),
               GoRoute(
                 path: AppRoutes.community,
-                pageBuilder: (c, s) => _fade(const CommunityScreen()),
+                pageBuilder: (c, s) => _fade(const CommunityScreen(), pill: false),
               ),
             ],
           ),
@@ -685,7 +747,7 @@ GoRouter buildRouter({String initialLocation = '/'}) {
             routes: [
               GoRoute(
                 path: AppRoutes.hadi,
-                pageBuilder: (c, s) => _fade(const HadiScreen()),
+                pageBuilder: (c, s) => _fade(const HadiScreen(), pill: false),
               ),
             ],
           ),
@@ -693,7 +755,7 @@ GoRouter buildRouter({String initialLocation = '/'}) {
             routes: [
               GoRoute(
                 path: AppRoutes.profile,
-                pageBuilder: (c, s) => _fade(const ProfileScreen()),
+                pageBuilder: (c, s) => _fade(const ProfileScreen(), pill: false),
               ),
             ],
           ),
@@ -701,32 +763,4 @@ GoRouter buildRouter({String initialLocation = '/'}) {
       ),
     ],
   );
-}
-
-class _NotFoundScreen extends StatelessWidget {
-  const _NotFoundScreen();
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(32),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              const Text('This page is not here.',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 18)),
-              const SizedBox(height: 16),
-              FilledButton(
-                onPressed: () => context.go(AppRoutes.home),
-                child: const Text('Go home'),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
 }

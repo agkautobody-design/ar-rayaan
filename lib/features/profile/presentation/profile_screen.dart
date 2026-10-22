@@ -122,7 +122,7 @@ class ProfileScreen extends ConsumerWidget {
                                   ? null
                                   : _items[i].$3 == _bookmarks
                                       ? () => showSavedStories(context)
-                                      : () => context.go(_items[i].$3!),
+                                      : () => context.open(_items[i].$3!),
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(
                                   horizontal: 16,

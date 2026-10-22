@@ -61,13 +61,14 @@ class AppHarness {
     }
   }
 
-  /// The router's current location, read from any widget under the app.
+  /// The router's current location, read from any widget under the app. It
+  /// follows a pushed page too (`uri` alone keeps the page underneath).
   static String location(WidgetTester tester, Finder anchor) =>
       GoRouter.of(tester.element(anchor))
           .routerDelegate
           .currentConfiguration
-          .uri
-          .path;
+          .last
+          .matchedLocation;
 
   /// Navigate with the real router.
   static Future<void> go(

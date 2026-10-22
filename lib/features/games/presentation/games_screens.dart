@@ -9,6 +9,7 @@ import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
+import '../../../app/theme/widgets/needs_internet_view.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/core/content/content_sync.dart';
 
@@ -79,43 +80,43 @@ class GamesScreen extends ConsumerWidget {
             child: Text('LEARN BY PLAYING', style: AppText.eyebrow),
           ),
           GlassCard(
-            onTap: () => context.go('/games/ludo'),
+            onTap: () => context.open('/games/ludo'),
             child: _gameRow(Icons.casino_outlined, 'Ludo \u00b7 the second crown',
                 'Dice, captures and four tokens racing home'),
           ),
           const SizedBox(height: 10),
           GlassCard(
-            onTap: () => context.go('/games/shatranj'),
+            onTap: () => context.open('/games/shatranj'),
             child: _gameRow(Icons.extension_outlined, 'Shatranj \u00b7 the crown jewel',
                 'Chess against Hadi\u2019s engine or a friend beside you'),
           ),
           const SizedBox(height: 10),
           GlassCard(
-            onTap: () => context.go(AppRoutes.trivia),
+            onTap: () => context.open(AppRoutes.trivia),
             child: _gameRow(Icons.quiz_outlined, 'Daily Trivia',
                 'Questions from the stories, graded and sourced'),
           ),
           const SizedBox(height: 10),
           GlassCard(
-            onTap: () => context.go(AppRoutes.names99),
+            onTap: () => context.open(AppRoutes.names99),
             child: _gameRow(Icons.spa_outlined, 'The 99 Names',
                 'The beautiful names, one flashcard at a time'),
           ),
           const SizedBox(height: 10),
           GlassCard(
-            onTap: () => context.go('/games/lineage'),
+            onTap: () => context.open('/games/lineage'),
             child: _gameRow(Icons.account_tree_outlined, 'Lineage Challenge',
                 'Who begot whom — the Messengers\u2019 tree as a game'),
           ),
           const SizedBox(height: 10),
           GlassCard(
-            onTap: () => context.go('/games/ayah'),
+            onTap: () => context.open('/games/ayah'),
             child: _gameRow(Icons.format_quote_outlined, 'Ayah Completion',
                 'One word veiled — what did Allah say?'),
           ),
           const SizedBox(height: 10),
           GlassCard(
-            onTap: () => context.go('/games/hijrah'),
+            onTap: () => context.open('/games/hijrah'),
             child: _gameRow(Icons.route_outlined, 'The Hijrah Journey',
                 'Makkah to Madinah, station by station'),
           ),
@@ -163,6 +164,10 @@ class _TriviaScreenState extends ConsumerState<TriviaScreen> {
   int _i = 0, _score = 0;
   int? _picked;
   bool _done = false;
+  bool _review = false;
+
+  /// The option chosen for each question, by question index, for the review.
+  final Map<int, int> _answers = <int, int>{};
 
   @override
   Widget build(BuildContext context) {
@@ -171,7 +176,15 @@ class _TriviaScreenState extends ConsumerState<TriviaScreen> {
       backgroundColor: Colors.transparent,
       body: qs.when(
         loading: () => const Center(child: CircularProgressIndicator(color: AppColors.gold)),
-        error: (e, _) => Center(child: Text('Could not load trivia.', style: AppText.bodyMuted)),
+        error: (e, _) => Column(children: [
+          const ScreenHeader(title: 'Trivia', close: true),
+          Expanded(
+            child: NeedsInternetView(
+              what: 'Trivia',
+              onRetry: () => ref.invalidate(triviaProvider),
+            ),
+          ),
+        ]),
         data: (all) {
           if (_qs.isEmpty) {
             final rnd = Random();
@@ -180,7 +193,7 @@ class _TriviaScreenState extends ConsumerState<TriviaScreen> {
                 .map((TriviaQ q) => q.shuffled(rnd))
                 .toList();
           }
-          if (_done) return _result();
+          if (_done) return _review ? _reviewList() : _result();
           final q = _qs[_i];
           return ListView(
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
@@ -257,6 +270,7 @@ class _TriviaScreenState extends ConsumerState<TriviaScreen> {
       onTap: picked == null
           ? () => setState(() {
                 _picked = o;
+                _answers[_i] = o;
                 if (o == q.answer) _score++;
               })
           : null,
@@ -270,40 +284,139 @@ class _TriviaScreenState extends ConsumerState<TriviaScreen> {
     );
   }
 
+  /// Back to the Games hub: pop to it when the trivia was opened from it
+  /// (so its own Back keeps working), open it when there is nothing to pop.
+  void _backToGames() {
+    if (context.canPop()) {
+      context.pop();
+    } else {
+      context.go(AppRoutes.games);
+    }
+  }
+
+  void _playAgain() => setState(() {
+        _qs = [];
+        _i = 0;
+        _score = 0;
+        _picked = null;
+        _done = false;
+        _review = false;
+        _answers.clear();
+      });
+
   Widget _result() {
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(24),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+    return ListView(
+      padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
+      children: [
+        const ScreenHeader(title: 'Trivia', close: true),
+        const SizedBox(height: 24),
+        Center(child: Text('FINISHED', style: AppText.eyebrow)),
+        const SizedBox(height: 8),
+        Center(
+          child: Text('$_score / ${_qs.length}',
+              style: const TextStyle(
+                  fontFamily: 'PlayfairDisplay', fontSize: 44, color: AppColors.goldLight)),
+        ),
+        const SizedBox(height: 6),
+        Text(
+          _score >= 8
+              ? 'MashaAllah \u2014 the stories are becoming yours.'
+              : _score >= 5
+                  ? 'Well walked. Read one story tonight and return.'
+                  : 'Every master was once here. The Stories shelf is waiting.',
+          style: AppText.bodyMuted,
+          textAlign: TextAlign.center,
+        ),
+        const SizedBox(height: 20),
+        Wrap(
+          alignment: WrapAlignment.center,
+          spacing: 8,
+          runSpacing: 8,
           children: [
-            Text('FINISHED', style: AppText.eyebrow),
-            const SizedBox(height: 8),
-            Text('$_score / ${_qs.length}',
-                style: const TextStyle(
-                    fontFamily: 'PlayfairDisplay', fontSize: 44, color: AppColors.goldLight)),
-            const SizedBox(height: 6),
-            Text(
-              _score >= 8
-                  ? 'MashaAllah — the stories are becoming yours.'
-                  : _score >= 5
-                      ? 'Well walked. Read one story tonight and return.'
-                      : 'Every master was once here. The Stories shelf is waiting.',
-              style: AppText.bodyMuted,
-              textAlign: TextAlign.center,
+            FilledButton.icon(
+              onPressed: () => setState(() => _review = true),
+              icon: const Icon(Icons.fact_check_outlined, size: 16),
+              label: const Text('Review answers'),
             ),
-            const SizedBox(height: 18),
-            TextButton(
-              onPressed: () => setState(() {
-                _qs = [];
-                _i = 0; _score = 0; _picked = null; _done = false;
-              }),
-              child: const Text('Play again',
-                  style: TextStyle(color: AppColors.goldLight)),
+            OutlinedButton.icon(
+              onPressed: _playAgain,
+              icon: const Icon(Icons.replay, size: 16),
+              label: const Text('Play again'),
+            ),
+            OutlinedButton.icon(
+              onPressed: _backToGames,
+              icon: const Icon(Icons.sports_esports_outlined, size: 16),
+              label: const Text('Back to Games'),
+            ),
+            OutlinedButton.icon(
+              onPressed: () => context.go(AppRoutes.home),
+              icon: const Icon(Icons.home_outlined, size: 16),
+              label: const Text('Home'),
             ),
           ],
         ),
-      ),
+      ],
+    );
+  }
+
+  /// Every question with the answer given, the right answer and the reason.
+  Widget _reviewList() {
+    return ListView(
+      padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
+      children: [
+        const ScreenHeader(title: 'Your answers', close: true),
+        for (var i = 0; i < _qs.length; i++) ...[
+          GlassCard(
+            padding: const EdgeInsets.all(14),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'QUESTION ${i + 1} \u00b7 '
+                  '${_answers[i] == _qs[i].answer ? 'CORRECT' : 'MISSED'}',
+                  style: AppText.eyebrow.copyWith(
+                    color: _answers[i] == _qs[i].answer
+                        ? AppColors.goldLight
+                        : AppColors.sand,
+                  ),
+                ),
+                const SizedBox(height: 6),
+                Text(_qs[i].question,
+                    style: AppText.body.copyWith(height: 1.45)),
+                const SizedBox(height: 8),
+                if (_answers[i] != null && _answers[i] != _qs[i].answer)
+                  Text('Your answer: ${_qs[i].options[_answers[i]!]}',
+                      style: AppText.bodyMuted),
+                Text('Answer: ${_qs[i].options[_qs[i].answer]}',
+                    style: AppText.body.copyWith(color: AppColors.goldLight)),
+                const SizedBox(height: 6),
+                Text(_qs[i].why,
+                    style: AppText.bodyMuted.copyWith(height: 1.5)),
+              ],
+            ),
+          ),
+          const SizedBox(height: 10),
+        ],
+        Wrap(
+          alignment: WrapAlignment.center,
+          spacing: 8,
+          runSpacing: 8,
+          children: [
+            FilledButton(
+              onPressed: () => setState(() => _review = false),
+              child: const Text('Back to results'),
+            ),
+            OutlinedButton(
+              onPressed: _backToGames,
+              child: const Text('Back to Games'),
+            ),
+            OutlinedButton(
+              onPressed: () => context.go(AppRoutes.home),
+              child: const Text('Home'),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
@@ -325,7 +438,15 @@ class _Names99ScreenState extends ConsumerState<Names99Screen> {
       backgroundColor: Colors.transparent,
       body: names.when(
         loading: () => const Center(child: CircularProgressIndicator(color: AppColors.gold)),
-        error: (e, _) => Center(child: Text('Could not load the names.', style: AppText.bodyMuted)),
+        error: (e, _) => Column(children: [
+          const ScreenHeader(title: 'The 99 Names', close: true),
+          Expanded(
+            child: NeedsInternetView(
+              what: 'The 99 Names',
+              onRetry: () => ref.invalidate(namesProvider),
+            ),
+          ),
+        ]),
         data: (deck) {
           final d = deck[_i];
           return ListView(

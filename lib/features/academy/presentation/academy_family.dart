@@ -8,6 +8,8 @@ import '../../../app/core/notifications/prayer_notification_scheduler.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
+import '../../../app/theme/widgets/needs_internet_view.dart';
+import '../../../app/theme/widgets/not_found_view.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../application/academy_reminder_providers.dart';
 import '../application/family_service.dart';
@@ -363,15 +365,25 @@ class _ExamScreenState extends ConsumerState<ExamScreen> {
       body: data.when(
         loading: () => const Center(
             child: CircularProgressIndicator(color: AppColors.gold)),
-        error: (e, _) => Center(
-            child: Text('Could not load the exam.', style: AppText.bodyMuted)),
+        error: (e, _) => Column(children: [
+          const ScreenHeader(title: 'Exam', close: true),
+          Expanded(
+            child: NeedsInternetView(
+              what: 'The exam',
+              onRetry: () => ref.invalidate(lettersCurriculumProvider),
+            ),
+          ),
+        ]),
         data: (d) {
           final exam = (d['exams'] as List<dynamic>)
               .map((e) => Map<String, dynamic>.from(e as Map))
               .firstWhere((e) => e['id'] == widget.examId,
                   orElse: () => const {});
           if (exam.isEmpty) {
-            return Center(child: Text('Exam not found.', style: AppText.bodyMuted));
+            return const NotFoundView(
+              message: 'That exam is not here.',
+              title: 'Exam',
+            );
           }
           final qs = (exam['questions'] as List<dynamic>)
               .map((e) => Map<String, dynamic>.from(e as Map))

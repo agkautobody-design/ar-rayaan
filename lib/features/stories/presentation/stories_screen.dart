@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:go_router/go_router.dart';
 
+import '../../../app/core/web_offline.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
@@ -68,6 +68,17 @@ class StoriesScreen extends ConsumerWidget {
         data: (all) {
           final Set<String> deeper =
               ref.watch(storyIdsWithLayersProvider).valueOrNull ?? <String>{};
+          final StoriesRepository repo = ref.read(storiesRepositoryProvider);
+          final List<String> failedPacks = repo.failedPacks;
+          Future<void> retry() async {
+            final prefs = await SharedPreferences.getInstance();
+            for (final k in prefs.getKeys()) {
+              if (k.startsWith('cp_') || k.startsWith('cv_')) {
+                await prefs.remove(k);
+              }
+            }
+            ref.invalidate(storiesProvider);
+          }
           // Head rows are cheap and few; the shelves (hundreds of story
           // cards) are built lazily, only while they are near the viewport.
           final List<Widget> head = <Widget>[
@@ -76,17 +87,12 @@ class StoriesScreen extends ConsumerWidget {
               Padding(
                 padding: const EdgeInsets.all(24),
                 child: GestureDetector(
-                  onTap: () async {
-                    final prefs = await SharedPreferences.getInstance();
-                    for (final k in prefs.getKeys()) {
-                      if (k.startsWith('cp_') || k.startsWith('cv_')) {
-                        await prefs.remove(k);
-                      }
-                    }
-                    ref.invalidate(storiesProvider);
-                  },
+                  onTap: retry,
                   child: Column(mainAxisSize: MainAxisSize.min, children: [
-                    Text('The shelves are empty — the packs did not load.',
+                    Text(
+                        'The shelves are empty — the packs did not load. '
+                        '${WebOffline.needsInternet('The story library')}',
+                        textAlign: TextAlign.center,
                         style: AppText.body),
                     const SizedBox(height: 8),
                     Text('TAP TO RETRY',
@@ -95,11 +101,28 @@ class StoriesScreen extends ConsumerWidget {
                   ]),
                 ),
               )
-            else
+            else if (failedPacks.isNotEmpty)
+              // Some shelves are missing: say so plainly (no debug counter).
               Padding(
-                padding: const EdgeInsets.only(left: 4, bottom: 6),
-                child:
-                    Text('${all.length} STORIES LOADED', style: AppText.eyebrow),
+                padding: const EdgeInsets.only(left: 4, bottom: 8),
+                child: GestureDetector(
+                  onTap: retry,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '${failedPacks.length} of ${repo.packCount} shelves '
+                        'could not load. '
+                        '${WebOffline.needsInternet('The full library')}',
+                        style: AppText.bodyMuted.copyWith(height: 1.45),
+                      ),
+                      const SizedBox(height: 4),
+                      Text('TAP TO RETRY',
+                          style: AppText.eyebrow
+                              .copyWith(color: AppColors.goldLight)),
+                    ],
+                  ),
+                ),
               ),
             Padding(
               padding: const EdgeInsets.only(left: 4, bottom: 4),
@@ -184,7 +207,7 @@ class _StoryCard extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 10),
       child: GlassCard(
         blur: false,
-        onTap: () => context.go(AppRoutes.storyReader, extra: story),
+        onTap: () => context.open(AppRoutes.storyReader, extra: story),
         child: Row(
           children: [
             Container(

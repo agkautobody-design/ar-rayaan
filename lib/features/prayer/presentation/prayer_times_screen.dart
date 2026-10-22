@@ -43,6 +43,7 @@ class PrayerTimesScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final AsyncValue<PrayerTimes> times = ref.watch(prayerTimesProvider);
+    final bool locationSet = ref.watch(prayerLocationProvider).isSet;
     final DateTime now =
         ref.watch(nowTickerProvider).valueOrNull ?? DateTime.now();
     // Keeps OS notifications (when a platform scheduler is provided) in step.
@@ -54,7 +55,9 @@ class PrayerTimesScreen extends ConsumerWidget {
           children: [
             const ScreenHeader(title: 'Prayer Times'),
             Expanded(
-              child: times.when(
+              child: !locationSet
+                  ? const _SetLocationPrompt()
+                  : times.when(
                 skipLoadingOnReload: true,
                 loading: () => const Center(
                   child: CircularProgressIndicator(color: AppColors.gold),
@@ -521,7 +524,7 @@ class _LocationCard extends ConsumerWidget {
             Text('Choose your city', style: AppText.titleMedium),
             const SizedBox(height: 4),
             Text(
-              'Times are calculated on your device — no internet needed.',
+              'Times are calculated on your device from the city you pick.',
               style: AppText.bodyMuted.copyWith(fontSize: 12),
             ),
             const SizedBox(height: 12),
@@ -575,7 +578,7 @@ class _LocationCard extends ConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  loc.country.isEmpty ? loc.city : loc.label,
+                  loc.label,
                   style: AppText.body.copyWith(fontWeight: FontWeight.w600),
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -603,7 +606,7 @@ class _LocationCard extends ConsumerWidget {
                 : () => _useGps(ref),
             icon: const Icon(Icons.my_location, size: 14),
             label: Text(
-              status == GpsStatus.locating ? 'Locating…' : 'GPS',
+              status == GpsStatus.locating ? 'Locating…' : 'My location',
               style: const TextStyle(fontSize: 12),
             ),
             style: TextButton.styleFrom(foregroundColor: AppColors.goldLight),
@@ -616,6 +619,41 @@ class _LocationCard extends ConsumerWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+/// Shown until the person sets a location: no times are guessed.
+class _SetLocationPrompt extends StatelessWidget {
+  const _SetLocationPrompt();
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
+      children: <Widget>[
+        const _LocationCard(),
+        const SizedBox(height: 16),
+        GlassCard(
+          strong: true,
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text('SET YOUR LOCATION', style: AppText.eyebrow),
+              const SizedBox(height: 8),
+              Text(
+                'Prayer times depend on where you are, so none are shown '
+                'until you choose. Tap \u201cMy location\u201d to use your '
+                'device or browser location (only when you tap it), or '
+                '\u201cCity\u201d to pick your city from the list. The times '
+                'are then calculated on your device.',
+                style: AppText.bodyMuted.copyWith(height: 1.55),
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }

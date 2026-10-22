@@ -11,6 +11,7 @@ class PrayerLocation {
     required this.latitude,
     required this.longitude,
     this.zone,
+    this.isPlaceholder = false,
   });
 
   final String city;
@@ -24,7 +25,19 @@ class PrayerLocation {
   /// device zone is the user's zone.
   final PrayerZone? zone;
 
-  String get label => '$city, $country';
+  /// True only for the built-in stand-in used before the person has set a
+  /// location. Coordinates of a placeholder are NOT the person's place:
+  /// screens must ask for a location instead of presenting times or a Qibla
+  /// bearing computed from it as fact.
+  final bool isPlaceholder;
+
+  /// A location the person chose or the device reported.
+  bool get isSet => !isPlaceholder;
+
+  String get label {
+    if (isPlaceholder) return 'No location set';
+    return country.isEmpty ? city : '$city, $country';
+  }
 
   PrayerLocation copyWith({
     String? city,

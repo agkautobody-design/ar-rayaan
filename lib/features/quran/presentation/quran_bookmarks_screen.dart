@@ -118,9 +118,9 @@ class _QuranBookmarksScreenState extends ConsumerState<QuranBookmarksScreen> {
                       label: const Text('Delete collection'),
                     ),
                   TextButton.icon(
-                    onPressed: items.isEmpty || all.value == null
+                    onPressed: items.isEmpty || all.valueOrNull == null
                         ? null
-                        : () => _export(marks, all.value!),
+                        : () => _export(marks, all.valueOrNull!),
                     icon: const Icon(Icons.copy, color: AppColors.gold),
                     label: const Text('Copy as text'),
                   ),
@@ -146,7 +146,7 @@ class _QuranBookmarksScreenState extends ConsumerState<QuranBookmarksScreen> {
                       itemCount: items.length,
                       itemBuilder: (BuildContext context, int i) {
                         final AyahMark m = items[i];
-                        final List<Surah>? surahs = all.value;
+                        final List<Surah>? surahs = all.valueOrNull;
                         final Ayah? ayah =
                             surahs == null ? null : _ayahAt(surahs, m.surah, m.ayah);
                         final String name = surahs == null

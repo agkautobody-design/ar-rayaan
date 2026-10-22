@@ -16,7 +16,7 @@ void main() {
   group('qibla direction', () {
     test('bearing from Toronto points north-east to the Kaaba', () {
       final double b = QiblaDirection.bearingToKaaba(
-        QiblaDirection.defaultLocation,
+        QiblaDirection.sampleToronto,
       );
       expect(b, greaterThan(54));
       expect(b, lessThan(56));
@@ -54,7 +54,7 @@ void main() {
         inInclusiveRange(334, 344), // Madinah ~339 km
       );
       expect(
-        QiblaDirection.distanceToKaabaKm(QiblaDirection.defaultLocation),
+        QiblaDirection.distanceToKaabaKm(QiblaDirection.sampleToronto),
         inInclusiveRange(10450, 10550), // Toronto ~10,496 km
       );
     });

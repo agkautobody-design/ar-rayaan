@@ -184,7 +184,7 @@ class _PathState extends ConsumerState<NewMuslimPathScreen> {
                           ElevatedButton(
                             onPressed: () {
                               _mark(next!.id, true);
-                              context.go(AppRoutes.storyReader,
+                              context.open(AppRoutes.storyReader,
                                   extra: next);
                             },
                             style: ElevatedButton.styleFrom(
@@ -208,7 +208,7 @@ class _PathState extends ConsumerState<NewMuslimPathScreen> {
                       blur: false,
                     onTap: () {
                       _mark(d.id, true);
-                      context.go(AppRoutes.storyReader, extra: d);
+                      context.open(AppRoutes.storyReader, extra: d);
                     },
                     child: Row(
                       children: [

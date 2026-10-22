@@ -111,6 +111,8 @@ String alertKey(DateTime wallClock, String prayer) =>
 /// The prayer whose alerted time has just arrived, or null. Fires once per
 /// prayer per day while the app is open.
 final Provider<String?> activeAlertProvider = Provider<String?>((ref) {
+  // No location set: the times would be a stand-in's, never alert on them.
+  if (ref.watch(prayerLocationProvider).isPlaceholder) return null;
   final AsyncValue<PrayerTimes> times = ref.watch(prayerTimesProvider);
   final DateTime now =
       ref.watch(nowTickerProvider).valueOrNull ?? DateTime.now();

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
@@ -363,9 +362,9 @@ class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
     }
     if (!context.mounted) return;
     if (found != null) {
-      context.go(AppRoutes.storyReader, extra: found);
+      context.open(AppRoutes.storyReader, extra: found);
     } else {
-      context.go(AppRoutes.stories);
+      context.open(AppRoutes.stories);
     }
   }
 

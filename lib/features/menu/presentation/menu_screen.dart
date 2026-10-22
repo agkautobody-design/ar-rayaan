@@ -133,7 +133,7 @@ class MenuScreen extends ConsumerWidget {
                               comingSoon: e.$3 == null,
                               onTap: e.$3 == null
                                   ? null
-                                  : () => context.go(e.$3!),
+                                  : () => context.open(e.$3!),
                             ),
                           ],
                         ],
@@ -170,7 +170,7 @@ class MenuScreen extends ConsumerWidget {
                   const SizedBox(height: 16),
                   GlassCard(
                     strong: true,
-                    onTap: () => context.go(AppRoutes.journey),
+                    onTap: () => context.open(AppRoutes.journey),
                     child: const _MenuRow(
                       icon: Icons.auto_awesome,
                       label: 'My Profile',
@@ -180,7 +180,7 @@ class MenuScreen extends ConsumerWidget {
                   const SizedBox(height: 16),
                   GlassCard(
                     strong: true,
-                    onTap: () => context.go(AppRoutes.share),
+                    onTap: () => context.open(AppRoutes.share),
                     child: const _MenuRow(
                       icon: Icons.qr_code_2,
                       label: 'Share Ar-Rayaan',

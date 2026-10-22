@@ -10,6 +10,8 @@ import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
+import '../../../app/theme/widgets/needs_internet_view.dart';
+import '../../../app/theme/widgets/not_found_view.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../sakina/domain/crisis_detector.dart';
 import '../../sakina/presentation/widgets/need_help_button.dart';
@@ -166,13 +168,22 @@ class FeelingScreen extends ConsumerWidget {
         loading: () => const Center(
           child: CircularProgressIndicator(color: AppColors.gold),
         ),
-        error: (e, _) => Center(
-          child: Text('Could not load.', style: AppText.bodyMuted),
-        ),
+        error: (e, _) => Column(children: [
+          const ScreenHeader(title: 'Feelings', close: true),
+          Expanded(
+            child: NeedsInternetView(
+              what: 'This guide',
+              onRetry: () => ref.invalidate(feelingsProvider),
+            ),
+          ),
+        ]),
         data: (list) {
           final f = list.where((x) => x.id == feelingId).firstOrNull;
           if (f == null) {
-            return Center(child: Text('Not found.', style: AppText.bodyMuted));
+            return const NotFoundView(
+              message: 'That guide is not here.',
+              title: 'Feelings',
+            );
           }
           return ListView(
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),

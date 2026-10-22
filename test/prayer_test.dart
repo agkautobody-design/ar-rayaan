@@ -601,7 +601,16 @@ void main() {
       expect(scheduler.plans, isNotEmpty);
       expect(scheduler.plans.last, isEmpty);
 
+      // With no location set (only the stand-in), nothing is ever planned:
+      // the times would not be the person's own.
       await c.read(prayerAlertsProvider.notifier).toggle('Fajr');
+      await settle();
+      expect(scheduler.plans.last, isEmpty);
+
+      // Once the person sets a location, the plan follows.
+      await c
+          .read(prayerLocationControllerProvider.notifier)
+          .setLocation(city('Toronto'));
       await settle();
       expect(scheduler.plans.last, isNotEmpty);
       expect(

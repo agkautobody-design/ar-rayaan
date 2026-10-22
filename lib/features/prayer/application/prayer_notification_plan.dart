@@ -109,6 +109,11 @@ final Provider<void> prayerNotificationSyncProvider = Provider<void>((ref) {
   if (!scheduler.supported) return;
   final Set<String> enabled = ref.watch(prayerAlertsProvider);
   final PrayerLocation location = ref.watch(prayerLocationProvider);
+  if (location.isPlaceholder) {
+    // No location set yet: nothing is scheduled (and nothing stale stays).
+    unawaited(scheduler.replaceAll(const <PlannedPrayerNotification>[]));
+    return;
+  }
   final PrayerSettings settings = ref.watch(prayerSettingsProvider);
   final int lead = ref.watch(notificationLeadProvider);
   // Date arithmetic below also depends on the Hijri choice (the Umm al-Qura

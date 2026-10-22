@@ -135,7 +135,21 @@ abstract final class ZakatCalculation {
         norm.writeCharCode(c);
       }
     }
-    String t = norm.toString().replaceAll(RegExp(r'[^\d.,-]'), '');
+    final String typed = norm.toString().trim();
+    // Scientific notation ("1e12"): its letters used to be stripped, turning
+    // 1e12 into 112. Read it as the number it says (then cap it).
+    final RegExp sci = RegExp(r'^[+-]?\d+(?:\.\d+)?[eE][+-]?\d+$');
+    if (sci.hasMatch(typed)) {
+      final double? e = double.tryParse(typed);
+      if (e == null || e.isNaN || e.isInfinite) return 0;
+      return e > maxAmount ? maxAmount : (e < -maxAmount ? -maxAmount : e);
+    }
+    // Digit groups split by spaces ("1000 5000") are only a number when they
+    // are real thousands groups ("1 234 567,5"); otherwise they used to be
+    // glued into one huge figure. Unclear input counts as 0, and
+    // [amountProblem] tells the person.
+    if (_hasUnclearGrouping(typed)) return 0;
+    String t = typed.replaceAll(RegExp(r'[^\d.,-]'), '');
     if (t.isEmpty) return 0;
     final bool negative = t.startsWith('-');
     t = t.replaceAll('-', '');
@@ -178,7 +192,40 @@ abstract final class ZakatCalculation {
       '${intPart.isEmpty ? '0' : intPart}${frac.isEmpty ? '' : '.$frac'}',
     );
     if (v == null) return 0;
-    return negative ? -v : v;
+    final double capped = v > maxAmount ? maxAmount : v;
+    return negative ? -capped : capped;
+  }
+
+  /// The largest amount a field accepts (one quadrillion). Anything bigger
+  /// is capped, so a typo can never print as "2.5e+21".
+  static const double maxAmount = 1e15;
+
+  static final RegExp _digitSpace = RegExp(r"\d[\s'\u00A0\u202F]+\d");
+  static final RegExp _wellGrouped = RegExp(
+    r"^[^\d-]*-?\d{1,3}(?:[\s'\u00A0\u202F]\d{3})+(?:[.,]\d+)?[^\d]*$",
+  );
+
+  /// True for digits separated by spaces that are not thousands groups.
+  static bool _hasUnclearGrouping(String typed) {
+    if (!_digitSpace.hasMatch(typed)) return false;
+    return !_wellGrouped.hasMatch(typed);
+  }
+
+  /// A short message when [raw] is not a usable amount, else null. Empty
+  /// input is fine (it counts as zero).
+  static String? amountProblem(String raw) {
+    final String t = raw.trim();
+    if (t.isEmpty) return null;
+    final double v = parseAmount(t);
+    if (v < 0) return 'Enter zero or more, not a negative amount';
+    if (!RegExp(r'[\d\u0660-\u0669\u06F0-\u06F9]').hasMatch(t)) {
+      return 'Enter the amount as a number';
+    }
+    if (_hasUnclearGrouping(t)) {
+      return 'Not sure how to read this. Use one number, like 12500.50';
+    }
+    if (v >= maxAmount) return 'That number is too large';
+    return null;
   }
 
   /// Formats a currency amount with thousands separators, 2 decimals.

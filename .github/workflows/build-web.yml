@@ -56,9 +56,14 @@ jobs:
       # and the custom domain) and to the Firebase APIs actually used, and turn
       # on Firebase App Check (reCAPTCHA) with Firestore rules that require it.
       # Rules, App Check and the key restrictions are the real protection.
+      # --no-web-resources-cdn bundles CanvasKit (the renderer) into the build
+      # under canvaskit/ instead of loading it from www.gstatic.com, so one
+      # blocked or down CDN can no longer leave the app on its splash forever.
+      # Keep the flag identical in pr-check.yml.
       - name: Build web (release)
         run: >-
           flutter build web --release
+          --no-web-resources-cdn
           --build-number=${{ github.run_number }}
           --dart-define=FIREBASE_API_KEY=AIzaSyAB4e-12YGNZx4c9mX-3UInAePd-lRTTOY
           --dart-define=FIREBASE_APP_ID=1:967867528821:web:65ee3d9c67a2820cc42a3c

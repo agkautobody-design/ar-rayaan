@@ -194,6 +194,19 @@ class _RamadanState extends ConsumerState<RamadanScreen> {
                         Text(today.source, textAlign: TextAlign.center,
                             style: AppText.bodyMuted.copyWith(fontSize: 12)),
                       ],
+                      if (!ref.watch(prayerLocationProvider).isSet)
+                        if (_inRamadan)
+                          Padding(
+                            padding: const EdgeInsets.only(top: 8),
+                            child: Text(
+                              'Set your location in Prayer Times to see suhoor and iftar countdowns.',
+                              textAlign: TextAlign.center,
+                              style: AppText.bodyMuted.copyWith(fontSize: 12),
+                            ),
+                          )
+                        else
+                          const SizedBox.shrink()
+                      else
                       times.when(
                         loading: () => const SizedBox.shrink(),
                         error: (e, _) => const SizedBox.shrink(),

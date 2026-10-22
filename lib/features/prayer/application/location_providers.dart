@@ -22,13 +22,17 @@ class PrayerLocationController extends Notifier<PrayerLocation> {
   static const String _countryKey = 'ar.location.country';
   static const String _zoneKey = 'ar.location.zone';
 
-  /// Default before any GPS fix or manual choice (previous behaviour).
+  /// Stand-in used before any GPS fix or manual choice. It only keeps the
+  /// calculation code total: it is flagged [PrayerLocation.isPlaceholder] and
+  /// no screen may show times or a bearing from it as the person's own.
+  /// Every screen checks `isSet` and asks the person to set a location.
   static const PrayerLocation fallback = PrayerLocation(
-    city: 'Toronto',
-    country: 'Canada',
+    city: '',
+    country: '',
     latitude: 43.6532,
     longitude: -79.3832,
     zone: PrayerZone(-300, DstRule.us),
+    isPlaceholder: true,
   );
 
   GpsStatus gpsStatus = GpsStatus.idle;

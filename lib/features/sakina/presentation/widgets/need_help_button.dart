@@ -37,10 +37,15 @@ class _NeedHelpSheet extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final String? country = ref.watch(deviceCountryProvider);
     final List<HelpResource> rows = CrisisResponses.resourcesFor(
       kind,
-      ref.watch(deviceCountryProvider),
+      country,
     ).take(6).toList();
+    final String? cc = country?.trim().toUpperCase();
+    final bool hasLocal = cc != null &&
+        cc.isNotEmpty &&
+        rows.any((HelpResource r) => r.countries.contains(cc));
     return SafeArea(
       child: SingleChildScrollView(
         padding: const EdgeInsets.fromLTRB(20, 24, 20, 16),
@@ -57,6 +62,20 @@ class _NeedHelpSheet extends ConsumerWidget {
                       'number. These lines are free to talk to, and a real '
                       'person answers.',
               style: AppText.bodyMuted.copyWith(fontSize: 13, height: 1.5),
+            ),
+            const SizedBox(height: 8),
+            // Honest about where the order comes from: the device language
+            // setting, never a guessed or hard-coded place.
+            Text(
+              !hasLocal
+                  ? 'We could not tell which country you are in, so these '
+                      'lines work from anywhere. Every country is listed in '
+                      'Sakina below.'
+                  : 'Lines for the region $cc come first. That comes '
+                      'from your device language setting, not your location. '
+                      'In another country? Every country is listed in '
+                      'Sakina below.',
+              style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.5),
             ),
             const SizedBox(height: 14),
             for (final HelpResource r in rows) ...<Widget>[

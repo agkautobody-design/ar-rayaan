@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../app/core/web_offline.dart';
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
@@ -18,7 +19,7 @@ import '../../stories/data/stories_repository.dart';
 import '../../stories/domain/story.dart';
 
 /// FIND ANYTHING — one search across every shelf: the whole Qur'an
-/// (Arabic and English, or a verse key like 2:255 — offline), the 11 story
+/// (Arabic and English, or a verse key like 2:255), the 11 story
 /// packs (Prophets, Seerah, Khutbahs, Daily Duas, Modern Hadith…), the
 /// Forty Hadith of an-Nawawi, and the Hisn al-Muslim adhkar.
 class SearchScreen extends ConsumerStatefulWidget {
@@ -57,11 +58,17 @@ class _SearchState extends ConsumerState<SearchScreen> {
         hadithAsync.isLoading ||
         adhkarAsync.isLoading ||
         quranAsync.isLoading;
-    final List<Surah> quran = quranAsync.value ?? const <Surah>[];
+    // A shelf that failed to load (on the web: no internet) is reported,
+    // never mistaken for "no results"; the shelves that did load still answer.
+    final bool shelfFailed = quranAsync.hasError ||
+        storiesAsync.hasError ||
+        hadithAsync.hasError ||
+        adhkarAsync.hasError;
+    final List<Surah> quran = quranAsync.valueOrNull ?? const <Surah>[];
 
-    final stories = storiesAsync.value ?? const <Story>[];
-    final hadiths = hadithAsync.value ?? const <Hadith>[];
-    final sets = adhkarAsync.value ?? const <AdhkarSet>[];
+    final stories = storiesAsync.valueOrNull ?? const <Story>[];
+    final hadiths = hadithAsync.valueOrNull ?? const <Hadith>[];
+    final sets = adhkarAsync.valueOrNull ?? const <AdhkarSet>[];
 
     final hits = <_Hit>[];
     int quranTotal = 0;
@@ -105,7 +112,7 @@ class _SearchState extends ConsumerState<SearchScreen> {
                 ? 'Unverified \u00b7 ${s.kicker}'
                 : s.kicker,
             icon: Icons.auto_stories_outlined,
-            open: () => context.go(AppRoutes.storyReader, extra: s),
+            open: () => context.open(AppRoutes.storyReader, extra: s),
           ));
         }
       }
@@ -160,10 +167,36 @@ class _SearchState extends ConsumerState<SearchScreen> {
                 onChanged: (v) => setState(() => _q = v.trim().toLowerCase()),
               ),
               const SizedBox(height: 14),
+              if (shelfFailed) ...[
+                GlassCard(
+                  padding: const EdgeInsets.all(14),
+                  child: Row(children: [
+                    const Icon(Icons.cloud_off_outlined,
+                        size: 20, color: AppColors.gold),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Text(
+                        WebOffline.needsInternet('Some of the library'),
+                        style: AppText.bodyMuted.copyWith(height: 1.5),
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        ref.invalidate(quranAllProvider);
+                        ref.invalidate(storiesProvider);
+                        ref.invalidate(hadithCollectionProvider);
+                        ref.invalidate(adhkarSetsProvider);
+                      },
+                      child: const Text('Try again'),
+                    ),
+                  ]),
+                ),
+                const SizedBox(height: 10),
+              ],
               if (_q.length < 2)
                 GlassCard(
                     child: Text(
-                        'Try "mercy", "بسم الله", "2:255", "Yusuf", "patience", "before sleep" — the whole Qur\'an (offline), the story packs, the Forty Hadith, and the adhkar all answer here.',
+                        'Try "mercy", "بسم الله", "2:255", "Yusuf", "patience", "before sleep" — the whole Qur\'an, the story packs, the Forty Hadith, and the adhkar all answer here.',
                         style: AppText.bodyMuted.copyWith(height: 1.6)))
               else if (loading)
                 const Center(
@@ -172,7 +205,9 @@ class _SearchState extends ConsumerState<SearchScreen> {
               else if (hits.isEmpty)
                 GlassCard(
                     child: Text(
-                        'Nothing on any shelf matches "$_q" yet — ask Hādi, he may know.',
+                        shelfFailed
+                            ? 'No match for "$_q" in the shelves that loaded.'
+                            : 'Nothing on any shelf matches "$_q" yet — ask Hādi, he may know.',
                         style: AppText.bodyMuted))
               else
                 Column(children: [

@@ -8,6 +8,8 @@ import 'package:go_router/go_router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
+import '../../../app/theme/widgets/needs_internet_view.dart';
+import '../../../app/theme/widgets/not_found_view.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/theme/widgets/speak_button.dart';
 import '../application/academy_providers.dart';
@@ -323,13 +325,22 @@ class _LessonRunnerState extends ConsumerState<LessonRunnerScreen> {
       body: lessons.when(
         loading: () => const Center(
             child: CircularProgressIndicator(color: AppColors.gold)),
-        error: (e, _) => Center(
-            child: Text('Could not load the lesson.', style: AppText.bodyMuted)),
+        error: (e, _) => Column(children: [
+          const ScreenHeader(title: 'Lesson', close: true),
+          Expanded(
+            child: NeedsInternetView(
+              what: 'This lesson',
+              onRetry: () => ref.invalidate(lettersLessonsProvider),
+            ),
+          ),
+        ]),
         data: (list) {
           final lesson = list.where((l) => l.id == widget.lessonId).firstOrNull;
           if (lesson == null) {
-            return Center(child: Text('Lesson not found.',
-                style: AppText.bodyMuted));
+            return const NotFoundView(
+              message: 'That lesson is not here.',
+              title: 'Lesson',
+            );
           }
           final steps = lesson.steps;
           final current = steps[_step];

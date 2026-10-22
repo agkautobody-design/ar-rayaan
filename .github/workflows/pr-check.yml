@@ -94,8 +94,34 @@ jobs:
         id: build
         run: |
           set -o pipefail
-          flutter build web --release 2>&1 | tee build.log
+          flutter build web --release --no-web-resources-cdn 2>&1 | tee build.log
         continue-on-error: true
+
+      # Reports what the web build weighs (bytes on disk, before the host
+      # compresses it), so a change in bundle size is visible in the PR.
+      - name: Web bundle size
+        id: size
+        run: |
+          set -o pipefail
+          total=$(find build/web -type f -printf '%s\n' | awk '{s+=$1} END {printf "%d", s}')
+          ck=$(find build/web/canvaskit -type f -printf '%s\n' 2>/dev/null | awk '{s+=$1} END {printf "%d", s}')
+          js=$(stat -c %s build/web/main.dart.js)
+          jsgz=$(gzip -9 -c build/web/main.dart.js | wc -c)
+          {
+            echo "total build/web: $total bytes"
+            echo "canvaskit/ (bundled renderer): $ck bytes"
+            echo "main.dart.js: $js bytes (gzip $jsgz)"
+            find build/web/canvaskit -type f -printf '  %p %s\n' 2>/dev/null | sort
+          } | tee size.log
+        continue-on-error: true
+
+      - name: Surface failures as annotations
+        if: always()
+        run: |
+          grep -E "^ *(error|warning) •" analyze.log 2>/dev/null | head -n 40 | while IFS= read -r l; do echo "::error title=analyze::${l:0:400}"; done
+          grep -E "\[E\]" test.log 2>/dev/null | head -n 40 | while IFS= read -r l; do echo "::error title=test::${l:0:300}"; done
+          grep -A 16 "\[E\]" test.log 2>/dev/null | grep -vE "^\s*$|^[0-9:]+ \+[0-9]+.*\[E\]$" | cut -c1-260 | head -n 230 | while IFS= read -r l; do echo "::warning title=tf::${l}"; done
+          grep -E "Error|error:" build.log 2>/dev/null | head -n 20 | while IFS= read -r l; do echo "::error title=build::${l:0:300}"; done
 
       - name: Post results
         if: always() && github.event_name == 'pull_request'
@@ -157,6 +183,13 @@ jobs:
             # The exception text is printed BEFORE the [E] line, so keep context on both sides.
             grep -B 45 -A 12 "\[E\]" test.log 2>/dev/null | head -n 500
             grep -E "Some tests failed|All tests passed" test.log 2>/dev/null | tail -n 1
+            echo '```'
+            echo "</details>"
+            echo ""
+            echo "<details open><summary>web bundle size</summary>"
+            echo ""
+            echo '```'
+            cat size.log 2>/dev/null
             echo '```'
             echo "</details>"
             echo ""

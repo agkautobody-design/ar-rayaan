@@ -73,7 +73,12 @@ class _ZakatScreenState extends ConsumerState<ZakatScreen> {
   /// no figure is shown until the person fixes it.
   String? get _priceMismatch => _livePricesInUse ? _currencyBlock : null;
 
-  double _v(String key) => ZakatCalculation.parseAmount(_c[key]!.text);
+  /// A field's amount, never negative (a negative figure is flagged on the
+  /// field itself by [ZakatCalculation.amountProblem] and counts as zero).
+  double _v(String key) {
+    final double v = ZakatCalculation.parseAmount(_c[key]!.text);
+    return v < 0 ? 0 : v;
+  }
 
   @override
   void initState() {
@@ -535,6 +540,8 @@ class _ZakatScreenState extends ConsumerState<ZakatScreen> {
         label: label,
         icon: icon,
         keyboardType: const TextInputType.numberWithOptions(decimal: true),
+        validator: (String? v) => ZakatCalculation.amountProblem(v ?? ''),
+        autovalidateMode: AutovalidateMode.onUserInteraction,
       ),
     );
   }

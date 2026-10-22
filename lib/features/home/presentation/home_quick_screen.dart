@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
+import '../../../app/router.dart';
 
 import '../../academy/application/academy_providers.dart';
 import '../../menu/presentation/menu_screen.dart' show isAcademyRoute;
@@ -78,9 +78,9 @@ class _QuickTile extends StatelessWidget {
       button: true,
       label: '$title. $subtitle',
       excludeSemantics: true,
-      onTap: () => context.go(route),
+      onTap: () => context.open(route),
       child: GestureDetector(
-      onTap: () => context.go(route),
+      onTap: () => context.open(route),
       child: Container(
         height: 118 * textScale,
         decoration: BoxDecoration(
