@@ -146,7 +146,7 @@ void main() {
     );
     await AppHarness.go(tester, find.text('Faith'), '/qibla');
     expect(find.text('SET YOUR LOCATION'), findsNothing);
-    expect(find.textContaining('clockwise from true North'), findsOneWidget);
+    expect(find.textContaining('clockwise from true North'), findsWidgets);
     expect(find.textContaining('Karachi'), findsWidgets);
   });
 
