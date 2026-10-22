@@ -82,9 +82,111 @@ class OfflineWasiaProvider implements HadiProvider {
     return _ambiguousLetterNames.contains(tokens.last);
   }
 
+  /// For a child who says they are scared, sad, worried or unsafe. No
+  /// advice, no scripture from memory: a kind word and a trusted adult,
+  /// today.
+  static const String trustedAdult =
+      'Thank you for telling me. When something feels scary, sad or wrong, '
+      'the best thing is to tell a grown-up you trust today: a parent, a '
+      'teacher, or another adult in your family. You are not in trouble for '
+      'feeling this way, and you are not alone. When you feel ready, I am '
+      'here for your letters.';
+
+  /// For a child asking about a sad family member.
+  static const String familyFeelings =
+      'It sounds like you care about them very much. The kindest thing is to '
+      'ask them gently if they are all right, or to tell another grown-up you '
+      'trust that you are worried. You can also make du’a for them. I am here '
+      'when you want to go back to your letters.';
+
+  /// For a child asking where people go after death.
+  static const String bigQuestion =
+      'That is a big question, and a good one. Allah is the One who judges, '
+      'and He is fair and merciful. A parent or a teacher you trust can talk '
+      'about it with you much better than I can, so please ask them. I am '
+      'here for your letters whenever you like.';
+
+  /// For a child who asks what Wasia is. A straight answer.
+  static const String whoAmI =
+      'I am Wasia, a computer program in the Ar-Rayaan app. I am not a '
+      'person. I help you learn your letters, your lessons and the duas '
+      'from the Academy. For anything I cannot answer, ask your parents or a '
+      'teacher you trust.';
+
+  /// A greeting back.
+  static const String greeting =
+      'Wa alaikum as-salam! I am Wasia. Would you like to learn a letter '
+      'today?';
+
+  /// Thanks and goodbye.
+  static const String thanks =
+      'You are welcome! Well done for asking. Shall we learn one more '
+      'letter?';
+  static const String goodbye =
+      'Fi amanillah, see you soon! Remember to tell a grown-up what you '
+      'learned today.';
+
+  static final RegExp _scared = RegExp(
+    r' (?:i am|im|i feel|i m|i was) (?:so |very |really )?'
+    r'(?:scared|afraid|frightened|terrified|worried|unsafe|sad|upset|'
+    r'lonely|crying|hurt|nervous|anxious|alone) |'
+    r' (?:someone|somebody|he|she|they) (?:hurt|hurts|hit|hits|scares?|'
+    r'touch(?:ed|es)?) me | i (?:am|m) being (?:bullied|hurt)| '
+    r'(?:i |im |i m )?(?:feel )?(?:scared|afraid|unsafe) ',
+  );
+  static final RegExp _familySad = RegExp(
+    r' (?:my )?(?:mom|mum|mother|dad|father|parents?|grandma|grandpa|'
+    r'brother|sister|teacher)(?: and (?:my )?(?:mom|mum|mother|dad|father))? '
+    r'(?:is |was |are |keeps? |keep )?(?:always |really |so )?(?:sad|crying|'
+    r'sick|angry|upset|shouting|fighting)| why (?:is|are) my '
+    r'(?:mom|mum|mother|dad|father|parents?) (?:sad|crying|angry|upset)',
+  );
+  static final RegExp _bigQ = RegExp(
+    r' where do (?:bad|dead) people go | what happens (?:when|if) '
+    r'(?:we|you|i|people) die | do (?:bad|dead) people go to ',
+  );
+  static final RegExp _identity = RegExp(
+    r' are you (?:an? )?(?:ai|a i|robot|real|human|person|computer|bot|'
+    r'machine|alive|a teacher|chatgpt) | who are you | what are you | '
+    r'what is your name | whats your name | who made you | '
+    r'is this a real person ',
+  );
+
+  static final RegExp _hello = RegExp(
+    r'^ (?:hi|hello|hey|hiya|salam|salaam|assalamu alaikum|'
+    r'assalamualaikum|assalam o alaikum|as salamu alaykum|'
+    r'as salamu alaikum|peace be upon you|good morning|good evening|'
+    r'good afternoon)(?: wasia| teacher| there)? $',
+  );
+  static final RegExp _thanks = RegExp(
+    r'^ (?:thank you|thanks|thank u|jazakallah|jazak allah|'
+    r'jazakallahu khairan|jazakallah khair|shukran|ok thanks|thanks wasia|'
+    r'thank you wasia)(?: so much| very much)? $',
+  );
+  static final RegExp _bye = RegExp(
+    r'^ (?:bye|goodbye|good bye|see you|see you later|ma salama|'
+    r'fi amanillah|allah hafiz|khuda hafiz)(?: wasia)? $',
+  );
+
+  /// The kind, fixed replies that come before the shelf: feelings, safety,
+  /// identity, hello and goodbye. Null when none applies.
+  static String? care(String normalisedQuestion) {
+    final String q = normalisedQuestion;
+    if (_scared.hasMatch(q)) return trustedAdult;
+    if (_familySad.hasMatch(q)) return familyFeelings;
+    if (_bigQ.hasMatch(q)) return bigQuestion;
+    if (_identity.hasMatch(q)) return whoAmI;
+    if (_hello.hasMatch(q)) return greeting;
+    if (_thanks.hasMatch(q)) return thanks;
+    if (_bye.hasMatch(q)) return goodbye;
+    return null;
+  }
+
   @override
   Future<String> ask(String question, List<HadiMessage> history) async {
     final String q = normalise(question);
+    final String? kind = care(q);
+    if (kind != null) return kind;
     final bool cue = hasLetterCue(q);
     int bestScore = 0;
     String bestAnswer = decline;

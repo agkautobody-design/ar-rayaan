@@ -8,7 +8,7 @@ import '../application/hadi_provider.dart';
 /// Live AI over any OpenAI-compatible chat endpoint with the user's own key.
 /// The key is stored in plain text on this device and is sent only to the
 /// provider you chose. Two curated backends below (Groq, OpenRouter).
-class OpenAIChatHadiProvider implements HadiProvider {
+class OpenAIChatHadiProvider implements SystemPromptProvider {
   OpenAIChatHadiProvider({
     required this.apiKey,
     required this.baseUrl,
@@ -53,10 +53,20 @@ class OpenAIChatHadiProvider implements HadiProvider {
   }
 
   @override
-  Future<String> ask(String question, List<HadiMessage> history) async {
+  Future<String> ask(String question, List<HadiMessage> history) =>
+      askWithSystem(kHadiSystemPrompt, question, history);
+
+  /// Like [ask], under [system] instead of Hādi's own prompt. The system
+  /// message is sent with every request.
+  @override
+  Future<String> askWithSystem(
+    String system,
+    String question,
+    List<HadiMessage> history,
+  ) async {
     final http.Response resp;
     try {
-      resp = await _post(question, history).timeout(timeout);
+      resp = await _post(system, question, history).timeout(timeout);
     } on TimeoutException {
       throw const HadiProviderException(
         'The guidance service took too long to answer.',
@@ -93,7 +103,11 @@ class OpenAIChatHadiProvider implements HadiProvider {
     return text;
   }
 
-  Future<http.Response> _post(String question, List<HadiMessage> history) {
+  Future<http.Response> _post(
+    String system,
+    String question,
+    List<HadiMessage> history,
+  ) {
     return _client.post(
       Uri.parse(baseUrl),
       headers: <String, String>{
@@ -106,10 +120,7 @@ class OpenAIChatHadiProvider implements HadiProvider {
         'temperature': 0.5, // low drift — authenticity over creativity
         'max_tokens': maxTokens,
         'messages': <Map<String, String>>[
-          const <String, String>{
-            'role': 'system',
-            'content': kHadiSystemPrompt,
-          },
+          <String, String>{'role': 'system', 'content': system},
           // Recent history for continuity (cap keeps context rich).
           for (final HadiMessage m in history.length > 16
               ? history.sublist(history.length - 16)

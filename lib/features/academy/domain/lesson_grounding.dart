@@ -13,6 +13,8 @@
 ///    or it is taken out before the learner sees it.
 library;
 
+import '../../hadi/grounding/verifier_patterns.dart';
+
 /// The lesson Wasia is answering about. [text] is the lesson's own words.
 class LessonGrounding {
   const LessonGrounding({
@@ -140,6 +142,11 @@ class VerifiedWasiaAnswer {
 const String kWasiaRemovedNote =
     'Wasia removed something she could not check against this lesson.';
 
+/// The same, when the question was asked outside any lesson.
+const String kWasiaRemovedNoteOutside =
+    'Wasia removed something she could not check. Please ask a parent or '
+    'teacher about it.';
+
 abstract final class WasiaAnswerVerifier {
   static final RegExp _hadithRef = RegExp(
     r"(?:Sahih\s+|Sunan\s+|Jami[\u02bf'\u2019`]?\s*(?:at-|al-)?\s*)?"
@@ -170,14 +177,15 @@ abstract final class WasiaAnswerVerifier {
   static final RegExp _arabicRun = RegExp('[$_arabicChars][$_arabicChars\\s]*');
   static final RegExp _marks = RegExp('[\u064B-\u0652\u0670\u06D6-\u06ED]');
 
-  static final RegExp _quoted =
-      RegExp('[\u201C"]([^\u201D"\u201C\\n]{40,600})[\u201D"]');
-
   static final RegExp _gradeClaim = RegExp(
     r"\b(?:graded|rated|classed|classified|considered|deemed|judged|is|was|are)"
     r"\s+(?:as\s+)?(?:a\s+)?(sahih|hasan|da['\u2019]?if|weak|fabricated|"
     r"mawdu['\u2019]?)\b",
     caseSensitive: false,
+  );
+
+  static final RegExp _lessonGrades = RegExp(
+    r"sahih|hasan|da['\u2019]?[iy]f|weak|fabricated|authentic|mawdu",
   );
 
   static String _condense(String s) =>
@@ -225,9 +233,19 @@ abstract final class WasiaAnswerVerifier {
 
     String text = raw
         .replaceAll(RegExp(r'\[\[[^\]\n]*\]\]'), '')
-        .replaceAll(RegExp(r'\[GO:[^\]]+\]'), '');
+        .replaceAll(RegExp(r'\[(?:GO|DO):[^\]]+\]'), '');
 
-    // 1. Hadith references: only those the lesson itself gives.
+    // 1. Hadith references: only those the lesson itself gives. Books the
+    //    app cannot check by number (Musnad Ahmad, Riyad as-Salihin, Bulugh
+    //    al-Maram ...) and "Book 3, Hadith 12" numbering never pass.
+    text = text.replaceAllMapped(VerifierPatterns.bookNumbering, (Match m) {
+      refs++;
+      return '(reference removed)';
+    });
+    text = text.replaceAllMapped(VerifierPatterns.unverifiableRef, (Match m) {
+      refs++;
+      return '(reference removed)';
+    });
     final Set<String> lessonHadith = _lessonHadith(lessonText);
     text = text.replaceAllMapped(_hadithRef, (Match m) {
       final String key = '${_collection(m.group(1)!)}:${m.group(2)}';
@@ -252,6 +270,16 @@ abstract final class WasiaAnswerVerifier {
       return '(verse reference removed)';
     }
 
+    // "Surah Al-Baqarah verse 255": kept only when the lesson says it too.
+    final String lessonFlat =
+        lessonText.toLowerCase().replaceAll(RegExp(r'\s+'), ' ');
+    text = text.replaceAllMapped(VerifierPatterns.surahVerse, (Match m) {
+      final String flat =
+          m.group(0)!.toLowerCase().replaceAll(RegExp(r'\s+'), ' ');
+      if (lessonFlat.contains(flat)) return m.group(0)!;
+      refs++;
+      return '(verse reference removed)';
+    });
     text = text.replaceAllMapped(_quranRefWord, quranRef);
     text = text.replaceAllMapped(_quranRefParen, quranRef);
 
@@ -268,12 +296,15 @@ abstract final class WasiaAnswerVerifier {
 
     // 4. Long quotations must come from the lesson.
     final String lessonCondensed = _condense(lessonText);
-    text = text.replaceAllMapped(_quoted, (Match m) {
-      final String q = _condense(m.group(1)!);
-      if (q.isNotEmpty && lessonCondensed.contains(q)) return m.group(0)!;
-      quotes++;
-      return '(a quotation Wasia could not check was removed)';
-    });
+    text = VerifierPatterns.filterQuotes(
+      text,
+      allowed: (String inner) {
+        final String q = _condense(inner);
+        return q.isEmpty || lessonCondensed.contains(q);
+      },
+      onRemoved: () => quotes++,
+      replacement: '(a quotation Wasia could not check was removed)',
+    );
 
     // 5. A hadith grade the lesson does not give is dropped with its
     //    sentence.
@@ -281,6 +312,12 @@ abstract final class WasiaAnswerVerifier {
     final List<String> kept = <String>[];
     for (final String s in text.split(RegExp(r'(?<=[.!?])\s+'))) {
       final Match? g = _gradeClaim.firstMatch(s);
+      if (g == null && VerifierPatterns.gradeSentence.hasMatch(s)) {
+        if (!_lessonGrades.hasMatch(lessonLower)) {
+          grades++;
+          continue;
+        }
+      }
       if (g != null) {
         final String grade =
             g.group(1)!.toLowerCase().replaceAll('\u2019', "'");

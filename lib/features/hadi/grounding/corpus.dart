@@ -21,10 +21,12 @@ import 'passage.dart';
 class HadiCorpus {
   HadiCorpus._({
     required List<List<List<String>>> verses,
+    required List<String> surahNames,
     required List<_Entry> entries,
     required Map<String, Passage> hadith,
     required this.checked,
   })  : _verses = verses,
+        _surahKeys = <String>[for (final String n in surahNames) _letters(n)],
         _entries = entries,
         _hadith = hadith {
     final int n = entries.length;
@@ -46,8 +48,10 @@ class HadiCorpus {
     required List<dynamic> quran,
   }) {
     final List<List<List<String>>> verses = <List<List<String>>>[];
+    final List<String> surahNames = <String>[];
     for (final dynamic s in quran) {
       final Map<String, dynamic> surah = s as Map<String, dynamic>;
+      surahNames.add(surah['tl'] as String? ?? '');
       final List<dynamic> vs = surah['v'] as List<dynamic>;
       final List<List<String>> rows = <List<String>>[];
       for (final dynamic v in vs) {
@@ -99,6 +103,7 @@ class HadiCorpus {
 
     return HadiCorpus._(
       verses: verses,
+      surahNames: surahNames,
       entries: entries,
       hadith: hadith,
       checked: corpus['checked'] as String? ?? '',
@@ -112,6 +117,7 @@ class HadiCorpus {
   static const int maxRange = 10;
 
   final List<List<List<String>>> _verses;
+  final List<String> _surahKeys;
   final List<_Entry> _entries;
   final Map<String, Passage> _hadith;
   final Map<String, double> _idf = <String, double>{};
@@ -169,6 +175,45 @@ class HadiCorpus {
       english: en.toString(),
       arabic: ar.toString(),
     );
+  }
+
+  static String _letters(String s) =>
+      s.toLowerCase().replaceAll(RegExp('[^a-z]'), '');
+
+  /// A surah's name without its article and a closing "h", so "Al-Baqarah",
+  /// "Baqarah" and "Baqara" are one key.
+  static String _bareName(String letters) {
+    String s = letters;
+    for (final String a in <String>[
+      'adh', 'ath', 'ash', 'al', 'an', 'ar', 'as', 'at', 'az', 'ad',
+    ]) {
+      if (s.startsWith(a) && s.length > a.length + 2) {
+        s = s.substring(a.length);
+        break;
+      }
+    }
+    if (s.endsWith('h') && s.length > 4) s = s.substring(0, s.length - 1);
+    return s;
+  }
+
+  /// The number of a surah named in free text ("Al-Baqarah", "Baqara", "2"),
+  /// or null when it is not a surah of the bundled Qur'an.
+  int? surahNumber(String name) {
+    final String trimmed = name.trim();
+    final int? digits = int.tryParse(trimmed);
+    if (digits != null) {
+      return digits >= 1 && digits <= _surahKeys.length ? digits : null;
+    }
+    final String k = _letters(trimmed);
+    if (k.isEmpty) return null;
+    if (k == 'imran' || k == 'aliimran' || k == 'aalimran') return 3;
+    final String bare = _bareName(k);
+    for (int i = 0; i < _surahKeys.length; i++) {
+      final String key = _surahKeys[i];
+      if (key.isEmpty) continue;
+      if (key == k || _bareName(key) == bare) return i + 1;
+    }
+    return null;
   }
 
   /// The corpus hadith for a free-typed reference such as `Bukhari` + `1303`.

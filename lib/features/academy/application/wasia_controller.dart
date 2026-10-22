@@ -272,8 +272,9 @@ class WasiaController extends StateNotifier<WasiaState> {
     // AI service on (and then no name is sent).
     // A ruling question inside a lesson is answered with a fixed redirect:
     // nothing about it goes to an AI service.
-    final bool ruled =
-        lesson != null && RulingGate.classify(q) != RulingClass.none;
+    // The same holds outside a lesson: a ruling question never goes to an AI
+    // service, whoever asks.
+    final bool ruled = RulingGate.classify(q) != RulingClass.none;
     final bool aiAllowed = !ruled &&
         await aiAllowedFor(persona, parentVerified: parentVerified);
     final k = aiAllowed ? await _key() : null;
@@ -307,7 +308,9 @@ class WasiaController extends StateNotifier<WasiaState> {
       return offline;
     }
 
-    final first = state.messages.isEmpty;
+    // What was said before this question. The question itself is sent once,
+    // as the new message, never also inside the history.
+    final List<HadiMessage> before = state.messages;
     state = state.copy(
       isLoading: true,
       clearNotice: true,
@@ -327,36 +330,48 @@ class WasiaController extends StateNotifier<WasiaState> {
               'xai' => XaiHadiProvider(apiKey: k),
               _ => GroqHadiProvider(apiKey: k),
             };
-      // The voice lands in the FIRST message only, like a system prompt;
-      // follow-ups ride the conversation history.
-      final voice = personaPrompt(persona);
-      final who = switch (persona) {
+      // The voice (and, inside a lesson, the lesson text) is the SYSTEM
+      // message of every request, so a follow-up is taught under the same
+      // rules as the first question. A provider that cannot take a system
+      // prompt is sent the same text in front of the question instead.
+      final String voice = personaPrompt(persona);
+      final String who = switch (persona) {
         WasiaPersona.student => 'Student',
         WasiaPersona.parent => 'Parent',
         WasiaPersona.teacher => 'Teacher',
       };
       final String grounding =
           lesson == null ? '' : '\n\n${lessonGroundingBlock(lesson)}';
-      final content = first ? '$voice$grounding\n\n$who asks: $q' : q;
-      String answer = await p.ask(content, state.messages);
-      if (lesson != null) {
-        // The reply is checked against the lesson before anyone sees it:
-        // a reference, quotation, Arabic or hadith grade the lesson does not
-        // carry is removed, and so is a verdict on the person's own case.
-        final VerifiedWasiaAnswer v =
-            WasiaAnswerVerifier.verify(answer, lesson.text);
-        final ({String text, bool changed}) f =
-            RulingGate.filterLive(v.text);
-        answer = f.text;
-        if (v.changed || f.changed) answer = '$answer\n\n$kWasiaRemovedNote';
+      final String system = '$voice$grounding';
+      String answer;
+      if (p is SystemPromptProvider) {
+        answer = await p.askWithSystem(system, '$who asks: $q', before);
+      } else {
+        answer = await p.ask('$system\n\n$who asks: $q', before);
+      }
+      // Every live reply is checked, in a lesson or not. In a lesson a
+      // reference, quotation, Arabic or hadith grade the lesson does not carry
+      // is removed; outside one nothing is carried, so every reference,
+      // quotation, run of Arabic and grade goes. Raw [GO:], [DO:] and [[src:]]
+      // tokens never reach a child, and neither does a verdict on the
+      // person's own case.
+      final VerifiedWasiaAnswer v =
+          WasiaAnswerVerifier.verify(answer, lesson?.text ?? '');
+      final ({String text, bool changed}) f = RulingGate.filterLive(v.text);
+      answer = f.text;
+      if (answer.trim().isEmpty) answer = kWasiaNotInLesson;
+      if (v.changed || f.changed) {
+        answer = lesson != null
+            ? '$answer\n\n$kWasiaRemovedNote'
+            : '$answer\n\n$kWasiaRemovedNoteOutside';
       }
       var msgs = <HadiMessage>[
         ...state.messages,
         HadiMessage(fromHadi: true, text: answer),
       ];
-      // Cap the thread: keep the persona anchor + the most recent turns.
+      // Cap the thread: keep the most recent turns.
       if (msgs.length > 14) {
-        msgs = <HadiMessage>[msgs.first, ...msgs.sublist(msgs.length - 12)];
+        msgs = msgs.sublist(msgs.length - 12);
       }
       state = state.copy(messages: msgs, isLoading: false);
       return answer;

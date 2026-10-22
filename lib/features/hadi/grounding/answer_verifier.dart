@@ -1,5 +1,6 @@
 import 'corpus.dart';
 import 'passage.dart';
+import 'verifier_patterns.dart';
 
 /// What the verifier hands back for a live model's reply.
 class VerifiedAnswer {
@@ -91,8 +92,6 @@ abstract final class AnswerVerifier {
         (int a, Match m) => a + m.group(0)!.replaceAll(RegExp(r'\s'), '').length,
       );
 
-  static final RegExp _quoted = RegExp(r'[“"]([^”"“\n]{40,600})[”"]');
-
   static final RegExp _gradeClaim = RegExp(
     r"\b(?:graded|rated|classed|classified|considered|deemed|judged|is|was|are)"
     r"\s+(?:as\s+)?(?:a\s+)?(?:sahih|hasan|da['’]?if|weak|fabricated|mawdu['’]?)\b",
@@ -174,6 +173,14 @@ abstract final class AnswerVerifier {
 
     // 2. Hadith references typed by hand: kept only when they are in the
     //    library, and then the library's passage is shown too.
+    text = text.replaceAllMapped(VerifierPatterns.bookNumbering, (Match m) {
+      removedRefs++;
+      return '';
+    });
+    text = text.replaceAllMapped(VerifierPatterns.unverifiableRef, (Match m) {
+      removedRefs++;
+      return '';
+    });
     text = text.replaceAllMapped(_hadithRef, (Match m) {
       final Passage? p = corpus.hadithByRef(m.group(1)!, m.group(2)!);
       if (p != null) {
@@ -200,6 +207,25 @@ abstract final class AnswerVerifier {
       return '';
     }
 
+    // "Surah Al-Baqarah verse 255": the name is looked up in the bundled
+    // Qur'an; an unknown surah or ayah is removed like any other reference.
+    text = text.replaceAllMapped(VerifierPatterns.surahVerse, (Match m) {
+      final int? surah = corpus.surahNumber(m.group(1)!);
+      if (surah == null) {
+        removedRefs++;
+        return '';
+      }
+      final int from = int.parse(m.group(2)!);
+      final String? toRaw = m.group(3);
+      final int to = toRaw == null ? from : int.parse(toRaw);
+      final Passage? p = corpus.quranRange(surah, from, to);
+      if (p == null) {
+        removedRefs++;
+        return '';
+      }
+      sources.add(p.id);
+      return m.group(0)!;
+    });
     text = text.replaceAllMapped(_quranRefWord, quranRef);
     text = text.replaceAllMapped(_quranRefParen, quranRef);
 
@@ -217,7 +243,11 @@ abstract final class AnswerVerifier {
       final String run = m.group(0)!;
       final int letters = run.replaceAll(RegExp(r'\s'), '').length;
       if (letters >= 12) {
-        if (keepUserScript && _tashkeel.allMatches(run).length < 2) {
+        // Prose in the user's own script is kept, but not an "Allah says:"
+        // line in it: that is scripture typed by the model.
+        if (keepUserScript &&
+            _tashkeel.allMatches(run).length < 2 &&
+            !VerifierPatterns.attributedAround(m.input, m.start, m.end)) {
           return run;
         }
         removedArabic = true;
@@ -231,19 +261,27 @@ abstract final class AnswerVerifier {
       for (final String id in sources)
         if (corpus.resolve(id) != null) condense(corpus.resolve(id)!.english),
     ];
-    text = text.replaceAllMapped(_quoted, (Match m) {
-      final String q = condense(m.group(1)!);
-      for (final String s in shown) {
-        if (q.isNotEmpty && s.contains(q)) return m.group(0)!;
-      }
-      removedQuotes++;
-      return '';
-    });
+    text = VerifierPatterns.filterQuotes(
+      text,
+      allowed: (String inner) {
+        final String q = condense(inner);
+        if (q.isEmpty) return true;
+        for (final String s in shown) {
+          if (s.contains(q)) return true;
+        }
+        return false;
+      },
+      onRemoved: () => removedQuotes++,
+    );
 
     // 6. A grade claim needs a hadith from the library to stand on.
     bool unsupportedGrade = false;
     final bool hasHadith = sources.any((String id) => id.startsWith('h:'));
-    if (!hasHadith && _gradeClaim.hasMatch(text)) unsupportedGrade = true;
+    if (!hasHadith) {
+      int graded = 0;
+      text = VerifierPatterns.dropGradeSentences(text, () => graded++);
+      if (graded > 0 || _gradeClaim.hasMatch(text)) unsupportedGrade = true;
+    }
 
     // Tidy the gaps the removals leave behind. Nothing is written into the
     // reply to mark a removal: the screen shows a collapsed note under it.
