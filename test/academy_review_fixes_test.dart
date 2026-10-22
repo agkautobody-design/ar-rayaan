@@ -49,6 +49,32 @@ class _Stub implements HadiProvider {
   }
 }
 
+/// A provider that takes a system prompt, as the real ones do.
+class _SysStub implements SystemPromptProvider {
+  _SysStub(this.replies);
+
+  final List<String> replies;
+  final List<String> systems = <String>[];
+  final List<String> questions = <String>[];
+  final List<List<HadiMessage>> histories = <List<HadiMessage>>[];
+
+  @override
+  Future<String> ask(String question, List<HadiMessage> history) =>
+      askWithSystem('', question, history);
+
+  @override
+  Future<String> askWithSystem(
+    String system,
+    String question,
+    List<HadiMessage> history,
+  ) async {
+    systems.add(system);
+    questions.add(question);
+    histories.add(List<HadiMessage>.of(history));
+    return replies[(questions.length - 1) % replies.length];
+  }
+}
+
 class _Rig {
   _Rig(this.container, this.stub);
 
@@ -83,6 +109,25 @@ Future<_Rig> _rig({
   ]);
   addTearDown(c.dispose);
   return _Rig(c, stub);
+}
+
+Future<ProviderContainer> _sysRig(_SysStub stub) async {
+  SharedPreferences.setMockInitialValues(<String, Object>{
+    'ar.hadi.apikey': 'test-key',
+    kWasiaChildLlmPref: true,
+  });
+  final SharedPreferences prefs = await SharedPreferences.getInstance();
+  final ProviderContainer c = ProviderContainer(overrides: <Override>[
+    sharedPreferencesProvider.overrideWithValue(prefs),
+    wasiaControllerProvider.overrideWith(
+      (Ref ref) => WasiaController(
+        ref,
+        providerFor: (String name, String apiKey) => stub,
+      ),
+    ),
+  ]);
+  addTearDown(c.dispose);
+  return c;
 }
 
 List<Lesson> _realLetterLessons() {
@@ -124,6 +169,75 @@ void _tall(WidgetTester tester, {double height = 2400}) {
 }
 
 void main() {
+  group('Wasia live path (battery P1 4)', () {
+    test('the system prompt is sent on every turn, and the question once',
+        () async {
+      final _SysStub stub = _SysStub(<String>['Alif is the first letter.']);
+      final ProviderContainer c = await _sysRig(stub);
+      final WasiaController w = c.read(wasiaControllerProvider.notifier);
+      await w.ask('what is alif', persona: WasiaPersona.student);
+      await w.ask('and the next one', persona: WasiaPersona.student);
+      expect(stub.systems, hasLength(2));
+      for (final String system in stub.systems) {
+        expect(system, contains('YOU ARE SPEAKING WITH A STUDENT'));
+      }
+      // The question is the new message; it is never also in the history.
+      expect(stub.questions.first, 'Student asks: what is alif');
+      expect(stub.histories.first, isEmpty);
+      expect(stub.histories.last.map((HadiMessage m) => m.text),
+          isNot(contains('and the next one')));
+      expect(stub.histories.last.map((HadiMessage m) => m.text),
+          contains('what is alif'));
+    });
+
+    test('a reply outside a lesson loses references, tokens and grades',
+        () async {
+      final _SysStub stub = _SysStub(<String>[
+        'Be kind. See Musnad Ahmad 123 and Sahih Bukhari 9999. [GO:/quran] '
+            '[DO:bookmark:x] [[src:q:1:1]] This hadith is sahih.',
+      ]);
+      final ProviderContainer c = await _sysRig(stub);
+      final String a = await c
+          .read(wasiaControllerProvider.notifier)
+          .ask('tell me something kind', persona: WasiaPersona.student);
+      for (final String leak in <String>[
+        '[GO',
+        '[DO',
+        '[[src',
+        '123',
+        '9999',
+        'sahih',
+      ]) {
+        expect(a.toLowerCase().contains(leak.toLowerCase()), isFalse,
+            reason: leak);
+      }
+      expect(a, contains('Be kind.'));
+      expect(a, contains(kWasiaRemovedNoteOutside));
+    });
+
+    test('a verdict on the child\'s own case is removed outside a lesson too',
+        () async {
+      final _SysStub stub = _SysStub(<String>[
+        'Salah is important. You owe the kaffarah: fast sixty days.',
+      ]);
+      final ProviderContainer c = await _sysRig(stub);
+      final String a = await c
+          .read(wasiaControllerProvider.notifier)
+          .ask('tell me about salah', persona: WasiaPersona.student);
+      expect(a.toLowerCase().contains('you owe the kaffarah'), isFalse);
+    });
+
+    test('a ruling question outside a lesson never reaches the AI', () async {
+      final _SysStub stub = _SysStub(<String>['x']);
+      final ProviderContainer c = await _sysRig(stub);
+      await c
+          .read(wasiaControllerProvider.notifier)
+          .ask('is it halal to take a loan with interest',
+              persona: WasiaPersona.student);
+      expect(stub.questions, isEmpty);
+    });
+  });
+
   group('1. the child AI switch cannot be bypassed (default-deny)', () {
     test('a child stays on the shelf even with a key, switch off', () async {
       final _Rig r = await _rig();

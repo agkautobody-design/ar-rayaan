@@ -18,6 +18,7 @@
 /// - No number is ever invented. Lines come only from [HelpResources].
 library;
 
+import 'crisis_near_words.dart';
 import 'sakina_content.dart';
 
 /// What kind of moment the message is.
@@ -78,8 +79,8 @@ class _Pat {
 }
 
 abstract final class CrisisDetector {
-  /// Lowercases, drops apostrophes ("don't" -> "dont"), turns every other
-  /// punctuation mark into a space, folds a few Arabic/Persian letter forms
+  /// Lowercases, drops apostrophes ("don't" -> "dont") and soft hyphens,
+  /// turns every other punctuation mark into a space, folds a few Arabic/Persian letter forms
   /// and diacritics, and squeezes letters repeated three or more times
   /// ("diiiie" -> "die"). Words are joined by single spaces.
   static String normalize(String input) {
@@ -91,6 +92,8 @@ abstract final class CrisisDetector {
       if (c == 0x27 || c == 0x2018 || c == 0x2019 || c == 0x60 || c == 0xB4) {
         continue;
       }
+      // A soft hyphen is invisible: it never splits a word.
+      if (c == 0xAD) continue;
       // Arabic harakat, tatweel and dagger alef vanish.
       if ((c >= 0x064B && c <= 0x065F) ||
           c == 0x0640 ||
@@ -1007,42 +1010,276 @@ abstract final class CrisisDetector {
     const _Pat('اريد ان انضم الى داعش'),
   ];
 
-  static final List<_Pat> _selfHarmNormalized = _normalizeAll(_selfHarm);
-  static final List<_Pat> _conceptNormalized = _normalizeAll(_suicideConcept);
-  static final List<_Pat> _abuseNormalized = _normalizeAll(_abuse);
-  static final List<_Pat> _childNormalized = _normalizeAll(_childSafety);
-  static final List<_Pat> _eatingNormalized = _normalizeAll(_eating);
-  static final List<_Pat> _extremismNormalized = _normalizeAll(_extremism);
-  static final List<String> _questionNormalized = <String>[
-    for (final String m in _questionMarkers) normalize(m),
-  ];
-  static final List<String> _personalNormalized = <String>[
-    for (final String m in _personalMarkers) normalize(m),
-  ];
+  /// Pattern lists normalised the plain way (what [detect] always tried).
+  static final _Lists _plain = _Lists(normalize);
 
-  static List<_Pat> _normalizeAll(List<_Pat> pats) => <_Pat>[
+  /// The same lists normalised after folding look-alike letters, accents and
+  /// invisible characters, for text that is folded the same way.
+  static final _Lists _folded = _Lists(_normalizeFolded);
+
+  static List<_Pat> _normalizeAll(
+    List<_Pat> pats,
+    String Function(String) norm,
+  ) =>
+      <_Pat>[
         for (final _Pat p in pats)
           _Pat(
-            normalize(p.phrase),
-            notAfter: <String>[for (final String w in p.notAfter) normalize(w)],
+            norm(p.phrase),
+            notAfter: <String>[for (final String w in p.notAfter) norm(w)],
             notFollowedBy: <String>[
-              for (final String w in p.notFollowedBy) normalize(w),
+              for (final String w in p.notFollowedBy) norm(w),
             ],
             needsPrevious: p.needsPrevious,
             mustEnd: p.mustEnd,
           ),
       ];
 
-  static bool _matches(List<String> tokens, _Pat p) {
+  // ── Folding: obfuscation the plain normaliser cannot see ─────────────
+
+  /// Characters that draw nothing: soft hyphen, zero-width space, joiners,
+  /// directional marks, word joiner, invisible operators, the byte-order
+  /// mark, variation selectors and tag characters.
+  static bool _isInvisible(int c) =>
+      c == 0xAD ||
+      c == 0x34F ||
+      c == 0x61C ||
+      c == 0x6DD ||
+      c == 0x70F ||
+      c == 0x115F ||
+      c == 0x1160 ||
+      c == 0x17B4 ||
+      c == 0x17B5 ||
+      (c >= 0x180B && c <= 0x180E) ||
+      (c >= 0x200B && c <= 0x200F) ||
+      (c >= 0x202A && c <= 0x202E) ||
+      (c >= 0x2060 && c <= 0x206F) ||
+      c == 0x3164 ||
+      (c >= 0xFE00 && c <= 0xFE0F) ||
+      c == 0xFEFF ||
+      c == 0xFFA0 ||
+      (c >= 0xE0000 && c <= 0xE007F);
+
+  /// Letters from other alphabets that are drawn like a Latin letter
+  /// (Cyrillic and Greek mostly), lower case, and Latin letters with marks.
+  static const Map<int, String> _lookAlike = <int, String>{
+    // Cyrillic
+    0x0430: 'a', 0x0432: 'b', 0x0441: 'c', 0x0435: 'e', 0x0451: 'e', //
+    0x043D: 'h', 0x0456: 'i', 0x0457: 'i', 0x0458: 'j', 0x043A: 'k', //
+    0x043C: 'm', 0x043E: 'o', 0x0440: 'p', 0x0455: 's', 0x0442: 't', //
+    0x0443: 'y', 0x0445: 'x', 0x0501: 'd', 0x051B: 'q', 0x051D: 'w', //
+    0x04CF: 'l', 0x04BB: 'h', 0x0475: 'v', //
+    // Greek
+    0x03B1: 'a', 0x03B2: 'b', 0x03B3: 'y', 0x03B5: 'e', 0x03B7: 'n', //
+    0x03B9: 'i', 0x03BA: 'k', 0x03BD: 'v', 0x03BF: 'o', 0x03C1: 'p', //
+    0x03C4: 't', 0x03C5: 'u', 0x03C7: 'x', 0x03C9: 'w', 0x03BC: 'u', //
+    0x03C3: 'o', //
+    // Latin letters with marks, and dotless i
+    0xE0: 'a', 0xE1: 'a', 0xE2: 'a', 0xE3: 'a', 0xE4: 'a', 0xE5: 'a', //
+    0x101: 'a', 0x103: 'a', 0x105: 'a', 0xE7: 'c', 0x107: 'c', 0x10D: 'c', //
+    0x10F: 'd', 0x111: 'd', 0xE8: 'e', 0xE9: 'e', 0xEA: 'e', 0xEB: 'e', //
+    0x113: 'e', 0x117: 'e', 0x119: 'e', 0x11B: 'e', 0x11F: 'g', //
+    0xEC: 'i', 0xED: 'i', 0xEE: 'i', 0xEF: 'i', 0x12B: 'i', 0x12F: 'i', //
+    0x131: 'i', 0x142: 'l', 0xF1: 'n', 0x144: 'n', 0x148: 'n', //
+    0xF2: 'o', 0xF3: 'o', 0xF4: 'o', 0xF5: 'o', 0xF6: 'o', 0xF8: 'o', //
+    0x14D: 'o', 0x151: 'o', 0x15B: 's', 0x161: 's', 0x15F: 's', //
+    0x219: 's', 0xDF: 'ss', 0x165: 't', 0x163: 't', 0xF9: 'u', 0xFA: 'u', //
+    0xFB: 'u', 0xFC: 'u', 0x16B: 'u', 0x16F: 'u', 0x171: 'u', //
+    0xFD: 'y', 0xFF: 'y', 0x17A: 'z', 0x17C: 'z', 0x17E: 'z', //
+    0xE6: 'ae', 0x153: 'oe', //
+  };
+
+  /// Digits and symbols typed in place of letters.
+  static const Map<int, String> _leetMap = <int, String>{
+    0x30: 'o', 0x33: 'e', 0x34: 'a', 0x35: 's', 0x37: 't', 0x38: 'b', //
+    0x40: 'a', 0x24: 's', 0x2B: 't', 0x21: 'i', 0x7C: 'i', //
+  };
+
+  static bool _isLatinLetter(int c) => c >= 0x61 && c <= 0x7A;
+
+  /// Folds fullwidth forms, look-alike letters and accents to plain Latin
+  /// and, when [joinInvisible] is true, drops invisible characters so they
+  /// cannot split a word. With [leet] set, digits and symbols that sit next
+  /// to a letter become the letter they stand for; [leet] is what the digit
+  /// 1 becomes ("i" or "l"), or null to leave digits alone.
+  static String _foldText(
+    String input, {
+    required bool joinInvisible,
+    String? leet,
+  }) {
+    final List<int> raw = <int>[];
+    for (final int original in input.toLowerCase().runes) {
+      int c = original;
+      if (c >= 0xFF01 && c <= 0xFF5E) c -= 0xFEE0; // fullwidth ASCII
+      if (c == 0x3000) c = 0x20;
+      if (c >= 0x300 && c <= 0x36F) continue; // combining marks
+      if (_isInvisible(c)) {
+        // A soft hyphen never splits a word, whatever the setting.
+        if (!joinInvisible && c != 0xAD) raw.add(0x20);
+        continue;
+      }
+      final String? look = _lookAlike[c];
+      if (look != null) {
+        raw.addAll(look.codeUnits);
+      } else {
+        raw.add(c);
+      }
+    }
+    if (leet == null) return String.fromCharCodes(raw);
+    // Digits and symbols typed for letters, read as letters only inside a
+    // run of characters that already holds a letter, so a bare number such
+    // as "13" is left alone.
+    final StringBuffer out = StringBuffer();
+    // A message that mixes digits into words is typed in "leet": then even
+    // a short run of digits on its own ("44" for "aa") is read as letters.
+    bool leetStyle = false;
+    {
+      bool letter = false;
+      bool digit = false;
+      for (final int c in <int>[...raw, 0x20]) {
+        if (c <= 0x20) {
+          if (letter && digit) leetStyle = true;
+          letter = false;
+          digit = false;
+        } else if (_isLatinLetter(c)) {
+          letter = true;
+        } else if (c >= 0x30 && c <= 0x39) {
+          digit = true;
+        }
+      }
+    }
+    int i = 0;
+    while (i < raw.length) {
+      if (raw[i] <= 0x20) {
+        out.writeCharCode(raw[i]);
+        i++;
+        continue;
+      }
+      int j = i;
+      bool hasLetter = false;
+      while (j < raw.length && raw[j] > 0x20) {
+        if (_isLatinLetter(raw[j])) hasLetter = true;
+        j++;
+      }
+      for (int k = i; k < j; k++) {
+        final int c = raw[k];
+        // A lone digit ("4" for "a") is read as a letter too.
+        final bool readable = hasLetter ||
+            (c >= 0x30 && c <= 0x39 && (j - i == 1 || leetStyle && j - i <= 3));
+        String? mapped = readable ? _leetMap[c] : null;
+        if (readable && c == 0x31) mapped = leet;
+        if (mapped != null && _leetSymbols.contains(c)) {
+          // A symbol counts only between two letters ("d!e"), or at the
+          // start of a word before a letter ("@ll").
+          final bool before = k > i && _isLatinLetter(raw[k - 1]);
+          final bool after = k + 1 < j && _isLatinLetter(raw[k + 1]);
+          if (!(after && (before || k == i && (c == 0x40 || c == 0x24))) &&
+              !(before && after)) {
+            mapped = null;
+          }
+        }
+        if (mapped != null) {
+          out.write(mapped);
+        } else {
+          out.writeCharCode(c);
+        }
+      }
+      i = j;
+    }
+    return out.toString();
+  }
+
+  static const Set<int> _leetSymbols = <int>{0x40, 0x24, 0x2B, 0x21, 0x7C};
+
+  static String _normalizeFolded(String input) =>
+      normalize(_foldText(input, joinInvisible: true));
+
+  static final RegExp _leetChars = RegExp(r'[0-9@$+!|]');
+
+  // ── Typo tolerance ───────────────────────────────────────────────────
+
+  static bool _isAsciiLetters(String s) {
+    if (s.isEmpty) return false;
+    for (int i = 0; i < s.length; i++) {
+      if (!_isLatinLetter(s.codeUnitAt(i))) return false;
+    }
+    return true;
+  }
+
+  /// True when [a] and [b] differ by exactly one slip: a wrong letter, a
+  /// missing letter, an extra letter, or two neighbouring letters swapped.
+  static bool _oneSlip(String a, String b) {
+    final int la = a.length;
+    final int lb = b.length;
+    if (a == b || (la - lb).abs() > 1) return false;
+    if (la == lb) {
+      int first = -1;
+      int diffs = 0;
+      for (int i = 0; i < la; i++) {
+        if (a[i] != b[i]) {
+          if (diffs == 0) first = i;
+          diffs++;
+          if (diffs > 2) return false;
+        }
+      }
+      if (diffs == 1) return true;
+      return diffs == 2 &&
+          first + 1 < la &&
+          a[first] == b[first + 1] &&
+          a[first + 1] == b[first];
+    }
+    final String shorter = la < lb ? a : b;
+    final String longer = la < lb ? b : a;
+    int i = 0;
+    while (i < shorter.length && shorter[i] == longer[i]) {
+      i++;
+    }
+    return shorter.substring(i) == longer.substring(i + 1);
+  }
+
+  /// For each word of the message that is not itself a word the crisis
+  /// phrases use, the phrase words it could be a typing slip of. A word is
+  /// only believed to be a slip when it starts with the same letter, is not
+  /// a real word (see [kCrisisNearWords]), and the phrase word has four or
+  /// more letters.
+  static Map<String, Set<String>> _nearMap(List<String> tokens, _Lists lists) {
+    final Map<String, Set<String>> out = <String, Set<String>>{};
+    final Set<String> seen = <String>{};
+    for (final String t in tokens) {
+      if (t.length < 3 || !seen.add(t)) continue;
+      if (!_isAsciiLetters(t)) continue;
+      if (lists.words.contains(t) || kCrisisNearWords.contains(t)) continue;
+      final List<String>? bucket = lists.byFirst[t[0]];
+      if (bucket == null) continue;
+      for (final String w in bucket) {
+        if ((w.length - t.length).abs() <= 1 && _oneSlip(t, w)) {
+          (out[t] ??= <String>{}).add(w);
+        }
+      }
+    }
+    return out;
+  }
+
+  static bool _matches(
+    List<String> tokens,
+    _Pat p, [
+    Map<String, Set<String>>? near,
+  ]) {
     final List<String> pt = p.phrase.split(' ');
     if (pt.isEmpty || p.phrase.isEmpty) return false;
+    // A one-word phrase is only matched through a slip when it is long.
+    final bool slipsAllowed = near != null && (pt.length > 1 || p.phrase.length >= 7);
     for (int i = 0; i + pt.length <= tokens.length; i++) {
       bool same = true;
+      int slips = 0;
       for (int j = 0; j < pt.length; j++) {
-        if (tokens[i + j] != pt[j]) {
-          same = false;
-          break;
+        final String t = tokens[i + j];
+        if (t == pt[j]) continue;
+        if (slipsAllowed && slips == 0 && (near[t]?.contains(pt[j]) ?? false)) {
+          slips++;
+          continue;
         }
+        same = false;
+        break;
       }
       if (!same) continue;
       if (p.needsPrevious && i == 0) continue;
@@ -1064,9 +1301,13 @@ abstract final class CrisisDetector {
     return false;
   }
 
-  static bool _anyMatch(List<String> tokens, List<_Pat> pats) {
+  static bool _anyMatch(
+    List<String> tokens,
+    List<_Pat> pats, [
+    Map<String, Set<String>>? near,
+  ]) {
     for (final _Pat p in pats) {
-      if (_matches(tokens, p)) return true;
+      if (_matches(tokens, p, near)) return true;
     }
     return false;
   }
@@ -1074,18 +1315,22 @@ abstract final class CrisisDetector {
   static bool _containsPhrase(String padded, String phrase) =>
       padded.contains(' $phrase ');
 
-  /// Returns the kind of crisis in [text], or null when there is none.
-  static CrisisKind? detect(String text) {
-    final String norm = normalize(text);
+  /// Classifies one normalised message against one set of lists. With
+  /// [near] set, a phrase may match through one typing slip.
+  static CrisisKind? _classify(
+    _Lists lists,
+    String norm, {
+    Map<String, Set<String>>? near,
+  }) {
     if (norm.isEmpty) return null;
     final List<String> tokens = norm.split(' ');
     final String padded = ' $norm ';
 
-    if (_anyMatch(tokens, _selfHarmNormalized)) return CrisisKind.selfHarm;
+    if (_anyMatch(tokens, lists.selfHarm, near)) return CrisisKind.selfHarm;
 
-    if (_anyMatch(tokens, _conceptNormalized)) {
+    if (_anyMatch(tokens, lists.concept, near)) {
       bool personal = false;
-      for (final String m in _personalNormalized) {
+      for (final String m in lists.personal) {
         if (_containsPhrase(padded, m)) {
           personal = true;
           break;
@@ -1093,7 +1338,7 @@ abstract final class CrisisDetector {
       }
       if (personal) return CrisisKind.selfHarm;
       bool question = false;
-      for (final String m in _questionNormalized) {
+      for (final String m in lists.question) {
         if (_containsPhrase(padded, m)) {
           question = true;
           break;
@@ -1102,12 +1347,122 @@ abstract final class CrisisDetector {
       return question ? CrisisKind.suicideQuestion : CrisisKind.selfHarm;
     }
 
-    if (_anyMatch(tokens, _childNormalized)) return CrisisKind.childSafety;
-    if (_anyMatch(tokens, _abuseNormalized)) return CrisisKind.abuse;
-    if (_anyMatch(tokens, _eatingNormalized)) return CrisisKind.eatingDisorder;
-    if (_anyMatch(tokens, _extremismNormalized)) return CrisisKind.extremism;
+    if (_anyMatch(tokens, lists.child, near)) return CrisisKind.childSafety;
+    if (_anyMatch(tokens, lists.abuse, near)) return CrisisKind.abuse;
+    if (_anyMatch(tokens, lists.eating, near)) return CrisisKind.eatingDisorder;
+    if (_anyMatch(tokens, lists.extremism, near)) return CrisisKind.extremism;
     return null;
   }
+
+  /// The first pass of [detect] alone: the exact phrases on the normalised
+  /// text, with no folding and no typo allowance. Tests use it to show that
+  /// the later passes add nothing on ordinary text.
+  static CrisisKind? detectExact(String text) =>
+      _classify(_plain, normalize(text));
+
+  /// Returns the kind of crisis in [text], or null when there is none.
+  ///
+  /// Three passes, each only run when the one before found nothing, so the
+  /// plain pass (what this method always did) can never lose a detection:
+  ///  1. the plain normalised text;
+  ///  2. the text with look-alike letters, fullwidth forms, accents and
+  ///     invisible characters folded away, and with digits typed for
+  ///     letters read as letters;
+  ///  3. the same texts again, allowing ONE typing slip in ONE word of a
+  ///     phrase (a swapped, missing, extra or wrong letter).
+  static CrisisKind? detect(String text) {
+    final String norm = normalize(text);
+    final CrisisKind? plain = _classify(_plain, norm);
+    if (plain != null) return plain;
+
+    final List<String> variants = <String>[];
+    void addVariant(String v) {
+      if (v.isNotEmpty && !variants.contains(v)) variants.add(v);
+    }
+
+    addVariant(_normalizeFolded(text));
+    addVariant(normalize(_foldText(text, joinInvisible: false)));
+    if (_leetChars.hasMatch(text)) {
+      addVariant(normalize(_foldText(text, joinInvisible: true, leet: 'i')));
+      addVariant(normalize(_foldText(text, joinInvisible: true, leet: 'l')));
+    }
+    for (final String v in variants) {
+      final CrisisKind? k = _classify(_folded, v);
+      if (k != null) return k;
+    }
+
+    final CrisisKind? slipPlain = _classify(
+      _plain,
+      norm,
+      near: _nearMap(norm.isEmpty ? const <String>[] : norm.split(' '), _plain),
+    );
+    if (slipPlain != null) return slipPlain;
+    for (final String v in variants) {
+      final CrisisKind? k = _classify(
+        _folded,
+        v,
+        near: _nearMap(v.split(' '), _folded),
+      );
+      if (k != null) return k;
+    }
+    return null;
+  }
+}
+
+/// One set of crisis phrase lists, all normalised the same way.
+class _Lists {
+  _Lists(String Function(String) norm)
+      : selfHarm = CrisisDetector._normalizeAll(CrisisDetector._selfHarm, norm),
+        concept =
+            CrisisDetector._normalizeAll(CrisisDetector._suicideConcept, norm),
+        abuse = CrisisDetector._normalizeAll(CrisisDetector._abuse, norm),
+        child = CrisisDetector._normalizeAll(CrisisDetector._childSafety, norm),
+        eating = CrisisDetector._normalizeAll(CrisisDetector._eating, norm),
+        extremism =
+            CrisisDetector._normalizeAll(CrisisDetector._extremism, norm),
+        question = <String>[
+          for (final String m in CrisisDetector._questionMarkers) norm(m),
+        ],
+        personal = <String>[
+          for (final String m in CrisisDetector._personalMarkers) norm(m),
+        ] {
+    final List<List<_Pat>> all = <List<_Pat>>[
+      selfHarm,
+      concept,
+      abuse,
+      child,
+      eating,
+      extremism,
+    ];
+    for (final List<_Pat> list in all) {
+      for (final _Pat p in list) {
+        for (final String w in p.phrase.split(' ')) {
+          if (w.isEmpty) continue;
+          words.add(w);
+          if (w.length >= 4 && CrisisDetector._isAsciiLetters(w)) {
+            final List<String> bucket =
+                byFirst.putIfAbsent(w[0], () => <String>[]);
+            if (!bucket.contains(w)) bucket.add(w);
+          }
+        }
+      }
+    }
+  }
+
+  final List<_Pat> selfHarm;
+  final List<_Pat> concept;
+  final List<_Pat> abuse;
+  final List<_Pat> child;
+  final List<_Pat> eating;
+  final List<_Pat> extremism;
+  final List<String> question;
+  final List<String> personal;
+
+  /// Every word the phrases use.
+  final Set<String> words = <String>{};
+
+  /// The longer ASCII words the phrases use, by first letter.
+  final Map<String, List<String>> byFirst = <String, List<String>>{};
 }
 
 /// The fixed replies. Compassion first; real help second; never a lecture;

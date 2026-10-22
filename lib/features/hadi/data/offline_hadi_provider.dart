@@ -1,5 +1,6 @@
 import '../../sakina/domain/crisis_detector.dart';
 import '../application/hadi_provider.dart';
+import '../grounding/ruling_gate.dart';
 
 /// Curated knowledge for offline use — always available, no key, no
 /// network. Unknown questions get an honest decline — Hādi never invents.
@@ -75,6 +76,8 @@ class OfflineHadiProvider implements HadiProvider {
       scriptReplyUrduKeyed,
       ...rudeReplies,
       ...distressReplies,
+      ..._griefReplies,
+      ..._heartbreakReplies,
     ]) {
       if (answer.contains(fixed)) return false;
     }
@@ -197,6 +200,221 @@ class OfflineHadiProvider implements HadiProvider {
         'feeling. I am here if you want to say more.'
         '\n[GO:/sakina]\n[GO:/feelings]',
   ];
+
+  // ── Grief and loss ─────────────────────────────────────────────────
+  //
+  // A person who says someone they love has died (or that they lost a baby)
+  // is not asking a question the shelf can answer. They get a warm, fixed
+  // reply with two verified texts (printed under it from the app's own
+  // library), BEFORE the shelf is read and without a live model. Nothing in
+  // it rules on anything.
+
+  static const String _kin =
+      r'(?:mother|mom|mum|mama|mummy|ammi|ami|father|dad|daddy|baba|abbu|abu|'
+      r'baby|babies|child|children|kid|son|daughter|husband|wife|brother|'
+      r'sister|grandmother|grandfather|grandma|grandpa|nani|nana|dada|dadi|'
+      r'uncle|aunt|aunty|parent|parents|newborn|infant|twins?|friend|'
+      r'cousin|fiance|nephew|niece|teacher|loved\s+one|best\s+friend)';
+
+  static const String _died =
+      r'(?:died|passed\s+away|passed\s+on|has\s+passed|have\s+passed|'
+      r'had\s+passed|passed|is\s+dead|was\s+dead|was\s+killed|got\s+killed|'
+      r'killed|drowned|is\s+gone|stillborn|miscarried|was\s+taken)';
+
+  /// "my baby died", "my best friend passed away", "my mother just died".
+  static final RegExp _lossOfKin = RegExp(
+    '\\b(?:my|our)\\s+(?:\\w+\\s+){0,2}?$_kin\\s+(?:\\w+\\s+){0,3}?$_died\\b',
+  );
+
+  /// "I lost my baby", "we lost our son", "I lost a loved one".
+  static final RegExp _iLost = RegExp(
+    '\\b(?:i|we)\\s+(?:have\\s+|just\\s+|recently\\s+|also\\s+)*'
+    '(?:lost|buried)\\s+(?:my|our|a|the)\\s+(?:\\w+\\s+)?'
+    '(?:$_kin|pregnancy|unborn)\\b',
+  );
+
+  /// "I had a miscarriage", "my wife miscarried", "a stillbirth".
+  static final RegExp _miscarriage = RegExp(
+    r'\b(?:i|we|my\s+wife|my\s+sister|my\s+mother|my\s+mom)\s+'
+    r'(?:\w+\s+){0,2}?(?:had\s+a\s+(?:miscarriage|stillbirth)|'
+    r'miscarried|suffered\s+a\s+(?:miscarriage|stillbirth)|'
+    r'lost\s+the\s+baby)\b',
+  );
+
+  /// "someone close to me died", "somebody I love passed away".
+  static final RegExp _someoneDied = RegExp(
+    r'\b(?:someone|somebody)\s+(?:\w+\s+){0,4}?(?:died|passed\s+away)\b',
+  );
+
+  /// A divorce or separation said together with a feeling: not a ruling
+  /// question but a person in pain.
+  static final RegExp _heartbreakEvent = RegExp(
+    r'\b(?:divorce|divorced|divorcing|separated|separation|breakup|break\s+up|'
+    r'broke\s+up|left\s+me|cheated|betrayed|abandoned)\b',
+  );
+  static final RegExp _heartbreakFeeling = RegExp(
+    r'\b(?:broken|heartbroken|devastated|crushed|shattered|lost|hurt|hurting|'
+    r'sad|depressed|alone|lonely|empty|numb|hopeless|miserable|cant\s+stop\s+'
+    r'crying|crying)\b',
+  );
+  static final RegExp _firstPersonFeeling = RegExp(
+    r'\b(?:i|im|i\s+am|i\s+feel|we|my\s+heart|me)\b',
+  );
+
+  static const List<String> _griefReplies = <String>[
+    'I am so sorry for your loss. Grief like this is love with nowhere to '
+        'go, and there is no right way or right speed to carry it. The '
+        'Prophet ﷺ wept as his son Ibrahim was dying and said: “The eyes are '
+        'shedding tears and the heart is grieved, and we will not say '
+        'except what pleases our Lord.” (Sahih al-Bukhari 1303). Allah says: '
+        '“Indeed we belong to Allah, and indeed to Him we will return.” '
+        '(Qur\'an 2:156). Make du’a for them, lean on the people near you, '
+        'and take today one hour at a time. I am here if you want to say '
+        'more, or if you would like the du’a for the deceased.',
+    'May Allah have mercy on them and give you patience. Your tears are not '
+        'a lack of faith: the Prophet ﷺ wept as his son Ibrahim was dying '
+        '(Sahih al-Bukhari 1303). Allah says: “Indeed we belong to Allah, and '
+        'indeed to Him we will return.” (Qur\'an 2:156). Eat when you can, '
+        'rest when you can, and let someone sit with you. If it would help, '
+        'tell me about them, or I can share the du’a for the deceased.',
+    'I am so sorry. Losing someone you love is among the heaviest things a '
+        'heart carries, and you do not have to be strong right now. Allah '
+        'says: “Indeed we belong to Allah, and indeed to Him we will return.” '
+        '(Qur\'an 2:156), and the Prophet ﷺ taught that real patience is at '
+        'the first stroke of a calamity (Sahih Muslim 926). Be gentle with '
+        'yourself. I am listening, and I can share the du’a for the '
+        'deceased if you would like it.',
+  ];
+
+  /// Added when the loss is a child, a baby or a pregnancy. It does not
+  /// guess where the child is, and it does not rule.
+  static const String _childLossNote =
+      '\n\nWhere your child is rests with Allah, the Most Merciful, and I '
+      'will not guess at what only He knows. If you would like comfort from '
+      'the texts about this, a scholar you trust can speak with you with '
+      'both knowledge and care.';
+
+  /// Added when the person also asks something that needs a ruling.
+  static const String _griefRulingNote =
+      '\n\nFor any question about rulings, such as inheritance or the '
+      'waiting period, please ask a qualified scholar about your own case; '
+      'I will not guess at it.';
+
+  static const List<String> _heartbreakReplies = <String>[
+    'I am sorry, that is a painful thing to go through, and feeling broken '
+        'does not mean you are failing. Allah says: “For indeed, with '
+        'hardship [will be] ease.” (Qur\'an 94:5). Be gentle with yourself '
+        'and lean on someone you trust. A question about the ruling on a '
+        'divorce depends on your own situation, so please take it to a '
+        'scholar; I will not guess at it. Sakina is a quiet page here if you '
+        'want somewhere to sit with this.',
+  ];
+
+  static final RegExp _childLoss = RegExp(
+    r'\b(?:baby|babies|child|children|kid|son|daughter|newborn|infant|'
+    r'twins?|pregnancy|unborn|miscarr\w*|stillb\w*)\b',
+  );
+
+  /// Words that turn a message about a divorce into a question to answer.
+  static final RegExp _asksSomething = RegExp(
+    r'\b(?:valid|halal|haram|allowed|ruling|permissible|rights|custody|'
+    r'iddah|how\s+do|how\s+to|what\s+is|what\s+are|can\s+i|should\s+i|'
+    r'do\s+i|is\s+it|am\s+i)\b',
+  );
+
+  /// The warm reply for a first-person loss (someone died, a baby was lost)
+  /// or for a divorce said with pain; null for anything else. A question
+  /// ABOUT death, a funeral or the deceased is not a loss and is left to the
+  /// shelf. The two comfort pages are offered as buttons.
+  static String? griefReply(String question) {
+    final String n = CrisisDetector.normalize(question);
+    if (n.isEmpty) return null;
+    final bool loss = _lossOfKin.hasMatch(n) ||
+        _iLost.hasMatch(n) ||
+        _miscarriage.hasMatch(n) ||
+        _someoneDied.hasMatch(n);
+    final int pick = question.codeUnits.fold<int>(0, (int a, int b) => a + b);
+    if (loss) {
+      final StringBuffer reply = StringBuffer(
+        _griefReplies[pick % _griefReplies.length],
+      );
+      if (_childLoss.hasMatch(n)) reply.write(_childLossNote);
+      if (RulingGate.classify(question) != RulingClass.none) {
+        reply.write(_griefRulingNote);
+      }
+      reply.write('\n[GO:/sakina]');
+      return reply.toString();
+    }
+    if (_heartbreakEvent.hasMatch(n) &&
+        _heartbreakFeeling.hasMatch(n) &&
+        _firstPersonFeeling.hasMatch(n) &&
+        !_asksSomething.hasMatch(n)) {
+      return '${_heartbreakReplies[pick % _heartbreakReplies.length]}'
+          '\n[GO:/sakina]\n[GO:/feelings]';
+    }
+    return null;
+  }
+
+  static const String _tail =
+      r'(?:\s+(?:wa|and|to|you|too|all|also|hadi|there|brother|sister|'
+      r'bro|sis|friend|everyone|rahmatullahi?|wabarakatuh|barakatuh|'
+      r'so|very|much|a|lot|khair|khairan|again))*';
+
+  static final RegExp _salamGreeting = RegExp(
+    r'^(?:(?:as\s+)?(?:assalamu|assalaamu|salamu|salaamu|assalamualaikum|'
+    r'assalamualaykum|salam|salaam|salamualaikum)\s*'
+    r'(?:alaikum|alaykum|alaikom|aleykum|alykum|alaikumu)?'
+    r'|peace\s+be\s+upon\s+you|peace\s+upon\s+you|wa\s+alaikum\s+'
+    r'(?:as\s+)?salam|alaikum\s+salam)' +
+        _tail +
+        r'$',
+  );
+
+  static final RegExp _hello = RegExp(
+    r'^(?:hi|hii+|hello|hey|heya|hiya|yo|good\s+(?:morning|afternoon|evening)|'
+    r'morning|greetings|howdy)' +
+        _tail +
+        r'$',
+  );
+
+  static final RegExp _thanksRe = RegExp(
+    r'^(?:(?:ok(?:ay)?\s+)?(?:thanks|thank\s+you|thank\s+u|thx|thankyou|'
+    r'jazak\s*allah|jazakallah|jazakallahu|jazak\s+allahu|jazakumullah|'
+    r'shukran|barakallahu\s+fik|barakallah|barak\s+allah)' +
+        _tail +
+        r')$',
+  );
+
+  static final RegExp _byeRe = RegExp(
+    r'^(?:bye|goodbye|good\s+bye|see\s+you|see\s+ya|ma\s+salama|'
+    r'fi\s+amanillah|allah\s+hafiz|khuda\s+hafiz|take\s+care|good\s+night)' +
+        _tail +
+        r'$',
+  );
+
+  /// A greeting, thanks or goodbye on its own, answered in kind. Anything
+  /// longer than a greeting is a real question and goes to the shelf.
+  static String? smallTalk(String question) {
+    final String n = CrisisDetector.normalize(question);
+    if (n.isEmpty || n.split(' ').length > 8) return null;
+    if (_salamGreeting.hasMatch(n)) {
+      return 'Wa alaikum as-salam wa rahmatullahi wa barakatuh - and upon '
+          'you be peace and mercy. How may I walk beside you today? Ask me '
+          "about worship, the Qur'an, this app, or simply talk.";
+    }
+    if (_hello.hasMatch(n)) {
+      return 'As-salamu alaykum, and welcome. How may I help you today? Ask '
+          "me about worship, the Qur'an, this app, or simply talk.";
+    }
+    if (_thanksRe.hasMatch(n)) {
+      return 'Wa iyyakum - and may Allah reward you too. Ask me anything '
+          'else, any time.';
+    }
+    if (_byeRe.hasMatch(n)) {
+      return "Fi amanillah - in Allah's protection. Come back any time.";
+    }
+    return null;
+  }
 
   /// Words that make a question ask for a ruling.
   static const Set<String> _rulingWords = <String>{
@@ -738,12 +956,74 @@ class OfflineHadiProvider implements HadiProvider {
     return _PhraseHit(wt, raw * key.count, c, false);
   }
 
+  /// Words a question may carry that say nothing about its topic.
+  static const Set<String> _commonWords = <String>{
+    'about', 'after', 'again', 'allow', 'always', 'another', 'answer', //
+    'any', 'anything', 'around', 'ask', 'asked', 'before', 'being', //
+    'best', 'better', 'between', 'beyond', 'big', 'both', 'call', //
+    'called', 'come', 'comes', 'correct', 'day', 'days', 'different', //
+    'does', 'done', 'each', 'else', 'enough', 'even', 'ever', 'every', //
+    'everyone', 'exactly', 'example', 'first', 'follow', 'form', 'from', //
+    'give', 'given', 'good', 'happen', 'happens', 'help', 'here', //
+    'important', 'include', 'into', 'islam', 'islamic', 'just', 'kind', //
+    'know', 'last', 'learn', 'least', 'like', 'list', 'long', 'look', //
+    'made', 'make', 'many', 'mean', 'means', 'meaning', 'more', 'most', //
+    'much', 'muslim', 'muslims', 'name', 'names', 'need', 'never', //
+    'next', 'okay', 'once', 'only', 'other', 'over', 'part', 'people', //
+    'person', 'place', 'proper', 'really', 'reason', 'right', 'rule', //
+    'rules', 'same', 'say', 'says', 'should', 'simple', 'some', //
+    'something', 'still', 'such', 'sure', 'take', 'tell', 'than', //
+    'thing', 'things', 'think', 'those', 'time', 'times', 'today', //
+    'topic', 'true', 'type', 'types', 'understand', 'used', 'using', //
+    'very', 'want', 'ways', 'well', 'were', 'what', 'when', 'where', //
+    'which', 'while', 'whom', 'will', 'work', 'works', 'would', 'wrong', //
+    'year', 'years', 'yourself', 'show', 'quick', 'brief', //
+    'short', 'detail', 'details', 'basic', 'basics', 'beginner', //
+    'hello', 'alaikum', 'brother', 'sister', 'thanks', 'hadi', 'dear', //
+    // Modifiers: the general answer on the shelf still helps.
+    'treat', 'teenager', 'arranged', 'elderly', 'saving', 'savings', //
+  };
+
+  /// True when the entry that won matched only everyday words and the
+  /// question has a topic word that nothing on the shelf knows.
+  static bool _missesTheTopic(
+    List<String> q,
+    List<Map<String, int>> pm,
+    Set<String> matched,
+    String answer,
+  ) {
+    if (matched.any((String w) => _pct(w) >= _topicPct)) return false;
+    final String said = CrisisDetector.normalize(answer);
+    for (int i = 0; i < q.length; i++) {
+      final String w = q[i];
+      if (w.length < 5 || !_isAsciiAlpha(w)) continue;
+      if (_stop.contains(w) || _df.containsKey(w)) continue;
+      if (matched.contains(w) || _commonWords.contains(w)) continue;
+      if (pm[i].keys.any((String a) => a != w)) continue;
+      // The answer itself speaks of it: it is not off target.
+      if (said.contains(w.substring(0, w.length > 5 ? 5 : w.length))) continue;
+      return true;
+    }
+    return false;
+  }
+
+  /// A matched word of at least this weight (used by few entries) is a topic.
+  static const int _topicPct = 100;
+
   @override
   Future<String> ask(String question, List<HadiMessage> history) async {
     // Defence in depth: the controller screens for crisis first, but this
     // provider must never answer a crisis message from the shelf either.
     final CrisisKind? crisis = CrisisDetector.detect(question);
     if (crisis != null) return CrisisResponses.textFor(crisis);
+
+    // A person who says someone they love has died is answered with care,
+    // before the shelf is read.
+    final String? grief = griefReply(question);
+    if (grief != null) return grief;
+
+    final String? chat = smallTalk(question);
+    if (chat != null) return chat;
 
     List<String> q = tokens(question);
     if (q.length > _maxWords) q = q.sublist(0, _maxWords);
@@ -811,6 +1091,17 @@ class OfflineHadiProvider implements HadiProvider {
     if (bestW > 0 &&
         bestRaw < 1000 &&
         _offTopic.hasMatch(CrisisDetector.normalize(question))) {
+      weak = true;
+    }
+    // A match made only of everyday words ("fast", "break", "pray") that
+    // leaves out the word the question is really about ("brushing teeth",
+    // "injection") answers a different question: say so instead.
+    if (!weak &&
+        bestW > 0 &&
+        q.length <= 12 &&
+        !question.contains('<') &&
+        !question.contains('://') &&
+        _missesTheTopic(q, pm, bestWords, bestAnswer)) {
       weak = true;
     }
     if (bestW == 0 || weak) return _fallback(question, q, rulingShaped);
@@ -1129,6 +1420,200 @@ class _Entry {
 }
 
 const List<_Entry> _knowledge = <_Entry>[
+  // ── Added from verified text only (Qur'an text in the app; hadith that pass
+  // tool/hadith_check.py). Anything finer is handed to a scholar. ─────────
+  _Entry(
+    <String>['what breaks the fast', 'what breaks fast', 'what invalidates the fast', 'what invalidates fasting', 'what nullifies the fast', 'what ruins the fast', 'does brushing teeth break the fast', 'does an injection break the fast', 'does swallowing saliva break the fast', 'does vomiting break the fast', 'does medicine break the fast', 'does a blood test break the fast', 'break my fast', 'invalidate my fast'],
+    'The Qur\'an draws the limits of the fast: "And eat and drink until the '
+    'white thread of dawn becomes distinct to you from the black thread [of '
+    'night]. Then complete the fast until the sunset." (Qur\'an 2:187). So '
+    'eating, drinking and marital relations by day are what the fast guards '
+    'against. Finer cases - brushing teeth, injections, medicine, a blood '
+    'test, swallowing saliva, vomiting - are matters where scholars give '
+    'detailed rulings, and I will not guess at them: please ask a qualified '
+    'scholar.',
+  ),
+  _Entry(
+    <String>['eating by mistake', 'eat by mistake', 'ate by mistake', 'forgot i was fasting', 'forgot and ate', 'ate forgetfully', 'drank forgetfully', 'ate or drank while forgetting', 'eating forgetfully', 'forgetful eating'],
+    'One who eats or drinks forgetfully while fasting is told to complete '
+    'the fast: this is reported from the Prophet ﷺ in Sahih al-Bukhari '
+    '1933. For a case that is yours, with its details, ask a qualified '
+    'scholar.',
+  ),
+  _Entry(
+    <String>['who is exempt from fasting', 'exempt from fasting', 'excused from fasting', 'who does not have to fast', 'can a traveller skip fasting', 'can a traveler skip fasting', 'travelling and fasting', 'traveller fasting', 'sick and fasting', 'ill and fasting', 'skip fasting'],
+    'The Qur\'an gives ease: "and whoever is ill or on a journey - then an '
+    'equal number of other days." (Qur\'an 2:185), and for those who can '
+    'fast only with hardship, a ransom of feeding a poor person each day '
+    '(Qur\'an 2:184). "Allah intends for you ease and does not intend for '
+    'you hardship" (Qur\'an 2:185). For particular cases - pregnancy, long '
+    'illness, old age - please ask a qualified scholar.',
+  ),
+  _Entry(
+    <String>['friday prayer obligatory', 'is friday prayer obligatory', 'is jumuah obligatory', 'jumuah obligatory', 'jummah obligatory', 'jumuah fard', 'who must attend friday prayer', 'missing jumuah', 'missing friday prayer'],
+    'The Qur\'an calls the believers on Friday: "then proceed to the '
+    'remembrance of Allah and leave trade." (Qur\'an 62:9). A report in '
+    'Sunan Abi Dawud 1067 (sahih per al-Albani) states that the Friday '
+    'prayer in congregation is a duty on every Muslim, and it names those '
+    'it excuses: the woman, the boy, the sick (and the slave). Whether a '
+    'traveller or others are excused, ask a qualified scholar.',
+  ),
+  _Entry(
+    <String>['ashura', 'fast of ashura', 'day of ashura', 'fasting ashura', 'arafah fast', 'fasting arafah', 'fast of arafah', 'day of arafah fast', 'fasting on arafah'],
+    'On fasting the Day of Arafah, the Prophet ﷺ said that it expiates the '
+    'previous year and the coming year, and that fasting Ashura (the 10th '
+    'of Muharram) expiates the previous year (Sahih Muslim 1162). Late in '
+    'his life he said that if he lived to the next year he would also fast '
+    'the ninth (Sahih Muslim 1134). Ashura was fasted in his time too '
+    '(Sahih al-Bukhari 2004).',
+  ),
+  _Entry(
+    <String>['monday thursday fast', 'fast mondays', 'fast thursdays', 'mondays and thursdays', 'fasting on monday and thursday', 'sunnah fasts', 'sunnah fast', 'voluntary fast', 'voluntary fasts', 'nafl fast', 'recommended fasts'],
+    'Aisha reported that the Prophet ﷺ used to fast on Mondays and '
+    'Thursdays (Jami\' at-Tirmidhi 745, sahih per Darussalam). He ﷺ said '
+    'that deeds are presented on those days and that he loved his deeds to '
+    'be presented while he was fasting (Jami\' at-Tirmidhi 747, hasan per '
+    'Darussalam). Also: Arafah and Ashura (Sahih Muslim 1162).',
+  ),
+  _Entry(
+    <String>['zakat al fitr', 'zakat ul fitr', 'zakat al-fitr', 'fitrana', 'fitrah charity', 'sadaqat al fitr', 'eid charity', 'charity of eid', 'fitr charity'],
+    'Zakat al-Fitr is the charity given at the end of Ramadan. Ibn Umar '
+    'reported that the Prophet ﷺ prescribed one sa\' (a measure of food) and '
+    'ordered that it be given before people go out to the Eid prayer (Sahih '
+    'al-Bukhari 1503). How much that is today, and in what form, please ask '
+    'a qualified scholar.',
+  ),
+  _Entry(
+    <String>['who can receive zakat', 'who is eligible for zakat', 'who is eligible to receive zakat', 'zakat recipients', 'eight categories of zakat', 'eight categories zakat', 'zakat beneficiaries', 'who deserves zakat', 'give zakat to'],
+    'The Qur\'an names who zakat is for: "Zakah expenditures are only for '
+    'the poor and for the needy and for those employed to collect [zakah] '
+    'and for bringing hearts together [for Islam] and for freeing captives '
+    '[or slaves] and for those in debt and for the cause of Allah and for '
+    'the [stranded] traveler - an obligation [imposed] by Allah." (Qur\'an '
+    '9:60). Whether a particular person qualifies, ask a qualified scholar.',
+  ),
+  _Entry(
+    <String>['is the quran preserved', 'quran preserved', 'quran protected', 'is the quran changed', 'has the quran been changed', 'quran corrupted', 'quran altered', 'is the quran authentic', 'quran guarded'],
+    'Allah says: "Indeed, it is We who sent down the Qur\'an and indeed, We '
+    'will be its guardian." (Qur\'an 15:9).',
+  ),
+  _Entry(
+    <String>['what does the quran say about pork', 'quran pork', 'pork in the quran', 'pork haram', 'eat pork', 'swine', 'is pork haram', 'pig meat'],
+    'Allah says: "He has only forbidden to you dead animals, blood, the '
+    'flesh of swine, and that which has been dedicated to other than '
+    'Allah." (Qur\'an 2:173), and: "But whoever is forced [by necessity], '
+    'neither desiring [it] nor transgressing [its limit], there is no sin '
+    'upon him." (Qur\'an 2:173).',
+  ),
+  _Entry(
+    <String>['verse about parents', 'ayah about parents', 'quran about parents', 'quran parents', 'parents in the quran', 'quran honour parents', 'quran honor parents', 'kindness to parents verse', 'verse on parents'],
+    'Allah says: "And your Lord has decreed that you not worship except '
+    'Him, and to parents, good treatment." (Qur\'an 17:23), and: "And We '
+    'have enjoined upon man [care] for his parents." (Qur\'an 31:14).',
+  ),
+  _Entry(
+    <String>['add a child', 'add my child', 'add child', 'where do i add my child', 'how do i add a child', 'add a learner', 'add a student'],
+    'Open the Wasia Academy family area and tap "Add child".'
+    '\n[GO:/academy/family]',
+  ),
+  _Entry(
+    <String>['track my childs progress', 'track my child\'s progress', 'child progress', 'see my childs progress', 'how is my child doing', 'my childs progress'],
+    'In the family area of the Wasia Academy, once a child is added their '
+    'lessons, quiz answers and exam scores appear there.'
+    '\n[GO:/academy/family]',
+  ),
+  _Entry(
+    <String>['where are the duas', 'find the duas', 'where is dua', 'daily duas', 'open the duas', 'where are the adhkar', 'where is dhikr'],
+    'Dhikr and Du\'a has the remembrances and supplications; the Daily Duas '
+    'are in the Wasia Academy.'
+    '\n[GO:/adhkar]',
+  ),
+  _Entry(
+    <String>['where are the stories', 'how do i find stories', 'open stories', 'read stories', 'how to read a story'],
+    'Stories is its own room in the app. A story you save is kept in your '
+    'Journey.'
+    '\n[GO:/stories]',
+  ),
+  _Entry(
+    <String>['where are the games', 'how do i play games', 'play a game', 'open games', 'find the games'],
+    'The Games room is where the games are, including the 99 Names.'
+    '\n[GO:/games]',
+  ),
+  _Entry(
+    <String>['new note', 'add a note', 'write a note', 'take a note', 'how do i make a note', 'where are my notes', 'notes screen'],
+    'Notes: tap "New note", write, and tap Save. Your notes stay on this '
+    'device only.'
+    '\n[GO:/notes]',
+  ),
+  _Entry(
+    <String>['delete my account', 'delete my data', 'delete account', 'remove my data', 'erase my data', 'erase my account', 'how do i delete my account'],
+    'Open Settings, go to "Legal & account", and tap "Delete my account": '
+    'that deletes your account and data.'
+    '\n[GO:/settings]',
+  ),
+  _Entry(
+    <String>['privacy policy', 'where is the privacy policy', 'what data do you collect', 'what do you do with my data', 'is my data safe', 'data privacy', 'how is my data used'],
+    'The Privacy Policy is in Settings, under "Legal & account". Notes stay '
+    'on this device only, and Hadi\'s memory of you is stored on this device '
+    'only.'
+    '\n[GO:/settings]',
+  ),
+  _Entry(
+    <String>['terms of service', 'terms and conditions', 'where are the terms'],
+    'The Terms of Service are in Settings, under "Legal & account".'
+    '\n[GO:/settings]',
+  ),
+  _Entry(
+    <String>['change language', 'change the language', 'app language', 'language settings', 'switch language', 'arabic app', 'urdu app', 'translate the app'],
+    'Open Settings and tap "Language & Voice" to pick a language. So far '
+    'only the settings labels are translated; the rest of the app is '
+    'English.'
+    '\n[GO:/settings]',
+  ),
+  _Entry(
+    <String>['replay the introduction', 'show the intro again', 'replay intro', 'see the tutorial again', 'app tutorial', 'onboarding again'],
+    'Open Settings and tap "Replay the introduction".'
+    '\n[GO:/settings]',
+  ),
+  _Entry(
+    <String>['does hadi remember me', 'hadi memory', 'clear hadi memory', 'clear my conversation', 'delete our chat', 'delete my chat', 'forget me', 'does hadi remember my name'],
+    'In Settings, under Hadi, the switch "Hadi remembers you" lets Hadi '
+    'greet you by name; it is stored on this device only. Hadi also '
+    'remembers your last conversation on this device, and you can clear it '
+    'from the Hadi screen.'
+    '\n[GO:/settings]',
+  ),
+  _Entry(
+    <String>['turn off the sound', 'turn off sound', 'ambient sound', 'mute the app', 'background sound', 'stop the music', 'turn off the music'],
+    'In Settings, under Sound, "Ambient Sound" switches the gentle '
+    'background soundscape. The adhan, Qur\'an recitation and read-aloud '
+    'always play when you tap them.'
+    '\n[GO:/settings]',
+  ),
+  _Entry(
+    <String>['prayer notifications', 'prayer alerts', 'adhan alert', 'adhan notification', 'get notified for prayer', 'remind me to pray', 'prayer reminder', 'turn on prayer alerts', 'how do i get the adhan'],
+    'On the Prayer Times screen, turn on the bell next to any prayer to be '
+    'alerted when its time arrives. Notifications are not available on '
+    'every device.'
+    '\n[GO:/prayer]',
+  ),
+  _Entry(
+    <String>['save a story', 'saved stories', 'bookmark a story', 'where are my saved stories', 'where are my saved'],
+    'Saved stories are kept in your Journey. Open it to find them again.'
+    '\n[GO:/journey]',
+  ),
+  _Entry(
+    <String>['find anything', 'search the app', 'how do i search', 'search for a hadith', 'search the quran', 'where is search'],
+    'Find Anything is the search screen of the app.'
+    '\n[GO:/search]',
+  ),
+  _Entry(
+    <String>['contact support', 'report a problem', 'report a bug', 'send feedback', 'how do i contact you', 'who made this app'],
+    'I do not have a support address to give you. Please use the contact '
+    'details on the Privacy Policy or Terms in Settings, under "Legal & '
+    'account".'
+    '\n[GO:/settings]',
+  ),
   _Entry(
     <String>['al-kahf', 'kahf'],
     'Surah Al-Kahf (18) is the surah many Muslims recite on Fridays, '
@@ -1229,7 +1714,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'full list on the Our Sources screen.',
   ),
   _Entry(
-    <String>['hajj', 'umrah', 'pilgrimage'],
+    <String>['hajj', 'pilgrimage'],
     'Hajj is the fifth pillar, owed once in a lifetime by those able '
     '(Qur\'an 3:97). “An accepted Hajj has no reward but Paradise.” '
     '(Sahih al-Bukhari 1773). Umrah can be performed any time of year.',
@@ -1277,7 +1762,7 @@ const List<_Entry> _knowledge = <_Entry>[
   ),
   // ── Conversational packs ────────────────────────────────────────────
   _Entry(
-    <String>['salaam', 'salam', 'assalamu', 'wa alaikum', 'hello', 'hey '],
+    <String>['salaam', 'salam', 'assalamu', 'wa alaikum'],
     'Wa alaikum as-salam wa rahmatullah - and upon you be peace and '
     'mercy. How may I walk beside you today? Ask me about worship, '
     'the Qur\'an, this app, or simply talk.',
@@ -1941,6 +2426,15 @@ const List<_Entry> _knowledge = <_Entry>[
 
   // ── Hard moments, held gently ───────────────────────────────────────
   _Entry(
+    <String>['mourning period', 'how long is the mourning period', 'how long to mourn', 'how long should i mourn', 'widow waiting period', 'iddah of a widow', 'widows iddah', 'how long is mourning'],
+    'Allah says of wives whose husbands die: “they, [the wives, shall] wait '
+    'four months and ten [days].” (Qur\'an 2:234). The Prophet ﷺ taught '
+    'that outward mourning for any dead person is three days, and for a '
+    'husband it is four months and ten days (Sahih al-Bukhari 1280). Grief '
+    'itself has no timetable and is not a sin. For how the waiting period is '
+    'kept in your own situation, please ask a qualified scholar.',
+  ),
+  _Entry(
     <String>['someone died', 'death of a loved one', 'lost my mother', 'lost my father', 'grief', 'mourning', 'funeral', 'visiting graves', 'passed away', 'died', 'lost my mum', 'lost my mom', 'lost my parent', 'lost my parents', 'lost my son', 'lost my daughter', 'lost my husband', 'lost my wife', 'lost my brother', 'lost my sister', 'lost my grandmother', 'lost my grandfather', 'lost a loved one'],
     'When death takes someone you love: "Inna lillahi wa inna '
     'ilaihi raji\'un - Allahumma\'jurni fi musibati wakhluf li '
@@ -2276,9 +2770,13 @@ const List<_Entry> _knowledge = <_Entry>[
     <String>['missed prayer', 'make up prayer', 'qada prayer', 'overslept prayer', 'forgot prayer'],
     'Whoever sleeps through a prayer or forgets it, let him pray '
     'it when he remembers - "there is no expiation for it except '
-    'this" (Sahih al-Bukhari 597). The missed prayers are a debt '
-    'on the neck; the scholars hold a person of resolve pays them '
-    'in order with each day\'s prayers until cleared.',
+    'this" (Sahih al-Bukhari 597). That is for a prayer missed through '
+    'sleep or forgetting. A woman does not make up the prayers she misses '
+    'in her period or in postpartum bleeding: the Prophet ﷺ did not order '
+    'women to make up those prayers (Sahih al-Bukhari 321). For a long '
+    'backlog of missed prayers, or the order to pray them in, scholars '
+    'give details that I do not have verified text for, so please ask a '
+    'scholar about your own case.',
   ),
   _Entry(
     <String>['combine prayers', 'travel prayers', 'jam', 'qasr', 'shorten prayer travel'],
@@ -2518,10 +3016,15 @@ const List<_Entry> _knowledge = <_Entry>[
   ),
   _Entry(
     <String>['qada', 'make up prayers', 'missed prayer', 'qaza'],
-    'Missed prayers must be made up in order. The Prophet ﷺ said: "When any '
-    'of you sleeps through the prayer or forgets it, let him pray it when he '
-    'remembers." (Sahih al-Bukhari 597, Sahih Muslim 684). There is no '
-    'expiation except performing the prayer itself.',
+    'A prayer missed through sleep or forgetting is prayed when it is '
+    'remembered. The Prophet ﷺ said: "When any of you sleeps through the '
+    'prayer or forgets it, let him pray it when he remembers." (Sahih '
+    'al-Bukhari 597, Sahih Muslim 684). There is no expiation except '
+    'performing the prayer itself. A woman does not make up the prayers of '
+    'her period or postpartum bleeding: the Prophet ﷺ did not order women '
+    'to make up those prayers (Sahih al-Bukhari 321). For a long backlog or '
+    'the order of several prayers, please ask a scholar about your own '
+    'case.',
   ),
   _Entry(
     <String>['taraweeh', 'tarawih', 'night ramadan prayer'],
@@ -2926,19 +3429,26 @@ const List<_Entry> _knowledge = <_Entry>[
   ),
   _Entry(
     <String>['stocks', 'shares', 'investment', 'halal investing'],
-    'Investing in stocks is permissible if the company\'s primary business '
-    'is halal and its debt-to-asset ratio is below 33% (majority scholarly '
-    'view). The Prophet ﷺ said: "The upper hand is better than the lower '
-    'hand." (Sahih al-Bukhari 1419, Sahih Muslim 2588). Avoid companies in '
-    'alcohol, gambling, pork, interest-based banking, and weapons.',
+    'Whether a particular stock is permissible depends on what the company '
+    'does, how it is financed and where its income comes from, and '
+    'scholars set the limits differently, so I will not give you a number '
+    'or a verdict. Allah says: "But Allah has permitted trade and has '
+    'forbidden interest." (Qur\'an 2:275), and intoxicants and gambling '
+    'are called defilement from the work of Satan (Qur\'an 5:90), so a '
+    'business built on those is to be avoided. The Prophet ﷺ said: "The '
+    'upper hand is better than the lower hand." (Sahih al-Bukhari 1427). '
+    'For your own money, please ask a scholar or a Shariah screening '
+    'service you trust.',
   ),
   _Entry(
     <String>['insurance', 'life insurance', 'halal insurance'],
-    'Conventional insurance involves riba (interest), gharar (excessive '
-    'uncertainty), and maysir (gambling), making it forbidden by the majority '
-    'of scholars. Takaful (Islamic cooperative insurance) is the alternative, '
-    'based on donation and mutual assistance rather than commercial '
-    'transaction.',
+    'Scholars have discussed insurance under the headings of riba '
+    '(interest), gharar (excessive uncertainty) and maysir (gambling), and '
+    'they differ on how those apply to different kinds of cover. Takaful '
+    '(Islamic cooperative insurance), based on donation and mutual '
+    'assistance, was developed as an alternative. I have no verified text '
+    'on my shelf that settles a ruling, so for a real decision please ask '
+    'a qualified scholar.',
   ),
   _Entry(
     <String>['inheritance', 'mirath', 'wasiyyah', 'islamic will', 'writing a will'],
@@ -3130,24 +3640,34 @@ const List<_Entry> _knowledge = <_Entry>[
     'risking eating after the adhan.',
   ),
   _Entry(
-    <String>['kaffarah', 'fast expiation', 'broken fast'],
-    'Allah says: "And upon those who are able [to fast, but with hardship] '
-    '- a ransom [as substitute] of feeding a poor person [each day]." '
-    '(Qur\'an 2:184). Scholars call this ransom fidya; ask a scholar whether '
-    'it applies to you. For '
-    'deliberately breaking a fast without excuse: free a slave, or fast two '
-    'consecutive months, or feed sixty poor people. (Sahih al-Bukhari 1936).',
+    <String>['kaffarah', 'kaffara', 'fast expiation', 'expiation for breaking the fast', 'kaffarah for breaking the fast', 'kaffarah for breaking fast'],
+    'The kaffarah (expiation) in the hadith of Sahih al-Bukhari 1936 is for '
+    'a man who deliberately had intercourse during a day of Ramadan: he was '
+    'told to free a slave, or fast two consecutive months, or feed sixty '
+    'poor people. For anything else, such as vomiting, forgetting, or '
+    'eating by mistake, I have no verified text on my shelf, so I will not '
+    'guess. Please ask a qualified scholar about your own case.\n'
+    '[GO:/sources]',
+  ),
+  _Entry(
+    <String>['vomit', 'vomiting', 'throw up', 'threw up', 'puke'],
+    'Whether vomiting affects the fast depends on details, for example '
+    'whether it came on its own or was brought on, and scholars discuss '
+    'those details. I do not have a verified text on my shelf for it, so I '
+    'will not guess, and I will not call it expiation or no expiation. '
+    'Please ask a qualified scholar; Our Sources lists one.\n'
+    '[GO:/sources]',
   ),
 
   // ========== COMMON MISCONCEPTIONS ==========
   _Entry(
     <String>['music', 'singing', 'nasheed', 'songs'],
-    'The majority of scholars throughout Islamic history have held that '
-    'musical instruments are forbidden, based on numerous hadith. The Prophet '
-    'ﷺ said: "From among my Ummah there will be people who will consider '
-    'zina, silk, alcohol, and musical instruments as lawful." (Sahih '
-    'al-Bukhari 5590). Vocals without instruments (anasheed) are permissible '
-    'if the content is wholesome.',
+    'Scholars have differed on music and instruments for centuries. One '
+    'report often cited is: "From among my Ummah there will be people who '
+    'will consider zina, silk, alcohol, and musical instruments as lawful." '
+    '(Sahih al-Bukhari 5590), and scholars discuss how it applies. I have no '
+    'verified text on my shelf that settles it, so please ask a scholar you '
+    'trust.',
   ),
   _Entry(
     <String>['images', 'photos', 'pictures', 'drawing'],

@@ -41,7 +41,7 @@ const List<AnswerCase> kAnswerCases = <AnswerCase>[
   AnswerCase(
       'grief',
       "My mother passed away last month and I can't stop crying",
-      'Inna lillahi'),
+      'belong to Allah'),
   AnswerCase('stressed', "I'm so stressed about my exams", 'worry and grief'),
   AnswerCase('allah-hates-me', 'I feel like Allah hates me',
       'taken leave of you',

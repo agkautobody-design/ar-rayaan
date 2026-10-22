@@ -62,6 +62,18 @@ abstract interface class HadiProvider {
   Future<String> ask(String question, List<HadiMessage> history);
 }
 
+/// A live provider that can be given its own system prompt for one call.
+/// Wasia uses it so that her persona (and, inside a lesson, the lesson text)
+/// is the system message of EVERY request, not just the first one. A provider
+/// that does not implement it is sent the same text in front of the question.
+abstract interface class SystemPromptProvider implements HadiProvider {
+  Future<String> askWithSystem(
+    String system,
+    String question,
+    List<HadiMessage> history,
+  );
+}
+
 /// The guardrail prompt every live call runs under. Encodes the Founder's
 /// source rulings: Qur'an + Sihah Sitta + Shaykh Saqib Iqbal for guidance.
 const String kHadiSystemPrompt =

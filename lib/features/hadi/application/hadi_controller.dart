@@ -660,9 +660,16 @@ class HadiController extends Notifier<HadiState> {
       return reply;
     }
 
+    // Someone who says a person they love has died, or a baby was lost, is
+    // answered with care from the on-device reply, not with a ruling hand-off
+    // and not by a model.
+    final bool grief =
+        crisis == null && OfflineHadiProvider.griefReply(q) != null;
+
     // Rulings about one person's own case are never answered by a model.
-    final RulingClass ruling =
-        crisis == null ? RulingGate.classify(q) : RulingClass.none;
+    final RulingClass ruling = (crisis == null && !grief)
+        ? RulingGate.classify(q)
+        : RulingClass.none;
     if (ruling == RulingClass.personal) {
       final HadiCorpus corpus = await _corpus();
       final Madhhab m = madhhab;
@@ -694,7 +701,7 @@ class HadiController extends Notifier<HadiState> {
       typing: true,
     );
     // An abuse follow-up stays on the device: the on-device shelf answers.
-    final bool onDeviceOnly = crisis != null;
+    final bool onDeviceOnly = crisis != null || grief;
     HadiProvider p = onDeviceOnly
         ? const OfflineHadiProvider()
         : (provider ?? resolveProvider(_apiKey));
@@ -823,6 +830,11 @@ class HadiController extends Notifier<HadiState> {
       if (f.changed) {
         clean = f.text;
         notes.add('A sentence about your own situation was removed.');
+      }
+      // Everything in the reply may have been removed: never show nothing.
+      if (clean.trim().isEmpty) {
+        clean = 'I could not find a reply here that I can stand behind. '
+            'Please ask in other words, or ask a qualified scholar.';
       }
     } else if (crisis == null) {
       // The built-in shelf is written by hand. Whatever Qur'an verse or
