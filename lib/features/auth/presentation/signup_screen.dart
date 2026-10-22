@@ -112,7 +112,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                 icon: Icons.lock_outline,
                 obscure: _obscure,
                 validator: AuthValidators.password,
-                suffix: IconButton(
+                suffix: IconButton(tooltip: _obscure ? 'Show password' : 'Hide password',
                   icon: Icon(
                     _obscure
                         ? Icons.visibility_off_outlined

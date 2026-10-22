@@ -40,9 +40,12 @@ class TriviaQ {
   }
 }
 
-final triviaProvider = FutureProvider<List<TriviaQ>>((ref) async {
-  final raw = await ContentSync.load('games/trivia.json');
-  return (json.decode(raw) as List).map((e) => TriviaQ.fromJson(e as Map<String, dynamic>)).toList();
+final triviaProvider = FutureProvider<List<TriviaQ>>((ref) {
+  return ContentSync.loadParsed<List<TriviaQ>>('games/trivia.json', (raw) {
+    return (json.decode(raw) as List)
+        .map((e) => TriviaQ.fromJson(e as Map<String, dynamic>))
+        .toList();
+  });
 });
 
 class Name99 {
@@ -52,9 +55,12 @@ class Name99 {
       Name99(n: j['n'] as int, name: j['name'] as String, meaning: j['meaning'] as String, ref: j['ref'] as String);
 }
 
-final namesProvider = FutureProvider<List<Name99>>((ref) async {
-  final raw = await ContentSync.load('games/names99.json');
-  return (json.decode(raw) as List).map((e) => Name99.fromJson(e as Map<String, dynamic>)).toList();
+final namesProvider = FutureProvider<List<Name99>>((ref) {
+  return ContentSync.loadParsed<List<Name99>>('games/names99.json', (raw) {
+    return (json.decode(raw) as List)
+        .map((e) => Name99.fromJson(e as Map<String, dynamic>))
+        .toList();
+  });
 });
 
 class GamesScreen extends ConsumerWidget {

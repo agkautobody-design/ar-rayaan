@@ -45,7 +45,7 @@ class AuthScaffold extends StatelessWidget {
                     if (showBack)
                       Align(
                         alignment: Alignment.centerLeft,
-                        child: IconButton(
+                        child: IconButton(tooltip: 'Back',
                           onPressed: () => context.canPop()
                               ? context.pop()
                               : context.go('/home'),

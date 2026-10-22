@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart' as fb;
 import 'package:flutter/foundation.dart' show kIsWeb;
 
+import '../../../app/core/firebase/cloud_eraser.dart';
 import '../application/auth_repository.dart';
 
 /// Live Firebase Auth implementation (O-4). Drop-in for
@@ -193,18 +194,12 @@ class FirebaseAuthRepository implements AuthRepository {
       } else {
         throw socialUnavailable;
       }
-      // Remove the documents we keep about this person before the account
-      // itself (best effort).
-      final String uid = u.uid;
-      final FirebaseFirestore db = FirebaseFirestore.instance;
-      for (final String path in <String>['users', 'families']) {
-        try {
-          await db.collection(path).doc(uid).delete();
-        } catch (_) {
-          // Rules may deny deleting nested data; the account deletion below
-          // is what the person asked for and must still happen.
-        }
-      }
+      // Remove what we keep about this person before the account itself,
+      // sub-collections included (best effort: the account deletion below
+      // is what the person asked for and must still happen).
+      try {
+        await CloudEraser.eraseUser(FirebaseFirestore.instance, u.uid);
+      } catch (_) {}
       await u.delete();
     } on AuthException {
       rethrow;

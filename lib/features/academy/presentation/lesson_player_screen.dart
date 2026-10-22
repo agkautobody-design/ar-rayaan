@@ -283,7 +283,7 @@ class _LessonPlayerScreenState
                   children: <Widget>[
                     Row(
                       children: <Widget>[
-                        IconButton(
+                        IconButton(tooltip: 'Back',
                           icon: const Icon(
                             Icons.arrow_back_ios_new,
                             color: AppColors.gold,

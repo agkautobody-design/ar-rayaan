@@ -273,7 +273,7 @@ class _AskHadiAboutStoryState extends ConsumerState<_AskHadiAboutStory> {
             CircleAvatar(
               backgroundColor: AppColors.gold,
               radius: 20,
-              child: IconButton(
+              child: IconButton(tooltip: 'Send question',
                 icon: busy
                     ? const SizedBox(width: 14, height: 14,
                         child: CircularProgressIndicator(strokeWidth: 2,

@@ -10,6 +10,7 @@ import 'package:http/http.dart' as http;
 import 'package:latlong2/latlong.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../../app/core/safe_url.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
@@ -267,11 +268,11 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
                   onSubmitted: (_) => _searchCity(),
                 )),
                 const SizedBox(width: 8),
-                IconButton(
+                IconButton(tooltip: 'Search this place',
                   icon: const Icon(Icons.search, color: AppColors.gold),
                   onPressed: _searchCity,
                 ),
-                IconButton(
+                IconButton(tooltip: 'Use my location',
                   icon: const Icon(Icons.my_location, color: AppColors.gold),
                   onPressed: _locate,
                 ),
@@ -374,6 +375,17 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
   }
 }
 
+/// Opens [u] outside the app. A device with nothing to open it with, or a
+/// browser that refuses, must not surface as an unhandled error.
+Future<void> _openExternal(Uri u, {bool external = true}) async {
+  try {
+    await launchUrl(
+      u,
+      mode: external ? LaunchMode.externalApplication : LaunchMode.platformDefault,
+    );
+  } catch (_) {}
+}
+
 class _MosqueCard extends StatelessWidget {
   final Mosque m;
   final double fromLat, fromLon;
@@ -382,6 +394,10 @@ class _MosqueCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final d = _dist(fromLat, fromLon, m.lat, m.lon);
+    // Website and phone are free text from OpenStreetMap: only a clean
+    // http(s) address or a plain phone number is ever opened.
+    final Uri? site = SafeUrl.web(m.website);
+    final Uri? call = SafeUrl.tel(m.phone);
     return Padding(
       padding: const EdgeInsets.only(bottom: 10),
       child: GlassCard(
@@ -404,21 +420,19 @@ class _MosqueCard extends StatelessWidget {
           ]),
           const SizedBox(height: 6),
           Row(children: [
-            if (m.website != null)
+            if (site != null)
               TextButton(
-                onPressed: () => launchUrl(Uri.parse(m.website!),
-                    mode: LaunchMode.externalApplication),
+                onPressed: () => _openExternal(site),
                 child: const Text('Website', style: TextStyle(color: AppColors.goldLight, fontSize: 12)),
               ),
-            if (m.phone != null)
+            if (call != null)
               TextButton(
-                onPressed: () => launchUrl(Uri.parse('tel:${m.phone}')),
+                onPressed: () => _openExternal(call, external: false),
                 child: const Text('Call', style: TextStyle(color: AppColors.goldLight, fontSize: 12)),
               ),
             TextButton(
-              onPressed: () => launchUrl(Uri.parse(
-                  'https://www.google.com/maps/dir/?api=1&destination=${m.lat},${m.lon}'),
-                  mode: LaunchMode.externalApplication),
+              onPressed: () => _openExternal(Uri.parse(
+                  'https://www.google.com/maps/dir/?api=1&destination=${m.lat},${m.lon}')),
               child: const Text('Directions', style: TextStyle(color: AppColors.goldLight, fontSize: 12)),
             ),
           ]),

@@ -75,8 +75,9 @@ class LanguageSettingsScreen extends ConsumerWidget {
                       'labels on this screen, and only for English, Arabic, '
                       'Urdu and Indonesian. Every other screen - lessons, '
                       'stories, hadith, prayer, menus - is still English, with '
-                      'the original Arabic for scripture. Choosing Arabic or '
-                      'Urdu also switches the app to right-to-left layout. '
+                      'the original Arabic for scripture. The layout stays '
+                      'left-to-right, even for Arabic and Urdu, until a '
+                      'language is fully translated. '
                       'Further translations will be added as they are written '
                       'and checked.',
                       style: AppText.bodyMuted.copyWith(height: 1.5)),

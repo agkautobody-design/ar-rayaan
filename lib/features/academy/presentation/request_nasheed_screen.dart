@@ -186,12 +186,12 @@ class _RequestNasheedScreenState extends ConsumerState<RequestNasheedScreen> {
                           trailing: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: <Widget>[
-                              IconButton(
+                              IconButton(tooltip: 'Send this request',
                                 icon: const Icon(Icons.send_outlined,
                                     color: AppColors.gold),
                                 onPressed: () => _send(r),
                               ),
-                              IconButton(
+                              IconButton(tooltip: 'Remove this request',
                                 icon: const Icon(Icons.delete_outline,
                                     color: AppColors.gold),
                                 onPressed: () => ref

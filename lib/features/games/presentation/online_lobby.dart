@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -27,6 +29,23 @@ class OnlineLobby extends StatefulWidget {
     );
   }
 
+  /// What to tell the person when a call failed, in plain words.
+  static String describe(Object e) {
+    final String t = e.toString().toLowerCase();
+    if (e is TimeoutException || t.contains('timeout')) {
+      return 'The table did not answer in time. Check your connection and '
+          'try again.';
+    }
+    if (t.contains('permission-denied') || t.contains('permission_denied')) {
+      return 'The table could not be opened just now. Please try again in a '
+          'moment.';
+    }
+    if (t.contains('unavailable') || t.contains('network')) {
+      return 'You seem to be offline. Check your connection and try again.';
+    }
+    return 'Something went wrong opening the table. Please try again.';
+  }
+
   @override
   State<OnlineLobby> createState() => _OnlineLobbyState();
 }
@@ -34,6 +53,8 @@ class OnlineLobby extends StatefulWidget {
 class _OnlineLobbyState extends State<OnlineLobby> {
   String? _busy;
   String? _error;
+  bool _canRetry = false;
+  Future<void> Function()? _retry;
   String _name = '';
   final _joinCtrl = TextEditingController();
 
@@ -41,44 +62,67 @@ class _OnlineLobbyState extends State<OnlineLobby> {
   void initState() {
     super.initState();
     Future.microtask(() async {
-      final prefs = await SharedPreferences.getInstance();
-      final n = prefs.getString('ar.majlis.name') ?? 'Guest of the Courtyard';
-      if (mounted) setState(() => _name = n);
+      try {
+        final prefs = await SharedPreferences.getInstance();
+        final n = prefs.getString('ar.majlis.name') ?? 'Guest of the Courtyard';
+        if (mounted) setState(() => _name = n);
+      } catch (_) {
+        // Storage blocked: the default name stands.
+      }
     });
   }
 
+  @override
+  void dispose() {
+    _joinCtrl.dispose();
+    super.dispose();
+  }
+
+  static const String _unavailable = 'Online play is not available in this '
+      'build, or you are offline. You can still play on this device.';
+
   Future<void> _create() async {
+    _retry = _create;
     setState(() { _busy = 'Creating your table\u2026'; _error = null; });
-    final r = await widget.service.createRoom(widget.game, _name);
-    if (!mounted) return;
-    if (r == null) {
-      setState(() {
-        _busy = null;
-        _error = 'Online play is not available in this build, or you are '
-            'offline. You can still play on this device.';
-      });
-      return;
+    try {
+      final r = await widget.service.createRoom(widget.game, _name);
+      if (!mounted) return;
+      if (r == null) {
+        setState(() { _busy = null; _error = _unavailable; _canRetry = false; });
+        return;
+      }
+      Navigator.of(context).pop({'code': r['code'] as String, 'side': 'host'});
+    } catch (e) {
+      if (!mounted) return;
+      setState(() { _busy = null; _error = OnlineLobby.describe(e); _canRetry = true; });
     }
-    Navigator.of(context).pop({'code': r['code'] as String, 'side': 'host'});
   }
 
   Future<void> _join() async {
+    _retry = _join;
+    final String typed = _joinCtrl.text.trim();
+    if (typed.isEmpty) {
+      setState(() { _error = 'Enter the six-letter code your friend shared.'; _canRetry = false; });
+      return;
+    }
     setState(() { _busy = 'Joining\u2026'; _error = null; });
-    final r = await widget.service.joinRoom(_joinCtrl.text, _name);
-    if (!mounted) return;
-    if (r == null) {
-      setState(() {
-        _busy = null;
-        _error = 'Online play is not available in this build, or you are '
-            'offline. You can still play on this device.';
-      });
-      return;
+    try {
+      final r = await widget.service.joinRoom(typed, _name);
+      if (!mounted) return;
+      if (r == null) {
+        setState(() { _busy = null; _error = _unavailable; _canRetry = false; });
+        return;
+      }
+      final Object? err = r['error'];
+      if (err is String) {
+        setState(() { _busy = null; _error = err; _canRetry = false; });
+        return;
+      }
+      Navigator.of(context).pop({'code': r['code'] as String, 'side': 'guest'});
+    } catch (e) {
+      if (!mounted) return;
+      setState(() { _busy = null; _error = OnlineLobby.describe(e); _canRetry = true; });
     }
-    if (r.containsKey('error')) {
-      setState(() { _busy = null; _error = r['error'] as String; });
-      return;
-    }
-    Navigator.of(context).pop({'code': r['code'] as String, 'side': 'guest'});
   }
 
   @override
@@ -104,8 +148,17 @@ class _OnlineLobbyState extends State<OnlineLobby> {
           if (_error != null)
             Padding(
               padding: const EdgeInsets.only(bottom: 10),
-              child: Text(_error!,
-                  style: AppText.bodyMuted.copyWith(color: Colors.orangeAccent)),
+              child: Row(children: [
+                Expanded(
+                  child: Text(_error!,
+                      style: AppText.bodyMuted.copyWith(color: Colors.orangeAccent)),
+                ),
+                if (_canRetry && _retry != null)
+                  TextButton(
+                    onPressed: _busy == null ? _retry : null,
+                    child: const Text('Try again'),
+                  ),
+              ]),
             ),
           ElevatedButton.icon(
             onPressed: _busy == null ? _create : null,

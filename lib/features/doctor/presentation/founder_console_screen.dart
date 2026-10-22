@@ -57,7 +57,7 @@ class _FounderConsoleScreenState
                         style: AppText.titleMedium
                             .copyWith(color: AppColors.gold)),
                   ),
-                  IconButton(
+                  IconButton(tooltip: 'Lock the console',
                     icon: const Icon(Icons.lock_outline, color: AppColors.gold),
                     onPressed: () => setState(() => _unlocked = false),
                   ),

@@ -22,11 +22,25 @@ class LocaleController extends StateNotifier<Locale> {
     Locale('ms'): 'Melayu',
   };
 
-  /// Languages written right-to-left. Choosing one flips the whole app's
-  /// layout direction (Flutter derives it from the locale).
+  /// Languages written right-to-left.
   static const Set<String> rtlLanguages = <String>{'ar', 'ur'};
 
   static bool isRtl(Locale l) => rtlLanguages.contains(l.languageCode);
+
+  /// Languages whose WHOLE interface is translated. Only these may mirror
+  /// the layout. Today that is nobody: Arabic and Urdu translate nine
+  /// Settings labels, while every other screen is English, and a mirrored
+  /// English interface is worse than an unmirrored one. Add a language here
+  /// when its screens are translated and checked.
+  static const Set<String> fullyTranslated = <String>{};
+
+  /// The layout direction for [l]: right-to-left only for a right-to-left
+  /// language whose interface is fully translated, otherwise left-to-right.
+  /// (Arabic scripture still draws right-to-left by its own script.)
+  static TextDirection layoutDirection(Locale l) =>
+      isRtl(l) && fullyTranslated.contains(l.languageCode)
+          ? TextDirection.rtl
+          : TextDirection.ltr;
 
   /// Languages that have a real translation of the Language & Voice settings
   /// labels (L10n strings below). That is the ONLY app text translated into

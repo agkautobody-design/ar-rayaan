@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../../app/core/safe_url.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
@@ -177,24 +178,24 @@ class _NowPlayingCard extends ConsumerWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                IconButton(
+                IconButton(tooltip: 'Previous track',
                   icon: const Icon(Icons.skip_previous, color: AppColors.gold),
                   onPressed: queue.index > 0
                       ? () => notifier.skipPrevious()
                       : null,
                 ),
-                IconButton(
+                IconButton(tooltip: 'Play',
                   iconSize: 40,
                   color: AppColors.gold,
                   icon: const Icon(Icons.play_circle_filled),
                   onPressed: () => notifier.resume(),
                 ),
-                IconButton(
+                IconButton(tooltip: 'Pause',
                   icon: const Icon(Icons.pause_circle_filled,
                       color: AppColors.gold),
                   onPressed: () => notifier.pause(),
                 ),
-                IconButton(
+                IconButton(tooltip: 'Next track',
                   icon: const Icon(Icons.skip_next, color: AppColors.gold),
                   onPressed: queue.index < queue.tracks.length - 1
                       ? () => notifier.skipNext()
@@ -384,9 +385,10 @@ class _BrowseSectionState extends ConsumerState<_BrowseSection> {
                 ),
                 onTap: () {
                   if (!t.hasAudio) {
-                    if (t.hasOfficialLink) {
-                      launchUrl(Uri.parse(t.officialUrl!),
-                          mode: LaunchMode.externalApplication);
+                    final Uri? official = SafeUrl.web(t.officialUrl);
+                    if (t.hasOfficialLink && official != null) {
+                      launchUrl(official, mode: LaunchMode.externalApplication)
+                          .ignore();
                     }
                     return;
                   }

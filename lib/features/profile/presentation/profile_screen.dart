@@ -244,7 +244,7 @@ class _JourneyStampsSection extends ConsumerWidget {
                           child: Text('self-recorded',
                               style: AppText.bodyMuted.copyWith(fontSize: 12)),
                         ),
-                        IconButton(
+                        IconButton(tooltip: 'Remove this stamp',
                           icon: const Icon(Icons.delete_outline,
                               color: AppColors.gold, size: 20),
                           onPressed: () => ref

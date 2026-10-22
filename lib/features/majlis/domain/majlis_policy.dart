@@ -16,6 +16,13 @@ class MajlisPolicy {
   /// At most this many writes per rolling hour.
   static const int maxPerHour = 12;
 
+  /// The characters a display name may use; the same set `firestore.rules`
+  /// enforces (authorCharsOk): ASCII letters and digits, space, . _ ' - and
+  /// Arabic-script letters (Arabic and Urdu). Accented Latin letters and
+  /// look-alikes from other scripts are refused because the server can not
+  /// fold them when it checks for reserved names.
+  static final RegExp nameChars = RegExp(r"^[A-Za-z0-9 ._'\u0621-\u06D3-]+$");
+
   /// Words nobody may use as (or inside) a display name: the app, its
   /// assistants, staff roles, and scholarly titles that would let someone
   /// pass opinions off as authority.
@@ -99,6 +106,10 @@ class MajlisPolicy {
     }
     if (trimmed.length > nameMax) {
       return 'Display names can be at most $nameMax characters.';
+    }
+    if (!nameChars.hasMatch(trimmed)) {
+      return 'Display names can use letters, numbers, spaces and . _ \' - '
+          'only (no accents or emoji).';
     }
     final words = nameWords(trimmed);
     for (final w in words) {

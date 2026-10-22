@@ -109,6 +109,8 @@ abstract final class AppRoutes {
   static const String noor = '/noor';
   static const String journey = '/journey';
   static const String community = '/community';
+  // The Family tab: the real Family Wing, inside the bottom-nav shell.
+  static const String family = '/family';
   static const String academy = '/academy';
   static const String academyGate = '/academy/gate';
   static const String player = '/player';
@@ -668,6 +670,11 @@ GoRouter buildRouter({String initialLocation = '/'}) {
           ),
           StatefulShellBranch(
             routes: [
+              // First route = what the Family tab opens: the Family Wing.
+              GoRoute(
+                path: AppRoutes.family,
+                pageBuilder: (c, s) => _fade(const FamilyScreen()),
+              ),
               GoRoute(
                 path: AppRoutes.community,
                 pageBuilder: (c, s) => _fade(const CommunityScreen()),

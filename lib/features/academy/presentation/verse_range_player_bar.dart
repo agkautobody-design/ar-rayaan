@@ -282,13 +282,13 @@ class _VerseRangePlayerBarState extends ConsumerState<VerseRangePlayerBar> {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        IconButton(
+        IconButton(tooltip: 'Previous ayah',
           icon: const Icon(Icons.remove_circle_outline,
               color: AppColors.gold, size: 20),
           onPressed: selected > 1 ? () => onSelect(selected - 1) : null,
         ),
         Text('$selected', style: AppText.body),
-        IconButton(
+        IconButton(tooltip: 'Next ayah',
           icon: const Icon(Icons.add_circle_outline,
               color: AppColors.gold, size: 20),
           onPressed:
@@ -321,13 +321,13 @@ class _BoundedStepper extends StatelessWidget {
       child: Row(
         children: <Widget>[
           Expanded(child: Text(label, style: AppText.body)),
-          IconButton(
+          IconButton(tooltip: 'Decrease $label',
             icon: const Icon(Icons.remove_circle_outline,
                 color: AppColors.gold, size: 20),
             onPressed: value > min ? () => onChanged(value - 1) : null,
           ),
           Text('$value', style: AppText.body.copyWith(color: AppColors.gold)),
-          IconButton(
+          IconButton(tooltip: 'Increase $label',
             icon: const Icon(Icons.add_circle_outline,
                 color: AppColors.gold, size: 20),
             onPressed: value < max ? () => onChanged(value + 1) : null,

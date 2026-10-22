@@ -1,4 +1,4 @@
-# Ar-Rayaan: things only the owner can do (checked 21 Oct 2026)
+# Ar-Rayaan: things only the owner can do (updated 22 Oct 2026)
 
 Each item says why it matters, the exact steps, and how to confirm it worked.
 
@@ -9,12 +9,25 @@ Why: right now anyone with write access, or a bot, can push straight to `main`, 
 3. Tick: Require a pull request before merging; Require status checks to pass before merging, and add the checks `check` and `android-apk` (they appear after a PR has run); Do not allow force pushes; Do not allow deletions.
 4. Save. Confirm: open any PR, the merge button waits for the checks.
 Note: the Build & Deploy Web workflow force-replaces the `render` branch. Leave `render` unprotected.
+Why this matters more than it looks: the app downloads updated stories, guides, games and so on straight from `main` (raw.githubusercontent.com) the moment they are pushed, before any test has run. The code now limits the damage (feature switches such as `system/module_registry.json` can no longer be changed remotely; a downloaded pack must keep the shape of the shipped one and match the manifest's SHA-256), but the TEXT of a pack is still whatever is on `main`. Branch protection is the control that puts a review and the tests between a change and every user. After protecting it: make the content bots open pull requests instead of pushing, and rotate the token or SSH key they use (the git log shows several bot identities that pushed to `main` directly).
 
 ## 2. Publish the Firestore rules (5 minutes). Majlis posting breaks live without this
-Why: `firestore.rules` in the repo adds rate limits, reserved names and reports. They are NOT deployed automatically (there is no `firebase.json`).
+Why: `firestore.rules` in the repo adds rate limits, reserved names, reports, and (since 22 Oct) locks down the online game rooms and bounds the Majlis reads. They are NOT deployed automatically (there is no `firebase.json`).
+Order matters: let this change deploy to the live site FIRST (merge, wait for the green deploy), THEN publish the rules. The new rules need the new app: the old app writes game moves and Majlis queries in a way the new rules refuse.
 1. Firebase console → your project → Firestore Database → Rules.
 2. Replace the editor contents with the contents of `firestore.rules` from the repo (main branch). Click Publish.
-3. Confirm: Rules tab shows today's publish time. The Majlis stays gated in the app until moderation exists, so no user-visible change is expected.
+3. Confirm: Rules tab shows today's publish time. The Majlis stays gated in the app until moderation exists, so no user-visible change is expected there.
+What changed in the rules, so you know what to test:
+- Online games (`game_rooms`): rooms can be read by code but not listed; the joiner can no longer rewrite moves, turn or result; a table is created with an exact set of fields; only one new numbered move per write; a finished or left table is closed.
+- Majlis: threads and posts only under the `courtyard` room; reads must carry a limit (the app sends 50 threads / 200 posts); display names are limited to ASCII letters and digits, space, `. _ ' -`, and Arabic/Urdu letters (so a Cyrillic "а" or an accented letter can not slip past the reserved-name check), and digits that imitate letters ("h4di") are folded before the reserved-name check.
+Quick test after publishing: open the live site on two devices, Games → Ludo → "Play a friend online", create a table on one, join with the code on the other, and play a few moves.
+Not tested by CI: there is no Firestore emulator in the repo, so the rules were reviewed by reading and by static tests of the file (`test/firestore_rules_hardening_test.dart`), not executed. If you want them executed, say so and I will add the emulator suite.
+
+## 2b. Turn on automatic deletion of old game tables (3 minutes)
+Why: tables are never deleted by the app, so the `game_rooms` collection would only grow.
+1. Firebase console → Firestore Database → "Time to live" (TTL) → Create policy.
+2. Collection group: `game_rooms`. Timestamp field: `expireAt`. Create.
+3. Confirm: the policy shows as Serving. Every table now carries `expireAt` (24 hours after creation).
 
 ## 3. Request a Sunnah.com API key (10 minutes)
 Why: web-page checks of hadith are rate-limited (HTTP 429). A key lets the checker verify reliably.
@@ -46,3 +59,19 @@ The sandbox cannot reach the audio hosts. Run the DevTools snippet and curl comm
 
 ## 10. One decision
 Sakina's line "the founder who has stood where you are" was removed (it claimed a personal history). Keep it removed or restore it?
+
+## 11. Turn on Firebase App Check (needs your reCAPTCHA key; about 20 minutes)
+Why: the Firebase web key is public by design, and anonymous sign-in is the only gate on Majlis, game rooms and Hadi reports. A script can create unlimited anonymous accounts and flood them. App Check makes Firebase accept requests only from the real app.
+This could not be done in code alone: it needs a key only you can create, a new dependency (`firebase_app_check`, which also changes `pubspec.lock`), and a switch in the console. Steps:
+1. Google Cloud console → reCAPTCHA Enterprise (or reCAPTCHA v3 in the Firebase App Check page) → create a site key for ar-rayaan.onrender.com.
+2. Firebase console → App Check → register the web app with that key. Do NOT enforce yet.
+3. Send the site key to Claude (it is public, not a secret). Claude adds `firebase_app_check`, activates it at startup, and opens a pull request.
+4. After that is live and the App Check metrics show verified requests, return to App Check and turn on Enforce for Cloud Firestore and Authentication.
+Also worth doing at the same time: Firebase console → Authentication → Settings → authorized domains (only your site), and Google Cloud console → Credentials → restrict the browser key to your site's referrers.
+
+## 12. Delete a user's data on the server (needs the Firebase console; 10 minutes)
+Why: Firestore does not delete sub-collections when a document is deleted. The app now deletes everything it knows it wrote (the account, each child's exams, lessons and mastery) when someone deletes their account, but the app cannot list sub-collections, so anything a future version adds could be missed. The Majlis forbids deleting posts, so a person's posts and display name stay after they delete their account (the Delete Account screen says so).
+1. Firebase console → Extensions → install "Delete User Data" (firebase/delete-user-data).
+2. Paths: `users/{UID}`, `families/{UID}` (recursive delete: on).
+3. Confirm by deleting a test account and checking Firestore.
+Decision for you: do you want people to be able to delete their own Majlis posts? That needs a rule change and a Delete button; it is a prerequisite the Majlis gate text already names.

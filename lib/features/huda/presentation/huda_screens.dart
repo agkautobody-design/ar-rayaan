@@ -54,10 +54,12 @@ class Guide {
       );
 }
 
-final guidesProvider = FutureProvider<List<Guide>>((ref) async {
-  final raw = await ContentSync.load('guides/guides.json');
-  final list = json.decode(raw) as List<dynamic>;
-  return list.map((e) => Guide.fromJson(e as Map<String, dynamic>)).toList();
+final guidesProvider = FutureProvider<List<Guide>>((ref) {
+  // A remote pack that does not parse falls back to the bundled one.
+  return ContentSync.loadParsed<List<Guide>>('guides/guides.json', (raw) {
+    final list = json.decode(raw) as List<dynamic>;
+    return list.map((e) => Guide.fromJson(e as Map<String, dynamic>)).toList();
+  });
 });
 
 class HudaScreen extends ConsumerWidget {

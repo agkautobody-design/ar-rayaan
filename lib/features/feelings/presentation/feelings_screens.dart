@@ -67,11 +67,12 @@ class FeelingItem {
       );
 }
 
-final feelingsProvider = FutureProvider<List<Feeling>>((ref) async {
-  final raw = await ContentSync.load('feelings/feelings.json');
-  return (json.decode(raw) as List)
-      .map((e) => Feeling.fromJson(e as Map<String, dynamic>))
-      .toList();
+final feelingsProvider = FutureProvider<List<Feeling>>((ref) {
+  return ContentSync.loadParsed<List<Feeling>>('feelings/feelings.json', (raw) {
+    return (json.decode(raw) as List)
+        .map((e) => Feeling.fromJson(e as Map<String, dynamic>))
+        .toList();
+  });
 });
 
 class FeelingsScreen extends ConsumerWidget {

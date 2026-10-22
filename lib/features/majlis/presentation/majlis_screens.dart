@@ -106,8 +106,8 @@ class _MajlisScreenState extends ConsumerState<MajlisScreen> {
             ),
             error: (e, _) => GlassCard(
               child: Text(
-                'The Courtyard is waking up (Firebase may still be switching on). '
-                'If this persists, confirm Firestore is created and Anonymous sign-in is enabled in the console.',
+                'The Courtyard could not be reached. Check your connection and '
+                'try again in a moment.',
                 style: AppText.bodyMuted,
               ),
             ),
@@ -291,7 +291,7 @@ class _ThreadScreenState extends ConsumerState<ThreadScreen> {
                   const SizedBox(width: 10),
                   CircleAvatar(
                     backgroundColor: AppColors.gold,
-                    child: IconButton(
+                    child: IconButton(tooltip: 'Send reply',
                       icon: const Icon(Icons.send,
                           size: 18, color: Color(0xFF0A0F18)),
                       onPressed: _send,
