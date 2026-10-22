@@ -1,0 +1,5 @@
+{
+  "version": 1,
+  "note": "Approved in-app sources per catalogue track id. youtube = 11-character video ID; spotify = kind/ID (for example track/<22 characters>). Only IDs a person has checked against the artist's official channel belong here.",
+  "sources": {}
+}
