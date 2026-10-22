@@ -75,3 +75,15 @@ Why: Firestore does not delete sub-collections when a document is deleted. The a
 2. Paths: `users/{UID}`, `families/{UID}` (recursive delete: on).
 3. Confirm by deleting a test account and checking Firestore.
 Decision for you: do you want people to be able to delete their own Majlis posts? That needs a rule change and a Delete button; it is a prerequisite the Majlis gate text already names.
+
+## 13. Give Claude a YouTube API key so the catalogue can play in the app (10 minutes)
+Why: the 202 catalogue tracks only have YouTube search links. The in-app player needs real video IDs, and a wrong ID plays the wrong video. A tool proposes IDs with the channel name; you or Claude check each is the artist's official channel before it is approved.
+1. Google Cloud console → create a project → APIs & Services → enable "YouTube Data API v3".
+2. Credentials → Create credentials → API key → restrict it to "YouTube Data API v3" only.
+3. GitHub → the ar-rayaan repository → Settings → Secrets and variables → Actions → New repository secret named `YOUTUBE_API_KEY`.
+4. Tell Claude. Each run searches about 80 tracks (the free daily quota is 10,000 units, 100 per search), so the whole catalogue takes three runs on three days. Proposals land on the branch `data/player-source-candidates`; nothing reaches the app until an ID is approved into `assets/academy/player_sources.json`.
+
+## 14. Limits on "add to my YouTube / Spotify playlist" and "identify a song" (information, no action yet)
+- Spotify: apps in development mode serve 5 allow-listed users; lifting that needs a registered business with about 250,000 monthly users. So Ar-Rayaan opens the track in Spotify, where the person taps +. It cannot write to a Spotify playlist for them.
+- YouTube: writing to a person's playlist is possible with Google sign-in, but each add costs 50 quota units (about 200 adds a day on the default quota) and needs Google's app verification. Not built.
+- Shazam (ShazamKit): Android and iOS only, no web. It needs an Apple Developer account ($99 a year) and an Apple token that must be renewed at least every three months. Not built. An Android-only version is possible later if you want it.

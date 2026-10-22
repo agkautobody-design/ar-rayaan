@@ -1,0 +1,43 @@
+name: Propose Player sources
+
+# Manual. Searches YouTube (Data API) for each catalogue track and saves the
+# proposals on the branch `data/player-source-candidates` for a person to
+# review. It never changes the app or the approved sources list.
+# Needs the repository secret YOUTUBE_API_KEY (see docs/OWNER_ACTIONS.md).
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: Tracks to search this run (100 quota units each; daily quota is 10,000)
+        default: '80'
+
+permissions:
+  contents: write
+
+jobs:
+  propose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Resume from earlier proposals
+        run: |
+          git fetch origin data/player-source-candidates || true
+          if git rev-parse --verify -q origin/data/player-source-candidates >/dev/null; then
+            git show origin/data/player-source-candidates:tool/player_source_candidates.json > tool/player_source_candidates.json || true
+          fi
+
+      - name: Search
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: python3 tool/resolve_player_sources.py --limit "${{ github.event.inputs.limit }}"
+
+      - name: Save proposals to their branch
+        run: |
+          git config user.name "Ar-Rayaan Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git checkout -B data/player-source-candidates
+          git add tool/player_source_candidates.json
+          git commit -m "Player source proposals" || echo "nothing new"
+          git push -f origin data/player-source-candidates

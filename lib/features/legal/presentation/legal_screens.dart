@@ -110,7 +110,10 @@ const List<LegalSection> kPrivacySections = <LegalSection>[
         'or allow. The app contacts third-party services to work: prayer '
         'time and map services, audio servers for recitation, and GitHub to '
         'download updated content (this reveals your IP address to that '
-        'service). Each has its own privacy policy.',
+        'service). When you play a YouTube or Spotify track in the Player, '
+        'that service\u2019s player loads inside the app, receives your IP '
+        'address, may set cookies and may show its own advertising; it '
+        'loads only when you press play. Each has its own privacy policy.',
   ),
   LegalSection(
     'We do not sell your data',

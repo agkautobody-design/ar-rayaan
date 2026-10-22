@@ -17,6 +17,10 @@ import '../domain/atmosphere.dart';
 import '../domain/player.dart';
 import '../presentation/atmosphere_layer.dart';
 import '../application/player_queue_provider.dart';
+import '../application/stream_player_provider.dart';
+import '../data/player_sources_pack.dart';
+import 'add_to_playlist_sheet.dart';
+import 'stream_player_panel.dart';
 import 'package:go_router/go_router.dart';
 import '../../../app/router.dart';
 
@@ -78,6 +82,25 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
                     ),
                   ),
                 ),
+                const SizedBox(height: 12),
+                GestureDetector(
+                  onTap: () => context.push(AppRoutes.myPlaylists),
+                  child: GlassCard(
+                    child: Row(
+                      children: <Widget>[
+                        const Icon(Icons.queue_music, color: AppColors.gold),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Text('My Playlists',
+                              style: AppText.titleMedium),
+                        ),
+                        const Icon(Icons.chevron_right, color: AppColors.gold),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 12),
+                const StreamPlayerPanel(),
                 const SizedBox(height: 12),
                 _NowPlayingCard(queue: queue),
                 const SizedBox(height: 12),
@@ -318,7 +341,12 @@ class _BrowseSectionState extends ConsumerState<_BrowseSection> {
       ...filtered.where((Track t) => t.hasAudio),
       ...filtered.where((Track t) => !t.hasAudio),
     ];
-    final int playableCount = catalog.playable.length;
+    final Map<String, TrackSources> sources =
+        ref.watch(playerSourcesProvider).valueOrNull ??
+            const <String, TrackSources>{};
+    final int playableCount = catalog.tracks
+        .where((Track t) => t.hasAudio || sources[t.id] != null)
+        .length;
     final int visible = shown.length < _limit ? shown.length : _limit;
     return GlassCard(
       child: Column(
@@ -327,7 +355,9 @@ class _BrowseSectionState extends ConsumerState<_BrowseSection> {
           Text(
             '$playableCount of ${catalog.tracks.length} tracks play in the app. '
             'The rest are external links: each opens a YouTube search for the '
-            'track. Ar-Rayaan does not host or hold a licence for them.',
+            'track. Ar-Rayaan does not host or hold a licence for them. '
+            'Tracks marked YouTube or Spotify play in the app\u2019s own '
+            'player, from sources Ar-Rayaan has checked.',
             key: const Key('player-catalog-note'),
             style: AppText.caption,
           ),
@@ -375,30 +405,68 @@ class _BrowseSectionState extends ConsumerState<_BrowseSection> {
                 subtitle: Text(
                   t.hasAudio
                       ? '${t.artist} \u00b7 ${t.language}'
-                      : '${t.artist} \u00b7 ${t.language} \u00b7 external link (YouTube search)',
+                      : sources[t.id] != null
+                          ? '${t.artist} \u00b7 ${t.language} \u00b7 plays from ${sources[t.id]!.preferred!.serviceLabel}'
+                          : '${t.artist} \u00b7 ${t.language} \u00b7 external link (YouTube search)',
                   style: AppText.caption,
                 ),
-                trailing: Icon(
-                  t.hasAudio ? Icons.play_arrow : Icons.open_in_new,
-                  color: AppColors.gold.withValues(alpha: t.hasAudio ? 1 : 0.6),
-                  size: 20,
+                trailing: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    IconButton(
+                      tooltip: 'Add to a playlist',
+                      icon: const Icon(Icons.playlist_add,
+                          color: AppColors.gold, size: 22),
+                      onPressed: () => showAddToPlaylistSheet(
+                        context,
+                        ref,
+                        catalogId: t.id,
+                        title: t.title,
+                        artist: t.artist,
+                      ),
+                    ),
+                    Icon(
+                      t.hasAudio || sources[t.id] != null
+                          ? Icons.play_arrow
+                          : Icons.open_in_new,
+                      color: AppColors.gold.withValues(
+                          alpha: t.hasAudio || sources[t.id] != null ? 1 : 0.6),
+                      size: 20,
+                    ),
+                  ],
                 ),
                 onTap: () {
-                  if (!t.hasAudio) {
-                    final Uri? official = SafeUrl.web(t.officialUrl);
-                    if (t.hasOfficialLink && official != null) {
-                      launchUrl(official, mode: LaunchMode.externalApplication)
-                          .ignore();
-                    }
+                  if (t.hasAudio) {
+                    final List<Track> playable =
+                        shown.where((Track x) => x.hasAudio).toList();
+                    final int i =
+                        playable.indexWhere((Track x) => x.id == t.id);
+                    ref.read(streamQueueProvider.notifier).stop();
+                    ref.read(playerQueueProvider.notifier).playQueue(
+                        playable.sublist(i < 0 ? 0 : i),
+                        name: facetValue ?? facet);
                     return;
                   }
-                  final List<Track> playable =
-                      shown.where((Track x) => x.hasAudio).toList();
-                  final int i =
-                      playable.indexWhere((Track x) => x.id == t.id);
-                  ref.read(playerQueueProvider.notifier).playQueue(
-                      playable.sublist(i < 0 ? 0 : i),
-                      name: facetValue ?? facet);
+                  final TrackSources? src = sources[t.id];
+                  if (src != null && src.preferred != null) {
+                    final List<StreamEntry> entries = <StreamEntry>[
+                      for (final Track x in shown)
+                        if (!x.hasAudio && sources[x.id]?.preferred != null)
+                          StreamEntry(
+                              title: x.title,
+                              artist: x.artist,
+                              link: sources[x.id]!.preferred!),
+                    ];
+                    final int at = entries.indexWhere((StreamEntry e) =>
+                        e.title == t.title && e.artist == t.artist);
+                    playStreamEntries(ref, entries, at < 0 ? 0 : at).ignore();
+                    return;
+                  }
+                  final Uri? official = SafeUrl.web(t.officialUrl);
+                  if (t.hasOfficialLink && official != null) {
+                    launchUrl(official, mode: LaunchMode.externalApplication)
+                        .ignore();
+                  }
                 },
               ),
             ),
