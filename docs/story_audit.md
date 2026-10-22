@@ -315,6 +315,7 @@ Chapters audited: 278, in 200 stories.
 | modernhadith | mh-forgive-anger | 1 | C | Hadith citations verified on file; no change. |
 | modernhadith | mh-addiction-ninetynine | 1 | C | Bukhari 3470 and Muslim 2766 verified. The monk/scholar sequence and the measuring of the land (‘a span’) corrected to the hadith. |
 | modernhadith | mh-work-hand | 1 | C | Hadith citations verified on file; no change. |
+| modernhadith | mh-work-25 | 1 | C | Added by the content bot; repaired 2026-10-22: sources reduced to the one verified citation (Bukhari 2072, verified on file), empty heading filled. The reflection paragraph is app-written. Duplicates the hadith of mh-work-hand. |
 | modernhadith | mh-grief-ibrahim | 1 | C | Bukhari 1303 and Muslim 2315 verified. 'The child who died is already in a garden' is stated as certain without a cited report; removed. |
 | modernhadith | mh-community-structure | 1 | C | Hadith citations verified on file; no change. |
 | tales | tale-dhul-qarnayn | 1 | Q | New story, written from the bundled Qur’an 18:83-98 with short quoted phrases only; no detail beyond the verses; identity pointed to the Go deeper "Disputed in the sources" layer. |
