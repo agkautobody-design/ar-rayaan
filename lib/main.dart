@@ -7,6 +7,7 @@ import 'app/app.dart';
 import 'app/core/env_config.dart';
 import 'app/core/firebase/firebase_bootstrap.dart';
 import 'app/core/providers.dart';
+import 'app/core/storage/safe_prefs.dart';
 import 'features/auth/application/auth_providers.dart';
 import 'features/doctor/application/drift_guard.dart';
 import 'features/onboarding/presentation/onboarding_screen.dart';
@@ -20,7 +21,9 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final EnvConfig env = EnvConfig.fromDefines();
 
-  final SharedPreferences prefs = await SharedPreferences.getInstance();
+  // Blocked browser storage must not stop the app from starting: SafePrefs
+  // falls back to memory for the session.
+  final SharedPreferences prefs = await SafePrefs.open();
 
   // Doctor Tier 1: every feature registers its vitals at boot.
   FeatureProbes.registerAll();

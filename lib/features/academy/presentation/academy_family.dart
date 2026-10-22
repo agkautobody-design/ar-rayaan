@@ -305,7 +305,7 @@ class _ParentWasiaBoxState extends ConsumerState<_ParentWasiaBox> {
         CircleAvatar(
           backgroundColor: AppColors.gold,
           radius: 20,
-          child: IconButton(
+          child: IconButton(tooltip: 'Send to Wasia',
             icon: busy
                 ? const SizedBox(width: 14, height: 14,
                     child: CircularProgressIndicator(strokeWidth: 2,

@@ -41,14 +41,22 @@ class MajlisService {
       .doc(roomId)
       .collection('threads');
 
+  /// Most recent threads shown; the server rules also refuse unbounded reads.
+  static const int threadLimit = 50;
+
+  /// Longest thread the app loads; same bound as `firestore.rules` allows.
+  static const int postLimit = 200;
+
   Stream<QuerySnapshot<Map<String, dynamic>>> threads() => _threads
       .orderBy('lastActivity', descending: true)
+      .limit(threadLimit)
       .snapshots();
 
   Stream<QuerySnapshot<Map<String, dynamic>>> posts(String threadId) => _threads
       .doc(threadId)
       .collection('posts')
       .orderBy('createdAt')
+      .limit(postLimit)
       .snapshots();
 
   CollectionReference<Map<String, dynamic>> get _reports =>

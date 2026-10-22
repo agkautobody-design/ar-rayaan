@@ -52,7 +52,9 @@ void main() {
     expect(find.text('This page is not here.'), findsOneWidget);
   });
 
-  testWidgets('a chosen right-to-left language flips the whole app', (
+  testWidgets(
+      'a right-to-left language keeps the layout left-to-right until the '
+      'interface is translated', (
     tester,
   ) async {
     await AppHarness.boot(
@@ -60,8 +62,10 @@ void main() {
       prefsValues: <String, Object>{'ar.locale': 'ar'},
     );
     final BuildContext ctx = tester.element(find.text('Faith'));
+    // The language is applied (locale, dialogs)...
     expect(Localizations.localeOf(ctx).languageCode, 'ar');
-    expect(Directionality.of(ctx), TextDirection.rtl);
+    // ...but the English interface is not mirrored.
+    expect(Directionality.of(ctx), TextDirection.ltr);
   });
 
   testWidgets('English stays left-to-right', (tester) async {
@@ -75,6 +79,12 @@ void main() {
     expect(LocaleController.isRtl(const Locale('ar')), isTrue);
     expect(LocaleController.isRtl(const Locale('ur')), isTrue);
     expect(LocaleController.isRtl(const Locale('en')), isFalse);
+    // Mirroring needs a fully translated interface; nobody has one yet.
+    expect(LocaleController.fullyTranslated, isEmpty);
+    for (final String l in <String>['ar', 'ur', 'en', 'fr']) {
+      expect(LocaleController.layoutDirection(Locale(l)), TextDirection.ltr,
+          reason: l);
+    }
     // Only four languages have any translated UI text.
     expect(LocaleController.translatedChrome(const Locale('ur')), isTrue);
     expect(LocaleController.translatedChrome(const Locale('fr')), isFalse);

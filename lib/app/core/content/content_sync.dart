@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:crypto/crypto.dart' as crypto;
@@ -5,6 +6,8 @@ import 'package:flutter/foundation.dart' show kReleaseMode, visibleForTesting;
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'pack_shape.dart';
 
 /// Content Sync — Ar-Rayaan's live content layer.
 ///
@@ -17,7 +20,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 ///  * the path is on the allowlist (no arbitrary file names),
 ///  * the body's SHA-256 equals the manifest's digest (catches truncation
 ///    and a pack pushed without its manifest entry),
-///  * it parses as JSON of the same shape as the bundled copy,
+///  * it parses as JSON of the same shape as the bundled copy, down to the
+///    keys and kinds of value every item carries ([PackShape]),
 ///  * it is not drastically smaller than the bundled copy (a failing or
 ///    emptied pack must never replace shipped religious content).
 ///
@@ -28,7 +32,15 @@ import 'package:shared_preferences/shared_preferences.dart';
 ///
 /// This is integrity, not authenticity: the manifest comes from the same
 /// repository as the packs. Content still needs human review before it is
-/// merged to `main`.
+/// merged to `main` (branch protection is an owner action, see
+/// docs/OWNER_ACTIONS.md).
+///
+/// What a remote pack can NEVER do: change what the app lets people use.
+/// `system/` (the module registry that gates features, the subscription
+/// tiers) is not on the allowlist and is read from the bundle only, so even
+/// a push to `main` that carries a flipped flag cannot open a gated feature
+/// on a shipped client. Only reading content (stories, guides, games...) is
+/// remotely updatable.
 ///
 /// Debug/test builds always use the bundled assets so tests stay hermetic.
 class ContentSync {
@@ -83,6 +95,16 @@ class ContentSync {
       final localVer = good == null ? 0 : (p.getInt('cv_$assetPath') ?? 0);
       if (entry.version <= localVer) return good ?? bundled;
 
+      // A pack the device could not store this session is kept in memory so
+      // it is not downloaded again for every screen that asks for it.
+      final _Held? held = _unstored[assetPath];
+      if (held != null && held.version >= entry.version) return held.body;
+      // A pack a screen already refused (see [reportRejected]) is not
+      // fetched again until the manifest moves past that version.
+      if (entry.version <= (_safeInt(p, 'cx_$assetPath') ?? 0)) {
+        return good ?? bundled;
+      }
+
       final res = await client
           .get(Uri.parse('$remoteBase/$assetPath'))
           .timeout(const Duration(seconds: 10));
@@ -96,13 +118,130 @@ class ContentSync {
       if (problem != null) return good ?? bundled;
 
       final body = utf8.decode(res.bodyBytes);
-      await p.setString('cp_$assetPath', body);
-      await p.setInt('cv_$assetPath', entry.version);
-      await p.setString('cb_$assetPath', bundledSha);
+      var stored = false;
+      try {
+        stored = await (storeOverride ?? _store)(
+          p,
+          assetPath,
+          body,
+          entry.version,
+          bundledSha,
+        );
+      } catch (_) {}
+      if (!stored) {
+        // Storage is full or blocked: this session still gets the verified
+        // pack, and the next launch falls back to what it had before.
+        _unstored[assetPath] = _Held(entry.version, body);
+      } else {
+        _unstored.remove(assetPath);
+      }
       return body;
     } catch (_) {
       // Offline / GitHub down / malformed — last-known-good or bundle.
       return good ?? bundled;
+    }
+  }
+
+  /// Lets a test make storage fail the way a full or blocked browser does.
+  @visibleForTesting
+  static Future<bool> Function(
+    SharedPreferences p,
+    String assetPath,
+    String body,
+    int version,
+    String bundledSha,
+  )? storeOverride;
+
+  /// Packs that passed every check but could not be written to storage.
+  static final Map<String, _Held> _unstored = <String, _Held>{};
+
+  static int? _safeInt(SharedPreferences p, String key) {
+    try {
+      return p.getInt(key);
+    } catch (_) {
+      return null;
+    }
+  }
+
+  /// Writes a verified pack. The body goes last, so a body that is present
+  /// always has its version and bundle fingerprint beside it. Browser
+  /// storage is small (about 5 MB) and can be full, blocked or throw: any
+  /// failure leaves no partial entry behind and reports false.
+  static Future<bool> _store(
+    SharedPreferences p,
+    String assetPath,
+    String body,
+    int version,
+    String bundledSha,
+  ) async {
+    try {
+      final bool ok = await p.setString('cb_$assetPath', bundledSha) &&
+          await p.setInt('cv_$assetPath', version) &&
+          await p.setString('cp_$assetPath', body);
+      if (ok) return true;
+    } catch (_) {}
+    await _forget(p, assetPath);
+    return false;
+  }
+
+  static Future<void> _forget(SharedPreferences p, String assetPath) async {
+    for (final String k in <String>['cp_', 'cv_', 'cb_']) {
+      try {
+        await p.remove('$k$assetPath');
+      } catch (_) {}
+    }
+  }
+
+  /// Called by a screen whose parser could not read a pack that passed the
+  /// integrity checks (see [parseOrFallback]): drops the cached copy and
+  /// remembers the rejected version so the same pack is not fetched again
+  /// on every launch. A later manifest version is tried normally.
+  static Future<void> reportRejected(String assetPath) async {
+    try {
+      final SharedPreferences p = await SharedPreferences.getInstance();
+      final int v = _safeInt(p, 'cv_$assetPath') ??
+          _unstored[assetPath]?.version ??
+          0;
+      _unstored.remove(assetPath);
+      await _forget(p, assetPath);
+      if (v > 0) await p.setInt('cx_$assetPath', v);
+    } catch (_) {}
+  }
+
+  /// Loads a pack and parses it with [parse]. If the (possibly remote) copy
+  /// parses badly, the bundled copy is parsed instead and the remote one is
+  /// reported as rejected. If the bundled copy cannot be parsed either, the
+  /// error propagates, as it would have without this guard.
+  static Future<T> loadParsed<T>(
+    String assetPath,
+    T Function(String raw) parse,
+  ) async {
+    final String raw = await load(assetPath);
+    try {
+      return parse(raw);
+    } catch (_) {
+      final String bundled = await rootBundle.loadString('assets/$assetPath');
+      if (bundled == raw) rethrow;
+      unawaited(reportRejected(assetPath));
+      return parse(bundled);
+    }
+  }
+
+  /// The pure core of [loadParsed], for tests: parses [raw], and on failure
+  /// parses [bundled], calling [onRejected] first.
+  @visibleForTesting
+  static T parseOrFallback<T>(
+    String raw,
+    String bundled,
+    T Function(String raw) parse, {
+    void Function()? onRejected,
+  }) {
+    try {
+      return parse(raw);
+    } catch (_) {
+      if (bundled == raw) rethrow;
+      onRejected?.call();
+      return parse(bundled);
     }
   }
 
@@ -168,7 +307,15 @@ class ContentSync {
   static void resetForTest() {
     _manifest = null;
     _manifestInFlight = null;
+    _unstored.clear();
+    storeOverride = null;
   }
+}
+
+class _Held {
+  const _Held(this.version, this.body);
+  final int version;
+  final String body;
 }
 
 /// One pack's entry in `content_manifest.json`.
@@ -228,7 +375,10 @@ class ContentManifest {
 class ContentIntegrity {
   const ContentIntegrity._();
 
-  /// Directories that may carry remotely updated packs.
+  /// Directories that may carry remotely updated packs: reading material
+  /// only. `system/` (module registry, subscription tiers) is deliberately
+  /// absent: it decides what the app lets people use, so it ships with the
+  /// app and changes only through a reviewed release.
   static const Set<String> allowedDirs = <String>{
     'stories',
     'family',
@@ -237,7 +387,6 @@ class ContentIntegrity {
     'feelings',
     'share',
     'finance',
-    'system',
     'qa',
     'academy',
   };
@@ -335,6 +484,8 @@ class ContentIntegrity {
         }
       }
     }
+    final String? shape = PackShape.problem(shipped, candidate);
+    if (shape != null) return shape;
     final shippedWeight = weight(shipped);
     final candidateWeight = weight(candidate);
     if (shippedWeight > 8 &&

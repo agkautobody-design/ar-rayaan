@@ -106,17 +106,19 @@ class FamilyTreeData {
   }) : byId = {for (final n in nodes) n.id: n};
 }
 
-final familyTreeProvider = FutureProvider<FamilyTreeData>((ref) async {
-  final raw = await ContentSync.load('family/tree.json');
-  final j = json.decode(raw) as Map<String, dynamic>;
-  return FamilyTreeData(
-    title: j['meta']['title'] as String,
-    note: j['meta']['note'] as String,
-    sources: (j['meta']['sources'] as List<dynamic>).cast<String>(),
-    lineageWarning: j['meta']['lineageWarning'] as String?,
-    unplacedNote: j['meta']['unplacedNote'] as String?,
-    nodes: (j['nodes'] as List<dynamic>)
-        .map((e) => FamilyNode.fromJson(e as Map<String, dynamic>))
-        .toList(),
-  );
+final familyTreeProvider = FutureProvider<FamilyTreeData>((ref) {
+  return ContentSync.loadParsed<FamilyTreeData>('family/tree.json', (raw) {
+    final j = json.decode(raw) as Map<String, dynamic>;
+    final meta = j['meta'] as Map<String, dynamic>;
+    return FamilyTreeData(
+      title: meta['title'] as String,
+      note: meta['note'] as String,
+      sources: (meta['sources'] as List<dynamic>).cast<String>(),
+      lineageWarning: meta['lineageWarning'] as String?,
+      unplacedNote: meta['unplacedNote'] as String?,
+      nodes: (j['nodes'] as List<dynamic>)
+          .map((e) => FamilyNode.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+  });
 });

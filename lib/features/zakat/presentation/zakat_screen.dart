@@ -10,6 +10,7 @@ import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../auth/presentation/widgets/auth_text_field.dart';
 import '../application/zakat_history_provider.dart';
+import '../domain/live_prices.dart';
 import '../domain/nisab.dart';
 import '../domain/zakat_calculation.dart';
 import '../domain/zakat_engine.dart';
@@ -52,6 +53,25 @@ class _ZakatScreenState extends ConsumerState<ZakatScreen> {
   RetirementPosition _retPos = RetirementPosition.annualNetAccessible;
   bool _fetchingPrices = false;
   String? _priceNote;
+  // The per-gram prices the live fetch last wrote (US dollars). While the
+  // price boxes still hold exactly these, the prices are dollar prices.
+  String _liveGold = '';
+  String _liveSilver = '';
+
+  bool get _livePricesInUse =>
+      _liveGold.isNotEmpty &&
+      _c['goldPrice']!.text == _liveGold &&
+      _c['silverPrice']!.text == _liveSilver;
+
+  /// Why live (dollar) prices cannot be used with the currency typed in the
+  /// currency box, or null when they can.
+  String? get _currencyBlock =>
+      LivePrices.blockedReason(_c['currency']!.text);
+
+  /// Set when dollar prices are in the boxes but the balances are in
+  /// another currency: the result would be wrong by the exchange rate, so
+  /// no figure is shown until the person fixes it.
+  String? get _priceMismatch => _livePricesInUse ? _currencyBlock : null;
 
   double _v(String key) => ZakatCalculation.parseAmount(_c[key]!.text);
 
@@ -109,12 +129,17 @@ class _ZakatScreenState extends ConsumerState<ZakatScreen> {
       );
 
   Future<void> _fetchLivePrices() async {
+    // Live prices are in US dollars: only use them for dollar balances.
+    final String? block = _currencyBlock;
+    if (block != null) {
+      setState(() => _priceNote = block);
+      return;
+    }
     setState(() {
       _fetchingPrices = true;
       _priceNote = null;
     });
     try {
-      const double ozToGram = 31.1035;
       final results = await Future.wait([
         http
             .get(Uri.parse('https://api.gold-api.com/price/XAU'))
@@ -123,19 +148,27 @@ class _ZakatScreenState extends ConsumerState<ZakatScreen> {
             .get(Uri.parse('https://api.gold-api.com/price/XAG'))
             .timeout(const Duration(seconds: 8)),
       ]);
-      final double goldOz =
-          (jsonDecode(results[0].body)['price'] as num).toDouble();
-      final double silverOz =
-          (jsonDecode(results[1].body)['price'] as num).toDouble();
+      if (results[0].statusCode != 200 || results[1].statusCode != 200) {
+        throw const FormatException('price service unavailable');
+      }
+      final perGram = LivePrices.perGram(
+        utf8.decode(results[0].bodyBytes),
+        utf8.decode(results[1].bodyBytes),
+      );
+      if (!mounted) return;
       setState(() {
-        _c['goldPrice']!.text = (goldOz / ozToGram).toStringAsFixed(2);
-        _c['silverPrice']!.text = (silverOz / ozToGram).toStringAsFixed(2);
+        _liveGold = perGram.gold.toStringAsFixed(2);
+        _liveSilver = perGram.silver.toStringAsFixed(2);
+        _c['goldPrice']!.text = _liveGold;
+        _c['silverPrice']!.text = _liveSilver;
         _priceNote = 'Live prices (USD per gram) — gold-api.com';
       });
     } catch (_) {
-      setState(() {
-        _priceNote = 'Could not reach live prices — enter them manually.';
-      });
+      if (mounted) {
+        setState(() {
+          _priceNote = 'Could not reach live prices — enter them manually.';
+        });
+      }
     } finally {
       if (mounted) setState(() => _fetchingPrices = false);
     }
@@ -177,13 +210,19 @@ class _ZakatScreenState extends ConsumerState<ZakatScreen> {
               child: ListView(
                 padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
                 children: [
-                  _HeroCard(result: r, silverNisab: _silverNisab),
+                  _HeroCard(
+                    result: r,
+                    silverNisab: _silverNisab,
+                    priceMismatch: _priceMismatch,
+                  ),
                   const SizedBox(height: 8),
                   Align(
                     alignment: Alignment.centerLeft,
                     child: TextButton.icon(
                       key: const Key('save-calculation'),
-                      onPressed: r.nisabKnown ? () => _saveCalculation(r) : null,
+                      onPressed: (r.nisabKnown && _priceMismatch == null)
+                          ? () => _saveCalculation(r)
+                          : null,
                       icon: const Icon(Icons.save_outlined, size: 16),
                       label: const Text('Save this calculation'),
                       style: TextButton.styleFrom(
@@ -351,7 +390,9 @@ class _ZakatScreenState extends ConsumerState<ZakatScreen> {
           Align(
             alignment: Alignment.centerLeft,
             child: TextButton.icon(
-              onPressed: _fetchingPrices ? null : _fetchLivePrices,
+              onPressed: (_fetchingPrices || _currencyBlock != null)
+                  ? null
+                  : _fetchLivePrices,
               icon: _fetchingPrices
                   ? const SizedBox(
                       width: 14,
@@ -368,8 +409,9 @@ class _ZakatScreenState extends ConsumerState<ZakatScreen> {
           if (_priceNote != null)
             Text(_priceNote!,
                 style: AppText.bodyMuted.copyWith(fontSize: 12)),
-          _note('Live prices are in US dollars. If your balances are in '
-              'another currency, type the prices in that currency instead.'),
+          _note(_currencyBlock ??
+              'Live prices are in US dollars, which matches the currency '
+                  'you set.'),
           Padding(
             padding: const EdgeInsets.only(bottom: 10),
             child: TextField(
@@ -605,15 +647,27 @@ class _ZakatScreenState extends ConsumerState<ZakatScreen> {
 }
 
 class _HeroCard extends StatelessWidget {
-  const _HeroCard({required this.result, required this.silverNisab});
+  const _HeroCard({
+    required this.result,
+    required this.silverNisab,
+    this.priceMismatch,
+  });
 
   final GuidedZakatResult result;
   final bool silverNisab;
 
+  /// When set, the prices in the boxes are in a different currency from the
+  /// balances: show this instead of a figure that would be wrong.
+  final String? priceMismatch;
+
   @override
   Widget build(BuildContext context) {
-    final String due = ZakatCalculation.formatAmount(result.zakatDue);
-    final String status = !result.nisabKnown
+    final String? mismatch = priceMismatch;
+    final String due =
+        mismatch != null ? '—' : ZakatCalculation.formatAmount(result.zakatDue);
+    final String status = mismatch != null
+        ? mismatch
+        : !result.nisabKnown
         ? (silverNisab
               ? 'Enter the silver price per gram to set your nisab'
               : 'Enter the gold price per gram to set your nisab')
@@ -644,9 +698,16 @@ class _HeroCard extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              _stat('NET WEALTH',
-                  ZakatCalculation.formatAmount(result.netZakatable)),
-              _stat('NISAB', ZakatCalculation.formatAmount(result.nisabValue)),
+              _stat(
+                  'NET WEALTH',
+                  mismatch != null
+                      ? '—'
+                      : ZakatCalculation.formatAmount(result.netZakatable)),
+              _stat(
+                  'NISAB',
+                  mismatch != null
+                      ? '—'
+                      : ZakatCalculation.formatAmount(result.nisabValue)),
             ],
           ),
           const SizedBox(height: 8),

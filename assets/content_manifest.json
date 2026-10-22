@@ -26,9 +26,9 @@
    "version": 3
   },
   "guides/guides.json": {
-   "bytes": 68464,
-   "sha256": "8c2dda4f202ecc51fe0f78aa52f00feec22a8e25dc1e938a49a893fe5bca3adf",
-   "version": 7
+   "bytes": 68463,
+   "sha256": "005df410ffb70d99e12087eb17e7a4b86d3a13d22b6813808e9afba0b88354e9",
+   "version": 8
   },
   "share/cards.json": {
    "bytes": 2639,
@@ -89,16 +89,6 @@
    "bytes": 44342,
    "sha256": "7f52fd2e504c85b7f9e9131653a3314022608aaa518a46bdb2cf464ac42d2b7b",
    "version": 7
-  },
-  "system/module_registry.json": {
-   "bytes": 12778,
-   "sha256": "ec64424b56152f0eff4d138e851c03e25b7482313026d9e7d9bdaa4816e6ce53",
-   "version": 3
-  },
-  "system/subscription.json": {
-   "bytes": 784,
-   "sha256": "4f1acb40b1fc62f642a5c84da278b91ca7bcbb0d6fdd149a6f69391685d2c0aa",
-   "version": 1
   }
  },
  "schema": 1

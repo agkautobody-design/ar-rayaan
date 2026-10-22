@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../../app/core/safe_url.dart';
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
@@ -282,7 +283,9 @@ class _SourceRow extends StatelessWidget {
     final String? l = link;
     if (l == null) return;
     try {
-      await launchUrl(Uri.parse(l), mode: LaunchMode.externalApplication);
+      final Uri? u = SafeUrl.web(l);
+      if (u == null) return;
+      await launchUrl(u, mode: LaunchMode.externalApplication);
     } catch (_) {}
   }
 

@@ -25,10 +25,15 @@ class QaEntry {
       QaEntry(q: j['q'] as String, a: j['a'] as String, s: j['s'] as String);
 }
 
-final qaBankProvider = FutureProvider<List<QaEntry>>((ref) async {
-  final String raw = await ContentSync.load('qa/qa_bank.json');
-  final List<dynamic> list = json.decode(raw)['questions'] as List<dynamic>;
-  return <QaEntry>[for (final dynamic e in list) QaEntry.fromJson(Map<String, dynamic>.from(e as Map))];
+final qaBankProvider = FutureProvider<List<QaEntry>>((ref) {
+  return ContentSync.loadParsed<List<QaEntry>>('qa/qa_bank.json', (String raw) {
+    final Map<String, dynamic> root = json.decode(raw) as Map<String, dynamic>;
+    final List<dynamic> list = root['questions'] as List<dynamic>;
+    return <QaEntry>[
+      for (final dynamic e in list)
+        QaEntry.fromJson(Map<String, dynamic>.from(e as Map)),
+    ];
+  });
 });
 
 class QaBankScreen extends ConsumerWidget {

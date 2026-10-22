@@ -419,7 +419,7 @@ class _RamadanState extends ConsumerState<RamadanScreen> {
         Row(children: [
           Expanded(child: TextField(controller: _tableCtrl, style: AppText.body,
               decoration: const InputDecoration(hintText: 'A guest, a dish, a date to remember…'))),
-          IconButton(icon: const Icon(Icons.add, color: AppColors.gold),
+          IconButton(tooltip: 'Add to the iftar table', icon: const Icon(Icons.add, color: AppColors.gold),
               onPressed: () {
                 if (_tableCtrl.text.trim().isEmpty) return;
                 setState(() => _table.insert(0, _tableCtrl.text.trim()));

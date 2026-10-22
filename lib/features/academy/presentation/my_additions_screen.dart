@@ -207,7 +207,7 @@ class _TrackRow extends ConsumerWidget {
         trailing: Row(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            IconButton(
+            IconButton(tooltip: 'Play',
               icon: const Icon(Icons.play_arrow, color: AppColors.gold),
               onPressed: () {
                 // Play through the same queue the Player drives; personal
@@ -218,7 +218,7 @@ class _TrackRow extends ConsumerWidget {
                 );
               },
             ),
-            IconButton(
+            IconButton(tooltip: 'Remove from my additions',
               icon: const Icon(Icons.delete_outline,
                   color: AppColors.gold),
               onPressed: () => ref

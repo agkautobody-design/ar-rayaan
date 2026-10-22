@@ -113,7 +113,7 @@ class _NotesScreenState extends State<NotesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.transparent,
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton(tooltip: 'Add a note',
         backgroundColor: AppColors.gold,
         foregroundColor: const Color(0xFF0A0F18),
         onPressed: _add,

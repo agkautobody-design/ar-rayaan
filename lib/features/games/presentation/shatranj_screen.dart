@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:cloud_firestore/cloud_firestore.dart' show DocumentSnapshot;
 import 'package:flutter/material.dart';
 
 import '../../../app/theme/app_colors.dart';
@@ -9,6 +10,7 @@ import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import 'chess_pieces.dart';
 import '../data/game_rooms_service.dart';
+import '../data/room_moves.dart';
 import 'online_lobby.dart';
 
 /// SHATRANJ — the crown jewel. A complete chess engine (legal moves, king
@@ -38,8 +40,23 @@ class _ShatranjState extends State<ShatranjScreen> {
   final _rooms = GameRoomsService();
   String? roomCode;
   String mySide = 'host';
-  int appliedMoves = 0;
   StreamSubscription<dynamic>? _roomSub;
+
+  // Online play: moves are numbered (see RoomMoves), queued and sent in
+  // order; one that cannot be delivered stays queued for a retry.
+  RoomMoves _log = RoomMoves(mySide: 'host');
+  late final MoveOutbox _outbox = MoveOutbox(
+    send: (int seq, Map<String, dynamic> move) async {
+      final String? code = roomCode;
+      if (code != null) await _rooms.sendMove(code, seq, move);
+    },
+    finish: (String result) async {
+      final String? code = roomCode;
+      if (code != null) await _rooms.finish(code, result);
+    },
+  );
+  bool _opponentLeft = false;
+  String? _syncError;
 
   static const _hadiLines = [
     'Hadi studies the board the way he studies a hadith — patiently.',
@@ -63,6 +80,24 @@ class _ShatranjState extends State<ShatranjScreen> {
   void dispose() {
     _roomSub?.cancel();
     super.dispose();
+  }
+
+  void _queueOnline(Map<String, dynamic> move, {String? result}) {
+    _outbox.add(_log.reserve(), move, result: result);
+    unawaited(_flush());
+  }
+
+  Future<void> _flush() async {
+    if (_outbox.isEmpty) return;
+    final bool ok = await _outbox.flush();
+    if (!mounted) return;
+    if (ok) {
+      if (_syncError != null) setState(() => _syncError = null);
+    } else if (!_outbox.isEmpty) {
+      setState(() => _syncError =
+          'Your move has not reached your opponent yet. Check your '
+          'connection, then retry.');
+    }
   }
 
   void _reset() {
@@ -353,15 +388,21 @@ class _ShatranjState extends State<ShatranjScreen> {
     final from = sel!;
     _commit(from, i);
     setState(() {});
-    if (mode == 3) {
-      _rooms.sendMove(roomCode!, {
-        't': 'm', 'by': mySide, 'from': _sq(from), 'to': _sq(i),
-      });
+    if (mode == 3 && roomCode != null) {
+      // The move is always sent, a mating or drawing one included, and the
+      // room is finished right after it is delivered.
+      String? result;
       if (status.startsWith('Checkmate')) {
-        _rooms.finish(roomCode!, mySide == 'host' ? 'White wins' : 'Black wins');
+        result = mySide == 'host' ? 'White wins' : 'Black wins';
       } else if (status.startsWith('Stalemate')) {
-        _rooms.finish(roomCode!, 'Draw');
+        result = 'Draw';
       }
+      _queueOnline(
+        <String, dynamic>{
+          't': 'm', 'by': mySide, 'from': _sq(from), 'to': _sq(i),
+        },
+        result: result,
+      );
       return;
     }
     if (mode == 1 && !status.startsWith('Checkmate') && !status.startsWith('Stalemate')) {
@@ -375,38 +416,67 @@ class _ShatranjState extends State<ShatranjScreen> {
   Future<void> _onlineSetup() async {
     final r = await OnlineLobby.show(context, 'shatranj', _rooms);
     if (r == null || !mounted) return;
+    _outbox.clear();
+    _syncError = null;
+    _opponentLeft = false;
     setState(() {
       mode = 3;
       roomCode = r['code'];
       mySide = r['side']!;
+      _log = RoomMoves(mySide: mySide);
       _reset();
-      appliedMoves = 0;
       status = mySide == 'host'
           ? 'Table ${roomCode} — waiting for your opponent to join\u2026'
           : 'Joined table ${roomCode} — you are Black';
     });
     await _roomSub?.cancel();
-    _roomSub = _rooms.watch(roomCode!)?.listen((snap) {
-      final data = (snap as dynamic).data() as Map<String, dynamic>?;
-      if (data == null || !mounted) return;
-      final moves = (data['moves'] as List<dynamic>? ?? []);
-      final guest = data['guest'] as Map<String, dynamic>?;
-      if (mySide == 'host' && guest != null &&
-          status.startsWith('Table') && data['status'] == 'playing') {
-        setState(() => status = 'White to move');
+    _roomSub = _rooms.watch(roomCode!)?.listen(
+      _onRoom,
+      onError: (Object e) {
+        if (!mounted) return;
+        setState(() => _syncError =
+            'The connection to the table dropped. It will resume when you '
+            'are back online.');
+      },
+    );
+  }
+
+  bool _validSquare(Object? v) =>
+      v is String &&
+      v.length == 2 &&
+      'abcdefgh'.contains(v[0]) &&
+      '12345678'.contains(v[1]);
+
+  void _onRoom(DocumentSnapshot<Map<String, dynamic>> snap) {
+    final Map<String, dynamic>? data = snap.data();
+    if (data == null || !mounted) return;
+    final guest = data['guest'];
+    if (mySide == 'host' && guest != null &&
+        status.startsWith('Table') && data['status'] == 'playing') {
+      setState(() => status = 'White to move');
+    }
+    for (final Map<String, dynamic> m in _log.incoming(data['moves'])) {
+      if (m['t'] != 'm' || !_validSquare(m['from']) || !_validSquare(m['to'])) {
+        continue;
       }
-      while (appliedMoves < moves.length) {
-        final m = Map<String, dynamic>.from(moves[appliedMoves] as Map);
-        appliedMoves++;
-        // Our own move is already on the board (_commit ran locally);
-        // replaying it from the room stream would move an empty square.
-        if (m['by'] == mySide) continue;
-        if (m['t'] == 'm') {
-          _commit(_sqToIdx(m['from'] as String), _sqToIdx(m['to'] as String));
-        }
+      final int from = _sqToIdx(m['from'] as String);
+      final int to = _sqToIdx(m['to'] as String);
+      if (b[from].isEmpty ||
+          _isWhite(b[from]) != whiteToMove ||
+          !_legal(b, from).contains(to)) {
+        _syncError = 'A move from your opponent did not fit your board, so '
+            'the two boards are out of step. Leave the table and start a '
+            'new one.';
+        continue;
       }
-      if (mounted) setState(() {});
-    });
+      _commit(from, to);
+    }
+    if (data['status'] == 'left' && !_opponentLeft &&
+        !status.startsWith('Checkmate') && !status.startsWith('Stalemate')) {
+      _opponentLeft = true;
+      status = 'Your opponent left the table';
+    }
+    if (mounted) setState(() {});
   }
 
   bool get _isMyTurnOnline =>
@@ -452,20 +522,41 @@ class _ShatranjState extends State<ShatranjScreen> {
                 TextButton(
                   onPressed: () {
                     if (mode == 3 && roomCode != null) {
-                      _rooms.leave(roomCode!);
+                      unawaited(_rooms.leave(roomCode!));
                       _roomSub?.cancel();
                       _roomSub = null;
+                      _outbox.clear();
+                      _syncError = null;
                     }
                     setState(() { mode = 0; roomCode = null; _reset(); });
                   },
                   child: const Text('Leave', style: TextStyle(color: AppColors.goldLight, fontSize: 12)),
                 ),
-                TextButton(
-                  onPressed: () => setState(() => _reset()),
-                  child: const Text('Restart', style: TextStyle(color: AppColors.goldLight, fontSize: 12)),
-                ),
+                // A restart is local only: online it would leave the two
+                // boards different, so it is not offered there.
+                if (mode != 3)
+                  TextButton(
+                    onPressed: () => setState(() => _reset()),
+                    child: const Text('Restart', style: TextStyle(color: AppColors.goldLight, fontSize: 12)),
+                  ),
               ]),
             ),
+            if (_syncError != null)
+              Padding(
+                padding: const EdgeInsets.only(top: 6),
+                child: Row(children: [
+                  Expanded(
+                    child: Text(_syncError!,
+                        style: AppText.bodyMuted.copyWith(
+                            fontSize: 12, color: Colors.orangeAccent)),
+                  ),
+                  TextButton(
+                    onPressed: () => unawaited(_flush()),
+                    child: const Text('Retry',
+                        style: TextStyle(color: AppColors.goldLight, fontSize: 12)),
+                  ),
+                ]),
+              ),
             if (hadiLine.isNotEmpty)
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8),
@@ -610,3 +701,4 @@ class _ShatranjState extends State<ShatranjScreen> {
     );
   }
 }
+

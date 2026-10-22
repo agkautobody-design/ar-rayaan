@@ -144,7 +144,7 @@ class _LegalPage extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    IconButton(
+                    IconButton(tooltip: 'Back',
                       onPressed: () => context.canPop()
                           ? context.pop()
                           : context.go('/home'),
@@ -277,7 +277,7 @@ class _DeleteAccountScreenState extends ConsumerState<DeleteAccountScreen> {
               children: [
                 Row(
                   children: [
-                    IconButton(
+                    IconButton(tooltip: 'Back',
                       onPressed: () => context.canPop()
                           ? context.pop()
                           : context.go('/home'),

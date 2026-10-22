@@ -20,16 +20,44 @@ service cloud.firestore {
     // never by app clients.
 
     // Names nobody may take: the app, its assistants, staff roles and
-    // scholarly titles. Whole-word match on letters only; the app also
-    // folds look-alike characters before it sends the name.
+    // scholarly titles. Whole-word match on letters only, after the same
+    // digit and symbol look-alikes the app folds (0 o, 1 i, 3 e, 4 a, 5 s,
+    // 7 t, @ a, $ s), so "h4di" and "Sakin4" are caught here too and not
+    // only by the app. Accented and non-Latin look-alikes ("Hadi" with a
+    // Cyrillic a) never get this far: see authorCharsOk.
+    function foldedName(n) {
+      return n.lower()
+        .replace('0', 'o').replace('1', 'i').replace('3', 'e')
+        .replace('4', 'a').replace('5', 's').replace('7', 't')
+        .replace('@', 'a').replace('$', 's');
+    }
+
     function reservedName(n) {
-      let s = n.lower();
-      return s.matches('.*ar[^a-z]*rayaan.*')
-        || s.matches('(.*[^a-z])?(hadi|sakina|noor|wasia|admin|moderator|mod|staff|team|official|support|founder|shaykh|sheikh|sheik|shaikh|imam|mufti|scholar|ustadh|ustaz|allama|hafiz)([^a-z].*)?');
+      let s = foldedName(n);
+      return s.matches('.*ar[^a-z]*ray[ya]an.*')
+        || s.matches('.*rayaan[^a-z]*app.*')
+        || s.matches('(.*[^a-z])?(hadi|sakina|noor|wasia|admin|administrator|moderator|mod|staff|team|official|support|founder|shaykh|sheikh|sheik|shaikh|imam|mufti|scholar|ustadh|ustaz|allama|hafiz)([^a-z].*)?');
+    }
+
+    // Display names are plain ASCII letters and digits, space and . _ ' -,
+    // or Arabic-script letters and marks (U+0621 to U+06D3, which covers Arabic
+    // and Urdu).
+    // Nothing else: Cyrillic, Greek and accented look-alikes, zero-width
+    // characters and emoji can not be used to dodge the reserved-name check
+    // above, which can only fold ASCII. (The trailing - is a literal.)
+    function authorCharsOk(n) {
+      return n.matches("[A-Za-z0-9 ._'ء-ۓ-]+");
     }
 
     function validAuthor(n) {
-      return validName(n) && n.size() >= 2 && !reservedName(n);
+      return n is string && n.size() >= 2 && n.size() <= 30
+        && authorCharsOk(n) && !reservedName(n);
+    }
+
+    // The only forum room that exists. Clients can not create rooms, so a
+    // thread under any other id would be an orphan nobody can browse.
+    function knownRoom(room) {
+      return room == 'courtyard';
     }
 
     // The per-person write clock. Every thread or post write in the same
@@ -55,8 +83,12 @@ service cloud.firestore {
       allow write: if false;
     }
     match /majlis_rooms/{room}/threads/{thread} {
-      allow read: if true;
+      // One thread by id, or a bounded list: an unbounded read is unbounded
+      // cost (the app asks for at most 50).
+      allow get: if true;
+      allow list: if request.query.limit <= 100;
       allow create: if signedIn()
+        && knownRoom(room)
         && request.resource.data.keys().hasOnly(
              ['title', 'authorName', 'uid', 'createdAt', 'lastActivity', 'replyCount', 'lastPostId'])
         && request.resource.data.title is string
@@ -74,6 +106,7 @@ service cloud.firestore {
       // with the server clock, and must arrive together with the post it
       // counts.
       allow update: if signedIn()
+        && knownRoom(room)
         && request.resource.data.diff(resource.data).affectedKeys()
              .hasOnly(['replyCount', 'lastActivity', 'lastPostId'])
         && request.resource.data.replyCount == resource.data.replyCount + 1
@@ -84,11 +117,13 @@ service cloud.firestore {
       allow delete: if false;
     }
     match /majlis_rooms/{room}/threads/{thread}/posts/{post} {
-      allow read: if true;
+      allow get: if true;
+      allow list: if request.query.limit <= 300;
       // A post is only valid together with the thread write that counts it
       // (same batch), so posts cannot be dropped under a thread that does
       // not exist and the counter cannot move without a post.
       allow create: if signedIn()
+        && knownRoom(room)
         && request.resource.data.keys().hasOnly(['body', 'authorName', 'uid', 'createdAt'])
         && request.resource.data.body is string
         && request.resource.data.body.size() >= 1
@@ -140,29 +175,110 @@ service cloud.firestore {
     }
 
     // ── Online game rooms (Ludo, Shatranj) ─────────────────────────────
-    // Anyone signed in can read a room by its code. The host creates it;
-    // one guest may join a waiting room; after that only the two players
-    // can write, and never change who the players are.
+    // A room is found by its six-character code, so a room can be read by
+    // anyone signed in who knows the code, but rooms can NOT be listed
+    // (nobody can enumerate other people's tables, names or ids).
+    //
+    //  * create: the host, with exactly the fields the app writes, status
+    //    "waiting", no guest, an empty move log and server timestamps. The
+    //    code itself must be six characters from the app's alphabet.
+    //  * join: only while "waiting" with no guest, by someone who is not
+    //    the host, and the write may change nothing but guest, status
+    //    (-> "playing") and lastTs. A joiner can not touch moves, turn or
+    //    result.
+    //  * play: only the host or the guest, only while the room is
+    //    "waiting" or "playing", never the players, and only these fields:
+    //    moves (at most ONE new numbered move per write, never changing or
+    //    removing an earlier one), turn (to one of the two players),
+    //    status (playing -> done or left; waiting -> left) and result.
+    //    A "done" or "left" room is closed for good.
+    //  * delete: never from the app. Rooms carry an `expireAt` timestamp;
+    //    a Firestore TTL policy on it removes old rooms (docs/OWNER_ACTIONS).
+    //
+    // Honest limit: this is not an anti-cheat. A player can still write a
+    // move that is not legal; making the server the referee needs Cloud
+    // Functions. The rules only stop outsiders and joiners from rewriting
+    // the game.
+    function roomHostUid() { return resource.data.host.uid; }
+
+    function roomIsPlayer() {
+      return request.auth.uid == resource.data.host.uid
+        || (resource.data.guest != null
+            && request.auth.uid == resource.data.guest.uid);
+    }
+
+    function roomStatusMoveOk() {
+      return request.resource.data.status == resource.data.status
+        || (resource.data.status == 'playing'
+            && request.resource.data.status in ['done', 'left'])
+        || (resource.data.status == 'waiting'
+            && request.resource.data.status == 'left');
+    }
+
+    function roomMovesOk() {
+      return request.resource.data.moves == resource.data.moves
+        || (resource.data.status == 'playing'
+            && request.resource.data.moves.size() <= 1500
+            && request.resource.data.moves.diff(resource.data.moves).changedKeys().size() == 0
+            && request.resource.data.moves.diff(resource.data.moves).removedKeys().size() == 0
+            && request.resource.data.moves.diff(resource.data.moves).addedKeys().size() == 1);
+    }
+
     match /game_rooms/{code} {
-      allow read: if signedIn();
+      allow get: if signedIn();
+      allow list: if false;
+
       allow create: if signedIn()
+        && code.matches('[A-HJ-NP-Z2-9]{6}')
+        && request.resource.data.keys().hasOnly(
+             ['game', 'status', 'host', 'guest', 'turn', 'moves',
+              'createdAt', 'lastTs', 'expireAt'])
+        && request.resource.data.keys().hasAll(
+             ['game', 'status', 'host', 'guest', 'turn', 'moves',
+              'createdAt', 'lastTs', 'expireAt'])
+        && request.resource.data.game in ['ludo', 'shatranj']
+        && request.resource.data.status == 'waiting'
+        && request.resource.data.host.keys().hasOnly(['uid', 'name'])
         && request.resource.data.host.uid == request.auth.uid
         && validName(request.resource.data.host.name)
-        && request.resource.data.status == 'waiting'
-        && request.resource.data.game is string;
+        && request.resource.data.guest == null
+        && request.resource.data.turn == request.auth.uid
+        && request.resource.data.moves is map
+        && request.resource.data.moves.size() == 0
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.lastTs == request.time
+        && request.resource.data.expireAt is timestamp
+        && request.resource.data.expireAt > request.time
+        && request.resource.data.expireAt <= request.time + duration.value(2, 'd');
+
       allow update: if signedIn() && (
-        // Join: the waiting room gets its guest.
+        // Join: the waiting room gets its guest, and nothing else changes.
         (resource.data.status == 'waiting'
+          && resource.data.guest == null
+          && request.auth.uid != roomHostUid()
+          && request.resource.data.diff(resource.data).affectedKeys()
+               .hasOnly(['guest', 'status', 'lastTs'])
+          && request.resource.data.status == 'playing'
+          && request.resource.data.guest.keys().hasOnly(['uid', 'name'])
           && request.resource.data.guest.uid == request.auth.uid
           && validName(request.resource.data.guest.name)
-          && request.resource.data.host == resource.data.host)
+          && request.resource.data.lastTs == request.time)
         ||
-        // Play: only the two players, players fixed.
-        ((request.auth.uid == resource.data.host.uid
-            || (resource.data.guest != null
-                && request.auth.uid == resource.data.guest.uid))
-          && request.resource.data.host == resource.data.host
-          && request.resource.data.guest == resource.data.guest)
+        // Play: the two players, players fixed, a short list of fields.
+        (roomIsPlayer()
+          && resource.data.status in ['waiting', 'playing']
+          && request.resource.data.diff(resource.data).affectedKeys()
+               .hasOnly(['moves', 'turn', 'status', 'result', 'lastTs'])
+          && roomStatusMoveOk()
+          && roomMovesOk()
+          && (!('turn' in request.resource.data.diff(resource.data).affectedKeys())
+              || request.resource.data.turn == resource.data.host.uid
+              || (resource.data.guest != null
+                  && request.resource.data.turn == resource.data.guest.uid))
+          && (!('result' in request.resource.data)
+              || (request.resource.data.result is string
+                  && request.resource.data.result.size() <= 40))
+          && request.resource.data.lastTs == request.time)
       );
       allow delete: if false;
     }

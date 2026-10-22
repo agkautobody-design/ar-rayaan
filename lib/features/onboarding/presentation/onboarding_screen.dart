@@ -12,8 +12,13 @@ class OnboardingScreen extends StatefulWidget {
   static const needPref = 'ar.need';
 
   static Future<bool> shouldShow() async {
-    final p = await SharedPreferences.getInstance();
-    return p.getBool(pref) != true;
+    try {
+      final p = await SharedPreferences.getInstance();
+      return p.getBool(pref) != true;
+    } catch (_) {
+      // Storage unreadable: treat as a first run rather than not starting.
+      return true;
+    }
   }
 
   /// Where a returning user should land after replaying the introduction.
@@ -71,10 +76,15 @@ class _OnboardingState extends State<OnboardingScreen> {
   ];
 
   Future<void> _finish() async {
-    final p = await SharedPreferences.getInstance();
-    await p.setBool(OnboardingScreen.pref, true);
-    if (_need != null) await p.setString(OnboardingScreen.needPref, _need!);
-    if (mounted) context.go(await OnboardingScreen.homeRouteFor(_need));
+    // Remembering that onboarding was seen is a nicety: if storage refuses,
+    // the person must still get through to the app.
+    try {
+      final p = await SharedPreferences.getInstance();
+      await p.setBool(OnboardingScreen.pref, true);
+      if (_need != null) await p.setString(OnboardingScreen.needPref, _need!);
+    } catch (_) {}
+    final String route = await OnboardingScreen.homeRouteFor(_need);
+    if (mounted) context.go(route);
   }
 
   @override

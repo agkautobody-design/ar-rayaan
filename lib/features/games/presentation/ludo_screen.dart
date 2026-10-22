@@ -1,12 +1,14 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:cloud_firestore/cloud_firestore.dart' show DocumentSnapshot;
 import 'package:flutter/material.dart';
 
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../data/game_rooms_service.dart';
+import '../data/room_moves.dart';
 import 'online_lobby.dart';
 
 /// LUDO — the second crown. The classic 52-cell track, four safe stars per
@@ -70,8 +72,24 @@ class _LudoState extends State<LudoScreen> {
   String? roomCode;
   String mySide = 'host';
   int myIdx = 0;
-  int appliedMoves = 0;
   StreamSubscription<dynamic>? _roomSub;
+
+  // Online play: moves are numbered (see RoomMoves), queued, and sent in
+  // order. A move that could not be delivered stays queued and the person
+  // can retry; sending the same number twice is harmless.
+  RoomMoves _log = RoomMoves(mySide: 'host');
+  late final MoveOutbox _outbox = MoveOutbox(
+    send: (int seq, Map<String, dynamic> move) async {
+      final String? code = roomCode;
+      if (code != null) await _rooms.sendMove(code, seq, move);
+    },
+    finish: (String result) async {
+      final String? code = roomCode;
+      if (code != null) await _rooms.finish(code, result);
+    },
+  );
+  bool _opponentLeft = false;
+  String? _syncError;
 
   static const _hadiLudo = [
     'Hadi: The dice belong to Allah — the moves belong to you.',
@@ -91,6 +109,26 @@ class _LudoState extends State<LudoScreen> {
   void dispose() {
     _roomSub?.cancel();
     super.dispose();
+  }
+
+  /// Queues a move for the room and starts sending. [result] is set on the
+  /// winning move so the room is finished right after it is delivered.
+  void _queueOnline(Map<String, dynamic> move, {String? result}) {
+    _outbox.add(_log.reserve(), move, result: result);
+    unawaited(_flush());
+  }
+
+  Future<void> _flush() async {
+    if (_outbox.isEmpty) return;
+    final bool ok = await _outbox.flush();
+    if (!mounted) return;
+    if (ok) {
+      if (_syncError != null) setState(() => _syncError = null);
+    } else if (!_outbox.isEmpty) {
+      setState(() => _syncError =
+          'Your move has not reached your opponent yet. Check your '
+          'connection, then retry.');
+    }
   }
 
   void _reset() {
@@ -186,8 +224,21 @@ class _LudoState extends State<LudoScreen> {
       final valid = _validMoves(turn, dice);
       if (valid.isEmpty) {
         status = '${names[turn]} rolled $dice — no move, passing';
+        final int passer = turn;
+        final int passRoll = dice;
         Future<void>.delayed(const Duration(milliseconds: 700), () {
-          if (mounted) setState(() => _nextTurn());
+          if (!mounted) return;
+          setState(() {
+            _nextTurn();
+            // The opponent must hear about a pass too, or their board waits
+            // on a turn that never comes.
+            if (mode == 3 && roomCode != null) {
+              _queueOnline(<String, dynamic>{
+                'by': mySide, 'd': passRoll, 'pass': true,
+                'turn': passer, 'next': turn,
+              });
+            }
+          });
         });
       } else {
         status = '${names[turn]} rolled $dice — choose a token';
@@ -203,17 +254,17 @@ class _LudoState extends State<LudoScreen> {
     final mover = turn;
     setState(() {
       _apply(turn, t, d);
-      if (!gameOver) {
-        final extra = d == 6;
-        _nextTurn(extra: extra);
-        if (mode == 3 && roomCode != null) {
-          _rooms.sendMove(roomCode!, {
+      // _nextTurn leaves the turn alone when the game is over.
+      _nextTurn(extra: d == 6);
+      if (mode == 3 && roomCode != null) {
+        // Always sent, the winning move included, and the room is finished
+        // after it: the opponent must see the last move and the result.
+        _queueOnline(
+          <String, dynamic>{
             'by': mySide, 'd': d, 't': t, 'turn': mover, 'next': turn,
-          });
-          if (gameOver) {
-            _rooms.finish(roomCode!, '${names[mover]} wins');
-          }
-        }
+          },
+          result: gameOver ? '${names[mover]} wins' : null,
+        );
       }
     });
   }
@@ -278,48 +329,77 @@ class _LudoState extends State<LudoScreen> {
   Future<void> _onlineSetup() async {
     final r = await OnlineLobby.show(context, 'ludo', _rooms);
     if (r == null || !mounted) return;
+    _outbox.clear();
+    _syncError = null;
+    _opponentLeft = false;
     setState(() {
       mode = 3;
       roomCode = r['code'];
       mySide = r['side']!;
       myIdx = mySide == 'host' ? 0 : 1;
+      _log = RoomMoves(mySide: mySide);
       _reset();
-      appliedMoves = 0;
       turn = 0;
       status = mySide == 'host'
           ? 'Table ${roomCode} — waiting for your opponent\u2026'
           : 'Joined ${roomCode} — you are Green';
     });
     await _roomSub?.cancel();
-    _roomSub = _rooms.watch(roomCode!)?.listen((snap) {
-      final data = (snap as dynamic).data() as Map<String, dynamic>?;
-      if (data == null || !mounted) return;
-      final moves = (data['moves'] as List<dynamic>? ?? []);
-      final guest = data['guest'] as Map<String, dynamic>?;
-      if (mySide == 'host' && guest != null && data['status'] == 'playing' &&
-          status.startsWith('Table')) {
-        setState(() => status = 'Red to roll');
+    _roomSub = _rooms.watch(roomCode!)?.listen(
+      _onRoom,
+      onError: (Object e) {
+        if (!mounted) return;
+        setState(() => _syncError =
+            'The connection to the table dropped. It will resume when you '
+            'are back online.');
+      },
+    );
+  }
+
+  /// A remote move that is safe to apply: every index in range.
+  static bool _sane(Map<String, dynamic> m) {
+    final Object? d = m['d'], t = m['t'], next = m['next'];
+    final bool base = d is num && d >= 1 && d <= 6 &&
+        next is num && (next == 0 || next == 1);
+    if (!base) return false;
+    return m['pass'] == true || (t is num && t >= 0 && t <= 3);
+  }
+
+  void _onRoom(DocumentSnapshot<Map<String, dynamic>> snap) {
+    final Map<String, dynamic>? data = snap.data();
+    if (data == null || !mounted) return;
+    final guest = data['guest'];
+    if (mySide == 'host' && guest != null && data['status'] == 'playing' &&
+        status.startsWith('Table')) {
+      setState(() => status = 'Red to roll');
+    }
+    for (final Map<String, dynamic> m in _log.incoming(data['moves'])) {
+      if (!_sane(m)) continue;
+      final int mover = 1 - myIdx;
+      if (m['pass'] == true) {
+        setState(() {
+          turn = (m['next'] as num).toInt();
+          rolled = false;
+          dice = 0;
+          status = '${names[turn]} to roll';
+        });
+        continue;
       }
-      while (appliedMoves < moves.length) {
-        final m = Map<String, dynamic>.from(moves[appliedMoves] as Map);
-        appliedMoves++;
-        final mover = (m['turn'] as num).toInt() == myIdx
-            ? 1 - myIdx
-            : 1 - myIdx;
-        if ((m['by'] as String) != mySide) {
-          setState(() {
-            dice = (m['d'] as num).toInt();
-            _apply(mover, (m['t'] as num).toInt(), dice);
-            if (!gameOver) {
-              turn = (m['next'] as num).toInt();
-              rolled = false;
-              dice = 0;
-              status = '${names[turn]} to roll';
-            }
-          });
+      setState(() {
+        dice = (m['d'] as num).toInt();
+        _apply(mover, (m['t'] as num).toInt(), dice);
+        if (!gameOver) {
+          turn = (m['next'] as num).toInt();
+          rolled = false;
+          dice = 0;
+          status = '${names[turn]} to roll';
         }
-      }
-    });
+      });
+    }
+    if (data['status'] == 'left' && !gameOver && !_opponentLeft) {
+      _opponentLeft = true;
+      setState(() => status = 'Your opponent left the table');
+    }
   }
 
   @override
@@ -358,18 +438,39 @@ class _LudoState extends State<LudoScreen> {
                 TextButton(
                   onPressed: () {
                     if (mode == 3 && roomCode != null) {
-                      _rooms.leave(roomCode!);
+                      unawaited(_rooms.leave(roomCode!));
                       _roomSub?.cancel();
                       _roomSub = null;
+                      _outbox.clear();
+                      _syncError = null;
                     }
                     setState(() { mode = 0; roomCode = null; _reset(); });
                   },
                   child: const Text('Leave', style: TextStyle(color: AppColors.goldLight, fontSize: 12))),
-                TextButton(
-                  onPressed: () => setState(() => _reset()),
-                  child: const Text('Restart', style: TextStyle(color: AppColors.goldLight, fontSize: 12))),
+                // A restart is local only: in an online game it would leave
+                // the two boards different, so it is not offered there.
+                if (mode != 3)
+                  TextButton(
+                    onPressed: () => setState(() => _reset()),
+                    child: const Text('Restart', style: TextStyle(color: AppColors.goldLight, fontSize: 12))),
               ]),
             ),
+            if (_syncError != null)
+              Padding(
+                padding: const EdgeInsets.only(top: 6),
+                child: Row(children: [
+                  Expanded(
+                    child: Text(_syncError!,
+                        style: AppText.bodyMuted.copyWith(
+                            fontSize: 12, color: Colors.orangeAccent)),
+                  ),
+                  TextButton(
+                    onPressed: () => unawaited(_flush()),
+                    child: const Text('Retry',
+                        style: TextStyle(color: AppColors.goldLight, fontSize: 12)),
+                  ),
+                ]),
+              ),
             if (hadiLine.isNotEmpty)
               Padding(padding: const EdgeInsets.symmetric(vertical: 6),
                 child: Text(hadiLine, style: AppText.bodyMuted.copyWith(fontStyle: FontStyle.italic, fontSize: 12))),
@@ -545,6 +646,7 @@ class _LudoState extends State<LudoScreen> {
     );
   }
 }
+
 
 /// The dice, painted in gold with real pips - no font tricks.
 class DiceFace extends StatelessWidget {

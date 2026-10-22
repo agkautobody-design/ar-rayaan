@@ -1,4 +1,6 @@
 import 'dart:convert';
+
+import 'package:flutter/foundation.dart' show visibleForTesting;
 import '../../stories/domain/story.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -563,7 +565,46 @@ class HadiController extends Notifier<HadiState> {
   /// Set once a person says they are under 18. Memory only, this visit.
   bool _minorSession = false;
 
+  /// Test hook: runs once an answer exists, just before the steps that act
+  /// on it (tokens, verification, ruling filter). A throw here stands in for
+  /// any failure in those steps.
+  @visibleForTesting
+  void Function(String answer)? debugBeforeTail;
+
+  static const String _askFailed =
+      'Something went wrong on my side and I could not finish that answer. '
+      'Please ask again in a moment. If you are in danger right now, please '
+      'contact your local emergency number.';
+
+  /// Never leaves Hādi stuck "typing": whatever fails anywhere in [_ask],
+  /// the person gets a plain reply and can ask again.
   Future<String> ask(String question, {HadiProvider? provider}) async {
+    final int before = state.messages.length;
+    try {
+      return await _ask(question, provider: provider);
+    } catch (_) {
+      try {
+        final List<HadiMessage> shown = <HadiMessage>[...state.messages];
+        if (shown.length == before) {
+          // Failed before the question was even shown: show it, privately
+          // (never saved), then the reply.
+          shown.add(HadiMessage(
+              fromHadi: false, text: question.trim(), sensitive: true));
+        }
+        shown.add(const HadiMessage(
+            fromHadi: true, text: _askFailed, sensitive: true));
+        state = state.copy(messages: shown, typing: false);
+      } catch (_) {
+        // Even recording the failure failed: at least free the input.
+        try {
+          state = state.copy(typing: false);
+        } catch (_) {}
+      }
+      return _askFailed;
+    }
+  }
+
+  Future<String> _ask(String question, {HadiProvider? provider}) async {
     if (question.trim().isEmpty || state.typing) return '';
     final String q = question.trim();
 
@@ -753,6 +794,7 @@ class HadiController extends Notifier<HadiState> {
           'Offline guidance: $offline';
     }
     if (quotaNote != null) answer = quotaNote + answer;
+    debugBeforeTail?.call(answer);
     // Tokens are acted on, then removed, BEFORE the message is shown or
     // saved — so the thread never holds a raw [GO:] / [DO:] token.
     final List<String> routes = HadiTokens.routesOf(answer);

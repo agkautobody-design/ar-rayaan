@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../../app/core/safe_url.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
@@ -388,10 +389,9 @@ class _HadithCard extends StatelessWidget {
             ),
             onPressed: () async {
               try {
-                await launchUrl(
-                  Uri.parse(hadith.sunnahUrl),
-                  mode: LaunchMode.externalApplication,
-                );
+                final Uri? u = SafeUrl.web(hadith.sunnahUrl);
+                if (u == null) return;
+                await launchUrl(u, mode: LaunchMode.externalApplication);
               } catch (_) {
                 // No browser available: the reference above is still shown.
               }

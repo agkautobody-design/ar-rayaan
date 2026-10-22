@@ -47,8 +47,18 @@ class _DailyHadithBannerState extends State<DailyHadithBanner> {
       _shownToday = false;
     }
     try {
-      final raw = await ContentSync.load('stories/modernhadith.json');
-      final list = json.decode(raw) as List<dynamic>;
+      final list = await ContentSync.loadParsed<List<dynamic>>(
+        'stories/modernhadith.json',
+        (String raw) {
+          final l = json.decode(raw) as List<dynamic>;
+          // Parse today's entry here so a drifted remote pack is rejected
+          // (and the bundled one used) instead of failing in build().
+          if (l.isNotEmpty) {
+            _bodyOf(Map<String, dynamic>.from(l[_dayOfYear % l.length] as Map));
+          }
+          return l;
+        },
+      );
       if (list.isNotEmpty && mounted) {
         setState(() => _entry =
             Map<String, dynamic>.from(list[_dayOfYear % list.length] as Map));
@@ -57,6 +67,13 @@ class _DailyHadithBannerState extends State<DailyHadithBanner> {
       // Storage or library unreachable (offline, first run, test harness) —
       // the banner rests, nothing breaks, no async gap escapes.
     }
+  }
+
+  /// The first chapter's body; throws if the entry is not shaped like one.
+  static String _bodyOf(Map<String, dynamic> entry) {
+    final chapters = entry['chapters'] as List<dynamic>;
+    final first = chapters.first as Map<String, dynamic>;
+    return first['body'] as String;
   }
 
   Future<void> _dismiss() async {
@@ -76,7 +93,7 @@ class _DailyHadithBannerState extends State<DailyHadithBanner> {
   @override
   Widget build(BuildContext context) {
     if (!_on || _shownToday || _entry == null) return const SizedBox.shrink();
-    final body = (_entry!['chapters'] as List).first['body'] as String;
+    final body = _bodyOf(_entry!);
     final kicker = _entry!['kicker'] as String? ?? 'HADITH FOR TODAY';
     final snippet = body.length > 190 ? '${body.substring(0, 190)}\u2026' : body;
     return Padding(
@@ -89,16 +106,26 @@ class _DailyHadithBannerState extends State<DailyHadithBanner> {
           children: [
             Row(children: [
               Expanded(child: Text(kicker, style: AppText.eyebrow.copyWith(fontSize: 12))),
-              GestureDetector(
-                onTap: _toggle,
-                child: Icon(
-                  _on ? Icons.notifications_active_outlined : Icons.notifications_off_outlined,
-                  size: 15, color: AppColors.gold.withValues(alpha: 0.7)),
+              Semantics(
+                button: true,
+                label: _on
+                    ? 'Turn off the daily hadith greeting'
+                    : 'Turn on the daily hadith greeting',
+                child: GestureDetector(
+                  onTap: _toggle,
+                  child: Icon(
+                    _on ? Icons.notifications_active_outlined : Icons.notifications_off_outlined,
+                    size: 15, color: AppColors.gold.withValues(alpha: 0.7)),
+                ),
               ),
               const SizedBox(width: 8),
-              GestureDetector(
-                onTap: _dismiss,
-                child: Icon(Icons.close, size: 15, color: AppColors.sand.withValues(alpha: 0.6))),
+              Semantics(
+                button: true,
+                label: 'Dismiss today\'s hadith',
+                child: GestureDetector(
+                  onTap: _dismiss,
+                  child: Icon(Icons.close, size: 15, color: AppColors.sand.withValues(alpha: 0.6))),
+              ),
             ]),
             const SizedBox(height: 6),
             Text(snippet, style: AppText.body.copyWith(height: 1.55, fontSize: 13)),
