@@ -85,6 +85,8 @@ class MyAdditionsScreen extends ConsumerWidget {
           ),
         ),
       ),
+      // Bottom-left: the Ask Hadi pill sits bottom-right and would cover it.
+      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
       floatingActionButton: hidden
           ? null
           : FloatingActionButton.extended(
