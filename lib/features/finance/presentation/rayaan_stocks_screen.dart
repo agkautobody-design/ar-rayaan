@@ -8,6 +8,8 @@ import 'package:go_router/go_router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
+import '../../../app/theme/widgets/needs_internet_view.dart';
+import '../../../app/theme/widgets/not_found_view.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 
 class FinLesson {
@@ -146,12 +148,23 @@ class FinLessonScreen extends ConsumerWidget {
       body: lessons.when(
         loading: () => const Center(
             child: CircularProgressIndicator(color: AppColors.gold)),
-        error: (e, _) => Center(
-            child: Text('Could not load the lesson.', style: AppText.bodyMuted)),
+        error: (e, _) => Column(children: [
+          const ScreenHeader(title: 'Lesson', close: true),
+          Expanded(
+            child: NeedsInternetView(
+              what: 'This lesson',
+              onRetry: () => ref.invalidate(rayaanLessonsProvider),
+            ),
+          ),
+        ]),
         data: (list) {
           final l = list.where((x) => x.id == lessonId).firstOrNull;
-          if (l == null) return Center(
-              child: Text('Lesson not found.', style: AppText.bodyMuted));
+          if (l == null) {
+            return const NotFoundView(
+              message: 'That lesson is not here.',
+              title: 'Lesson',
+            );
+          }
           return Center(
             child: ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 680),

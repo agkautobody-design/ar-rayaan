@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
@@ -106,7 +105,7 @@ class JourneyScreen extends ConsumerWidget {
                                   ? null
                                   : _path[i].$3 == _bookmarks
                                       ? () => showSavedStories(context)
-                                      : () => context.go(_path[i].$3!),
+                                      : () => context.open(_path[i].$3!),
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(
                                   horizontal: 16,

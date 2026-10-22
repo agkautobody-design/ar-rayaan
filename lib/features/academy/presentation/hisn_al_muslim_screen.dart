@@ -7,7 +7,6 @@ library;
 import '../../stories/domain/story.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
@@ -109,7 +108,7 @@ class HisnAlMuslimScreen extends ConsumerWidget {
                         child: GlassCard(
                           blur: false,
                           onTap: () =>
-                              context.go(AppRoutes.storyReader, extra: d),
+                              context.open(AppRoutes.storyReader, extra: d),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[

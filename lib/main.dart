@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'app/app.dart';
 import 'app/core/env_config.dart';
+import 'app/core/error_handling.dart';
 import 'app/core/firebase/firebase_bootstrap.dart';
 import 'app/core/providers.dart';
 import 'app/core/storage/safe_prefs.dart';
@@ -17,8 +18,25 @@ import 'features/auth/application/auth_repository.dart';
 import 'features/auth/data/fake_auth_repository.dart';
 import 'features/auth/data/firebase_auth_repository.dart';
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+/// Everything runs inside one guarded zone: an error that escapes any
+/// future, timer or callback is recorded (see [AppErrorHandling]) instead of
+/// ending as an uncaught exception, and a screen that throws while building
+/// shows the friendly fallback rather than a bare grey rectangle.
+void main() {
+  runZonedGuarded<Future<void>>(() async {
+    WidgetsFlutterBinding.ensureInitialized();
+    AppErrorHandling.install();
+    try {
+      await _start();
+    } catch (error, stack) {
+      // Startup itself failed (before any screen exists): say so, plainly.
+      AppErrorHandling.record(error, stack, where: 'startup');
+      runApp(const _StartupFailedApp());
+    }
+  }, AppErrorHandling.onZoneError);
+}
+
+Future<void> _start() async {
   final EnvConfig env = EnvConfig.fromDefines();
 
   // Blocked browser storage must not stop the app from starting: SafePrefs
@@ -57,4 +75,36 @@ Future<void> main() async {
       ),
     ),
   );
+}
+
+
+/// Shown only if the app could not start at all.
+class _StartupFailedApp extends StatelessWidget {
+  const _StartupFailedApp();
+
+  @override
+  Widget build(BuildContext context) {
+    return const Directionality(
+      textDirection: TextDirection.ltr,
+      child: ColoredBox(
+        color: Color(0xFF05090F),
+        child: Center(
+          child: Padding(
+            padding: EdgeInsets.all(28),
+            child: Text(
+              'Ar-Rayaan could not start. Close it and open it again, or '
+              'reload the page. Nothing you saved was lost.',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Color(0xFFE8DCC0),
+                fontSize: 17,
+                height: 1.5,
+                decoration: TextDecoration.none,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }

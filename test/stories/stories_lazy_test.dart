@@ -45,7 +45,8 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(tester.takeException(), isNull);
-    expect(find.text('300 STORIES LOADED'), findsOneWidget);
+    // No debug counter is shown to people (it used to read "N STORIES LOADED").
+    expect(find.textContaining('STORIES LOADED'), findsNothing);
     expect(find.text('Stories of the Prophets'), findsOneWidget);
     expect(find.text('Perf story 0'), findsOneWidget);
     final int cards = find.byType(GlassCard).evaluate().length;

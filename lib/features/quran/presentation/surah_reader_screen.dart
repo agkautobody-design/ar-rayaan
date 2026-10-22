@@ -14,6 +14,7 @@ import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
+import '../../../app/theme/widgets/needs_internet_view.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../application/quran_marks_controller.dart';
@@ -113,7 +114,7 @@ class _SurahReaderScreenState extends ConsumerState<SurahReaderScreen> {
                             onPressed: () {
                               final int? ayahCount = ref
                                   .read(surahProvider(widget.number))
-                                  .value
+                                  .valueOrNull
                                   ?.meta
                                   .ayahCount;
                               if (ayahCount == null) return;
@@ -142,11 +143,13 @@ class _SurahReaderScreenState extends ConsumerState<SurahReaderScreen> {
                 loading: () => const Center(
                   child: CircularProgressIndicator(color: AppColors.gold),
                 ),
-                error: (Object e, _) => Center(
-                  child: Text(
-                    'This surah could not be loaded.',
-                    style: AppText.bodyMuted,
-                  ),
+                error: (Object e, _) => NeedsInternetView(
+                  what: 'This surah',
+                  onRetry: () {
+                    ref.invalidate(quranAllProvider);
+                    ref.invalidate(quranIndexProvider);
+                    ref.invalidate(surahProvider(widget.number));
+                  },
                 ),
                 data: (Surah s) => _Reader(surah: s, initialAyah: _startAyah),
               ),
@@ -155,7 +158,7 @@ class _SurahReaderScreenState extends ConsumerState<SurahReaderScreen> {
               builder: (context, ref, _) {
                 final int? ayahCount = ref
                     .watch(surahProvider(widget.number))
-                    .value
+                    .valueOrNull
                     ?.meta
                     .ayahCount;
                 if (ayahCount == null) return const SizedBox.shrink();

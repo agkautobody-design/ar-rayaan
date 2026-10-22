@@ -25,16 +25,14 @@ class QiblaScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // Same location as Prayer Times (GPS or chosen city; Toronto only until
-    // the user sets one).
+    // Same location as Prayer Times (GPS or chosen city). Until the person
+    // sets one there is no bearing to show: nothing is assumed.
     final PrayerLocation loc = ref.watch(prayerLocationControllerProvider);
+    if (!loc.isSet) return const _QiblaNeedsLocation();
     final double bearing = QiblaDirection.bearingToKaaba(
       (lat: loc.latitude, lng: loc.longitude),
     );
     final String place = loc.city;
-    final bool isDefault =
-        loc.latitude == PrayerLocationController.fallback.latitude &&
-            loc.longitude == PrayerLocationController.fallback.longitude;
     final bool northern = loc.latitude >= 0;
     final bool tropics = loc.latitude.abs() < 23.5;
     final String compass = QiblaDirection.compassPoint(bearing);
@@ -92,17 +90,6 @@ class QiblaScreen extends ConsumerWidget {
                             : 'from $place to the Kaaba \u00b7 about ${_km(km)} km',
                         style: AppText.bodyMuted.copyWith(fontSize: 12),
                       ),
-                      if (isDefault) ...[
-                        const SizedBox(height: 6),
-                        TextButton(
-                          onPressed: () => context.push(AppRoutes.prayerTimes),
-                          child: Text(
-                            'Not in Toronto? Set your location in Prayer Times',
-                            style: AppText.bodyMuted.copyWith(
-                                fontSize: 12, color: AppColors.gold),
-                          ),
-                        ),
-                      ],
                     ],
                   ),
                 ),
@@ -115,13 +102,13 @@ class QiblaScreen extends ConsumerWidget {
                       const SizedBox(height: 8),
                       Text(
                         tropics
-                            ? '1 · THE EXACT BEARING (recommended) — the dial above is measured from true North by great-circle mathematics, fully offline. Near the equator the noon sun can stand north or south of you, so check true North with a map app or your phone\u2019s compass set to true North, then turn ${bearing.round()}° clockwise.'
-                            : '1 · THE EXACT BEARING (recommended) — the dial above is measured from true North by great-circle mathematics, fully offline. No compass needed: at solar noon (when shadows are shortest) the sun is due ${northern ? 'south' : 'north'} of $place, so shadows point due ${northern ? 'NORTH' : 'SOUTH'}. ${northern ? 'Line your prayer mat along the shadow' : 'Face opposite the shadow to face North'}, then turn ${bearing.round()}° clockwise.',
+                            ? '1 · THE EXACT BEARING (recommended) — the dial above is measured from true North by great-circle mathematics, calculated on your device. Near the equator the noon sun can stand north or south of you, so check true North with a map app or your phone\u2019s compass set to true North, then turn ${bearing.round()}° clockwise.'
+                            : '1 · THE EXACT BEARING (recommended) — the dial above is measured from true North by great-circle mathematics, calculated on your device. No compass needed: at solar noon (when shadows are shortest) the sun is due ${northern ? 'south' : 'north'} of $place, so shadows point due ${northern ? 'NORTH' : 'SOUTH'}. ${northern ? 'Line your prayer mat along the shadow' : 'Face opposite the shadow to face North'}, then turn ${bearing.round()}° clockwise.',
                         style: AppText.bodyMuted.copyWith(height: 1.6, fontSize: 12),
                       ),
                       const SizedBox(height: 8),
                       Text(
-                        '2 · A PHYSICAL COMPASS — compasses point to MAGNETIC North, which differs from true North by your local magnetic declination (for example about 10° west in Toronto in 2026; it differs by city and drifts every year). The live compass below applies your declination for you, from the World Magnetic Model. With a separate compass: with a WEST declination add it to ${bearing.round()}°, with an EAST declination subtract it.',
+                        '2 · A PHYSICAL COMPASS — compasses point to MAGNETIC North, which differs from true North by your local magnetic declination (anything from a few degrees to 20° or more, east or west, depending on where you are; it drifts every year). The live compass below applies your declination for you, from the World Magnetic Model. With a separate compass: with a WEST declination add it to ${bearing.round()}°, with an EAST declination subtract it.',
                         style: AppText.bodyMuted.copyWith(height: 1.6, fontSize: 12),
                       ),
                       const SizedBox(height: 8),
@@ -165,7 +152,7 @@ class QiblaScreen extends ConsumerWidget {
                       const SizedBox(height: 8),
                       Text(
                         'The bearing is computed by great-circle mathematics \u2014 exact, '
-                        'and fully offline. The live compass reads your phone\u2019s '
+                        'and calculated on your device. The live compass reads your phone\u2019s '
                         'magnetic sensor (in the Android and iPhone apps directly, and '
                         'through the browser on a phone over https), so it is only as '
                         'good as the sensor: keep away from metal and magnets, hold the '
@@ -203,6 +190,129 @@ class QiblaScreen extends ConsumerWidget {
       out.write(digits[i]);
     }
     return out.toString();
+  }
+}
+
+/// Shown until a location is set: the Qibla depends on where you stand, so
+/// no bearing is guessed. The device location is requested only on a tap.
+class _QiblaNeedsLocation extends ConsumerStatefulWidget {
+  const _QiblaNeedsLocation();
+
+  @override
+  ConsumerState<_QiblaNeedsLocation> createState() =>
+      _QiblaNeedsLocationState();
+}
+
+class _QiblaNeedsLocationState extends ConsumerState<_QiblaNeedsLocation> {
+  GpsStatus _status = GpsStatus.idle;
+
+  Future<void> _useLocation() async {
+    setState(() => _status = GpsStatus.locating);
+    final GpsStatus result = await ref
+        .read(prayerLocationControllerProvider.notifier)
+        .useGps();
+    if (!mounted) return;
+    setState(() => _status = result);
+  }
+
+  String? get _problem {
+    switch (_status) {
+      case GpsStatus.denied:
+        return 'Location permission was refused. Allow it for this site, '
+            'or choose your city instead.';
+      case GpsStatus.unavailable:
+        return 'Location is off on this device. Turn it on, or choose your '
+            'city instead.';
+      case GpsStatus.error:
+        return 'Could not get your location. Try again, or choose your city '
+            'instead.';
+      case GpsStatus.idle:
+      case GpsStatus.locating:
+      case GpsStatus.success:
+        return null;
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final String? problem = _problem;
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      body: Stack(
+        children: [
+          const ScenicBackground.home(),
+          SafeArea(
+            child: ListView(
+              padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
+              children: [
+                const ScreenHeader(title: 'Qibla', close: true),
+                const SizedBox(height: 8),
+                Center(
+                  child: Text(
+                    'DIRECTION TO THE KAABA \u00b7 MAKKAH',
+                    style: AppText.eyebrow,
+                  ),
+                ),
+                const SizedBox(height: 22),
+                GlassCard(
+                  strong: true,
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('SET YOUR LOCATION', style: AppText.eyebrow),
+                      const SizedBox(height: 8),
+                      Text(
+                        'The Qibla depends on where you are, so no direction '
+                        'is shown until you set your location. Use your '
+                        'device or browser location (asked only when you tap '
+                        'the button), or choose your city in Prayer Times. '
+                        'The direction is then calculated on your device.',
+                        style: AppText.bodyMuted.copyWith(height: 1.55),
+                      ),
+                      if (problem != null) ...[
+                        const SizedBox(height: 10),
+                        Text(
+                          problem,
+                          style: AppText.bodyMuted.copyWith(
+                            fontSize: 12,
+                            color: AppColors.goldLight,
+                          ),
+                        ),
+                      ],
+                      const SizedBox(height: 14),
+                      Wrap(
+                        spacing: 8,
+                        runSpacing: 8,
+                        children: [
+                          FilledButton.icon(
+                            onPressed: _status == GpsStatus.locating
+                                ? null
+                                : _useLocation,
+                            icon: const Icon(Icons.my_location, size: 16),
+                            label: Text(
+                              _status == GpsStatus.locating
+                                  ? 'Locating\u2026'
+                                  : 'Use my location',
+                            ),
+                          ),
+                          OutlinedButton.icon(
+                            onPressed: () =>
+                                context.push(AppRoutes.prayerTimes),
+                            icon: const Icon(Icons.location_city, size: 16),
+                            label: const Text('Choose my city'),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
 

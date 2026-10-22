@@ -1,10 +1,14 @@
-import 'package:flutter/foundation.dart';
+import 'dart:async' show unawaited;
+
+import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:flutter/services.dart' show ApplicationSwitcherDescription, SystemChrome;
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import 'core/env_config.dart';
+import 'core/route_titles.dart';
 import '../features/elder/application/elder_mode.dart';
 import 'core/i18n/app_locale.dart';
 import 'core/providers.dart';
@@ -12,8 +16,6 @@ import 'core/sound/sound_services.dart';
 import 'l10n/generated/app_localizations.dart';
 import 'router.dart';
 import 'theme/app_theme.dart';
-import 'theme/app_colors.dart';
-import 'theme/app_typography.dart';
 
 class ArRayaanApp extends ConsumerStatefulWidget {
   const ArRayaanApp({required this.env, this.showOnboarding = false, super.key});
@@ -46,8 +48,41 @@ class _ArRayaanAppState extends ConsumerState<ArRayaanApp> {
     return AppRoutes.splash;
   }
 
+  String? _lastTitle;
+
+  /// Keeps the browser tab title in step with the screen (web only).
+  void _updateTitle() {
+    if (!kIsWeb) return;
+    String path;
+    try {
+      path = _router.routerDelegate.currentConfiguration.uri.path;
+    } catch (_) {
+      return;
+    }
+    final String title = RouteTitles.forPath(path);
+    if (title == _lastTitle) return;
+    _lastTitle = title;
+    try {
+      unawaited(
+        SystemChrome.setApplicationSwitcherDescription(
+          ApplicationSwitcherDescription(label: title),
+        ),
+      );
+    } catch (_) {
+      // The title is a nicety; never let it break navigation.
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _router.routerDelegate.addListener(_updateTitle);
+    WidgetsBinding.instance.addPostFrameCallback((_) => _updateTitle());
+  }
+
   @override
   void dispose() {
+    _router.routerDelegate.removeListener(_updateTitle);
     _router.dispose();
     super.dispose();
   }
@@ -112,19 +147,10 @@ class _ArRayaanAppState extends ConsumerState<ArRayaanApp> {
                             : 1120,
                   ),
                   child: ClipRect(
-                    child: Stack(
-                      children: [
-                        child ?? const SizedBox.shrink(),
-                        if (!kDebugMode)
-                          Positioned(
-                            right: 12,
-                            // Clears the bottom navigation bar so the pill
-                            // never covers a tab or a primary button.
-                            bottom: 96,
-                            child: _AskHadiPill(router: _router),
-                          ),
-                      ],
-                    ),
+                    // The "Ask Hādi" pill is drawn by each page itself (see
+                    // _fade in router.dart), so dialogs and sheets stay on
+                    // top of it.
+                    child: child ?? const SizedBox.shrink(),
                   ),
                 ),
               ),
@@ -164,88 +190,4 @@ class _AppLocalizationsFallbackDelegate
 
   @override
   bool shouldReload(_AppLocalizationsFallbackDelegate old) => false;
-}
-
-/// One tap to Hādi from anywhere in the app. Hides itself while you are
-/// already talking to him.
-class _AskHadiPill extends StatelessWidget {
-  const _AskHadiPill({required this.router});
-
-  final GoRouter router;
-
-  @override
-  Widget build(BuildContext context) {
-    final GoRouterDelegate delegate = router.routerDelegate;
-    return AnimatedBuilder(
-      animation: delegate,
-      builder: (context, _) {
-        var path = '';
-        try {
-          path = delegate.currentConfiguration.uri.path;
-        } catch (_) {
-          path = '';
-        }
-        // Hidden while talking to Hādi and on the first-run screens, where
-        // it would sit on top of the Next / Begin button.
-        if (path.startsWith('/hadi') ||
-            path == AppRoutes.splash ||
-            path.startsWith(AppRoutes.onboarding)) {
-          return const SizedBox.shrink();
-        }
-        return SafeArea(
-          child: Semantics(
-            button: true,
-            label: 'Ask H\u0101di',
-            excludeSemantics: true,
-            onTap: () => router.go(AppRoutes.hadi),
-            child: Material(
-            color: Colors.transparent,
-            child: InkWell(
-              onTap: () => router.go(AppRoutes.hadi),
-              borderRadius: BorderRadius.circular(24),
-              child: Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 10,
-                ),
-                decoration: BoxDecoration(
-                  color: const Color(0xF20A0F18),
-                  borderRadius: BorderRadius.circular(24),
-                  border: Border.all(
-                    color: AppColors.gold.withValues(alpha: 0.55),
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withValues(alpha: 0.5),
-                      blurRadius: 12,
-                    ),
-                  ],
-                ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    const Icon(
-                      Icons.auto_awesome,
-                      size: 16,
-                      color: AppColors.goldLight,
-                    ),
-                    const SizedBox(width: 8),
-                    Text(
-                      'Ask H\u0101di',
-                      style: AppText.body.copyWith(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600,
-                        color: AppColors.goldLight,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            ),
-          ),
-        );
-      },
-    );
-  }
 }

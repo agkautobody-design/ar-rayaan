@@ -42,20 +42,21 @@
     breaks the live site and cannot be tested from CI). To enforce, send it as
     a response header from Render, in Report-Only mode first. What the app
     genuinely needs, as of this review:
-      script-src   'self' 'wasm-unsafe-eval' https://www.gstatic.com  (CanvasKit)
+      script-src   'self' 'wasm-unsafe-eval'   (CanvasKit is bundled under canvaskit/,
+                   built with --no-web-resources-cdn; no gstatic script needed)
       connect-src  'self' https://*.googleapis.com https://*.firebaseio.com
                    https://*.firebaseapp.com https://firebaseinstallations.googleapis.com
                    https://api.aladhan.com https://api.gold-api.com
                    https://overpass-api.de https://nominatim.openstreetmap.org
-                   https://raw.githubusercontent.com https://www.gstatic.com
+                   https://raw.githubusercontent.com https://fonts.gstatic.com
                    https://api.groq.com https://api.x.ai https://openrouter.ai
                    https://everyayah.com https://cdn.islamic.network
                    https://server13.mp3quran.net
       img-src      'self' data: blob: https://*.tile.openstreetmap.org
-                   https://cdn.islamic.network https://www.gstatic.com
+                   https://cdn.islamic.network
       media-src    'self' blob: https://everyayah.com https://cdn.islamic.network
                    https://server13.mp3quran.net
-      font-src     'self' https://fonts.gstatic.com https://www.gstatic.com
+      font-src     'self' https://fonts.gstatic.com
       style-src    'self' 'unsafe-inline'      (boot splash + Flutter inline styles)
       worker-src   'self' blob:
       frame-src    https://*.firebaseapp.com   (Firebase Auth popup/iframe)
@@ -73,6 +74,14 @@
       <div style="width:40%;height:100%;background:#D4AF37;border-radius:2px;animation:ar-load 1.4s ease-in-out infinite;"></div>
     </div>
     <style>@keyframes ar-load{0%{margin-left:-40%}100%{margin-left:100%}}</style>
+    <!-- Shown by the watchdog script below if the app has not drawn its first
+         frame after 20 s, or if the app script fails to load at all. -->
+    <div id="ar-boot-msg" role="alert" hidden
+         style="position:absolute;left:0;right:0;bottom:110px;padding:0 24px;text-align:center;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#F3E9D2;">
+      <p id="ar-boot-text" style="margin:0 0 14px;font-size:16px;line-height:1.5;"></p>
+      <button id="ar-boot-retry" type="button"
+              style="min-height:44px;min-width:140px;padding:10px 22px;font-size:16px;font-weight:600;color:#05090F;background:#D4AF37;border:0;border-radius:24px;cursor:pointer;">Try again</button>
+    </div>
   </div>
   <noscript>Ar-Rayaan needs JavaScript to run.</noscript>
 
@@ -80,7 +89,16 @@
        workflow run number), published in version.json. When it differs from
        the build this browser last ran, drop the old service worker and its
        caches and reload once, so a new deploy is never masked by a stale
-       offline copy. Any failure here is ignored: the app just loads. -->
+       offline copy. Any failure here is ignored: the app just loads.
+
+       DECISION (do not reverse without the owner): the web app does NOT
+       register a caching service worker. flutter_service_worker.js is the
+       self-unregistering stub that Flutter itself ships, and this page also
+       clears any old worker and caches on a new build (commit 1717dfc,
+       "version-driven SW cache bust"). A caching worker can keep serving an
+       old build after a deploy, and a stale build here means stale content
+       and stale safety text. The price is that the web app needs an internet
+       connection to open; the screens say so (see lib/app/core/web_offline.dart). -->
   <script>
     (function () {
       try {
@@ -110,6 +128,44 @@
       } catch (e) {}
     })();
   </script>
-  <script src="flutter_bootstrap.js" async></script>
+
+  <!-- Boot watchdog. CanvasKit is bundled (no CDN), but a slow network, a
+       blocked file or a failed script must never leave the splash up forever
+       with no word. After 20 s without a first frame, or at once if the app
+       script fails to load, show a message and a Try again button. The
+       splash keeps waiting: if the app does arrive late it simply covers the
+       message. -->
+  <script>
+    (function () {
+      var shown = false;
+      var started = false;
+      function el(id) { return document.getElementById(id); }
+      window.addEventListener('flutter-first-frame', function () {
+        started = true;
+        var m = el('ar-boot-msg');
+        if (m) m.hidden = true;
+      });
+      function show(text) {
+        if (started) return;
+        var m = el('ar-boot-msg');
+        var t = el('ar-boot-text');
+        if (!m || !t) return;
+        t.textContent = text;
+        m.hidden = false;
+        shown = true;
+      }
+      var retry = el('ar-boot-retry');
+      if (retry) retry.addEventListener('click', function () { location.reload(); });
+      window.arBootFail = function () {
+        show('Ar-Rayaan could not start. Check your internet connection and try again.');
+      };
+      setTimeout(function () {
+        if (!started && !shown) {
+          show('Ar-Rayaan is taking longer than expected to start. Check your internet connection, then try again.');
+        }
+      }, 20000);
+    })();
+  </script>
+  <script src="flutter_bootstrap.js" async onerror="window.arBootFail && window.arBootFail()"></script>
 </body>
 </html>

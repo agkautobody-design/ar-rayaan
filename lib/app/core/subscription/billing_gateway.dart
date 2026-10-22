@@ -76,8 +76,8 @@ class SandboxBillingGateway implements BillingGateway {
     // key is not a real AI key, so "active" would be a false promise.
     if (kReleaseMode) {
       return BillingResult.failed(
-        'Subscriptions are not open yet. Hādi already works offline, and '
-        'with your own free key for live answers.',
+        'Subscriptions are not open yet. Hādi answers from his built-in '
+        'library, and gives live answers with your own free key.',
       );
     }
     return BillingResult.ok(

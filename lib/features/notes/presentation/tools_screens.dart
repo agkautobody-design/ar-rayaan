@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../app/core/web_offline.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
@@ -181,7 +182,9 @@ class _NotesScreenState extends State<NotesScreen> {
   }
 }
 
-/// Offline content aboard the device — and what's coming.
+/// The libraries that ship with the app - and what's coming. On the native
+/// apps they are on the device (work offline); on the web they are fetched
+/// when opened, and the screen says so (see [WebOffline]).
 class DownloadsScreen extends StatelessWidget {
   const DownloadsScreen({super.key});
 
@@ -206,8 +209,16 @@ class DownloadsScreen extends StatelessWidget {
           const ScreenHeader(title: 'Downloads', close: true),
           Padding(
             padding: const EdgeInsets.only(left: 4, bottom: 10),
-            child: Text('ALREADY ABOARD — WORKS OFFLINE', style: AppText.eyebrow),
+            child: Text(WebOffline.libraryHeader(), style: AppText.eyebrow),
           ),
+          if (WebOffline.libraryNote() != null)
+            Padding(
+              padding: const EdgeInsets.only(left: 4, right: 4, bottom: 12),
+              child: Text(
+                WebOffline.libraryNote()!,
+                style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.5),
+              ),
+            ),
           for (final p in _packs)
             Padding(
               padding: const EdgeInsets.only(bottom: 8),

@@ -39,6 +39,15 @@ class GlassCard extends StatelessWidget {
   /// unclear (an icon-only card, or a row that needs its state spoken).
   final String? semanticsLabel;
 
+  /// Used when a card gives no padding of its own. Without it, text that
+  /// starts at the very edge is cut by the rounded corner (its first letter
+  /// loses its left side: "There", "SOUND"). 12 / 8 keeps even a first glyph
+  /// at the top-left clear of the 20px corner arc.
+  static const EdgeInsets defaultPadding = EdgeInsets.symmetric(
+    horizontal: 12,
+    vertical: 8,
+  );
+
   /// A tappable card is never shorter than this, so it is easy to hit.
   static const double minTapHeight = 48;
 
@@ -49,7 +58,7 @@ class GlassCard extends StatelessWidget {
     final Widget inner = Material(
       color: Colors.transparent,
       child: Padding(
-        padding: padding ?? EdgeInsets.zero,
+        padding: padding ?? defaultPadding,
         child: child,
       ),
     );

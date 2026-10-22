@@ -35,16 +35,21 @@ class HomeScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     // --- Live tile subtitles -------------------------------------------------
-    final String prayerSub = ref
-        .watch(prayerTimesProvider)
-        .when(
-          data: (PrayerTimes t) {
-            final (String name, DateTime time) = t.nextPrayer(DateTime.now());
-            return '$name · ${DateFormat.jm().format(time)}';
-          },
-          loading: () => 'Loading times…',
-          error: (_, _) => 'Times unavailable',
-        );
+    // Times are shown only for a location the person set (never a stand-in).
+    final bool locationSet = ref.watch(prayerLocationProvider).isSet;
+    final String prayerSub = !locationSet
+        ? 'Set your location'
+        : ref
+              .watch(prayerTimesProvider)
+              .when(
+                data: (PrayerTimes t) {
+                  final (String name, DateTime time) =
+                      t.nextPrayer(DateTime.now());
+                  return '$name · ${DateFormat.jm().format(time)}';
+                },
+                loading: () => 'Loading times…',
+                error: (_, _) => 'Times unavailable',
+              );
 
     final ReadingPosition? pos = ref.watch(readingPositionProvider);
     String quranSub = 'Begin Reading · Al-Fatihah';

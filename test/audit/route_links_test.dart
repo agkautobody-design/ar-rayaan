@@ -29,10 +29,10 @@ void main() {
   test('Home lives once, inside the bottom-nav shell', () {
     final String src = RouterSource.read().source;
     // Exactly one HomeScreen page builder in the router...
-    expect(RegExp(r'_fade\(const HomeScreen\(\)\)').allMatches(src).length, 1);
+    expect(RegExp(r'_fade\(const HomeScreen\(\)').allMatches(src).length, 1);
     // ...and it sits after the shell route begins.
     final int shell = src.indexOf('StatefulShellRoute.indexedStack');
-    final int home = src.indexOf('_fade(const HomeScreen())');
+    final int home = src.indexOf('_fade(const HomeScreen()');
     expect(shell, greaterThan(0));
     expect(home, greaterThan(shell));
   });

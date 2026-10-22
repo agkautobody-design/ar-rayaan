@@ -6,6 +6,7 @@ import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
+import '../../../app/theme/widgets/needs_internet_view.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -33,11 +34,12 @@ class QuranScreen extends ConsumerWidget {
                 loading: () => const Center(
                   child: CircularProgressIndicator(color: AppColors.gold),
                 ),
-                error: (Object e, _) => Center(
-                  child: Text(
-                    'The Qur\'an could not be loaded.',
-                    style: AppText.bodyMuted,
-                  ),
+                error: (Object e, _) => NeedsInternetView(
+                  what: 'The Qur\u2019an',
+                  onRetry: () {
+                    ref.invalidate(quranAllProvider);
+                    ref.invalidate(quranIndexProvider);
+                  },
                 ),
                 data: (List<SurahMeta> surahs) => ListView(
                   padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
@@ -154,7 +156,7 @@ class _ContinueBanner extends StatelessWidget {
     final SurahMeta meta = surahs[position.surah - 1];
     return GlassCard(
       strong: true,
-      onTap: () => context.go(AppRoutes.surah(position.surah)),
+      onTap: () => context.open(AppRoutes.surah(position.surah)),
       padding: const EdgeInsets.all(16),
       child: Row(
         children: [
@@ -211,7 +213,7 @@ class _SurahRow extends StatelessWidget {
     return Material(
       type: MaterialType.transparency,
       child: InkWell(
-        onTap: () => context.go(AppRoutes.surah(meta.number)),
+        onTap: () => context.open(AppRoutes.surah(meta.number)),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
           child: Row(

@@ -15,7 +15,6 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
-import '../../prayer/application/location_providers.dart';
 import '../../prayer/application/prayer_providers.dart';
 import '../../prayer/application/prayer_repository.dart';
 
@@ -61,22 +60,27 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
   int _tab = 0;
   int _requestId = 0; // newest request wins; older answers are dropped
 
+  // False until the person sets a place (their saved location, a device fix
+  // they asked for, or a city they searched). Nothing is searched, and no
+  // permission is requested, before that.
+  bool _hasPlace = false;
+
   @override
   void initState() {
     super.initState();
     final PrayerLocation saved = ref.read(prayerLocationProvider);
     _lat = saved.latitude;
     _lon = saved.longitude;
-    // Only ask the device when the user has not set a location of their own
-    // (the app's Toronto placeholder); otherwise trust their choice.
-    final bool placeholder =
-        saved.latitude == PrayerLocationController.fallback.latitude &&
-        saved.longitude == PrayerLocationController.fallback.longitude;
+    // Only a location the person set is used. The app's stand-in is never
+    // searched, and the device is asked only when the person taps the
+    // "Use my location" button.
+    _hasPlace = saved.isSet;
     // Deferred a microtask so the first frame is not built while loading.
-    scheduleMicrotask(placeholder ? _locate : _fetch);
+    if (_hasPlace) scheduleMicrotask(_fetch);
   }
 
   Future<void> _locate() async {
+    var got = false;
     try {
       var perm = await Geolocator.checkPermission();
       if (perm == LocationPermission.denied) {
@@ -85,12 +89,22 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
       if (perm == LocationPermission.always ||
           perm == LocationPermission.whileInUse) {
         final pos = await Geolocator.getCurrentPosition();
-        _lat = pos.latitude; _lon = pos.longitude;
+        _lat = pos.latitude;
+        _lon = pos.longitude;
+        got = true;
         if (!mounted) return;
       }
     } catch (_) {}
     if (!mounted) return;
-    await _fetch();
+    if (got) {
+      _hasPlace = true;
+      await _fetch();
+      return;
+    }
+    setState(() => _error = _hasPlace
+        ? 'Could not get your location - showing your last place'
+        : 'Could not get your location - search a city instead');
+    if (_hasPlace) await _fetch();
   }
 
   Future<void> _searchCity() async {
@@ -106,6 +120,7 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
       if (list.isNotEmpty) {
         _lat = double.parse(list[0]['lat'] as String);
         _lon = double.parse(list[0]['lon'] as String);
+        _hasPlace = true;
         await _fetch();
         return;
       }
@@ -129,6 +144,7 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
   static double? _num(Object? v) => v is num ? v.toDouble() : null;
 
   Future<void> _fetch() async {
+    if (!_hasPlace) return; // no place yet: nothing to search
     final int id = ++_requestId;
     setState(() { _loading = true; _error = null; });
     final foodMode = _tab == 1;
@@ -288,8 +304,11 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
                   child: FlutterMap(
                     mapController: _map,
                     options: MapOptions(
-                      initialCenter: LatLng(_lat, _lon),
-                      initialZoom: 13,
+                      // Before a place is set, a world view (not a guessed city).
+                      initialCenter: _hasPlace
+                          ? LatLng(_lat, _lon)
+                          : const LatLng(21.4225, 39.8262),
+                      initialZoom: _hasPlace ? 13 : 2,
                     ),
                     children: [
                       TileLayer(
@@ -302,11 +321,12 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
                         source: Text('OpenStreetMap contributors'),
                       ),
                       MarkerLayer(markers: [
-                        Marker(
-                          point: LatLng(_lat, _lon),
-                          child: const Icon(Icons.person_pin_circle,
-                              color: Color(0xFFE8C96A), size: 30),
-                        ),
+                        if (_hasPlace)
+                          Marker(
+                            point: LatLng(_lat, _lon),
+                            child: const Icon(Icons.person_pin_circle,
+                                color: Color(0xFFE8C96A), size: 30),
+                          ),
                         for (final m in _tab == 0
                             ? _mosques
                                 .map((m) => <String, dynamic>{
@@ -361,7 +381,15 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
                           ],
                         ),
                       ),
-                  if (_tab == 0 && _mosques.isEmpty && !_loading)
+                  if (!_hasPlace)
+                    GlassCard(
+                        padding: const EdgeInsets.all(16),
+                        child: Text(
+                            'Set a place to search: tap \u201cUse my location\u201d '
+                            '(your device is asked only when you tap it) or search '
+                            'a city above.',
+                            style: AppText.bodyMuted))
+                  else if (_tab == 0 && _mosques.isEmpty && !_loading)
                     GlassCard(child: Text(
                         'No masajid found in this area\u2019s open map data. Try a nearby city search, or contribute the mosque to OpenStreetMap so the whole ummah finds it.',
                         style: AppText.bodyMuted)),

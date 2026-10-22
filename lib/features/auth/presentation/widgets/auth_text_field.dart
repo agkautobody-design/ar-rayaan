@@ -14,6 +14,7 @@ class AuthTextField extends StatelessWidget {
     this.keyboardType,
     this.validator,
     this.suffix,
+    this.autovalidateMode,
   });
 
   final TextEditingController controller;
@@ -24,6 +25,10 @@ class AuthTextField extends StatelessWidget {
   final String? Function(String?)? validator;
   final Widget? suffix;
 
+  /// When the validator runs on its own (null = only when the form is
+  /// validated).
+  final AutovalidateMode? autovalidateMode;
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -31,6 +36,7 @@ class AuthTextField extends StatelessWidget {
       obscureText: obscure,
       keyboardType: keyboardType,
       validator: validator,
+      autovalidateMode: autovalidateMode,
       style: AppText.body,
       cursorColor: AppColors.gold,
       decoration: InputDecoration(

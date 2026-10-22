@@ -24,9 +24,18 @@ class StoriesRepository {
     'newmuslim',
   ];
 
+  /// Packs that could not be read at all in the last [loadAll] (on the web:
+  /// no internet). The screen says so instead of quietly showing a smaller
+  /// library.
+  final List<String> failedPacks = <String>[];
+
+  /// How many packs the library has.
+  int get packCount => _packs.length;
+
   /// Loads every pack concurrently (one slow or offline pack no longer
   /// delays the next ten) and returns the stories in pack order.
   Future<List<Story>> loadAll() async {
+    failedPacks.clear();
     final List<List<Story>> perPack =
         await Future.wait(_packs.map(_loadPack));
     return <Story>[for (final List<Story> p in perPack) ...p];
@@ -48,6 +57,7 @@ class StoriesRepository {
             as List<dynamic>;
       } catch (_) {}
     }
+    if (list == null) failedPacks.add(pack);
     if (list != null) {
       try {
         stories.addAll(

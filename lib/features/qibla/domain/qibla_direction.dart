@@ -6,15 +6,15 @@ typedef LatLng = ({double lat, double lng});
 /// Qibla direction math — initial great-circle bearing from a location to the
 /// Kaaba in Makkah. Pure math, works fully offline.
 ///
-/// Location strategy is pending (O-11); until then the app defaults to
-/// Toronto, matching the Prayer Times module.
+/// The location always comes from the person (device location or a chosen
+/// city); the app never assumes one.
 abstract final class QiblaDirection {
   /// The Kaaba, Masjid al-Haram, Makkah.
   static const LatLng kaaba = (lat: 21.4224779, lng: 39.8251832);
 
-  /// Default location while O-11 (GPS vs city picker) is undecided.
-  static const LatLng defaultLocation = (lat: 43.6532, lng: -79.3832);
-  static const String defaultLocationName = 'Toronto';
+  /// A fixed sample point (Toronto) for tests and worked examples only. It
+  /// is never used as the person's location.
+  static const LatLng sampleToronto = (lat: 43.6532, lng: -79.3832);
 
   /// Initial bearing in degrees (0–360, clockwise from true North) from
   /// [from] to the Kaaba.

@@ -129,7 +129,7 @@ class ExploreScreen extends ConsumerWidget {
                               comingSoon: e.$3 == null,
                               onTap: e.$3 == null
                                   ? null
-                                  : () => context.go(e.$3!),
+                                  : () => context.open(e.$3!),
                             ),
                           ],
                         ],
@@ -165,7 +165,7 @@ class ExploreScreen extends ConsumerWidget {
                   const SizedBox(height: 16),
                   GlassCard(
                     strong: true,
-                    onTap: () => context.go(AppRoutes.journey),
+                    onTap: () => context.open(AppRoutes.journey),
                     child: const _Row(
                       icon: Icons.auto_awesome,
                       label: 'My Profile',
