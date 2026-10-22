@@ -215,6 +215,7 @@ void main() {
     testWidgets('a screen that throws becomes a friendly page with Home', (
       tester,
     ) async {
+      final ErrorWidgetBuilder original = ErrorWidget.builder;
       ErrorWidget.builder = AppErrorFallback.builder;
       AppHarness.useSurface(tester, height: 900);
       final GoRouter router = GoRouter(
@@ -250,9 +251,11 @@ void main() {
       await tester.tap(find.text('Home'));
       await tester.pumpAndSettle();
       expect(find.text('HOME PAGE'), findsOneWidget);
+      ErrorWidget.builder = original;
     });
 
     testWidgets('a failed part of a screen shows a small note', (tester) async {
+      final ErrorWidgetBuilder original = ErrorWidget.builder;
       ErrorWidget.builder = AppErrorFallback.builder;
       await tester.pumpWidget(
         MaterialApp(
@@ -274,6 +277,7 @@ void main() {
       expect(find.text('This part could not be shown.'), findsOneWidget);
       expect(find.text('before'), findsOneWidget);
       expect(find.text('Something went wrong'), findsNothing);
+      ErrorWidget.builder = original;
     });
   });
 
@@ -578,6 +582,7 @@ void main() {
       await tester.tap(find.text('Home'));
       await tester.pumpAndSettle();
       expect(find.text('HOME PAGE'), findsOneWidget);
+      ErrorWidget.builder = original;
     });
 
     testWidgets('Play again starts a new round', (tester) async {
