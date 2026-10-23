@@ -24,6 +24,7 @@ class ExploreScreen extends ConsumerWidget {
       'Faith & Worship',
       [
         // The things a first-time visitor looks for come first.
+        (Icons.touch_app_outlined, 'Tasbeeh counter', AppRoutes.tasbeeh),
         (Icons.nights_stay_outlined, 'Prayer Times', AppRoutes.prayerTimes),
         (Icons.explore_outlined, 'Qibla \u00b7 which way to pray', AppRoutes.qibla),
         (

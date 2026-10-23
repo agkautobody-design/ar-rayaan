@@ -97,7 +97,15 @@ class _AdhkarScreenState extends ConsumerState<AdhkarScreen> {
                         selected: set.id,
                         onSelect: (id) => setState(() => _selectedSet = id),
                       ),
-                      const SizedBox(height: 16),
+                      Align(
+                        alignment: AlignmentDirectional.centerStart,
+                        child: TextButton.icon(
+                          onPressed: () => context.open(AppRoutes.tasbeeh),
+                          icon: const Icon(Icons.touch_app_outlined, size: 18),
+                          label: const Text('Plain counter'),
+                        ),
+                      ),
+                      const SizedBox(height: 8),
                       _ProgressCard(set: set),
                       const SizedBox(height: 16),
                       GlassCard(
