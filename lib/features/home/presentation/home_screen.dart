@@ -916,15 +916,16 @@ class _PictureTile extends StatelessWidget {
             ),
           ),
           padding: const EdgeInsets.fromLTRB(10, 0, 10, 10),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.start,
+          // The badge floats at the top; the words sit at the bottom and give
+          // way (ellipsis) rather than overflow on a 320px phone or at big
+          // text.
+          child: Stack(
             children: [
               if (badge != null)
-                Align(
-                  alignment: Alignment.topRight,
+                Positioned(
+                  top: 8,
+                  right: 0,
                   child: Container(
-                    margin: const EdgeInsets.only(top: 8),
                     padding: const EdgeInsets.symmetric(
                         horizontal: 8, vertical: 3),
                     decoration: BoxDecoration(
@@ -943,28 +944,42 @@ class _PictureTile extends StatelessWidget {
                     ),
                   ),
                 ),
-              const Spacer(),
-              Text(
-                title,
-                style: AppText.body.copyWith(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w700,
-                  color: AppColors.goldLight,
-                  shadows: const [
-                    Shadow(color: Colors.black, blurRadius: 8),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 2),
-              Text(
-                subtitle,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                style: AppText.bodyMuted.copyWith(
-                  fontSize: 12,
-                  height: 1.3,
-                  shadows: const [
-                    Shadow(color: Colors.black, blurRadius: 6),
+              Align(
+                alignment: Alignment.bottomLeft,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Flexible(
+                      child: Text(
+                        title,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: AppText.body.copyWith(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w700,
+                          color: AppColors.goldLight,
+                          shadows: const [
+                            Shadow(color: Colors.black, blurRadius: 8),
+                          ],
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 2),
+                    Flexible(
+                      child: Text(
+                        subtitle,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: AppText.bodyMuted.copyWith(
+                          fontSize: 12,
+                          height: 1.3,
+                          shadows: const [
+                            Shadow(color: Colors.black, blurRadius: 6),
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
