@@ -1,4 +1,5 @@
 import '../../sakina/domain/crisis_detector.dart';
+import 'hadi_routing.dart';
 
 /// Replies Hadi composes ONLY from lines the app already shows elsewhere
 /// (the Fasting guide, the Ramadan Nights guide, the New Muslim path, the
@@ -75,8 +76,8 @@ abstract final class HadiExplain {
       '(Qur’an 2:183).\n\n'
       'How it works, in the guide’s words: “take the pre-dawn meal, for in '
       'the suhoor there is blessing” (Sahih al-Bukhari 1923), so suhoor is '
-      'that pre-dawn meal. What breaks the fast is “eating, drinking, and '
-      'marital relations” (Qur’an 2:187). Illness and travel are excused, '
+      'that pre-dawn meal. What breaks the fast is eating, drinking, and '
+      'marital relations (Qur’an 2:187). Illness and travel are excused, '
       'with an equal number of days made up later (Qur’an 2:184). Ramadan '
       'begins by sighting the moon: “fast when you see it and break when '
       'you see it” (Sahih al-Bukhari 1909).\n\n'
@@ -346,6 +347,18 @@ abstract final class HadiExplain {
       return true;
     }
     return fixedReplies.any(answer.contains);
+  }
+
+  static final RegExp _tokens = RegExp(r'\s*\[GO:[^\]]*\]');
+
+  /// True when [clean], a reply with its [GO:] tokens already removed, is one
+  /// of the composed replies (or the beginner reply), so the controller can
+  /// limit the cards printed under it.
+  static bool isComposed(String clean) {
+    String strip(String s) => s.replaceAll(_tokens, '').trim();
+    final String c = strip(clean);
+    return <String>[...fixedReplies, HadiRouting.beginnerReply]
+        .any((String r) => c.contains(strip(r)));
   }
 
   /// The reply for [question], or null when none of the above applies. Run

@@ -192,7 +192,7 @@ void main() {
         'How many rakah is tahajjud',
       ]) {
         final String a = await ask(q);
-        expect(a, contains('[GO:/huda]'), reason: q);
+        expect(a, contains('[GO:/huda/guide?id=huda-witr]'), reason: q);
         expect(a, contains('[GO:/prayer]'), reason: q);
         expect(RegExp(r'\b\d+\s*rak', caseSensitive: false).hasMatch(a),
             isFalse,

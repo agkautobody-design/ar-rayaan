@@ -933,9 +933,7 @@ class HadiController extends Notifier<HadiState> {
       sources = AnswerVerifier.citedIds(
         clean,
         corpus,
-        limit: HadiExplain.isFixed(clean) || HadiRouting.isFixed(clean)
-            ? 2
-            : 5,
+        limit: HadiExplain.isComposed(clean) ? 2 : 5,
       );      // A refusal is never a dead end: the closest place in the app and
       // Search go under it as buttons.
       final List<String> help = OfflineHadiProvider.refusalRoutes(q, clean);
