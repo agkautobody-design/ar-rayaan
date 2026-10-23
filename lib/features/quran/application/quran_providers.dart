@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../app/core/content_loader.dart';
 import '../../../app/core/providers.dart';
 import '../data/bundled_quran_repository.dart';
 import '../domain/quran_models.dart';
@@ -11,16 +12,32 @@ import 'quran_repository.dart';
 final Provider<QuranRepository> quranRepositoryProvider =
     Provider<QuranRepository>((ref) => BundledQuranRepository());
 
+/// Tells the Home tile the text may now be stored. A load that was replaced
+/// by a retry finishes with a disposed ref, which must not surface.
+void _refreshOfflineNote(Ref<Object?> ref) {
+  try {
+    ref.invalidate(quranOfflineReadyProvider);
+  } catch (_) {
+    // Superseded by a newer load: nothing to refresh.
+  }
+}
+
 /// All 114 surahs' metadata.
 final FutureProvider<List<SurahMeta>> quranIndexProvider =
-    FutureProvider<List<SurahMeta>>((ref) {
-      return ref.watch(quranRepositoryProvider).index();
+    FutureProvider<List<SurahMeta>>((ref) async {
+      final List<SurahMeta> index =
+          await ref.watch(quranRepositoryProvider).index();
+      // The text is now kept on this device (web): refresh the Home note.
+      _refreshOfflineNote(ref);
+      return index;
     });
 
 /// Full text of one surah.
 final FutureProviderFamily<Surah, int> surahProvider =
-    FutureProvider.family<Surah, int>((ref, int number) {
-      return ref.watch(quranRepositoryProvider).surah(number);
+    FutureProvider.family<Surah, int>((ref, int number) async {
+      final Surah s = await ref.watch(quranRepositoryProvider).surah(number);
+      _refreshOfflineNote(ref);
+      return s;
     });
 
 /// The whole Qur'an, for offline search (parsed once, held in memory).
