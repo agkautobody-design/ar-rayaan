@@ -209,7 +209,7 @@ void main() {
 
     testWidgets('hifz planner opens on the surah it is given', (t) async {
       await pump(t, const HifzPlannerScreen(initialSurah: 36));
-      expect(find.textContaining('Surah 36 has'), findsWidgets);
+      expect(find.textContaining('36 · '), findsWidgets);
     });
 
     testWidgets('test-me hides the Arabic until tapped', (t) async {
