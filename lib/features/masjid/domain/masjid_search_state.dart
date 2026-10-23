@@ -72,3 +72,13 @@ Uri masjidFallbackMapUri({
     'https://www.google.com/maps/search/${Uri.encodeComponent(q)}/@$lat,$lon,14z',
   );
 }
+
+/// A `geo:` link for Android map apps, used if the web link will not open.
+Uri masjidGeoUri({
+  required double lat,
+  required double lon,
+  required bool food,
+}) {
+  final String q = food ? 'halal restaurant' : 'mosque';
+  return Uri.parse('geo:$lat,$lon?q=${Uri.encodeComponent(q)}');
+}

@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:math' as math;
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -17,27 +17,11 @@ import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../prayer/application/prayer_providers.dart';
 import '../../prayer/application/prayer_repository.dart';
+import '../domain/masjid_search_service.dart';
 import '../domain/masjid_search_state.dart';
 
-class Mosque {
-  final String name;
-  final double lat, lon;
-  final String? addr, website, phone, denomination, hours;
-  final bool wheelchair;
-  const Mosque({required this.name, required this.lat, required this.lon,
-      this.addr, this.website, this.phone, this.denomination, this.hours,
-      this.wheelchair = false});
-}
-
-double _dist(double a1, double o1, double a2, double o2) {
-  const r = 6371000.0;
-  double rad(double d) => d * math.pi / 180;
-  final dLa = rad(a2 - a1), dLo = rad(o2 - o1);
-  final h = math.sin(dLa / 2) * math.sin(dLa / 2) +
-      math.cos(rad(a1)) * math.cos(rad(a2)) *
-          math.sin(dLo / 2) * math.sin(dLo / 2);
-  return 2 * r * math.asin(math.sqrt(h));
-}
+double _dist(double a1, double o1, double a2, double o2) =>
+    masjidDistanceMeters(a1, o1, a2, o2);
 
 /// MASAJID + TAYYIB - the community finders, per the locked design docs:
 /// night map, gold pins, distance-sorted list, rich profiles from OSM,
@@ -57,6 +41,11 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
   // True when the last network call (map search or city lookup) failed. Kept
   // apart from [_error] so a failure is never shown as "none found".
   bool _failed = false;
+  // Short, reportable reason for the last failure; and whether the shown
+  // results came from the Nominatim backup.
+  String? _failReason;
+  bool _usedBackup = false;
+  final http.Client _client = http.Client();
   // What Retry repeats: the city lookup (true) or the map search (false).
   bool _retryIsCitySearch = false;
   List<Mosque> _mosques = [];
@@ -116,7 +105,12 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
   Future<void> _searchCity() async {
     final q = _search.text.trim();
     if (q.isEmpty) return;
-    setState(() { _loading = true; _error = null; _failed = false; });
+    setState(() {
+      _loading = true;
+      _error = null;
+      _failed = false;
+      _failReason = null;
+    });
     try {
       final res = await http.get(Uri.parse(
           'https://nominatim.openstreetmap.org/search?q='
@@ -132,113 +126,84 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
       }
       if (!mounted) return;
       setState(() => _error = 'Place not found');
-    } catch (_) {
+    } catch (e) {
       if (!mounted) return;
       setState(() {
         _failed = true;
         _retryIsCitySearch = true;
+        _failReason = e is TimeoutException ? 'timed out' : 'place lookup failed';
       });
     }
     if (!mounted) return;
     setState(() => _loading = false);
   }
 
-  static const List<String> _overpassServers = <String>[
-    'https://overpass-api.de/api/interpreter',
-    'https://overpass.kumi.systems/api/interpreter',
-    'https://overpass.private.coffee/api/interpreter',
-  ];
-
-  /// Reads a JSON number whether the server sent 43 or 43.0.
-  static double? _num(Object? v) => v is num ? v.toDouble() : null;
-
   Future<void> _fetch() async {
     if (!_hasPlace) return; // no place yet: nothing to search
     final int id = ++_requestId;
-    setState(() { _loading = true; _error = null; _failed = false; });
-    final foodMode = _tab == 1;
-    final tag = foodMode
-        ? 'nwr["diet:halal"~"^(yes|only)\$"](around:6000,$_lat,$_lon);'
-        : '(nwr["amenity"="place_of_worship"]["religion"="muslim"](around:6000,$_lat,$_lon););';
-    // Overpass returns an arbitrary subset when capped, not the nearest, so
-    // ask for plenty and keep the nearest 50 after sorting on the device.
-    final query = '[out:json][timeout:15];$tag out center 300;';
+    setState(() {
+      _loading = true;
+      _error = null;
+      _failed = false;
+      _failReason = null;
+      _usedBackup = false;
+    });
+    final bool foodMode = _tab == 1;
     try {
-      // The main Overpass server is often overloaded (one live request took
-      // 39 s); try mirrors in turn with a short timeout each.
-      Map<String, dynamic>? data;
-      for (final String server in _overpassServers) {
-        try {
-          final res = await http
-              .post(Uri.parse(server), body: {'data': query})
-              .timeout(const Duration(seconds: 12));
-          if (res.statusCode != 200) continue;
-          data = json.decode(res.body) as Map<String, dynamic>;
-          break;
-        } catch (_) {
-          continue;
-        }
-      }
-      if (data == null) throw Exception('all Overpass servers failed');
+      final MapSearchOutcome out = await searchNearby(
+        client: _client,
+        lat: _lat,
+        lon: _lon,
+        food: foodMode,
+      );
       if (!mounted || id != _requestId) return; // a newer search took over
-      final els = (data['elements'] as List<dynamic>? ?? []);
-      if (!foodMode) {
-        final out = <Mosque>[];
-        for (final e in els) {
-          final m = e as Map<String, dynamic>;
-          final tags = (m['tags'] as Map?)?.cast<String, dynamic>() ?? {};
-          final lat = _num(m['lat'] ?? (m['center'] as Map?)?['lat']);
-          final lon = _num(m['lon'] ?? (m['center'] as Map?)?['lon']);
-          if (lat == null || lon == null) continue;
-          String? addr = tags['addr:street'] != null
-              ? '${tags['addr:housenumber'] ?? ''} ${tags['addr:street']}, '
-                  '${tags['addr:city'] ?? ''}'.trim()
-              : null;
-          out.add(Mosque(
-            name: tags['name'] as String? ?? 'Masjid',
-            lat: lat, lon: lon,
-            addr: addr?.isEmpty == true ? null : addr,
-            website: tags['website'] as String? ?? tags['contact:website'] as String?,
-            phone: tags['phone'] as String? ?? tags['contact:phone'] as String?,
-            denomination: tags['denomination'] as String?,
-            hours: tags['opening_hours'] as String?,
-            wheelchair: tags['wheelchair'] == 'yes',
-          ));
-        }
-        out.sort((a, b) => _dist(_lat, _lon, a.lat, a.lon)
-            .compareTo(_dist(_lat, _lon, b.lat, b.lon)));
-        _mosques = out.take(50).toList();
+      if (foodMode) {
+        _foods = out.foods;
       } else {
-        final foods = <Map<String, dynamic>>[];
-        for (final e in els) {
-          final em = e as Map<String, dynamic>;
-          final m = (em['tags'] as Map?)?.cast<String, dynamic>() ?? {};
-          final lat = _num(em['lat'] ?? (em['center'] as Map?)?['lat']);
-          final lon = _num(em['lon'] ?? (em['center'] as Map?)?['lon']);
-          if (lat == null || lon == null) continue;
-          foods.add(<String, dynamic>{
-            'name': m['name'] ?? 'Restaurant', 'lat': lat, 'lon': lon,
-            'cuisine': m['cuisine'], 'addr': m['addr:street'],
-            'phone': m['phone'], 'website': m['website'],
-            'only': m['diet:halal'] == 'only',
-          });
-        }
-        foods.sort((a, b) => _dist(_lat, _lon, a['lat'] as double, a['lon'] as double)
-            .compareTo(_dist(_lat, _lon, b['lat'] as double, b['lon'] as double)));
-        _foods = foods.take(50).toList();
+        _mosques = out.mosques;
       }
+      _usedBackup = out.fromBackup;
       try {
         _map.move(LatLng(_lat, _lon), 14);
       } catch (_) {
         // Map not laid out yet; the results still show.
       }
-    } catch (_) {
+    } catch (e) {
       if (!mounted || id != _requestId) return;
       _failed = true;
       _retryIsCitySearch = false;
+      _failReason = e is MapSearchFailure ? e.reason : 'unexpected error';
     }
     if (!mounted || id != _requestId) return;
     setState(() => _loading = false);
+  }
+
+  Future<void> _openMapSearch(bool food) async {
+    final ScaffoldMessengerState messenger = ScaffoldMessenger.of(context);
+    messenger.hideCurrentSnackBar();
+    messenger.showSnackBar(const SnackBar(content: Text('Opening your map\u2026')));
+    // launchUrl is called straight from the tap, before any await, so the
+    // browser does not treat it as a blocked pop-up.
+    bool ok = await _openExternal(
+      masjidFallbackMapUri(lat: _lat, lon: _lon, food: food),
+      external: !kIsWeb,
+    );
+    if (!ok && !kIsWeb && defaultTargetPlatform == TargetPlatform.android) {
+      ok = await _openExternal(
+        masjidGeoUri(lat: _lat, lon: _lon, food: food),
+      );
+    }
+    if (!ok) {
+      messenger.hideCurrentSnackBar();
+      messenger.showSnackBar(
+        const SnackBar(
+          content: Text(
+            'This device would not open the map. Check your connection or '
+            'try a browser.',
+          ),
+        ),
+      );
+    }
   }
 
   void _retrySearch() {
@@ -247,6 +212,13 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
     } else {
       _fetch();
     }
+  }
+
+  @override
+  void dispose() {
+    _client.close();
+    _search.dispose();
+    super.dispose();
   }
 
   @override
@@ -294,7 +266,8 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Text(
                 'Privacy: searching sends your approximate location to '
-                'OpenStreetMap services (Overpass, Nominatim, map tiles).',
+                'OpenStreetMap services (Overpass, with Nominatim as a backup, and '
+                'map tiles).',
                 style: AppText.bodyMuted.copyWith(fontSize: 12),
               ),
             ),
@@ -417,6 +390,14 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
                                 style: AppText.bodyMuted.copyWith(height: 1.45),
                               ),
                             ),
+                            if (_failReason != null)
+                              Padding(
+                                padding: const EdgeInsets.only(top: 6),
+                                child: Text(
+                                  'Reason: $_failReason',
+                                  style: AppText.bodyMuted.copyWith(fontSize: 12),
+                                ),
+                              ),
                             const SizedBox(height: 8),
                             Wrap(spacing: 8, runSpacing: 4, children: [
                               OutlinedButton.icon(
@@ -426,30 +407,22 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
                               ),
                               if (_hasPlace)
                                 TextButton(
-                                  onPressed: () async {
-                                    final ScaffoldMessengerState messenger =
-                                        ScaffoldMessenger.of(context);
-                                    final bool ok = await _openExternal(
-                                      masjidFallbackMapUri(
-                                          lat: _lat, lon: _lon, food: food),
-                                    );
-                                    if (!ok) {
-                                      messenger.showSnackBar(
-                                        const SnackBar(
-                                          content: Text(
-                                            'This device would not open the '
-                                            'map. Check your connection or '
-                                            'try a browser.',
-                                          ),
-                                        ),
-                                      );
-                                    }
-                                  },
+                                  onPressed: () => _openMapSearch(food),
                                   child: const Text('Open map search instead'),
                                 ),
                             ]),
                           ],
                         ),
+                      ),
+                    ),
+                  if (_usedBackup && !_loading &&
+                      (_tab == 0 ? _mosques : _foods).isNotEmpty)
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: Text(
+                        'Showing results from a backup source - may be '
+                        'incomplete.',
+                        style: AppText.bodyMuted.copyWith(fontSize: 12),
                       ),
                     ),
                   if (_tab == 0)
@@ -504,6 +477,7 @@ Future<bool> _openExternal(Uri u, {bool external = true}) async {
     return await launchUrl(
       u,
       mode: external ? LaunchMode.externalApplication : LaunchMode.platformDefault,
+      webOnlyWindowName: '_blank',
     );
   } catch (_) {
     return false;
