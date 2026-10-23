@@ -258,7 +258,7 @@ void main() {
       expect(await shelf('Is zakat due on gold jewelry?'),
           contains('scholar'));
       expect(await shelf('Do I need wudu to touch the Quran?'),
-          contains('authentic knowledge'));
+          contains('rather not guess'));
     });
 
     test('ordinary questions with modifier words are still answered',

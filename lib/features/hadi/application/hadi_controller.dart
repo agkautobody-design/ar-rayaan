@@ -17,6 +17,7 @@ import '../../sakina/application/sakina_providers.dart';
 import '../../sakina/domain/crisis_detector.dart';
 import '../data/groq_hadi_provider.dart';
 import '../data/hadi_explain.dart';
+import '../data/hadi_finder.dart';
 import '../data/hadi_routing.dart';
 import '../data/offline_hadi_provider.dart';
 import '../grounding/answer_verifier.dart';
@@ -51,6 +52,7 @@ const Set<String> kHadiNavWhitelist = <String>{
   '/academy/youth', '/academy/womens', '/academy/understanding',
   '/academy/dua', '/academy/hifz', '/academy/recitation',
   '/academy/quranic-arabic', '/academy/hajj-umrah-pack',
+  '/tasbeeh', '/settings/language', '/quran/bookmarks',
 };
 
 /// Short names for the screens Hādi offers as buttons. A route that is not
@@ -91,6 +93,19 @@ const Map<String, String> kHadiRouteNames = <String, String>{
   '/academy/stories': 'Stories School',
   '/academy/hifz': 'the Hifz planner',
   '/sources/policy': 'How we handle religious content',
+  '/tasbeeh': 'the Tasbeeh counter',
+  '/settings/language': 'Language and Voice',
+  '/quran/bookmarks': 'your Qur’an bookmarks',
+  '/player': 'the Nasheed Player',
+  '/explore': 'Explore',
+  '/home/elder': 'Elder Home',
+  '/academy/seerah': 'the Seerah school',
+  '/academy/hadith': 'the Hadith school',
+  '/academy/hajj-umrah-pack': 'the Hajj and Umrah pack',
+  '/academy/recitation': 'the Recitation school',
+  '/academy/letters': 'the Arabic letters',
+  '/academy/arabic-language': 'the Arabic language school',
+  '/games/trivia': 'Trivia',
 };
 
 /// The Huda guides Hādi may open directly, as `/huda/guide?id=<id>`, with the
@@ -959,7 +974,16 @@ class HadiController extends Notifier<HadiState> {
         clean,
         corpus,
         limit: HadiExplain.isComposed(clean) ? 2 : 5,
-      );      // A refusal is never a dead end: the closest place in the app and
+      );      // Said once per conversation, plainly: with no key, every answer here
+      // comes from the app's built-in checked library and nothing else.
+      if (!grief &&
+          _apiKey == null &&
+          !state.messages.any(
+            (HadiMessage m) => m.notes.contains(HadiFinder.offlineNote),
+          )) {
+        notes.add(HadiFinder.offlineNote);
+      }
+      // A refusal is never a dead end: the closest places in the app and
       // Search go under it as buttons.
       final List<String> help = OfflineHadiProvider.refusalRoutes(q, clean);
       if (help.isNotEmpty) {
@@ -984,7 +1008,10 @@ class HadiController extends Notifier<HadiState> {
         }
       }
     }
-    if (ruling == RulingClass.general) {
+    // "Halal food near me" is a request for a place, not a ruling.
+    if (ruling == RulingClass.general &&
+        !clean.contains('I cannot see where you are, so I cannot name the '
+            'nearest')) {
       clean = '$clean\n\n${RulingGate.generalFooter}';
     }
     if (crisis != null) {

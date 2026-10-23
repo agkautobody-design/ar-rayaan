@@ -2,6 +2,7 @@ import '../../sakina/domain/crisis_detector.dart';
 import '../application/hadi_provider.dart';
 import '../grounding/ruling_gate.dart';
 import 'hadi_explain.dart';
+import 'hadi_finder.dart';
 import 'hadi_routing.dart';
 
 /// Curated knowledge for offline use — always available, no key, no
@@ -19,15 +20,15 @@ class OfflineHadiProvider implements HadiProvider {
   final bool hasKey;
 
   static const String decline =
-      'I don\'t have enough authentic knowledge to answer that with '
-      'certainty, and I would rather not guess. A qualified local scholar, '
+      'I don\'t have a checked answer for that, and I would rather not '
+      'guess. A qualified local scholar, '
       'or Shaykh Muhammad Saqib Iqbal\'s channel (linked in Our Sources), '
       'can help. A free API key in Hādi settings lets me reason further.';
 
   /// [decline] for someone who already has a live key.
   static const String declineKeyed =
-      'I don\'t have enough authentic knowledge to answer that with '
-      'certainty, and I would rather not guess. A qualified local scholar, '
+      'I don\'t have a checked answer for that, and I would rather not '
+      'guess. A qualified local scholar, '
       'or Shaykh Muhammad Saqib Iqbal\'s channel (linked in Our Sources), '
       'can help.';
 
@@ -1127,6 +1128,13 @@ class OfflineHadiProvider implements HadiProvider {
       }
       return HadiRouting.relationshipReply;
     }
+    // Questions about using the app itself: a one-line pointer and a button.
+    if (!hasKey && HadiFinder.asksWhyOffline(asked)) {
+      return HadiFinder.offlineWhy;
+    }
+    if (HadiFinder.asksHowToUseApp(asked)) return HadiFinder.howToUseReply;
+    final String? pointer = HadiFinder.pointerReply(asked);
+    if (pointer != null) return pointer;
     // Answers built only from lines the app already shows (the guides, the
     // New Muslim path, the sources page), and honest pointers where it holds
     // no verified text.
@@ -1136,10 +1144,87 @@ class OfflineHadiProvider implements HadiProvider {
     return _shelf(asked, history);
   }
 
+  /// [s] with the usual ways people mistype or abbreviate a word put right
+  /// ("quraan", "hadees", "wudhu", "how 2 pray"). A spelling is changed only
+  /// to a word the shelf really uses.
+  static String _respell(String s) {
+    final List<String> raw = CrisisDetector.normalize(s).split(' ');
+    for (int i = 0; i < raw.length; i++) {
+      if (raw[i] == '2' && i > 0 && raw[i - 1] == 'how') {
+        raw[i] = 'to';
+        continue;
+      }
+      final String? fix = kHadiSpellings[raw[i]];
+      if (fix == null) continue;
+      final String st = _stem(fix);
+      if (_df.containsKey(st) || _stop.contains(st)) raw[i] = fix;
+    }
+    return raw.join(' ');
+  }
+
+  /// Polite or chatty openings, in stemmed words.
+  static const List<List<String>> _fillerLeads = <List<String>>[
+    <String>['i', 'wanna'],
+    <String>['i', 'want', 'to'],
+    <String>['i', 'would', 'like', 'to'],
+    <String>['i', 'd', 'like', 'to'],
+    <String>['id', 'like', 'to'],
+    <String>['i', 'need', 'to'],
+    <String>['can', 'you'],
+    <String>['could', 'you'],
+    <String>['would', 'you'],
+    <String>['will', 'you'],
+    <String>['can', 'u'],
+    <String>['help', 'me', 'with'],
+    <String>['help', 'me', 'to'],
+    <String>['help', 'me'],
+    <String>['hey'],
+    <String>['hi'],
+    <String>['hello'],
+    <String>['salam'],
+    <String>['please'],
+    <String>['pls'],
+    <String>['plz'],
+  ];
+
+  static const Set<String> _fillerTails = <String>{
+    'please', 'pls', 'plz', 'thanks', 'thank', 'jazakallah',
+  };
+
+  static List<String> _withoutFiller(List<String> q) {
+    List<String> out = q;
+    for (int round = 0; round < 3; round++) {
+      bool cut = false;
+      for (final List<String> lead in _fillerLeads) {
+        if (out.length <= lead.length) continue;
+        bool same = true;
+        for (int j = 0; j < lead.length; j++) {
+          if (out[j] != lead[j]) {
+            same = false;
+            break;
+          }
+        }
+        if (same) {
+          out = out.sublist(lead.length);
+          cut = true;
+          break;
+        }
+      }
+      if (!cut) break;
+    }
+    while (out.length > 1 && _fillerTails.contains(out.last)) {
+      out = out.sublist(0, out.length - 1);
+    }
+    return out;
+  }
+
   Future<String> _shelf(String question, List<HadiMessage> history) async {
-    List<String> q = tokens(question);
+    List<String> q = tokens(_respell(question));
     if (q.length > _maxWords) q = q.sublist(0, _maxWords);
     final bool rulingShaped = q.any(_rulingWords.contains);
+    // "can you tell me...", "i wanna learn...": the polite opening says
+    // nothing about the topic and must not make a short question look long.
+    q = _withoutFiller(q);
     final _Intent intent = _intentOf(q);
     final _NavTarget? nav = _navIntent(q);
     final List<Map<String, int>> pm = _positions(q);
@@ -1500,10 +1585,23 @@ class OfflineHadiProvider implements HadiProvider {
     if (answer.contains('[GO:') || !answer.contains('rather not guess')) {
       return const <String>[];
     }
-    return HadiRouting.refusalRoutes(
-      question,
-      ruling: answer.contains(rulingDecline),
-    );
+    final bool ruling = answer.contains(rulingDecline);
+    final List<String> out = <String>[if (ruling) '/sources'];
+    // The three screens closest to what was asked, then Find Anything.
+    for (final String r in HadiFinder.closestRoutes(question)) {
+      if (out.length >= 3) break;
+      if (!out.contains(r)) out.add(r);
+    }
+    if (out.length < 2) {
+      for (final String r in <String>[
+        HadiRouting.topicRoute(question),
+        '/academy/qa',
+      ]) {
+        if (out.length < 2 && !out.contains(r)) out.add(r);
+      }
+    }
+    if (!out.contains('/search')) out.add('/search');
+    return out;
   }
 }
 
@@ -1853,7 +1951,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'any prayer to be alerted when its time arrives.\n[GO:/prayer]',
   ),
   _Entry(
-    <String>['how do i pray', 'how to pray', 'salah', 'salaat', 'salat', 'namaz', 'two rakah', 'pray two', 'pray 2', 'namaz ka tareeqa', 'namaz ka tariqa', 'namaz kaise', 'method of prayer', 'how to perform salah', 'steps of prayer'],
+    <String>['how do i pray', 'how to pray', 'salah', 'salaat', 'salat', 'namaz', 'two rakah', 'pray two', 'pray 2', 'namaz ka tareeqa', 'namaz ka tariqa', 'namaz kaise', 'method of prayer', 'how to perform salah', 'steps of prayer', 'five daily prayers', 'the five prayers', 'five prayers', 'daily prayers'],
     'Prayer is the second pillar. “Pray as you have seen me pray.” '
     '(Sahih al-Bukhari 631). Five daily prayers are obligatory. A '
     'two-rak\'ah prayer, in outline: make the intention, face the qibla '
