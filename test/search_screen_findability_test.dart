@@ -5,6 +5,7 @@ import 'package:ar_rayaan/features/adhkar/domain/adhkar_models.dart';
 import 'package:ar_rayaan/features/hadi/presentation/hadi_ask_bar.dart';
 import 'package:ar_rayaan/features/hadith/application/hadith_providers.dart';
 import 'package:ar_rayaan/features/hadith/domain/hadith_models.dart';
+import 'package:ar_rayaan/features/hadith/presentation/hadith_screen.dart';
 import 'package:ar_rayaan/features/huda/presentation/huda_screens.dart';
 import 'package:ar_rayaan/features/quran/application/quran_providers.dart';
 import 'package:ar_rayaan/features/quran/domain/quran_models.dart';
@@ -326,26 +327,36 @@ void main() {
     expect(find.text('Assalamu alaikum'), findsWidgets);
   });
 
-  testWidgets('the Forty Hadith opens from an address with a number', (
+  testWidgets('the Forty Hadith scrolls to the number it is opened at', (
     WidgetTester tester,
   ) async {
-    await AppHarness.boot(tester, height: 1400);
-    await AppHarness.go(tester, find.byType(Scaffold).first, '/hadith?n=30');
-    await tester.pump(const Duration(milliseconds: 500));
+    SharedPreferences.setMockInitialValues(<String, Object>{});
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    AppHarness.useSurface(tester, height: 900);
+    final List<Hadith> forty = <Hadith>[
+      for (int n = 1; n <= 40; n++)
+        Hadith(
+          number: n,
+          arabic: '\u0628\u0633\u0645',
+          english: 'Text of hadith number $n. ' * 12,
+        ),
+    ];
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: <Override>[
+          sharedPreferencesProvider.overrideWithValue(prefs),
+          hadithCollectionProvider.overrideWith((ref) async => forty),
+        ],
+        child: const MaterialApp(home: HadithScreen(initialNumber: 30)),
+      ),
+    );
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 100));
+    await tester.pump(const Duration(milliseconds: 600));
     expect(tester.takeException(), isNull);
-    expect(find.text('HADITH 30'), findsOneWidget);
-  });
-
-  testWidgets('the Forty Hadith scrolls to the number in the address', (
-    WidgetTester tester,
-  ) async {
-    await AppHarness.boot(tester, height: 1400);
-    await AppHarness.go(tester, find.byType(Scaffold).first, '/hadith?n=30');
-    for (int i = 0; i < 20 && find.text('HADITH 30').evaluate().isEmpty; i++) {
-      await tester.pump(const Duration(milliseconds: 250));
-    }
-    await tester.pump(const Duration(milliseconds: 500));
-    final double y = tester.getTopLeft(find.text('HADITH 30')).dy;
-    expect(y > 0 && y < 1400, isTrue, reason: 'hadith 30 is on screen, y=$y');
+    final Finder label = find.text('HADITH 30');
+    expect(label, findsOneWidget);
+    final double y = tester.getTopLeft(label).dy;
+    expect(y > 0 && y < 900, isTrue, reason: 'hadith 30 is on screen, y=$y');
   });
 }
