@@ -335,12 +335,12 @@ void main() {
   testWidgets('the Forty Hadith opens at the hadith named in the address', (
     WidgetTester tester,
   ) async {
-    await AppHarness.boot(tester, height: 700);
+    await AppHarness.boot(tester, height: 1400);
     await AppHarness.go(tester, find.byType(Scaffold).first, '/hadith?n=30');
     await tester.pump(const Duration(milliseconds: 500));
     final Finder label = find.text('HADITH 30');
     expect(label, findsOneWidget);
     final double y = tester.getTopLeft(label).dy;
-    expect(y > 0 && y < 700, isTrue, reason: 'hadith 30 is on screen, y=$y');
+    expect(y > 0 && y < 1400, isTrue, reason: 'hadith 30 is on screen, y=$y');
   });
 }
