@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../app/core/sound/sound_services.dart';
@@ -78,9 +79,10 @@ class _NoorScreenState extends ConsumerState<NoorScreen>
                         style: AppText.titleMedium,
                       ),
                     ),
-                    GestureDetector(
-                      onTap: () => Navigator.of(sheetContext).pop(),
-                      child: Icon(
+                    IconButton(
+                      tooltip: 'Close',
+                      onPressed: () => Navigator.of(sheetContext).pop(),
+                      icon: Icon(
                         Icons.close,
                         size: 20,
                         color: AppColors.sand.withValues(alpha: 0.6),
@@ -155,11 +157,13 @@ class _NoorScreenState extends ConsumerState<NoorScreen>
                           borderRadius: BorderRadius.circular(20),
                           child: Stack(
                             children: [
-                              Image.asset(
-                                'assets/images/bg_noor.jpg',
-                                height: 260,
-                                width: double.infinity,
-                                fit: BoxFit.cover,
+                              // The picture fills whatever height the words need
+                              // (at large text they outgrow a fixed 260).
+                              Positioned.fill(
+                                child: Image.asset(
+                                  'assets/images/bg_noor.jpg',
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                               Positioned.fill(
                                 child: DecoratedBox(
@@ -175,11 +179,21 @@ class _NoorScreenState extends ConsumerState<NoorScreen>
                                   ),
                                 ),
                               ),
-                              Positioned(
-                                left: 20,
-                                right: 20,
-                                bottom: 16,
-                                child: noor.when(
+                              ConstrainedBox(
+                                constraints:
+                                    const BoxConstraints(
+                                      minHeight: 260,
+                                      minWidth: double.infinity,
+                                    ),
+                                child: Padding(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(20, 16, 20, 16),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      noor.when(
                                   loading: () => Text(
                                     '…',
                                     style: AppText.titleMedium.copyWith(
@@ -225,41 +239,31 @@ class _NoorScreenState extends ConsumerState<NoorScreen>
                                       const SizedBox(height: 10),
                                       Row(
                                         children: [
-                                          Text(
-                                            '— ${entry.source.toUpperCase()}',
-                                            style: AppText.bodyMuted.copyWith(
-                                              fontSize: 12,
-                                              color: AppColors.gold,
+                                          Expanded(
+                                            child: Text(
+                                              '— ${entry.source.toUpperCase()}',
+                                              maxLines: 2,
+                                              overflow: TextOverflow.ellipsis,
+                                              style:
+                                                  AppText.bodyMuted.copyWith(
+                                                fontSize: 12,
+                                                color: AppColors.gold,
+                                              ),
                                             ),
                                           ),
-                                          const Spacer(),
                                           SpeakButton(
                                             text:
                                                 '${entry.english} ${entry.prompt}',
                                             size: 32,
+                                            minTapTarget:
+                                                SpeakButton.minTarget,
                                           ),
-                                          const SizedBox(width: 8),
-                                          Container(
-                                            width: 32,
-                                            height: 32,
-                                            decoration: BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              color: AppColors.night.withValues(
-                                                alpha: 0.4,
-                                              ),
-                                              border: Border.all(
-                                                color: AppColors.gold
-                                                    .withValues(alpha: 0.3),
-                                              ),
-                                            ),
-                                            child: const Icon(
-                                              Icons.share_outlined,
-                                              size: 14,
-                                              color: AppColors.gold,
-                                            ),
-                                          ),
+                                          _ShareNoorButton(entry: entry),
                                         ],
                                       ),
+                                    ],
+                                  ),
+                                ),
                                     ],
                                   ),
                                 ),
@@ -327,7 +331,6 @@ class _NoorScreenState extends ConsumerState<NoorScreen>
                                   IconButton(
                                     key: Key('reflection-delete-$i'),
                                     tooltip: 'Delete reflection',
-                                    visualDensity: VisualDensity.compact,
                                     icon: Icon(
                                       Icons.delete_outline,
                                       size: 18,
@@ -349,6 +352,65 @@ class _NoorScreenState extends ConsumerState<NoorScreen>
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+/// Copies today's NOOR (Arabic, translation, source) so it can be pasted into
+/// a message, and says so. A 48dp tap target around the 32dp circle.
+class _ShareNoorButton extends StatelessWidget {
+  const _ShareNoorButton({required this.entry});
+
+  final NoorEntry entry;
+
+  Future<void> _copy(BuildContext context) async {
+    final ScaffoldMessengerState messenger = ScaffoldMessenger.of(context);
+    await Clipboard.setData(
+      ClipboardData(
+        text: '${entry.arabic}\n\n${entry.english}\n\n— ${entry.source}',
+      ),
+    );
+    messenger
+      ..hideCurrentSnackBar()
+      ..showSnackBar(
+        const SnackBar(content: Text('Copied. Paste it into any message.')),
+      );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Semantics(
+      button: true,
+      label: 'Copy today’s NOOR to share',
+      excludeSemantics: true,
+      onTap: () => _copy(context),
+      child: GestureDetector(
+        key: const Key('noor-share'),
+        behavior: HitTestBehavior.opaque,
+        onTap: () => _copy(context),
+        child: SizedBox(
+          width: 48,
+          height: 48,
+          child: Center(
+            child: Container(
+              width: 32,
+              height: 32,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: AppColors.night.withValues(alpha: 0.4),
+                border: Border.all(
+                  color: AppColors.gold.withValues(alpha: 0.3),
+                ),
+              ),
+              child: const Icon(
+                Icons.share_outlined,
+                size: 16,
+                color: AppColors.gold,
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }

@@ -216,83 +216,108 @@ class _StoryCard extends StatelessWidget {
       child: GlassCard(
         blur: false,
         onTap: () => context.open(AppRoutes.storyReader, extra: story),
-        child: Row(
-          children: [
-            Container(
-              width: 42,
-              height: 42,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                border: Border.all(
-                  color: AppColors.gold.withValues(alpha: 0.35),
-                ),
-              ),
-              child: Icon(
-                Icons.auto_stories_outlined,
-                size: 20,
-                color: AppColors.goldLight,
-              ),
-            ),
-            const SizedBox(width: 14),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(story.title, style: AppText.titleMedium),
-                  const SizedBox(height: 2),
-                  Text(
-                    story.subtitle,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: AppText.bodyMuted,
+        child: LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints box) {
+            // On a narrow phone or at large text the honesty label and the
+            // marks would squeeze the title into a sliver, so they drop under
+            // the text instead of beside it.
+            final bool stack = box.maxWidth < 340 ||
+                MediaQuery.textScalerOf(context).scale(14) > 18;
+            final List<Widget> marks = _marks();
+            return Row(
+              children: [
+                Container(
+                  width: 42,
+                  height: 42,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      color: AppColors.gold.withValues(alpha: 0.35),
+                    ),
                   ),
-                ],
-              ),
-            ),
-            const SizedBox(width: 10),
-            if (hasLayers)
-              Padding(
-                padding: const EdgeInsets.only(right: 8),
-                child: Tooltip(
-                  message: 'Has a Go deeper section',
                   child: Icon(
-                    Icons.layers_outlined,
-                    size: 18,
+                    Icons.auto_stories_outlined,
+                    size: 20,
                     color: AppColors.goldLight,
-                    semanticLabel: 'Has a Go deeper section',
                   ),
                 ),
-              ),
-            if (story.hasWeakNarration)
-              const Padding(
-                padding: EdgeInsets.only(right: 8),
-                child: Tooltip(
-                  message: 'Cites a weak (daif) narration',
-                  child: Icon(
-                    Icons.warning_amber_outlined,
-                    size: 18,
-                    color: Colors.orangeAccent,
-                    semanticLabel: 'Cites a weak narration',
+                const SizedBox(width: 14),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(story.title, style: AppText.titleMedium),
+                      const SizedBox(height: 2),
+                      Text(
+                        story.subtitle,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: AppText.bodyMuted,
+                      ),
+                      if (stack) ...[
+                        const SizedBox(height: 6),
+                        Wrap(
+                          spacing: 8,
+                          runSpacing: 6,
+                          crossAxisAlignment: WrapCrossAlignment.center,
+                          children: [
+                            ...marks,
+                            SourceLabelChip(label: story.sourceLabel),
+                          ],
+                        ),
+                      ],
+                    ],
                   ),
                 ),
-              ),
-            if (story.hasUnverified && !isUnverifiedLabel(story.sourceLabel))
-              const Padding(
-                padding: EdgeInsets.only(right: 8),
-                child: Tooltip(
-                  message: 'Contains unverified chapters',
-                  child: Icon(
-                    Icons.report_gmailerrorred_outlined,
-                    size: 18,
-                    color: Colors.orangeAccent,
-                    semanticLabel: 'Contains unverified chapters',
-                  ),
-                ),
-              ),
-            SourceLabelChip(label: story.sourceLabel),
-          ],
+                if (!stack) ...[
+                  const SizedBox(width: 10),
+                  for (final Widget m in marks)
+                    Padding(
+                      padding: const EdgeInsets.only(right: 8),
+                      child: m,
+                    ),
+                  SourceLabelChip(label: story.sourceLabel),
+                ],
+              ],
+            );
+          },
         ),
       ),
     );
   }
+
+  /// The small information marks (deeper section, weak narration, unverified
+  /// chapters). They are labels, not buttons.
+  List<Widget> _marks() => <Widget>[
+        if (hasLayers)
+          const Tooltip(
+            message: 'Has a Go deeper section',
+            child: Icon(
+              Icons.layers_outlined,
+              size: 18,
+              color: AppColors.goldLight,
+              semanticLabel: 'Has a Go deeper section',
+            ),
+          ),
+        if (story.hasWeakNarration)
+          const Tooltip(
+            message: 'Cites a weak (daif) narration',
+            child: Icon(
+              Icons.warning_amber_outlined,
+              size: 18,
+              color: Colors.orangeAccent,
+              semanticLabel: 'Cites a weak narration',
+            ),
+          ),
+        if (story.hasUnverified && !isUnverifiedLabel(story.sourceLabel))
+          const Tooltip(
+            message: 'Contains unverified chapters',
+            child: Icon(
+              Icons.report_gmailerrorred_outlined,
+              size: 18,
+              color: Colors.orangeAccent,
+              semanticLabel: 'Contains unverified chapters',
+            ),
+          ),
+      ];
 }

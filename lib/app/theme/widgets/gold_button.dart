@@ -30,8 +30,11 @@ class _GoldButtonState extends State<GoldButton> {
   Widget build(BuildContext context) {
     final bool enabled = widget.onPressed != null;
 
+    // At least 52 tall, and taller when large text makes the label wrap.
     final Widget content = Container(
-      height: 52,
+      constraints: const BoxConstraints(minHeight: 52),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      alignment: Alignment.center,
       decoration: BoxDecoration(
         gradient: enabled ? AppColors.goldGradient : null,
         // Disabled controls are exempt from contrast rules; keep the dim fill.
@@ -51,8 +54,10 @@ class _GoldButtonState extends State<GoldButton> {
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: widget.expand ? MainAxisSize.max : MainAxisSize.min,
         children: [
-          Text(
+          Flexible(
+            child: Text(
             widget.label,
+            textAlign: TextAlign.center,
             style: const TextStyle(
               fontFamily: AppFonts.body,
               fontSize: 14,
@@ -60,6 +65,7 @@ class _GoldButtonState extends State<GoldButton> {
               letterSpacing: 0.4,
               color: AppColors.night,
             ),
+          ),
           ),
           if (widget.trailing != null) ...[
             const SizedBox(width: 8),

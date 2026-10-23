@@ -9,6 +9,7 @@ import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/icon_tile.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
+import '../../../app/theme/widgets/switch_row.dart' show kTightRowWidth;
 import '../application/profile_providers.dart';
 import '../domain/user_profile.dart';
 import '../../journey/presentation/saved_stories_sheet.dart';
@@ -128,10 +129,19 @@ class ProfileScreen extends ConsumerWidget {
                                   horizontal: 16,
                                   vertical: 14,
                                 ),
-                                child: Row(
+                                child: LayoutBuilder(
+                                  builder: (
+                                    BuildContext context,
+                                    BoxConstraints box,
+                                  ) {
+                                    final bool tight =
+                                        box.maxWidth < kTightRowWidth;
+                                    return Row(
                                   children: [
-                                    IconTile(icon: _items[i].$1),
-                                    const SizedBox(width: 12),
+                                    if (!tight) ...[
+                                      IconTile(icon: _items[i].$1),
+                                      const SizedBox(width: 12),
+                                    ],
                                     Expanded(
                                       child: Text(
                                         _items[i].$2,
@@ -142,6 +152,7 @@ class ProfileScreen extends ConsumerWidget {
                                         ),
                                       ),
                                     ),
+                                    if (!tight)
                                     Icon(
                                       Icons.chevron_right,
                                       size: 16,
@@ -150,6 +161,8 @@ class ProfileScreen extends ConsumerWidget {
                                       ),
                                     ),
                                   ],
+                                );
+                                  },
                                 ),
                               ),
                             ),

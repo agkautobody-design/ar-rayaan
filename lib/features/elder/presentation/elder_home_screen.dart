@@ -44,6 +44,11 @@ class _ElderHomeState extends State<ElderHomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // Elder Mode is already big. On a narrow phone or at the largest system
+    // text the door rows give their width to the words (no chevron, a
+    // smaller icon) so a word is never broken in the middle.
+    final bool tight = MediaQuery.sizeOf(context).width < 400 ||
+        MediaQuery.textScalerOf(context).scale(14) > 18;
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: SafeArea(
@@ -100,18 +105,18 @@ class _ElderHomeState extends State<ElderHomeScreen> {
               Padding(
                 padding: const EdgeInsets.only(bottom: 12),
                 child: GestureDetector(
-                  onTap: () => context.go(e.$4),
+                  onTap: () => context.open(e.$4),
                   child: Container(
                     width: double.infinity,
-                    padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 20),
+                    padding: EdgeInsets.symmetric(horizontal: tight ? 12 : 18, vertical: 20),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
                       border: Border.all(color: AppColors.gold.withValues(alpha: 0.4)),
                       color: const Color(0x0F05090F),
                     ),
                     child: Row(children: [
-                      Icon(e.$3, size: 34, color: AppColors.goldLight),
-                      const SizedBox(width: 16),
+                      Icon(e.$3, size: tight ? 28 : 34, color: AppColors.goldLight),
+                      SizedBox(width: tight ? 12 : 16),
                       Expanded(child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -121,7 +126,8 @@ class _ElderHomeState extends State<ElderHomeScreen> {
                           Text(e.$2, style: AppText.bodyMuted.copyWith(fontSize: 14)),
                         ],
                       )),
-                      const Icon(Icons.chevron_right, color: AppColors.gold, size: 28),
+                      if (!tight)
+                        const Icon(Icons.chevron_right, color: AppColors.gold, size: 28),
                     ]),
                   ),
                 ),
