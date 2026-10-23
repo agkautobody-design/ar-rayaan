@@ -6,6 +6,8 @@ import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
+import '../../adhkar/presentation/adhkar_screen.dart'
+    show AdhkarChoice, kAdhkarDuaChoices;
 import '../../quran/presentation/quran_marks_link_card.dart';
 import '../../stories/application/saved_stories_controller.dart';
 import '../../stories/data/stories_repository.dart';
@@ -25,6 +27,18 @@ Future<void> showSavedStories(BuildContext context) {
     ),
     builder: (BuildContext ctx) => const SavedStoriesSheet(),
   );
+}
+
+/// What a saved item is called in Bookmarks. A dua is listed under its own
+/// name ("Dua: Worry or anxiety", the name Dhikr & Du'a gives it), not the
+/// title of the text it is written as ("The Heart's Unrest"); a story keeps
+/// its title.
+String savedItemTitle(Story s) {
+  if (s.collection != 'dailyduas') return s.title;
+  for (final AdhkarChoice c in kAdhkarDuaChoices) {
+    if (c.storyId == s.id) return 'Dua: ${c.label}';
+  }
+  return 'Dua: ${s.title}';
 }
 
 class SavedStoriesSheet extends ConsumerWidget {
@@ -52,7 +66,7 @@ class SavedStoriesSheet extends ConsumerWidget {
             if (mine.isEmpty)
               Text(
                 saved.isEmpty
-                    ? 'Nothing saved yet. Ask Hādi to bookmark a story and it will appear here.'
+                    ? 'Nothing saved yet. Tap Save on a story or a dua, or ask Hādi to bookmark one, and it will appear here.'
                     : 'Your saved stories are still loading.',
                 style: AppText.bodyMuted.copyWith(height: 1.5),
               )
@@ -78,7 +92,7 @@ class SavedStoriesSheet extends ConsumerWidget {
                               ),
                               const SizedBox(width: 12),
                               Expanded(
-                                child: Text(s.title, style: AppText.body),
+                                child: Text(savedItemTitle(s), style: AppText.body),
                               ),
                               const Icon(
                                 Icons.chevron_right,

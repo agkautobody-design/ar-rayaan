@@ -29,35 +29,79 @@ Future<void> showNeedHelpSheet(
   );
 }
 
-class _NeedHelpSheet extends ConsumerWidget {
+/// The countries that have at least one specific help line, as
+/// (code, name) pairs sorted by name. The name is the `region` written on the
+/// country's own rows (never a guess); a row shared by several countries
+/// (for example "North America") does not name any of them.
+List<(String, String)> helpCountryChoices() {
+  final Map<String, String> names = <String, String>{};
+  for (final HelpResource r in HelpResources.all) {
+    if (r.countries.length != 1) continue;
+    final String cc = r.countries.first;
+    final String? have = names[cc];
+    if (have == null || r.region.length < have.length) names[cc] = r.region;
+  }
+  final List<(String, String)> out = <(String, String)>[
+    for (final MapEntry<String, String> e in names.entries) (e.key, e.value),
+  ]..sort(((String, String) a, (String, String) b) => a.$2.compareTo(b.$2));
+  return out;
+}
+
+class _NeedHelpSheet extends ConsumerStatefulWidget {
   const _NeedHelpSheet({required this.kind, this.intro});
 
   final CrisisKind kind;
   final String? intro;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final String? country = ref.watch(deviceCountryProvider);
+  ConsumerState<_NeedHelpSheet> createState() => _NeedHelpSheetState();
+}
+
+class _NeedHelpSheetState extends ConsumerState<_NeedHelpSheet> {
+  /// A country the person picked here; wins over the device language.
+  String? _picked;
+
+  @override
+  Widget build(BuildContext context) {
+    final String? country = _picked ?? ref.watch(deviceCountryProvider);
     final List<HelpResource> rows = CrisisResponses.resourcesFor(
-      kind,
+      widget.kind,
       country,
     ).take(6).toList();
     final String? cc = country?.trim().toUpperCase();
     final bool hasLocal = cc != null &&
         cc.isNotEmpty &&
         rows.any((HelpResource r) => r.countries.contains(cc));
+    final List<(String, String)> choices = helpCountryChoices();
+    final bool pickedKnown =
+        cc != null && choices.any(((String, String) c) => c.$1 == cc);
     return SafeArea(
       child: SingleChildScrollView(
-        padding: const EdgeInsets.fromLTRB(20, 24, 20, 16),
+        padding: const EdgeInsets.fromLTRB(20, 12, 20, 16),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
+            // A visible way out: a phone has no Escape key.
+            Align(
+              alignment: Alignment.centerRight,
+              child: OutlinedButton.icon(
+                key: const Key('need-help-close'),
+                onPressed: () => Navigator.of(context).pop(),
+                icon: const Icon(Icons.close, size: 20),
+                label: const Text('Close'),
+                style: OutlinedButton.styleFrom(
+                  foregroundColor: AppColors.gold,
+                  minimumSize: const Size(96, 48),
+                ),
+              ),
+            ),
+            const SizedBox(height: 4),
             Text('You do not have to carry this alone',
                 style: AppText.titleMedium),
             const SizedBox(height: 8),
             Text(
-              intro ??
+              widget.intro ??
                   'If you are in danger right now, call your local emergency '
                       'number. These lines are free to talk to, and a real '
                       'person answers.',
@@ -65,21 +109,52 @@ class _NeedHelpSheet extends ConsumerWidget {
             ),
             const SizedBox(height: 8),
             // Honest about where the order comes from: the device language
-            // setting, never a guessed or hard-coded place.
+            // setting or the country picked here, never a guessed place.
             Text(
-              !hasLocal
-                  ? 'We could not tell which country you are in, so these '
-                      'lines work from anywhere. Every country is listed in '
-                      'Sakina below.'
-                  : 'Lines for the region $cc come first. That comes '
-                      'from your device language setting, not your location. '
-                      'In another country? Every country is listed in '
-                      'Sakina below.',
+              _picked != null
+                  ? (hasLocal
+                      ? 'Lines for the country you picked come first.'
+                      : 'There are no lines saved for that country yet, so '
+                          'these work from anywhere.')
+                  : (!hasLocal
+                      ? 'We could not tell which country you are in, so '
+                          'these lines work from anywhere.'
+                      : 'Lines for the region $cc come first. That comes '
+                          'from your device language setting, not your '
+                          'location.'),
               style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.5),
             ),
-            const SizedBox(height: 14),
+            const SizedBox(height: 10),
+            Text('Not your country? Choose yours:', style: AppText.caption),
+            const SizedBox(height: 4),
+            DropdownButton<String>(
+              key: const Key('need-help-country'),
+              isExpanded: true,
+              dropdownColor: AppColors.night,
+              hint: const Text('Choose your country'),
+              value: pickedKnown ? cc : null,
+              items: <DropdownMenuItem<String>>[
+                for (final (String code, String name) in choices)
+                  DropdownMenuItem<String>(
+                    value: code,
+                    child: Text(name, overflow: TextOverflow.ellipsis),
+                  ),
+              ],
+              onChanged: (String? v) {
+                if (v != null) setState(() => _picked = v);
+              },
+            ),
+            const SizedBox(height: 10),
             for (final HelpResource r in rows) ...<Widget>[
               HelpLineTile(resource: r),
+              const SizedBox(height: 8),
+            ],
+            if (!hasLocal) ...<Widget>[
+              Text(
+                'Find your local emergency number and keep it close. The '
+                'directory at findahelpline.com lists lines by country.',
+                style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.5),
+              ),
               const SizedBox(height: 8),
             ],
             TextButton(
