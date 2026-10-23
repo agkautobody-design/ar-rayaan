@@ -1,7 +1,10 @@
 import 'package:ar_rayaan/app/core/providers.dart';
 import 'package:ar_rayaan/features/community/presentation/community_screen.dart';
 import 'package:ar_rayaan/features/games/presentation/ludo_screen.dart';
+import 'package:ar_rayaan/features/prayer/application/prayer_providers.dart';
 import 'package:ar_rayaan/features/prayer/application/prayer_repository.dart';
+import 'package:ar_rayaan/features/prayer/domain/prayer_times.dart';
+import 'package:ar_rayaan/features/prayer/presentation/prayer_times_screen.dart';
 import 'package:ar_rayaan/features/ramadan/presentation/ramadan_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -10,6 +13,17 @@ import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'app_harness.dart';
+
+final PrayerTimes _times = PrayerTimes(
+  fajr: DateTime(2026, 10, 22, 5, 41),
+  sunrise: DateTime(2026, 10, 22, 7, 5),
+  dhuhr: DateTime(2026, 10, 22, 12, 47),
+  asr: DateTime(2026, 10, 22, 15, 52),
+  maghrib: DateTime(2026, 10, 22, 18, 21),
+  isha: DateTime(2026, 10, 22, 19, 45),
+  locationLabel: 'Toronto, Canada',
+  methodLabel: 'Muslim World League',
+);
 
 /// Round 4, area D: goal landing and findability.
 void main() {
@@ -108,27 +122,56 @@ void main() {
     );
   });
 
-  testWidgets('Prayer Times: an unset Jumu’ah row links to the masjid finder',
+  testWidgets('Prayer Times: an unset Jumu\u2019ah row links to the masjid finder',
       (WidgetTester tester) async {
-    await AppHarness.boot(
-      tester,
-      prefsValues: <String, Object>{
-        'ar.location.lat': 24.86,
-        'ar.location.lng': 67.0,
-        'ar.location.city': 'Karachi',
-        'ar.location.country': 'Pakistan',
-      },
+    String? opened;
+    final GoRouter router = GoRouter(
+      routes: <RouteBase>[
+        GoRoute(
+          path: '/',
+          builder: (BuildContext c, GoRouterState s) =>
+              const PrayerTimesScreen(),
+        ),
+        GoRoute(
+          path: '/masajid',
+          builder: (BuildContext c, GoRouterState s) {
+            opened = s.uri.toString();
+            return const Scaffold(body: Text('masajid page'));
+          },
+        ),
+      ],
     );
-    await AppHarness.go(tester, find.byType(Scaffold).first, '/prayer');
+    SharedPreferences.setMockInitialValues(<String, Object>{});
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    AppHarness.useSurface(tester);
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: <Override>[
+          sharedPreferencesProvider.overrideWithValue(prefs),
+          prayerLocationProvider.overrideWithValue(
+            const PrayerLocation(
+              city: 'Toronto',
+              country: 'Canada',
+              latitude: 43.65,
+              longitude: -79.38,
+            ),
+          ),
+          prayerTimesProvider.overrideWith((ref) async => _times),
+          nowTickerProvider.overrideWith(
+            (ref) => Stream<DateTime>.value(DateTime(2026, 10, 22, 10)),
+          ),
+        ],
+        child: MaterialApp.router(routerConfig: router),
+      ),
+    );
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 500));
     final Finder link = find.byKey(const Key('jumuah-find-masjid'));
     expect(link, findsOneWidget);
     expect(find.text('Find a masjid for the Friday time'), findsOneWidget);
     await tester.tap(link);
-    await AppHarness.settle(tester);
-    expect(
-      AppHarness.location(tester, find.byType(Scaffold).first),
-      '/masajid',
-    );
+    await tester.pump(const Duration(milliseconds: 400));
+    expect(opened, '/masajid');
   });
 
   testWidgets('Ramadan Mode names the date it is counting to', (

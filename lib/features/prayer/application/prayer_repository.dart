@@ -42,11 +42,9 @@ class PrayerLocation {
 
   String get label {
     if (isPlaceholder) return 'No location set';
-    if (isGps) {
-      // There is no city name for a GPS fix (looking one up would need an
-      // online service), so say what it is and show where it is.
-      return 'Your location (GPS) \u00b7 $coordinates';
-    }
+    // There is no city name for a GPS fix (looking one up would need an
+    // online service), so say what it is; [coordinates] shows where.
+    if (isGps) return 'Your location (GPS)';
     return country.isEmpty ? city : '$city, $country';
   }
 

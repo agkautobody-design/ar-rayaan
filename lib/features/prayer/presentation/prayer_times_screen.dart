@@ -765,6 +765,15 @@ class _LocationCard extends ConsumerWidget {
               ),
             ],
           ),
+          if (loc.isGps)
+            Padding(
+              padding: const EdgeInsets.only(left: 28),
+              child: Text(
+                key: const Key('prayer-location-coordinates'),
+                loc.coordinates,
+                style: AppText.bodyMuted.copyWith(fontSize: 12),
+              ),
+            ),
           if (status == GpsStatus.denied)
             Text(
               'Location permission denied \u2014 pick your city instead',
