@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 import '../app_colors.dart';
+import 'focus_ring.dart';
 
 /// Locked glass card style (Design System panel):
 /// Blur 24px · Border 1px gold (subtle glow) · Radius 20px ·
@@ -105,14 +106,17 @@ class GlassCard extends StatelessWidget {
 
     if (onTap == null) return card;
 
-    final Widget tappable = Material(
-      type: MaterialType.transparency,
-      child: InkWell(
-        onTap: onTap,
-        borderRadius: radius,
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(minHeight: minTapHeight),
-          child: card,
+    final Widget tappable = FocusRing(
+      borderRadius: borderRadius,
+      child: Material(
+        type: MaterialType.transparency,
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: radius,
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(minHeight: minTapHeight),
+            child: card,
+          ),
         ),
       ),
     );

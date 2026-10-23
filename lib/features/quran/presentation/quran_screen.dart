@@ -5,6 +5,8 @@ import 'package:go_router/go_router.dart';
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
+import '../../../app/core/content_loader.dart' show kQuranSizeHint;
+import '../../../app/theme/widgets/content_loading_view.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/needs_internet_view.dart';
 import '../../../app/theme/widgets/screen_header.dart';
@@ -15,6 +17,7 @@ import '../application/quran_providers.dart';
 import '../domain/quran_texts.dart';
 import '../domain/quran_models.dart';
 import '../domain/surah_search.dart';
+import 'quran_offline_card.dart';
 
 /// Qur'an index — all 114 surahs + Continue Reading banner.
 /// New screen designed within the locked system — pending Founder approval.
@@ -47,12 +50,22 @@ class _QuranScreenState extends ConsumerState<QuranScreen> {
             const ScreenHeader(title: 'Qur\'an'),
             Expanded(
               child: index.when(
-                loading: () => const Center(
-                  child: CircularProgressIndicator(color: AppColors.gold),
+                // A retry must show the loading state again (not freeze on
+                // the old error), so the person sees it is working.
+                skipLoadingOnRefresh: false,
+                loading: () => ContentLoadingView(
+                  what: 'the Qur\u2019an',
+                  sizeHint: kQuranSizeHint,
+                  onRetry: () {
+                    ref.invalidate(quranRepositoryProvider);
+                    ref.invalidate(quranAllProvider);
+                    ref.invalidate(quranIndexProvider);
+                  },
                 ),
                 error: (Object e, _) => NeedsInternetView(
                   what: 'The Qur\u2019an',
                   onRetry: () {
+                    ref.invalidate(quranRepositoryProvider);
                     ref.invalidate(quranAllProvider);
                     ref.invalidate(quranIndexProvider);
                   },
@@ -90,6 +103,11 @@ class _QuranScreenState extends ConsumerState<QuranScreen> {
                         onChanged: (String v) => setState(() => _query = v),
                       ),
                       const SizedBox(height: 12),
+                      // Web only, and only until the Qur'an is saved here.
+                      if (!searching) ...[
+                        const QuranOfflineCard(compact: true),
+                        const SizedBox(height: 12),
+                      ],
                       if (!searching) ...[
                         _AyatAlKursiShortcut(
                           onTap: () => context.open(

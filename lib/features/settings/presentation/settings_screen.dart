@@ -1,3 +1,5 @@
+import 'dart:async' show unawaited;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -6,6 +8,7 @@ import 'package:go_router/go_router.dart';
 import '../../../app/core/i18n/app_locale.dart';
 import '../../../app/core/sound/sound_services.dart';
 import '../../../app/core/providers.dart';
+import '../../../app/core/text_size.dart';
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
@@ -13,7 +16,9 @@ import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/theme/widgets/switch_row.dart';
+import '../../elder/application/elder_mode.dart';
 import '../../legal/legal_routes.dart';
+import '../../quran/presentation/quran_offline_card.dart';
 
 /// Settings — begins with the Sound toggle promised on the locked splash
 /// artwork ("Sound can be turned off in settings").
@@ -24,6 +29,8 @@ class SettingsScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final SoundSettings settings = ref.watch(soundSettingsProvider);
     final L10n l10n = ref.watch(l10nProvider);
+    final bool elder = ref.watch(elderModeProvider);
+    final TextSizeChoice textSize = ref.watch(textSizeProvider);
 
     return Scaffold(
       body: Stack(
@@ -37,6 +44,79 @@ class SettingsScreen extends ConsumerWidget {
                   child: ListView(
                     padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
                     children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 4, bottom: 8),
+                        child: Text('TEXT SIZE & ELDER MODE', style: AppText.eyebrow),
+                      ),
+                      GlassCard(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 14,
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Text size',
+                              style: AppText.body.copyWith(fontSize: 14),
+                            ),
+                            const SizedBox(height: 2),
+                            Text(
+                              'Makes the words in the whole app bigger or '
+                              'smaller. The Arabic A+ and A- in the Qur\u2019an '
+                              'reader still work on top of this.',
+                              style: AppText.bodyMuted,
+                            ),
+                            const SizedBox(height: 10),
+                            Wrap(
+                              spacing: 8,
+                              runSpacing: 8,
+                              children: [
+                                for (final TextSizeChoice c
+                                    in TextSizeChoice.values)
+                                  ChoiceChip(
+                                    key: Key('text-size-${c.id}'),
+                                    label: Text(c.label),
+                                    selected: c == textSize,
+                                    showCheckmark: false,
+                                    materialTapTargetSize:
+                                        MaterialTapTargetSize.padded,
+                                    selectedColor: AppColors.gold.withValues(
+                                      alpha: 0.35,
+                                    ),
+                                    onSelected: (_) => unawaited(
+                                      ref
+                                          .read(textSizeProvider.notifier)
+                                          .set(c),
+                                    ),
+                                  ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                      GlassCard(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 6,
+                        ),
+                        child: SwitchRow(
+                          icon: Icons.elderly_outlined,
+                          title: 'Elder Mode',
+                          subtitle: 'Big words, big buttons, a simple home.',
+                          value: elder,
+                          onChanged: (bool v) async {
+                            await ref
+                                .read(elderModeProvider.notifier)
+                                .set(v);
+                            if (v && context.mounted) {
+                              context.go(ElderMode.homeRoute);
+                            }
+                          },
+                        ),
+                      ),
+                      const SizedBox(height: 20),
                       Padding(
                         padding: const EdgeInsets.only(left: 4, bottom: 8),
                         child: Text(l10n.ui('ui.language').toUpperCase(), style: AppText.eyebrow),
@@ -83,6 +163,12 @@ class SettingsScreen extends ConsumerWidget {
                           ],
                         ),
                       ),
+                      const SizedBox(height: 20),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 4, bottom: 8),
+                        child: Text('OFFLINE', style: AppText.eyebrow),
+                      ),
+                      const QuranOfflineCard(),
                       const SizedBox(height: 20),
                       Padding(
                         padding: const EdgeInsets.only(left: 4, bottom: 8),
@@ -143,8 +229,8 @@ class SettingsScreen extends ConsumerWidget {
                           'Hādi, and nothing asks for a card. A paid plan for '
                           'extra live answers is planned but not open yet. '
                           'Connecting your own AI account is optional and '
-                          'advanced: it is under the ⋮ menu on the Hādi '
-                          'screen.',
+                          'advanced: it is under the More options menu '
+                          '(top right) on the Hādi screen.',
                           style: AppText.bodyMuted.copyWith(
                             fontSize: 12,
                             height: 1.5,

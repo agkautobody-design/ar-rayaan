@@ -314,6 +314,41 @@ class _ScheduleState extends ConsumerState<_Schedule> {
                 time: iqamah.jumuahTime,
                 isFriday: data.dhuhr.weekday == DateTime.friday,
               ),
+              Divider(
+                height: 1,
+                color: AppColors.gold.withValues(alpha: 0.1),
+                indent: 64,
+              ),
+              // New in town? The Jumu'ah time is the mosque's own, so point
+              // to the masjid finder instead of leaving the row a guess.
+              InkWell(
+                key: const Key('prayer-find-masjid'),
+                onTap: () => context.open('/masajid'),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 13,
+                  ),
+                  child: Row(
+                    children: [
+                      const Icon(
+                        Icons.search,
+                        size: 20,
+                        color: AppColors.gold,
+                      ),
+                      const SizedBox(width: 16),
+                      Expanded(
+                        child: Text(
+                          'Find a masjid near you \u00b7 to ask its Jumu\u2019ah time',
+                          style: AppText.body.copyWith(
+                            color: AppColors.goldLight,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
         ),
@@ -444,121 +479,154 @@ class _PrayerRow extends ConsumerWidget {
     final bool alertOn = ref.watch(
       prayerAlertsProvider.select((s) => s.contains(name)),
     );
-    // At large text sizes the round icon is dropped so the name keeps its
-    // room, and the NEXT tag sits under the name instead of beside the time.
-    final bool bigText = MediaQuery.textScalerOf(context).scale(14) / 14 > 1.3;
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 13),
-      child: Row(
-        children: [
-          if (!bigText) ...[
-            Container(
-              width: 36,
-              height: 36,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: isNext
-                    ? AppColors.gold.withValues(alpha: 0.18)
-                    : AppColors.gold.withValues(alpha: 0.08),
-                border: Border.all(
-                  color: AppColors.gold.withValues(alpha: isNext ? 0.5 : 0.2),
-                ),
-              ),
-              child: Icon(icon, size: 17, color: AppColors.gold),
+    // The row never breaks. The name is one line that shrinks to fit (never
+    // one letter per line); the time is never wrapped; the bell is always a
+    // whole 48dp target. When the words would not fit side by side (a big
+    // text size or a narrow phone) the time moves under the name.
+    final double scale = MediaQuery.textScalerOf(context).scale(14) / 14;
+    final TextStyle nameStyle = AppText.body.copyWith(
+      color: nameColor,
+      fontWeight: isNext ? FontWeight.w600 : FontWeight.w400,
+    );
+    final String timeText = DateFormat.jm().format(time);
+
+    Widget extras() => Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        if (isNext)
+          Container(
+            margin: const EdgeInsets.only(top: 2),
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+            decoration: BoxDecoration(
+              color: AppColors.gold.withValues(alpha: 0.15),
+              borderRadius: BorderRadius.circular(8),
             ),
-            const SizedBox(width: 12),
-          ],
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            child: Text(
+              'NEXT',
+              softWrap: false,
+              style: AppText.eyebrow.copyWith(
+                fontSize: 12,
+                letterSpacing: 2,
+                color: AppColors.goldLight,
+              ),
+            ),
+          ),
+        if (note != null)
+          Text(
+            note!,
+            style: AppText.bodyMuted.copyWith(
+              fontSize: 12,
+              color: AppColors.goldLight,
+            ),
+          ),
+        if (iqamah != null)
+          Text(
+            'Iqamah ${DateFormat.jm().format(iqamah!)}',
+            style: AppText.bodyMuted.copyWith(fontSize: 12),
+          ),
+        if (jumuah != null)
+          Text(
+            "Jumu'ah $jumuah",
+            style: AppText.bodyMuted.copyWith(fontSize: 12),
+          ),
+      ],
+    );
+
+    Widget oneLine(String text) => FittedBox(
+      fit: BoxFit.scaleDown,
+      alignment: AlignmentDirectional.centerStart,
+      child: Text(text, maxLines: 1, softWrap: false, style: nameStyle),
+    );
+
+    Widget bell() => IconButton(
+      constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
+      tooltip: alertOn ? 'Turn off the $name alert' : 'Turn on the $name alert',
+      onPressed: () async {
+        final PrayerNotificationScheduler scheduler = ref.read(
+          prayerNotificationSchedulerProvider,
+        );
+        await ref.read(prayerAlertsProvider.notifier).toggle(name);
+        if (alertOn) return;
+        // Turning an alert on is the moment to ask for permission.
+        unawaited(WebNotifier.ensurePermission());
+        if (scheduler.supported) {
+          unawaited(scheduler.requestPermission());
+        }
+      },
+      icon: Icon(
+        alertOn ? Icons.notifications_active : Icons.notifications_none,
+        size: 22,
+        color: alertOn ? AppColors.gold : AppColors.sand.withValues(alpha: 0.5),
+      ),
+    );
+
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints box) {
+        // Room needed side by side: padding + bell + gap + the widest name
+        // and time at this text size (+ the round icon at normal sizes).
+        final bool roundIcon = scale <= 1.3;
+        final double needed =
+            32 + 52 + 8 + (roundIcon ? 48 : 0) + 130 * scale;
+        final bool stacked = scale > 1.4 || needed > box.maxWidth;
+
+        if (stacked) {
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(
-                  name,
-                  style: AppText.body.copyWith(
-                    color: nameColor,
-                    fontWeight: isNext ? FontWeight.w600 : FontWeight.w400,
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      oneLine(name),
+                      oneLine(timeText),
+                      extras(),
+                    ],
                   ),
                 ),
-                if (isNext)
-                  Container(
-                    margin: const EdgeInsets.only(top: 2),
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 8,
-                      vertical: 2,
-                    ),
-                    decoration: BoxDecoration(
-                      color: AppColors.gold.withValues(alpha: 0.15),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Text(
-                      'NEXT',
-                      style: AppText.eyebrow.copyWith(
-                        fontSize: 12,
-                        letterSpacing: 2,
-                        color: AppColors.goldLight,
+                if (alertable) bell(),
+              ],
+            ),
+          );
+        }
+
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          child: Row(
+            children: [
+              if (roundIcon) ...[
+                Container(
+                  width: 36,
+                  height: 36,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: isNext
+                        ? AppColors.gold.withValues(alpha: 0.18)
+                        : AppColors.gold.withValues(alpha: 0.08),
+                    border: Border.all(
+                      color: AppColors.gold.withValues(
+                        alpha: isNext ? 0.5 : 0.2,
                       ),
                     ),
                   ),
-                if (note != null)
-                  Text(
-                    note!,
-                    style: AppText.bodyMuted.copyWith(
-                      fontSize: 12,
-                      color: AppColors.goldLight,
-                    ),
-                  ),
-                if (iqamah != null)
-                  Text(
-                    'Iqamah ${DateFormat.jm().format(iqamah!)}',
-                    style: AppText.bodyMuted.copyWith(fontSize: 12),
-                  ),
-                if (jumuah != null)
-                  Text(
-                    "Jumu'ah $jumuah",
-                    style: AppText.bodyMuted.copyWith(fontSize: 12),
-                  ),
+                  child: Icon(icon, size: 17, color: AppColors.gold),
+                ),
+                const SizedBox(width: 12),
               ],
-            ),
-          ),
-          Text(
-            DateFormat.jm().format(time),
-            softWrap: false,
-            style: AppText.body.copyWith(
-              color: nameColor,
-              fontWeight: isNext ? FontWeight.w600 : FontWeight.w400,
-            ),
-          ),
-          if (alertable) ...[
-            const SizedBox(width: 4),
-            IconButton(
-              tooltip: alertOn
-                  ? 'Turn off the $name alert'
-                  : 'Turn on the $name alert',
-              onPressed: () async {
-                final PrayerNotificationScheduler scheduler = ref.read(
-                  prayerNotificationSchedulerProvider,
-                );
-                await ref.read(prayerAlertsProvider.notifier).toggle(name);
-                if (alertOn) return;
-                // Turning an alert on is the moment to ask for permission.
-                unawaited(WebNotifier.ensurePermission());
-                if (scheduler.supported) {
-                  unawaited(scheduler.requestPermission());
-                }
-              },
-              icon: Icon(
-                alertOn
-                    ? Icons.notifications_active
-                    : Icons.notifications_none,
-                size: 20,
-                color: alertOn
-                    ? AppColors.gold
-                    : AppColors.sand.withValues(alpha: 0.5),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [oneLine(name), extras()],
+                ),
               ),
-            ),
-          ],
-        ],
-      ),
+              const SizedBox(width: 8),
+              Text(timeText, softWrap: false, style: nameStyle),
+              if (alertable) bell() else const SizedBox(width: 4),
+            ],
+          ),
+        );
+      },
     );
   }
 }
@@ -671,59 +739,73 @@ class _LocationCard extends ConsumerWidget {
         .read(prayerLocationControllerProvider.notifier)
         .gpsStatus;
 
+    // The place name gets the full width on its own line; the two buttons
+    // wrap underneath. Squeezed beside them on a 320px phone, the name was
+    // ellipsized down to nothing.
     return GlassCard(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-      child: Row(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(
-            Icons.place_outlined,
-            size: 18,
-            color: AppColors.gold.withValues(alpha: 0.8),
-          ),
-          const SizedBox(width: 10),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
+          Row(
+            children: [
+              Icon(
+                Icons.place_outlined,
+                size: 18,
+                color: AppColors.gold.withValues(alpha: 0.8),
+              ),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Text(
                   loc.label,
+                  key: const Key('prayer-location-label'),
                   style: AppText.body.copyWith(fontWeight: FontWeight.w600),
+                  maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
-                if (status == GpsStatus.denied)
-                  Text(
-                    'Location permission denied — pick your city instead',
-                    style: AppText.bodyMuted.copyWith(fontSize: 12),
-                  )
-                else if (status == GpsStatus.unavailable)
-                  Text(
-                    'Location is off on this device — pick your city instead',
-                    style: AppText.bodyMuted.copyWith(fontSize: 12),
-                  )
-                else if (status == GpsStatus.error)
-                  Text(
-                    'Could not get your location — pick your city instead',
-                    style: AppText.bodyMuted.copyWith(fontSize: 12),
-                  ),
-              ],
-            ),
+              ),
+            ],
           ),
-          TextButton.icon(
-            onPressed: status == GpsStatus.locating
-                ? null
-                : () => _useGps(ref),
-            icon: const Icon(Icons.my_location, size: 14),
-            label: Text(
-              status == GpsStatus.locating ? 'Locating…' : 'My location',
-              style: const TextStyle(fontSize: 12),
+          if (status == GpsStatus.denied)
+            Text(
+              'Location permission denied \u2014 pick your city instead',
+              style: AppText.bodyMuted.copyWith(fontSize: 12),
+            )
+          else if (status == GpsStatus.unavailable)
+            Text(
+              'Location is off on this device \u2014 pick your city instead',
+              style: AppText.bodyMuted.copyWith(fontSize: 12),
+            )
+          else if (status == GpsStatus.error)
+            Text(
+              'Could not get your location \u2014 pick your city instead',
+              style: AppText.bodyMuted.copyWith(fontSize: 12),
             ),
-            style: TextButton.styleFrom(foregroundColor: AppColors.goldLight),
-          ),
-          TextButton.icon(
-            onPressed: () => _pickCity(context, ref),
-            icon: const Icon(Icons.location_city, size: 14),
-            label: const Text('City', style: TextStyle(fontSize: 12)),
-            style: TextButton.styleFrom(foregroundColor: AppColors.goldLight),
+          Wrap(
+            spacing: 4,
+            children: [
+              TextButton.icon(
+                onPressed: status == GpsStatus.locating
+                    ? null
+                    : () => _useGps(ref),
+                icon: const Icon(Icons.my_location, size: 14),
+                label: Text(
+                  status == GpsStatus.locating ? 'Locating\u2026' : 'My location',
+                  style: const TextStyle(fontSize: 12),
+                ),
+                style: TextButton.styleFrom(
+                  foregroundColor: AppColors.goldLight,
+                ),
+              ),
+              TextButton.icon(
+                onPressed: () => _pickCity(context, ref),
+                icon: const Icon(Icons.location_city, size: 14),
+                label: const Text('City', style: TextStyle(fontSize: 12)),
+                style: TextButton.styleFrom(
+                  foregroundColor: AppColors.goldLight,
+                ),
+              ),
+            ],
           ),
         ],
       ),
@@ -815,7 +897,7 @@ Future<void> _pickJumuahTime(BuildContext context, WidgetRef ref) async {
 
 /// Friday's congregational prayer, always visible in the list. The time is
 /// the one the person types in for their mosque (never fetched); tapping the
-/// row sets or changes it. "Find a mosque" opens the Masajid finder. Once a
+/// row sets or changes it (the masjid finder link sits just below the row). Once a
 /// time is set the row shows how long until the next Friday prayer. There is
 /// no bell: alerts are planned from the calculated prayer times (see
 /// planPrayerNotifications), which cannot take a hand-entered time without
@@ -825,7 +907,6 @@ class JumuahRow extends ConsumerWidget {
     required this.time,
     required this.isFriday,
     this.now,
-    this.onFindMosque,
     super.key,
   });
 
@@ -834,9 +915,6 @@ class JumuahRow extends ConsumerWidget {
 
   /// The clock for the countdown; the real time when null (tests pass one).
   final DateTime? now;
-
-  /// Overrides the default jump to the Masajid screen (tests).
-  final VoidCallback? onFindMosque;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -891,28 +969,6 @@ class JumuahRow extends ConsumerWidget {
                         ? 'Not set. Tap to enter your mosque\u2019s time.'
                         : 'Your mosque\u2019s time \u00b7 tap to change',
                     style: AppText.bodyMuted.copyWith(fontSize: 12),
-                  ),
-                  TextButton.icon(
-                    key: const Key('jumuah-find-mosque'),
-                    style: TextButton.styleFrom(
-                      minimumSize: const Size(48, 48),
-                      padding: EdgeInsets.zero,
-                      alignment: AlignmentDirectional.centerStart,
-                    ),
-                    onPressed:
-                        onFindMosque ?? () => context.open('/masajid'),
-                    icon: const Icon(
-                      Icons.search,
-                      size: 16,
-                      color: AppColors.gold,
-                    ),
-                    label: Text(
-                      'Find a mosque',
-                      style: AppText.bodyMuted.copyWith(
-                        fontSize: 13,
-                        color: AppColors.gold,
-                      ),
-                    ),
                   ),
                 ],
               ),
@@ -1333,22 +1389,6 @@ class _IqamahCardState extends ConsumerState<_IqamahCard> {
               'website; Ar-Rayaan does not fetch mosque timetables. Iqamah is '
               'set as minutes after the adhan time shown.',
               style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.5),
-            ),
-            TextButton.icon(
-              style: TextButton.styleFrom(
-                minimumSize: const Size(48, 48),
-                padding: EdgeInsets.zero,
-                alignment: AlignmentDirectional.centerStart,
-              ),
-              onPressed: () => context.open('/masajid'),
-              icon: const Icon(Icons.search, size: 16, color: AppColors.gold),
-              label: Text(
-                'Find a mosque near you',
-                style: AppText.bodyMuted.copyWith(
-                  fontSize: 13,
-                  color: AppColors.gold,
-                ),
-              ),
             ),
             const SizedBox(height: 8),
             for (final String p in IqamahController.prayers)

@@ -4,10 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../features/elder/application/elder_mode.dart';
 import '../../core/i18n/app_locale.dart';
 import '../app_colors.dart';
+import 'focus_ring.dart';
 
 /// Locked bottom navigation: Home · Faith · Family · Hādi · You.
+///
+/// While Elder Mode is on, the Home tab opens the Elder home (the simple
+/// three-door home), never the busy normal Home.
 class AppBottomNav extends ConsumerWidget {
   const AppBottomNav({required this.shell, super.key});
 
@@ -24,6 +29,7 @@ class AppBottomNav extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final L10n l10n = ref.watch(l10nProvider);
+    final bool elder = ref.watch(elderModeProvider);
     return ClipRect(
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 24, sigmaY: 24),
@@ -44,10 +50,16 @@ class AppBottomNav extends ConsumerWidget {
                       icon: _items[i].$1,
                       label: l10n.english(_items[i].$2),
                       active: shell.currentIndex == i,
-                      onTap: () => shell.goBranch(
-                        i,
-                        initialLocation: i == shell.currentIndex,
-                      ),
+                      onTap: () {
+                        if (i == 0 && elder) {
+                          context.go(ElderMode.homeRoute);
+                          return;
+                        }
+                        shell.goBranch(
+                          i,
+                          initialLocation: i == shell.currentIndex,
+                        );
+                      },
                     ),
                   ),
               ],
@@ -82,7 +94,9 @@ class _NavItem extends StatelessWidget {
       label: label,
       excludeSemantics: true,
       onTap: onTap,
-      child: InkWell(
+      child: FocusRing(
+        borderRadius: 8,
+        child: InkWell(
         onTap: onTap,
         child: ConstrainedBox(
           constraints: const BoxConstraints(minHeight: 56),
@@ -115,6 +129,7 @@ class _NavItem extends StatelessWidget {
               ],
             ),
           ),
+        ),
         ),
       ),
     );

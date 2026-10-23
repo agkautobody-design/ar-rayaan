@@ -163,10 +163,9 @@ void main() {
   });
 
   group('Jumu\'ah row', () {
-    testWidgets('with no time it offers to find a mosque and set one', (
+    testWidgets('with no time it offers to set one', (
       WidgetTester tester,
     ) async {
-      int found = 0;
       await tester.pumpWidget(
         _app(
           Scaffold(
@@ -174,16 +173,12 @@ void main() {
               time: null,
               isFriday: false,
               now: DateTime(2026, 10, 22, 10),
-              onFindMosque: () => found++,
             ),
           ),
         ),
       );
-      expect(find.text('Find a mosque'), findsOneWidget);
       expect(find.text('Set time'), findsOneWidget);
       expect(find.byKey(const Key('jumuah-countdown')), findsNothing);
-      await tester.tap(find.byKey(const Key('jumuah-find-mosque')));
-      expect(found, 1);
     });
 
     testWidgets('with a time it shows the countdown to the next Friday', (
@@ -202,7 +197,6 @@ void main() {
       );
       expect(find.text('13:30'), findsOneWidget);
       expect(find.textContaining('Tomorrow'), findsOneWidget);
-      expect(find.text('Find a mosque'), findsOneWidget);
     });
   });
 

@@ -20,7 +20,12 @@ import '../app_typography.dart';
 ///   they scroll up or reach the top, so it does not sit over the text being
 ///   read;
 /// * only the pill itself is tappable and exposed to screen readers (the
-///   host adds no full-size hit area or semantics node).
+///   host adds no full-size hit area or semantics node);
+/// * it never covers anything: the page is laid out ABOVE a thin strip
+///   ([bandHeight]) that belongs to the pill, so the last row of a list, a
+///   time, a bell or a link is never under it (it used to sit over the
+///   Maghrib time and the Isha bell);
+/// * at large text it shrinks to a round icon so it stays out of the way.
 class AskHadiPillHost extends StatefulWidget {
   const AskHadiPillHost({required this.child, this.enabled, super.key});
 
@@ -33,6 +38,9 @@ class AskHadiPillHost extends StatefulWidget {
   /// Lets tests draw the pill in the whole app, where it is off in debug.
   @visibleForTesting
   static bool? forceEnabled;
+
+  /// The strip at the bottom of a page that is kept free for the pill.
+  static const double bandHeight = 60;
 
   @override
   State<AskHadiPillHost> createState() => _AskHadiPillHostState();
@@ -76,12 +84,22 @@ class _AskHadiPillHostState extends State<AskHadiPillHost> {
     if (!on) return widget.child;
     final bool keyboardOpen = MediaQuery.viewInsetsOf(context).bottom > 0;
     final EdgeInsets safe = MediaQuery.paddingOf(context);
+    final double band = keyboardOpen
+        ? 0
+        : AskHadiPillHost.bandHeight + safe.bottom;
     return Stack(
       fit: StackFit.expand,
       children: <Widget>[
-        NotificationListener<ScrollNotification>(
-          onNotification: _onScroll,
-          child: widget.child,
+        Padding(
+          padding: EdgeInsets.only(bottom: band),
+          child: MediaQuery.removePadding(
+            context: context,
+            removeBottom: !keyboardOpen,
+            child: NotificationListener<ScrollNotification>(
+              onNotification: _onScroll,
+              child: widget.child,
+            ),
+          ),
         ),
         if (!keyboardOpen)
           Positioned.fill(
@@ -90,7 +108,7 @@ class _AskHadiPillHostState extends State<AskHadiPillHost> {
               child: Padding(
                 padding: EdgeInsetsDirectional.only(
                   end: 12 + safe.right,
-                  bottom: 16 + safe.bottom,
+                  bottom: 8 + safe.bottom,
                 ),
                 child: ExcludeSemantics(
                   excluding: _hidden,
@@ -120,6 +138,9 @@ class AskHadiPill extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     void open() => context.go(AppRoutes.hadi);
+    // At large text the words would make the pill tall and wide: a round
+    // 48dp icon instead (the label stays for screen readers).
+    final bool compact = MediaQuery.textScalerOf(context).scale(14) / 14 > 1.3;
     return Semantics(
       button: true,
       label: label,
@@ -144,31 +165,41 @@ class AskHadiPill extends StatelessWidget {
           child: InkWell(
             onTap: open,
             borderRadius: BorderRadius.circular(24),
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(minHeight: 44),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    const Icon(
+            child: compact
+                ? const SizedBox(
+                    width: 48,
+                    height: 48,
+                    child: Icon(
                       Icons.auto_awesome,
-                      size: 16,
+                      size: 22,
                       color: AppColors.goldLight,
                     ),
-                    const SizedBox(width: 8),
-                    Text(
-                      label,
-                      style: AppText.body.copyWith(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600,
-                        color: AppColors.goldLight,
+                  )
+                : ConstrainedBox(
+                    constraints: const BoxConstraints(minHeight: 44),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          const Icon(
+                            Icons.auto_awesome,
+                            size: 16,
+                            color: AppColors.goldLight,
+                          ),
+                          const SizedBox(width: 8),
+                          Text(
+                            label,
+                            style: AppText.body.copyWith(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                              color: AppColors.goldLight,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                  ],
-                ),
-              ),
-            ),
+                  ),
           ),
         ),
       ),

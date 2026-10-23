@@ -9,6 +9,7 @@ class Dhikr {
     required this.count,
     this.translation,
     this.source,
+    this.transliteration,
   });
 
   final int number;
@@ -23,6 +24,10 @@ class Dhikr {
   /// Where the dhikr (and its stated virtue) is reported, with the grade
   /// where one is known. Null for legacy/remote data without a source.
   final String? source;
+
+  /// Latin-letter reading of [arabic] (JSON field `tl`). Null until the
+  /// owner supplies approved content; nothing is generated.
+  final String? transliteration;
 }
 
 class AdhkarSet {

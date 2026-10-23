@@ -46,6 +46,8 @@ class _CalendarScreenState extends ConsumerState<CalendarScreen> {
                 children: [
                   _TodayCard(today: today, hijri: hijri),
                   const SizedBox(height: 8),
+                  if (upcoming.isNotEmpty)
+                    _NextEventBanner(upcoming: upcoming, today: today),
                   Align(
                     child: TextButton.icon(
                       onPressed: () => _showBasisSheet(context),
@@ -872,6 +874,65 @@ class _FastingMonthCard extends StatelessWidget {
           ],
           const SizedBox(height: 4),
         ],
+      ),
+    );
+  }
+}
+
+/// "in 12 days", "Tomorrow" or "Today" for a whole-day distance.
+String _inDays(int daysAway) => daysAway == 0
+    ? 'Today'
+    : daysAway == 1
+    ? 'Tomorrow'
+    : 'in $daysAway days';
+
+/// The next observance, and the next Ramadan, at the top of the page so
+/// nobody scrolls past the month grid to find them.
+class _NextEventBanner extends StatelessWidget {
+  const _NextEventBanner({required this.upcoming, required this.today});
+
+  final List<(Observance, HijriDate)> upcoming;
+  final DateTime today;
+
+  @override
+  Widget build(BuildContext context) {
+    final int todayJd = HijriDate.gregorianToJd(
+      today.year,
+      today.month,
+      today.day,
+    );
+    String when((Observance, HijriDate) e) {
+      final DateTime g = e.$2.toGregorian();
+      return '${_inDays(_daysUntil(e.$2, todayJd)).toLowerCase()} '
+          '\u00b7 ${g.day} ${_kShortMonths[g.month - 1]} ${g.year}';
+    }
+
+    final (Observance, HijriDate) next = upcoming.first;
+    (Observance, HijriDate)? ramadan;
+    for (final (Observance, HijriDate) e in upcoming) {
+      if (e.$1.nameEn == 'Ramadan Begins') ramadan = e;
+    }
+    final bool ramadanIsNext = ramadan != null && ramadan.$1 == next.$1;
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: GlassCard(
+        key: const Key('calendar-next-event'),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Next: ${next.$1.nameEn} ${when(next)}',
+              style: AppText.body,
+            ),
+            if (ramadan != null && !ramadanIsNext) ...[
+              const SizedBox(height: 6),
+              Text(
+                'Ramadan begins ${when(ramadan)}',
+                style: AppText.bodyMuted,
+              ),
+            ],
+          ],
+        ),
       ),
     );
   }
