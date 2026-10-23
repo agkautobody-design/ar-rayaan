@@ -620,7 +620,12 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                           ),
                           const SizedBox(width: 8),
                           Expanded(
-                            child: Text(
+                            // Next to three round buttons the pill is narrow:
+                            // its text stops growing at 1.3x so it stays
+                            // readable instead of collapsing to nothing.
+                            child: MediaQuery.withClampedTextScaling(
+                              maxScaleFactor: 1.3,
+                              child: Text(
                               hadi.live
                                   ? (compact
                                       ? 'Hādi · live AI'
@@ -633,6 +638,7 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                               style: AppText.bodyMuted.copyWith(
                                 color: AppColors.textFaint,
                               ),
+                            ),
                             ),
                           ),
                         ],
@@ -1190,7 +1196,9 @@ class _StarterChip extends StatelessWidget {
         size: 14,
         color: AppColors.gold,
       ),
-      label: Text(label),
+      // A chip's label does not wrap by default and was cut off at the
+      // edge ("Open Questions and Ar"): let it wrap, whole words.
+      label: Text(label, softWrap: true, maxLines: 3),
       labelStyle: AppText.bodyMuted.copyWith(
         fontSize: 13,
         color: AppColors.sand.withValues(alpha: 0.85),
@@ -1320,7 +1328,11 @@ class _Bubble extends ConsumerWidget {
                                       size: 16,
                                       color: AppColors.gold,
                                     ),
-                                    label: Text(HadiTokens.labelFor(route)),
+                                    label: Text(
+                                      HadiTokens.labelFor(route),
+                                      softWrap: true,
+                                      maxLines: 3,
+                                    ),
                                     labelStyle: AppText.body.copyWith(
                                       fontSize: 14,
                                       color: AppColors.goldLight,

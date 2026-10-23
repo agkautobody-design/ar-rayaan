@@ -66,7 +66,7 @@ void main() {
     });
   });
 
-  testWidgets('Community: working tiles come before "Coming soon" ones', (
+  testWidgets('Community lists only what works: no "Coming soon" tiles', (
     WidgetTester tester,
   ) async {
     String? opened;
@@ -93,13 +93,16 @@ void main() {
     final Finder masjid = find.text('Find a masjid near you');
     expect(masjid, findsOneWidget);
     expect(find.text('Jumu’ah and prayer times'), findsOneWidget);
-    final double workingY = tester.getTopLeft(masjid).dy;
-    final double soonY = tester.getTopLeft(find.text('Events')).dy;
-    expect(workingY, lessThan(soonY));
-    expect(
-      tester.getTopLeft(find.text('Jumu’ah and prayer times')).dy,
-      lessThan(soonY),
-    );
+    for (final String soon in <String>[
+      'Events',
+      'Groups',
+      'Volunteer',
+      'Announcements',
+      'Coming soon',
+      'COMING LATER',
+    ]) {
+      expect(find.text(soon), findsNothing, reason: '$soon is not built yet');
+    }
 
     await tester.tap(masjid);
     await tester.pump(const Duration(milliseconds: 400));

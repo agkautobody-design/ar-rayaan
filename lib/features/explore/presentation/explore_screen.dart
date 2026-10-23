@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../../app/core/modules/module_status.dart';
 import '../../../app/router.dart';
@@ -102,8 +101,6 @@ class ExploreScreen extends ConsumerWidget {
         (Icons.bookmark_outline, 'Notes & Bookmarks', AppRoutes.notes),
         (Icons.download_outlined, 'Downloads', AppRoutes.downloads),
         (Icons.search, 'Search', AppRoutes.search),
-        // The app is dark-only today; a light theme is not built.
-        (Icons.light_mode_outlined, 'Light Theme', null),
       ],
     ),
   ];
@@ -167,48 +164,13 @@ class ExploreScreen extends ConsumerWidget {
                     ),
                   ],
                   const SizedBox(height: 16),
+                  // Help & Support is not built yet, so it is not listed: a
+                  // row that goes nowhere is worse than no row.
                   GlassCard(
-                    child: LayoutBuilder(
-                      builder: (BuildContext context, BoxConstraints box) {
-                        // Side by side only when each half has room for a
-                        // whole word; large text or a narrow phone stacks.
-                        final bool stack =
-                            box.maxWidth < 380 ||
-                            MediaQuery.textScalerOf(context).scale(14) > 17;
-                        final Widget settingsRow = _Row(
-                          icon: Icons.settings_outlined,
-                          label: 'Settings',
-                          onTap: () => context.push(AppRoutes.settings),
-                        );
-                        final Widget helpRow = const _Row(
-                          icon: Icons.help_outline,
-                          label: 'Help & Support',
-                          comingSoon: true,
-                        );
-                        if (stack) {
-                          return Column(
-                            children: [
-                              settingsRow,
-                              Divider(
-                                height: 1,
-                                color: AppColors.gold.withValues(alpha: 0.1),
-                              ),
-                              helpRow,
-                            ],
-                          );
-                        }
-                        return Row(
-                          children: [
-                            Expanded(child: settingsRow),
-                            Container(
-                              width: 1,
-                              height: 40,
-                              color: AppColors.gold.withValues(alpha: 0.1),
-                            ),
-                            Expanded(child: helpRow),
-                          ],
-                        );
-                      },
+                    child: _Row(
+                      icon: Icons.settings_outlined,
+                      label: 'Settings',
+                      onTap: () => context.open(AppRoutes.settings),
                     ),
                   ),
                   const SizedBox(height: 16),

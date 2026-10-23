@@ -107,7 +107,7 @@ class ScreenHeader extends StatelessWidget {
             _RoundButton(
               icon: Icons.settings_outlined,
               tooltip: 'Settings',
-              onTap: () => context.push(AppRoutes.settings),
+              onTap: () => context.open(AppRoutes.settings),
             )
           else
             const SizedBox(width: _RoundButton.defaultHitSize),

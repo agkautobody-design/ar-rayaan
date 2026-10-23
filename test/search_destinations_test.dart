@@ -22,7 +22,12 @@ void main() {
       final Set<String> seen = <String>{};
       for (final AppDestination d in kAppDestinations) {
         expect(seen.add(d.id), isTrue, reason: 'duplicate id ${d.id}');
-        expect(router.resolves(d.route), isTrue,
+        // The Terms and Privacy pages are registered by legal_routes.dart.
+        final bool legal = d.route.startsWith('/legal/') &&
+            File('lib/features/legal/legal_routes.dart')
+                .readAsStringSync()
+                .contains("'${d.route}'");
+        expect(router.resolves(d.route) || legal, isTrue,
             reason: '${d.id} -> ${d.route} is not in router.dart');
         expect(RouteTitles.forPath(d.route.split('?').first), isNot(RouteTitles.appName),
             reason: '${d.route} has no title in route_titles.dart');

@@ -218,6 +218,92 @@ void main() {
     expect(find.textContaining('45 IN THE QUR\'AN'), findsOneWidget);
   });
 
+  testWidgets('a pasted 5000-character wall is cut to a short query', (
+    WidgetTester tester,
+  ) async {
+    await _pumpSearch(tester);
+    final String wall = List<String>.filled(700, 'mercy').join(' ');
+    final Stopwatch w = Stopwatch()..start();
+    await tester.enterText(find.byType(TextField), wall);
+    await tester.pump(const Duration(milliseconds: 400));
+    w.stop();
+    final EditableText field =
+        tester.widget<EditableText>(find.byType(EditableText));
+    expect(field.controller.text.length, lessThanOrEqualTo(80));
+    expect(tester.takeException(), isNull);
+    expect(w.elapsedMilliseconds, lessThan(5000));
+  });
+
+  testWidgets('typing waits for a pause: a burst is searched once', (
+    WidgetTester tester,
+  ) async {
+    await _pumpSearch(tester);
+    await tester.enterText(find.byType(TextField), 'qib');
+    await tester.pump(const Duration(milliseconds: 30));
+    await tester.enterText(find.byType(TextField), 'qibla');
+    // Not yet: the pause has not passed.
+    expect(find.text('Qibla Finder'), findsNothing);
+    await tester.pump(const Duration(milliseconds: 300));
+    expect(find.text('Qibla Finder'), findsOneWidget);
+  });
+
+  testWidgets('"privacy" and "difference of opinion" find a room', (
+    WidgetTester tester,
+  ) async {
+    await _pumpSearch(tester);
+    await _type(tester, 'privacy');
+    expect(find.text('Privacy Policy'), findsOneWidget);
+    await _type(tester, 'difference of opinion');
+    expect(find.textContaining('The Four Schools'), findsOneWidget);
+  });
+
+  testWidgets('a story named for the word comes before one that mentions it', (
+    WidgetTester tester,
+  ) async {
+    Story story(String id, String title, String body) => Story(
+          id: id,
+          collection: 'companions',
+          title: title,
+          kicker: 'K',
+          subtitle: 's',
+          sourceLabel: 'Established',
+          sources: const <String>['Q 1:1'],
+          chapters: <StoryChapter>[StoryChapter(heading: 'h', body: body)],
+          familyQuestion: 'q?',
+        );
+    SharedPreferences.setMockInitialValues(<String, Object>{});
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    AppHarness.useSurface(tester, height: 3000);
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: <Override>[
+          sharedPreferencesProvider.overrideWithValue(prefs),
+          quranAllProvider.overrideWith((ref) async => <Surah>[]),
+          storiesProvider.overrideWith(
+            (ref) async => <Story>[
+              story('a', 'A Quiet Evening', 'He spoke about patience at length.'),
+              story('b', 'The Story of Patience', 'A man waited.'),
+            ],
+          ),
+          hadithCollectionProvider.overrideWith((ref) async => <Hadith>[]),
+          adhkarSetsProvider.overrideWith((ref) async => <AdhkarSet>[]),
+          guidesProvider.overrideWith((ref) async => <Guide>[]),
+          academyFlagProvider.overrideWith((ref) async => true),
+        ],
+        child: const MaterialApp(home: SearchScreen()),
+      ),
+    );
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
+    await _type(tester, 'patience');
+    final Finder named = find.text('The Story of Patience');
+    final Finder mentioned = find.text('A Quiet Evening');
+    expect(named, findsOneWidget);
+    expect(mentioned, findsOneWidget);
+    expect(find.text('STORY · MENTIONED'), findsOneWidget);
+    expect(_top(tester, named) < _top(tester, mentioned), isTrue);
+  });
+
   testWidgets('no result says so and offers to ask Hādi', (
     WidgetTester tester,
   ) async {

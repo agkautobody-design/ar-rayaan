@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -44,7 +45,12 @@ class _Hit {
     required this.kicker,
     required this.icon,
     required this.open,
+    this.rank = 0,
   });
+
+  /// 0 = the title or name matched; 1 = only the body text did. Title
+  /// matches are listed first on their shelf.
+  final int rank;
 
   final String shelf;
   final String title;
@@ -60,6 +66,10 @@ class _SearchState extends ConsumerState<SearchScreen> {
   /// Trimmed query as typed, used when talking to the person.
   String _raw = '';
 
+  /// True while the box holds anything (shows Clear straight away, before
+  /// the pause that precedes a new search).
+  bool _hasText = false;
+
   final TextEditingController _controller = TextEditingController();
   FocusNode _focus = FocusNode();
 
@@ -72,6 +82,11 @@ class _SearchState extends ConsumerState<SearchScreen> {
   final FocusNode _clearFocus =
       FocusNode(canRequestFocus: false, skipTraversal: true);
   Timer? _retryFocus;
+
+  /// The box can fire many times a second (typing, a paste, a held key).
+  /// The answers wait for a short pause, so a long burst is searched once.
+  Timer? _debounce;
+  static const Duration _pause = Duration(milliseconds: 180);
 
   static const int _otherCap = 40;
   static const int _quranCap = 30;
@@ -92,6 +107,7 @@ class _SearchState extends ConsumerState<SearchScreen> {
   @override
   void dispose() {
     _retryFocus?.cancel();
+    _debounce?.cancel();
     _focus.dispose();
     _clearFocus.dispose();
     _controller.dispose();
@@ -128,7 +144,7 @@ class _SearchState extends ConsumerState<SearchScreen> {
     // Result groups, shown in this order.
     final List<_Hit> destinationHits = <_Hit>[];
     final List<_Hit> surahHits = <_Hit>[];
-    final List<_Hit> otherHits = <_Hit>[];
+    final List<_Hit> allOther = <_Hit>[];
     final List<_Hit> quranCards = <_Hit>[];
     int otherTotal = 0;
     int quranTotal = 0;
@@ -141,10 +157,7 @@ class _SearchState extends ConsumerState<SearchScreen> {
         skeletonQ.length >= 2 &&
         (foldArabic(text).contains(foldedQ) ||
             arabicSkeleton(text).contains(skeletonQ));
-    void addOther(_Hit hit) {
-      otherTotal++;
-      if (otherHits.length < _otherCap) otherHits.add(hit);
-    }
+    void addOther(_Hit hit) => allOther.add(hit);
 
     if (_q.length >= 2 || parseVerseKey(_q) != null) {
       if (parseVerseKey(_q) == null) {
@@ -161,7 +174,13 @@ class _SearchState extends ConsumerState<SearchScreen> {
         final List<SurahMeta> metas =
             quran.map((Surah s) => s.meta).toList();
         suggestion = didYouMean(metas, _q);
-        for (final SurahMeta m in matchSurahNames(metas, _q)) {
+        for (final SurahMeta m in matchSurahNames(
+          metas,
+          _q,
+          // A room that answers the word ("hijri" -> Calendar) is enough;
+          // a one-letter-off surah name would only add noise.
+          allowNear: destinationHits.isEmpty,
+        )) {
           surahHits.add(_Hit(
             shelf: 'SURAH ${m.number}',
             title: '${m.transliteration} · ${m.englishMeaning}',
@@ -186,7 +205,7 @@ class _SearchState extends ConsumerState<SearchScreen> {
             ref
                 .read(readingPositionProvider.notifier)
                 .save(ReadingPosition(surah: h.surah, ayah: h.ayah));
-            context.push(AppRoutes.surah(h.surah));
+            context.open(AppRoutes.surah(h.surah));
           },
         ));
       }
@@ -195,10 +214,11 @@ class _SearchState extends ConsumerState<SearchScreen> {
         if (matchesQuery('${g.title} ${g.subtitle} ${g.category}', _q)) {
           addOther(_Hit(
             shelf: 'GUIDE',
+            rank: matchesQuery(g.title, _q) ? 0 : 1,
             title: g.title,
             kicker: g.subtitle,
             icon: Icons.checklist_rtl_outlined,
-            open: () => context.push(
+            open: () => context.open(
               '${AppRoutes.hudaGuide}?id=${Uri.encodeQueryComponent(g.id)}',
               extra: g,
             ),
@@ -209,23 +229,29 @@ class _SearchState extends ConsumerState<SearchScreen> {
         if (matchesQuery(h.english, _q) || arabicMatch(h.arabic)) {
           addOther(_Hit(
             shelf: 'HADITH',
+            rank: 1,
             title: 'Hadith ${h.number} — an-Nawawi 40',
             kicker: h.english.length > 90
                 ? '${h.english.substring(0, 90)}…'
                 : h.english,
             icon: Icons.format_quote_outlined,
-            open: () => context.push(AppRoutes.hadithAt(h.number)),
+            open: () => context.open(AppRoutes.hadithAt(h.number)),
           ));
         }
       }
       for (final s in stories) {
-        if (matchesQuery(s.title, _q) ||
+        final bool named = matchesQuery(s.title, _q) ||
             matchesQuery(s.subtitle, _q) ||
-            matchesQuery(s.kicker, _q) ||
-            (s.chapters.isNotEmpty &&
-                matchesQuery(s.chapters.first.body, _q))) {
+            matchesQuery(s.kicker, _q);
+        // A story that only MENTIONS the word in its opening is listed
+        // after the ones named for it, and says so.
+        final bool mentioned = !named &&
+            s.chapters.isNotEmpty &&
+            matchesQuery(s.chapters.first.body, _q);
+        if (named || mentioned) {
           addOther(_Hit(
-            shelf: 'STORY',
+            shelf: mentioned ? 'STORY · MENTIONED' : 'STORY',
+            rank: named ? 0 : 1,
             title: s.title,
             kicker: (s.hasUnverified || s.hasWeakNarration)
                 ? 'Unverified · ${s.kicker}'
@@ -244,16 +270,24 @@ class _SearchState extends ConsumerState<SearchScreen> {
             if (!seenDhikr.add('${d.arabic}|$t')) continue;
             addOther(_Hit(
               shelf: 'DHIKR',
+              rank: 1,
               title: set.titleEn,
               kicker: t.length > 90 ? '${t.substring(0, 90)}…' : t,
               icon: Icons.volunteer_activism_outlined,
               open: () =>
-                  context.push('${AppRoutes.adhkar}?set=${set.id}'),
+                  context.open('${AppRoutes.adhkar}?set=${set.id}'),
             ));
           }
         }
       }
     }
+
+    // Name matches first, then the rest; each group keeps its shelf order.
+    final List<_Hit> otherHits = <_Hit>[
+      ...allOther.where((_Hit h) => h.rank == 0),
+      ...allOther.where((_Hit h) => h.rank != 0),
+    ].take(_otherCap).toList();
+    otherTotal = allOther.length;
 
     final String? dym = suggestion;
     final List<_Hit> hits = <_Hit>[
@@ -305,7 +339,7 @@ class _SearchState extends ConsumerState<SearchScreen> {
                 decoration: InputDecoration(
                   hintText: 'Search the Qur\'an and every shelf — or type 2:255',
                   prefixIcon: const Icon(Icons.search, color: AppColors.gold),
-                  suffixIcon: _raw.isEmpty
+                  suffixIcon: !_hasText
                       ? null
                       : IconButton(
                           tooltip: 'Clear',
@@ -314,6 +348,11 @@ class _SearchState extends ConsumerState<SearchScreen> {
                           onPressed: _clearSearch,
                         ),
                 ),
+                // Nothing past the cap is searched, so nothing past it is
+                // kept: a pasted wall of text becomes one short query.
+                inputFormatters: <TextInputFormatter>[
+                  LengthLimitingTextInputFormatter(kMaxSearchQueryChars),
+                ],
                 onChanged: _onTyped,
                 ),
                 ),
@@ -449,9 +488,11 @@ class _SearchState extends ConsumerState<SearchScreen> {
   void _clearSearch() {
     final FocusNode old = _focus;
     _controller.clear();
+    _debounce?.cancel();
     setState(() {
       _q = '';
       _raw = '';
+      _hasText = false;
       _fieldGen++;
       _focus = FocusNode();
     });
@@ -466,9 +507,27 @@ class _SearchState extends ConsumerState<SearchScreen> {
   }
 
   void _onTyped(String v) {
+    _debounce?.cancel();
+    if (v.trim().isEmpty) {
+      setState(() {
+        _hasText = false;
+        _raw = '';
+        _q = '';
+      });
+      return;
+    }
+    if (!_hasText) setState(() => _hasText = true);
+    // Search once the typing pauses, not on every key.
+    _debounce = Timer(_pause, () => _apply(v));
+  }
+
+  void _apply(String v) {
+    if (!mounted) return;
+    final String raw = normalizeSearchQuery(v);
     setState(() {
-      _raw = v.trim();
-      _q = _raw.toLowerCase();
+      _hasText = raw.isNotEmpty;
+      _raw = raw;
+      _q = raw.toLowerCase();
     });
   }
 
@@ -478,7 +537,8 @@ class _SearchState extends ConsumerState<SearchScreen> {
       text: text,
       selection: TextSelection.collapsed(offset: text.length),
     );
-    _onTyped(text);
+    _debounce?.cancel();
+    _apply(text);
     _focus.requestFocus();
   }
 }
