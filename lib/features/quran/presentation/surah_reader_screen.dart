@@ -1,3 +1,5 @@
+import 'dart:async' show Timer, unawaited;
+
 import 'package:flutter/material.dart';
 
 import 'dart:convert';
@@ -23,14 +25,18 @@ import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/needs_internet_view.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../../habits/application/return_loop.dart';
+import '../../habits/presentation/quiet_done.dart';
 import '../application/quran_marks_controller.dart';
 import '../application/quran_offline.dart' show kQuranOfflineHint;
 import '../application/quran_providers.dart';
+import '../application/test_me_provider.dart';
 import '../domain/quran_marks.dart';
 import '../domain/quran_models.dart';
 import '../domain/quran_texts.dart';
 import '../domain/surah_search.dart';
 import 'ayah_actions_sheet.dart';
+import 'hideable_arabic.dart';
 
 /// How solid the panel behind the ayat is (1 = no pattern shows through).
 const double kReadingPanelAlpha = 0.9;
@@ -281,7 +287,11 @@ class _ReaderState extends ConsumerState<_Reader> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                _ReaderToolbar(ayahCount: n, onJump: jumpTo),
+                _ReaderToolbar(
+                  surah: surah.meta.number,
+                  ayahCount: n,
+                  onJump: jumpTo,
+                ),
                 _MadinahLink(surah: surah.meta.number, ayahCount: n),
                 _heading(surah, showBismillah),
               ],
@@ -289,7 +299,7 @@ class _ReaderState extends ConsumerState<_Reader> {
           );
         }
         if (index == n + 1) {
-          return const _ReaderFooter();
+          return _ReaderFooter(surah: surah.meta.number);
         }
         final int i = index - 1;
         final Ayah ayah = surah.ayahs[i];
@@ -329,6 +339,7 @@ class _ReaderState extends ConsumerState<_Reader> {
                   arabicSize: arabicSize,
                   isBookmarked: bookmarked,
                   onTap: () {
+                    unawaited(noteReturn(ref, ReturnAct.quran));
                     ref
                         .read(readingPositionProvider.notifier)
                         .save(
@@ -425,7 +436,13 @@ class _MadinahLink extends ConsumerWidget {
 }
 
 class _ReaderToolbar extends ConsumerWidget {
-  const _ReaderToolbar({required this.ayahCount, required this.onJump});
+  const _ReaderToolbar({
+    required this.surah,
+    required this.ayahCount,
+    required this.onJump,
+  });
+
+  final int surah;
 
   /// Null while the surah is still loading.
   final int? ayahCount;
@@ -444,12 +461,48 @@ class _ReaderToolbar extends ConsumerWidget {
     final ArabicSizeController size = ref.read(arabicSizeProvider.notifier);
     final double sizeNow = ref.watch(arabicSizeProvider);
     final int? count = ayahCount;
+    final bool hiding = ref.watch(testMeProvider);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12),
       child: Wrap(
         alignment: WrapAlignment.end,
         crossAxisAlignment: WrapCrossAlignment.center,
         children: <Widget>[
+          Tooltip(
+            message: 'Open the Hifz planner on this surah',
+            child: TextButton.icon(
+              key: const Key('reader-memorise'),
+              style: TextButton.styleFrom(
+                minimumSize: const Size(48, 48),
+                foregroundColor: AppColors.gold,
+              ),
+              onPressed: () => context.open('/academy/hifz?surah=$surah'),
+              icon: const Icon(Icons.psychology_outlined, size: 18),
+              label: const Text('Memorise this surah'),
+            ),
+          ),
+          Tooltip(
+            message: hiding
+                ? 'Show the Arabic again'
+                : 'Cover the Arabic and tap each ayah to check yourself',
+            child: TextButton.icon(
+              key: const Key('reader-test-me'),
+              style: TextButton.styleFrom(
+                minimumSize: const Size(48, 48),
+                foregroundColor: AppColors.gold,
+              ),
+              onPressed: () {
+                ref.read(revealedAyahsProvider.notifier).state =
+                    const <String>{};
+                ref.read(testMeProvider.notifier).state = !hiding;
+              },
+              icon: Icon(
+                hiding ? Icons.visibility_outlined : Icons.visibility_off_outlined,
+                size: 18,
+              ),
+              label: Text(hiding ? 'Show text' : 'Hide text / test me'),
+            ),
+          ),
           if (count != null && count > 1)
             Tooltip(
               message: 'Jump to an ayah in this surah',
@@ -562,8 +615,37 @@ class _JumpToAyahDialogState extends State<_JumpToAyahDialog> {
 
 /// End of surah: how to save a place, and where the two texts come from
 /// (Tanzil asks for its source to be named and linked).
-class _ReaderFooter extends ConsumerWidget {
-  const _ReaderFooter();
+class _ReaderFooter extends ConsumerStatefulWidget {
+  const _ReaderFooter({required this.surah});
+
+  final int surah;
+
+  @override
+  ConsumerState<_ReaderFooter> createState() => _ReaderFooterState();
+}
+
+class _ReaderFooterState extends ConsumerState<_ReaderFooter> {
+  Timer? _settle;
+
+  @override
+  void initState() {
+    super.initState();
+    // The footer is only built when the end of the surah is reached. Wait a
+    // few seconds on it, so a quick jump past it is not counted as reading.
+    _settle = Timer(const Duration(seconds: 4), () {
+      if (!mounted) return;
+      unawaited(noteReturn(ref, ReturnAct.quran));
+      unawaited(
+        showQuietDone(context, ref, moment: 'surah:${widget.surah}'),
+      );
+    });
+  }
+
+  @override
+  void dispose() {
+    _settle?.cancel();
+    super.dispose();
+  }
 
   Future<void> _open(String url) async {
     try {
@@ -572,7 +654,7 @@ class _ReaderFooter extends ConsumerWidget {
   }
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     final QuranTexts texts =
         ref.watch(quranTextsProvider).value ?? QuranTexts.fallback;
     return Padding(
@@ -673,7 +755,10 @@ class _AyahBlock extends ConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               // Arabic with end-of-ayah medallion
-              RichText(
+              HideableArabic(
+                surah: surahNumber,
+                ayah: ayah.number,
+                child: RichText(
                 textAlign: TextAlign.right,
                 textDirection: TextDirection.rtl,
                 text: TextSpan(
@@ -693,6 +778,7 @@ class _AyahBlock extends ConsumerWidget {
                     ),
                   ],
                 ),
+              ),
               ),
               if (_usable(tr)) ...[
                 const SizedBox(height: 4),

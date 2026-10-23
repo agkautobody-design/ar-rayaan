@@ -84,6 +84,27 @@ void main() {
       expect(ids('new to islam').first, 'new-muslim');
     });
 
+    test('round 4: the tahajjud, witr, what-is-Islam and schools guides', () {
+      expect(ids('tahajjud').first, 'night-prayer');
+      expect(ids('witr').first, 'witr-guide');
+      expect(ids('qunut').first, 'witr-guide');
+      expect(ids('what is islam').first, 'what-is-islam');
+      expect(ids('meaning of islam').first, 'what-is-islam');
+      expect(ids('madhhab').first, 'madhhab');
+      expect(ids('hands in prayer').first, 'madhhab');
+      const Map<String, String> routes = <String, String>{
+        'night-prayer': '/huda/guide?id=huda-tahajjud',
+        'witr-guide': '/huda/guide?id=huda-witr',
+        'what-is-islam': '/huda/guide?id=huda-what-is-islam',
+        'madhhab': '/huda/guide?id=huda-madhhab-overview',
+      };
+      for (final MapEntry<String, String> e in routes.entries) {
+        final AppDestination d =
+            kAppDestinations.firstWhere((AppDestination x) => x.id == e.key);
+        expect(d.route, e.value);
+      }
+    });
+
     test('guide destinations point at a real guide id in the pack', () {
       final String pack = File('assets/guides/guides.json').readAsStringSync();
       for (final AppDestination d in kAppDestinations) {

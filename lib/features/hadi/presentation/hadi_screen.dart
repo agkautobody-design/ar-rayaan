@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import '../../share/application/share_text.dart';
+import '../../share/presentation/share_actions.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -82,6 +84,9 @@ class HadiScreen extends ConsumerStatefulWidget {
 
 class _HadiScreenState extends ConsumerState<HadiScreen> {
   bool _allStarters = false;
+
+  /// On a narrow phone the intro is one line until the person opens it.
+  bool _introOpen = false;
   final TextEditingController _input = TextEditingController();
   final ScrollController _scroll = ScrollController();
 
@@ -570,6 +575,8 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
   @override
   Widget build(BuildContext context) {
     final HadiState hadi = ref.watch(hadiControllerProvider);
+    final bool compact = MediaQuery.sizeOf(context).width < 400;
+    final bool fullIntro = !compact || _introOpen;
     ref.listen<HadiState>(
       hadiControllerProvider,
       (HadiState? before, HadiState now) => _followConversation(before, now),
@@ -615,8 +622,12 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                           Expanded(
                             child: Text(
                               hadi.live
-                                  ? 'Hādi · live AI (guardrailed)'
-                                  : 'Hādi · authentic offline knowledge',
+                                  ? (compact
+                                      ? 'Hādi · live AI'
+                                      : 'Hādi · live AI (guardrailed)')
+                                  : (compact
+                                      ? 'Hādi · offline'
+                                      : 'Hādi · authentic offline knowledge'),
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
                               style: AppText.bodyMuted.copyWith(
@@ -673,19 +684,39 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                 ],
               ),
             ),
-            const SizedBox(height: 10),
-            Text(
-              hadi.live
-                  ? 'Live answers · Qur\'an & Sihah Sitta guardrails'
-                  : 'Free, works offline · your own AI account is optional '
-                      '(More options menu, top right)',
-              style: AppText.bodyMuted.copyWith(
-                fontSize: 12,
-                color: AppColors.textFaint,
+            SizedBox(height: compact ? 2 : 10),
+            if (fullIntro)
+              Text(
+                hadi.live
+                    ? 'Live answers · Qur\'an & Sihah Sitta guardrails'
+                    : 'Free, works offline · your own AI account is '
+                        'optional (More options menu, top right)',
+                style: AppText.bodyMuted.copyWith(
+                  fontSize: 12,
+                  color: AppColors.textFaint,
+                ),
+                textAlign: TextAlign.center,
               ),
-              textAlign: TextAlign.center,
-            ),
-            if (hadi.messages.length == 1)
+            if (hadi.messages.length == 1 && !fullIntro)
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+                child: TextButton(
+                  key: const Key('hadi-intro-more'),
+                  style: TextButton.styleFrom(
+                    minimumSize: const Size(48, 48),
+                  ),
+                  onPressed: () => setState(() => _introOpen = true),
+                  child: Text(
+                    'A study aid, not a scholar. Free today. More ▾',
+                    style: AppText.bodyMuted.copyWith(
+                      color: AppColors.gold,
+                      fontSize: 12,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+            if (hadi.messages.length == 1 && fullIntro)
               Padding(
                 padding: const EdgeInsets.fromLTRB(24, 4, 24, 0),
                 child: Text(
@@ -698,7 +729,7 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                   textAlign: TextAlign.center,
                 ),
               ),
-            if (hadi.messages.length == 1)
+            if (hadi.messages.length == 1 && fullIntro)
               Padding(
                 padding: const EdgeInsets.fromLTRB(24, 4, 24, 0),
                 child: Column(
@@ -956,17 +987,30 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
 
 /// Tappable, copyable help lines under a crisis reply, for the person's
 /// own country, with a way into Sakina for every other country.
-class _CrisisHelpPanel extends ConsumerWidget {
+class _CrisisHelpPanel extends ConsumerStatefulWidget {
   const _CrisisHelpPanel({required this.kind});
 
   final CrisisKind kind;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<_CrisisHelpPanel> createState() => _CrisisHelpPanelState();
+}
+
+class _CrisisHelpPanelState extends ConsumerState<_CrisisHelpPanel> {
+  /// A country the person picked here; wins over the device language.
+  String? _picked;
+
+  @override
+  Widget build(BuildContext context) {
+    final String? country = _picked ?? ref.watch(deviceCountryProvider);
     final List<HelpResource> rows = CrisisResponses.resourcesFor(
-      kind,
-      ref.watch(deviceCountryProvider),
+      widget.kind,
+      country,
     ).take(6).toList();
+    final String? cc = country?.trim().toUpperCase();
+    final List<(String, String)> choices = helpCountryChoices();
+    final bool known =
+        cc != null && choices.any(((String, String) c) => c.$1 == cc);
     return Padding(
       padding: const EdgeInsets.only(top: 10),
       child: Column(
@@ -976,6 +1020,24 @@ class _CrisisHelpPanel extends ConsumerWidget {
             HelpLineTile(resource: r),
             const SizedBox(height: 6),
           ],
+          Text('Not your country? Choose yours:', style: AppText.caption),
+          DropdownButton<String>(
+            key: const Key('hadi-help-country'),
+            isExpanded: true,
+            dropdownColor: AppColors.night,
+            hint: const Text('Choose your country'),
+            value: known ? cc : null,
+            items: <DropdownMenuItem<String>>[
+              for (final (String code, String name) in choices)
+                DropdownMenuItem<String>(
+                  value: code,
+                  child: Text(name, overflow: TextOverflow.ellipsis),
+                ),
+            ],
+            onChanged: (String? v) {
+              if (v != null) setState(() => _picked = v);
+            },
+          ),
           TextButton(
             onPressed: () => context.push(AppRoutes.sakina),
             child: Text(
@@ -1142,6 +1204,23 @@ class _StarterChip extends StatelessWidget {
   }
 }
 
+/// A Hadi reply for copying: the answer, then each cited passage with its
+/// reference (and grade line), then the app credit.
+String hadiReplyShareText(String answer, List<Passage> passages) {
+  final StringBuffer b = StringBuffer(answer.trim());
+  if (passages.isNotEmpty) {
+    b.write('\n\nSources:');
+    for (final Passage p in passages) {
+      b.write('\n\u2014 ${p.reference}');
+      final String? grade = p.gradeLine;
+      if (grade != null && grade.trim().isNotEmpty) b.write(' ($grade)');
+      if (p.english.trim().isNotEmpty) b.write(': ${p.english.trim()}');
+    }
+  }
+  b.write('\n\n$kSharedFromLine');
+  return b.toString();
+}
+
 class _Bubble extends ConsumerWidget {
   const _Bubble({
     required this.message,
@@ -1164,14 +1243,18 @@ class _Bubble extends ConsumerWidget {
   /// Set on a reply that fell back to the shelf because live failed.
   final VoidCallback? onRetry;
 
-  /// Puts the reply on the clipboard (without markup) and says so.
-  static Future<void> _copy(BuildContext context, String text) async {
-    final ScaffoldMessengerState messenger = ScaffoldMessenger.of(context);
-    await Clipboard.setData(ClipboardData(text: HadiMarkdown.plain(text)));
-    messenger.showSnackBar(
-      const SnackBar(content: Text('Copied to the clipboard.')),
-    );
-  }
+  /// Puts the reply on the clipboard (without markup, with the passages it
+  /// cites) and says so.
+  static Future<void> _copy(
+    BuildContext context,
+    String text,
+    List<Passage> passages,
+  ) =>
+      copyWithFeedback(
+        context,
+        hadiReplyShareText(HadiMarkdown.plain(text), passages),
+        message: 'Copied to the clipboard.',
+      );
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -1295,7 +1378,7 @@ class _Bubble extends ConsumerWidget {
                                 ),
                               IconButton(
                                 tooltip: 'Copy this reply',
-                                onPressed: () => _copy(context, shown),
+                                onPressed: () => _copy(context, shown, passages),
                                 icon: const Icon(Icons.copy_outlined, size: 18),
                                 color: AppColors.sand.withValues(alpha: 0.75),
                                 constraints: const BoxConstraints(

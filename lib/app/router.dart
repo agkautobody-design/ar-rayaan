@@ -52,6 +52,8 @@ import '../features/hadi/presentation/hadi_screen.dart';
 import '../features/legal/legal_routes.dart';
 import '../features/home/presentation/home_screen.dart';
 import '../features/journey/presentation/journey_screen.dart';
+import '../features/kids/presentation/kids_corner_screen.dart';
+import '../features/noor/presentation/reflections_screen.dart';
 import '../features/menu/presentation/menu_screen.dart';
 import '../features/noor/presentation/noor_screen.dart';
 import '../features/prayer/presentation/prayer_times_screen.dart';
@@ -64,6 +66,8 @@ import '../features/qibla/presentation/qibla_screen.dart';
 import '../features/sakina/presentation/sakina_screen.dart';
 import '../features/sakina/presentation/wellbeing_tools.dart';
 import '../features/settings/presentation/settings_screen.dart';
+import '../features/share/domain/handout.dart';
+import '../features/share/presentation/handout_screen.dart';
 import '../features/share/presentation/share_screen.dart';
 import '../features/sources/presentation/content_policy_screen.dart';
 import '../features/sources/presentation/sources_screen.dart';
@@ -117,6 +121,8 @@ abstract final class AppRoutes {
   /// The Forty Hadith, opened at hadith [number].
   static String hadithAt(int number) => '/hadith?n=$number';
   static const String noor = '/noor';
+  /// The person's saved NOOR reflections, newest first.
+  static const String noorReflections = '/noor/reflections';
   static const String journey = '/journey';
   static const String community = '/community';
   // The Family tab: the real Family Wing, inside the bottom-nav shell.
@@ -155,6 +161,8 @@ abstract final class AppRoutes {
   static const String huda = '/huda';
   static const String hudaGuide = '/huda/guide';
   static const String familyTree = '/family-tree';
+  /// The children's corner: Arabic letters, games and the stories school.
+  static const String kids = '/kids';
   static const String stories = '/stories';
   static const String storyReader = '/stories/read';
   static const String newMuslimPath = '/new-muslim';
@@ -463,9 +471,28 @@ GoRouter buildRouter({String initialLocation = '/'}) {
               _fade(const FamilyTreeScreen()),
         ),
         GoRoute(
+          path: AppRoutes.noorReflections,
+          pageBuilder: (context, state) =>
+              _fade(const ReflectionsScreen(), pill: false),
+        ),
+        GoRoute(
+          path: AppRoutes.kids,
+          pageBuilder: (context, state) => _fade(const KidsCornerScreen()),
+        ),
+        GoRoute(
           path: AppRoutes.stories,
           pageBuilder: (context, state) =>
               _fade(const StoriesScreen()),
+        ),
+        GoRoute(
+          path: '/handout',
+          pageBuilder: (context, state) => _fade(
+            HandoutScreen(
+              data: state.extra is HandoutData
+                  ? state.extra as HandoutData
+                  : null,
+            ),
+          ),
         ),
         GoRoute(
           path: AppRoutes.storyReader,
@@ -668,7 +695,15 @@ GoRouter buildRouter({String initialLocation = '/'}) {
       ),
       GoRoute(
         path: '/academy/hifz',
-        pageBuilder: (context, state) => _fade(const HifzPlannerScreen()),
+        pageBuilder: (context, state) => _fade(
+          HifzPlannerScreen(
+            // '?surah=N' opens the planner on that surah (the Qur'an
+            // reader's "Memorise this surah").
+            initialSurah: int.tryParse(
+              state.uri.queryParameters['surah'] ?? '',
+            ),
+          ),
+        ),
       ),
       GoRoute(
         path: '/academy/arabic-language',

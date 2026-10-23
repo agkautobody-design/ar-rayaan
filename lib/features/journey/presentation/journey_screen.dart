@@ -10,20 +10,25 @@ import '../../../app/theme/widgets/icon_tile.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
 import '../../habits/presentation/habits_card.dart';
+import '../../quran/application/quran_providers.dart';
+import '../../quran/domain/quran_models.dart';
 import '../application/journey_providers.dart';
+import '../domain/journey_progress.dart';
 import 'saved_stories_sheet.dart';
 
-/// Screen 8 · My Journey — progress ring + My Path.
+/// Screen 8 · My Journey — progress ring + what you have done + My Path.
 ///
-/// Locked layout preserved; the ring is now REAL progress (adhkar today,
-/// Qur'an reading started, reflections saved) — pending Founder approval.
+/// The ring is REAL progress and says what it measures (see
+/// [kRingExplanation]); under it, plain counts of what the app has recorded.
 class JourneyScreen extends ConsumerWidget {
   const JourneyScreen({super.key});
 
   static const List<(IconData, String, String?)> _path = [
-    (Icons.auto_stories_outlined, 'My Reflections', AppRoutes.noor),
+    (Icons.auto_stories_outlined, 'My Reflections', AppRoutes.noorReflections),
     (Icons.school_outlined, 'My Learning', AppRoutes.academy),
     (Icons.self_improvement_outlined, 'Dhikr Sessions', '/academy/dhikr'),
+    (Icons.psychology_outlined, 'Memorise (Hifz Planner)', '/academy/hifz'),
+    (Icons.replay_circle_filled_outlined, 'Review Cards', '/academy/review'),
     (Icons.edit_note, 'Gratitude Journal', AppRoutes.notes),
     (Icons.bookmark_outline, 'Bookmarks', _bookmarks),
   ];
@@ -54,36 +59,27 @@ class JourneyScreen extends ConsumerWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Journey Progress',
+                                'Starter progress',
                                 style: AppText.titleMedium,
                               ),
                               const SizedBox(height: 4),
                               Text(
-                                'You are growing beautifully.',
+                                kRingExplanation,
+                                key: const Key('journey-ring-explained'),
                                 style: AppText.bodyMuted.copyWith(
-                                  fontSize: 12,
-                                  fontStyle: FontStyle.italic,
+                                  fontSize: 13,
+                                  height: 1.45,
                                 ),
                               ),
-                              if (s != null) ...[
-                                const SizedBox(height: 12),
-                                Text(
-                                  'ADHKAR ${s.adhkarDone}/${s.adhkarTotal} · QUR’AN ${s.readingStarted ? 'STARTED' : '—'} · REFLECTIONS ${s.reflections} · LESSONS ${s.lessonsDone}',
-                                  style: AppText.eyebrow.copyWith(
-                                    fontSize: 12,
-                                    color: AppColors.sand.withValues(
-                                      alpha: 0.7,
-                                    ),
-                                  ),
-                                ),
-                              ],
                             ],
                           ),
                         ),
+                        const SizedBox(width: 12),
                         _ProgressRing(value: s?.progress ?? 0),
                       ],
                     ),
                   ),
+                  if (s != null) _DoneCard(stats: s),
                   Padding(
                     padding: const EdgeInsets.only(left: 4, top: 24, bottom: 8),
                     child: Text('MY PATH', style: AppText.eyebrow),
@@ -199,6 +195,173 @@ class _ProgressRing extends StatelessWidget {
           );
         },
       ),
+    );
+  }
+}
+
+
+/// Plain counts of what the app has recorded, each one a door to where it
+/// happens. Nothing here is estimated: if the app does not record it, it is
+/// not shown (it does not count ayahs read, only surahs opened).
+class _DoneCard extends ConsumerWidget {
+  const _DoneCard({required this.stats});
+
+  final JourneyStats stats;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final List<SurahMeta> index =
+        ref.watch(quranIndexProvider).valueOrNull ?? const <SurahMeta>[];
+    final ReadingPosition? place = stats.place;
+    String? placeText;
+    if (place != null) {
+      String name = 'Surah ${place.surah}';
+      for (final SurahMeta m in index) {
+        if (m.number == place.surah) name = m.transliteration;
+      }
+      placeText = '$name, ayah ${place.ayah}';
+    }
+    final List<RingPart> parts = ringParts(
+      RingInputs(
+        adhkarDone: stats.adhkarDone,
+        adhkarTotal: stats.adhkarTotal,
+        openedSurah: stats.readingStarted,
+        reflections: stats.reflections,
+        lessonsDone: stats.lessonsDone,
+      ),
+    );
+    final List<(String, String, String)> rows = <(String, String, String)>[
+      (
+        'Surahs opened',
+        '${stats.surahsOpened} of 114',
+        AppRoutes.quran,
+      ),
+      if (place != null && placeText != null)
+        (
+          'Your place in the Qur’an',
+          placeText,
+          AppRoutes.surahAt(place.surah, place.ayah),
+        ),
+      (
+        'Ayahs bookmarked',
+        '${stats.ayahBookmarks}',
+        AppRoutes.quranBookmarks,
+      ),
+      ('Stories saved', '${stats.savedStories}', AppRoutes.stories),
+      (
+        'Ayat you marked as memorised',
+        '${stats.ayatMemorised}',
+        '/academy/hifz',
+      ),
+      ('Review cards due now', '${stats.reviewsDue}', '/academy/review'),
+      ('Lessons finished', '${stats.lessonsDone}', AppRoutes.academy),
+      (
+        'Adhkar counted today',
+        '${stats.adhkarDone} of ${stats.adhkarTotal}',
+        AppRoutes.adhkar,
+      ),
+      ('Reflections saved', '${stats.reflections}', AppRoutes.noorReflections),
+      (
+        'Days you learned (last 7)',
+        daysThisWeekText(stats.daysThisWeek),
+        AppRoutes.academy,
+      ),
+    ];
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.only(left: 4, top: 24, bottom: 8),
+          child: Text('WHAT YOU HAVE DONE', style: AppText.eyebrow),
+        ),
+        GlassCard(
+          padding: const EdgeInsets.symmetric(vertical: 4),
+          child: Column(
+            children: <Widget>[
+              for (final RingPart p in parts)
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 6,
+                  ),
+                  child: Row(
+                    children: <Widget>[
+                      Icon(
+                        p.done
+                            ? Icons.check_circle
+                            : Icons.radio_button_unchecked,
+                        size: 18,
+                        color: AppColors.gold.withValues(
+                          alpha: p.done ? 1 : 0.6,
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      Expanded(
+                        child: Text(
+                          '${p.label} (${(p.weight * 100).round()}%)',
+                          style: AppText.body.copyWith(fontSize: 14),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              Divider(color: AppColors.gold.withValues(alpha: 0.15)),
+              for (final (String, String, String) r in rows)
+                Material(
+                  type: MaterialType.transparency,
+                  child: InkWell(
+                    onTap: () => context.open(r.$3),
+                    child: ConstrainedBox(
+                      constraints: const BoxConstraints(minHeight: 48),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 8,
+                        ),
+                        child: Row(
+                          children: <Widget>[
+                            Expanded(
+                              child: Text(
+                                r.$1,
+                                style: AppText.body.copyWith(fontSize: 14),
+                              ),
+                            ),
+                            const SizedBox(width: 8),
+                            Flexible(
+                              child: Text(
+                                r.$2,
+                                key: Key('journey-${r.$1}'),
+                                textAlign: TextAlign.end,
+                                style: AppText.body.copyWith(
+                                  fontSize: 14,
+                                  color: AppColors.gold,
+                                ),
+                              ),
+                            ),
+                            Icon(
+                              Icons.chevron_right,
+                              size: 16,
+                              color: AppColors.gold.withValues(alpha: 0.5),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 4, 16, 12),
+                child: Text(
+                  'Counted on this device only. The app records which '
+                  'surahs you open, not how many ayahs you read, and the '
+                  'memorised list is your own: a teacher confirms it.',
+                  style: AppText.caption.copyWith(height: 1.4),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }

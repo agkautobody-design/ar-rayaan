@@ -1,12 +1,22 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../app/core/providers.dart';
 import '../../academy/application/academy_providers.dart';
+import '../../academy/application/hifz_providers.dart';
+import '../../academy/application/word_deck_provider.dart';
+import '../../academy/domain/path_ux.dart';
 import '../../adhkar/application/adhkar_providers.dart';
 import '../../adhkar/domain/adhkar_models.dart';
 import '../../noor/application/noor_providers.dart';
+import '../../quran/application/quran_marks_controller.dart';
 import '../../quran/application/quran_providers.dart';
+import '../../quran/domain/quran_marks.dart';
+import '../../quran/domain/quran_models.dart';
+import '../../stories/application/saved_stories_controller.dart';
+import '../domain/journey_progress.dart';
 
 /// Real progress signals from the shipped modules — no placeholders.
+/// Only things the app actually records on this device are counted.
 class JourneyStats {
   const JourneyStats({
     required this.progress,
@@ -15,18 +25,25 @@ class JourneyStats {
     required this.readingStarted,
     required this.reflections,
     this.lessonsDone = 0,
+    this.surahsOpened = 0,
+    this.place,
+    this.ayahBookmarks = 0,
+    this.savedStories = 0,
+    this.ayatMemorised = 0,
+    this.reviewsDue = 0,
+    this.daysThisWeek = 0,
   });
 
-  /// Composite 0..1: adhkar completion today (55%), Qur'an reading
-  /// started (15%), at least one reflection saved (15%), at least one
-  /// Academy lesson completed (15%).
+  /// Composite 0..1 from [ringParts]: adhkar completion today (55%), a surah
+  /// opened (15%), a reflection saved (15%), a lesson finished (15%). Exactly
+  /// 0 when none of these has happened.
   final double progress;
 
   /// Repetitions completed today across all adhkar sets.
   final int adhkarDone;
   final int adhkarTotal;
 
-  /// A reading position exists (the Qur'an journey has begun).
+  /// A surah has been opened in the Qur'an reader.
   final bool readingStarted;
 
   /// Saved NOOR reflections.
@@ -34,6 +51,28 @@ class JourneyStats {
 
   /// Academy lessons completed on this device.
   final int lessonsDone;
+
+  /// Different surahs opened in the reader (the app records a place per
+  /// surah, not how many ayahs were read).
+  final int surahsOpened;
+
+  /// The saved reading place (the last ayah tapped), if any.
+  final ReadingPosition? place;
+
+  /// Qur'an ayahs bookmarked, and stories saved.
+  final int ayahBookmarks;
+  final int savedStories;
+
+  /// Ayat the person wrote down as memorised in the Hifz planner (their own
+  /// list; the app does not test it).
+  final int ayatMemorised;
+
+  /// Review cards due now (Academy lessons and Qur'an words).
+  final int reviewsDue;
+
+  /// Days in the last seven on which the person finished an Academy lesson or
+  /// answered a review.
+  final int daysThisWeek;
 }
 
 final FutureProvider<JourneyStats> journeyStatsProvider =
@@ -50,7 +89,11 @@ final FutureProvider<JourneyStats> journeyStatsProvider =
         done += adhkar.completedInSet(set);
         total += set.totalRepetitions;
       }
-      final bool readingStarted = ref.watch(readingPositionProvider) != null;
+      final ReadingPosition? place = ref.watch(readingPositionProvider);
+      final bool readingStarted = place != null;
+      final int surahsOpened = ref
+          .read(readingPositionProvider.notifier)
+          .surahsOpened;
       final int reflections = ref.watch(noorReflectionsProvider).length;
 
       int lessonsDone = 0;
@@ -60,12 +103,52 @@ final FutureProvider<JourneyStats> journeyStatsProvider =
         // Academy progress unavailable (no prefs in a bare container).
       }
 
-      final double adhkarFraction = total == 0 ? 0 : done / total;
-      final double progress =
-          adhkarFraction * 0.55 +
-          (readingStarted ? 0.15 : 0) +
-          (reflections > 0 ? 0.15 : 0) +
-          (lessonsDone > 0 ? 0.15 : 0);
+      int ayahBookmarks = 0;
+      try {
+        ayahBookmarks = ref
+            .watch(quranMarksProvider)
+            .marks
+            .values
+            .where((AyahMark m) => m.bookmarked)
+            .length;
+      } catch (_) {}
+
+      int savedStories = 0;
+      try {
+        savedStories = ref.watch(savedStoriesProvider).length;
+      } catch (_) {}
+
+      int ayatMemorised = 0;
+      try {
+        ayatMemorised = ref.watch(hifzStateProvider).totalMemorised;
+      } catch (_) {}
+
+      int reviewsDue = 0;
+      try {
+        reviewsDue =
+            ref.watch(lessonReviewsDueProvider).length +
+            ref.watch(wordsDueProvider);
+      } catch (_) {}
+
+      int daysThisWeek = 0;
+      try {
+        daysThisWeek = WeeklyRhythm.of(
+          ActivityLog.decode(
+            ref.read(sharedPreferencesProvider).getString(ActivityLog.prefKey),
+          ),
+          DateTime.now(),
+        ).count;
+      } catch (_) {}
+
+      final double progress = ringValue(
+        RingInputs(
+          adhkarDone: done,
+          adhkarTotal: total,
+          openedSurah: readingStarted,
+          reflections: reflections,
+          lessonsDone: lessonsDone,
+        ),
+      );
 
       return JourneyStats(
         progress: progress,
@@ -74,5 +157,12 @@ final FutureProvider<JourneyStats> journeyStatsProvider =
         readingStarted: readingStarted,
         reflections: reflections,
         lessonsDone: lessonsDone,
+        surahsOpened: surahsOpened,
+        place: place,
+        ayahBookmarks: ayahBookmarks,
+        savedStories: savedStories,
+        ayatMemorised: ayatMemorised,
+        reviewsDue: reviewsDue,
+        daysThisWeek: daysThisWeek,
       );
     });

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../app/core/sound/sound_services.dart';
@@ -10,6 +9,8 @@ import '../../../app/theme/widgets/gold_button.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/theme/widgets/speak_button.dart';
+import '../../share/application/share_text.dart';
+import '../../share/presentation/share_actions.dart';
 import '../application/noor_providers.dart';
 import '../domain/noor_entry.dart';
 
@@ -53,6 +54,7 @@ class _NoorScreenState extends ConsumerState<NoorScreen>
 
   Future<void> _openReflectionSheet() async {
     final TextEditingController controller = TextEditingController();
+    final ValueNotifier<String?> emptyHint = ValueNotifier<String?>(null);
     final String? saved = await showModalBottomSheet<String>(
       context: context,
       isScrollControlled: true,
@@ -91,12 +93,17 @@ class _NoorScreenState extends ConsumerState<NoorScreen>
                   ],
                 ),
                 const SizedBox(height: 12),
-                TextField(
+                ValueListenableBuilder<String?>(
+                  valueListenable: emptyHint,
+                  builder: (BuildContext _, String? hint, Widget? _) =>
+                      TextField(
                   controller: controller,
                   autofocus: true,
                   maxLines: 4,
                   style: AppText.body,
+                  onChanged: (_) => emptyHint.value = null,
                   decoration: InputDecoration(
+                    errorText: hint,
                     hintText: 'What did this NOOR stir in your heart?',
                     hintStyle: AppText.bodyMuted.copyWith(
                       color: AppColors.textFaint,
@@ -116,12 +123,19 @@ class _NoorScreenState extends ConsumerState<NoorScreen>
                       ),
                     ),
                   ),
+                  ),
                 ),
                 const SizedBox(height: 12),
                 GoldButton(
                   label: 'Save Reflection',
-                  onPressed: () =>
-                      Navigator.of(sheetContext).pop(controller.text.trim()),
+                  onPressed: () {
+                    final String text = controller.text.trim();
+                    if (text.isEmpty) {
+                      emptyHint.value = 'Write a few words first';
+                      return;
+                    }
+                    Navigator.of(sheetContext).pop(text);
+                  },
                 ),
               ],
             ),
@@ -364,23 +378,21 @@ class _ShareNoorButton extends StatelessWidget {
 
   final NoorEntry entry;
 
-  Future<void> _copy(BuildContext context) async {
-    final ScaffoldMessengerState messenger = ScaffoldMessenger.of(context);
-    await Clipboard.setData(
-      ClipboardData(
-        text: '${entry.arabic}\n\n${entry.english}\n\n— ${entry.source}',
-      ),
-    );
-    messenger
-      ..hideCurrentSnackBar()
-      ..showSnackBar(
-        const SnackBar(content: Text('Copied. Paste it into any message.')),
+  Future<void> _copy(BuildContext context) => shareWithFeedback(
+        context,
+        composeShareText(
+          arabic: entry.arabic,
+          body: entry.english,
+          source: entry.source,
+        ),
+        title: 'Today\u2019s NOOR',
       );
-  }
 
   @override
   Widget build(BuildContext context) {
-    return Semantics(
+    return Tooltip(
+      message: 'Copy today’s NOOR to share',
+      child: Semantics(
       button: true,
       label: 'Copy today’s NOOR to share',
       excludeSemantics: true,
@@ -411,6 +423,7 @@ class _ShareNoorButton extends StatelessWidget {
             ),
           ),
         ),
+      ),
       ),
     );
   }

@@ -100,6 +100,9 @@ const Map<String, String> kHadiGuideNames = <String, String>{
   'huda-fasting': 'the Fasting guide',
   'huda-taraweeh': 'the Ramadan Nights guide',
   'huda-witr': 'the Witr and night guide',
+  'huda-tahajjud': 'the Tahajjud guide',
+  'huda-what-is-islam': 'the What Is Islam guide',
+  'huda-madhhab-overview': 'the guide to the four schools',
   'huda-nikah': 'the Nikah guide',
   'huda-travel': 'the Travel guide',
   'huda-illness': 'the Illness and Patience guide',
@@ -557,7 +560,8 @@ class HadiController extends Notifier<HadiState> {
   String? _crisisReply(CrisisKind kind) {
     final String? cc = ref.read(deviceCountryProvider);
     if (!_crisisShownRecently()) {
-      return CrisisResponses.textFor(kind, countryCode: cc);
+      return '${CrisisResponses.textFor(kind, countryCode: cc)}\n\n'
+          '${CrisisResponses.regionNote(cc)}';
     }
     switch (kind) {
       case CrisisKind.selfHarm:

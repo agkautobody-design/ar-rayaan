@@ -7,6 +7,7 @@ library;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
@@ -17,8 +18,12 @@ import '../../../app/theme/widgets/screen_header.dart';
 import '../application/personal_library_provider.dart';
 import '../application/player_queue_provider.dart';
 import '../application/stream_player_provider.dart';
+import '../application/user_playlist_provider.dart';
 import '../domain/personal_library.dart';
 import '../domain/player.dart';
+import '../domain/stream_link.dart';
+import '../domain/user_playlist.dart';
+import 'add_to_playlist_sheet.dart';
 
 class MyAdditionsScreen extends ConsumerWidget {
   const MyAdditionsScreen({super.key});
@@ -37,6 +42,30 @@ class MyAdditionsScreen extends ConsumerWidget {
             children: <Widget>[
               const ScreenHeader(title: 'My Additions'),
               _HouseholdCard(hidden: hidden),
+              const SizedBox(height: 12),
+              GlassCard(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      'Add a link to a track of your own. A YouTube or '
+                      'Spotify link goes into one of your playlists and '
+                      'plays in the player. A direct audio link '
+                      '(for example an .mp3) is kept here.',
+                      style: AppText.bodyMuted,
+                    ),
+                    TextButton.icon(
+                      onPressed: () => context.push(AppRoutes.myPlaylists),
+                      icon: const Icon(Icons.queue_music,
+                          size: 18, color: AppColors.gold),
+                      label: const Text('Open My Playlists',
+                          style: TextStyle(color: AppColors.gold)),
+                      style: TextButton.styleFrom(
+                          minimumSize: const Size(48, 48)),
+                    ),
+                  ],
+                ),
+              ),
               const SizedBox(height: 12),
               if (hidden)
                 GlassCard(
@@ -112,30 +141,34 @@ class MyAdditionsScreen extends ConsumerWidget {
         builder: (BuildContext ctx, StateSetter set) => AlertDialog(
           backgroundColor: AppColors.navy,
           title: Text('Add by URL', style: AppText.titleMedium),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              TextField(
-                controller: title,
-                style: AppText.body,
-                decoration: InputDecoration(
-                  labelText: 'Title',
-                  hintText: 'e.g. Qasidah Burdah',
-                  errorText: titleError,
+          content: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                TextField(
+                  controller: title,
+                  style: AppText.body,
+                  maxLength: kMaxTitleLength,
+                  decoration: InputDecoration(
+                    labelText: 'Title',
+                    hintText: 'e.g. Qasidah Burdah',
+                    errorText: titleError,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 8),
-              TextField(
-                controller: url,
-                style: AppText.body,
-                decoration: InputDecoration(
-                  labelText: 'Link (https://…)',
-                  hintText: 'https://example.com/track.mp3',
-                  errorText: linkError,
+                const SizedBox(height: 8),
+                TextField(
+                  controller: url,
+                  style: AppText.body,
+                  decoration: InputDecoration(
+                    labelText: 'Link (https://\u2026)',
+                    hintText: 'YouTube, Spotify, or a direct audio link',
+                    errorText: linkError,
+                    errorMaxLines: 3,
+                  ),
+                  keyboardType: TextInputType.url,
                 ),
-                keyboardType: TextInputType.url,
-              ),
-            ],
+              ],
+            ),
           ),
           actions: <Widget>[
             TextButton(
@@ -161,11 +194,36 @@ class MyAdditionsScreen extends ConsumerWidget {
         ),
       ),
     );
-    final String t = title.text.trim();
+    final String t = clipText(title.text, kMaxTitleLength);
     final String u = url.text.trim();
     title.dispose();
     url.dispose();
     if (added != true) return;
+    final StreamLink? stream = StreamLink.parse(u);
+    if (stream != null) {
+      // YouTube and Spotify links live in a playlist: that is where the
+      // player can play them. Ask which one.
+      if (!context.mounted) return;
+      final String? target = await pickPlaylist(context, ref,
+          heading: 'Add \u201c$t\u201d to\u2026');
+      if (target == null || !context.mounted) return;
+      final bool ok = await ref
+          .read(userPlaylistsProvider.notifier)
+          .addLink(target, title: t, link: stream);
+      if (!context.mounted) return;
+      ScaffoldMessenger.of(context)
+        ..hideCurrentSnackBar()
+        ..showSnackBar(SnackBar(
+          content: Text(ok
+              ? 'Added to your playlist. It plays from My Playlists.'
+              : 'Already in that playlist, or it is full.'),
+          action: SnackBarAction(
+            label: 'Open',
+            onPressed: () => context.push(AppRoutes.myPlaylists),
+          ),
+        ));
+      return;
+    }
     await ref
         .read(personalLibraryProvider.notifier)
         .add(title: t, source: u);
@@ -180,8 +238,15 @@ String? personalLinkError(String raw) {
   final bool ok = u != null &&
       (u.scheme == 'http' || u.scheme == 'https') &&
       u.host.isNotEmpty;
-  return ok ? null : 'That is not a link I can play. It should start with https://';
+  return ok
+      ? null
+      : 'That is not a link I can play. It should start with https://';
 }
+
+/// What is wrong with a new addition (title first, then the link), or null
+/// when it can be added. YouTube and Spotify links are https links too.
+String? validateAddition(String title, String link) =>
+    personalTitleError(title) ?? personalLinkError(link);
 
 /// Why the title cannot be used, or null when it can.
 String? personalTitleError(String raw) =>

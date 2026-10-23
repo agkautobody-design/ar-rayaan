@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
@@ -12,6 +13,23 @@ import '../../../app/theme/widgets/screen_header.dart';
 class CommunityScreen extends StatelessWidget {
   const CommunityScreen({super.key});
 
+  /// What works today comes first: finding a masjid and its Friday time.
+  static const List<(IconData, String, String, String)> _working = [
+    (
+      Icons.mosque_outlined,
+      'Find a masjid near you',
+      'Mosques around you, on a map',
+      '/masajid',
+    ),
+    (
+      Icons.event_available_outlined,
+      'Jumu\u2019ah and prayer times',
+      'Set your masjid\u2019s Friday time',
+      AppRoutes.prayerTimes,
+    ),
+  ];
+
+  /// Not built yet: listed after the working ones, and said plainly.
   static const List<(IconData, String, String)> _items = [
     (Icons.calendar_month_outlined, 'Events', 'Coming soon'),
     (Icons.people_outline, 'Groups', 'Coming soon'),
@@ -67,6 +85,51 @@ class CommunityScreen extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 16),
+                      for (final (icon, label, sub, route) in _working)
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 10),
+                          child: GlassCard(
+                            onTap: () => context.open(route),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 16,
+                              vertical: 14,
+                            ),
+                            child: Row(
+                              children: [
+                                IconTile(icon: icon),
+                                const SizedBox(width: 12),
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        label,
+                                        style: AppText.body.copyWith(
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                      Text(
+                                        sub,
+                                        style: AppText.bodyMuted.copyWith(
+                                          fontSize: 12,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Icon(
+                                  Icons.chevron_right,
+                                  size: 16,
+                                  color: AppColors.gold.withValues(alpha: 0.5),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      const SizedBox(height: 6),
+                      Text('COMING LATER', style: AppText.eyebrow),
+                      const SizedBox(height: 8),
                       for (final (icon, label, sub) in _items)
                         Padding(
                           padding: const EdgeInsets.only(bottom: 10),

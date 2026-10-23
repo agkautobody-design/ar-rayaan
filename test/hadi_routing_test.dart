@@ -50,7 +50,7 @@ void main() {
       ]) {
         final String a = await ask(q);
         expect(a, contains('[GO:/new-muslim]'), reason: q);
-        expect(a, contains('[GO:/academy/aqeedah]'), reason: q);
+        expect(a, contains('[GO:/huda/guide?id=huda-what-is-islam]'), reason: q);
         expect(a.contains('enough authentic knowledge'), isFalse, reason: q);
       }
     });
@@ -192,7 +192,7 @@ void main() {
         'How many rakah is tahajjud',
       ]) {
         final String a = await ask(q);
-        expect(a, contains('[GO:/huda/guide?id=huda-witr]'), reason: q);
+        expect(a, contains('[GO:/huda/guide?id=huda-tahajjud]'), reason: q);
         expect(a, contains('[GO:/prayer]'), reason: q);
         expect(RegExp(r'\b\d+\s*rak', caseSensitive: false).hasMatch(a),
             isFalse,
