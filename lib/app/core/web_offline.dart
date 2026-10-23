@@ -5,9 +5,11 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 /// The Android and iPhone apps carry their libraries on the device. The web
 /// app does NOT: its service worker is deliberately a self-removing stub (a
 /// caching worker can keep serving an old copy after a new deploy), so every
-/// content file is fetched when it is opened and needs an internet
-/// connection. Copy that talks about offline use goes through here so a web
-/// visitor is never told something that is false.
+/// content file is fetched when it is first opened and needs an internet
+/// connection then; `ContentLoader` keeps a copy in the browser's cache
+/// afterwards (the app itself still needs a connection to start). Copy that
+/// talks about offline use goes through here so a web visitor is never told
+/// something that is false.
 abstract final class WebOffline {
   /// True when running in a browser (override in tests).
   static bool get isWeb => kIsWeb;
@@ -20,9 +22,10 @@ abstract final class WebOffline {
   /// Explanation shown under [libraryHeader] on the web only (null on the
   /// native apps, where the libraries really are on the device).
   static String? libraryNote({bool? web}) => (web ?? isWeb)
-      ? 'On the web these libraries are fetched from the site each time you '
-          'open them, so they need an internet connection. The Android and '
-          'iPhone apps keep them on the device and work offline.'
+      ? 'On the web these libraries are fetched from the site the first '
+          'time you open them, so they need an internet connection then; '
+          'after that your browser usually keeps a copy. The '
+          'Android and iPhone apps keep them on the device and work offline.'
       : null;
 
   /// Message for a screen whose content could not be fetched.
