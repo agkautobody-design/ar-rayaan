@@ -14,6 +14,7 @@ import '../../../app/theme/widgets/icon_tile.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/switch_row.dart' show kTightRowWidth;
+import '../../../app/theme/widgets/whole_word_text.dart';
 
 /// Screen 5 · Explore Ar-Rayaan — the full menu panel.
 class ExploreScreen extends ConsumerWidget {
@@ -273,14 +274,14 @@ class _Row extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                        WholeWordText(
                           label,
                           style: AppText.body.copyWith(
                             color: AppColors.sand.withValues(alpha: 0.9),
                           ),
                         ),
                         if (caption != null)
-                          Text(caption, style: AppText.bodyMuted),
+                          WholeWordText(caption, style: AppText.bodyMuted),
                       ],
                     ),
                   ),

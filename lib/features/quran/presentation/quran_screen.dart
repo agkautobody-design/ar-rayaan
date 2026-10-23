@@ -22,6 +22,7 @@ import '../application/quran_providers.dart';
 import '../domain/quran_texts.dart';
 import '../domain/quran_models.dart';
 import '../domain/surah_search.dart';
+import '../../../app/theme/widgets/whole_word_text.dart';
 import 'quran_offline_card.dart';
 
 /// Qur'an index — all 114 surahs + Continue Reading banner.
@@ -175,7 +176,7 @@ class _QuranScreenState extends ConsumerState<QuranScreen> {
                               ),
                               const SizedBox(width: 12),
                               Expanded(
-                                child: Text(
+                                child: WholeWordText(
                                   'Bookmarks, collections & notes',
                                   style: AppText.body.copyWith(
                                     fontWeight: FontWeight.w600,

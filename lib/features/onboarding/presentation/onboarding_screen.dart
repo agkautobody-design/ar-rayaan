@@ -8,6 +8,8 @@ import '../../../app/core/i18n/app_locale.dart';
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
+import '../../../app/theme/widgets/whole_word_text.dart';
+import '../../elder/application/elder_mode.dart';
 
 class OnboardingScreen extends ConsumerStatefulWidget {
   const OnboardingScreen({super.key});
@@ -131,6 +133,37 @@ class _OnboardingState extends ConsumerState<OnboardingScreen> {
       await Future<void>.delayed(const Duration(milliseconds: 60));
       unawaited(router.push<void>(route));
     }
+  }
+
+  /// Big text or a very narrow screen: the person probably struggles to read
+  /// small words, so the welcome offers Elder Mode right here.
+  static bool _bigOrNarrow(BuildContext context) =>
+      MediaQuery.textScalerOf(context).scale(14) / 14 > 1.3 ||
+      MediaQuery.sizeOf(context).width < 260;
+
+  /// Elder Mode from the first screen: ends the introduction (it is seen) and
+  /// opens the Elder home, which keeps the app big from then on.
+  Future<void> _useElderMode() async {
+    if (_finishing) return;
+    _finishing = true;
+    final GoRouter router = GoRouter.of(context);
+    ProviderContainer? container;
+    try {
+      container = ProviderScope.containerOf(context);
+    } catch (_) {
+      // No provider scope (a bare test harness): the plain flag is set below.
+    }
+    try {
+      final p = await SharedPreferences.getInstance();
+      await p.setBool(OnboardingScreen.pref, true);
+    } catch (_) {}
+    OnboardingScreen.completedThisSession = true;
+    if (container != null) {
+      await container.read(elderModeProvider.notifier).set(true);
+    } else {
+      await ElderMode.set(true);
+    }
+    router.go(ElderMode.homeRoute);
   }
 
   /// Two screens only: one short welcome, then the goal choice.
@@ -266,6 +299,10 @@ class _OnboardingState extends ConsumerState<OnboardingScreen> {
                 ),
                 const SizedBox(height: 22),
                 _languageChooser(l10n),
+                if (_bigOrNarrow(context)) ...[
+                  const SizedBox(height: 18),
+                  _elderOffer(),
+                ],
               ],
             ),
           ),
@@ -274,7 +311,47 @@ class _OnboardingState extends ConsumerState<OnboardingScreen> {
     );
   }
 
-
+  /// "Easier to read?" - one big tap for Elder Mode (big words, big buttons,
+  /// a simple home). It can be switched off again in Settings.
+  Widget _elderOffer() {
+    return Semantics(
+      button: true,
+      label: 'Easier to read. Turn on Elder Mode: big words and a simple home.',
+      excludeSemantics: true,
+      child: InkWell(
+        key: const Key('onboarding-elder-offer'),
+        onTap: _useElderMode,
+        borderRadius: BorderRadius.circular(14),
+        child: Container(
+          width: double.infinity,
+          constraints: const BoxConstraints(minHeight: 56),
+          padding: const EdgeInsets.all(14),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(14),
+            border: Border.all(color: AppColors.gold.withValues(alpha: 0.7)),
+            color: AppColors.gold.withValues(alpha: 0.08),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              WholeWordText(
+                'Easier to read? Turn on Elder Mode',
+                style: AppText.body.copyWith(
+                    fontSize: 15, fontWeight: FontWeight.w700,
+                    color: AppColors.goldLight),
+              ),
+              const SizedBox(height: 4),
+              WholeWordText(
+                'Big words, big buttons and a simple home. '
+                'You can turn it off in Settings.',
+                style: AppText.bodyMuted.copyWith(fontSize: 13),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 
   /// The first-run language choice. It sets the language straight away (and
   /// the layout direction for Arabic and Urdu) and says plainly how much of
@@ -362,21 +439,36 @@ class _OnboardingState extends ConsumerState<OnboardingScreen> {
                     textAlign: TextAlign.center,
                     style: AppText.bodyMuted.copyWith(fontSize: 13)),
                 const SizedBox(height: 18),
-                for (var row = 0; row < 3; row++)
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 10),
-                    child: Row(
-                      children: [
-                        for (var col = 0; col < 2; col++)
-                          Expanded(
-                            child: Padding(
-                              padding: EdgeInsets.only(right: col == 0 ? 5 : 0, left: col == 1 ? 5 : 0),
-                              child: _needCard(_needs[row * 2 + col], l10n),
+                if (_bigOrNarrow(context) ||
+                    MediaQuery.textScalerOf(context).scale(14) / 14 > 1.15)
+                  // One card per line: two side by side are too narrow for
+                  // whole words at big text.
+                  for (final _Need n in _needs)
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: SizedBox(
+                        width: double.infinity,
+                        child: _needCard(n, l10n),
+                      ),
+                    )
+                else
+                  for (var row = 0; row < 3; row++)
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: Row(
+                        children: [
+                          for (var col = 0; col < 2; col++)
+                            Expanded(
+                              child: Padding(
+                                padding: EdgeInsets.only(
+                                    right: col == 0 ? 5 : 0,
+                                    left: col == 1 ? 5 : 0),
+                                child: _needCard(_needs[row * 2 + col], l10n),
+                              ),
                             ),
-                          ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
               ],
             ),
           ),
@@ -407,12 +499,12 @@ class _OnboardingState extends ConsumerState<OnboardingScreen> {
           Icon(n.icon, size: 22,
               color: selected ? AppColors.gold : AppColors.sand.withValues(alpha: 0.6)),
           const SizedBox(height: 8),
-          Text(l10n.english(n.title), textAlign: TextAlign.center,
+          WholeWordText(l10n.english(n.title), textAlign: TextAlign.center,
               style: AppText.body.copyWith(
                   fontSize: 12.5, fontWeight: FontWeight.w600,
                   color: selected ? AppColors.goldLight : null)),
           const SizedBox(height: 4),
-          Text(n.blurb, textAlign: TextAlign.center,
+          WholeWordText(n.blurb, textAlign: TextAlign.center,
               style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.4)),
         ]),
       ),

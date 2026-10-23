@@ -603,7 +603,9 @@ GoRouter buildRouter({String initialLocation = '/'}) {
       ),
       GoRoute(
         path: AppRoutes.settings,
-        pageBuilder: (c, s) => _fade(const SettingsScreen()),
+        // No Ask Hadi pill here: it sat over the Text size choices and a
+        // first tap on "Large" opened the chat instead.
+        pageBuilder: (c, s) => _fade(const SettingsScreen(), pill: false),
       ),
       GoRoute(
         path: AppRoutes.sources,

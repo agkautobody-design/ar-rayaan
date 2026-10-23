@@ -23,6 +23,7 @@ import '../../../app/theme/widgets/focus_ring.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/gold_text.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
+import '../../../app/theme/widgets/whole_word_text.dart';
 import '../../adhkar/application/adhkar_providers.dart';
 import '../../adhkar/domain/adhkar_models.dart';
 import '../../lamha/domain/lamha.dart';
@@ -352,7 +353,11 @@ class HomeScreen extends ConsumerWidget {
                             ? 5
                             : MediaQuery.of(context).size.width > 780
                                 ? 4
-                                : 3,
+                                // A very narrow window (a zoomed browser):
+                                // two columns, so a tile word has room.
+                                : MediaQuery.of(context).size.width < 300
+                                    ? 2
+                                    : 3,
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
                         mainAxisSpacing: 8,
@@ -960,10 +965,9 @@ class _PictureTile extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Flexible(
-                      child: Text(
+                      child: WholeWordText(
                         title,
                         maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
                         style: AppText.body.copyWith(
                           fontSize: 12,
                           fontWeight: FontWeight.w700,
@@ -976,10 +980,9 @@ class _PictureTile extends StatelessWidget {
                     ),
                     const SizedBox(height: 2),
                     Flexible(
-                      child: Text(
+                      child: WholeWordText(
                         subtitle,
                         maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
                         style: AppText.bodyMuted.copyWith(
                           fontSize: 12,
                           height: 1.3,

@@ -484,7 +484,10 @@ class _PrayerRow extends ConsumerWidget {
     // whole 48dp target. When the words would not fit side by side (a big
     // text size or a narrow phone) the time moves under the name.
     final double scale = MediaQuery.textScalerOf(context).scale(14) / 14;
+    // 17: the list is read for its times, so its words are not smaller than
+    // the words around the big "Next prayer" heading.
     final TextStyle nameStyle = AppText.body.copyWith(
+      fontSize: 17,
       color: nameColor,
       fontWeight: isNext ? FontWeight.w600 : FontWeight.w400,
     );
@@ -707,26 +710,27 @@ class _CitySheetState extends State<CitySheet> {
   }
 }
 
+/// Opens the city picker and saves the choice.
+Future<void> _pickCity(BuildContext context, WidgetRef ref) async {
+  final PrayerLocation? chosen = await showModalBottomSheet<PrayerLocation>(
+    context: context,
+    isScrollControlled: true,
+    backgroundColor: AppColors.night,
+    shape: const RoundedRectangleBorder(
+      borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+    ),
+    builder: (BuildContext ctx) => const CitySheet(),
+  );
+  if (chosen != null) {
+    await ref
+        .read(prayerLocationControllerProvider.notifier)
+        .setLocation(chosen);
+  }
+}
+
 /// O-11 location card — GPS fix or manual city pick; persists across visits.
 class _LocationCard extends ConsumerWidget {
   const _LocationCard();
-
-  Future<void> _pickCity(BuildContext context, WidgetRef ref) async {
-    final PrayerLocation? chosen = await showModalBottomSheet<PrayerLocation>(
-      context: context,
-      isScrollControlled: true,
-      backgroundColor: AppColors.night,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
-      ),
-      builder: (BuildContext ctx) => const CitySheet(),
-    );
-    if (chosen != null) {
-      await ref
-          .read(prayerLocationControllerProvider.notifier)
-          .setLocation(chosen);
-    }
-  }
 
   Future<void> _useGps(WidgetRef ref) async {
     await ref.read(prayerLocationControllerProvider.notifier).useGps();
@@ -800,7 +804,7 @@ class _LocationCard extends ConsumerWidget {
                 icon: const Icon(Icons.my_location, size: 14),
                 label: Text(
                   status == GpsStatus.locating ? 'Locating\u2026' : 'My location',
-                  style: const TextStyle(fontSize: 12),
+                  style: const TextStyle(fontSize: 14),
                 ),
                 style: TextButton.styleFrom(
                   foregroundColor: AppColors.goldLight,
@@ -809,7 +813,7 @@ class _LocationCard extends ConsumerWidget {
               TextButton.icon(
                 onPressed: () => _pickCity(context, ref),
                 icon: const Icon(Icons.location_city, size: 14),
-                label: const Text('City', style: TextStyle(fontSize: 12)),
+                label: const Text('City', style: TextStyle(fontSize: 14)),
                 style: TextButton.styleFrom(
                   foregroundColor: AppColors.goldLight,
                 ),
@@ -823,11 +827,16 @@ class _LocationCard extends ConsumerWidget {
 }
 
 /// Shown until the person sets a location: no times are guessed.
-class _SetLocationPrompt extends StatelessWidget {
+class _SetLocationPrompt extends ConsumerWidget {
   const _SetLocationPrompt();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    // Watched so the button reads "Locating..." while the fix is pending.
+    ref.watch(prayerLocationControllerProvider);
+    final GpsStatus status = ref
+        .read(prayerLocationControllerProvider.notifier)
+        .gpsStatus;
     return ListView(
       padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
       children: <Widget>[
@@ -850,6 +859,47 @@ class _SetLocationPrompt extends StatelessWidget {
                 '\u201cCity\u201d to pick your city from the list. The times '
                 'are then calculated on your device.',
                 style: AppText.bodyMuted.copyWith(height: 1.55),
+              ),
+              const SizedBox(height: 16),
+              // One big button per choice, so the first thing a person sees
+              // is what to press (the small links above are easy to miss).
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton.icon(
+                  key: const Key('prayer-prompt-gps'),
+                  onPressed: status == GpsStatus.locating
+                      ? null
+                      : () => unawaited(
+                          ref
+                              .read(prayerLocationControllerProvider.notifier)
+                              .useGps(),
+                        ),
+                  icon: const Icon(Icons.my_location),
+                  label: Text(
+                    status == GpsStatus.locating
+                        ? 'Locating\u2026'
+                        : 'Use my location',
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.gold,
+                    foregroundColor: const Color(0xFF0A0F18),
+                    minimumSize: const Size.fromHeight(56),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10),
+              SizedBox(
+                width: double.infinity,
+                child: OutlinedButton.icon(
+                  key: const Key('prayer-prompt-city'),
+                  onPressed: () => unawaited(_pickCity(context, ref)),
+                  icon: const Icon(Icons.location_city),
+                  label: const Text('Choose my city'),
+                  style: OutlinedButton.styleFrom(
+                    foregroundColor: AppColors.goldLight,
+                    minimumSize: const Size.fromHeight(56),
+                  ),
+                ),
               ),
             ],
           ),

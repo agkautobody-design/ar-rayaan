@@ -25,6 +25,7 @@ import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/needs_internet_view.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../../elder/application/elder_mode.dart';
 import '../../habits/application/return_loop.dart';
 import '../../habits/presentation/quiet_done.dart';
 import '../application/quran_marks_controller.dart';
@@ -115,9 +116,26 @@ class _SurahReaderScreenState extends ConsumerState<SurahReaderScreen> {
     });
   }
 
+  List<HeaderAction> _sizeActions(ArabicSizeController size) => <HeaderAction>[
+    HeaderAction(
+      icon: Icons.text_decrease,
+      tooltip: 'Smaller text',
+      onTap: size.smaller,
+    ),
+    HeaderAction(
+      icon: Icons.text_increase,
+      tooltip: 'Larger text',
+      onTap: size.larger,
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     final AsyncValue<Surah> surah = ref.watch(surahProvider(widget.number));
+    // A- / A+ live in the header so they never scroll away while reading.
+    // On a very narrow window there is no room, so the toolbar keeps them.
+    final bool sizeInHeader = MediaQuery.sizeOf(context).width >= 300;
+    final ArabicSizeController sizeCtl = ref.read(arabicSizeProvider.notifier);
 
     return ScenicScaffold.pattern(
       // Escape leaves the surah: with three buttons per ayah, Tab alone made
@@ -136,8 +154,14 @@ class _SurahReaderScreenState extends ConsumerState<SurahReaderScreen> {
           child: Column(
             children: [
               surah.maybeWhen(
-                data: (Surah s) => ScreenHeader(title: s.meta.transliteration),
-                orElse: () => const ScreenHeader(title: 'Qur\'an'),
+                data: (Surah s) => ScreenHeader(
+                  title: s.meta.transliteration,
+                  actions: sizeInHeader ? _sizeActions(sizeCtl) : const [],
+                ),
+                orElse: () => ScreenHeader(
+                  title: 'Qur\'an',
+                  actions: sizeInHeader ? _sizeActions(sizeCtl) : const [],
+                ),
               ),
               // The reading controls (Jump, text size, bookmarks) and the heading
               // are the first items INSIDE the list, so they scroll away and the
@@ -291,6 +315,7 @@ class _ReaderState extends ConsumerState<_Reader> {
                   surah: surah.meta.number,
                   ayahCount: n,
                   onJump: jumpTo,
+                  showSize: MediaQuery.sizeOf(context).width < 300,
                 ),
                 _MadinahLink(surah: surah.meta.number, ayahCount: n),
                 _heading(surah, showBismillah),
@@ -440,9 +465,13 @@ class _ReaderToolbar extends ConsumerWidget {
     required this.surah,
     required this.ayahCount,
     required this.onJump,
+    required this.showSize,
   });
 
   final int surah;
+
+  /// False when the header already carries the text-size buttons.
+  final bool showSize;
 
   /// Null while the surah is still loading.
   final int? ayahCount;
@@ -516,6 +545,7 @@ class _ReaderToolbar extends ConsumerWidget {
                 label: const Text('Jump to ayah'),
               ),
             ),
+          if (showSize) ...<Widget>[
           IconButton(
             tooltip: 'Smaller Arabic text',
             constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
@@ -538,6 +568,7 @@ class _ReaderToolbar extends ConsumerWidget {
             onPressed: size.larger,
             icon: const Icon(Icons.text_increase, color: AppColors.gold),
           ),
+          ],
           IconButton(
             tooltip: 'My bookmarks, collections and notes',
             constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
@@ -737,6 +768,12 @@ class _AyahBlock extends ConsumerWidget {
     );
     final bool saved = mark?.bookmarked ?? false;
     final bool hasNote = mark?.note.isNotEmpty ?? false;
+    final bool elder = ref.watch(elderModeProvider);
+    // The translation and transliteration follow the A- / A+ choice, so one
+    // control makes everything on the page bigger, not only the Arabic.
+    final double follow = (arabicSize / ArabicSizeController.defaultSize)
+        .clamp(0.8, 2.0)
+        .toDouble();
     return Semantics(
       container: true,
       label: 'Surah $surahName, ayah ${ayah.number}',
@@ -785,7 +822,7 @@ class _AyahBlock extends ConsumerWidget {
                 Text(
                   tr!,
                   style: AppText.body.copyWith(
-                    fontSize: 12.5,
+                    fontSize: 12.5 * follow,
                     height: 1.6,
                     fontStyle: FontStyle.italic,
                     color: const Color(0xFFCFBE92),
@@ -796,7 +833,10 @@ class _AyahBlock extends ConsumerWidget {
                 const SizedBox(height: 8),
               Text(
                 ayah.english,
-                style: AppText.bodyMuted.copyWith(fontSize: 13, height: 1.55),
+                style: AppText.bodyMuted.copyWith(
+                  fontSize: 13 * follow,
+                  height: 1.55,
+                ),
               ),
               if (hasNote)
                 Padding(
@@ -806,6 +846,67 @@ class _AyahBlock extends ConsumerWidget {
                     style: AppText.caption.copyWith(color: AppColors.gold),
                   ),
                 ),
+              if (elder)
+                // Elder Mode: three big buttons that say what they do.
+                Wrap(
+                  alignment: WrapAlignment.end,
+                  spacing: 8,
+                  runSpacing: 4,
+                  children: <Widget>[
+                    TextButton.icon(
+                      style: TextButton.styleFrom(
+                        minimumSize: const Size(48, 56),
+                        foregroundColor: AppColors.goldLight,
+                      ),
+                      onPressed: () => unawaited(
+                        ref
+                            .read(recitationServiceProvider.notifier)
+                            .toggle(surahNumber, ayah.number),
+                      ),
+                      icon: Icon(
+                        playing
+                            ? Icons.stop_circle_outlined
+                            : Icons.play_circle_outline,
+                        size: 28,
+                      ),
+                      label: Text(playing ? 'Stop' : 'Play'),
+                    ),
+                    TextButton.icon(
+                      style: TextButton.styleFrom(
+                        minimumSize: const Size(48, 56),
+                        foregroundColor: AppColors.goldLight,
+                      ),
+                      onPressed: () => unawaited(
+                        ref
+                            .read(quranMarksProvider.notifier)
+                            .toggleBookmark(surahNumber, ayah.number),
+                      ),
+                      icon: Icon(
+                        saved ? Icons.bookmark : Icons.bookmark_border,
+                        size: 28,
+                      ),
+                      label: Text(saved ? 'Saved' : 'Save'),
+                    ),
+                    TextButton.icon(
+                      style: TextButton.styleFrom(
+                        minimumSize: const Size(48, 56),
+                        foregroundColor: AppColors.goldLight,
+                      ),
+                      onPressed: () => showAyahActions(
+                        context,
+                        surahName: surahName,
+                        surah: surahNumber,
+                        ayah: ayah,
+                      ),
+                      icon: Icon(
+                        hasNote ? Icons.edit_note : Icons.more_horiz,
+                        size: 28,
+                      ),
+                      label: const Text('More'),
+                    ),
+                  ],
+                )
+              else
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [

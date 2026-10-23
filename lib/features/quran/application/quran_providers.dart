@@ -133,7 +133,7 @@ class ArabicSizeController extends Notifier<double> {
   static const String prefsKey = 'ar.quran.arabicSize';
   static const double min = 16;
   static const double max = 40;
-  static const double step = 2;
+  static const double step = 3;
   static const double defaultSize = 21;
 
   @override

@@ -8,6 +8,7 @@ import '../../../features/elder/application/elder_mode.dart';
 import '../../core/i18n/app_locale.dart';
 import '../app_colors.dart';
 import 'focus_ring.dart';
+import 'whole_word_text.dart';
 
 /// Locked bottom navigation: Home · Faith · Family · Hādi · You.
 ///
@@ -115,10 +116,10 @@ class _NavItem extends StatelessWidget {
                       : null,
                 ),
                 const SizedBox(height: 4),
-                Text(
+                WholeWordText(
                   label,
                   maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                     fontFamily: 'Inter',
                     fontSize: 12,

@@ -7,6 +7,7 @@ import '../../router.dart';
 import '../app_colors.dart';
 import '../app_typography.dart';
 import 'focus_ring.dart';
+import 'whole_word_text.dart';
 
 /// Largest text scale the header title itself grows to.
 const double kHeaderTitleMaxScale = 1.3;
@@ -19,7 +20,12 @@ class ScreenHeader extends StatelessWidget {
     super.key,
     this.close = false,
     this.showSettings = true,
+    this.actions = const <HeaderAction>[],
   });
+
+  /// Extra round buttons on the right (for example the Qur'an reader's text
+  /// size). They replace the Settings gear, so the title keeps its room.
+  final List<HeaderAction> actions;
 
   final String title;
 
@@ -78,28 +84,50 @@ class ScreenHeader extends StatelessWidget {
               header: true,
               child: MediaQuery.withClampedTextScaling(
                 maxScaleFactor: kHeaderTitleMaxScale,
-                child: Text(
+                // A word wider than the slot shrinks to fit instead of
+                // breaking inside ("Praye / r Ti...").
+                child: WholeWordText(
                   title,
                   style: AppText.titleMedium,
                   textAlign: TextAlign.center,
                   maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
                 ),
               ),
             ),
           ),
-          if (showSettings)
+          if (actions.isNotEmpty)
+            for (final HeaderAction a in actions)
+              _RoundButton(
+                icon: a.icon,
+                tooltip: a.tooltip,
+                onTap: a.onTap,
+                hitSize: 48,
+              )
+          else if (showSettings)
             _RoundButton(
               icon: Icons.settings_outlined,
               tooltip: 'Settings',
               onTap: () => context.push(AppRoutes.settings),
             )
           else
-            const SizedBox(width: _RoundButton.hitSize),
+            const SizedBox(width: _RoundButton.defaultHitSize),
         ],
       ),
     );
   }
+}
+
+/// One extra round button of a [ScreenHeader].
+class HeaderAction {
+  const HeaderAction({
+    required this.icon,
+    required this.tooltip,
+    required this.onTap,
+  });
+
+  final IconData icon;
+  final String tooltip;
+  final VoidCallback onTap;
 }
 
 class _RoundButton extends StatelessWidget {
@@ -107,10 +135,14 @@ class _RoundButton extends StatelessWidget {
     required this.icon,
     required this.tooltip,
     required this.onTap,
+    this.hitSize = defaultHitSize,
   });
 
   /// 44 logical px touch target around the 36 px visual circle.
-  static const double hitSize = 44;
+  static const double defaultHitSize = 44;
+
+  /// The touch target actually used (48 for the extra header actions).
+  final double hitSize;
 
   final IconData icon;
   final String tooltip;
