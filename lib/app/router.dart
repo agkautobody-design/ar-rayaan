@@ -235,6 +235,13 @@ extension _OpenGuard on BuildContext {
   }
 }
 
+/// The route [AppNavigation.open] has just started and not yet drawn. A
+/// second tap on the same target in the same frame is the same tap: a reply
+/// that grows under the finger can deliver it before the first push is on
+/// top, and each extra push stacks one more copy that Back then has to peel
+/// off one by one. Cleared after the next frame.
+String? _opening;
+
 /// Navigation that keeps Back honest.
 extension AppNavigation on BuildContext {
   /// Opens [route] ON TOP of the current screen, so Back / Close return to
@@ -243,6 +250,10 @@ extension AppNavigation on BuildContext {
   void open(String route, {Object? extra}) {
     final String path = Uri.tryParse(route)?.path ?? route;
     if (_alreadyOnTop(route, path, extra)) return;
+    if (_opening == route) return;
+    _opening = route;
+    WidgetsBinding.instance.addPostFrameCallback((_) => _opening = null);
+    WidgetsBinding.instance.scheduleFrame();
     if (kShellTabPaths.contains(path)) {
       go(route, extra: extra);
     } else {

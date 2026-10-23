@@ -644,9 +644,15 @@ class HadiController extends Notifier<HadiState> {
       'Please ask again in a moment. If you are in danger right now, please '
       'contact your local emergency number.';
 
+  bool _asking = false;
+
   /// Never leaves Hādi stuck "typing": whatever fails anywhere in [_ask],
   /// the person gets a plain reply and can ask again.
   Future<String> ask(String question, {HadiProvider? provider}) async {
+    // `typing` is only set after the first awaits inside [_ask]; this flag is
+    // set at once, so a chip tapped twice in a row asks one question, not two.
+    if (_asking) return '';
+    _asking = true;
     final int before = state.messages.length;
     try {
       return await _ask(question, provider: provider);
@@ -669,6 +675,8 @@ class HadiController extends Notifier<HadiState> {
         } catch (_) {}
       }
       return _askFailed;
+    } finally {
+      _asking = false;
     }
   }
 

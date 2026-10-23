@@ -1,3 +1,4 @@
+import 'dart:async' show unawaited;
 import 'dart:convert';
 import 'dart:math';
 
@@ -12,6 +13,7 @@ import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/needs_internet_view.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/core/content/content_sync.dart';
+import '../../../app/core/providers.dart';
 
 class TriviaQ {
   final String id, category, question, why;
@@ -428,8 +430,33 @@ class Names99Screen extends ConsumerStatefulWidget {
 }
 
 class _Names99ScreenState extends ConsumerState<Names99Screen> {
+  /// Where the person was, kept on the device so Back from Ask Hādi (or a
+  /// reopened screen) returns to the same name instead of the first.
+  static const String _posKey = 'ar.names99.index';
+
   int _i = 0;
   bool _flip = false;
+
+  @override
+  void initState() {
+    super.initState();
+    try {
+      _i = ref.read(sharedPreferencesProvider).getInt(_posKey) ?? 0;
+    } catch (_) {
+      // No stored place (or no store in a bare test): start at the first.
+    }
+    if (_i < 0) _i = 0;
+  }
+
+  void _go(int next) {
+    setState(() {
+      _i = next;
+      _flip = false;
+    });
+    try {
+      unawaited(ref.read(sharedPreferencesProvider).setInt(_posKey, next));
+    } catch (_) {}
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -448,6 +475,7 @@ class _Names99ScreenState extends ConsumerState<Names99Screen> {
           ),
         ]),
         data: (deck) {
+          if (_i >= deck.length) _i = deck.length - 1;
           final d = deck[_i];
           return ListView(
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
@@ -500,7 +528,7 @@ class _Names99ScreenState extends ConsumerState<Names99Screen> {
                 children: [
                   TextButton(
                     onPressed: _i > 0
-                        ? () => setState(() { _i--; _flip = false; })
+                        ? () => _go(_i - 1)
                         : null,
                     child: Text('Previous',
                         style: TextStyle(
@@ -510,7 +538,7 @@ class _Names99ScreenState extends ConsumerState<Names99Screen> {
                   ),
                   TextButton.icon(
                     onPressed: _i < deck.length - 1
-                        ? () => setState(() { _i++; _flip = false; })
+                        ? () => _go(_i + 1)
                         : null,
                     iconAlignment: IconAlignment.end,
                     icon: const Icon(Icons.arrow_forward_ios,
