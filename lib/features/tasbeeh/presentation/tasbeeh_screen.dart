@@ -298,7 +298,7 @@ class _TapPad extends StatelessWidget {
                           '${state.count}',
                           key: const ValueKey<String>('tasbeeh-count'),
                           style: const TextStyle(
-                            fontFamily: AppText.display,
+                            fontFamily: AppFonts.display,
                             fontSize: 120,
                             height: 1.1,
                             color: AppColors.gold,
