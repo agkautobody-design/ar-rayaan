@@ -138,7 +138,7 @@ void main() {
     await AppHarness.settle(tester);
     final Finder anchor = find.byType(Scaffold).last;
     expect(AppHarness.location(tester, anchor), AppRoutes.onboarding);
-    expect(find.text('This is Ar-Rayaan'), findsOneWidget);
+    expect(find.text('Welcome to Ar-Rayaan'), findsOneWidget);
 
     GoRouter.of(tester.element(anchor)).pop();
     await AppHarness.settle(tester);
