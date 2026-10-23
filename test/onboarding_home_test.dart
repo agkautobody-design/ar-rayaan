@@ -185,6 +185,7 @@ void main() {
       final GoRouter router = await pumpOnboarding(tester);
       await tester.tap(find.text('Next'));
       await tester.pumpAndSettle();
+      await tester.ensureVisible(find.text('Praying on time'));
       await tester.tap(find.text('Praying on time'));
       await tester.pump();
       await tester.tap(find.text('Begin'));
