@@ -438,21 +438,20 @@ class _Names99ScreenState extends ConsumerState<Names99Screen> {
   bool _flip = false;
   bool _list = false;
 
-  Widget _modeToggle() => Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+  Widget _modeToggle() => Wrap(
+        alignment: WrapAlignment.center,
+        spacing: 8,
+        runSpacing: 4,
         children: [
           for (final (bool, String) m in const <(bool, String)>[
             (false, 'One at a time'),
             (true, 'All 99'),
           ])
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 4),
-              child: ChoiceChip(
-                key: Key(m.$1 ? 'names-mode-list' : 'names-mode-cards'),
-                label: Text(m.$2),
-                selected: _list == m.$1,
-                onSelected: (_) => setState(() => _list = m.$1),
-              ),
+            ChoiceChip(
+              key: Key(m.$1 ? 'names-mode-list' : 'names-mode-cards'),
+              label: Text(m.$2),
+              selected: _list == m.$1,
+              onSelected: (_) => setState(() => _list = m.$1),
             ),
         ],
       );
