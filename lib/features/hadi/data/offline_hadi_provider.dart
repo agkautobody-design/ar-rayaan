@@ -1053,14 +1053,69 @@ class OfflineHadiProvider implements HadiProvider {
       asked = follow.question ?? question;
     }
 
+    final String answer = await _routed(asked, history);
+    // Never say the same paragraph twice: a second, identical answer to a
+    // new question (or the same one again) is replaced by a short, varied
+    // note that points to where more can be found.
+    if (HadiRouting.repeatsEarlier(answer, history)) {
+      return HadiRouting.repeatReply(question, history);
+    }
+    return answer;
+  }
+
+  /// True when [question] is about a medicine, a dose or a prescription.
+  static bool asksMedical(String question) =>
+      tokens(question).any(HadiRouting.medicalWords.contains);
+
+  Future<String> _routed(String asked, List<HadiMessage> history) async {
+    final String n = CrisisDetector.normalize(asked);
+    final bool heavy = _distress.hasMatch(n) && !_thirdPartyQuestion(n);
+
     // Replies that say what Hādi can do, or send the person to content the
     // app already has, before the shelf is searched.
     if (HadiRouting.describesSelf(asked)) {
       return HadiRouting.selfDescriptionReply;
     }
     if (HadiRouting.asksBeginner(asked)) return HadiRouting.beginnerReply;
+    if (!heavy && HadiRouting.asksNewcomerLoose(asked)) {
+      return HadiRouting.beginnerReply;
+    }
     if (HadiRouting.asksRamadanPlan(asked)) return HadiRouting.ramadanPlanReply;
     if (HadiRouting.asksTahajjudHow(asked)) return HadiExplain.tahajjudReply;
+    // A legal penalty asked about as a fact ("is it true apostates must be
+    // killed? give me the source") is for a scholar, whatever else it says.
+    if (RulingGate.isLegalPenaltyQuestion(asked)) return HadiExplain.legalReply;
+    // A question the shelf has no answer for must not get a confident answer
+    // to a different one.
+    if (HadiRouting.asksCombinePrayers(asked)) {
+      return HadiRouting.travelPrayerReply;
+    }
+    if (HadiRouting.asksAboutSourceShaykh(asked)) {
+      return HadiRouting.sourceShaykhReply;
+    }
+    if (HadiRouting.asksUnknownPerson(
+      asked,
+      known: (String w) => _df.containsKey(_stem(w)),
+    )) {
+      return HadiRouting.unknownPersonReply;
+    }
+    if (HadiRouting.asksGroupDifference(asked)) {
+      return HadiRouting.groupDifferenceReply;
+    }
+    if (HadiRouting.asksSpouseRights(asked)) {
+      return HadiRouting.spouseRightsReply;
+    }
+    if (HadiRouting.asksMemoriseHow(asked)) return HadiRouting.memoriseReply;
+    if (HadiRouting.asksRelationship(asked)) {
+      // Someone who is hurting over it is met with the comfort reply, never
+      // with a verse about sin.
+      if (heavy) {
+        final int pick =
+            asked.codeUnits.fold<int>(0, (int a, int b) => a + b);
+        return distressReplies[pick % distressReplies.length];
+      }
+      return HadiRouting.relationshipReply;
+    }
     // Answers built only from lines the app already shows (the guides, the
     // New Muslim path, the sources page), and honest pointers where it holds
     // no verified text.

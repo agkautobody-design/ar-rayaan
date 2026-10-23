@@ -189,12 +189,21 @@ abstract final class RulingGate {
   /// True for a third-person question about a legal penalty (see above).
   static bool isLegalPenaltyQuestion(String question) {
     final String q = _expand(question.toLowerCase());
-    return _legalPenalty.hasMatch(q) && !_speaker.hasMatch(q);
+    return _legalPenalty.hasMatch(q) && !_speakerIn(q);
   }
+
+  /// "Give me the source" asks for a reference; it does not put the
+  /// speaker's own case in the sentence.
+  static final RegExp _askingForMe = RegExp(
+    r'\b(?:give|show|tell|send|let|help|teach|get)\s+(?:me|us)\b',
+  );
+
+  static bool _speakerIn(String q) =>
+      _speaker.hasMatch(q.replaceAll(_askingForMe, ' '));
 
   static RulingClass classify(String question) {
     final String q = _expand(question.toLowerCase());
-    if (_legalPenalty.hasMatch(q) && !_speaker.hasMatch(q)) {
+    if (_legalPenalty.hasMatch(q) && !_speakerIn(q)) {
       return RulingClass.general;
     }
     final bool topic = _topic.hasMatch(q) || _topicArabic.hasMatch(q);

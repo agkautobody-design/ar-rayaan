@@ -32,8 +32,11 @@ const List<AnswerCase> kAnswerCases = <AnswerCase>[
   AnswerCase('fajr', 'How many rakats is Fajr?', 'Fajr is two'),
   AnswerCase('breaks-wudu', 'What breaks my wudu?', 'nullified',
       mustNotContain: <String>['purification before prayer']),
-  AnswerCase(
-      'combine', 'Can I combine prayers while travelling?', 'shortens'),
+  // Round 3: the shelf only holds shortening, so combining is said plainly
+  // to be unanswered instead of answered with a different question.
+  AnswerCase('combine', 'Can I combine prayers while travelling?',
+      'do not have a verified answer on combining',
+      mustNotContain: <String>['shortens']),
   AnswerCase('kursi', 'What is the virtue of Ayat al-Kursi?', 'Ayat al-Kursi'),
   AnswerCase(
       'sleep-surah', 'Which surah should I read before sleeping?', 'Before sleep'),

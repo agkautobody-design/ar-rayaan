@@ -480,7 +480,8 @@ void main() {
         expect(m.text.trimRight().endsWith(HadiRouting.refusalLeadIn), isTrue,
             reason: 'the line must sit right above the buttons');
       }
-      expect(m.routes.first, '/sources');
+      // Round 3: the buttons go to the app's own marriage content.
+      expect(m.routes.first, '/huda/guide?id=huda-nikah');
       expect(m.routes, contains('/academy/family-life'));
     });
 
