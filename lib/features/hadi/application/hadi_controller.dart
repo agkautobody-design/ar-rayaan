@@ -16,6 +16,7 @@ import '../../../app/core/subscription/subscription_service.dart';
 import '../../sakina/application/sakina_providers.dart';
 import '../../sakina/domain/crisis_detector.dart';
 import '../data/groq_hadi_provider.dart';
+import '../data/hadi_explain.dart';
 import '../data/hadi_routing.dart';
 import '../data/offline_hadi_provider.dart';
 import '../grounding/answer_verifier.dart';
@@ -85,12 +86,34 @@ const Map<String, String> kHadiRouteNames = <String, String>{
   '/academy/quranic-arabic': 'the Quranic Arabic school',
   '/academy/ramadan-mode': 'Ramadan Mode',
   '/ramadan': 'the Ramadan screen',
+  '/academy/family-life': 'Family Life School',
+  '/academy/stories': 'Stories School',
+};
+
+/// The Huda guides Hādi may open directly, as `/huda/guide?id=<id>`, with the
+/// button text for each. Each id MUST be a guide in assets/guides/guides.json
+/// (test/hadi_round2_test.dart checks).
+const Map<String, String> kHadiGuideNames = <String, String>{
+  'huda-fasting': 'the Fasting guide',
+  'huda-taraweeh': 'the Ramadan Nights guide',
+  'huda-witr': 'the Witr and night guide',
+  'huda-nikah': 'the Nikah guide',
 };
 
 /// Reads the [GO:] / [DO:] tokens a reply may carry. Pure, so it is tested
 /// without a controller.
 abstract final class HadiTokens {
-  static final RegExp _go = RegExp(r'\[GO:(/[a-z0-9\-/:]+)\]');
+  static final RegExp _go =
+      RegExp(r'\[GO:(/[a-z0-9\-/:]+(?:\?id=[a-z0-9\-]+)?)\]');
+  static final RegExp _guideRoute = RegExp(r'^/huda/guide\?id=([a-z0-9\-]+)$');
+
+  /// True when [route] is a whitelisted screen, or a Huda guide on
+  /// [kHadiGuideNames].
+  static bool isAllowed(String route) {
+    if (kHadiNavWhitelist.contains(route)) return true;
+    final RegExpMatch? g = _guideRoute.firstMatch(route);
+    return g != null && kHadiGuideNames.containsKey(g.group(1));
+  }
   static final RegExp _goAny = RegExp(r'\s*\[GO:[^\]]*\]');
   static final RegExp _doAny = RegExp(r'\s*\[DO:[^\]]*\]');
 
@@ -98,7 +121,7 @@ abstract final class HadiTokens {
   static String? routeOf(String answer) {
     for (final RegExpMatch m in _go.allMatches(answer)) {
       final String? route = m.group(1);
-      if (route != null && kHadiNavWhitelist.contains(route)) return route;
+      if (route != null && isAllowed(route)) return route;
     }
     return null;
   }
@@ -109,9 +132,7 @@ abstract final class HadiTokens {
     final List<String> out = <String>[];
     for (final RegExpMatch m in _go.allMatches(answer)) {
       final String? route = m.group(1);
-      if (route != null &&
-          kHadiNavWhitelist.contains(route) &&
-          !out.contains(route)) {
+      if (route != null && isAllowed(route) && !out.contains(route)) {
         out.add(route);
         if (out.length >= limit) break;
       }
@@ -120,8 +141,13 @@ abstract final class HadiTokens {
   }
 
   /// Button text for [route], for example "Open Prayer Times".
-  static String labelFor(String route) =>
-      'Open ${kHadiRouteNames[route] ?? 'this screen'}';
+  static String labelFor(String route) {
+    final RegExpMatch? g = _guideRoute.firstMatch(route);
+    if (g != null) {
+      return 'Open ${kHadiGuideNames[g.group(1)] ?? 'this guide'}';
+    }
+    return 'Open ${kHadiRouteNames[route] ?? 'this screen'}';
+  }
 
   /// [answer] with every [GO:] and [DO:] token removed.
   static String strip(String answer) =>
@@ -902,8 +928,15 @@ class HadiController extends Notifier<HadiState> {
       // library hadith its answer cites is printed under it from the app's
       // own library (Arabic, translation, grade), exactly as for a live
       // answer. A reference that is not in the library gets no card.
-      sources = AnswerVerifier.citedIds(clean, corpus);
-      // A refusal is never a dead end: the closest place in the app and
+      // A composed reply quotes several lines; two cards are enough, so the
+      // answer never turns into a wall of verses.
+      sources = AnswerVerifier.citedIds(
+        clean,
+        corpus,
+        limit: HadiExplain.isFixed(clean) || HadiRouting.isFixed(clean)
+            ? 2
+            : 5,
+      );      // A refusal is never a dead end: the closest place in the app and
       // Search go under it as buttons.
       final List<String> help = OfflineHadiProvider.refusalRoutes(q, clean);
       if (help.isNotEmpty) {
@@ -934,6 +967,9 @@ class HadiController extends Notifier<HadiState> {
     if (crisis != null) {
       clean = '$clean\n\n${CrisisResponses.reminderFor(crisis)}';
     }
+    // "These may help in the meantime:" only ever sits right above buttons
+    // that exist; with none, the line is removed.
+    clean = HadiRouting.guardLeadIn(clean, routes);
     state = state.copy(
       messages: <HadiMessage>[
         ...state.messages,

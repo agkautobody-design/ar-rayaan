@@ -169,8 +169,34 @@ abstract final class RulingGate {
     r'(?:حكم|حكمه|فتوى|حلال|حرام|يجوز|جائز|ناجائز|حکم|فتویٰ|فتوی)',
   );
 
+  /// A legal penalty asked about as a fact, about nobody in particular:
+  /// "is the punishment for leaving Islam death?", "what is the penalty for
+  /// apostasy". Never fires when the speaker is in the sentence (I, my, we),
+  /// because a person afraid for themself is not asking a legal question.
+  static final RegExp _legalPenalty = RegExp(
+    r'\b(?:(?:punishment|punishments|penalty|penalties|sentence|execution|'
+    r'executed|death\s+penalty|capital\s+punishment|hudud|hadd|stoned|'
+    r'stoning|flogging|lashes|put\s+to\s+death|killed|killing)\b.{0,50}'
+    r'\b(?:leaving\s+islam|leave\s+islam|leaves\s+islam|left\s+islam|'
+    r'apostasy|apostate|apostates|murtad|blasphemy|adultery|zina|theft|'
+    r'stealing|homosexual\w*|disbelief|renounc\w*)|'
+    r'(?:leaving\s+islam|leave\s+islam|leaves\s+islam|apostasy|apostate|'
+    r'apostates|murtad|blasphemy)\b.{0,50}\b(?:punishment|punishments|'
+    r'penalty|penalties|death|executed|killed|sentence|hudud))',
+    caseSensitive: false,
+  );
+
+  /// True for a third-person question about a legal penalty (see above).
+  static bool isLegalPenaltyQuestion(String question) {
+    final String q = _expand(question.toLowerCase());
+    return _legalPenalty.hasMatch(q) && !_speaker.hasMatch(q);
+  }
+
   static RulingClass classify(String question) {
     final String q = _expand(question.toLowerCase());
+    if (_legalPenalty.hasMatch(q) && !_speaker.hasMatch(q)) {
+      return RulingClass.general;
+    }
     final bool topic = _topic.hasMatch(q) || _topicArabic.hasMatch(q);
     final bool ask = _generalAsk.hasMatch(q) || _askArabic.hasMatch(q);
     // A worship state of the speaker's own ("I'm on my period, can I touch
