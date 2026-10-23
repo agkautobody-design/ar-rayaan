@@ -1,5 +1,7 @@
 # Needs scholar content: how the four schools differ
 
+> PARTLY INTEGRATED (owner-approved, verified): the app has the Huda guide `huda-madhhab-overview` with ONE sourced worked example (hands in prayer) and no full table. The reviewed table described below is still needed from a named scholar. See VERIFICATION_LOG.md for every citation checked and everything dropped. Still not scholar-reviewed (OWNER_ACTIONS item 4).
+
 Status: NOT in the app. Hadi now says in the chat itself that it holds no verified text for any single school, names the four schools (Hanafi, Maliki, Shafi'i, Hanbali; that sentence already exists on the shelf) and sends the person to Our Sources. The "Your school of law" setting only changes which school Hadi names when it hands someone to a scholar.
 
 ## Why

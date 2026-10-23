@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import '../../../app/core/content_loader.dart';
 import '../application/quran_repository.dart';
+import '../domain/quran_index.dart';
 import '../domain/quran_models.dart';
 
 /// Serves the complete Qur'an from the bundled asset (Tanzil Uthmani
@@ -51,10 +52,10 @@ class BundledQuranRepository implements QuranRepository {
   @override
   Future<List<Surah>> all() => _load();
 
+  /// Answered from the names bundled in the code, not from the 2 MB text:
+  /// the surah list must show at once, even on a slow connection or offline.
   @override
-  Future<List<SurahMeta>> index() async {
-    return (await _load()).map((Surah s) => s.meta).toList(growable: false);
-  }
+  Future<List<SurahMeta>> index() async => kSurahIndex;
 
   @override
   Future<Surah> surah(int number) async {

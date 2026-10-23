@@ -208,7 +208,7 @@ class DownloadsScreen extends StatelessWidget {
     ('The Qur\u2019an — complete text', 'assets/quran/quran.json'),
     ('Stories library — all collections', 'assets/stories/'),
     ('Prophet lineage — the Messengers\u2019 Tree', 'assets/family/tree.json'),
-    ('Huda — 40 worship guides', 'assets/guides/guides.json'),
+    ('Huda — 51 worship guides', 'assets/guides/guides.json'),
     ('Daily Duas — 18 with Arabic', 'assets/stories/dailyduas.json'),
     ('Games — trivia bank + the 99 Names', 'assets/games/'),
     ('Hadiths for Our Times', 'assets/stories/modernhadith.json'),

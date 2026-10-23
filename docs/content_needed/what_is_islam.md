@@ -1,5 +1,7 @@
 # Optional owner content: a one-sentence plain definition of Islam
 
+> INTEGRATED (owner-approved, verified): the app now has the Huda guide `huda-what-is-islam`, and Hadi's "What is Islam?" answer links it first. The one-line definition is shown as a summary of the guide's sources, not as a scholar's definition. See VERIFICATION_LOG.md for every citation checked and everything dropped. Still not scholar-reviewed (OWNER_ACTIONS item 4).
+
 Status: Hadi's "What is Islam?" answer is built only from lines the app already has: New Muslim path Day 1 and Day 2, Qur'an 3:19 as quoted there, and the Wasia Academy lesson "The six articles of faith" (Muslim 8). It is shown with buttons to the New Muslim path and the Aqeedah school.
 
 The app has no single plain sentence that says what the word "Islam" means or what Islam is in one line. If the owner wants one at the top of the answer, a scholar should supply and approve it.

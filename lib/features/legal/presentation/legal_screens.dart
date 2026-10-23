@@ -12,9 +12,15 @@ import '../legal_routes.dart';
 /// Shown at the top of both documents so nobody mistakes a draft for a
 /// reviewed legal text.
 const String kLegalDraftNotice =
-    'DRAFT — this text has not yet been reviewed by a lawyer. It '
-    'describes honestly what the app does today and will be replaced by a '
-    'reviewed version before a public store release.';
+    'DRAFT — two things are still pending before a public store release: '
+    'a lawyer has not reviewed this text, and the contact address below is '
+    'not published yet. Until then, this describes honestly what the app '
+    'does today.';
+
+/// What the contact address says until the owner publishes a real one
+/// (docs/OWNER_ACTIONS.md, item 6). Never invent an address here.
+const String kLegalContactPending =
+    'not published yet (pending before the public release)';
 
 class LegalSection {
   const LegalSection(this.heading, this.body);
@@ -68,7 +74,7 @@ const List<LegalSection> kTermsSections = <LegalSection>[
   LegalSection(
     'Changes and contact',
     'These terms may change; the version shown here is the one that '
-        'applies. Contact address: [to be added by the app owner before public release].',
+        'applies. Contact address: $kLegalContactPending.',
   ),
 ];
 
@@ -123,7 +129,7 @@ const List<LegalSection> kPrivacySections = <LegalSection>[
     'Your choices',
     'You can delete your account from the Delete account screen, clear '
         'local data from your device settings, and ask us about any data '
-        'we hold about you at the contact address [to be added by the app owner before public release].',
+        'we hold about you. Contact address: $kLegalContactPending.',
   ),
   LegalSection(kChildrenPrivacyTitle, kChildrenPrivacyBody),
 ];

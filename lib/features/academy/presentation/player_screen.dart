@@ -39,6 +39,9 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
   Widget build(BuildContext context) {
     final PlayerQueue queue = ref.watch(playerQueueProvider);
     final catalogAsync = ref.watch(playerCatalogProvider);
+    // One player at a time: while a YouTube / Spotify link plays in its
+    // panel, the (paused) bundled-audio card is not shown beside it.
+    final bool streaming = ref.watch(streamQueueProvider).current != null;
 
     return Scaffold(
       body: AtmosphereLayer(
@@ -102,8 +105,10 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
                 const SizedBox(height: 12),
                 const StreamPlayerPanel(),
                 const SizedBox(height: 12),
-                _NowPlayingCard(queue: queue),
-                const SizedBox(height: 12),
+                if (!streaming) ...<Widget>[
+                  _NowPlayingCard(queue: queue),
+                  const SizedBox(height: 12),
+                ],
                 _MixesRow(),
                 const SizedBox(height: 12),
                 catalogAsync.when(

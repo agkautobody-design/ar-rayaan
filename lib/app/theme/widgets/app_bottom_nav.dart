@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../features/elder/application/elder_mode.dart';
+import '../../core/i18n/app_locale.dart';
 import '../app_colors.dart';
 import 'focus_ring.dart';
 import 'whole_word_text.dart';
@@ -28,6 +29,7 @@ class AppBottomNav extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final L10n l10n = ref.watch(l10nProvider);
     final bool elder = ref.watch(elderModeProvider);
     return ClipRect(
       child: BackdropFilter(
@@ -47,7 +49,7 @@ class AppBottomNav extends ConsumerWidget {
                   Expanded(
                     child: _NavItem(
                       icon: _items[i].$1,
-                      label: _items[i].$2,
+                      label: l10n.english(_items[i].$2),
                       active: shell.currentIndex == i,
                       onTap: () {
                         if (i == 0 && elder) {

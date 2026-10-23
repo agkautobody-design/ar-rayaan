@@ -80,6 +80,8 @@ class SourcesScreen extends ConsumerWidget {
               child: ListView(
                 padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
                 children: [
+                  const _TrustCard(key: Key('trust-card')),
+
                   // ---------------- THE QUR'AN ----------------
                   _SectionLabel('THE QUR’AN'),
                   GlassCard(
@@ -242,6 +244,75 @@ class SourcesScreen extends ConsumerWidget {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+/// Plain statement, at the top of Our Sources, of how the app works and what
+/// it cannot do. Every claim is already made elsewhere in the app (the
+/// content policy, the privacy text, the Hadi screen); keep it that way.
+class _TrustCard extends StatelessWidget {
+  const _TrustCard({super.key});
+
+  static const List<(String, String)> points = <(String, String)>[
+    (
+      'Who writes the answers',
+      'Hādi answers from a shelf of cited Qur’an and hadith texts built '
+          'into the app, and works offline. If you connect your own AI '
+          'account, open questions are answered by that provider’s AI '
+          'instead. Qur’an is never produced by an AI.',
+    ),
+    (
+      'Not reviewed by a scholar yet',
+      'No named scholar has reviewed this app. We check the citations we '
+          'can and say so when we cannot. Please check anything important '
+          'with a scholar.',
+    ),
+    (
+      'What it cannot do',
+      'It is a study aid, not a mufti. It gives no fatwa, and an AI answer '
+          'is never a fatwa. It cannot replace a teacher or a scholar.',
+    ),
+    (
+      'What is free',
+      'Everything in the app today, including Hādi. Nothing asks for a '
+          'card. A paid plan for extra live answers is planned but not '
+          'open yet.',
+    ),
+    (
+      'What stays on your device',
+      'Your settings, bookmarks, progress, reflections and saved Hādi '
+          'conversations. We do not sell your data. See the Privacy '
+          'Policy (still a draft) for the services the app contacts.',
+    ),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 6),
+      child: GlassCard(
+        child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text('HOW THIS APP WORKS AND WHAT IT CAN’T DO',
+                  style: AppText.eyebrow),
+              const SizedBox(height: 10),
+              for (final (String, String) p in points) ...<Widget>[
+                Text(
+                  p.$1,
+                  style: AppText.body.copyWith(fontWeight: FontWeight.w600),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  p.$2,
+                  style: AppText.bodyMuted.copyWith(fontSize: 13, height: 1.5),
+                ),
+                const SizedBox(height: 10),
+              ],
+            ],
         ),
       ),
     );

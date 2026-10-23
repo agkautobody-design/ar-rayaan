@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../app/core/i18n/app_locale.dart';
 import '../../../app/core/sound/sound_services.dart';
 import '../../../app/core/providers.dart';
 import '../../../app/core/text_size.dart';
@@ -16,6 +17,7 @@ import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/theme/widgets/switch_row.dart';
 import '../../elder/application/elder_mode.dart';
+import '../../habits/application/return_loop.dart';
 import '../../legal/legal_routes.dart';
 import '../../quran/presentation/quran_offline_card.dart';
 
@@ -27,6 +29,7 @@ class SettingsScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final SoundSettings settings = ref.watch(soundSettingsProvider);
+    final L10n l10n = ref.watch(l10nProvider);
     final bool elder = ref.watch(elderModeProvider);
     final TextSizeChoice textSize = ref.watch(textSizeProvider);
 
@@ -37,7 +40,7 @@ class SettingsScreen extends ConsumerWidget {
           SafeArea(
             child: Column(
               children: [
-                const ScreenHeader(title: 'Settings', showSettings: false),
+                ScreenHeader(title: l10n.ui('ui.settings'), showSettings: false),
                 Expanded(
                   child: ListView(
                     padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
@@ -117,7 +120,7 @@ class SettingsScreen extends ConsumerWidget {
                       const SizedBox(height: 20),
                       Padding(
                         padding: const EdgeInsets.only(left: 4, bottom: 8),
-                        child: Text('LANGUAGE', style: AppText.eyebrow),
+                        child: Text(l10n.ui('ui.language').toUpperCase(), style: AppText.eyebrow),
                       ),
                       GlassCard(
                         onTap: () => context.push('/settings/language'),
@@ -138,13 +141,16 @@ class SettingsScreen extends ConsumerWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'Language & Voice',
+                                    l10n.t('settings.language') == 'Language'
+                                        ? 'Language & Voice'
+                                        : '${l10n.t('settings.language')} · '
+                                            'Language & Voice',
                                     style: AppText.body.copyWith(fontSize: 14),
                                   ),
                                   Text(
-                                    'Pick a language. Only these settings '
-                                    'labels are translated so far; the rest of '
-                                    'the app is English.',
+                                    'Pick English, Arabic, Bangla or Urdu. '
+                                    'Menus and home titles change; lessons, '
+                                    'stories and answers stay English.',
                                     style: AppText.bodyMuted,
                                   ),
                                 ],
@@ -167,7 +173,7 @@ class SettingsScreen extends ConsumerWidget {
                       const SizedBox(height: 20),
                       Padding(
                         padding: const EdgeInsets.only(left: 4, bottom: 8),
-                        child: Text('ABOUT', style: AppText.eyebrow),
+                        child: Text(l10n.ui('ui.about').toUpperCase(), style: AppText.eyebrow),
                       ),
                       GlassCard(
                         onTap: () => context.push(AppRoutes.sources),
@@ -188,11 +194,12 @@ class SettingsScreen extends ConsumerWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'Our Sources',
+                                    l10n.ui('ui.sources'),
                                     style: AppText.body.copyWith(fontSize: 14),
                                   ),
                                   Text(
-                                    'Qur’an, the Authentic Six, and guidance — fully transparent',
+                                    'How this app works and what it cannot do, '
+                                    'plus every source we use',
                                     style: AppText.bodyMuted.copyWith(
                                       fontSize: 12,
                                     ),
@@ -264,6 +271,49 @@ class SettingsScreen extends ConsumerWidget {
                           height: 1.5,
                         ),
                       ),
+                      if (kReturnLoopEnabled) ...<Widget>[
+                        const SizedBox(height: 20),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 4, bottom: 8),
+                          child: Text('COMING BACK', style: AppText.eyebrow),
+                        ),
+                        GlassCard(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 16,
+                            vertical: 6,
+                          ),
+                          child: SwitchRow(
+                            icon: Icons.wb_twilight_outlined,
+                            title: 'Show days I came back',
+                            subtitle: 'A quiet count for Qur\u2019an reading, '
+                                'adhkar and lessons. Never for prayers. '
+                                'Kept on this device only.',
+                            value: ref.watch(returnLoopEnabledProvider),
+                            onChanged: (bool v) => unawaited(
+                              ref
+                                  .read(returnLoopEnabledProvider.notifier)
+                                  .set(v),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        Text(
+                          'One missed day each week is forgiven. Switching '
+                          'this off erases the count.',
+                          style: AppText.bodyMuted.copyWith(
+                            fontSize: 12,
+                            height: 1.5,
+                          ),
+                        ),
+                        if (ref.watch(returnMessageProvider) != null) ...<Widget>[
+                          const SizedBox(height: 8),
+                          Text(
+                            ref.watch(returnMessageProvider) ?? '',
+                            key: const Key('return-message'),
+                            style: AppText.body.copyWith(fontSize: 14),
+                          ),
+                        ],
+                      ],
                       const SizedBox(height: 20),
                       Padding(
                         padding: const EdgeInsets.only(left: 4, bottom: 8),

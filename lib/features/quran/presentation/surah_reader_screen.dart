@@ -1,4 +1,4 @@
-import 'dart:async';
+import 'dart:async' show Timer, unawaited;
 
 import 'package:flutter/material.dart';
 
@@ -26,7 +26,10 @@ import '../../../app/theme/widgets/needs_internet_view.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../elder/application/elder_mode.dart';
+import '../../habits/application/return_loop.dart';
+import '../../habits/presentation/quiet_done.dart';
 import '../application/quran_marks_controller.dart';
+import '../application/quran_offline.dart' show kQuranOfflineHint;
 import '../application/quran_providers.dart';
 import '../domain/quran_marks.dart';
 import '../domain/quran_models.dart';
@@ -167,15 +170,13 @@ class _SurahReaderScreenState extends ConsumerState<SurahReaderScreen> {
                   loading: () => ContentLoadingView(
                     what: 'this surah',
                     sizeHint: kQuranSizeHint,
-                    onRetry: () {
-                      ref.invalidate(quranRepositoryProvider);
-                      ref.invalidate(quranAllProvider);
-                      ref.invalidate(quranIndexProvider);
-                      ref.invalidate(surahProvider(widget.number));
-                    },
+                    // Same repository: no second download on top of the
+                    // one already running.
+                    onRetry: () => ref.invalidate(surahProvider(widget.number)),
                   ),
                   error: (Object e, _) => NeedsInternetView(
                     what: 'This surah',
+                    hint: kQuranOfflineHint,
                     onRetry: () {
                       ref.invalidate(quranRepositoryProvider);
                       ref.invalidate(quranAllProvider);
@@ -317,7 +318,7 @@ class _ReaderState extends ConsumerState<_Reader> {
           );
         }
         if (index == n + 1) {
-          return const _ReaderFooter();
+          return _ReaderFooter(surah: surah.meta.number);
         }
         final int i = index - 1;
         final Ayah ayah = surah.ayahs[i];
@@ -357,6 +358,7 @@ class _ReaderState extends ConsumerState<_Reader> {
                   arabicSize: arabicSize,
                   isBookmarked: bookmarked,
                   onTap: () {
+                    unawaited(noteReturn(ref, ReturnAct.quran));
                     ref
                         .read(readingPositionProvider.notifier)
                         .save(
@@ -599,8 +601,37 @@ class _JumpToAyahDialogState extends State<_JumpToAyahDialog> {
 
 /// End of surah: how to save a place, and where the two texts come from
 /// (Tanzil asks for its source to be named and linked).
-class _ReaderFooter extends ConsumerWidget {
-  const _ReaderFooter();
+class _ReaderFooter extends ConsumerStatefulWidget {
+  const _ReaderFooter({required this.surah});
+
+  final int surah;
+
+  @override
+  ConsumerState<_ReaderFooter> createState() => _ReaderFooterState();
+}
+
+class _ReaderFooterState extends ConsumerState<_ReaderFooter> {
+  Timer? _settle;
+
+  @override
+  void initState() {
+    super.initState();
+    // The footer is only built when the end of the surah is reached. Wait a
+    // few seconds on it, so a quick jump past it is not counted as reading.
+    _settle = Timer(const Duration(seconds: 4), () {
+      if (!mounted) return;
+      unawaited(noteReturn(ref, ReturnAct.quran));
+      unawaited(
+        showQuietDone(context, ref, moment: 'surah:${widget.surah}'),
+      );
+    });
+  }
+
+  @override
+  void dispose() {
+    _settle?.cancel();
+    super.dispose();
+  }
 
   Future<void> _open(String url) async {
     try {
@@ -609,7 +640,7 @@ class _ReaderFooter extends ConsumerWidget {
   }
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     final QuranTexts texts =
         ref.watch(quranTextsProvider).value ?? QuranTexts.fallback;
     return Padding(

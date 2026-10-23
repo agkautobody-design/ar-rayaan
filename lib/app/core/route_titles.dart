@@ -54,6 +54,7 @@ abstract final class RouteTitles {
     '/quran/bookmarks': 'Qur’an Bookmarks',
     '/hadith': 'Forty Hadith',
     '/adhkar': 'Dhikr and Du’a',
+    '/tasbeeh': 'Tasbeeh Counter',
     '/qibla': 'Qibla',
     '/calendar': 'Islamic Calendar',
     '/zakat': 'Zakat',

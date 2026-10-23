@@ -1,3 +1,5 @@
+import 'dart:async' show unawaited;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -8,6 +10,8 @@ import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/theme/widgets/speak_button.dart';
 import '../../../app/theme/widgets/whole_word_text.dart';
+import '../../habits/application/return_loop.dart';
+import '../../habits/presentation/quiet_done.dart';
 import '../application/adhkar_providers.dart';
 import '../domain/adhkar_models.dart';
 
@@ -98,7 +102,15 @@ class _AdhkarScreenState extends ConsumerState<AdhkarScreen> {
                         selected: set.id,
                         onSelect: (id) => setState(() => _selectedSet = id),
                       ),
-                      const SizedBox(height: 16),
+                      Align(
+                        alignment: AlignmentDirectional.centerStart,
+                        child: TextButton.icon(
+                          onPressed: () => context.open(AppRoutes.tasbeeh),
+                          icon: const Icon(Icons.touch_app_outlined, size: 18),
+                          label: const Text('Plain counter'),
+                        ),
+                      ),
+                      const SizedBox(height: 8),
                       _ProgressCard(set: set),
                       const SizedBox(height: 16),
                       GlassCard(
@@ -393,9 +405,19 @@ class _DhikrCard extends ConsumerWidget {
       child: GestureDetector(
         onTap: complete
             ? null
-            : () => ref
-                  .read(adhkarProgressProvider.notifier)
-                  .increment(set.id, dhikr.number, dhikr.count),
+            : () async {
+                final AdhkarProgressController progress = ref.read(
+                  adhkarProgressProvider.notifier,
+                );
+                await progress.increment(set.id, dhikr.number, dhikr.count);
+                unawaited(noteReturn(ref, ReturnAct.adhkar));
+                if (!context.mounted) return;
+                if (progress.completedInSet(set) >= set.totalRepetitions) {
+                  unawaited(
+                    showQuietDone(context, ref, moment: 'adhkar:${set.id}'),
+                  );
+                }
+              },
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 150),
           width: size,
@@ -568,6 +590,17 @@ class AdhkarChooser extends StatelessWidget {
           style: AppText.bodyMuted.copyWith(height: 1.5),
         ),
         const SizedBox(height: 14),
+        // A plain counter, first on the list: one big button, a target of
+        // 33 or 100 (the existing Dhikr Session screen).
+        row(
+          const AdhkarChoice(
+            label: 'Tasbih counter',
+            icon: Icons.touch_app_outlined,
+          ),
+          'One big button. Tap to count to 33 or 100',
+          () => context.open('/academy/dhikr'),
+        ),
+        const SizedBox(height: 6),
         if (open != null) ...[
           Text('COUNT AS YOU GO', style: AppText.eyebrow),
           const SizedBox(height: 8),

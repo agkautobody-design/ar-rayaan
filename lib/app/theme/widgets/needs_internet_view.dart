@@ -14,8 +14,13 @@ class NeedsInternetView extends StatefulWidget {
     required this.what,
     this.onRetry,
     this.web,
+    this.hint,
     super.key,
   });
+
+  /// An extra plain sentence under the message, e.g. how to have it ready
+  /// offline next time. Shown only on the web (the phone apps never need it).
+  final String? hint;
 
   /// What failed to load, as a short noun phrase: "The Qur'an", "Trivia".
   final String what;
@@ -81,6 +86,16 @@ class _NeedsInternetViewState extends State<NeedsInternetView> {
               textAlign: TextAlign.center,
               style: AppText.body.copyWith(height: 1.5),
             ),
+            if (widget.hint != null && (widget.web ?? WebOffline.isWeb))
+              ...<Widget>[
+              const SizedBox(height: 10),
+              Text(
+                widget.hint!,
+                key: const Key('needs-internet-hint'),
+                textAlign: TextAlign.center,
+                style: AppText.bodyMuted.copyWith(height: 1.4),
+              ),
+            ],
             if (_stillFailing) ...<Widget>[
               const SizedBox(height: 10),
               Semantics(

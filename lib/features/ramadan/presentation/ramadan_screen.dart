@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../app/theme/app_colors.dart';
@@ -186,6 +187,16 @@ class _RamadanState extends ConsumerState<RamadanScreen> {
                       Text(_inRamadan ? 'Ramadan Mubarak' : _countdownText(),
                           style: const TextStyle(fontFamily: 'PlayfairDisplay', fontSize: 24,
                               color: AppColors.goldLight)),
+                      if (!_inRamadan && _season.daysUntilStart(DateTime.now()) > 0)
+                        Padding(
+                          padding: const EdgeInsets.only(top: 4),
+                          child: Text(
+                            key: const Key('ramadan-expected-date'),
+                            _expectedText(),
+                            textAlign: TextAlign.center,
+                            style: AppText.bodyMuted,
+                          ),
+                        ),
                       if (today != null) ...[
                         const SizedBox(height: 8),
                         Text('Today\'s theme: ${today.theme}', style: AppText.bodyMuted),
@@ -272,8 +283,13 @@ class _RamadanState extends ConsumerState<RamadanScreen> {
 
   String _countdownText() {
     final d = _season.daysUntilStart(DateTime.now());
-    return d > 0 ? '$d days · crescent-willing' : 'Any day now';
+    return d > 0 ? '$d days' : 'Any day now';
   }
+
+  /// The calendar date the countdown is counting to, in plain words.
+  String _expectedText() =>
+      'Expected around ${DateFormat('EEEE d MMMM y').format(_season.start)}. '
+      'The new moon decides the exact day.';
 
   Widget _countdownChip(String label, String time) => Container(
     padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
