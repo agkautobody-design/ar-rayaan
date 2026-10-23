@@ -174,15 +174,17 @@ abstract final class RulingGate {
   /// apostasy". Never fires when the speaker is in the sentence (I, my, we),
   /// because a person afraid for themself is not asking a legal question.
   static final RegExp _legalPenalty = RegExp(
-    r'\b(?:(?:punishment|punishments|penalty|penalties|sentence|execution|'
+    r'\b(?:(?:punishment|punishments|punishable|penalty|penalties|sentence|execution|'
     r'executed|death\s+penalty|capital\s+punishment|hudud|hadd|stoned|'
     r'stoning|flogging|lashes|put\s+to\s+death|killed|killing)\b.{0,50}'
-    r'\b(?:leaving\s+islam|leave\s+islam|leaves\s+islam|left\s+islam|'
+    r'\b(?:leaving\s+(?:islam|the\s+(?:religion|faith|deen))|leave\s+islam|'
+    r'leaves\s+islam|left\s+islam|'
     r'apostasy|apostate|apostates|murtad|blasphemy|adultery|zina|theft|'
     r'stealing|homosexual\w*|disbelief|renounc\w*)|'
-    r'(?:leaving\s+islam|leave\s+islam|leaves\s+islam|apostasy|apostate|'
+    r'(?:leaving\s+(?:islam|the\s+(?:religion|faith|deen))|leave\s+islam|'
+    r'leaves\s+islam|apostasy|apostate|'
     r'apostates|murtad|blasphemy)\b.{0,50}\b(?:punishment|punishments|'
-    r'penalty|penalties|death|executed|killed|sentence|hudud))',
+    r'penalty|penalties|punishable|death|executed|killed|sentence|hudud))',
     caseSensitive: false,
   );
 
