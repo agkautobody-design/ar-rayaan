@@ -17,6 +17,7 @@ import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/theme/widgets/switch_row.dart';
 import '../../elder/application/elder_mode.dart';
 import '../../legal/legal_routes.dart';
+import '../../quran/presentation/quran_offline_card.dart';
 
 /// Settings — begins with the Sound toggle promised on the locked splash
 /// artwork ("Sound can be turned off in settings").
@@ -158,6 +159,12 @@ class SettingsScreen extends ConsumerWidget {
                           ],
                         ),
                       ),
+                      const SizedBox(height: 20),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 4, bottom: 8),
+                        child: Text('OFFLINE', style: AppText.eyebrow),
+                      ),
+                      const QuranOfflineCard(),
                       const SizedBox(height: 20),
                       Padding(
                         padding: const EdgeInsets.only(left: 4, bottom: 8),

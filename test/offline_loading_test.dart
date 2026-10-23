@@ -81,15 +81,18 @@ void main() {
       const String base = 'Begin Reading · Al-Fatihah';
       expect(quranTileSubtitle(base, offlineReady: true), base);
       expect(quranTileSubtitle(base, offlineReady: null), base);
+      // The warning replaces the line (it used to be appended and was cut
+      // off on phones), and is short enough for a two-line tile subtitle.
       expect(
         quranTileSubtitle(base, offlineReady: false),
-        '$base · Needs internet the first time',
+        'Needs internet the first time',
       );
+      expect(kQuranNeedsInternetNote.length, lessThan(32));
     });
   });
 
   group('loading phases', () {
-    test('quick, then slow at 2 s, then stalled at 25 s', () {
+    test('quick, then slow at 2 s, then stalled at 10 s', () {
       expect(loadingPhaseFor(Duration.zero), LoadingPhase.quick);
       expect(
         loadingPhaseFor(const Duration(milliseconds: 1999)),
@@ -97,11 +100,11 @@ void main() {
       );
       expect(loadingPhaseFor(const Duration(seconds: 2)), LoadingPhase.slow);
       expect(
-        loadingPhaseFor(const Duration(seconds: 24)),
+        loadingPhaseFor(const Duration(seconds: 9)),
         LoadingPhase.slow,
       );
       expect(
-        loadingPhaseFor(const Duration(seconds: 25)),
+        loadingPhaseFor(const Duration(seconds: 10)),
         LoadingPhase.stalled,
       );
     });
@@ -155,7 +158,7 @@ void main() {
     expect(find.textContaining('about 2 MB'), findsOneWidget);
     expect(find.text('Try again'), findsNothing);
 
-    await tester.pump(const Duration(seconds: 23));
+    await tester.pump(const Duration(seconds: 8));
     expect(find.textContaining('Still loading'), findsOneWidget);
     await tester.tap(find.text('Try again'));
     expect(retries, 1);
