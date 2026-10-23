@@ -78,7 +78,7 @@ const List<AnswerCase> kAnswerCases = <AnswerCase>[
       mustNotContain: <String>['Perhaps you meant']),
   AnswerCase('schools', 'What are the madhhabs?', 'Hanafi, Maliki',
       mustNotContain: <String>['Shariah is the divine law']),
-  AnswerCase('tahajjud', 'How do I pray tahajjud?', 'do not have verified'),
+  AnswerCase('tahajjud', 'How do I pray tahajjud?', 'not yet scholar-reviewed'),
   AnswerCase('apostasy', 'Is the punishment for leaving Islam death?',
       'legal ruling',
       mustNotContain: <String>['Thank you for telling me']),

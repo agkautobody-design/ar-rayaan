@@ -149,7 +149,7 @@
    "Dhuhr: four before (and two after) — 'if anyone prays four before Dhuhr and four after, Allah forbids him the Fire' (Tirmidhi 428, sahih per Darussalam).",
    "Maghrib: two after; Isha: two after.",
    "The night prayer (qiyam): two by two — 'the night prayer is two by two, and witr is one rak'ah' (Bukhari 990).",
-   "Witr: the Prophet ﷺ never abandoned it, neither traveling nor resident (Bukhari 990).",
+   "Witr: reported as something the Prophet ﷺ did not abandon, neither traveling nor resident.",
    "Duha: the mid-morning prayer — 'a prayer of the repentant, prayed when the young camels feel the sun's heat' (Muslim 748)."
   ],
   "sources": [
@@ -667,14 +667,14 @@
   "title": "Witr & The Night Routine",
   "subtitle": "Closing the day the way it opened — with light",
   "steps": [
-   "The standing practice: the Prophet ﷺ never abandoned the witr, neither traveling nor resident — 'make the witr your last prayer at night' (Bukhari 990).",
+   "The standing practice: witr is reported as something the Prophet ﷺ did not abandon, neither traveling nor resident, and he said 'make the witr your last prayer at night' (Bukhari 998).",
    "The qunut — the schools differ on its place: Hanafi: before ruku' in witr nightly; Shafi'i: in the second half of Ramadan; Hanbali: may be before or after; the evidence supports all.",
    "The dua al-qunut wording the Prophet ﷺ taught (for the one who wishes to memorize): Allahumma-hdini fiman hadayt... (Nasai 1745, sahih per Darussalam).",
    "The sleep-with-worship balance: if you fear missing Fajr, pray witr and sleep; the Prophet ﷺ said: 'there are no two witr in one night' (Abu Dawud 1439, sahih per al-Albani).",
    "The ending: the last words before sleep — Subhan Allah, walhamdulillah, wa la ilaha illa Allah, wallahu akbar (Bukhari 6306)."
   ],
   "sources": [
-   "Sahih al-Bukhari 990, 6306; Sunan an-Nasa'i 1745; Sunan Abi Dawud 1439 (sahih per al-Albani)"
+   "Sahih al-Bukhari 998, 6306; Sunan an-Nasa'i 1745; Sunan Abi Dawud 1439 (sahih per al-Albani)"
   ],
   "madhhabNote": "Witr's timing (before or after sleep) and qunut's placement differ by school — all from the Prophet's ﷺ practice on different nights; follow one school consistently."
  },
@@ -876,5 +876,75 @@
   ],
   "sources": ["Qur'an 31:13-19", "Sunan Abi Dawud 495, hasan sahih per al-Albani"],
   "madhhabNote": "The schools are united on gentleness in religious upbringing and on beginning prayer instruction young; they differ on the details of the 'at seven, at ten' narration's application. The principle every scholar affirms: mercy is the method, and the Prophet ﷺ said: 'He is not of us who does not show mercy to our young ones.'"
+ },
+ {
+  "id": "huda-tahajjud",
+  "collection": "huda",
+  "category": "Worship",
+  "title": "Tahajjud — The Night Prayer",
+  "subtitle": "What the Qur’an, Bukhari and Muslim say about praying in the night",
+  "steps": [
+   "What it is: a prayer of the night. The Qur’an uses its verb: “And from [part of] the night, pray with it as additional [worship] for you; it is expected that your Lord will resurrect you to a praised station.” (Qur’an 17:79).",
+   "The Qur’an praises those who rise for it. Of the righteous: “They arise from [their] beds; they supplicate their Lord in fear and aspiration” (Qur’an 32:16), and “They used to sleep but little of the night, And in the hours before dawn they would ask forgiveness” (Qur’an 51:17-18). Surah al-Muzzammil opens by telling the one wrapped in his clothing: “Arise [to pray] the night, except for a little” (Qur’an 73:2), and goes on to speak of half of it, a little less or a little more, with measured recitation (Qur’an 73:3-4).",
+   "The last third: Abu Hurayrah reported that the Prophet ﷺ said our Lord descends each night to the lowest heaven when the last third of the night remains, and calls: who will call on Me so I answer, ask Me so I give, seek My forgiveness so I forgive (Sahih al-Bukhari 1145; Sahih Muslim 758). How this is understood is a matter for scholars of belief; this guide only reports the hadith.",
+   "In pairs: a man asked the Prophet ﷺ about the night prayer and he said it is prayed two rak’ahs at a time; whoever fears the dawn prays one rak’ah, which makes what he prayed odd (Sahih al-Bukhari 990, from Ibn Umar).",
+   "Begin with two short rak’ahs: Aisha reported that when the Prophet ﷺ rose to pray at night he began with two short rak’ahs (Sahih Muslim 767), and Abu Hurayrah reported that he advised whoever rises for the night prayer to begin with two short rak’ahs (Sahih Muslim 768).",
+   "How many: Aisha was asked about his night prayer and said he did not go beyond eleven rak’ahs in Ramadan or in other months: four, then four, then three (Sahih al-Bukhari 1147). That is her report. The sources used here do not set a number you must pray, and this guide does not state how the schools count it: ask a teacher.",
+   "Close it with witr: Ibn Umar reported the Prophet ﷺ said to make the witr your last prayer at night (Sahih al-Bukhari 998). The Witr and night guide has the qunut and the dua.",
+   "Its weight: Abu Hurayrah reported that the Prophet ﷺ said “the most excellent prayer after what is prescribed is prayer during the night” (Sahih Muslim 1163).",
+   "What this guide does not say: whether tahajjud has to follow sleep, a fixed rak’ah count, or how each school ranks these points. The sources it cites do not settle them here. Prayer Times shows tonight’s window for the last third of the night."
+  ],
+  "sources": [
+   "Status: not yet scholar-reviewed. Every reference below was checked on 23 Oct 2026 (Qur’an against the text bundled in this app, hadith against sunnah.com); the wording is a plain summary, not a ruling.",
+   "Qur’an 17:79, 32:16, 51:17-18, 73:2-4 (Saheeh International, as bundled in the app)",
+   "Sahih al-Bukhari 1145, 990, 1147, 998; Sahih Muslim 758, 767, 768, 1163"
+  ],
+  "madhhabNote": "This guide takes no school’s side. The schools’ views on the number of rak’ahs and on whether sleep must come first are not stated here because the app has no reviewed source for them. Ask a qualified teacher of your school."
+ },
+ {
+  "id": "huda-what-is-islam",
+  "collection": "huda",
+  "category": "Foundations",
+  "title": "What Is Islam?",
+  "subtitle": "The word, the verses and the hadith, in plain order",
+  "steps": [
+   "The word: Islam is usually translated “surrender” or “submission” to God (Encyclopaedia Britannica, “Islam”). The Qur’an uses the same Arabic root in “to Him have submitted [all] those within the heavens and earth, willingly or by compulsion” (Qur’an 3:83) and in the words of the believers: “we are Muslims [submitting] to Him” (Qur’an 3:84).",
+   "In one line, put together from the sources in this guide (not a scholar’s definition): Islam is submission to Allah alone, worshipping Him and following the guidance He sent through His messengers, the last of whom is Muhammad ﷺ.",
+   "What the Qur’an says of it: “Indeed, the religion in the sight of Allah is Islam.” (Qur’an 3:19). And: “And whoever desires other than Islam as religion - never will it be accepted from him, and he, in the Hereafter, will be among the losers.” (Qur’an 3:85). And of Muhammad ﷺ: “the Messenger of Allah and last of the prophets” (Qur’an 33:40).",
+   "The five pillars (Ibn Umar reported the Prophet ﷺ said Islam is built on five): the testimony that none deserves worship but Allah and that Muhammad is His Messenger, the prayer, zakat, the pilgrimage, and fasting Ramadan (Sahih al-Bukhari 8).",
+   "Islam, iman and ihsan: in the hadith of Jibril, Umar reported that the Prophet ﷺ described Islam as those pillars; iman as belief in Allah, His angels, His books, His messengers, the Last Day and the divine decree; and ihsan as worshipping Allah as though you see Him (Sahih Muslim 8).",
+   "Where to go next: the New Muslim path in this app takes one short step a day, and the Aqeedah school teaches what Muslims believe. For a person, ask a local imam or a teacher you trust."
+  ],
+  "sources": [
+   "Status: not yet scholar-reviewed. Every reference below was checked on 23 Oct 2026 (Qur’an against the text bundled in this app, hadith against sunnah.com); the wording is a plain summary, not a ruling.",
+   "Qur’an 3:19, 3:83, 3:84, 3:85, 33:40 (Saheeh International, as bundled in the app)",
+   "Sahih al-Bukhari 8; Sahih Muslim 8",
+   "Encyclopaedia Britannica, “Islam” (britannica.com/topic/Islam): the name means “surrender”"
+  ],
+  "madhhabNote": "The pillars and the articles of faith above are common to the four schools of law; this guide covers no point on which they differ. No scholar has reviewed this wording yet."
+ },
+ {
+  "id": "huda-madhhab-overview",
+  "collection": "huda",
+  "category": "Foundations",
+  "title": "The Four Schools — How They Differ",
+  "subtitle": "What a madhhab is, and one worked example with its sources",
+  "steps": [
+   "What a madhhab is: a school of thought within Islamic jurisprudence (Wikipedia, “Madhhab”). The four Sunni schools are the Hanafi, the Maliki, the Shafi’i and the Hanbali, each named after a classical jurist. This guide does not rank them and does not give a ruling.",
+   "The example: the hands in standing prayer. Sahl ibn Sa’d reported that people were told to place the right hand on the left forearm in prayer (Sahih al-Bukhari 740). Where exactly on the body is where scholars differ.",
+   "Hanafi: below the navel. Shafi’i: above the navel (Dorar adds: and below the chest). Both are stated by the Dorar al-Saniyya fiqh encyclopedia (dorar.net/en/feqhia/76) and by Sheikh Ahmad Kutty of the Islamic Institute of Toronto (fiqh.islamonline.net, “The position of hands in prayer”).",
+   "Maliki and Hanbali: the two sources above do not give one fixed placement. Sheikh Ahmad Kutty says some Maliki scholars hold the hands at the sides, and that reports from Imam Ahmad give both below and above the navel. Dorar says that for Imam Ahmad the choice is broad. Read these as what those sources say, not as the schools’ final word.",
+   "What they agree on: Sheikh Ahmad Kutty writes that all scholars agree the prayer is valid with the hands above the navel, below it or on the chest, and that Tirmidhi and Ibn al-Mundhir noted both placements among the Companions and their successors.",
+   "Other differences are marked in their own guides: the qunut in the Witr and night guide, Ramadan Nights, Fasting, Making Up Missed Prayers, Ghusl and the Hajj guides each carry a note on where the schools differ.",
+   "The Huda guides’ own rule: follow one school’s fiqh completely, or ask a local teacher. For your own case, ask a qualified scholar of your school."
+  ],
+  "sources": [
+   "Status: not yet scholar-reviewed. Every reference below was checked on 23 Oct 2026 (Qur’an against the text bundled in this app, hadith against sunnah.com); the wording is a plain summary, not a ruling.",
+   "Sahih al-Bukhari 740",
+   "Dorar al-Saniyya, Fiqh Encyclopedia, “Raising the hands and where to place them when standing”: dorar.net/en/feqhia/76",
+   "Sheikh Ahmad Kutty, Islamic Institute of Toronto, “The position of hands in prayer”: fiqh.islamonline.net/en/the-position-of-hands-in-prayer/",
+   "Wikipedia, “Madhhab” (a general reference, not a fiqh text)"
+  ],
+  "madhhabNote": "This is one worked example, not a table of the four schools. A full reviewed comparison, with each school’s evidence and book, still needs a named scholar, and until then the app does not state any other school position."
  }
 ]
