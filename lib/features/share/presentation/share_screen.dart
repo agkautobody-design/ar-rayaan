@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter/services.dart' show rootBundle, Clipboard, ClipboardData;
+import 'package:flutter/services.dart' show rootBundle;
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -11,6 +11,7 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import 'share_actions.dart';
 
 class ShareCard {
   final String id, kind, arabic, text, ref;
@@ -161,8 +162,8 @@ class _ShareState extends State<ShareScreen> {
                 ),
                 TextButton.icon(
                   onPressed: () async {
-                    await Clipboard.setData(ClipboardData(text: _message));
-                    setState(() => _copied = true);
+                    final bool ok = await copyWithFeedback(context, _message);
+                    if (ok && mounted) setState(() => _copied = true);
                   },
                   icon: Icon(_copied ? Icons.check : Icons.copy, size: 15,
                       color: AppColors.goldLight),

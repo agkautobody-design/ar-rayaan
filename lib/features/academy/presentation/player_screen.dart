@@ -313,6 +313,73 @@ class _BrowseSectionState extends ConsumerState<_BrowseSection> {
   static const int _page = 25;
   int _limit = _page;
 
+  /// The person's choice for the "Plays here" filter; null means "use the
+  /// default" (on when at least one track plays in the app).
+  bool? _onlyHere;
+
+  void _say(String message) {
+    ScaffoldMessenger.maybeOf(context)
+      ?..hideCurrentSnackBar()
+      ..showSnackBar(SnackBar(content: Text(message)));
+  }
+
+  /// Every tap does something you can see: it plays here, or says it is
+  /// opening YouTube (a new tab on the web) before it does.
+  Future<void> _tapTrack(
+    Track t,
+    List<Track> shown,
+    Map<String, TrackSources> sources, {
+    required String name,
+  }) async {
+    if (t.hasAudio) {
+      final List<Track> playable =
+          shown.where((Track x) => x.hasAudio).toList();
+      final int i = playable.indexWhere((Track x) => x.id == t.id);
+      ref.read(streamQueueProvider.notifier).stop();
+      await ref
+          .read(playerQueueProvider.notifier)
+          .playQueue(playable.sublist(i < 0 ? 0 : i), name: name);
+      if (!mounted) return;
+      _say('Playing \u201c${t.title}\u201d. Controls are at the top of the '
+          'page.');
+      return;
+    }
+    final TrackSources? src = sources[t.id];
+    if (src != null && src.preferred != null) {
+      final List<StreamEntry> entries = <StreamEntry>[
+        for (final Track x in shown)
+          if (!x.hasAudio && sources[x.id]?.preferred != null)
+            StreamEntry(
+                title: x.title,
+                artist: x.artist,
+                link: sources[x.id]!.preferred!),
+      ];
+      final int at = entries.indexWhere(
+          (StreamEntry e) => e.title == t.title && e.artist == t.artist);
+      await playStreamEntries(ref, entries, at < 0 ? 0 : at);
+      if (!mounted) return;
+      _say('Playing \u201c${t.title}\u201d in the player at the top of the '
+          'page.');
+      return;
+    }
+    final Uri? official = SafeUrl.web(t.officialUrl);
+    if (!t.hasOfficialLink || official == null) {
+      _say('There is no link for \u201c${t.title}\u201d yet.');
+      return;
+    }
+    _say('Opens a YouTube search in your browser');
+    bool opened = false;
+    try {
+      opened = await launchUrl(official, mode: LaunchMode.externalApplication);
+    } catch (_) {
+      opened = false;
+    }
+    if (!opened && mounted) {
+      _say('Could not open YouTube. If your browser blocked the new tab, '
+          'allow pop-ups for this site.');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final Catalog catalog = widget.catalog;
@@ -335,33 +402,53 @@ class _BrowseSectionState extends ConsumerState<_BrowseSection> {
                 .where((Track t) => t.poet == facetValue)
                 .toList(),
           };
-    // Tracks the app can play come first; the rest are honestly labelled
-    // as external links (a YouTube search), never as ours.
-    final List<Track> shown = <Track>[
-      ...filtered.where((Track t) => t.hasAudio),
-      ...filtered.where((Track t) => !t.hasAudio),
-    ];
     final Map<String, TrackSources> sources =
         ref.watch(playerSourcesProvider).valueOrNull ??
             const <String, TrackSources>{};
-    final int playableCount = catalog.tracks
-        .where((Track t) => t.hasAudio || sources[t.id] != null)
-        .length;
+    bool playsHere(Track t) => t.hasAudio || sources[t.id]?.preferred != null;
+    final int playableCount = catalog.tracks.where(playsHere).length;
+    final int playableInView = filtered.where(playsHere).length;
+    final bool onlyHere = _onlyHere ?? playableCount > 0;
+    // Tracks the app can play come first (own audio, then approved
+    // YouTube / Spotify sources); the rest open a YouTube search.
+    final List<Track> ordered = <Track>[
+      ...filtered.where((Track t) => t.hasAudio),
+      ...filtered
+          .where((Track t) => !t.hasAudio && sources[t.id]?.preferred != null),
+      ...filtered.where((Track t) => !playsHere(t)),
+    ];
+    final List<Track> shown =
+        onlyHere ? ordered.where(playsHere).toList() : ordered;
     final int visible = shown.length < _limit ? shown.length : _limit;
     return GlassCard(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            '$playableCount of ${catalog.tracks.length} tracks play in the app. '
-            'The rest are external links: each opens a YouTube search for the '
-            'track. Ar-Rayaan does not host or hold a licence for them. '
-            'Tracks marked YouTube or Spotify play in the app\u2019s own '
-            'player, from sources Ar-Rayaan has checked.',
+            playableCount == 0
+                ? 'None of these ${catalog.tracks.length} tracks play in the '
+                    'app yet. Each one opens a YouTube search in your '
+                    'browser. Ar-Rayaan does not host them.'
+                : '$playableCount of ${catalog.tracks.length} tracks play '
+                    'here. The rest open a YouTube search in your browser. '
+                    'Ar-Rayaan does not host them.',
             key: const Key('player-catalog-note'),
             style: AppText.caption,
           ),
           const SizedBox(height: 8),
+          if (playableCount > 0)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: FilterChip(
+                key: const Key('player-plays-here'),
+                label: Text('Plays here ($playableInView)'),
+                selected: onlyHere,
+                onSelected: (bool v) => setState(() {
+                  _onlyHere = v;
+                  _limit = _page;
+                }),
+              ),
+            ),
           Wrap(spacing: 6, children: <Widget>[
             for (final String f in _BrowseSection._facets)
               ChoiceChip(
@@ -396,25 +483,49 @@ class _BrowseSectionState extends ConsumerState<_BrowseSection> {
             ),
           ],
           const Divider(height: 16),
+          if (shown.isEmpty)
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8),
+              child: Text(
+                onlyHere
+                    ? 'Nothing here plays in the app. Turn off \u201cPlays '
+                        'here\u201d to see tracks that open YouTube.'
+                    : 'No tracks here.',
+                key: const Key('player-empty-view'),
+                style: AppText.bodyMuted,
+              ),
+            ),
           for (final Track t in shown.take(visible))
             Material(
               color: Colors.transparent,
               child: ListTile(
                 dense: true,
                 title: Text(t.title, style: AppText.body),
-                subtitle: Text(
-                  t.hasAudio
-                      ? '${t.artist} \u00b7 ${t.language}'
-                      : sources[t.id] != null
-                          ? '${t.artist} \u00b7 ${t.language} \u00b7 plays from ${sources[t.id]!.preferred!.serviceLabel}'
-                          : '${t.artist} \u00b7 ${t.language} \u00b7 external link (YouTube search)',
-                  style: AppText.caption,
+                subtitle: Padding(
+                  padding: const EdgeInsets.only(top: 2),
+                  child: Wrap(
+                    spacing: 8,
+                    runSpacing: 4,
+                    crossAxisAlignment: WrapCrossAlignment.center,
+                    children: <Widget>[
+                      _PlayBadge(
+                        here: playsHere(t),
+                        service: t.hasAudio
+                            ? null
+                            : sources[t.id]?.preferred?.serviceLabel,
+                      ),
+                      Text('${t.artist} \u00b7 ${t.language}',
+                          style: AppText.caption),
+                    ],
+                  ),
                 ),
                 trailing: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     IconButton(
                       tooltip: 'Add to a playlist',
+                      constraints:
+                          const BoxConstraints(minWidth: 48, minHeight: 48),
                       icon: const Icon(Icons.playlist_add,
                           color: AppColors.gold, size: 22),
                       onPressed: () => showAddToPlaylistSheet(
@@ -426,48 +537,15 @@ class _BrowseSectionState extends ConsumerState<_BrowseSection> {
                       ),
                     ),
                     Icon(
-                      t.hasAudio || sources[t.id] != null
-                          ? Icons.play_arrow
-                          : Icons.open_in_new,
-                      color: AppColors.gold.withValues(
-                          alpha: t.hasAudio || sources[t.id] != null ? 1 : 0.6),
+                      playsHere(t) ? Icons.play_arrow : Icons.open_in_new,
+                      color: AppColors.gold
+                          .withValues(alpha: playsHere(t) ? 1 : 0.6),
                       size: 20,
                     ),
                   ],
                 ),
-                onTap: () {
-                  if (t.hasAudio) {
-                    final List<Track> playable =
-                        shown.where((Track x) => x.hasAudio).toList();
-                    final int i =
-                        playable.indexWhere((Track x) => x.id == t.id);
-                    ref.read(streamQueueProvider.notifier).stop();
-                    ref.read(playerQueueProvider.notifier).playQueue(
-                        playable.sublist(i < 0 ? 0 : i),
-                        name: facetValue ?? facet);
-                    return;
-                  }
-                  final TrackSources? src = sources[t.id];
-                  if (src != null && src.preferred != null) {
-                    final List<StreamEntry> entries = <StreamEntry>[
-                      for (final Track x in shown)
-                        if (!x.hasAudio && sources[x.id]?.preferred != null)
-                          StreamEntry(
-                              title: x.title,
-                              artist: x.artist,
-                              link: sources[x.id]!.preferred!),
-                    ];
-                    final int at = entries.indexWhere((StreamEntry e) =>
-                        e.title == t.title && e.artist == t.artist);
-                    playStreamEntries(ref, entries, at < 0 ? 0 : at).ignore();
-                    return;
-                  }
-                  final Uri? official = SafeUrl.web(t.officialUrl);
-                  if (t.hasOfficialLink && official != null) {
-                    launchUrl(official, mode: LaunchMode.externalApplication)
-                        .ignore();
-                  }
-                },
+                onTap: () => _tapTrack(t, shown, sources,
+                    name: facetValue ?? facet),
               ),
             ),
           if (visible < shown.length)
@@ -482,6 +560,38 @@ class _BrowseSectionState extends ConsumerState<_BrowseSection> {
               ),
             ),
         ],
+      ),
+    );
+  }
+}
+
+/// "Plays here" or "Opens YouTube": which one a row is, said in words.
+class _PlayBadge extends StatelessWidget {
+  const _PlayBadge({required this.here, this.service});
+
+  final bool here;
+  final String? service;
+
+  @override
+  Widget build(BuildContext context) {
+    final String label = here
+        ? (service == null ? 'Plays here' : 'Plays here ($service)')
+        : 'Opens YouTube';
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+      decoration: BoxDecoration(
+        color: here ? AppColors.gold.withValues(alpha: 0.18) : null,
+        border: Border.all(
+          color: AppColors.gold.withValues(alpha: here ? 0.8 : 0.4),
+        ),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Text(
+        label,
+        style: AppText.caption.copyWith(
+          color: here ? AppColors.gold : AppColors.sand,
+          fontWeight: here ? FontWeight.w700 : FontWeight.w400,
+        ),
       ),
     );
   }

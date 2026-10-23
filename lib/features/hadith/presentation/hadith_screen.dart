@@ -8,6 +8,8 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/theme/widgets/speak_button.dart';
+import '../../share/application/share_text.dart';
+import '../../share/presentation/share_actions.dart';
 import '../application/hadith_providers.dart';
 import '../domain/hadith_models.dart';
 import 'daily_hadith_card.dart';
@@ -184,6 +186,15 @@ class _HadithScreenState extends ConsumerState<HadithScreen> {
   }
 }
 
+/// One of the Forty Hadith as plain text: Arabic, English, its source line
+/// (with grade and grader where it has one) and the app credit.
+String hadithShareText(Hadith hadith) => composeShareText(
+      title: 'Hadith ${hadith.number}, The Forty Hadith of Imam an-Nawawi',
+      arabic: hadith.arabic,
+      body: hadith.english,
+      source: hadith.sourceLine ?? 'The Forty Hadith of Imam an-Nawawi',
+    );
+
 class _HadithBlock extends StatelessWidget {
   const _HadithBlock({super.key, required this.hadith});
 
@@ -251,9 +262,19 @@ class _HadithBlock extends StatelessWidget {
           const SizedBox(height: 8),
           Align(
             alignment: Alignment.centerRight,
-            child: SpeakButton(
-              text: 'Hadith ${hadith.number}. ${hadith.english}',
-              size: 26,
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                ShareCopyButtons(
+                  text: hadithShareText(hadith),
+                  title: 'Hadith ${hadith.number}',
+                  subject: 'hadith ${hadith.number}',
+                ),
+                SpeakButton(
+                  text: 'Hadith ${hadith.number}. ${hadith.english}',
+                  size: 26,
+                ),
+              ],
             ),
           ),
         ],

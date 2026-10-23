@@ -349,6 +349,10 @@ class HomeScreen extends ConsumerWidget {
                         children: [
                           Text('Also:', style: AppText.bodyMuted),
                           _AlsoLink(
+                            label: 'Nasheeds',
+                            onTap: () => context.open(AppRoutes.player),
+                          ),
+                          _AlsoLink(
                             label: 'Mosques & halal food',
                             onTap: () => context.open('/masajid'),
                           ),
