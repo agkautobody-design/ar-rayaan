@@ -1503,6 +1503,28 @@ abstract final class CrisisResponses {
     }
   }
 
+  /// A plain line saying which country the lines above are for, and how to
+  /// change it. The country comes from the device language setting, never
+  /// from the person's location, so it can be wrong (a London phone set to
+  /// US English). With no covered country it says so and points to the
+  /// worldwide directory. Only names data already in [HelpResources].
+  static String regionNote(String? countryCode) {
+    final String? cc = countryCode?.trim().toUpperCase();
+    if (cc != null && cc.isNotEmpty) {
+      for (final HelpResource r in HelpResources.all) {
+        if (r.countries.length == 1 && r.countries.first == cc) {
+          return 'The lines above are for ${r.region}, chosen from your '
+              'device language setting, not your location. If you are '
+              'somewhere else, choose your country under the lines, or call '
+              'your local emergency number.';
+        }
+      }
+    }
+    return 'I could not tell which country you are in, so these lines work '
+        'from anywhere. Find your local emergency number and keep it close; '
+        'findahelpline.com lists lines by country.';
+  }
+
   /// The tappable rows for [kind] in [countryCode] (null = unknown).
   static List<HelpResource> resourcesFor(
     CrisisKind kind,
