@@ -136,10 +136,6 @@ class _OnboardingState extends State<OnboardingScreen> {
 
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
-    return Scaffold(
-=======
-    const slides = 6;
     // Back on a later slide steps to the slide before it (the system Back
     // and the browser-less Android gesture); on the first slide it leaves
     // as usual, to the Home the introduction was opened over.
@@ -154,7 +150,6 @@ class _OnboardingState extends State<OnboardingScreen> {
         }
       },
       child: Scaffold(
->>>>>>> origin/main
       backgroundColor: Colors.transparent,
       body: SafeArea(
         child: Column(children: [
