@@ -8,6 +8,7 @@
 /// what is on it.
 library;
 
+import '../../legal/legal_routes.dart' show LegalRoutes;
 import 'search_text.dart';
 
 class AppDestination {
@@ -465,7 +466,7 @@ const List<AppDestination> kAppDestinations = <AppDestination>[
     id: 'privacy',
     title: 'Privacy Policy',
     subtitle: 'What the app keeps, and where',
-    route: '/legal/privacy',
+    route: LegalRoutes.privacy,
     keywords: <String>['privacy', 'privacy policy', 'my data', 'data safety'],
   ),
   AppDestination(

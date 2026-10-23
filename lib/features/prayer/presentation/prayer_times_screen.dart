@@ -132,57 +132,6 @@ class _ScheduleState extends ConsumerState<_Schedule> {
     ref.watch(hijriSettingsProvider);
     final bool ramadan = HijriDate.fromGregorian(data.fajr).month == 9;
 
-    // At large text the times come first: the Adhan player moves below them.
-    final bool largeText = MediaQuery.textScalerOf(context).scale(14) > 20;
-    // Adhan — real Mecca recording, plays on demand.
-    final Widget adhanCard = GlassCard(
-          onTap: () => ref.read(adhanServiceProvider.notifier).toggle(),
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-          child: Row(
-            children: [
-              Container(
-                width: 36,
-                height: 36,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: AppColors.gold.withValues(alpha: 0.12),
-                  border: Border.all(
-                    color: AppColors.gold.withValues(alpha: 0.35),
-                  ),
-                ),
-                child: Icon(
-                  adhanPlaying
-                      ? Icons.stop_circle_outlined
-                      : Icons.play_arrow_rounded,
-                  size: 18,
-                  color: AppColors.gold,
-                ),
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      adhanPlaying ? 'Adhan playing…' : 'Listen to the Adhan',
-                      style: AppText.body.copyWith(fontWeight: FontWeight.w600),
-                    ),
-                    Text(
-                      'The call to prayer · Masjid al-Haram',
-                      style: AppText.bodyMuted.copyWith(fontSize: 12),
-                    ),
-                  ],
-                ),
-              ),
-              Icon(
-                Icons.volume_up_outlined,
-                size: 16,
-                color: AppColors.gold.withValues(alpha: 0.5),
-              ),
-            ],
-          ),
-        );
-
     return ListView(
       padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
       children: [
@@ -239,7 +188,7 @@ class _ScheduleState extends ConsumerState<_Schedule> {
             children: [
               Text('NEXT PRAYER', style: AppText.eyebrow),
               const SizedBox(height: 10),
-              // One word wider than the card shrinks to fit instead of
+              // A word wider than the card shrinks to fit instead of
               // breaking in the middle ("Maghri / b").
               WholeWordText(
                 nextName,
@@ -277,7 +226,55 @@ class _ScheduleState extends ConsumerState<_Schedule> {
           ),
         ),
         const SizedBox(height: 16),
-        if (!largeText) ...<Widget>[adhanCard, const SizedBox(height: 16)],
+        // Adhan — real Mecca recording, plays on demand.
+        GlassCard(
+          onTap: () => ref.read(adhanServiceProvider.notifier).toggle(),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+          child: Row(
+            children: [
+              Container(
+                width: 36,
+                height: 36,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: AppColors.gold.withValues(alpha: 0.12),
+                  border: Border.all(
+                    color: AppColors.gold.withValues(alpha: 0.35),
+                  ),
+                ),
+                child: Icon(
+                  adhanPlaying
+                      ? Icons.stop_circle_outlined
+                      : Icons.play_arrow_rounded,
+                  size: 18,
+                  color: AppColors.gold,
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      adhanPlaying ? 'Adhan playing…' : 'Listen to the Adhan',
+                      style: AppText.body.copyWith(fontWeight: FontWeight.w600),
+                    ),
+                    Text(
+                      'The call to prayer · Masjid al-Haram',
+                      style: AppText.bodyMuted.copyWith(fontSize: 12),
+                    ),
+                  ],
+                ),
+              ),
+              Icon(
+                Icons.volume_up_outlined,
+                size: 16,
+                color: AppColors.gold.withValues(alpha: 0.5),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 16),
         // Full schedule
         GlassCard(
           child: Column(
@@ -361,7 +358,6 @@ class _ScheduleState extends ConsumerState<_Schedule> {
           ),
         ),
         const SizedBox(height: 16),
-        if (largeText) ...<Widget>[adhanCard, const SizedBox(height: 16)],
         // Tahajjud — the last third of the night (Bukhari 1145). Opens the
         // Witr & Night Routine guide (Huda), which already holds the night
         // prayer's content.
