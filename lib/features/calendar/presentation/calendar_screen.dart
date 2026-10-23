@@ -33,9 +33,7 @@ class _CalendarScreenState extends ConsumerState<CalendarScreen> {
     final HijriDate hijri = HijriDate.fromGregorian(today);
     final int index = hijri.year * 12 + (hijri.month - 1) + _monthOffset;
     final HijriDate shown = HijriDate(index ~/ 12, index % 12 + 1, 1);
-    final List<(Observance, HijriDate)> upcoming = Observances.upcoming(
-      today,
-    ).take(6).toList();
+    final List<(Observance, HijriDate)> upcoming = Observances.upcoming(today);
 
     return Scaffold(
       body: SafeArea(
@@ -60,6 +58,8 @@ class _CalendarScreenState extends ConsumerState<CalendarScreen> {
                     ),
                   ),
                   const SizedBox(height: 8),
+                  const _ConverterCard(),
+                  const SizedBox(height: 16),
                   _MonthCard(
                     shown: shown,
                     today: hijri,
@@ -71,8 +71,6 @@ class _CalendarScreenState extends ConsumerState<CalendarScreen> {
                   ),
                   const SizedBox(height: 16),
                   _FastingMonthCard(hijri: shown),
-                  const SizedBox(height: 16),
-                  const _ConverterCard(),
                   const SizedBox(height: 16),
                   _ObservancesCard(upcoming: upcoming),
                   const SizedBox(height: 16),
@@ -189,7 +187,10 @@ class _CalendarScreenState extends ConsumerState<CalendarScreen> {
   }
 }
 
-/// Gregorian to Hijri and back, using the calendar chosen above.
+enum _ConvertDirection { toHijri, toGregorian }
+
+/// Gregorian to Hijri and Hijri to Gregorian, using the calendar chosen
+/// above (the same [HijriDate.config] every other screen reads).
 class _ConverterCard extends StatefulWidget {
   const _ConverterCard();
 
@@ -198,11 +199,148 @@ class _ConverterCard extends StatefulWidget {
 }
 
 class _ConverterCardState extends State<_ConverterCard> {
+  _ConvertDirection _dir = _ConvertDirection.toHijri;
   DateTime _picked = DateTime.now();
+  late int _hYear;
+  late int _hMonth;
+  late int _hDay;
+
+  @override
+  void initState() {
+    super.initState();
+    final HijriDate t = HijriDate.fromGregorian(DateTime.now());
+    _hYear = t.year
+        .clamp(HijriDate.converterMinYear, HijriDate.converterMaxYear)
+        .toInt();
+    _hMonth = t.month;
+    _hDay = t.day;
+    _clampDay();
+  }
+
+  void _clampDay() {
+    final int max = HijriDate.monthLength(_hYear, _hMonth);
+    if (_hDay > max) _hDay = max;
+  }
+
+  Widget _gregorianToHijri(BuildContext context) {
+    final HijriDate h = HijriDate.fromGregorian(_picked);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          '${_picked.day} ${_gregShort(_picked)} ${_picked.year}  =  '
+          '${h.day} ${h.monthNameEn} ${h.year} AH',
+          style: AppText.body.copyWith(color: AppColors.sand),
+        ),
+        const SizedBox(height: 4),
+        TextButton(
+          onPressed: () async {
+            final DateTime? d = await showDatePicker(
+              context: context,
+              initialDate: _picked,
+              firstDate: DateTime(1937),
+              lastDate: DateTime(2076),
+            );
+            if (d != null) setState(() => _picked = d);
+          },
+          child: const Text('Pick a Gregorian date'),
+        ),
+      ],
+    );
+  }
+
+  Widget _hijriToGregorian() {
+    final DateTime? g = HijriDate.gregorianFromHijri(_hYear, _hMonth, _hDay);
+    final int days = HijriDate.monthLength(_hYear, _hMonth);
+    final TextStyle dropdownStyle = AppText.body.copyWith(
+      color: AppColors.sand,
+    );
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Wrap(
+          spacing: 12,
+          runSpacing: 4,
+          crossAxisAlignment: WrapCrossAlignment.center,
+          children: [
+            DropdownButton<int>(
+              key: const Key('hijri-day'),
+              value: _hDay.clamp(1, days).toInt(),
+              dropdownColor: AppColors.navy,
+              style: dropdownStyle,
+              items: [
+                for (int d = 1; d <= days; d++)
+                  DropdownMenuItem<int>(value: d, child: Text('$d')),
+              ],
+              onChanged: (int? v) {
+                if (v != null) setState(() => _hDay = v);
+              },
+            ),
+            DropdownButton<int>(
+              key: const Key('hijri-month'),
+              value: _hMonth,
+              dropdownColor: AppColors.navy,
+              style: dropdownStyle,
+              items: [
+                for (int m = 1; m <= 12; m++)
+                  DropdownMenuItem<int>(
+                    value: m,
+                    child: Text(HijriDate.monthNamesEn[m - 1]),
+                  ),
+              ],
+              onChanged: (int? v) {
+                if (v == null) return;
+                setState(() {
+                  _hMonth = v;
+                  _clampDay();
+                });
+              },
+            ),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                IconButton(
+                  tooltip: 'Previous Hijri year',
+                  onPressed: _hYear > HijriDate.converterMinYear
+                      ? () => setState(() {
+                          _hYear--;
+                          _clampDay();
+                        })
+                      : null,
+                  icon: const Icon(Icons.remove_circle_outline, size: 20),
+                  color: AppColors.gold,
+                ),
+                Text('$_hYear AH', style: dropdownStyle),
+                IconButton(
+                  tooltip: 'Next Hijri year',
+                  onPressed: _hYear < HijriDate.converterMaxYear
+                      ? () => setState(() {
+                          _hYear++;
+                          _clampDay();
+                        })
+                      : null,
+                  icon: const Icon(Icons.add_circle_outline, size: 20),
+                  color: AppColors.gold,
+                ),
+              ],
+            ),
+          ],
+        ),
+        const SizedBox(height: 4),
+        Text(
+          g == null
+              ? 'That date does not exist in this calendar.'
+              : '$_hDay ${HijriDate.monthNamesEn[_hMonth - 1]} $_hYear AH  =  '
+                    '${g.day} ${_gregShort(g)} ${g.year}',
+          key: const Key('hijri-result'),
+          style: AppText.body.copyWith(color: AppColors.sand),
+        ),
+      ],
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
-    final HijriDate h = HijriDate.fromGregorian(_picked);
     return GlassCard(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -213,29 +351,59 @@ class _ConverterCardState extends State<_ConverterCard> {
             style: AppText.eyebrow.copyWith(color: AppColors.gold),
           ),
           const SizedBox(height: 8),
-          Text(
-            '${_picked.day}/${_picked.month}/${_picked.year}  =  '
-            '${h.day} ${h.monthNameEn} ${h.year} AH',
-            style: AppText.body.copyWith(color: AppColors.sand),
+          Wrap(
+            spacing: 8,
+            children: [
+              ChoiceChip(
+                key: const Key('convert-to-hijri'),
+                label: const Text('Gregorian to Hijri'),
+                selected: _dir == _ConvertDirection.toHijri,
+                onSelected: (_) =>
+                    setState(() => _dir = _ConvertDirection.toHijri),
+              ),
+              ChoiceChip(
+                key: const Key('convert-to-gregorian'),
+                label: const Text('Hijri to Gregorian'),
+                selected: _dir == _ConvertDirection.toGregorian,
+                onSelected: (_) =>
+                    setState(() => _dir = _ConvertDirection.toGregorian),
+              ),
+            ],
           ),
-          const SizedBox(height: 4),
-          TextButton(
-            onPressed: () async {
-              final DateTime? d = await showDatePicker(
-                context: context,
-                initialDate: _picked,
-                firstDate: DateTime(1937),
-                lastDate: DateTime(2076),
-              );
-              if (d != null) setState(() => _picked = d);
-            },
-            child: const Text('Pick a Gregorian date'),
-          ),
+          const SizedBox(height: 8),
+          if (_dir == _ConvertDirection.toHijri)
+            _gregorianToHijri(context)
+          else
+            _hijriToGregorian(),
         ],
       ),
     );
   }
 }
+
+/// '10 Muharram 1448 AH · 26 Jun 2026' for the day popups.
+String _hijriWithGregorian(HijriDate date) {
+  final DateTime g = date.toGregorian();
+  return '${date.format()} AH \u00b7 ${g.day} ${_gregShort(g)} ${g.year}';
+}
+
+/// Short English month name of a Gregorian date ('Oct').
+String _gregShort(DateTime g) => _kShortMonths[g.month - 1];
+
+const List<String> _kShortMonths = <String>[
+  'Jan',
+  'Feb',
+  'Mar',
+  'Apr',
+  'May',
+  'Jun',
+  'Jul',
+  'Aug',
+  'Sep',
+  'Oct',
+  'Nov',
+  'Dec',
+];
 
 class _TodayCard extends StatelessWidget {
   const _TodayCard({required this.today, required this.hijri});
@@ -377,6 +545,11 @@ class _MonthCard extends StatelessWidget {
                 children: [
                   for (int col = 0; col < 7; col++)
                     _DayCell(
+                      date: HijriDate(
+                        hijri.year,
+                        hijri.month,
+                        row * 7 + col - offset + 1,
+                      ),
                       day: row * 7 + col - offset + 1,
                       valid:
                           row * 7 + col >= offset &&
@@ -409,12 +582,14 @@ class _MonthCard extends StatelessWidget {
 
 class _DayCell extends StatelessWidget {
   const _DayCell({
+    required this.date,
     required this.day,
     required this.valid,
     required this.isToday,
     required this.markers,
   });
 
+  final HijriDate date;
   final int day;
   final bool valid;
   final bool isToday;
@@ -423,7 +598,7 @@ class _DayCell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bool recommended = markers.any(
-      (FastingMarker m) => m.kind == FastingKind.recommended,
+      (FastingMarker m) => m.kind != FastingKind.forbidden,
     );
     final bool forbidden = markers.any(
       (FastingMarker m) => m.kind == FastingKind.forbidden,
@@ -432,7 +607,7 @@ class _DayCell extends StatelessWidget {
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: valid && markers.isNotEmpty
-          ? () => showFastingKnowledgeSheet(context, markers)
+          ? () => showFastingKnowledgeSheet(context, markers, date: date)
           : null,
       child: Container(
         width: 36,
@@ -491,8 +666,9 @@ class _DayCell extends StatelessWidget {
 /// source on screen, per the app's authenticity constitution.
 void showFastingKnowledgeSheet(
   BuildContext context,
-  List<FastingMarker> markers,
-) {
+  List<FastingMarker> markers, {
+  HijriDate? date,
+}) {
   showModalBottomSheet<void>(
     context: context,
     backgroundColor: AppColors.navy,
@@ -516,6 +692,10 @@ void showFastingKnowledgeSheet(
               ),
             ),
             const SizedBox(height: 16),
+            if (date != null) ...[
+              Text(_hijriWithGregorian(date), style: AppText.caption),
+              const SizedBox(height: 12),
+            ],
             for (int i = 0; i < markers.length; i++) ...[
               if (i > 0) const SizedBox(height: 20),
               Row(
@@ -581,12 +761,15 @@ class _TodayFastingBadge extends StatelessWidget {
     if (markers.isEmpty) return const SizedBox.shrink();
     final FastingMarker first = markers.first;
     final bool forbidden = first.kind == FastingKind.forbidden;
+    final bool obligatory = first.kind == FastingKind.obligatory;
+    final HijriDate todayHijri = HijriDate.fromGregorian(DateTime.now());
 
     return Padding(
       padding: const EdgeInsets.only(top: 10),
       child: InkWell(
         borderRadius: BorderRadius.circular(20),
-        onTap: () => showFastingKnowledgeSheet(context, markers),
+        onTap: () =>
+            showFastingKnowledgeSheet(context, markers, date: todayHijri),
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 7),
           decoration: BoxDecoration(
@@ -603,6 +786,8 @@ class _TodayFastingBadge extends StatelessWidget {
           child: Text(
             forbidden
                 ? 'No fasting today — ${first.titleEn}'
+                : obligatory
+                ? 'Ramadan — the fast is obligatory today'
                 : 'Sunnah to fast today — tap to learn why',
             style: AppText.caption.copyWith(
               color: forbidden ? AppColors.destructive : AppColors.gold,
@@ -644,8 +829,11 @@ class _FastingMonthCard extends StatelessWidget {
             if (i > 0)
               Divider(height: 14, color: AppColors.gold.withValues(alpha: 0.1)),
             InkWell(
-              onTap: () =>
-                  showFastingKnowledgeSheet(context, days[i].$2),
+              onTap: () => showFastingKnowledgeSheet(
+                context,
+                days[i].$2,
+                date: days[i].$1,
+              ),
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 4),
                 child: Row(
@@ -689,15 +877,26 @@ class _FastingMonthCard extends StatelessWidget {
   }
 }
 
-class _ObservancesCard extends StatelessWidget {
+class _ObservancesCard extends StatefulWidget {
   const _ObservancesCard({required this.upcoming});
 
   final List<(Observance, HijriDate)> upcoming;
 
   @override
+  State<_ObservancesCard> createState() => _ObservancesCardState();
+}
+
+class _ObservancesCardState extends State<_ObservancesCard> {
+  static const int _initial = 6;
+  bool _all = false;
+
+  @override
   Widget build(BuildContext context) {
     final DateTime now = DateTime.now();
     final int todayJd = HijriDate.gregorianToJd(now.year, now.month, now.day);
+    final List<(Observance, HijriDate)> shown = _all
+        ? widget.upcoming
+        : widget.upcoming.take(_initial).toList();
 
     return GlassCard(
       child: Column(
@@ -709,16 +908,29 @@ class _ObservancesCard extends StatelessWidget {
             style: AppText.eyebrow.copyWith(color: AppColors.gold),
           ),
           const SizedBox(height: 10),
-          for (int i = 0; i < upcoming.length; i++) ...[
+          for (int i = 0; i < shown.length; i++) ...[
             if (i > 0)
               Divider(height: 16, color: AppColors.gold.withValues(alpha: 0.1)),
             _ObservanceRow(
-              observance: upcoming[i].$1,
-              date: upcoming[i].$2,
+              observance: shown[i].$1,
+              date: shown[i].$2,
               // Same calendar as the Gregorian date printed on the row.
-              daysAway: _daysUntil(upcoming[i].$2, todayJd),
+              daysAway: _daysUntil(shown[i].$2, todayJd),
             ),
           ],
+          if (widget.upcoming.length > _initial)
+            Align(
+              alignment: Alignment.centerLeft,
+              child: TextButton(
+                key: const Key('observances-toggle'),
+                onPressed: () => setState(() => _all = !_all),
+                child: Text(
+                  _all
+                      ? 'Show fewer'
+                      : 'Show all ${widget.upcoming.length}',
+                ),
+              ),
+            ),
           const SizedBox(height: 4),
         ],
       ),

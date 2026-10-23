@@ -22,6 +22,14 @@ class ExploreScreen extends ConsumerWidget {
     (
       'Faith & Worship',
       [
+        // The things a first-time visitor looks for come first.
+        (Icons.nights_stay_outlined, 'Prayer Times', AppRoutes.prayerTimes),
+        (Icons.explore_outlined, 'Qibla \u00b7 which way to pray', AppRoutes.qibla),
+        (
+          Icons.self_improvement_outlined,
+          'How to Pray \u00b7 step by step',
+          '${AppRoutes.hudaGuide}?id=huda-prayer',
+        ),
         (Icons.menu_book_outlined, 'Qur’an', AppRoutes.quran),
         (Icons.article_outlined, 'Hadith', AppRoutes.hadith),
         (Icons.auto_stories_outlined, 'Stories', AppRoutes.stories),
@@ -34,9 +42,12 @@ class ExploreScreen extends ConsumerWidget {
         (Icons.mosque_outlined, 'Masajid \u00b7 mosques near you', '/masajid'),
         (Icons.ios_share_outlined, 'Verse Cards \u00b7 share the light', '/share'),
         (Icons.wb_sunny_outlined, 'Dhikr & Du’a', AppRoutes.adhkar),
-        (Icons.nights_stay_outlined, 'Prayer Times', AppRoutes.prayerTimes),
-        (Icons.calendar_month_outlined, 'Islamic Calendar', AppRoutes.calendar),
-        (Icons.explore_outlined, 'Qibla Finder', AppRoutes.qibla),
+        (
+          Icons.calendar_month_outlined,
+          'Islamic Calendar \u00b7 Hijri date & Ramadan',
+          AppRoutes.calendar,
+        ),
+        (Icons.spa_outlined, 'The 99 Names of Allah', AppRoutes.names99),
         (Icons.calculate_outlined, 'Zakat Calculator', AppRoutes.zakat),
         (Icons.school_outlined, 'The Academy', AppRoutes.academyGate),
         (Icons.nightlight_round, 'Ramadan Mode \u00b7 the season, complete', '/ramadan'),

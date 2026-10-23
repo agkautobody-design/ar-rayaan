@@ -195,6 +195,25 @@ void main() {
     });
   });
 
+  group('City picker filter', () {
+    test('empty query keeps every city', () {
+      expect(CityDirectory.filter('').length, CityDirectory.cities.length);
+      expect(CityDirectory.filter('   ').length, CityDirectory.cities.length);
+    });
+
+    test('matches city or country, case-insensitively', () {
+      expect(
+        CityDirectory.filter('lond').map((PrayerLocation c) => c.city),
+        contains('London'),
+      );
+      expect(
+        CityDirectory.filter('SAUDI').map((PrayerLocation c) => c.city),
+        containsAll(<String>['Makkah', 'Madinah', 'Riyadh', 'Jeddah']),
+      );
+      expect(CityDirectory.filter('zzzz'), isEmpty);
+    });
+  });
+
   group('AdhanCalcPrayerRepository', () {
     test('Makkah on a fixed clock gives plausible wall times for that day', () {
       final AdhanCalcPrayerRepository repo = AdhanCalcPrayerRepository(
