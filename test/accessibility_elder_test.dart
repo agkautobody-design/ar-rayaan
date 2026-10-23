@@ -406,24 +406,20 @@ void main() {
   testWidgets('Home lays out at 360px wide and 2.0x text', (tester) async {
     await AppHarness.boot(tester);
     tester.takeException();
-    final List<String> homeOverflows = <String>[];
-    final void Function(FlutterErrorDetails)? previous = FlutterError.onError;
-    FlutterError.onError = (FlutterErrorDetails d) {
-      final String text = d.toString();
-      if (text.contains('overflowed') &&
-          (text.contains('home_screen.dart') ||
-              text.contains('hadi_ask_bar.dart'))) {
-        homeOverflows.add(text.split('\n').first);
+    bigText(tester, height: 4000);
+    await AppHarness.settle(tester);
+    // Only problems in the Home header and Elder card are judged here.
+    final List<String> homeProblems = <String>[];
+    Object? e = tester.takeException();
+    while (e != null) {
+      final String text = e.toString();
+      if (text.contains('home_screen.dart') ||
+          text.contains('hadi_ask_bar.dart')) {
+        homeProblems.add(text.split('\n').first);
       }
-    };
-    try {
-      bigText(tester, height: 4000);
-      await AppHarness.settle(tester);
-    } finally {
-      FlutterError.onError = previous;
+      e = tester.takeException();
     }
-    tester.takeException();
-    expect(homeOverflows, isEmpty);
+    expect(homeProblems, isEmpty);
     // The Elder Mode title is one piece, not split into letters.
     final Finder title = find.text('ELDER MODE');
     expect(title, findsOneWidget, reason: 'ELDER MODE card is built');
