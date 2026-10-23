@@ -589,7 +589,7 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
     // With large text or a very narrow phone the status pill moves to its
     // own row under the buttons, so it never gets squeezed to nothing.
     final bool stackedHeader =
-        largeText || MediaQuery.sizeOf(context).width < 340;
+        largeText || MediaQuery.sizeOf(context).width < 300;
     final Widget statusPill = Container(
       key: const Key('hadi-status-pill'),
       constraints: const BoxConstraints(minHeight: 40),
@@ -633,7 +633,14 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                   ),
                 ),
               ),
-              child: Column(
+              // Never taller than 45% of the screen: the intro scrolls inside
+              // the band rather than pushing the chat out of view.
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxHeight: MediaQuery.sizeOf(context).height * 0.45,
+                ),
+                child: SingleChildScrollView(
+                  child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   Padding(
@@ -779,6 +786,8 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                 ),
               ),
                 ],
+              ),
+                ),
               ),
             ),
             Expanded(

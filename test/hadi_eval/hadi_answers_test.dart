@@ -87,15 +87,10 @@ const List<AnswerCase> kAnswerCases = <AnswerCase>[
 void main() {
   final Set<String> stock = <String>{
     OfflineHadiProvider.decline,
-    OfflineHadiProvider.declineKeyed,
     OfflineHadiProvider.rulingDecline,
-    OfflineHadiProvider.offTopicReply,
     OfflineHadiProvider.scriptReply,
-    OfflineHadiProvider.scriptReplyKeyed,
     OfflineHadiProvider.scriptReplyArabic,
-    OfflineHadiProvider.scriptReplyArabicKeyed,
     OfflineHadiProvider.scriptReplyUrdu,
-    OfflineHadiProvider.scriptReplyUrduKeyed,
     ...OfflineHadiProvider.rudeReplies,
     ...OfflineHadiProvider.distressReplies,
   };
