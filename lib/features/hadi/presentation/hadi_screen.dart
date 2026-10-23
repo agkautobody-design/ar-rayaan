@@ -1,4 +1,4 @@
-import 'dart:async' show unawaited;
+import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -38,12 +38,11 @@ enum _HadiMenu { newConversation, school, advanced }
 /// a curated authentic offline fallback (O-7). Guardrails: Qur'an + Sihah
 /// Sitta only, honest declines, no invented rulings.
 class HadiScreen extends ConsumerStatefulWidget {
-  const HadiScreen({super.key, this.initialQuestion});
+  const HadiScreen({super.key, this.initialQuery});
 
-  /// A question typed elsewhere (the Home bar, a search with no answer).
-  /// It is sent once on arrival; the `?q=` is then dropped from the address
-  /// so a reload does not ask it again.
-  final String? initialQuestion;
+  /// A question to ask as soon as the screen opens (for example the text
+  /// typed in the bar on the home screen). It is sent once.
+  final String? initialQuery;
 
   @override
   ConsumerState<HadiScreen> createState() => _HadiScreenState();
@@ -53,34 +52,37 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
   bool _allStarters = false;
   final TextEditingController _input = TextEditingController();
   final ScrollController _scroll = ScrollController();
-  String? _handedOver;
+
+  /// The last [HadiScreen.initialQuery] taken, so it is never sent twice.
+  String? _takenQuery;
 
   @override
   void initState() {
     super.initState();
-    _takeHandOver();
+    WidgetsBinding.instance.addPostFrameCallback((_) => _takeInitialQuery());
   }
 
   @override
   void didUpdateWidget(HadiScreen oldWidget) {
     super.didUpdateWidget(oldWidget);
-    _takeHandOver();
+    if (widget.initialQuery != oldWidget.initialQuery) {
+      if ((widget.initialQuery ?? '').trim().isEmpty) _takenQuery = null;
+      WidgetsBinding.instance.addPostFrameCallback((_) => _takeInitialQuery());
+    }
   }
 
-  void _takeHandOver() {
-    final String q = (widget.initialQuestion ?? '').trim();
-    if (q.isEmpty || q == _handedOver) return;
-    _handedOver = q;
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (!mounted) return;
-      if (ref.read(hadiControllerProvider).typing) {
-        // Hādi is mid-answer: keep the question in the box, do not drop it.
-        _input.text = q;
-      } else {
-        unawaited(_send(q));
-      }
-      context.go(AppRoutes.hadi);
-    });
+  /// Asks the question the screen was opened with. If Hādi is busy it goes
+  /// into the text box instead, so what the person typed is never lost.
+  void _takeInitialQuery() {
+    if (!mounted) return;
+    final String q = (widget.initialQuery ?? '').trim();
+    if (q.isEmpty || q == _takenQuery) return;
+    _takenQuery = q;
+    if (ref.read(hadiControllerProvider).typing) {
+      _input.text = q;
+      return;
+    }
+    unawaited(_send(q));
   }
 
   @override
@@ -325,13 +327,16 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text('Advanced · live AI', style: AppText.titleMedium),
+                  Text('Your own AI account (optional)',
+                      style: AppText.titleMedium),
                   const SizedBox(height: 8),
                   Text(
-                    'Hādi answers from curated knowledge on your device, '
-                    'offline, and that needs no key. For open conversation '
-                    'you can add your own free key from Groq, OpenRouter or '
-                    'xAI.',
+                    'You do not need this. Hādi already answers from '
+                    'curated knowledge stored on your device, offline, for '
+                    'free. If you want open-ended conversation, you can '
+                    'paste a key from your own account with an AI company '
+                    '(Groq, OpenRouter or xAI). Those companies offer free '
+                    'plans; this app does not charge you for it.',
                     style: AppText.bodyMuted.copyWith(
                       fontSize: 14,
                       height: 1.5,
@@ -563,7 +568,7 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                       PopupMenuItem<_HadiMenu>(
                         value: _HadiMenu.advanced,
                         child: Text(
-                          'Advanced · live AI key',
+                          'Your own AI account (optional, advanced)',
                           style: AppText.body,
                         ),
                       ),
@@ -576,7 +581,8 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
             Text(
               hadi.live
                   ? 'Live answers · Qur\'an & Sihah Sitta guardrails'
-                  : 'Offline mode · live AI is under ⋮ › Advanced',
+                  : 'Free, works offline · your own AI account is optional, '
+                      'under ⋮ › Advanced',
               style: AppText.bodyMuted.copyWith(
                 fontSize: 12,
                 color: AppColors.textFaint,
@@ -594,6 +600,38 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                     color: AppColors.textFaint,
                   ),
                   textAlign: TextAlign.center,
+                ),
+              ),
+            if (hadi.messages.length == 1)
+              Padding(
+                padding: const EdgeInsets.fromLTRB(24, 4, 24, 0),
+                child: Column(
+                  children: <Widget>[
+                    Text(
+                      'Free today: everything in this app, including Hādi. '
+                      'Nothing asks for a card. A paid plan for extra live '
+                      'answers is planned but not open yet.',
+                      style: AppText.bodyMuted.copyWith(
+                        fontSize: 12,
+                        color: AppColors.textFaint,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    TextButton(
+                      style: TextButton.styleFrom(
+                        minimumSize: const Size(48, 48),
+                      ),
+                      onPressed: () => context.push(AppRoutes.sources),
+                      child: Text(
+                        'Where do the answers come from? Our Sources →',
+                        style: AppText.bodyMuted.copyWith(
+                          color: AppColors.gold,
+                          fontSize: 12,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             Expanded(
@@ -822,74 +860,120 @@ class _CrisisHelpPanel extends ConsumerWidget {
 
 /// A passage printed from Hādi's own library under a reply: the label, the
 /// citation, the Arabic and translation, and for a hadith its grade and who
-/// gave it.
+/// gave it. Tapping it opens the surah for a verse, or Our Sources for a
+/// hadith, and the card says so.
 class _PassageCard extends StatelessWidget {
   const _PassageCard({required this.passage});
 
   final Passage passage;
 
+  /// Where a tap goes: the surah for a Qur'an verse, Our Sources otherwise.
+  String get _route {
+    if (passage.kind == PassageKind.quran) {
+      final List<String> parts = passage.id.split(':');
+      final int? surah = parts.length > 1 ? int.tryParse(parts[1]) : null;
+      if (surah != null && surah >= 1 && surah <= 114) {
+        return AppRoutes.surah(surah);
+      }
+    }
+    return AppRoutes.sources;
+  }
+
   @override
   Widget build(BuildContext context) {
     final String? grade = passage.gradeLine;
-    return Container(
+    final String route = _route;
+    return SizedBox(
       width: double.infinity,
-      margin: const EdgeInsets.only(top: 8),
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        color: AppColors.gold.withValues(alpha: 0.06),
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: AppColors.gold.withValues(alpha: 0.25)),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(
-            '${passage.label} · ${passage.reference}',
-            style: AppText.caption.copyWith(
-              color: AppColors.gold,
-              fontWeight: FontWeight.w700,
+      child: Padding(
+        padding: const EdgeInsets.only(top: 8),
+        child: Material(
+          color: AppColors.gold.withValues(alpha: 0.06),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+            side: BorderSide(color: AppColors.gold.withValues(alpha: 0.25)),
+          ),
+          child: InkWell(
+            borderRadius: BorderRadius.circular(12),
+            onTap: () => context.push(route),
+            child: Padding(
+              padding: const EdgeInsets.all(12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    '${passage.label} · ${passage.reference}',
+                    style: AppText.caption.copyWith(
+                      color: AppColors.gold,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  if (passage.arabic != null) ...<Widget>[
+                    const SizedBox(height: 6),
+                    Directionality(
+                      textDirection: TextDirection.rtl,
+                      child: Text(
+                        passage.arabic!,
+                        style: AppText.body.copyWith(fontSize: 18, height: 1.8),
+                      ),
+                    ),
+                  ],
+                  const SizedBox(height: 6),
+                  Text(
+                    passage.english,
+                    style: AppText.caption.copyWith(
+                      color: AppColors.sand.withValues(alpha: 0.85),
+                      height: 1.5,
+                    ),
+                  ),
+                  if (grade != null) ...<Widget>[
+                    const SizedBox(height: 6),
+                    Text(
+                      'Grade: $grade',
+                      style: AppText.caption.copyWith(
+                        color: AppColors.sand.withValues(alpha: 0.7),
+                        fontSize: 12,
+                      ),
+                    ),
+                  ],
+                  if (passage.textKind != null) ...<Widget>[
+                    Text(
+                      passage.textKind == 'summary'
+                          ? 'Summary written for this app, not a translation.'
+                          : 'Excerpt written for this app, not a full '
+                              'translation.',
+                      style: AppText.caption.copyWith(
+                        color: AppColors.sand.withValues(alpha: 0.7),
+                        fontSize: 12,
+                      ),
+                    ),
+                  ],
+                  const SizedBox(height: 8),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Text(
+                        route == AppRoutes.sources
+                            ? 'Where this comes from'
+                            : 'Open this surah',
+                        style: AppText.caption.copyWith(
+                          color: AppColors.goldLight,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      const SizedBox(width: 4),
+                      const Icon(
+                        Icons.chevron_right,
+                        size: 16,
+                        color: AppColors.goldLight,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
-          if (passage.arabic != null) ...<Widget>[
-            const SizedBox(height: 6),
-            Directionality(
-              textDirection: TextDirection.rtl,
-              child: Text(
-                passage.arabic!,
-                style: AppText.body.copyWith(fontSize: 18, height: 1.8),
-              ),
-            ),
-          ],
-          const SizedBox(height: 6),
-          Text(
-            passage.english,
-            style: AppText.caption.copyWith(
-              color: AppColors.sand.withValues(alpha: 0.85),
-              height: 1.5,
-            ),
-          ),
-          if (grade != null) ...<Widget>[
-            const SizedBox(height: 6),
-            Text(
-              'Grade: $grade',
-              style: AppText.caption.copyWith(
-                color: AppColors.sand.withValues(alpha: 0.7),
-                fontSize: 12,
-              ),
-            ),
-          ],
-          if (passage.textKind != null) ...<Widget>[
-            Text(
-              passage.textKind == 'summary'
-                  ? 'Summary written for this app, not a translation.'
-                  : 'Excerpt written for this app, not a full translation.',
-              style: AppText.caption.copyWith(
-                color: AppColors.sand.withValues(alpha: 0.7),
-                fontSize: 12,
-              ),
-            ),
-          ],
-        ],
+        ),
       ),
     );
   }
@@ -1232,7 +1316,7 @@ class _SubscriptionPanel extends ConsumerWidget {
               Text(
                 entitled
                     ? 'Subscription · ${tier[0].toUpperCase()}${tier.substring(1)}'
-                    : 'Subscription · Free tier',
+                    : 'Free today · nothing to pay',
                 style: AppText.body.copyWith(
                     fontSize: 13, fontWeight: FontWeight.w600),
               ),
@@ -1243,9 +1327,10 @@ class _SubscriptionPanel extends ConsumerWidget {
             entitled
                 ? '${sub.remainingToday} live questions left today'
                     '${expiryLabel.isEmpty ? '' : ' · renews $expiryLabel'}'
-                : 'Live AI comes with a subscription — pricing lands soon. '
-                    'Until then, add your own free key below, or use my '
-                    'built-in shelf: it never runs out.',
+                : 'A paid plan for extra live answers is planned, not open '
+                    'yet, and nothing here asks for a card. Hādi\u2019s '
+                    'built-in shelf is free and never runs out. You can also '
+                    'use your own AI account below.',
             style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.5),
           ),
           const SizedBox(height: 8),
@@ -1270,7 +1355,7 @@ class _SubscriptionPanel extends ConsumerWidget {
                 );
               }
             },
-            child: Text('Restore purchase →',
+            child: Text('Already paid on another device? Restore →',
                 style: AppText.bodyMuted.copyWith(
                     color: AppColors.gold, fontSize: 14)),
           ),

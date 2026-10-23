@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
@@ -9,7 +11,6 @@ import '../application/sakina_providers.dart';
 import '../domain/sakina_content.dart';
 import 'widgets/help_line_tile.dart';
 import 'widgets/need_help_button.dart';
-import 'wellbeing_tools.dart';
 
 /// Sakina — the soul of the app (crisis shell, Wave A4).
 /// Locked look: hero word of mercy → rooms → comfort deck → human help.
@@ -128,20 +129,17 @@ class SakinaScreen extends ConsumerWidget {
                       ActionChip(
                         avatar: const Icon(Icons.air, size: 16),
                         label: const Text('Steady yourself'),
-                        onPressed: () =>
-                            openWellbeingTool(context, const SteadyScreen()),
+                        onPressed: () => context.push(AppRoutes.sakinaSteady),
                       ),
                       ActionChip(
                         avatar: const Icon(Icons.edit_note, size: 16),
                         label: const Text('How are you today?'),
-                        onPressed: () => openWellbeingTool(
-                            context, const MoodCheckInScreen()),
+                        onPressed: () => context.push(AppRoutes.sakinaMood),
                       ),
                       ActionChip(
                         avatar: const Icon(Icons.shield_outlined, size: 16),
                         label: const Text('My safety plan'),
-                        onPressed: () => openWellbeingTool(
-                            context, const SafetyPlanScreen()),
+                        onPressed: () => context.push(AppRoutes.sakinaSafety),
                       ),
                     ],
                   ),

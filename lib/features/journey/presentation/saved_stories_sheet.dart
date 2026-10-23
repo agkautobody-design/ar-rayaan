@@ -6,6 +6,7 @@ import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
+import '../../quran/presentation/quran_marks_link_card.dart';
 import '../../stories/application/saved_stories_controller.dart';
 import '../../stories/data/stories_repository.dart';
 import '../../stories/domain/story.dart';
@@ -45,6 +46,9 @@ class SavedStoriesSheet extends ConsumerWidget {
           children: <Widget>[
             Text('BOOKMARKS', style: AppText.eyebrow),
             const SizedBox(height: 10),
+            // Qur'an ayah bookmarks are kept by the reader; open them here.
+            const QuranMarksLinkCard(),
+            const SizedBox(height: 10),
             if (mine.isEmpty)
               Text(
                 saved.isEmpty
@@ -67,14 +71,20 @@ class SavedStoriesSheet extends ConsumerWidget {
                           },
                           child: Row(
                             children: <Widget>[
-                              const Icon(Icons.bookmark,
-                                  size: 18, color: AppColors.goldLight),
+                              const Icon(
+                                Icons.bookmark,
+                                size: 18,
+                                color: AppColors.goldLight,
+                              ),
                               const SizedBox(width: 12),
                               Expanded(
                                 child: Text(s.title, style: AppText.body),
                               ),
-                              const Icon(Icons.chevron_right,
-                                  size: 16, color: AppColors.gold),
+                              const Icon(
+                                Icons.chevron_right,
+                                size: 16,
+                                color: AppColors.gold,
+                              ),
                             ],
                           ),
                         ),

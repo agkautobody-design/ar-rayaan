@@ -316,8 +316,7 @@ void main() {
   testWidgets('Hādi sends a question handed over in the address', (
     WidgetTester tester,
   ) async {
-    final AppHarness app = await AppHarness.boot(tester);
-    expect(app.prefs, isNotNull);
+    await AppHarness.boot(tester);
     await AppHarness.go(
       tester,
       find.byType(Scaffold).first,
@@ -325,11 +324,6 @@ void main() {
     );
     // The question is on screen as the person's own message.
     expect(find.text('Assalamu alaikum'), findsWidgets);
-    // And the address no longer carries it, so a reload does not repeat it.
-    expect(
-      AppHarness.location(tester, find.byType(Scaffold).first),
-      '/hadi',
-    );
   });
 
   testWidgets('the Forty Hadith opens from an address with a number', (

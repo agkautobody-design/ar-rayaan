@@ -15,7 +15,8 @@ class SourceLabelChip extends StatelessWidget {
   Widget build(BuildContext context) {
     final established = label == kLabelEstablished;
     final unverified = isUnverifiedLabel(label);
-    return ConstrainedBox(
+    final String meaning = storyLabelMeaning(label);
+    final Widget chip = ConstrainedBox(
       constraints: const BoxConstraints(maxWidth: 150),
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
@@ -47,6 +48,8 @@ class SourceLabelChip extends StatelessWidget {
         ),
       ),
     );
+    // Hover (web) or long-press (phone) says what the label means.
+    return meaning.isEmpty ? chip : Tooltip(message: meaning, child: chip);
   }
 }
 

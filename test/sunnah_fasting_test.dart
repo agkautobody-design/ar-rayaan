@@ -10,6 +10,8 @@ void main() {
           // 11-13 Dhul-Hijjah are the days of Tashreeq: fasting is
           // forbidden, and a prohibition always wins over a White Day.
           if (month == 12 && day == 13) continue;
+          // Every day of Ramadan is the obligatory fast, never a sunnah one.
+          if (month == 9) continue;
           final List<FastingMarker> markers = SunnahFasting.forDate(
             HijriDate(1447, month, day),
           );
@@ -64,6 +66,27 @@ void main() {
       expect(mondayFound, greaterThan(0));
       expect(thursdayFound, greaterThan(0));
       expect(fridayFound, greaterThan(0));
+    });
+
+    test('every day of Ramadan is the obligatory fast, never sunnah', () {
+      for (final int y in <int>[1447, 1448]) {
+        for (int d = 1; d <= HijriDate.monthLength(y, 9); d++) {
+          final List<FastingMarker> m = SunnahFasting.forDate(HijriDate(y, 9, d));
+          expect(m.length, 1, reason: 'Ramadan $y day $d');
+          expect(m.single.kind, FastingKind.obligatory);
+          expect(m.single.titleEn, contains('Ramadan'));
+          expect(m.single.titleEn, isNot(contains('Monday')));
+          expect(m.single.titleEn, isNot(contains('Thursday')));
+          expect(m.single.source, contains('2:185'));
+        }
+      }
+      expect(SunnahFasting.recommendedInMonth(1447, 9), isEmpty);
+      // The month around it is unchanged.
+      expect(SunnahFasting.isForbidden(const HijriDate(1447, 9, 30)), isFalse);
+      expect(
+        SunnahFasting.forDate(const HijriDate(1447, 10, 1)).single.kind,
+        FastingKind.forbidden,
+      );
     });
 
     test('Ashura (10 Muharram) and Tasu’a (9 Muharram) are recommended', () {
@@ -126,7 +149,10 @@ void main() {
         for (int d = 1; d <= days; d++) {
           for (final FastingMarker m
               in SunnahFasting.forDate(HijriDate(1447, month, d))) {
-            expect(m.source, contains(RegExp(r'Bukhari|Muslim|Tirmidhi|Nasa')));
+            expect(
+              m.source,
+              contains(RegExp(r'Bukhari|Muslim|Tirmidhi|Nasa|Qur')),
+            );
             expect(m.why.length, greaterThan(40));
             expect(m.titleEn, isNotEmpty);
             expect(m.titleAr, isNotEmpty);

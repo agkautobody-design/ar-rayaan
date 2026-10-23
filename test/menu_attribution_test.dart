@@ -124,6 +124,35 @@ void main() {
     expect(find.text('Night Mode'), findsNothing);
   });
 
+  testWidgets('Explore: Qibla, How to Pray and the 99 Names are near the top', (
+    tester,
+  ) async {
+    await AppHarness.boot(tester);
+    await tester.tap(find.text('Faith'));
+    await AppHarness.settle(tester);
+    final Finder prayer = find.text('Prayer Times');
+    final Finder qibla = find.text('Qibla \u00b7 which way to pray');
+    final Finder howTo = find.text('How to Pray \u00b7 step by step');
+    final Finder names = find.text('The 99 Names of Allah');
+    for (final Finder f in <Finder>[prayer, qibla, howTo, names]) {
+      expect(f, findsOneWidget);
+    }
+    // Prayer Times, Qibla and How to Pray lead the Faith & Worship list.
+    final double qiblaY = tester.getTopLeft(qibla).dy;
+    expect(tester.getTopLeft(prayer).dy, lessThan(qiblaY));
+    expect(qiblaY, lessThan(tester.getTopLeft(howTo).dy));
+    expect(
+      tester.getTopLeft(howTo).dy,
+      lessThan(tester.getTopLeft(find.text('Qur’an')).dy),
+    );
+    await tester.tap(howTo);
+    await AppHarness.settle(tester);
+    expect(
+      AppHarness.location(tester, find.byType(Scaffold).first),
+      AppRoutes.hudaGuide,
+    );
+  });
+
   testWidgets('Explore: kill switch removes The Academy', (tester) async {
     await AppHarness.boot(
       tester,

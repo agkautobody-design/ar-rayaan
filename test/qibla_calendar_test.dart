@@ -36,6 +36,17 @@ void main() {
       expect(QiblaDirection.compassPoint(jakarta), 'WNW');
     });
 
+    test('plain sentence leads with words and a rounded angle', () {
+      expect(QiblaDirection.plainSentence(136.3), 'Face south-east, about 136\u00b0');
+      expect(QiblaDirection.plainSentence(54.7), 'Face north-east, about 55\u00b0');
+      expect(QiblaDirection.plainSentence(270), 'Face west, about 270\u00b0');
+      expect(QiblaDirection.plainSentence(359.7), 'Face north, about 0\u00b0');
+      expect(QiblaDirection.plainSentence(-10), 'Face north, about 350\u00b0');
+      expect(QiblaDirection.plainDirection(22.4), 'north');
+      expect(QiblaDirection.plainDirection(22.6), 'north-east');
+      expect(QiblaDirection.plainDirection(200), 'south');
+    });
+
     test('compass points wrap correctly', () {
       expect(QiblaDirection.compassPoint(0), 'N');
       expect(QiblaDirection.compassPoint(359), 'N');
@@ -188,6 +199,41 @@ void main() {
       expect(HijriDate.fromGregorian(g), const HijriDate(1600, 1, 1));
     });
 
+    test('Hijri to Gregorian converter validates and inverts, both bases', () {
+      final HijriConfig saved = HijriDate.config;
+      addTearDown(() => HijriDate.config = saved);
+      for (final HijriConfig cfg in const <HijriConfig>[
+        HijriConfig(),
+        HijriConfig(basis: HijriBasis.tabular),
+        HijriConfig(adjustDays: 1),
+        HijriConfig(basis: HijriBasis.tabular, adjustDays: -1),
+      ]) {
+        HijriDate.config = cfg;
+        for (int y = HijriDate.converterMinYear;
+            y <= HijriDate.converterMaxYear;
+            y += 11) {
+          for (int m = 1; m <= 12; m++) {
+            for (final int d in <int>[1, 15, 28]) {
+              final DateTime? g = HijriDate.gregorianFromHijri(y, m, d);
+              expect(g, isNotNull, reason: '$y-$m-$d ${cfg.basis}');
+              expect(
+                HijriDate.fromGregorian(g!),
+                HijriDate(y, m, d),
+                reason: '$y-$m-$d ${cfg.basis} ${cfg.adjustDays}',
+              );
+            }
+          }
+        }
+      }
+      HijriDate.config = const HijriConfig();
+      expect(HijriDate.gregorianFromHijri(1448, 9, 1), DateTime(2027, 2, 8));
+      expect(HijriDate.gregorianFromHijri(1447, 13, 1), isNull);
+      expect(HijriDate.gregorianFromHijri(1447, 9, 31), isNull);
+      expect(HijriDate.gregorianFromHijri(1447, 9, 0), isNull);
+      expect(HijriDate.gregorianFromHijri(1355, 1, 1), isNull);
+      expect(HijriDate.gregorianFromHijri(1501, 1, 1), isNull);
+    });
+
     test('round-trips across a full year', () {
       DateTime g = DateTime(2026, 1, 1);
       for (int i = 0; i < 366; i++) {
@@ -298,6 +344,59 @@ void main() {
   });
 
   group('calendar screen', () {
+    Future<void> openCalendar(WidgetTester tester) async {
+      SharedPreferences.setMockInitialValues(<String, Object>{});
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      tester.view.physicalSize = const Size(430, 3600);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: <Override>[
+            sharedPreferencesProvider.overrideWithValue(prefs),
+          ],
+          child: const MaterialApp(home: CalendarScreen()),
+        ),
+      );
+      await tester.pump();
+    }
+
+    testWidgets('the converter works both ways and sits above the month', (
+      tester,
+    ) async {
+      await openCalendar(tester);
+      expect(find.text('DATE CONVERTER'), findsOneWidget);
+      expect(
+        tester.getTopLeft(find.text('DATE CONVERTER')).dy,
+        lessThan(tester.getTopLeft(find.byTooltip('Previous month')).dy),
+      );
+      expect(find.byKey(const Key('hijri-result')), findsNothing);
+      await tester.tap(find.byKey(const Key('convert-to-gregorian')));
+      await tester.pump();
+      final Finder result = find.byKey(const Key('hijri-result'));
+      expect(result, findsOneWidget);
+      expect(tester.widget<Text>(result).data, contains(' AH  =  '));
+    });
+
+    testWidgets('Ashura is reachable under Show all upcoming', (tester) async {
+      await openCalendar(tester);
+      final Finder ashura = find.byKey(const Key('observance-Day of Ashura'));
+      final List<(Observance, HijriDate)> up = Observances.upcoming(
+        DateTime.now(),
+      );
+      final int idx = up.indexWhere(
+        ((Observance, HijriDate) e) => e.$1.nameEn == 'Day of Ashura',
+      );
+      expect(idx, greaterThanOrEqualTo(0));
+      if (idx >= 6) {
+        expect(ashura, findsNothing);
+        await tester.tap(find.byKey(const Key('observances-toggle')));
+        await tester.pump();
+      }
+      expect(ashura, findsOneWidget);
+    });
+
     testWidgets('observance rows open an explanation sheet', (tester) async {
       SharedPreferences.setMockInitialValues(<String, Object>{});
       final SharedPreferences prefs = await SharedPreferences.getInstance();

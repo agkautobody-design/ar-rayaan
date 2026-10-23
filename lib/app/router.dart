@@ -61,6 +61,7 @@ import '../features/calendar/presentation/calendar_screen.dart';
 import '../features/hadith/presentation/hadith_screen.dart';
 import '../features/qibla/presentation/qibla_screen.dart';
 import '../features/sakina/presentation/sakina_screen.dart';
+import '../features/sakina/presentation/wellbeing_tools.dart';
 import '../features/settings/presentation/settings_screen.dart';
 import '../features/share/presentation/share_screen.dart';
 import '../features/sources/presentation/content_policy_screen.dart';
@@ -166,7 +167,11 @@ abstract final class AppRoutes {
   static const String sourcesPolicy = '/sources/policy';
   static const String quranBookmarks = '/quran/bookmarks';
   static const String sakina = '/sakina';
+  static const String sakinaSteady = '/sakina/steady';
+  static const String sakinaMood = '/sakina/mood';
+  static const String sakinaSafety = '/sakina/safety';
   static String surah(int number) => '/quran/$number';
+  static String surahAt(int number, int ayah) => '/quran/$number?ayah=$ayah';
 
   static const String themeDemo = '/dev/theme';
 }
@@ -185,6 +190,51 @@ const Set<String> kShellTabPaths = <String>{
   AppRoutes.profile,
 };
 
+/// Where Back / Close goes when there is nothing to pop (a refreshed page, a
+/// deep link, a screen reached with `go`). It is the screen the person was
+/// most likely working in, so Close on a lesson stays in the learning area
+/// instead of dropping a child on the adult Home. Unknown paths go Home.
+String parentRouteOf(String path) {
+  final String p = path.length > 1 && path.endsWith('/')
+      ? path.substring(0, path.length - 1)
+      : path;
+  if (p.startsWith('/academy/letters/lesson/')) return '/academy/letters';
+  if (p.startsWith('/academy/lesson/')) {
+    final List<String> parts = p.split('/');
+    // /academy/lesson/<course>/<unit>/<lesson> -> its course page.
+    if (parts.length >= 4 && parts[3].isNotEmpty) {
+      return '/academy/course/${parts[3]}';
+    }
+    return AppRoutes.academy;
+  }
+  if (p.startsWith('/academy/')) return AppRoutes.academy;
+  if (p.startsWith(AppRoutes.storyReader)) return AppRoutes.stories;
+  if (p.startsWith('${AppRoutes.huda}/')) return AppRoutes.huda;
+  if (p.startsWith('${AppRoutes.feelings}/')) return AppRoutes.feelings;
+  if (p.startsWith('${AppRoutes.sakina}/')) return AppRoutes.sakina;
+  if (p.startsWith('${AppRoutes.games}/')) return AppRoutes.games;
+  if (p.startsWith('${AppRoutes.quran}/')) return AppRoutes.quran;
+  return AppRoutes.home;
+}
+
+/// True when [route] with this [extra] is already the screen on top, so a
+/// second tap (or a double-fired tap) must not stack the same screen twice:
+/// the second Close would then need another tap, or land on what is
+/// underneath.
+extension _OpenGuard on BuildContext {
+  bool _alreadyOnTop(String route, String path, Object? extra) {
+    try {
+      final top = GoRouter.of(this).routerDelegate.currentConfiguration;
+      if (top.uri.path != path) return false;
+      return extra != null
+          ? identical(top.extra, extra)
+          : top.uri.toString() == route;
+    } catch (_) {
+      return false;
+    }
+  }
+}
+
 /// Navigation that keeps Back honest.
 extension AppNavigation on BuildContext {
   /// Opens [route] ON TOP of the current screen, so Back / Close return to
@@ -192,6 +242,7 @@ extension AppNavigation on BuildContext {
   /// tabs are reached with `go`, as they replace the stack by design.
   void open(String route, {Object? extra}) {
     final String path = Uri.tryParse(route)?.path ?? route;
+    if (_alreadyOnTop(route, path, extra)) return;
     if (kShellTabPaths.contains(path)) {
       go(route, extra: extra);
     } else {
@@ -252,6 +303,14 @@ GoRouter buildRouter({String initialLocation = '/'}) {
         // main() routes here only when the pref is unset.
         GoRoute(
           path: AppRoutes.onboarding,
+          // Back (or a stale history entry) must not reopen slides the person
+          // already finished or skipped this session; Settings' replay link
+          // carries ?replay=1.
+          redirect: (context, state) => OnboardingScreen.shouldBounce(
+                  completed: OnboardingScreen.completedThisSession,
+                  uri: state.uri)
+              ? AppRoutes.home
+              : null,
           pageBuilder: (context, state) => _fade(const OnboardingScreen(), pill: false),
         ),
         GoRoute(
@@ -397,12 +456,31 @@ GoRouter buildRouter({String initialLocation = '/'}) {
         ),
         GoRoute(
           path: AppRoutes.storyReader,
-          // Same refresh/deep-link hazard as the Huda guide: no `extra`,
-          // no story - go back to the library rather than crash.
-          redirect: (context, state) =>
-              state.extra is Story ? null : AppRoutes.stories,
-          pageBuilder: (context, state) =>
-              _fade(StoryReaderScreen(story: state.extra! as Story)),
+          // The story id travels in `?id=` so Back, a browser refresh or a
+          // pasted link still opens the story. Callers pass `extra: story`;
+          // the redirect adds the id to the URL (a missing story and a
+          // missing id go back to the library).
+          redirect: (context, state) {
+            if ((state.uri.queryParameters['id'] ?? '').isNotEmpty) return null;
+            final Object? extra = state.extra;
+            if (extra is Story) {
+              final String id = Uri.encodeQueryComponent(extra.id);
+              return '${AppRoutes.storyReader}?id=$id';
+            }
+            return AppRoutes.stories;
+          },
+          pageBuilder: (context, state) {
+            final Object? extra = state.extra;
+            return _fade(StoryRouteScreen(
+              key: ValueKey<String>(
+                  'story-${state.uri.queryParameters['id'] ?? ''}'),
+              storyId: state.uri.queryParameters['id'],
+              story: extra is Story &&
+                      extra.id == state.uri.queryParameters['id']
+                  ? extra
+                  : null,
+            ));
+          },
         ),
         GoRoute(
           path: AppRoutes.newMuslimPath,
@@ -492,6 +570,20 @@ GoRouter buildRouter({String initialLocation = '/'}) {
         path: AppRoutes.sakina,
         pageBuilder: (c, s) => _fade(const SakinaScreen()),
       ),
+      // The three small tools are real routes so the browser Back button and
+      // the in-app arrow both return to Sakina.
+      GoRoute(
+        path: AppRoutes.sakinaSteady,
+        pageBuilder: (c, s) => _fade(const SteadyScreen()),
+      ),
+      GoRoute(
+        path: AppRoutes.sakinaMood,
+        pageBuilder: (c, s) => _fade(const MoodCheckInScreen()),
+      ),
+      GoRoute(
+        path: AppRoutes.sakinaSafety,
+        pageBuilder: (c, s) => _fade(const SafetyPlanScreen()),
+      ),
       GoRoute(
         path: AppRoutes.quranBookmarks,
         pageBuilder: (c, s) => _fade(const QuranBookmarksScreen()),
@@ -508,7 +600,14 @@ GoRouter buildRouter({String initialLocation = '/'}) {
               pill: false,
             );
           }
-          return _fade(SurahReaderScreen(number: number), pill: false);
+          return _fade(
+            SurahReaderScreen(
+              number: number,
+              // "?ayah=255" opens at that ayah (the Ayat al-Kursi shortcut).
+              startAyah: int.tryParse(s.uri.queryParameters['ayah'] ?? ''),
+            ),
+            pill: false,
+          );
         },
       ),
 
@@ -762,8 +861,13 @@ GoRouter buildRouter({String initialLocation = '/'}) {
             routes: [
               GoRoute(
                 path: AppRoutes.hadi,
+                // A question can arrive as /hadi?q=... or as the route extra
+                // (a String); Hādi asks it once when the screen opens.
                 pageBuilder: (c, s) => _fade(
-                  HadiScreen(initialQuestion: s.uri.queryParameters['q']),
+                  HadiScreen(
+                    initialQuery: s.uri.queryParameters['q'] ??
+                        (s.extra is String ? s.extra as String : null),
+                  ),
                   pill: false,
                 ),
               ),

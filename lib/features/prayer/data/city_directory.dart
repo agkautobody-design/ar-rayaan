@@ -5,6 +5,20 @@ import '../domain/prayer_zone.dart';
 /// or unavailable. Coordinates are city-centre WGS-84; calculation happens
 /// on-device, so no geocoding service is ever needed.
 abstract final class CityDirectory {
+  /// Cities whose name or country contains [query] (case-insensitive,
+  /// ignoring surrounding spaces), in directory order. An empty query keeps
+  /// the whole list. Used by the city picker's type-ahead field.
+  static List<PrayerLocation> filter(String query) {
+    final String q = query.trim().toLowerCase();
+    if (q.isEmpty) return cities;
+    return <PrayerLocation>[
+      for (final PrayerLocation c in cities)
+        if (c.city.toLowerCase().contains(q) ||
+            c.country.toLowerCase().contains(q))
+          c,
+    ];
+  }
+
   static const List<PrayerLocation> cities = <PrayerLocation>[
     PrayerLocation(
       city: 'Makkah',
