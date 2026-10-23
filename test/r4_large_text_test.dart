@@ -11,6 +11,7 @@ import 'package:ar_rayaan/features/quran/application/quran_providers.dart';
 import 'package:ar_rayaan/features/quran/data/bundled_quran_repository.dart';
 import 'package:ar_rayaan/features/quran/presentation/surah_reader_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
