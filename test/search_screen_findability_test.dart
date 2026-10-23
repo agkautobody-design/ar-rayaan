@@ -300,9 +300,18 @@ void main() {
     await _type(tester, 'qibla');
     expect(find.text('Qibla Finder'), findsOneWidget);
 
+    final State<StatefulWidget> before =
+        tester.state(find.byType(EditableText));
     await tester.tap(find.byTooltip('Clear'));
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 100));
+    // On the web the tap on Clear leaves the old text input dead, so Clear
+    // rebuilds the box from scratch, as reopening the page does.
+    expect(
+      identical(before, tester.state(find.byType(EditableText))),
+      isFalse,
+      reason: 'Clear gives a fresh text input',
+    );
     EditableText field =
         tester.widget<EditableText>(find.byType(EditableText));
     expect(field.controller.text, isEmpty);
