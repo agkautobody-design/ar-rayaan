@@ -153,14 +153,14 @@ void main() {
       await pumpOnboarding(tester);
       expect(find.text('Next'), findsOneWidget);
       await tester.tap(find.text('Next'));
-      await tester.pump(const Duration(milliseconds: 400));
+      await tester.pumpAndSettle();
       expect(find.text('WHAT BRINGS YOU HERE?'), findsOneWidget);
     });
 
     testWidgets('step 2: six goals are listed', (tester) async {
       await pumpOnboarding(tester);
       await tester.tap(find.text('Next'));
-      await tester.pump(const Duration(milliseconds: 400));
+      await tester.pumpAndSettle();
       for (final String t in <String>[
         'Learning about Islam',
         'Peace for my heart',
@@ -176,7 +176,7 @@ void main() {
     testWidgets('step 3: the last screen says Begin', (tester) async {
       await pumpOnboarding(tester);
       await tester.tap(find.text('Next'));
-      await tester.pump(const Duration(milliseconds: 400));
+      await tester.pumpAndSettle();
       expect(find.text('Begin'), findsOneWidget);
       expect(find.text('Next'), findsNothing);
     });
@@ -184,7 +184,7 @@ void main() {
     testWidgets('step 4: choosing a goal then Begin saves it', (tester) async {
       final GoRouter router = await pumpOnboarding(tester);
       await tester.tap(find.text('Next'));
-      await tester.pump(const Duration(milliseconds: 400));
+      await tester.pumpAndSettle();
       await tester.tap(find.text('Praying on time'));
       await tester.pump();
       await tester.tap(find.text('Begin'));
@@ -214,7 +214,7 @@ void main() {
       expect(tester.takeException(), isNull, reason: 'welcome page');
       expect(find.text('Next'), findsOneWidget, reason: 'Next present');
       await tester.tap(find.text('Next'));
-      await tester.pump(const Duration(milliseconds: 400));
+      await tester.pumpAndSettle();
       expect(tester.takeException(), isNull, reason: 'goal page');
       expect(find.text('A community'), findsOneWidget, reason: 'goal built');
     });
