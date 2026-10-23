@@ -58,15 +58,19 @@ void main() {
         storiesProvider.overrideWith((ref) async => <Story>[story]),
       ],
     );
-    bigText(tester, width: width);
+    // Open the screen at the normal size first, so Home (which other work is
+    // fixing) is gone before the big text starts; only the screen under test
+    // is laid out at 2.0x.
     await AppHarness.go(tester, find.byType(Scaffold).first, path);
+    tester.takeException();
+    bigText(tester, width: width);
     await AppHarness.settle(tester);
     // Let the Academy gate's three-second pause run out (no pending timer).
     await tester.pump(const Duration(seconds: 4));
-    final List<Object> errors = <Object>[];
+    final List<String> errors = <String>[];
     Object? e = tester.takeException();
     while (e != null) {
-      errors.add(e);
+      errors.add(e.toString().split('\n').first);
       e = tester.takeException();
     }
     expect(errors, isEmpty, reason: '$path at ${width}px, text 2.0x: $errors');
