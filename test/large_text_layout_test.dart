@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:ar_rayaan/app/core/providers.dart';
 import 'package:ar_rayaan/app/theme/app_theme.dart';
 import 'package:ar_rayaan/app/theme/widgets/switch_row.dart';
@@ -156,6 +158,38 @@ void main() {
   ) async {
     bigText(tester);
     await pumpScreen(tester, const ElderHomeScreen());
+    expect(drain(tester), isEmpty);
+  });
+
+  testWidgets('NOOR while loading, at 360px wide and 2.0x text', (
+    tester,
+  ) async {
+    bigText(tester);
+    await pumpScreen(
+      tester,
+      const NoorScreen(),
+      overrides: [
+        todayNoorProvider.overrideWith(
+          (ref) => Completer<NoorEntry>().future,
+        ),
+      ],
+    );
+    expect(drain(tester), isEmpty);
+  });
+
+  testWidgets('NOOR on its error line, at 360px wide and 2.0x text', (
+    tester,
+  ) async {
+    bigText(tester);
+    await pumpScreen(
+      tester,
+      const NoorScreen(),
+      overrides: [
+        todayNoorProvider.overrideWith(
+          (ref) async => throw StateError('no entry'),
+        ),
+      ],
+    );
     expect(drain(tester), isEmpty);
   });
 
