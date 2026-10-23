@@ -267,7 +267,7 @@ class SettingsScreen extends ConsumerWidget {
                         label: 'Replay the introduction',
                         excludeSemantics: true,
                         child: GestureDetector(
-                        onTap: () => context.go(AppRoutes.onboarding),
+                        onTap: () => context.go('${AppRoutes.onboarding}?replay=1'),
                         child: Padding(
                           padding: const EdgeInsets.only(left: 4, top: 15, bottom: 15),
                           child: Text('Replay the introduction →',

@@ -28,8 +28,10 @@ class SavedStoriesController extends Notifier<Set<String>> {
   }
 
   Future<void> toggle(String id) async {
+    // Always a NEW set: mutating the old one in place made removal invisible
+    // to listeners (same instance, no rebuild).
     state = state.contains(id)
-        ? (state..remove(id))
+        ? (<String>{...state}..remove(id))
         : <String>{...state, id};
     try {
       final prefs = ref.read(sharedPreferencesProvider);

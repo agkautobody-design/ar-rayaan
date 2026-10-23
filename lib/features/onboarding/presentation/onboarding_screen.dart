@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -21,11 +23,23 @@ class OnboardingScreen extends StatefulWidget {
     }
   }
 
+  /// True once this session has completed (or skipped) the introduction. The
+  /// router uses it so Back, or a stale history entry, cannot reopen the
+  /// welcome slides. A deliberate replay from Settings carries `?replay=1`.
+  static bool completedThisSession = false;
+
+  /// Whether a visit to the onboarding route should bounce to Home instead.
+  static bool shouldBounce({required bool completed, required Uri uri}) =>
+      completed && uri.queryParameters['replay'] != '1';
+
   /// Where a returning user should land after replaying the introduction.
   static Future<String> homeRouteFor(String? need) {
     switch (need) {
       case 'learn':
-        return Future.value(AppRoutes.stories);
+        // "Learning my deen" starts at Home, where the Academy, the Qur'an
+        // and the stories are all one tap away (it used to open the stories
+        // list, which read as a wrong turn).
+        return Future.value(AppRoutes.home);
       case 'peace':
         return Future.value(AppRoutes.sakina);
       case 'children':
@@ -75,7 +89,9 @@ class _OnboardingState extends State<OnboardingScreen> {
         'Finding your masjid and your people'),
   ];
 
-  Future<void> _finish() async {
+  /// [skipped]: the person tapped Skip. Their goal is still remembered, but
+  /// Skip always lands on Home.
+  Future<void> _finish({bool skipped = false}) async {
     // Remembering that onboarding was seen is a nicety: if storage refuses,
     // the person must still get through to the app.
     try {
@@ -83,8 +99,23 @@ class _OnboardingState extends State<OnboardingScreen> {
       await p.setBool(OnboardingScreen.pref, true);
       if (_need != null) await p.setString(OnboardingScreen.needPref, _need!);
     } catch (_) {}
-    final String route = await OnboardingScreen.homeRouteFor(_need);
-    if (mounted) context.go(route);
+    OnboardingScreen.completedThisSession = true;
+    final String route =
+        skipped ? AppRoutes.home : await OnboardingScreen.homeRouteFor(_need);
+    if (!mounted) return;
+    // Home first, then the chosen room on top of it, so Back / Close from
+    // that room returns Home instead of leaving an empty stack.
+    final GoRouter router = GoRouter.of(context);
+    if (kShellTabPaths.contains(route)) {
+      router.go(route);
+      return;
+    }
+    router.go(AppRoutes.home);
+    if (route != AppRoutes.home) {
+      // Let the jump to Home settle so the room opens ON TOP of it.
+      await Future<void>.delayed(const Duration(milliseconds: 60));
+      unawaited(router.push<void>(route));
+    }
   }
 
   @override
@@ -97,7 +128,7 @@ class _OnboardingState extends State<OnboardingScreen> {
           Align(
             alignment: Alignment.centerRight,
             child: TextButton(
-              onPressed: _finish,
+              onPressed: () => _finish(skipped: true),
               child: Text('Skip', style: AppText.bodyMuted),
             ),
           ),
