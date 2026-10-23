@@ -313,6 +313,41 @@ class _ScheduleState extends ConsumerState<_Schedule> {
                 time: iqamah.jumuahTime,
                 isFriday: data.dhuhr.weekday == DateTime.friday,
               ),
+              Divider(
+                height: 1,
+                color: AppColors.gold.withValues(alpha: 0.1),
+                indent: 64,
+              ),
+              // New in town? The Jumu'ah time is the mosque's own, so point
+              // to the masjid finder instead of leaving the row a guess.
+              InkWell(
+                key: const Key('prayer-find-masjid'),
+                onTap: () => context.open('/masajid'),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 13,
+                  ),
+                  child: Row(
+                    children: [
+                      const Icon(
+                        Icons.search,
+                        size: 20,
+                        color: AppColors.gold,
+                      ),
+                      const SizedBox(width: 16),
+                      Expanded(
+                        child: Text(
+                          'Find a masjid near you \u00b7 to ask its Jumu\u2019ah time',
+                          style: AppText.body.copyWith(
+                            color: AppColors.goldLight,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
         ),

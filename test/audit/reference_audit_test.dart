@@ -83,7 +83,7 @@ void main() {
         .allMatches(home)
         .map((m) => m.group(1)!)
         .toList();
-    final matchers = ['Prayer', 'Qur', 'Dhikr', 'Hadith', 'Today', 'H', 'Islamic', 'Knowledge'];
+    final matchers = ['Prayer', 'Qur', 'Dhikr', 'Hadith', 'Today', 'H', 'Islamic', 'Stories'];
     for (final t in titles) {
       final ok = matchers.any((m) => t.startsWith(m) || t.startsWith('H\u0101di') || t.startsWith('Hadi'));
       expect(ok, isTrue, reason: 'no tile image matcher for title: $t');
