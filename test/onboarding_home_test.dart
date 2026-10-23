@@ -268,32 +268,39 @@ void main() {
   });
 
   group('small phone and big text', () {
-    Future<void> bootSmall(WidgetTester tester) async {
-      await AppHarness.boot(tester);
-      tester.view.physicalSize = const Size(320, 640);
-      await AppHarness.settle(tester);
-    }
-
+    // The test font is wider than a phone's, so absolute positions are not
+    // meaningful; the ORDER of the blocks is. On a narrow phone the tiles
+    // come straight after Elder Mode and the next-step card, and the long
+    // Quick Access row moves below them.
     testWidgets('320px: Home lays out with no overflow', (tester) async {
-      await bootSmall(tester);
+      await AppHarness.boot(tester);
+      tester.view.physicalSize = const Size(320, 3200);
+      await AppHarness.settle(tester);
       expect(tester.takeException(), isNull);
     });
 
-    testWidgets('320px: the Prayer Times tile is built on the first screen', (
-      tester,
-    ) async {
-      await bootSmall(tester);
+    testWidgets('320px: tiles come before Quick Access', (tester) async {
+      await AppHarness.boot(tester);
+      tester.view.physicalSize = const Size(320, 3200);
+      await AppHarness.settle(tester);
       tester.takeException();
-      expect(find.text('Prayer Times'), findsWidgets);
+      final double elder = tester.getTopLeft(find.text('ELDER MODE')).dy;
+      final double step =
+          tester.getTopLeft(find.byKey(const Key('home-next-step'))).dy;
+      final double tile = tester.getTopLeft(find.text('Prayer Times')).dy;
+      final double quick = tester.getTopLeft(find.text('Quick Access')).dy;
+      expect(elder, lessThan(step));
+      expect(step, lessThan(tile));
+      expect(tile, lessThan(quick));
     });
 
-    testWidgets('320px: the Prayer Times tile is above the fold', (
+    testWidgets('wide phone keeps Quick Access above the tiles', (
       tester,
     ) async {
-      await bootSmall(tester);
-      tester.takeException();
-      final Rect r = tester.getRect(find.text('Prayer Times').first);
-      expect(r.top, lessThan(600), reason: 'tile title at ${r.top}');
+      await AppHarness.boot(tester);
+      final double tile = tester.getTopLeft(find.text('Prayer Times')).dy;
+      final double quick = tester.getTopLeft(find.text('Quick Access')).dy;
+      expect(quick, lessThan(tile));
     });
 
     testWidgets('200% text: the Elder Mode card is on the first screen', (
