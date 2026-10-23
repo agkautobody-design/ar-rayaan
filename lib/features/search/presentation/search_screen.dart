@@ -62,6 +62,12 @@ class _SearchState extends ConsumerState<SearchScreen> {
 
   final TextEditingController _controller = TextEditingController();
   final FocusNode _focus = FocusNode();
+
+  /// The Clear button must never take the keyboard focus from the box: a
+  /// button that is focused and then removed (it disappears once the box is
+  /// empty) leaves the web text input detached, and typing went nowhere.
+  final FocusNode _clearFocus =
+      FocusNode(canRequestFocus: false, skipTraversal: true);
   Timer? _retryFocus;
 
   static const int _otherCap = 40;
@@ -84,6 +90,7 @@ class _SearchState extends ConsumerState<SearchScreen> {
   void dispose() {
     _retryFocus?.cancel();
     _focus.dispose();
+    _clearFocus.dispose();
     _controller.dispose();
     super.dispose();
   }
@@ -298,20 +305,8 @@ class _SearchState extends ConsumerState<SearchScreen> {
                       : IconButton(
                           tooltip: 'Clear',
                           icon: const Icon(Icons.close, color: AppColors.gold),
-                          onPressed: () {
-                            _controller.clear();
-                            setState(() {
-                              _q = '';
-                              _raw = '';
-                            });
-                            // The button that was tapped is gone after this
-                            // frame and took the focus with it: hand the
-                            // focus back once the frame is done.
-                            _focus.requestFocus();
-                            WidgetsBinding.instance.addPostFrameCallback((_) {
-                              if (mounted) _focus.requestFocus();
-                            });
-                          },
+                          focusNode: _clearFocus,
+                          onPressed: _clearSearch,
                         ),
                 ),
                 onChanged: _onTyped,
@@ -434,6 +429,20 @@ class _SearchState extends ConsumerState<SearchScreen> {
         ),
       ),
     );
+  }
+
+  /// Empties the box and keeps it ready for typing: the box keeps (or is
+  /// handed back) the focus, now and again once the frame is done.
+  void _clearSearch() {
+    _controller.clear();
+    setState(() {
+      _q = '';
+      _raw = '';
+    });
+    _focus.requestFocus();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) _focus.requestFocus();
+    });
   }
 
   void _onTyped(String v) {

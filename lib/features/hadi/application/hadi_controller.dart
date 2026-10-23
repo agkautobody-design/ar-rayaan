@@ -37,6 +37,7 @@ const Set<String> kHadiNavWhitelist = <String>{
   '/feelings', '/family-tree', '/huda', '/elder-care',
   '/qibla', '/hadith', '/sakina', '/share', '/notes',
   '/quran', '/prayer', '/zakat', '/calendar', '/adhkar', '/explore',
+  '/sources/policy',
   '/journey', '/settings', '/sources', '/hadi', '/noor',
   '/search', '/profile', '/home/elder', '/games/trivia',
   '/academy/review', '/academy/letters', '/academy/audio-packs',
@@ -88,6 +89,8 @@ const Map<String, String> kHadiRouteNames = <String, String>{
   '/ramadan': 'the Ramadan screen',
   '/academy/family-life': 'Family Life School',
   '/academy/stories': 'Stories School',
+  '/academy/hifz': 'the Hifz planner',
+  '/sources/policy': 'How we handle religious content',
 };
 
 /// The Huda guides Hādi may open directly, as `/huda/guide?id=<id>`, with the
@@ -98,6 +101,8 @@ const Map<String, String> kHadiGuideNames = <String, String>{
   'huda-taraweeh': 'the Ramadan Nights guide',
   'huda-witr': 'the Witr and night guide',
   'huda-nikah': 'the Nikah guide',
+  'huda-travel': 'the Travel guide',
+  'huda-illness': 'the Illness and Patience guide',
 };
 
 /// Reads the [GO:] / [DO:] tokens a reply may carry. Pure, so it is tested
@@ -644,9 +649,15 @@ class HadiController extends Notifier<HadiState> {
       'Please ask again in a moment. If you are in danger right now, please '
       'contact your local emergency number.';
 
+  bool _asking = false;
+
   /// Never leaves Hādi stuck "typing": whatever fails anywhere in [_ask],
   /// the person gets a plain reply and can ask again.
   Future<String> ask(String question, {HadiProvider? provider}) async {
+    // `typing` is only set after the first awaits inside [_ask]; this flag is
+    // set at once, so a chip tapped twice in a row asks one question, not two.
+    if (_asking) return '';
+    _asking = true;
     final int before = state.messages.length;
     try {
       return await _ask(question, provider: provider);
@@ -669,6 +680,8 @@ class HadiController extends Notifier<HadiState> {
         } catch (_) {}
       }
       return _askFailed;
+    } finally {
+      _asking = false;
     }
   }
 
@@ -741,9 +754,14 @@ class HadiController extends Notifier<HadiState> {
     if (ruling == RulingClass.personal) {
       final HadiCorpus corpus = await _corpus();
       final Madhhab m = madhhab;
-      final String reply = RulingGate.personalReply(
-        schoolLabel: m == Madhhab.notSure ? null : m.label,
-      );
+      // A question about a medicine is for the doctor first: say so, and
+      // never the marriage-and-family wording meant for rulings.
+      final bool medical = OfflineHadiProvider.asksMedical(q);
+      final String reply = medical
+          ? HadiRouting.medicalReply(q)
+          : RulingGate.personalReply(
+              schoolLabel: m == Madhhab.notSure ? null : m.label,
+            );
       state = state.copy(
         messages: <HadiMessage>[
           ...state.messages,
@@ -753,12 +771,15 @@ class HadiController extends Notifier<HadiState> {
       );
       _append(HadiMessage(
         fromHadi: true,
-        text: reply,
-        sources: <String>[
-          for (final Passage p in corpus.retrieve(q, limit: 2)) p.id,
-        ],
+        text: medical ? HadiTokens.strip(reply) : reply,
+        sources: medical
+            ? const <String>[]
+            : <String>[
+                for (final Passage p in corpus.retrieve(q, limit: 2)) p.id,
+              ],
+        routes: medical ? HadiTokens.routesOf(reply) : const <String>[],
       ));
-      return reply;
+      return medical ? HadiTokens.strip(reply) : reply;
     }
 
     if (crisis == null && !grief) {

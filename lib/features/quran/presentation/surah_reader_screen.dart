@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'dart:convert';
 
-import 'package:flutter/services.dart' show rootBundle;
+import 'package:flutter/services.dart' show LogicalKeyboardKey;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -16,7 +16,8 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
-import '../../../app/core/content_loader.dart' show kQuranSizeHint;
+import '../../../app/core/content_loader.dart'
+    show ContentLoader, kQuranSizeHint;
 import '../../../app/theme/widgets/content_loading_view.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/needs_internet_view.dart';
@@ -29,6 +30,9 @@ import '../domain/quran_models.dart';
 import '../domain/quran_texts.dart';
 import '../domain/surah_search.dart';
 import 'ayah_actions_sheet.dart';
+
+/// How solid the panel behind the ayat is (1 = no pattern shows through).
+const double kReadingPanelAlpha = 0.9;
 
 /// Surah reader — Arabic (Amiri) with gold ayah medallions + translation.
 /// Tapping an ayah saves the Continue-Reading position.
@@ -68,7 +72,8 @@ final transliterationProvider = FutureProvider<Map<String, String>>((
   ref,
 ) async {
   try {
-    final raw = await rootBundle.loadString(
+    // Through ContentLoader so a copy saved for offline reading is used.
+    final raw = await ContentLoader.loadString(
       'assets/quran/transliteration.json',
     );
     final m = (json.decode(raw) as Map)['map'] as Map;
@@ -83,8 +88,6 @@ class _SurahReaderScreenState extends ConsumerState<SurahReaderScreen> {
   /// (1 when the surah has never been opened). Read once, before the
   /// open below overwrites the "last read" pointer.
   late final int _startAyah;
-
-  final GlobalKey<_ReaderState> _readerKey = GlobalKey<_ReaderState>();
 
   @override
   void initState() {
@@ -110,97 +113,70 @@ class _SurahReaderScreenState extends ConsumerState<SurahReaderScreen> {
     final AsyncValue<Surah> surah = ref.watch(surahProvider(widget.number));
 
     return ScenicScaffold.pattern(
-      body: SafeArea(
-        child: Column(
-          children: [
-            surah.maybeWhen(
-              data: (Surah s) => ScreenHeader(title: s.meta.transliteration),
-              orElse: () => const ScreenHeader(title: 'Qur\'an'),
-            ),
-            _ReaderToolbar(
-              ayahCount: surah.valueOrNull?.meta.ayahCount,
-              onJump: (int ayah) => _readerKey.currentState?.jumpTo(ayah),
-            ),
-            // Madinah page mode — visible only when the checksum-verified
-            // layout pack has shipped (provider returns null otherwise).
-            Consumer(
-              builder: (context, ref, _) {
-                return ref
-                    .watch(mushafLayoutProvider)
-                    .maybeWhen(
-                      data: (pages) => pages == null
-                          ? const SizedBox.shrink()
-                          : Align(
-                              alignment: Alignment.centerRight,
-                              child: TextButton.icon(
-                                onPressed: () {
-                                  final int? ayahCount = ref
-                                      .read(surahProvider(widget.number))
-                                      .valueOrNull
-                                      ?.meta
-                                      .ayahCount;
-                                  if (ayahCount == null) return;
-                                  context.go(
-                                    '/quran/madinah/${widget.number}/$ayahCount',
-                                  );
-                                },
-                                icon: const Icon(
-                                  Icons.auto_awesome_motion,
-                                  color: AppColors.gold,
-                                  size: 18,
-                                ),
-                                label: Text(
-                                  'Madinah page view',
-                                  style: AppText.caption.copyWith(
-                                    color: AppColors.gold,
-                                  ),
-                                ),
-                              ),
-                            ),
-                      orElse: () => const SizedBox.shrink(),
-                    );
-              },
-            ),
-            Expanded(
-              child: surah.when(
-                skipLoadingOnRefresh: false,
-                loading: () => ContentLoadingView(
-                  what: 'this surah',
-                  sizeHint: kQuranSizeHint,
-                  onRetry: () {
-                    ref.invalidate(quranAllProvider);
-                    ref.invalidate(quranIndexProvider);
-                    ref.invalidate(surahProvider(widget.number));
-                  },
-                ),
-                error: (Object e, _) => NeedsInternetView(
-                  what: 'This surah',
-                  onRetry: () {
-                    ref.invalidate(quranAllProvider);
-                    ref.invalidate(quranIndexProvider);
-                    ref.invalidate(surahProvider(widget.number));
-                  },
-                ),
-                data: (Surah s) =>
-                    _Reader(key: _readerKey, surah: s, initialAyah: _startAyah),
+      // Escape leaves the surah: with three buttons per ayah, Tab alone made
+      // Back unreachable in a long surah.
+      body: CallbackShortcuts(
+        bindings: <ShortcutActivator, VoidCallback>{
+          const SingleActivator(LogicalKeyboardKey.escape): () {
+            if (context.canPop()) {
+              context.pop();
+            } else {
+              context.go(AppRoutes.quran);
+            }
+          },
+        },
+        child: SafeArea(
+          child: Column(
+            children: [
+              surah.maybeWhen(
+                data: (Surah s) => ScreenHeader(title: s.meta.transliteration),
+                orElse: () => const ScreenHeader(title: 'Qur\'an'),
               ),
-            ),
-            Consumer(
-              builder: (context, ref, _) {
-                final int? ayahCount = ref
-                    .watch(surahProvider(widget.number))
-                    .valueOrNull
-                    ?.meta
-                    .ayahCount;
-                if (ayahCount == null) return const SizedBox.shrink();
-                return VerseRangePlayerBar(
-                  surah: widget.number,
-                  ayahCount: ayahCount,
-                );
-              },
-            ),
-            const SizedBox(height: 8),
-          ],
+              // The reading controls (Jump, text size, bookmarks) and the heading
+              // are the first items INSIDE the list, so they scroll away and the
+              // reading area keeps the screen (see _Reader).
+              Expanded(
+                child: surah.when(
+                  skipLoadingOnRefresh: false,
+                  loading: () => ContentLoadingView(
+                    what: 'this surah',
+                    sizeHint: kQuranSizeHint,
+                    onRetry: () {
+                      ref.invalidate(quranRepositoryProvider);
+                      ref.invalidate(quranAllProvider);
+                      ref.invalidate(quranIndexProvider);
+                      ref.invalidate(surahProvider(widget.number));
+                    },
+                  ),
+                  error: (Object e, _) => NeedsInternetView(
+                    what: 'This surah',
+                    onRetry: () {
+                      ref.invalidate(quranRepositoryProvider);
+                      ref.invalidate(quranAllProvider);
+                      ref.invalidate(quranIndexProvider);
+                      ref.invalidate(surahProvider(widget.number));
+                    },
+                  ),
+                  data: (Surah s) => _Reader(surah: s, initialAyah: _startAyah),
+                ),
+              ),
+              Consumer(
+                builder: (context, ref, _) {
+                  final int? ayahCount = ref
+                      .watch(surahProvider(widget.number))
+                      .valueOrNull
+                      ?.meta
+                      .ayahCount;
+                  if (ayahCount == null) return const SizedBox.shrink();
+                  return VerseRangePlayerBar(
+                    surah: widget.number,
+                    ayahCount: ayahCount,
+                  );
+                },
+              ),
+              const SizedBox(height: 2),
+            ],
+          ),
         ),
       ),
     );
@@ -211,7 +187,7 @@ class _SurahReaderScreenState extends ConsumerState<SurahReaderScreen> {
 /// are built on demand (Al-Baqarah is 286 ayahs), and the list scrolls to
 /// [initialAyah] when it opens at a saved place.
 class _Reader extends ConsumerStatefulWidget {
-  const _Reader({required this.surah, required this.initialAyah, super.key});
+  const _Reader({required this.surah, required this.initialAyah});
 
   final Surah surah;
   final int initialAyah;
@@ -303,7 +279,14 @@ class _ReaderState extends ConsumerState<_Reader> {
         if (index == 0) {
           return Padding(
             padding: const EdgeInsets.only(bottom: 16),
-            child: _heading(surah, showBismillah),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                _ReaderToolbar(ayahCount: n, onJump: jumpTo),
+                _MadinahLink(surah: surah.meta.number, ayahCount: n),
+                _heading(surah, showBismillah),
+              ],
+            ),
           );
         }
         if (index == n + 1) {
@@ -321,7 +304,9 @@ class _ReaderState extends ConsumerState<_Reader> {
           key: _keys.putIfAbsent(ayah.number, () => GlobalKey()),
           padding: const EdgeInsets.symmetric(horizontal: 16),
           decoration: BoxDecoration(
-            color: AppColors.glassFill,
+            // Reading text sits on a mostly solid panel: the gold pattern
+            // behind the page crossed the lines of text on a plain glass fill.
+            color: AppColors.night.withValues(alpha: kReadingPanelAlpha),
             border: Border(
               left: edge,
               right: edge,
@@ -404,6 +389,42 @@ class _ReaderState extends ConsumerState<_Reader> {
   }
 }
 
+/// Madinah page mode link — visible only when the checksum-verified layout
+/// pack has shipped (the provider returns null otherwise).
+class _MadinahLink extends ConsumerWidget {
+  const _MadinahLink({required this.surah, required this.ayahCount});
+
+  final int surah;
+  final int ayahCount;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return ref
+        .watch(mushafLayoutProvider)
+        .maybeWhen(
+          data: (pages) => pages == null
+              ? const SizedBox.shrink()
+              : Align(
+                  alignment: Alignment.centerRight,
+                  child: TextButton.icon(
+                    onPressed: () =>
+                        context.go('/quran/madinah/$surah/$ayahCount'),
+                    icon: const Icon(
+                      Icons.auto_awesome_motion,
+                      color: AppColors.gold,
+                      size: 18,
+                    ),
+                    label: Text(
+                      'Madinah page view',
+                      style: AppText.caption.copyWith(color: AppColors.gold),
+                    ),
+                  ),
+                ),
+          orElse: () => const SizedBox.shrink(),
+        );
+  }
+}
+
 class _ReaderToolbar extends ConsumerWidget {
   const _ReaderToolbar({required this.ayahCount, required this.onJump});
 
@@ -422,6 +443,7 @@ class _ReaderToolbar extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final ArabicSizeController size = ref.read(arabicSizeProvider.notifier);
+    final double sizeNow = ref.watch(arabicSizeProvider);
     final int? count = ayahCount;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -447,6 +469,16 @@ class _ReaderToolbar extends ConsumerWidget {
             constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
             onPressed: size.smaller,
             icon: const Icon(Icons.text_decrease, color: AppColors.gold),
+          ),
+          // Shows the size, so a tap that changes little still visibly
+          // changes something.
+          Semantics(
+            label: 'Arabic text size ${sizeNow.round()}',
+            excludeSemantics: true,
+            child: Text(
+              '${sizeNow.round()}',
+              style: AppText.caption.copyWith(color: AppColors.gold),
+            ),
           ),
           IconButton(
             tooltip: 'Larger Arabic text',

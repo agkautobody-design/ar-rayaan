@@ -133,7 +133,7 @@ class HomeScreen extends ConsumerWidget {
       ),
       (
         Icons.school_outlined,
-        'Knowledge',
+        'Stories',
         'Stories, khutbahs & duas',
         AppRoutes.stories,
       ),
@@ -829,7 +829,7 @@ String _tileImage(String t) {
     return '$base/tile_hadi.jpg';
   }
   if (t.startsWith('Islamic')) return '$base/tile_calendar.jpg';
-  if (t.startsWith('Knowledge')) return '$base/tile_knowledge.jpg';
+  if (t.startsWith('Stories')) return '$base/tile_knowledge.jpg';
   // Fallback until a dedicated Academy tile image ships
   // (see state/art_list.md, Wave 1 #1).
   if (t.startsWith('Wasia')) return '$base/tile_knowledge.jpg';

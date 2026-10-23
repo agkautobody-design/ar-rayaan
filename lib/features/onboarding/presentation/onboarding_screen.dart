@@ -81,6 +81,10 @@ class _OnboardingState extends State<OnboardingScreen> {
   int _i = 0;
   String? _need;
 
+  /// Set at once when the introduction ends, so a button mashed twice (or
+  /// Skip then Begin) finishes once and cannot push the chosen room twice.
+  bool _finishing = false;
+
   static const _needs = <_Need>[
     _Need('learn', Icons.menu_book_outlined, 'Learning about Islam',
         'Stories, Friday talks (khutbahs), and knowledge'),
@@ -99,6 +103,8 @@ class _OnboardingState extends State<OnboardingScreen> {
   /// [skipped]: the person tapped Skip. Their goal is still remembered, but
   /// Skip always lands on Home.
   Future<void> _finish({bool skipped = false}) async {
+    if (_finishing) return;
+    _finishing = true;
     // Remembering that onboarding was seen is a nicety: if storage refuses,
     // the person must still get through to the app.
     try {
@@ -130,7 +136,25 @@ class _OnboardingState extends State<OnboardingScreen> {
 
   @override
   Widget build(BuildContext context) {
+<<<<<<< HEAD
     return Scaffold(
+=======
+    const slides = 6;
+    // Back on a later slide steps to the slide before it (the system Back
+    // and the browser-less Android gesture); on the first slide it leaves
+    // as usual, to the Home the introduction was opened over.
+    return PopScope(
+      canPop: _i == 0,
+      onPopInvokedWithResult: (bool didPop, Object? result) {
+        if (!didPop && _i > 0) {
+          unawaited(_page.previousPage(
+            duration: const Duration(milliseconds: 250),
+            curve: Curves.easeOut,
+          ));
+        }
+      },
+      child: Scaffold(
+>>>>>>> origin/main
       backgroundColor: Colors.transparent,
       body: SafeArea(
         child: Column(children: [
@@ -195,6 +219,7 @@ class _OnboardingState extends State<OnboardingScreen> {
           ),
         ]),
       ),
+    ),
     );
   }
 
