@@ -37,6 +37,117 @@ class SettingsScreen extends ConsumerWidget {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(left: 4, bottom: 8),
+                        child: Text('LANGUAGE', style: AppText.eyebrow),
+                      ),
+                      GlassCard(
+                        onTap: () => context.push('/settings/language'),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 14,
+                        ),
+                        child: Row(
+                          children: [
+                            const Icon(
+                              Icons.translate_outlined,
+                              size: 18,
+                              color: AppColors.gold,
+                            ),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Language & Voice',
+                                    style: AppText.body.copyWith(fontSize: 14),
+                                  ),
+                                  Text(
+                                    'Pick a language. Only these settings '
+                                    'labels are translated so far; the rest of '
+                                    'the app is English.',
+                                    style: AppText.bodyMuted,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Icon(
+                              Icons.chevron_right,
+                              size: 16,
+                              color: AppColors.gold.withValues(alpha: 0.5),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 4, bottom: 8),
+                        child: Text('ABOUT', style: AppText.eyebrow),
+                      ),
+                      GlassCard(
+                        onTap: () => context.push(AppRoutes.sources),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 14,
+                        ),
+                        child: Row(
+                          children: [
+                            const Icon(
+                              Icons.verified_outlined,
+                              size: 18,
+                              color: AppColors.gold,
+                            ),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Our Sources',
+                                    style: AppText.body.copyWith(fontSize: 14),
+                                  ),
+                                  Text(
+                                    'Qur’an, the Authentic Six, and guidance — fully transparent',
+                                    style: AppText.bodyMuted.copyWith(
+                                      fontSize: 12,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Icon(
+                              Icons.chevron_right,
+                              size: 16,
+                              color: AppColors.gold.withValues(alpha: 0.5),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 4, bottom: 8),
+                        child: Text('WHAT IS FREE', style: AppText.eyebrow),
+                      ),
+                      GlassCard(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 12,
+                        ),
+                        child: Text(
+                          'Everything in this app is free today, including '
+                          'Hādi, and nothing asks for a card. A paid plan for '
+                          'extra live answers is planned but not open yet. '
+                          'Connecting your own AI account is optional and '
+                          'advanced: it is under the ⋮ menu on the Hādi '
+                          'screen.',
+                          style: AppText.bodyMuted.copyWith(
+                            fontSize: 12,
+                            height: 1.5,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 4, bottom: 8),
                         child: Text('SOUND', style: AppText.eyebrow),
                       ),
                       GlassCard(
@@ -121,7 +232,7 @@ class SettingsScreen extends ConsumerWidget {
                         label: 'Replay the introduction',
                         excludeSemantics: true,
                         child: GestureDetector(
-                        onTap: () => context.go(AppRoutes.onboarding),
+                        onTap: () => context.go('${AppRoutes.onboarding}?replay=1'),
                         child: Padding(
                           padding: const EdgeInsets.only(left: 4, top: 15, bottom: 15),
                           child: Text('Replay the introduction →',
@@ -142,7 +253,7 @@ class SettingsScreen extends ConsumerWidget {
                           onTap: () => context.push(LegalRoutes.terms),
                           child: Padding(
                             padding: const EdgeInsets.only(left: 4, top: 15, bottom: 15),
-                            child: Text('Terms of Service →',
+                            child: Text('Terms of Service (a draft, not yet checked by a lawyer) →',
                                 style: AppText.bodyMuted.copyWith(
                                     color: AppColors.gold, fontSize: 13)),
                           ),
@@ -172,94 +283,6 @@ class SettingsScreen extends ConsumerWidget {
                                 style: AppText.bodyMuted.copyWith(
                                     color: AppColors.gold, fontSize: 13)),
                           ),
-                        ),
-                      ),
-                      const SizedBox(height: 20),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 4, bottom: 8),
-                        child: Text('LANGUAGE', style: AppText.eyebrow),
-                      ),
-                      GlassCard(
-                        onTap: () => context.push('/settings/language'),
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 16,
-                          vertical: 14,
-                        ),
-                        child: Row(
-                          children: [
-                            const Icon(
-                              Icons.translate_outlined,
-                              size: 18,
-                              color: AppColors.gold,
-                            ),
-                            const SizedBox(width: 12),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Language & Voice',
-                                    style: AppText.body.copyWith(fontSize: 14),
-                                  ),
-                                  Text(
-                                    'Pick a language. Only these settings '
-                                    'labels are translated so far; the rest of '
-                                    'the app is English.',
-                                    style: AppText.bodyMuted,
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Icon(
-                              Icons.chevron_right,
-                              size: 16,
-                              color: AppColors.gold.withValues(alpha: 0.5),
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(height: 20),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 4, bottom: 8),
-                        child: Text('ABOUT', style: AppText.eyebrow),
-                      ),
-                      GlassCard(
-                        onTap: () => context.push(AppRoutes.sources),
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 16,
-                          vertical: 14,
-                        ),
-                        child: Row(
-                          children: [
-                            const Icon(
-                              Icons.verified_outlined,
-                              size: 18,
-                              color: AppColors.gold,
-                            ),
-                            const SizedBox(width: 12),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Our Sources',
-                                    style: AppText.body.copyWith(fontSize: 14),
-                                  ),
-                                  Text(
-                                    'Qur’an, the Authentic Six, and guidance — fully transparent',
-                                    style: AppText.bodyMuted.copyWith(
-                                      fontSize: 12,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Icon(
-                              Icons.chevron_right,
-                              size: 16,
-                              color: AppColors.gold.withValues(alpha: 0.5),
-                            ),
-                          ],
                         ),
                       ),
                     ],

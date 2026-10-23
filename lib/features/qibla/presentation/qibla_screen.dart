@@ -35,7 +35,6 @@ class QiblaScreen extends ConsumerWidget {
     final String place = loc.city;
     final bool northern = loc.latitude >= 0;
     final bool tropics = loc.latitude.abs() < 23.5;
-    final String compass = QiblaDirection.compassPoint(bearing);
     final double km = QiblaDirection.distanceToKaabaKm(
       (lat: loc.latitude, lng: loc.longitude),
     );
@@ -70,17 +69,20 @@ class QiblaScreen extends ConsumerWidget {
                   child: Column(
                     children: [
                       Text(
-                        '${bearing.round()}\u00b0 $compass',
+                        atMakkah
+                            ? 'You are in or very near Makkah'
+                            : QiblaDirection.plainSentence(bearing),
+                        textAlign: TextAlign.center,
                         style: const TextStyle(
                           fontFamily: 'PlayfairDisplay',
-                          fontSize: 32,
+                          fontSize: 28,
                           fontWeight: FontWeight.w600,
                           color: AppColors.goldLight,
                         ),
                       ),
                       const SizedBox(height: 4),
                       Text(
-                        'clockwise from true North',
+                        '${bearing.round()}\u00b0 clockwise from true North',
                         style: AppText.bodyMuted,
                       ),
                       const SizedBox(height: 2),
@@ -95,11 +97,31 @@ class QiblaScreen extends ConsumerWidget {
                 ),
                 const SizedBox(height: 22),
                 GlassCard(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('TWO WAYS TO FACE THE KAABA', style: AppText.eyebrow),
-                      const SizedBox(height: 8),
+                  child: Theme(
+                    data: Theme.of(context).copyWith(
+                      dividerColor: Colors.transparent,
+                    ),
+                    child: ExpansionTile(
+                      key: const Key('qibla-how'),
+                      tilePadding: EdgeInsets.zero,
+                      childrenPadding: EdgeInsets.zero,
+                      iconColor: AppColors.gold,
+                      collapsedIconColor: AppColors.gold,
+                      title: Text(
+                        'How this is worked out',
+                        style: AppText.body.copyWith(
+                          fontWeight: FontWeight.w600,
+                          color: AppColors.goldLight,
+                        ),
+                      ),
+                      subtitle: Text(
+                        'Compass, sun method and precision notes',
+                        style: AppText.bodyMuted.copyWith(fontSize: 12),
+                      ),
+                      expandedCrossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('TWO WAYS TO FACE THE KAABA', style: AppText.eyebrow),
+                        const SizedBox(height: 8),
                       Text(
                         tropics
                             ? '1 · THE EXACT BEARING (recommended) — the dial above is measured from true North by great-circle mathematics, calculated on your device. Near the equator the noon sun can stand north or south of you, so check true North with a map app or your phone\u2019s compass set to true North, then turn ${bearing.round()}° clockwise.'
@@ -108,7 +130,7 @@ class QiblaScreen extends ConsumerWidget {
                       ),
                       const SizedBox(height: 8),
                       Text(
-                        '2 · A PHYSICAL COMPASS — compasses point to MAGNETIC North, which differs from true North by your local magnetic declination (anything from a few degrees to 20° or more, east or west, depending on where you are; it drifts every year). The live compass below applies your declination for you, from the World Magnetic Model. With a separate compass: with a WEST declination add it to ${bearing.round()}°, with an EAST declination subtract it.',
+                        '2 · A PHYSICAL COMPASS — compasses point to MAGNETIC North, which differs from true North by your local magnetic declination (anything from a few degrees to 20° or more, east or west, depending on where you are; it drifts every year). The live compass above applies your declination for you, from the World Magnetic Model. With a separate compass: with a WEST declination add it to ${bearing.round()}°, with an EAST declination subtract it.',
                         style: AppText.bodyMuted.copyWith(height: 1.6, fontSize: 12),
                       ),
                       const SizedBox(height: 8),
@@ -117,14 +139,7 @@ class QiblaScreen extends ConsumerWidget {
                         style: AppText.body.copyWith(fontSize: 12,
                             color: AppColors.goldLight, fontStyle: FontStyle.italic),
                       ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 12),
-                GlassCard(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+                        const SizedBox(height: 16),
                       Text('HOW TO USE', style: AppText.eyebrow),
                       const SizedBox(height: 8),
                       Text(
@@ -139,15 +154,7 @@ class QiblaScreen extends ConsumerWidget {
                         'concession of prayer on the move is vast.',
                         style: AppText.bodyMuted.copyWith(height: 1.55),
                       ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 12),
-                GlassCard(
-                  strong: true,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+                        const SizedBox(height: 16),
                       Text('A NOTE ON PRECISION', style: AppText.eyebrow),
                       const SizedBox(height: 8),
                       Text(
@@ -161,7 +168,8 @@ class QiblaScreen extends ConsumerWidget {
                         'usually have no compass and show the static dial.',
                         style: AppText.body.copyWith(height: 1.55, fontSize: 13.5),
                       ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
                 const SizedBox(height: 14),

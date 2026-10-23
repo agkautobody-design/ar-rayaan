@@ -20,6 +20,9 @@ enum FastingKind {
 
   /// Fasting is prohibited on this day.
   forbidden,
+
+  /// Fasting is an obligation (every day of Ramadan), not a sunnah.
+  obligatory,
 }
 
 /// A single fasting marker attached to a date, with its knowledge card.
@@ -125,6 +128,18 @@ abstract final class SunnahFasting {
     source: 'Sahih Muslim 1164',
   );
 
+  static const FastingMarker _ramadan = FastingMarker(
+    kind: FastingKind.obligatory,
+    titleEn: 'Ramadan \u2014 obligatory fast',
+    titleAr: '\u0635\u064a\u0627\u0645 \u0631\u0645\u0636\u0627\u0646',
+    why:
+        'Fasting Ramadan is an obligation, not a voluntary (sunnah) fast, so '
+        'the Monday, Thursday and White Days labels do not apply to it. '
+        '\u201cWhoever of you witnesses the month, let him fast it.\u201d If '
+        'you are excused, ask a scholar about your own case.',
+    source: 'Qur\u2019an 2:185',
+  );
+
   static const FastingMarker _eidFitr = FastingMarker(
     kind: FastingKind.forbidden,
     titleEn: 'Eid al-Fitr — no fasting',
@@ -167,6 +182,10 @@ abstract final class SunnahFasting {
       out.add(_tashreeq);
     }
     if (out.isNotEmpty) return out;
+
+    // Every day of Ramadan is the obligatory fast: never label it with the
+    // voluntary Monday / Thursday / White Days markers.
+    if (date.month == 9) return <FastingMarker>[_ramadan];
 
     // Weekly sunnah (Monday = weekday 1, Thursday = 4, Gregorian).
     final int weekday = date.toGregorian().weekday;

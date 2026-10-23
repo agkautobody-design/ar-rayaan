@@ -509,7 +509,7 @@ void main() {
 
     test('the key sheet sits under Advanced, with expandable privacy notes',
         () {
-      expect(screen, contains('Advanced · live AI key'));
+      expect(screen, contains('Your own AI account (optional, advanced)'));
       expect(screen, contains('_PrivacyNote('));
       expect(screen, contains('What is sent with a key'));
       expect(screen, contains('Where your key is kept'));

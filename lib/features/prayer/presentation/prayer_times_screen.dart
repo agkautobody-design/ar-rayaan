@@ -8,11 +8,14 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../../app/core/notifications/prayer_notification_scheduler.dart';
 import '../../../app/core/notifications/web_notifier.dart';
 import '../../../app/core/sound/sound_services.dart';
+import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../../calendar/application/hijri_settings.dart';
+import '../../calendar/domain/hijri_date.dart';
 import '../application/iqamah_settings.dart';
 import '../application/location_providers.dart';
 import '../application/prayer_alerts.dart';
@@ -122,12 +125,18 @@ class _ScheduleState extends ConsumerState<_Schedule> {
     final bool adhanPlaying = ref.watch(adhanServiceProvider);
     final String? alert = ref.watch(alertBannerProvider);
     final IqamahSettings iqamah = ref.watch(iqamahProvider);
+    // Suhoor / Iftar labels only during Ramadan (Hijri month 9, on the
+    // calendar the person chose). Suhoor ends at Fajr; Iftar is at Maghrib.
+    ref.watch(hijriSettingsProvider);
+    final bool ramadan = HijriDate.fromGregorian(data.fajr).month == 9;
 
     return ListView(
       padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
       children: [
         // O-11: location — GPS or manual city, fully offline after choice.
         const _LocationCard(),
+        const SizedBox(height: 8),
+        const _QuickLinks(),
         const SizedBox(height: 16),
         if (alert != null) ...[
           GlassCard(
@@ -278,6 +287,13 @@ class _ScheduleState extends ConsumerState<_Schedule> {
                       PrayerTimesScreen._icons[data.ordered[i].$1] ??
                       Icons.schedule,
                   isNext: data.ordered[i].$1 == nextName,
+                  note: !ramadan
+                      ? null
+                      : data.ordered[i].$1 == 'Fajr'
+                      ? 'Suhoor ends \u00b7 the fast begins'
+                      : data.ordered[i].$1 == 'Maghrib'
+                      ? 'Iftar \u00b7 the fast ends'
+                      : null,
                   iqamah: iqamah.iqamahFor(
                     data.ordered[i].$1,
                     data.ordered[i].$2,
@@ -288,12 +304,24 @@ class _ScheduleState extends ConsumerState<_Schedule> {
                       : null,
                 ),
               ],
+              Divider(
+                height: 1,
+                color: AppColors.gold.withValues(alpha: 0.1),
+                indent: 64,
+              ),
+              _JumuahRow(
+                time: iqamah.jumuahTime,
+                isFriday: data.dhuhr.weekday == DateTime.friday,
+              ),
             ],
           ),
         ),
         const SizedBox(height: 16),
-        // Tahajjud — the last third of the night (Bukhari 1145).
+        // Tahajjud — the last third of the night (Bukhari 1145). Opens the
+        // Witr & Night Routine guide (Huda), which already holds the night
+        // prayer's content.
         GlassCard(
+          onTap: () => context.open('${AppRoutes.hudaGuide}?id=huda-witr'),
           child: Row(
             children: [
               const Text('🌌', style: TextStyle(fontSize: 18)),
@@ -316,6 +344,14 @@ class _ScheduleState extends ConsumerState<_Schedule> {
                       style: AppText.bodyMuted.copyWith(
                         fontSize: 12,
                         height: 1.4,
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      'Witr & the night routine \u203a',
+                      style: AppText.bodyMuted.copyWith(
+                        fontSize: 12,
+                        color: AppColors.gold,
                       ),
                     ),
                   ],
@@ -381,7 +417,11 @@ class _PrayerRow extends ConsumerWidget {
     required this.isNext,
     this.iqamah,
     this.jumuah,
+    this.note,
   });
+
+  /// Ramadan only: 'Suhoor ends' on Fajr, 'Iftar' on Maghrib.
+  final String? note;
 
   final String name;
   final DateTime time;
@@ -403,25 +443,30 @@ class _PrayerRow extends ConsumerWidget {
     final bool alertOn = ref.watch(
       prayerAlertsProvider.select((s) => s.contains(name)),
     );
+    // At large text sizes the round icon is dropped so the name keeps its
+    // room, and the NEXT tag sits under the name instead of beside the time.
+    final bool bigText = MediaQuery.textScalerOf(context).scale(14) / 14 > 1.3;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 13),
       child: Row(
         children: [
-          Container(
-            width: 36,
-            height: 36,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: isNext
-                  ? AppColors.gold.withValues(alpha: 0.18)
-                  : AppColors.gold.withValues(alpha: 0.08),
-              border: Border.all(
-                color: AppColors.gold.withValues(alpha: isNext ? 0.5 : 0.2),
+          if (!bigText) ...[
+            Container(
+              width: 36,
+              height: 36,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: isNext
+                    ? AppColors.gold.withValues(alpha: 0.18)
+                    : AppColors.gold.withValues(alpha: 0.08),
+                border: Border.all(
+                  color: AppColors.gold.withValues(alpha: isNext ? 0.5 : 0.2),
+                ),
               ),
+              child: Icon(icon, size: 17, color: AppColors.gold),
             ),
-            child: Icon(icon, size: 17, color: AppColors.gold),
-          ),
-          const SizedBox(width: 12),
+            const SizedBox(width: 12),
+          ],
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -433,6 +478,34 @@ class _PrayerRow extends ConsumerWidget {
                     fontWeight: isNext ? FontWeight.w600 : FontWeight.w400,
                   ),
                 ),
+                if (isNext)
+                  Container(
+                    margin: const EdgeInsets.only(top: 2),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 8,
+                      vertical: 2,
+                    ),
+                    decoration: BoxDecoration(
+                      color: AppColors.gold.withValues(alpha: 0.15),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Text(
+                      'NEXT',
+                      style: AppText.eyebrow.copyWith(
+                        fontSize: 12,
+                        letterSpacing: 2,
+                        color: AppColors.goldLight,
+                      ),
+                    ),
+                  ),
+                if (note != null)
+                  Text(
+                    note!,
+                    style: AppText.bodyMuted.copyWith(
+                      fontSize: 12,
+                      color: AppColors.goldLight,
+                    ),
+                  ),
                 if (iqamah != null)
                   Text(
                     'Iqamah ${DateFormat.jm().format(iqamah!)}',
@@ -446,25 +519,9 @@ class _PrayerRow extends ConsumerWidget {
               ],
             ),
           ),
-          if (isNext)
-            Container(
-              margin: const EdgeInsets.only(right: 10),
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-              decoration: BoxDecoration(
-                color: AppColors.gold.withValues(alpha: 0.15),
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Text(
-                'NEXT',
-                style: AppText.eyebrow.copyWith(
-                  fontSize: 12,
-                  letterSpacing: 2,
-                  color: AppColors.goldLight,
-                ),
-              ),
-            ),
           Text(
             DateFormat.jm().format(time),
+            softWrap: false,
             style: AppText.body.copyWith(
               color: nameColor,
               fontWeight: isNext ? FontWeight.w600 : FontWeight.w400,
@@ -505,6 +562,82 @@ class _PrayerRow extends ConsumerWidget {
   }
 }
 
+/// The city picker: a type-ahead field over the offline city list.
+class CitySheet extends StatefulWidget {
+  const CitySheet({super.key});
+
+  @override
+  State<CitySheet> createState() => _CitySheetState();
+}
+
+class _CitySheetState extends State<CitySheet> {
+  String _query = '';
+
+  @override
+  Widget build(BuildContext context) {
+    final List<PrayerLocation> shown = CityDirectory.filter(_query);
+    return SafeArea(
+      child: Padding(
+        padding: EdgeInsets.only(
+          bottom: MediaQuery.of(context).viewInsets.bottom,
+        ),
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            maxHeight: MediaQuery.of(context).size.height * 0.85,
+          ),
+          child: ListView(
+            shrinkWrap: true,
+            padding: const EdgeInsets.fromLTRB(20, 20, 20, 12),
+            children: [
+              Text('Choose your city', style: AppText.titleMedium),
+              const SizedBox(height: 4),
+              Text(
+                'Times are calculated on your device from the city you pick.',
+                style: AppText.bodyMuted.copyWith(fontSize: 12),
+              ),
+              const SizedBox(height: 12),
+              TextField(
+                key: const Key('city-search'),
+                onChanged: (String v) => setState(() => _query = v),
+                textInputAction: TextInputAction.search,
+                style: AppText.body,
+                decoration: const InputDecoration(
+                  prefixIcon: Icon(Icons.search, size: 18),
+                  hintText: 'Type a city or country',
+                  isDense: true,
+                ),
+              ),
+              const SizedBox(height: 8),
+              if (shown.isEmpty)
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  child: Text(
+                    'No city in the list matches. Close this and tap '
+                    '\u201cMy location\u201d instead.',
+                    style: AppText.bodyMuted,
+                  ),
+                ),
+              for (final PrayerLocation c in shown)
+                ListTile(
+                  dense: true,
+                  contentPadding: EdgeInsets.zero,
+                  title: Text(c.city, style: AppText.body),
+                  subtitle: c.country.isEmpty
+                      ? null
+                      : Text(
+                          c.country,
+                          style: AppText.bodyMuted.copyWith(fontSize: 12),
+                        ),
+                  onTap: () => Navigator.of(context).pop(c),
+                ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 /// O-11 location card — GPS fix or manual city pick; persists across visits.
 class _LocationCard extends ConsumerWidget {
   const _LocationCard();
@@ -512,38 +645,12 @@ class _LocationCard extends ConsumerWidget {
   Future<void> _pickCity(BuildContext context, WidgetRef ref) async {
     final PrayerLocation? chosen = await showModalBottomSheet<PrayerLocation>(
       context: context,
+      isScrollControlled: true,
       backgroundColor: AppColors.night,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
       ),
-      builder: (BuildContext ctx) => SafeArea(
-        child: ListView(
-          shrinkWrap: true,
-          padding: const EdgeInsets.fromLTRB(20, 20, 20, 12),
-          children: [
-            Text('Choose your city', style: AppText.titleMedium),
-            const SizedBox(height: 4),
-            Text(
-              'Times are calculated on your device from the city you pick.',
-              style: AppText.bodyMuted.copyWith(fontSize: 12),
-            ),
-            const SizedBox(height: 12),
-            for (final PrayerLocation c in CityDirectory.cities)
-              ListTile(
-                dense: true,
-                contentPadding: EdgeInsets.zero,
-                title: Text(c.city, style: AppText.body),
-                subtitle: c.country.isEmpty
-                    ? null
-                    : Text(
-                        c.country,
-                        style: AppText.bodyMuted.copyWith(fontSize: 12),
-                      ),
-                onTap: () => Navigator.of(ctx).pop(c),
-              ),
-          ],
-        ),
-      ),
+      builder: (BuildContext ctx) => const CitySheet(),
     );
     if (chosen != null) {
       await ref
@@ -633,6 +740,8 @@ class _SetLocationPrompt extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
       children: <Widget>[
         const _LocationCard(),
+        const SizedBox(height: 8),
+        const _QuickLinks(),
         const SizedBox(height: 16),
         GlassCard(
           strong: true,
@@ -654,6 +763,119 @@ class _SetLocationPrompt extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+/// Two short links on the Prayer Times page: the Qibla and the guide that
+/// shows how the prayer is performed (already in Huda as `huda-prayer`).
+class _QuickLinks extends StatelessWidget {
+  const _QuickLinks();
+
+  @override
+  Widget build(BuildContext context) {
+    return Wrap(
+      spacing: 8,
+      runSpacing: 4,
+      children: [
+        TextButton.icon(
+          onPressed: () => context.open(AppRoutes.qibla),
+          icon: const Icon(Icons.explore_outlined, size: 16),
+          label: const Text('Qibla'),
+          style: TextButton.styleFrom(foregroundColor: AppColors.goldLight),
+        ),
+        TextButton.icon(
+          onPressed: () =>
+              context.open('${AppRoutes.hudaGuide}?id=huda-prayer'),
+          icon: const Icon(Icons.menu_book_outlined, size: 16),
+          label: const Text('How to pray'),
+          style: TextButton.styleFrom(foregroundColor: AppColors.goldLight),
+        ),
+      ],
+    );
+  }
+}
+
+/// Opens the time picker for the Jumu'ah time (the same saved field the
+/// Mosque Times card edits).
+Future<void> _pickJumuahTime(BuildContext context, WidgetRef ref) async {
+  final IqamahSettings cur = ref.read(iqamahProvider);
+  final (int, int)? parsed = IqamahSettings.parseTime(cur.jumuahTime);
+  final TimeOfDay? t = await showTimePicker(
+    context: context,
+    initialTime: TimeOfDay(hour: parsed?.$1 ?? 13, minute: parsed?.$2 ?? 0),
+    helpText: "Jumu'ah prayer time at your mosque",
+  );
+  if (t == null) return;
+  await ref
+      .read(iqamahProvider.notifier)
+      .setJumuah(IqamahSettings.formatTime(t.hour, t.minute));
+}
+
+/// Friday's congregational prayer, always visible in the list. The time is
+/// the one the person types in for their mosque (never fetched); tapping the
+/// row sets or changes it. There is no bell: alerts follow the calculated
+/// prayer times, not a hand-entered mosque time.
+class _JumuahRow extends ConsumerWidget {
+  const _JumuahRow({required this.time, required this.isFriday});
+
+  final String? time;
+  final bool isFriday;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return InkWell(
+      onTap: () => _pickJumuahTime(context, ref),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 13),
+        child: Row(
+          children: [
+            Container(
+              width: 36,
+              height: 36,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: AppColors.gold.withValues(alpha: isFriday ? 0.18 : 0.08),
+                border: Border.all(
+                  color: AppColors.gold.withValues(alpha: isFriday ? 0.5 : 0.2),
+                ),
+              ),
+              child: const Icon(
+                Icons.mosque_outlined,
+                size: 17,
+                color: AppColors.gold,
+              ),
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Jumu'ah \u00b7 Friday",
+                    style: AppText.body.copyWith(
+                      color: AppColors.sand.withValues(alpha: 0.9),
+                    ),
+                  ),
+                  Text(
+                    time == null
+                        ? 'Your mosque\u2019s time \u2014 tap to set'
+                        : 'Your mosque\u2019s time \u00b7 tap to change',
+                    style: AppText.bodyMuted.copyWith(fontSize: 12),
+                  ),
+                ],
+              ),
+            ),
+            Text(
+              time ?? 'Set time',
+              softWrap: false,
+              style: AppText.body.copyWith(
+                color: time == null ? AppColors.gold : AppColors.sand,
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
@@ -1014,18 +1236,8 @@ class _IqamahCard extends ConsumerStatefulWidget {
 class _IqamahCardState extends ConsumerState<_IqamahCard> {
   bool _open = false;
 
-  Future<void> _pickJumuah(IqamahSettings cur) async {
-    final (int, int)? parsed = IqamahSettings.parseTime(cur.jumuahTime);
-    final TimeOfDay? t = await showTimePicker(
-      context: context,
-      initialTime: TimeOfDay(hour: parsed?.$1 ?? 13, minute: parsed?.$2 ?? 0),
-      helpText: "Jumu'ah prayer time at your mosque",
-    );
-    if (t == null || !mounted) return;
-    await ref
-        .read(iqamahProvider.notifier)
-        .setJumuah(IqamahSettings.formatTime(t.hour, t.minute));
-  }
+  Future<void> _pickJumuah(IqamahSettings cur) =>
+      _pickJumuahTime(context, ref);
 
   @override
   Widget build(BuildContext context) {

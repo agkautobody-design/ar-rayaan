@@ -1,6 +1,7 @@
 import '../../sakina/domain/crisis_detector.dart';
 import '../application/hadi_provider.dart';
 import '../grounding/ruling_gate.dart';
+import 'hadi_routing.dart';
 
 /// Curated knowledge for offline use — always available, no key, no
 /// network. Unknown questions get an honest decline — Hādi never invents.
@@ -61,6 +62,7 @@ class OfflineHadiProvider implements HadiProvider {
   /// True when [answer] is a real shelf answer and not one of the fixed
   /// replies (declines, redirects, comfort replies, navigation).
   static bool _isShelfAnswer(String answer) {
+    if (HadiRouting.isFixed(answer)) return false;
     // "contains", not "equals": the controller may put a line in front of a
     // fixed reply (a spent daily quota, a failed live call).
     for (final String fixed in <String>[
@@ -435,6 +437,8 @@ class OfflineHadiProvider implements HadiProvider {
   /// Stem: drops a plural "s" and "-ing". Applied equally to questions and
   /// keywords, so only the same word (in either form) can match.
   static String _stem(String w) {
+    // "interesting" is not "interest" (riba): keep it whole.
+    if (w == 'interesting') return w;
     if (w.length > 5 && w.endsWith('ing')) return w.substring(0, w.length - 3);
     if (w.length > 3 &&
         w.endsWith('s') &&
@@ -992,7 +996,10 @@ class OfflineHadiProvider implements HadiProvider {
     Set<String> matched,
     String answer,
   ) {
-    if (matched.any((String w) => _pct(w) >= _topicPct)) return false;
+    if (matched.any(
+        (String w) => _pct(w) >= _topicPct && !_broadWords.contains(w))) {
+      return false;
+    }
     final String said = CrisisDetector.normalize(answer);
     for (int i = 0; i < q.length; i++) {
       final String w = q[i];
@@ -1010,6 +1017,14 @@ class OfflineHadiProvider implements HadiProvider {
   /// A matched word of at least this weight (used by few entries) is a topic.
   static const int _topicPct = 100;
 
+  /// Words that name the whole subject of the app. Matching one of these says
+  /// the question is about Islam, not what in Islam it is about: "something
+  /// funny from the sunnah" matches "sunnah" and nothing else.
+  static const Set<String> _broadWords = <String>{
+    'sunnah', 'hadith', 'quran', 'dua', 'prophet', 'allah', 'islam', //
+    'muslim', 'islamic', //
+  };
+
   @override
   Future<String> ask(String question, List<HadiMessage> history) async {
     // Defence in depth: the controller screens for crisis first, but this
@@ -1025,6 +1040,29 @@ class OfflineHadiProvider implements HadiProvider {
     final String? chat = smallTalk(question);
     if (chat != null) return chat;
 
+    // A short "yes please" means the thing Hādi just offered, not a new
+    // search of the whole shelf.
+    String asked = question;
+    final HadiFollowUp? follow = HadiRouting.followUp(question, history);
+    if (follow != null) {
+      final String? reply = follow.reply;
+      if (reply != null) return reply;
+      asked = follow.question ?? question;
+    }
+
+    // Replies that say what Hādi can do, or send the person to content the
+    // app already has, before the shelf is searched.
+    if (HadiRouting.describesSelf(asked)) {
+      return HadiRouting.selfDescriptionReply;
+    }
+    if (HadiRouting.asksBeginner(asked)) return HadiRouting.beginnerReply;
+    if (HadiRouting.asksRamadanPlan(asked)) return HadiRouting.ramadanPlanReply;
+    if (HadiRouting.asksTahajjudHow(asked)) return HadiRouting.tahajjudReply;
+
+    return _shelf(asked, history);
+  }
+
+  Future<String> _shelf(String question, List<HadiMessage> history) async {
     List<String> q = tokens(question);
     if (q.length > _maxWords) q = q.sublist(0, _maxWords);
     final bool rulingShaped = q.any(_rulingWords.contains);
@@ -1104,7 +1142,26 @@ class OfflineHadiProvider implements HadiProvider {
         _missesTheTopic(q, pm, bestWords, bestAnswer)) {
       weak = true;
     }
-    if (bestW == 0 || weak) return _fallback(question, q, rulingShaped);
+    // A medical question is for a doctor, whatever du'a the words brush.
+    if (q.any(HadiRouting.medicalWords.contains) &&
+        !bestWords.any(HadiRouting.medicalWords.contains)) {
+      return HadiRouting.medicalReply(question);
+    }
+    // Two plausible readings and no topic word in common with the question:
+    // that is a guess, not a near miss.
+    if (!weak &&
+        bestW > 0 &&
+        !bestTopic &&
+        secondW > 0 &&
+        secondW * 2 > bestW &&
+        bestRaw < 1000 &&
+        secondAnswer != bestAnswer &&
+        !secondWords.every(bestWords.contains)) {
+      weak = true;
+    }
+    if (bestW == 0 || weak) {
+      return _fallback(question, q, rulingShaped, history);
+    }
     // "Take me to the Qur'an" is a request to move, whatever else it mentions.
     if (nav != null && !bestAnswer.contains('[GO:${nav.route}]')) {
       return _navReply(nav);
@@ -1124,6 +1181,9 @@ class OfflineHadiProvider implements HadiProvider {
     }
     if (rulingShaped && !answer.contains('qualified scholar')) {
       answer = '$answer\n\n$rulingNote';
+    }
+    if (HadiRouting.asksHadithNumber(question)) {
+      answer = HadiRouting.forNumberAsk(question, answer);
     }
     return answer;
   }
@@ -1313,10 +1373,21 @@ class OfflineHadiProvider implements HadiProvider {
         '[GO:${nav.route}]';
   }
 
-  String _fallback(String question, List<String> q, bool rulingShaped) {
+  String _fallback(
+    String question,
+    List<String> q,
+    bool rulingShaped,
+    List<HadiMessage> history,
+  ) {
     final _NavTarget? nav = _navIntent(q);
     if (nav != null) return _navReply(nav);
-    if (rulingShaped) return rulingDecline;
+    if (HadiRouting.asksHadithNumber(question)) {
+      return HadiRouting.hadithNumberDecline;
+    }
+    if (rulingShaped) {
+      return HadiRouting.variantFor(question, history, ruling: true) ??
+          rulingDecline;
+    }
     final HadiScript script = scriptOf(question);
     if (script != HadiScript.latin) return _scriptReply(script);
     final String n = CrisisDetector.normalize(question);
@@ -1326,7 +1397,21 @@ class OfflineHadiProvider implements HadiProvider {
       return distressReplies[pick % distressReplies.length];
     }
     if (_offTopic.hasMatch(n)) return offTopicReply;
-    return declineFor(hasKey);
+    return HadiRouting.variantFor(question, history, ruling: false) ??
+        declineFor(hasKey);
+  }
+
+  /// The "Open …" buttons to put under a plain refusal (the first one, whose
+  /// text is fixed), or an empty list when [answer] is not one or already
+  /// carries its own buttons. Used by the controller.
+  static List<String> refusalRoutes(String question, String answer) {
+    if (answer.contains('[GO:') || !answer.contains('rather not guess')) {
+      return const <String>[];
+    }
+    return HadiRouting.refusalRoutes(
+      question,
+      ruling: answer.contains(rulingDecline),
+    );
   }
 }
 
@@ -1599,7 +1684,9 @@ const List<_Entry> _knowledge = <_Entry>[
   ),
   _Entry(
     <String>['save a story', 'saved stories', 'bookmark a story', 'where are my saved stories', 'where are my saved'],
-    'Saved stories are kept in your Journey. Open it to find them again.'
+    'Saved stories are kept in your Journey, under Bookmarks. To save one, '
+    'tell me its title, for example "bookmark Yusuf", and I will save it '
+    'for you and tell you when it is done.'
     '\n[GO:/journey]',
   ),
   _Entry(
@@ -2403,7 +2490,7 @@ const List<_Entry> _knowledge = <_Entry>[
 
   // ── Sleep, waking, and the night ────────────────────────────────────
   _Entry(
-    <String>['sleep dua', 'going to sleep', 'bedtime', 'sleep on right side', 'wake up dua', 'waking up', 'sleep'],
+    <String>['going to sleep', 'bedtime', 'sleep on right side', 'wake up dua', 'waking up', 'sleep'],
     'Before sleep: wudu as you washed for prayer, lie on the right '
     'side, and recite Ayat al-Kursi - "a protector from Allah is '
     'appointed over you, and no devil comes near you until '
@@ -3070,14 +3157,16 @@ const List<_Entry> _knowledge = <_Entry>[
 
   // ========== COMMON DUAS ==========
   _Entry(
-    <String>['dua before sleep', 'sleeping dua', 'night dua'],
+    <String>['dua before sleep', 'sleeping dua', 'night dua', 'bedtime dua', 'dua for sleep', 'dua before bed', 'dua for bedtime', 'dua at bedtime', 'what to say before sleeping', 'what to say before bed', 'dua for going to sleep'],
     'Before sleeping, say: "Bismika Allahumma amutu wa ahya" (In Your name, '
     'O Allah, I die and I live) (Sahih Muslim 2711). Make wudu and lie on '
     'your right side (Sahih al-Bukhari 247, Sahih Muslim 2710). The Prophet '
     'ﷺ also placed his right hand under his cheek and said: "Allahumma qini '
     'adhabaka yawma tab\'athu ibadaka" (O Allah, protect me from Your '
     'punishment on the Day You resurrect Your servants) (Sunan Abi Dawud '
-    '5045, sahih per al-Albani).',
+    '5045, sahih per al-Albani). The Daily Duas in the Wasia Academy have '
+    'Before Sleep pages, and For Your Heart has a Tired page with a du\'a '
+    'for the night.\n[GO:/academy/hisn]\n[GO:/feelings]',
   ),
   _Entry(
     <String>['dua after waking', 'morning dua', 'waking up'],
@@ -4068,7 +4157,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'is part of Islam, but must be through legitimate means.',
   ),
   _Entry(
-    <String>['shariah', 'islamic law', 'fiqh'],
+    <String>['shariah', 'islamic law', 'fiqh', 'four schools', 'four madhabs', 'name the four schools', 'what are the four schools', 'what are the madhabs', 'names of the four schools'],
     'Shariah is the divine law revealed by Allah. Fiqh is the human '
     'understanding and application of that law. The Prophet ﷺ said: '
     '"The scholars are the heirs of the prophets." '
@@ -4076,7 +4165,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'schools of fiqh: Hanafi, Maliki, Shafi\'i, and Hanbali.',
   ),
   _Entry(
-    <String>['fiqh schools', 'madhab', 'hanafi', 'maliki', 'shafii', 'hanbali'],
+    <String>['fiqh schools', 'madhab', 'hanafi', 'maliki', 'shafii', 'hanbali', 'why do scholars disagree', 'why do scholars differ', 'why scholars differ', 'why scholars disagree', 'difference of opinion', 'differences of opinion', 'why are there different madhabs', 'why are there four schools'],
     'The four schools are valid paths to the same truth. Differences '
     'between qualified scholars on questions open to ijtihad are '
     'recognised as legitimate, and Muslims are asked to be gentle with '

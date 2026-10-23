@@ -16,6 +16,7 @@ import '../../../app/core/subscription/subscription_service.dart';
 import '../../sakina/application/sakina_providers.dart';
 import '../../sakina/domain/crisis_detector.dart';
 import '../data/groq_hadi_provider.dart';
+import '../data/hadi_routing.dart';
 import '../data/offline_hadi_provider.dart';
 import '../grounding/answer_verifier.dart';
 import '../grounding/corpus.dart';
@@ -23,6 +24,7 @@ import '../grounding/madhhab.dart';
 import '../grounding/minor_signal.dart';
 import '../grounding/passage.dart';
 import '../grounding/ruling_gate.dart';
+import 'hadi_bookmark.dart';
 import 'hadi_provider.dart';
 
 /// Every screen Hādi is allowed to take a person to. Each entry MUST be a
@@ -77,6 +79,12 @@ const Map<String, String> kHadiRouteNames = <String, String>{
   '/family-tree': 'the Messengers’ family tree',
   '/finance': 'Tayyib Finance',
   '/share': 'verse cards',
+  '/new-muslim': 'the New Muslim path',
+  '/academy/aqeedah': 'the Aqeedah school',
+  '/academy/qa': 'Questions and Answers',
+  '/academy/quranic-arabic': 'the Quranic Arabic school',
+  '/academy/ramadan-mode': 'Ramadan Mode',
+  '/ramadan': 'the Ramadan screen',
 };
 
 /// Reads the [GO:] / [DO:] tokens a reply may carry. Pure, so it is tested
@@ -247,6 +255,40 @@ class HadiController extends Notifier<HadiState> {
       clean = '$clean\n\n${confirmations.join(' ')}'.trim();
     }
     return clean;
+  }
+
+  /// A request to save a story ("bookmark Yusuf") is carried out here, for
+  /// real, on the device: no model is asked, and the reply says "saved" only
+  /// once the story is in the saved set. Null when [q] is not such a request
+  /// or names no story (it then goes through the normal flow).
+  Future<String?> _tryBookmark(String q) async {
+    final List<String>? words = HadiBookmark.titleWords(q);
+    if (words == null) return null;
+    final List<Story> stories;
+    try {
+      stories = await ref.read(storiesProvider.future);
+    } catch (_) {
+      return null;
+    }
+    final List<Story> hits = HadiBookmark.match(words, stories);
+    if (hits.isEmpty) return null;
+    if (hits.length > 1) {
+      final String names = <String>[
+        for (final Story s in hits.take(4)) '“${s.title}”',
+      ].join(', ');
+      return 'More than one story fits that: $names. Which one shall I '
+          'save? Tell me its full title.';
+    }
+    final Story story = hits.first;
+    try {
+      await ref.read(savedStoriesProvider.notifier).save(story.id);
+    } catch (_) {}
+    if (ref.read(savedStoriesProvider).contains(story.id)) {
+      return 'Saved. “${story.title}” is now in your Bookmarks: open your '
+          'Journey, then Bookmarks.';
+    }
+    return 'I could not save “${story.title}” just now, so it is not in '
+        'your Bookmarks. Please try again in a moment.';
   }
 
   static const String _keyPref = 'ar.hadi.apikey';
@@ -693,6 +735,25 @@ class HadiController extends Notifier<HadiState> {
       return reply;
     }
 
+    if (crisis == null && !grief) {
+      final String? saved = await _tryBookmark(q);
+      if (saved != null) {
+        state = state.copy(
+          messages: <HadiMessage>[
+            ...state.messages,
+            HadiMessage(fromHadi: false, text: q),
+          ],
+          typing: false,
+        );
+        _append(HadiMessage(
+          fromHadi: true,
+          text: saved,
+          routes: const <String>['/journey'],
+        ));
+        return saved;
+      }
+    }
+
     state = state.copy(
       messages: <HadiMessage>[
         ...state.messages,
@@ -842,6 +903,15 @@ class HadiController extends Notifier<HadiState> {
       // own library (Arabic, translation, grade), exactly as for a live
       // answer. A reference that is not in the library gets no card.
       sources = AnswerVerifier.citedIds(clean, corpus);
+      // A refusal is never a dead end: the closest place in the app and
+      // Search go under it as buttons.
+      final List<String> help = OfflineHadiProvider.refusalRoutes(q, clean);
+      if (help.isNotEmpty) {
+        for (final String r in help) {
+          if (!routes.contains(r)) routes.add(r);
+        }
+        clean = '$clean\n\n${HadiRouting.refusalLeadIn}';
+      }
       // The school of law applies to the shelf's fiqh answers only where
       // the shelf holds a verified text for that school. It holds none, so
       // say so plainly and offer the scholar hand-off; never guess a ruling.

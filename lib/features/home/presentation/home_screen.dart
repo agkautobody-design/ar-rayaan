@@ -23,6 +23,8 @@ import '../../quran/application/quran_providers.dart';
 import '../../quran/domain/quran_models.dart';
 import '../../academy/domain/atmosphere.dart';
 import '../../academy/presentation/atmosphere_layer.dart';
+import '../../calendar/application/hijri_settings.dart';
+import '../../calendar/domain/hijri_date.dart';
 
 /// Screen 4 · Home — greeting, nine core tiles, "Today for You".
 ///
@@ -105,7 +107,7 @@ class HomeScreen extends ConsumerWidget {
       (
         Icons.calendar_month_outlined,
         'Islamic Calendar',
-        'Events & Observances',
+        'Hijri date, converter & events',
         AppRoutes.calendar,
       ),
       (
@@ -134,6 +136,11 @@ class HomeScreen extends ConsumerWidget {
       for (final t in tiles)
         if (showAcademy || !isAcademyRoute(t.$4)) t,
     ];
+    // Today's Hijri date: pure and synchronous (no waiting on anything), and
+    // re-read when the person changes the calendar basis.
+    ref.watch(hijriSettingsProvider);
+    final String hijriToday =
+        '${HijriDate.fromGregorian(DateTime.now()).format()} AH';
     // Fixed-aspect tiles must grow with the system text size or the text
     // overflows: give them proportionally more height.
     final double textScale =
@@ -245,8 +252,8 @@ class HomeScreen extends ConsumerWidget {
                     padding: const EdgeInsets.fromLTRB(20, 16, 20, 24),
                     children: [
                       // Greeting sits directly on the scenery (locked board).
-                      SizedBox(
-                        height: 178,
+                      ConstrainedBox(
+                        constraints: const BoxConstraints(minHeight: 178),
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 4),
                           child: Column(
@@ -256,6 +263,14 @@ class HomeScreen extends ConsumerWidget {
                               Text(
                                 'As-Salaamu Alaikum,',
                                 style: AppText.bodyMuted.copyWith(fontSize: 12),
+                              ),
+                              Text(
+                                hijriToday,
+                                key: const Key('home-hijri-date'),
+                                style: AppText.bodyMuted.copyWith(
+                                  fontSize: 12,
+                                  color: AppColors.goldLight,
+                                ),
                               ),
                               const SizedBox(height: 2),
                               GoldText(
@@ -277,7 +292,6 @@ class HomeScreen extends ConsumerWidget {
                         ),
                       ),
                       const SizedBox(height: 16),
-                      const DailyHadithBanner(),
               _SemanticTap(
                 label: 'Elder Mode. Opens the large-text home for an elder.',
                 onTap: () async {
@@ -366,7 +380,31 @@ class HomeScreen extends ConsumerWidget {
                             ),
                         ],
                       ),
+                      const SizedBox(height: 12),
+                      Wrap(
+                        spacing: 8,
+                        runSpacing: 4,
+                        crossAxisAlignment: WrapCrossAlignment.center,
+                        children: [
+                          Text('Also:', style: AppText.bodyMuted),
+                          _AlsoLink(
+                            label: 'Mosques & halal food',
+                            onTap: () => context.open('/masajid'),
+                          ),
+                          _AlsoLink(
+                            label: 'Qibla',
+                            onTap: () => context.open(AppRoutes.qibla),
+                          ),
+                          _AlsoLink(
+                            label: '99 Names of Allah',
+                            onTap: () => context.open(AppRoutes.names99),
+                          ),
+                        ],
+                      ),
                       const SizedBox(height: 16),
+                      // Below the tiles on purpose: it loads late, and above them it
+                      // pushed the tiles down under a person's finger.
+                      const DailyHadithBanner(),
                       GlassCard(
                         strong: true,
                         padding: const EdgeInsets.all(16),
@@ -520,6 +558,34 @@ class _LamhaCard extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+/// A small text shortcut on Home (the 'Also' row under the tiles).
+class _AlsoLink extends StatelessWidget {
+  const _AlsoLink({required this.label, required this.onTap});
+
+  final String label;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return _SemanticTap(
+      label: label,
+      minHeight: 48,
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 4),
+        child: Text(
+          label,
+          style: AppText.bodyMuted.copyWith(
+            color: AppColors.gold,
+            decoration: TextDecoration.underline,
+            decorationColor: AppColors.gold.withValues(alpha: 0.5),
+          ),
+        ),
       ),
     );
   }

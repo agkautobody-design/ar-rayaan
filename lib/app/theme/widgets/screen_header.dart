@@ -17,6 +17,23 @@ class ScreenHeader extends StatelessWidget {
 
   final String title;
 
+  /// Back / Close: pop when there is a screen underneath, otherwise go to the
+  /// screen this one belongs to (a lesson's school, a story's library), and
+  /// Home only for a screen that belongs nowhere.
+  static void _leave(BuildContext context) {
+    if (context.canPop()) {
+      context.pop();
+      return;
+    }
+    String target = AppRoutes.home;
+    try {
+      target = parentRouteOf(GoRouterState.of(context).uri.path);
+    } catch (_) {
+      // Not under a route (a bare test harness): Home.
+    }
+    context.go(target);
+  }
+
   /// Shows an ✕ instead of ← (Explore / Menu panels).
   final bool close;
 
@@ -33,8 +50,7 @@ class ScreenHeader extends StatelessWidget {
           _RoundButton(
             icon: close ? Icons.close : Icons.arrow_back,
             tooltip: close ? 'Close' : 'Back',
-            onTap: () =>
-                context.canPop() ? context.pop() : context.go(AppRoutes.home),
+            onTap: () => _leave(context),
           ),
           Expanded(
             child: Semantics(

@@ -131,6 +131,14 @@ class StoriesScreen extends ConsumerWidget {
                 style: AppText.eyebrow,
               ),
             ),
+            // What the gold badge on each card means, in the app's own words.
+            Padding(
+              padding: const EdgeInsets.only(left: 4, bottom: 8),
+              child: Text(
+                '$kLabelEstablished: ${storyLabelMeaning(kLabelEstablished)}',
+                style: AppText.bodyMuted.copyWith(fontSize: 12.5, height: 1.45),
+              ),
+            ),
           ];
           final List<_ShelfRow> rows = _shelfRows(all);
           return ListView.builder(

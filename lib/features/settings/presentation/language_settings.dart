@@ -14,6 +14,12 @@ class LanguageSettingsScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final locale = ref.watch(localeProvider);
     final l10n = ref.watch(l10nProvider);
+    final String untranslated = <String>[
+      for (final MapEntry<Locale, String> e
+          in LocaleController.supported.entries)
+        if (!LocaleController.translatedChrome(e.key))
+          e.value.split(' · ').last,
+    ].join(', ');
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: Center(
@@ -70,6 +76,12 @@ class LanguageSettingsScreen extends ConsumerWidget {
                         ),
                       ),
                     ),
+                  const SizedBox(height: 6),
+                  Text(
+                    'Not translated yet: $untranslated. You can pick them, '
+                    'but the app stays in English.',
+                    style: AppText.bodyMuted.copyWith(height: 1.5),
+                  ),
                   const SizedBox(height: 6),
                   Text('What is translated today: only the Language & Voice '
                       'labels on this screen, and only for English, Arabic, '

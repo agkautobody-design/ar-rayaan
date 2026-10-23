@@ -3,8 +3,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show Clipboard, ClipboardData;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../app/core/providers.dart';
+import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
@@ -13,10 +15,9 @@ import '../../hadi/grounding/passage.dart';
 import '../application/wellbeing_store.dart';
 import 'widgets/need_help_button.dart';
 
-/// Opens one of the three tools as a plain page. They are reached from
-/// Sakina and need no route of their own.
-Future<void> openWellbeingTool(BuildContext context, Widget page) =>
-    Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => page));
+// The three tools (SteadyScreen, MoodCheckInScreen, SafetyPlanScreen) are
+// real routes under /sakina/, so the browser Back button and the in-app
+// arrow both return to Sakina.
 
 class _ToolScaffold extends StatelessWidget {
   const _ToolScaffold({required this.title, required this.children});
@@ -37,7 +38,9 @@ class _ToolScaffold extends StatelessWidget {
                   IconButton(
                     tooltip: 'Back',
                     icon: const Icon(Icons.arrow_back),
-                    onPressed: () => Navigator.of(context).pop(),
+                    onPressed: () => context.canPop()
+                        ? context.pop()
+                        : context.go(AppRoutes.sakina),
                   ),
                   Expanded(
                     child: Text(
