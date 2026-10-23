@@ -505,7 +505,15 @@ class _LudoState extends State<LudoScreen> {
             if (rolled && !gameOver)
               Text('Tap a glowing token to move',
                   textAlign: TextAlign.center,
-                  style: AppText.bodyMuted.copyWith(fontSize: 12)),
+                  style: AppText.bodyMuted.copyWith(fontSize: 12))
+            else if (!gameOver && LudoRules.onlyBaseTokens(tok, turn))
+              Text(
+                'You need a 6 to bring a token out of its base. '
+                'Keep rolling until one comes.',
+                key: const Key('ludo-six-hint'),
+                textAlign: TextAlign.center,
+                style: AppText.bodyMuted.copyWith(fontSize: 12),
+              ),
           ],
         ],
       ),

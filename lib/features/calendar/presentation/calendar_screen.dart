@@ -53,6 +53,7 @@ class _CalendarScreenState extends ConsumerState<CalendarScreen> {
                       onPressed: () => _showBasisSheet(context),
                       icon: const Icon(Icons.tune, size: 16),
                       label: Text(
+                        'Calculation method: '
                         '${config.basis == HijriBasis.ummAlQura ? 'Umm al-Qura' : 'Tabular'}'
                         '${config.adjustDays == 0 ? '' : ' · ${config.adjustDays > 0 ? '+' : ''}${config.adjustDays} d'}'
                         ' · change',

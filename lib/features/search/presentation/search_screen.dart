@@ -61,7 +61,10 @@ class _SearchState extends ConsumerState<SearchScreen> {
   String _raw = '';
 
   final TextEditingController _controller = TextEditingController();
-  final FocusNode _focus = FocusNode();
+  FocusNode _focus = FocusNode();
+
+  /// Bumped by Clear: the box is rebuilt from scratch (see [_clearSearch]).
+  int _fieldGen = 0;
 
   /// The Clear button must never take the keyboard focus from the box: a
   /// button that is focused and then removed (it disappears once the box is
@@ -290,6 +293,8 @@ class _SearchState extends ConsumerState<SearchScreen> {
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: KeyedSubtree(
+                key: ValueKey<int>(_fieldGen),
                 child: TextField(
                 key: const Key('search-field'),
                 controller: _controller,
@@ -310,6 +315,7 @@ class _SearchState extends ConsumerState<SearchScreen> {
                         ),
                 ),
                 onChanged: _onTyped,
+                ),
                 ),
               ),
               const SizedBox(height: 14),
@@ -431,17 +437,31 @@ class _SearchState extends ConsumerState<SearchScreen> {
     );
   }
 
-  /// Empties the box and keeps it ready for typing: the box keeps (or is
-  /// handed back) the focus, now and again once the frame is done.
+  /// Empties the box and keeps it ready for typing.
+  ///
+  /// On the web the tap on Clear takes the browser's focus away from the
+  /// text input before Flutter sees the tap, and the engine then drops its
+  /// editing session while the framework still believes the box has focus:
+  /// the box shows a cursor but typed letters go nowhere (reopening the page
+  /// was the only cure). A box built from scratch, with a fresh focus node,
+  /// is exactly what reopening gives, so Clear does the same: a new field,
+  /// focused once the frame is done, and asked again if it did not take.
   void _clearSearch() {
+    final FocusNode old = _focus;
     _controller.clear();
     setState(() {
       _q = '';
       _raw = '';
+      _fieldGen++;
+      _focus = FocusNode();
     });
-    _focus.requestFocus();
     WidgetsBinding.instance.addPostFrameCallback((_) {
+      old.dispose();
       if (mounted) _focus.requestFocus();
+    });
+    _retryFocus?.cancel();
+    _retryFocus = Timer(const Duration(milliseconds: 350), () {
+      if (mounted && !_focus.hasFocus) _focus.requestFocus();
     });
   }
 

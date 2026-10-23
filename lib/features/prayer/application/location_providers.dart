@@ -44,7 +44,7 @@ class PrayerLocationController extends Notifier<PrayerLocation> {
       final double? lat = prefs.getDouble(_latKey);
       final double? lng = prefs.getDouble(_lngKey);
       if (lat != null && lng != null) {
-        final String city = prefs.getString(_cityKey) ?? 'My Location';
+        final String city = prefs.getString(_cityKey) ?? PrayerLocation.gpsCity;
         final String country = prefs.getString(_countryKey) ?? '';
         return PrayerLocation(
           city: city,
@@ -104,7 +104,7 @@ class PrayerLocationController extends Notifier<PrayerLocation> {
     try {
       final ({double lat, double lng}) pos = await (fetch ?? _deviceGps)();
       final PrayerLocation loc = PrayerLocation(
-        city: 'My Location',
+        city: PrayerLocation.gpsCity,
         country: '',
         latitude: pos.lat,
         longitude: pos.lng,
