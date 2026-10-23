@@ -38,8 +38,8 @@ void main() {
         longitude: -79.3832,
       );
       expect(gps.isGps, isTrue);
-      expect(gps.label, 'Your location (GPS) · 43.65°N 79.38°W');
-      expect(gps.label, isNot(contains('My Location')));
+      expect(gps.label, 'Your location (GPS)');
+      expect(gps.coordinates, '43.65\u00b0N 79.38\u00b0W');
       expect(gps.placeName, 'your location');
     });
 
