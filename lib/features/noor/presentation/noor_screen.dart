@@ -53,6 +53,7 @@ class _NoorScreenState extends ConsumerState<NoorScreen>
 
   Future<void> _openReflectionSheet() async {
     final TextEditingController controller = TextEditingController();
+    final ValueNotifier<String?> emptyHint = ValueNotifier<String?>(null);
     final String? saved = await showModalBottomSheet<String>(
       context: context,
       isScrollControlled: true,
@@ -91,12 +92,17 @@ class _NoorScreenState extends ConsumerState<NoorScreen>
                   ],
                 ),
                 const SizedBox(height: 12),
-                TextField(
+                ValueListenableBuilder<String?>(
+                  valueListenable: emptyHint,
+                  builder: (BuildContext _, String? hint, Widget? _) =>
+                      TextField(
                   controller: controller,
                   autofocus: true,
                   maxLines: 4,
                   style: AppText.body,
+                  onChanged: (_) => emptyHint.value = null,
                   decoration: InputDecoration(
+                    errorText: hint,
                     hintText: 'What did this NOOR stir in your heart?',
                     hintStyle: AppText.bodyMuted.copyWith(
                       color: AppColors.textFaint,
@@ -116,12 +122,19 @@ class _NoorScreenState extends ConsumerState<NoorScreen>
                       ),
                     ),
                   ),
+                  ),
                 ),
                 const SizedBox(height: 12),
                 GoldButton(
                   label: 'Save Reflection',
-                  onPressed: () =>
-                      Navigator.of(sheetContext).pop(controller.text.trim()),
+                  onPressed: () {
+                    final String text = controller.text.trim();
+                    if (text.isEmpty) {
+                      emptyHint.value = 'Write a few words first';
+                      return;
+                    }
+                    Navigator.of(sheetContext).pop(text);
+                  },
                 ),
               ],
             ),

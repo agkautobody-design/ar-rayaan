@@ -5,17 +5,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../app/core/providers.dart';
+import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../application/hifz_providers.dart';
 import '../domain/hifz_planner.dart';
 import 'hifz_surah_picker.dart';
 import '../domain/hifz_progress.dart';
 
 class HifzPlannerScreen extends ConsumerStatefulWidget {
-  const HifzPlannerScreen({super.key});
+  const HifzPlannerScreen({this.initialSurah, super.key});
+
+  /// Opens the planner on this surah (from the Qur'an reader's "Memorise
+  /// this surah"). Null keeps the saved plan. Out-of-range values are ignored.
+  final int? initialSurah;
 
   @override
   ConsumerState<HifzPlannerScreen> createState() => _HifzPlannerScreenState();
@@ -41,6 +47,11 @@ class _HifzPlannerScreenState extends ConsumerState<HifzPlannerScreen> {
     } catch (_) {
       // No device storage (a bare test harness): the default plan.
     }
+    final int? want = widget.initialSurah;
+    if (want != null && want >= 1 && want <= 114) {
+      _hifz = _hifz.withPlan(surah: want);
+      _to = 1;
+    }
   }
 
   void _set(HifzState next) {
@@ -54,6 +65,7 @@ class _HifzPlannerScreenState extends ConsumerState<HifzPlannerScreen> {
     try {
       ref.read(sharedPreferencesProvider).setString(kHifzPref, next.encode());
     } catch (_) {}
+    ref.read(hifzTickProvider.notifier).state++;
   }
 
   @override
@@ -118,6 +130,8 @@ class _HifzPlannerScreenState extends ConsumerState<HifzPlannerScreen> {
               const SizedBox(height: 12),
               _memorisedCard(ayat),
               const SizedBox(height: 12),
+              _linksCard(),
+              const SizedBox(height: 12),
               GlassCard(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -174,6 +188,30 @@ class _HifzPlannerScreenState extends ConsumerState<HifzPlannerScreen> {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  /// Where to read and test yourself, and where your progress shows.
+  Widget _linksCard() {
+    return GlassCard(
+      child: Wrap(
+        spacing: 8,
+        runSpacing: 8,
+        children: <Widget>[
+          OutlinedButton.icon(
+            key: const Key('hifz-open-surah'),
+            onPressed: () => context.open(AppRoutes.surah(_targetSurah)),
+            icon: const Icon(Icons.menu_book_outlined, size: 18),
+            label: Text('Read surah $_targetSurah and test yourself'),
+          ),
+          OutlinedButton.icon(
+            key: const Key('hifz-open-journey'),
+            onPressed: () => context.open(AppRoutes.journey),
+            icon: const Icon(Icons.timeline, size: 18),
+            label: const Text('See my progress'),
+          ),
+        ],
       ),
     );
   }

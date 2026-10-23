@@ -14,6 +14,7 @@ class HomeQuickScreen extends ConsumerWidget {
   const HomeQuickScreen({super.key});
 
   static const _tiles = [
+    ('For Children', 'Letters, games & stories', 'assets/images/tiles/tile_knowledge.jpg', '/kids'),
     ('Wasia Academy', 'Learn with your teacher', 'assets/images/tiles/tile_quran.jpg', '/academy/gate'),
     ('Naat Player', 'Adhan, naats & nasheeds', 'assets/images/tiles/tile_noor.jpg', '/player'),
     ('Games', 'Shatranj, Ludo & five more', 'assets/images/tiles/tile_knowledge.jpg', '/games'),
