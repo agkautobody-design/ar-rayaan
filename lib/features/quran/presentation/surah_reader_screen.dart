@@ -16,6 +16,8 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
+import '../../../app/core/content_loader.dart' show kQuranSizeHint;
+import '../../../app/theme/widgets/content_loading_view.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/needs_internet_view.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
@@ -161,8 +163,15 @@ class _SurahReaderScreenState extends ConsumerState<SurahReaderScreen> {
             ),
             Expanded(
               child: surah.when(
-                loading: () => const Center(
-                  child: CircularProgressIndicator(color: AppColors.gold),
+                skipLoadingOnRefresh: false,
+                loading: () => ContentLoadingView(
+                  what: 'this surah',
+                  sizeHint: kQuranSizeHint,
+                  onRetry: () {
+                    ref.invalidate(quranAllProvider);
+                    ref.invalidate(quranIndexProvider);
+                    ref.invalidate(surahProvider(widget.number));
+                  },
                 ),
                 error: (Object e, _) => NeedsInternetView(
                   what: 'This surah',

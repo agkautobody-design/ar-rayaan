@@ -5,6 +5,8 @@ import 'package:go_router/go_router.dart';
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
+import '../../../app/core/content_loader.dart' show kQuranSizeHint;
+import '../../../app/theme/widgets/content_loading_view.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/needs_internet_view.dart';
 import '../../../app/theme/widgets/screen_header.dart';
@@ -47,8 +49,16 @@ class _QuranScreenState extends ConsumerState<QuranScreen> {
             const ScreenHeader(title: 'Qur\'an'),
             Expanded(
               child: index.when(
-                loading: () => const Center(
-                  child: CircularProgressIndicator(color: AppColors.gold),
+                // A retry must show the loading state again (not freeze on
+                // the old error), so the person sees it is working.
+                skipLoadingOnRefresh: false,
+                loading: () => ContentLoadingView(
+                  what: 'the Qur\u2019an',
+                  sizeHint: kQuranSizeHint,
+                  onRetry: () {
+                    ref.invalidate(quranAllProvider);
+                    ref.invalidate(quranIndexProvider);
+                  },
                 ),
                 error: (Object e, _) => NeedsInternetView(
                   what: 'The Qur\u2019an',

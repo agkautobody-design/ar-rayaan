@@ -7,6 +7,7 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../content_loader.dart';
 import 'pack_shape.dart';
 
 /// Content Sync — Ar-Rayaan's live content layer.
@@ -55,7 +56,8 @@ class ContentSync {
 
   /// Loads the content at `assets/<assetPath>`.
   static Future<String> load(String assetPath) async {
-    final bundled = await rootBundle.loadString('assets/$assetPath');
+    // On the web this keeps a copy after the first fetch (offline reopen).
+    final bundled = await ContentLoader.loadString('assets/$assetPath');
     if (!kReleaseMode) return bundled;
     return loadWith(
       assetPath: assetPath,
