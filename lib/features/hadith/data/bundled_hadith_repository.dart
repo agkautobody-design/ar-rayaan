@@ -1,7 +1,6 @@
 import 'dart:convert';
 
-import 'package:flutter/services.dart' show rootBundle;
-
+import '../../../app/core/content_loader.dart';
 import '../application/hadith_repository.dart';
 import '../domain/hadith_models.dart';
 
@@ -13,7 +12,7 @@ class BundledHadithRepository implements HadithRepository {
   Future<List<Hadith>> collection() async {
     final List<Hadith>? cached = _cache;
     if (cached != null) return cached;
-    final String raw = await rootBundle.loadString(
+    final String raw = await ContentLoader.loadString(
       'assets/hadith/nawawi40.json',
     );
     final List<dynamic> data = jsonDecode(raw) as List<dynamic>;
