@@ -268,16 +268,31 @@ void main() {
   });
 
   group('small phone and big text', () {
-    testWidgets('320px: the Prayer Times tile is on the first screen', (
-      tester,
-    ) async {
+    Future<void> bootSmall(WidgetTester tester) async {
       await AppHarness.boot(tester);
       tester.view.physicalSize = const Size(320, 640);
       await AppHarness.settle(tester);
-      expect(tester.takeException(), isNull, reason: 'no layout error');
-      final Finder tile = find.text('Prayer Times');
-      expect(tile, findsWidgets, reason: 'tile built on the first screen');
-      final Rect r = tester.getRect(tile.first);
+    }
+
+    testWidgets('320px: Home lays out with no overflow', (tester) async {
+      await bootSmall(tester);
+      expect(tester.takeException(), isNull);
+    });
+
+    testWidgets('320px: the Prayer Times tile is built on the first screen', (
+      tester,
+    ) async {
+      await bootSmall(tester);
+      tester.takeException();
+      expect(find.text('Prayer Times'), findsWidgets);
+    });
+
+    testWidgets('320px: the Prayer Times tile is above the fold', (
+      tester,
+    ) async {
+      await bootSmall(tester);
+      tester.takeException();
+      final Rect r = tester.getRect(find.text('Prayer Times').first);
       expect(r.top, lessThan(600), reason: 'tile title at ${r.top}');
     });
 
