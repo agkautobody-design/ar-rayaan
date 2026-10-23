@@ -560,7 +560,8 @@ class HadiController extends Notifier<HadiState> {
   String? _crisisReply(CrisisKind kind) {
     final String? cc = ref.read(deviceCountryProvider);
     if (!_crisisShownRecently()) {
-      return CrisisResponses.textFor(kind, countryCode: cc);
+      return '${CrisisResponses.textFor(kind, countryCode: cc)}\n\n'
+          '${CrisisResponses.regionNote(cc)}';
     }
     switch (kind) {
       case CrisisKind.selfHarm:
