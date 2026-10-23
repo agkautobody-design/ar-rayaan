@@ -162,16 +162,17 @@ void main() {
   });
 
   group('differences between scholars and groups', () {
-    test('a repeated paragraph is replaced, differently each time', () async {
-      final String first = await ask('what are the four schools of law');
+    test('the same question typed twice is not answered with the same '
+        'paragraph again', () async {
+      final String first = await ask('why do scholars disagree');
       final List<HadiMessage> h1 =
-          thread(<(String, String)>[('what are the four schools of law', first)]);
+          thread(<(String, String)>[('why do scholars disagree', first)]);
       final String second = await ask('why do scholars disagree', h1);
       expect(second, contains('same answer I gave a moment ago'));
       expect(second, contains('[GO:/sources/policy]'));
       expect(second, contains('Your school of law'));
       final List<HadiMessage> h2 = thread(<(String, String)>[
-        ('what are the four schools of law', first),
+        ('why do scholars disagree', first),
         ('why do scholars disagree', second),
       ]);
       final String third = await ask('why do scholars disagree', h2);
