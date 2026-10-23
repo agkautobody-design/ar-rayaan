@@ -92,6 +92,20 @@ const List<AppDestination> kAppDestinations = <AppDestination>[
     ],
   ),
   AppDestination(
+    id: 'tasbeeh-counter',
+    title: 'Tasbeeh Counter',
+    subtitle: 'A plain tap counter with your own target',
+    route: '/tasbeeh',
+    keywords: <String>[
+      'tasbih',
+      'tasbeeh',
+      'tasbih counter',
+      'counter',
+      'dhikr counter',
+      '33',
+    ],
+  ),
+  AppDestination(
     id: 'adhkar',
     title: 'Dhikr and Du’a',
     subtitle: 'Hisn al-Muslim: morning, evening, sleep and more',

@@ -57,6 +57,7 @@ import '../features/noor/presentation/noor_screen.dart';
 import '../features/prayer/presentation/prayer_times_screen.dart';
 import '../features/profile/presentation/profile_screen.dart';
 import '../features/adhkar/presentation/adhkar_screen.dart';
+import '../features/tasbeeh/presentation/tasbeeh_screen.dart';
 import '../features/calendar/presentation/calendar_screen.dart';
 import '../features/hadith/presentation/hadith_screen.dart';
 import '../features/qibla/presentation/qibla_screen.dart';
@@ -158,6 +159,7 @@ abstract final class AppRoutes {
   static const String storyReader = '/stories/read';
   static const String newMuslimPath = '/new-muslim';
   static const String adhkar = '/adhkar';
+  static const String tasbeeh = '/tasbeeh';
   static const String qibla = '/qibla';
   static const String calendar = '/calendar';
   static const String zakat = '/zakat';
@@ -525,6 +527,10 @@ GoRouter buildRouter({String initialLocation = '/'}) {
       GoRoute(
         path: AppRoutes.adhkar,
         pageBuilder: (c, s) => _fade(const AdhkarScreen()),
+      ),
+      GoRoute(
+        path: AppRoutes.tasbeeh,
+        pageBuilder: (c, s) => _fade(const TasbeehScreen(), pill: false),
       ),
       GoRoute(
         path: AppRoutes.qibla,
