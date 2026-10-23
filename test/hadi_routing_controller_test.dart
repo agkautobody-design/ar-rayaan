@@ -94,9 +94,10 @@ void main() {
           provider: const OfflineHadiProvider());
       final HadiMessage m = c.read(hadiControllerProvider).messages.last;
       expect(m.text, contains('would rather not guess'));
-      expect(m.text, contains(HadiRouting.refusalLeadIn));
-      expect(m.routes, contains('/search'));
-      expect(m.routes.length, 2);
+      // Nothing about this question matches a screen, so no unrelated
+      // buttons and no "These may help" line above nothing.
+      expect(m.text.contains(HadiRouting.refusalLeadIn), isFalse);
+      expect(m.routes, isEmpty);
     });
 
     test('asking again in other words does not repeat the refusal', () async {

@@ -114,6 +114,17 @@ const Set<String> _stop = <String>{
   'some', 'more', 'get', 'give', 'help', 'wanna', 'u', 'pls', 'plz', //
 };
 
+/// Everyday words that appear in the screens' descriptions but say nothing
+/// about what a screen is for ("time" is not Prayer Times, "friend" is not
+/// Verse Cards). Ignored when picking the closest screens for a refusal.
+const Set<String> _everyday = <String>{
+  'time', 'friend', 'day', 'week', 'year', 'life', 'work', 'job', 'home',
+  'house', 'people', 'place', 'thing', 'way', 'new', 'good', 'best', 'free',
+  'make', 'take', 'look', 'use', 'start', 'stop', 'city', 'plan', 'manage',
+  'management', 'lunch', 'dinner', 'weekend', 'today', 'tomorrow', 'person',
+  'someone', 'anyone',
+};
+
 /// Spellings people type, mapped to the spelling the library uses. Applied to
 /// the question only, and only when the library really uses the target.
 const Map<String, String> kHadiSpellings = <String, String>{
@@ -264,7 +275,9 @@ abstract final class HadiFinder {
   /// when nothing in the question resembles any screen. Never includes
   /// Find Anything (the caller always offers it separately).
   static List<String> closestRoutes(String question, {int limit = 3}) {
-    final Set<String> qw = words(question).toSet();
+    final Set<String> qw = words(question)
+        .where((String w) => !_everyday.contains(w))
+        .toSet();
     if (qw.isEmpty) {
       // "tell me something about islam": all that is left is the word itself.
       return RegExp(r'\bislam\b').hasMatch(_norm(question))

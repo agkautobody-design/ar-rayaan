@@ -22,6 +22,7 @@ import '../application/hadi_controller.dart';
 import '../application/hadi_provider.dart';
 import '../application/hadi_samples.dart';
 import '../data/hadi_report_service.dart';
+import '../data/hadi_routing.dart';
 import '../grounding/corpus.dart';
 import '../grounding/madhhab.dart';
 import '../grounding/passage.dart';
@@ -576,10 +577,46 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
   Widget build(BuildContext context) {
     final HadiState hadi = ref.watch(hadiControllerProvider);
     final bool compact = MediaQuery.sizeOf(context).width < 400;
-    final bool fullIntro = !compact || _introOpen;
+    // Large text leaves little room for the chat itself, so the long
+    // introduction stays folded (one tap opens it) just as on a small phone.
+    final bool largeText =
+        MediaQuery.textScalerOf(context).scale(14) / 14 > 1.2;
+    final bool fullIntro = _introOpen || (!compact && !largeText);
     ref.listen<HadiState>(
       hadiControllerProvider,
       (HadiState? before, HadiState now) => _followConversation(before, now),
+    );
+    // With large text or a very narrow phone the status pill moves to its
+    // own row under the buttons, so it never gets squeezed to nothing.
+    final bool stackedHeader =
+        largeText || MediaQuery.sizeOf(context).width < 300;
+    final Widget statusPill = Container(
+      key: const Key('hadi-status-pill'),
+      constraints: const BoxConstraints(minHeight: 40),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      decoration: BoxDecoration(
+        color: AppColors.glassFill,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: AppColors.gold.withValues(alpha: 0.25)),
+      ),
+      child: Row(
+        children: <Widget>[
+          Icon(
+            Icons.auto_awesome,
+            size: 15,
+            color: AppColors.gold.withValues(alpha: 0.8),
+          ),
+          const SizedBox(width: 8),
+          Expanded(
+            child: Text(
+              hadi.live
+                  ? (compact ? 'Hādi · live AI' : 'Hādi · live AI (guardrailed)')
+                  : 'Hādi · built-in library',
+              style: AppText.bodyMuted.copyWith(color: AppColors.textFaint),
+            ),
+          ),
+        ],
+      ),
     );
 
     return ScenicScaffold.pattern(
@@ -587,110 +624,97 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
         bottom: false,
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(12, 8, 12, 0),
-              child: Row(
-                children: [
-                  _HeaderIcon(
-                    icon: Icons.arrow_back,
-                    label: 'Back to home',
-                    onTap: () => context.go(AppRoutes.home),
+            Container(
+              decoration: BoxDecoration(
+                color: AppColors.night.withValues(alpha: 0.92),
+                border: Border(
+                  bottom: BorderSide(
+                    color: AppColors.gold.withValues(alpha: 0.12),
                   ),
-                  const SizedBox(width: 4),
-                  Expanded(
-                    child: Container(
-                      constraints: const BoxConstraints(minHeight: 40),
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 16,
-                        vertical: 8,
-                      ),
-                      decoration: BoxDecoration(
-                        color: AppColors.glassFill,
-                        borderRadius: BorderRadius.circular(20),
-                        border: Border.all(
-                          color: AppColors.gold.withValues(alpha: 0.25),
+                ),
+              ),
+              // Never taller than 45% of the screen: the intro scrolls inside
+              // the band rather than pushing the chat out of view.
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxHeight: MediaQuery.sizeOf(context).height * 0.45,
+                ),
+                child: SingleChildScrollView(
+                  child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(12, 8, 12, 0),
+                    child: Row(
+                      children: <Widget>[
+                        _HeaderIcon(
+                          icon: Icons.arrow_back,
+                          label: 'Back to home',
+                          onTap: () => context.go(AppRoutes.home),
                         ),
-                      ),
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.auto_awesome,
-                            size: 15,
-                            color: AppColors.gold.withValues(alpha: 0.8),
+                        const SizedBox(width: 4),
+                        if (stackedHeader)
+                          const Spacer()
+                        else
+                          Expanded(child: statusPill),
+                        const SizedBox(width: 4),
+                        _HeaderIcon(
+                          icon: Icons.favorite_outline,
+                          label: 'Need help now',
+                          onTap: () => showNeedHelpSheet(context),
+                        ),
+                        PopupMenuButton<_HadiMenu>(
+                          tooltip: 'More options',
+                          icon: Icon(
+                            Icons.more_vert,
+                            color: AppColors.sand.withValues(alpha: 0.85),
                           ),
-                          const SizedBox(width: 8),
-                          Expanded(
-                            child: Text(
-                              hadi.live
-                                  ? (compact
-                                      ? 'Hādi · live AI'
-                                      : 'Hādi · live AI (guardrailed)')
-                                  : (compact
-                                      ? 'Hādi · offline'
-                                      : 'Hādi · authentic offline knowledge'),
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
-                              style: AppText.bodyMuted.copyWith(
-                                color: AppColors.textFaint,
+                          color: AppColors.night,
+                          onSelected: (_HadiMenu m) {
+                            switch (m) {
+                              case _HadiMenu.newConversation:
+                                _confirmNewConversation();
+                              case _HadiMenu.school:
+                                _openMadhhabSheet();
+                              case _HadiMenu.advanced:
+                                _openKeySheet();
+                            }
+                          },
+                          itemBuilder: (BuildContext _) =>
+                              <PopupMenuEntry<_HadiMenu>>[
+                            PopupMenuItem<_HadiMenu>(
+                              value: _HadiMenu.newConversation,
+                              child: Text('New conversation', style: AppText.body),
+                            ),
+                            PopupMenuItem<_HadiMenu>(
+                              value: _HadiMenu.school,
+                              child: Text('Your school of law', style: AppText.body),
+                            ),
+                            PopupMenuItem<_HadiMenu>(
+                              value: _HadiMenu.advanced,
+                              child: Text(
+                                'Your own AI account (optional, advanced)',
+                                style: AppText.body,
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: 4),
-                  _HeaderIcon(
-                    icon: Icons.favorite_outline,
-                    label: 'Need help now',
-                    onTap: () => showNeedHelpSheet(context),
-                  ),
-                  PopupMenuButton<_HadiMenu>(
-                    tooltip: 'More options',
-                    icon: Icon(
-                      Icons.more_vert,
-                      color: AppColors.sand.withValues(alpha: 0.85),
-                    ),
-                    color: AppColors.night,
-                    onSelected: (_HadiMenu m) {
-                      switch (m) {
-                        case _HadiMenu.newConversation:
-                          _confirmNewConversation();
-                        case _HadiMenu.school:
-                          _openMadhhabSheet();
-                        case _HadiMenu.advanced:
-                          _openKeySheet();
-                      }
-                    },
-                    itemBuilder: (BuildContext _) =>
-                        <PopupMenuEntry<_HadiMenu>>[
-                      PopupMenuItem<_HadiMenu>(
-                        value: _HadiMenu.newConversation,
-                        child: Text('New conversation', style: AppText.body),
-                      ),
-                      PopupMenuItem<_HadiMenu>(
-                        value: _HadiMenu.school,
-                        child: Text('Your school of law', style: AppText.body),
-                      ),
-                      PopupMenuItem<_HadiMenu>(
-                        value: _HadiMenu.advanced,
-                        child: Text(
-                          'Your own AI account (optional, advanced)',
-                          style: AppText.body,
+                          ],
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ],
-              ),
-            ),
-            SizedBox(height: compact ? 2 : 10),
+                  if (stackedHeader)
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(12, 0, 12, 0),
+                      child: SizedBox(width: double.infinity, child: statusPill),
+                    ),
+                  SizedBox(height: compact ? 2 : 10),
             if (fullIntro)
               Text(
                 hadi.live
                     ? 'Live answers · Qur\'an & Sihah Sitta guardrails'
-                    : 'Free, works offline · your own AI account is '
-                        'optional (More options menu, top right)',
+                    : 'Free. Answers come from the built-in library. An online '
+                        'AI account is optional (More options menu, top '
+                        'right).',
                 style: AppText.bodyMuted.copyWith(
                   fontSize: 12,
                   color: AppColors.textFaint,
@@ -761,6 +785,11 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                   ],
                 ),
               ),
+                ],
+              ),
+                ),
+              ),
+            ),
             Expanded(
               child: ListView(
                 controller: _scroll,
@@ -776,6 +805,7 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                       // with go, as always), so Back returns to the
                       // conversation instead of jumping Home.
                       onOpen: (String route) => context.open(route),
+                      onOnlineMode: hadi.live ? null : _openKeySheet,
                       onRetry: hadi.messages[i].retryQuestion != null &&
                               i == hadi.messages.length - 1 &&
                               !hadi.typing
@@ -825,21 +855,12 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                             onTap: () => _send(e.question),
                           ),
                         if (!_allStarters)
-                          ActionChip(
+                          HadiActionButton(
+                            label: 'More questions\u2026',
+                            icon: Icons.add,
+                            iconSize: 14,
                             onPressed: () =>
                                 setState(() => _allStarters = true),
-                            label: const Text('More questions\u2026'),
-                            labelStyle: AppText.bodyMuted.copyWith(
-                              fontSize: 13,
-                              color: AppColors.goldLight,
-                            ),
-                            backgroundColor: Colors.transparent,
-                            side: BorderSide(
-                              color: AppColors.gold.withValues(alpha: 0.3),
-                            ),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(999),
-                            ),
                           ),
                       ],
                     )
@@ -1183,23 +1204,11 @@ class _StarterChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ActionChip(
+    return HadiActionButton(
+      label: label,
+      icon: Icons.chat_bubble_outline,
+      iconSize: 14,
       onPressed: onTap,
-      avatar: const Icon(
-        Icons.chat_bubble_outline,
-        size: 14,
-        color: AppColors.gold,
-      ),
-      label: Text(label),
-      labelStyle: AppText.bodyMuted.copyWith(
-        fontSize: 13,
-        color: AppColors.sand.withValues(alpha: 0.85),
-      ),
-      backgroundColor: AppColors.gold.withValues(alpha: 0.05),
-      side: BorderSide(color: AppColors.gold.withValues(alpha: 0.3)),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(999),
-      ),
     );
   }
 }
@@ -1227,6 +1236,7 @@ class _Bubble extends ConsumerWidget {
     this.onReport,
     this.onOpen,
     this.onRetry,
+    this.onOnlineMode,
     this.isLatest = false,
   });
 
@@ -1242,6 +1252,10 @@ class _Bubble extends ConsumerWidget {
 
   /// Set on a reply that fell back to the shelf because live failed.
   final VoidCallback? onRetry;
+
+  /// Opens Hādi's settings for the optional online mode; null when the
+  /// person already has it on.
+  final VoidCallback? onOnlineMode;
 
   /// Puts the reply on the clipboard (without markup, with the passages it
   /// cites) and says so.
@@ -1306,6 +1320,30 @@ class _Bubble extends ConsumerWidget {
                           HadiNotesPanel(notes: message.notes),
                         if (message.crisis != null)
                           _CrisisHelpPanel(kind: message.crisis!),
+                        if (onOnlineMode != null &&
+                            !message.live &&
+                            HadiRouting.isRefusal(message.text))
+                          Padding(
+                            padding: const EdgeInsets.only(top: 4),
+                            child: TextButton(
+                              key: const Key('hadi-online-mode'),
+                              onPressed: onOnlineMode,
+                              style: TextButton.styleFrom(
+                                minimumSize: const Size(48, 48),
+                                padding: EdgeInsets.zero,
+                                alignment: AlignmentDirectional.centerStart,
+                              ),
+                              child: Text(
+                                'Optional: add your own online AI account in '
+                                'Hādi settings',
+                                style: AppText.caption.copyWith(
+                                  color: AppColors.textFaint,
+                                  fontSize: 12,
+                                  decoration: TextDecoration.underline,
+                                ),
+                              ),
+                            ),
+                          ),
                         if (message.routes.isNotEmpty && onOpen != null)
                           Padding(
                             padding: const EdgeInsets.only(top: 8),
@@ -1314,26 +1352,10 @@ class _Bubble extends ConsumerWidget {
                               runSpacing: 8,
                               children: <Widget>[
                                 for (final String route in message.routes)
-                                  ActionChip(
-                                    avatar: const Icon(
-                                      Icons.arrow_forward,
-                                      size: 16,
-                                      color: AppColors.gold,
-                                    ),
-                                    label: Text(HadiTokens.labelFor(route)),
-                                    labelStyle: AppText.body.copyWith(
-                                      fontSize: 14,
-                                      color: AppColors.goldLight,
-                                    ),
-                                    backgroundColor:
-                                        AppColors.gold.withValues(alpha: 0.08),
-                                    side: BorderSide(
-                                      color: AppColors.gold
-                                          .withValues(alpha: 0.4),
-                                    ),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(999),
-                                    ),
+                                  HadiActionButton(
+                                    strong: true,
+                                    label: HadiTokens.labelFor(route),
+                                    icon: Icons.arrow_forward,
                                     onPressed: () => onOpen!(route),
                                   ),
                               ],

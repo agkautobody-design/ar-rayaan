@@ -19,18 +19,19 @@ class OfflineHadiProvider implements HadiProvider {
 
   final bool hasKey;
 
+  /// The one reply for everything Hādi cannot answer, whether it is outside
+  /// Islam and this app or simply not on the shelf. Plain words, no mention
+  /// of keys or settings (the optional online mode is a small separate line
+  /// under the reply, see the chat screen).
   static const String decline =
       'I don\'t have a checked answer for that, and I would rather not '
-      'guess. A qualified local scholar, '
-      'or Shaykh Muhammad Saqib Iqbal\'s channel (linked in Our Sources), '
-      'can help. A free API key in Hādi settings lets me reason further.';
+      'guess. I only cover Islam and this app: worship, the Qur’an, the '
+      'Sunnah, du’as and where things live in Ar-Rayaan. For a question '
+      'about your own situation, a qualified local scholar, or Shaykh '
+      'Muhammad Saqib Iqbal\'s channel (linked in Our Sources), can help.';
 
-  /// [decline] for someone who already has a live key.
-  static const String declineKeyed =
-      'I don\'t have a checked answer for that, and I would rather not '
-      'guess. A qualified local scholar, '
-      'or Shaykh Muhammad Saqib Iqbal\'s channel (linked in Our Sources), '
-      'can help.';
+  /// Kept for older callers: the same reply as [decline].
+  static const String declineKeyed = decline;
 
   static String declineFor(bool hasKey) => hasKey ? declineKeyed : decline;
 
@@ -117,12 +118,9 @@ class OfflineHadiProvider implements HadiProvider {
         'Our Sources lists one.';
   }
 
-  /// For a question that has nothing to do with Islam or this app.
-  static const String offTopicReply =
-      'That one is outside what I can help with: I only cover Islam and '
-      'this app, meaning worship, the Qur’an, the Sunnah, du’as and where '
-      'things live in Ar-Rayaan. Ask me about any of those, or tell me what '
-      'is on your heart.';
+  /// For a question that has nothing to do with Islam or this app: the same
+  /// single reply as every other unanswered question.
+  static const String offTopicReply = decline;
 
   /// For a rude or angry message aimed at Hādi. Calm, brief, no lecture.
   static const List<String> rudeReplies = <String>[
@@ -136,12 +134,7 @@ class OfflineHadiProvider implements HadiProvider {
 
   /// For a question written in Arabic, Urdu or another script the shelf
   /// cannot read yet. Honest, and says what does work.
-  static const String scriptReply =
-      'I can see you wrote in a script I cannot match on this device yet. '
-      'My built-in shelf understands English words only, and I would rather '
-      'say so than guess. Try the key word in English, for example “wudu”, '
-      '“fasting” or “zakat”. A free API key in Hādi settings lets me answer '
-      'in more languages.';
+  static const String scriptReply = scriptReplyKeyed;
 
   /// [scriptReply] for someone who already has a live key.
   static const String scriptReplyKeyed =
@@ -151,12 +144,7 @@ class OfflineHadiProvider implements HadiProvider {
       '“fasting” or “zakat”.';
 
   /// [scriptReply] in Arabic, for a question written in Arabic.
-  static const String scriptReplyArabic =
-      'أرى أنك كتبت بالعربية. قاعدة معلوماتي المدمجة على هذا الجهاز تفهم '
-      'الكلمات الإنجليزية فقط حاليًا، وأفضّل أن أقول ذلك صراحةً بدلًا من '
-      'أن أخمّن. جرّب كتابة الكلمة الأساسية بالإنجليزية، مثل wudu أو '
-      'fasting أو zakat. ومفتاح مجاني في إعدادات هادي يتيح لي أن أجيب '
-      'بلغات أكثر.';
+  static const String scriptReplyArabic = scriptReplyArabicKeyed;
 
   /// [scriptReplyArabic] for someone who already has a live key.
   static const String scriptReplyArabicKeyed =
@@ -166,12 +154,7 @@ class OfflineHadiProvider implements HadiProvider {
       'fasting أو zakat.';
 
   /// [scriptReply] in Urdu, for a question written in Urdu.
-  static const String scriptReplyUrdu =
-      'آپ نے اردو میں لکھا ہے۔ اس ڈیوائس پر موجود میری معلومات فی الحال صرف '
-      'انگریزی الفاظ سمجھتی ہیں، اور اندازہ لگانے کے بجائے یہ صاف بتانا '
-      'بہتر ہے۔ براہِ کرم اصل لفظ انگریزی میں لکھ کر دیکھیں، مثلاً wudu، '
-      'fasting یا zakat۔ ہادی کی سیٹنگز میں ایک مفت API کلید شامل کرنے سے '
-      'میں آپ کی زبان میں جواب دے سکوں گا۔';
+  static const String scriptReplyUrdu = scriptReplyUrduKeyed;
 
   /// [scriptReplyUrdu] for someone who already has a live key.
   static const String scriptReplyUrduKeyed =
@@ -1587,20 +1570,20 @@ class OfflineHadiProvider implements HadiProvider {
     }
     final bool ruling = answer.contains(rulingDecline);
     final List<String> out = <String>[if (ruling) '/sources'];
-    // The three screens closest to what was asked, then Find Anything.
+    // Only screens that really match what was asked: the closest ones, then
+    // the topic's own screen. Nothing is added just to fill the row, so a
+    // question about lunch or a laptop gets no unrelated button.
     for (final String r in HadiFinder.closestRoutes(question)) {
       if (out.length >= 3) break;
       if (!out.contains(r)) out.add(r);
     }
-    if (out.length < 2) {
-      for (final String r in <String>[
-        HadiRouting.topicRoute(question),
-        '/academy/qa',
-      ]) {
-        if (out.length < 2 && !out.contains(r)) out.add(r);
-      }
+    if (out.length < 2 && HadiRouting.hasTopic(question)) {
+      final String topic = HadiRouting.topicRoute(question);
+      if (!out.contains(topic)) out.add(topic);
     }
-    if (!out.contains('/search')) out.add('/search');
+    // Find Anything goes with real topic buttons, never alone under a
+    // question that has nothing to do with the app.
+    if (out.isNotEmpty && !out.contains('/search')) out.add('/search');
     return out;
   }
 }

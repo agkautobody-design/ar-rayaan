@@ -87,15 +87,10 @@ const List<AnswerCase> kAnswerCases = <AnswerCase>[
 void main() {
   final Set<String> stock = <String>{
     OfflineHadiProvider.decline,
-    OfflineHadiProvider.declineKeyed,
     OfflineHadiProvider.rulingDecline,
-    OfflineHadiProvider.offTopicReply,
     OfflineHadiProvider.scriptReply,
-    OfflineHadiProvider.scriptReplyKeyed,
     OfflineHadiProvider.scriptReplyArabic,
-    OfflineHadiProvider.scriptReplyArabicKeyed,
     OfflineHadiProvider.scriptReplyUrdu,
-    OfflineHadiProvider.scriptReplyUrduKeyed,
     ...OfflineHadiProvider.rudeReplies,
     ...OfflineHadiProvider.distressReplies,
   };
@@ -240,7 +235,7 @@ void main() {
           'Tell me about quantum entanglement', const <HadiMessage>[]);
       expect(a, OfflineHadiProvider.declineKeyed);
       expect(a.contains('API key'), isFalse);
-      expect(OfflineHadiProvider.decline, contains('API key'));
+      expect(OfflineHadiProvider.decline.contains('API key'), isFalse);
     });
   });
 
