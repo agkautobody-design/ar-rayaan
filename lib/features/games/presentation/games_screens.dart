@@ -427,9 +427,77 @@ class Names99Screen extends ConsumerStatefulWidget {
   ConsumerState<Names99Screen> createState() => _Names99ScreenState();
 }
 
+/// How a name's source reads on screen: "Qur’an 2:163" for a verse
+/// reference, the text as it is for anything else (the first name's ref is
+/// just "Allah").
+String names99RefLabel(String ref) =>
+    RegExp(r'^\d+:\d+').hasMatch(ref) ? 'Qur\u2019an $ref' : ref;
+
 class _Names99ScreenState extends ConsumerState<Names99Screen> {
   int _i = 0;
   bool _flip = false;
+  bool _list = false;
+
+  Widget _modeToggle() => Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          for (final (bool, String) m in const <(bool, String)>[
+            (false, 'One at a time'),
+            (true, 'All 99'),
+          ])
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 4),
+              child: ChoiceChip(
+                key: Key(m.$1 ? 'names-mode-list' : 'names-mode-cards'),
+                label: Text(m.$2),
+                selected: _list == m.$1,
+                onSelected: (_) => setState(() => _list = m.$1),
+              ),
+            ),
+        ],
+      );
+
+  Widget _listView(List<Name99> deck) => Column(
+        children: [
+          for (int k = 0; k < deck.length; k++)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: GlassCard(
+                key: Key('names-row-${deck[k].n}'),
+                blur: false,
+                onTap: () => setState(() {
+                  _i = k;
+                  _flip = false;
+                  _list = false;
+                }),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      width: 34,
+                      child: Text('${deck[k].n}', style: AppText.eyebrow),
+                    ),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(deck[k].name, style: AppText.titleMedium),
+                          const SizedBox(height: 2),
+                          Text(deck[k].meaning, style: AppText.bodyMuted),
+                          const SizedBox(height: 2),
+                          Text(
+                            names99RefLabel(deck[k].ref),
+                            style: AppText.bodyMuted.copyWith(fontSize: 12),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+        ],
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -453,7 +521,9 @@ class _Names99ScreenState extends ConsumerState<Names99Screen> {
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
             children: [
               const ScreenHeader(title: 'The 99 Names', close: true),
-              const SizedBox(height: 6),
+              _modeToggle(),
+              const SizedBox(height: 10),
+              if (_list) _listView(deck) else ...[
               Center(child: Text('${_i + 1} OF ${deck.length}', style: AppText.eyebrow)),
               const SizedBox(height: 14),
               GestureDetector(
@@ -476,7 +546,7 @@ class _Names99ScreenState extends ConsumerState<Names99Screen> {
                                   textAlign: TextAlign.center,
                                   style: AppText.body.copyWith(fontSize: 17, height: 1.5)),
                               const SizedBox(height: 8),
-                              Text(d.ref,
+                              Text(names99RefLabel(d.ref),
                                   style: AppText.bodyMuted.copyWith(fontSize: 12)),
                             ],
                           )
@@ -519,6 +589,7 @@ class _Names99ScreenState extends ConsumerState<Names99Screen> {
                   ),
                 ],
               ),
+              ],
             ],
           );
         },
