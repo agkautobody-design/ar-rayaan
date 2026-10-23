@@ -12,6 +12,7 @@
 library;
 
 import '../../quran/domain/quran_models.dart';
+import 'search_text.dart' show normalizeSearchQuery;
 
 /// One search result.
 class QuranHit {
@@ -101,13 +102,24 @@ String foldEnglish(String input) {
   return (surah: int.parse(m.group(1)!), ayah: int.parse(m.group(2)!));
 }
 
+// The Qur'an text never changes while the app runs, so each ayah is folded
+// once and remembered. Without this every keystroke re-folded all 6,236 ayahs
+// (three regex passes each), which is what froze the page on long input.
+final Expando<String> _foldedEnglish = Expando<String>('foldedEnglish');
+final Expando<String> _foldedArabic = Expando<String>('foldedArabic');
+final Expando<String> _skeletonArabic = Expando<String>('skeletonArabic');
+
+String _enOf(Ayah a) => _foldedEnglish[a] ??= foldEnglish(a.english);
+String _arOf(Ayah a) => _foldedArabic[a] ??= foldArabic(a.arabic);
+String _skOf(Ayah a) => _skeletonArabic[a] ??= arabicSkeleton(a.arabic);
+
 /// Searches [surahs] (all 114, in order). Returns at most [limit] hits.
 List<QuranHit> searchQuran(
   List<Surah> surahs,
   String query, {
   int limit = 30,
 }) {
-  final String q = query.trim();
+  final String q = normalizeSearchQuery(query);
   if (q.isEmpty || surahs.isEmpty) return const <QuranHit>[];
 
   final ({int surah, int ayah})? key = parseVerseKey(q);
@@ -135,11 +147,11 @@ List<QuranHit> searchQuran(
     if (skeleton.length < 2) return const <QuranHit>[];
     for (final Surah s in surahs) {
       for (final Ayah a in s.ayahs) {
-        final String fa = foldArabic(a.arabic);
+        final String fa = _arOf(a);
         int score = 0;
         if (folded.isNotEmpty && fa.contains(folded)) {
           score = 2;
-        } else if (arabicSkeleton(a.arabic).contains(skeleton)) {
+        } else if (_skOf(a).contains(skeleton)) {
           score = 1;
         }
         if (score > 0) {
@@ -162,7 +174,7 @@ List<QuranHit> searchQuran(
     final List<String> words = phrase.split(' ');
     for (final Surah s in surahs) {
       for (final Ayah a in s.ayahs) {
-        final String en = foldEnglish(a.english);
+        final String en = _enOf(a);
         int score = 0;
         if (en.contains(phrase)) {
           score = 2;

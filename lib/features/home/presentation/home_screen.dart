@@ -656,12 +656,12 @@ class _Header extends StatelessWidget {
     final Widget search = _HeaderIcon(
       icon: Icons.search,
       tooltip: 'Search',
-      onTap: () => context.push(AppRoutes.search),
+      onTap: () => context.open(AppRoutes.search),
     );
     final Widget menu = _HeaderIcon(
       icon: Icons.menu,
       tooltip: 'Menu',
-      onTap: () => context.push(AppRoutes.menu),
+      onTap: () => context.open(AppRoutes.menu),
     );
     // Home is the root of the Home tab: there is nothing to go back to
     // unless something was pushed over it.

@@ -104,40 +104,11 @@ class _QuranScreenState extends ConsumerState<QuranScreen> {
                 data: (List<SurahMeta> surahs) {
                   final List<SurahMeta> shown = filterSurahs(surahs, _query);
                   final bool searching = _query.trim().isNotEmpty;
-                  return ListView(
-                    padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
-                    children: [
-                      TextField(
-                        style: AppText.body,
-                        textInputAction: TextInputAction.search,
-                        decoration: InputDecoration(
-                          hintText: 'Find a surah: name, meaning or number',
-                          prefixIcon: const Icon(
-                            Icons.search,
-                            color: AppColors.gold,
-                          ),
-                          suffixIcon: searching
-                              ? IconButton(
-                                  tooltip: 'Clear search',
-                                  icon: const Icon(
-                                    Icons.close,
-                                    color: AppColors.gold,
-                                  ),
-                                  onPressed: () {
-                                    _controller.clear();
-                                    setState(() => _query = '');
-                                  },
-                                )
-                              : null,
-                        ),
-                        controller: _controller,
-                        onChanged: (String v) => setState(() => _query = v),
-                      ),
-                      if (_textPending && WebOffline.isWeb && !searching) ...[
-                        const SizedBox(height: 12),
-                        const QuranTextLoadingNote(),
-                      ],
-                      const SizedBox(height: 12),
+                  // The shortcut cards above the list. At large text they take a
+                  // whole screen, so there they go below the surahs instead.
+                  final bool largeText =
+                      MediaQuery.textScalerOf(context).scale(14) > 20;
+                  final List<Widget> extras = <Widget>[
                       // Web only, and only until the Qur'an is saved here.
                       if (!searching) ...[
                         const QuranOfflineCard(compact: true),
@@ -241,6 +212,42 @@ class _QuranScreenState extends ConsumerState<QuranScreen> {
                         ),
                       ),
                       const SizedBox(height: 16),
+                  ];
+                  return ListView(
+                    padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
+                    children: [
+                      TextField(
+                        style: AppText.body,
+                        textInputAction: TextInputAction.search,
+                        decoration: InputDecoration(
+                          hintText: 'Find a surah: name, meaning or number',
+                          prefixIcon: const Icon(
+                            Icons.search,
+                            color: AppColors.gold,
+                          ),
+                          suffixIcon: searching
+                              ? IconButton(
+                                  tooltip: 'Clear search',
+                                  icon: const Icon(
+                                    Icons.close,
+                                    color: AppColors.gold,
+                                  ),
+                                  onPressed: () {
+                                    _controller.clear();
+                                    setState(() => _query = '');
+                                  },
+                                )
+                              : null,
+                        ),
+                        controller: _controller,
+                        onChanged: (String v) => setState(() => _query = v),
+                      ),
+                      if (_textPending && WebOffline.isWeb && !searching) ...[
+                        const SizedBox(height: 12),
+                        const QuranTextLoadingNote(),
+                      ],
+                      const SizedBox(height: 12),
+                      if (!largeText) ...extras,
                       if (shown.isEmpty)
                         GlassCard(
                           child: Text(
@@ -269,6 +276,10 @@ class _QuranScreenState extends ConsumerState<QuranScreen> {
                                 _SurahRow(meta: shown[i]),
                           ),
                         ),
+                      if (largeText) ...<Widget>[
+                        const SizedBox(height: 16),
+                        ...extras,
+                      ],
                       const SizedBox(height: 24),
                       const _TextCredit(),
                     ],

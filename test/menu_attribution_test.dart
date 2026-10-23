@@ -64,9 +64,9 @@ void main() {
     // Marriage now opens the Family Life school; no dead rows pretend.
     expect(find.text('Marriage'), findsOneWidget);
     expect(find.text('Settings'), findsOneWidget);
-    expect(find.text('Help & Support'), findsOneWidget);
-    // Help & Support is the only unbuilt row in the Menu, and says so.
-    expect(find.text('Coming soon'), findsOneWidget);
+    // Nothing unbuilt is listed: no Help & Support, no "Coming soon" row.
+    expect(find.text('Help & Support'), findsNothing);
+    expect(find.text('Coming soon'), findsNothing);
     expect(find.text('My Profile'), findsOneWidget);
     expect(find.text('Your Journey, Your Progress'), findsOneWidget);
     expect(find.text('Log Out'), findsOneWidget);
@@ -117,8 +117,10 @@ void main() {
     await tester.tap(find.text('Faith'));
     await AppHarness.settle(tester);
     expect(find.text('The Academy'), findsOneWidget);
-    // Light Theme and Help & Support are honest "Coming soon" rows.
-    expect(find.text('Coming soon'), findsNWidgets(2));
+    // Light Theme and Help & Support are not built, so they are not listed.
+    expect(find.text('Coming soon'), findsNothing);
+    expect(find.text('Light Theme'), findsNothing);
+    expect(find.text('Help & Support'), findsNothing);
     // The old fake rows are gone.
     expect(find.text('Saved Searches'), findsNothing);
     expect(find.text('Night Mode'), findsNothing);

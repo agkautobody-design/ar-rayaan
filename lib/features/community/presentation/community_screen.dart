@@ -29,14 +29,6 @@ class CommunityScreen extends StatelessWidget {
     ),
   ];
 
-  /// Not built yet: listed after the working ones, and said plainly.
-  static const List<(IconData, String, String)> _items = [
-    (Icons.calendar_month_outlined, 'Events', 'Coming soon'),
-    (Icons.people_outline, 'Groups', 'Coming soon'),
-    (Icons.volunteer_activism_outlined, 'Volunteer', 'Coming soon'),
-    (Icons.campaign_outlined, 'Announcements', 'Coming soon'),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,58 +82,6 @@ class CommunityScreen extends StatelessWidget {
                           padding: const EdgeInsets.only(bottom: 10),
                           child: GlassCard(
                             onTap: () => context.open(route),
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 16,
-                              vertical: 14,
-                            ),
-                            child: Row(
-                              children: [
-                                IconTile(icon: icon),
-                                const SizedBox(width: 12),
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        label,
-                                        style: AppText.body.copyWith(
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                      ),
-                                      Text(
-                                        sub,
-                                        style: AppText.bodyMuted.copyWith(
-                                          fontSize: 12,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Icon(
-                                  Icons.chevron_right,
-                                  size: 16,
-                                  color: AppColors.gold.withValues(alpha: 0.5),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      const SizedBox(height: 6),
-                      Text('COMING LATER', style: AppText.eyebrow),
-                      const SizedBox(height: 8),
-                      for (final (icon, label, sub) in _items)
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 10),
-                          child: GlassCard(
-                            // Not built yet: say so instead of a dead tap.
-                            onTap: () => ScaffoldMessenger.of(context)
-                                .showSnackBar(const SnackBar(
-                              content: Text(
-                                'Community opens once reporting, blocking '
-                                'and moderation are in place, in shaa Allah.',
-                              ),
-                            )),
                             padding: const EdgeInsets.symmetric(
                               horizontal: 16,
                               vertical: 14,

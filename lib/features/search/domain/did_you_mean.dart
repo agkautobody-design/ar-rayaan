@@ -20,7 +20,7 @@ String? didYouMean(
   String query, {
   List<AppDestination> destinations = kAppDestinations,
 }) {
-  final List<String> words = query
+  final List<String> words = normalizeSearchQuery(query)
       .toLowerCase()
       .replaceAll("'", '')
       .replaceAll('’', '')

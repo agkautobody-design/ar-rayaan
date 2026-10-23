@@ -18,10 +18,80 @@ import 'quran_search.dart' show containsArabicLetters, foldArabic;
 
 /// Words that carry no search meaning on their own.
 const Set<String> kSearchStopwords = <String>{
-  'a', 'an', 'the', 'is', 'are', 'was', 'be', 'by', 'of', 'to', 'in', 'on',
-  'for', 'and', 'or', 'how', 'do', 'does', 'i', 'my', 'me', 'what', 'can',
-  'about', 'with', 'at', 'it', 'this', 'that', 'near', 'find', 'show',
+  'a', 'an', 'the', 'is', 'are', 'was', 'were', 'be', 'by', 'of', 'to', 'in',
+  'on', 'for', 'and', 'or', 'how', 'do', 'does', 'did', 'i', 'my', 'me', 'we',
+  'you', 'your', 'our', 'what', 'can', 'could', 'should', 'would', 'will',
+  'about', 'with', 'at', 'it', 'this', 'that', 'near', 'find', 'show', 'tell',
+  'give', 'from', 'there', 'any', 'some', 'if', 'as', 'so', 'am', 'has', 'have',
+  'where', 'which', 'who', 'why', 'please', 'want', 'need', 'know',
 };
+
+/// The longest query the global search looks at. A longer paste is cut here
+/// (at a word edge where it can be): nothing useful is lost, and the work per
+/// search stays small and bounded.
+const int kMaxSearchQueryChars = 80;
+
+/// The most words of a query that are matched.
+const int kMaxSearchQueryWords = 8;
+
+/// [input] trimmed, whitespace collapsed, and cut to [kMaxSearchQueryChars]
+/// (never mid-word when a space is near the end) and [kMaxSearchQueryWords]
+/// words. Cheap and linear: safe on any input, however long.
+String normalizeSearchQuery(String input) {
+  // Look at no more than a bounded prefix, so even a huge paste costs little.
+  final String head = input.length > kMaxSearchQueryChars * 4
+      ? input.substring(0, kMaxSearchQueryChars * 4)
+      : input;
+  final List<String> words =
+      head.trim().split(RegExp(r'\s+')).where((String w) => w.isNotEmpty).toList();
+  final StringBuffer b = StringBuffer();
+  int count = 0;
+  for (final String w in words) {
+    if (count >= kMaxSearchQueryWords) break;
+    final int add = (count == 0 ? 0 : 1) + w.length;
+    if (b.length + add > kMaxSearchQueryChars) {
+      if (count == 0) {
+        b.write(w.substring(0, kMaxSearchQueryChars));
+        count++;
+      }
+      break;
+    }
+    if (count > 0) b.write(' ');
+    b.write(w);
+    count++;
+  }
+  return b.toString();
+}
+
+/// Natural phrases people type, and the words the app's shelves use for the
+/// same thing. The key is matched after stemming and stop-word removal, so
+/// "difference of opinion" and "differences of opinions" are one key.
+const Map<String, List<String>> kPhraseAliases = <String, List<String>>{
+  'difference of opinion': <String>['madhhab', 'school of law'],
+  'different opinion': <String>['madhhab', 'school of law'],
+  'scholars disagree': <String>['madhhab', 'school of law'],
+  'disagreement': <String>['madhhab', 'school of law'],
+  'why muslims fast': <String>['fasting', 'ramadan'],
+  'why fast': <String>['fasting', 'ramadan'],
+  'before sleeping': <String>['before sleep'],
+  'going to sleep': <String>['before sleep'],
+  'bed time': <String>['before sleep'],
+  'being patient': <String>['patience'],
+  'feeling sad': <String>['grief', 'hardship'],
+  'feeling anxious': <String>['anxiety', 'worry'],
+};
+
+Map<String, List<String>>? _aliasIndex;
+
+/// Alternative wordings for [query] from [kPhraseAliases] (empty if none).
+List<String> queryAliases(String query) {
+  _aliasIndex ??= <String, List<String>>{
+    for (final MapEntry<String, List<String>> e in kPhraseAliases.entries)
+      searchTokens(e.key, dropStopwords: true).join(' '): e.value,
+  };
+  final String key = searchTokens(query, dropStopwords: true).join(' ');
+  return _aliasIndex![key] ?? const <String>[];
+}
 
 /// Stem -> canonical stem. Keys are the OUTPUT of [_basicStem].
 const Map<String, String> _synonyms = <String, String>{
@@ -255,8 +325,16 @@ bool queryTokensCovered(
 /// meaningful query word occurs in it (plural-, tense- and synonym-folded;
 /// a query word of 3+ letters also matches the start of a longer word).
 bool matchesQuery(String text, String query) {
-  final String q = query.trim().toLowerCase();
+  final String q = normalizeSearchQuery(query).toLowerCase();
   if (q.isEmpty || text.isEmpty) return false;
+  if (_matchesOne(text, q)) return true;
+  for (final String alt in queryAliases(q)) {
+    if (_matchesOne(text, alt)) return true;
+  }
+  return false;
+}
+
+bool _matchesOne(String text, String q) {
   if (text.toLowerCase().contains(q)) return true;
   final List<String> qt = searchTokens(q, dropStopwords: true);
   if (qt.isEmpty) return false;
@@ -275,8 +353,9 @@ List<SurahMeta> matchSurahNames(
   List<SurahMeta> metas,
   String query, {
   int limit = 8,
+  bool allowNear = true,
 }) {
-  String q = query.trim().toLowerCase();
+  String q = normalizeSearchQuery(query).toLowerCase();
   if (q.isEmpty || metas.isEmpty) return const <SurahMeta>[];
 
   if (containsArabicLetters(q)) {
@@ -329,7 +408,7 @@ List<SurahMeta> matchSurahNames(
   }
   // A slip of one letter is only forgiven when nothing matched exactly.
   final bool exact = starts.isNotEmpty || rest.isNotEmpty;
-  return <SurahMeta>[...starts, ...rest, if (!exact) ...near]
+  return <SurahMeta>[...starts, ...rest, if (!exact && allowNear) ...near]
       .take(limit)
       .toList();
 }

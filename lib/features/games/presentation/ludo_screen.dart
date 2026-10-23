@@ -15,7 +15,7 @@ import 'online_lobby.dart';
 /// LUDO — the second crown. The classic 52-cell track, four safe stars per
 /// lap, captures, and the exact roll to reach the heart of the board.
 /// v1: two players (You vs Hadi, or pass-and-play). Four-player boards and
-/// online rooms arrive with the family cloud, in shaa Allah.
+/// four-player tables are not built yet.
 class LudoScreen extends StatefulWidget {
   const LudoScreen({super.key});
 
@@ -424,7 +424,7 @@ class _LudoState extends State<LudoScreen> {
               const SizedBox(height: 10),
               board(),
               const SizedBox(height: 8),
-              Text('Four-player tables and online rooms arrive with the family cloud.',
+              Text('Four-player tables are not built yet. Online tables are for two.',
                   style: AppText.bodyMuted.copyWith(fontSize: 12)),
             ])
           else ...[

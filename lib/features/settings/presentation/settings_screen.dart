@@ -123,7 +123,7 @@ class SettingsScreen extends ConsumerWidget {
                         child: Text(l10n.ui('ui.language').toUpperCase(), style: AppText.eyebrow),
                       ),
                       GlassCard(
-                        onTap: () => context.push('/settings/language'),
+                        onTap: () => context.open('/settings/language'),
                         padding: const EdgeInsets.symmetric(
                           horizontal: 16,
                           vertical: 14,
@@ -176,7 +176,7 @@ class SettingsScreen extends ConsumerWidget {
                         child: Text(l10n.ui('ui.about').toUpperCase(), style: AppText.eyebrow),
                       ),
                       GlassCard(
-                        onTap: () => context.push(AppRoutes.sources),
+                        onTap: () => context.open(AppRoutes.sources),
                         padding: const EdgeInsets.symmetric(
                           horizontal: 16,
                           vertical: 14,
@@ -386,7 +386,7 @@ class SettingsScreen extends ConsumerWidget {
                         button: true,
                         label: 'Open the Terms of Service',
                         child: GestureDetector(
-                          onTap: () => context.push(LegalRoutes.terms),
+                          onTap: () => context.open(LegalRoutes.terms),
                           child: Padding(
                             padding: const EdgeInsets.only(left: 4, top: 15, bottom: 15),
                             child: Text('Terms of Service (a draft, not yet checked by a lawyer) →',
@@ -399,7 +399,7 @@ class SettingsScreen extends ConsumerWidget {
                         button: true,
                         label: 'Open the Privacy Policy',
                         child: GestureDetector(
-                          onTap: () => context.push(LegalRoutes.privacy),
+                          onTap: () => context.open(LegalRoutes.privacy),
                           child: Padding(
                             padding: const EdgeInsets.only(left: 4, top: 15, bottom: 15),
                             child: Text('Privacy Policy →',
@@ -412,7 +412,7 @@ class SettingsScreen extends ConsumerWidget {
                         button: true,
                         label: 'Delete my account and data',
                         child: GestureDetector(
-                          onTap: () => context.push(LegalRoutes.deleteAccount),
+                          onTap: () => context.open(LegalRoutes.deleteAccount),
                           child: Padding(
                             padding: const EdgeInsets.only(left: 4, top: 15, bottom: 15),
                             child: Text('Delete my account →',

@@ -14,6 +14,7 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../../../app/theme/widgets/whole_word_text.dart';
 import '../../calendar/application/hijri_settings.dart';
 import '../../calendar/domain/hijri_date.dart';
 import '../application/iqamah_settings.dart';
@@ -187,8 +188,12 @@ class _ScheduleState extends ConsumerState<_Schedule> {
             children: [
               Text('NEXT PRAYER', style: AppText.eyebrow),
               const SizedBox(height: 10),
-              Text(
+              // A word wider than the card shrinks to fit instead of
+              // breaking in the middle ("Maghri / b").
+              WholeWordText(
                 nextName,
+                maxLines: 1,
+                textAlign: TextAlign.center,
                 style: AppText.displayMedium.copyWith(fontSize: 30),
               ),
               const SizedBox(height: 6),

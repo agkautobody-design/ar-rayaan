@@ -8,6 +8,7 @@
 /// what is on it.
 library;
 
+import '../../legal/legal_routes.dart' show LegalRoutes;
 import 'search_text.dart';
 
 class AppDestination {
@@ -390,6 +391,8 @@ const List<AppDestination> kAppDestinations = <AppDestination>[
       'hands in prayer',
       'school of law',
       'schools of thought',
+      'difference of opinion',
+      'scholars disagree',
       'hanafi',
       'shafii',
       'maliki',
@@ -460,6 +463,13 @@ const List<AppDestination> kAppDestinations = <AppDestination>[
     keywords: <String>['notes', 'my notes'],
   ),
   AppDestination(
+    id: 'privacy',
+    title: 'Privacy Policy',
+    subtitle: 'What the app keeps, and where',
+    route: LegalRoutes.privacy,
+    keywords: <String>['privacy', 'privacy policy', 'my data', 'data safety'],
+  ),
+  AppDestination(
     id: 'language',
     title: 'Language and Voice',
     subtitle: 'Choose your language',
@@ -477,7 +487,7 @@ List<AppDestination> matchDestinations(
   int limit = 6,
   List<AppDestination> destinations = kAppDestinations,
 }) {
-  final String q = query.trim();
+  final String q = normalizeSearchQuery(query);
   if (q.length < 3) return const <AppDestination>[];
   final List<String> qt = searchTokens(q, dropStopwords: true);
   if (qt.isEmpty) return const <AppDestination>[];

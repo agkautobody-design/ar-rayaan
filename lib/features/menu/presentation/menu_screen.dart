@@ -144,48 +144,13 @@ class MenuScreen extends ConsumerWidget {
                     ),
                   ],
                   const SizedBox(height: 16),
+                  // Help & Support is not built yet, so it is not listed: a
+                  // row that goes nowhere is worse than no row.
                   GlassCard(
-                    child: LayoutBuilder(
-                      builder: (BuildContext context, BoxConstraints box) {
-                        // Side by side only when each half has room for a
-                        // whole word; large text or a narrow phone stacks.
-                        final bool stack =
-                            box.maxWidth < 380 ||
-                            MediaQuery.textScalerOf(context).scale(14) > 17;
-                        final Widget settingsRow = _MenuRow(
-                          icon: Icons.settings_outlined,
-                          label: 'Settings',
-                          onTap: () => context.push(AppRoutes.settings),
-                        );
-                        final Widget helpRow = const _MenuRow(
-                          icon: Icons.help_outline,
-                          label: 'Help & Support',
-                          comingSoon: true,
-                        );
-                        if (stack) {
-                          return Column(
-                            children: [
-                              settingsRow,
-                              Divider(
-                                height: 1,
-                                color: AppColors.gold.withValues(alpha: 0.1),
-                              ),
-                              helpRow,
-                            ],
-                          );
-                        }
-                        return Row(
-                          children: [
-                            Expanded(child: settingsRow),
-                            Container(
-                              width: 1,
-                              height: 40,
-                              color: AppColors.gold.withValues(alpha: 0.1),
-                            ),
-                            Expanded(child: helpRow),
-                          ],
-                        );
-                      },
+                    child: _MenuRow(
+                      icon: Icons.settings_outlined,
+                      label: 'Settings',
+                      onTap: () => context.open(AppRoutes.settings),
                     ),
                   ),
                   const SizedBox(height: 16),

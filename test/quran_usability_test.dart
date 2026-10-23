@@ -132,7 +132,11 @@ void main() {
       // header and the one-row player bar sit outside it.
       final Size list = tester.getSize(find.byType(ListView).first);
       expect(list.height, greaterThan(700 * 0.6));
-      // Controls start inside the list...
+      // Controls start inside the list, folded into one line at this size
+      // so the verses come first...
+      expect(find.text('Jump to ayah'), findsNothing);
+      await tester.tap(find.text('Reader tools'));
+      await tester.pumpAndSettle();
       expect(find.text('Jump to ayah').hitTestable(), findsOneWidget);
       // ...and scroll away with it.
       await tester.drag(find.byType(ListView).first, const Offset(0, -900));

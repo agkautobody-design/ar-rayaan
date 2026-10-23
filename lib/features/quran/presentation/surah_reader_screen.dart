@@ -491,7 +491,7 @@ class _ReaderToolbar extends ConsumerWidget {
     final double sizeNow = ref.watch(arabicSizeProvider);
     final int? count = ayahCount;
     final bool hiding = ref.watch(testMeProvider);
-    return Padding(
+    final Widget tools = Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12),
       child: Wrap(
         alignment: WrapAlignment.end,
@@ -576,6 +576,25 @@ class _ReaderToolbar extends ConsumerWidget {
             icon: const Icon(Icons.bookmarks_outlined, color: AppColors.gold),
           ),
         ],
+      ),
+    );
+    // At large text the tools alone fill most of the screen and push the
+    // verses down: fold them into one line the reader can open.
+    if (MediaQuery.textScalerOf(context).scale(14) <= 20) return tools;
+    return Theme(
+      data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+      child: ExpansionTile(
+        key: const Key('reader-tools-fold'),
+        shape: const Border(),
+        collapsedShape: const Border(),
+        tilePadding: const EdgeInsets.symmetric(horizontal: 20),
+        iconColor: AppColors.gold,
+        collapsedIconColor: AppColors.gold,
+        title: Text(
+          'Reader tools',
+          style: AppText.body.copyWith(color: AppColors.gold),
+        ),
+        children: <Widget>[tools],
       ),
     );
   }
