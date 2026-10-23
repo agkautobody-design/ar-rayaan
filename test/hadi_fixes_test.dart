@@ -166,12 +166,12 @@ void main() {
       expect(m.live, isFalse);
     });
 
-    test('with no key the decline may still suggest one', () async {
+    test('with no key the decline still never talks about keys', () async {
       final ProviderContainer c = await container();
       final String a = await c
           .read(hadiControllerProvider.notifier)
           .ask('Tell me about quantum entanglement', provider: _Boom());
-      expect(a, contains('API key'));
+      expect(a.contains('API key'), isFalse);
     });
   });
 

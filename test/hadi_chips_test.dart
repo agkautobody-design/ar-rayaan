@@ -34,15 +34,10 @@ const Map<String, String> kChipMustSay = <String, String>{
 void main() {
   final Set<String> fallbacks = <String>{
     OfflineHadiProvider.decline,
-    OfflineHadiProvider.declineKeyed,
     OfflineHadiProvider.rulingDecline,
-    OfflineHadiProvider.offTopicReply,
     OfflineHadiProvider.scriptReply,
-    OfflineHadiProvider.scriptReplyKeyed,
     OfflineHadiProvider.scriptReplyArabic,
-    OfflineHadiProvider.scriptReplyArabicKeyed,
     OfflineHadiProvider.scriptReplyUrdu,
-    OfflineHadiProvider.scriptReplyUrduKeyed,
     ...OfflineHadiProvider.rudeReplies,
     ...OfflineHadiProvider.distressReplies,
   };
