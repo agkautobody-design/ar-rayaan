@@ -8,6 +8,7 @@ library;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
@@ -15,6 +16,7 @@ import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../application/personal_library_provider.dart';
 import '../application/player_queue_provider.dart';
+import '../application/stream_player_provider.dart';
 import '../domain/personal_library.dart';
 import '../domain/player.dart';
 
@@ -247,13 +249,29 @@ class _TrackRow extends ConsumerWidget {
           children: <Widget>[
             IconButton(tooltip: 'Play',
               icon: const Icon(Icons.play_arrow, color: AppColors.gold),
-              onPressed: () {
+              onPressed: () async {
+                // One thing plays at a time: close a link player first.
+                ref.read(streamQueueProvider.notifier).stop();
                 // Play through the same queue the Player drives; personal
                 // tracks stay tagged personalImport everywhere downstream.
-                ref.read(playerQueueProvider.notifier).playQueue(
+                await ref.read(playerQueueProvider.notifier).playQueue(
                   <Track>[_toQueueTrack(track)],
                   name: 'My Additions',
                 );
+                if (!context.mounted) return;
+                // The controls live on the Player page: say so, with a way
+                // there, instead of tapping Play and seeing nothing happen.
+                ScaffoldMessenger.of(context)
+                  ..hideCurrentSnackBar()
+                  ..showSnackBar(
+                    SnackBar(
+                      content: Text('Playing \u201c${track.title}\u201d.'),
+                      action: SnackBarAction(
+                        label: 'Open Player',
+                        onPressed: () => context.open(AppRoutes.player),
+                      ),
+                    ),
+                  );
               },
             ),
             IconButton(tooltip: 'Remove from my additions',
