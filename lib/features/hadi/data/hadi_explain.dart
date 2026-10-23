@@ -1,4 +1,5 @@
 import '../../sakina/domain/crisis_detector.dart';
+import 'hadi_finder.dart';
 import 'hadi_routing.dart';
 
 /// Replies Hadi composes ONLY from lines the app already shows elsewhere
@@ -309,33 +310,75 @@ abstract final class HadiExplain {
 
   // ── The nearest masjid ───────────────────────────────────────────────
 
-  static final RegExp _masjidWord =
-      RegExp(r'\b(?:masjid|masjids|masajid|mosque|mosques)\b');
-  static final RegExp _nearAsk = RegExp(
-    r'\b(?:nearest|nearby|closest|near\s+me|near\s+here|close\s+to\s+me|'
-    r'around\s+me|around\s+here|local|find|locate|where\s+(?:is|are|can)|'
-    r'directions?)\b',
+  static final RegExp _masjidWord = RegExp(
+    r'\b(?:masjid|masjids|masajid|mosque|mosques|musalla|jamaat|'
+    r'prayer\s+(?:place|places|space|spaces|room|rooms|hall|halls))\b',
   );
-  static final RegExp _fridayWord =
-      RegExp(r'\b(?:jumuah|jummah|jumah|jumua|friday|juma)\b');
+  static final RegExp _halalWord = RegExp(r'\bhalal\b');
+  static final RegExp _nearAsk = RegExp(
+    r'\b(?:nearest|nearby|closest|near\s+me|near\s+here|near\s+us|'
+    r'close\s+to\s+me|close\s+by|around\s+me|around\s+here|in\s+my\s+'
+    r'(?:area|city|town|neighbou?rhood)|local|find|locate|'
+    r'where\s+(?:is|are|can)|directions?)\b',
+  );
+  static final RegExp _jumuahWord =
+      RegExp(r'\b(?:jumuah|jummah|jumah|jumua|jumaa|jumma|juma)\b');
+  static final RegExp _fridayPrayer =
+      RegExp(r'\bfriday\s+(?:prayers?|salah|salat|namaz|khutbah|sermon)\b');
+  static final RegExp _timeAsk =
+      RegExp(r'\b(?:times?|timings?|schedule|when)\b');
+  static final RegExp _nearOnly = RegExp(
+    r'\b(?:nearest|nearby|closest|near\s+me|near\s+here|near\s+us|'
+    r'close\s+to\s+me|close\s+by|around\s+me|around\s+here|in\s+my\s+'
+    r'(?:area|city|town|neighbou?rhood))\b',
+  );
+  static const List<String> _jumuahSpellings = <String>[
+    'jumuah',
+    'jummah',
+    'jumah',
+    'jumua',
+    'jumaa',
+    'jumma',
+    'juma',
+  ];
+
+  /// True when the question names Friday prayer, even badly spelled by
+  /// voice or thumb ("jump near me"): a one-letter slip is believed only
+  /// when the question also says "near me" or "nearby".
+  static bool _namesFriday(String n) {
+    if (_jumuahWord.hasMatch(n) || _fridayPrayer.hasMatch(n)) return true;
+    if (!_nearOnly.hasMatch(n)) return false;
+    for (final String w in n.split(' ')) {
+      for (final String v in _jumuahSpellings) {
+        if (HadiFinder.near(w, v)) return true;
+      }
+    }
+    return false;
+  }
 
   static bool asksNearestMasjid(String question) {
     final String n = _norm(question);
-    return _masjidWord.hasMatch(n) &&
-        _nearAsk.hasMatch(n) &&
-        n.split(' ').length <= 16;
+    if (n.split(' ').length > 16) return false;
+    final bool near = _nearAsk.hasMatch(n);
+    if (_masjidWord.hasMatch(n) && near) return true;
+    if (_namesFriday(n) && (near || _timeAsk.hasMatch(n))) return true;
+    // "halal food near me", "halal restaurant nearby".
+    return _halalWord.hasMatch(n) && _nearOnly.hasMatch(n);
   }
 
   static String masjidReply(String question) {
-    final bool friday = _fridayWord.hasMatch(_norm(question));
+    final String n = _norm(question);
+    final bool friday = _namesFriday(n);
+    final bool food = _halalWord.hasMatch(n) && !_masjidWord.hasMatch(n);
     final String jumuah = friday
         ? ' The time of Friday prayer is set by your own masjid, so please '
             'ask them; Prayer Times has a Friday row where you can set '
             'your masjid’s time.'
         : '';
     return 'I cannot see where you are, so I cannot name the nearest '
-        'masjid. The Masajid screen searches for mosques and halal food '
-        'near you, and it needs an internet connection.$jumuah'
+        'masjid${food ? ' or halal restaurant' : ''}. The Masajid screen '
+        'searches for mosques and halal food near you, and it needs an '
+        'internet connection.$jumuah'
         '\n[GO:/masajid]${friday ? '\n[GO:/prayer]' : ''}';
   }
 
