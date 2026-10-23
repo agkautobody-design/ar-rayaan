@@ -13,7 +13,7 @@ const Map<String, String> kEmbedRoutes = <String, String>{
   'prayer.times': '/prayer',
   'zakat.guided': '/zakat',
   'quran.reader': '/quran',
-  'adhkar.morning': '/adhkar',
+  'adhkar.morning': '/adhkar?set=morning',
   'hadith.daily': '/hadith',
   'calendar.sunnah': '/calendar',
 };

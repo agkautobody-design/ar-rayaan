@@ -94,11 +94,15 @@ const List<AppDestination> kAppDestinations = <AppDestination>[
   AppDestination(
     id: 'adhkar',
     title: 'Dhikr and Du’a',
-    subtitle: 'Hisn al-Muslim: morning, evening, sleep and more',
+    subtitle: 'Morning, evening, sleep, worry, travel and more — pick your moment',
     route: '/adhkar',
     keywords: <String>[
       'dhikr',
       'dua',
+      'worry',
+      'anxiety',
+      'before sleep',
+      'waking up',
       'supplication',
       'hisn al muslim',
       'morning evening',
