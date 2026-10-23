@@ -703,59 +703,73 @@ class _LocationCard extends ConsumerWidget {
         .read(prayerLocationControllerProvider.notifier)
         .gpsStatus;
 
+    // The place name gets the full width on its own line; the two buttons
+    // wrap underneath. Squeezed beside them on a 320px phone, the name was
+    // ellipsized down to nothing.
     return GlassCard(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-      child: Row(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(
-            Icons.place_outlined,
-            size: 18,
-            color: AppColors.gold.withValues(alpha: 0.8),
-          ),
-          const SizedBox(width: 10),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
+          Row(
+            children: [
+              Icon(
+                Icons.place_outlined,
+                size: 18,
+                color: AppColors.gold.withValues(alpha: 0.8),
+              ),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Text(
                   loc.label,
+                  key: const Key('prayer-location-label'),
                   style: AppText.body.copyWith(fontWeight: FontWeight.w600),
+                  maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
-                if (status == GpsStatus.denied)
-                  Text(
-                    'Location permission denied — pick your city instead',
-                    style: AppText.bodyMuted.copyWith(fontSize: 12),
-                  )
-                else if (status == GpsStatus.unavailable)
-                  Text(
-                    'Location is off on this device — pick your city instead',
-                    style: AppText.bodyMuted.copyWith(fontSize: 12),
-                  )
-                else if (status == GpsStatus.error)
-                  Text(
-                    'Could not get your location — pick your city instead',
-                    style: AppText.bodyMuted.copyWith(fontSize: 12),
-                  ),
-              ],
-            ),
+              ),
+            ],
           ),
-          TextButton.icon(
-            onPressed: status == GpsStatus.locating
-                ? null
-                : () => _useGps(ref),
-            icon: const Icon(Icons.my_location, size: 14),
-            label: Text(
-              status == GpsStatus.locating ? 'Locating…' : 'My location',
-              style: const TextStyle(fontSize: 12),
+          if (status == GpsStatus.denied)
+            Text(
+              'Location permission denied \u2014 pick your city instead',
+              style: AppText.bodyMuted.copyWith(fontSize: 12),
+            )
+          else if (status == GpsStatus.unavailable)
+            Text(
+              'Location is off on this device \u2014 pick your city instead',
+              style: AppText.bodyMuted.copyWith(fontSize: 12),
+            )
+          else if (status == GpsStatus.error)
+            Text(
+              'Could not get your location \u2014 pick your city instead',
+              style: AppText.bodyMuted.copyWith(fontSize: 12),
             ),
-            style: TextButton.styleFrom(foregroundColor: AppColors.goldLight),
-          ),
-          TextButton.icon(
-            onPressed: () => _pickCity(context, ref),
-            icon: const Icon(Icons.location_city, size: 14),
-            label: const Text('City', style: TextStyle(fontSize: 12)),
-            style: TextButton.styleFrom(foregroundColor: AppColors.goldLight),
+          Wrap(
+            spacing: 4,
+            children: [
+              TextButton.icon(
+                onPressed: status == GpsStatus.locating
+                    ? null
+                    : () => _useGps(ref),
+                icon: const Icon(Icons.my_location, size: 14),
+                label: Text(
+                  status == GpsStatus.locating ? 'Locating\u2026' : 'My location',
+                  style: const TextStyle(fontSize: 12),
+                ),
+                style: TextButton.styleFrom(
+                  foregroundColor: AppColors.goldLight,
+                ),
+              ),
+              TextButton.icon(
+                onPressed: () => _pickCity(context, ref),
+                icon: const Icon(Icons.location_city, size: 14),
+                label: const Text('City', style: TextStyle(fontSize: 12)),
+                style: TextButton.styleFrom(
+                  foregroundColor: AppColors.goldLight,
+                ),
+              ),
+            ],
           ),
         ],
       ),

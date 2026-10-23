@@ -2,12 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart' show DateFormat;
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/core/content_loader.dart';
 import '../../../app/core/modules/module_status.dart';
+import '../../../app/core/providers.dart';
+import '../../onboarding/presentation/onboarding_screen.dart';
+import '../domain/next_step.dart';
+import '../../stories/presentation/new_muslim_path_screen.dart' show NewMuslimPathScreen;
 import '../../academy/application/academy_providers.dart';
 import '../../menu/presentation/menu_screen.dart' show isAcademyRoute;
 import '../../elder/application/elder_mode.dart';
@@ -42,6 +47,7 @@ class HomeScreen extends ConsumerWidget {
     // --- Live tile subtitles -------------------------------------------------
     // Times are shown only for a location the person set (never a stand-in).
     final bool locationSet = ref.watch(prayerLocationProvider).isSet;
+    String? nextPrayerLabel;
     final String prayerSub = !locationSet
         ? 'Set your location'
         : ref
@@ -50,6 +56,7 @@ class HomeScreen extends ConsumerWidget {
                 data: (PrayerTimes t) {
                   final (String name, DateTime time) =
                       t.nextPrayer(DateTime.now());
+                  nextPrayerLabel = '$name at ${DateFormat.jm().format(time)}';
                   return '$name · ${DateFormat.jm().format(time)}';
                 },
                 loading: () => 'Loading times…',
@@ -58,6 +65,7 @@ class HomeScreen extends ConsumerWidget {
 
     final ReadingPosition? pos = ref.watch(readingPositionProvider);
     String quranSub = 'Begin Reading · Al-Fatihah';
+    String? quranResume;
     if (pos != null) {
       final List<SurahMeta>? index = ref.watch(quranIndexProvider).valueOrNull;
       final SurahMeta? meta = index
@@ -66,6 +74,9 @@ class HomeScreen extends ConsumerWidget {
       quranSub = meta == null
           ? 'Continue Reading'
           : 'Continue · ${meta.transliteration} ${pos.surah}:${pos.ayah}';
+      if (meta != null) {
+        quranResume = '${meta.transliteration} ${pos.surah}:${pos.ayah}';
+      }
     }
     // Web only: say so before the first tap if the Qur'an is not yet kept on
     // this device (null while checking, and always ready on the phone apps).
@@ -75,6 +86,7 @@ class HomeScreen extends ConsumerWidget {
     );
 
     String dhikrSub = 'Morning Adhkar';
+    int? adhkarLeft;
     final List<AdhkarSet>? sets = ref.watch(adhkarSetsProvider).valueOrNull;
     if (sets != null && sets.isNotEmpty) {
       ref.watch(adhkarProgressProvider);
@@ -82,8 +94,8 @@ class HomeScreen extends ConsumerWidget {
       final int done = ref
           .read(adhkarProgressProvider.notifier)
           .completedInSet(morning);
-      dhikrSub =
-          'Morning Adhkar · ${morning.totalRepetitions - done} remaining';
+      adhkarLeft = morning.totalRepetitions - done;
+      dhikrSub = 'Morning Adhkar · $adhkarLeft remaining';
     }
 
     final List<(IconData, String, String, String?)> tiles = [
@@ -154,6 +166,45 @@ class HomeScreen extends ConsumerWidget {
     // overflows: give them proportionally more height.
     final double textScale =
         (MediaQuery.textScalerOf(context).scale(14) / 14).clamp(1.0, 2.0);
+    // A narrow phone or big text: the top blocks shrink so the Prayer Times
+    // tile is not pushed below the fold.
+    final bool compact =
+        textScale > 1.3 || MediaQuery.sizeOf(context).width < 380;
+    final NextStep step = _nextStepFor(
+      ref,
+      academyOn: showAcademy,
+      nextPrayer: nextPrayerLabel,
+      adhkarLeft: adhkarLeft,
+      quranResume: quranResume,
+    );
+
+    final Widget quick = _SemanticTap(
+                label: 'Quick Access. Academy, naats, games, elder care, therapy, duas.',
+                onTap: () => context.go('/home/quick'),
+                child: Container(
+                  margin: const EdgeInsets.fromLTRB(4, 0, 4, 10),
+                  padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(color: AppColors.gold.withValues(alpha: 0.45)),
+                    color: const Color(0x1A05090F),
+                  ),
+                  child: Row(children: [
+                    const Icon(Icons.dashboard_outlined, color: AppColors.goldLight, size: 20),
+                    const SizedBox(width: 12),
+                    Expanded(child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Quick Access', style: AppText.body.copyWith(
+                            fontWeight: FontWeight.w700, fontSize: 13.5, color: AppColors.goldLight)),
+                        Text('Academy \u00b7 Naats \u00b7 Games \u00b7 Elder Care \u00b7 Therapy \u00b7 Duas',
+                            style: AppText.bodyMuted.copyWith(fontSize: 12)),
+                      ],
+                    )),
+                    const Icon(Icons.chevron_right, color: AppColors.gold, size: 18),
+                  ]),
+                ),
+              );
 
     return Scaffold(
       body: AtmosphereLayer(
@@ -205,7 +256,7 @@ class HomeScreen extends ConsumerWidget {
                     children: [
                       // Greeting sits directly on the scenery (locked board).
                       ConstrainedBox(
-                        constraints: const BoxConstraints(minHeight: 178),
+                        constraints: BoxConstraints(minHeight: compact ? 0 : 178),
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 4),
                           child: Column(
@@ -231,19 +282,21 @@ class HomeScreen extends ConsumerWidget {
                                   fontSize: 32,
                                 ),
                               ),
-                              const SizedBox(height: 8),
-                              Text(
-                                'May Allah make this a source of\nbarakah in your day!',
-                                style: AppText.bodyMuted.copyWith(
-                                  fontSize: 12,
-                                  height: 1.5,
+                              if (textScale <= 1.3) ...[
+                                const SizedBox(height: 8),
+                                Text(
+                                  'May Allah make this a source of\nbarakah in your day!',
+                                  style: AppText.bodyMuted.copyWith(
+                                    fontSize: 12,
+                                    height: 1.5,
+                                  ),
                                 ),
-                              ),
+                              ],
                             ],
                           ),
                         ),
                       ),
-                      const SizedBox(height: 16),
+                      SizedBox(height: compact ? 8 : 16),
               _SemanticTap(
                 label: 'Elder Mode. Opens the large-text home for an elder.',
                 onTap: () async {
@@ -277,7 +330,10 @@ class HomeScreen extends ConsumerWidget {
                                   fontWeight: FontWeight.w800, fontSize: 15,
                                   color: AppColors.goldLight, letterSpacing: 1.2)),
                         ),
-                        Text('One tap \u2014 the app opens here for them every time. Big words. Three doors. Nothing else.',
+                        Text(
+                            compact
+                                ? 'Big words. Three doors. Nothing else.'
+                                : 'One tap \u2014 the app opens here for them every time. Big words. Three doors. Nothing else.',
                             style: AppText.bodyMuted.copyWith(fontSize: 12)),
                       ],
                     )),
@@ -286,33 +342,8 @@ class HomeScreen extends ConsumerWidget {
                   ]),
                 ),
               ),
-              _SemanticTap(
-                label: 'Quick Access. Academy, naats, games, elder care, therapy, duas.',
-                onTap: () => context.go('/home/quick'),
-                child: Container(
-                  margin: const EdgeInsets.fromLTRB(4, 0, 4, 10),
-                  padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    border: Border.all(color: AppColors.gold.withValues(alpha: 0.45)),
-                    color: const Color(0x1A05090F),
-                  ),
-                  child: Row(children: [
-                    const Icon(Icons.dashboard_outlined, color: AppColors.goldLight, size: 20),
-                    const SizedBox(width: 12),
-                    Expanded(child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Quick Access', style: AppText.body.copyWith(
-                            fontWeight: FontWeight.w700, fontSize: 13.5, color: AppColors.goldLight)),
-                        Text('Academy \u00b7 Naats \u00b7 Games \u00b7 Elder Care \u00b7 Therapy \u00b7 Duas',
-                            style: AppText.bodyMuted.copyWith(fontSize: 12)),
-                      ],
-                    )),
-                    const Icon(Icons.chevron_right, color: AppColors.gold, size: 18),
-                  ]),
-                ),
-              ),
+              if (!compact) quick,
+              _NextStepCard(step: step, compact: compact),
               GridView.count(
                         // Adaptive: phones keep three tiles; wide screens
                         // gain columns so nothing stretches into emptiness.
@@ -343,6 +374,7 @@ class HomeScreen extends ConsumerWidget {
                         ],
                       ),
                       const SizedBox(height: 12),
+                      if (compact) quick,
                       Wrap(
                         spacing: 8,
                         runSpacing: 4,
@@ -470,6 +502,121 @@ class HomeScreen extends ConsumerWidget {
           ),
         ],
       )),
+    );
+  }
+}
+
+/// Reads the stored goal and progress, then asks the pure rules which card
+/// to show. Everything comes from providers and preferences the app already
+/// has; a failure to read falls back to the Qur'an card.
+NextStep _nextStepFor(
+  WidgetRef ref, {
+  required bool academyOn,
+  required String? nextPrayer,
+  required int? adhkarLeft,
+  required String? quranResume,
+}) {
+  String? need;
+  int newMuslimDone = 0;
+  try {
+    final SharedPreferences p = ref.read(sharedPreferencesProvider);
+    need = p.getString(OnboardingScreen.needPref);
+    if (need == 'new') {
+      for (final String k in p.getKeys()) {
+        if (k.startsWith(NewMuslimPathScreen.donePrefix) &&
+            p.getBool(k) == true) {
+          newMuslimDone++;
+        }
+      }
+    }
+  } catch (_) {}
+  final int lessonsDone = need == 'learn' && academyOn
+      ? ref.watch(lessonsDoneProvider)
+      : 0;
+  return resolveNextStep(
+    need: need,
+    academyOn: academyOn,
+    nextPrayer: nextPrayer,
+    adhkarLeft: adhkarLeft,
+    quranResume: quranResume,
+    newMuslimDone: newMuslimDone,
+    lessonsDone: lessonsDone,
+  );
+}
+
+/// The single "Your next step" card under the greeting.
+class _NextStepCard extends StatelessWidget {
+  const _NextStepCard({required this.step, required this.compact});
+
+  final NextStep step;
+  final bool compact;
+
+  @override
+  Widget build(BuildContext context) {
+    final String? second = step.secondaryRoute;
+    return Padding(
+      key: const Key('home-next-step'),
+      padding: const EdgeInsets.fromLTRB(4, 0, 4, 12),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(14),
+          border: Border.all(color: AppColors.gold.withValues(alpha: 0.55)),
+          color: const Color(0x8005090F),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _SemanticTap(
+              label: 'Your next step. ${step.headline}. ${step.detail}',
+              minHeight: 48,
+              onTap: () => context.open(step.route),
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(14, compact ? 8 : 12, 10, 8),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('YOUR NEXT STEP', style: AppText.eyebrow),
+                          const SizedBox(height: 2),
+                          Text(
+                            step.headline,
+                            style: AppText.body.copyWith(
+                              fontWeight: FontWeight.w700,
+                              fontSize: 14.5,
+                              color: AppColors.goldLight,
+                            ),
+                          ),
+                          Text(
+                            step.detail,
+                            maxLines: compact ? 2 : 3,
+                            overflow: TextOverflow.ellipsis,
+                            style: AppText.bodyMuted.copyWith(fontSize: 12),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const Icon(
+                      Icons.chevron_right,
+                      color: AppColors.gold,
+                      size: 22,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            if (second != null && step.secondaryLabel != null)
+              Padding(
+                padding: const EdgeInsets.fromLTRB(14, 0, 14, 4),
+                child: _AlsoLink(
+                  label: step.secondaryLabel!,
+                  onTap: () => context.open(second),
+                ),
+              ),
+          ],
+        ),
+      ),
     );
   }
 }
