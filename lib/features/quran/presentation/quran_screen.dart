@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -5,7 +7,9 @@ import 'package:go_router/go_router.dart';
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
-import '../../../app/core/content_loader.dart' show kQuranSizeHint;
+import '../../../app/core/content_loader.dart'
+    show kQuranSizeHint, quranOfflineReadyProvider;
+import '../../../app/core/web_offline.dart';
 import '../../../app/theme/widgets/content_loading_view.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/needs_internet_view.dart';
@@ -13,6 +17,7 @@ import '../../../app/theme/widgets/screen_header.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 
+import '../application/quran_offline.dart' show kQuranOfflineHint;
 import '../application/quran_providers.dart';
 import '../domain/quran_texts.dart';
 import '../domain/quran_models.dart';
@@ -31,6 +36,32 @@ class QuranScreen extends ConsumerStatefulWidget {
 class _QuranScreenState extends ConsumerState<QuranScreen> {
   String _query = '';
   final TextEditingController _controller = TextEditingController();
+
+  /// True while the text itself (2 MB the first time on the web) is still
+  /// being fetched in the background. The list does not wait for it.
+  bool _textPending = true;
+
+  @override
+  void initState() {
+    super.initState();
+    // Start the text download now, while the person looks at the list, so a
+    // surah opens at once when tapped. Failure is shown by the reader.
+    unawaited(
+      ref
+          .read(quranRepositoryProvider)
+          .all()
+          .then<void>(
+            (_) {
+              if (!mounted) return;
+              setState(() => _textPending = false);
+              ref.invalidate(quranOfflineReadyProvider);
+            },
+            onError: (Object _) {
+              if (mounted) setState(() => _textPending = false);
+            },
+          ),
+    );
+  }
 
   @override
   void dispose() {
@@ -56,14 +87,13 @@ class _QuranScreenState extends ConsumerState<QuranScreen> {
                 loading: () => ContentLoadingView(
                   what: 'the Qur\u2019an',
                   sizeHint: kQuranSizeHint,
-                  onRetry: () {
-                    ref.invalidate(quranRepositoryProvider);
-                    ref.invalidate(quranAllProvider);
-                    ref.invalidate(quranIndexProvider);
-                  },
+                  // Keeps the same repository: a retry must not start a second
+                  // 2 MB download next to the one already running.
+                  onRetry: () => ref.invalidate(quranIndexProvider),
                 ),
                 error: (Object e, _) => NeedsInternetView(
                   what: 'The Qur\u2019an',
+                  hint: kQuranOfflineHint,
                   onRetry: () {
                     ref.invalidate(quranRepositoryProvider);
                     ref.invalidate(quranAllProvider);
@@ -102,6 +132,10 @@ class _QuranScreenState extends ConsumerState<QuranScreen> {
                         controller: _controller,
                         onChanged: (String v) => setState(() => _query = v),
                       ),
+                      if (_textPending && WebOffline.isWeb && !searching) ...[
+                        const SizedBox(height: 12),
+                        const QuranTextLoadingNote(),
+                      ],
                       const SizedBox(height: 12),
                       // Web only, and only until the Qur'an is saved here.
                       if (!searching) ...[
@@ -424,6 +458,40 @@ class _AyatAlKursiShortcut extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+/// Shown over the surah list while the text downloads in the background, so a
+/// slow connection reads as "working", not as a frozen screen.
+class QuranTextLoadingNote extends StatelessWidget {
+  const QuranTextLoadingNote({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Semantics(
+      liveRegion: true,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          ClipRRect(
+            borderRadius: BorderRadius.circular(4),
+            child: LinearProgressIndicator(
+              minHeight: 4,
+              backgroundColor: AppColors.gold.withValues(alpha: 0.2),
+              valueColor: const AlwaysStoppedAnimation<Color>(AppColors.gold),
+            ),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            'Getting the text ready ($kQuranSizeHint, first time only). '
+            'You can look through the list now; a surah opens as soon as '
+            'this finishes.',
+            key: const Key('quran-text-loading-note'),
+            style: AppText.caption.copyWith(height: 1.4),
+          ),
+        ],
       ),
     );
   }

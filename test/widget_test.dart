@@ -53,19 +53,21 @@ void main() {
   });
 
   testWidgets(
-      'a right-to-left language keeps the layout left-to-right until the '
-      'interface is translated', (
+      'Arabic translates the navigation and Home titles and turns the '
+      'layout right-to-left', (
     tester,
   ) async {
     await AppHarness.boot(
       tester,
       prefsValues: <String, Object>{'ar.locale': 'ar'},
     );
-    final BuildContext ctx = tester.element(find.text('Faith'));
-    // The language is applied (locale, dialogs)...
+    final BuildContext ctx = tester.element(find.text('الإيمان'));
     expect(Localizations.localeOf(ctx).languageCode, 'ar');
-    // ...but the English interface is not mirrored.
-    expect(Directionality.of(ctx), TextDirection.ltr);
+    expect(Directionality.of(ctx), TextDirection.rtl);
+    expect(find.text('الرئيسية'), findsWidgets);
+    expect(find.text('مواقيت الصلاة'), findsWidgets);
+    // Untranslated text stays English rather than being faked.
+    expect(find.text('Today for You'), findsOneWidget);
   });
 
   testWidgets('English stays left-to-right', (tester) async {
@@ -79,15 +81,19 @@ void main() {
     expect(LocaleController.isRtl(const Locale('ar')), isTrue);
     expect(LocaleController.isRtl(const Locale('ur')), isTrue);
     expect(LocaleController.isRtl(const Locale('en')), isFalse);
-    // Mirroring needs a fully translated interface; nobody has one yet.
-    expect(LocaleController.fullyTranslated, isEmpty);
-    for (final String l in <String>['ar', 'ur', 'en', 'fr']) {
+    // Mirroring needs the shell labels (ui_labels.dart) to be translated:
+    // Arabic and Urdu have them, Bangla has them but is left-to-right.
+    expect(LocaleController.shellTranslated, <String>{'ar', 'bn', 'ur'});
+    expect(LocaleController.layoutDirection(const Locale('ar')),
+        TextDirection.rtl);
+    expect(LocaleController.layoutDirection(const Locale('ur')),
+        TextDirection.rtl);
+    for (final String l in <String>['en', 'bn', 'fr', 'id']) {
       expect(LocaleController.layoutDirection(Locale(l)), TextDirection.ltr,
           reason: l);
     }
-    // Only four languages have any translated UI text.
     expect(LocaleController.translatedChrome(const Locale('ur')), isTrue);
+    expect(LocaleController.translatedChrome(const Locale('bn')), isTrue);
     expect(LocaleController.translatedChrome(const Locale('fr')), isFalse);
-    expect(LocaleController.translatedChrome(const Locale('bn')), isFalse);
   });
 }
