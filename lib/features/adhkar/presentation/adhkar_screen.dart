@@ -345,6 +345,16 @@ class _DhikrCard extends ConsumerWidget {
               color: AppColors.goldLight.withValues(alpha: complete ? 0.4 : 0.9),
             ),
           ),
+          if (dhikr.transliterationSource != null)
+            Text(
+              'Transliteration: ${dhikr.transliterationSource!}',
+              key: Key('dhikr-${set.id}-${dhikr.number}-tl-source'),
+              style: AppText.bodyMuted.copyWith(
+                fontSize: 11,
+                height: 1.4,
+                color: AppColors.sand.withValues(alpha: complete ? 0.3 : 0.55),
+              ),
+            ),
           const SizedBox(height: 6),
         ],
         if (dhikr.translation != null) ...[

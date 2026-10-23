@@ -1,4 +1,6 @@
-# The 99 Names: Arabic script and pronunciation (needs owner/scholar content)
+# The 99 Names: Arabic script and pronunciation
+
+Status (round 4): DONE for the Arabic script. All 99 rows in `assets/games/names99.json` now have `arabic`, verified against several lists; sources and the disagreements are in `VERIFICATION_LOG_NAMES_DUAS.md`. Still open: approval of the English meanings and optional audio. The text below is the original request.
 
 Finding (round 3, r12): the 99 Names screen shows only the transliteration and a short English meaning. There is no Arabic script anywhere in the app's data for these names (`assets/games/names99.json` has `n`, `name`, `meaning`, `ref` only; a search of `assets/` and `lib/` found no Arabic for them).
 

@@ -53,9 +53,24 @@ final triviaProvider = FutureProvider<List<TriviaQ>>((ref) {
 
 class Name99 {
   final int n; final String name, meaning, ref;
-  const Name99({required this.n, required this.name, required this.meaning, required this.ref});
-  factory Name99.fromJson(Map<String, dynamic> j) =>
-      Name99(n: j['n'] as int, name: j['name'] as String, meaning: j['meaning'] as String, ref: j['ref'] as String);
+
+  /// The Name in Arabic script with vowel marks. Optional so an older
+  /// downloaded pack (before the Arabic was added) still loads.
+  final String? arabic;
+  const Name99({
+    required this.n,
+    required this.name,
+    required this.meaning,
+    required this.ref,
+    this.arabic,
+  });
+  factory Name99.fromJson(Map<String, dynamic> j) => Name99(
+        n: j['n'] as int,
+        name: j['name'] as String,
+        meaning: j['meaning'] as String,
+        ref: j['ref'] as String,
+        arabic: j['arabic'] as String?,
+      );
 }
 
 final namesProvider = FutureProvider<List<Name99>>((ref) {
@@ -435,6 +450,15 @@ class Names99Screen extends ConsumerStatefulWidget {
 String names99RefLabel(String ref) =>
     RegExp(r'^\d+:\d+').hasMatch(ref) ? 'Qur\u2019an $ref' : ref;
 
+/// The Arabic script of a Name. Sized in logical pixels, so the app's text
+/// scale (Elder Mode, system font size) enlarges it with everything else.
+TextStyle names99ArabicStyle(double size) => TextStyle(
+      fontFamily: 'Amiri',
+      fontSize: size,
+      height: 1.7,
+      color: AppColors.goldLight,
+    );
+
 class _Names99ScreenState extends ConsumerState<Names99Screen> {
   /// Where the person was, kept on the device so Back from Ask Hādi (or a
   /// reopened screen) returns to the same name instead of the first.
@@ -486,6 +510,16 @@ class _Names99ScreenState extends ConsumerState<Names99Screen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          if (deck[k].arabic != null)
+                            Align(
+                              alignment: AlignmentDirectional.centerEnd,
+                              child: Text(
+                                deck[k].arabic!,
+                                key: Key('names-row-arabic-${deck[k].n}'),
+                                textDirection: TextDirection.rtl,
+                                style: names99ArabicStyle(26),
+                              ),
+                            ),
                           Text(deck[k].name, style: AppText.titleMedium),
                           const SizedBox(height: 2),
                           Text(deck[k].meaning, style: AppText.bodyMuted),
@@ -577,14 +611,30 @@ class _Names99ScreenState extends ConsumerState<Names99Screen> {
                                   style: AppText.bodyMuted.copyWith(fontSize: 12)),
                             ],
                           )
-                        : Text(
-                            d.name,
+                        : Column(
                             key: const ValueKey('front'),
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(
-                                fontFamily: 'PlayfairDisplay',
-                                fontSize: 34,
-                                color: AppColors.goldLight),
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              if (d.arabic != null)
+                                Padding(
+                                  padding: const EdgeInsets.only(bottom: 10),
+                                  child: Text(
+                                    d.arabic!,
+                                    key: const Key('names-card-arabic'),
+                                    textAlign: TextAlign.center,
+                                    textDirection: TextDirection.rtl,
+                                    style: names99ArabicStyle(56),
+                                  ),
+                                ),
+                              Text(
+                                d.name,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    fontFamily: 'PlayfairDisplay',
+                                    fontSize: d.arabic != null ? 24 : 34,
+                                    color: AppColors.goldLight),
+                              ),
+                            ],
                           ),
                   ),
                 ),

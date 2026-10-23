@@ -1,6 +1,6 @@
 # Dua transliteration: content needed
 
-Status: waiting for owner / scholar approval. Nothing in this file is in the app.
+Status (round 4): PARTLY DONE. The owner approved adding transliteration where it can be verified. 30 of 42 duas, 29 of 52 counted adhkar and 8 of 14 Du'a School lessons now have a `tl` line with its source (`tlSource`) shown in the app; the Daily Duas reader and the Du'a School now display it. Items without a verified source were left out and are listed in `VERIFICATION_LOG_NAMES_DUAS.md`; the tables below stay as the list of what exists. The elided Arabic of dua-istikhlas, dua-istikhara-full, dua-witr-qunut, dua-sleep and dua-sleep2 is now complete.
 
 First-time users who cannot read Arabic (p05, q07) asked for a Latin-letter line under each dua so they can say it. The app's dua data has Arabic and an English meaning only. There is no transliteration field anywhere in the dua data, so the app shows none, and none has been written by the developer (religious-content rule).
 

@@ -21,6 +21,8 @@ class _DuaLesson {
     required this.meaning,
     required this.when,
     required this.source,
+    this.translit,
+    this.translitSource,
   });
 
   final String title;
@@ -28,6 +30,11 @@ class _DuaLesson {
   final String meaning;
   final String when;
   final String source;
+
+  /// Latin-letter reading of [arabic], only where it was checked against a
+  /// named source ([translitSource]); null otherwise.
+  final String? translit;
+  final String? translitSource;
 }
 
 const List<_DuaLesson> kDuaLessons = <_DuaLesson>[
@@ -48,6 +55,9 @@ const List<_DuaLesson> kDuaLessons = <_DuaLesson>[
         'O Allah, You are my Lord; there is no god but You. You created me and I am Your servant… Whoever says it with conviction morning or evening and dies that day enters Paradise (Bukhari 6306).',
     when: 'Morning and evening.',
     source: 'Bukhari 6306',
+    translit:
+        'Allāhumma anta Rabbī lā ilāha illā ant, khalaqtanī wa anā `abduk.',
+    translitSource: 'Hisn al-Muslim 79 (sunnah.com/hisn:79), lines 1-2',
   ),
   _DuaLesson(
     title: 'Before sleeping',
@@ -75,6 +85,9 @@ const List<_DuaLesson> kDuaLessons = <_DuaLesson>[
         'Say: He is Allah, One… Say: I seek refuge in the Lord of daybreak… Say: I seek refuge in the Lord of mankind (112–114). The Prophet ﷺ taught them morning and evening three times — they suffice the servant against everything.',
     when: 'Morning and evening, three times each.',
     source: 'Abu Dawud 5082, hasan per al-Albani; Tirmidhi 3575, hasan per Darussalam',
+    translit:
+        "Qul huwal-laahu 'ahad. Qul 'a'oozu birabbil-falaq. Qul 'a'oozu birabbin-naas.",
+    translitSource: 'Qur’an 112:1, 113:1, 114:1 (the Qur’an transliteration already approved in this app)',
   ),
   _DuaLesson(
     title: 'Leaving the home — the morning departure',
@@ -84,6 +97,9 @@ const List<_DuaLesson> kDuaLessons = <_DuaLesson>[
         'In the name of Allah; I place my trust in Allah; there is no might nor power except with Allah (Abu Dawud 5095, sahih per al-Albani). Taught as the morning\'s first sentence when the foot crosses the threshold.',
     when: 'When leaving the house.',
     source: 'Abu Dawud 5095, sahih per al-Albani',
+    translit:
+        'Bismillāhi, tawakkaltu `alallāhi, wa lā ḥawla wa lā quwwata illā billāh.',
+    translitSource: 'Hisn al-Muslim 16 (sunnah.com/hisn:16)',
   ),
 
   // --- Home & table ------------------------------------------------------
@@ -114,6 +130,9 @@ const List<_DuaLesson> kDuaLessons = <_DuaLesson>[
         'O Allah, open for me the doors of Your mercy (Muslim 713). Said with the right foot at the mosque\'s door.',
     when: 'Entering the mosque.',
     source: 'Sahih Muslim 713',
+    translit:
+        "Allāhummaftaḥ lī 'abwāba raḥmatik.",
+    translitSource: 'Hisn al-Muslim 20 (sunnah.com/hisn:20), line 6',
   ),
   _DuaLesson(
     title: 'After the prayer — the closing words',
@@ -123,6 +142,9 @@ const List<_DuaLesson> kDuaLessons = <_DuaLesson>[
         'I seek Allah\'s forgiveness (three times). O Allah, You are Peace and from You comes peace… (Muslim 591). The prayer does not end; it hands you to the next worship.',
     when: 'After each obligatory prayer.',
     source: 'Sahih Muslim 591',
+    translit:
+        'Astaghfirullāh (×3). Allāhumma antas-salām, wa minkas-salām.',
+    translitSource: 'Hisn al-Muslim 66 (sunnah.com/hisn:66), lines 1-3',
   ),
 
   // --- Travel & hardship -------------------------------------------------
@@ -134,6 +156,9 @@ const List<_DuaLesson> kDuaLessons = <_DuaLesson>[
         'Glory to Him who subjected this to us, and we could never have accomplished it ourselves (43:13). The Prophet ﷺ recited it mounting his ride, then said Allahu Akbar three times (Muslim 1342).',
     when: 'Boarding a vehicle, mount, or seat of travel.',
     source: 'Qur\'an 43:13; Sahih Muslim 1342',
+    translit:
+        "Subḥāna 'l-ladhi sakhkhara lanā hādhā wa mā kunnā lahu muqrinīn.",
+    translitSource: 'Hisn al-Muslim 207 (sunnah.com/hisn:207), lines 2-3',
   ),
   _DuaLesson(
     title: 'In distress — the dua of the afflicted',
@@ -143,6 +168,9 @@ const List<_DuaLesson> kDuaLessons = <_DuaLesson>[
         'There is no god but Allah, the Magnificent, the Forbearing; there is no god but Allah, Lord of the Mighty Throne (Bukhari 6346). The Prophet ﷺ taught it to the distressed as a prayer Allah does not refuse.',
     when: 'In any hardship, anxiety, or tightness of the chest.',
     source: 'Sahih al-Bukhari 6346',
+    translit:
+        "Lā ilāha illallāh al-`Aẓīmul-Ḥalīm, lā ilāha illallāh Rabbu 'l-`Arshi 'l-`Aẓīm.",
+    translitSource: 'Hisn al-Muslim 122 (sunnah.com/hisn:122), lines 1-4 (one apostrophe in the source typed for the letter ayn is written as ayn)',
   ),
   _DuaLesson(
     title: 'Hasbunallahu wa ni\'mal wakil — the sufficiency clause',
@@ -160,6 +188,9 @@ const List<_DuaLesson> kDuaLessons = <_DuaLesson>[
         'O Allah, You are my Lord; there is no god but You. You created me and I am Your servant… (Bukhari 6306). Whoever says it with conviction in the morning or evening and dies that day or night enters Paradise.',
     when: 'Morning and evening.',
     source: 'Sahih al-Bukhari 6306',
+    translit:
+        'Allāhumma anta Rabbī lā ilāha illā ant, khalaqtanī wa anā `abduk.',
+    translitSource: 'Hisn al-Muslim 79 (sunnah.com/hisn:79), lines 1-2',
   ),
 ];
 
@@ -207,6 +238,24 @@ class DuaSchoolScreen extends StatelessWidget {
                             ),
                           ),
                         ),
+                        if (l.translit != null) ...<Widget>[
+                          const SizedBox(height: 6),
+                          Text(
+                            l.translit!,
+                            key: Key('dua-lesson-tl-${l.title}'),
+                            style: AppText.bodyMuted.copyWith(
+                              fontSize: 14,
+                              height: 1.5,
+                              fontStyle: FontStyle.italic,
+                              color: AppColors.goldLight,
+                            ),
+                          ),
+                          if (l.translitSource != null)
+                            Text(
+                              'Transliteration: ${l.translitSource!}',
+                              style: AppText.caption,
+                            ),
+                        ],
                         const SizedBox(height: 8),
                         Text(l.meaning,
                             style: AppText.body.copyWith(height: 1.5)),

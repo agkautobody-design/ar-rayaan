@@ -16,9 +16,9 @@
    "version": 1
   },
   "games/names99.json": {
-   "bytes": 9313,
-   "sha256": "c8e379a052dfe4c36aaf175685f2ef91c1b42f822ce5e454dbb136e163cf15b0",
-   "version": 1
+   "bytes": 12954,
+   "sha256": "72216662c9e9b9ae3301cef91dc3e7890cf551be0900e72ae22acc81dc2e8700",
+   "version": 2
   },
   "games/trivia.json": {
    "bytes": 12480,
@@ -41,9 +41,9 @@
    "version": 7
   },
   "stories/dailyduas.json": {
-   "bytes": 47386,
-   "sha256": "3fb8a89c8050a2255afb803970fbd5eacf46156443d4491877dfa2b063302aee",
-   "version": 6
+   "bytes": 56997,
+   "sha256": "4b63fcc8b8444ca635a218e94da4e88d98e27a39537da86e3a8eb7ff84d5e646",
+   "version": 7
   },
   "stories/ghayb.json": {
    "bytes": 84523,
@@ -56,9 +56,9 @@
    "version": 8
   },
   "stories/modernhadith.json": {
-   "bytes": 50304,
-   "sha256": "bb04cdf170b2b5662d45427ae1be68f053cbe9590d1a915e1b78168f8acb7782",
-   "version": 12
+   "bytes": 51733,
+   "sha256": "3481787bc34a2758df3a7803710e77f319abe3ab3650bab586149bbfb2550e91",
+   "version": 13
   },
   "stories/newmuslim.json": {
    "bytes": 37931,

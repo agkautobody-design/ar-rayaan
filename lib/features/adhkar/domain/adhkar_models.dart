@@ -10,6 +10,7 @@ class Dhikr {
     this.translation,
     this.source,
     this.transliteration,
+    this.transliterationSource,
   });
 
   final int number;
@@ -28,6 +29,9 @@ class Dhikr {
   /// Latin-letter reading of [arabic] (JSON field `tl`). Null until the
   /// owner supplies approved content; nothing is generated.
   final String? transliteration;
+
+  /// Where [transliteration] was checked (JSON field `tlSource`).
+  final String? transliterationSource;
 }
 
 class AdhkarSet {
