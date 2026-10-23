@@ -101,13 +101,19 @@ abstract final class HadiExplain {
   // ── Tahajjud ─────────────────────────────────────────────────────────
 
   static const String tahajjudReply =
-      'I do not have verified tahajjud steps or a rak’ah count on my '
-      'shelf, so I will not give you a number or a method from memory. For '
-      'how to pray it, a qualified scholar is the right person.\n\n'
-      'What the app does have is the Witr and night routine guide. One line '
-      'from it: “make the witr your last prayer at night” '
-      '(Sahih al-Bukhari 990). Prayer Times shows tonight’s tahajjud '
-      'window.\n[GO:/huda/guide?id=huda-witr]\n[GO:/prayer]';
+      'The app has a Tahajjud guide: what the Qur’an says about the night '
+      'prayer, the hadith on the last third of the night, praying in pairs, '
+      'beginning with two short rak’ahs, and Aisha’s report of the '
+      'Prophet’s ﷺ own night prayer. Every reference in it was checked '
+      'against the Qur’an text in the app and sunnah.com, but it is not '
+      'yet scholar-reviewed. One line from it: “the most excellent prayer '
+      'after what is prescribed is prayer during the night” '
+      '(Sahih Muslim 1163).\n\n'
+      'I will not give you a rak’ah count or a method from memory: the '
+      'guide reports what the sources say and leaves the schools’ views to '
+      'a qualified teacher. The Witr and night guide has the witr and the '
+      'qunut, and Prayer Times shows tonight’s tahajjud '
+      'window.\n[GO:/huda/guide?id=huda-tahajjud]\n[GO:/prayer]';
 
   // ── The schools of law ───────────────────────────────────────────────
 
@@ -137,13 +143,16 @@ abstract final class HadiExplain {
       'are recognised as legitimate, and Muslims are asked to be gentle '
       'with each other about them. A layperson should follow one school '
       'consistently under a qualified teacher.\n\n'
-      'What I cannot do: tell you how the schools differ on a particular '
-      'point, such as the hands in prayer. My shelf holds no verified text '
-      'for any single school, and I will not state a school’s position from '
-      'memory. Please ask a qualified scholar of your school, or your local '
-      'masjid; Our Sources lists one. In the More options menu at the top of '
-      'this chat, “Your school of law” lets me name your school when I hand '
-      'you to a scholar.\n[GO:/sources]\n[GO:/huda]';
+      'The app has a short guide, The Four Schools: How They Differ, with '
+      'one worked example (the hands in prayer) and the sources it comes '
+      'from. It is not yet scholar-reviewed.\n\n'
+      'What I cannot do: tell you how the schools differ on any other '
+      'point. My shelf holds no verified text for any single school, and I '
+      'will not state a school’s position from memory. Please ask a '
+      'qualified scholar of your school, or your local masjid; Our Sources '
+      'lists one. In the More options menu at the top of this chat, “Your '
+      'school of law” lets me name your school when I hand you to a '
+      'scholar.\n[GO:/huda/guide?id=huda-madhhab-overview]\n[GO:/sources]';
 
   // ── How Hadi works, who reviewed it ──────────────────────────────────
 

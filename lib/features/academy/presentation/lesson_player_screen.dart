@@ -1,3 +1,5 @@
+import 'dart:async' show unawaited;
+
 import 'package:flutter/material.dart';
 import 'avatar_clip_player.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -7,6 +9,8 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
+import '../../habits/application/return_loop.dart';
+import '../../habits/presentation/quiet_done.dart';
 import '../application/academy_providers.dart';
 import '../application/academy_strings.dart';
 import '../application/recall_checks.dart';
@@ -91,6 +95,8 @@ class _LessonPlayerScreenState
     if (_isLast) {
       await notifier.complete(_lesson.id);
       ref.read(reviewQueueProvider.notifier).addLesson(_lesson.id);
+      unawaited(noteReturn(ref, ReturnAct.lesson));
+      final bool firstLesson = ref.read(lessonsDoneProvider) == 1;
       if (mounted) {
         final AcademyLesson? next = nextLessonAfter(_lesson.id);
         await showModalBottomSheet<void>(
@@ -119,6 +125,15 @@ class _LessonPlayerScreenState
                     style: AppText.bodyMuted,
                     textAlign: TextAlign.center,
                   ),
+                  if (firstLesson && kQuietDoneEnabled) ...<Widget>[
+                    const SizedBox(height: 8),
+                    const Text(
+                      kQuietDoneText,
+                      key: Key('quiet-done-text'),
+                      style: AppText.bodyMuted,
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
                   const SizedBox(height: 16),
                   if (next != null) ...<Widget>[
                     FilledButton(

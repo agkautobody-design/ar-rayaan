@@ -306,9 +306,9 @@ const List<AppDestination> kAppDestinations = <AppDestination>[
   ),
   AppDestination(
     id: 'night-prayer',
-    title: 'Tahajjud — Witr and the night routine',
-    subtitle: 'The Huda guide to the night prayer',
-    route: '/huda/guide?id=huda-witr',
+    title: 'Tahajjud — The Night Prayer',
+    subtitle: 'The Huda guide: the Qur’an and hadith on praying in the night',
+    route: '/huda/guide?id=huda-tahajjud',
     keywords: <String>[
       'tahajjud',
       'tahajud',
@@ -316,8 +316,31 @@ const List<AppDestination> kAppDestinations = <AppDestination>[
       'night prayer',
       'qiyam al layl',
       'qiyam',
-      'witr',
       'late night prayer',
+    ],
+  ),
+  AppDestination(
+    id: 'witr-guide',
+    title: 'Witr & The Night Routine',
+    subtitle: 'The Huda guide: witr, the qunut and the last words before sleep',
+    route: '/huda/guide?id=huda-witr',
+    keywords: <String>[
+      'witr',
+      'qunut',
+      'night routine',
+    ],
+  ),
+  AppDestination(
+    id: 'what-is-islam',
+    title: 'What Is Islam?',
+    subtitle: 'The Huda guide: the word, the verses and the hadith',
+    route: '/huda/guide?id=huda-what-is-islam',
+    keywords: <String>[
+      'what is islam',
+      'meaning of islam',
+      'islam meaning',
+      'define islam',
+      'what does islam mean',
     ],
   ),
   AppDestination(
@@ -357,12 +380,14 @@ const List<AppDestination> kAppDestinations = <AppDestination>[
   ),
   AppDestination(
     id: 'madhhab',
-    title: 'What is a madhhab? Ask Hādi',
+    title: 'The Four Schools — How They Differ',
     subtitle:
-        'The four schools of law, explained. Choose yours in Hādi’s ⋮ menu',
-    route: '/hadi?q=What+is+a+madhhab%3F',
+        'The Huda guide: what a madhhab is, with one sourced example',
+    route: '/huda/guide?id=huda-madhhab-overview',
     keywords: <String>[
       'madhhab',
+      'difference between schools',
+      'hands in prayer',
       'school of law',
       'schools of thought',
       'hanafi',

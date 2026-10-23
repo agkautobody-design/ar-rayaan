@@ -1,5 +1,7 @@
 # Needs owner/scholar content: how to pray tahajjud
 
+> INTEGRATED (owner-approved, verified): the app now has the Huda guide `huda-tahajjud`, and Hadi links it. The numbers in the draft below were corrected where wrong (the "witr last" line is Bukhari 998, not 990). See VERIFICATION_LOG.md for every citation checked and everything dropped. Still not scholar-reviewed (OWNER_ACTIONS item 4).
+
 Status: NOT in the app. Hadi says plainly, in the chat, that it has no verified tahajjud steps and points to the Witr and night guide (`huda-witr`) and Prayer Times. Nothing below may be shipped until a scholar has approved it and every reference has been checked against the collection.
 
 ## Why
