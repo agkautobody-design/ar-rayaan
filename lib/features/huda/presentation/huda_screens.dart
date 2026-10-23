@@ -10,6 +10,7 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/core/content/content_sync.dart';
+import '../domain/guide_glossary.dart';
 
 class Guide {
   final String id;
@@ -178,6 +179,39 @@ class GuideScreen extends StatelessWidget {
   final Guide guide;
   const GuideScreen({super.key, required this.guide});
 
+  /// "Words in this guide": plain, literal glosses for the terms the guide
+  /// uses (see guide_glossary.dart). Empty when the guide uses none.
+  List<Widget> _glossaryBlock() {
+    final List<GlossaryEntry> words = glossaryFor(<String>[
+      guide.title,
+      guide.subtitle,
+      ...guide.steps,
+      if (guide.madhhabNote != null) guide.madhhabNote!,
+      ...?guide.goDeeper?.values,
+    ].join('\n'));
+    if (words.isEmpty) return const <Widget>[];
+    return <Widget>[
+      const SizedBox(height: 12),
+      GlassCard(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text('WORDS IN THIS GUIDE', style: AppText.eyebrow),
+            const SizedBox(height: 6),
+            for (final GlossaryEntry w in words)
+              Padding(
+                padding: const EdgeInsets.only(bottom: 3),
+                child: Text(
+                  '${w.term} — ${w.gloss}',
+                  style: AppText.bodyMuted.copyWith(fontSize: 13, height: 1.4),
+                ),
+              ),
+          ],
+        ),
+      ),
+    ];
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -198,6 +232,7 @@ class GuideScreen extends StatelessWidget {
           ),
           const SizedBox(height: 4),
           Text(guide.subtitle, style: AppText.bodyMuted),
+          ..._glossaryBlock(),
           if (guide.showPositions) ...[
             const SizedBox(height: 14),
             Container(
