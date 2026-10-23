@@ -34,9 +34,31 @@ class PrayerLocation {
   /// A location the person chose or the device reported.
   bool get isSet => !isPlaceholder;
 
+  /// The city name stored for a GPS fix, which has no city of its own.
+  static const String gpsCity = 'My Location';
+
+  /// True for a GPS fix (no city name is known for it).
+  bool get isGps => !isPlaceholder && (city.isEmpty || city == gpsCity);
+
   String get label {
     if (isPlaceholder) return 'No location set';
+    if (isGps) {
+      // There is no city name for a GPS fix (looking one up would need an
+      // online service), so say what it is and show where it is.
+      return 'Your location (GPS) \u00b7 $coordinates';
+    }
     return country.isEmpty ? city : '$city, $country';
+  }
+
+  /// Short name for running text ("from your location to the Kaaba").
+  String get placeName => isGps ? 'your location' : city;
+
+  /// Coordinates rounded to two decimals, e.g. `43.65\u00b0N 79.38\u00b0W`.
+  String get coordinates {
+    final String ns = latitude >= 0 ? 'N' : 'S';
+    final String ew = longitude >= 0 ? 'E' : 'W';
+    return '${latitude.abs().toStringAsFixed(2)}\u00b0$ns '
+        '${longitude.abs().toStringAsFixed(2)}\u00b0$ew';
   }
 
   PrayerLocation copyWith({

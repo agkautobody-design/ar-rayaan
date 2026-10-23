@@ -126,6 +126,16 @@ class SakinaScreen extends ConsumerWidget {
                     spacing: 8,
                     runSpacing: 8,
                     children: <Widget>[
+                      // The du'a for an unquiet heart already lives in
+                      // Dhikr & Du'a; this is the way to it from here.
+                      ActionChip(
+                        key: const Key('sakina-duas'),
+                        avatar: const Icon(Icons.favorite_border, size: 16),
+                        label: const Text('Duas for worry & peace'),
+                        onPressed: () => context.push(
+                          '${AppRoutes.storyReader}?id=dua-anxiety',
+                        ),
+                      ),
                       ActionChip(
                         avatar: const Icon(Icons.air, size: 16),
                         label: const Text('Steady yourself'),

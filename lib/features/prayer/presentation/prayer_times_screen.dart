@@ -945,6 +945,24 @@ class _JumuahRow extends ConsumerWidget {
                         : 'Your mosque\u2019s time \u00b7 tap to change',
                     style: AppText.bodyMuted.copyWith(fontSize: 12),
                   ),
+                  // Not set yet: the time is the mosque's own, so say where
+                  // to ask for it, right here in the row.
+                  if (time == null)
+                    InkWell(
+                      key: const Key('jumuah-find-masjid'),
+                      onTap: () => context.open('/masajid'),
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 8, bottom: 4),
+                        child: Text(
+                          'Find a masjid for the Friday time',
+                          style: AppText.body.copyWith(
+                            fontSize: 13,
+                            color: AppColors.goldLight,
+                            decoration: TextDecoration.underline,
+                          ),
+                        ),
+                      ),
+                    ),
                 ],
               ),
             ),
