@@ -229,7 +229,7 @@ void main() {
           contains('[GO:/huda/guide?id=huda-nikah]'));
     });
 
-    test('night prayer how-to goes to the Witr guide and Prayer Times',
+    test('night prayer how-to goes to the Tahajjud guide and Prayer Times',
         () async {
       for (final String q in <String>[
         'how do I pray night prayer',
@@ -237,7 +237,7 @@ void main() {
         'teach me qiyam',
       ]) {
         final String a = await ask(q);
-        expect(a, contains('[GO:/huda/guide?id=huda-witr]'), reason: q);
+        expect(a, contains('[GO:/huda/guide?id=huda-tahajjud]'), reason: q);
         expect(a, contains('[GO:/prayer]'), reason: q);
       }
     });

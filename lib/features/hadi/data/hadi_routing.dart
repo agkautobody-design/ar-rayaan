@@ -117,9 +117,11 @@ abstract final class HadiRouting {
       'articles of faith says: “The Prophet ﷺ defined faith in the hadith '
       'of Jibreel (Muslim 8): belief in Allah, His angels, His books, His '
       'messengers, the Last Day, and the divine decree.”\n\n'
-      'The New Muslim path goes on one short step a day, and the Aqeedah '
-      'school teaches what Muslims believe. For a short list first, ask me '
-      'about the five pillars of Islam.\n[GO:/new-muslim]\n[GO:/academy/aqeedah]';
+      'The What Is Islam guide sets the word, the verses and the hadith in '
+      'order, with their sources (not yet scholar-reviewed). The New Muslim '
+      'path goes on one short step a day, and the Aqeedah school teaches '
+      'what Muslims believe. For a short list first, ask me about the five '
+      'pillars of Islam.\n[GO:/huda/guide?id=huda-what-is-islam]\n[GO:/new-muslim]';
 
   // ── "These may help" must never promise buttons that are not there ──
 

@@ -1,0 +1,50 @@
+{
+ "bukhari:740": {
+  "verdict": "ok",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
+  "checked": "2026-10-23",
+  "note": "people told to place right hand on left forearm in prayer (Sahl ibn Sad); sunnah.com page read"
+ },
+ "bukhari:998": {
+  "verdict": "ok",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
+  "checked": "2026-10-23",
+  "note": "Ibn Umar: make witr your last prayer at night; chapter Witr as the last salat; sunnah.com page read"
+ },
+ "bukhari:1147": {
+  "verdict": "ok",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
+  "checked": "2026-10-23",
+  "note": "Aisha to Abu Salama: no more than eleven rakahs in Ramadan or other months, four, four, three; sunnah.com page read"
+ },
+ "muslim:758": {
+  "verdict": "ok",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
+  "checked": "2026-10-23",
+  "note": "Abu Hurayrah: descent in last third of the night (758a); sunnah.com page read"
+ },
+ "muslim:767": {
+  "verdict": "ok",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
+  "checked": "2026-10-23",
+  "note": "Aisha: began night prayer with two short rakahs; sunnah.com page read"
+ },
+ "muslim:768": {
+  "verdict": "ok",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "Included in Sahih Muslim",
+  "checked": "2026-10-23",
+  "note": "Abu Hurayrah: begin night prayer with two short rakahs; sunnah.com page read"
+ }
+}
