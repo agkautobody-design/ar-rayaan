@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../features/elder/application/elder_mode.dart';
 import '../../router.dart';
 import '../app_colors.dart';
 import '../app_typography.dart';
@@ -30,6 +32,17 @@ class ScreenHeader extends StatelessWidget {
       target = parentRouteOf(GoRouterState.of(context).uri.path);
     } catch (_) {
       // Not under a route (a bare test harness): Home.
+    }
+    // In Elder Mode "Home" is the Elder home, so Back never drops an elder
+    // onto the busy normal Home.
+    if (target == AppRoutes.home) {
+      try {
+        if (ProviderScope.containerOf(context).read(elderModeProvider)) {
+          target = ElderMode.homeRoute;
+        }
+      } catch (_) {
+        // No provider scope (a bare test harness): normal Home.
+      }
     }
     context.go(target);
   }

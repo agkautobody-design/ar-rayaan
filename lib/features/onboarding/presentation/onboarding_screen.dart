@@ -127,9 +127,21 @@ class _OnboardingState extends State<OnboardingScreen> {
         child: Column(children: [
           Align(
             alignment: Alignment.centerRight,
+            // A real button: 48dp high, readable 16sp words.
             child: TextButton(
               onPressed: () => _finish(skipped: true),
-              child: Text('Skip', style: AppText.bodyMuted),
+              style: TextButton.styleFrom(
+                minimumSize: const Size(64, 48),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+              ),
+              child: Text(
+                'Skip',
+                style: AppText.body.copyWith(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                  color: AppColors.goldLight,
+                ),
+              ),
             ),
           ),
           Expanded(

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart' show DateFormat;
@@ -10,8 +9,10 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/core/modules/module_status.dart';
 import '../../academy/application/academy_providers.dart';
 import '../../menu/presentation/menu_screen.dart' show isAcademyRoute;
+import '../../elder/application/elder_mode.dart';
 import '../../hadi/presentation/hadi_ask_bar.dart';
 import '../../hadith/presentation/daily_hadith_banner.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/gold_text.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
@@ -180,36 +181,19 @@ class HomeScreen extends ConsumerWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.fromLTRB(20, 12, 20, 0),
-                  child: Row(
-                    children: [
-                      // Home is the root of the Home tab: there is nothing to go
-                      // back to unless something was pushed over it.
-                      if (context.canPop()) ...[
-                        _HeaderIcon(
-                          icon: Icons.arrow_back,
-                          tooltip: 'Back',
-                          onTap: () => context.pop(),
-                        ),
-                        const SizedBox(width: 12),
-                      ],
-                      const Expanded(child: HadiAskBar()),
-                      const SizedBox(width: 12),
-                      _HeaderIcon(
-                        icon: Icons.search,
-                        tooltip: 'Search',
-                        onTap: () => context.push(AppRoutes.search),
-                      ),
-                      const SizedBox(width: 8),
-                      _HeaderIcon(
-                        icon: Icons.menu,
-                        tooltip: 'Menu',
-                        onTap: () => context.push(AppRoutes.menu),
-                      ),
-                    ],
+                  child: _Header(
+                    // Big text or a narrow phone: the Ask bar gets its own
+                    // line instead of being squeezed between the icons.
+                    stacked: textScale > 1.3 ||
+                        MediaQuery.sizeOf(context).width < 380,
                   ),
                 ),
                 Expanded(
-                  child: ListView(
+                  // Tab goes top to bottom, row by row: Elder Mode, Quick
+                  // Access, the tiles, the links, then the cards below.
+                  child: FocusTraversalGroup(
+                    policy: ReadingOrderTraversalPolicy(),
+                    child: ListView(
                     padding: const EdgeInsets.fromLTRB(20, 16, 20, 24),
                     children: [
                       // Greeting sits directly on the scenery (locked board).
@@ -256,9 +240,8 @@ class HomeScreen extends ConsumerWidget {
               _SemanticTap(
                 label: 'Elder Mode. Opens the large-text home for an elder.',
                 onTap: () async {
-                  final p = await SharedPreferences.getInstance();
-                  await p.setBool('ar.elder.mode', true);
-                  if (context.mounted) context.go('/home/elder');
+                  await ref.read(elderModeProvider.notifier).set(true);
+                  if (context.mounted) context.go(ElderMode.homeRoute);
                 },
                 child: Container(
                   margin: const EdgeInsets.fromLTRB(4, 0, 4, 10),
@@ -268,20 +251,31 @@ class HomeScreen extends ConsumerWidget {
                     border: Border.all(color: AppColors.gold.withValues(alpha: 0.6), width: 1.2),
                     color: const Color(0x2405090F),
                   ),
+                  // The words come first: at big text or on a narrow phone
+                  // the icon and chevron step aside and the title is one
+                  // line that shrinks, never "ELDE / R / MODE".
                   child: Row(children: [
-                    const Icon(Icons.elderly_outlined, color: AppColors.goldLight, size: 26),
-                    const SizedBox(width: 12),
+                    if (textScale <= 1.3) ...[
+                      const Icon(Icons.elderly_outlined, color: AppColors.goldLight, size: 26),
+                      const SizedBox(width: 12),
+                    ],
                     Expanded(child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('ELDER MODE', style: AppText.body.copyWith(
-                            fontWeight: FontWeight.w800, fontSize: 15, color: AppColors.goldLight,
-                            letterSpacing: 1.2)),
+                        FittedBox(
+                          fit: BoxFit.scaleDown,
+                          alignment: AlignmentDirectional.centerStart,
+                          child: Text('ELDER MODE', maxLines: 1, softWrap: false,
+                              style: AppText.body.copyWith(
+                                  fontWeight: FontWeight.w800, fontSize: 15,
+                                  color: AppColors.goldLight, letterSpacing: 1.2)),
+                        ),
                         Text('One tap \u2014 the app opens here for them every time. Big words. Three doors. Nothing else.',
                             style: AppText.bodyMuted.copyWith(fontSize: 12)),
                       ],
                     )),
-                    const Icon(Icons.chevron_right, color: AppColors.gold, size: 22),
+                    if (textScale <= 1.3)
+                      const Icon(Icons.chevron_right, color: AppColors.gold, size: 22),
                   ]),
                 ),
               ),
@@ -462,12 +456,71 @@ class HomeScreen extends ConsumerWidget {
                       ],
                     ],
                   ),
+                  ),
                 ),
               ],
             ),
           ),
         ],
       )),
+    );
+  }
+}
+
+/// Home's top line: Back (when something is under Home), the Ask Hādi bar,
+/// Search and Menu. [stacked] puts the bar on its own line below the icons.
+class _Header extends StatelessWidget {
+  const _Header({required this.stacked});
+
+  final bool stacked;
+
+  @override
+  Widget build(BuildContext context) {
+    final Widget back = _HeaderIcon(
+      icon: Icons.arrow_back,
+      tooltip: 'Back',
+      onTap: () => context.pop(),
+    );
+    final Widget search = _HeaderIcon(
+      icon: Icons.search,
+      tooltip: 'Search',
+      onTap: () => context.push(AppRoutes.search),
+    );
+    final Widget menu = _HeaderIcon(
+      icon: Icons.menu,
+      tooltip: 'Menu',
+      onTap: () => context.push(AppRoutes.menu),
+    );
+    // Home is the root of the Home tab: there is nothing to go back to
+    // unless something was pushed over it.
+    final bool canGoBack = context.canPop();
+
+    if (stacked) {
+      return Column(
+        children: [
+          Row(
+            children: [
+              if (canGoBack) back,
+              const Spacer(),
+              search,
+              const SizedBox(width: 8),
+              menu,
+            ],
+          ),
+          const SizedBox(height: 8),
+          const HadiAskBar(),
+        ],
+      );
+    }
+    return Row(
+      children: [
+        if (canGoBack) ...[back, const SizedBox(width: 12)],
+        const Expanded(child: HadiAskBar()),
+        const SizedBox(width: 12),
+        search,
+        const SizedBox(width: 8),
+        menu,
+      ],
     );
   }
 }
@@ -572,15 +625,17 @@ class _HeaderIcon extends StatelessWidget {
       onTap: onTap,
       child: Tooltip(
         message: tooltip,
-        child: Material(
+        child: FocusRing(
+          borderRadius: 22,
+          child: Material(
           type: MaterialType.transparency,
           child: InkWell(
             onTap: onTap,
             customBorder: const CircleBorder(),
-            // 44 px touch target around the 36 px circle.
+            // 48 px touch target around the 36 px circle.
             child: SizedBox(
-              width: 44,
-              height: 44,
+              width: 48,
+              height: 48,
               child: Center(
                 child: Container(
                   width: 36,
@@ -600,6 +655,7 @@ class _HeaderIcon extends StatelessWidget {
                 ),
               ),
             ),
+          ),
           ),
         ),
       ),
@@ -676,7 +732,7 @@ class _PictureTile extends StatelessWidget {
       label: badge == null ? '$title. $subtitle' : '$title, $badge. $subtitle',
       excludeSemantics: true,
       onTap: onTap,
-      child: GestureDetector(
+      child: FocusableTap(
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
@@ -786,8 +842,8 @@ class _SemanticTap extends StatelessWidget {
       label: label,
       excludeSemantics: true,
       onTap: onTap,
-      child: GestureDetector(
-        behavior: HitTestBehavior.opaque,
+      child: FocusableTap(
+        borderRadius: 12,
         onTap: onTap,
         child: minHeight > 0
             ? ConstrainedBox(
