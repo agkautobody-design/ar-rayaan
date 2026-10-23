@@ -13,6 +13,13 @@ class OnboardingScreen extends StatefulWidget {
   static const pref = 'ar.onboarded.v1';
   static const needPref = 'ar.need';
 
+  /// Every claim here is checked against the app: nothing in it asks for a
+  /// card, the free list is in Settings, and no screen needed for prayer
+  /// times, the Qur\u2019an or stories asks for an account. (No "no ads":
+  /// the optional YouTube/Spotify players may show their own.)
+  static const String welcomeTrustLine =
+      'Free today. No sign-up needed. Nothing asks for a card.';
+
   static Future<bool> shouldShow() async {
     try {
       final p = await SharedPreferences.getInstance();
@@ -226,7 +233,7 @@ class _OnboardingState extends State<OnboardingScreen> {
                 ),
                 const SizedBox(height: 18),
                 Text(
-                  welcomeTrustLine,
+                  OnboardingScreen.welcomeTrustLine,
                   key: const Key('onboarding-trust-line'),
                   textAlign: TextAlign.center,
                   style: AppText.body.copyWith(
@@ -241,12 +248,7 @@ class _OnboardingState extends State<OnboardingScreen> {
     );
   }
 
-  /// Every claim here is checked against the app: nothing in it asks for a
-  /// card, the free list is in Settings, and no screen needed for prayer
-  /// times, the Qur\u2019an or stories asks for an account. (No "no ads":
-  /// the optional YouTube/Spotify players may show their own.)
-  static const String welcomeTrustLine =
-      'Free today. No sign-up needed. Nothing asks for a card.';
+
 
   Widget _needSlide() {
     return LayoutBuilder(
