@@ -17,6 +17,7 @@ import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/theme/widgets/switch_row.dart';
 import '../../elder/application/elder_mode.dart';
+import '../../habits/application/return_loop.dart';
 import '../../legal/legal_routes.dart';
 import '../../quran/presentation/quran_offline_card.dart';
 
@@ -270,6 +271,49 @@ class SettingsScreen extends ConsumerWidget {
                           height: 1.5,
                         ),
                       ),
+                      if (kReturnLoopEnabled) ...<Widget>[
+                        const SizedBox(height: 20),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 4, bottom: 8),
+                          child: Text('COMING BACK', style: AppText.eyebrow),
+                        ),
+                        GlassCard(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 16,
+                            vertical: 6,
+                          ),
+                          child: SwitchRow(
+                            icon: Icons.wb_twilight_outlined,
+                            title: 'Show days I came back',
+                            subtitle: 'A quiet count for Qur\u2019an reading, '
+                                'adhkar and lessons. Never for prayers. '
+                                'Kept on this device only.',
+                            value: ref.watch(returnLoopEnabledProvider),
+                            onChanged: (bool v) => unawaited(
+                              ref
+                                  .read(returnLoopEnabledProvider.notifier)
+                                  .set(v),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        Text(
+                          'One missed day each week is forgiven. Switching '
+                          'this off erases the count.',
+                          style: AppText.bodyMuted.copyWith(
+                            fontSize: 12,
+                            height: 1.5,
+                          ),
+                        ),
+                        if (ref.watch(returnMessageProvider) != null) ...<Widget>[
+                          const SizedBox(height: 8),
+                          Text(
+                            ref.watch(returnMessageProvider) ?? '',
+                            key: const Key('return-message'),
+                            style: AppText.body.copyWith(fontSize: 14),
+                          ),
+                        ],
+                      ],
                       const SizedBox(height: 20),
                       Padding(
                         padding: const EdgeInsets.only(left: 4, bottom: 8),
