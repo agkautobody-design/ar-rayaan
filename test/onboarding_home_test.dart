@@ -281,12 +281,10 @@ void main() {
       final List<String> found = <String>[];
       final void Function(FlutterErrorDetails)? previous = FlutterError.onError;
       FlutterError.onError = (FlutterErrorDetails d) {
-        final String text = d.toString();
-        final RegExpMatch? m = RegExp(
-          r'home_screen\.dart:(\d+)',
-        ).firstMatch(text);
-        if (text.contains('overflowed') && m != null) {
-          found.add('line ${m.group(1)}');
+        final String text = d.toStringDeep();
+        if (text.contains('overflowed') &&
+            RegExp(r'_PictureTile|_NextStepCard|_SemanticTap').hasMatch(text)) {
+          found.add(text.split('\n').first);
         }
       };
       await AppHarness.boot(tester);
