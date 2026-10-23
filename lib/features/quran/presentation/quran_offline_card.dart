@@ -81,13 +81,20 @@ class QuranOfflineCard extends ConsumerWidget {
           ),
           if (saving) ...<Widget>[
             const SizedBox(height: 12),
-            LinearProgressIndicator(
-              value: save.fraction,
-              minHeight: 6,
-              color: AppColors.gold,
-              backgroundColor: AppColors.gold.withValues(alpha: 0.2),
-              semanticsLabel: 'Saving the Qur’an',
-              semanticsValue: '${save.done} of ${save.total} files',
+            Semantics(
+              label: 'Saving the Qur\u2019an',
+              value: '${save.done} of ${save.total} files',
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(4),
+                child: LinearProgressIndicator(
+                  value: save.fraction,
+                  minHeight: 6,
+                  backgroundColor: AppColors.gold.withValues(alpha: 0.2),
+                  valueColor: const AlwaysStoppedAnimation<Color>(
+                    AppColors.gold,
+                  ),
+                ),
+              ),
             ),
             const SizedBox(height: 6),
             Text('${save.done} of ${save.total} files', style: AppText.caption),
