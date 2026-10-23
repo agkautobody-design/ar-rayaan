@@ -13,14 +13,24 @@ import '../domain/adhkar_models.dart';
 /// Dhikr & Du'a — Hisn al-Muslim sets with tap-to-count repetitions and
 /// daily-resetting progress. Pending Founder approval.
 class AdhkarScreen extends ConsumerStatefulWidget {
-  const AdhkarScreen({super.key});
+  const AdhkarScreen({super.key, this.initialSet});
+
+  /// The set to open straight on (`morning`, `evening`, `after-prayer`), from
+  /// `/adhkar?set=…`. Null (or an id that does not exist) opens the chooser.
+  final String? initialSet;
 
   @override
   ConsumerState<AdhkarScreen> createState() => _AdhkarScreenState();
 }
 
 class _AdhkarScreenState extends ConsumerState<AdhkarScreen> {
-  String _selectedSet = 'morning';
+  String? _selectedSet;
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedSet = widget.initialSet;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,17 +48,24 @@ class _AdhkarScreenState extends ConsumerState<AdhkarScreen> {
                 loading: () => const Center(
                   child: CircularProgressIndicator(color: AppColors.gold),
                 ),
-                error: (Object e, _) => Center(
-                  child: Text(
-                    'The adhkar could not be loaded.',
-                    style: AppText.bodyMuted,
-                  ),
+                // The single duas do not need the counters to load.
+                error: (Object e, _) => const AdhkarChooser(
+                  sets: <AdhkarSet>[],
+                  onOpenSet: null,
                 ),
                 data: (List<AdhkarSet> data) {
-                  final AdhkarSet set = data.firstWhere(
-                    (s) => s.id == _selectedSet,
-                    orElse: () => data.first,
-                  );
+                  AdhkarSet? found;
+                  for (final AdhkarSet s in data) {
+                    if (s.id == _selectedSet) found = s;
+                  }
+                  if (found == null) {
+                    return AdhkarChooser(
+                      sets: data,
+                      onOpenSet: (String id) =>
+                          setState(() => _selectedSet = id),
+                    );
+                  }
+                  final AdhkarSet set = found;
                   // The first dhikr not yet finished is the one to do next: its
                   // counter is the big one-thumb tap area.
                   int nextOpen = -1;
@@ -65,6 +82,16 @@ class _AdhkarScreenState extends ConsumerState<AdhkarScreen> {
                   return ListView(
                     padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
                     children: [
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: TextButton.icon(
+                          key: const Key('adhkar-all-duas'),
+                          onPressed: () =>
+                              setState(() => _selectedSet = null),
+                          icon: const Icon(Icons.arrow_back, size: 16),
+                          label: const Text('All duas'),
+                        ),
+                      ),
                       _SetPicker(
                         sets: data,
                         selected: set.id,
@@ -307,6 +334,19 @@ class _DhikrCard extends ConsumerWidget {
           textDirection: TextDirection.rtl,
         ),
         const SizedBox(height: 8),
+        if (dhikr.transliteration != null) ...[
+          Text(
+            dhikr.transliteration!,
+            key: Key('dhikr-${set.id}-${dhikr.number}-tl'),
+            style: AppText.bodyMuted.copyWith(
+              fontSize: 13,
+              height: 1.55,
+              fontStyle: FontStyle.italic,
+              color: AppColors.goldLight.withValues(alpha: complete ? 0.4 : 0.9),
+            ),
+          ),
+          const SizedBox(height: 6),
+        ],
         if (dhikr.translation != null) ...[
           Text(
             dhikr.translation!,
@@ -424,6 +464,152 @@ class _DhikrCard extends ConsumerWidget {
           counter,
         ],
       ),
+    );
+  }
+}
+
+/// One row of the chooser: a plain label and what it opens.
+class AdhkarChoice {
+  const AdhkarChoice({
+    required this.label,
+    required this.icon,
+    this.setId,
+    this.storyId,
+  });
+
+  final String label;
+  final IconData icon;
+
+  /// A counted Hisn al-Muslim set in `assets/adhkar/adhkar.json`.
+  final String? setId;
+
+  /// A single dua in `assets/stories/dailyduas.json`, opened in the reader.
+  final String? storyId;
+}
+
+/// The counted sets (shown only if they exist in the data).
+const List<AdhkarChoice> kAdhkarSetChoices = <AdhkarChoice>[
+  AdhkarChoice(label: 'Morning', icon: Icons.wb_sunny_outlined, setId: 'morning'),
+  AdhkarChoice(
+      label: 'Evening', icon: Icons.nights_stay_outlined, setId: 'evening'),
+  AdhkarChoice(
+      label: 'After prayer', icon: Icons.mosque_outlined, setId: 'after-prayer'),
+];
+
+/// Single duas, by the moment you are in. Every `storyId` is a dua in
+/// `assets/stories/dailyduas.json` (a test checks it).
+const List<AdhkarChoice> kAdhkarDuaChoices = <AdhkarChoice>[
+  AdhkarChoice(
+      label: 'Before sleep', icon: Icons.bedtime_outlined, storyId: 'dua-sleep'),
+  AdhkarChoice(
+      label: 'Waking up', icon: Icons.alarm_outlined, storyId: 'dua-waking'),
+  AdhkarChoice(
+      label: 'Worry or anxiety',
+      icon: Icons.favorite_border,
+      storyId: 'dua-anxiety'),
+  AdhkarChoice(
+      label: 'Travel', icon: Icons.luggage_outlined, storyId: 'dua-travel'),
+  AdhkarChoice(
+      label: 'Before eating',
+      icon: Icons.restaurant_outlined,
+      storyId: 'dua-eat-before'),
+  AdhkarChoice(
+      label: 'Entering home', icon: Icons.home_outlined, storyId: 'dua-home-in'),
+  AdhkarChoice(
+      label: 'Forgiveness',
+      icon: Icons.water_drop_outlined,
+      storyId: 'dua-istikhlas'),
+];
+
+/// What Dhikr & Du'a opens on: pick the moment, not a 351-count set.
+class AdhkarChooser extends StatelessWidget {
+  const AdhkarChooser({required this.sets, required this.onOpenSet, super.key});
+
+  final List<AdhkarSet> sets;
+
+  /// Opens a counted set in place. Null while the sets could not load.
+  final void Function(String id)? onOpenSet;
+
+  @override
+  Widget build(BuildContext context) {
+    final void Function(String id)? open = onOpenSet;
+    final Map<String, AdhkarSet> byId = <String, AdhkarSet>{
+      for (final AdhkarSet s in sets) s.id: s,
+    };
+    Widget row(AdhkarChoice c, String sub, VoidCallback onTap) => Padding(
+          padding: const EdgeInsets.only(bottom: 8),
+          child: GlassCard(
+            blur: false,
+            onTap: onTap,
+            child: Row(
+              children: [
+                Icon(c.icon, size: 20, color: AppColors.goldLight),
+                const SizedBox(width: 14),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        c.label,
+                        style: AppText.body.copyWith(
+                          fontSize: 14.5,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      Text(sub,
+                          style: AppText.bodyMuted.copyWith(fontSize: 12)),
+                    ],
+                  ),
+                ),
+                const Icon(Icons.chevron_right, color: AppColors.gold, size: 18),
+              ],
+            ),
+          ),
+        );
+
+    return ListView(
+      key: const Key('adhkar-chooser'),
+      padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
+      children: [
+        Text(
+          'What do you need right now?',
+          style: AppText.bodyMuted.copyWith(height: 1.5),
+        ),
+        const SizedBox(height: 14),
+        if (open != null) ...[
+          Text('COUNT AS YOU GO', style: AppText.eyebrow),
+          const SizedBox(height: 8),
+          for (final AdhkarChoice c in kAdhkarSetChoices)
+            if (byId[c.setId] != null)
+              row(
+                c,
+                '${byId[c.setId]!.items.length} remembrances',
+                () => open(c.setId!),
+              ),
+          const SizedBox(height: 10),
+        ],
+        Text('A SINGLE DUA', style: AppText.eyebrow),
+        const SizedBox(height: 8),
+        for (final AdhkarChoice c in kAdhkarDuaChoices)
+          row(
+            c,
+            'Arabic, meaning and source',
+            () => context.open('${AppRoutes.storyReader}?id=${c.storyId}'),
+          ),
+        const SizedBox(height: 10),
+        Text('MORE', style: AppText.eyebrow),
+        const SizedBox(height: 8),
+        row(
+          const AdhkarChoice(label: 'All duas by moment', icon: Icons.shield_outlined),
+          'Hisn al-Muslim: every dua, grouped',
+          () => context.open('/academy/hisn'),
+        ),
+        row(
+          const AdhkarChoice(label: 'For Your Heart', icon: Icons.spa_outlined),
+          'A guide for what you are feeling',
+          () => context.open(AppRoutes.feelings),
+        ),
+      ],
     );
   }
 }

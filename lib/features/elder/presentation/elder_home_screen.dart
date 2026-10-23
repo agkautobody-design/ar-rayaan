@@ -1,24 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 import '../../sakina/presentation/widgets/need_help_button.dart';
 import '../application/elder_mode.dart';
 
 /// ELDER MODE - the whole home, simplified. Giant words, three doors,
 /// nothing else. Once a family turns this on, the app opens here every time
 /// until it is turned off. The young set it up; the old simply use it.
-class ElderHomeScreen extends StatefulWidget {
+class ElderHomeScreen extends ConsumerStatefulWidget {
   const ElderHomeScreen({super.key});
 
   @override
-  State<ElderHomeScreen> createState() => _ElderHomeState();
+  ConsumerState<ElderHomeScreen> createState() => _ElderHomeState();
 }
 
-class _ElderHomeState extends State<ElderHomeScreen> {
+class _ElderHomeState extends ConsumerState<ElderHomeScreen> {
   int _count = 0;
 
   @override
@@ -26,7 +28,9 @@ class _ElderHomeState extends State<ElderHomeScreen> {
     super.initState();
     Future.microtask(() async {
       final p = await SharedPreferences.getInstance();
-      await ElderMode.set(true);
+      // Being on this screen IS Elder Mode: the whole app follows (text size
+      // and tap size, see AccessibilityScope).
+      if (mounted) await ref.read(elderModeProvider.notifier).set(true);
       if (mounted) setState(() => _count = p.getInt('ar.elder.dhikr') ?? 0);
     });
   }
@@ -38,7 +42,7 @@ class _ElderHomeState extends State<ElderHomeScreen> {
   }
 
   Future<void> _exit() async {
-    await ElderMode.set(false);
+    await ref.read(elderModeProvider.notifier).set(false);
     if (mounted) context.go(AppRoutes.home);
   }
 
@@ -60,20 +64,28 @@ class _ElderHomeState extends State<ElderHomeScreen> {
               const SizedBox(width: 10),
               Expanded(child: Text('As-salamu alaikum',
                   style: AppText.body.copyWith(fontSize: 20, fontWeight: FontWeight.w600))),
-              OutlinedButton(
+            ]),
+            const SizedBox(height: 10),
+            // Always visible, always the same words: how to leave.
+            SizedBox(
+              width: double.infinity,
+              child: OutlinedButton(
                 onPressed: _exit,
                 style: OutlinedButton.styleFrom(
-                  minimumSize: const Size(72, 48),
+                  minimumSize: const Size(72, 56),
                   foregroundColor: AppColors.goldLight,
                 ),
-                child: Text('Exit', style: AppText.body.copyWith(fontSize: 16)),
+                child: Text('Turn off Elder Mode',
+                    textAlign: TextAlign.center,
+                    style: AppText.body.copyWith(fontSize: 16)),
               ),
-            ]),
+            ),
             const SizedBox(height: 14),
             const Center(child: NeedHelpNowButton(large: true)),
             const SizedBox(height: 14),
-            GestureDetector(
+            FocusableTap(
               onTap: _tap,
+              borderRadius: 22,
               child: Container(
                 width: double.infinity,
                 padding: const EdgeInsets.symmetric(vertical: 34),
@@ -104,8 +116,9 @@ class _ElderHomeState extends State<ElderHomeScreen> {
             ])
               Padding(
                 padding: const EdgeInsets.only(bottom: 12),
-                child: GestureDetector(
+                child: FocusableTap(
                   onTap: () => context.open(e.$4),
+                  borderRadius: 16,
                   child: Container(
                     width: double.infinity,
                     padding: EdgeInsets.symmetric(horizontal: tight ? 12 : 18, vertical: 20),

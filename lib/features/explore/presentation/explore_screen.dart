@@ -37,6 +37,17 @@ class ExploreScreen extends ConsumerWidget {
         (Icons.auto_stories_outlined, 'Stories', AppRoutes.stories),
         (Icons.account_tree_outlined, 'The Messengers\u2019 Tree', AppRoutes.familyTree),
         (Icons.menu_book_outlined, 'Huda \u2014 Worship Guides', AppRoutes.huda),
+        // Life-event guides that used to be findable only through Search.
+        (
+          Icons.volunteer_activism_outlined,
+          'New to Islam \u00b7 a 30-day path',
+          AppRoutes.newMuslimPath,
+        ),
+        (
+          Icons.handshake_outlined,
+          'Marriage \u00b7 the Nikah guide',
+          '${AppRoutes.hudaGuide}?id=huda-nikah',
+        ),
         (Icons.sports_esports_outlined, 'Games', AppRoutes.games),
         (Icons.favorite_border, 'For Your Heart', AppRoutes.feelings),
         (Icons.forum_outlined, 'Majlis \u2014 The Courtyard', AppRoutes.majlis),

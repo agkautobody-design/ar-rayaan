@@ -127,10 +127,10 @@ class _VerseRangePlayerBarState extends ConsumerState<VerseRangePlayerBar> {
     return MediaQuery.withClampedTextScaling(
       maxScaleFactor: 1.3,
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 0, 16, 4),
+        padding: const EdgeInsets.fromLTRB(12, 0, 12, 4),
         child: GlassCard(
           strong: true,
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+          padding: const EdgeInsets.symmetric(horizontal: 4),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
@@ -176,24 +176,28 @@ class _VerseRangePlayerBarState extends ConsumerState<VerseRangePlayerBar> {
                   ),
                   IconButton(
                     tooltip: 'Choose reciter',
+                    constraints: const BoxConstraints(
+                      minWidth: 48,
+                      minHeight: 48,
+                    ),
                     icon: const Icon(
                       Icons.record_voice_over_outlined,
                       color: AppColors.gold,
                     ),
                     onPressed: () => showReciterPicker(context, ref),
                   ),
-                  Tooltip(
-                    message: _expanded ? 'Hide controls' : 'Show controls',
-                    child: TextButton.icon(
-                      style: TextButton.styleFrom(
-                        minimumSize: const Size(48, 48),
-                        foregroundColor: AppColors.gold,
-                        padding: const EdgeInsets.symmetric(horizontal: 8),
-                      ),
-                      icon: Icon(_expanded ? Icons.expand_more : Icons.tune),
-                      label: Text(_expanded ? 'Hide' : 'Repeat'),
-                      onPressed: () => setState(() => _expanded = !_expanded),
+                  // Icon only: a "Repeat" word here was cut off ("Rep...") on
+                  // narrow phones and made the row taller. The tooltip and
+                  // the screen-reader label still say what it does.
+                  IconButton(
+                    tooltip: _expanded ? 'Hide controls' : 'Show controls',
+                    constraints: const BoxConstraints(
+                      minWidth: 48,
+                      minHeight: 48,
                     ),
+                    color: AppColors.gold,
+                    icon: Icon(_expanded ? Icons.expand_more : Icons.tune),
+                    onPressed: () => setState(() => _expanded = !_expanded),
                   ),
                 ],
               ),

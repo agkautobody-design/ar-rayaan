@@ -24,7 +24,7 @@ void main() {
     expect(find.text('The Forty Hadith · An-Nawawi'), findsOneWidget);
     expect(find.text('Begin Reading · Al-Fatihah'), findsOneWidget);
     expect(find.textContaining('Morning Adhkar'), findsWidgets);
-    // Knowledge opens the stories library, and says so.
+    // The Stories tile opens the stories library, and says so.
     expect(find.text('Stories, khutbahs & duas'), findsOneWidget);
     expect(find.text('Articles, Lessons & Courses'), findsNothing);
   });
@@ -40,7 +40,7 @@ void main() {
       'Hadith',
       'Today’s NOOR',
       'Islamic Calendar',
-      'Knowledge',
+      'Stories',
       'Wasia Academy',
       'My Journey',
     ]) {

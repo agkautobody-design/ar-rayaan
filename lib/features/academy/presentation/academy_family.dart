@@ -74,6 +74,10 @@ class FamilyScreen extends ConsumerWidget {
     if (ok == true && name.text.trim().isNotEmpty) {
       await fam.addChild(name.text);
       ref.invalidate(childrenProvider);
+    } else if (ok == true && context.mounted) {
+      ScaffoldMessenger.maybeOf(context)?.showSnackBar(
+        const SnackBar(content: Text('Type a first name or a nickname.')),
+      );
     }
   }
 
@@ -87,15 +91,8 @@ class FamilyScreen extends ConsumerWidget {
     final children = ref.watch(childrenProvider);
     return Scaffold(
       backgroundColor: Colors.transparent,
-      floatingActionButton: FloatingActionButton.extended(
-        backgroundColor: AppColors.gold,
-        foregroundColor: const Color(0xFF0A0F18),
-        onPressed: () => _addChild(context, ref),
-        icon: const Icon(Icons.child_care_outlined, size: 18),
-        label: const Text('Add child'),
-      ),
       body: ListView(
-        padding: const EdgeInsets.fromLTRB(20, 0, 20, 96),
+        padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
         children: [
           const ScreenHeader(title: 'The Family Wing', close: true),
           Padding(
@@ -110,6 +107,25 @@ class FamilyScreen extends ConsumerWidget {
               'on this device \u2014 they are never sent to our servers or to any '
               'AI service, and you can delete a child at any time.',
               style: AppText.bodyMuted,
+            ),
+          ),
+          // An ordinary button in the page, not a floating one: a floating
+          // button sat on top of the Reminders text while scrolling.
+          Padding(
+            padding: const EdgeInsets.only(bottom: 14),
+            child: SizedBox(
+              width: double.infinity,
+              child: FilledButton.icon(
+                key: const Key('add-child'),
+                style: FilledButton.styleFrom(
+                  backgroundColor: AppColors.gold,
+                  foregroundColor: const Color(0xFF0A0F18),
+                  minimumSize: const Size(0, 52),
+                ),
+                onPressed: () => _addChild(context, ref),
+                icon: const Icon(Icons.child_care_outlined, size: 20),
+                label: const Text('Add child'),
+              ),
             ),
           ),
           children.when(

@@ -17,6 +17,7 @@ import '../application/quran_providers.dart';
 import '../domain/quran_texts.dart';
 import '../domain/quran_models.dart';
 import '../domain/surah_search.dart';
+import 'quran_offline_card.dart';
 
 /// Qur'an index — all 114 surahs + Continue Reading banner.
 /// New screen designed within the locked system — pending Founder approval.
@@ -56,6 +57,7 @@ class _QuranScreenState extends ConsumerState<QuranScreen> {
                   what: 'the Qur\u2019an',
                   sizeHint: kQuranSizeHint,
                   onRetry: () {
+                    ref.invalidate(quranRepositoryProvider);
                     ref.invalidate(quranAllProvider);
                     ref.invalidate(quranIndexProvider);
                   },
@@ -63,6 +65,7 @@ class _QuranScreenState extends ConsumerState<QuranScreen> {
                 error: (Object e, _) => NeedsInternetView(
                   what: 'The Qur\u2019an',
                   onRetry: () {
+                    ref.invalidate(quranRepositoryProvider);
                     ref.invalidate(quranAllProvider);
                     ref.invalidate(quranIndexProvider);
                   },
@@ -100,6 +103,11 @@ class _QuranScreenState extends ConsumerState<QuranScreen> {
                         onChanged: (String v) => setState(() => _query = v),
                       ),
                       const SizedBox(height: 12),
+                      // Web only, and only until the Qur'an is saved here.
+                      if (!searching) ...[
+                        const QuranOfflineCard(compact: true),
+                        const SizedBox(height: 12),
+                      ],
                       if (!searching) ...[
                         _AyatAlKursiShortcut(
                           onTap: () => context.open(

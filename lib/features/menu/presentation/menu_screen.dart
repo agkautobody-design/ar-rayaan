@@ -85,6 +85,7 @@ class MenuScreen extends ConsumerWidget {
         (Icons.local_library_outlined, 'Library', AppRoutes.stories),
         (Icons.bookmark_outline, 'Notes & Bookmarks', AppRoutes.notes),
         (Icons.download_outlined, 'Downloads', AppRoutes.downloads),
+        (Icons.text_fields, 'Text size \u00b7 bigger words', AppRoutes.settings),
         (Icons.translate_outlined, 'Language & Voice \u00b7 your tongue, your choice', '/settings/language'),
         if (kFounderTools)
           (Icons.monitor_heart_outlined, 'Ar-Rayaan Doctor (founder)', '/founder'),

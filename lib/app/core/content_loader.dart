@@ -57,7 +57,12 @@ final AutoDisposeFutureProvider<bool> quranOfflineReadyProvider =
       (ref) => ContentLoader.isAvailableOffline(kQuranAsset),
     );
 
-/// Text for the Home Qur'an tile. Adds the first-time internet note only
-/// when [offlineReady] is explicitly false (never while still unknown).
+/// Text for the Home Qur'an tile. When [offlineReady] is explicitly false
+/// (never while still unknown) the tile says so INSTEAD of its usual line: a
+/// tile subtitle holds two short lines, and the warning used to be appended
+/// and cut off by the ellipsis on phones.
 String quranTileSubtitle(String base, {required bool? offlineReady}) =>
-    offlineReady == false ? '$base · Needs internet the first time' : base;
+    offlineReady == false ? kQuranNeedsInternetNote : base;
+
+/// The tile's first-time warning (short enough for two lines on a phone).
+const String kQuranNeedsInternetNote = 'Needs internet the first time';

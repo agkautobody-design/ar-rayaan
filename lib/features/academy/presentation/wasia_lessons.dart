@@ -353,7 +353,13 @@ class _LessonRunnerState extends ConsumerState<LessonRunnerScreen> {
           return ListView(
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
             children: [
-              ScreenHeader(title: lesson.title, close: true),
+              // The header holds a short fixed title; the lesson's own (long)
+              // title is written in full below, so it is never clipped.
+              const ScreenHeader(title: 'Letters lesson', close: true),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 10),
+                child: Text(lesson.title, style: AppText.titleMedium),
+              ),
               const ActiveChildBanner(),
               Row(children: [
                 for (var i = 0; i < steps.length; i++)
@@ -482,14 +488,23 @@ class _LessonRunnerState extends ConsumerState<LessonRunnerScreen> {
                     ],
                   ),
                 ),
-              const SizedBox(height: 14),
+              // Room between the card and the button: the next step's answer
+              // options appear under the card, and a quick second tap on Next
+              // must not land on one of them.
+              const SizedBox(height: 28),
               if (!blocked)
                 Align(
                   alignment: Alignment.centerRight,
                   child: Wrap(
                     alignment: WrapAlignment.end,
                     children: [
-                      TextButton.icon(
+                      FilledButton.icon(
+                        key: const Key('lesson-next'),
+                        style: FilledButton.styleFrom(
+                          backgroundColor: AppColors.gold,
+                          foregroundColor: AppColors.night,
+                          minimumSize: const Size(160, 52),
+                        ),
                         onPressed: () {
                           if (last) {
                             _finish(lesson);
@@ -502,10 +517,14 @@ class _LessonRunnerState extends ConsumerState<LessonRunnerScreen> {
                           });
                         },
                         iconAlignment: IconAlignment.end,
-                        icon: const Icon(Icons.arrow_forward_ios,
-                            size: 13, color: AppColors.gold),
-                        label: Text(last ? 'Finish' : 'Next',
-                            style: AppText.bodyMuted),
+                        icon: const Icon(Icons.arrow_forward_ios, size: 14),
+                        label: Text(
+                          last ? 'Finish' : 'Next',
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
                       ),
                       if (last && nextId != null)
                         TextButton.icon(

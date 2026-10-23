@@ -31,8 +31,40 @@ import '../../sakina/domain/sakina_content.dart';
 import '../../sakina/presentation/widgets/help_line_tile.dart';
 import '../../sakina/presentation/widgets/need_help_button.dart';
 
-/// The items under the ⋮ button in the header.
+/// The items under the More options button in the header.
 enum _HadiMenu { newConversation, school, advanced }
+
+/// The longest question the box takes. Longer pasted text is cut to this and
+/// the person is told.
+const int kHadiMaxInput = 1000;
+
+/// Counter shows once the text reaches this many characters.
+const int kHadiCounterFrom = 800;
+
+/// Cuts text to [max] characters (never in the middle of a character) and
+/// calls [onCut] when it did.
+class _CapFormatter extends TextInputFormatter {
+  _CapFormatter(this.max, this.onCut);
+
+  final int max;
+  final VoidCallback onCut;
+
+  @override
+  TextEditingValue formatEditUpdate(
+    TextEditingValue oldValue,
+    TextEditingValue newValue,
+  ) {
+    if (newValue.text.length <= max) return newValue;
+    onCut();
+    int end = max;
+    final int last = newValue.text.codeUnitAt(end - 1);
+    if (last >= 0xD800 && last <= 0xDBFF) end -= 1; // half an emoji
+    return TextEditingValue(
+      text: newValue.text.substring(0, end),
+      selection: TextSelection.collapsed(offset: end),
+    );
+  }
+}
 
 /// Screen 6 · Ask Hādī — live AI guidance (Groq free tier, user's key) with
 /// a curated authentic offline fallback (O-7). Guardrails: Qur'an + Sihah
@@ -56,10 +88,30 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
   /// The last [HadiScreen.initialQuery] taken, so it is never sent twice.
   String? _takenQuery;
 
+  /// True after pasted text was cut to [kHadiMaxInput].
+  bool _cut = false;
+
+  /// One key per message, so the newest question can be brought into view.
+  final Map<int, GlobalKey> _bubbleKeys = <int, GlobalKey>{};
+
+  late final List<TextInputFormatter> _formatters = <TextInputFormatter>[
+    _CapFormatter(kHadiMaxInput, () {
+      if (mounted && !_cut) setState(() => _cut = true);
+    }),
+  ];
+
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) => _takeInitialQuery());
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _takeInitialQuery();
+      // Coming back to an earlier conversation: start at the latest message.
+      if (mounted &&
+          ref.read(hadiControllerProvider).messages.length > 1 &&
+          _scroll.hasClients) {
+        _scroll.jumpTo(_scroll.position.maxScrollExtent);
+      }
+    });
   }
 
   @override
@@ -93,14 +145,54 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
   }
 
   Future<void> _send([String? preset]) async {
-    final String q = (preset ?? _input.text).trim();
+    String q = (preset ?? _input.text).trim();
     if (q.isEmpty) return;
     // Hādi is still answering: keep what was typed, do not swallow it.
     if (ref.read(hadiControllerProvider).typing) return;
-    if (preset == null) _input.clear();
-    _scrollToEnd();
+    if (q.length > kHadiMaxInput) q = q.substring(0, kHadiMaxInput).trim();
+    if (preset == null) {
+      // Empty the box completely, text, selection and the composing mark,
+      // so nothing of a long message is left for the next one.
+      _input.value = TextEditingValue.empty;
+      if (_cut) setState(() => _cut = false);
+    }
     await ref.read(hadiControllerProvider.notifier).ask(q);
-    _scrollToEnd();
+  }
+
+  /// Brings the newest exchange into view: the question just asked (so the
+  /// start of a long reply is not scrolled past), or the bottom while Hādi
+  /// is still answering.
+  void _followConversation(HadiState? before, HadiState now) {
+    final bool grew = before == null ||
+        now.messages.length != before.messages.length ||
+        now.typing != before.typing;
+    if (!grew) return;
+    if (now.messages.length < (before?.messages.length ?? 0)) {
+      _bubbleKeys.clear();
+    }
+    final bool replied =
+        !now.typing && now.messages.isNotEmpty && now.messages.last.fromHadi;
+    if (!replied) {
+      _scrollToEnd();
+      return;
+    }
+    final int asked = now.messages.length >= 2 &&
+            !now.messages[now.messages.length - 2].fromHadi
+        ? now.messages.length - 2
+        : now.messages.length - 1;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      final BuildContext? ctx = _bubbleKeys[asked]?.currentContext;
+      if (ctx != null && ctx.mounted) {
+        unawaited(Scrollable.ensureVisible(
+          ctx,
+          duration: const Duration(milliseconds: 250),
+          curve: Curves.easeOut,
+        ));
+      } else {
+        _scrollToEnd();
+      }
+    });
   }
 
   /// Suggestion chips go under the last reply, but never after a crisis
@@ -478,6 +570,10 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
   @override
   Widget build(BuildContext context) {
     final HadiState hadi = ref.watch(hadiControllerProvider);
+    ref.listen<HadiState>(
+      hadiControllerProvider,
+      (HadiState? before, HadiState now) => _followConversation(before, now),
+    );
 
     return ScenicScaffold.pattern(
       body: SafeArea(
@@ -581,8 +677,8 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
             Text(
               hadi.live
                   ? 'Live answers · Qur\'an & Sihah Sitta guardrails'
-                  : 'Free, works offline · your own AI account is optional, '
-                      'under ⋮ › Advanced',
+                  : 'Free, works offline · your own AI account is optional '
+                      '(More options menu, top right)',
               style: AppText.bodyMuted.copyWith(
                 fontSize: 12,
                 color: AppColors.textFaint,
@@ -640,10 +736,15 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                 padding: const EdgeInsets.fromLTRB(20, 16, 20, 16),
                 children: [
                   for (int i = 0; i < hadi.messages.length; i++)
-                    _Bubble(
+                    KeyedSubtree(
+                      key: _bubbleKeys.putIfAbsent(i, () => GlobalKey()),
+                      child: _Bubble(
                       message: hadi.messages[i],
                       isLatest: i == hadi.messages.length - 1 && !hadi.typing,
-                      onOpen: (String route) => context.go(route),
+                      // Opened ON TOP of the chat (a tab route is reached
+                      // with go, as always), so Back returns to the
+                      // conversation instead of jumping Home.
+                      onOpen: (String route) => context.open(route),
                       onRetry: hadi.messages[i].retryQuestion != null &&
                               i == hadi.messages.length - 1 &&
                               !hadi.typing
@@ -660,6 +761,7 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                                     : null,
                               )
                           : null,
+                    ),
                     ),
                   if (hadi.typing)
                     const Padding(
@@ -722,6 +824,10 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                               for (final HadiMessage m in hadi.messages)
                                 if (!m.fromHadi) m.text,
                             ],
+                            lastQuestion: <String>[
+                              for (final HadiMessage m in hadi.messages)
+                                if (!m.fromHadi && !m.sensitive) m.text,
+                            ].lastOrNull,
                           ))
                             _StarterChip(
                               label: question,
@@ -732,6 +838,30 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                     ),
                 ],
               ),
+            ),
+            ValueListenableBuilder<TextEditingValue>(
+              valueListenable: _input,
+              builder: (BuildContext _, TextEditingValue v, Widget? __) {
+                final int n = v.text.length;
+                if (!_cut && n < kHadiCounterFrom) {
+                  return const SizedBox.shrink();
+                }
+                return Padding(
+                  padding: const EdgeInsets.fromLTRB(28, 0, 28, 4),
+                  child: Text(
+                    _cut
+                        ? 'Your text was cut to $kHadiMaxInput characters. '
+                            '($n/$kHadiMaxInput)'
+                        : '$n/$kHadiMaxInput characters',
+                    key: const ValueKey<String>('hadi-input-note'),
+                    style: AppText.bodyMuted.copyWith(
+                      fontSize: 12,
+                      color: AppColors.textFaint,
+                    ),
+                    textAlign: TextAlign.end,
+                  ),
+                );
+              },
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 0, 20, 16),
@@ -755,6 +885,7 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                               Widget? __) {
                             return TextField(
                               controller: _input,
+                              inputFormatters: _formatters,
                               onSubmitted: (String _) => _send(),
                               minLines: 1,
                               maxLines: 5,
@@ -895,7 +1026,9 @@ class _PassageCard extends StatelessWidget {
           ),
           child: InkWell(
             borderRadius: BorderRadius.circular(12),
-            onTap: () => context.push(route),
+            // open(), not push(): a tap that lands twice (the reply grows
+            // under the finger) must not stack the same surah twice.
+            onTap: () => context.open(route),
             child: Padding(
               padding: const EdgeInsets.all(12),
               child: Column(

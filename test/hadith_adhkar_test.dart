@@ -198,7 +198,10 @@ void main() {
           sharedPreferencesProvider.overrideWithValue(prefs),
           adhkarRepositoryProvider.overrideWithValue(adhkarRepo),
         ],
-        child: MaterialApp(theme: AppTheme.dark(), home: const AdhkarScreen()),
+        child: MaterialApp(
+          theme: AppTheme.dark(),
+          home: const AdhkarScreen(initialSet: 'morning'),
+        ),
       ),
     );
     await tester.pumpAndSettle();

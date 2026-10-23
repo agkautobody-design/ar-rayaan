@@ -75,6 +75,11 @@ void main() {
       // The shortcut steps aside while searching.
       expect(find.text('Ayat al-Kursi · 2:255'), findsNothing);
 
+      // Other common spellings of the same name find it too.
+      await tester.enterText(find.byType(TextField), 'Yaseen');
+      await tester.pumpAndSettle();
+      expect(find.text('Ya-Sin'), findsOneWidget);
+
       await tester.enterText(find.byType(TextField), 'cow');
       await tester.pumpAndSettle();
       expect(find.text('Al-Baqarah'), findsOneWidget);
@@ -106,6 +111,34 @@ void main() {
         find.textContaining('there is no deity except Him, the Ever-Living'),
         findsWidgets,
       );
+    });
+
+    testWidgets('big text: controls scroll away and reading keeps the screen', (
+      tester,
+    ) async {
+      SharedPreferences.setMockInitialValues(<String, Object>{});
+      tester.view.physicalSize = const Size(360, 700);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      tester.platformDispatcher.textScaleFactorTestValue = 2.0;
+      addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
+      await tester.pumpWidget(
+        await app(tester, const SurahReaderScreen(number: 2)),
+      );
+      await tester.pumpAndSettle();
+
+      // The list (the reading area) gets most of the screen: only the slim
+      // header and the one-row player bar sit outside it.
+      final Size list = tester.getSize(find.byType(ListView).first);
+      expect(list.height, greaterThan(700 * 0.6));
+      // Controls start inside the list...
+      expect(find.text('Jump to ayah').hitTestable(), findsOneWidget);
+      // ...and scroll away with it.
+      await tester.drag(find.byType(ListView).first, const Offset(0, -900));
+      await tester.pumpAndSettle();
+      expect(find.text('Jump to ayah').hitTestable(), findsNothing);
+      expect(tester.takeException(), isNull);
     });
 
     testWidgets('Jump to ayah validates and scrolls', (tester) async {
@@ -164,7 +197,8 @@ void main() {
         lessThan(700 * 0.25),
       );
       expect(find.byTooltip('Show controls'), findsOneWidget);
-      expect(find.text('Repeat'), findsOneWidget);
+      // One slim row: no "Repeat" word to be cut off, just the icon.
+      expect(find.text('Repeat'), findsNothing);
 
       await tester.tap(find.byTooltip('Show controls'));
       await tester.pumpAndSettle();
