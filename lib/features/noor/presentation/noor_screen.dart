@@ -157,11 +157,13 @@ class _NoorScreenState extends ConsumerState<NoorScreen>
                           borderRadius: BorderRadius.circular(20),
                           child: Stack(
                             children: [
-                              Image.asset(
-                                'assets/images/bg_noor.jpg',
-                                height: 260,
-                                width: double.infinity,
-                                fit: BoxFit.cover,
+                              // The picture fills whatever height the words need
+                              // (at large text they outgrow a fixed 260).
+                              Positioned.fill(
+                                child: Image.asset(
+                                  'assets/images/bg_noor.jpg',
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                               Positioned.fill(
                                 child: DecoratedBox(
@@ -177,11 +179,21 @@ class _NoorScreenState extends ConsumerState<NoorScreen>
                                   ),
                                 ),
                               ),
-                              Positioned(
-                                left: 20,
-                                right: 20,
-                                bottom: 16,
-                                child: noor.when(
+                              ConstrainedBox(
+                                constraints:
+                                    const BoxConstraints(
+                                      minHeight: 260,
+                                      minWidth: double.infinity,
+                                    ),
+                                child: Padding(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(20, 16, 20, 16),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      noor.when(
                                   loading: () => Text(
                                     '…',
                                     style: AppText.titleMedium.copyWith(
@@ -249,6 +261,9 @@ class _NoorScreenState extends ConsumerState<NoorScreen>
                                           _ShareNoorButton(entry: entry),
                                         ],
                                       ),
+                                    ],
+                                  ),
+                                ),
                                     ],
                                   ),
                                 ),

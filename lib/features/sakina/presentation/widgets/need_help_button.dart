@@ -137,7 +137,11 @@ class NeedHelpNowButton extends StatelessWidget {
               Icon(Icons.favorite_outline,
                   size: large ? 26 : 16, color: AppColors.night),
               SizedBox(width: large ? 10 : 6),
-              Text(label, style: style),
+              // Flexible: at large text the label wraps instead of running
+              // off the edge of a narrow phone.
+              Flexible(
+                child: Text(label, style: style, textAlign: TextAlign.center),
+              ),
             ],
           ),
         ),

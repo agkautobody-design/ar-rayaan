@@ -174,14 +174,14 @@ void main() {
   testWidgets('a switch row keeps whole words in a very narrow column', (
     tester,
   ) async {
-    bigText(tester, width: 200);
+    bigText(tester, width: 180, scale: 1.0);
     await tester.pumpWidget(
       MaterialApp(
         theme: AppTheme.dark(),
         home: Scaffold(
           body: Center(
             child: SizedBox(
-              width: 200,
+              width: 180,
               child: SwitchRow(
                 icon: Icons.graphic_eq,
                 title: 'Ambient Sound',
@@ -196,7 +196,7 @@ void main() {
     );
     expect(drain(tester), isEmpty);
     // One letter per line would make the title dozens of lines tall.
-    expect(tester.getSize(find.text('Ambient Sound')).height, lessThan(150));
+    expect(tester.getSize(find.text('Ambient Sound')).height, lessThan(80));
   });
 
   // ---- Consent dialog ----------------------------------------------------
