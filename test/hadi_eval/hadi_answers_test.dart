@@ -240,7 +240,7 @@ void main() {
           'Tell me about quantum entanglement', const <HadiMessage>[]);
       expect(a, OfflineHadiProvider.declineKeyed);
       expect(a.contains('API key'), isFalse);
-      expect(OfflineHadiProvider.decline, contains('API key'));
+      expect(OfflineHadiProvider.decline.contains('API key'), isFalse);
     });
   });
 

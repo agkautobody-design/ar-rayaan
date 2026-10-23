@@ -226,3 +226,77 @@ class HadiNotesPanel extends StatelessWidget {
     );
   }
 }
+
+
+/// A suggestion or action button for the chat. Unlike a Material chip it
+/// never clips its label: a long label wraps onto more lines (at word
+/// breaks), grows taller, and stays at least 48 dp high to tap.
+class HadiActionButton extends StatelessWidget {
+  const HadiActionButton({
+    required this.label,
+    required this.icon,
+    required this.onPressed,
+    this.iconSize = 16,
+    this.strong = false,
+    super.key,
+  });
+
+  final String label;
+  final IconData icon;
+  final double iconSize;
+  final VoidCallback onPressed;
+
+  /// True for the buttons that open a screen (gold), false for a suggested
+  /// question.
+  final bool strong;
+
+  @override
+  Widget build(BuildContext context) {
+    final Color border =
+        AppColors.gold.withValues(alpha: strong ? 0.4 : 0.3);
+    return Semantics(
+      button: true,
+      child: Material(
+        color: strong
+            ? AppColors.gold.withValues(alpha: 0.08)
+            : AppColors.gold.withValues(alpha: 0.05),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(24),
+          side: BorderSide(color: border),
+        ),
+        clipBehavior: Clip.antiAlias,
+        child: InkWell(
+          onTap: onPressed,
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(minHeight: 48),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Icon(icon, size: iconSize, color: AppColors.gold),
+                  const SizedBox(width: 8),
+                  Flexible(
+                    child: Text(
+                      label,
+                      softWrap: true,
+                      style: strong
+                          ? AppText.body.copyWith(
+                              fontSize: 14,
+                              color: AppColors.goldLight,
+                            )
+                          : AppText.bodyMuted.copyWith(
+                              fontSize: 13,
+                              color: AppColors.sand.withValues(alpha: 0.85),
+                            ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

@@ -492,6 +492,12 @@ abstract final class HadiRouting {
     ),
   ];
 
+  /// True when the question names a topic the app has a place for.
+  static bool hasTopic(String question) {
+    final String n = _norm(question);
+    return _topics.any(((RegExp, String) t) => t.$1.hasMatch(n));
+  }
+
   /// The closest place in the app for what was asked. Always whitelisted.
   static String topicRoute(String question) {
     final String n = _norm(question);
