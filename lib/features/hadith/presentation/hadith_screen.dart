@@ -67,6 +67,9 @@ class _HadithScreenState extends ConsumerState<HadithScreen> {
                 data: (List<Hadith> hadiths) {
                   _scrollToTarget();
                   return ListView(
+                  // Build the whole list when opened at a hadith, so the
+                  // target exists to scroll to.
+                  cacheExtent: widget.initialNumber == null ? null : 100000,
                   padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
                   children: [
                     const DailyHadithHero(),
