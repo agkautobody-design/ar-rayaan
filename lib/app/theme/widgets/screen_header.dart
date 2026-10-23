@@ -6,6 +6,10 @@ import '../../../features/elder/application/elder_mode.dart';
 import '../../router.dart';
 import '../app_colors.dart';
 import '../app_typography.dart';
+import 'focus_ring.dart';
+
+/// Largest text scale the header title itself grows to.
+const double kHeaderTitleMaxScale = 1.3;
 
 /// Shared screen header: round back (or close) button · Playfair title ·
 /// round settings button — per the locked screens.
@@ -66,14 +70,21 @@ class ScreenHeader extends StatelessWidget {
             onTap: () => _leave(context),
           ),
           Expanded(
+            // The title sits between two fixed 44 px buttons, so at very
+            // large text a single word is wider than its slot and would be
+            // cut mid-word ("Settin / gs"). Its own scale stops at 1.3x
+            // (the page below still scales fully), which keeps whole words.
             child: Semantics(
               header: true,
-              child: Text(
-                title,
-                style: AppText.titleMedium,
-                textAlign: TextAlign.center,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
+              child: MediaQuery.withClampedTextScaling(
+                maxScaleFactor: kHeaderTitleMaxScale,
+                child: Text(
+                  title,
+                  style: AppText.titleMedium,
+                  textAlign: TextAlign.center,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
             ),
           ),
@@ -116,27 +127,32 @@ class _RoundButton extends StatelessWidget {
         message: tooltip,
         child: Material(
           type: MaterialType.transparency,
-          child: InkWell(
-            onTap: onTap,
-            customBorder: const CircleBorder(),
-            child: SizedBox(
-              width: hitSize,
-              height: hitSize,
-              child: Center(
-                child: Container(
-                  width: 36,
-                  height: 36,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: AppColors.glassFill,
-                    border: Border.all(
-                      color: AppColors.gold.withValues(alpha: 0.2),
+          // Same bright ring as every other control (the plain wash was
+          // nearly invisible over the patterned background).
+          child: FocusRing(
+            borderRadius: hitSize / 2,
+            child: InkWell(
+              onTap: onTap,
+              customBorder: const CircleBorder(),
+              child: SizedBox(
+                width: hitSize,
+                height: hitSize,
+                child: Center(
+                  child: Container(
+                    width: 36,
+                    height: 36,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: AppColors.glassFill,
+                      border: Border.all(
+                        color: AppColors.gold.withValues(alpha: 0.2),
+                      ),
                     ),
-                  ),
-                  child: Icon(
-                    icon,
-                    size: 18,
-                    color: AppColors.sand.withValues(alpha: 0.9),
+                    child: Icon(
+                      icon,
+                      size: 18,
+                      color: AppColors.sand.withValues(alpha: 0.9),
+                    ),
                   ),
                 ),
               ),

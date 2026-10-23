@@ -22,7 +22,7 @@ enum LoadingPhase {
 LoadingPhase loadingPhaseFor(
   Duration elapsed, {
   Duration slowAfter = const Duration(seconds: 2),
-  Duration stalledAfter = const Duration(seconds: 25),
+  Duration stalledAfter = const Duration(seconds: 10),
 }) {
   if (elapsed >= stalledAfter) return LoadingPhase.stalled;
   if (elapsed >= slowAfter) return LoadingPhase.slow;
@@ -48,13 +48,14 @@ String loadingMessageFor(
       }
       return 'Loading $what…';
     case LoadingPhase.stalled:
-      return 'Still loading $what. Your connection may be slow or offline. '
+      return 'Still loading $what. Your connection may be slow or offline, '
+          'and the first load can take a minute on slow data. '
           'You can keep waiting, or try again.';
   }
 }
 
 /// Full-area loading state: a spinner, then (after two seconds) a plain
-/// message with the size of the first download, then (after about 25
+/// message with the size of the first download, then (after about 10
 /// seconds) a Try again button. Never a blank screen with a tiny spinner.
 class ContentLoadingView extends StatefulWidget {
   const ContentLoadingView({
@@ -62,7 +63,7 @@ class ContentLoadingView extends StatefulWidget {
     this.sizeHint,
     this.onRetry,
     this.slowAfter = const Duration(seconds: 2),
-    this.stalledAfter = const Duration(seconds: 25),
+    this.stalledAfter = const Duration(seconds: 10),
     this.web,
     super.key,
   });
