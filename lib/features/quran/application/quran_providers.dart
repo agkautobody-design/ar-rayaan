@@ -42,6 +42,9 @@ class ReadingPositionController extends Notifier<ReadingPosition?> {
   /// The ayah last saved inside [surah], or 1 if it was never opened.
   int ayahFor(int surah) => _perSurah[surah] ?? 1;
 
+  /// How many different surahs have been opened (each has a saved place).
+  int get surahsOpened => _perSurah.length;
+
   @override
   ReadingPosition? build() {
     _perSurah = <int, int>{};

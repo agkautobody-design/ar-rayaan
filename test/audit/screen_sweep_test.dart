@@ -34,6 +34,8 @@ void main() {
     '/onboarding': () => null,
     '/search': () => null,
     '/family-tree': () => null,
+    '/kids': () => null,
+    '/noor/reflections': () => null,
     '/huda': () => null,
     '/games': () => null,
     '/games/trivia': () => null,

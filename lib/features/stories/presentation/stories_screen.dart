@@ -11,7 +11,12 @@ import '../../../app/router.dart';
 import '../data/stories_repository.dart';
 import '../data/story_layers_repository.dart';
 import '../domain/story.dart';
+import '../domain/story_length.dart';
 import 'source_label_chip.dart';
+
+/// "Short reads" filter on the library (stories of about a minute or less).
+final AutoDisposeStateProvider<bool> shortReadsOnlyProvider =
+    StateProvider.autoDispose<bool>((ref) => false);
 
 class StoriesScreen extends ConsumerWidget {
   const StoriesScreen({super.key});
@@ -33,6 +38,7 @@ class StoriesScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final stories = ref.watch(storiesProvider);
+    final bool shortOnly = ref.watch(shortReadsOnlyProvider);
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: stories.when(
@@ -131,6 +137,29 @@ class StoriesScreen extends ConsumerWidget {
                 style: AppText.eyebrow,
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.only(left: 4, bottom: 8),
+              child: Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                crossAxisAlignment: WrapCrossAlignment.center,
+                children: <Widget>[
+                  FilterChip(
+                    key: const Key('stories-short-reads'),
+                    label: const Text('Short reads (about a minute)'),
+                    selected: shortOnly,
+                    onSelected: (bool v) =>
+                        ref.read(shortReadsOnlyProvider.notifier).state = v,
+                  ),
+                  ActionChip(
+                    key: const Key('stories-for-children'),
+                    avatar: const Icon(Icons.child_care, size: 18),
+                    label: const Text('For children'),
+                    onPressed: () => context.open(AppRoutes.kids),
+                  ),
+                ],
+              ),
+            ),
             // What the gold badge on each card means, in the app's own words.
             Padding(
               padding: const EdgeInsets.only(left: 4, bottom: 8),
@@ -140,7 +169,9 @@ class StoriesScreen extends ConsumerWidget {
               ),
             ),
           ];
-          final List<_ShelfRow> rows = _shelfRows(all);
+          final List<_ShelfRow> rows = _shelfRows(
+            shortOnly ? all.where((Story s) => s.isShortRead).toList() : all,
+          );
           return ListView.builder(
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
             itemCount: head.length + rows.length,
@@ -247,6 +278,10 @@ class _StoryCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(story.title, style: AppText.titleMedium),
+                      Text(
+                        '${story.readMinutes} min read',
+                        style: AppText.caption,
+                      ),
                       const SizedBox(height: 2),
                       Text(
                         story.subtitle,
