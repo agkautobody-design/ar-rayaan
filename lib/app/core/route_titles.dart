@@ -23,6 +23,8 @@ abstract final class RouteTitles {
     '/elder-care': 'Elder Care',
     '/home/quick': 'Quick Access',
     '/handout': 'Handout',
+    '/kids': 'For Children',
+    '/noor/reflections': 'My Reflections',
     '/games': 'Games',
     '/games/ludo': 'Ludo',
     '/games/shatranj': 'Shatranj',
