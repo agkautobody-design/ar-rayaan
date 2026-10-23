@@ -105,14 +105,37 @@ abstract final class HadiRouting {
       _beginner.hasMatch(_norm(question));
 
   static const String beginnerReply =
-      'That is a good place to begin, and it deserves more than a one-line '
-      'answer from me. Two places in this app cover it: the New Muslim path '
-      'starts from the very beginning, one short step at a time, and the '
-      'Aqeedah school in the Wasia Academy is where what Muslims believe is '
-      'taught. For a short list first, ask me about the five pillars of '
-      'Islam.\n[GO:/new-muslim]\n[GO:/academy/aqeedah]';
+      'That is a good place to begin. These are the app’s own words, from '
+      'the New Muslim path and the Wasia Academy, not mine.\n\n'
+      'Day 1 of the New Muslim path: “The testimony that none deserves '
+      'worship but Allah, and that Muhammad is His Messenger, is the door '
+      'into Islam.” It adds the Qur’an’s words: “Indeed, the religion in '
+      'the sight of Allah is Islam” (Qur’an 3:19).\n\n'
+      'Day 2: “Islam stands on five: the testimony, the prayer, the alms, '
+      'the fast of Ramadan, and the pilgrimage for those able.”\n\n'
+      'On what a Muslim believes, the Wasia Academy lesson on the six '
+      'articles of faith says: “The Prophet ﷺ defined faith in the hadith '
+      'of Jibreel (Muslim 8): belief in Allah, His angels, His books, His '
+      'messengers, the Last Day, and the divine decree.”\n\n'
+      'The New Muslim path goes on one short step a day, and the Aqeedah '
+      'school teaches what Muslims believe. For a short list first, ask me '
+      'about the five pillars of Islam.\n[GO:/new-muslim]\n[GO:/academy/aqeedah]';
 
-  // ── Questions for a doctor ───────────────────────────────────────────
+  // ── "These may help" must never promise buttons that are not there ──
+
+  /// [text] with the "These may help in the meantime:" line removed when
+  /// there is no button to follow it, and moved to the very end (right above
+  /// the buttons, after any footer) when there is.
+  static String guardLeadIn(String text, List<String> routes) {
+    if (!text.contains(refusalLeadIn)) return text;
+    final String stripped = text
+        .replaceAll(refusalLeadIn, '')
+        .replaceAll(RegExp(r'\n{3,}'), '\n\n')
+        .trim();
+    return routes.isEmpty ? stripped : '$stripped\n\n$refusalLeadIn';
+  }
+
+// ── Questions for a doctor ───────────────────────────────────────────
 
   /// Stemmed words (see the offline provider) that mark a medical question.
   static const Set<String> medicalWords = <String>{
@@ -182,14 +205,6 @@ abstract final class HadiRouting {
     final String n = _norm(question);
     return _tahajjud.hasMatch(n) && _howMany.hasMatch(n);
   }
-
-  static const String tahajjudReply =
-      'I do not have a verified step-by-step guide or a count of rak’ahs for '
-      'tahajjud on my shelf, so I will not give you a number from memory. '
-      'For how to pray it and how many rak’ahs, a qualified scholar is the '
-      'right person. In the app, the Huda guide on Witr and the night '
-      'routine covers the night prayer, and Prayer Times shows tonight’s '
-      'window.\n[GO:/huda]\n[GO:/prayer]';
 
   // ── A hadith number that cannot be confirmed ─────────────────────────
 
@@ -443,6 +458,10 @@ abstract final class HadiRouting {
       '/ramadan',
     ),
     (
+      RegExp(r'\b(?:dating|boyfriend|girlfriend|courtship|spouse)\b'),
+      '/academy/family-life',
+    ),
+    (
       RegExp(r'\b(?:prayer|prayers|salah|salat|namaz|wudu|ghusl|tayammum|fast|'
           r'fasting|hajj|umrah|zakat|janazah|funeral|nikah|marriage|divorce|'
           r'inheritance|halal|haram)\b'),
@@ -492,7 +511,6 @@ abstract final class HadiRouting {
         selfDescriptionReply,
         beginnerReply,
         ramadanPlanReply,
-        tahajjudReply,
         hadithNumberDecline,
         clarifyReply,
         closestMatchNote,
