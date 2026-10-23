@@ -242,6 +242,11 @@ String? personalLinkError(String raw) {
       : 'That is not a link I can play. It should start with https://';
 }
 
+/// What is wrong with a new addition (title first, then the link), or null
+/// when it can be added. YouTube and Spotify links are https links too.
+String? validateAddition(String title, String link) =>
+    personalTitleError(title) ?? personalLinkError(link);
+
 /// Why the title cannot be used, or null when it can.
 String? personalTitleError(String raw) =>
     raw.trim().isEmpty ? 'Give it a title.' : null;
