@@ -61,16 +61,16 @@ class _OnboardingState extends State<OnboardingScreen> {
   String? _need;
 
   static const _needs = <_Need>[
-    _Need('learn', Icons.menu_book_outlined, 'Learning my deen',
-        'Stories, khutbahs, and knowledge'),
+    _Need('learn', Icons.menu_book_outlined, 'Learning about Islam',
+        'Stories, Friday talks (khutbahs), and knowledge'),
     _Need('peace', Icons.favorite_outline, 'Peace for my heart',
         'Du’as and comfort for heavy days'),
     _Need('children', Icons.child_care, 'Teaching my children',
         'Wasia’s letters school and Family Wing'),
     _Need('pray', Icons.access_time, 'Praying on time',
         'Prayer times, qibla, and adhkar'),
-    _Need('new', Icons.door_front_door_outlined, 'I am new to Islam',
-        'A gentle 30-day road, one step at a time'),
+    _Need('new', Icons.door_front_door_outlined, 'New to Islam or just curious',
+        'A gentle 30-day road, one step at a time. Everyone is welcome'),
     _Need('community', Icons.people_outline, 'A community',
         'Finding your masjid and your people'),
   ];
@@ -113,18 +113,21 @@ class _OnboardingState extends State<OnboardingScreen> {
                       Icons.mosque_outlined,
                       'AS-SALAAMU ALAIKUM',
                       'This is Ar-Rayaan',
-                      'One app for your whole deen: prayer times and the '
-                          'Qur’an, stories of the Prophets, a school for '
-                          'your children, games, and a companion who walks '
-                          'with you.'
+                      'One app for living and learning Islam: prayer times '
+                          'and the Qur’an, stories of the Prophets, a school '
+                          'for your children, games, and a companion who '
+                          'walks with you. You do not need to be Muslim to '
+                          'look around.'
                     ),
                   2 => (
                       Icons.auto_awesome,
                       'MEET HADI',
                       'Ask him anything',
-                      'Tap Ask Hādi and ask in plain words. With an AI key '
-                          'he answers live; without one he answers from his '
-                          'built-in shelf of authentic knowledge. Either '
+                      'Hādi is this app’s guide: you type a question in '
+                          'plain words and he answers. He is free and works '
+                          'offline, from a built-in shelf of authentic '
+                          'knowledge. If you like, you can connect your own '
+                          'AI account later for open conversation. Either '
                           'way, he never invents a source.'
                     ),
                   3 => (

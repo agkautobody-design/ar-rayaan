@@ -289,13 +289,16 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text('Advanced · live AI', style: AppText.titleMedium),
+                  Text('Your own AI account (optional)',
+                      style: AppText.titleMedium),
                   const SizedBox(height: 8),
                   Text(
-                    'Hādi answers from curated knowledge on your device, '
-                    'offline, and that needs no key. For open conversation '
-                    'you can add your own free key from Groq, OpenRouter or '
-                    'xAI.',
+                    'You do not need this. Hādi already answers from '
+                    'curated knowledge stored on your device, offline, for '
+                    'free. If you want open-ended conversation, you can '
+                    'paste a key from your own account with an AI company '
+                    '(Groq, OpenRouter or xAI). Those companies offer free '
+                    'plans; this app does not charge you for it.',
                     style: AppText.bodyMuted.copyWith(
                       fontSize: 14,
                       height: 1.5,
@@ -527,7 +530,7 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                       PopupMenuItem<_HadiMenu>(
                         value: _HadiMenu.advanced,
                         child: Text(
-                          'Advanced · live AI key',
+                          'Your own AI account (optional, advanced)',
                           style: AppText.body,
                         ),
                       ),
@@ -540,7 +543,8 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
             Text(
               hadi.live
                   ? 'Live answers · Qur\'an & Sihah Sitta guardrails'
-                  : 'Offline mode · live AI is under ⋮ › Advanced',
+                  : 'Free, works offline · your own AI account is optional, '
+                      'under ⋮ › Advanced',
               style: AppText.bodyMuted.copyWith(
                 fontSize: 12,
                 color: AppColors.textFaint,
@@ -558,6 +562,38 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                     color: AppColors.textFaint,
                   ),
                   textAlign: TextAlign.center,
+                ),
+              ),
+            if (hadi.messages.length == 1)
+              Padding(
+                padding: const EdgeInsets.fromLTRB(24, 4, 24, 0),
+                child: Column(
+                  children: <Widget>[
+                    Text(
+                      'Free today: everything in this app, including Hādi. '
+                      'Nothing asks for a card. A paid plan for extra live '
+                      'answers is planned but not open yet.',
+                      style: AppText.bodyMuted.copyWith(
+                        fontSize: 12,
+                        color: AppColors.textFaint,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    TextButton(
+                      style: TextButton.styleFrom(
+                        minimumSize: const Size(48, 48),
+                      ),
+                      onPressed: () => context.push(AppRoutes.sources),
+                      child: Text(
+                        'Where do the answers come from? Our Sources →',
+                        style: AppText.bodyMuted.copyWith(
+                          color: AppColors.gold,
+                          fontSize: 12,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             Expanded(
@@ -1196,7 +1232,7 @@ class _SubscriptionPanel extends ConsumerWidget {
               Text(
                 entitled
                     ? 'Subscription · ${tier[0].toUpperCase()}${tier.substring(1)}'
-                    : 'Subscription · Free tier',
+                    : 'Free today · nothing to pay',
                 style: AppText.body.copyWith(
                     fontSize: 13, fontWeight: FontWeight.w600),
               ),
@@ -1207,9 +1243,10 @@ class _SubscriptionPanel extends ConsumerWidget {
             entitled
                 ? '${sub.remainingToday} live questions left today'
                     '${expiryLabel.isEmpty ? '' : ' · renews $expiryLabel'}'
-                : 'Live AI comes with a subscription — pricing lands soon. '
-                    'Until then, add your own free key below, or use my '
-                    'built-in shelf: it never runs out.',
+                : 'A paid plan for extra live answers is planned, not open '
+                    'yet, and nothing here asks for a card. Hādi\u2019s '
+                    'built-in shelf is free and never runs out. You can also '
+                    'use your own AI account below.',
             style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.5),
           ),
           const SizedBox(height: 8),
@@ -1234,7 +1271,7 @@ class _SubscriptionPanel extends ConsumerWidget {
                 );
               }
             },
-            child: Text('Restore purchase →',
+            child: Text('Already paid on another device? Restore →',
                 style: AppText.bodyMuted.copyWith(
                     color: AppColors.gold, fontSize: 14)),
           ),
