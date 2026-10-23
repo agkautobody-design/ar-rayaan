@@ -163,7 +163,9 @@ const List<HadiExchange> kProposedHadiExchanges = [
 const int kHadiOpeningChipCount = 5;
 
 /// Follow-up questions that fit what was just asked. Each one is answered by
-/// the offline shelf or a routed reply (test/hadi_round2_test.dart pins that).
+/// the offline shelf or a routed reply (test/hadi_round2_test.dart and
+/// test/hadi_round3_test.dart pin that). The first group whose pattern
+/// matches the last question wins, so the narrow topics come first.
 final List<(RegExp, List<String>)> _topicalFollowUps = <(RegExp, List<String>)>[
   (
     RegExp(r'\b(?:ramadan|fast|fasting|suhoor|iftar)\b'),
@@ -189,7 +191,94 @@ final List<(RegExp, List<String>)> _topicalFollowUps = <(RegExp, List<String>)>[
       'A du\'a before sleep',
     ],
   ),
+  (
+    RegExp(
+      r'\b(?:marriage|marry|married|nikah|dating|boyfriend|girlfriend|'
+      r'husband|wife|spouse|spouses|family)\b',
+    ),
+    <String>[
+      'Tell me about marriage in Islam',
+      'Dua for my parents',
+      'Take me to the Stories',
+    ],
+  ),
+  (
+    RegExp(
+      r'\b(?:quran|surah|ayah|ayat|memori[sz]\w*|hifz|recite|recitation|'
+      r'mulk|kahf)\b',
+    ),
+    <String>[
+      'I want to memorize Quran',
+      'What is the virtue of Surah Al-Kahf?',
+      "Take me to the Qur'an",
+    ],
+  ),
+  (
+    RegExp(
+      r'\b(?:wudu|pray|prayer|prayers|salah|rak\W?ahs?|dhuhr|asr|maghrib|'
+      r'isha|fajr|travel\w*)\b',
+    ),
+    <String>[
+      'How do I make wudu?',
+      'What breaks my wudu?',
+      "How do I pray two rak'ahs?",
+    ],
+  ),
+  (
+    RegExp(
+      r'\b(?:dua|duas|anxiety|anxious|medication|medicine|sad|lonely|alone|'
+      r'stress\w*|worr\w*|sleep|dream|sin|sins)\b',
+    ),
+    <String>[
+      "A du'a for anxiety",
+      "A du'a before sleep",
+      'I feel so alone',
+      'I keep making the same sin',
+    ],
+  ),
+  (
+    RegExp(
+      r'\b(?:madhhab|madhab|school|schools|scholar|scholars|sunni|shia|'
+      r'disagree|trust|reliable|source|sources|ruling|credentials)\b',
+    ),
+    <String>[
+      'How do you work?',
+      'What are the four schools of law?',
+      'What can you do?',
+    ],
+  ),
+  (
+    RegExp(r'\b(?:zakat|charity|sadaqah|wealth|money)\b'),
+    <String>[
+      'What is zakat?',
+      'What are the pillars of Islam?',
+      'How do I start fasting?',
+    ],
+  ),
+  (
+    RegExp(r'\b(?:story|stories|prophet|prophets|seerah|yusuf|musa)\b'),
+    <String>[
+      'Take me to the Stories',
+      'Tell me a short story',
+      'Who is Wasia?',
+    ],
+  ),
 ];
+
+/// What to offer after a question that fits none of the topics above: what
+/// Hadi can do, not an unrelated starter.
+const List<String> _generalFollowUps = <String>[
+  'What can you do?',
+  'How do you work?',
+  'Take me to the Stories',
+];
+
+/// Every follow-up question the topic lists can offer (for the test that
+/// checks each one lands on a real answer).
+List<String> get kHadiTopicalChips => <String>[
+      for (final (RegExp _, List<String> qs) in _topicalFollowUps) ...qs,
+      ..._generalFollowUps,
+    ];
 
 /// Up to [count] starter questions the person has not asked yet, in order.
 /// [asked] is the text of what they have already said, so a chip never
@@ -205,13 +294,20 @@ List<String> hadiSuggestions(
   };
   final List<String> out = <String>[];
   if (lastQuestion != null) {
-    final String l = lastQuestion.toLowerCase();
+    final String l = lastQuestion.toLowerCase().replaceAll('\u2019', "'");
+    bool matched = false;
     for (final (RegExp re, List<String> qs) in _topicalFollowUps) {
       if (!re.hasMatch(l)) continue;
+      matched = true;
       for (final String q in qs) {
         if (!done.contains(q.toLowerCase())) out.add(q);
       }
       break;
+    }
+    if (!matched) {
+      for (final String q in _generalFollowUps) {
+        if (!done.contains(q.toLowerCase())) out.add(q);
+      }
     }
   }
   for (final HadiExchange e in kProposedHadiExchanges) {
