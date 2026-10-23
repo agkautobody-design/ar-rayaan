@@ -24,6 +24,7 @@ class ExploreScreen extends ConsumerWidget {
       'Faith & Worship',
       [
         // The things a first-time visitor looks for come first.
+        (Icons.touch_app_outlined, 'Tasbeeh counter', AppRoutes.tasbeeh),
         (Icons.nights_stay_outlined, 'Prayer Times', AppRoutes.prayerTimes),
         (Icons.explore_outlined, 'Qibla \u00b7 which way to pray', AppRoutes.qibla),
         (
@@ -32,6 +33,11 @@ class ExploreScreen extends ConsumerWidget {
           '${AppRoutes.hudaGuide}?id=huda-prayer',
         ),
         (Icons.menu_book_outlined, 'Qur’an', AppRoutes.quran),
+        (
+          Icons.psychology_outlined,
+          'Memorise the Qur\u2019an \u00b7 Hifz planner',
+          '/academy/hifz',
+        ),
         (Icons.article_outlined, 'Hadith', AppRoutes.hadith),
         (Icons.auto_stories_outlined, 'Stories', AppRoutes.stories),
         (Icons.account_tree_outlined, 'The Messengers\u2019 Tree', AppRoutes.familyTree),

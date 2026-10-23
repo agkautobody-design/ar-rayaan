@@ -13,6 +13,7 @@ import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../application/hifz_providers.dart';
 import '../domain/hifz_planner.dart';
+import 'hifz_surah_picker.dart';
 import '../domain/hifz_progress.dart';
 
 class HifzPlannerScreen extends ConsumerStatefulWidget {
@@ -92,10 +93,11 @@ class _HifzPlannerScreenState extends ConsumerState<HifzPlannerScreen> {
                     Text('Your pace', style: AppText.caption),
                     const SizedBox(height: 8),
                     Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Expanded(
-                          child: _Step(label: 'Surah', value: _targetSurah,
-                              min: 1, max: 114,
+                          child: HifzSurahPicker(
+                              value: _targetSurah,
                               onChanged: (v) => _set(_hifz.withPlan(surah: v))),
                         ),
                         const SizedBox(width: 16),
@@ -109,9 +111,9 @@ class _HifzPlannerScreenState extends ConsumerState<HifzPlannerScreen> {
                     const SizedBox(height: 12),
                     Text(
                       left == 0
-                          ? 'Surah $_targetSurah has $ayat ayat, and you have marked all of them as memorised. '
+                          ? 'Surah $_targetSurah (${hifzSurahName(_targetSurah)}) has $ayat ayat, and you have marked all of them as memorised. '
                               'A teacher or checker confirms it; this is your own list.'
-                          : 'Surah $_targetSurah has $ayat ayat'
+                          : 'Surah $_targetSurah (${hifzSurahName(_targetSurah)}) has $ayat ayat'
                               '${left == ayat ? '' : ' ($left still to do)'}. '
                               'At $_dailyAyat ayat a day it completes around '
                               '${done.year}-${done.month.toString().padLeft(2, '0')}-${done.day.toString().padLeft(2, '0')}. '
@@ -226,7 +228,7 @@ class _HifzPlannerScreenState extends ConsumerState<HifzPlannerScreen> {
               style: AppText.titleMedium.copyWith(color: AppColors.gold)),
           const SizedBox(height: 4),
           Text(
-            'Your own list for Surah $_targetSurah. Write down a range when '
+            'Your own list for Surah $_targetSurah (${hifzSurahName(_targetSurah)}). Write down a range when '
             'you have recited it to your teacher or checker.',
             style: AppText.bodyMuted.copyWith(fontSize: 14, height: 1.4),
           ),

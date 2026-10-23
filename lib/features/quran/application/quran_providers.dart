@@ -25,11 +25,9 @@ void _refreshOfflineNote(Ref<Object?> ref) {
 /// All 114 surahs' metadata.
 final FutureProvider<List<SurahMeta>> quranIndexProvider =
     FutureProvider<List<SurahMeta>>((ref) async {
-      final List<SurahMeta> index =
-          await ref.watch(quranRepositoryProvider).index();
-      // The text is now kept on this device (web): refresh the Home note.
-      _refreshOfflineNote(ref);
-      return index;
+      // Names and ayah counts only (bundled in the code): no download, so
+      // the list shows at once. The text loads per surah, see [surahProvider].
+      return ref.watch(quranRepositoryProvider).index();
     });
 
 /// Full text of one surah.
@@ -42,8 +40,10 @@ final FutureProviderFamily<Surah, int> surahProvider =
 
 /// The whole Qur'an, for offline search (parsed once, held in memory).
 final FutureProvider<List<Surah>> quranAllProvider =
-    FutureProvider<List<Surah>>((ref) {
-      return ref.watch(quranRepositoryProvider).all();
+    FutureProvider<List<Surah>>((ref) async {
+      final List<Surah> all = await ref.watch(quranRepositoryProvider).all();
+      _refreshOfflineNote(ref);
+      return all;
     });
 
 /// Continue-Reading position, persisted locally (syncs to the profile

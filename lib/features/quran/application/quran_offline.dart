@@ -9,6 +9,7 @@ library;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../app/core/content_loader.dart';
+import '../../../app/core/online_status.dart';
 
 /// Every file the Qur'an reader needs to open with no connection.
 const List<String> kQuranOfflineAssets = <String>[
@@ -16,6 +17,11 @@ const List<String> kQuranOfflineAssets = <String>[
   'assets/quran/transliteration.json',
   'assets/quran/texts.json',
 ];
+
+/// Shown under "needs an internet connection" when the text cannot load.
+const String kQuranOfflineHint =
+    'Open the Qur\u2019an once while online (or use Settings > Save '
+    'Qur\u2019an for offline) and it will work without internet.';
 
 /// What a save ended as.
 enum QuranSaveResult {
@@ -60,7 +66,7 @@ Future<QuranSaveResult> saveForOffline(
   return QuranSaveResult.saved;
 }
 
-enum QuranSavePhase { idle, saving, saved, notKept, failed }
+enum QuranSavePhase { idle, saving, saved, notKept, failed, offline }
 
 class QuranSaveState {
   const QuranSaveState(this.phase, {this.done = 0, this.total = 0});
@@ -79,6 +85,11 @@ class QuranOfflineController extends Notifier<QuranSaveState> {
 
   Future<void> save() async {
     if (state.phase == QuranSavePhase.saving) return;
+    // Saving fetches the files, so say so up front instead of failing later.
+    if (deviceReportsOnline == false) {
+      state = const QuranSaveState(QuranSavePhase.offline);
+      return;
+    }
     state = QuranSaveState(
       QuranSavePhase.saving,
       total: kQuranOfflineAssets.length,
@@ -127,7 +138,10 @@ String quranOfflineMessage(
           '(private windows and blocked site data often do this). It will '
           'still need internet next time.';
     case QuranSavePhase.failed:
-      return 'Could not save it. Check your connection and try again.';
+      return 'Could not save it. Saving needs a connection once. Connect, '
+          'then try again.';
+    case QuranSavePhase.offline:
+      return 'You are offline. Connect once to save it.';
     case QuranSavePhase.idle:
       return alreadyStored
           ? 'Saved on this device. The Qur’an text opens in this browser '
