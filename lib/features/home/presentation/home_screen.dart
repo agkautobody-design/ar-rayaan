@@ -359,7 +359,11 @@ class HomeScreen extends ConsumerWidget {
                         childAspectRatio:
                             (MediaQuery.of(context).size.width > 780
                                     ? 1.15
-                                    : 1.0) /
+                                    // A 320px phone has ~87px-wide tiles: a
+                                    // little taller so title and subtitle fit.
+                                    : MediaQuery.of(context).size.width < 360
+                                        ? 0.88
+                                        : 1.0) /
                                 textScale,
                         children: [
                           for (final (_, title, sub, route) in shownTiles)
