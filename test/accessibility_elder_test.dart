@@ -41,16 +41,6 @@ void main() {
     addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
   }
 
-  List<String> drain(WidgetTester tester) {
-    final List<String> errors = <String>[];
-    Object? e = tester.takeException();
-    while (e != null) {
-      errors.add(e.toString().split('\n').first);
-      e = tester.takeException();
-    }
-    return errors;
-  }
-
   // ---- The text scale ----------------------------------------------------
 
   group('effectiveTextScale', () {
@@ -318,7 +308,7 @@ void main() {
 
   Future<void> pumpPrayer(WidgetTester tester, {double scale = 2.0}) async {
     rowOverflows.clear();
-    final FlutterExceptionHandler? previous = FlutterError.onError;
+    final void Function(FlutterErrorDetails)? previous = FlutterError.onError;
     FlutterError.onError = (FlutterErrorDetails d) {
       final String text = d.toString();
       final RegExpMatch? m = RegExp(
@@ -417,7 +407,7 @@ void main() {
     await AppHarness.boot(tester);
     tester.takeException();
     final List<String> homeOverflows = <String>[];
-    final FlutterExceptionHandler? previous = FlutterError.onError;
+    final void Function(FlutterErrorDetails)? previous = FlutterError.onError;
     FlutterError.onError = (FlutterErrorDetails d) {
       final String text = d.toString();
       if (text.contains('overflowed') &&
