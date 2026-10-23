@@ -70,6 +70,29 @@ abstract final class QiblaDirection {
     return points[index];
   }
 
+  /// Plain-words direction (8-wind) for a bearing, e.g. 136 -> 'south-east'.
+  static String plainDirection(double bearing) {
+    const List<String> names = <String>[
+      'north',
+      'north-east',
+      'east',
+      'south-east',
+      'south',
+      'south-west',
+      'west',
+      'north-west',
+    ];
+    final double b = ((bearing % 360) + 360) % 360;
+    return names[((b + 22.5) / 45).floor() % 8];
+  }
+
+  /// One plain sentence for a first-time user, e.g.
+  /// 'Face south-east, about 136°'.
+  static String plainSentence(double bearing) {
+    final int deg = (((bearing % 360) + 360) % 360).round() % 360;
+    return 'Face ${plainDirection(bearing)}, about $deg°';
+  }
+
   static double _rad(double deg) => deg * math.pi / 180;
   static double _deg(double rad) => rad * 180 / math.pi;
 }

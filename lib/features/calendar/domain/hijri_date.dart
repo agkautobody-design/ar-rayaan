@@ -227,6 +227,22 @@ class HijriDate {
     return DateTime(base.year, base.month, base.day - config.adjustDays);
   }
 
+  /// First and last Hijri year the date converter offers (the Umm al-Qura
+  /// table, 1356-1500 AH, which is also the Gregorian date picker's span).
+  static const int converterMinYear = 1356;
+  static const int converterMaxYear = 1500;
+
+  /// Gregorian date for a typed Hijri date, under the active [config] (the
+  /// same calendar every screen uses), or null when the date does not exist:
+  /// a month outside 1-12, a day beyond the month's length, or a year outside
+  /// [converterMinYear]-[converterMaxYear].
+  static DateTime? gregorianFromHijri(int year, int month, int day) {
+    if (year < converterMinYear || year > converterMaxYear) return null;
+    if (month < 1 || month > 12) return null;
+    if (day < 1 || day > monthLength(year, month)) return null;
+    return HijriDate(year, month, day).toGregorian();
+  }
+
   DateTime _tabularToGregorian() {
     final (int y, int m, int d) = jdToGregorian(hijriToJd(year, month, day));
     return DateTime(y, m, d);

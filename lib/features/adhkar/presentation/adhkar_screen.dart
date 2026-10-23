@@ -24,6 +24,8 @@ class _AdhkarScreenState extends ConsumerState<AdhkarScreen> {
   @override
   Widget build(BuildContext context) {
     final AsyncValue<List<AdhkarSet>> sets = ref.watch(adhkarSetsProvider);
+    // Re-evaluates which dhikr is next (it gets the big counter) on every tap.
+    ref.watch(adhkarProgressProvider);
 
     return Scaffold(
       body: SafeArea(
@@ -46,6 +48,19 @@ class _AdhkarScreenState extends ConsumerState<AdhkarScreen> {
                     (s) => s.id == _selectedSet,
                     orElse: () => data.first,
                   );
+                  // The first dhikr not yet finished is the one to do next: its
+                  // counter is the big one-thumb tap area.
+                  int nextOpen = -1;
+                  for (int i = 0; i < set.items.length; i++) {
+                    final Dhikr d = set.items[i];
+                    if (ref
+                            .read(adhkarProgressProvider.notifier)
+                            .doneFor(set.id, d.number) <
+                        d.count) {
+                      nextOpen = i;
+                      break;
+                    }
+                  }
                   return ListView(
                     padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
                     children: [
@@ -71,7 +86,11 @@ class _AdhkarScreenState extends ConsumerState<AdhkarScreen> {
                                   height: 24,
                                   color: AppColors.gold.withValues(alpha: 0.1),
                                 ),
-                              _DhikrCard(set: set, dhikr: set.items[i]),
+                              _DhikrCard(
+                                set: set,
+                                dhikr: set.items[i],
+                                big: i == nextOpen,
+                              ),
                             ],
                           ],
                         ),
@@ -241,10 +260,18 @@ class _ProgressCard extends ConsumerWidget {
 }
 
 class _DhikrCard extends ConsumerWidget {
-  const _DhikrCard({required this.set, required this.dhikr});
+  const _DhikrCard({
+    required this.set,
+    required this.dhikr,
+    this.big = false,
+  });
 
   final AdhkarSet set;
   final Dhikr dhikr;
+
+  /// The dhikr to do next: its counter is a large tap area (160 dp circle)
+  /// under the text instead of the small circle beside it.
+  final bool big;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -253,116 +280,139 @@ class _DhikrCard extends ConsumerWidget {
         .read(adhkarProgressProvider.notifier)
         .doneFor(set.id, dhikr.number);
     final bool complete = done >= dhikr.count;
+    final bool bigCounter = big && !complete;
 
+    final Widget details = Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text(
+          dhikr.arabic,
+          style: AppText.arabicLarge.copyWith(
+            fontSize: 18,
+            height: 2.0,
+            color: complete
+                ? AppColors.sand.withValues(alpha: 0.45)
+                : AppColors.sand,
+          ),
+          textAlign: TextAlign.right,
+          textDirection: TextDirection.rtl,
+        ),
+        const SizedBox(height: 8),
+        if (dhikr.translation != null) ...[
+          Text(
+            dhikr.translation!,
+            style: AppText.bodyMuted.copyWith(
+              fontSize: 12,
+              height: 1.55,
+              color: complete
+                  ? AppColors.sand.withValues(alpha: 0.35)
+                  : AppColors.sand.withValues(alpha: 0.75),
+            ),
+          ),
+          const SizedBox(height: 6),
+        ],
+        if (dhikr.source != null) ...[
+          Text(
+            'Source: ${dhikr.source!}',
+            key: Key('dhikr-${set.id}-${dhikr.number}-source'),
+            style: AppText.bodyMuted.copyWith(
+              fontSize: 12,
+              fontStyle: FontStyle.italic,
+              color: AppColors.gold.withValues(alpha: 0.9),
+            ),
+          ),
+          const SizedBox(height: 6),
+        ],
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            if (dhikr.translation != null)
+              SpeakButton(text: dhikr.translation!, size: 24)
+            else
+              const SizedBox.shrink(),
+            Text(
+              complete
+                  ? 'Completed'
+                  : '${dhikr.count} ${dhikr.count == 1 ? 'repetition' : 'repetitions'}',
+              style: AppText.bodyMuted.copyWith(fontSize: 12),
+            ),
+          ],
+        ),
+      ],
+    );
+
+    // Tap-to-count button. The whole circle is the tap area.
+    final double size = bigCounter ? 160 : 52;
+    final Widget counter = Semantics(
+      button: true,
+      label: complete
+          ? 'Dhikr ${dhikr.number} complete'
+          : 'Count dhikr ${dhikr.number}, ${dhikr.count - done} left',
+      excludeSemantics: true,
+      child: GestureDetector(
+        onTap: complete
+            ? null
+            : () => ref
+                  .read(adhkarProgressProvider.notifier)
+                  .increment(set.id, dhikr.number, dhikr.count),
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 150),
+          width: size,
+          height: size,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: complete
+                ? AppColors.gold.withValues(alpha: 0.18)
+                : AppColors.gold.withValues(alpha: bigCounter ? 0.14 : 0.08),
+            border: Border.all(
+              color: complete
+                  ? AppColors.gold
+                  : AppColors.gold.withValues(alpha: 0.35),
+              width: complete ? 1.6 : 1,
+            ),
+          ),
+          child: complete
+              ? const Icon(Icons.check, color: AppColors.gold, size: 20)
+              : Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      '${dhikr.count - done}',
+                      key: Key('dhikr-${set.id}-${dhikr.number}-remaining'),
+                      style: AppText.titleMedium.copyWith(
+                        color: AppColors.goldLight,
+                        fontSize: bigCounter ? 44 : 16,
+                      ),
+                    ),
+                    if (bigCounter)
+                      Text(
+                        'tap to count',
+                        style: AppText.bodyMuted.copyWith(fontSize: 12),
+                      ),
+                  ],
+                ),
+        ),
+      ),
+    );
+
+    if (bigCounter) {
+      return Padding(
+        padding: const EdgeInsets.symmetric(vertical: 10),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [details, const SizedBox(height: 14), Center(child: counter)],
+        ),
+      );
+    }
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Text(
-                  dhikr.arabic,
-                  style: AppText.arabicLarge.copyWith(
-                    fontSize: 18,
-                    height: 2.0,
-                    color: complete
-                        ? AppColors.sand.withValues(alpha: 0.45)
-                        : AppColors.sand,
-                  ),
-                  textAlign: TextAlign.right,
-                  textDirection: TextDirection.rtl,
-                ),
-                const SizedBox(height: 8),
-                if (dhikr.translation != null) ...[
-                  Text(
-                    dhikr.translation!,
-                    style: AppText.bodyMuted.copyWith(
-                      fontSize: 12,
-                      height: 1.55,
-                      color: complete
-                          ? AppColors.sand.withValues(alpha: 0.35)
-                          : AppColors.sand.withValues(alpha: 0.75),
-                    ),
-                  ),
-                  const SizedBox(height: 6),
-                ],
-                if (dhikr.source != null) ...[
-                  Text(
-                    'Source: ${dhikr.source!}',
-                    key: Key('dhikr-${set.id}-${dhikr.number}-source'),
-                    style: AppText.bodyMuted.copyWith(
-                      fontSize: 12,
-                      fontStyle: FontStyle.italic,
-                      color: AppColors.gold.withValues(alpha: 0.9),
-                    ),
-                  ),
-                  const SizedBox(height: 6),
-                ],
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    if (dhikr.translation != null)
-                      SpeakButton(text: dhikr.translation!, size: 24)
-                    else
-                      const SizedBox.shrink(),
-                    Text(
-                      complete
-                          ? 'Completed'
-                          : '${dhikr.count} ${dhikr.count == 1 ? 'repetition' : 'repetitions'}',
-                      style: AppText.bodyMuted.copyWith(fontSize: 12),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
+          Expanded(child: details),
           const SizedBox(width: 12),
-          // Tap-to-count button
-          Semantics(
-            button: true,
-            label: complete
-                ? 'Dhikr ${dhikr.number} complete'
-                : 'Count dhikr ${dhikr.number}, ${dhikr.count - done} left',
-            excludeSemantics: true,
-            child: GestureDetector(
-            onTap: complete
-                ? null
-                : () => ref
-                      .read(adhkarProgressProvider.notifier)
-                      .increment(set.id, dhikr.number, dhikr.count),
-            child: AnimatedContainer(
-              duration: const Duration(milliseconds: 150),
-              width: 52,
-              height: 52,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: complete
-                    ? AppColors.gold.withValues(alpha: 0.18)
-                    : AppColors.gold.withValues(alpha: 0.08),
-                border: Border.all(
-                  color: complete
-                      ? AppColors.gold
-                      : AppColors.gold.withValues(alpha: 0.35),
-                  width: complete ? 1.6 : 1,
-                ),
-              ),
-              child: complete
-                  ? const Icon(Icons.check, color: AppColors.gold, size: 20)
-                  : Text(
-                      '${dhikr.count - done}',
-                      key: Key('dhikr-${set.id}-${dhikr.number}-remaining'),
-                      style: AppText.titleMedium.copyWith(
-                        color: AppColors.goldLight,
-                        fontSize: 16,
-                      ),
-                    ),
-            ),
-          ),
-          ),
+          counter,
         ],
       ),
     );
