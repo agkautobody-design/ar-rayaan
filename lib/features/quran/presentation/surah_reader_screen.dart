@@ -31,11 +31,13 @@ import '../../habits/presentation/quiet_done.dart';
 import '../application/quran_marks_controller.dart';
 import '../application/quran_offline.dart' show kQuranOfflineHint;
 import '../application/quran_providers.dart';
+import '../application/test_me_provider.dart';
 import '../domain/quran_marks.dart';
 import '../domain/quran_models.dart';
 import '../domain/quran_texts.dart';
 import '../domain/surah_search.dart';
 import 'ayah_actions_sheet.dart';
+import 'hideable_arabic.dart';
 
 /// How solid the panel behind the ayat is (1 = no pattern shows through).
 const double kReadingPanelAlpha = 0.9;
@@ -309,8 +311,12 @@ class _ReaderState extends ConsumerState<_Reader> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                _ReaderToolbar(ayahCount: n, onJump: jumpTo,
-                    showSize: MediaQuery.sizeOf(context).width < 300),
+                _ReaderToolbar(
+                  surah: surah.meta.number,
+                  ayahCount: n,
+                  onJump: jumpTo,
+                  showSize: MediaQuery.sizeOf(context).width < 300,
+                ),
                 _MadinahLink(surah: surah.meta.number, ayahCount: n),
                 _heading(surah, showBismillah),
               ],
@@ -456,10 +462,13 @@ class _MadinahLink extends ConsumerWidget {
 
 class _ReaderToolbar extends ConsumerWidget {
   const _ReaderToolbar({
+    required this.surah,
     required this.ayahCount,
     required this.onJump,
     required this.showSize,
   });
+
+  final int surah;
 
   /// False when the header already carries the text-size buttons.
   final bool showSize;
@@ -481,12 +490,48 @@ class _ReaderToolbar extends ConsumerWidget {
     final ArabicSizeController size = ref.read(arabicSizeProvider.notifier);
     final double sizeNow = ref.watch(arabicSizeProvider);
     final int? count = ayahCount;
+    final bool hiding = ref.watch(testMeProvider);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12),
       child: Wrap(
         alignment: WrapAlignment.end,
         crossAxisAlignment: WrapCrossAlignment.center,
         children: <Widget>[
+          Tooltip(
+            message: 'Open the Hifz planner on this surah',
+            child: TextButton.icon(
+              key: const Key('reader-memorise'),
+              style: TextButton.styleFrom(
+                minimumSize: const Size(48, 48),
+                foregroundColor: AppColors.gold,
+              ),
+              onPressed: () => context.open('/academy/hifz?surah=$surah'),
+              icon: const Icon(Icons.psychology_outlined, size: 18),
+              label: const Text('Memorise this surah'),
+            ),
+          ),
+          Tooltip(
+            message: hiding
+                ? 'Show the Arabic again'
+                : 'Cover the Arabic and tap each ayah to check yourself',
+            child: TextButton.icon(
+              key: const Key('reader-test-me'),
+              style: TextButton.styleFrom(
+                minimumSize: const Size(48, 48),
+                foregroundColor: AppColors.gold,
+              ),
+              onPressed: () {
+                ref.read(revealedAyahsProvider.notifier).state =
+                    const <String>{};
+                ref.read(testMeProvider.notifier).state = !hiding;
+              },
+              icon: Icon(
+                hiding ? Icons.visibility_outlined : Icons.visibility_off_outlined,
+                size: 18,
+              ),
+              label: Text(hiding ? 'Show text' : 'Hide text / test me'),
+            ),
+          ),
           if (count != null && count > 1)
             Tooltip(
               message: 'Jump to an ayah in this surah',
@@ -747,7 +792,10 @@ class _AyahBlock extends ConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               // Arabic with end-of-ayah medallion
-              RichText(
+              HideableArabic(
+                surah: surahNumber,
+                ayah: ayah.number,
+                child: RichText(
                 textAlign: TextAlign.right,
                 textDirection: TextDirection.rtl,
                 text: TextSpan(
@@ -767,6 +815,7 @@ class _AyahBlock extends ConsumerWidget {
                     ),
                   ],
                 ),
+              ),
               ),
               if (_usable(tr)) ...[
                 const SizedBox(height: 4),

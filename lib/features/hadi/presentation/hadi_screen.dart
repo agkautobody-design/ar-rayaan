@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import '../../share/application/share_text.dart';
+import '../../share/presentation/share_actions.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -1202,6 +1204,23 @@ class _StarterChip extends StatelessWidget {
   }
 }
 
+/// A Hadi reply for copying: the answer, then each cited passage with its
+/// reference (and grade line), then the app credit.
+String hadiReplyShareText(String answer, List<Passage> passages) {
+  final StringBuffer b = StringBuffer(answer.trim());
+  if (passages.isNotEmpty) {
+    b.write('\n\nSources:');
+    for (final Passage p in passages) {
+      b.write('\n\u2014 ${p.reference}');
+      final String? grade = p.gradeLine;
+      if (grade != null && grade.trim().isNotEmpty) b.write(' ($grade)');
+      if (p.english.trim().isNotEmpty) b.write(': ${p.english.trim()}');
+    }
+  }
+  b.write('\n\n$kSharedFromLine');
+  return b.toString();
+}
+
 class _Bubble extends ConsumerWidget {
   const _Bubble({
     required this.message,
@@ -1224,14 +1243,18 @@ class _Bubble extends ConsumerWidget {
   /// Set on a reply that fell back to the shelf because live failed.
   final VoidCallback? onRetry;
 
-  /// Puts the reply on the clipboard (without markup) and says so.
-  static Future<void> _copy(BuildContext context, String text) async {
-    final ScaffoldMessengerState messenger = ScaffoldMessenger.of(context);
-    await Clipboard.setData(ClipboardData(text: HadiMarkdown.plain(text)));
-    messenger.showSnackBar(
-      const SnackBar(content: Text('Copied to the clipboard.')),
-    );
-  }
+  /// Puts the reply on the clipboard (without markup, with the passages it
+  /// cites) and says so.
+  static Future<void> _copy(
+    BuildContext context,
+    String text,
+    List<Passage> passages,
+  ) =>
+      copyWithFeedback(
+        context,
+        hadiReplyShareText(HadiMarkdown.plain(text), passages),
+        message: 'Copied to the clipboard.',
+      );
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -1355,7 +1378,7 @@ class _Bubble extends ConsumerWidget {
                                 ),
                               IconButton(
                                 tooltip: 'Copy this reply',
-                                onPressed: () => _copy(context, shown),
+                                onPressed: () => _copy(context, shown, passages),
                                 icon: const Icon(Icons.copy_outlined, size: 18),
                                 color: AppColors.sand.withValues(alpha: 0.75),
                                 constraints: const BoxConstraints(

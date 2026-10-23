@@ -192,6 +192,54 @@ class _QuranScreenState extends ConsumerState<QuranScreen> {
                           ),
                         ),
                       ),
+                      const SizedBox(height: 10),
+                      Semantics(
+                        button: true,
+                        label: 'Memorise: Hifz planner and review',
+                        child: GlassCard(
+                          key: const Key('quran-memorise'),
+                          onTap: () => context.open('/academy/hifz'),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 16,
+                            vertical: 14,
+                          ),
+                          child: Row(
+                            children: <Widget>[
+                              const Icon(
+                                Icons.psychology_outlined,
+                                color: AppColors.gold,
+                                size: 22,
+                              ),
+                              const SizedBox(width: 12),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Text(
+                                      'Memorise',
+                                      style: AppText.body.copyWith(
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                    Text(
+                                      'Hifz planner. Open a surah to hide '
+                                      'the text and test yourself.',
+                                      style: AppText.bodyMuted.copyWith(
+                                        fontSize: 13,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Icon(
+                                Icons.chevron_right,
+                                size: 18,
+                                color: AppColors.gold.withValues(alpha: 0.6),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
                       const SizedBox(height: 16),
                       if (shown.isEmpty)
                         GlassCard(

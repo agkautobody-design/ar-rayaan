@@ -11,11 +11,17 @@ import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/theme/widgets/speak_button.dart';
 import '../../hadi/application/hadi_controller.dart';
+import '../../share/application/share_text.dart';
+import '../../share/domain/handout.dart';
+import '../../share/presentation/handout_screen.dart';
+import '../../share/presentation/share_actions.dart';
 import '../application/saved_stories_controller.dart';
+import '../application/story_text_size.dart';
 import '../data/stories_repository.dart';
 import '../domain/story.dart';
 import 'source_label_chip.dart';
 import 'story_layers_section.dart';
+import 'story_listen_bar.dart';
 
 /// True when a chapter's Arabic is only the opening of the text (the pack
 /// marks the cut with "..." or an ellipsis).
@@ -101,18 +107,28 @@ class _StoryReaderScreenState extends ConsumerState<StoryReaderScreen> {
   Widget build(BuildContext context) {
     final current = story.chapters[_chapter];
     final last = story.chapters.length - 1;
+    final bool big = ref.watch(storyBigTextProvider);
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: ListView(
         padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
         children: [
           ScreenHeader(title: story.kicker, close: true),
-          Align(
-            alignment: Alignment.centerRight,
-            child: _SaveStoryButton(
-              storyId: story.id,
-              isDua: story.collection == 'dailyduas',
-            ),
+          Wrap(
+            alignment: WrapAlignment.end,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            children: [
+              ShareCopyButtons(
+                text: storyChapterShareText(story, current),
+                title: story.title,
+                subject: 'this chapter',
+              ),
+              MakeHandoutButton(makeData: () => storyHandout(story)),
+              _SaveStoryButton(
+                storyId: story.id,
+                isDua: story.collection == 'dailyduas',
+              ),
+            ],
           ),
           Text(
             story.title,
@@ -183,12 +199,17 @@ class _StoryReaderScreenState extends ConsumerState<StoryReaderScreen> {
             ),
           if (current.label != null && current.label != story.sourceLabel)
             SourceLabelNote(label: current.label!, prefix: 'This chapter:'),
+          StoryListenBar(
+            text: current.heading.isEmpty
+                ? current.body
+                : '${current.heading}. ${current.body}',
+          ),
           if (current.heading.isNotEmpty) ...[
             Text(
               current.heading,
-              style: const TextStyle(
+              style: TextStyle(
                 fontFamily: 'PlayfairDisplay',
-                fontSize: 20,
+                fontSize: storyHeadingSize(big: big),
                 fontWeight: FontWeight.w600,
                 color: AppColors.sand,
               ),
@@ -223,8 +244,8 @@ class _StoryReaderScreenState extends ConsumerState<StoryReaderScreen> {
           ],
           Text(
             current.body,
-            style: const TextStyle(
-              fontSize: 16.5,
+            style: TextStyle(
+              fontSize: storyBodySize(big: big),
               height: 1.75,
               color: AppColors.sand,
             ),
@@ -310,6 +331,42 @@ class _StoryReaderScreenState extends ConsumerState<StoryReaderScreen> {
     );
   }
 }
+
+/// The chapter on screen as plain text: title, Arabic, text, then the
+/// story's source lines and its honesty label, then the app credit.
+String storyChapterShareText(Story story, StoryChapter chapter) {
+  final String label = chapter.label ?? story.sourceLabel;
+  final String sources = story.sources.join('; ');
+  return composeShareText(
+    title: chapter.heading.isEmpty
+        ? story.title
+        : '${story.title}: ${chapter.heading}',
+    arabic: chapter.arabic,
+    body: chapter.body,
+    source: label == kLabelEstablished
+        ? sources
+        : '$sources (${storyLabelDisplay(label)})',
+  );
+}
+
+/// A printable handout of the whole story: its chapters, sources and the
+/// family question that already ends the story.
+HandoutData storyHandout(Story story) => HandoutData(
+      title: story.title,
+      subtitle: story.subtitle,
+      notice: story.sourceLabel == kLabelEstablished
+          ? null
+          : '${storyLabelDisplay(story.sourceLabel)}. '
+              '${storyLabelMeaning(story.sourceLabel)}',
+      sections: <HandoutSection>[
+        for (final StoryChapter c in story.chapters)
+          HandoutSection(heading: c.heading, arabic: c.arabic, body: c.body),
+      ],
+      sources: story.sources,
+      questions: <String>[
+        if (story.familyQuestion.trim().isNotEmpty) story.familyQuestion,
+      ],
+    );
 
 /// Save / unsave this story or dua. Saved items are listed under Bookmarks
 /// in the You tab (and Hadi saves into the same list on request).

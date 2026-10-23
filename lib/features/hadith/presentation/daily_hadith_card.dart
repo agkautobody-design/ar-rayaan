@@ -7,6 +7,8 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/speak_button.dart';
+import '../../share/application/share_text.dart';
+import '../../share/presentation/share_actions.dart';
 import '../application/feeling_providers.dart';
 import '../domain/daily_hadith.dart';
 
@@ -71,6 +73,15 @@ class DailyHadithHero extends ConsumerWidget {
             children: [
               SpeakButton(text: 'Today’s hadith. ${hadith.text}', size: 30),
               const Spacer(),
+              ShareCopyButtons(
+                text: composeShareText(
+                  body: '\u201c${hadith.text}\u201d',
+                  source: 'Narrated by ${hadith.narrator}. '
+                      '${hadith.sourceLine}',
+                ),
+                title: 'Today\u2019s hadith',
+                subject: 'today\u2019s hadith',
+              ),
               _HeroAction(
                 icon: isSaved ? Icons.bookmark : Icons.bookmark_border,
                 label: isSaved ? 'Saved' : 'Save',
