@@ -162,15 +162,63 @@ const List<HadiExchange> kProposedHadiExchanges = [
 /// How many chips show before the person asks for more.
 const int kHadiOpeningChipCount = 5;
 
+/// Follow-up questions that fit what was just asked. Each one is answered by
+/// the offline shelf or a routed reply (test/hadi_round2_test.dart pins that).
+final List<(RegExp, List<String>)> _topicalFollowUps = <(RegExp, List<String>)>[
+  (
+    RegExp(r'\b(?:ramadan|fast|fasting|suhoor|iftar)\b'),
+    <String>[
+      'What breaks the fast?',
+      'Who is exempt from fasting?',
+      'How do I start fasting?',
+    ],
+  ),
+  (
+    RegExp(r'\b(?:islam|muslim|muslims|pillars|new\s+to)\b'),
+    <String>[
+      'What are the pillars of Islam?',
+      'How do I make wudu?',
+      'How do I start fasting?',
+    ],
+  ),
+  (
+    RegExp(r'\b(?:tahajjud|qiyam|witr|night\s+prayer)\b'),
+    <String>[
+      'How do I pray Witr?',
+      "Show me today's prayer times",
+      'A du\'a before sleep',
+    ],
+  ),
+];
+
 /// Up to [count] starter questions the person has not asked yet, in order.
 /// [asked] is the text of what they have already said, so a chip never
-/// offers a question they just used.
-List<String> hadiSuggestions(Iterable<String> asked, {int count = 3}) {
+/// offers a question they just used. When [lastQuestion] is on a topic with
+/// follow-ups of its own, those come first.
+List<String> hadiSuggestions(
+  Iterable<String> asked, {
+  int count = 3,
+  String? lastQuestion,
+}) {
   final Set<String> done = <String>{
     for (final String a in asked) a.trim().toLowerCase(),
   };
-  return <String>[
-    for (final HadiExchange e in kProposedHadiExchanges)
-      if (!done.contains(e.question.toLowerCase())) e.question,
-  ].take(count).toList();
+  final List<String> out = <String>[];
+  if (lastQuestion != null) {
+    final String l = lastQuestion.toLowerCase();
+    for (final (RegExp re, List<String> qs) in _topicalFollowUps) {
+      if (!re.hasMatch(l)) continue;
+      for (final String q in qs) {
+        if (!done.contains(q.toLowerCase())) out.add(q);
+      }
+      break;
+    }
+  }
+  for (final HadiExchange e in kProposedHadiExchanges) {
+    if (!done.contains(e.question.toLowerCase()) &&
+        !out.contains(e.question)) {
+      out.add(e.question);
+    }
+  }
+  return out.take(count).toList();
 }

@@ -180,17 +180,20 @@ void main() {
       final ProviderContainer c = await container();
       await c
           .read(hadiControllerProvider.notifier)
-          .ask('ramadan', provider: const OfflineHadiProvider());
+          .ask('How do I start fasting?',
+              provider: const OfflineHadiProvider());
       final HadiMessage m = c.read(hadiControllerProvider).messages.last;
       expect(m.live, isFalse);
-      expect(m.sources, contains('q:2:183-185'));
-      final Passage p = corpus.resolve('q:2:183-185')!;
+      // One verse, not the whole 2:183-185 run: the answer must not end in
+      // a wall of Qur'an.
+      expect(m.sources, contains('q:2:183'));
+      expect(m.sources.contains('q:2:183-185'), isFalse);
+      final Passage p = corpus.resolve('q:2:183')!;
       expect(p.arabic, isNotEmpty);
-      expect(p.english, contains('(2:183)'));
       // Saved with the thread, so the card is there after a restart.
       final String saved =
           c.read(sharedPreferencesProvider).getString('ar.hadi.thread') ?? '';
-      expect(saved, contains('q:2:183-185'));
+      expect(saved, contains('q:2:183'));
     });
 
     test('a library hadith in a shelf answer gets a card with its grade',

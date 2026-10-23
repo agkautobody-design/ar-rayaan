@@ -217,8 +217,8 @@ class SettingsScreen extends ConsumerWidget {
                           'Hādi, and nothing asks for a card. A paid plan for '
                           'extra live answers is planned but not open yet. '
                           'Connecting your own AI account is optional and '
-                          'advanced: it is under the ⋮ menu on the Hādi '
-                          'screen.',
+                          'advanced: it is under the More options menu '
+                          '(top right) on the Hādi screen.',
                           style: AppText.bodyMuted.copyWith(
                             fontSize: 12,
                             height: 1.5,

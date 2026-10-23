@@ -66,6 +66,7 @@ Future<void> _pumpSearch(
   List<Guide> guides = const <Guide>[_prayGuide],
   bool academyOn = true,
   GoRouter? router,
+  List<AdhkarSet> adhkar = const <AdhkarSet>[],
 }) async {
   SharedPreferences.setMockInitialValues(<String, Object>{});
   final SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -85,7 +86,7 @@ Future<void> _pumpSearch(
     quranAllProvider.overrideWith((ref) async => surahs),
     storiesProvider.overrideWith((ref) async => <Story>[]),
     hadithCollectionProvider.overrideWith((ref) async => hadiths),
-    adhkarSetsProvider.overrideWith((ref) async => <AdhkarSet>[]),
+    adhkarSetsProvider.overrideWith((ref) async => adhkar),
     guidesProvider.overrideWith((ref) async => guides),
     academyFlagProvider.overrideWith((ref) async => academyOn),
   ];
@@ -259,6 +260,125 @@ void main() {
     await tester.pump();
     expect(find.byTooltip('Clear'), findsNothing);
     expect(find.text('mulk'), findsNothing);
+  });
+
+  testWidgets('spelling variants find the surah', (WidgetTester tester) async {
+    await _pumpSearch(tester);
+    await _type(tester, 'Mulq');
+    expect(find.text('SURAH 67'), findsOneWidget);
+    await _type(tester, 'Baqara');
+    expect(find.text('SURAH 2'), findsOneWidget);
+  });
+
+  testWidgets('a one-letter slip gets "Did you mean" and a tap searches it', (
+    WidgetTester tester,
+  ) async {
+    await _pumpSearch(tester);
+    await _type(tester, 'baqrah');
+    expect(find.byKey(const Key('did-you-mean')), findsOneWidget);
+    expect(find.text('Did you mean "Al-Baqarah"?'), findsOneWidget);
+    await tester.tap(find.byKey(const Key('did-you-mean')));
+    await tester.pump(const Duration(milliseconds: 300));
+    expect(find.text('SURAH 2'), findsOneWidget);
+    expect(find.byKey(const Key('did-you-mean')), findsNothing);
+    final EditableText field =
+        tester.widget<EditableText>(find.byType(EditableText));
+    expect(field.controller.text, 'Al-Baqarah');
+  });
+
+  testWidgets('a correct word gets no suggestion', (WidgetTester tester) async {
+    await _pumpSearch(tester);
+    await _type(tester, 'baqarah');
+    expect(find.byKey(const Key('did-you-mean')), findsNothing);
+  });
+
+  testWidgets('type, clear, type again: the box keeps working', (
+    WidgetTester tester,
+  ) async {
+    await _pumpSearch(tester);
+    await tester.pump(const Duration(milliseconds: 500));
+    await _type(tester, 'qibla');
+    expect(find.text('Qibla Finder'), findsOneWidget);
+
+    await tester.tap(find.byTooltip('Clear'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 100));
+    EditableText field =
+        tester.widget<EditableText>(find.byType(EditableText));
+    expect(field.controller.text, isEmpty);
+    expect(field.focusNode.hasFocus, isTrue, reason: 'focus kept after Clear');
+
+    await _type(tester, 'tasbih');
+    field = tester.widget<EditableText>(find.byType(EditableText));
+    expect(field.controller.text, 'tasbih');
+    expect(find.textContaining('tasbih counter'), findsOneWidget);
+
+    // Again, after a result list: tap the box and type something else.
+    await tester.tap(find.byKey(const Key('search-field')));
+    await tester.pump();
+    await _type(tester, 'mulk');
+    expect(find.text('SURAH 67'), findsOneWidget);
+  });
+
+  testWidgets('the box stays on screen while the results scroll', (
+    WidgetTester tester,
+  ) async {
+    final List<String> verses = <String>[
+      for (int i = 0; i < 45; i++) 'He is the Most Merciful, verse $i',
+    ];
+    await _pumpSearch(
+      tester,
+      quran: <Surah>[_surah(1, 'Al-Fatihah', 'The Opening', verses)],
+    );
+    await _type(tester, 'merciful');
+    await tester.drag(find.byType(Scrollable).last, const Offset(0, -3000));
+    await tester.pump();
+    expect(find.byKey(const Key('search-field')), findsOneWidget);
+    final EditableText field =
+        tester.widget<EditableText>(find.byType(EditableText));
+    expect(field.controller.text, 'merciful');
+  });
+
+  testWidgets('a dhikr result opens its own set', (WidgetTester tester) async {
+    String? opened;
+    final GoRouter router = GoRouter(
+      routes: <RouteBase>[
+        GoRoute(
+          path: '/',
+          builder: (BuildContext c, GoRouterState s) => const SearchScreen(),
+        ),
+        GoRoute(
+          path: '/adhkar',
+          builder: (BuildContext c, GoRouterState s) {
+            opened = s.uri.toString();
+            return const Scaffold(body: Text('adhkar page'));
+          },
+        ),
+      ],
+    );
+    await _pumpSearch(
+      tester,
+      router: router,
+      adhkar: const <AdhkarSet>[
+        AdhkarSet(
+          id: 'evening',
+          titleEn: 'Evening Adhkar',
+          titleAr: 'x',
+          items: <Dhikr>[
+            Dhikr(
+              number: 1,
+              arabic: 'x',
+              count: 1,
+              translation: 'I seek refuge in the perfect words of Allah',
+            ),
+          ],
+        ),
+      ],
+    );
+    await _type(tester, 'perfect words');
+    await tester.tap(find.text('Evening Adhkar'));
+    await tester.pump(const Duration(milliseconds: 400));
+    expect(opened, '/adhkar?set=evening');
   });
 
   group('Home "Ask Hādi anything" bar', () {

@@ -524,7 +524,10 @@ GoRouter buildRouter({String initialLocation = '/'}) {
       ),
       GoRoute(
         path: AppRoutes.adhkar,
-        pageBuilder: (c, s) => _fade(const AdhkarScreen()),
+        pageBuilder: (c, s) => _fade(AdhkarScreen(
+          key: ValueKey<String>('adhkar-${s.uri.queryParameters['set']}'),
+          initialSet: s.uri.queryParameters['set'],
+        )),
       ),
       GoRoute(
         path: AppRoutes.qibla,
