@@ -484,22 +484,26 @@ class HomeScreen extends ConsumerWidget {
                                         'QUR’AN 18:24',
                                         style: AppText.eyebrow.copyWith(
                                           fontSize: 12,
-                                          letterSpacing: 2,
+                                          letterSpacing: compact ? 0.5 : 2,
                                         ),
                                       ),
                                     ],
                                   ),
                                 ),
-                                const SizedBox(width: 12),
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(12),
-                                  child: Image.asset(
-                                    'assets/images/today-quran.png',
-                                    width: 104,
-                                    height: 76,
-                                    fit: BoxFit.cover,
+                                // Large text: the picture would squeeze the
+                                // verse into a one-letter-wide column.
+                                if (!compact) ...<Widget>[
+                                  const SizedBox(width: 12),
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(12),
+                                    child: Image.asset(
+                                      'assets/images/today-quran.png',
+                                      width: 104,
+                                      height: 76,
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
-                                ),
+                                ],
                               ],
                             ),
                           ],

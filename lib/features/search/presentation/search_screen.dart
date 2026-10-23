@@ -465,6 +465,18 @@ class _SearchState extends ConsumerState<SearchScreen> {
                         ]),
                       ),
                     ),
+                  // A whole sentence is a question, not a word to find:
+                  // the hits above are only loose matches, so say where a
+                  // real answer is (round 6).
+                  if (_raw.trim().split(RegExp(r'\s+')).length >= 4)
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: TextButton(
+                        key: const Key('search-ask-hadi-sentence'),
+                        onPressed: () => context.go(AppRoutes.hadiAsk(_raw)),
+                        child: const Text('Asking a question? Ask Hādi'),
+                      ),
+                    ),
                 ]),
               ],
                 ),

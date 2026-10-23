@@ -588,8 +588,10 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
     );
     // With large text or a very narrow phone the status pill moves to its
     // own row under the buttons, so it never gets squeezed to nothing.
-    final bool stackedHeader =
-        largeText || MediaQuery.sizeOf(context).width < 300;
+    // Round 6: at 2x the pill stayed on its own row and left a tiny chat.
+    // It now shares the top row (its text is capped at 1.3x) unless the
+    // screen is under 330 dp wide.
+    final bool stackedHeader = MediaQuery.sizeOf(context).width < 330;
     final Widget statusPill = Container(
       key: const Key('hadi-status-pill'),
       constraints: const BoxConstraints(minHeight: 40),
@@ -608,11 +610,18 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
           ),
           const SizedBox(width: 8),
           Expanded(
-            child: Text(
-              hadi.live
-                  ? (compact ? 'Hādi · live AI' : 'Hādi · live AI (guardrailed)')
-                  : 'Hādi · built-in library',
-              style: AppText.bodyMuted.copyWith(color: AppColors.textFaint),
+            child: MediaQuery.withClampedTextScaling(
+              maxScaleFactor: 1.3,
+              child: Text(
+                hadi.live
+                    ? (compact
+                        ? 'Hādi · live AI'
+                        : 'Hādi · live AI (guardrailed)')
+                    : 'Hādi · built-in library',
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: AppText.bodyMuted.copyWith(color: AppColors.textFaint),
+              ),
             ),
           ),
         ],
@@ -1334,8 +1343,7 @@ class _Bubble extends ConsumerWidget {
                                 alignment: AlignmentDirectional.centerStart,
                               ),
                               child: Text(
-                                'Optional: add your own online AI account in '
-                                'Hādi settings',
+                                'Optional: connect your own AI',
                                 style: AppText.caption.copyWith(
                                   color: AppColors.textFaint,
                                   fontSize: 12,

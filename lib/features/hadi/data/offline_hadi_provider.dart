@@ -1465,6 +1465,18 @@ class OfflineHadiProvider implements HadiProvider {
     r'who\s+will\s+win)\b',
   );
 
+  static final RegExp _dailyLife = RegExp(
+    r'\b(?:school|college|university|english|money|saving|savings|budget|'
+    r'job|career|salary|friends?|laptop|phone|lunch|dinner|weekend)\b|'
+    r'\bsave\b',
+  );
+
+  static final RegExp _islamicWord = RegExp(
+    r'\b(?:islam\w*|muslims?|quran\w*|allah|prophets?|salah|salat|prayers?|'
+    r'halal|haram|fiqh|madhhab|sunnah|hadith|duas?|zakat|hajj|umrah|imam|'
+    r'masjid|mosque|ramadan|fasting|iman|tawhid|sahaba|companions?)\b',
+  );
+
   /// Letters only Urdu uses (not Arabic, not Persian).
   static const Set<int> _urduOnly = <int>{
     0x0679, 0x0688, 0x0691, 0x06BA, 0x06BE, 0x06C1, 0x06D2, 0x06D3, //
@@ -1569,6 +1581,13 @@ class OfflineHadiProvider implements HadiProvider {
       return const <String>[];
     }
     final bool ruling = answer.contains(rulingDecline);
+    // Round 6: "save money", "learn English", "make friends at a new school"
+    // matched Huda, Academy and Arabic letters on a single loose word. With
+    // no Islamic word in the question, a daily-life question gets no buttons.
+    final String nq = CrisisDetector.normalize(question);
+    if (!ruling && _dailyLife.hasMatch(nq) && !_islamicWord.hasMatch(nq)) {
+      return const <String>[];
+    }
     final List<String> out = <String>[if (ruling) '/sources'];
     // Only screens that really match what was asked: the closest ones, then
     // the topic's own screen. Nothing is added just to fill the row, so a
