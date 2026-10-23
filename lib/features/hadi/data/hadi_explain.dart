@@ -277,7 +277,11 @@ abstract final class HadiExplain {
     r'nikah|nikkah)|'
     r'(?:what|whats)\s+(?:is\s+)?(?:a\s+)?(?:marriage|nikah|nikkah)\s+'
     r'(?:in\s+islam)?|'
-    r'marriage\s+advice'
+    r'marriage\s+advice|'
+    r'(?:i\s+)?(?:want|plan|hope|wish)\s+to\s+(?:get\s+married|marry)'
+    r'(?:\s+(?:soon|someday|one\s+day|this\s+year|next\s+year))?'
+    r'(?:\s+(?:what|how)\s+(?:should|do|can)\s+(?:i|we)\s+(?:need\s+to\s+)?'
+    r'(?:know|do|learn|start))?'
     ')$_trail\$',
   );
 
