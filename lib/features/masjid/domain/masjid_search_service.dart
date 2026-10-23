@@ -84,7 +84,7 @@ Future<T> firstSuccess<T>(
     } catch (e) {
       run = Future<T>.error(e);
     }
-    run.then((T v) {
+    unawaited(run.then((T v) {
       if (!done.isCompleted) done.complete(v);
     }, onError: (Object e) {
       reasons.add(describe(e));
@@ -92,7 +92,7 @@ Future<T> firstSuccess<T>(
       if (pending == 0 && !done.isCompleted) {
         done.completeError(MapSearchFailure(reasons.toSet().join(', ')));
       }
-    });
+    }));
   }
   return done.future;
 }
