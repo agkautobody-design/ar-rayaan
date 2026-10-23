@@ -105,14 +105,37 @@ abstract final class HadiRouting {
       _beginner.hasMatch(_norm(question));
 
   static const String beginnerReply =
-      'That is a good place to begin, and it deserves more than a one-line '
-      'answer from me. Two places in this app cover it: the New Muslim path '
-      'starts from the very beginning, one short step at a time, and the '
-      'Aqeedah school in the Wasia Academy is where what Muslims believe is '
-      'taught. For a short list first, ask me about the five pillars of '
-      'Islam.\n[GO:/new-muslim]\n[GO:/academy/aqeedah]';
+      'That is a good place to begin. These are the app’s own words, from '
+      'the New Muslim path and the Wasia Academy, not mine.\n\n'
+      'Day 1 of the New Muslim path: “The testimony that none deserves '
+      'worship but Allah, and that Muhammad is His Messenger, is the door '
+      'into Islam.” It adds the Qur’an’s words: “Indeed, the religion in '
+      'the sight of Allah is Islam” (Qur’an 3:19).\n\n'
+      'Day 2: “Islam stands on five: the testimony, the prayer, the alms, '
+      'the fast of Ramadan, and the pilgrimage for those able.”\n\n'
+      'On what a Muslim believes, the Wasia Academy lesson on the six '
+      'articles of faith says: “The Prophet ﷺ defined faith in the hadith '
+      'of Jibreel (Muslim 8): belief in Allah, His angels, His books, His '
+      'messengers, the Last Day, and the divine decree.”\n\n'
+      'The New Muslim path goes on one short step a day, and the Aqeedah '
+      'school teaches what Muslims believe. For a short list first, ask me '
+      'about the five pillars of Islam.\n[GO:/new-muslim]\n[GO:/academy/aqeedah]';
 
-  // ── Questions for a doctor ───────────────────────────────────────────
+  // ── "These may help" must never promise buttons that are not there ──
+
+  /// [text] with the "These may help in the meantime:" line removed when
+  /// there is no button to follow it, and moved to the very end (right above
+  /// the buttons, after any footer) when there is.
+  static String guardLeadIn(String text, List<String> routes) {
+    if (!text.contains(refusalLeadIn)) return text;
+    final String stripped = text
+        .replaceAll(refusalLeadIn, '')
+        .replaceAll(RegExp(r'\n{3,}'), '\n\n')
+        .trim();
+    return routes.isEmpty ? stripped : '$stripped\n\n$refusalLeadIn';
+  }
+
+// ── Questions for a doctor ───────────────────────────────────────────
 
   /// Stemmed words (see the offline provider) that mark a medical question.
   static const Set<String> medicalWords = <String>{
@@ -145,9 +168,13 @@ abstract final class HadiRouting {
             'through, tell me and I will share one from my shelf.';
     return 'Whether to take a medicine, which one, or how much is a medical '
         'question, and your doctor or pharmacist is the right person for '
-        'it, not me. If part of your question is whether something is '
-        'permitted, a qualified scholar can speak to that; Our Sources '
-        'lists one. $comfort\n[GO:/sources]';
+        'it, not me. If a doctor has prescribed it, please keep following '
+        'your doctor’s advice, and do not stop or change a medicine on your '
+        'own. The Illness and Patience guide in this app says: “Allah has '
+        'made a remedy for every illness He created, so seek treatment”. '
+        'If part of your question is whether something is permitted, a '
+        'qualified scholar can speak to that; Our Sources lists one. '
+        '$comfort\n[GO:/huda/guide?id=huda-illness]\n[GO:/sources]';
   }
 
   // ── Ramadan planning ─────────────────────────────────────────────────
@@ -172,24 +199,19 @@ abstract final class HadiRouting {
 
   // ── Tahajjud: how, and how many ──────────────────────────────────────
 
-  static final RegExp _tahajjud = RegExp(r'\b(?:tahajjud|tahajud|qiyam)\b');
+  static final RegExp _tahajjud = RegExp(
+    r'\b(?:tahajjud|tahajud|tahajjod|tahajood|qiyam|night\s+prayer|'
+    r'prayer\s+(?:in|at|during)\s+the\s+night)\b',
+  );
   static final RegExp _howMany = RegExp(
-    r'\b(?:how\s+(?:do|to|can|should)|rakah|rakahs|rakat|rakaat|raka|rakas|'
-    r'units|steps)\b',
+    r'\b(?:how\s+(?:do|to|can|should|many|much)|rakah|rakahs|rakat|rakaat|raka|'
+    r'rakas|units|steps|teach|learn|method|guide)\b',
   );
 
   static bool asksTahajjudHow(String question) {
     final String n = _norm(question);
     return _tahajjud.hasMatch(n) && _howMany.hasMatch(n);
   }
-
-  static const String tahajjudReply =
-      'I do not have a verified step-by-step guide or a count of rak’ahs for '
-      'tahajjud on my shelf, so I will not give you a number from memory. '
-      'For how to pray it and how many rak’ahs, a qualified scholar is the '
-      'right person. In the app, the Huda guide on Witr and the night '
-      'routine covers the night prayer, and Prayer Times shows tonight’s '
-      'window.\n[GO:/huda]\n[GO:/prayer]';
 
   // ── A hadith number that cannot be confirmed ─────────────────────────
 
@@ -443,6 +465,10 @@ abstract final class HadiRouting {
       '/ramadan',
     ),
     (
+      RegExp(r'\b(?:dating|boyfriend|girlfriend|courtship|spouse)\b'),
+      '/academy/family-life',
+    ),
+    (
       RegExp(r'\b(?:prayer|prayers|salah|salat|namaz|wudu|ghusl|tayammum|fast|'
           r'fasting|hajj|umrah|zakat|janazah|funeral|nikah|marriage|divorce|'
           r'inheritance|halal|haram)\b'),
@@ -486,16 +512,351 @@ abstract final class HadiRouting {
   /// Words put in front of the buttons under a first refusal.
   static const String refusalLeadIn = 'These may help in the meantime:';
 
+  // ── Questions the app holds no verified answer for ───────────────────
+  //
+  // Round 3 (first-time-user study). Each reply below says plainly that
+  // Hadi has no verified answer, and sends the person to a screen that
+  // exists. None of them states a ruling, a hadith or a du'a; every quoted
+  // line is copied from the guide it names (test/hadi_round3_test.dart
+  // checks the quotes against the app's own files).
+
+  // Combining or shortening prayers on a journey.
+  static final RegExp _combineWord = RegExp(
+    r'\b(?:combin\w*|jam|jama|jamaa|jamaah|merg\w*|clubb\w*)\b',
+  );
+  static final RegExp _salahWord = RegExp(
+    r'\b(?:dhuhr|zuhr|duhr|zohr|dhur|asr|maghrib|magrib|isha|esha|ishaa|'
+    r'prayers?|salah|salat|namaz)\b',
+  );
+  static final RegExp _travelWord = RegExp(
+    r'\b(?:travel\w*|trip|journey|flight|flying|airport|safar|musafir|'
+    r'abroad|road\s+trip)\b',
+  );
+  static final RegExp _twoPrayers = RegExp(
+    r'\b(?:dhuhr|zuhr|duhr|zohr|dhur)\b.*\b(?:asr)\b|'
+    r'\b(?:asr)\b.*\b(?:dhuhr|zuhr|duhr|zohr|dhur)\b|'
+    r'\b(?:maghrib|magrib)\b.*\b(?:isha|esha|ishaa)\b|'
+    r'\b(?:isha|esha|ishaa)\b.*\b(?:maghrib|magrib)\b',
+  );
+
+  /// "Can I combine Dhuhr and Asr when travelling?"
+  static bool asksCombinePrayers(String question) {
+    final String n = _norm(question);
+    if (n.split(' ').length > 24) return false;
+    if (!_combineWord.hasMatch(n) || !_salahWord.hasMatch(n)) return false;
+    return _travelWord.hasMatch(n) || _twoPrayers.hasMatch(n);
+  }
+
+  static const String travelPrayerReply =
+      'I do not have a verified answer on combining prayers on a journey, '
+      'and I will not answer a different question in its place. It depends on the details of the journey and on your school, '
+      'so please ask a qualified scholar; Our Sources lists one.\n\n'
+      'The nearest thing in the app is the Travel guide. On the shortened '
+      'prayer it points to Qur’an 4:101, and its school note says: “follow '
+      'your school’s fiqh for your journey”.'
+      '\n[GO:/huda/guide?id=huda-travel]\n[GO:/sources]';
+
+  // Someone Hadi has no source on.
+  static final RegExp _whoIs = RegExp(
+    r'^(?:(?:hi|hello|salam|please|hadi|ok|okay|so)\s+)*'
+    r'(who\s+(?:is|was|are|were)|whos|tell\s+me\s+(?:more\s+)?about|'
+    r'what\s+do\s+you\s+know\s+about|do\s+you\s+know|'
+    r'(?:biography|bio|credentials|qualifications|background)\s+of|'
+    r'what\s+are\s+the\s+(?:credentials|qualifications)\s+of)\s+(.+)$',
+  );
+  static const Set<String> _honorifics = <String>{
+    'shaykh', 'sheikh', 'shaikh', 'sheik', 'imam', 'dr', 'mufti', 'maulana',
+    'mawlana', 'moulana', 'ustadh', 'ustaz', 'ustad', 'hafiz', 'qari', //
+    'professor', 'prof', 'mr', 'mrs', 'ms', 'brother', 'sister', 'sidi', //
+  };
+  static const Set<String> _nameParticles = <String>{
+    'ibn', 'bin', 'bint', 'abu', 'abi', 'umm', 'al', 'an', 'ar', 'as', //
+    'ash', 'ad', 'az', 'el', 'the', //
+  };
+  // A subject that starts with one of these is not a person's name.
+  static const Set<String> _notAName = <String>{
+    'the', 'a', 'an', 'my', 'your', 'our', 'this', 'that', 'these', 'those', //
+    'best', 'most', 'first', 'last', 'all', 'any', 'some', 'you', 'yourself', //
+    'hadi', 'wasia', 'islam', 'muslim', 'muslims', 'allah', 'prophet', //
+    'prophets', 'quran', 'it', 'there', 'he', 'she', 'they', 'we', 'i', //
+  };
+  static final RegExp _subjectEnd =
+      RegExp(r'\s(?:and|what|his|her|their|who|how|is|was|please)\s.*$');
+
+  /// The name words of a "who is X?" question, with whether X carries a
+  /// title (Shaykh, Imam, Dr, …); null when the question is not about a
+  /// person. Words are normalised but not stemmed.
+  static ({List<String> words, bool titled, bool who})? personSubject(
+    String question,
+  ) {
+    final String n = _norm(question);
+    final RegExpMatch? m = _whoIs.firstMatch(n);
+    if (m == null) return null;
+    final String subject = (m.group(2) ?? '').replaceFirst(_subjectEnd, '');
+    final bool who = (m.group(1) ?? '').startsWith('who');
+    final List<String> words =
+        subject.split(' ').where((String w) => w.isNotEmpty).toList();
+    if (words.isEmpty || words.length > 6) return null;
+    if (_notAName.contains(words.first)) return null;
+    final bool titled = _honorifics.contains(words.first);
+    return (
+      words: <String>[
+        for (final String w in words)
+          if (!_honorifics.contains(w) && !_nameParticles.contains(w)) w,
+      ],
+      titled: titled,
+      who: who,
+    );
+  }
+
+  /// True when [question] asks who a person is and Hadi has no source on
+  /// them. [known] says whether a word is one the shelf knows (the offline
+  /// provider passes its own index). A titled person needs one unknown name
+  /// word, an untitled one two, so "who is Umar" still reaches the shelf.
+  static bool asksUnknownPerson(
+    String question, {
+    required bool Function(String word) known,
+  }) {
+    final ({List<String> words, bool titled, bool who})? p =
+        personSubject(question);
+    if (p == null) return false;
+    final int unknown =
+        p.words.where((String w) => w.length >= 4 && !known(w)).length;
+    // "Tell me about quantum entanglement" is a topic, not a person: only
+    // "who is …" or a title makes two unknown words a person.
+    if (p.titled) return unknown >= 1;
+    return p.who && unknown >= 2;
+  }
+
+  /// True when the person asked about is the shaykh Our Sources names.
+  static bool asksAboutSourceShaykh(String question) {
+    final ({List<String> words, bool titled, bool who})? p =
+        personSubject(question);
+    return p != null &&
+        p.words.any((String w) => w == 'saqib' || w == 'iqbal');
+  }
+
+  static const String unknownPersonReply =
+      'I cannot speak about individuals I have no source on, and I have none '
+      'on the person you named. I will not describe someone from memory or '
+      'guess at who they are or what they have studied. Our Sources lists '
+      'every text, translation and teacher the app is built on, and Find '
+      'Anything searches the whole app.\n[GO:/sources]\n[GO:/search]';
+
+  static const String sourceShaykhReply =
+      'I cannot speak about individuals I have no source on, and I hold no '
+      'biography or credentials for Shaykh Muhammad Saqib Iqbal. All I can '
+      'tell you is how Our Sources describes his channel: lectures on '
+      'creed, fiqh, seerah and purification of the heart, on his official '
+      'YouTube channel. How we handle religious content says no named '
+      'scholar has reviewed this app yet. For who he is and what he has '
+      'studied, please look at his channel itself.'
+      '\n[GO:/sources]\n[GO:/sources/policy]';
+
+  // Relationships before marriage.
+  static final RegExp _relationship = RegExp(
+    r'\b(?:dating|boyfriends?|girlfriends?|courtship|courting|'
+    r'(?:go|going|went)\s+out\s+with|premarital|pre\s+marital|'
+    r'talk(?:ing)?\s+to\s+(?:a\s+)?(?:girls?|boys?|guys?)|'
+    r'relationships?\s+before\s+marriage|haram\s+relationship)\b',
+  );
+
+  static bool asksRelationship(String question) {
+    final String n = _norm(question);
+    return n.split(' ').length <= 16 && _relationship.hasMatch(n);
+  }
+
+  static const String relationshipReply =
+      'Many people ask this, and I am not assuming anything about you. I do '
+      'not have a verified answer on what is and is not allowed between a '
+      'man and a woman before marriage: it depends on the details and on '
+      'your school, so a qualified scholar is the right person; Our '
+      'Sources lists one.\n\n'
+      'What the app does hold is its guide to marriage itself, Marriage — '
+      'The Nikah: consent, the guardian and witnesses, the mahr, and the '
+      'spirit of the home. Family Life School covers mercy between '
+      'spouses. And if something is weighing on you, tell me and I will '
+      'listen.'
+      '\n[GO:/huda/guide?id=huda-nikah]\n[GO:/academy/family-life]';
+
+  // Rights of husband and wife.
+  static final RegExp _rightsWord = RegExp(
+    r'\b(?:rights?|dut(?:y|ies)|responsibilit\w*|obligations?|roles?)\b',
+  );
+
+  static bool asksSpouseRights(String question) {
+    final String n = _norm(question);
+    if (n.split(' ').length > 22) return false;
+    if (RegExp(r'\b(?:my|our)\s+(?:husband|wife|spouse)\b').hasMatch(n)) {
+      return false;
+    }
+    // Both spouses named: "rights of husband and wife". A question about one
+    // of them has its own answer on the shelf.
+    final bool both = RegExp(r'\b(?:husbands?)\b').hasMatch(n) &&
+            RegExp(r'\b(?:wife|wives)\b').hasMatch(n) ||
+        RegExp(r'\bspouses?\b').hasMatch(n);
+    return _rightsWord.hasMatch(n) && both;
+  }
+
+  static const String spouseRightsReply =
+      'I do not have a verified, balanced answer on the rights and duties of '
+      'each spouse, and I will not quote one side only. Marriage — The '
+      'Nikah is the app’s own guide: it covers consent, the guardian and '
+      'witnesses, the mahr, and the spirit of the home, with the line '
+      '“the best of you is the best of you to their wives” (Tirmidhi '
+      '3895, sahih per Darussalam). Family Life School covers mercy '
+      'between spouses and the trust of children.\n\n'
+      'For your own situation, a qualified scholar is the right person; Our '
+      'Sources lists one.'
+      '\n[GO:/huda/guide?id=huda-nikah]\n[GO:/academy/family-life]';
+
+  // Groups within Islam.
+  static final RegExp _groupWord = RegExp(
+    r'\b(?:sunnis?|shias?|shiah|shiites?|ahmadis?|ahmadiyya|qadianis?|'
+    r'sufis?|sufism|salafis?|wahhabis?|barelvis?|deobandis?|ibadis?)\b',
+  );
+  static final RegExp _groupAsk = RegExp(
+    r'\b(?:differ\w*|difference\w*|versus|vs|between|compar\w*|split|'
+    r'divid\w*|real|true|wrong|right|correct|misguided|kafirs?|'
+    r'not\s+muslims?)\b',
+  );
+
+  static bool asksGroupDifference(String question) {
+    final String n = _norm(question);
+    return n.split(' ').length <= 20 &&
+        _groupWord.hasMatch(n) &&
+        _groupAsk.hasMatch(n);
+  }
+
+  static const String groupDifferenceReply =
+      'I do not have a verified account of how these groups differ, and I '
+      'will not describe one group in another’s words, from memory, or say '
+      'which is right. A wrong or one-sided answer here would do harm. A '
+      'qualified scholar can explain it fairly; Our Sources lists one.\n\n'
+      'How we handle religious content, linked below, says what I can and '
+      'cannot be relied on for. The Huda guides each carry a school note '
+      'where the schools of law differ.'
+      '\n[GO:/sources/policy]\n[GO:/huda]';
+
+  // Memorising the Qur'an.
+  static final RegExp _memoriseWord = RegExp(
+    r'\b(?:memori[sz]\w*|hifz|by\s+heart)\b',
+  );
+  // Tracking or planning, or a named surah: the Hifz planner fits. A plain
+  // "memorization tips" keeps the shelf's own answer.
+  static final RegExp _memoriseAsk = RegExp(
+    r'\b(?:track\w*|plan\w*|schedul\w*|progress|surah|sura|chapter|juz|'
+    r'mulk|baqarah|yasin|kahf|rahman|fatiha|naba)\b',
+  );
+
+  static bool asksMemoriseHow(String question) {
+    final String n = _norm(question);
+    return n.split(' ').length <= 22 &&
+        _memoriseWord.hasMatch(n) &&
+        _memoriseAsk.hasMatch(n);
+  }
+
+  static const String memoriseReply =
+      'Memorizing has its own screen in this app: the Hifz planner in the '
+      'Wasia Academy. You pick a surah, set how many ayat a day you can '
+      'manage, see roughly when you would finish, get a daily revision '
+      'lane, and mark the ayat you have memorised. Your list stays on this '
+      'device, and the screen says a teacher or checker confirms it.\n\n'
+      'To work on a surah itself, the Qur’an reader has repeat controls for '
+      'looping an ayah or a range.\n[GO:/academy/hifz]\n[GO:/quran]';
+
+  // Someone new to Islam, said in their own words.
+  static final RegExp _newcomerLoose = RegExp(
+    r'\b(?:new\s+to\s+(?:islam|the\s+(?:faith|religion|deen))|'
+    r'(?:just|recently)\s+(?:converted|reverted|became\s+(?:a\s+)?muslim|'
+    r'embraced\s+islam|took\s+(?:my\s+)?shahada)|'
+    r'(?:new|recent)\s+(?:muslim|convert|revert)|'
+    r'i\s+(?:am|m)\s+a\s+(?:convert|revert))\b',
+  );
+
+  static bool asksNewcomerLoose(String question) {
+    final String n = _norm(question);
+    return n.split(' ').length <= 18 && _newcomerLoose.hasMatch(n);
+  }
+
+  // ── The same answer twice ────────────────────────────────────────────
+
+  static final RegExp _tokenRe = RegExp(r'\s*\[GO:[^\]]*\]');
+
+  static String _core(String s) =>
+      s.replaceAll(_tokenRe, '').replaceAll(RegExp(r'\s+'), ' ').trim();
+
+  static const List<String> _repeatOpeners = <String>[
+    'That is the same answer I gave a moment ago, and I have no more '
+        'verified detail to add.',
+    'I would only be saying the same thing again, and I have nothing '
+        'further on my shelf for this.',
+    'Repeating it would not help you: that is all I have verified on this.',
+  ];
+
+  static const String _repeatTail =
+      ' If it did not answer what you meant, put it in other words. Asking '
+      'me “How do you work?” shows what I can and cannot answer, and the '
+      'buttons below go to how the app handles religious content and to '
+      'the closest place for your topic.';
+
+  static const String _repeatSchools =
+      ' For the schools of law, ask me “What are the four schools?”. The '
+      'Huda guides show each guide’s school note, and “Your school of law” '
+      'in the More options menu lets me name your school when I hand you '
+      'to a scholar.';
+
+  static final RegExp _schoolTalk = RegExp(
+    r'\b(?:madhhabs?|madhabs?|schools?|scholars?|disagree\w*|differ\w*|'
+    r'hanafi|shafii|maliki|hanbali)\b',
+  );
+
+  /// True when [reply] (a finished answer) is already in what Hadi said
+  /// before. Short replies, hand-offs to a button, and refusals (which have
+  /// their own variants) never count.
+  static bool repeatsEarlier(String reply, List<HadiMessage> history) {
+    final String c = _core(reply);
+    if (c.length < 60 || c.startsWith('Here you are.') || isRefusal(c)) {
+      return false;
+    }
+    for (final HadiMessage m in history) {
+      if (m.fromHadi && _core(m.text).contains(c)) return true;
+    }
+    return false;
+  }
+
+  /// What to say in place of an answer that would repeat itself. Wording
+  /// changes each time it is needed; the buttons go to the policy page and
+  /// the closest place for [question].
+  static String repeatReply(String question, List<HadiMessage> history) {
+    final int before = history
+        .where((HadiMessage m) =>
+            m.fromHadi && _repeatOpeners.any((String o) => m.text.contains(o)))
+        .length;
+    final String opener = _repeatOpeners[before % _repeatOpeners.length];
+    final bool schools = _schoolTalk.hasMatch(_norm(question));
+    final String topic = schools ? '/huda' : topicRoute(question);
+    final String second = topic == '/academy/qa' ? '/search' : topic;
+    return '$opener$_repeatTail${schools ? _repeatSchools : ''}'
+        '\n[GO:/sources/policy]\n[GO:$second]';
+  }
+
   // ── The fixed replies, for the code that must not treat them as shelf ──
 
   static List<String> get fixedReplies => <String>[
         selfDescriptionReply,
         beginnerReply,
         ramadanPlanReply,
-        tahajjudReply,
         hadithNumberDecline,
         clarifyReply,
         closestMatchNote,
+        travelPrayerReply,
+        unknownPersonReply,
+        sourceShaykhReply,
+        relationshipReply,
+        spouseRightsReply,
+        groupDifferenceReply,
+        memoriseReply,
         ..._variants,
         ..._rulingVariants,
       ];
@@ -504,6 +865,7 @@ abstract final class HadiRouting {
   /// the medical hand-off.
   static bool isFixed(String answer) {
     if (answer.contains('is a medical question, and your doctor')) return true;
+    if (_repeatOpeners.any(answer.contains)) return true;
     return fixedReplies.any(answer.contains);
   }
 }

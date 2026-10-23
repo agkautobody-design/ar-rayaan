@@ -5,8 +5,9 @@ library;
 
 import 'dart:convert';
 
-import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../../../app/core/content_loader.dart';
 
 class QuranTextCredit {
   const QuranTextCredit({
@@ -64,7 +65,7 @@ class QuranTexts {
 final FutureProvider<QuranTexts> quranTextsProvider =
     FutureProvider<QuranTexts>((Ref ref) async {
   try {
-    final String raw = await rootBundle.loadString('assets/quran/texts.json');
+    final String raw = await ContentLoader.loadString('assets/quran/texts.json');
     return QuranTexts.fromJson(jsonDecode(raw) as Map<String, dynamic>);
   } catch (_) {
     return QuranTexts.fallback;

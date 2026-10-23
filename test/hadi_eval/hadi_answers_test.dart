@@ -32,8 +32,11 @@ const List<AnswerCase> kAnswerCases = <AnswerCase>[
   AnswerCase('fajr', 'How many rakats is Fajr?', 'Fajr is two'),
   AnswerCase('breaks-wudu', 'What breaks my wudu?', 'nullified',
       mustNotContain: <String>['purification before prayer']),
-  AnswerCase(
-      'combine', 'Can I combine prayers while travelling?', 'shortens'),
+  // Round 3: the shelf only holds shortening, so combining is said plainly
+  // to be unanswered instead of answered with a different question.
+  AnswerCase('combine', 'Can I combine prayers while travelling?',
+      'do not have a verified answer on combining',
+      mustNotContain: <String>['shortens']),
   AnswerCase('kursi', 'What is the virtue of Ayat al-Kursi?', 'Ayat al-Kursi'),
   AnswerCase(
       'sleep-surah', 'Which surah should I read before sleeping?', 'Before sleep'),
@@ -62,6 +65,23 @@ const List<AnswerCase> kAnswerCases = <AnswerCase>[
       mustNotContain: <String>['light will shine for him']),
   AnswerCase('witr', 'How do I pray Witr?', 'Witr is prayed'),
   AnswerCase('two-rakahs', "How do I pray two rak'ahs?", 'two-rak'),
+  // Round 2: answers built from the app's own guides, never a wall of verses.
+  AnswerCase('why-fast', 'Why do Muslims fast?', 'From dawn to sunset',
+      mustNotContain: <String>['2:183-185']),
+  AnswerCase('ramadan-fact', 'Tell me something interesting about Ramadan',
+      'free wind',
+      mustNotContain: <String>['2:183-185']),
+  AnswerCase('marriage', 'What should I know about marriage?', 'Nikah'),
+  AnswerCase('story', 'Tell me a story', 'Stories',
+      mustNotContain: <String>['enough authentic knowledge']),
+  AnswerCase('reviewed', 'Who reviewed your answers?', 'Not yet scholar-reviewed',
+      mustNotContain: <String>['Perhaps you meant']),
+  AnswerCase('schools', 'What are the madhhabs?', 'Hanafi, Maliki',
+      mustNotContain: <String>['Shariah is the divine law']),
+  AnswerCase('tahajjud', 'How do I pray tahajjud?', 'do not have verified'),
+  AnswerCase('apostasy', 'Is the punishment for leaving Islam death?',
+      'legal ruling',
+      mustNotContain: <String>['Thank you for telling me']),
 ];
 
 void main() {

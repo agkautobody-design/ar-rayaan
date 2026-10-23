@@ -132,7 +132,8 @@ class MyAdditionsScreen extends ConsumerWidget {
   Future<void> _showAddDialog(BuildContext context, WidgetRef ref) async {
     final TextEditingController title = TextEditingController();
     final TextEditingController url = TextEditingController();
-    String? error;
+    String? titleError;
+    String? linkError;
     final bool? added = await showDialog<bool>(
       context: context,
       builder: (BuildContext ctx) => StatefulBuilder(
@@ -147,8 +148,11 @@ class MyAdditionsScreen extends ConsumerWidget {
                   controller: title,
                   style: AppText.body,
                   maxLength: kMaxTitleLength,
-                  decoration: const InputDecoration(
-                      labelText: 'Title', hintText: 'e.g. Qasidah Burdah'),
+                  decoration: InputDecoration(
+                    labelText: 'Title',
+                    hintText: 'e.g. Qasidah Burdah',
+                    errorText: titleError,
+                  ),
                 ),
                 const SizedBox(height: 8),
                 TextField(
@@ -157,7 +161,7 @@ class MyAdditionsScreen extends ConsumerWidget {
                   decoration: InputDecoration(
                     labelText: 'Link (https://\u2026)',
                     hintText: 'YouTube, Spotify, or a direct audio link',
-                    errorText: error,
+                    errorText: linkError,
                     errorMaxLines: 3,
                   ),
                   keyboardType: TextInputType.url,
@@ -172,10 +176,13 @@ class MyAdditionsScreen extends ConsumerWidget {
             ),
             FilledButton(
               onPressed: () {
-                final String? problem =
-                    validateAddition(title.text, url.text);
-                if (problem != null) {
-                  set(() => error = problem);
+                final String? te = personalTitleError(title.text);
+                final String? le = personalLinkError(url.text);
+                if (te != null || le != null) {
+                  set(() {
+                    titleError = te;
+                    linkError = le;
+                  });
                   return;
                 }
                 Navigator.of(ctx).pop(true);
@@ -222,24 +229,22 @@ class MyAdditionsScreen extends ConsumerWidget {
   }
 }
 
-/// What is wrong with a new addition, in words, or null when it is fine.
-/// A title and a link are both needed; the link must be a YouTube or Spotify
-/// link, or an http(s) address of an audio file.
-String? validateAddition(String title, String link) {
-  if (title.trim().isEmpty) return 'Give it a title.';
-  final String u = link.trim();
-  if (u.isEmpty) return 'Paste a link.';
-  if (StreamLink.parse(u) != null) return null;
-  final Uri? parsed = Uri.tryParse(u);
-  final bool web = parsed != null &&
-      (parsed.scheme == 'http' || parsed.scheme == 'https') &&
-      parsed.host.isNotEmpty;
-  if (!web) {
-    return 'That is not a link I can use. Paste a YouTube or Spotify link, '
-        'or a direct audio link starting with https://.';
-  }
-  return null;
+/// Why a pasted link cannot be added, or null when it can. The same plain
+/// wording style as the playlist link dialog, kept inside the dialog so a
+/// bad paste never closes it silently.
+String? personalLinkError(String raw) {
+  final Uri? u = Uri.tryParse(raw.trim());
+  final bool ok = u != null &&
+      (u.scheme == 'http' || u.scheme == 'https') &&
+      u.host.isNotEmpty;
+  return ok
+      ? null
+      : 'That is not a link I can play. It should start with https://';
 }
+
+/// Why the title cannot be used, or null when it can.
+String? personalTitleError(String raw) =>
+    raw.trim().isEmpty ? 'Give it a title.' : null;
 
 class _HouseholdCard extends ConsumerWidget {
   const _HouseholdCard({required this.hidden});

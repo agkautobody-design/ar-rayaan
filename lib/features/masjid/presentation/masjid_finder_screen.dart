@@ -426,10 +426,25 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
                               ),
                               if (_hasPlace)
                                 TextButton(
-                                  onPressed: () => _openExternal(
-                                    masjidFallbackMapUri(
-                                        lat: _lat, lon: _lon, food: food),
-                                  ),
+                                  onPressed: () async {
+                                    final ScaffoldMessengerState messenger =
+                                        ScaffoldMessenger.of(context);
+                                    final bool ok = await _openExternal(
+                                      masjidFallbackMapUri(
+                                          lat: _lat, lon: _lon, food: food),
+                                    );
+                                    if (!ok) {
+                                      messenger.showSnackBar(
+                                        const SnackBar(
+                                          content: Text(
+                                            'This device would not open the '
+                                            'map. Check your connection or '
+                                            'try a browser.',
+                                          ),
+                                        ),
+                                      );
+                                    }
+                                  },
                                   child: const Text('Open map search instead'),
                                 ),
                             ]),
@@ -484,13 +499,15 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
 
 /// Opens [u] outside the app. A device with nothing to open it with, or a
 /// browser that refuses, must not surface as an unhandled error.
-Future<void> _openExternal(Uri u, {bool external = true}) async {
+Future<bool> _openExternal(Uri u, {bool external = true}) async {
   try {
-    await launchUrl(
+    return await launchUrl(
       u,
       mode: external ? LaunchMode.externalApplication : LaunchMode.platformDefault,
     );
-  } catch (_) {}
+  } catch (_) {
+    return false;
+  }
 }
 
 class _MosqueCard extends StatelessWidget {

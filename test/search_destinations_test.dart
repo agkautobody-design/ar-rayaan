@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:ar_rayaan/app/core/route_titles.dart';
 import 'package:ar_rayaan/features/quran/domain/quran_models.dart';
 import 'package:ar_rayaan/features/search/domain/app_destinations.dart';
@@ -22,7 +24,7 @@ void main() {
         expect(seen.add(d.id), isTrue, reason: 'duplicate id ${d.id}');
         expect(router.resolves(d.route), isTrue,
             reason: '${d.id} -> ${d.route} is not in router.dart');
-        expect(RouteTitles.forPath(d.route), isNot(RouteTitles.appName),
+        expect(RouteTitles.forPath(d.route.split('?').first), isNot(RouteTitles.appName),
             reason: '${d.route} has no title in route_titles.dart');
         expect(d.keywords, isNotEmpty);
         expect(d.title.trim(), isNotEmpty);
@@ -61,11 +63,34 @@ void main() {
 
     test('words with no room return nothing', () {
       expect(ids('mercy'), isEmpty);
-      expect(ids('patience'), isEmpty);
       expect(ids('zzzz'), isEmpty);
-      expect(ids('tahajjud'), isEmpty);
       expect(ids('ab'), isEmpty);
       expect(ids(''), isEmpty);
+    });
+
+    test('round 3: findability queries land on an existing guide or room', () {
+      expect(ids('tahajjud').first, 'night-prayer');
+      expect(ids('tahajud').first, 'night-prayer');
+      expect(ids('night prayer'), contains('night-prayer'));
+      expect(ids('patience').first, 'patience');
+      expect(ids('sabr').first, 'patience');
+      expect(ids('nikah').first, 'nikah-guide');
+      expect(ids('marriage').first, 'nikah-guide');
+      expect(ids('marriage'), contains('marriage'));
+      expect(ids('madhab').first, 'madhhab');
+      expect(ids('jumuah').first, 'jumuah');
+      expect(ids('Jumu\'ah time').first, 'jumuah');
+      expect(ids('hijri converter').first, 'calendar');
+      expect(ids('new to islam').first, 'new-muslim');
+    });
+
+    test('guide destinations point at a real guide id in the pack', () {
+      final String pack = File('assets/guides/guides.json').readAsStringSync();
+      for (final AppDestination d in kAppDestinations) {
+        if (!d.route.startsWith('/huda/guide?id=')) continue;
+        final String id = d.route.split('=').last;
+        expect(pack, contains('"id": "$id"'), reason: '${d.id} -> $id');
+      }
     });
 
     test('Academy rooms vanish with the Academy switch', () {

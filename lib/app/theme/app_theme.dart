@@ -50,6 +50,34 @@ abstract final class AppTheme {
         thickness: 1,
       ),
       iconTheme: const IconThemeData(color: AppColors.gold, size: 20),
+      // Keyboard focus must be easy to see: a clear gold wash on every
+      // material control (cards, tiles and rows also draw a 3px gold ring,
+      // see FocusRing).
+      focusColor: AppColors.gold.withValues(alpha: 0.4),
+      // Plain buttons (icon, text, outlined) also get the 3 px bright ring
+      // while the keyboard is on them; a faint wash alone was nearly
+      // invisible over the patterned backgrounds.
+      iconButtonTheme: const IconButtonThemeData(style: _focusRingStyle),
+      textButtonTheme: const TextButtonThemeData(style: _focusRingStyle),
+      outlinedButtonTheme: const OutlinedButtonThemeData(
+        style: _focusRingStyle,
+      ),
     );
   }
+
+  /// Draws the focus ring as the button's border only while it has focus;
+  /// every other state keeps the button's own border.
+  static const ButtonStyle _focusRingStyle = ButtonStyle(
+    side: _FocusRingSide(),
+  );
+}
+
+class _FocusRingSide extends WidgetStateBorderSide {
+  const _FocusRingSide();
+
+  @override
+  BorderSide? resolve(Set<WidgetState> states) =>
+      states.contains(WidgetState.focused)
+      ? const BorderSide(color: AppColors.goldLight, width: 3)
+      : null;
 }
