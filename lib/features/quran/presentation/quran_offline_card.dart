@@ -44,7 +44,8 @@ class QuranOfflineCard extends ConsumerWidget {
     final bool canSave = onWeb && !saving && !done;
     final String label =
         save.phase == QuranSavePhase.failed ||
-            save.phase == QuranSavePhase.notKept
+            save.phase == QuranSavePhase.notKept ||
+            save.phase == QuranSavePhase.offline
         ? 'Try again'
         : 'Save Qur’an for offline';
 
