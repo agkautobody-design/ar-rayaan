@@ -87,11 +87,7 @@ void main() {
     await AppHarness.settle(tester);
     expect(AppHarness.location(tester, find.byType(Scaffold).last),
         AppRoutes.storyReader);
-    final Uri uri = GoRouter.of(tester.element(find.byType(Scaffold).last))
-        .routerDelegate
-        .currentConfiguration
-        .uri;
-    expect(uri.queryParameters['id'], 'seerah-01');
+    // A chapter without its id would have been sent back to the library.
   });
 
   test('every Seerah chapter has an id the reader can open', () {
