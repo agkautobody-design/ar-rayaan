@@ -43,30 +43,8 @@ class SettingsScreen extends ConsumerWidget {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(left: 4, bottom: 8),
-                        child: Text('EASY TO READ', style: AppText.eyebrow),
+                        child: Text('TEXT SIZE & ELDER MODE', style: AppText.eyebrow),
                       ),
-                      GlassCard(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 16,
-                          vertical: 6,
-                        ),
-                        child: SwitchRow(
-                          icon: Icons.elderly_outlined,
-                          title: 'Elder Mode',
-                          subtitle: 'Big words and big buttons everywhere. '
-                              'The app opens on a simple home with three doors.',
-                          value: elder,
-                          onChanged: (bool v) async {
-                            await ref
-                                .read(elderModeProvider.notifier)
-                                .set(v);
-                            if (v && context.mounted) {
-                              context.go(ElderMode.homeRoute);
-                            }
-                          },
-                        ),
-                      ),
-                      const SizedBox(height: 12),
                       GlassCard(
                         padding: const EdgeInsets.symmetric(
                           horizontal: 16,
@@ -112,6 +90,27 @@ class SettingsScreen extends ConsumerWidget {
                               ],
                             ),
                           ],
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                      GlassCard(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 6,
+                        ),
+                        child: SwitchRow(
+                          icon: Icons.elderly_outlined,
+                          title: 'Elder Mode',
+                          subtitle: 'Big words, big buttons, a simple home.',
+                          value: elder,
+                          onChanged: (bool v) async {
+                            await ref
+                                .read(elderModeProvider.notifier)
+                                .set(v);
+                            if (v && context.mounted) {
+                              context.go(ElderMode.homeRoute);
+                            }
+                          },
                         ),
                       ),
                       const SizedBox(height: 20),
