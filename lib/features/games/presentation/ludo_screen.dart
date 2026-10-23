@@ -8,6 +8,7 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../data/game_rooms_service.dart';
+import '../data/ludo_rules.dart';
 import '../data/room_moves.dart';
 import 'online_lobby.dart';
 
@@ -60,6 +61,11 @@ class _LudoState extends State<LudoScreen> {
   late List<List<int>> tok;
   int turn = 0;
   int dice = 0;
+  // The last number rolled, kept on the die between turns.
+  int lastRoll = 0;
+  // Bumped by every reset so a late Hadi turn or pass timer from the old
+  // game cannot touch the new one.
+  int _gen = 0;
   bool rolled = false;
   bool usedRoll = true;
   int mode = 0; // 0 menu, 1 vs Hadi, 2 two players
@@ -132,6 +138,8 @@ class _LudoState extends State<LudoScreen> {
   }
 
   void _reset() {
+    _gen++;
+    lastRoll = 0;
     tok = List.generate(4, (_) => List.filled(4, -1));
     turn = 0;
     dice = 0;
@@ -149,24 +157,8 @@ class _LudoState extends State<LudoScreen> {
 
   int _abs(int player, int rel) => (starts[player] + rel) % 52;
 
-  List<int> _validMoves(int player, int roll) {
-    final out = <int>[];
-    for (var t = 0; t < 4; t++) {
-      final p = tok[player][t];
-      if (p == 58) continue;
-      if (p == -1) {
-        if (roll == 6) out.add(t);
-        continue;
-      }
-      if (p <= 51) {
-        out.add(t);
-        continue;
-      }
-      final h = p - 52 + roll;
-      if (h <= 6) out.add(t);
-    }
-    return out;
-  }
+  List<int> _validMoves(int player, int roll) =>
+      LudoRules.validMoves(tok, player, roll);
 
   void _apply(int player, int t, int roll) {
     final p = tok[player][t];
@@ -219,15 +211,19 @@ class _LudoState extends State<LudoScreen> {
     if (mode == 3 && turn != myIdx) return;
     setState(() {
       dice = 1 + _rnd.nextInt(6);
+      lastRoll = dice;
       rolled = true;
       selToken = null;
       final valid = _validMoves(turn, dice);
       if (valid.isEmpty) {
-        status = '${names[turn]} rolled $dice — no move, passing';
+        status = LudoRules.onlyBaseTokens(tok, turn)
+            ? '${names[turn]} rolled $dice — a 6 brings a token out, passing'
+            : '${names[turn]} rolled $dice — no move, passing';
         final int passer = turn;
         final int passRoll = dice;
-        Future<void>.delayed(const Duration(milliseconds: 700), () {
-          if (!mounted) return;
+        final int gen = _gen;
+        Future<void>.delayed(const Duration(milliseconds: 1100), () {
+          if (!mounted || gen != _gen) return;
           setState(() {
             _nextTurn();
             // The opponent must hear about a pass too, or their board waits
@@ -248,6 +244,9 @@ class _LudoState extends State<LudoScreen> {
 
   void _move(int t) {
     if (!rolled || gameOver) return;
+    // Hadi's tokens move only by Hadi's own turn: a tap on a green token
+    // while he is thinking used to move it for him (and he then moved twice).
+    if (mode == 1 && turn == 1) return;
     if (mode == 3 && turn != myIdx) return;
     if (!_validMoves(turn, dice).contains(t)) return;
     final d = dice;
@@ -270,11 +269,12 @@ class _LudoState extends State<LudoScreen> {
   }
 
   void _aiTurn() async {
+    final int gen = _gen;
     await Future<void>.delayed(const Duration(milliseconds: 600));
-    if (!mounted || gameOver) return;
+    if (!mounted || gameOver || gen != _gen) return;
     setState(() => _rollSilent());
     await Future<void>.delayed(const Duration(milliseconds: 700));
-    if (!mounted || gameOver) return;
+    if (!mounted || gameOver || gen != _gen) return;
     final valid = _validMoves(1, dice);
     if (valid.isEmpty) {
       setState(() {
@@ -282,7 +282,7 @@ class _LudoState extends State<LudoScreen> {
         hadiLine = _hadiLudo[_rnd.nextInt(_hadiLudo.length)];
       });
       await Future<void>.delayed(const Duration(milliseconds: 800));
-      if (mounted) setState(() => _nextTurn());
+      if (mounted && gen == _gen) setState(() => _nextTurn());
       return;
     }
     int best = valid.first, bestScore = -1;
@@ -323,6 +323,7 @@ class _LudoState extends State<LudoScreen> {
 
   void _rollSilent() {
     dice = 1 + _rnd.nextInt(6);
+    lastRoll = dice;
     rolled = true;
   }
 
@@ -486,7 +487,8 @@ class _LudoState extends State<LudoScreen> {
                   color: const Color(0xFF0A0F18),
                   border: Border.all(color: AppColors.gold.withValues(alpha: 0.5)),
                 ),
-                child: DiceFace(value: dice),
+                child: DiceFace(
+                    value: LudoRules.faceValue(dice: dice, lastRoll: lastRoll)),
               ),
               const SizedBox(width: 16),
               ElevatedButton.icon(

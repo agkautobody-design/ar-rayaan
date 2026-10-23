@@ -1,25 +1,78 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/theme/widgets/speak_button.dart';
 import '../../hadi/application/hadi_controller.dart';
+import '../application/saved_stories_controller.dart';
+import '../data/stories_repository.dart';
 import '../domain/story.dart';
 import 'source_label_chip.dart';
 import 'story_layers_section.dart';
 
-class StoryReaderScreen extends StatefulWidget {
+/// The /stories/read route. The story id travels in `?id=` so Back, a browser
+/// refresh or a pasted link still opens the story; `extra` is only a fast
+/// path. (Without the id, a history entry restored by the browser had no
+/// story and fell into the error screen.)
+class StoryRouteScreen extends ConsumerWidget {
+  const StoryRouteScreen({super.key, this.storyId, this.story});
+
+  final String? storyId;
+  final Story? story;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final Story? given = story;
+    if (given != null) return StoryReaderScreen(story: given);
+    final AsyncValue<List<Story>> all = ref.watch(storiesProvider);
+    return all.when(
+      loading: () => const Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Center(child: CircularProgressIndicator(color: AppColors.gold)),
+      ),
+      error: (Object e, StackTrace _) => _missing(context),
+      data: (List<Story> list) {
+        for (final Story s in list) {
+          if (s.id == storyId) return StoryReaderScreen(story: s);
+        }
+        return _missing(context);
+      },
+    );
+  }
+
+  Widget _missing(BuildContext context) => Scaffold(
+        backgroundColor: Colors.transparent,
+        body: ListView(
+          padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
+          children: <Widget>[
+            const ScreenHeader(title: 'Stories', close: true),
+            Text('That story could not be found.', style: AppText.bodyMuted),
+            const SizedBox(height: 12),
+            TextButton(
+              onPressed: () => context.go(AppRoutes.stories),
+              child: const Text('Back to all stories'),
+            ),
+          ],
+        ),
+      );
+}
+
+class StoryReaderScreen extends ConsumerStatefulWidget {
   final Story story;
   const StoryReaderScreen({super.key, required this.story});
 
   @override
-  State<StoryReaderScreen> createState() => _StoryReaderScreenState();
+  ConsumerState<StoryReaderScreen> createState() => _StoryReaderScreenState();
 }
 
-class _StoryReaderScreenState extends State<StoryReaderScreen> {
+class _StoryReaderScreenState extends ConsumerState<StoryReaderScreen> {
   int _chapter = 0;
 
   Story get story => widget.story;
@@ -34,7 +87,10 @@ class _StoryReaderScreenState extends State<StoryReaderScreen> {
         padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
         children: [
           ScreenHeader(title: story.kicker, close: true),
-          const SizedBox(height: 8),
+          Align(
+            alignment: Alignment.centerRight,
+            child: _SaveStoryButton(storyId: story.id),
+          ),
           Text(
             story.title,
             style: const TextStyle(
@@ -225,6 +281,44 @@ class _StoryReaderScreenState extends State<StoryReaderScreen> {
           const SizedBox(height: 12),
           _AskHadiAboutStory(story: story, chapter: current),
         ],
+      ),
+    );
+  }
+}
+
+/// Save / unsave this story. Saved stories are listed under Bookmarks in
+/// My Journey (and Hadi saves into the same list on request).
+class _SaveStoryButton extends ConsumerWidget {
+  const _SaveStoryButton({required this.storyId});
+
+  final String storyId;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final bool saved = ref.watch(savedStoriesProvider).contains(storyId);
+    final String tip = saved
+        ? 'Saved to Bookmarks. Tap to remove.'
+        : 'Save this story to Bookmarks';
+    return Tooltip(
+      message: tip,
+      child: TextButton.icon(
+        onPressed: () {
+          unawaited(ref.read(savedStoriesProvider.notifier).toggle(storyId));
+          ScaffoldMessenger.maybeOf(context)
+            ?..hideCurrentSnackBar()
+            ..showSnackBar(SnackBar(
+              content: Text(saved
+                  ? 'Removed from Bookmarks.'
+                  : 'Saved. Find it under Bookmarks in My Journey.'),
+              duration: const Duration(seconds: 2),
+            ));
+        },
+        icon: Icon(
+          saved ? Icons.bookmark : Icons.bookmark_border,
+          size: 18,
+          color: AppColors.gold,
+        ),
+        label: Text(saved ? 'Saved' : 'Save', style: AppText.bodyMuted),
       ),
     );
   }
