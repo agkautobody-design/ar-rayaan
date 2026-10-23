@@ -13,6 +13,7 @@ import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/icon_tile.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
+import '../../../app/theme/widgets/switch_row.dart' show kTightRowWidth;
 
 /// Screen 5 · Explore Ar-Rayaan — the full menu panel.
 class ExploreScreen extends ConsumerWidget {
@@ -138,28 +139,47 @@ class ExploreScreen extends ConsumerWidget {
                   ],
                   const SizedBox(height: 16),
                   GlassCard(
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: _Row(
-                            icon: Icons.settings_outlined,
-                            label: 'Settings',
-                            onTap: () => context.push(AppRoutes.settings),
-                          ),
-                        ),
-                        Container(
-                          width: 1,
-                          height: 40,
-                          color: AppColors.gold.withValues(alpha: 0.1),
-                        ),
-                        const Expanded(
-                          child: _Row(
-                            icon: Icons.help_outline,
-                            label: 'Help & Support',
-                            comingSoon: true,
-                          ),
-                        ),
-                      ],
+                    child: LayoutBuilder(
+                      builder: (BuildContext context, BoxConstraints box) {
+                        // Side by side only when each half has room for a
+                        // whole word; large text or a narrow phone stacks.
+                        final bool stack =
+                            box.maxWidth < 380 ||
+                            MediaQuery.textScalerOf(context).scale(14) > 17;
+                        final Widget settingsRow = _Row(
+                          icon: Icons.settings_outlined,
+                          label: 'Settings',
+                          onTap: () => context.push(AppRoutes.settings),
+                        );
+                        final Widget helpRow = const _Row(
+                          icon: Icons.help_outline,
+                          label: 'Help & Support',
+                          comingSoon: true,
+                        );
+                        if (stack) {
+                          return Column(
+                            children: [
+                              settingsRow,
+                              Divider(
+                                height: 1,
+                                color: AppColors.gold.withValues(alpha: 0.1),
+                              ),
+                              helpRow,
+                            ],
+                          );
+                        }
+                        return Row(
+                          children: [
+                            Expanded(child: settingsRow),
+                            Container(
+                              width: 1,
+                              height: 40,
+                              color: AppColors.gold.withValues(alpha: 0.1),
+                            ),
+                            Expanded(child: helpRow),
+                          ],
+                        );
+                      },
                     ),
                   ),
                   const SizedBox(height: 16),
@@ -213,10 +233,14 @@ class _Row extends StatelessWidget {
             opacity: comingSoon ? 0.7 : 1,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-              child: Row(
+              child: LayoutBuilder(
+                builder: (BuildContext context, BoxConstraints box) {
+                  final bool tight = box.maxWidth < kTightRowWidth;
+                  return Row(
                 children: [
+                  if (!tight)
                   ExcludeSemantics(child: IconTile(icon: icon, size: 32)),
-                  const SizedBox(width: 12),
+                  if (!tight) const SizedBox(width: 12),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -232,7 +256,7 @@ class _Row extends StatelessWidget {
                       ],
                     ),
                   ),
-                  if (!comingSoon)
+                  if (!comingSoon && !tight)
                     ExcludeSemantics(
                       child: Icon(
                         Icons.chevron_right,
@@ -241,6 +265,8 @@ class _Row extends StatelessWidget {
                       ),
                     ),
                 ],
+              );
+                },
               ),
             ),
           ),

@@ -111,12 +111,11 @@ class _AcademyGateState extends State<AcademyGateScreen> {
                 ),
               ),
             ),
-            Center(
-              child: Image.asset(
-                'assets/images/welcome-reflection-full.jpg',
-                fit: BoxFit.contain,
-              ),
-            ),
+            // No sharp copy of the artwork here: the picture has the Welcome
+            // screen's own words baked in (Bismillah, the dua, the three
+            // cards, "Continue"), and drawn sharp they sat under this screen's
+            // live text and read as overlapping text and a greyed button.
+            // Blurred, it is only light and colour.
             Container(
               decoration: const BoxDecoration(
                 gradient: LinearGradient(
@@ -131,6 +130,12 @@ class _AcademyGateState extends State<AcademyGateScreen> {
               ),
             ),
             SafeArea(
+              child: LayoutBuilder(
+                builder: (BuildContext context, BoxConstraints box) =>
+                    SingleChildScrollView(
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(minHeight: box.maxHeight),
+                    child: IntrinsicHeight(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 28),
                 child: Column(
@@ -201,6 +206,10 @@ class _AcademyGateState extends State<AcademyGateScreen> {
                     ),
                     const SizedBox(height: 26),
                   ],
+                ),
+              ),
+                    ),
+                  ),
                 ),
               ),
             ),

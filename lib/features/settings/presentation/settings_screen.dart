@@ -11,6 +11,7 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../../../app/theme/widgets/switch_row.dart';
 import '../../legal/legal_routes.dart';
 
 /// Settings — begins with the Sound toggle promised on the locked splash
@@ -43,28 +44,11 @@ class SettingsScreen extends ConsumerWidget {
                           horizontal: 16,
                           vertical: 6,
                         ),
-                        child: SwitchListTile.adaptive(
-                          contentPadding: EdgeInsets.zero,
+                        child: SwitchRow(
+                          icon: Icons.graphic_eq,
+                          title: 'Ambient Sound',
+                          subtitle: 'Gentle soundscape on arrival and NOOR',
                           value: settings.ambient,
-                          activeTrackColor: AppColors.gold.withValues(
-                            alpha: 0.5,
-                          ),
-                          thumbColor: const WidgetStatePropertyAll(
-                            AppColors.gold,
-                          ),
-                          title: Text(
-                            'Ambient Sound',
-                            style: AppText.body.copyWith(fontSize: 14),
-                          ),
-                          subtitle: Text(
-                            'Gentle soundscape on arrival and NOOR',
-                            style: AppText.bodyMuted.copyWith(fontSize: 12),
-                          ),
-                          secondary: const Icon(
-                            Icons.graphic_eq,
-                            size: 18,
-                            color: AppColors.gold,
-                          ),
                           onChanged: (bool v) {
                             ref
                                 .read(soundSettingsProvider.notifier)
@@ -105,31 +89,12 @@ class SettingsScreen extends ConsumerWidget {
                             }
                             final bool memoryOn =
                                 prefs?.getBool('ar.hadi.memory') == true;
-                            return SwitchListTile.adaptive(
-                              contentPadding: EdgeInsets.zero,
+                            return SwitchRow(
+                              icon: Icons.face_outlined,
+                              title: 'Hādi remembers you',
+                              subtitle: 'Share your name so Hādi can greet you '
+                                  'personally. Stored on this device only.',
                               value: memoryOn,
-                              activeTrackColor: AppColors.gold.withValues(
-                                alpha: 0.5,
-                              ),
-                              thumbColor: const WidgetStatePropertyAll(
-                                AppColors.gold,
-                              ),
-                              title: Text(
-                                'Hādi remembers you',
-                                style: AppText.body.copyWith(fontSize: 14),
-                              ),
-                              subtitle: Text(
-                                'Share your name so Hādi can greet you '
-                                'personally. Stored on this device only.',
-                                style: AppText.bodyMuted.copyWith(
-                                  fontSize: 12,
-                                ),
-                              ),
-                              secondary: const Icon(
-                                Icons.face_outlined,
-                                size: 18,
-                                color: AppColors.gold,
-                              ),
                               onChanged: prefs == null
                                   ? null
                                   : (bool v) async {

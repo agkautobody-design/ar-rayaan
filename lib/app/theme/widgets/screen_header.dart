@@ -43,6 +43,8 @@ class ScreenHeader extends StatelessWidget {
                 title,
                 style: AppText.titleMedium,
                 textAlign: TextAlign.center,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
               ),
             ),
           ),

@@ -585,44 +585,75 @@ class _ConsentDialog extends StatefulWidget {
 
 class _ConsentDialogState extends State<_ConsentDialog> {
   bool _agree = false;
+  bool _showHint = false;
 
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
       backgroundColor: const Color(0xFF0A0F18),
       title: Text(kChildrenPrivacyTitle, style: AppText.titleMedium),
-      content: SingleChildScrollView(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            for (final String b in kChildrenPrivacyBullets)
-              Padding(
-                padding: const EdgeInsets.only(bottom: 8),
-                child: Text('\u2022 $b',
-                    style: AppText.bodyMuted.copyWith(height: 1.45)),
-              ),
-            CheckboxListTile(
-              contentPadding: EdgeInsets.zero,
-              controlAffinity: ListTileControlAffinity.leading,
-              value: _agree,
-              onChanged: (bool? v) => setState(() => _agree = v ?? false),
-              title: Text(
-                'I am this child\u2019s parent or guardian, and I agree.',
-                style: AppText.body,
+      // The long text scrolls; the tick box and the reason Continue is not
+      // ready stay pinned below it, so they can never be clipped away.
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Flexible(
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  for (final String b in kChildrenPrivacyBullets)
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 8),
+                      child: Text(
+                        '\u2022 $b',
+                        style: AppText.bodyMuted.copyWith(height: 1.45),
+                      ),
+                    ),
+                ],
               ),
             ),
-          ],
-        ),
+          ),
+          CheckboxListTile(
+            contentPadding: EdgeInsets.zero,
+            controlAffinity: ListTileControlAffinity.leading,
+            value: _agree,
+            onChanged: (bool? v) => setState(() {
+              _agree = v ?? false;
+              if (_agree) _showHint = false;
+            }),
+            title: Text(
+              'I am this child\u2019s parent or guardian, and I agree.',
+              style: AppText.body,
+            ),
+          ),
+          if (_showHint && !_agree)
+            Text(
+              'Tick the box above to continue.',
+              key: const Key('consent-hint'),
+              style: AppText.bodyMuted.copyWith(color: AppColors.goldLight),
+            ),
+        ],
       ),
       actions: [
         TextButton(
-            onPressed: () => Navigator.pop(context, false),
-            child: const Text('Not now')),
+          onPressed: () => Navigator.pop(context, false),
+          child: const Text('Not now'),
+        ),
+        // Always tappable: when the box is not ticked it says why instead of
+        // sitting greyed out and silent.
         TextButton(
-            onPressed: _agree ? () => Navigator.pop(context, true) : null,
-            child: const Text('Continue',
-                style: TextStyle(color: AppColors.goldLight))),
+          onPressed: _agree
+              ? () => Navigator.pop(context, true)
+              : () => setState(() => _showHint = true),
+          child: Text(
+            'Continue',
+            style: TextStyle(
+              color: _agree ? AppColors.goldLight : AppColors.textMuted,
+            ),
+          ),
+        ),
       ],
     );
   }
