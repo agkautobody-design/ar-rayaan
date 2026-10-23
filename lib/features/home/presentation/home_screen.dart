@@ -277,7 +277,6 @@ class HomeScreen extends ConsumerWidget {
                         ),
                       ),
                       const SizedBox(height: 16),
-                      const DailyHadithBanner(),
               _SemanticTap(
                 label: 'Elder Mode. Opens the large-text home for an elder.',
                 onTap: () async {
@@ -367,6 +366,9 @@ class HomeScreen extends ConsumerWidget {
                         ],
                       ),
                       const SizedBox(height: 16),
+                      // Below the tiles on purpose: it loads late, and above them it
+                      // pushed the tiles down under a person's finger.
+                      const DailyHadithBanner(),
                       GlassCard(
                         strong: true,
                         padding: const EdgeInsets.all(16),
