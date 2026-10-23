@@ -132,21 +132,14 @@ class _ScheduleState extends ConsumerState<_Schedule> {
     ref.watch(hijriSettingsProvider);
     final bool ramadan = HijriDate.fromGregorian(data.fajr).month == 9;
 
-    // Big text: the times come first and the place card follows the list,
-    // so the times are not pushed several screens down (round 6).
-    final bool bigText = _isBigText(context);
-    final List<Widget> placeCard = <Widget>[
-      // O-11: location — GPS or manual city, fully offline after choice.
-      const _LocationCard(),
-      const SizedBox(height: 8),
-      const _QuickLinks(),
-      const SizedBox(height: 16),
-    ];
-
     return ListView(
       padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
       children: [
-        if (!bigText) ...placeCard,
+        // O-11: location — GPS or manual city, fully offline after choice.
+        const _LocationCard(),
+        const SizedBox(height: 8),
+        const _QuickLinks(),
+        const SizedBox(height: 16),
         if (alert != null) ...[
           GlassCard(
             strong: true,
@@ -365,7 +358,6 @@ class _ScheduleState extends ConsumerState<_Schedule> {
           ),
         ),
         const SizedBox(height: 16),
-        if (bigText) ...placeCard,
         // Tahajjud — the last third of the night (Bukhari 1145). Opens the
         // Witr & Night Routine guide (Huda), which already holds the night
         // prayer's content.
@@ -853,12 +845,10 @@ class _SetLocationPrompt extends ConsumerWidget {
     return ListView(
       padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
       children: <Widget>[
-        if (!_isBigText(context)) ...<Widget>[
-          const _LocationCard(),
-          const SizedBox(height: 8),
-          const _QuickLinks(),
-          const SizedBox(height: 16),
-        ],
+        const _LocationCard(),
+        const SizedBox(height: 8),
+        const _QuickLinks(),
+        const SizedBox(height: 16),
         GlassCard(
           strong: true,
           padding: const EdgeInsets.all(16),
@@ -919,21 +909,10 @@ class _SetLocationPrompt extends ConsumerWidget {
             ],
           ),
         ),
-        if (_isBigText(context)) ...<Widget>[
-          const SizedBox(height: 16),
-          const _LocationCard(),
-          const SizedBox(height: 8),
-          const _QuickLinks(),
-        ],
       ],
     );
   }
 }
-
-/// True from about 1.4x text: the page then puts the times and the big
-/// buttons first.
-bool _isBigText(BuildContext context) =>
-    MediaQuery.textScalerOf(context).scale(14) / 14 > 1.3;
 
 /// Two short links on the Prayer Times page: the Qibla and the guide that
 /// shows how the prayer is performed (already in Huda as `huda-prayer`).
