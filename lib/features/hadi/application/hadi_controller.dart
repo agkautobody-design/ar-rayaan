@@ -977,6 +977,7 @@ class HadiController extends Notifier<HadiState> {
       );      // Said once per conversation, plainly: with no key, every answer here
       // comes from the app's built-in checked library and nothing else.
       if (!grief &&
+          !HadiRouting.isRefusal(clean) &&
           _apiKey == null &&
           !state.messages.any(
             (HadiMessage m) => m.notes.contains(HadiFinder.offlineNote),

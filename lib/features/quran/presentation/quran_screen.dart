@@ -186,7 +186,7 @@ class _QuranScreenState extends ConsumerState<QuranScreen> {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
-                                    Text(
+                                    WholeWordText(
                                       'Memorise',
                                       style: AppText.body.copyWith(
                                         fontWeight: FontWeight.w600,
