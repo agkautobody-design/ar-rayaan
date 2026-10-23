@@ -1,7 +1,6 @@
 import 'dart:convert';
 
-import 'package:flutter/services.dart' show rootBundle;
-
+import '../../../app/core/content_loader.dart';
 import '../application/quran_repository.dart';
 import '../domain/quran_models.dart';
 
@@ -10,10 +9,18 @@ import '../domain/quran_models.dart';
 class BundledQuranRepository implements QuranRepository {
   List<Surah>? _cache;
 
-  Future<List<Surah>> _load() async {
+  /// The download in progress, shared: the index, the reader and search all
+  /// ask at once on first open, and the file must be fetched only once.
+  Future<List<Surah>>? _inFlight;
+
+  Future<List<Surah>> _load() {
     final List<Surah>? cached = _cache;
-    if (cached != null) return cached;
-    final String raw = await rootBundle.loadString('assets/quran/quran.json');
+    if (cached != null) return Future<List<Surah>>.value(cached);
+    return _inFlight ??= _fetch().whenComplete(() => _inFlight = null);
+  }
+
+  Future<List<Surah>> _fetch() async {
+    final String raw = await ContentLoader.loadString(kQuranAsset);
     final List<dynamic> data = jsonDecode(raw) as List<dynamic>;
     final List<Surah> surahs = <Surah>[
       for (final Map<String, dynamic> s in data.cast<Map<String, dynamic>>())

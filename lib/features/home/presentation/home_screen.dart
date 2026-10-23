@@ -6,6 +6,7 @@ import 'package:intl/intl.dart' show DateFormat;
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
+import '../../../app/core/content_loader.dart';
 import '../../../app/core/modules/module_status.dart';
 import '../../academy/application/academy_providers.dart';
 import '../../menu/presentation/menu_screen.dart' show isAcademyRoute;
@@ -66,6 +67,12 @@ class HomeScreen extends ConsumerWidget {
           ? 'Continue Reading'
           : 'Continue · ${meta.transliteration} ${pos.surah}:${pos.ayah}';
     }
+    // Web only: say so before the first tap if the Qur'an is not yet kept on
+    // this device (null while checking, and always ready on the phone apps).
+    quranSub = quranTileSubtitle(
+      quranSub,
+      offlineReady: ref.watch(quranOfflineReadyProvider).valueOrNull,
+    );
 
     String dhikrSub = 'Morning Adhkar';
     final List<AdhkarSet>? sets = ref.watch(adhkarSetsProvider).valueOrNull;
