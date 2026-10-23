@@ -26,9 +26,9 @@
    "version": 3
   },
   "guides/guides.json": {
-   "bytes": 68463,
-   "sha256": "005df410ffb70d99e12087eb17e7a4b86d3a13d22b6813808e9afba0b88354e9",
-   "version": 8
+   "bytes": 77489,
+   "sha256": "2b54572d07385a99a02ed10a8ce1824cc55ff0134842ca10777718450ec64610",
+   "version": 9
   },
   "share/cards.json": {
    "bytes": 2639,
@@ -56,9 +56,9 @@
    "version": 8
   },
   "stories/modernhadith.json": {
-   "bytes": 50304,
-   "sha256": "bb04cdf170b2b5662d45427ae1be68f053cbe9590d1a915e1b78168f8acb7782",
-   "version": 12
+   "bytes": 51733,
+   "sha256": "3481787bc34a2758df3a7803710e77f319abe3ab3650bab586149bbfb2550e91",
+   "version": 13
   },
   "stories/newmuslim.json": {
    "bytes": 37931,

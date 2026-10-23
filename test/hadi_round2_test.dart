@@ -173,7 +173,7 @@ void main() {
       expect(a, contains('Islam stands on five'));
       expect(a, contains('(Qur’an 3:19)'));
       expect(a, contains('[GO:/new-muslim]'));
-      expect(a, contains('[GO:/academy/aqeedah]'));
+      expect(a, contains('[GO:/huda/guide?id=huda-what-is-islam]'));
       expect(a.contains('enough authentic knowledge'), isFalse);
     });
   });
@@ -217,11 +217,12 @@ void main() {
   });
 
   group('tahajjud and the schools: honest in the chat itself', () {
-    test('tahajjud says plainly it has no verified steps and links guides',
+    test('tahajjud links its guide, says it is not yet reviewed, no count',
         () async {
       final String a = await ask('how do I pray tahajjud');
-      expect(a, contains('do not have verified tahajjud steps'));
-      expect(a, contains('[GO:/huda/guide?id=huda-witr]'));
+      expect(a, contains('not yet scholar-reviewed'));
+      expect(a, contains('I will not give you a rak’ah count'));
+      expect(a, contains('[GO:/huda/guide?id=huda-tahajjud]'));
       expect(a, contains('[GO:/prayer]'));
       expect(await ask('how to pray tahajjud'), a);
     });
@@ -236,6 +237,8 @@ void main() {
         expect(a, startsWith('There are four major schools of fiqh: Hanafi, '
             'Maliki, Shafi’i, and Hanbali.'), reason: q);
         expect(a, contains('holds no verified text'), reason: q);
+        expect(a, contains('[GO:/huda/guide?id=huda-madhhab-overview]'),
+            reason: q);
         expect(a, contains('[GO:/sources]'), reason: q);
       }
     });
