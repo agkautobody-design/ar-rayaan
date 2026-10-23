@@ -779,6 +779,72 @@ abstract final class HadiRouting {
     return n.split(' ').length <= 18 && _newcomerLoose.hasMatch(n);
   }
 
+  // ── Sensitive questions the shelf cannot answer ──────────────────────
+
+  static final RegExp _hitWord = RegExp(
+    r'\b(?:hit|hits|hitting|beat|beats|beating|strike|strikes|striking|'
+    r'slap\w*|spank\w*|smack\w*)\b',
+  );
+  static final RegExp _spouseWord = RegExp(
+    r'\b(?:wife|wives|husband|husbands|spouse|spouses)\b',
+  );
+  static final RegExp _firstPersonWord =
+      RegExp(r'\b(?:i|im|ive|me|my|mine|myself|we|our|us)\b');
+
+  /// "Does the Qur'an allow a husband to hit his wife?" asked as a question
+  /// about the text, not by someone it is happening to (that is the abuse
+  /// support path, which runs first).
+  static bool asksHittingSpouse(String question) {
+    final String n = _norm(question);
+    return n.split(' ').length <= 30 &&
+        _hitWord.hasMatch(n) &&
+        _spouseWord.hasMatch(n) &&
+        !_firstPersonWord.hasMatch(n);
+  }
+
+  static const String hittingSpouseReply =
+      'I do not have a verified answer on this, and I will not give a '
+      'verdict or explain the verse from memory. A wrong or one-sided '
+      'answer here could do real harm. Scholars treat Qur’an 4:34 in detail, '
+      'with its context and with differing explanations, so please put it '
+      'to a qualified scholar; Our Sources lists one.\n\n'
+      'The Qur’an reader shows the verse itself, in the translation the app '
+      'carries (An-Nisa’, ayah 34), so you can read exactly what it says.\n\n'
+      'If someone is hurting you or frightens you at home, tell me, and the '
+      'heart button at the top of this chat lists help lines for your '
+      'country.\n[GO:/sources]\n[GO:/quran]';
+
+  static final RegExp _whoRuns = RegExp(
+    r'\b(?:who\s+(?:runs?|owns?|owned|made|makes|built|builds|created|'
+    r'creates|develops?|developed|funds?|funded|finances?|operates?|'
+    r'maintains?|started|founded|is\s+behind|are\s+behind|pays\s+for)\s+'
+    r'(?:this|the|your)\s+(?:app|application|company|project|website)|'
+    r'who\s+(?:is|are)\s+(?:the\s+)?(?:owner|owners|founder|founders|'
+    r'developer|developers|creator|creators|publisher)(?:\s+of\s+'
+    r'(?:this|the)\s+(?:app|application)|\s*$)|'
+    r'who\s+(?:is|are)\s+behind\s+(?:this|it|ar\s*rayaan)|'
+    r'who\s+funds?\s+(?:this|it))\b',
+  );
+
+  /// "Who runs this app and who funds it?"
+  static bool asksWhoRunsApp(String question) {
+    final String n = _norm(question);
+    return n.split(' ').length <= 20 && _whoRuns.hasMatch(n);
+  }
+
+  static const String whoRunsReply =
+      'The app does not name an owner, a company or a funder on the '
+      'screens I can read from, so I have none to give you, and I will not '
+      'guess one.\n\n'
+      'What it does say: the Terms of Service describe Ar-Rayaan as a '
+      'study and reflection companion, not a religious authority. Our '
+      'Sources lists every text, translation and reciter it uses, and '
+      'links Shaykh Muhammad Saqib Iqbal’s channel for guidance. How we '
+      'handle religious content says no named scholar has reviewed the app '
+      'yet. On cost: everything in this app, including me, is free today, '
+      'nothing asks for a card, and a paid plan for extra live answers is '
+      'planned but not open.\n[GO:/sources]\n[GO:/legal/terms]';
+
   // ── The same answer twice ────────────────────────────────────────────
 
   static final RegExp _tokenRe = RegExp(r'\s*\[GO:[^\]]*\]');
@@ -801,15 +867,45 @@ abstract final class HadiRouting {
       'the closest place for your topic.';
 
   static const String _repeatSchools =
-      ' For the schools of law, ask me “What are the four schools?”. The '
-      'Huda guides show each guide’s school note, and “Your school of law” '
-      'in the More options menu lets me name your school when I hand you '
-      'to a scholar.';
+      ' The Huda guides show each guide’s school note, and “Your school of '
+      'law” in the More options menu lets me name your school when I hand '
+      'you to a scholar.';
 
   static final RegExp _schoolTalk = RegExp(
     r'\b(?:madhhabs?|madhabs?|schools?|scholars?|disagree\w*|differ\w*|'
     r'hanafi|shafii|maliki|hanbali)\b',
   );
+
+  /// The words that open a reply to a request for more than there is.
+  static const String _moreOpener =
+      'That is everything I have verified on this, and I have no further '
+      'fact to give you without making one up.';
+
+  static final RegExp _moreAsk = RegExp(
+    r'\b(?:another|one\s+more|something\s+else|anything\s+else|'
+    r'tell\s+me\s+more|next\s+one|a\s+different\s+one|'
+    r'more\s+(?:facts?|things?|info\w*|details?|examples?))\b',
+  );
+
+  /// True for a short request for something new ("tell me another
+  /// interesting thing about Ramadan").
+  static bool asksForMore(String question) {
+    final String n = _norm(question);
+    return n.split(' ').length <= 14 && _moreAsk.hasMatch(n);
+  }
+
+  /// True when [question] is the same question the person asked last time,
+  /// typed again. Only then is a second identical answer a loop: a first
+  /// ask, a suggestion chip or a hand-off from Search is never one.
+  static bool sameQuestionAgain(String question, List<HadiMessage> history) {
+    final String now = _norm(question);
+    if (now.isEmpty) return false;
+    for (int i = history.length - 1; i >= 0; i--) {
+      if (history[i].fromHadi) continue;
+      return _norm(history[i].text) == now;
+    }
+    return false;
+  }
 
   /// True when [reply] (a finished answer) is already in what Hadi said
   /// before. Short replies, hand-offs to a button, and refusals (which have
@@ -823,6 +919,38 @@ abstract final class HadiRouting {
       if (m.fromHadi && _core(m.text).contains(c)) return true;
     }
     return false;
+  }
+
+  /// True when Hadi has already said [reply] in this conversation.
+  static bool saidBefore(String reply, List<HadiMessage> history) {
+    final String c = _core(reply);
+    return history
+        .any((HadiMessage m) => m.fromHadi && _core(m.text).contains(c));
+  }
+
+  /// The reply to use in place of [answer], or null to give [answer] as it
+  /// is. [answer] is replaced only when it was already said AND either the
+  /// person typed the very same question twice in a row, or asked for
+  /// "another" and there is none.
+  static String? replacementForRepeat(
+    String question,
+    String answer,
+    List<HadiMessage> history,
+  ) {
+    if (!repeatsEarlier(answer, history)) return null;
+    if (asksForMore(question)) return noMoreReply(question);
+    if (sameQuestionAgain(question, history)) {
+      return repeatReply(question, history);
+    }
+    return null;
+  }
+
+  /// Said when someone asks for another fact and the shelf has no more.
+  static String noMoreReply(String question) {
+    final String topic = topicRoute(question);
+    final String second = topic == '/academy/qa' ? '/search' : topic;
+    return '$_moreOpener Ask me about a different part of the topic, or '
+        'open the closest place in the app below.\n[GO:$second]';
   }
 
   /// What to say in place of an answer that would repeat itself. Wording
@@ -857,6 +985,8 @@ abstract final class HadiRouting {
         spouseRightsReply,
         groupDifferenceReply,
         memoriseReply,
+        hittingSpouseReply,
+        whoRunsReply,
         ..._variants,
         ..._rulingVariants,
       ];
@@ -866,6 +996,7 @@ abstract final class HadiRouting {
   static bool isFixed(String answer) {
     if (answer.contains('is a medical question, and your doctor')) return true;
     if (_repeatOpeners.any(answer.contains)) return true;
+    if (answer.contains(_moreOpener)) return true;
     return fixedReplies.any(answer.contains);
   }
 }

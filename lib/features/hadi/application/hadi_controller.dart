@@ -37,7 +37,7 @@ const Set<String> kHadiNavWhitelist = <String>{
   '/feelings', '/family-tree', '/huda', '/elder-care',
   '/qibla', '/hadith', '/sakina', '/share', '/notes',
   '/quran', '/prayer', '/zakat', '/calendar', '/adhkar', '/explore',
-  '/sources/policy',
+  '/sources/policy', '/legal/terms',
   '/journey', '/settings', '/sources', '/hadi', '/noor',
   '/search', '/profile', '/home/elder', '/games/trivia',
   '/academy/review', '/academy/letters', '/academy/audio-packs',
@@ -557,7 +557,8 @@ class HadiController extends Notifier<HadiState> {
   String? _crisisReply(CrisisKind kind) {
     final String? cc = ref.read(deviceCountryProvider);
     if (!_crisisShownRecently()) {
-      return CrisisResponses.textFor(kind, countryCode: cc);
+      return '${CrisisResponses.textFor(kind, countryCode: cc)}\n\n'
+          '${CrisisResponses.regionNote(cc)}';
     }
     switch (kind) {
       case CrisisKind.selfHarm:

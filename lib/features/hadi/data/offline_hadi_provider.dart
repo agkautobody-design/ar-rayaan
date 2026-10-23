@@ -1054,13 +1054,20 @@ class OfflineHadiProvider implements HadiProvider {
     }
 
     final String answer = await _routed(asked, history);
-    // Never say the same paragraph twice: a second, identical answer to a
-    // new question (or the same one again) is replaced by a short, varied
-    // note that points to where more can be found.
-    if (HadiRouting.repeatsEarlier(answer, history)) {
-      return HadiRouting.repeatReply(question, history);
+    // The same question typed twice in a row, or a request for "another"
+    // when there is none, gets a short note instead of the same paragraph.
+    // A first ask (a suggestion chip, a hand-off from Search) never does.
+    final String? note =
+        HadiRouting.replacementForRepeat(question, answer, history);
+    if (note == null) return answer;
+    // "Another interesting thing about Ramadan": the app's own fasting
+    // answer is a different one, if it has not been given yet.
+    if (HadiRouting.asksForMore(question) &&
+        HadiExplain.asksRamadanInteresting(question) &&
+        !HadiRouting.saidBefore(HadiExplain.fastingReply, history)) {
+      return HadiExplain.fastingReply;
     }
-    return answer;
+    return note;
   }
 
   /// True when [question] is about a medicine, a dose or a prescription.
@@ -1076,6 +1083,7 @@ class OfflineHadiProvider implements HadiProvider {
     if (HadiRouting.describesSelf(asked)) {
       return HadiRouting.selfDescriptionReply;
     }
+    if (HadiRouting.asksWhoRunsApp(asked)) return HadiRouting.whoRunsReply;
     if (HadiRouting.asksBeginner(asked)) return HadiRouting.beginnerReply;
     if (!heavy && HadiRouting.asksNewcomerLoose(asked)) {
       return HadiRouting.beginnerReply;
@@ -1101,6 +1109,9 @@ class OfflineHadiProvider implements HadiProvider {
     }
     if (HadiRouting.asksGroupDifference(asked)) {
       return HadiRouting.groupDifferenceReply;
+    }
+    if (HadiRouting.asksHittingSpouse(asked)) {
+      return HadiRouting.hittingSpouseReply;
     }
     if (HadiRouting.asksSpouseRights(asked)) {
       return HadiRouting.spouseRightsReply;
