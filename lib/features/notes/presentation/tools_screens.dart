@@ -8,6 +8,7 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../../quran/presentation/quran_marks_link_card.dart';
 import '../../sakina/domain/crisis_detector.dart';
 import '../../sakina/presentation/widgets/need_help_button.dart';
 
@@ -78,8 +79,10 @@ class _NotesScreenState extends State<NotesScreen> {
           ),
           TextButton(
             onPressed: () => Navigator.pop(ctx, true),
-            child: const Text('Save',
-                style: TextStyle(color: AppColors.goldLight)),
+            child: const Text(
+              'Save',
+              style: TextStyle(color: AppColors.goldLight),
+            ),
           ),
         ],
       ),
@@ -95,13 +98,15 @@ class _NotesScreenState extends State<NotesScreen> {
       await _save();
       // A note is private and is never blocked. But if the words in it say
       // someone may be in danger, the help lines are offered right away.
-      final CrisisKind? kind =
-          CrisisDetector.detect('${title.text} ${body.text}');
+      final CrisisKind? kind = CrisisDetector.detect(
+        '${title.text} ${body.text}',
+      );
       if (kind != null && mounted) {
         await showNeedHelpSheet(
           context,
           kind: kind,
-          intro: 'Your note is saved, and only you can see it. It sounds '
+          intro:
+              'Your note is saved, and only you can see it. It sounds '
               'like things may be very hard. If you are in danger, call '
               'your local emergency number. These lines are free to talk '
               'to.',
@@ -114,7 +119,8 @@ class _NotesScreenState extends State<NotesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.transparent,
-      floatingActionButton: FloatingActionButton(tooltip: 'Add a note',
+      floatingActionButton: FloatingActionButton(
+        tooltip: 'Add a note',
         backgroundColor: AppColors.gold,
         foregroundColor: const Color(0xFF0A0F18),
         onPressed: _add,
@@ -135,6 +141,9 @@ class _NotesScreenState extends State<NotesScreen> {
               ],
             ),
           ),
+          // Ayah notes live with the Qur'an reader; link to them from here.
+          const QuranMarksLinkCard(),
+          const SizedBox(height: 10),
           if (_notes.isEmpty)
             GlassCard(
               child: Text(
@@ -154,23 +163,30 @@ class _NotesScreenState extends State<NotesScreen> {
                       Row(
                         children: [
                           Expanded(
-                            child: Text(n['title'] as String,
-                                style: AppText.titleMedium),
+                            child: Text(
+                              n['title'] as String,
+                              style: AppText.titleMedium,
+                            ),
                           ),
                           GestureDetector(
                             onTap: () async {
                               setState(() => _notes.remove(n));
                               await _save();
                             },
-                            child: const Icon(Icons.delete_outline,
-                                size: 16, color: AppColors.sand),
+                            child: const Icon(
+                              Icons.delete_outline,
+                              size: 16,
+                              color: AppColors.sand,
+                            ),
                           ),
                         ],
                       ),
                       if ((n['body'] as String).isNotEmpty) ...[
                         const SizedBox(height: 4),
-                        Text(n['body'] as String,
-                            style: AppText.bodyMuted.copyWith(height: 1.5)),
+                        Text(
+                          n['body'] as String,
+                          style: AppText.bodyMuted.copyWith(height: 1.5),
+                        ),
                       ],
                     ],
                   ),
@@ -225,8 +241,11 @@ class DownloadsScreen extends StatelessWidget {
               child: GlassCard(
                 child: Row(
                   children: [
-                    const Icon(Icons.check_circle_outline,
-                        color: AppColors.gold, size: 18),
+                    const Icon(
+                      Icons.check_circle_outline,
+                      color: AppColors.gold,
+                      size: 18,
+                    ),
                     const SizedBox(width: 12),
                     Expanded(child: Text(p.$1, style: AppText.body)),
                   ],

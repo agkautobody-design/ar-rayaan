@@ -162,6 +162,7 @@ abstract final class AppRoutes {
   static const String quranBookmarks = '/quran/bookmarks';
   static const String sakina = '/sakina';
   static String surah(int number) => '/quran/$number';
+  static String surahAt(int number, int ayah) => '/quran/$number?ayah=$ayah';
 
   static const String themeDemo = '/dev/theme';
 }
@@ -499,7 +500,14 @@ GoRouter buildRouter({String initialLocation = '/'}) {
               pill: false,
             );
           }
-          return _fade(SurahReaderScreen(number: number), pill: false);
+          return _fade(
+            SurahReaderScreen(
+              number: number,
+              // "?ayah=255" opens at that ayah (the Ayat al-Kursi shortcut).
+              startAyah: int.tryParse(s.uri.queryParameters['ayah'] ?? ''),
+            ),
+            pill: false,
+          );
         },
       ),
 

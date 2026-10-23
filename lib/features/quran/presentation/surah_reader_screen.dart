@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'dart:convert';
 
 import 'package:flutter/services.dart' show rootBundle;
@@ -9,7 +10,9 @@ import '../../academy/application/academy_providers.dart';
 import '../../academy/presentation/verse_range_player_bar.dart';
 
 import '../../../app/core/sound/sound_services.dart';
+
 import 'package:url_launcher/url_launcher.dart';
+
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
@@ -22,14 +25,19 @@ import '../application/quran_providers.dart';
 import '../domain/quran_marks.dart';
 import '../domain/quran_models.dart';
 import '../domain/quran_texts.dart';
+import '../domain/surah_search.dart';
 import 'ayah_actions_sheet.dart';
 
 /// Surah reader — Arabic (Amiri) with gold ayah medallions + translation.
 /// Tapping an ayah saves the Continue-Reading position.
 class SurahReaderScreen extends ConsumerStatefulWidget {
-  const SurahReaderScreen({required this.number, super.key});
+  const SurahReaderScreen({required this.number, this.startAyah, super.key});
 
   final int number;
+
+  /// Open at this ayah instead of the saved place (from "?ayah=" links such
+  /// as the Ayat al-Kursi shortcut). Out-of-range values are clamped.
+  final int? startAyah;
 
   static const String _bismillah = 'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ';
 
@@ -54,9 +62,13 @@ class SurahReaderScreen extends ConsumerStatefulWidget {
   ConsumerState<SurahReaderScreen> createState() => _SurahReaderScreenState();
 }
 
-final transliterationProvider = FutureProvider<Map<String, String>>((ref) async {
+final transliterationProvider = FutureProvider<Map<String, String>>((
+  ref,
+) async {
   try {
-    final raw = await rootBundle.loadString('assets/quran/transliteration.json');
+    final raw = await rootBundle.loadString(
+      'assets/quran/transliteration.json',
+    );
     final m = (json.decode(raw) as Map)['map'] as Map;
     return m.map((k, v) => MapEntry(k as String, v as String));
   } catch (_) {
@@ -70,12 +82,15 @@ class _SurahReaderScreenState extends ConsumerState<SurahReaderScreen> {
   /// open below overwrites the "last read" pointer.
   late final int _startAyah;
 
+  final GlobalKey<_ReaderState> _readerKey = GlobalKey<_ReaderState>();
+
   @override
   void initState() {
     super.initState();
-    final ReadingPositionController controller =
-        ref.read(readingPositionProvider.notifier);
-    _startAyah = controller.ayahFor(widget.number);
+    final ReadingPositionController controller = ref.read(
+      readingPositionProvider.notifier,
+    );
+    _startAyah = widget.startAyah ?? controller.ayahFor(widget.number);
     // Record that this surah was opened. The ayah stays whatever was saved
     // for this surah, so browsing never wipes your place.
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -100,42 +115,48 @@ class _SurahReaderScreenState extends ConsumerState<SurahReaderScreen> {
               data: (Surah s) => ScreenHeader(title: s.meta.transliteration),
               orElse: () => const ScreenHeader(title: 'Qur\'an'),
             ),
-            const _ReaderToolbar(),
+            _ReaderToolbar(
+              ayahCount: surah.valueOrNull?.meta.ayahCount,
+              onJump: (int ayah) => _readerKey.currentState?.jumpTo(ayah),
+            ),
             // Madinah page mode — visible only when the checksum-verified
             // layout pack has shipped (provider returns null otherwise).
             Consumer(
               builder: (context, ref, _) {
-                return ref.watch(mushafLayoutProvider).maybeWhen(
-                  data: (pages) => pages == null
-                      ? const SizedBox.shrink()
-                      : Align(
-                          alignment: Alignment.centerRight,
-                          child: TextButton.icon(
-                            onPressed: () {
-                              final int? ayahCount = ref
-                                  .read(surahProvider(widget.number))
-                                  .valueOrNull
-                                  ?.meta
-                                  .ayahCount;
-                              if (ayahCount == null) return;
-                              context.go(
-                                '/quran/madinah/${widget.number}/$ayahCount',
-                              );
-                            },
-                            icon: const Icon(
-                              Icons.auto_awesome_motion,
-                              color: AppColors.gold,
-                              size: 18,
+                return ref
+                    .watch(mushafLayoutProvider)
+                    .maybeWhen(
+                      data: (pages) => pages == null
+                          ? const SizedBox.shrink()
+                          : Align(
+                              alignment: Alignment.centerRight,
+                              child: TextButton.icon(
+                                onPressed: () {
+                                  final int? ayahCount = ref
+                                      .read(surahProvider(widget.number))
+                                      .valueOrNull
+                                      ?.meta
+                                      .ayahCount;
+                                  if (ayahCount == null) return;
+                                  context.go(
+                                    '/quran/madinah/${widget.number}/$ayahCount',
+                                  );
+                                },
+                                icon: const Icon(
+                                  Icons.auto_awesome_motion,
+                                  color: AppColors.gold,
+                                  size: 18,
+                                ),
+                                label: Text(
+                                  'Madinah page view',
+                                  style: AppText.caption.copyWith(
+                                    color: AppColors.gold,
+                                  ),
+                                ),
+                              ),
                             ),
-                            label: Text(
-                              'Madinah page view',
-                              style: AppText.caption
-                                  .copyWith(color: AppColors.gold),
-                            ),
-                          ),
-                        ),
-                  orElse: () => const SizedBox.shrink(),
-                );
+                      orElse: () => const SizedBox.shrink(),
+                    );
               },
             ),
             Expanded(
@@ -151,7 +172,8 @@ class _SurahReaderScreenState extends ConsumerState<SurahReaderScreen> {
                     ref.invalidate(surahProvider(widget.number));
                   },
                 ),
-                data: (Surah s) => _Reader(surah: s, initialAyah: _startAyah),
+                data: (Surah s) =>
+                    _Reader(key: _readerKey, surah: s, initialAyah: _startAyah),
               ),
             ),
             Consumer(
@@ -180,7 +202,7 @@ class _SurahReaderScreenState extends ConsumerState<SurahReaderScreen> {
 /// are built on demand (Al-Baqarah is 286 ayahs), and the list scrolls to
 /// [initialAyah] when it opens at a saved place.
 class _Reader extends ConsumerStatefulWidget {
-  const _Reader({required this.surah, required this.initialAyah});
+  const _Reader({required this.surah, required this.initialAyah, super.key});
 
   final Surah surah;
   final int initialAyah;
@@ -193,12 +215,21 @@ class _ReaderState extends ConsumerState<_Reader> {
   final ScrollController _scroll = ScrollController();
   final Map<int, GlobalKey> _keys = <int, GlobalKey>{};
 
+  /// The ayah the list is scrolling to.
+  late int _target = widget.initialAyah;
+
   @override
   void initState() {
     super.initState();
     if (widget.initialAyah > 1) {
       WidgetsBinding.instance.addPostFrameCallback((_) => _seek(0));
     }
+  }
+
+  /// Scrolls to [ayah] (the "Jump to ayah" control).
+  void jumpTo(int ayah) {
+    _target = ayah;
+    _seek(0);
   }
 
   @override
@@ -212,9 +243,7 @@ class _ReaderState extends ConsumerState<_Reader> {
   /// toward the target, and finish with ensureVisible once it is built.
   void _seek(int attempt) {
     if (!mounted || attempt > 12) return;
-    final int target = widget.initialAyah > widget.surah.ayahs.length
-        ? widget.surah.ayahs.length
-        : widget.initialAyah;
+    final int target = _target.clamp(1, widget.surah.ayahs.length);
     final BuildContext? targetContext = _keys[target]?.currentContext;
     if (targetContext != null) {
       Scrollable.ensureVisible(
@@ -273,10 +302,12 @@ class _ReaderState extends ConsumerState<_Reader> {
         }
         final int i = index - 1;
         final Ayah ayah = surah.ayahs[i];
-        final bool bookmarked = position?.surah == surah.meta.number &&
+        final bool bookmarked =
+            position?.surah == surah.meta.number &&
             position?.ayah == ayah.number;
-        final BorderSide edge =
-            BorderSide(color: AppColors.gold.withValues(alpha: 0.25));
+        final BorderSide edge = BorderSide(
+          color: AppColors.gold.withValues(alpha: 0.25),
+        );
         return Container(
           key: _keys.putIfAbsent(ayah.number, () => GlobalKey()),
           padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -305,7 +336,9 @@ class _ReaderState extends ConsumerState<_Reader> {
                   arabicSize: arabicSize,
                   isBookmarked: bookmarked,
                   onTap: () {
-                    ref.read(readingPositionProvider.notifier).save(
+                    ref
+                        .read(readingPositionProvider.notifier)
+                        .save(
                           ReadingPosition(
                             surah: surah.meta.number,
                             ayah: ayah.number,
@@ -363,16 +396,43 @@ class _ReaderState extends ConsumerState<_Reader> {
 }
 
 class _ReaderToolbar extends ConsumerWidget {
-  const _ReaderToolbar();
+  const _ReaderToolbar({required this.ayahCount, required this.onJump});
+
+  /// Null while the surah is still loading.
+  final int? ayahCount;
+  final ValueChanged<int> onJump;
+
+  Future<void> _askAyah(BuildContext context, int count) async {
+    final int? ayah = await showDialog<int>(
+      context: context,
+      builder: (BuildContext ctx) => _JumpToAyahDialog(ayahCount: count),
+    );
+    if (ayah != null) onJump(ayah);
+  }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final ArabicSizeController size = ref.read(arabicSizeProvider.notifier);
+    final int? count = ayahCount;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
+      child: Wrap(
+        alignment: WrapAlignment.end,
+        crossAxisAlignment: WrapCrossAlignment.center,
         children: <Widget>[
+          if (count != null && count > 1)
+            Tooltip(
+              message: 'Jump to an ayah in this surah',
+              child: TextButton.icon(
+                style: TextButton.styleFrom(
+                  minimumSize: const Size(48, 48),
+                  foregroundColor: AppColors.gold,
+                ),
+                onPressed: () => _askAyah(context, count),
+                icon: const Icon(Icons.input, size: 18),
+                label: const Text('Jump to ayah'),
+              ),
+            ),
           IconButton(
             tooltip: 'Smaller Arabic text',
             constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
@@ -393,6 +453,69 @@ class _ReaderToolbar extends ConsumerWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+/// Asks for an ayah number and checks it against the surah's ayah count.
+class _JumpToAyahDialog extends StatefulWidget {
+  const _JumpToAyahDialog({required this.ayahCount});
+
+  final int ayahCount;
+
+  @override
+  State<_JumpToAyahDialog> createState() => _JumpToAyahDialogState();
+}
+
+class _JumpToAyahDialogState extends State<_JumpToAyahDialog> {
+  final TextEditingController _controller = TextEditingController();
+  String? _error;
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void _submit() {
+    final int? ayah = parseAyahJump(_controller.text, widget.ayahCount);
+    if (ayah == null) {
+      setState(() => _error = 'Enter a number from 1 to ${widget.ayahCount}.');
+      return;
+    }
+    Navigator.of(context).pop(ayah);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      backgroundColor: const Color(0xFF0A0F18),
+      title: Text('Jump to ayah', style: AppText.titleMedium),
+      content: TextField(
+        controller: _controller,
+        autofocus: true,
+        keyboardType: TextInputType.number,
+        textInputAction: TextInputAction.go,
+        style: AppText.body,
+        decoration: InputDecoration(
+          hintText: 'Ayah 1 to ${widget.ayahCount}',
+          errorText: _error,
+        ),
+        onChanged: (_) {
+          if (_error != null) setState(() => _error = null);
+        },
+        onSubmitted: (_) => _submit(),
+      ),
+      actions: <Widget>[
+        TextButton(
+          onPressed: () => Navigator.of(context).pop(),
+          child: const Text('Cancel'),
+        ),
+        TextButton(
+          onPressed: _submit,
+          child: const Text('Go', style: TextStyle(color: AppColors.goldLight)),
+        ),
+      ],
     );
   }
 }
@@ -514,8 +637,10 @@ class _AyahBlock extends ConsumerWidget {
                 textAlign: TextAlign.right,
                 textDirection: TextDirection.rtl,
                 text: TextSpan(
-                  style: AppText.arabicLarge
-                      .copyWith(fontSize: arabicSize, height: 2.0),
+                  style: AppText.arabicLarge.copyWith(
+                    fontSize: arabicSize,
+                    height: 2.0,
+                  ),
                   children: [
                     TextSpan(text: ayah.arabic),
                     TextSpan(
@@ -559,8 +684,10 @@ class _AyahBlock extends ConsumerWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   IconButton(
-                    constraints:
-                        const BoxConstraints(minWidth: 48, minHeight: 48),
+                    constraints: const BoxConstraints(
+                      minWidth: 48,
+                      minHeight: 48,
+                    ),
                     tooltip: playing ? 'Stop' : 'Play this ayah',
                     onPressed: () async {
                       await ref
@@ -571,30 +698,34 @@ class _AyahBlock extends ConsumerWidget {
                       playing
                           ? Icons.stop_circle_outlined
                           : Icons.play_circle_outline,
-                      size: 24,
+                      size: 28,
                       color: AppColors.gold.withValues(
                         alpha: playing ? 1.0 : 0.8,
                       ),
                     ),
                   ),
                   IconButton(
-                    constraints:
-                        const BoxConstraints(minWidth: 48, minHeight: 48),
+                    constraints: const BoxConstraints(
+                      minWidth: 48,
+                      minHeight: 48,
+                    ),
                     tooltip: saved ? 'Remove bookmark' : 'Bookmark this ayah',
                     onPressed: () => ref
                         .read(quranMarksProvider.notifier)
                         .toggleBookmark(surahNumber, ayah.number),
                     icon: Icon(
                       saved ? Icons.bookmark : Icons.bookmark_border,
-                      size: 24,
+                      size: 28,
                       color: AppColors.gold.withValues(
                         alpha: saved ? 1.0 : 0.8,
                       ),
                     ),
                   ),
                   IconButton(
-                    constraints:
-                        const BoxConstraints(minWidth: 48, minHeight: 48),
+                    constraints: const BoxConstraints(
+                      minWidth: 48,
+                      minHeight: 48,
+                    ),
                     tooltip: 'Note, collections and copy',
                     onPressed: () => showAyahActions(
                       context,
@@ -604,7 +735,7 @@ class _AyahBlock extends ConsumerWidget {
                     ),
                     icon: Icon(
                       hasNote ? Icons.edit_note : Icons.more_horiz,
-                      size: 24,
+                      size: 28,
                       color: AppColors.gold.withValues(alpha: 0.8),
                     ),
                   ),
