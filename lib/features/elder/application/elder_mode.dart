@@ -1,4 +1,7 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../../app/core/providers.dart';
 
 /// The Elder Mode switch. One key, one owner: Home's Elder tile and the Elder
 /// home screen WRITE it ([set]); the app launch READS it ([isEnabled]) to
@@ -47,3 +50,29 @@ abstract final class ElderMode {
     }
   }
 }
+
+/// Elder Mode as live app state, so the whole app (text size, tap size) can
+/// follow the switch the moment it flips. Persisted under [ElderMode.pref].
+class ElderModeController extends Notifier<bool> {
+  @override
+  bool build() {
+    try {
+      return ref.read(sharedPreferencesProvider).getBool(ElderMode.pref) ??
+          false;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  Future<void> set(bool on) async {
+    state = on;
+    try {
+      await ref.read(sharedPreferencesProvider).setBool(ElderMode.pref, on);
+    } catch (_) {
+      await ElderMode.set(on);
+    }
+  }
+}
+
+final NotifierProvider<ElderModeController, bool> elderModeProvider =
+    NotifierProvider<ElderModeController, bool>(ElderModeController.new);

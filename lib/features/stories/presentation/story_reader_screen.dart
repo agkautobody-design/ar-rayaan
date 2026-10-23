@@ -19,6 +19,26 @@ import 'source_label_chip.dart';
 import 'story_layers_section.dart';
 import 'story_listen_bar.dart';
 
+/// True when a chapter's Arabic is only the opening of the text (the pack
+/// marks the cut with "..." or an ellipsis).
+bool arabicIsElided(String arabic) =>
+    arabic.contains('...') || arabic.contains('\u2026');
+
+/// The Qur'an reference named in a story's sources ("Qur'an 2:255" gives
+/// (2, 255); "Qur'an 112-114" gives (112, null)), or null when there is none.
+(int, int?)? quranRefFromSources(List<String> sources) {
+  final RegExp rx = RegExp(r'Qur.an\s+(\d{1,3})(?::(\d{1,3}))?');
+  for (final String s in sources) {
+    final RegExpMatch? m = rx.firstMatch(s);
+    if (m == null) continue;
+    final int surah = int.parse(m.group(1)!);
+    if (surah < 1 || surah > 114) continue;
+    final String? ayah = m.group(2);
+    return (surah, ayah == null ? null : int.parse(ayah));
+  }
+  return null;
+}
+
 /// The /stories/read route. The story id travels in `?id=` so Back, a browser
 /// refresh or a pasted link still opens the story; `extra` is only a fast
 /// path. (Without the id, a history entry restored by the browser had no
@@ -92,7 +112,10 @@ class _StoryReaderScreenState extends ConsumerState<StoryReaderScreen> {
           ScreenHeader(title: story.kicker, close: true),
           Align(
             alignment: Alignment.centerRight,
-            child: _SaveStoryButton(storyId: story.id),
+            child: _SaveStoryButton(
+              storyId: story.id,
+              isDua: story.collection == 'dailyduas',
+            ),
           ),
           Text(
             story.title,
@@ -203,6 +226,8 @@ class _StoryReaderScreenState extends ConsumerState<StoryReaderScreen> {
                 ),
               ),
             ),
+            if (arabicIsElided(current.arabic!))
+              _ElidedArabicNote(sources: story.sources),
           ],
           Text(
             current.body,
@@ -294,19 +319,22 @@ class _StoryReaderScreenState extends ConsumerState<StoryReaderScreen> {
   }
 }
 
-/// Save / unsave this story. Saved stories are listed under Bookmarks in
-/// My Journey (and Hadi saves into the same list on request).
+/// Save / unsave this story or dua. Saved items are listed under Bookmarks
+/// in the You tab (and Hadi saves into the same list on request).
 class _SaveStoryButton extends ConsumerWidget {
-  const _SaveStoryButton({required this.storyId});
+  const _SaveStoryButton({required this.storyId, this.isDua = false});
 
   final String storyId;
+  final bool isDua;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final bool saved = ref.watch(savedStoriesProvider).contains(storyId);
     final String tip = saved
         ? 'Saved to Bookmarks. Tap to remove.'
-        : 'Save this story to Bookmarks';
+        : (isDua
+            ? 'Save this dua to Bookmarks'
+            : 'Save this story to Bookmarks');
     return Tooltip(
       message: tip,
       child: TextButton.icon(
@@ -317,7 +345,7 @@ class _SaveStoryButton extends ConsumerWidget {
             ..showSnackBar(SnackBar(
               content: Text(saved
                   ? 'Removed from Bookmarks.'
-                  : 'Saved. Find it under Bookmarks in My Journey.'),
+                  : 'Saved. Find it in the You tab, under Bookmarks.'),
               duration: const Duration(seconds: 2),
             ));
         },
@@ -416,6 +444,44 @@ class _AskHadiAboutStoryState extends ConsumerState<_AskHadiAboutStory> {
               ],
             ),
           ],
+        ],
+      ),
+    );
+  }
+}
+
+/// Under an Arabic text that the pack gives only in part: say so, and where
+/// the whole Qur'an text is already in the app, link to it.
+class _ElidedArabicNote extends StatelessWidget {
+  const _ElidedArabicNote({required this.sources});
+
+  final List<String> sources;
+
+  @override
+  Widget build(BuildContext context) {
+    final (int, int?)? ref = quranRefFromSources(sources);
+    final int? ayah = ref?.$2;
+    return Padding(
+      key: const Key('arabic-elided-note'),
+      padding: const EdgeInsets.only(bottom: 12),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            ref == null
+                ? 'This shows the opening words only. The full Arabic is not in the app yet.'
+                : 'This shows the opening words only.',
+            style: AppText.bodyMuted.copyWith(fontSize: 12),
+          ),
+          if (ref != null)
+            TextButton(
+              onPressed: () => context.push(
+                ayah == null
+                    ? AppRoutes.surah(ref.$1)
+                    : AppRoutes.surahAt(ref.$1, ayah),
+              ),
+              child: const Text('Read it in full in the Qur\u2019an'),
+            ),
         ],
       ),
     );

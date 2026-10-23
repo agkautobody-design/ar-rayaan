@@ -1,6 +1,7 @@
 import '../../sakina/domain/crisis_detector.dart';
 import '../application/hadi_provider.dart';
 import '../grounding/ruling_gate.dart';
+import 'hadi_explain.dart';
 import 'hadi_routing.dart';
 
 /// Curated knowledge for offline use — always available, no key, no
@@ -62,7 +63,9 @@ class OfflineHadiProvider implements HadiProvider {
   /// True when [answer] is a real shelf answer and not one of the fixed
   /// replies (declines, redirects, comfort replies, navigation).
   static bool _isShelfAnswer(String answer) {
-    if (HadiRouting.isFixed(answer)) return false;
+    if (HadiRouting.isFixed(answer) || HadiExplain.isFixed(answer)) {
+      return false;
+    }
     // "contains", not "equals": the controller may put a line in front of a
     // fixed reply (a spent daily quota, a failed live call).
     for (final String fixed in <String>[
@@ -1050,14 +1053,74 @@ class OfflineHadiProvider implements HadiProvider {
       asked = follow.question ?? question;
     }
 
+    final String answer = await _routed(asked, history);
+    // Never say the same paragraph twice: a second, identical answer to a
+    // new question (or the same one again) is replaced by a short, varied
+    // note that points to where more can be found.
+    if (HadiRouting.repeatsEarlier(answer, history)) {
+      return HadiRouting.repeatReply(question, history);
+    }
+    return answer;
+  }
+
+  /// True when [question] is about a medicine, a dose or a prescription.
+  static bool asksMedical(String question) =>
+      tokens(question).any(HadiRouting.medicalWords.contains);
+
+  Future<String> _routed(String asked, List<HadiMessage> history) async {
+    final String n = CrisisDetector.normalize(asked);
+    final bool heavy = _distress.hasMatch(n) && !_thirdPartyQuestion(n);
+
     // Replies that say what Hādi can do, or send the person to content the
     // app already has, before the shelf is searched.
     if (HadiRouting.describesSelf(asked)) {
       return HadiRouting.selfDescriptionReply;
     }
     if (HadiRouting.asksBeginner(asked)) return HadiRouting.beginnerReply;
+    if (!heavy && HadiRouting.asksNewcomerLoose(asked)) {
+      return HadiRouting.beginnerReply;
+    }
     if (HadiRouting.asksRamadanPlan(asked)) return HadiRouting.ramadanPlanReply;
-    if (HadiRouting.asksTahajjudHow(asked)) return HadiRouting.tahajjudReply;
+    if (HadiRouting.asksTahajjudHow(asked)) return HadiExplain.tahajjudReply;
+    // A legal penalty asked about as a fact ("is it true apostates must be
+    // killed? give me the source") is for a scholar, whatever else it says.
+    if (RulingGate.isLegalPenaltyQuestion(asked)) return HadiExplain.legalReply;
+    // A question the shelf has no answer for must not get a confident answer
+    // to a different one.
+    if (HadiRouting.asksCombinePrayers(asked)) {
+      return HadiRouting.travelPrayerReply;
+    }
+    if (HadiRouting.asksAboutSourceShaykh(asked)) {
+      return HadiRouting.sourceShaykhReply;
+    }
+    if (HadiRouting.asksUnknownPerson(
+      asked,
+      known: (String w) => _df.containsKey(_stem(w)),
+    )) {
+      return HadiRouting.unknownPersonReply;
+    }
+    if (HadiRouting.asksGroupDifference(asked)) {
+      return HadiRouting.groupDifferenceReply;
+    }
+    if (HadiRouting.asksSpouseRights(asked)) {
+      return HadiRouting.spouseRightsReply;
+    }
+    if (HadiRouting.asksMemoriseHow(asked)) return HadiRouting.memoriseReply;
+    if (HadiRouting.asksRelationship(asked)) {
+      // Someone who is hurting over it is met with the comfort reply, never
+      // with a verse about sin.
+      if (heavy) {
+        final int pick =
+            asked.codeUnits.fold<int>(0, (int a, int b) => a + b);
+        return distressReplies[pick % distressReplies.length];
+      }
+      return HadiRouting.relationshipReply;
+    }
+    // Answers built only from lines the app already shows (the guides, the
+    // New Muslim path, the sources page), and honest pointers where it holds
+    // no verified text.
+    final String? explained = HadiExplain.replyFor(asked);
+    if (explained != null) return explained;
 
     return _shelf(asked, history);
   }
@@ -1302,6 +1365,19 @@ class OfflineHadiProvider implements HadiProvider {
     r'im\s+feeling|i\s+am\s+feeling)\b',
   );
 
+  /// A question about a thing, not about the speaker: it opens with a
+  /// question word and never says I, me, my or we. A feeling word in it
+  /// ("is anxiety a sin", "the punishment for leaving Islam") is the topic,
+  /// not the person's state, so it gets no comfort message.
+  static final RegExp _questionOpener = RegExp(
+    r'^(?:is|are|was|were|does|do|did|can|could|will|would|what|whats|why|'
+    r'how|who|which|where|when)\b',
+  );
+  static final RegExp _firstPerson =
+      RegExp(r'\b(?:i|im|ive|id|me|my|mine|myself|we|our|us)\b');
+  static bool _thirdPartyQuestion(String n) =>
+      _questionOpener.hasMatch(n) && !_firstPerson.hasMatch(n);
+
   /// Subjects that are plainly not about Islam or this app.
   static final RegExp _offTopic = RegExp(
     r'\b(?:football|soccer|world\s+cup|premier\s+league|nba|nfl|'
@@ -1384,6 +1460,11 @@ class OfflineHadiProvider implements HadiProvider {
     if (HadiRouting.asksHadithNumber(question)) {
       return HadiRouting.hadithNumberDecline;
     }
+    // A legal penalty asked about as a fact ("is the punishment for X
+    // death?") is a ruling for a scholar, not a person in pain.
+    if (RulingGate.isLegalPenaltyQuestion(question)) {
+      return HadiExplain.legalReply;
+    }
     if (rulingShaped) {
       return HadiRouting.variantFor(question, history, ruling: true) ??
           rulingDecline;
@@ -1393,7 +1474,7 @@ class OfflineHadiProvider implements HadiProvider {
     final String n = CrisisDetector.normalize(question);
     final int pick = question.codeUnits.fold<int>(0, (int a, int b) => a + b);
     if (_rude.hasMatch(n)) return rudeReplies[pick % rudeReplies.length];
-    if (_distress.hasMatch(n)) {
+    if (_distress.hasMatch(n) && !_thirdPartyQuestion(n)) {
       return distressReplies[pick % distressReplies.length];
     }
     if (_offTopic.hasMatch(n)) return offTopicReply;
@@ -1739,7 +1820,7 @@ const List<_Entry> _knowledge = <_Entry>[
   ),
   _Entry(
     <String>['ramadan', 'fasting', 'fast', 'sawm', 'siyam', 'roza', 'suhoor', 'iftar', 'ramadhan', 'ramzan', 'ramazan'],
-    'Fasting Ramadan is the fourth pillar of Islam (Qur\'an 2:183-185). '
+    'Fasting Ramadan is the fourth pillar of Islam (Qur\'an 2:183). '
     '“Whoever fasts Ramadan out of faith and hope for reward, his past '
     'sins are forgiven.” (Sahih al-Bukhari 38). Take suhoor — “in suhoor '
     'there is blessing” (Bukhari 1923) — and check the Islamic Calendar '

@@ -1,3 +1,4 @@
+import 'dart:async' show unawaited;
 import 'dart:convert';
 import 'dart:math';
 
@@ -12,6 +13,7 @@ import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/needs_internet_view.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/core/content/content_sync.dart';
+import '../../../app/core/providers.dart';
 
 class TriviaQ {
   final String id, category, question, why;
@@ -427,9 +429,101 @@ class Names99Screen extends ConsumerStatefulWidget {
   ConsumerState<Names99Screen> createState() => _Names99ScreenState();
 }
 
+/// How a name's source reads on screen: "Qur’an 2:163" for a verse
+/// reference, the text as it is for anything else (the first name's ref is
+/// just "Allah").
+String names99RefLabel(String ref) =>
+    RegExp(r'^\d+:\d+').hasMatch(ref) ? 'Qur\u2019an $ref' : ref;
+
 class _Names99ScreenState extends ConsumerState<Names99Screen> {
+  /// Where the person was, kept on the device so Back from Ask Hādi (or a
+  /// reopened screen) returns to the same name instead of the first.
+  static const String _posKey = 'ar.names99.index';
+
   int _i = 0;
   bool _flip = false;
+  bool _list = false;
+
+  Widget _modeToggle() => Wrap(
+        alignment: WrapAlignment.center,
+        spacing: 8,
+        runSpacing: 4,
+        children: [
+          for (final (bool, String) m in const <(bool, String)>[
+            (false, 'One at a time'),
+            (true, 'All 99'),
+          ])
+            ChoiceChip(
+              key: Key(m.$1 ? 'names-mode-list' : 'names-mode-cards'),
+              label: Text(m.$2),
+              selected: _list == m.$1,
+              onSelected: (_) => setState(() => _list = m.$1),
+            ),
+        ],
+      );
+
+  Widget _listView(List<Name99> deck) => Column(
+        children: [
+          for (int k = 0; k < deck.length; k++)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: GlassCard(
+                key: Key('names-row-${deck[k].n}'),
+                blur: false,
+                onTap: () => setState(() {
+                  _i = k;
+                  _flip = false;
+                  _list = false;
+                }),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      width: 34,
+                      child: Text('${deck[k].n}', style: AppText.eyebrow),
+                    ),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(deck[k].name, style: AppText.titleMedium),
+                          const SizedBox(height: 2),
+                          Text(deck[k].meaning, style: AppText.bodyMuted),
+                          const SizedBox(height: 2),
+                          Text(
+                            names99RefLabel(deck[k].ref),
+                            style: AppText.bodyMuted.copyWith(fontSize: 12),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+        ],
+      );
+
+  @override
+  void initState() {
+    super.initState();
+    try {
+      _i = ref.read(sharedPreferencesProvider).getInt(_posKey) ?? 0;
+    } catch (_) {
+      // No stored place (or no store in a bare test): start at the first.
+    }
+    if (_i < 0) _i = 0;
+  }
+
+  void _go(int next) {
+    setState(() {
+      _i = next;
+      _flip = false;
+    });
+    try {
+      unawaited(ref.read(sharedPreferencesProvider).setInt(_posKey, next));
+    } catch (_) {}
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -448,12 +542,15 @@ class _Names99ScreenState extends ConsumerState<Names99Screen> {
           ),
         ]),
         data: (deck) {
+          if (_i >= deck.length) _i = deck.length - 1;
           final d = deck[_i];
           return ListView(
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
             children: [
               const ScreenHeader(title: 'The 99 Names', close: true),
-              const SizedBox(height: 6),
+              _modeToggle(),
+              const SizedBox(height: 10),
+              if (_list) _listView(deck) else ...[
               Center(child: Text('${_i + 1} OF ${deck.length}', style: AppText.eyebrow)),
               const SizedBox(height: 14),
               GestureDetector(
@@ -476,7 +573,7 @@ class _Names99ScreenState extends ConsumerState<Names99Screen> {
                                   textAlign: TextAlign.center,
                                   style: AppText.body.copyWith(fontSize: 17, height: 1.5)),
                               const SizedBox(height: 8),
-                              Text(d.ref,
+                              Text(names99RefLabel(d.ref),
                                   style: AppText.bodyMuted.copyWith(fontSize: 12)),
                             ],
                           )
@@ -500,7 +597,7 @@ class _Names99ScreenState extends ConsumerState<Names99Screen> {
                 children: [
                   TextButton(
                     onPressed: _i > 0
-                        ? () => setState(() { _i--; _flip = false; })
+                        ? () => _go(_i - 1)
                         : null,
                     child: Text('Previous',
                         style: TextStyle(
@@ -510,7 +607,7 @@ class _Names99ScreenState extends ConsumerState<Names99Screen> {
                   ),
                   TextButton.icon(
                     onPressed: _i < deck.length - 1
-                        ? () => setState(() { _i++; _flip = false; })
+                        ? () => _go(_i + 1)
                         : null,
                     iconAlignment: IconAlignment.end,
                     icon: const Icon(Icons.arrow_forward_ios,
@@ -519,6 +616,7 @@ class _Names99ScreenState extends ConsumerState<Names99Screen> {
                   ),
                 ],
               ),
+              ],
             ],
           );
         },

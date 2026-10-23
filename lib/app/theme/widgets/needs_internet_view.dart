@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import '../../core/web_offline.dart';
@@ -7,7 +9,7 @@ import '../app_typography.dart';
 /// Full-area state for content that could not be fetched: says so plainly
 /// (on the web, that it needs internet) and offers a retry. Never blank,
 /// never a grey box.
-class NeedsInternetView extends StatelessWidget {
+class NeedsInternetView extends StatefulWidget {
   const NeedsInternetView({
     required this.what,
     this.onRetry,
@@ -25,6 +27,42 @@ class NeedsInternetView extends StatelessWidget {
   final bool? web;
 
   @override
+  State<NeedsInternetView> createState() => _NeedsInternetViewState();
+}
+
+class _NeedsInternetViewState extends State<NeedsInternetView> {
+  Timer? _timer;
+  bool _checking = false;
+  bool _stillFailing = false;
+
+  /// Try again must visibly do something: show "Checking" for a moment, and
+  /// if this same view is still on screen afterwards, say it is still
+  /// failing (instead of looking like the button did nothing).
+  void _retry() {
+    final VoidCallback? go = widget.onRetry;
+    if (go == null) return;
+    setState(() {
+      _checking = true;
+      _stillFailing = false;
+    });
+    go();
+    _timer?.cancel();
+    _timer = Timer(const Duration(milliseconds: 1200), () {
+      if (!mounted) return;
+      setState(() {
+        _checking = false;
+        _stillFailing = true;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Center(
       child: Padding(
@@ -39,16 +77,37 @@ class NeedsInternetView extends StatelessWidget {
             ),
             const SizedBox(height: 14),
             Text(
-              WebOffline.needsInternet(what, web: web),
+              WebOffline.needsInternet(widget.what, web: widget.web),
               textAlign: TextAlign.center,
               style: AppText.body.copyWith(height: 1.5),
             ),
-            if (onRetry != null) ...<Widget>[
+            if (_stillFailing) ...<Widget>[
+              const SizedBox(height: 10),
+              Semantics(
+                liveRegion: true,
+                child: Text(
+                  'Still could not load. Check your connection and try '
+                  'again in a moment.',
+                  textAlign: TextAlign.center,
+                  style: AppText.bodyMuted.copyWith(height: 1.4),
+                ),
+              ),
+            ],
+            if (widget.onRetry != null) ...<Widget>[
               const SizedBox(height: 16),
               OutlinedButton.icon(
-                onPressed: onRetry,
-                icon: const Icon(Icons.refresh, size: 16),
-                label: const Text('Try again'),
+                onPressed: _checking ? null : _retry,
+                icon: _checking
+                    ? const SizedBox(
+                        width: 16,
+                        height: 16,
+                        child: CircularProgressIndicator(
+                          strokeWidth: 2,
+                          color: AppColors.gold,
+                        ),
+                      )
+                    : const Icon(Icons.refresh, size: 16),
+                label: Text(_checking ? 'Checking\u2026' : 'Try again'),
               ),
             ],
           ],

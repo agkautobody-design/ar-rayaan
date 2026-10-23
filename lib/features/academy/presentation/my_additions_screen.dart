@@ -102,52 +102,88 @@ class MyAdditionsScreen extends ConsumerWidget {
   Future<void> _showAddDialog(BuildContext context, WidgetRef ref) async {
     final TextEditingController title = TextEditingController();
     final TextEditingController url = TextEditingController();
+    String? titleError;
+    String? linkError;
     final bool? added = await showDialog<bool>(
       context: context,
-      builder: (BuildContext ctx) => AlertDialog(
-        backgroundColor: AppColors.navy,
-        title: Text('Add by URL', style: AppText.titleMedium),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            TextField(
-              controller: title,
-              style: AppText.body,
-              decoration: const InputDecoration(
-                  labelText: 'Title', hintText: 'e.g. Qasidah Burdah'),
-            ),
-            const SizedBox(height: 8),
-            TextField(
-              controller: url,
-              style: AppText.body,
-              decoration: const InputDecoration(
+      builder: (BuildContext ctx) => StatefulBuilder(
+        builder: (BuildContext ctx, StateSetter set) => AlertDialog(
+          backgroundColor: AppColors.navy,
+          title: Text('Add by URL', style: AppText.titleMedium),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              TextField(
+                controller: title,
+                style: AppText.body,
+                decoration: InputDecoration(
+                  labelText: 'Title',
+                  hintText: 'e.g. Qasidah Burdah',
+                  errorText: titleError,
+                ),
+              ),
+              const SizedBox(height: 8),
+              TextField(
+                controller: url,
+                style: AppText.body,
+                decoration: InputDecoration(
                   labelText: 'Link (https://…)',
-                  hintText: 'https://example.com/track.mp3'),
-              keyboardType: TextInputType.url,
+                  hintText: 'https://example.com/track.mp3',
+                  errorText: linkError,
+                ),
+                keyboardType: TextInputType.url,
+              ),
+            ],
+          ),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () => Navigator.of(ctx).pop(false),
+              child: const Text('Cancel'),
+            ),
+            FilledButton(
+              onPressed: () {
+                final String? te = personalTitleError(title.text);
+                final String? le = personalLinkError(url.text);
+                if (te != null || le != null) {
+                  set(() {
+                    titleError = te;
+                    linkError = le;
+                  });
+                  return;
+                }
+                Navigator.of(ctx).pop(true);
+              },
+              child: const Text('Add'),
             ),
           ],
         ),
-        actions: <Widget>[
-          TextButton(
-            onPressed: () => Navigator.of(ctx).pop(false),
-            child: const Text('Cancel'),
-          ),
-          FilledButton(
-            onPressed: () => Navigator.of(ctx).pop(true),
-            child: const Text('Add'),
-          ),
-        ],
       ),
     );
-    if (added != true) return;
     final String t = title.text.trim();
     final String u = url.text.trim();
-    if (t.isEmpty || !u.startsWith('http')) return; // honest validation
+    title.dispose();
+    url.dispose();
+    if (added != true) return;
     await ref
         .read(personalLibraryProvider.notifier)
         .add(title: t, source: u);
   }
 }
+
+/// Why a pasted link cannot be added, or null when it can. The same plain
+/// wording style as the playlist link dialog, kept inside the dialog so a
+/// bad paste never closes it silently.
+String? personalLinkError(String raw) {
+  final Uri? u = Uri.tryParse(raw.trim());
+  final bool ok = u != null &&
+      (u.scheme == 'http' || u.scheme == 'https') &&
+      u.host.isNotEmpty;
+  return ok ? null : 'That is not a link I can play. It should start with https://';
+}
+
+/// Why the title cannot be used, or null when it can.
+String? personalTitleError(String raw) =>
+    raw.trim().isEmpty ? 'Give it a title.' : null;
 
 class _HouseholdCard extends ConsumerWidget {
   const _HouseholdCard({required this.hidden});

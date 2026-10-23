@@ -17,6 +17,7 @@ import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../prayer/application/prayer_providers.dart';
 import '../../prayer/application/prayer_repository.dart';
+import '../domain/masjid_search_state.dart';
 
 class Mosque {
   final String name;
@@ -53,6 +54,11 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
   final _search = TextEditingController();
   bool _loading = false;
   String? _error;
+  // True when the last network call (map search or city lookup) failed. Kept
+  // apart from [_error] so a failure is never shown as "none found".
+  bool _failed = false;
+  // What Retry repeats: the city lookup (true) or the map search (false).
+  bool _retryIsCitySearch = false;
   List<Mosque> _mosques = [];
   List<Map<String, dynamic>> _foods = [];
   // Starts at the location saved for Prayer Times (GPS fix or chosen city).
@@ -110,7 +116,7 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
   Future<void> _searchCity() async {
     final q = _search.text.trim();
     if (q.isEmpty) return;
-    setState(() { _loading = true; _error = null; });
+    setState(() { _loading = true; _error = null; _failed = false; });
     try {
       final res = await http.get(Uri.parse(
           'https://nominatim.openstreetmap.org/search?q='
@@ -128,7 +134,10 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
       setState(() => _error = 'Place not found');
     } catch (_) {
       if (!mounted) return;
-      setState(() => _error = 'Search failed - check connection');
+      setState(() {
+        _failed = true;
+        _retryIsCitySearch = true;
+      });
     }
     if (!mounted) return;
     setState(() => _loading = false);
@@ -146,7 +155,7 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
   Future<void> _fetch() async {
     if (!_hasPlace) return; // no place yet: nothing to search
     final int id = ++_requestId;
-    setState(() { _loading = true; _error = null; });
+    setState(() { _loading = true; _error = null; _failed = false; });
     final foodMode = _tab == 1;
     final tag = foodMode
         ? 'nwr["diet:halal"~"^(yes|only)\$"](around:6000,$_lat,$_lon);'
@@ -225,14 +234,31 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
       }
     } catch (_) {
       if (!mounted || id != _requestId) return;
-      _error = 'Live search failed - check connection';
+      _failed = true;
+      _retryIsCitySearch = false;
     }
     if (!mounted || id != _requestId) return;
     setState(() => _loading = false);
   }
 
+  void _retrySearch() {
+    if (_retryIsCitySearch) {
+      _searchCity();
+    } else {
+      _fetch();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    final bool food = _tab == 1;
+    final MasjidPhase phase = masjidPhaseFor(
+      hasPlace: _hasPlace,
+      loading: _loading,
+      failed: _failed,
+      resultCount: food ? _foods.length : _mosques.length,
+    );
+    final String? status = masjidStatusText(phase, food: food);
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: Center(
@@ -346,9 +372,6 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
                 ),
               ),
             )),
-            if (_loading)
-              const Padding(padding: EdgeInsets.all(8),
-                  child: CircularProgressIndicator(color: AppColors.gold)),
             if (_error != null)
               Padding(padding: const EdgeInsets.all(8),
                   child: Text(_error!, style: AppText.bodyMuted)),
@@ -357,6 +380,78 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
               child: ListView(
                 padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
                 children: [
+                  if (phase == MasjidPhase.loading)
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: Row(children: [
+                        const SizedBox(
+                          width: 18,
+                          height: 18,
+                          child: CircularProgressIndicator(
+                              strokeWidth: 2, color: AppColors.gold),
+                        ),
+                        const SizedBox(width: 10),
+                        Expanded(
+                          child: Text(status ?? '', style: AppText.bodyMuted),
+                        ),
+                      ]),
+                    ),
+                  if (_failed && !_loading)
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: GlassCard(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Semantics(
+                              liveRegion: true,
+                              child: Text(
+                                phase == MasjidPhase.failed
+                                    ? status ?? ''
+                                    : phase == MasjidPhase.needsPlace
+                                        ? 'Could not look up that place. Check '
+                                            'your connection and try again.'
+                                        : 'Could not refresh from the map '
+                                            'service. Showing the earlier '
+                                            'results.',
+                                style: AppText.bodyMuted.copyWith(height: 1.45),
+                              ),
+                            ),
+                            const SizedBox(height: 8),
+                            Wrap(spacing: 8, runSpacing: 4, children: [
+                              OutlinedButton.icon(
+                                onPressed: _retrySearch,
+                                icon: const Icon(Icons.refresh, size: 16),
+                                label: const Text('Try again'),
+                              ),
+                              if (_hasPlace)
+                                TextButton(
+                                  onPressed: () async {
+                                    final ScaffoldMessengerState messenger =
+                                        ScaffoldMessenger.of(context);
+                                    final bool ok = await _openExternal(
+                                      masjidFallbackMapUri(
+                                          lat: _lat, lon: _lon, food: food),
+                                    );
+                                    if (!ok) {
+                                      messenger.showSnackBar(
+                                        const SnackBar(
+                                          content: Text(
+                                            'This device would not open the '
+                                            'map. Check your connection or '
+                                            'try a browser.',
+                                          ),
+                                        ),
+                                      );
+                                    }
+                                  },
+                                  child: const Text('Open map search instead'),
+                                ),
+                            ]),
+                          ],
+                        ),
+                      ),
+                    ),
                   if (_tab == 0)
                     for (final m in _mosques)
                       _MosqueCard(m: m, fromLat: _lat, fromLon: _lon)
@@ -389,9 +484,8 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
                             '(your device is asked only when you tap it) or search '
                             'a city above.',
                             style: AppText.bodyMuted))
-                  else if (_tab == 0 && _mosques.isEmpty && !_loading)
-                    GlassCard(child: Text(
-                        'No masajid found in this area\u2019s open map data. Try a nearby city search, or contribute the mosque to OpenStreetMap so the whole ummah finds it.',
+                  else if (phase == MasjidPhase.empty)
+                    GlassCard(child: Text(status ?? '',
                         style: AppText.bodyMuted)),
                 ],
               ),
@@ -405,13 +499,15 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
 
 /// Opens [u] outside the app. A device with nothing to open it with, or a
 /// browser that refuses, must not surface as an unhandled error.
-Future<void> _openExternal(Uri u, {bool external = true}) async {
+Future<bool> _openExternal(Uri u, {bool external = true}) async {
   try {
-    await launchUrl(
+    return await launchUrl(
       u,
       mode: external ? LaunchMode.externalApplication : LaunchMode.platformDefault,
     );
-  } catch (_) {}
+  } catch (_) {
+    return false;
+  }
 }
 
 class _MosqueCard extends StatelessWidget {

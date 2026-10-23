@@ -1,17 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart' show DateFormat;
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
+import '../../../app/core/content_loader.dart';
 import '../../../app/core/modules/module_status.dart';
+import '../../../app/core/providers.dart';
+import '../../onboarding/presentation/onboarding_screen.dart';
+import '../domain/next_step.dart';
+import '../../stories/presentation/new_muslim_path_screen.dart' show NewMuslimPathScreen;
 import '../../academy/application/academy_providers.dart';
 import '../../menu/presentation/menu_screen.dart' show isAcademyRoute;
+import '../../elder/application/elder_mode.dart';
 import '../../hadi/presentation/hadi_ask_bar.dart';
 import '../../hadith/presentation/daily_hadith_banner.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/gold_text.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
@@ -40,6 +47,7 @@ class HomeScreen extends ConsumerWidget {
     // --- Live tile subtitles -------------------------------------------------
     // Times are shown only for a location the person set (never a stand-in).
     final bool locationSet = ref.watch(prayerLocationProvider).isSet;
+    String? nextPrayerLabel;
     final String prayerSub = !locationSet
         ? 'Set your location'
         : ref
@@ -48,6 +56,7 @@ class HomeScreen extends ConsumerWidget {
                 data: (PrayerTimes t) {
                   final (String name, DateTime time) =
                       t.nextPrayer(DateTime.now());
+                  nextPrayerLabel = '$name at ${DateFormat.jm().format(time)}';
                   return '$name · ${DateFormat.jm().format(time)}';
                 },
                 loading: () => 'Loading times…',
@@ -56,6 +65,7 @@ class HomeScreen extends ConsumerWidget {
 
     final ReadingPosition? pos = ref.watch(readingPositionProvider);
     String quranSub = 'Begin Reading · Al-Fatihah';
+    String? quranResume;
     if (pos != null) {
       final List<SurahMeta>? index = ref.watch(quranIndexProvider).valueOrNull;
       final SurahMeta? meta = index
@@ -64,9 +74,19 @@ class HomeScreen extends ConsumerWidget {
       quranSub = meta == null
           ? 'Continue Reading'
           : 'Continue · ${meta.transliteration} ${pos.surah}:${pos.ayah}';
+      if (meta != null) {
+        quranResume = '${meta.transliteration} ${pos.surah}:${pos.ayah}';
+      }
     }
+    // Web only: say so before the first tap if the Qur'an is not yet kept on
+    // this device (null while checking, and always ready on the phone apps).
+    quranSub = quranTileSubtitle(
+      quranSub,
+      offlineReady: ref.watch(quranOfflineReadyProvider).valueOrNull,
+    );
 
     String dhikrSub = 'Morning Adhkar';
+    int? adhkarLeft;
     final List<AdhkarSet>? sets = ref.watch(adhkarSetsProvider).valueOrNull;
     if (sets != null && sets.isNotEmpty) {
       ref.watch(adhkarProgressProvider);
@@ -74,8 +94,8 @@ class HomeScreen extends ConsumerWidget {
       final int done = ref
           .read(adhkarProgressProvider.notifier)
           .completedInSet(morning);
-      dhikrSub =
-          'Morning Adhkar · ${morning.totalRepetitions - done} remaining';
+      adhkarLeft = morning.totalRepetitions - done;
+      dhikrSub = 'Morning Adhkar · $adhkarLeft remaining';
     }
 
     final List<(IconData, String, String, String?)> tiles = [
@@ -113,7 +133,7 @@ class HomeScreen extends ConsumerWidget {
       ),
       (
         Icons.school_outlined,
-        'Knowledge',
+        'Stories',
         'Stories, khutbahs & duas',
         AppRoutes.stories,
       ),
@@ -146,6 +166,45 @@ class HomeScreen extends ConsumerWidget {
     // overflows: give them proportionally more height.
     final double textScale =
         (MediaQuery.textScalerOf(context).scale(14) / 14).clamp(1.0, 2.0);
+    // A narrow phone or big text: the top blocks shrink so the Prayer Times
+    // tile is not pushed below the fold.
+    final bool compact =
+        textScale > 1.3 || MediaQuery.sizeOf(context).width < 380;
+    final NextStep step = _nextStepFor(
+      ref,
+      academyOn: showAcademy,
+      nextPrayer: nextPrayerLabel,
+      adhkarLeft: adhkarLeft,
+      quranResume: quranResume,
+    );
+
+    final Widget quick = _SemanticTap(
+                label: 'Quick Access. Academy, naats, games, elder care, therapy, duas.',
+                onTap: () => context.go('/home/quick'),
+                child: Container(
+                  margin: const EdgeInsets.fromLTRB(4, 0, 4, 10),
+                  padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(color: AppColors.gold.withValues(alpha: 0.45)),
+                    color: const Color(0x1A05090F),
+                  ),
+                  child: Row(children: [
+                    const Icon(Icons.dashboard_outlined, color: AppColors.goldLight, size: 20),
+                    const SizedBox(width: 12),
+                    Expanded(child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Quick Access', style: AppText.body.copyWith(
+                            fontWeight: FontWeight.w700, fontSize: 13.5, color: AppColors.goldLight)),
+                        Text('Academy \u00b7 Naats \u00b7 Games \u00b7 Elder Care \u00b7 Therapy \u00b7 Duas',
+                            style: AppText.bodyMuted.copyWith(fontSize: 12)),
+                      ],
+                    )),
+                    const Icon(Icons.chevron_right, color: AppColors.gold, size: 18),
+                  ]),
+                ),
+              );
 
     return Scaffold(
       body: AtmosphereLayer(
@@ -180,41 +239,24 @@ class HomeScreen extends ConsumerWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.fromLTRB(20, 12, 20, 0),
-                  child: Row(
-                    children: [
-                      // Home is the root of the Home tab: there is nothing to go
-                      // back to unless something was pushed over it.
-                      if (context.canPop()) ...[
-                        _HeaderIcon(
-                          icon: Icons.arrow_back,
-                          tooltip: 'Back',
-                          onTap: () => context.pop(),
-                        ),
-                        const SizedBox(width: 12),
-                      ],
-                      const Expanded(child: HadiAskBar()),
-                      const SizedBox(width: 12),
-                      _HeaderIcon(
-                        icon: Icons.search,
-                        tooltip: 'Search',
-                        onTap: () => context.push(AppRoutes.search),
-                      ),
-                      const SizedBox(width: 8),
-                      _HeaderIcon(
-                        icon: Icons.menu,
-                        tooltip: 'Menu',
-                        onTap: () => context.push(AppRoutes.menu),
-                      ),
-                    ],
+                  child: _Header(
+                    // Big text or a narrow phone: the Ask bar gets its own
+                    // line instead of being squeezed between the icons.
+                    stacked: textScale > 1.3 ||
+                        MediaQuery.sizeOf(context).width < 380,
                   ),
                 ),
                 Expanded(
-                  child: ListView(
+                  // Tab goes top to bottom, row by row: Elder Mode, Quick
+                  // Access, the tiles, the links, then the cards below.
+                  child: FocusTraversalGroup(
+                    policy: ReadingOrderTraversalPolicy(),
+                    child: ListView(
                     padding: const EdgeInsets.fromLTRB(20, 16, 20, 24),
                     children: [
                       // Greeting sits directly on the scenery (locked board).
                       ConstrainedBox(
-                        constraints: const BoxConstraints(minHeight: 178),
+                        constraints: BoxConstraints(minHeight: compact ? 0 : 178),
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 4),
                           child: Column(
@@ -240,25 +282,26 @@ class HomeScreen extends ConsumerWidget {
                                   fontSize: 32,
                                 ),
                               ),
-                              const SizedBox(height: 8),
-                              Text(
-                                'May Allah make this a source of\nbarakah in your day!',
-                                style: AppText.bodyMuted.copyWith(
-                                  fontSize: 12,
-                                  height: 1.5,
+                              if (textScale <= 1.3) ...[
+                                const SizedBox(height: 8),
+                                Text(
+                                  'May Allah make this a source of\nbarakah in your day!',
+                                  style: AppText.bodyMuted.copyWith(
+                                    fontSize: 12,
+                                    height: 1.5,
+                                  ),
                                 ),
-                              ),
+                              ],
                             ],
                           ),
                         ),
                       ),
-                      const SizedBox(height: 16),
+                      SizedBox(height: compact ? 8 : 16),
               _SemanticTap(
                 label: 'Elder Mode. Opens the large-text home for an elder.',
                 onTap: () async {
-                  final p = await SharedPreferences.getInstance();
-                  await p.setBool('ar.elder.mode', true);
-                  if (context.mounted) context.go('/home/elder');
+                  await ref.read(elderModeProvider.notifier).set(true);
+                  if (context.mounted) context.go(ElderMode.homeRoute);
                 },
                 child: Container(
                   margin: const EdgeInsets.fromLTRB(4, 0, 4, 10),
@@ -268,50 +311,39 @@ class HomeScreen extends ConsumerWidget {
                     border: Border.all(color: AppColors.gold.withValues(alpha: 0.6), width: 1.2),
                     color: const Color(0x2405090F),
                   ),
+                  // The words come first: at big text or on a narrow phone
+                  // the icon and chevron step aside and the title is one
+                  // line that shrinks, never "ELDE / R / MODE".
                   child: Row(children: [
-                    const Icon(Icons.elderly_outlined, color: AppColors.goldLight, size: 26),
-                    const SizedBox(width: 12),
+                    if (textScale <= 1.3) ...[
+                      const Icon(Icons.elderly_outlined, color: AppColors.goldLight, size: 26),
+                      const SizedBox(width: 12),
+                    ],
                     Expanded(child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('ELDER MODE', style: AppText.body.copyWith(
-                            fontWeight: FontWeight.w800, fontSize: 15, color: AppColors.goldLight,
-                            letterSpacing: 1.2)),
-                        Text('One tap \u2014 the app opens here for them every time. Big words. Three doors. Nothing else.',
+                        FittedBox(
+                          fit: BoxFit.scaleDown,
+                          alignment: AlignmentDirectional.centerStart,
+                          child: Text('ELDER MODE', maxLines: 1, softWrap: false,
+                              style: AppText.body.copyWith(
+                                  fontWeight: FontWeight.w800, fontSize: 15,
+                                  color: AppColors.goldLight, letterSpacing: 1.2)),
+                        ),
+                        Text(
+                            compact
+                                ? 'Big words. Three doors. Nothing else.'
+                                : 'One tap \u2014 the app opens here for them every time. Big words. Three doors. Nothing else.',
                             style: AppText.bodyMuted.copyWith(fontSize: 12)),
                       ],
                     )),
-                    const Icon(Icons.chevron_right, color: AppColors.gold, size: 22),
+                    if (textScale <= 1.3)
+                      const Icon(Icons.chevron_right, color: AppColors.gold, size: 22),
                   ]),
                 ),
               ),
-              _SemanticTap(
-                label: 'Quick Access. Academy, naats, games, elder care, therapy, duas.',
-                onTap: () => context.go('/home/quick'),
-                child: Container(
-                  margin: const EdgeInsets.fromLTRB(4, 0, 4, 10),
-                  padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    border: Border.all(color: AppColors.gold.withValues(alpha: 0.45)),
-                    color: const Color(0x1A05090F),
-                  ),
-                  child: Row(children: [
-                    const Icon(Icons.dashboard_outlined, color: AppColors.goldLight, size: 20),
-                    const SizedBox(width: 12),
-                    Expanded(child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Quick Access', style: AppText.body.copyWith(
-                            fontWeight: FontWeight.w700, fontSize: 13.5, color: AppColors.goldLight)),
-                        Text('Academy \u00b7 Naats \u00b7 Games \u00b7 Elder Care \u00b7 Therapy \u00b7 Duas',
-                            style: AppText.bodyMuted.copyWith(fontSize: 12)),
-                      ],
-                    )),
-                    const Icon(Icons.chevron_right, color: AppColors.gold, size: 18),
-                  ]),
-                ),
-              ),
+              if (!compact) quick,
+              _NextStepCard(step: step, compact: compact),
               GridView.count(
                         // Adaptive: phones keep three tiles; wide screens
                         // gain columns so nothing stretches into emptiness.
@@ -327,7 +359,11 @@ class HomeScreen extends ConsumerWidget {
                         childAspectRatio:
                             (MediaQuery.of(context).size.width > 780
                                     ? 1.15
-                                    : 1.0) /
+                                    // A 320px phone has ~87px-wide tiles: a
+                                    // little taller so title and subtitle fit.
+                                    : MediaQuery.of(context).size.width < 360
+                                        ? 0.88
+                                        : 1.0) /
                                 textScale,
                         children: [
                           for (final (_, title, sub, route) in shownTiles)
@@ -342,6 +378,7 @@ class HomeScreen extends ConsumerWidget {
                         ],
                       ),
                       const SizedBox(height: 12),
+                      if (compact) quick,
                       Wrap(
                         spacing: 8,
                         runSpacing: 4,
@@ -466,12 +503,186 @@ class HomeScreen extends ConsumerWidget {
                       ],
                     ],
                   ),
+                  ),
                 ),
               ],
             ),
           ),
         ],
       )),
+    );
+  }
+}
+
+/// Reads the stored goal and progress, then asks the pure rules which card
+/// to show. Everything comes from providers and preferences the app already
+/// has; a failure to read falls back to the Qur'an card.
+NextStep _nextStepFor(
+  WidgetRef ref, {
+  required bool academyOn,
+  required String? nextPrayer,
+  required int? adhkarLeft,
+  required String? quranResume,
+}) {
+  String? need;
+  int newMuslimDone = 0;
+  try {
+    final SharedPreferences p = ref.read(sharedPreferencesProvider);
+    need = p.getString(OnboardingScreen.needPref);
+    if (need == 'new') {
+      for (final String k in p.getKeys()) {
+        if (k.startsWith(NewMuslimPathScreen.donePrefix) &&
+            p.getBool(k) == true) {
+          newMuslimDone++;
+        }
+      }
+    }
+  } catch (_) {}
+  final int lessonsDone = need == 'learn' && academyOn
+      ? ref.watch(lessonsDoneProvider)
+      : 0;
+  return resolveNextStep(
+    need: need,
+    academyOn: academyOn,
+    nextPrayer: nextPrayer,
+    adhkarLeft: adhkarLeft,
+    quranResume: quranResume,
+    newMuslimDone: newMuslimDone,
+    lessonsDone: lessonsDone,
+  );
+}
+
+/// The single "Your next step" card under the greeting.
+class _NextStepCard extends StatelessWidget {
+  const _NextStepCard({required this.step, required this.compact});
+
+  final NextStep step;
+  final bool compact;
+
+  @override
+  Widget build(BuildContext context) {
+    final String? second = step.secondaryRoute;
+    return Padding(
+      key: const Key('home-next-step'),
+      padding: const EdgeInsets.fromLTRB(4, 0, 4, 12),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(14),
+          border: Border.all(color: AppColors.gold.withValues(alpha: 0.55)),
+          color: const Color(0x8005090F),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _SemanticTap(
+              label: 'Your next step. ${step.headline}. ${step.detail}',
+              minHeight: 48,
+              onTap: () => context.open(step.route),
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(14, compact ? 8 : 12, 10, 8),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('YOUR NEXT STEP', style: AppText.eyebrow),
+                          const SizedBox(height: 2),
+                          Text(
+                            step.headline,
+                            style: AppText.body.copyWith(
+                              fontWeight: FontWeight.w700,
+                              fontSize: 14.5,
+                              color: AppColors.goldLight,
+                            ),
+                          ),
+                          Text(
+                            step.detail,
+                            maxLines: compact ? 2 : 3,
+                            overflow: TextOverflow.ellipsis,
+                            style: AppText.bodyMuted.copyWith(fontSize: 12),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const Icon(
+                      Icons.chevron_right,
+                      color: AppColors.gold,
+                      size: 22,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            if (second != null && step.secondaryLabel != null)
+              Padding(
+                padding: const EdgeInsets.fromLTRB(14, 0, 14, 4),
+                child: _AlsoLink(
+                  label: step.secondaryLabel!,
+                  onTap: () => context.open(second),
+                ),
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// Home's top line: Back (when something is under Home), the Ask Hādi bar,
+/// Search and Menu. [stacked] puts the bar on its own line below the icons.
+class _Header extends StatelessWidget {
+  const _Header({required this.stacked});
+
+  final bool stacked;
+
+  @override
+  Widget build(BuildContext context) {
+    final Widget back = _HeaderIcon(
+      icon: Icons.arrow_back,
+      tooltip: 'Back',
+      onTap: () => context.pop(),
+    );
+    final Widget search = _HeaderIcon(
+      icon: Icons.search,
+      tooltip: 'Search',
+      onTap: () => context.push(AppRoutes.search),
+    );
+    final Widget menu = _HeaderIcon(
+      icon: Icons.menu,
+      tooltip: 'Menu',
+      onTap: () => context.push(AppRoutes.menu),
+    );
+    // Home is the root of the Home tab: there is nothing to go back to
+    // unless something was pushed over it.
+    final bool canGoBack = context.canPop();
+
+    if (stacked) {
+      return Column(
+        children: [
+          Row(
+            children: [
+              if (canGoBack) back,
+              const Spacer(),
+              search,
+              const SizedBox(width: 8),
+              menu,
+            ],
+          ),
+          const SizedBox(height: 8),
+          const HadiAskBar(),
+        ],
+      );
+    }
+    return Row(
+      children: [
+        if (canGoBack) ...[back, const SizedBox(width: 12)],
+        const Expanded(child: HadiAskBar()),
+        const SizedBox(width: 12),
+        search,
+        const SizedBox(width: 8),
+        menu,
+      ],
     );
   }
 }
@@ -576,15 +787,17 @@ class _HeaderIcon extends StatelessWidget {
       onTap: onTap,
       child: Tooltip(
         message: tooltip,
-        child: Material(
+        child: FocusRing(
+          borderRadius: 22,
+          child: Material(
           type: MaterialType.transparency,
           child: InkWell(
             onTap: onTap,
             customBorder: const CircleBorder(),
-            // 44 px touch target around the 36 px circle.
+            // 48 px touch target around the 36 px circle.
             child: SizedBox(
-              width: 44,
-              height: 44,
+              width: 48,
+              height: 48,
               child: Center(
                 child: Container(
                   width: 36,
@@ -605,6 +818,7 @@ class _HeaderIcon extends StatelessWidget {
               ),
             ),
           ),
+          ),
         ),
       ),
     );
@@ -623,7 +837,7 @@ String _tileImage(String t) {
     return '$base/tile_hadi.jpg';
   }
   if (t.startsWith('Islamic')) return '$base/tile_calendar.jpg';
-  if (t.startsWith('Knowledge')) return '$base/tile_knowledge.jpg';
+  if (t.startsWith('Stories')) return '$base/tile_knowledge.jpg';
   // Fallback until a dedicated Academy tile image ships
   // (see state/art_list.md, Wave 1 #1).
   if (t.startsWith('Wasia')) return '$base/tile_knowledge.jpg';
@@ -680,7 +894,7 @@ class _PictureTile extends StatelessWidget {
       label: badge == null ? '$title. $subtitle' : '$title, $badge. $subtitle',
       excludeSemantics: true,
       onTap: onTap,
-      child: GestureDetector(
+      child: FocusableTap(
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
@@ -706,15 +920,16 @@ class _PictureTile extends StatelessWidget {
             ),
           ),
           padding: const EdgeInsets.fromLTRB(10, 0, 10, 10),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.start,
+          // The badge floats at the top; the words sit at the bottom and give
+          // way (ellipsis) rather than overflow on a 320px phone or at big
+          // text.
+          child: Stack(
             children: [
               if (badge != null)
-                Align(
-                  alignment: Alignment.topRight,
+                Positioned(
+                  top: 8,
+                  right: 0,
                   child: Container(
-                    margin: const EdgeInsets.only(top: 8),
                     padding: const EdgeInsets.symmetric(
                         horizontal: 8, vertical: 3),
                     decoration: BoxDecoration(
@@ -733,28 +948,42 @@ class _PictureTile extends StatelessWidget {
                     ),
                   ),
                 ),
-              const Spacer(),
-              Text(
-                title,
-                style: AppText.body.copyWith(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w700,
-                  color: AppColors.goldLight,
-                  shadows: const [
-                    Shadow(color: Colors.black, blurRadius: 8),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 2),
-              Text(
-                subtitle,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                style: AppText.bodyMuted.copyWith(
-                  fontSize: 12,
-                  height: 1.3,
-                  shadows: const [
-                    Shadow(color: Colors.black, blurRadius: 6),
+              Align(
+                alignment: Alignment.bottomLeft,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Flexible(
+                      child: Text(
+                        title,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: AppText.body.copyWith(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w700,
+                          color: AppColors.goldLight,
+                          shadows: const [
+                            Shadow(color: Colors.black, blurRadius: 8),
+                          ],
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 2),
+                    Flexible(
+                      child: Text(
+                        subtitle,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: AppText.bodyMuted.copyWith(
+                          fontSize: 12,
+                          height: 1.3,
+                          shadows: const [
+                            Shadow(color: Colors.black, blurRadius: 6),
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -790,8 +1019,8 @@ class _SemanticTap extends StatelessWidget {
       label: label,
       excludeSemantics: true,
       onTap: onTap,
-      child: GestureDetector(
-        behavior: HitTestBehavior.opaque,
+      child: FocusableTap(
+        borderRadius: 12,
         onTap: onTap,
         child: minHeight > 0
             ? ConstrainedBox(

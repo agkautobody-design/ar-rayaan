@@ -55,6 +55,13 @@ class Guide {
       );
 }
 
+/// The heading a guide is filed under. The shipped pack files the Nikah and
+/// the New Baby guides under "The Last Day" (a data label shared with the
+/// funeral guides), which read as a wrong title on those two pages. Relabel
+/// them here without touching the checksummed pack.
+String guideCategoryLabel(String id, String category) =>
+    (id == 'huda-nikah' || id == 'huda-baby') ? 'Family & Life Events' : category;
+
 final guidesProvider = FutureProvider<List<Guide>>((ref) {
   // A remote pack that does not parse falls back to the bundled one.
   return ContentSync.loadParsed<List<Guide>>('guides/guides.json', (raw) {
@@ -81,7 +88,8 @@ class HudaScreen extends ConsumerWidget {
         data: (all) {
           final cats = <String>[];
           for (final g in all) {
-            if (!cats.contains(g.category)) cats.add(g.category);
+            final String c = guideCategoryLabel(g.id, g.category);
+            if (!cats.contains(c)) cats.add(c);
           }
           return ListView(
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
@@ -96,7 +104,7 @@ class HudaScreen extends ConsumerWidget {
                   padding: const EdgeInsets.fromLTRB(4, 18, 4, 8),
                   child: Text(cat.toUpperCase(), style: AppText.eyebrow),
                 ),
-                for (final g in all.where((x) => x.category == cat))
+                for (final g in all.where((x) => guideCategoryLabel(x.id, x.category) == cat))
                   Padding(
                     padding: const EdgeInsets.only(bottom: 10),
                     child: GlassCard(
@@ -219,7 +227,10 @@ class GuideScreen extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
         children: [
-          ScreenHeader(title: guide.category, close: true),
+          ScreenHeader(
+            title: guideCategoryLabel(guide.id, guide.category),
+            close: true,
+          ),
           const SizedBox(height: 6),
           Text(
             guide.title,

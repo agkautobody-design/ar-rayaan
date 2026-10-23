@@ -37,6 +37,22 @@ String normaliseForSearch(String input) {
   return b.toString();
 }
 
+/// Folds the common English spellings of the same sound onto one form, so
+/// "Yaseen" and "Ya-Sin" (all "yasin" once folded) meet, and so do
+/// "Noor" and "Nur", "Yousuf" and "Yusuf", "Ikhlaas" and "Ikhlas". Applied to
+/// the typed text and to every name alike, so only spellings that SOUND the
+/// same ever meet. Expects the output of [normaliseForSearch].
+String foldSpelling(String normalised) {
+  String s = normalised;
+  // Long vowels written doubled.
+  s = s.replaceAll('ee', 'i').replaceAll('ii', 'i');
+  s = s.replaceAll('oo', 'u').replaceAll('uu', 'u').replaceAll('ou', 'u');
+  s = s.replaceAll('aa', 'a');
+  // "Yaseen" is often typed "Ya Seen" / "Yassin": a doubled s is one s.
+  s = s.replaceAll('ss', 's');
+  return s;
+}
+
 /// The surahs that match [query], in their original order. An empty query
 /// returns everything. A number matches that surah number exactly; text
 /// matches the transliteration, Arabic name or English meaning anywhere in
@@ -51,11 +67,17 @@ List<SurahMeta> filterSurahs(List<SurahMeta> all, String query) {
         if (s.number == number) s,
     ];
   }
+  final String folded = foldSpelling(q);
+  bool hits(String name) {
+    final String n = normaliseForSearch(name);
+    return n.contains(q) || foldSpelling(n).contains(folded);
+  }
+
   return <SurahMeta>[
     for (final SurahMeta s in all)
-      if (normaliseForSearch(s.transliteration).contains(q) ||
-          normaliseForSearch(s.arabicName).contains(q) ||
-          normaliseForSearch(s.englishMeaning).contains(q))
+      if (hits(s.transliteration) ||
+          hits(s.arabicName) ||
+          hits(s.englishMeaning))
         s,
   ];
 }

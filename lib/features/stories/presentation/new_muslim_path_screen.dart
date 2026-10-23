@@ -263,7 +263,7 @@ class _PathState extends ConsumerState<NewMuslimPathScreen> {
                 padding: const EdgeInsets.only(top: 10, left: 4),
                 child: Text(
                   'Long-press a day to un-walk it. The full library is '
-                  'always open under Knowledge → The New Muslim Path.',
+                  'always open under Stories → The New Muslim Path.',
                   style: AppText.bodyMuted.copyWith(fontSize: 12),
                 ),
               ),

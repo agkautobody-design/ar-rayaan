@@ -7,7 +7,9 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import 'core/accessibility_scope.dart';
 import 'core/env_config.dart';
+import 'core/keyboard_back.dart';
 import 'core/route_titles.dart';
 import '../features/elder/application/elder_mode.dart';
 import 'core/i18n/app_locale.dart';
@@ -32,11 +34,17 @@ class _ArRayaanAppState extends ConsumerState<ArRayaanApp> {
   // rebuild (a locale change rebuilds MaterialApp but must keep navigation).
   late final GoRouter _router = buildRouter(initialLocation: _startRoute());
 
+  /// First run opens Home and puts the introduction on top of it. Back from
+  /// the first slide then returns to Home, inside the app; with the slides as
+  /// the first and only history entry, the browser's Back left the app and
+  /// showed a blank page.
+  bool get _introOverHome => widget.showOnboarding;
+
   /// Where a cold start lands: onboarding on first run; the Elder home when
   /// Elder Mode is on (the flag is written by the Elder tile and read here,
   /// so "the app opens here every time" is true); otherwise Home.
   String _startRoute() {
-    if (widget.showOnboarding) return AppRoutes.onboarding;
+    if (widget.showOnboarding) return AppRoutes.home;
     try {
       return ElderMode.launchLocation(
         ref.read(sharedPreferencesProvider),
@@ -78,6 +86,17 @@ class _ArRayaanAppState extends ConsumerState<ArRayaanApp> {
     super.initState();
     _router.routerDelegate.addListener(_updateTitle);
     WidgetsBinding.instance.addPostFrameCallback((_) => _updateTitle());
+    if (_introOverHome) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (!mounted) return;
+        // A link that already opened another page (the browser's own address)
+        // is left alone; only a cold start on Home gets the introduction.
+        final String path = _router.routerDelegate.currentConfiguration.uri.path;
+        if (path == AppRoutes.home) {
+          unawaited(_router.push<void>(AppRoutes.onboarding));
+        }
+      });
+    }
   }
 
   @override
@@ -107,20 +126,14 @@ class _ArRayaanAppState extends ConsumerState<ArRayaanApp> {
       // mirrored into the ambient service.
       builder: (context, child) => Consumer(
         builder: (context, ref, _) {
-          // Respect the system text size, but cap the extreme end so fixed
-          // layouts stay usable (Android's largest setting is 2.0x).
-          final MediaQueryData mq = MediaQuery.of(context);
-          final TextScaler scaler = mq.textScaler.clamp(
-            minScaleFactor: 0.85,
-            maxScaleFactor: 2.0,
-          );
           ref.listen(soundSettingsProvider, (_, next) {
             ref.read(ambientServiceProvider).setEnabled(next.ambient);
           });
           return Directionality(
             textDirection: LocaleController.layoutDirection(locale),
-            child: MediaQuery(
-            data: mq.copyWith(textScaler: scaler),
+            child: KeyboardBackScope(
+              router: _router,
+              child: AccessibilityScope(
             child: Listener(
               behavior: HitTestBehavior.translucent,
               onPointerDown: (_) => ref.read(ambientServiceProvider).unlock(),
@@ -156,6 +169,7 @@ class _ArRayaanAppState extends ConsumerState<ArRayaanApp> {
               ),
             ),
           ),
+            ),
           );
         },
       ),

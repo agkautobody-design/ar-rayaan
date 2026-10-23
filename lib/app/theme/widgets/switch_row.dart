@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../app_colors.dart';
 import '../app_typography.dart';
+import 'focus_ring.dart';
 
 /// Below this row width the decorative icons and chevrons of a list row are
 /// dropped so the words keep the room (a very narrow window, a zoomed browser
@@ -37,7 +38,8 @@ class SwitchRow extends StatelessWidget {
       builder: (BuildContext context, BoxConstraints box) {
         final bool tight = box.maxWidth < kTightRowWidth;
         return MergeSemantics(
-          child: InkWell(
+          child: FocusRing(
+            child: InkWell(
             onTap: change == null ? null : () => change(!value),
             child: ConstrainedBox(
               constraints: const BoxConstraints(minHeight: 48),
@@ -77,6 +79,7 @@ class SwitchRow extends StatelessWidget {
                   ],
                 ),
               ),
+            ),
             ),
           ),
         );

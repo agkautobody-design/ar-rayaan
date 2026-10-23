@@ -1,7 +1,6 @@
 import 'dart:convert';
 
-import 'package:flutter/services.dart' show rootBundle;
-
+import '../../../app/core/content_loader.dart';
 import '../application/adhkar_repository.dart';
 import '../domain/adhkar_models.dart';
 
@@ -13,7 +12,7 @@ class BundledAdhkarRepository implements AdhkarRepository {
   Future<List<AdhkarSet>> sets() async {
     final List<AdhkarSet>? cached = _cache;
     if (cached != null) return cached;
-    final String raw = await rootBundle.loadString('assets/adhkar/adhkar.json');
+    final String raw = await ContentLoader.loadString('assets/adhkar/adhkar.json');
     final Map<String, dynamic> data = jsonDecode(raw) as Map<String, dynamic>;
     final List<AdhkarSet> sets = <AdhkarSet>[
       for (final Map<String, dynamic> s
@@ -31,6 +30,7 @@ class BundledAdhkarRepository implements AdhkarRepository {
                 count: i['count'] as int,
                 translation: i['en'] as String?,
                 source: i['source'] as String?,
+                transliteration: i['tl'] as String?,
               ),
           ],
         ),
