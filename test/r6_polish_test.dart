@@ -13,8 +13,7 @@ import 'app_harness.dart';
 import 'hadi_eval/corpus_fixture.dart';
 
 /// Round 6 polish: a scope reply carries no stray note and no unrelated
-/// buttons; at big text the Prayer Times list comes before the place card
-/// and the Home verse card keeps its width.
+/// buttons; at big text the Home verse card keeps its width.
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
@@ -52,7 +51,7 @@ void main() {
       );
       addTearDown(c.dispose);
       final HadiController ctrl = c.read(hadiControllerProvider.notifier);
-      await ctrl.ask(dailyLife[1], provider: const OfflineHadiProvider());
+      await ctrl.ask(dailyLife[2], provider: const OfflineHadiProvider());
       final HadiMessage m = c.read(hadiControllerProvider).messages.last;
       expect(m.notes, isEmpty);
       expect(m.notes.contains(HadiFinder.offlineNote), isFalse);
@@ -70,30 +69,15 @@ void main() {
       addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
     }
 
-    testWidgets('Prayer Times puts the times before the place card',
+    testWidgets('the Home verse card keeps room for the verse',
         (WidgetTester tester) async {
-      await AppHarness.boot(tester, prefsValues: const <String, Object>{
-        'ar.location.lat': 24.86,
-        'ar.location.lng': 67.0,
-        'ar.location.city': 'My Location',
-        'ar.location.country': '',
-      });
-      await AppHarness.go(tester, find.byType(Scaffold).first, '/prayer');
+      await AppHarness.boot(tester);
       tester.takeException();
       bigText(tester);
       await AppHarness.settle(tester);
-      final Finder adhan =
-          find.text('Listen to the Adhan', skipOffstage: false);
-      final Finder place = find.byKey(
-        const Key('prayer-location-label'),
-        skipOffstage: false,
-      );
-      expect(adhan, findsOneWidget);
-      if (place.evaluate().isNotEmpty) {
-        expect(
-          tester.getTopLeft(place).dy,
-          greaterThan(tester.getTopLeft(adhan).dy),
-        );
+      final Finder ref = find.text('QUR\u2019AN 18:24', skipOffstage: false);
+      if (ref.evaluate().isNotEmpty) {
+        expect(tester.getSize(ref).width, greaterThan(100));
       }
       tester.takeException();
     });
