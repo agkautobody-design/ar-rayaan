@@ -417,7 +417,7 @@ void main() {
       }
     };
     try {
-      bigText(tester);
+      bigText(tester, height: 4000);
       await AppHarness.settle(tester);
     } finally {
       FlutterError.onError = previous;
@@ -426,7 +426,7 @@ void main() {
     expect(homeOverflows, isEmpty);
     // The Elder Mode title is one piece, not split into letters.
     final Finder title = find.text('ELDER MODE');
-    expect(title, findsOneWidget);
+    expect(title, findsOneWidget, reason: 'ELDER MODE card is built');
     expect(tester.getSize(title).height, lessThan(14 * 2.0 * 2));
     // The header has a Search button.
     expect(find.byTooltip('Search'), findsWidgets);
