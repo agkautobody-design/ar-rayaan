@@ -32,7 +32,7 @@ class QiblaScreen extends ConsumerWidget {
     final double bearing = QiblaDirection.bearingToKaaba(
       (lat: loc.latitude, lng: loc.longitude),
     );
-    final String place = loc.city;
+    final String place = loc.placeName;
     final bool northern = loc.latitude >= 0;
     final bool tropics = loc.latitude.abs() < 23.5;
     final double km = QiblaDirection.distanceToKaabaKm(
