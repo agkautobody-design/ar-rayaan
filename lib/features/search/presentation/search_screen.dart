@@ -19,6 +19,7 @@ import '../../huda/presentation/huda_screens.dart' show Guide, guidesProvider;
 import '../../quran/application/quran_providers.dart';
 import '../../quran/domain/quran_models.dart';
 import '../domain/app_destinations.dart';
+import '../domain/did_you_mean.dart';
 import '../domain/quran_search.dart';
 import '../domain/search_text.dart';
 import '../../stories/data/stories_repository.dart';
@@ -121,6 +122,7 @@ class _SearchState extends ConsumerState<SearchScreen> {
     final List<_Hit> quranCards = <_Hit>[];
     int otherTotal = 0;
     int quranTotal = 0;
+    String? suggestion;
     final bool arabicQuery = containsArabicLetters(_q);
     final String foldedQ = foldArabic(_q);
     final String skeletonQ = arabicSkeleton(_q);
@@ -148,6 +150,7 @@ class _SearchState extends ConsumerState<SearchScreen> {
         }
         final List<SurahMeta> metas =
             quran.map((Surah s) => s.meta).toList();
+        suggestion = didYouMean(metas, _q);
         for (final SurahMeta m in matchSurahNames(metas, _q)) {
           surahHits.add(_Hit(
             shelf: 'SURAH ${m.number}',
@@ -234,13 +237,15 @@ class _SearchState extends ConsumerState<SearchScreen> {
               title: set.titleEn,
               kicker: t.length > 90 ? '${t.substring(0, 90)}…' : t,
               icon: Icons.volunteer_activism_outlined,
-              open: () => context.push(AppRoutes.adhkar),
+              open: () =>
+                  context.push('${AppRoutes.adhkar}?set=${set.id}'),
             ));
           }
         }
       }
     }
 
+    final String? dym = suggestion;
     final List<_Hit> hits = <_Hit>[
       ...destinationHits,
       ...surahHits,
@@ -267,11 +272,19 @@ class _SearchState extends ConsumerState<SearchScreen> {
       body: Center(
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 720),
-          child: ListView(
-            padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
+          // The header and the box stay put; only the answers scroll. A box
+          // that scrolls away is torn down with its focus, and typing then
+          // went nowhere until the page was reopened.
+          child: Column(
             children: [
-              const ScreenHeader(title: 'Find Anything', close: true),
-              TextField(
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: ScreenHeader(title: 'Find Anything', close: true),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: TextField(
+                key: const Key('search-field'),
                 controller: _controller,
                 focusNode: _focus,
                 autofocus: true,
@@ -291,16 +304,24 @@ class _SearchState extends ConsumerState<SearchScreen> {
                               _q = '';
                               _raw = '';
                             });
+                            // The button that was tapped is gone after this
+                            // frame and took the focus with it: hand the
+                            // focus back once the frame is done.
                             _focus.requestFocus();
+                            WidgetsBinding.instance.addPostFrameCallback((_) {
+                              if (mounted) _focus.requestFocus();
+                            });
                           },
                         ),
                 ),
-                onChanged: (v) => setState(() {
-                  _raw = v.trim();
-                  _q = _raw.toLowerCase();
-                }),
+                onChanged: _onTyped,
+                ),
               ),
               const SizedBox(height: 14),
+              Expanded(
+                child: ListView(
+              padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
+              children: [
               if (shelfFailed) ...[
                 GlassCard(
                   padding: const EdgeInsets.all(14),
@@ -327,6 +348,15 @@ class _SearchState extends ConsumerState<SearchScreen> {
                 ),
                 const SizedBox(height: 10),
               ],
+              if (dym != null && !loading && _q.length >= 2)
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: TextButton(
+                    key: const Key('did-you-mean'),
+                    onPressed: () => _useSuggestion(dym),
+                    child: Text('Did you mean "$dym"?'),
+                  ),
+                ),
               if (_q.length < 2)
                 GlassCard(
                     child: Text(
@@ -396,10 +426,30 @@ class _SearchState extends ConsumerState<SearchScreen> {
                       ),
                     ),
                 ]),
+              ],
+                ),
+              ),
             ],
           ),
         ),
       ),
     );
+  }
+
+  void _onTyped(String v) {
+    setState(() {
+      _raw = v.trim();
+      _q = _raw.toLowerCase();
+    });
+  }
+
+  /// Replace the box's text with a suggestion and search for it.
+  void _useSuggestion(String text) {
+    _controller.value = TextEditingValue(
+      text: text,
+      selection: TextSelection.collapsed(offset: text.length),
+    );
+    _onTyped(text);
+    _focus.requestFocus();
   }
 }

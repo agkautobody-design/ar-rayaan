@@ -69,6 +69,108 @@ const Map<String, String> _synonyms = <String, String>{
   'koran': 'quran',
 };
 
+/// Whole-word spelling folds, applied BEFORE stemming. Keys are lower-case
+/// with apostrophes removed (the way [_rawWords] leaves a word); values are
+/// the one spelling every variant is read as. The query and the text are
+/// both folded, so it does not matter which spelling the app's text uses.
+/// Spellings already folded by [_synonyms] (salat, namaz, wudhu, zikr,
+/// koran, mosque…) are not repeated here.
+const Map<String, String> kSpellingFolds = <String, String>{
+  // the book
+  'quraan': 'quran',
+  'kuran': 'quran',
+  'qoran': 'quran',
+  // surah names
+  'yaseen': 'yasin',
+  'yaaseen': 'yasin',
+  'yasen': 'yasin',
+  'yassin': 'yasin',
+  'kahaf': 'kahf',
+  'rehman': 'rahman',
+  'rahmaan': 'rahman',
+  'fatihah': 'fatiha',
+  'fateha': 'fatiha',
+  'fatehah': 'fatiha',
+  'fateeha': 'fatiha',
+  'ikhlaas': 'ikhlas',
+  'ikhlass': 'ikhlas',
+  'mulq': 'mulk',
+  'baqara': 'baqarah',
+  'bakara': 'baqarah',
+  'imraan': 'imran',
+  'sajda': 'sajdah',
+  'waqia': 'waqiah',
+  'waqiaa': 'waqiah',
+  // people
+  'yousuf': 'yusuf',
+  'yoosuf': 'yusuf',
+  'yosef': 'yusuf',
+  'yusef': 'yusuf',
+  'yousef': 'yusuf',
+  'joseph': 'yusuf',
+  'mohammed': 'muhammad',
+  'mohamed': 'muhammad',
+  'mohammad': 'muhammad',
+  'mohamad': 'muhammad',
+  'muhammed': 'muhammad',
+  'muhamed': 'muhammad',
+  'ebrahim': 'ibrahim',
+  'ibraheem': 'ibrahim',
+  'ibrahem': 'ibrahim',
+  'abraham': 'ibrahim',
+  'eesa': 'isa',
+  'esa': 'isa',
+  'jesus': 'isa',
+  'moosa': 'musa',
+  'mousa': 'musa',
+  'moses': 'musa',
+  'mariam': 'maryam',
+  'maryum': 'maryam',
+  'mary': 'maryam',
+  // worship words
+  'salaat': 'salah',
+  'wudoo': 'wudu',
+  'wuzoo': 'wudu',
+  'sawm': 'fasting',
+  'siyam': 'fasting',
+  'siam': 'fasting',
+  'roza': 'fasting',
+  'roja': 'fasting',
+  'rozah': 'fasting',
+  'zakaat': 'zakat',
+  'zakaah': 'zakat',
+  'haj': 'hajj',
+  'hadj': 'hajj',
+  'eed': 'eid',
+  'id': 'eid',
+  'duaa': 'dua',
+  'dhua': 'dua',
+  'doa': 'dua',
+  'zikir': 'dhikr',
+  'zhikr': 'dhikr',
+  'dhikir': 'dhikr',
+  'tasbeeh': 'tasbih',
+  'ramazan': 'ramadan',
+  'ramzan': 'ramadan',
+  'ramadhan': 'ramadan',
+  'nikkah': 'nikah',
+  'mathhab': 'madhhab',
+  'hijree': 'hijri',
+  'hejri': 'hijri',
+  'qiblah': 'qibla',
+  'kibla': 'qibla',
+  'kiblah': 'qibla',
+  'masjed': 'masjid',
+  'musjid': 'masjid',
+  'masajid': 'masjid',
+  'jummah': 'jumuah',
+  'jumah': 'jumuah',
+  'jumaa': 'jumuah',
+  'juma': 'jumuah',
+  'jumma': 'jumuah',
+  'friday': 'jumuah',
+};
+
 /// Lower-case, strip apostrophes, split on anything that is not a letter
 /// or digit. Arabic letters are kept as they are.
 List<String> _rawWords(String input) {
@@ -110,7 +212,7 @@ String _basicStem(String w) {
 
 /// The matching stem of one word (synonym-folded).
 String stemWord(String word) {
-  final String s = _basicStem(word);
+  final String s = _basicStem(kSpellingFolds[word] ?? word);
   return _synonyms[s] ?? s;
 }
 
@@ -199,17 +301,83 @@ List<SurahMeta> matchSurahNames(
 
   final String key = _letters(q);
   if (key.length < 3) return const <SurahMeta>[];
+  final String nkey = nameKey(_foldedLetters(q));
 
   final List<SurahMeta> starts = <SurahMeta>[];
   final List<SurahMeta> rest = <SurahMeta>[];
+  final List<SurahMeta> near = <SurahMeta>[];
   for (final SurahMeta m in metas) {
     final String name = _letters(m.transliteration);
-    final String bare = name.replaceFirst(RegExp(r'^(al|an|ar|as|ash|at|az|ad)'), '');
-    if (name == key || bare == key || bare.startsWith(key)) {
+    final String bare = name.replaceFirst(_article, '');
+    final String nname = nameKey(name);
+    final String nbare = nameKey(bare);
+    if (name == key ||
+        bare == key ||
+        bare.startsWith(key) ||
+        nname == nkey ||
+        nbare == nkey ||
+        (nkey.length >= 3 && nbare.startsWith(nkey))) {
       starts.add(m);
-    } else if (name.contains(key) || matchesQuery(m.englishMeaning, q)) {
+    } else if (name.contains(key) ||
+        nname.contains(nkey) ||
+        matchesQuery(m.englishMeaning, q)) {
       rest.add(m);
+    } else if (nkey.length >= 5 &&
+        (withinOneEdit(nkey, nbare) || withinOneEdit(nkey, nname))) {
+      near.add(m);
     }
   }
-  return <SurahMeta>[...starts, ...rest].take(limit).toList();
+  // A slip of one letter is only forgiven when nothing matched exactly.
+  final bool exact = starts.isNotEmpty || rest.isNotEmpty;
+  return <SurahMeta>[...starts, ...rest, if (!exact) ...near]
+      .take(limit)
+      .toList();
+}
+
+final RegExp _article = RegExp(r'^(al|an|ar|as|ash|at|az|ad)');
+
+/// [q] with each word spelling-folded, letters only.
+String _foldedLetters(String q) => _letters(<String>[
+      for (final String w in _rawWords(q)) kSpellingFolds[w] ?? w,
+    ].join());
+
+/// A sound-alike key for a transliterated name: letters only, `q` read as
+/// `k`, long vowels (ee, oo, ou) shortened, doubled letters collapsed, and
+/// a final vowel+h dropped. "Baqarah", "Baqara" and "Bakara" share a key;
+/// so do "Yaseen" and "Yasin", "Ikhlaas" and "Ikhlas".
+String nameKey(String input) {
+  String s = input.toLowerCase().replaceAll(RegExp(r'[^a-z]'), '');
+  s = s
+      .replaceAll('q', 'k')
+      .replaceAll('ee', 'i')
+      .replaceAll('oo', 'u')
+      .replaceAll('ou', 'u');
+  final StringBuffer b = StringBuffer();
+  String prev = '';
+  for (int i = 0; i < s.length; i++) {
+    final String c = s[i];
+    if (c != prev) b.write(c);
+    prev = c;
+  }
+  s = b.toString();
+  if (s.length > 3 && s.endsWith('h') && 'aeiou'.contains(s[s.length - 2])) {
+    s = s.substring(0, s.length - 1);
+  }
+  return s;
+}
+
+/// True when [a] and [b] differ by at most one inserted, deleted or
+/// replaced letter.
+bool withinOneEdit(String a, String b) {
+  if (a == b) return true;
+  final int la = a.length;
+  final int lb = b.length;
+  if ((la - lb).abs() > 1) return false;
+  int i = 0;
+  while (i < la && i < lb && a[i] == b[i]) {
+    i++;
+  }
+  if (la == lb) return a.substring(i + 1) == b.substring(i + 1);
+  if (la > lb) return a.substring(i + 1) == b.substring(i);
+  return a.substring(i) == b.substring(i + 1);
 }
