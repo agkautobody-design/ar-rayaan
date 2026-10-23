@@ -753,7 +753,15 @@ GoRouter buildRouter({String initialLocation = '/'}) {
             routes: [
               GoRoute(
                 path: AppRoutes.hadi,
-                pageBuilder: (c, s) => _fade(const HadiScreen(), pill: false),
+                // A question can arrive as /hadi?q=... or as the route extra
+                // (a String); Hādi asks it once when the screen opens.
+                pageBuilder: (c, s) => _fade(
+                  HadiScreen(
+                    initialQuery: s.uri.queryParameters['q'] ??
+                        (s.extra is String ? s.extra as String : null),
+                  ),
+                  pill: false,
+                ),
               ),
             ],
           ),

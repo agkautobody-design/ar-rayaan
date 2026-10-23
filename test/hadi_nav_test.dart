@@ -28,6 +28,7 @@ void main() {
         'lib/features/hadi/application/hadi_provider.dart',
         'lib/features/hadi/application/hadi_samples.dart',
         'lib/features/hadi/data/offline_hadi_provider.dart',
+        'lib/features/hadi/data/hadi_routing.dart',
       ]) {
         for (final RegExpMatch m in go.allMatches(File(file).readAsStringSync())) {
           final String p = m.group(1)!;
