@@ -1,3 +1,5 @@
+import 'dart:async' show unawaited;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -5,6 +7,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../app/core/sound/sound_services.dart';
 import '../../../app/core/providers.dart';
+import '../../../app/core/text_size.dart';
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
@@ -12,6 +15,7 @@ import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/theme/widgets/switch_row.dart';
+import '../../elder/application/elder_mode.dart';
 import '../../legal/legal_routes.dart';
 
 /// Settings — begins with the Sound toggle promised on the locked splash
@@ -22,6 +26,8 @@ class SettingsScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final SoundSettings settings = ref.watch(soundSettingsProvider);
+    final bool elder = ref.watch(elderModeProvider);
+    final TextSizeChoice textSize = ref.watch(textSizeProvider);
 
     return Scaffold(
       body: Stack(
@@ -35,6 +41,80 @@ class SettingsScreen extends ConsumerWidget {
                   child: ListView(
                     padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
                     children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 4, bottom: 8),
+                        child: Text('EASY TO READ', style: AppText.eyebrow),
+                      ),
+                      GlassCard(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 6,
+                        ),
+                        child: SwitchRow(
+                          icon: Icons.elderly_outlined,
+                          title: 'Elder Mode',
+                          subtitle: 'Big words and big buttons everywhere. '
+                              'The app opens on a simple home with three doors.',
+                          value: elder,
+                          onChanged: (bool v) async {
+                            await ref
+                                .read(elderModeProvider.notifier)
+                                .set(v);
+                            if (v && context.mounted) {
+                              context.go(ElderMode.homeRoute);
+                            }
+                          },
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                      GlassCard(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 14,
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Text size',
+                              style: AppText.body.copyWith(fontSize: 14),
+                            ),
+                            const SizedBox(height: 2),
+                            Text(
+                              'Makes the words in the whole app bigger or '
+                              'smaller. The Arabic A+ and A- in the Qur\u2019an '
+                              'reader still work on top of this.',
+                              style: AppText.bodyMuted,
+                            ),
+                            const SizedBox(height: 10),
+                            Wrap(
+                              spacing: 8,
+                              runSpacing: 8,
+                              children: [
+                                for (final TextSizeChoice c
+                                    in TextSizeChoice.values)
+                                  ChoiceChip(
+                                    key: Key('text-size-${c.id}'),
+                                    label: Text(c.label),
+                                    selected: c == textSize,
+                                    showCheckmark: false,
+                                    materialTapTargetSize:
+                                        MaterialTapTargetSize.padded,
+                                    selectedColor: AppColors.gold.withValues(
+                                      alpha: 0.35,
+                                    ),
+                                    onSelected: (_) => unawaited(
+                                      ref
+                                          .read(textSizeProvider.notifier)
+                                          .set(c),
+                                    ),
+                                  ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 20),
                       Padding(
                         padding: const EdgeInsets.only(left: 4, bottom: 8),
                         child: Text('LANGUAGE', style: AppText.eyebrow),

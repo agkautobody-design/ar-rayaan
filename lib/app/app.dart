@@ -7,6 +7,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import 'core/accessibility_scope.dart';
 import 'core/env_config.dart';
 import 'core/route_titles.dart';
 import '../features/elder/application/elder_mode.dart';
@@ -107,20 +108,12 @@ class _ArRayaanAppState extends ConsumerState<ArRayaanApp> {
       // mirrored into the ambient service.
       builder: (context, child) => Consumer(
         builder: (context, ref, _) {
-          // Respect the system text size, but cap the extreme end so fixed
-          // layouts stay usable (Android's largest setting is 2.0x).
-          final MediaQueryData mq = MediaQuery.of(context);
-          final TextScaler scaler = mq.textScaler.clamp(
-            minScaleFactor: 0.85,
-            maxScaleFactor: 2.0,
-          );
           ref.listen(soundSettingsProvider, (_, next) {
             ref.read(ambientServiceProvider).setEnabled(next.ambient);
           });
           return Directionality(
             textDirection: LocaleController.layoutDirection(locale),
-            child: MediaQuery(
-            data: mq.copyWith(textScaler: scaler),
+            child: AccessibilityScope(
             child: Listener(
               behavior: HitTestBehavior.translucent,
               onPointerDown: (_) => ref.read(ambientServiceProvider).unlock(),

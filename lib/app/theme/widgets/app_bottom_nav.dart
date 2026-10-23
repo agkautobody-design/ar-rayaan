@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../app_colors.dart';
+import 'focus_ring.dart';
 
 /// Locked bottom navigation: Home · Faith · Family · Hādi · You.
 class AppBottomNav extends StatelessWidget {
@@ -79,7 +80,9 @@ class _NavItem extends StatelessWidget {
       label: label,
       excludeSemantics: true,
       onTap: onTap,
-      child: InkWell(
+      child: FocusRing(
+        borderRadius: 8,
+        child: InkWell(
         onTap: onTap,
         child: ConstrainedBox(
           constraints: const BoxConstraints(minHeight: 56),
@@ -112,6 +115,7 @@ class _NavItem extends StatelessWidget {
               ],
             ),
           ),
+        ),
         ),
       ),
     );

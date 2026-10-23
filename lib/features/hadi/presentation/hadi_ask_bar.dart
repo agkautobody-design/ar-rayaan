@@ -35,7 +35,7 @@ class _HadiAskBarState extends State<HadiAskBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 44,
+      constraints: const BoxConstraints(minHeight: 48),
       padding: const EdgeInsets.only(left: 16, right: 2),
       decoration: BoxDecoration(
         color: AppColors.glassFill,
@@ -44,8 +44,10 @@ class _HadiAskBarState extends State<HadiAskBar> {
       ),
       child: Row(
         children: <Widget>[
+          // Not a magnifier: Home's header has the real Search button next
+          // to this bar, and two search icons read as a mistake.
           Icon(
-            Icons.search,
+            Icons.auto_awesome,
             size: 16,
             color: AppColors.gold.withValues(alpha: 0.7),
           ),

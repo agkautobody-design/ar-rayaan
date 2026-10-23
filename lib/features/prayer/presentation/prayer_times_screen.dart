@@ -443,121 +443,154 @@ class _PrayerRow extends ConsumerWidget {
     final bool alertOn = ref.watch(
       prayerAlertsProvider.select((s) => s.contains(name)),
     );
-    // At large text sizes the round icon is dropped so the name keeps its
-    // room, and the NEXT tag sits under the name instead of beside the time.
-    final bool bigText = MediaQuery.textScalerOf(context).scale(14) / 14 > 1.3;
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 13),
-      child: Row(
-        children: [
-          if (!bigText) ...[
-            Container(
-              width: 36,
-              height: 36,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: isNext
-                    ? AppColors.gold.withValues(alpha: 0.18)
-                    : AppColors.gold.withValues(alpha: 0.08),
-                border: Border.all(
-                  color: AppColors.gold.withValues(alpha: isNext ? 0.5 : 0.2),
-                ),
-              ),
-              child: Icon(icon, size: 17, color: AppColors.gold),
+    // The row never breaks. The name is one line that shrinks to fit (never
+    // one letter per line); the time is never wrapped; the bell is always a
+    // whole 48dp target. When the words would not fit side by side (a big
+    // text size or a narrow phone) the time moves under the name.
+    final double scale = MediaQuery.textScalerOf(context).scale(14) / 14;
+    final TextStyle nameStyle = AppText.body.copyWith(
+      color: nameColor,
+      fontWeight: isNext ? FontWeight.w600 : FontWeight.w400,
+    );
+    final String timeText = DateFormat.jm().format(time);
+
+    Widget extras() => Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        if (isNext)
+          Container(
+            margin: const EdgeInsets.only(top: 2),
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+            decoration: BoxDecoration(
+              color: AppColors.gold.withValues(alpha: 0.15),
+              borderRadius: BorderRadius.circular(8),
             ),
-            const SizedBox(width: 12),
-          ],
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            child: Text(
+              'NEXT',
+              softWrap: false,
+              style: AppText.eyebrow.copyWith(
+                fontSize: 12,
+                letterSpacing: 2,
+                color: AppColors.goldLight,
+              ),
+            ),
+          ),
+        if (note != null)
+          Text(
+            note!,
+            style: AppText.bodyMuted.copyWith(
+              fontSize: 12,
+              color: AppColors.goldLight,
+            ),
+          ),
+        if (iqamah != null)
+          Text(
+            'Iqamah ${DateFormat.jm().format(iqamah!)}',
+            style: AppText.bodyMuted.copyWith(fontSize: 12),
+          ),
+        if (jumuah != null)
+          Text(
+            "Jumu'ah $jumuah",
+            style: AppText.bodyMuted.copyWith(fontSize: 12),
+          ),
+      ],
+    );
+
+    Widget oneLine(String text) => FittedBox(
+      fit: BoxFit.scaleDown,
+      alignment: AlignmentDirectional.centerStart,
+      child: Text(text, maxLines: 1, softWrap: false, style: nameStyle),
+    );
+
+    Widget bell() => IconButton(
+      constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
+      tooltip: alertOn ? 'Turn off the $name alert' : 'Turn on the $name alert',
+      onPressed: () async {
+        final PrayerNotificationScheduler scheduler = ref.read(
+          prayerNotificationSchedulerProvider,
+        );
+        await ref.read(prayerAlertsProvider.notifier).toggle(name);
+        if (alertOn) return;
+        // Turning an alert on is the moment to ask for permission.
+        unawaited(WebNotifier.ensurePermission());
+        if (scheduler.supported) {
+          unawaited(scheduler.requestPermission());
+        }
+      },
+      icon: Icon(
+        alertOn ? Icons.notifications_active : Icons.notifications_none,
+        size: 22,
+        color: alertOn ? AppColors.gold : AppColors.sand.withValues(alpha: 0.5),
+      ),
+    );
+
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints box) {
+        // Room needed side by side: padding + bell + gap + the widest name
+        // and time at this text size (+ the round icon at normal sizes).
+        final bool roundIcon = scale <= 1.3;
+        final double needed =
+            32 + 52 + 8 + (roundIcon ? 48 : 0) + 130 * scale;
+        final bool stacked = scale > 1.4 || needed > box.maxWidth;
+
+        if (stacked) {
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(
-                  name,
-                  style: AppText.body.copyWith(
-                    color: nameColor,
-                    fontWeight: isNext ? FontWeight.w600 : FontWeight.w400,
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      oneLine(name),
+                      oneLine(timeText),
+                      extras(),
+                    ],
                   ),
                 ),
-                if (isNext)
-                  Container(
-                    margin: const EdgeInsets.only(top: 2),
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 8,
-                      vertical: 2,
-                    ),
-                    decoration: BoxDecoration(
-                      color: AppColors.gold.withValues(alpha: 0.15),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Text(
-                      'NEXT',
-                      style: AppText.eyebrow.copyWith(
-                        fontSize: 12,
-                        letterSpacing: 2,
-                        color: AppColors.goldLight,
+                if (alertable) bell(),
+              ],
+            ),
+          );
+        }
+
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          child: Row(
+            children: [
+              if (roundIcon) ...[
+                Container(
+                  width: 36,
+                  height: 36,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: isNext
+                        ? AppColors.gold.withValues(alpha: 0.18)
+                        : AppColors.gold.withValues(alpha: 0.08),
+                    border: Border.all(
+                      color: AppColors.gold.withValues(
+                        alpha: isNext ? 0.5 : 0.2,
                       ),
                     ),
                   ),
-                if (note != null)
-                  Text(
-                    note!,
-                    style: AppText.bodyMuted.copyWith(
-                      fontSize: 12,
-                      color: AppColors.goldLight,
-                    ),
-                  ),
-                if (iqamah != null)
-                  Text(
-                    'Iqamah ${DateFormat.jm().format(iqamah!)}',
-                    style: AppText.bodyMuted.copyWith(fontSize: 12),
-                  ),
-                if (jumuah != null)
-                  Text(
-                    "Jumu'ah $jumuah",
-                    style: AppText.bodyMuted.copyWith(fontSize: 12),
-                  ),
+                  child: Icon(icon, size: 17, color: AppColors.gold),
+                ),
+                const SizedBox(width: 12),
               ],
-            ),
-          ),
-          Text(
-            DateFormat.jm().format(time),
-            softWrap: false,
-            style: AppText.body.copyWith(
-              color: nameColor,
-              fontWeight: isNext ? FontWeight.w600 : FontWeight.w400,
-            ),
-          ),
-          if (alertable) ...[
-            const SizedBox(width: 4),
-            IconButton(
-              tooltip: alertOn
-                  ? 'Turn off the $name alert'
-                  : 'Turn on the $name alert',
-              onPressed: () async {
-                final PrayerNotificationScheduler scheduler = ref.read(
-                  prayerNotificationSchedulerProvider,
-                );
-                await ref.read(prayerAlertsProvider.notifier).toggle(name);
-                if (alertOn) return;
-                // Turning an alert on is the moment to ask for permission.
-                unawaited(WebNotifier.ensurePermission());
-                if (scheduler.supported) {
-                  unawaited(scheduler.requestPermission());
-                }
-              },
-              icon: Icon(
-                alertOn
-                    ? Icons.notifications_active
-                    : Icons.notifications_none,
-                size: 20,
-                color: alertOn
-                    ? AppColors.gold
-                    : AppColors.sand.withValues(alpha: 0.5),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [oneLine(name), extras()],
+                ),
               ),
-            ),
-          ],
-        ],
-      ),
+              const SizedBox(width: 8),
+              Text(timeText, softWrap: false, style: nameStyle),
+              if (alertable) bell() else const SizedBox(width: 4),
+            ],
+          ),
+        );
+      },
     );
   }
 }

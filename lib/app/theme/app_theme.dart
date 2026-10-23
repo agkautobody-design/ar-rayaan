@@ -50,6 +50,10 @@ abstract final class AppTheme {
         thickness: 1,
       ),
       iconTheme: const IconThemeData(color: AppColors.gold, size: 20),
+      // Keyboard focus must be easy to see: a clear gold wash on every
+      // material control (cards, tiles and rows also draw a 3px gold ring,
+      // see FocusRing).
+      focusColor: AppColors.gold.withValues(alpha: 0.28),
     );
   }
 }
