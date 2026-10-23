@@ -276,7 +276,19 @@ void main() {
       await AppHarness.boot(tester);
       tester.view.physicalSize = const Size(320, 3200);
       await AppHarness.settle(tester);
-      expect(tester.takeException(), isNull);
+      final List<String> where = <String>[];
+      Object? e = tester.takeException();
+      while (e != null) {
+        where.addAll(
+          e
+              .toString()
+              .split('\n')
+              .where((String l) => l.contains('.dart:') || l.contains('overflowed'))
+              .map((String l) => l.trim()),
+        );
+        e = tester.takeException();
+      }
+      expect(where.join(' | '), '');
     });
 
     testWidgets('320px: tiles come before Quick Access', (tester) async {
