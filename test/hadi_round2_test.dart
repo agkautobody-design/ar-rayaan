@@ -36,6 +36,16 @@ String _plain(String s) => s
     .toLowerCase()
     .replaceAll(RegExp(r'[.,;:]+$'), '');
 
+/// Providers that read from disk or the asset bundle are replaced, so a
+/// reply never waits on real I/O under the test clock.
+List<Override> _fixtures() {
+  final HadiCorpus corpus = loadRealCorpus();
+  return <Override>[
+    hadiCorpusProvider.overrideWith((ref) => corpus),
+    storiesProvider.overrideWith((ref) async => const []),
+  ];
+}
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
@@ -134,7 +144,8 @@ void main() {
       final String src =
           File('lib/features/hadi/data/hadi_explain.dart').readAsStringSync();
       final List<String> tokens = <String>[
-        for (final RegExpMatch m in RegExp(r'\[GO:([^\]]+)\]').allMatches(src))
+        for (final RegExpMatch m
+            in RegExp(r'\[GO:(/[^\]]+)\]').allMatches(src))
           m.group(1)!,
       ];
       expect(tokens, isNotEmpty);
@@ -521,7 +532,7 @@ void main() {
   group('the question box', () {
     testWidgets('3000 pasted characters are cut, sent, and the box is clean',
         (WidgetTester tester) async {
-      await AppHarness.boot(tester);
+      await AppHarness.boot(tester, overrides: _fixtures());
       await AppHarness.go(tester, find.byType(Scaffold).first, '/hadi');
       final ProviderContainer c =
           ProviderScope.containerOf(tester.element(find.byType(HadiScreen)));
@@ -559,7 +570,7 @@ void main() {
 
     testWidgets('a second question is answered and its reply is on screen',
         (WidgetTester tester) async {
-      await AppHarness.boot(tester, height: 800);
+      await AppHarness.boot(tester, height: 800, overrides: _fixtures());
       await AppHarness.go(tester, find.byType(Scaffold).first, '/hadi');
       final ProviderContainer c =
           ProviderScope.containerOf(tester.element(find.byType(HadiScreen)));
