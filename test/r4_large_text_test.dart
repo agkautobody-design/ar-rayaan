@@ -122,7 +122,11 @@ void main() {
       final RenderParagraph p = tester.renderObject<RenderParagraph>(
         find.byType(RichText),
       );
-      expect(p.computeLineMetrics().length, 2);
+      final TextPainter tp = TextPainter(
+        text: p.text,
+        textDirection: TextDirection.ltr,
+      )..layout(maxWidth: p.size.width);
+      expect(tp.computeLineMetrics().length, 2);
     });
 
     testWidgets('keeps the size when the words fit', (tester) async {
