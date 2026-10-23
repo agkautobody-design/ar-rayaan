@@ -879,11 +879,6 @@ class _FastingMonthCard extends StatelessWidget {
   }
 }
 
-const List<String> _kShortMonths = <String>[
-  'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', //
-  'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
-];
-
 /// "in 12 days", "Tomorrow" or "Today" for a whole-day distance.
 String _inDays(int daysAway) => daysAway == 0
     ? 'Today'
