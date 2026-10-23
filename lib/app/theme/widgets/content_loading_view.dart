@@ -36,6 +36,7 @@ String loadingMessageFor(
   String what, {
   String? sizeHint,
   bool? web,
+  Duration? elapsed,
 }) {
   final bool onWeb = web ?? WebOffline.isWeb;
   switch (phase) {
@@ -48,9 +49,12 @@ String loadingMessageFor(
       }
       return 'Loading $what…';
     case LoadingPhase.stalled:
-      return 'Still loading $what. Your connection may be slow or offline, '
-          'and the first load can take a minute on slow data. '
-          'You can keep waiting, or try again.';
+      final String so = elapsed == null
+          ? ''
+          : ' (${elapsed.inSeconds} seconds so far)';
+      return 'Still loading $what$so. Your connection may be slow or '
+          'offline, and the first load can take a minute or two on slow '
+          'data. It keeps going while you wait; you can also try again.';
   }
 }
 
@@ -90,6 +94,8 @@ class ContentLoadingView extends StatefulWidget {
 class _ContentLoadingViewState extends State<ContentLoadingView> {
   Timer? _slow;
   Timer? _stalled;
+  Timer? _tick;
+  final Stopwatch _clock = Stopwatch()..start();
   LoadingPhase _phase = LoadingPhase.quick;
 
   @override
@@ -100,13 +106,21 @@ class _ContentLoadingViewState extends State<ContentLoadingView> {
   }
 
   void _go(LoadingPhase p) {
-    if (mounted) setState(() => _phase = p);
+    if (!mounted) return;
+    setState(() => _phase = p);
+    // Once stalled, count the seconds so the wait visibly moves.
+    if (p == LoadingPhase.stalled) {
+      _tick ??= Timer.periodic(const Duration(seconds: 1), (_) {
+        if (mounted) setState(() {});
+      });
+    }
   }
 
   @override
   void dispose() {
     _slow?.cancel();
     _stalled?.cancel();
+    _tick?.cancel();
     super.dispose();
   }
 
@@ -117,6 +131,7 @@ class _ContentLoadingViewState extends State<ContentLoadingView> {
       widget.what,
       sizeHint: widget.sizeHint,
       web: widget.web,
+      elapsed: _clock.elapsed,
     );
     return Center(
       child: Padding(

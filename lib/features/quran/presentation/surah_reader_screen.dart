@@ -24,6 +24,7 @@ import '../../../app/theme/widgets/needs_internet_view.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../application/quran_marks_controller.dart';
+import '../application/quran_offline.dart' show kQuranOfflineHint;
 import '../application/quran_providers.dart';
 import '../domain/quran_marks.dart';
 import '../domain/quran_models.dart';
@@ -141,15 +142,13 @@ class _SurahReaderScreenState extends ConsumerState<SurahReaderScreen> {
                   loading: () => ContentLoadingView(
                     what: 'this surah',
                     sizeHint: kQuranSizeHint,
-                    onRetry: () {
-                      ref.invalidate(quranRepositoryProvider);
-                      ref.invalidate(quranAllProvider);
-                      ref.invalidate(quranIndexProvider);
-                      ref.invalidate(surahProvider(widget.number));
-                    },
+                    // Same repository: no second download on top of the
+                    // one already running.
+                    onRetry: () => ref.invalidate(surahProvider(widget.number)),
                   ),
                   error: (Object e, _) => NeedsInternetView(
                     what: 'This surah',
+                    hint: kQuranOfflineHint,
                     onRetry: () {
                       ref.invalidate(quranRepositoryProvider);
                       ref.invalidate(quranAllProvider);
