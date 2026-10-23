@@ -6,6 +6,7 @@ library;
 
 import 'package:flutter/material.dart';
 
+import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
@@ -122,11 +123,22 @@ class SeerahSchoolScreen extends StatelessWidget {
                     padding: const EdgeInsets.only(bottom: 8),
                     child: GlassCard(
                       blur: false,
+                      // Opens the chapter (the id is one of seerah.json's own
+                      // story ids; the reader looks it up by that id).
+                      onTap: () => context.open(
+                        '${AppRoutes.storyReader}?id=${Uri.encodeQueryComponent(st.id)}',
+                      ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Text(st.title, style: AppText.body.copyWith(
-                              fontWeight: FontWeight.w600, fontSize: 13.5)),
+                          Row(children: <Widget>[
+                            Expanded(
+                              child: Text(st.title, style: AppText.body.copyWith(
+                                  fontWeight: FontWeight.w600, fontSize: 13.5)),
+                            ),
+                            const Icon(Icons.chevron_right,
+                                size: 18, color: AppColors.gold),
+                          ]),
                           const SizedBox(height: 4),
                           Text(st.note, style: AppText.bodyMuted.copyWith(
                               fontSize: 12, height: 1.5)),

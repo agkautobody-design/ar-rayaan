@@ -741,9 +741,10 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                       child: _Bubble(
                       message: hadi.messages[i],
                       isLatest: i == hadi.messages.length - 1 && !hadi.typing,
-                      onOpen: (String route) => route.startsWith('/huda/guide')
-                          ? context.open(route)
-                          : context.go(route),
+                      // Opened ON TOP of the chat (a tab route is reached
+                      // with go, as always), so Back returns to the
+                      // conversation instead of jumping Home.
+                      onOpen: (String route) => context.open(route),
                       onRetry: hadi.messages[i].retryQuestion != null &&
                               i == hadi.messages.length - 1 &&
                               !hadi.typing
@@ -1025,7 +1026,9 @@ class _PassageCard extends StatelessWidget {
           ),
           child: InkWell(
             borderRadius: BorderRadius.circular(12),
-            onTap: () => context.push(route),
+            // open(), not push(): a tap that lands twice (the reply grows
+            // under the finger) must not stack the same surah twice.
+            onTap: () => context.open(route),
             child: Padding(
               padding: const EdgeInsets.all(12),
               child: Column(
