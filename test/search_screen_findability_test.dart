@@ -341,6 +341,9 @@ void main() {
   ) async {
     await AppHarness.boot(tester, height: 1400);
     await AppHarness.go(tester, find.byType(Scaffold).first, '/hadith?n=30');
+    for (int i = 0; i < 20 && find.text('HADITH 30').evaluate().isEmpty; i++) {
+      await tester.pump(const Duration(milliseconds: 250));
+    }
     await tester.pump(const Duration(milliseconds: 500));
     final double y = tester.getTopLeft(find.text('HADITH 30')).dy;
     expect(y > 0 && y < 1400, isTrue, reason: 'hadith 30 is on screen, y=$y');
