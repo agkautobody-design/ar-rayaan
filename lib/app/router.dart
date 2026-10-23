@@ -109,6 +109,11 @@ abstract final class AppRoutes {
   static const String home = '/home';
   static const String explore = '/explore';
   static const String hadi = '/hadi';
+  /// Hādi's chat with a question already typed (sent on arrival).
+  static String hadiAsk(String question) =>
+      '/hadi?q=${Uri.encodeQueryComponent(question)}';
+  /// The Forty Hadith, opened at hadith [number].
+  static String hadithAt(int number) => '/hadith?n=$number';
   static const String noor = '/noor';
   static const String journey = '/journey';
   static const String community = '/community';
@@ -433,7 +438,11 @@ GoRouter buildRouter({String initialLocation = '/'}) {
       ),
       GoRoute(
         path: AppRoutes.hadith,
-        pageBuilder: (c, s) => _fade(const HadithScreen()),
+        pageBuilder: (c, s) => _fade(
+          HadithScreen(
+            initialNumber: int.tryParse(s.uri.queryParameters['n'] ?? ''),
+          ),
+        ),
       ),
       GoRoute(
         path: AppRoutes.adhkar,
@@ -753,7 +762,10 @@ GoRouter buildRouter({String initialLocation = '/'}) {
             routes: [
               GoRoute(
                 path: AppRoutes.hadi,
-                pageBuilder: (c, s) => _fade(const HadiScreen(), pill: false),
+                pageBuilder: (c, s) => _fade(
+                  HadiScreen(initialQuestion: s.uri.queryParameters['q']),
+                  pill: false,
+                ),
               ),
             ],
           ),

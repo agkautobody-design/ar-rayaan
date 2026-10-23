@@ -1,3 +1,5 @@
+import 'dart:async' show unawaited;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -36,7 +38,12 @@ enum _HadiMenu { newConversation, school, advanced }
 /// a curated authentic offline fallback (O-7). Guardrails: Qur'an + Sihah
 /// Sitta only, honest declines, no invented rulings.
 class HadiScreen extends ConsumerStatefulWidget {
-  const HadiScreen({super.key});
+  const HadiScreen({super.key, this.initialQuestion});
+
+  /// A question typed elsewhere (the Home bar, a search with no answer).
+  /// It is sent once on arrival; the `?q=` is then dropped from the address
+  /// so a reload does not ask it again.
+  final String? initialQuestion;
 
   @override
   ConsumerState<HadiScreen> createState() => _HadiScreenState();
@@ -46,6 +53,35 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
   bool _allStarters = false;
   final TextEditingController _input = TextEditingController();
   final ScrollController _scroll = ScrollController();
+  String? _handedOver;
+
+  @override
+  void initState() {
+    super.initState();
+    _takeHandOver();
+  }
+
+  @override
+  void didUpdateWidget(HadiScreen oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    _takeHandOver();
+  }
+
+  void _takeHandOver() {
+    final String q = (widget.initialQuestion ?? '').trim();
+    if (q.isEmpty || q == _handedOver) return;
+    _handedOver = q;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      if (ref.read(hadiControllerProvider).typing) {
+        // Hādi is mid-answer: keep the question in the box, do not drop it.
+        _input.text = q;
+      } else {
+        unawaited(_send(q));
+      }
+      context.go(AppRoutes.hadi);
+    });
+  }
 
   @override
   void dispose() {

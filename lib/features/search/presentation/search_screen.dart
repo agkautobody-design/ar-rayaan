@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -8,20 +10,25 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../../academy/application/academy_providers.dart';
 import '../../adhkar/application/adhkar_providers.dart';
 import '../../adhkar/domain/adhkar_models.dart';
 import '../../hadith/application/hadith_providers.dart';
 import '../../hadith/domain/hadith_models.dart';
+import '../../huda/presentation/huda_screens.dart' show Guide, guidesProvider;
 import '../../quran/application/quran_providers.dart';
 import '../../quran/domain/quran_models.dart';
+import '../domain/app_destinations.dart';
 import '../domain/quran_search.dart';
+import '../domain/search_text.dart';
 import '../../stories/data/stories_repository.dart';
 import '../../stories/domain/story.dart';
 
-/// FIND ANYTHING — one search across every shelf: the whole Qur'an
-/// (Arabic and English, or a verse key like 2:255), the 11 story
-/// packs (Prophets, Seerah, Khutbahs, Daily Duas, Modern Hadith…), the
-/// Forty Hadith of an-Nawawi, and the Hisn al-Muslim adhkar.
+/// FIND ANYTHING — one search across every shelf. Results come in this
+/// order: the app's own rooms (Qibla, Tasbih, the 99 Names…), surahs by
+/// name, then the Huda guides, the Forty Hadith, the story packs and the
+/// Hisn al-Muslim adhkar, and last the Qur'an's verses (Arabic and
+/// English, or a verse key like 2:255), which are by far the most numerous.
 class SearchScreen extends ConsumerStatefulWidget {
   const SearchScreen({super.key});
 
@@ -46,7 +53,39 @@ class _Hit {
 }
 
 class _SearchState extends ConsumerState<SearchScreen> {
+  /// Trimmed, lower-cased query used for matching.
   String _q = '';
+
+  /// Trimmed query as typed, used when talking to the person.
+  String _raw = '';
+
+  final TextEditingController _controller = TextEditingController();
+  final FocusNode _focus = FocusNode();
+  Timer? _retryFocus;
+
+  static const int _otherCap = 40;
+  static const int _quranCap = 30;
+
+  @override
+  void initState() {
+    super.initState();
+    // `autofocus` fires while the page is still fading in, and on the web the
+    // first tap then did not reach the field. Ask again once it has settled.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) _focus.requestFocus();
+    });
+    _retryFocus = Timer(const Duration(milliseconds: 400), () {
+      if (mounted && !_focus.hasFocus) _focus.requestFocus();
+    });
+  }
+
+  @override
+  void dispose() {
+    _retryFocus?.cancel();
+    _focus.dispose();
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -69,8 +108,18 @@ class _SearchState extends ConsumerState<SearchScreen> {
     final stories = storiesAsync.valueOrNull ?? const <Story>[];
     final hadiths = hadithAsync.valueOrNull ?? const <Hadith>[];
     final sets = adhkarAsync.valueOrNull ?? const <AdhkarSet>[];
+    // The guides and the Academy switch only add to the answer; they never
+    // hold the search back or count as a failed shelf.
+    final List<Guide> guides =
+        ref.watch(guidesProvider).valueOrNull ?? const <Guide>[];
+    final bool academyOn = ref.watch(academyFlagProvider).valueOrNull ?? true;
 
-    final hits = <_Hit>[];
+    // Result groups, shown in this order.
+    final List<_Hit> destinationHits = <_Hit>[];
+    final List<_Hit> surahHits = <_Hit>[];
+    final List<_Hit> otherHits = <_Hit>[];
+    final List<_Hit> quranCards = <_Hit>[];
+    int otherTotal = 0;
     int quranTotal = 0;
     final bool arabicQuery = containsArabicLetters(_q);
     final String foldedQ = foldArabic(_q);
@@ -80,11 +129,40 @@ class _SearchState extends ConsumerState<SearchScreen> {
         skeletonQ.length >= 2 &&
         (foldArabic(text).contains(foldedQ) ||
             arabicSkeleton(text).contains(skeletonQ));
+    void addOther(_Hit hit) {
+      otherTotal++;
+      if (otherHits.length < _otherCap) otherHits.add(hit);
+    }
+
     if (_q.length >= 2 || parseVerseKey(_q) != null) {
+      if (parseVerseKey(_q) == null) {
+        for (final AppDestination d
+            in matchDestinations(_q, academyOn: academyOn)) {
+          destinationHits.add(_Hit(
+            shelf: 'IN THE APP',
+            title: d.title,
+            kicker: d.subtitle,
+            icon: Icons.apps_outlined,
+            open: () => context.open(d.route),
+          ));
+        }
+        final List<SurahMeta> metas =
+            quran.map((Surah s) => s.meta).toList();
+        for (final SurahMeta m in matchSurahNames(metas, _q)) {
+          surahHits.add(_Hit(
+            shelf: 'SURAH ${m.number}',
+            title: '${m.transliteration} · ${m.englishMeaning}',
+            kicker: '${m.ayahCount} ayahs · ${m.revelationType}',
+            icon: Icons.menu_book_outlined,
+            open: () => context.open(AppRoutes.surah(m.number)),
+          ));
+        }
+      }
+
       final List<QuranHit> quranHits = searchQuran(quran, _q, limit: 200);
       quranTotal = quranHits.length;
-      for (final QuranHit h in quranHits.take(30)) {
-        hits.add(_Hit(
+      for (final QuranHit h in quranHits.take(_quranCap)) {
+        quranCards.add(_Hit(
           shelf: "QUR'AN ${h.key}",
           title: '${h.surahName} · ayah ${h.ayah}',
           kicker: containsArabicLetters(_q) ? h.arabic : h.english,
@@ -99,33 +177,48 @@ class _SearchState extends ConsumerState<SearchScreen> {
           },
         ));
       }
-      for (final s in stories) {
-        if (s.title.toLowerCase().contains(_q) ||
-            s.subtitle.toLowerCase().contains(_q) ||
-            s.kicker.toLowerCase().contains(_q) ||
-            (s.chapters.isNotEmpty &&
-                s.chapters.first.body.toLowerCase().contains(_q))) {
-          hits.add(_Hit(
-            shelf: 'STORY',
-            title: s.title,
-            kicker: (s.hasUnverified || s.hasWeakNarration)
-                ? 'Unverified \u00b7 ${s.kicker}'
-                : s.kicker,
-            icon: Icons.auto_stories_outlined,
-            open: () => context.open(AppRoutes.storyReader, extra: s),
+
+      for (final Guide g in guides) {
+        if (matchesQuery('${g.title} ${g.subtitle} ${g.category}', _q)) {
+          addOther(_Hit(
+            shelf: 'GUIDE',
+            title: g.title,
+            kicker: g.subtitle,
+            icon: Icons.checklist_rtl_outlined,
+            open: () => context.push(
+              '${AppRoutes.hudaGuide}?id=${Uri.encodeQueryComponent(g.id)}',
+              extra: g,
+            ),
           ));
         }
       }
       for (final h in hadiths) {
-        if (h.english.toLowerCase().contains(_q) || arabicMatch(h.arabic)) {
-          hits.add(_Hit(
+        if (matchesQuery(h.english, _q) || arabicMatch(h.arabic)) {
+          addOther(_Hit(
             shelf: 'HADITH',
             title: 'Hadith ${h.number} — an-Nawawi 40',
             kicker: h.english.length > 90
                 ? '${h.english.substring(0, 90)}…'
                 : h.english,
             icon: Icons.format_quote_outlined,
-            open: () => context.push(AppRoutes.hadith),
+            open: () => context.push(AppRoutes.hadithAt(h.number)),
+          ));
+        }
+      }
+      for (final s in stories) {
+        if (matchesQuery(s.title, _q) ||
+            matchesQuery(s.subtitle, _q) ||
+            matchesQuery(s.kicker, _q) ||
+            (s.chapters.isNotEmpty &&
+                matchesQuery(s.chapters.first.body, _q))) {
+          addOther(_Hit(
+            shelf: 'STORY',
+            title: s.title,
+            kicker: (s.hasUnverified || s.hasWeakNarration)
+                ? 'Unverified · ${s.kicker}'
+                : s.kicker,
+            icon: Icons.auto_stories_outlined,
+            open: () => context.open(AppRoutes.storyReader, extra: s),
           ));
         }
       }
@@ -133,10 +226,10 @@ class _SearchState extends ConsumerState<SearchScreen> {
       for (final set in sets) {
         for (final d in set.items) {
           final t = d.translation ?? '';
-          if (t.toLowerCase().contains(_q) || arabicMatch(d.arabic)) {
+          if (matchesQuery(t, _q) || arabicMatch(d.arabic)) {
             // Morning and evening sets share many identical adhkar.
             if (!seenDhikr.add('${d.arabic}|$t')) continue;
-            hits.add(_Hit(
+            addOther(_Hit(
               shelf: 'DHIKR',
               title: set.titleEn,
               kicker: t.length > 90 ? '${t.substring(0, 90)}…' : t,
@@ -145,6 +238,27 @@ class _SearchState extends ConsumerState<SearchScreen> {
             ));
           }
         }
+      }
+    }
+
+    final List<_Hit> hits = <_Hit>[
+      ...destinationHits,
+      ...surahHits,
+      ...otherHits,
+      ...quranCards,
+    ];
+    final int total =
+        destinationHits.length + surahHits.length + otherTotal + quranTotal;
+    // Honest counts: say what is shown and how much more there is.
+    String countsLine = '${hits.length} FOUND';
+    if (hits.length < total) {
+      countsLine = '${hits.length} SHOWN';
+      if (otherTotal > otherHits.length) {
+        countsLine += ' · $otherTotal ON THE OTHER SHELVES';
+      }
+      if (quranTotal > quranCards.length) {
+        final String plus = quranTotal >= 200 ? '+' : '';
+        countsLine += " · $quranTotal$plus IN THE QUR'AN";
       }
     }
 
@@ -158,13 +272,33 @@ class _SearchState extends ConsumerState<SearchScreen> {
             children: [
               const ScreenHeader(title: 'Find Anything', close: true),
               TextField(
+                controller: _controller,
+                focusNode: _focus,
                 autofocus: true,
                 style: AppText.body,
-                decoration: const InputDecoration(
+                textInputAction: TextInputAction.search,
+                decoration: InputDecoration(
                   hintText: 'Search the Qur\'an and every shelf — or type 2:255',
-                  prefixIcon: Icon(Icons.search, color: AppColors.gold),
+                  prefixIcon: const Icon(Icons.search, color: AppColors.gold),
+                  suffixIcon: _raw.isEmpty
+                      ? null
+                      : IconButton(
+                          tooltip: 'Clear',
+                          icon: const Icon(Icons.close, color: AppColors.gold),
+                          onPressed: () {
+                            _controller.clear();
+                            setState(() {
+                              _q = '';
+                              _raw = '';
+                            });
+                            _focus.requestFocus();
+                          },
+                        ),
                 ),
-                onChanged: (v) => setState(() => _q = v.trim().toLowerCase()),
+                onChanged: (v) => setState(() {
+                  _raw = v.trim();
+                  _q = _raw.toLowerCase();
+                }),
               ),
               const SizedBox(height: 14),
               if (shelfFailed) ...[
@@ -196,7 +330,7 @@ class _SearchState extends ConsumerState<SearchScreen> {
               if (_q.length < 2)
                 GlassCard(
                     child: Text(
-                        'Try "mercy", "بسم الله", "2:255", "Yusuf", "patience", "before sleep" — the whole Qur\'an, the story packs, the Forty Hadith, and the adhkar all answer here.',
+                        'Try "mulk", "qibla", "mercy", "بسم الله", "2:255", "patience", "before sleep" — the app\'s own rooms, every surah, the whole Qur\'an, the story packs, the guides, the Forty Hadith, and the adhkar all answer here.',
                         style: AppText.bodyMuted.copyWith(height: 1.6)))
               else if (loading)
                 const Center(
@@ -204,20 +338,30 @@ class _SearchState extends ConsumerState<SearchScreen> {
                         CircularProgressIndicator(color: AppColors.gold))
               else if (hits.isEmpty)
                 GlassCard(
-                    child: Text(
+                    child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
                         shelfFailed
-                            ? 'No match for "$_q" in the shelves that loaded.'
-                            : 'Nothing on any shelf matches "$_q" yet — ask Hādi, he may know.',
-                        style: AppText.bodyMuted))
+                            ? 'No match for "$_raw" in the shelves that loaded.'
+                            : 'Nothing on any shelf matches "$_raw". Try another word, or a verse like 2:255 — or ask Hādi.',
+                        style: AppText.bodyMuted.copyWith(height: 1.5)),
+                    if (!shelfFailed)
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: TextButton(
+                          onPressed: () =>
+                              context.go(AppRoutes.hadiAsk(_raw)),
+                          child: Text('Ask Hādi: "$_raw"'),
+                        ),
+                      ),
+                  ],
+                ))
               else
                 Column(children: [
-                  Text(
-                      quranTotal > 30
-                          ? '${hits.length} SHOWN · $quranTotal${quranTotal >= 200 ? '+' : ''} IN THE QUR\'AN'
-                          : '${hits.length} FOUND',
-                      style: AppText.eyebrow),
+                  Text(countsLine, style: AppText.eyebrow),
                   const SizedBox(height: 8),
-                  for (final h in hits.take(70))
+                  for (final h in hits)
                     Padding(
                       padding: const EdgeInsets.only(bottom: 8),
                       child: GlassCard(

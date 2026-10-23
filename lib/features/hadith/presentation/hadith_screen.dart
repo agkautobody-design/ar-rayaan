@@ -14,11 +14,36 @@ import 'daily_hadith_card.dart';
 
 /// Hadith — the Forty Hadith of Imam an-Nawawi (bundled, offline).
 /// New screen designed within the locked system — pending Founder approval.
-class HadithScreen extends ConsumerWidget {
-  const HadithScreen({super.key});
+class HadithScreen extends ConsumerStatefulWidget {
+  const HadithScreen({super.key, this.initialNumber});
+
+  /// Scroll to this hadith on arrival (from a search result).
+  final int? initialNumber;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<HadithScreen> createState() => _HadithScreenState();
+}
+
+class _HadithScreenState extends ConsumerState<HadithScreen> {
+  final GlobalKey _target = GlobalKey();
+  bool _scrolled = false;
+
+  void _scrollToTarget() {
+    if (_scrolled || widget.initialNumber == null) return;
+    _scrolled = true;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final BuildContext? c = _target.currentContext;
+      if (!mounted || c == null) return;
+      Scrollable.ensureVisible(
+        c,
+        duration: const Duration(milliseconds: 300),
+        alignment: 0.05,
+      );
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final AsyncValue<List<Hadith>> collection = ref.watch(
       hadithCollectionProvider,
     );
@@ -39,7 +64,9 @@ class HadithScreen extends ConsumerWidget {
                     style: AppText.bodyMuted,
                   ),
                 ),
-                data: (List<Hadith> hadiths) => ListView(
+                data: (List<Hadith> hadiths) {
+                  _scrollToTarget();
+                  return ListView(
                   padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
                   children: [
                     const DailyHadithHero(),
@@ -88,7 +115,12 @@ class HadithScreen extends ConsumerWidget {
                                 height: 28,
                                 color: AppColors.gold.withValues(alpha: 0.1),
                               ),
-                            _HadithBlock(hadith: hadiths[i]),
+                            _HadithBlock(
+                              key: hadiths[i].number == widget.initialNumber
+                                  ? _target
+                                  : null,
+                              hadith: hadiths[i],
+                            ),
                           ],
                         ],
                       ),
@@ -138,7 +170,8 @@ class HadithScreen extends ConsumerWidget {
                       textAlign: TextAlign.center,
                     ),
                   ],
-                ),
+                  );
+                },
               ),
             ),
           ],
@@ -149,7 +182,7 @@ class HadithScreen extends ConsumerWidget {
 }
 
 class _HadithBlock extends StatelessWidget {
-  const _HadithBlock({required this.hadith});
+  const _HadithBlock({super.key, required this.hadith});
 
   final Hadith hadith;
 

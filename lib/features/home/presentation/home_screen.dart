@@ -10,6 +10,7 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/core/modules/module_status.dart';
 import '../../academy/application/academy_providers.dart';
 import '../../menu/presentation/menu_screen.dart' show isAcademyRoute;
+import '../../hadi/presentation/hadi_ask_bar.dart';
 import '../../hadith/presentation/daily_hadith_banner.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/gold_text.dart';
@@ -184,47 +185,7 @@ class HomeScreen extends ConsumerWidget {
                         ),
                         const SizedBox(width: 12),
                       ],
-                      Expanded(
-                        child: Semantics(
-                          button: true,
-                          label: 'Ask Hādi anything',
-                          excludeSemantics: true,
-                          onTap: () => context.go(AppRoutes.hadi),
-                          child: GestureDetector(
-                          onTap: () => context.go(AppRoutes.hadi),
-                          child: Container(
-                            height: 44,
-                            padding: const EdgeInsets.symmetric(horizontal: 16),
-                            decoration: BoxDecoration(
-                              color: AppColors.glassFill,
-                              borderRadius: BorderRadius.circular(999),
-                              border: Border.all(
-                                color: AppColors.gold.withValues(alpha: 0.25),
-                              ),
-                            ),
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.search,
-                                  size: 16,
-                                  color: AppColors.gold.withValues(alpha: 0.7),
-                                ),
-                                const SizedBox(width: 8),
-                                Expanded(
-                                  child: Text(
-                                    'Ask Hādi anything..',
-                                    style: AppText.bodyMuted.copyWith(
-                                      color: AppColors.sand.withValues(alpha: 0.85),
-                                    ),
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        ),
-                      ),
+                      const Expanded(child: HadiAskBar()),
                       const SizedBox(width: 12),
                       _HeaderIcon(
                         icon: Icons.search,
