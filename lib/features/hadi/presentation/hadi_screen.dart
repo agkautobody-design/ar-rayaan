@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -36,7 +38,11 @@ enum _HadiMenu { newConversation, school, advanced }
 /// a curated authentic offline fallback (O-7). Guardrails: Qur'an + Sihah
 /// Sitta only, honest declines, no invented rulings.
 class HadiScreen extends ConsumerStatefulWidget {
-  const HadiScreen({super.key});
+  const HadiScreen({super.key, this.initialQuery});
+
+  /// A question to ask as soon as the screen opens (for example the text
+  /// typed in the bar on the home screen). It is sent once.
+  final String? initialQuery;
 
   @override
   ConsumerState<HadiScreen> createState() => _HadiScreenState();
@@ -46,6 +52,38 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
   bool _allStarters = false;
   final TextEditingController _input = TextEditingController();
   final ScrollController _scroll = ScrollController();
+
+  /// The last [HadiScreen.initialQuery] taken, so it is never sent twice.
+  String? _takenQuery;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) => _takeInitialQuery());
+  }
+
+  @override
+  void didUpdateWidget(HadiScreen oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.initialQuery != oldWidget.initialQuery) {
+      if ((widget.initialQuery ?? '').trim().isEmpty) _takenQuery = null;
+      WidgetsBinding.instance.addPostFrameCallback((_) => _takeInitialQuery());
+    }
+  }
+
+  /// Asks the question the screen was opened with. If Hādi is busy it goes
+  /// into the text box instead, so what the person typed is never lost.
+  void _takeInitialQuery() {
+    if (!mounted) return;
+    final String q = (widget.initialQuery ?? '').trim();
+    if (q.isEmpty || q == _takenQuery) return;
+    _takenQuery = q;
+    if (ref.read(hadiControllerProvider).typing) {
+      _input.text = q;
+      return;
+    }
+    unawaited(_send(q));
+  }
 
   @override
   void dispose() {
@@ -822,74 +860,120 @@ class _CrisisHelpPanel extends ConsumerWidget {
 
 /// A passage printed from Hādi's own library under a reply: the label, the
 /// citation, the Arabic and translation, and for a hadith its grade and who
-/// gave it.
+/// gave it. Tapping it opens the surah for a verse, or Our Sources for a
+/// hadith, and the card says so.
 class _PassageCard extends StatelessWidget {
   const _PassageCard({required this.passage});
 
   final Passage passage;
 
+  /// Where a tap goes: the surah for a Qur'an verse, Our Sources otherwise.
+  String get _route {
+    if (passage.kind == PassageKind.quran) {
+      final List<String> parts = passage.id.split(':');
+      final int? surah = parts.length > 1 ? int.tryParse(parts[1]) : null;
+      if (surah != null && surah >= 1 && surah <= 114) {
+        return AppRoutes.surah(surah);
+      }
+    }
+    return AppRoutes.sources;
+  }
+
   @override
   Widget build(BuildContext context) {
     final String? grade = passage.gradeLine;
-    return Container(
+    final String route = _route;
+    return SizedBox(
       width: double.infinity,
-      margin: const EdgeInsets.only(top: 8),
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        color: AppColors.gold.withValues(alpha: 0.06),
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: AppColors.gold.withValues(alpha: 0.25)),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(
-            '${passage.label} · ${passage.reference}',
-            style: AppText.caption.copyWith(
-              color: AppColors.gold,
-              fontWeight: FontWeight.w700,
+      child: Padding(
+        padding: const EdgeInsets.only(top: 8),
+        child: Material(
+          color: AppColors.gold.withValues(alpha: 0.06),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+            side: BorderSide(color: AppColors.gold.withValues(alpha: 0.25)),
+          ),
+          child: InkWell(
+            borderRadius: BorderRadius.circular(12),
+            onTap: () => context.push(route),
+            child: Padding(
+              padding: const EdgeInsets.all(12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    '${passage.label} · ${passage.reference}',
+                    style: AppText.caption.copyWith(
+                      color: AppColors.gold,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  if (passage.arabic != null) ...<Widget>[
+                    const SizedBox(height: 6),
+                    Directionality(
+                      textDirection: TextDirection.rtl,
+                      child: Text(
+                        passage.arabic!,
+                        style: AppText.body.copyWith(fontSize: 18, height: 1.8),
+                      ),
+                    ),
+                  ],
+                  const SizedBox(height: 6),
+                  Text(
+                    passage.english,
+                    style: AppText.caption.copyWith(
+                      color: AppColors.sand.withValues(alpha: 0.85),
+                      height: 1.5,
+                    ),
+                  ),
+                  if (grade != null) ...<Widget>[
+                    const SizedBox(height: 6),
+                    Text(
+                      'Grade: $grade',
+                      style: AppText.caption.copyWith(
+                        color: AppColors.sand.withValues(alpha: 0.7),
+                        fontSize: 12,
+                      ),
+                    ),
+                  ],
+                  if (passage.textKind != null) ...<Widget>[
+                    Text(
+                      passage.textKind == 'summary'
+                          ? 'Summary written for this app, not a translation.'
+                          : 'Excerpt written for this app, not a full '
+                              'translation.',
+                      style: AppText.caption.copyWith(
+                        color: AppColors.sand.withValues(alpha: 0.7),
+                        fontSize: 12,
+                      ),
+                    ),
+                  ],
+                  const SizedBox(height: 8),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Text(
+                        route == AppRoutes.sources
+                            ? 'Where this comes from'
+                            : 'Open this surah',
+                        style: AppText.caption.copyWith(
+                          color: AppColors.goldLight,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      const SizedBox(width: 4),
+                      const Icon(
+                        Icons.chevron_right,
+                        size: 16,
+                        color: AppColors.goldLight,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
-          if (passage.arabic != null) ...<Widget>[
-            const SizedBox(height: 6),
-            Directionality(
-              textDirection: TextDirection.rtl,
-              child: Text(
-                passage.arabic!,
-                style: AppText.body.copyWith(fontSize: 18, height: 1.8),
-              ),
-            ),
-          ],
-          const SizedBox(height: 6),
-          Text(
-            passage.english,
-            style: AppText.caption.copyWith(
-              color: AppColors.sand.withValues(alpha: 0.85),
-              height: 1.5,
-            ),
-          ),
-          if (grade != null) ...<Widget>[
-            const SizedBox(height: 6),
-            Text(
-              'Grade: $grade',
-              style: AppText.caption.copyWith(
-                color: AppColors.sand.withValues(alpha: 0.7),
-                fontSize: 12,
-              ),
-            ),
-          ],
-          if (passage.textKind != null) ...<Widget>[
-            Text(
-              passage.textKind == 'summary'
-                  ? 'Summary written for this app, not a translation.'
-                  : 'Excerpt written for this app, not a full translation.',
-              style: AppText.caption.copyWith(
-                color: AppColors.sand.withValues(alpha: 0.7),
-                fontSize: 12,
-              ),
-            ),
-          ],
-        ],
+        ),
       ),
     );
   }
