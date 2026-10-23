@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' show Clipboard, ClipboardData;
+import '../../share/presentation/share_actions.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../app/theme/app_colors.dart';
@@ -94,14 +94,11 @@ class AyahActionsSheet extends ConsumerWidget {
               icon: Icons.copy,
               label: 'Copy Arabic and translation',
               onTap: () async {
-                await Clipboard.setData(
-                  ClipboardData(text: ayahShareText(surahName, surah, ayah)),
+                await copyWithFeedback(
+                  context,
+                  ayahShareText(surahName, surah, ayah),
+                  message: 'Copied',
                 );
-                if (context.mounted) {
-                  ScaffoldMessenger.maybeOf(context)?.showSnackBar(
-                    const SnackBar(content: Text('Copied')),
-                  );
-                }
               },
             ),
             const SizedBox(height: 8),

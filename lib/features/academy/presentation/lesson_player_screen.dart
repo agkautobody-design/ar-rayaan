@@ -21,6 +21,9 @@ import '../domain/course_manifest.dart';
 import '../domain/lesson_grounding.dart';
 import '../domain/lesson_provenance.dart';
 import '../domain/next_lesson.dart';
+import '../../share/domain/handout.dart';
+import '../../share/presentation/handout_screen.dart';
+import '../../share/presentation/share_actions.dart';
 import 'widgets/glossary_text.dart';
 import 'widgets/wasia_thread.dart';
 
@@ -328,23 +331,47 @@ class _LessonPlayerScreenState
                       ],
                     ),
                     const SizedBox(height: 8),
-                    InkWell(
-                      onTap: _showSources,
-                      child: ConstrainedBox(
-                        constraints: const BoxConstraints(minHeight: 48),
-                        child: Row(
-                          children: <Widget>[
-                            const Icon(Icons.info_outline,
-                                size: 14, color: AppColors.gold),
-                            const SizedBox(width: 6),
-                            Text(
-                              '${provenanceOf(_lesson.id)?.label ?? kNotYetReviewedLabel}'
-                              ' \u00b7 sources',
-                              style: AppText.caption,
+                    Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: InkWell(
+                            onTap: _showSources,
+                            child: ConstrainedBox(
+                              constraints:
+                                  const BoxConstraints(minHeight: 48),
+                              child: Row(
+                                children: <Widget>[
+                                  const Icon(Icons.info_outline,
+                                      size: 14, color: AppColors.gold),
+                                  const SizedBox(width: 6),
+                                  Flexible(
+                                    child: Text(
+                                      '${provenanceOf(_lesson.id)?.label ?? kNotYetReviewedLabel}'
+                                      ' \u00b7 sources',
+                                      style: AppText.caption,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
-                          ],
+                          ),
                         ),
-                      ),
+                        ShareCopyButtons(
+                          text: lessonHandout(_lesson).toPlainText(),
+                          title: AcademyStrings.get(_lesson.titleKey),
+                          subject: 'this lesson',
+                        ),
+                        IconButton(
+                          key: const Key('lesson-handout'),
+                          tooltip: 'Make a handout',
+                          constraints: const BoxConstraints(
+                              minWidth: 48, minHeight: 48),
+                          icon: const Icon(Icons.print_outlined,
+                              color: AppColors.gold, size: 20),
+                          onPressed: () =>
+                              openHandout(context, lessonHandout(_lesson)),
+                        ),
+                      ],
                     ),
                     ClipRRect(
                       borderRadius: BorderRadius.circular(4),
@@ -425,6 +452,38 @@ class _LessonPlayerScreenState
       ),
     );
   }
+}
+
+/// A printable handout of a lesson, built only from what the lesson already
+/// says: each step's title and text, its Try prompts as questions, its
+/// review label and the Qur\u2019an and hadith references it cites.
+HandoutData lessonHandout(AcademyLesson lesson) {
+  final LessonProvenance? prov = provenanceOf(lesson.id);
+  final List<LessonSource> cited =
+      extractSources(RecallChecks.fullTextOf(lesson));
+  return HandoutData(
+    title: AcademyStrings.get(lesson.titleKey),
+    notice: '${prov?.label ?? kNotYetReviewedLabel}. ${prov?.origin ?? ''}'
+        .trim(),
+    sections: <HandoutSection>[
+      for (final AcademyStep st in lesson.steps)
+        if (st.kind != AcademyStepKind.check &&
+            st.kind != AcademyStepKind.try_ &&
+            (AcademyStrings.get(st.titleKey).trim().isNotEmpty ||
+                AcademyStrings.get(st.bodyKey).trim().isNotEmpty))
+          HandoutSection(
+            heading: AcademyStrings.get(st.titleKey),
+            body: AcademyStrings.get(st.bodyKey),
+          ),
+    ],
+    sources: <String>[
+      for (final LessonSource src in cited) src.toString(),
+    ],
+    questions: <String>[
+      for (final AcademyStep st in lesson.steps)
+        if (st.kind == AcademyStepKind.try_) tryPromptFor(st),
+    ],
+  );
 }
 
 /// The text a Try card shows. Some lessons keep their whole prompt in the

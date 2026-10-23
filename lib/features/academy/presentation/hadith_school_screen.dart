@@ -16,6 +16,8 @@ import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../hadith/application/hadith_providers.dart';
 import '../../hadith/domain/hadith_models.dart';
+import '../../share/application/share_text.dart';
+import '../../share/presentation/share_actions.dart';
 
 /// The teaching layer for the Forty: one entry per hadith in sequence.
 /// Each lesson names the Forty hadith it teaches (`nawawi`) or its own
@@ -325,6 +327,29 @@ const List<_HadithLesson> kHadithLessons = <_HadithLesson>[
   ),
 ];
 
+/// One Hadith School lesson as plain text: its title, the Arabic when the
+/// lesson teaches one of the Forty, the meaning, the "carry it" line, the
+/// source and the app credit. Nothing is added to what the lesson says.
+String _lessonShareText(_HadithLesson l, List<Hadith>? collection) {
+  final int? n = l.nawawi;
+  String? arabic;
+  if (n != null && collection != null) {
+    for (final Hadith h in collection) {
+      if (h.number == n) arabic = h.arabic;
+    }
+  }
+  return composeShareText(
+    title: l.title,
+    arabic: arabic,
+    body: '${l.meaning}\n\nCarry it: ${l.character}',
+    source: n != null
+        ? 'The Forty Hadith of Imam an-Nawawi, no. $n'
+        : (l.source ??
+            'A widely taught narration; its exact reference has not yet '
+                'been checked in this app.'),
+  );
+}
+
 class HadithSchoolScreen extends ConsumerWidget {
   const HadithSchoolScreen({super.key});
 
@@ -421,6 +446,17 @@ class HadithSchoolScreen extends ConsumerWidget {
                           child: Text('Carry it: ${kHadithLessons[i].character}',
                               style:
                                   AppText.bodyMuted.copyWith(fontSize: 12.5, height: 1.5)),
+                        ),
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: ShareCopyButtons(
+                            text: _lessonShareText(
+                              kHadithLessons[i],
+                              hadiths.valueOrNull,
+                            ),
+                            title: kHadithLessons[i].title,
+                            subject: 'this lesson',
+                          ),
                         ),
                       ],
                     ),

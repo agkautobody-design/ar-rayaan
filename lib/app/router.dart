@@ -66,6 +66,8 @@ import '../features/qibla/presentation/qibla_screen.dart';
 import '../features/sakina/presentation/sakina_screen.dart';
 import '../features/sakina/presentation/wellbeing_tools.dart';
 import '../features/settings/presentation/settings_screen.dart';
+import '../features/share/domain/handout.dart';
+import '../features/share/presentation/handout_screen.dart';
 import '../features/share/presentation/share_screen.dart';
 import '../features/sources/presentation/content_policy_screen.dart';
 import '../features/sources/presentation/sources_screen.dart';
@@ -481,6 +483,16 @@ GoRouter buildRouter({String initialLocation = '/'}) {
           path: AppRoutes.stories,
           pageBuilder: (context, state) =>
               _fade(const StoriesScreen()),
+        ),
+        GoRoute(
+          path: '/handout',
+          pageBuilder: (context, state) => _fade(
+            HandoutScreen(
+              data: state.extra is HandoutData
+                  ? state.extra as HandoutData
+                  : null,
+            ),
+          ),
         ),
         GoRoute(
           path: AppRoutes.storyReader,

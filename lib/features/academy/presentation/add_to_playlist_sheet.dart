@@ -17,6 +17,27 @@ Future<void> showAddToPlaylistSheet(
   required String artist,
 }) async {
   final ScaffoldMessengerState messenger = ScaffoldMessenger.of(context);
+  final String? target =
+      await pickPlaylist(context, ref, heading: 'Add \u201c$title\u201d to\u2026');
+  if (target == null) return;
+  final bool added = await ref
+      .read(userPlaylistsProvider.notifier)
+      .addCatalogTrack(target,
+          catalogId: catalogId, title: title, artist: artist);
+  messenger.showSnackBar(SnackBar(
+      content: Text(added
+          ? 'Added to your playlist.'
+          : 'Already in that playlist, or it is full.')));
+}
+
+/// Asks which playlist to use (or to make a new one). Returns its id, or
+/// null when cancelled or when a new playlist could not be made.
+Future<String?> pickPlaylist(
+  BuildContext context,
+  WidgetRef ref, {
+  required String heading,
+}) async {
+  final ScaffoldMessengerState messenger = ScaffoldMessenger.of(context);
   final String? picked = await showModalBottomSheet<String>(
     context: context,
     backgroundColor: AppColors.navy,
@@ -29,7 +50,7 @@ Future<void> showAddToPlaylistSheet(
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.fromLTRB(20, 16, 20, 8),
-                child: Text('Add “$title” to…', style: AppText.titleMedium),
+                child: Text(heading, style: AppText.titleMedium),
               ),
               for (final UserPlaylist p in lists)
                 ListTile(
@@ -51,27 +72,17 @@ Future<void> showAddToPlaylistSheet(
       },
     ),
   );
-  if (picked == null) return;
-  String? target = picked;
-  if (picked == '__new__') {
-    if (!context.mounted) return;
-    final String? name = await askForName(context, title: 'New playlist');
-    if (name == null) return;
-    target = await ref.read(userPlaylistsProvider.notifier).create(name);
-    if (target == null) {
-      messenger.showSnackBar(
-          const SnackBar(content: Text('Could not create the playlist.')));
-      return;
-    }
+  if (picked == null) return null;
+  if (picked != '__new__') return picked;
+  if (!context.mounted) return null;
+  final String? name = await askForName(context, title: 'New playlist');
+  if (name == null) return null;
+  final String? id = await ref.read(userPlaylistsProvider.notifier).create(name);
+  if (id == null) {
+    messenger.showSnackBar(
+        const SnackBar(content: Text('Could not create the playlist.')));
   }
-  final bool added = await ref
-      .read(userPlaylistsProvider.notifier)
-      .addCatalogTrack(target,
-          catalogId: catalogId, title: title, artist: artist);
-  messenger.showSnackBar(SnackBar(
-      content: Text(added
-          ? 'Added to your playlist.'
-          : 'Already in that playlist, or it is full.')));
+  return id;
 }
 
 /// Ask for a short name; null when cancelled or blank.
