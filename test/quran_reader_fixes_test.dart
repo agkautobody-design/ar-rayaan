@@ -1,3 +1,4 @@
+import 'package:ar_rayaan/app/core/content_loader.dart';
 import 'package:ar_rayaan/app/theme/app_theme.dart';
 import 'package:ar_rayaan/app/theme/widgets/screen_header.dart';
 import 'package:ar_rayaan/features/quran/application/quran_offline.dart';
