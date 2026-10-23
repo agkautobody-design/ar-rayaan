@@ -416,9 +416,13 @@ void main() {
         homeOverflows.add(text.split('\n').first);
       }
     };
-    addTearDown(() => FlutterError.onError = previous);
-    bigText(tester);
-    await AppHarness.settle(tester);
+    try {
+      bigText(tester);
+      await AppHarness.settle(tester);
+    } finally {
+      FlutterError.onError = previous;
+    }
+    tester.takeException();
     expect(homeOverflows, isEmpty);
     // The Elder Mode title is one piece, not split into letters.
     final Finder title = find.text('ELDER MODE');
