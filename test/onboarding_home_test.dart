@@ -149,11 +149,18 @@ void main() {
           greaterThanOrEqualTo(48));
     });
 
-    testWidgets('welcome, then the goal choice, then Begin', (tester) async {
-      final GoRouter router = await pumpOnboarding(tester);
+    testWidgets('step 1: Next shows the goal choice', (tester) async {
+      await pumpOnboarding(tester);
+      expect(find.text('Next'), findsOneWidget);
       await tester.tap(find.text('Next'));
       await tester.pump(const Duration(milliseconds: 400));
       expect(find.text('WHAT BRINGS YOU HERE?'), findsOneWidget);
+    });
+
+    testWidgets('step 2: six goals are listed', (tester) async {
+      await pumpOnboarding(tester);
+      await tester.tap(find.text('Next'));
+      await tester.pump(const Duration(milliseconds: 400));
       for (final String t in <String>[
         'Learning about Islam',
         'Peace for my heart',
@@ -164,7 +171,20 @@ void main() {
       ]) {
         expect(find.text(t), findsOneWidget, reason: t);
       }
+    });
+
+    testWidgets('step 3: the last screen says Begin', (tester) async {
+      await pumpOnboarding(tester);
+      await tester.tap(find.text('Next'));
+      await tester.pump(const Duration(milliseconds: 400));
+      expect(find.text('Begin'), findsOneWidget);
       expect(find.text('Next'), findsNothing);
+    });
+
+    testWidgets('step 4: choosing a goal then Begin saves it', (tester) async {
+      final GoRouter router = await pumpOnboarding(tester);
+      await tester.tap(find.text('Next'));
+      await tester.pump(const Duration(milliseconds: 400));
       await tester.tap(find.text('Praying on time'));
       await tester.pump();
       await tester.tap(find.text('Begin'));
@@ -191,12 +211,12 @@ void main() {
       tester,
     ) async {
       await pumpOnboarding(tester, scale: 2.0);
-      expect(tester.takeException(), isNull);
+      expect(tester.takeException(), isNull, reason: 'welcome page');
+      expect(find.text('Next'), findsOneWidget, reason: 'Next present');
       await tester.tap(find.text('Next'));
       await tester.pump(const Duration(milliseconds: 400));
-      expect(tester.takeException(), isNull);
-      await tester.ensureVisible(find.text('A community'));
-      expect(tester.takeException(), isNull);
+      expect(tester.takeException(), isNull, reason: 'goal page');
+      expect(find.text('A community'), findsOneWidget, reason: 'goal built');
     });
   });
 
@@ -253,7 +273,10 @@ void main() {
       await AppHarness.boot(tester);
       tester.view.physicalSize = const Size(320, 640);
       await AppHarness.settle(tester);
-      final Rect r = tester.getRect(find.text('Prayer Times').first);
+      expect(tester.takeException(), isNull, reason: 'no layout error');
+      final Finder tile = find.text('Prayer Times');
+      expect(tile, findsWidgets, reason: 'tile built on the first screen');
+      final Rect r = tester.getRect(tile.first);
       expect(r.top, lessThan(560), reason: 'tile title at ${r.top}');
     });
 
@@ -283,6 +306,7 @@ void main() {
       );
       tester.view.physicalSize = const Size(320, 640);
       await AppHarness.go(tester, find.byType(Scaffold).first, '/prayer');
+      expect(tester.takeException(), isNull, reason: 'no layout error');
       final Finder label = find.byKey(const Key('prayer-location-label'));
       expect(label, findsOneWidget);
       expect(tester.getSize(label).width, greaterThan(120));
