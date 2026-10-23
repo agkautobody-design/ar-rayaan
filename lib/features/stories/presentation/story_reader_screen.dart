@@ -259,7 +259,7 @@ class _StoryReaderScreenState extends ConsumerState<StoryReaderScreen> {
                     key: const Key('story-chapter-tl-source'),
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 11.5,
+                      fontSize: 12,
                       height: 1.4,
                       color: AppColors.sand.withValues(alpha: 0.55),
                     ),

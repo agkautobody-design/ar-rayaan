@@ -59,7 +59,7 @@ const List<_DuaLesson> kDuaLessons = <_DuaLesson>[
     source: 'Bukhari 6306',
     translit:
         'Allāhumma anta Rabbī lā ilāha illā ant, khalaqtanī wa anā `abduk.',
-    translitSource: 'Hisn al-Muslim 79 (sunnah.com/hisn:79), lines 1-2',
+    translitSource: 'Hisn 79 (sunnah.com/hisn:79), lines 1-2',
   ),
   _DuaLesson(
     title: 'Before sleeping',
@@ -101,7 +101,7 @@ const List<_DuaLesson> kDuaLessons = <_DuaLesson>[
     source: 'Abu Dawud 5095, sahih per al-Albani',
     translit:
         'Bismillāhi, tawakkaltu `alallāhi, wa lā ḥawla wa lā quwwata illā billāh.',
-    translitSource: 'Hisn al-Muslim 16 (sunnah.com/hisn:16)',
+    translitSource: 'Hisn 16 (sunnah.com/hisn:16)',
   ),
 
   // --- Home & table ------------------------------------------------------
@@ -134,7 +134,7 @@ const List<_DuaLesson> kDuaLessons = <_DuaLesson>[
     source: 'Sahih Muslim 713',
     translit:
         "Allāhummaftaḥ lī 'abwāba raḥmatik.",
-    translitSource: 'Hisn al-Muslim 20 (sunnah.com/hisn:20), line 6',
+    translitSource: 'Hisn 20 (sunnah.com/hisn:20), line 6',
   ),
   _DuaLesson(
     title: 'After the prayer — the closing words',
@@ -146,7 +146,7 @@ const List<_DuaLesson> kDuaLessons = <_DuaLesson>[
     source: 'Sahih Muslim 591',
     translit:
         'Astaghfirullāh (×3). Allāhumma antas-salām, wa minkas-salām.',
-    translitSource: 'Hisn al-Muslim 66 (sunnah.com/hisn:66), lines 1-3',
+    translitSource: 'Hisn 66 (sunnah.com/hisn:66), lines 1-3',
   ),
 
   // --- Travel & hardship -------------------------------------------------
@@ -160,7 +160,7 @@ const List<_DuaLesson> kDuaLessons = <_DuaLesson>[
     source: 'Qur\'an 43:13; Sahih Muslim 1342',
     translit:
         "Subḥāna 'l-ladhi sakhkhara lanā hādhā wa mā kunnā lahu muqrinīn.",
-    translitSource: 'Hisn al-Muslim 207 (sunnah.com/hisn:207), lines 2-3',
+    translitSource: 'Hisn 207 (sunnah.com/hisn:207), lines 2-3',
   ),
   _DuaLesson(
     title: 'In distress — the dua of the afflicted',
@@ -172,7 +172,7 @@ const List<_DuaLesson> kDuaLessons = <_DuaLesson>[
     source: 'Sahih al-Bukhari 6346',
     translit:
         "Lā ilāha illallāh al-`Aẓīmul-Ḥalīm, lā ilāha illallāh Rabbu 'l-`Arshi 'l-`Aẓīm.",
-    translitSource: 'Hisn al-Muslim 122 (sunnah.com/hisn:122), lines 1-4 (one apostrophe in the source typed for the letter ayn is written as ayn)',
+    translitSource: 'Hisn 122 (sunnah.com/hisn:122), lines 1-4 (one apostrophe in the source typed for the letter ayn is written as ayn)',
   ),
   _DuaLesson(
     title: 'Hasbunallahu wa ni\'mal wakil — the sufficiency clause',
@@ -192,7 +192,7 @@ const List<_DuaLesson> kDuaLessons = <_DuaLesson>[
     source: 'Sahih al-Bukhari 6306',
     translit:
         'Allāhumma anta Rabbī lā ilāha illā ant, khalaqtanī wa anā `abduk.',
-    translitSource: 'Hisn al-Muslim 79 (sunnah.com/hisn:79), lines 1-2',
+    translitSource: 'Hisn 79 (sunnah.com/hisn:79), lines 1-2',
   ),
 ];
 
