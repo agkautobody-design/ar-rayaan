@@ -66,6 +66,11 @@ class StoryChapter {
   final String? arabic;
   final String? dua;
 
+  /// Latin-letter reading of [arabic] (JSON `tl`) and where it was checked
+  /// (JSON `tlSource`). Null where no verified transliteration exists.
+  final String? tl;
+  final String? tlSource;
+
   /// Optional honesty label for this chapter alone, used where the chapter
   /// is weaker than the story as a whole (one of [kStoryLabels]).
   final String? label;
@@ -74,6 +79,8 @@ class StoryChapter {
     required this.body,
     this.arabic,
     this.dua,
+    this.tl,
+    this.tlSource,
     this.label,
   });
 
@@ -82,6 +89,8 @@ class StoryChapter {
         body: j['body'] as String,
         arabic: j['arabic'] as String?,
         dua: j['dua'] as String?,
+        tl: j['tl'] as String?,
+        tlSource: j['tlSource'] as String?,
         label: j['label'] as String?,
       );
 }

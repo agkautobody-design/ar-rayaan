@@ -16,9 +16,9 @@
    "version": 1
   },
   "games/names99.json": {
-   "bytes": 9313,
-   "sha256": "c8e379a052dfe4c36aaf175685f2ef91c1b42f822ce5e454dbb136e163cf15b0",
-   "version": 1
+   "bytes": 12954,
+   "sha256": "72216662c9e9b9ae3301cef91dc3e7890cf551be0900e72ae22acc81dc2e8700",
+   "version": 2
   },
   "games/trivia.json": {
    "bytes": 12480,
@@ -41,9 +41,9 @@
    "version": 7
   },
   "stories/dailyduas.json": {
-   "bytes": 47386,
-   "sha256": "3fb8a89c8050a2255afb803970fbd5eacf46156443d4491877dfa2b063302aee",
-   "version": 6
+   "bytes": 56717,
+   "sha256": "990ef05616431a4b36b9d79aba6115bb17321bd158ff9bbec9d8f050084b91d7",
+   "version": 7
   },
   "stories/ghayb.json": {
    "bytes": 84523,

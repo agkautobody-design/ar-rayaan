@@ -239,6 +239,33 @@ class _StoryReaderScreenState extends ConsumerState<StoryReaderScreen> {
                 ),
               ),
             ),
+            if (current.tl != null) ...[
+              Text(
+                current.tl!,
+                key: const Key('story-chapter-tl'),
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontSize: 15,
+                  height: 1.6,
+                  fontStyle: FontStyle.italic,
+                  color: AppColors.goldLight,
+                ),
+              ),
+              if (current.tlSource != null)
+                Padding(
+                  padding: const EdgeInsets.only(top: 4, bottom: 14),
+                  child: Text(
+                    'Transliteration: ${current.tlSource!}',
+                    key: const Key('story-chapter-tl-source'),
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 12,
+                      height: 1.4,
+                      color: AppColors.sand.withValues(alpha: 0.55),
+                    ),
+                  ),
+                ),
+            ],
             if (arabicIsElided(current.arabic!))
               _ElidedArabicNote(sources: story.sources),
           ],

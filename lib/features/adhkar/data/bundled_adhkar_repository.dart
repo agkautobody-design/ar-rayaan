@@ -31,6 +31,7 @@ class BundledAdhkarRepository implements AdhkarRepository {
                 translation: i['en'] as String?,
                 source: i['source'] as String?,
                 transliteration: i['tl'] as String?,
+                transliterationSource: i['tlSource'] as String?,
               ),
           ],
         ),

@@ -118,7 +118,18 @@ void main() {
           reason: 'duplicate name ${m['name']}');
       expect((m['meaning'] as String).trim().isNotEmpty, isTrue);
       expect((m['ref'] as String).trim().isNotEmpty, isTrue);
+      // Arabic script for every Name (verified against several lists; see
+      // docs/content_needed/VERIFICATION_LOG_NAMES_DUAS.md).
+      final String ar = m['arabic'] as String? ?? '';
+      expect(ar.trim().isNotEmpty, isTrue, reason: '${m['name']}: no Arabic');
+      expect(RegExp(r'^[\u0600-\u06FF ]+$').hasMatch(ar), isTrue,
+          reason: '${m['name']}: Arabic holds a non-Arabic character');
+      expect(ar.contains('...'), isFalse);
     }
+    final Set<String> arabics = <String>{
+      for (final e in list) (e as Map<String, dynamic>)['arabic'] as String,
+    };
+    expect(arabics.length, 99, reason: 'two Names share one Arabic text');
   });
 
   test('W1.6 family tree: all relational references resolve', () {
