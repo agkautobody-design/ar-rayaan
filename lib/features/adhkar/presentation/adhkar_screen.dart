@@ -7,6 +7,7 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/theme/widgets/speak_button.dart';
+import '../../../app/theme/widgets/whole_word_text.dart';
 import '../application/adhkar_providers.dart';
 import '../domain/adhkar_models.dart';
 
@@ -183,7 +184,7 @@ class _SetPicker extends StatelessWidget {
                         : Colors.white.withValues(alpha: 0.12),
                   ),
                 ),
-                child: Text(
+                child: WholeWordText(
                   sets[i].titleEn,
                   style: AppText.caption.copyWith(
                     fontSize: 12,
@@ -193,7 +194,6 @@ class _SetPicker extends StatelessWidget {
                         : AppColors.sand.withValues(alpha: 0.7),
                   ),
                   textAlign: TextAlign.center,
-                  overflow: TextOverflow.ellipsis,
                 ),
               ),
             ),

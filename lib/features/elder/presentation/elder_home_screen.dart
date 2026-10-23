@@ -7,6 +7,7 @@ import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
+import '../../../app/theme/widgets/whole_word_text.dart';
 import '../../sakina/presentation/widgets/need_help_button.dart';
 import '../application/elder_mode.dart';
 
@@ -22,6 +23,7 @@ class ElderHomeScreen extends ConsumerStatefulWidget {
 
 class _ElderHomeState extends ConsumerState<ElderHomeScreen> {
   int _count = 0;
+  final ScrollController _scroll = ScrollController();
 
   @override
   void initState() {
@@ -33,6 +35,12 @@ class _ElderHomeState extends ConsumerState<ElderHomeScreen> {
       if (mounted) await ref.read(elderModeProvider.notifier).set(true);
       if (mounted) setState(() => _count = p.getInt('ar.elder.dhikr') ?? 0);
     });
+  }
+
+  @override
+  void dispose() {
+    _scroll.dispose();
+    super.dispose();
   }
 
   Future<void> _tap() async {
@@ -56,13 +64,19 @@ class _ElderHomeState extends ConsumerState<ElderHomeScreen> {
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: SafeArea(
-        child: ListView(
+        // The scrollbar is always drawn, so it is plain that more doors wait
+        // below the first screen.
+        child: Scrollbar(
+          controller: _scroll,
+          thumbVisibility: true,
+          child: ListView(
+          controller: _scroll,
           padding: const EdgeInsets.fromLTRB(20, 12, 20, 24),
           children: [
             Row(children: [
               const Icon(Icons.wb_sunny_outlined, color: AppColors.goldLight, size: 28),
               const SizedBox(width: 10),
-              Expanded(child: Text('As-salamu alaikum',
+              Expanded(child: WholeWordText('As-salamu alaikum',
                   style: AppText.body.copyWith(fontSize: 20, fontWeight: FontWeight.w600))),
             ]),
             const SizedBox(height: 10),
@@ -75,7 +89,7 @@ class _ElderHomeState extends ConsumerState<ElderHomeScreen> {
                   minimumSize: const Size(72, 56),
                   foregroundColor: AppColors.goldLight,
                 ),
-                child: Text('Turn off Elder Mode',
+                child: WholeWordText('Turn off Elder Mode',
                     textAlign: TextAlign.center,
                     style: AppText.body.copyWith(fontSize: 16)),
               ),
@@ -83,30 +97,6 @@ class _ElderHomeState extends ConsumerState<ElderHomeScreen> {
             const SizedBox(height: 14),
             const Center(child: NeedHelpNowButton(large: true)),
             const SizedBox(height: 14),
-            FocusableTap(
-              onTap: _tap,
-              borderRadius: 22,
-              child: Container(
-                width: double.infinity,
-                padding: const EdgeInsets.symmetric(vertical: 34),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(22),
-                  border: Border.all(color: AppColors.gold.withValues(alpha: 0.55), width: 1.6),
-                  color: const Color(0x1405090F),
-                ),
-                child: Column(children: [
-                  Text('$_count',
-                      style: const TextStyle(fontFamily: 'PlayfairDisplay', fontSize: 88,
-                          color: AppColors.goldLight)),
-                  const SizedBox(height: 6),
-                  Text('SUBHAN ALLAH', style: AppText.eyebrow.copyWith(fontSize: 20)),
-                  const SizedBox(height: 4),
-                  Text('tap to remember Allah',
-                      style: AppText.bodyMuted.copyWith(fontSize: 14)),
-                ]),
-              ),
-            ),
-            const SizedBox(height: 16),
             for (final e in const [
               ('Qur\u2019an', 'Read and listen', Icons.menu_book_outlined, AppRoutes.quran),
               ('Prayer times', 'When to pray today', Icons.access_time, AppRoutes.prayerTimes),
@@ -133,10 +123,10 @@ class _ElderHomeState extends ConsumerState<ElderHomeScreen> {
                       Expanded(child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(e.$1, style: AppText.body.copyWith(
+                          WholeWordText(e.$1, style: AppText.body.copyWith(
                               fontSize: 22, fontWeight: FontWeight.w700, color: AppColors.goldLight)),
                           const SizedBox(height: 2),
-                          Text(e.$2, style: AppText.bodyMuted.copyWith(fontSize: 14)),
+                          WholeWordText(e.$2, style: AppText.bodyMuted.copyWith(fontSize: 14)),
                         ],
                       )),
                       if (!tight)
@@ -145,7 +135,33 @@ class _ElderHomeState extends ConsumerState<ElderHomeScreen> {
                   ),
                 ),
               ),
+            const SizedBox(height: 4),
+            FocusableTap(
+              onTap: _tap,
+              borderRadius: 22,
+              child: Container(
+                width: double.infinity,
+                padding: const EdgeInsets.symmetric(vertical: 34),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(22),
+                  border: Border.all(color: AppColors.gold.withValues(alpha: 0.55), width: 1.6),
+                  color: const Color(0x1405090F),
+                ),
+                child: Column(children: [
+                  Text('$_count',
+                      style: const TextStyle(fontFamily: 'PlayfairDisplay', fontSize: 88,
+                          color: AppColors.goldLight)),
+                  const SizedBox(height: 6),
+                  WholeWordText('SUBHAN ALLAH', textAlign: TextAlign.center,
+                      style: AppText.eyebrow.copyWith(fontSize: 20)),
+                  const SizedBox(height: 4),
+                  WholeWordText('tap to remember Allah', textAlign: TextAlign.center,
+                      style: AppText.bodyMuted.copyWith(fontSize: 14)),
+                ]),
+              ),
+            ),
           ],
+          ),
         ),
       ),
     );

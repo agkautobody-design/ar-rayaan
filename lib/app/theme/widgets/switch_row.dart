@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../app_colors.dart';
 import '../app_typography.dart';
 import 'focus_ring.dart';
+import 'whole_word_text.dart';
 
 /// Below this row width the decorative icons and chevrons of a list row are
 /// dropped so the words keep the room (a very narrow window, a zoomed browser
@@ -55,12 +56,12 @@ class SwitchRow extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Text(
+                          WholeWordText(
                             title,
                             style: AppText.body.copyWith(fontSize: 14),
                           ),
                           const SizedBox(height: 2),
-                          Text(
+                          WholeWordText(
                             subtitle,
                             style: AppText.bodyMuted.copyWith(fontSize: 12),
                           ),

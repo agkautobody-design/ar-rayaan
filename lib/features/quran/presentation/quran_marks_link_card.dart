@@ -6,6 +6,7 @@ import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
+import '../../../app/theme/widgets/whole_word_text.dart';
 import '../application/quran_marks_controller.dart';
 import '../domain/quran_marks.dart';
 
@@ -54,7 +55,7 @@ class QuranMarksLinkCard extends ConsumerWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text(
+                  WholeWordText(
                     'Qur\u2019an bookmarks & notes',
                     style: AppText.body.copyWith(fontWeight: FontWeight.w600),
                   ),

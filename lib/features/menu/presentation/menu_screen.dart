@@ -10,6 +10,7 @@ import '../../../app/theme/widgets/icon_tile.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/switch_row.dart' show kTightRowWidth;
+import '../../../app/theme/widgets/whole_word_text.dart';
 import '../../auth/application/auth_providers.dart';
 import '../../academy/application/academy_providers.dart';
 
@@ -291,7 +292,7 @@ class _MenuRow extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                        WholeWordText(
                           label,
                           style: AppText.body.copyWith(
                             color: destructive
@@ -300,7 +301,7 @@ class _MenuRow extends StatelessWidget {
                           ),
                         ),
                         if (caption != null)
-                          Text(
+                          WholeWordText(
                             caption,
                             style: AppText.caption.copyWith(
                               color: AppColors.textMuted,
