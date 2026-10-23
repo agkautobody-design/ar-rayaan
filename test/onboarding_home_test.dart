@@ -289,10 +289,10 @@ void main() {
           found.add('line ${m.group(1)}');
         }
       };
-      addTearDown(() => FlutterError.onError = previous);
       await AppHarness.boot(tester);
       tester.view.physicalSize = const Size(320, 3200);
       await AppHarness.settle(tester);
+      FlutterError.onError = previous;
       expect(found.join(', '), '');
     });
 
