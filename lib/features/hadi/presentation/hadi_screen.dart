@@ -623,7 +623,7 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                       ),
                       onPressed: () => context.push(AppRoutes.sources),
                       child: Text(
-                        'Where do the answers come from? Our Sources →',
+                        'Who writes the answers, and what I cannot do →',
                         style: AppText.bodyMuted.copyWith(
                           color: AppColors.gold,
                           fontSize: 12,

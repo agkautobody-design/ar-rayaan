@@ -89,13 +89,12 @@ class _ArRayaanAppState extends ConsumerState<ArRayaanApp> {
 
   @override
   Widget build(BuildContext context) {
-    // The language the person chose in Settings (never GPS). Drives Flutter's
-    // own localizations (dialogs, date pickers). The layout mirrors to
-    // right-to-left only for a language whose whole interface is translated
-    // (LocaleController.layoutDirection): today none, so Arabic and Urdu keep
-    // the left-to-right layout instead of a mirrored English app. App text
-    // itself is only translated where L10n/AppLocalizations have strings; see
-    // LocaleController.translatedChrome.
+    // The language the person chose (first-run chooser or Settings, never
+    // GPS). Drives Flutter's own localizations (dialogs, date pickers). The
+    // layout mirrors right-to-left for Arabic and Urdu, whose navigation, home
+    // titles and first questions are translated (LocaleController.
+    // layoutDirection); everything longer is still English, and the Language
+    // screen says so (LocaleController.translationScope).
     final Locale locale = ref.watch(localeProvider);
     return MaterialApp.router(
       title: 'Ar-Rayaan',

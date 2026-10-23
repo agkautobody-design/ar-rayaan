@@ -1,12 +1,14 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../core/i18n/app_locale.dart';
 import '../app_colors.dart';
 
 /// Locked bottom navigation: Home · Faith · Family · Hādi · You.
-class AppBottomNav extends StatelessWidget {
+class AppBottomNav extends ConsumerWidget {
   const AppBottomNav({required this.shell, super.key});
 
   final StatefulNavigationShell shell;
@@ -20,7 +22,8 @@ class AppBottomNav extends StatelessWidget {
   ];
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final L10n l10n = ref.watch(l10nProvider);
     return ClipRect(
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 24, sigmaY: 24),
@@ -39,7 +42,7 @@ class AppBottomNav extends StatelessWidget {
                   Expanded(
                     child: _NavItem(
                       icon: _items[i].$1,
-                      label: _items[i].$2,
+                      label: l10n.english(_items[i].$2),
                       active: shell.currentIndex == i,
                       onTap: () => shell.goBranch(
                         i,

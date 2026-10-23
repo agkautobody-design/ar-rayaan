@@ -1,13 +1,15 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../../../app/core/i18n/app_locale.dart';
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 
-class OnboardingScreen extends StatefulWidget {
+class OnboardingScreen extends ConsumerStatefulWidget {
   const OnboardingScreen({super.key});
 
   static const pref = 'ar.onboarded.v1';
@@ -58,7 +60,7 @@ class OnboardingScreen extends StatefulWidget {
   }
 
   @override
-  State<OnboardingScreen> createState() => _OnboardingState();
+  ConsumerState<OnboardingScreen> createState() => _OnboardingState();
 }
 
 class _Need {
@@ -69,7 +71,7 @@ class _Need {
   final String blurb;
 }
 
-class _OnboardingState extends State<OnboardingScreen> {
+class _OnboardingState extends ConsumerState<OnboardingScreen> {
   final _page = PageController();
   int _i = 0;
   String? _need;
@@ -80,11 +82,11 @@ class _OnboardingState extends State<OnboardingScreen> {
     _Need('peace', Icons.favorite_outline, 'Peace for my heart',
         'Du’as and comfort for heavy days'),
     _Need('children', Icons.child_care, 'Teaching my children',
-        'Wasia’s letters school and Family Wing'),
+        'Arabic letters school and Family Wing'),
     _Need('pray', Icons.access_time, 'Praying on time',
         'Prayer times, qibla, and adhkar'),
     _Need('new', Icons.door_front_door_outlined, 'New to Islam or just curious',
-        'A gentle 30-day road, one step at a time. Everyone is welcome'),
+        'A gentle 30-day path. Everyone is welcome'),
     _Need('community', Icons.people_outline, 'A community',
         'Finding your masjid and your people'),
   ];
@@ -121,6 +123,7 @@ class _OnboardingState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     const slides = 6;
+    final L10n l10n = ref.watch(l10nProvider);
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: SafeArea(
@@ -138,58 +141,55 @@ class _OnboardingState extends State<OnboardingScreen> {
               onPageChanged: (i) => setState(() => _i = i),
               itemCount: slides,
               itemBuilder: (c, i) {
-                if (i == 1) return _needSlide();
+                if (i == 1) return _needSlide(l10n);
                 final (icon, eyebrow, title, body) = switch (i) {
                   0 => (
                       Icons.mosque_outlined,
                       'AS-SALAAMU ALAIKUM',
                       'This is Ar-Rayaan',
-                      'One app for living and learning Islam: prayer times '
-                          'and the Qur’an, stories of the Prophets, a school '
-                          'for your children, games, and a companion who '
-                          'walks with you. You do not need to be Muslim to '
-                          'look around.'
+                      'Prayer times, the Qur’an, stories of the Prophets, '
+                          'a school for your children, and a guide called '
+                          'Hādi. You do not need to be Muslim to look '
+                          'around.'
                     ),
                   2 => (
                       Icons.auto_awesome,
                       'MEET HADI',
-                      'Ask him anything',
-                      'Hādi is this app’s guide: you type a question in '
-                          'plain words and he answers. He is free and works '
-                          'offline, from a built-in shelf of authentic '
-                          'knowledge. If you like, you can connect your own '
-                          'AI account later for open conversation. Either '
-                          'way, he never invents a source.'
+                      'Ask Hādi anything',
+                      'Type a question in plain words. Hādi answers from '
+                          'a built-in shelf of cited texts, free and '
+                          'offline, and never invents a source. You can '
+                          'connect your own AI account later for open '
+                          'conversation.'
                     ),
                   3 => (
                       Icons.school_outlined,
                       'MEET WASIA',
                       'The letters school',
-                      'Wasia teaches your children the Arabic letters, one '
-                          'gentle step at a time — and the Family Wing shows '
-                          'you every lesson and exam they complete.'
+                      'Wasia teaches children the Arabic letters, one '
+                          'step at a time. The Family Wing shows every '
+                          'lesson and exam they finish.'
                     ),
                   4 => (
                       Icons.home_outlined,
                       'YOUR HOME',
                       'Made for your days',
-                      'Your first hour here: check prayer times, read one '
-                          'story, open the Academy. When the heart is '
+                      'Your first hour: check prayer times, read one '
+                          'story, open the Academy. When your heart feels '
                           'heavy, For Your Heart is always open.'
                     ),
                   _ => (
                       Icons.wb_twilight,
                       'LET’S BEGIN',
                       'Bismillah',
-                      'The road is open. Whatever you chose, you can change '
-                          'it later — every room of the house stays open '
-                          'to you.'
+                      'Whatever you chose, you can change it later. Every '
+                          'room of the house stays open to you.'
                     ),
                 };
-                return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                return _scrollSlide(
+                  horizontal: 30,
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
                     children: [
                       Container(
                         width: 92, height: 92,
@@ -207,6 +207,10 @@ class _OnboardingState extends State<OnboardingScreen> {
                       const SizedBox(height: 14),
                       Text(body, textAlign: TextAlign.center,
                           style: AppText.bodyMuted.copyWith(fontSize: 14, height: 1.7)),
+                      if (i == 0) ...[
+                        const SizedBox(height: 22),
+                        _languageChooser(l10n),
+                      ],
                     ],
                   ),
                 );
@@ -241,7 +245,8 @@ class _OnboardingState extends State<OnboardingScreen> {
                     backgroundColor: AppColors.gold,
                     foregroundColor: const Color(0xFF0A0F18),
                     padding: const EdgeInsets.symmetric(vertical: 14)),
-                child: Text(_i < slides - 1 ? 'Next' : 'Begin'),
+                child: Text(
+                    _i < slides - 1 ? l10n.ui('ui.next') : l10n.ui('ui.begin')),
               ),
             ),
           ),
@@ -250,13 +255,98 @@ class _OnboardingState extends State<OnboardingScreen> {
     );
   }
 
-  Widget _needSlide() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24),
+  /// A slide that centres its content when there is room and scrolls when
+  /// there is not (320 px wide phones, large text), instead of overflowing.
+  Widget _scrollSlide({required double horizontal, required Widget child}) {
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints box) =>
+          SingleChildScrollView(
+        padding: EdgeInsets.symmetric(horizontal: horizontal, vertical: 8),
+        child: ConstrainedBox(
+          constraints: BoxConstraints(minHeight: box.maxHeight - 16),
+          child: Center(child: child),
+        ),
+      ),
+    );
+  }
+
+  /// The first-run language choice. It sets the language straight away (and
+  /// the layout direction for Arabic and Urdu) and says plainly how much of
+  /// the app that changes.
+  Widget _languageChooser(L10n l10n) {
+    final Locale current = ref.watch(localeProvider);
+    const Map<String, String> names = <String, String>{
+      'en': 'English',
+      'ar': 'العربية',
+      'bn': 'বাংলা',
+      'ur': 'اردو',
+    };
+    return Column(
+      key: const Key('onboarding-language'),
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Text(l10n.ui('ui.language').toUpperCase(), style: AppText.eyebrow),
+        const SizedBox(height: 8),
+        Wrap(
+          alignment: WrapAlignment.center,
+          spacing: 8,
+          runSpacing: 8,
+          children: [
+            for (final Locale loc in LocaleController.firstRunChoices)
+              Semantics(
+                button: true,
+                selected: current.languageCode == loc.languageCode,
+                label: names[loc.languageCode],
+                excludeSemantics: true,
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(22),
+                  onTap: () =>
+                      ref.read(localeProvider.notifier).setLocale(loc),
+                  child: Container(
+                    constraints:
+                        const BoxConstraints(minHeight: 48, minWidth: 72),
+                    alignment: Alignment.center,
+                    padding: const EdgeInsets.symmetric(horizontal: 14),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(22),
+                      color: current.languageCode == loc.languageCode
+                          ? AppColors.gold.withValues(alpha: 0.12)
+                          : Colors.transparent,
+                      border: Border.all(
+                        color: current.languageCode == loc.languageCode
+                            ? AppColors.gold
+                            : AppColors.gold.withValues(alpha: 0.3),
+                      ),
+                    ),
+                    child: Text(names[loc.languageCode] ?? '',
+                        style: AppText.body.copyWith(
+                            color: current.languageCode == loc.languageCode
+                                ? AppColors.goldLight
+                                : null)),
+                  ),
+                ),
+              ),
+          ],
+        ),
+        const SizedBox(height: 8),
+        Text(
+          'Menus and titles change. Lessons, stories and answers stay in '
+          'English for now.',
+          textAlign: TextAlign.center,
+          style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.4),
+        ),
+      ],
+    );
+  }
+
+  Widget _needSlide(L10n l10n) {
+    return _scrollSlide(
+      horizontal: 24,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
         children: [
-          Text('WHAT BRINGS YOU HERE?', style: AppText.eyebrow),
+          Text(l10n.ui('onb.question').toUpperCase(),
+              textAlign: TextAlign.center, style: AppText.eyebrow),
           const SizedBox(height: 8),
           Text('Choose one — it only sets your first door.',
               textAlign: TextAlign.center,
@@ -270,7 +360,7 @@ class _OnboardingState extends State<OnboardingScreen> {
                   Expanded(
                     child: Padding(
                       padding: EdgeInsets.only(right: col == 0 ? 5 : 0, left: col == 1 ? 5 : 0),
-                      child: _needCard(_needs[row * 2 + col]),
+                      child: _needCard(_needs[row * 2 + col], l10n),
                     ),
                   ),
               ]),
@@ -280,7 +370,7 @@ class _OnboardingState extends State<OnboardingScreen> {
     );
   }
 
-  Widget _needCard(_Need n) {
+  Widget _needCard(_Need n, L10n l10n) {
     final bool selected = _need == n.key;
     return GestureDetector(
       onTap: () => setState(() => _need = n.key),
@@ -302,7 +392,7 @@ class _OnboardingState extends State<OnboardingScreen> {
           Icon(n.icon, size: 22,
               color: selected ? AppColors.gold : AppColors.sand.withValues(alpha: 0.6)),
           const SizedBox(height: 8),
-          Text(n.title, textAlign: TextAlign.center,
+          Text(l10n.english(n.title), textAlign: TextAlign.center,
               style: AppText.body.copyWith(
                   fontSize: 12.5, fontWeight: FontWeight.w600,
                   color: selected ? AppColors.goldLight : null)),

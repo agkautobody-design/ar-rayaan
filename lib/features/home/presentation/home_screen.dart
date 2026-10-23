@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart' show DateFormat;
 
+import '../../../app/core/i18n/app_locale.dart';
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
@@ -333,7 +334,7 @@ class HomeScreen extends ConsumerWidget {
                           for (final (_, title, sub, route) in shownTiles)
                             _PictureTile(
                               image: _tileImage(title),
-                              title: title,
+                              title: ref.watch(l10nProvider).english(title),
                               subtitle: sub,
                               badge: _badgeFor(ref, route),
                               onTap: () =>
