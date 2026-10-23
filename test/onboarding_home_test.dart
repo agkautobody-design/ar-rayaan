@@ -281,7 +281,7 @@ void main() {
       final List<String> found = <String>[];
       final void Function(FlutterErrorDetails)? previous = FlutterError.onError;
       FlutterError.onError = (FlutterErrorDetails d) {
-        final String text = d.toStringDeep();
+        final String text = d.toString(minLevel: DiagnosticLevel.debug);
         if (text.contains('overflowed') &&
             RegExp(r'_PictureTile|_NextStepCard|_SemanticTap').hasMatch(text)) {
           found.add(text.split('\n').first);
