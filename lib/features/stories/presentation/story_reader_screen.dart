@@ -109,7 +109,10 @@ class _StoryReaderScreenState extends ConsumerState<StoryReaderScreen> {
           ScreenHeader(title: story.kicker, close: true),
           Align(
             alignment: Alignment.centerRight,
-            child: _SaveStoryButton(storyId: story.id),
+            child: _SaveStoryButton(
+              storyId: story.id,
+              isDua: story.collection == 'dailyduas',
+            ),
           ),
           Text(
             story.title,
@@ -308,19 +311,22 @@ class _StoryReaderScreenState extends ConsumerState<StoryReaderScreen> {
   }
 }
 
-/// Save / unsave this story. Saved stories are listed under Bookmarks in
-/// My Journey (and Hadi saves into the same list on request).
+/// Save / unsave this story or dua. Saved items are listed under Bookmarks
+/// in the You tab (and Hadi saves into the same list on request).
 class _SaveStoryButton extends ConsumerWidget {
-  const _SaveStoryButton({required this.storyId});
+  const _SaveStoryButton({required this.storyId, this.isDua = false});
 
   final String storyId;
+  final bool isDua;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final bool saved = ref.watch(savedStoriesProvider).contains(storyId);
     final String tip = saved
         ? 'Saved to Bookmarks. Tap to remove.'
-        : 'Save this story to Bookmarks';
+        : (isDua
+            ? 'Save this dua to Bookmarks'
+            : 'Save this story to Bookmarks');
     return Tooltip(
       message: tip,
       child: TextButton.icon(
@@ -331,7 +337,7 @@ class _SaveStoryButton extends ConsumerWidget {
             ..showSnackBar(SnackBar(
               content: Text(saved
                   ? 'Removed from Bookmarks.'
-                  : 'Saved. Find it under Bookmarks in My Journey.'),
+                  : 'Saved. Find it in the You tab, under Bookmarks.'),
               duration: const Duration(seconds: 2),
             ));
         },
