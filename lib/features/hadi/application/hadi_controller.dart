@@ -37,7 +37,7 @@ const Set<String> kHadiNavWhitelist = <String>{
   '/feelings', '/family-tree', '/huda', '/elder-care',
   '/qibla', '/hadith', '/sakina', '/share', '/notes',
   '/quran', '/prayer', '/zakat', '/calendar', '/adhkar', '/explore',
-  '/sources/policy', '/legal/terms',
+  '/sources/policy',
   '/journey', '/settings', '/sources', '/hadi', '/noor',
   '/search', '/profile', '/home/elder', '/games/trivia',
   '/academy/review', '/academy/letters', '/academy/audio-packs',

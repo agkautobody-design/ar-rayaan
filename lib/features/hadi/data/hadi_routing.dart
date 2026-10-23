@@ -836,14 +836,14 @@ abstract final class HadiRouting {
       'The app does not name an owner, a company or a funder on the '
       'screens I can read from, so I have none to give you, and I will not '
       'guess one.\n\n'
-      'What it does say: the Terms of Service describe Ar-Rayaan as a '
+      'What it does say: the Terms of Service (in Settings) describe Ar-Rayaan as a '
       'study and reflection companion, not a religious authority. Our '
       'Sources lists every text, translation and reciter it uses, and '
       'links Shaykh Muhammad Saqib Iqbal’s channel for guidance. How we '
       'handle religious content says no named scholar has reviewed the app '
       'yet. On cost: everything in this app, including me, is free today, '
       'nothing asks for a card, and a paid plan for extra live answers is '
-      'planned but not open.\n[GO:/sources]\n[GO:/legal/terms]';
+      'planned but not open.\n[GO:/sources]\n[GO:/settings]';
 
   // ── The same answer twice ────────────────────────────────────────────
 

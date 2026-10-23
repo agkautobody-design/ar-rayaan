@@ -1,4 +1,3 @@
-import 'package:ar_rayaan/features/hadi/application/hadi_controller.dart';
 import 'package:ar_rayaan/features/hadi/application/hadi_provider.dart';
 import 'package:ar_rayaan/features/hadi/data/hadi_routing.dart';
 import 'package:ar_rayaan/features/hadi/data/offline_hadi_provider.dart';
@@ -127,7 +126,6 @@ void main() {
       expect(a.contains('enough authentic knowledge'), isFalse);
       expect(a, contains('free today'));
       expect(a, contains('[GO:/sources]'));
-      expect(kHadiNavWhitelist.contains('/legal/terms'), isTrue);
     });
 
     test('"who is the owner of Tesla" is not about this app', () {
