@@ -9,6 +9,8 @@ import 'package:ar_rayaan/features/games/presentation/games_screens.dart';
 import 'package:ar_rayaan/features/hadi/application/hadi_controller.dart';
 import 'package:ar_rayaan/features/hadi/application/hadi_provider.dart';
 import 'package:ar_rayaan/features/hadi/grounding/corpus.dart';
+import 'package:ar_rayaan/features/stories/data/stories_repository.dart';
+import 'package:ar_rayaan/features/stories/domain/story.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -74,7 +76,12 @@ void main() {
   });
 
   testWidgets('a Seerah chapter opens its story', (WidgetTester tester) async {
-    await AppHarness.boot(tester);
+    await AppHarness.boot(
+      tester,
+      overrides: <Override>[
+        storiesProvider.overrideWith((ref) async => <Story>[]),
+      ],
+    );
     await AppHarness.go(tester, find.byType(Scaffold).first, '/academy/seerah');
     await tester.tap(find.text('The Year of the Elephant'));
     await AppHarness.settle(tester);
