@@ -1,13 +1,15 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../../../app/core/i18n/app_locale.dart';
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 
-class OnboardingScreen extends StatefulWidget {
+class OnboardingScreen extends ConsumerStatefulWidget {
   const OnboardingScreen({super.key});
 
   static const pref = 'ar.onboarded.v1';
@@ -65,7 +67,7 @@ class OnboardingScreen extends StatefulWidget {
   }
 
   @override
-  State<OnboardingScreen> createState() => _OnboardingState();
+  ConsumerState<OnboardingScreen> createState() => _OnboardingState();
 }
 
 class _Need {
@@ -76,7 +78,7 @@ class _Need {
   final String blurb;
 }
 
-class _OnboardingState extends State<OnboardingScreen> {
+class _OnboardingState extends ConsumerState<OnboardingScreen> {
   final _page = PageController();
   int _i = 0;
   String? _need;
@@ -139,6 +141,7 @@ class _OnboardingState extends State<OnboardingScreen> {
     // Back on a later slide steps to the slide before it (the system Back
     // and the browser-less Android gesture); on the first slide it leaves
     // as usual, to the Home the introduction was opened over.
+    final L10n l10n = ref.watch(l10nProvider);
     return PopScope(
       canPop: _i == 0,
       onPopInvokedWithResult: (bool didPop, Object? result) {
@@ -176,7 +179,7 @@ class _OnboardingState extends State<OnboardingScreen> {
             child: PageView(
               controller: _page,
               onPageChanged: (i) => setState(() => _i = i),
-              children: [_welcomeSlide(), _needSlide()],
+              children: [_welcomeSlide(l10n), _needSlide(l10n)],
             ),
           ),
           Row(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -208,7 +211,8 @@ class _OnboardingState extends State<OnboardingScreen> {
                     foregroundColor: const Color(0xFF0A0F18),
                     minimumSize: const Size.fromHeight(48),
                     padding: const EdgeInsets.symmetric(vertical: 14)),
-                child: Text(_i < slides - 1 ? 'Next' : 'Begin'),
+                child: Text(
+                    _i < slides - 1 ? l10n.ui('ui.next') : l10n.ui('ui.begin')),
               ),
             ),
           ),
@@ -219,7 +223,7 @@ class _OnboardingState extends State<OnboardingScreen> {
   }
 
   /// The one welcome screen. It scrolls, so big text never hides the words.
-  Widget _welcomeSlide() {
+  Widget _welcomeSlide(L10n l10n) {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints box) => SingleChildScrollView(
         child: ConstrainedBox(
@@ -260,6 +264,8 @@ class _OnboardingState extends State<OnboardingScreen> {
                       fontSize: 13.5, fontWeight: FontWeight.w600,
                       color: AppColors.goldLight),
                 ),
+                const SizedBox(height: 22),
+                _languageChooser(l10n),
               ],
             ),
           ),
@@ -270,7 +276,76 @@ class _OnboardingState extends State<OnboardingScreen> {
 
 
 
-  Widget _needSlide() {
+  /// The first-run language choice. It sets the language straight away (and
+  /// the layout direction for Arabic and Urdu) and says plainly how much of
+  /// the app that changes.
+  Widget _languageChooser(L10n l10n) {
+    final Locale current = ref.watch(localeProvider);
+    const Map<String, String> names = <String, String>{
+      'en': 'English',
+      'ar': 'العربية',
+      'bn': 'বাংলা',
+      'ur': 'اردو',
+    };
+    return Column(
+      key: const Key('onboarding-language'),
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Text(l10n.ui('ui.language').toUpperCase(), style: AppText.eyebrow),
+        const SizedBox(height: 8),
+        Wrap(
+          alignment: WrapAlignment.center,
+          spacing: 8,
+          runSpacing: 8,
+          children: [
+            for (final Locale loc in LocaleController.firstRunChoices)
+              Semantics(
+                button: true,
+                selected: current.languageCode == loc.languageCode,
+                label: names[loc.languageCode],
+                excludeSemantics: true,
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(22),
+                  onTap: () =>
+                      ref.read(localeProvider.notifier).setLocale(loc),
+                  child: Container(
+                    constraints:
+                        const BoxConstraints(minHeight: 48, minWidth: 72),
+                    alignment: Alignment.center,
+                    padding: const EdgeInsets.symmetric(horizontal: 14),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(22),
+                      color: current.languageCode == loc.languageCode
+                          ? AppColors.gold.withValues(alpha: 0.12)
+                          : Colors.transparent,
+                      border: Border.all(
+                        color: current.languageCode == loc.languageCode
+                            ? AppColors.gold
+                            : AppColors.gold.withValues(alpha: 0.3),
+                      ),
+                    ),
+                    child: Text(names[loc.languageCode] ?? '',
+                        style: AppText.body.copyWith(
+                            color: current.languageCode == loc.languageCode
+                                ? AppColors.goldLight
+                                : null)),
+                  ),
+                ),
+              ),
+          ],
+        ),
+        const SizedBox(height: 8),
+        Text(
+          'Menus and titles change. Lessons, stories and answers stay in '
+          'English for now.',
+          textAlign: TextAlign.center,
+          style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.4),
+        ),
+      ],
+    );
+  }
+
+  Widget _needSlide(L10n l10n) {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints box) => SingleChildScrollView(
         child: ConstrainedBox(
@@ -280,7 +355,8 @@ class _OnboardingState extends State<OnboardingScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('WHAT BRINGS YOU HERE?', style: AppText.eyebrow),
+                Text(l10n.ui('onb.question').toUpperCase(),
+                    textAlign: TextAlign.center, style: AppText.eyebrow),
                 const SizedBox(height: 8),
                 Text('Choose one \u2014 it only sets your first door.',
                     textAlign: TextAlign.center,
@@ -295,7 +371,7 @@ class _OnboardingState extends State<OnboardingScreen> {
                           Expanded(
                             child: Padding(
                               padding: EdgeInsets.only(right: col == 0 ? 5 : 0, left: col == 1 ? 5 : 0),
-                              child: _needCard(_needs[row * 2 + col]),
+                              child: _needCard(_needs[row * 2 + col], l10n),
                             ),
                           ),
                       ],
@@ -309,7 +385,7 @@ class _OnboardingState extends State<OnboardingScreen> {
     );
   }
 
-  Widget _needCard(_Need n) {
+  Widget _needCard(_Need n, L10n l10n) {
     final bool selected = _need == n.key;
     return GestureDetector(
       onTap: () => setState(() => _need = n.key),
@@ -331,7 +407,7 @@ class _OnboardingState extends State<OnboardingScreen> {
           Icon(n.icon, size: 22,
               color: selected ? AppColors.gold : AppColors.sand.withValues(alpha: 0.6)),
           const SizedBox(height: 8),
-          Text(n.title, textAlign: TextAlign.center,
+          Text(l10n.english(n.title), textAlign: TextAlign.center,
               style: AppText.body.copyWith(
                   fontSize: 12.5, fontWeight: FontWeight.w600,
                   color: selected ? AppColors.goldLight : null)),

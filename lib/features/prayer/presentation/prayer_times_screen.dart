@@ -17,6 +17,7 @@ import '../../../app/theme/widgets/screen_header.dart';
 import '../../calendar/application/hijri_settings.dart';
 import '../../calendar/domain/hijri_date.dart';
 import '../application/iqamah_settings.dart';
+import '../application/jumuah_countdown.dart';
 import '../application/location_providers.dart';
 import '../application/prayer_alerts.dart';
 import '../application/prayer_log.dart';
@@ -309,7 +310,7 @@ class _ScheduleState extends ConsumerState<_Schedule> {
                 color: AppColors.gold.withValues(alpha: 0.1),
                 indent: 64,
               ),
-              _JumuahRow(
+              JumuahRow(
                 time: iqamah.jumuahTime,
                 isFriday: data.dhuhr.weekday == DateTime.friday,
               ),
@@ -896,21 +897,35 @@ Future<void> _pickJumuahTime(BuildContext context, WidgetRef ref) async {
 
 /// Friday's congregational prayer, always visible in the list. The time is
 /// the one the person types in for their mosque (never fetched); tapping the
-/// row sets or changes it. There is no bell: alerts follow the calculated
-/// prayer times, not a hand-entered mosque time.
-class _JumuahRow extends ConsumerWidget {
-  const _JumuahRow({required this.time, required this.isFriday});
+/// row sets or changes it (the masjid finder link sits just below the row). Once a
+/// time is set the row shows how long until the next Friday prayer. There is
+/// no bell: alerts are planned from the calculated prayer times (see
+/// planPrayerNotifications), which cannot take a hand-entered time without
+/// new scheduling plumbing.
+class JumuahRow extends ConsumerWidget {
+  const JumuahRow({
+    required this.time,
+    required this.isFriday,
+    this.now,
+    super.key,
+  });
 
   final String? time;
   final bool isFriday;
 
+  /// The clock for the countdown; the real time when null (tests pass one).
+  final DateTime? now;
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final DateTime clock = now ?? DateTime.now();
+    final DateTime? next = nextJumuah(clock, time);
     return InkWell(
       onTap: () => _pickJumuahTime(context, ref),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 13),
         child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
               width: 36,
@@ -939,9 +954,19 @@ class _JumuahRow extends ConsumerWidget {
                       color: AppColors.sand.withValues(alpha: 0.9),
                     ),
                   ),
+                  if (next != null)
+                    Text(
+                      '${jumuahCountdown(clock, next)} \u00b7 '
+                      '${DateFormat.jm().format(next)}',
+                      key: const Key('jumuah-countdown'),
+                      style: AppText.bodyMuted.copyWith(
+                        fontSize: 12,
+                        color: AppColors.goldLight,
+                      ),
+                    ),
                   Text(
                     time == null
-                        ? 'Your mosque\u2019s time \u2014 tap to set'
+                        ? 'Not set. Tap to enter your mosque\u2019s time.'
                         : 'Your mosque\u2019s time \u00b7 tap to change',
                     style: AppText.bodyMuted.copyWith(fontSize: 12),
                   ),

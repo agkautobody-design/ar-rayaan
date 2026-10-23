@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'ui_labels.dart';
+
 /// LANGUAGE SETTINGS — the founder's law: a user chooses their language;
 /// GPS never decides it for them.
 class LocaleController extends StateNotifier<Locale> {
@@ -27,28 +29,49 @@ class LocaleController extends StateNotifier<Locale> {
 
   static bool isRtl(Locale l) => rtlLanguages.contains(l.languageCode);
 
-  /// Languages whose WHOLE interface is translated. Only these may mirror
-  /// the layout. Today that is nobody: Arabic and Urdu translate nine
-  /// Settings labels, while every other screen is English, and a mirrored
-  /// English interface is worse than an unmirrored one. Add a language here
-  /// when its screens are translated and checked.
-  static const Set<String> fullyTranslated = <String>{};
+  /// Languages the first-run chooser offers, in this order.
+  static const List<Locale> firstRunChoices = <Locale>[
+    Locale('en'),
+    Locale('ar'),
+    Locale('bn'),
+    Locale('ur'),
+  ];
 
-  /// The layout direction for [l]: right-to-left only for a right-to-left
-  /// language whose interface is fully translated, otherwise left-to-right.
-  /// (Arabic scripture still draws right-to-left by its own script.)
+  /// Languages whose navigation, home tiles, first-run questions and Settings
+  /// top rows are translated (ui_labels.dart). Only these may mirror the
+  /// layout, and only if they are written right-to-left. Lessons, stories,
+  /// hadith, Hadi and long texts are still English everywhere, so the Language
+  /// screen says exactly that. Add a language here only when its labels in
+  /// ui_labels.dart exist and a native speaker has looked at them.
+  static const Set<String> shellTranslated = kUiLabelLanguages;
+
+  /// The layout direction for [l]: right-to-left for Arabic and Urdu (their
+  /// shell labels are translated), otherwise left-to-right. Arabic scripture
+  /// draws right-to-left by its own script in every language.
   static TextDirection layoutDirection(Locale l) =>
-      isRtl(l) && fullyTranslated.contains(l.languageCode)
+      isRtl(l) && shellTranslated.contains(l.languageCode)
           ? TextDirection.rtl
           : TextDirection.ltr;
 
-  /// Languages that have a real translation of the Language & Voice settings
-  /// labels (L10n strings below). That is the ONLY app text translated into
-  /// them - lessons, stories, hadith, menus and prayer screens are English
-  /// with the original Arabic scripture. Used by the language screen so it
-  /// never claims more than exists.
+  /// Languages that have any translated UI text at all (the short labels in
+  /// ui_labels.dart, or the Language & Voice labels in L10n below).
   static bool translatedChrome(Locale l) =>
-      L10n._strings.containsKey(l.languageCode);
+      L10n._strings.containsKey(l.languageCode) ||
+      kUiLabelLanguages.contains(l.languageCode);
+
+  /// A one-line, truthful statement of what is translated in [l].
+  static String translationScope(Locale l) {
+    final String c = l.languageCode;
+    if (c == 'en') return 'Everything is in English';
+    if (kUiLabelLanguages.contains(c)) {
+      return 'Menus, home tiles and the first questions are translated. '
+          'Everything else is English';
+    }
+    if (L10n._strings.containsKey(c)) {
+      return 'Only the Language & Voice labels are translated';
+    }
+    return 'Not translated yet; the app stays in English';
+  }
 
   Future<void> _load() async {
     final p = await SharedPreferences.getInstance();
@@ -139,6 +162,14 @@ class L10n {
     final map = words[key];
     return map?[locale.languageCode] ?? map?['en'] ?? key;
   }
+
+  /// A short interface label from ui_labels.dart (English when this language
+  /// has none).
+  String ui(String key) => uiLabel(key, locale.languageCode);
+
+  /// Translates a label written in English at the call site; unknown text is
+  /// returned unchanged.
+  String english(String text) => uiLabelForEnglish(text, locale.languageCode);
 
   String t(String key) {
     final map = _strings[locale.languageCode];
