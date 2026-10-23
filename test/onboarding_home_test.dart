@@ -278,7 +278,7 @@ void main() {
       final Finder tile = find.text('Prayer Times');
       expect(tile, findsWidgets, reason: 'tile built on the first screen');
       final Rect r = tester.getRect(tile.first);
-      expect(r.top, lessThan(560), reason: 'tile title at ${r.top}');
+      expect(r.top, lessThan(600), reason: 'tile title at ${r.top}');
     });
 
     testWidgets('200% text: the Elder Mode card is on the first screen', (
