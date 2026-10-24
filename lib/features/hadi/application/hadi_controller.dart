@@ -12,6 +12,8 @@ import '../../stories/application/saved_stories_controller.dart';
 import '../../stories/data/stories_repository.dart';
 import '../../hadith/application/feeling_providers.dart';
 import '../../hadith/domain/daily_hadith.dart';
+import '../../../app/core/packages/hadi_package.dart';
+import '../../../app/core/packages/usage_meter.dart';
 import '../../../app/core/subscription/subscription_service.dart';
 import '../../sakina/application/sakina_providers.dart';
 import '../../sakina/domain/crisis_detector.dart';
@@ -19,6 +21,7 @@ import '../data/groq_hadi_provider.dart';
 import '../data/hadi_explain.dart';
 import '../data/hadi_finder.dart';
 import '../data/hadi_routing.dart';
+import '../data/hosted_ai.dart';
 import '../data/offline_hadi_provider.dart';
 import '../grounding/answer_verifier.dart';
 import '../grounding/corpus.dart';
@@ -704,6 +707,38 @@ class HadiController extends Notifier<HadiState> {
     }
   }
 
+  /// Set by [_hostedFor] when the person's allowance is spent, so the reply
+  /// can say so kindly. Null otherwise.
+  String? _hostedCapNote;
+
+  /// The hosted provider for [q], or null when the built-in library answers
+  /// it (the normal case), or the package allowance is spent (then
+  /// [_hostedCapNote] says so and the library's reply is still shown).
+  Future<HadiProvider?> _hostedFor(String q, List<HadiMessage> history) async {
+    _hostedCapNote = null;
+    try {
+      final String shelf = await const OfflineHadiProvider().ask(q, history);
+      if (!HadiRouting.isRefusal(shelf)) return null;
+    } catch (_) {
+      return null;
+    }
+    final HadiPackage pkg = ref.read(hadiPackageProvider);
+    final HadiPackageLimits limits = kHadiPackageLimits[pkg]!;
+    final UsageMeter meter = ref.read(usageMeterProvider);
+    final UsageSnapshot snap = meter.snapshot(limits);
+    if (!snap.canUse) {
+      _hostedCapNote =
+          '${hostedCapMessage(monthSpent: snap.monthSpent)}\n\n';
+      return null;
+    }
+    return HostedHadiProvider(
+      backend: ref.read(hostedAiProvider),
+      meter: meter,
+      package: pkg,
+      limits: limits,
+    );
+  }
+
   Future<String> _ask(String question, {HadiProvider? provider}) async {
     if (question.trim().isEmpty || state.typing) return '';
     final String q = question.trim();
@@ -855,6 +890,25 @@ class HadiController extends Notifier<HadiState> {
           in state.messages.sublist(0, state.messages.length - 1))
         if (!m.sensitive && !m.ephemeral) m,
     ];
+    // Hosted AI (package-capped): only for a question the built-in library
+    // cannot answer, and never on any safety path above. The library always
+    // answers first and is never metered or gated.
+    bool hosted = false;
+    if (!onDeviceOnly &&
+        provider == null &&
+        p is OfflineHadiProvider &&
+        ruling == RulingClass.none &&
+        !isRulingShaped(q) &&
+        !OfflineHadiProvider.asksMedical(q) &&
+        ref.read(hostedAiProvider).isAvailable) {
+      final HadiProvider? h = await _hostedFor(q, history);
+      if (h != null) {
+        p = h;
+        hosted = true;
+      } else if (_hostedCapNote != null) {
+        quotaNote = _hostedCapNote;
+      }
+    }
     final HadiCorpus corpus = await _corpus();
     bool usedLive = false;
     bool failedLive = false;
@@ -887,6 +941,7 @@ class HadiController extends Notifier<HadiState> {
           }
         } catch (_) {}
         ctx.write('${madhhab.promptLine}\n');
+        if (hosted) ctx.write(kHostedAiScopeRules);
         if (ruling == RulingClass.general) {
           ctx.write('This is a general question about a ruling. Explain the '
               'general position and that schools differ. Do not apply it to '
@@ -919,13 +974,15 @@ class HadiController extends Notifier<HadiState> {
       } catch (_) {
         offline = OfflineHadiProvider.declineFor(_apiKey != null);
       }
-      failedLive = true;
+      failedLive = e is! HostedAiCapReached;
       final String why = e is HadiProviderException
           ? e.message
           : 'I could not connect. Check your internet connection, or '
               'whether your browser is blocking the AI service.';
-      answer = 'I could not reach my live knowledge engine just now ($why) '
-          'Offline guidance: $offline';
+      answer = e is HostedAiCapReached
+          ? '${hostedCapMessage(monthSpent: false)}\n\n$offline'
+          : 'I could not reach my live knowledge engine just now ($why) '
+              'Offline guidance: $offline';
     }
     if (quotaNote != null) answer = quotaNote + answer;
     debugBeforeTail?.call(answer);
@@ -962,6 +1019,11 @@ class HadiController extends Notifier<HadiState> {
       if (clean.trim().isEmpty) {
         clean = 'I could not find a reply here that I can stand behind. '
             'Please ask in other words, or ask a qualified scholar.';
+      }
+      if (hosted) {
+        final int cap =
+            kHadiPackageLimits[ref.read(hadiPackageProvider)]!.maxReplyChars;
+        clean = '${limitReply(clean, cap)}\n\n$kHostedAiLabel';
       }
     } else if (crisis == null) {
       // The built-in shelf is written by hand. Whatever Qur'an verse or

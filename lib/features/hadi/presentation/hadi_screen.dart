@@ -28,6 +28,7 @@ import '../grounding/corpus.dart';
 import '../grounding/madhhab.dart';
 import '../grounding/passage.dart';
 import 'hadi_markdown.dart';
+import 'hadi_usage_line.dart';
 import 'hadi_widgets.dart';
 import '../../sakina/application/sakina_providers.dart';
 import '../../sakina/domain/crisis_detector.dart';
@@ -759,6 +760,7 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                 ),
                 textAlign: TextAlign.center,
               ),
+            if (!tight) const HadiUsageLine(),
             if (hadi.messages.length == 1 && !fullIntro && !tight)
               Padding(
                 padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
