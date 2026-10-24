@@ -21,6 +21,7 @@ import '../domain/course_manifest.dart';
 import '../domain/lesson_grounding.dart';
 import '../domain/lesson_provenance.dart';
 import '../domain/next_lesson.dart';
+import '../../share/application/share_text.dart';
 import '../../share/domain/handout.dart';
 import '../../share/presentation/handout_screen.dart';
 import '../../share/presentation/share_actions.dart';
@@ -134,7 +135,22 @@ class _LessonPlayerScreenState
                       textAlign: TextAlign.center,
                     ),
                   ],
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 8),
+                  TextButton.icon(
+                    key: const Key('lesson-share'),
+                    onPressed: () => unawaited(
+                      showSharePreview(
+                        context,
+                        text: milestoneShareText(
+                          'the lesson “${AcademyStrings.get(_lesson.titleKey)}”',
+                        ),
+                        subject: 'this lesson',
+                      ),
+                    ),
+                    icon: const Icon(Icons.ios_share, size: 18),
+                    label: const Text('Share this lesson'),
+                  ),
+                  const SizedBox(height: 8),
                   if (next != null) ...<Widget>[
                     FilledButton(
                       key: const Key('next-lesson'),

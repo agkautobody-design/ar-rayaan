@@ -284,10 +284,11 @@ class SettingsScreen extends ConsumerWidget {
                           ),
                           child: SwitchRow(
                             icon: Icons.wb_twilight_outlined,
-                            title: 'Show days I came back',
-                            subtitle: 'A quiet count for Qur\u2019an reading, '
-                                'adhkar and lessons. Never for prayers. '
-                                'Kept on this device only.',
+                            title: 'Keep my streaks',
+                            subtitle: 'Gentle streaks for Qur\u2019an reading, '
+                                'dhikr and lessons, kept on this device '
+                                'only. Prayers are read from your own '
+                                'prayer log and are never shared.',
                             value: ref.watch(returnLoopEnabledProvider),
                             onChanged: (bool v) => unawaited(
                               ref
@@ -304,6 +305,12 @@ class SettingsScreen extends ConsumerWidget {
                             fontSize: 12,
                             height: 1.5,
                           ),
+                        ),
+                        const SizedBox(height: 8),
+                        TextButton(
+                          key: const Key('open-streaks'),
+                          onPressed: () => context.open(AppRoutes.streaks),
+                          child: const Text('Open my streaks'),
                         ),
                         if (ref.watch(returnMessageProvider) != null) ...<Widget>[
                           const SizedBox(height: 8),

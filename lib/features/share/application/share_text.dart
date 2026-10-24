@@ -23,3 +23,26 @@ String composeShareText({
   ];
   return blocks.join('\n\n');
 }
+
+/// The public address of the app, for invitations. Fixed on purpose: a
+/// shared link never carries anything about the person who sent it.
+const String kInviteUrl = 'https://ar-rayaan.onrender.com';
+
+/// The invitation text: what the app has, and the link. Nothing personal.
+String inviteShareText() => composeShareText(
+  body:
+      'Ar-Rayaan: Qur’an, adhkar, prayer times and Islamic learning in one '
+      'place. You are welcome to try it:\n$kInviteUrl',
+);
+
+/// A milestone line, "I completed ...", with the app credit and the link.
+/// [what] is a short phrase such as `reading Surah Al-Fatihah`. It must be
+/// built from what the person did, never from their notes or prayer log.
+String milestoneShareText(String what) => composeShareText(
+  body: 'I completed $what on Ar-Rayaan.\n$kInviteUrl',
+);
+
+/// A "came back" line for a streak that may be shared (never prayers).
+String comeBackShareText(String what, int days) => composeShareText(
+  body: 'I came back to $what for $days days on Ar-Rayaan.\n$kInviteUrl',
+);

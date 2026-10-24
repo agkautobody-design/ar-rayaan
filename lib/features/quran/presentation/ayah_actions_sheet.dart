@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import '../../share/presentation/share_actions.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -98,6 +100,21 @@ class AyahActionsSheet extends ConsumerWidget {
                   context,
                   ayahShareText(surahName, surah, ayah),
                   message: 'Copied',
+                );
+              },
+            ),
+            _Action(
+              icon: Icons.ios_share,
+              label: 'Preview and share this ayah',
+              onTap: () {
+                // Show exactly what would be sent, on top of this sheet.
+                unawaited(
+                  showSharePreview(
+                    context,
+                    text: ayahShareText(surahName, surah, ayah),
+                    title: '$surahName $surah:${ayah.number}',
+                    subject: 'this ayah',
+                  ),
                 );
               },
             ),

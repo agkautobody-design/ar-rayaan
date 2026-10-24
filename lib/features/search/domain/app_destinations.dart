@@ -449,6 +449,27 @@ const List<AppDestination> kAppDestinations = <AppDestination>[
     keywords: <String>['verse card', 'verse cards', 'share a verse'],
   ),
   AppDestination(
+    id: 'streaks',
+    title: 'Streaks',
+    subtitle: 'Days you came back, with a grace day each week',
+    route: '/streaks',
+    keywords: <String>[
+      'streak',
+      'streaks',
+      'days returned',
+      'my streak',
+      'habit',
+      'habits',
+    ],
+  ),
+  AppDestination(
+    id: 'invite-friend',
+    title: 'Invite a friend',
+    subtitle: 'Preview and share a link to the app',
+    route: '/share',
+    keywords: <String>['invite', 'invite a friend', 'tell a friend'],
+  ),
+  AppDestination(
     id: 'nasheeds',
     title: 'Nasheed Player',
     subtitle: 'Nasheeds and naats',
