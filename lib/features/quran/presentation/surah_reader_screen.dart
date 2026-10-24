@@ -933,8 +933,10 @@ class _AyahBlock extends ConsumerWidget {
                   ],
                 )
               else
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
+              // A Wrap, not a Row: in a very narrow window the three round
+              // buttons go to a second line instead of overflowing.
+              Wrap(
+                alignment: WrapAlignment.end,
                 children: [
                   IconButton(
                     constraints: const BoxConstraints(

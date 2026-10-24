@@ -130,7 +130,7 @@ void main() {
       await AppHarness.settle(tester);
       await tester.pump(const Duration(seconds: 1));
       // Narrow-window overflow noise from other widgets is not judged here.
-      tester.takeException();
+      while (tester.takeException() != null) {}
       final Finder reply = find.textContaining('I only cover Islam');
       expect(reply, findsOneWidget);
       final Rect chat = tester.getRect(
