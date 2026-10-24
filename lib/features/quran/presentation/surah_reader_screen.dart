@@ -1,5 +1,6 @@
 import 'dart:async' show Timer, unawaited;
 
+import '../../../app/core/tight_layout.dart';
 import 'package:flutter/material.dart';
 
 import 'dart:convert';
@@ -384,18 +385,24 @@ class _ReaderState extends ConsumerState<_Reader> {
   }
 
   Widget _heading(Surah surah, bool showBismillah) {
+    // With little room the heading is one compact card, so the first ayah is
+    // on the first screen.
+    final bool tight = isTightLayout(context);
     return GlassCard(
       strong: true,
-      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+      padding: EdgeInsets.symmetric(vertical: tight ? 8 : 20, horizontal: 16),
       child: Column(
         children: [
           Text(
             'سُورَةُ ${surah.meta.arabicName}',
-            style: AppText.arabicLarge.copyWith(fontSize: 26, height: 1.6),
+            style: AppText.arabicLarge.copyWith(
+              fontSize: tight ? 20 : 26,
+              height: tight ? 1.4 : 1.6,
+            ),
             textAlign: TextAlign.center,
             textDirection: TextDirection.rtl,
           ),
-          const SizedBox(height: 6),
+          SizedBox(height: tight ? 2 : 6),
           Text(
             '${surah.meta.englishMeaning} · '
             '${surah.meta.isMeccan ? 'Meccan' : 'Medinan'} · '
@@ -580,7 +587,7 @@ class _ReaderToolbar extends ConsumerWidget {
     );
     // At large text the tools alone fill most of the screen and push the
     // verses down: fold them into one line the reader can open.
-    if (MediaQuery.textScalerOf(context).scale(14) <= 20) return tools;
+    if (!isTightLayout(context)) return tools;
     return Theme(
       data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
       child: ExpansionTile(
@@ -926,8 +933,10 @@ class _AyahBlock extends ConsumerWidget {
                   ],
                 )
               else
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
+              // A Wrap, not a Row: in a very narrow window the three round
+              // buttons go to a second line instead of overflowing.
+              Wrap(
+                alignment: WrapAlignment.end,
                 children: [
                   IconButton(
                     constraints: const BoxConstraints(
