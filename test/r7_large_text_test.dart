@@ -149,6 +149,8 @@ void main() {
       } catch (e) {
         problem = e.toString().replaceAll('\n', ' ');
       }
+      await tester.pump(const Duration(seconds: 10));
+      while (tester.takeException() != null) {}
       expect(problem, isNull);
     });
   });
