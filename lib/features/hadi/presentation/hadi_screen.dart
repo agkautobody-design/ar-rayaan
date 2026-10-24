@@ -166,6 +166,9 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
     await ref.read(hadiControllerProvider.notifier).ask(q);
   }
 
+  /// Set by build: little room, so a reply is shown from its first line.
+  bool _tight = false;
+
   /// Brings the newest exchange into view: the question just asked (so the
   /// start of a long reply is not scrolled past), or the bottom while Hādi
   /// is still answering.
@@ -185,7 +188,7 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
     }
     // With little room the question and its reply do not fit together:
     // show the reply itself, from its first line.
-    final int asked = !isTightLayout(context) &&
+    final int asked = !_tight &&
             now.messages.length >= 2 &&
             !now.messages[now.messages.length - 2].fromHadi
         ? now.messages.length - 2
@@ -589,6 +592,7 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
     // the header keeps only its buttons, the status moves into the intro and
     // the composer shrinks, so the chat gets at least half the screen.
     final bool tight = isTightLayout(context);
+    _tight = tight;
     final bool fullIntro = _introOpen || (!compact && !largeText && !tight);
     ref.listen<HadiState>(
       hadiControllerProvider,
