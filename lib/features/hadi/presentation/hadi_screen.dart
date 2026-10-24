@@ -1324,7 +1324,8 @@ class _Bubble extends ConsumerWidget {
             : MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (hadi) ...[
+          // No avatar in a very small window: the words need the width.
+          if (hadi && !isTightLayout(context)) ...[
             const IconTile(icon: Icons.auto_awesome, size: 28),
             const SizedBox(width: 8),
           ],

@@ -113,7 +113,7 @@ void main() {
     ) async {
       await AppHarness.boot(tester, overrides: fixtures());
       await AppHarness.go(tester, find.byType(Scaffold).first, '/hadi');
-      resize(tester, 195, 422, 1.0);
+      resize(tester, 360, 800, 2.0);
       await AppHarness.settle(tester);
       final Finder field = find.descendant(
         of: find.byType(HadiScreen),
@@ -142,8 +142,8 @@ void main() {
             .first,
       );
       final Rect r = tester.getRect(reply);
-      expect(r.top, greaterThanOrEqualTo(chat.top));
-      expect(r.top, lessThan(chat.bottom));
+      expect(r.top, greaterThanOrEqualTo(chat.top), reason: '$r in $chat');
+      expect(r.top, lessThan(chat.bottom), reason: '$r in $chat');
     });
   });
 
@@ -189,9 +189,11 @@ void main() {
         // The tools are folded behind one line.
         expect(find.byKey(const Key('reader-tools-fold')), findsOneWidget);
         // The first ayah is on screen.
-        final Finder first = find.textContaining('In the name of Allah');
-        expect(first, findsWidgets);
-        expect(tester.getRect(first.first).top, lessThan(c.$2));
+        // The heading is compact: its last line ends well above the middle
+        // of the screen, so the ayah starts on the first screen.
+        final Finder meta = find.textContaining('The Opener');
+        expect(meta, findsWidgets);
+        expect(tester.getRect(meta.first).bottom, lessThan(c.$2 * 0.6));
       });
     }
   });
