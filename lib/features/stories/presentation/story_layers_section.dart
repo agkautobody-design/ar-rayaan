@@ -8,6 +8,7 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../quran/application/quran_providers.dart';
 import '../../quran/domain/quran_models.dart';
+import '../../quran/domain/quran_texts.dart';
 import '../data/story_layers_repository.dart';
 import '../domain/story_layers.dart';
 
@@ -321,7 +322,7 @@ class _QuranPassage extends ConsumerWidget {
                     const SizedBox(height: 10),
                   ],
                   Text(
-                    'Arabic: Tanzil (Uthmani). English: Saheeh International.',
+                    'Arabic: Tanzil (Uthmani). English: ${(ref.watch(quranTextsProvider).value ?? QuranTexts.fallback).translation.short}.',
                     style: AppText.bodyMuted.copyWith(fontSize: 12),
                   ),
                 ],
