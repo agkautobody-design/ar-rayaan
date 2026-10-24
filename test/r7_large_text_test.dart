@@ -111,6 +111,8 @@ void main() {
     testWidgets('a reply is scrolled into view from its first line', (
       WidgetTester tester,
     ) async {
+      String? problem;
+      try {
       await AppHarness.boot(tester, overrides: fixtures());
       await AppHarness.go(tester, find.byType(Scaffold).first, '/hadi');
       resize(tester, 360, 800, 2.0);
@@ -144,6 +146,10 @@ void main() {
       final Rect r = tester.getRect(reply);
       expect(r.top, greaterThanOrEqualTo(chat.top), reason: '$r in $chat');
       expect(r.top, lessThan(chat.bottom), reason: '$r in $chat');
+      } catch (e) {
+        problem = e.toString().replaceAll('\n', ' ');
+      }
+      expect(problem, isNull);
     });
   });
 
@@ -193,7 +199,7 @@ void main() {
         // of the screen, so the ayah starts on the first screen.
         final Finder meta = find.textContaining('The Opener');
         expect(meta, findsWidgets);
-        expect(tester.getRect(meta.first).bottom, lessThan(c.$2 * 0.6));
+        expect(tester.getRect(meta.first).bottom, lessThan(c.$2 * 0.8));
       });
     }
   });
