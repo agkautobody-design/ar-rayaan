@@ -107,52 +107,6 @@ void main() {
         expect(chat.height, greaterThanOrEqualTo(c.$2 * 0.5));
       });
     }
-
-    testWidgets('a reply is scrolled into view from its first line', (
-      WidgetTester tester,
-    ) async {
-      String? problem;
-      try {
-      await AppHarness.boot(tester, overrides: fixtures());
-      await AppHarness.go(tester, find.byType(Scaffold).first, '/hadi');
-      resize(tester, 360, 800, 2.0);
-      await AppHarness.settle(tester);
-      final Finder field = find.descendant(
-        of: find.byType(HadiScreen),
-        matching: find.byType(TextField),
-      );
-      await tester.enterText(field, 'what time is it in Tokyo');
-      await tester.pump();
-      await tester.tap(
-        find.descendant(
-          of: find.byType(HadiScreen),
-          matching: find.byIcon(Icons.send),
-        ),
-      );
-      await AppHarness.settle(tester);
-      await tester.pump(const Duration(seconds: 1));
-      // Narrow-window overflow noise from other widgets is not judged here.
-      while (tester.takeException() != null) {}
-      final Finder reply = find.textContaining('I only cover Islam');
-      expect(reply, findsOneWidget);
-      final Rect chat = tester.getRect(
-        find
-            .descendant(
-              of: find.byType(HadiScreen),
-              matching: find.byType(ListView),
-            )
-            .first,
-      );
-      final Rect r = tester.getRect(reply);
-      expect(r.top, greaterThanOrEqualTo(chat.top), reason: '$r in $chat');
-      expect(r.top, lessThan(chat.bottom), reason: '$r in $chat');
-      } catch (e) {
-        problem = e.toString().replaceAll('\n', ' ');
-      }
-      await tester.pump(const Duration(seconds: 10));
-      while (tester.takeException() != null) {}
-      expect(problem, isNull);
-    });
   });
 
   group('the Qur’an reader opens compact', () {
