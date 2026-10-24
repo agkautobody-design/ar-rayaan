@@ -1,3 +1,4 @@
+import '../../../app/core/tight_layout.dart';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -106,8 +107,7 @@ class _QuranScreenState extends ConsumerState<QuranScreen> {
                   final bool searching = _query.trim().isNotEmpty;
                   // The shortcut cards above the list. At large text they take a
                   // whole screen, so there they go below the surahs instead.
-                  final bool largeText =
-                      MediaQuery.textScalerOf(context).scale(14) > 20;
+                  final bool largeText = isTightLayout(context);
                   final List<Widget> extras = <Widget>[
                       // Web only, and only until the Qur'an is saved here.
                       if (!searching) ...[

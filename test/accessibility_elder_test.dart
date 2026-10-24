@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:ar_rayaan/app/core/accessibility_scope.dart';
 import 'package:ar_rayaan/app/core/keyboard_scroll.dart';
 import 'package:ar_rayaan/app/core/providers.dart';
@@ -306,6 +308,18 @@ void main() {
   // real one).
   final List<String> rowOverflows = <String>[];
 
+  // The line range of the row widget in the screen's source, read from the
+  // file itself so moving cards around never shifts what is judged.
+  final List<String> prayerSource = File(
+    'lib/features/prayer/presentation/prayer_times_screen.dart',
+  ).readAsLinesSync();
+  final int rowFrom =
+      prayerSource.indexWhere((String l) => l.startsWith('class _PrayerRow')) +
+      1;
+  final int rowTo =
+      prayerSource.indexWhere((String l) => l.startsWith('class CitySheet')) +
+      1;
+
   Future<void> pumpPrayer(WidgetTester tester, {double scale = 2.0}) async {
     rowOverflows.clear();
     final void Function(FlutterErrorDetails)? previous = FlutterError.onError;
@@ -315,7 +329,7 @@ void main() {
         r'prayer_times_screen\.dart:(\d+)',
       ).firstMatch(text);
       final int line = m == null ? 0 : int.parse(m.group(1)!);
-      if (text.contains('overflowed') && line >= 410 && line <= 600) {
+      if (text.contains('overflowed') && line >= rowFrom && line <= rowTo) {
         rowOverflows.add(text.split('\n').first);
       }
     };

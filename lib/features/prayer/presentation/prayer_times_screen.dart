@@ -8,6 +8,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../../app/core/notifications/prayer_notification_scheduler.dart';
 import '../../../app/core/notifications/web_notifier.dart';
 import '../../../app/core/sound/sound_services.dart';
+import '../../../app/core/tight_layout.dart';
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
@@ -132,102 +133,9 @@ class _ScheduleState extends ConsumerState<_Schedule> {
     ref.watch(hijriSettingsProvider);
     final bool ramadan = HijriDate.fromGregorian(data.fajr).month == 9;
 
-    return ListView(
-      padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
-      children: [
-        // O-11: location — GPS or manual city, fully offline after choice.
-        const _LocationCard(),
-        const SizedBox(height: 8),
-        const _QuickLinks(),
-        const SizedBox(height: 16),
-        if (alert != null) ...[
-          GlassCard(
-            strong: true,
-            padding: const EdgeInsets.symmetric(
-              horizontal: 16,
-              vertical: 14,
-            ),
-            child: Row(
-              children: [
-                const Icon(
-                  Icons.notifications_active_outlined,
-                  color: AppColors.gold,
-                  size: 20,
-                ),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: Text(
-                    'It is now $alert time',
-                    style: AppText.body.copyWith(
-                      fontWeight: FontWeight.w600,
-                      color: AppColors.goldLight,
-                    ),
-                  ),
-                ),
-                IconButton(
-                  tooltip: 'Dismiss',
-                  visualDensity: VisualDensity.compact,
-                  onPressed: () =>
-                      ref.read(alertBannerProvider.notifier).dismiss(),
-                  icon: Icon(
-                    Icons.close,
-                    size: 18,
-                    color: AppColors.sand.withValues(alpha: 0.6),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(height: 16),
-        ],
-        // Hero: next prayer countdown
-        GlassCard(
-          strong: true,
-          padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 20),
-          child: Column(
-            children: [
-              Text('NEXT PRAYER', style: AppText.eyebrow),
-              const SizedBox(height: 10),
-              // A word wider than the card shrinks to fit instead of
-              // breaking in the middle ("Maghri / b").
-              WholeWordText(
-                nextName,
-                maxLines: 1,
-                textAlign: TextAlign.center,
-                style: AppText.displayMedium.copyWith(fontSize: 30),
-              ),
-              const SizedBox(height: 6),
-              Text(
-                DateFormat.jm().format(nextTime),
-                style: AppText.body.copyWith(
-                  color: AppColors.goldLight,
-                  fontSize: 16,
-                ),
-              ),
-              const SizedBox(height: 12),
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 7,
-                ),
-                decoration: BoxDecoration(
-                  color: AppColors.gold.withValues(alpha: 0.12),
-                  borderRadius: BorderRadius.circular(20),
-                  border: Border.all(
-                    color: AppColors.gold.withValues(alpha: 0.3),
-                  ),
-                ),
-                child: Text(
-                  _countdown(nextTime),
-                  style: AppText.label.copyWith(color: AppColors.goldLight),
-                ),
-              ),
-            ],
-          ),
-        ),
-        const SizedBox(height: 16),
-        // Adhan — real Mecca recording, plays on demand.
-        GlassCard(
+    final bool tight = isTightLayout(context);
+    // Adhan — real Mecca recording, plays on demand.
+    final Widget adhanCard = GlassCard(
           onTap: () => ref.read(adhanServiceProvider.notifier).toggle(),
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
           child: Row(
@@ -273,8 +181,107 @@ class _ScheduleState extends ConsumerState<_Schedule> {
               ),
             ],
           ),
+        );
+
+    return ListView(
+      padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
+      children: [
+        // O-11: location — GPS or manual city, fully offline after choice.
+        // With little room (big text, a narrow window) the times come first
+        // and the place card follows the list.
+        if (!tight) ...<Widget>[
+          const _LocationCard(),
+          const SizedBox(height: 8),
+          const _QuickLinks(),
+          const SizedBox(height: 16),
+        ],
+        if (alert != null) ...[
+          GlassCard(
+            strong: true,
+            padding: const EdgeInsets.symmetric(
+              horizontal: 16,
+              vertical: 14,
+            ),
+            child: Row(
+              children: [
+                const Icon(
+                  Icons.notifications_active_outlined,
+                  color: AppColors.gold,
+                  size: 20,
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Text(
+                    'It is now $alert time',
+                    style: AppText.body.copyWith(
+                      fontWeight: FontWeight.w600,
+                      color: AppColors.goldLight,
+                    ),
+                  ),
+                ),
+                IconButton(
+                  tooltip: 'Dismiss',
+                  visualDensity: VisualDensity.compact,
+                  onPressed: () =>
+                      ref.read(alertBannerProvider.notifier).dismiss(),
+                  icon: Icon(
+                    Icons.close,
+                    size: 18,
+                    color: AppColors.sand.withValues(alpha: 0.6),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 16),
+        ],
+        // Hero: next prayer countdown
+        GlassCard(
+          strong: true,
+          padding: EdgeInsets.symmetric(vertical: tight ? 12 : 24, horizontal: 20),
+          child: Column(
+            children: [
+              Text('NEXT PRAYER', style: AppText.eyebrow),
+              const SizedBox(height: 10),
+              // A word wider than the card shrinks to fit instead of
+              // breaking in the middle ("Maghri / b").
+              WholeWordText(
+                nextName,
+                maxLines: 1,
+                textAlign: TextAlign.center,
+                style: AppText.displayMedium.copyWith(fontSize: 30),
+              ),
+              const SizedBox(height: 6),
+              Text(
+                DateFormat.jm().format(nextTime),
+                style: AppText.body.copyWith(
+                  color: AppColors.goldLight,
+                  fontSize: 16,
+                ),
+              ),
+              const SizedBox(height: 12),
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 7,
+                ),
+                decoration: BoxDecoration(
+                  color: AppColors.gold.withValues(alpha: 0.12),
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(
+                    color: AppColors.gold.withValues(alpha: 0.3),
+                  ),
+                ),
+                child: Text(
+                  _countdown(nextTime),
+                  style: AppText.label.copyWith(color: AppColors.goldLight),
+                ),
+              ),
+            ],
+          ),
         ),
         const SizedBox(height: 16),
+        if (!tight) ...<Widget>[adhanCard, const SizedBox(height: 16)],
         // Full schedule
         GlassCard(
           child: Column(
@@ -358,6 +365,14 @@ class _ScheduleState extends ConsumerState<_Schedule> {
           ),
         ),
         const SizedBox(height: 16),
+        if (tight) ...<Widget>[
+          const _LocationCard(),
+          const SizedBox(height: 8),
+          const _QuickLinks(),
+          const SizedBox(height: 16),
+          adhanCard,
+          const SizedBox(height: 16),
+        ],
         // Tahajjud — the last third of the night (Bukhari 1145). Opens the
         // Witr & Night Routine guide (Huda), which already holds the night
         // prayer's content.
@@ -842,13 +857,18 @@ class _SetLocationPrompt extends ConsumerWidget {
     final GpsStatus status = ref
         .read(prayerLocationControllerProvider.notifier)
         .gpsStatus;
+    final bool tight = isTightLayout(context);
     return ListView(
       padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
       children: <Widget>[
-        const _LocationCard(),
-        const SizedBox(height: 8),
-        const _QuickLinks(),
-        const SizedBox(height: 16),
+        // With little room (big text, a narrow window) the two buttons come
+        // first; the place card and the links follow.
+        if (!tight) ...<Widget>[
+          const _LocationCard(),
+          const SizedBox(height: 8),
+          const _QuickLinks(),
+          const SizedBox(height: 16),
+        ],
         GlassCard(
           strong: true,
           padding: const EdgeInsets.all(16),
@@ -858,14 +878,16 @@ class _SetLocationPrompt extends ConsumerWidget {
               Text('SET YOUR LOCATION', style: AppText.eyebrow),
               const SizedBox(height: 8),
               Text(
-                'Prayer times depend on where you are, so none are shown '
-                'until you choose. Tap \u201cMy location\u201d to use your '
-                'device or browser location (only when you tap it), or '
-                '\u201cCity\u201d to pick your city from the list. The times '
-                'are then calculated on your device.',
+                tight
+                    ? 'No times are shown until you choose a place.'
+                    : 'Prayer times depend on where you are, so none are shown '
+                        'until you choose. Tap \u201cMy location\u201d to use '
+                        'your device or browser location (only when you tap '
+                        'it), or \u201cCity\u201d to pick your city from the '
+                        'list. The times are then calculated on your device.',
                 style: AppText.bodyMuted.copyWith(height: 1.55),
               ),
-              const SizedBox(height: 16),
+              SizedBox(height: tight ? 10 : 16),
               // One big button per choice, so the first thing a person sees
               // is what to press (the small links above are easy to miss).
               SizedBox(
@@ -909,6 +931,12 @@ class _SetLocationPrompt extends ConsumerWidget {
             ],
           ),
         ),
+        if (tight) ...<Widget>[
+          const SizedBox(height: 16),
+          const _LocationCard(),
+          const SizedBox(height: 8),
+          const _QuickLinks(),
+        ],
       ],
     );
   }

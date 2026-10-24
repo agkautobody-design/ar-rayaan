@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import '../../../app/core/tight_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../../share/application/share_text.dart';
@@ -35,7 +36,7 @@ import '../../sakina/presentation/widgets/help_line_tile.dart';
 import '../../sakina/presentation/widgets/need_help_button.dart';
 
 /// The items under the More options button in the header.
-enum _HadiMenu { newConversation, school, advanced }
+enum _HadiMenu { newConversation, school, advanced, about }
 
 /// The longest question the box takes. Longer pasted text is cut to this and
 /// the person is told.
@@ -182,7 +183,10 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
       _scrollToEnd();
       return;
     }
-    final int asked = now.messages.length >= 2 &&
+    // With little room the question and its reply do not fit together:
+    // show the reply itself, from its first line.
+    final int asked = !isTightLayout(context) &&
+            now.messages.length >= 2 &&
             !now.messages[now.messages.length - 2].fromHadi
         ? now.messages.length - 2
         : now.messages.length - 1;
@@ -581,7 +585,12 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
     // introduction stays folded (one tap opens it) just as on a small phone.
     final bool largeText =
         MediaQuery.textScalerOf(context).scale(14) / 14 > 1.2;
-    final bool fullIntro = _introOpen || (!compact && !largeText);
+    // A very small window (a browser zoomed to 200% is about 195 dp wide):
+    // the header keeps only its buttons, the status moves into the intro and
+    // the composer shrinks, so the chat gets at least half the screen.
+    final Size window = MediaQuery.sizeOf(context);
+    final bool tight = window.width < 260 || window.height < 520;
+    final bool fullIntro = _introOpen || (!compact && !largeText && !tight);
     ref.listen<HadiState>(
       hadiControllerProvider,
       (HadiState? before, HadiState now) => _followConversation(before, now),
@@ -662,7 +671,7 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                           onTap: () => context.go(AppRoutes.home),
                         ),
                         const SizedBox(width: 4),
-                        if (stackedHeader)
+                        if (stackedHeader || tight)
                           const Spacer()
                         else
                           Expanded(child: statusPill),
@@ -687,6 +696,8 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                                 _openMadhhabSheet();
                               case _HadiMenu.advanced:
                                 _openKeySheet();
+                              case _HadiMenu.about:
+                                setState(() => _introOpen = !_introOpen);
                             }
                           },
                           itemBuilder: (BuildContext _) =>
@@ -699,6 +710,11 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                               value: _HadiMenu.school,
                               child: Text('Your school of law', style: AppText.body),
                             ),
+                            if (tight)
+                              PopupMenuItem<_HadiMenu>(
+                                value: _HadiMenu.about,
+                                child: Text('About Hādi', style: AppText.body),
+                              ),
                             PopupMenuItem<_HadiMenu>(
                               value: _HadiMenu.advanced,
                               child: Text(
@@ -711,12 +727,22 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                       ],
                     ),
                   ),
-                  if (stackedHeader)
+                  if (stackedHeader && !tight)
                     Padding(
                       padding: const EdgeInsets.fromLTRB(12, 0, 12, 0),
                       child: SizedBox(width: double.infinity, child: statusPill),
                     ),
-                  SizedBox(height: compact ? 2 : 10),
+                  SizedBox(height: tight ? 0 : (compact ? 2 : 10)),
+            if (fullIntro && tight)
+              Text(
+                hadi.live ? 'Hādi · live AI' : 'Hādi · built-in library',
+                key: const Key('hadi-status-line'),
+                style: AppText.bodyMuted.copyWith(
+                  fontSize: 12,
+                  color: AppColors.textFaint,
+                ),
+                textAlign: TextAlign.center,
+              ),
             if (fullIntro)
               Text(
                 hadi.live
@@ -730,7 +756,7 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                 ),
                 textAlign: TextAlign.center,
               ),
-            if (hadi.messages.length == 1 && !fullIntro)
+            if (hadi.messages.length == 1 && !fullIntro && !tight)
               Padding(
                 padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
                 child: TextButton(
@@ -802,7 +828,7 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
             Expanded(
               child: ListView(
                 controller: _scroll,
-                padding: const EdgeInsets.fromLTRB(20, 16, 20, 16),
+                padding: EdgeInsets.fromLTRB(tight ? 12 : 20, tight ? 8 : 16, tight ? 12 : 20, 16),
                 children: [
                   for (int i = 0; i < hadi.messages.length; i++)
                     KeyedSubtree(
@@ -925,7 +951,7 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
               },
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(20, 0, 20, 16),
+              padding: EdgeInsets.fromLTRB(20, 0, 20, tight ? 6 : 16),
               child: GlassCard(
                 borderRadius: 28,
                 padding: const EdgeInsets.only(
@@ -939,7 +965,7 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                   children: <Widget>[
                     Expanded(
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 12),
+                        padding: EdgeInsets.symmetric(vertical: tight ? 8 : 12),
                         child: ValueListenableBuilder<TextEditingValue>(
                           valueListenable: _input,
                           builder: (BuildContext _, TextEditingValue v,
@@ -959,7 +985,7 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                                   : null,
                               style: AppText.body,
                               decoration: InputDecoration(
-                                hintText: 'Ask Hādi anything…',
+                                hintText: tight ? 'Ask Hādi' : 'Ask Hādi anything…',
                                 hintStyle: AppText.bodyMuted.copyWith(
                                   color: AppColors.textFaint,
                                 ),
