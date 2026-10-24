@@ -588,8 +588,7 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
     // A very small window (a browser zoomed to 200% is about 195 dp wide):
     // the header keeps only its buttons, the status moves into the intro and
     // the composer shrinks, so the chat gets at least half the screen.
-    final Size window = MediaQuery.sizeOf(context);
-    final bool tight = window.width < 260 || window.height < 520;
+    final bool tight = isTightLayout(context);
     final bool fullIntro = _introOpen || (!compact && !largeText && !tight);
     ref.listen<HadiState>(
       hadiControllerProvider,

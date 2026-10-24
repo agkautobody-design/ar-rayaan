@@ -1012,6 +1012,16 @@ class JumuahRow extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final DateTime clock = now ?? DateTime.now();
     final DateTime? next = nextJumuah(clock, time);
+    // At big text the time sits under the title: beside it, it would leave
+    // the words almost no room.
+    final bool bigText = MediaQuery.textScalerOf(context).scale(14) / 14 > 1.4;
+    final Widget timeText = Text(
+      time ?? 'Set time',
+      softWrap: false,
+      style: AppText.body.copyWith(
+        color: time == null ? AppColors.gold : AppColors.sand,
+      ),
+    );
     return InkWell(
       onTap: () => _pickJumuahTime(context, ref),
       child: Padding(
@@ -1046,6 +1056,7 @@ class JumuahRow extends ConsumerWidget {
                       color: AppColors.sand.withValues(alpha: 0.9),
                     ),
                   ),
+                  if (bigText) timeText,
                   if (next != null)
                     Text(
                       '${jumuahCountdown(clock, next)} \u00b7 '
@@ -1083,13 +1094,7 @@ class JumuahRow extends ConsumerWidget {
                 ],
               ),
             ),
-            Text(
-              time ?? 'Set time',
-              softWrap: false,
-              style: AppText.body.copyWith(
-                color: time == null ? AppColors.gold : AppColors.sand,
-              ),
-            ),
+            if (!bigText) timeText,
           ],
         ),
       ),

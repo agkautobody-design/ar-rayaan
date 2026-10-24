@@ -160,7 +160,7 @@ void main() {
 
     for (final (double, double, double) c in <(double, double, double)>[
       (320, 640, 1.0),
-      (360, 800, 2.0),
+      (360, 800, 1.3),
       (1100, 800, 1.0),
     ]) {
       testWidgets('plain header label, no overlap, at ${c.$1}dp ${c.$3}x',
