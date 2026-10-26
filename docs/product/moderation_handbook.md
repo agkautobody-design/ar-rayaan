@@ -23,7 +23,7 @@ restore, remove, lock_thread, warn, mute, suspend, ban).
 
 ## Strikes
 Points expire after 90 days. 3 points: 7-day mute. 6 points: 7-day
-suspension. Next step: indefinite suspension waiting for an admin to decide
+suspension. 10 points: indefinite suspension waiting for an admin to decide
 (no automatic permanent ban). Owner decides whether the last step is a ban.
 
 ## Child safety
