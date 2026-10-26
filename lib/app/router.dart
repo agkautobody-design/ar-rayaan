@@ -107,6 +107,7 @@ import '../features/games/presentation/memory_game_screen.dart';
 import '../features/games/presentation/quiz_play_screen.dart';
 import '../features/games/presentation/games_screens.dart';
 import '../features/games/presentation/games_extra.dart';
+import '../features/games/chess/chess_ai.dart' show ChessLevel;
 import '../features/games/presentation/shatranj_screen.dart';
 import '../features/games/presentation/ludo_screen.dart';
 import '../features/feelings/presentation/feelings_screens.dart';
@@ -512,7 +513,14 @@ GoRouter buildRouter({String initialLocation = '/'}) {
             ShatranjScreen(
               initialMode:
                   int.tryParse(state.uri.queryParameters['mode'] ?? '') ?? 0,
-              searchDepth: state.uri.queryParameters['d'] == 'easy' ? 1 : 2,
+              level: switch (state.uri.queryParameters['d']) {
+                'easy' || 'beginner' => ChessLevel.beginner,
+                'challenge' || 'advanced' => ChessLevel.advanced,
+                _ => ChessLevel.intermediate,
+              },
+              playAs: state.uri.queryParameters['as'] ?? 'white',
+              minutes:
+                  int.tryParse(state.uri.queryParameters['t'] ?? '') ?? 0,
             ),
             pill: false,
           ),
