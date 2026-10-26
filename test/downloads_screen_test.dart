@@ -77,6 +77,16 @@ void main() {
     expect(t.takeException(), isNull);
   });
 
+  testWidgets('phone at the default test size renders cleanly', (t) async {
+    await pumpApp(t, const DownloadsScreen(web: false), FakeStore(),
+        canWifi: true);
+    t.view.physicalSize = const Size(800, 600);
+    await t.pump(const Duration(milliseconds: 50));
+    final Object? e = t.takeException();
+    expect(e == null, isTrue,
+        reason: e.toString().split('\n').take(8).join(' | '));
+  });
+
   testWidgets('web: says a browser cannot tell Wi-Fi apart', (t) async {
     await pumpApp(
       t,
