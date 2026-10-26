@@ -10,6 +10,7 @@ import '../data/game_history.dart';
 import '../data/games_store.dart';
 import '../engine/game_registry.dart';
 import '../games_flags.dart';
+import '../ui/games_art.dart';
 import '../ui/games_theme.dart';
 
 /// /games - the Games hub: filter chips, the person's own "Continue
@@ -86,10 +87,24 @@ class _GamesScreenState extends ConsumerState<GamesScreen> {
               for (final GameDef g in shown)
                 if (g.category == c) g,
             ],
+            art: GamesArt.slotForCategory(c),
           )
       else
-        ..._section(_filter.label, null, shown),
-      const SizedBox(height: 20),
+        ..._section(
+          _filter.label,
+          null,
+          shown,
+          art: switch (_filter) {
+            HubFilter.islamic => ArtSlot.categoryIslamic,
+            HubFilter.strategy => ArtSlot.categoryBoard,
+            HubFilter.family => ArtSlot.categoryFamily,
+            HubFilter.words => ArtSlot.categoryWords,
+            HubFilter.all => null,
+          },
+        ),
+      const SizedBox(height: 12),
+      const GoldDivider(),
+      const SizedBox(height: 8),
       Wrap(
         spacing: 12,
         runSpacing: 10,
@@ -116,10 +131,15 @@ class _GamesScreenState extends ConsumerState<GamesScreen> {
     ];
   }
 
-  List<Widget> _section(String title, String? note, List<GameDef> games) {
+  List<Widget> _section(
+    String title,
+    String? note,
+    List<GameDef> games, {
+    ArtSlot? art,
+  }) {
     if (games.isEmpty) return const <Widget>[];
     return <Widget>[
-      SectionHeading(title: title, note: note),
+      SectionHeading(title: title, note: note, art: art),
       for (final GameDef g in games)
         Padding(
           padding: const EdgeInsets.only(bottom: 10),
@@ -188,7 +208,11 @@ class GameTile extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          GameBadge(iconKey: game.iconKey, size: large ? 64 : 52),
+          ArtThumb(
+            gameId: game.id,
+            iconKey: game.iconKey,
+            size: large ? 64 : 52,
+          ),
           const SizedBox(width: 14),
           Expanded(
             child: Column(
@@ -272,7 +296,7 @@ class _ContinueTile extends StatelessWidget {
         onTap: () => context.open('/games/g/${g.id}/play?resume=1'),
         child: Row(
           children: <Widget>[
-            GameBadge(iconKey: g.iconKey, size: 44),
+            ArtThumb(gameId: g.id, iconKey: g.iconKey, size: 44),
             const SizedBox(width: 12),
             Expanded(
               child: Column(

@@ -10,6 +10,7 @@ import '../../sources/presentation/content_policy_screen.dart';
 import '../data/game_history.dart';
 import '../data/games_store.dart';
 import '../engine/game_registry.dart';
+import '../ui/games_art.dart';
 import '../ui/games_theme.dart';
 
 /// /games/g/:id - one game's page: what it is, how to play, the ways to play
@@ -38,7 +39,19 @@ class GameDetailsScreen extends ConsumerWidget {
       body: ListView(
         padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
         children: <Widget>[
-          ArchHeader(title: g.title, tagline: g.blurb),
+          ArchHeader(title: g.title),
+          GameBanner(gameId: g.id),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(8, 0, 8, 12),
+            child: Text(
+              g.blurb,
+              textAlign: TextAlign.center,
+              style: AppText.body.copyWith(
+                color: GamesTheme.champagne,
+                height: 1.4,
+              ),
+            ),
+          ),
           _Block(
             title: 'How to play',
             child: Column(
@@ -180,6 +193,7 @@ class _Block extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),
       child: GamePanel(
+        ornate: true,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
