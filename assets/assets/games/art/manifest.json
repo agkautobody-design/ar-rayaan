@@ -1,0 +1,492 @@
+{
+  "version": 1,
+  "slots": {
+    "hubHeader": {
+      "file": "assets/games/art/hubHeader.webp",
+      "kind": "patched",
+      "source": "855838e9-image.png",
+      "sourceScreen": "All Games Collection",
+      "box": [
+        0,
+        50,
+        941,
+        480
+      ],
+      "size": [
+        941,
+        430
+      ],
+      "transparent": false,
+      "note": "Arch, lanterns, skyline. Title, tagline, status bar and the two round buttons painted out; the buttons leave a soft glow."
+    },
+    "skylineBand": {
+      "file": "assets/games/art/skylineBand.webp",
+      "kind": "exact",
+      "source": "985cb0f6-image.png",
+      "sourceScreen": "Qur’an Knowledge waiting room",
+      "box": [
+        0,
+        262,
+        941,
+        484
+      ],
+      "size": [
+        941,
+        222
+      ],
+      "transparent": false,
+      "note": "Text-free skyline with lanterns and flowers. Used as the backdrop strip on setup, waiting, results, history."
+    },
+    "categoryIslamic": {
+      "file": "assets/games/art/categoryIslamic.webp",
+      "kind": "exact",
+      "source": "c7b6c535-image.png",
+      "sourceScreen": "Games landing, six category cards",
+      "box": [
+        52,
+        644,
+        290,
+        770
+      ],
+      "size": [
+        238,
+        126
+      ],
+      "transparent": false,
+      "note": "Dome icon on the arcade scene."
+    },
+    "categoryBoard": {
+      "file": "assets/games/art/categoryBoard.webp",
+      "kind": "exact",
+      "source": "c7b6c535-image.png",
+      "sourceScreen": "Games landing, six category cards",
+      "box": [
+        318,
+        644,
+        549,
+        770
+      ],
+      "size": [
+        231,
+        126
+      ],
+      "transparent": false,
+      "note": "Dice icon."
+    },
+    "categoryWords": {
+      "file": "assets/games/art/categoryWords.webp",
+      "kind": "exact",
+      "source": "c7b6c535-image.png",
+      "sourceScreen": "Games landing, six category cards",
+      "box": [
+        576,
+        644,
+        815,
+        770
+      ],
+      "size": [
+        239,
+        126
+      ],
+      "transparent": false,
+      "note": "A B tiles icon."
+    },
+    "categoryPuzzles": {
+      "file": "assets/games/art/categoryPuzzles.webp",
+      "kind": "exact",
+      "source": "c7b6c535-image.png",
+      "sourceScreen": "Games landing, six category cards",
+      "box": [
+        52,
+        958,
+        290,
+        1080
+      ],
+      "size": [
+        238,
+        122
+      ],
+      "transparent": false,
+      "note": "Puzzle piece icon."
+    },
+    "categoryFamily": {
+      "file": "assets/games/art/categoryFamily.webp",
+      "kind": "exact",
+      "source": "c7b6c535-image.png",
+      "sourceScreen": "Games landing, six category cards",
+      "box": [
+        318,
+        958,
+        549,
+        1082
+      ],
+      "size": [
+        231,
+        124
+      ],
+      "transparent": false,
+      "note": "Family icon over dark silhouettes seen from behind (no faces)."
+    },
+    "categoryMore": {
+      "file": "assets/games/art/categoryMore.webp",
+      "kind": "exact",
+      "source": "c7b6c535-image.png",
+      "sourceScreen": "Games landing, six category cards",
+      "box": [
+        578,
+        958,
+        815,
+        1082
+      ],
+      "size": [
+        237,
+        124
+      ],
+      "transparent": false,
+      "note": "Controller icon."
+    },
+    "gameQuranKnowledge": {
+      "file": "assets/games/art/gameQuranKnowledge.webp",
+      "kind": "exact",
+      "source": "c86399a6-image.png",
+      "sourceScreen": "Game Setup, Qur’an Knowledge",
+      "box": [
+        94,
+        384,
+        400,
+        556
+      ],
+      "size": [
+        306,
+        172
+      ],
+      "transparent": false,
+      "note": "Open Qur’an on a rehal with a lantern."
+    },
+    "heroQuranKnowledge": {
+      "file": "assets/games/art/heroQuranKnowledge.webp",
+      "kind": "exact",
+      "source": "8197268e-image.png",
+      "sourceScreen": "Qur’an Knowledge details",
+      "box": [
+        72,
+        168,
+        870,
+        515
+      ],
+      "size": [
+        798,
+        347
+      ],
+      "transparent": false,
+      "note": "Wide hero: Qur’an, mosque at sunset, lanterns."
+    },
+    "gameStories": {
+      "file": "assets/games/art/gameStories.webp",
+      "kind": "exact",
+      "source": "fac12202-image.png",
+      "sourceScreen": "Islamic Games list",
+      "box": [
+        60,
+        838,
+        300,
+        948
+      ],
+      "size": [
+        240,
+        110
+      ],
+      "transparent": false,
+      "note": "Mountains and river (Prophets and Messengers tile). No figures."
+    },
+    "gameNames99": {
+      "file": "assets/games/art/gameNames99.webp",
+      "kind": "exact",
+      "source": "fac12202-image.png",
+      "sourceScreen": "Islamic Games list",
+      "box": [
+        60,
+        1238,
+        300,
+        1348
+      ],
+      "size": [
+        240,
+        110
+      ],
+      "transparent": false,
+      "note": "Gold calligraphy medallion on teal."
+    },
+    "gameLineage": {
+      "file": "assets/games/art/gameLineage.webp",
+      "kind": "exact",
+      "source": "fac12202-image.png",
+      "sourceScreen": "Islamic Games list",
+      "box": [
+        60,
+        972,
+        300,
+        1082
+      ],
+      "size": [
+        240,
+        110
+      ],
+      "transparent": false,
+      "note": "Old city, domes and towers at sunset."
+    },
+    "gameHijrah": {
+      "file": "assets/games/art/gameHijrah.webp",
+      "kind": "exact",
+      "source": "fac12202-image.png",
+      "sourceScreen": "Islamic Games list",
+      "box": [
+        60,
+        572,
+        300,
+        682
+      ],
+      "size": [
+        240,
+        110
+      ],
+      "transparent": false,
+      "note": "Camels and a mosque in the desert at sunset."
+    },
+    "gameHadith": {
+      "file": "assets/games/art/gameHadith.webp",
+      "kind": "exact",
+      "source": "fac12202-image.png",
+      "sourceScreen": "Islamic Games list",
+      "box": [
+        60,
+        706,
+        300,
+        816
+      ],
+      "size": [
+        240,
+        110
+      ],
+      "transparent": false,
+      "note": "Bound books and a lantern."
+    },
+    "gameHifz": {
+      "file": "assets/games/art/gameHifz.webp",
+      "kind": "exact",
+      "source": "3da17b52-image.png",
+      "sourceScreen": "Game History",
+      "box": [
+        36,
+        470,
+        266,
+        614
+      ],
+      "size": [
+        230,
+        144
+      ],
+      "transparent": false,
+      "note": "Open Qur’an with mosque behind."
+    },
+    "gameChess": {
+      "file": "assets/games/art/gameChess.webp",
+      "kind": "exact",
+      "source": "3da17b52-image.png",
+      "sourceScreen": "Game History",
+      "box": [
+        36,
+        818,
+        266,
+        962
+      ],
+      "size": [
+        230,
+        144
+      ],
+      "transparent": false,
+      "note": "Gold and black chess pieces."
+    },
+    "gameLudo": {
+      "file": "assets/games/art/gameLudo.webp",
+      "kind": "exact",
+      "source": "3da17b52-image.png",
+      "sourceScreen": "Game History",
+      "box": [
+        36,
+        644,
+        266,
+        788
+      ],
+      "size": [
+        230,
+        144
+      ],
+      "transparent": false,
+      "note": "Ludo board with pawns and dice."
+    },
+    "gameMemory": {
+      "file": "assets/games/art/gameMemory.webp",
+      "kind": "exact",
+      "source": "3da17b52-image.png",
+      "sourceScreen": "Game History",
+      "box": [
+        36,
+        1168,
+        266,
+        1312
+      ],
+      "size": [
+        230,
+        144
+      ],
+      "transparent": false,
+      "note": "Star-pattern memory cards and a lantern card."
+    },
+    "gameArabicWords": {
+      "file": "assets/games/art/gameArabicWords.webp",
+      "kind": "exact",
+      "source": "3da17b52-image.png",
+      "sourceScreen": "Game History",
+      "box": [
+        36,
+        992,
+        266,
+        1136
+      ],
+      "size": [
+        230,
+        144
+      ],
+      "transparent": false,
+      "note": "Arabic letter tiles on a card table."
+    },
+    "gameSeerahChallenge": {
+      "file": "assets/games/art/gameSeerahChallenge.webp",
+      "kind": "exact",
+      "source": "3da17b52-image.png",
+      "sourceScreen": "Game History",
+      "box": [
+        36,
+        1342,
+        266,
+        1486
+      ],
+      "size": [
+        230,
+        144
+      ],
+      "transparent": false,
+      "note": "Mosque and market at sunset."
+    },
+    "gamePuzzlePath": {
+      "file": "assets/games/art/gamePuzzlePath.webp",
+      "kind": "exact",
+      "source": "855838e9-image.png",
+      "sourceScreen": "All Games Collection",
+      "box": [
+        250,
+        1286,
+        460,
+        1410
+      ],
+      "size": [
+        210,
+        124
+      ],
+      "transparent": false,
+      "note": "Glowing puzzle path through an arch."
+    },
+    "gameLogicTiles": {
+      "file": "assets/games/art/gameLogicTiles.webp",
+      "kind": "exact",
+      "source": "855838e9-image.png",
+      "sourceScreen": "All Games Collection",
+      "box": [
+        640,
+        1290,
+        905,
+        1405
+      ],
+      "size": [
+        265,
+        115
+      ],
+      "transparent": false,
+      "note": "Glowing geometric tiles."
+    },
+    "resultTrophy": {
+      "file": "assets/games/art/resultTrophy.webp",
+      "kind": "exact",
+      "source": "97b0ae78-image.png",
+      "sourceScreen": "Game Complete (trophy)",
+      "box": [
+        40,
+        300,
+        823,
+        655
+      ],
+      "size": [
+        783,
+        355
+      ],
+      "transparent": false,
+      "note": "Gold trophy with crescent, Ludo pawns and dice, garden arch."
+    },
+    "cornerOrnament": {
+      "file": "assets/games/art/cornerOrnament.png",
+      "kind": "patched",
+      "source": "d87e652c-image.png",
+      "sourceScreen": "Astronomy Explorer (ornate panel)",
+      "box": [
+        47,
+        710,
+        140,
+        800
+      ],
+      "size": [
+        93,
+        90
+      ],
+      "transparent": true,
+      "note": "Islamic pattern panel corner (top-left). Cut out of a dark panel; mirror it for the other corners. Dark panels only."
+    },
+    "goldDivider": {
+      "file": "assets/games/art/goldDivider.png",
+      "kind": "patched",
+      "source": "985cb0f6-image.png",
+      "sourceScreen": "Qur’an Knowledge waiting room",
+      "box": [
+        205,
+        1237,
+        735,
+        1257
+      ],
+      "size": [
+        530,
+        20
+      ],
+      "transparent": true,
+      "note": "Thin gold rule with a diamond in the middle. Dark panels only."
+    }
+  },
+  "fallback": {
+    "bottomNavFrame": {
+      "kind": "fallback",
+      "note": "The gold nav pill exists only with icons and labels baked in. The app keeps its own shared bottom nav."
+    },
+    "backdropFull": {
+      "kind": "fallback",
+      "note": "No design crop is a clean full-screen background: every screen has its title, cards or buttons baked in."
+    },
+    "historyEmpty": {
+      "kind": "fallback",
+      "note": "No design for an empty history list."
+    },
+    "settingsHeader": {
+      "kind": "fallback",
+      "note": "No Games settings screen exists on main yet, and no design crop is text-free."
+    }
+  },
+  "totalBytes": 519286
+}
