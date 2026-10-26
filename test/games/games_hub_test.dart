@@ -84,7 +84,7 @@ void main() {
     testWidgets('lists the registered games in sections, without ratings', (
       tester,
     ) async {
-      await pumpScreen(tester, const GamesScreen());
+      await pumpScreen(tester, const GamesScreen(), height: 8000);
       expect(tester.takeException(), isNull);
       for (final GameCategory c in GameCategory.values) {
         expect(
@@ -93,8 +93,11 @@ void main() {
           reason: c.label,
         );
       }
-      for (final GameDef g in kGames) {
+      for (final GameDef g in visibleGames(showAcademy: true)) {
         expect(find.text(g.title), findsOneWidget, reason: g.id);
+      }
+      for (final GameDef g in hiddenGames) {
+        expect(find.text(g.title), findsNothing, reason: g.id);
       }
       for (final String bad in <String>[
         'Popular Games',

@@ -91,13 +91,18 @@ import '../features/masjid/presentation/masjid_finder_screen.dart';
 import '../features/ramadan/presentation/ramadan_screen.dart';
 import '../features/settings/presentation/language_settings.dart';
 import '../features/home/presentation/home_quick_screen.dart';
+import '../features/games/engine/game_registry.dart'
+    show GameEngineKind, gameById;
 import '../features/games/engine/quiz_engine.dart' show QuizConfig;
 import '../features/games/games_flags.dart';
 import '../features/games/presentation/community_stub_screen.dart';
 import '../features/games/presentation/game_details_screen.dart';
 import '../features/games/presentation/game_history_screen.dart';
 import '../features/games/presentation/game_results_screen.dart';
+import '../features/games/presentation/game_settings_screen.dart';
 import '../features/games/presentation/game_setup_screen.dart';
+import '../features/games/presentation/order_play_screen.dart';
+import '../features/games/presentation/word_games_screen.dart';
 import '../features/games/presentation/memory_game_screen.dart';
 import '../features/games/presentation/quiz_play_screen.dart';
 import '../features/games/presentation/games_screens.dart';
@@ -623,20 +628,44 @@ GoRouter buildRouter({String initialLocation = '/'}) {
           ),
         ),
         GoRoute(
+          path: '/games/settings',
+          pageBuilder: (context, state) => _fade(const GameSettingsScreen()),
+        ),
+        GoRoute(
           path: '/games/g/:id/play',
-          pageBuilder: (context, state) => _fade(
-            QuizPlayScreen(
-              // A new key per start, so Play again never reuses a finished game.
-              key: ValueKey<String>(state.uri.toString()),
-              gameId: state.pathParameters['id']!,
-              config: QuizConfig.fromQuery(
-                state.pathParameters['id']!,
-                state.uri.queryParameters,
+          pageBuilder: (context, state) {
+            final String id = state.pathParameters['id']!;
+            // A new key per start, so Play again never reuses a finished game.
+            final Key key = ValueKey<String>(state.uri.toString());
+            final GameEngineKind? kind = gameById(id)?.kind;
+            if (kind == GameEngineKind.order) {
+              return _fade(
+                OrderPlayScreen(
+                  key: key,
+                  gameId: id,
+                  topic: state.uri.queryParameters['topic'],
+                ),
+                pill: false,
+              );
+            }
+            if (kind == GameEngineKind.words) {
+              return _fade(
+                id == 'scramble'
+                    ? ScrambleScreen(key: key)
+                    : WordSearchScreen(key: key),
+                pill: false,
+              );
+            }
+            return _fade(
+              QuizPlayScreen(
+                key: key,
+                gameId: id,
+                config: QuizConfig.fromQuery(id, state.uri.queryParameters),
+                resume: state.uri.queryParameters['resume'] == '1',
               ),
-              resume: state.uri.queryParameters['resume'] == '1',
-            ),
-            pill: false,
-          ),
+              pill: false,
+            );
+          },
         ),
         GoRoute(
           path: '/games/g/:id/results',

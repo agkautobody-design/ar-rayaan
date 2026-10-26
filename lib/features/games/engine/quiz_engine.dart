@@ -30,6 +30,7 @@ class QuizQuestion {
     this.promptIsArabic = false,
     this.optionsAreArabic = false,
     this.context,
+    this.kicker,
   });
 
   factory QuizQuestion.fromJson(Map<String, dynamic> j) => QuizQuestion(
@@ -42,6 +43,7 @@ class QuizQuestion {
         promptIsArabic: (j['pa'] as bool?) ?? false,
         optionsAreArabic: (j['oa'] as bool?) ?? false,
         context: j['context'] as String?,
+        kicker: j['kicker'] as String?,
       );
 
   final String id;
@@ -60,6 +62,10 @@ class QuizQuestion {
   /// A line above the prompt (the surah, on Easy).
   final String? context;
 
+  /// The small heading over the prompt. When null, an Arabic prompt is headed
+  /// "Complete the ayah" and any other prompt has no heading.
+  final String? kicker;
+
   Map<String, dynamic> toJson() => <String, dynamic>{
         'id': id,
         'prompt': prompt,
@@ -70,6 +76,7 @@ class QuizQuestion {
         'pa': promptIsArabic,
         'oa': optionsAreArabic,
         if (context != null) 'context': context,
+        if (kicker != null) 'kicker': kicker,
       };
 }
 
@@ -686,6 +693,7 @@ QuizQuestion shuffleOptions(QuizQuestion q, Random rnd) {
     promptIsArabic: q.promptIsArabic,
     optionsAreArabic: q.optionsAreArabic,
     context: q.context,
+    kicker: q.kicker,
   );
 }
 

@@ -14,10 +14,13 @@ import '../../../app/theme/widgets/needs_internet_view.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../data/game_history.dart';
 import '../data/games_adapters.dart';
+import '../data/game_settings.dart';
 import '../data/games_store.dart';
+import '../data/learning_loader.dart';
 import '../engine/game_registry.dart';
 import '../engine/quiz_engine.dart';
 import '../ui/games_theme.dart';
+import '../ui/learning_widgets.dart';
 import 'game_results_screen.dart';
 import 'games_screens.dart';
 
@@ -87,6 +90,12 @@ class _QuizPlayState extends ConsumerState<QuizPlayScreen> {
             count: c.count,
             topic: c.topic,
           );
+        } else if (widget.gameId == 'seerah') {
+          qs = await LearningLoader.seerahQuiz(_rnd, c.count);
+        } else if (widget.gameId == 'hadith') {
+          qs = await LearningLoader.hadithQuiz(_rnd, c.count);
+        } else if (widget.gameId == 'arabic-words') {
+          qs = await LearningLoader.arabicWordsQuiz(_rnd, c.count, c.topic);
         } else {
           qs = <QuizQuestion>[];
         }
@@ -317,7 +326,9 @@ class _QuizPlayState extends ConsumerState<QuizPlayScreen> {
               ),
             ),
           ],
-          if (s.config.hints && !answered) ...<Widget>[
+          if (s.config.hints &&
+              !answered &&
+              ref.watch(gameSettingsProvider).showHints) ...<Widget>[
             const SizedBox(height: 12),
             Align(
               alignment: AlignmentDirectional.centerEnd,
@@ -341,7 +352,10 @@ class _QuizPlayState extends ConsumerState<QuizPlayScreen> {
                 ? Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: <Widget>[
-                      Text('Complete the ayah', style: AppText.eyebrow),
+                      Text(
+                        q.kicker ?? 'Complete the ayah',
+                        style: AppText.eyebrow,
+                      ),
                       const SizedBox(height: 8),
                       Directionality(
                         textDirection: TextDirection.rtl,
@@ -357,9 +371,18 @@ class _QuizPlayState extends ConsumerState<QuizPlayScreen> {
                       ),
                     ],
                   )
-                : Text(
-                    q.prompt,
-                    style: AppText.body.copyWith(fontSize: 17, height: 1.5),
+                : Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: <Widget>[
+                      if (q.kicker != null) ...<Widget>[
+                        Text(q.kicker!, style: AppText.eyebrow),
+                        const SizedBox(height: 8),
+                      ],
+                      Text(
+                        q.prompt,
+                        style: AppText.body.copyWith(fontSize: 17, height: 1.5),
+                      ),
+                    ],
                   ),
           ),
           const SizedBox(height: 12),
@@ -404,6 +427,8 @@ class _QuizPlayState extends ConsumerState<QuizPlayScreen> {
                     'Source: ${q.citation}',
                     style: AppText.bodyMuted.copyWith(height: 1.5),
                   ),
+                  const SizedBox(height: 12),
+                  AskHadiAboutButton(question: _askText(q)),
                 ],
               ),
             ),
@@ -423,6 +448,14 @@ class _QuizPlayState extends ConsumerState<QuizPlayScreen> {
           : null,
     );
   }
+
+  /// The question Hadi is asked from "Ask Hadi about this".
+  String _askText(QuizQuestion q) => clip(
+        'I just answered this quiz question: ${q.prompt} The right answer is '
+        '${q.options[q.answer]}. Can you explain it, and what the source '
+        'says? Source: ${q.citation}',
+        480,
+      );
 
   Widget _option(QuizSession s, int o) {
     final QuizQuestion q = s.current;

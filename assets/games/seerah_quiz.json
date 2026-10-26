@@ -1,0 +1,668 @@
+{
+ "note": "Seerah Challenge questions. Every question names a story of the Seerah School and an 'evidence' phrase that must appear word for word in that story's text or source line (test: test/games/learning_games_test.dart). The citation shown to the player is built from the story's own source lines.",
+ "questions": [
+  {
+   "id": "sq-01",
+   "story": "seerah-01",
+   "prompt": "In which year was the Prophet ﷺ born, according to Ibn Ishaq as the story gives it?",
+   "answer": "The Year of the Elephant",
+   "wrong": [
+    "The Year of the Trench",
+    "The Year of the Hijrah",
+    "The Year of the Conquest"
+   ],
+   "evidence": "in the Year of the Elephant (vol. 1, p. 158",
+   "why": "Ibn Ishaq says he was born on a Monday, the twelfth of Rabi' al-Awwal, in the Year of the Elephant. The story notes that the editor records other views on the month."
+  },
+  {
+   "id": "sq-02",
+   "story": "seerah-01",
+   "prompt": "Which surah of the Qur’an tells the end of Abraha’s march on the House in five verses?",
+   "answer": "Al-Fil (105)",
+   "wrong": [
+    "An-Nasr (110)",
+    "Al-Masad (111)",
+    "Al-Fath (48)"
+   ],
+   "evidence": "The Qur'an compressed the end of that march into five verses",
+   "why": "The Qur’an compressed the end of that march into five verses (105:1-5), Surah Al-Fil."
+  },
+  {
+   "id": "sq-03",
+   "story": "seerah-02",
+   "prompt": "Who died at al-Abwa when the Prophet ﷺ was six, on the way back from visiting Madinah?",
+   "answer": "His mother, Amina",
+   "wrong": [
+    "His grandfather, Abd al-Muttalib",
+    "His foster-mother, Halimah",
+    "His uncle, Abu Talib"
+   ],
+   "evidence": "At six, his mother Amina died at al-Abwa",
+   "why": "At six, his mother Amina died at al-Abwa, between Makkah and Madinah."
+  },
+  {
+   "id": "sq-04",
+   "story": "seerah-02",
+   "prompt": "Who took charge of the Prophet’s ﷺ affairs after Abd al-Muttalib died?",
+   "answer": "Abu Talib",
+   "wrong": [
+    "Abu Bakr",
+    "Hamza",
+    "Umar"
+   ],
+   "evidence": "Abu Talib then took charge of his affairs",
+   "why": "Ibn Ishaq says Abd al-Muttalib died when the Prophet ﷺ was eight (some say ten), and Abu Talib then took charge of his affairs."
+  },
+  {
+   "id": "sq-05",
+   "story": "seerah-03",
+   "prompt": "What did Quraysh call him before revelation, according to Ibn Hisham?",
+   "answer": "Al-Amin, the Trustworthy",
+   "wrong": [
+    "Al-Farooq, the Distinguisher",
+    "Al-Siddiq, the Truthful",
+    "Al-Haadi, the Guide"
+   ],
+   "evidence": "before revelation Quraysh called him al-Amin, the Trustworthy",
+   "why": "Ibn Hisham notes that before revelation Quraysh called him al-Amin, the Trustworthy."
+  },
+  {
+   "id": "sq-06",
+   "story": "seerah-03",
+   "prompt": "Whom did Khadijah send with him on the trading journey to Syria?",
+   "answer": "Her slave Maysarah",
+   "wrong": [
+    "Waraqa ibn Nawfal",
+    "Abu Bakr",
+    "Bilal"
+   ],
+   "evidence": "with her slave Maysarah",
+   "why": "Khadijah sent him to Syria with her slave Maysarah."
+  },
+  {
+   "id": "sq-07",
+   "story": "seerah-04",
+   "prompt": "In which month, in the year he turned forty, did the angel come to him in the cave of Hira?",
+   "answer": "Ramadan",
+   "wrong": [
+    "Rajab",
+    "Muharram",
+    "Dhul-Hijjah"
+   ],
+   "evidence": "In the month of Ramadan, in the year he turned forty",
+   "why": "In the month of Ramadan, in the year he turned forty, the silence ended and the angel came."
+  },
+  {
+   "id": "sq-08",
+   "story": "seerah-04",
+   "prompt": "What was the first word the angel said to him in the cave?",
+   "answer": "Iqra (Read)",
+   "wrong": [
+    "Ahad (One)",
+    "Hijrah (Emigration)",
+    "Wudu (Washing)"
+   ],
+   "evidence": "The angel came to him and said: Iqra — Read.",
+   "why": "The angel came to him and said: Iqra — Read. The first revealed words are Qur’an 96:1-5."
+  },
+  {
+   "id": "sq-09",
+   "story": "seerah-04",
+   "prompt": "Whom did Khadijah take him to, after he ran home from the cave?",
+   "answer": "Her cousin Waraqa ibn Nawfal",
+   "wrong": [
+    "Her slave Maysarah",
+    "Abu Talib",
+    "Salman the Persian"
+   ],
+   "evidence": "Then she took him to her cousin Waraqa ibn Nawfal",
+   "why": "She took him to her cousin Waraqa ibn Nawfal, a Christian scholar."
+  },
+  {
+   "id": "sq-10",
+   "story": "seerah-05",
+   "prompt": "How long did he keep his mission hidden before the public call, by Ibn Ishaq’s account?",
+   "answer": "Three years",
+   "wrong": [
+    "One year",
+    "Ten years",
+    "Forty days"
+   ],
+   "evidence": "kept his mission hidden for three years",
+   "why": "Ibn Ishaq says the Prophet ﷺ kept his mission hidden for three years, until Allah ordered him to make it public."
+  },
+  {
+   "id": "sq-11",
+   "story": "seerah-05",
+   "prompt": "From which hill did he call out to the clans of Quraysh?",
+   "answer": "Safa",
+   "wrong": [
+    "Thawr",
+    "Uhud",
+    "Hira"
+   ],
+   "evidence": "climbed Safa and called out to the clans of Quraysh",
+   "why": "When the command came to warn his closest kindred, he climbed Safa and called out to the clans of Quraysh."
+  },
+  {
+   "id": "sq-12",
+   "story": "seerah-06",
+   "prompt": "Which word did Bilal keep saying under the heavy rock?",
+   "answer": "Ahad, Ahad (One, One)",
+   "wrong": [
+    "Iqra, Iqra (Read, Read)",
+    "Amin, Amin (Trustworthy)",
+    "Salam, Salam (Peace)"
+   ],
+   "evidence": "he kept saying: Ahad, Ahad — One, One",
+   "why": "Bilal kept saying: Ahad, Ahad — One, One."
+  },
+  {
+   "id": "sq-13",
+   "story": "seerah-06",
+   "prompt": "Who freed Bilal by offering his master a stronger slave of his own in exchange?",
+   "answer": "Abu Bakr",
+   "wrong": [
+    "Umar",
+    "Ali",
+    "Khabbab"
+   ],
+   "evidence": "Umayyah accepted and Abu Bakr freed Bilal",
+   "why": "Abu Bakr told Umayyah to fear Allah and offered him a stronger slave in exchange; Umayyah accepted and Abu Bakr freed Bilal."
+  },
+  {
+   "id": "sq-14",
+   "story": "seerah-07",
+   "prompt": "In the Night Journey narration, who told him his people could not bear fifty prayers a day?",
+   "answer": "Musa",
+   "wrong": [
+    "Ibrahim",
+    "Isa",
+    "Adam"
+   ],
+   "evidence": "Musa said: your people cannot bear fifty",
+   "why": "Musa said: your people cannot bear fifty, so go back and ask your Lord to lighten it."
+  },
+  {
+   "id": "sq-15",
+   "story": "seerah-07",
+   "prompt": "To how many prayers a day did the covenant stand, for the reward of fifty?",
+   "answer": "Five",
+   "wrong": [
+    "Three",
+    "Ten",
+    "Fifteen"
+   ],
+   "evidence": "the covenant stood at five prayers for the reward of fifty",
+   "why": "He returned again and again until the covenant stood at five prayers for the reward of fifty."
+  },
+  {
+   "id": "sq-16",
+   "story": "seerah-08",
+   "prompt": "What had eaten the boycott document, leaving only the words “bismika Allahumma”?",
+   "answer": "Termites",
+   "wrong": [
+    "Fire",
+    "Floodwater",
+    "Mice"
+   ],
+   "evidence": "termites had eaten it except for the words",
+   "why": "Al-Mut’im found that termites had eaten the document except for the words “bismika Allahumma” (in Your name, O God)."
+  },
+  {
+   "id": "sq-17",
+   "story": "seerah-09",
+   "prompt": "To which land did the Prophet ﷺ tell his companions to go, where no one is wronged under its king?",
+   "answer": "Abyssinia",
+   "wrong": [
+    "Yemen",
+    "Syria",
+    "Persia"
+   ],
+   "evidence": "go to the land of Abyssinia",
+   "why": "He told them to go to the land of Abyssinia, for there is a king there under whom no one is wronged."
+  },
+  {
+   "id": "sq-18",
+   "story": "seerah-09",
+   "prompt": "Who answered the Negus for the Muslims when he asked about their religion?",
+   "answer": "Ja’far ibn Abi Talib",
+   "wrong": [
+    "Bilal",
+    "Umar",
+    "Amr ibn al-As"
+   ],
+   "evidence": "Ja'far ibn Abi Talib answered",
+   "why": "Ja’far ibn Abi Talib answered, and recited the opening of Surah Maryam when asked for something from Allah."
+  },
+  {
+   "id": "sq-19",
+   "story": "seerah-10",
+   "prompt": "Who used to visit Umar’s sister Fatima to teach her the Qur’an?",
+   "answer": "Khabbab",
+   "wrong": [
+    "Mus’ab ibn Umayr",
+    "Bilal",
+    "Nu’aym ibn Abdullah"
+   ],
+   "evidence": "Khabbab used to visit his sister Fatima bint al-Khattab to teach her the Qur'an",
+   "why": "In Ibn Hisham’s account, Khabbab used to visit Fatima bint al-Khattab to teach her the Qur’an."
+  },
+  {
+   "id": "sq-20",
+   "story": "seerah-11",
+   "prompt": "To which city did the Prophet ﷺ go out to seek the support of Thaqif?",
+   "answer": "Ta’if",
+   "wrong": [
+    "Madinah",
+    "Hunayn",
+    "Tabuk"
+   ],
+   "evidence": "he went out to Ta'if to seek the support of Thaqif",
+   "why": "After Abu Talib died, he went out to Ta’if to seek the support of Thaqif."
+  },
+  {
+   "id": "sq-21",
+   "story": "seerah-12",
+   "prompt": "How many men met him at Aqabah the year after the six men of the Khazraj?",
+   "answer": "Twelve",
+   "wrong": [
+    "Six",
+    "Seventy-three",
+    "Three hundred"
+   ],
+   "evidence": "The next year twelve men met him at Aqabah",
+   "why": "The next year twelve men met him at Aqabah."
+  },
+  {
+   "id": "sq-22",
+   "story": "seerah-12",
+   "prompt": "Whom did the Prophet ﷺ send with them to teach the Qur’an and Islam?",
+   "answer": "Mus’ab ibn Umayr",
+   "wrong": [
+    "Khabbab",
+    "Bilal",
+    "Ja’far ibn Abi Talib"
+   ],
+   "evidence": "sent Mus'ab ibn Umayr with them",
+   "why": "The Prophet ﷺ sent Mus’ab ibn Umayr with them, ordering him to teach them the Qur’an and Islam."
+  },
+  {
+   "id": "sq-23",
+   "story": "seerah-13",
+   "prompt": "Which mountain’s cave did the Prophet ﷺ and Abu Bakr enter after leaving Makkah?",
+   "answer": "Mount Thawr",
+   "wrong": [
+    "Mount Hira",
+    "Mount Uhud",
+    "Mount Safa"
+   ],
+   "evidence": "entered a cave in Mount Thawr",
+   "why": "The Prophet ﷺ left Makkah with Abu Bakr and entered a cave in Mount Thawr, below the city."
+  },
+  {
+   "id": "sq-24",
+   "story": "seerah-13",
+   "prompt": "How many nights did they stay in the cave, according to the hadith the story cites?",
+   "answer": "Three nights",
+   "wrong": [
+    "One night",
+    "Seven nights",
+    "Forty nights"
+   ],
+   "evidence": "has them stay in the cave three nights",
+   "why": "The hadith has them stay in the cave three nights."
+  },
+  {
+   "id": "sq-25",
+   "story": "seerah-13",
+   "prompt": "Who brought them food at nightfall while they were in the cave?",
+   "answer": "Asma bint Abi Bakr",
+   "wrong": [
+    "Khadijah",
+    "Fatima",
+    "Umm Salama"
+   ],
+   "evidence": "Asma bint Abi Bakr brought food at nightfall",
+   "why": "Abu Bakr’s son listened by day to what people said of them, and Asma bint Abi Bakr brought food at nightfall."
+  },
+  {
+   "id": "sq-26",
+   "story": "seerah-14",
+   "prompt": "At which place, before entering Madinah, did he found a mosque that a footnote calls the first mosque built in Islam?",
+   "answer": "Quba",
+   "wrong": [
+    "Badr",
+    "Hudaybiyyah",
+    "Taif"
+   ],
+   "evidence": "founded his mosque there, which a footnote calls the first mosque built in Islam",
+   "why": "At Quba he founded his mosque, which a footnote calls the first mosque built in Islam."
+  },
+  {
+   "id": "sq-27",
+   "story": "seerah-14",
+   "prompt": "Who carried the Prophet’s ﷺ saddle into his own house after the camel knelt?",
+   "answer": "Abu Ayyub al-Ansari",
+   "wrong": [
+    "Sa’d ibn al-Rabi’",
+    "Abd al-Rahman ibn Awf",
+    "Salman the Persian"
+   ],
+   "evidence": "Abu Ayyub al-Ansari carried his saddle into his house",
+   "why": "The camel knelt, then rose, walked a little and knelt in the same place; Abu Ayyub al-Ansari carried his saddle into his house."
+  },
+  {
+   "id": "sq-28",
+   "story": "seerah-14",
+   "prompt": "Offered half of Sa’d ibn al-Rabi’’s wealth, what did Abd al-Rahman ibn Awf ask?",
+   "answer": "Where the market was",
+   "wrong": [
+    "For a house to live in",
+    "For a share of the date palms",
+    "For a horse"
+   ],
+   "evidence": "asked only where the market was",
+   "why": "Abd al-Rahman declined the offer of half and asked only where the market was."
+  },
+  {
+   "id": "sq-29",
+   "story": "seerah-16",
+   "prompt": "For how long did the Muslims pray toward Jerusalem in Madinah before the qiblah changed?",
+   "answer": "Sixteen or seventeen months",
+   "wrong": [
+    "Three months",
+    "Two years",
+    "Ten years"
+   ],
+   "evidence": "For sixteen or seventeen months in Madinah",
+   "why": "For sixteen or seventeen months in Madinah the Muslims prayed toward Jerusalem."
+  },
+  {
+   "id": "sq-30",
+   "story": "seerah-17",
+   "prompt": "About how many Muslims were at Badr, according to al-Bara’ in the hadith the story cites?",
+   "answer": "A little over three hundred and ten",
+   "wrong": [
+    "About fourteen hundred",
+    "About one thousand",
+    "Ten thousand"
+   ],
+   "evidence": "a little over three hundred and ten",
+   "why": "The Muslims were a little over three hundred and ten, against Quraysh, whom a scout reported as between nine hundred and a thousand."
+  },
+  {
+   "id": "sq-31",
+   "story": "seerah-18",
+   "prompt": "What did Abu Aziz say the men who held him gave him at their meals?",
+   "answer": "Bread, while they ate dates themselves",
+   "wrong": [
+    "Dates, while they ate bread",
+    "Meat, while they ate bread",
+    "Milk, while they ate dates"
+   ],
+   "evidence": "gave him the bread at their meals while they ate dates themselves",
+   "why": "Abu Aziz, one of the prisoners, said the men who held him gave him the bread at their meals while they ate dates themselves."
+  },
+  {
+   "id": "sq-32",
+   "story": "seerah-19",
+   "prompt": "Which commander, still on the enemy side that day, wheeled his cavalry through the empty pass at Uhud?",
+   "answer": "Khalid ibn al-Walid",
+   "wrong": [
+    "Amr ibn al-As",
+    "Abu Sufyan",
+    "Amr ibn Abd Wudd"
+   ],
+   "evidence": "Khalid ibn al-Walid, still an enemy commander that day, saw the pass empty",
+   "why": "Khalid ibn al-Walid, still an enemy commander that day, saw the pass empty and wheeled his cavalry through it."
+  },
+  {
+   "id": "sq-33",
+   "story": "seerah-19",
+   "prompt": "Which verse says “Muhammad is not but a messenger. [Other] messengers have passed on before him”?",
+   "answer": "Qur’an 3:144",
+   "wrong": [
+    "Qur’an 3:152",
+    "Qur’an 2:144",
+    "Qur’an 8:41"
+   ],
+   "evidence": "(3:144)",
+   "why": "The verse is Qur’an 3:144, quoted in the story of Uhud and again by Abu Bakr at the Prophet’s passing."
+  },
+  {
+   "id": "sq-34",
+   "story": "seerah-20",
+   "prompt": "Who killed Hamza at Uhud, by a thrown spear?",
+   "answer": "Wahshi",
+   "wrong": [
+    "Khalid ibn al-Walid",
+    "Abu Sufyan",
+    "Amr ibn Abd Wudd"
+   ],
+   "evidence": "was killed at Uhud by a thrown spear: Wahshi",
+   "why": "Hamza was killed at Uhud by a thrown spear: Wahshi, a slave of Jubayr ibn Mut’im, tells how he drove the spear in."
+  },
+  {
+   "id": "sq-35",
+   "story": "seerah-21",
+   "prompt": "What did the Prophet ﷺ order dug around Madinah?",
+   "answer": "A trench",
+   "wrong": [
+    "A wall of stone",
+    "A well",
+    "A watchtower"
+   ],
+   "evidence": "ordered a trench dug around Madinah",
+   "why": "The Prophet ﷺ ordered a trench dug around Madinah and worked on the digging himself."
+  },
+  {
+   "id": "sq-36",
+   "story": "seerah-21",
+   "prompt": "Who is said to have suggested the trench?",
+   "answer": "Salman the Persian",
+   "wrong": [
+    "Nu’aym ibn Mas’ud",
+    "Abu Sufyan",
+    "Umar"
+   ],
+   "evidence": "Salman the Persian suggested the trench",
+   "why": "It is said that Salman the Persian suggested the trench."
+  },
+  {
+   "id": "sq-37",
+   "story": "seerah-21",
+   "prompt": "What did Allah send on a cold winter night that overturned the allies’ pots and threw down their tents?",
+   "answer": "A very cold wind",
+   "wrong": [
+    "Heavy rain",
+    "A flood",
+    "Snow"
+   ],
+   "evidence": "sent a very cold wind on a winter night",
+   "why": "Allah sowed discord among the allies and sent a very cold wind on a winter night; the Qur’an mentions the wind and the soldiers in 33:9."
+  },
+  {
+   "id": "sq-38",
+   "story": "seerah-22",
+   "prompt": "About how many men set out with him for umrah when Quraysh barred them at Hudaybiyyah?",
+   "answer": "About fourteen hundred",
+   "wrong": [
+    "About three hundred",
+    "Ten thousand",
+    "Seventy-three"
+   ],
+   "evidence": "about fourteen hundred men",
+   "why": "The Prophet ﷺ set out for umrah with about fourteen hundred men."
+  },
+  {
+   "id": "sq-39",
+   "story": "seerah-22",
+   "prompt": "For how many years did the two sides agree to put war away, in the text Ibn Hisham gives?",
+   "answer": "Ten years",
+   "wrong": [
+    "One year",
+    "Five years",
+    "Twenty years"
+   ],
+   "evidence": "to put war away from the people for ten years",
+   "why": "The two sides agreed to put war away from the people for ten years."
+  },
+  {
+   "id": "sq-40",
+   "story": "seerah-23",
+   "prompt": "Which ruler took the Prophet’s ﷺ letter, read it and tore it?",
+   "answer": "Kisra, king of Persia",
+   "wrong": [
+    "Heraclius, Caesar of the Romans",
+    "The Negus of Abyssinia",
+    "Al-Muqawqis of Alexandria"
+   ],
+   "evidence": "Kisra took the Prophet's letter, read it and tore it",
+   "why": "Kisra took the Prophet’s letter, read it and tore it."
+  },
+  {
+   "id": "sq-41",
+   "story": "seerah-23",
+   "prompt": "Who carried the Prophet’s ﷺ letter to Caesar, king of the Romans?",
+   "answer": "Dihya al-Kalbi",
+   "wrong": [
+    "Hatib ibn Abi Balta’a",
+    "Amr ibn Umayya al-Damri",
+    "Abdullah ibn Hudhafa al-Sahmi"
+   ],
+   "evidence": "Dihya al-Kalbi to Caesar",
+   "why": "Ibn Hisham lists the envoys: Dihya al-Kalbi to Caesar, Abdullah ibn Hudhafa al-Sahmi to Kisra, Amr ibn Umayya al-Damri to the Negus and Hatib ibn Abi Balta’a to al-Muqawqis."
+  },
+  {
+   "id": "sq-42",
+   "story": "seerah-24",
+   "prompt": "In which month of the eighth year did the army camp at Marr al-Zahran with ten thousand Muslims?",
+   "answer": "Ramadan",
+   "wrong": [
+    "Shawwal",
+    "Safar",
+    "Rabi’ al-Awwal"
+   ],
+   "evidence": "In Ramadan of the eighth year",
+   "why": "In Ramadan of the eighth year the Prophet ﷺ camped at Marr al-Zahran with ten thousand Muslims."
+  },
+  {
+   "id": "sq-43",
+   "story": "seerah-24",
+   "prompt": "Which surah speaks of that victory and the people entering the religion of Allah in multitudes?",
+   "answer": "An-Nasr (110)",
+   "wrong": [
+    "Al-Fil (105)",
+    "Al-Masad (111)",
+    "Maryam (19)"
+   ],
+   "evidence": "Surah An-Nasr speaks of that victory",
+   "why": "Surah An-Nasr (110:1-3) speaks of that victory."
+  },
+  {
+   "id": "sq-44",
+   "story": "seerah-25",
+   "prompt": "After Makkah came a battle against Hawazin and their allies. Which one?",
+   "answer": "Hunayn",
+   "wrong": [
+    "Badr",
+    "Uhud",
+    "Tabuk"
+   ],
+   "evidence": "After Makkah came Hunayn, against Hawazin",
+   "why": "After Makkah came Hunayn, against Hawazin and their allies under Malik ibn Awf."
+  },
+  {
+   "id": "sq-45",
+   "story": "seerah-26",
+   "prompt": "For how long were the three who stayed behind at Tabuk not spoken to?",
+   "answer": "Fifty nights",
+   "wrong": [
+    "Three nights",
+    "Ten nights",
+    "Forty nights"
+   ],
+   "evidence": "it lasted fifty nights",
+   "why": "The Prophet ﷺ ordered the Muslims not to speak to the three, and it lasted fifty nights."
+  },
+  {
+   "id": "sq-46",
+   "story": "seerah-26",
+   "prompt": "Which of the three who stayed behind gave the account preserved in the hadith the story cites?",
+   "answer": "Ka’b ibn Malik",
+   "wrong": [
+    "Murara ibn al-Rabi’",
+    "Al-Jadd ibn Qays",
+    "Mu’attib ibn Qushayr"
+   ],
+   "evidence": "In Ka'b ibn Malik's own account",
+   "why": "The account is Ka’b ibn Malik’s own; Ka’b and two others, Murara ibn al-Rabi’ and Hilal ibn Umayya, were left pending."
+  },
+  {
+   "id": "sq-47",
+   "story": "seerah-27",
+   "prompt": "In which year did the Prophet ﷺ perform his only full pilgrimage?",
+   "answer": "The tenth year",
+   "wrong": [
+    "The second year",
+    "The fifth year",
+    "The eighth year"
+   ],
+   "evidence": "In the tenth year, the Prophet ﷺ performed his only full pilgrimage",
+   "why": "In the tenth year the Prophet ﷺ performed his only full pilgrimage."
+  },
+  {
+   "id": "sq-48",
+   "story": "seerah-27",
+   "prompt": "At which place did he deliver the Farewell Sermon, standing on his camel?",
+   "answer": "Arafat",
+   "wrong": [
+    "Quba",
+    "Hunayn",
+    "Badr"
+   ],
+   "evidence": "at Arafat, standing on his camel",
+   "why": "At Arafat, standing on his camel, he delivered the Farewell Sermon."
+  },
+  {
+   "id": "sq-49",
+   "story": "seerah-28",
+   "prompt": "Whose house was he in when he died, on her day?",
+   "answer": "Aisha’s",
+   "wrong": [
+    "Khadijah’s",
+    "Umm Salama’s",
+    "Fatima’s"
+   ],
+   "evidence": "The Prophet ﷺ died in the house of Aisha, on her day.",
+   "why": "The Prophet ﷺ died in the house of Aisha, on her day."
+  },
+  {
+   "id": "sq-50",
+   "story": "seerah-28",
+   "prompt": "Whom did he order to lead the people in prayer when he fell ill?",
+   "answer": "Abu Bakr",
+   "wrong": [
+    "Umar",
+    "Ali",
+    "Bilal"
+   ],
+   "evidence": "he ordered that Abu Bakr lead the people in prayer",
+   "why": "When he fell ill he ordered that Abu Bakr lead the people in prayer."
+  },
+  {
+   "id": "sq-51",
+   "story": "seerah-29",
+   "prompt": "Which animal is named among the few things he left behind?",
+   "answer": "A white mule",
+   "wrong": [
+    "A white horse",
+    "A red camel",
+    "A grey donkey"
+   ],
+   "evidence": "nothing but his white mule, his weapons, and a piece of land",
+   "why": "He left no money, no slaves, and nothing but his white mule, his weapons, and a piece of land he had given in charity."
+  }
+ ]
+}

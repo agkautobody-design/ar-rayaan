@@ -10,6 +10,8 @@
 /// Pure Dart (no Flutter), so the logic can be checked with a plain Dart SDK.
 library;
 
+import 'learning_games.dart';
+
 /// Where a game sits in the hub.
 enum GameCategory { islamic, strategy, family, words }
 
@@ -72,6 +74,13 @@ enum GameEngineKind {
 
   /// A single-purpose screen with nothing to set up.
   own,
+
+  /// Put things in order (`/games/g/<id>/play`): the Seerah timeline,
+  /// Prophets in Order, the Wudu and Salah steps.
+  order,
+
+  /// Word Search and Word Scramble (`/games/g/<id>/play`).
+  words,
 }
 
 /// One game.
@@ -93,6 +102,7 @@ class GameDef {
     this.hasHints = false,
     this.isAcademy = false,
     this.elderFeatured = false,
+    this.hidden = false,
     this.sourceNote,
   });
 
@@ -131,6 +141,11 @@ class GameDef {
 
   /// One of the three large cards the hub shows in Elder Mode.
   final bool elderFeatured;
+
+  /// True for a game that is registered but not shown or playable yet,
+  /// because the verified content it needs is not in the app. Each one is
+  /// listed in `docs/content_needed/GAMES_CONTENT_NEEDED.md`.
+  final bool hidden;
 
   /// Where the content of an Islamic game comes from, shown on its page.
   final String? sourceNote;
@@ -334,20 +349,27 @@ const List<GameDef> kGames = <GameDef>[
       'There is no timer. Take as long as you like.',
     ],
   ),
+  ...kLearningGames,
 ];
 
 /// The game with [id], or null.
 GameDef? gameById(String id) {
   for (final GameDef g in kGames) {
-    if (g.id == id) return g;
+    if (g.id == id && !g.hidden) return g;
   }
   return null;
 }
 
+/// The games that are registered but hidden for lack of verified content.
+List<GameDef> get hiddenGames => <GameDef>[
+      for (final GameDef g in kGames)
+        if (g.hidden) g,
+    ];
+
 /// Games to show, optionally without the Academy ones.
 List<GameDef> visibleGames({required bool showAcademy}) => <GameDef>[
       for (final GameDef g in kGames)
-        if (showAcademy || !g.isAcademy) g,
+        if (!g.hidden && (showAcademy || !g.isAcademy)) g,
     ];
 
 /// The hub's filter chips. `null` is All. Family means "can be played
