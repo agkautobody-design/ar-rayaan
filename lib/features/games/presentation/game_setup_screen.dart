@@ -73,7 +73,11 @@ class _GameSetupState extends ConsumerState<GameSetupScreen> {
       body: ListView(
         padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
         children: <Widget>[
-          ArchHeader(title: '${g.title}: set up', tagline: g.blurb),
+          ArchHeader(
+            title: '${g.title}: set up',
+            tagline: g.blurb,
+            band: true,
+          ),
           ..._body(g),
         ],
       ),
@@ -459,6 +463,7 @@ class _Group extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),
       child: GamePanel(
+        ornate: true,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[

@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:ar_rayaan/features/games/chess/chess_board_view.dart';
@@ -13,7 +14,7 @@ void main() {
         .where((f) => f.path.endsWith('.dart'));
     final referenced = <String>{};
     final re = RegExp(
-        r"assets/[A-Za-z0-9_\-/]+\.(?:jpg|png|json|ttf)");
+        r"assets/[A-Za-z0-9_\-/]+\.(?:jpg|png|webp|json|ttf)");
     for (final f in files) {
       for (final m in re.allMatches(f.readAsStringSync())) {
         referenced.add(m.group(0)!);
@@ -49,5 +50,23 @@ void main() {
         .toSet();
     expect(onDisk.difference(wanted), isEmpty,
         reason: 'files in assets/games/chess that nothing uses');
+  });
+
+  test('W6 Games art: every manifest slot has its file, within budget', () {
+    final dir = Directory('assets/games/art');
+    final manifest = jsonDecode(File('${dir.path}/manifest.json').readAsStringSync())
+        as Map<String, dynamic>;
+    final slots = manifest['slots'] as Map<String, dynamic>;
+    expect(slots, isNotEmpty);
+    var total = 0;
+    for (final e in slots.entries) {
+      final file = File((e.value as Map<String, dynamic>)['file'] as String);
+      expect(file.existsSync(), isTrue, reason: 'slot ${e.key}');
+      expect(file.path.split('/').last.split('.').first, e.key,
+          reason: 'file is named after its slot');
+      total += file.lengthSync();
+    }
+    // Art budget: keep the whole folder under 4 MB.
+    expect(total, lessThan(4 * 1024 * 1024));
   });
 }
