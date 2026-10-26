@@ -12,7 +12,8 @@ bool get webPrintSupported => true;
 bool printHtmlDocument(String html) {
   try {
     final JSObject win = web.window as JSObject;
-    final JSAny? opened = win.callMethod('open'.toJS, ''.toJS, '_blank'.toJS);
+    final JSAny? opened =
+        win.callMethod('open'.toJS, ''.toJS, '_blank'.toJS);
     if (opened == null) return false;
     final JSObject popup = opened as JSObject;
     final JSObject doc = popup['document']! as JSObject;

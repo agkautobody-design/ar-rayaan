@@ -83,87 +83,67 @@ class _Page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const TextStyle body = TextStyle(
-      color: Colors.black,
-      fontSize: 16,
-      height: 1.55,
-    );
+    const TextStyle body =
+        TextStyle(color: Colors.black, fontSize: 16, height: 1.55);
     return DefaultTextStyle(
       style: body,
       child: ListView(
         padding: const EdgeInsets.fromLTRB(20, 8, 20, 40),
         children: <Widget>[
-          Wrap(
-            spacing: 8,
-            runSpacing: 8,
-            children: <Widget>[
-              if (webPrintSupported)
-                FilledButton.icon(
-                  key: const Key('handout-print'),
-                  style: FilledButton.styleFrom(
-                    minimumSize: const Size(48, 48),
-                  ),
-                  onPressed: () {
-                    final bool ok = printHtmlDocument(data.toHtml());
-                    if (!ok) {
-                      ScaffoldMessenger.maybeOf(context)
-                        ?..hideCurrentSnackBar()
-                        ..showSnackBar(
-                          const SnackBar(
-                            content: Text(
-                              'The browser blocked the print page. Allow '
-                              'pop-ups for this site, or use Copy.',
-                            ),
-                          ),
-                        );
-                    }
-                  },
-                  icon: const Icon(Icons.print_outlined),
-                  label: const Text('Print'),
-                ),
-              if (webFileSaveSupported)
-                OutlinedButton.icon(
-                  key: const Key('handout-save'),
-                  style: OutlinedButton.styleFrom(
-                    minimumSize: const Size(48, 48),
-                  ),
-                  onPressed: () {
-                    final bool ok = saveTextFile(
-                      handoutFileName(data.title),
-                      data.toHtml(),
-                    );
+          Wrap(spacing: 8, runSpacing: 8, children: <Widget>[
+            if (webPrintSupported)
+              FilledButton.icon(
+                key: const Key('handout-print'),
+                style: FilledButton.styleFrom(minimumSize: const Size(48, 48)),
+                onPressed: () {
+                  final bool ok = printHtmlDocument(data.toHtml());
+                  if (!ok) {
                     ScaffoldMessenger.maybeOf(context)
                       ?..hideCurrentSnackBar()
-                      ..showSnackBar(
-                        SnackBar(
-                          content: Text(
-                            ok
-                                ? 'Saved to your Downloads folder. Open the file '
-                                      'in any browser.'
-                                : 'The browser would not save the file. Use Copy '
-                                      'instead.',
-                          ),
-                        ),
-                      );
-                  },
-                  icon: const Icon(Icons.save_alt_outlined),
-                  label: const Text('Save to device'),
-                ),
-              OutlinedButton.icon(
-                key: const Key('handout-copy'),
-                style: OutlinedButton.styleFrom(
-                  minimumSize: const Size(48, 48),
-                ),
-                onPressed: () => copyWithFeedback(
-                  context,
-                  data.toPlainText(),
-                  message: 'Copied. Paste it into a document to print.',
-                ),
-                icon: const Icon(Icons.copy_outlined),
-                label: const Text('Copy'),
+                      ..showSnackBar(const SnackBar(
+                        content: Text(
+                            'The browser blocked the print page. Allow '
+                            'pop-ups for this site, or use Copy.'),
+                      ));
+                  }
+                },
+                icon: const Icon(Icons.print_outlined),
+                label: const Text('Print'),
               ),
-            ],
-          ),
+            if (webFileSaveSupported)
+              OutlinedButton.icon(
+                key: const Key('handout-save'),
+                style: OutlinedButton.styleFrom(minimumSize: const Size(48, 48)),
+                onPressed: () {
+                  final bool ok = saveTextFile(
+                    handoutFileName(data.title),
+                    data.toHtml(),
+                  );
+                  ScaffoldMessenger.maybeOf(context)
+                    ?..hideCurrentSnackBar()
+                    ..showSnackBar(SnackBar(
+                      content: Text(ok
+                          ? 'Saved to your Downloads folder. Open the file '
+                              'in any browser.'
+                          : 'The browser would not save the file. Use Copy '
+                              'instead.'),
+                    ));
+                },
+                icon: const Icon(Icons.save_alt_outlined),
+                label: const Text('Save to device'),
+              ),
+            OutlinedButton.icon(
+              key: const Key('handout-copy'),
+              style: OutlinedButton.styleFrom(minimumSize: const Size(48, 48)),
+              onPressed: () => copyWithFeedback(
+                context,
+                data.toPlainText(),
+                message: 'Copied. Paste it into a document to print.',
+              ),
+              icon: const Icon(Icons.copy_outlined),
+              label: const Text('Copy'),
+            ),
+          ]),
           if (!webPrintSupported)
             const Padding(
               padding: EdgeInsets.only(top: 8),
@@ -186,10 +166,8 @@ class _Page extends StatelessWidget {
           if (data.subtitle.trim().isNotEmpty)
             Padding(
               padding: const EdgeInsets.only(top: 4),
-              child: Text(
-                data.subtitle,
-                style: const TextStyle(color: Color(0xFF444444)),
-              ),
+              child: Text(data.subtitle,
+                  style: const TextStyle(color: Color(0xFF444444))),
             ),
           if (data.notice != null && data.notice!.trim().isNotEmpty)
             Container(
@@ -201,14 +179,11 @@ class _Page extends StatelessWidget {
           for (final HandoutSection s in data.sections) ...<Widget>[
             const SizedBox(height: 16),
             if (s.heading.trim().isNotEmpty)
-              Text(
-                s.heading,
-                style: const TextStyle(
-                  color: Colors.black,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
+              Text(s.heading,
+                  style: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w700)),
             if (s.arabic != null && s.arabic!.trim().isNotEmpty)
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 6),
@@ -217,25 +192,21 @@ class _Page extends StatelessWidget {
                   textDirection: TextDirection.rtl,
                   textAlign: TextAlign.right,
                   style: const TextStyle(
-                    color: Colors.black,
-                    fontFamily: 'Amiri',
-                    fontSize: 24,
-                    height: 1.9,
-                  ),
+                      color: Colors.black,
+                      fontFamily: 'Amiri',
+                      fontSize: 24,
+                      height: 1.9),
                 ),
               ),
             if (s.body.trim().isNotEmpty) Text(s.body),
           ],
           if (data.sources.isNotEmpty) ...<Widget>[
             const SizedBox(height: 20),
-            const Text(
-              'Sources',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 18,
-                fontWeight: FontWeight.w700,
-              ),
-            ),
+            const Text('Sources',
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700)),
             for (final String s in data.sources)
               Padding(
                 padding: const EdgeInsets.only(top: 4),
@@ -244,14 +215,11 @@ class _Page extends StatelessWidget {
           ],
           if (data.questions.isNotEmpty) ...<Widget>[
             const SizedBox(height: 20),
-            const Text(
-              'To talk about',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 18,
-                fontWeight: FontWeight.w700,
-              ),
-            ),
+            const Text('To talk about',
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700)),
             for (int i = 0; i < data.questions.length; i++)
               Padding(
                 padding: const EdgeInsets.only(top: 6),
@@ -259,10 +227,8 @@ class _Page extends StatelessWidget {
               ),
           ],
           const SizedBox(height: 24),
-          const Text(
-            'Shared from Ar-Rayaan',
-            style: TextStyle(color: Color(0xFF555555), fontSize: 13),
-          ),
+          const Text('Shared from Ar-Rayaan',
+              style: TextStyle(color: Color(0xFF555555), fontSize: 13)),
         ],
       ),
     );
