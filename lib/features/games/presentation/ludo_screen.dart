@@ -668,24 +668,28 @@ class _LudoState extends State<LudoScreen> {
   }
 
   Widget _cards() {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: <Widget>[
-        for (int s = 0; s < players; s++)
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 3),
-              child: _PlayerCard(
-                label: _label(s) + (mode == 3 && s == myIdx ? ' (you)' : ''),
-                initials: _initials(_label(s)),
-                colour: seats[s],
-                tokens: tok[s],
-                active: !gameOver && s == turn,
-                won: gameOver && s == winner,
+    // The cards share one height; a stretch Row needs a bounded height, and
+    // this sits in a scrolling list, so IntrinsicHeight supplies it.
+    return IntrinsicHeight(
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          for (int s = 0; s < players; s++)
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 3),
+                child: _PlayerCard(
+                  label: _label(s) + (mode == 3 && s == myIdx ? ' (you)' : ''),
+                  initials: _initials(_label(s)),
+                  colour: seats[s],
+                  tokens: tok[s],
+                  active: !gameOver && s == turn,
+                  won: gameOver && s == winner,
+                ),
               ),
             ),
-          ),
-      ],
+        ],
+      ),
     );
   }
 
