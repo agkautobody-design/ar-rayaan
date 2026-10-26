@@ -349,9 +349,12 @@ class _DownloadsScreenState extends ConsumerState<DownloadsScreen> {
               ),
               const SizedBox(height: 8),
               if (!s.ready)
-                const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 12),
-                  child: LinearProgressIndicator(minHeight: 3),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: Text(
+                    'Checking what is already on this device\u2026',
+                    style: AppText.caption,
+                  ),
                 ),
               _audioRow(s, catalog.all),
               _group('By juz', '30 parts', <Widget>[

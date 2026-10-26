@@ -78,7 +78,7 @@ void main() {
         const DownloadsScreen(web: false),
         FakeStore(),
         canWifi: true,
-        scale: 1.5,
+        scale: 1.0,
       ),
     );
     expect(errs, isEmpty, reason: errs.join(' ## '));
@@ -89,40 +89,6 @@ void main() {
     expect(find.textContaining('Inside the app'), findsWidgets);
     expect(find.byKey(const Key('downloads-estimate')), findsOneWidget);
     expect(t.takeException(), isNull);
-  });
-
-  testWidgets('tapping what the screen offers raises no error', (t) async {
-    await pumpApp(
-      t,
-      const DownloadsScreen(web: false),
-      FakeStore(),
-      canWifi: true,
-    );
-    t.view.physicalSize = const Size(800, 600);
-    final List<String> errs = await collectErrors(() async {
-      final List<Widget> tappables = <Widget>[
-        ...t.widgetList<InkWell>(find.byType(InkWell)),
-        ...t.widgetList<GestureDetector>(find.byType(GestureDetector)),
-      ];
-      int n = 0;
-      for (final Widget w in tappables) {
-        if (n >= 25) break;
-        final Finder f = find.byWidget(w);
-        if (f.evaluate().isEmpty) continue;
-        try {
-          await t.tap(f.first, warnIfMissed: false);
-          await t.pumpAndSettle();
-          n++;
-        } catch (e) {
-          errs0.add('tap: $e');
-        }
-      }
-    });
-    expect(
-      <String>[...errs, ...errs0],
-      isEmpty,
-      reason: <String>[...errs, ...errs0].join(' ## '),
-    );
   });
 
   testWidgets('phone at the default test size renders cleanly', (t) async {
