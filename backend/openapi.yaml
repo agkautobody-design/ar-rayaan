@@ -1,0 +1,448 @@
+openapi: 3.0.3
+info:
+  title: Ar-Rayaan community API
+  version: 0.1.0
+  description: |
+    Phase 1 of the community backend: accounts, profiles, child profiles under a
+    guardian, friends, blocks and invites. Forums, meet-ups, moderation and
+    notifications are in the schema but have no routes yet (see
+    docs/product/backend_community_plan.md, section 12).
+
+    Every error has the shape `{"error": {"code": "...", "message": "..."}}`.
+    Authenticated routes take `Authorization: Bearer ar_...` (a session token
+    from one of the sign-in routes). Game tables are NOT served here: they stay
+    in Firestore (plan, section 2).
+servers:
+  - url: https://ar-rayaan-api.onrender.com
+    description: Planned production URL (not created yet)
+  - url: http://localhost:8080
+tags:
+  - name: system
+  - name: auth
+  - name: me
+  - name: guardian
+  - name: friends
+  - name: invites
+paths:
+  /healthz:
+    get:
+      tags: [system]
+      summary: Liveness. Never touches the database.
+      responses:
+        '200': { description: OK }
+  /readyz:
+    get:
+      tags: [system]
+      summary: Readiness. Checks the database.
+      responses:
+        '200': { description: Ready }
+        '503': { description: Database unavailable }
+  /v1/auth/request-code:
+    post:
+      tags: [auth]
+      summary: E-mail a one-time sign-in code (AUTH_MODE email_code or both).
+      description: Always answers 202, whether or not the address has an account.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email]
+              properties:
+                email: { type: string, maxLength: 254 }
+      responses:
+        '202': { description: Code sent }
+        '400': { $ref: '#/components/responses/Error' }
+        '429': { $ref: '#/components/responses/Error' }
+        '502': { $ref: '#/components/responses/Error' }
+  /v1/auth/verify-code:
+    post:
+      tags: [auth]
+      summary: Exchange the code for a session. First use creates an adult account.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, code]
+              properties:
+                email: { type: string }
+                code: { type: string, pattern: '^[0-9]{6}$' }
+                deviceLabel: { type: string, maxLength: 60 }
+                confirmAdult: { type: boolean, description: Required to create an account. }
+                termsVersion: { type: string }
+                privacyVersion: { type: string }
+      responses:
+        '200': { $ref: '#/components/responses/Session' }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '422': { $ref: '#/components/responses/Error' }
+        '429': { $ref: '#/components/responses/Error' }
+  /v1/auth/firebase:
+    post:
+      tags: [auth]
+      summary: Exchange a Firebase ID token for a session (AUTH_MODE firebase or both).
+      description: |
+        The production path: the app already signs in with Firebase. Anonymous
+        Firebase users and unverified e-mail addresses are refused.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [idToken]
+              properties:
+                idToken: { type: string }
+                deviceLabel: { type: string, maxLength: 60 }
+                confirmAdult: { type: boolean }
+                termsVersion: { type: string }
+                privacyVersion: { type: string }
+      responses:
+        '200': { $ref: '#/components/responses/Session' }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '422': { $ref: '#/components/responses/Error' }
+  /v1/auth/logout:
+    post:
+      tags: [auth]
+      security: [{ bearer: [] }]
+      summary: Revoke the current session.
+      responses:
+        '204': { description: Done }
+        '401': { $ref: '#/components/responses/Error' }
+  /v1/auth/sessions:
+    get:
+      tags: [auth]
+      security: [{ bearer: [] }]
+      summary: My active sessions.
+      responses:
+        '200': { description: Sessions }
+        '401': { $ref: '#/components/responses/Error' }
+  /v1/auth/sessions/{id}:
+    delete:
+      tags: [auth]
+      security: [{ bearer: [] }]
+      summary: Revoke one of my sessions.
+      parameters: [{ $ref: '#/components/parameters/Id' }]
+      responses:
+        '204': { description: Revoked }
+        '404': { $ref: '#/components/responses/Error' }
+  /v1/me:
+    get:
+      tags: [me]
+      security: [{ bearer: [] }]
+      summary: My account, my profile (or null) and my child profiles.
+      responses:
+        '200': { description: Account }
+        '401': { $ref: '#/components/responses/Error' }
+    delete:
+      tags: [me]
+      security: [{ bearer: [] }]
+      summary: Erase my account and personal data.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [confirm]
+              properties:
+                confirm: { type: string, enum: [DELETE] }
+                content: { type: string, enum: [keep_anonymous, remove], default: keep_anonymous }
+      responses:
+        '204': { description: Erased }
+        '400': { $ref: '#/components/responses/Error' }
+  /v1/me/profile:
+    put:
+      tags: [me]
+      security: [{ bearer: [] }]
+      summary: Create or update my adult profile. Private by default.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [displayName]
+              properties:
+                displayName: { type: string, maxLength: 60 }
+                handle: { type: string, nullable: true, description: '3-20 of a-z 0-9 _' }
+                bio: { type: string, nullable: true, maxLength: 160 }
+                visibility: { type: string, enum: [private, handle, community] }
+      responses:
+        '200': { description: Profile }
+        '409': { $ref: '#/components/responses/Error' }
+        '422': { $ref: '#/components/responses/Error' }
+  /v1/me/export:
+    get:
+      tags: [me]
+      security: [{ bearer: [] }]
+      summary: Everything the service holds about me (JSON).
+      responses:
+        '200': { description: Export }
+  /v1/guardian/children:
+    post:
+      tags: [guardian]
+      security: [{ bearer: [] }]
+      summary: Add a child or teen profile with parent consent.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [nickname, ageBand, consent]
+              properties:
+                nickname: { type: string, maxLength: 60 }
+                ageBand: { type: string, enum: [under13, teen13to17] }
+                consent:
+                  type: object
+                  required: [version, isParentOrGuardian]
+                  properties:
+                    version: { type: string }
+                    isParentOrGuardian: { type: boolean, enum: [true] }
+      responses:
+        '201': { description: Created }
+        '409': { $ref: '#/components/responses/Error' }
+        '422': { $ref: '#/components/responses/Error' }
+    get:
+      tags: [guardian]
+      security: [{ bearer: [] }]
+      summary: My child profiles.
+      responses:
+        '200': { description: Children }
+  /v1/guardian/children/{id}:
+    patch:
+      tags: [guardian]
+      security: [{ bearer: [] }]
+      summary: Rename a child.
+      parameters: [{ $ref: '#/components/parameters/Id' }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [nickname]
+              properties:
+                nickname: { type: string, maxLength: 60 }
+      responses:
+        '200': { description: Updated }
+        '404': { $ref: '#/components/responses/Error' }
+    delete:
+      tags: [guardian]
+      security: [{ bearer: [] }]
+      summary: Delete a child profile and everything attached to it.
+      parameters: [{ $ref: '#/components/parameters/Id' }]
+      responses:
+        '204': { description: Deleted }
+        '404': { $ref: '#/components/responses/Error' }
+  /v1/friends:
+    get:
+      tags: [friends]
+      security: [{ bearer: [] }]
+      summary: Friends, incoming and outgoing requests for me, or for a child I manage (?profileId=).
+      parameters:
+        - { name: profileId, in: query, required: false, schema: { type: string, format: uuid } }
+      responses:
+        '200': { description: Friend lists }
+        '404': { $ref: '#/components/responses/Error' }
+  /v1/friends/requests:
+    post:
+      tags: [friends]
+      security: [{ bearer: [] }]
+      summary: Ask an adult to be friends by exact handle. Adults only.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [handle]
+              properties:
+                handle: { type: string }
+      responses:
+        '201': { description: Requested }
+        '404': { $ref: '#/components/responses/Error' }
+        '409': { $ref: '#/components/responses/Error' }
+        '429': { $ref: '#/components/responses/Error' }
+  /v1/friends/requests/{id}/accept:
+    post:
+      tags: [friends]
+      security: [{ bearer: [] }]
+      summary: Accept a request sent to me.
+      parameters: [{ $ref: '#/components/parameters/Id' }]
+      responses:
+        '200': { description: Accepted }
+        '404': { $ref: '#/components/responses/Error' }
+  /v1/friends/requests/{id}/decline:
+    post:
+      tags: [friends]
+      security: [{ bearer: [] }]
+      summary: Decline a request sent to me.
+      parameters: [{ $ref: '#/components/parameters/Id' }]
+      responses:
+        '200': { description: Declined }
+        '404': { $ref: '#/components/responses/Error' }
+  /v1/friends/{id}:
+    delete:
+      tags: [friends]
+      security: [{ bearer: [] }]
+      summary: End a friendship (or withdraw a request).
+      parameters:
+        - { $ref: '#/components/parameters/Id' }
+        - { name: profileId, in: query, required: false, schema: { type: string, format: uuid } }
+      responses:
+        '204': { description: Removed }
+        '404': { $ref: '#/components/responses/Error' }
+  /v1/blocks:
+    get:
+      tags: [friends]
+      security: [{ bearer: [] }]
+      summary: Profiles I have blocked.
+      responses:
+        '200': { description: Blocks }
+    post:
+      tags: [friends]
+      security: [{ bearer: [] }]
+      summary: Block a profile. Removes any friendship.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [profileId]
+              properties:
+                profileId: { type: string, format: uuid }
+                asProfileId: { type: string, format: uuid }
+      responses:
+        '204': { description: Blocked }
+        '404': { $ref: '#/components/responses/Error' }
+  /v1/blocks/{profileId}:
+    delete:
+      tags: [friends]
+      security: [{ bearer: [] }]
+      summary: Unblock.
+      parameters:
+        - { name: profileId, in: path, required: true, schema: { type: string, format: uuid } }
+      responses:
+        '204': { description: Unblocked }
+  /v1/invites:
+    post:
+      tags: [invites]
+      security: [{ bearer: [] }]
+      summary: Create a friend invite. The code is shown once.
+      description: |
+        With `asProfileId` a guardian issues an invite for a child. Such an invite
+        works once and can only be redeemed on behalf of another child.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                kind: { type: string, enum: [friend] }
+                asProfileId: { type: string, format: uuid }
+                maxUses: { type: integer, minimum: 1, maximum: 10, default: 1 }
+                ttlHours: { type: integer, minimum: 1, maximum: 720, default: 72 }
+      responses:
+        '201': { description: Created (contains code and link) }
+        '409': { $ref: '#/components/responses/Error' }
+    get:
+      tags: [invites]
+      security: [{ bearer: [] }]
+      summary: My invites (never includes codes).
+      responses:
+        '200': { description: Invites }
+  /v1/invites/{id}:
+    delete:
+      tags: [invites]
+      security: [{ bearer: [] }]
+      summary: Revoke an invite.
+      parameters: [{ $ref: '#/components/parameters/Id' }]
+      responses:
+        '204': { description: Revoked }
+        '404': { $ref: '#/components/responses/Error' }
+  /v1/invites/preview:
+    post:
+      tags: [invites]
+      security: [{ bearer: [] }]
+      summary: Who sent this code? Never shows a child's name.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [code]
+              properties:
+                code: { type: string }
+      responses:
+        '200': { description: Preview }
+        '404': { $ref: '#/components/responses/Error' }
+        '429': { $ref: '#/components/responses/Error' }
+  /v1/invites/redeem:
+    post:
+      tags: [invites]
+      security: [{ bearer: [] }]
+      summary: Use a code. Adult with adult, child with child (guardian acts); never across.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [code]
+              properties:
+                code: { type: string }
+                asProfileId: { type: string, format: uuid }
+      responses:
+        '200': { description: Friends now }
+        '403': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+        '409': { $ref: '#/components/responses/Error' }
+        '429': { $ref: '#/components/responses/Error' }
+components:
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
+  parameters:
+    Id:
+      name: id
+      in: path
+      required: true
+      schema: { type: string, format: uuid }
+  responses:
+    Error:
+      description: Error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: object
+                properties:
+                  code: { type: string }
+                  message: { type: string }
+    Session:
+      description: Signed in
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              token: { type: string }
+              expiresAt: { type: string, format: date-time }
+              isNewAccount: { type: boolean }
+              user:
+                type: object
+                properties:
+                  id: { type: string, format: uuid }
+                  role: { type: string, enum: [member, moderator, admin] }

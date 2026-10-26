@@ -1,0 +1,49 @@
+# Render Blueprint for the community backend. NOT applied by anything in this
+# repository: nothing here creates or deploys a service. The owner applies it
+# deliberately in the Render dashboard (New > Blueprint, "Blueprint file path"
+# = backend/render.yaml) after reading backend/README.md.
+#
+# It lives in backend/ on purpose, not at the repository root, so it cannot
+# touch the existing static site (served from the `render` branch).
+services:
+  - type: web
+    name: ar-rayaan-api
+    runtime: docker
+    rootDir: backend
+    dockerfilePath: ./Dockerfile
+    plan: starter            # 0.5 GB RAM, always on. See the plan, section 3, for cost.
+    region: ohio             # closest Render region to Ontario; see the plan, section 9.
+    branch: main
+    autoDeploy: false        # deploys are a deliberate act until the owner says otherwise
+    healthCheckPath: /healthz
+    preDeployCommand: node dist/migrate.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: ar-rayaan-db
+          property: connectionString
+      - key: PEPPER
+        generateValue: true  # created once by Render; never rotate it casually
+      - key: AUTH_MODE
+        value: firebase
+      - key: FIREBASE_PROJECT_ID
+        sync: false          # owner supplies (the app's existing Firebase project id)
+      - key: CORS_ORIGINS
+        sync: false          # owner supplies, e.g. https://ar-rayaan.onrender.com
+      - key: PUBLIC_APP_URL
+        sync: false
+      - key: EMAIL_PROVIDER
+        value: console       # unused while AUTH_MODE=firebase
+      - key: LOG_LEVEL
+        value: info
+
+databases:
+  - name: ar-rayaan-db
+    databaseName: ar_rayaan
+    user: ar_rayaan
+    plan: basic-256mb
+    region: ohio
+    postgresMajorVersion: "16"
+    ipAllowList: []          # private network only; nothing on the public internet can connect

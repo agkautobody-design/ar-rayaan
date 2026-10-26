@@ -1,0 +1,81 @@
+name: Backend CI
+
+# Separate from PR Check on purpose: it only runs when backend/ (or this file)
+# changes, and it can never affect the Flutter `check` / `android-apk` jobs or
+# the deploy of the web app. Tests run twice: against in-memory PostgreSQL
+# (PGlite) and against a real PostgreSQL 16 service container.
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'backend/**'
+      - '.github/workflows/backend-ci.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: backend-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: backend
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: test
+          POSTGRES_DB: ar_rayaan_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: backend/package-lock.json
+
+      - name: Install
+        run: npm ci
+
+      - name: Type-check
+        run: npm run typecheck
+
+      - name: Tests (in-memory PostgreSQL)
+        run: npm test
+
+      - name: Tests (PostgreSQL 16 service container)
+        run: npm test
+        env:
+          TEST_DATABASE_URL: postgres://postgres:test@localhost:5432/ar_rayaan_test
+
+      - name: Build
+        run: npm run build
+
+      - name: Migrations apply to a clean PostgreSQL, twice
+        run: |
+          PGPASSWORD=test psql -h localhost -U postgres -c 'create database ar_rayaan_clean'
+          node dist/migrate.js
+          node dist/migrate.js
+        env:
+          DATABASE_URL: postgres://postgres:test@localhost:5432/ar_rayaan_clean
+
+      - name: Dependency advisories (production dependencies)
+        run: npm audit --omit=dev --audit-level=high
+
+      - name: Docker image builds
+        run: docker build -t ar-rayaan-backend:ci .
