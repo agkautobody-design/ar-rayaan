@@ -1,12 +1,12 @@
 import 'dart:async' show unawaited;
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart'
-    show AssetManifest, HapticFeedback, rootBundle;
+import 'package:flutter/services.dart' show HapticFeedback;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../app/router.dart';
 import '../data/game_settings.dart';
+import 'games_art.dart';
 import 'games_theme.dart';
 
 /// The colours of the cards and boards in the learning games, for one of the
@@ -58,38 +58,7 @@ class GamePalette {
       };
 }
 
-/// The names of the art files the learning games can use, all in
-/// `assets/games/art/` as `<name>.webp`. None is required: each game draws
-/// the same theme in code when a file is missing.
-const List<String> kGameArtSlots = <String>[
-  'seerah_timeline_board',
-  'prophets_order_board',
-  'wudu_steps_board',
-  'salah_steps_board',
-  'wordsearch_grid',
-  'scramble_tile',
-  'hajj_map',
-];
-
-Future<Set<String>>? _artFiles;
-
-/// The art files that exist in the app. Empty when the asset list cannot be
-/// read, so a missing list means "draw it in code".
-Future<Set<String>> gameArtFiles() => _artFiles ??= () async {
-      try {
-        final AssetManifest m = await AssetManifest.loadFromAssetBundle(
-          rootBundle,
-        );
-        return <String>{
-          for (final String a in m.listAssets())
-            if (a.startsWith('assets/games/art/')) a,
-        };
-      } catch (_) {
-        return <String>{};
-      }
-    }();
-
-/// A board background: the art file named [slot] when it exists, otherwise a
+/// A board background: the art file of [slot] when it is bundled, otherwise a
 /// plain panel in the chosen palette. [child] is drawn over it.
 class GameBoardBackdrop extends StatelessWidget {
   const GameBoardBackdrop({
@@ -100,18 +69,16 @@ class GameBoardBackdrop extends StatelessWidget {
     super.key,
   });
 
-  final String slot;
+  final ArtSlot slot;
   final GamePalette palette;
   final Widget child;
   final EdgeInsetsGeometry padding;
 
   @override
   Widget build(BuildContext context) {
-    final String path = 'assets/games/art/$slot.webp';
-    return FutureBuilder<Set<String>>(
-      future: gameArtFiles(),
-      builder: (BuildContext context, AsyncSnapshot<Set<String>> snap) {
-        final bool hasArt = snap.data?.contains(path) ?? false;
+    return ArtBuilder(
+      slot: slot,
+      builder: (BuildContext context, bool hasArt) {
         return Container(
           decoration: BoxDecoration(
             color: palette.fill,
@@ -119,7 +86,7 @@ class GameBoardBackdrop extends StatelessWidget {
             border: Border.all(color: palette.border, width: 1.2),
             image: hasArt
                 ? DecorationImage(
-                    image: AssetImage(path),
+                    image: AssetImage(slot.path),
                     fit: BoxFit.cover,
                     colorFilter: ColorFilter.mode(
                       palette.fill.withValues(alpha: 0.7),

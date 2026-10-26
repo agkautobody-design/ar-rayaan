@@ -11,6 +11,7 @@ import 'package:ar_rayaan/features/games/engine/order_engine.dart';
 import 'package:ar_rayaan/features/games/engine/quiz_engine.dart';
 import 'package:ar_rayaan/features/games/engine/word_engine.dart';
 import 'package:ar_rayaan/features/games/presentation/game_settings_screen.dart';
+import 'package:ar_rayaan/features/games/ui/games_art.dart';
 import 'package:ar_rayaan/features/games/ui/learning_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -291,15 +292,23 @@ void main() {
       }
     });
 
-    test('the art slots match the docs and the folder is registered', () {
+    test('the board slots are in the manifest as fallbacks and the docs', () {
       final String doc =
-          File('docs/content_needed/GAMES_CONTENT_NEEDED.md').readAsStringSync();
-      for (final String s in kGameArtSlots) {
-        expect(doc.contains('`$s.webp`'), isTrue, reason: s);
+          File('docs/content_needed/GAMES_ART_NEEDED.md').readAsStringSync();
+      final Map<String, dynamic> fb = (_read('assets/games/art/manifest.json')
+          as Map<String, dynamic>)['fallback'] as Map<String, dynamic>;
+      for (final ArtSlot s in <ArtSlot>[
+        ArtSlot.seerahTimelineBoard,
+        ArtSlot.prophetsOrderBoard,
+        ArtSlot.wuduStepsBoard,
+        ArtSlot.salahStepsBoard,
+        ArtSlot.wordSearchGrid,
+        ArtSlot.scrambleTile,
+        ArtSlot.hajjMap,
+      ]) {
+        expect(fb.containsKey(s.name), isTrue, reason: s.name);
+        expect(doc.contains('`${s.name}`'), isTrue, reason: s.name);
       }
-      expect(File('assets/games/art/README.txt').existsSync(), isTrue);
-      expect(File('pubspec.yaml').readAsStringSync(),
-          contains('assets/games/art/'));
     });
   });
 

@@ -54,7 +54,15 @@ enum ArtSlot {
   // Slots the designs give no clean art for (fallback only until exported).
   bottomNavFrame,
   historyEmpty,
-  settingsHeader;
+  settingsHeader,
+  // Boards of the learning games (fallback only until exported).
+  seerahTimelineBoard,
+  prophetsOrderBoard,
+  wuduStepsBoard,
+  salahStepsBoard,
+  wordSearchGrid,
+  scrambleTile,
+  hajjMap;
 
   /// Ornaments are cut-outs with transparency (PNG); everything else WebP.
   String get ext => switch (this) {
@@ -112,6 +120,9 @@ abstract final class GamesArt {
         'chess' => ArtSlot.gameChess,
         'ludo' => ArtSlot.gameLudo,
         'memory' => ArtSlot.gameMemory,
+        'seerah' => ArtSlot.gameSeerahChallenge,
+        'hadith' => ArtSlot.gameHadith,
+        'arabic-words' => ArtSlot.gameArabicWords,
         _ => null,
       };
 

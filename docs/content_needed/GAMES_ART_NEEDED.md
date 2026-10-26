@@ -17,7 +17,7 @@ Written 26 Oct 2026. The Games screens now use art cropped from the owner's fina
 |---|---|
 | Exact (a plain crop of his screenshot, nothing removed) | 23 |
 | Patched (text or buttons painted out, or cut out of a dark background) | 3 |
-| Fallback (no usable crop, drawn in code) | 4 |
+| Fallback (no usable crop, drawn in code) | 11 |
 
 ## Slots that have a file (exact and patched)
 
@@ -70,6 +70,13 @@ These three look right but are not clean. Replace them with a clean export when 
 | `bottomNavFrame` | `bottomNavFrame.png` | 1080 x 240 | **yes** | The gold nav pill exists in the designs only with icons and labels in it. Export the empty frame (gold outline, glow, the raised centre tab shape) with no icons or text. The shared bottom nav is outside the Games section, so this is not wired up. |
 | `historyEmpty` | `historyEmpty.webp` | 600 x 400 | no | The designs show no empty Game History. Export a quiet lantern-and-closed-book scene, no text. Shown when no game has been played yet. |
 | `settingsHeader` | `settingsHeader.webp` | 941 x 222 | no | There is no Games settings screen on main yet, so nothing uses it. When one is built it uses `skylineBand`; export this only if you want a different strip. |
+| `seerahTimelineBoard` | `seerahTimelineBoard.webp` | 1080 x 1600 | no | Card-list background of Seerah Timeline. Text-free; no faces, no figures. Until it exists the screen draws a plain panel on the chosen card theme. |
+| `prophetsOrderBoard` | `prophetsOrderBoard.webp` | 1080 x 1600 | no | Same, for Prophets in Order. No images of any prophet. |
+| `wuduStepsBoard` | `wuduStepsBoard.webp` | 1080 x 1600 | no | Steps background of the Wudu screen. No people. |
+| `salahStepsBoard` | `salahStepsBoard.webp` | 1080 x 1600 | no | Steps background of the Salah screen. No people. |
+| `wordSearchGrid` | `wordSearchGrid.webp` | 1080 x 1080 | no | Grid background of Word Search, no letters. |
+| `scrambleTile` | `scrambleTile.webp` | 1080 x 900 | no | Letter-tile background of Word Scramble, no letters. |
+| `hajjMap` | `hajjMap.webp` | 1080 x 1400 | no | Schematic map for the hidden Hajj Map game (Makkah, Mina, Arafat, Muzdalifah, Jamarat; no photos). Not used until that game is unhidden. |
 
 ## Where the art is applied
 
@@ -82,7 +89,8 @@ These three look right but are not clean. Replace them with a clean export when 
 | Results | `resultTrophy`, `goldDivider`, `cornerOrnament` on the played-together panel |
 | History | `skylineBand` strip, `game*` picture on each row |
 | Community stub | `skylineBand` strip, `cornerOrnament` |
-| Games settings | No such screen on main. Nothing to apply. |
+| Games settings | No design; the screen is drawn in code on the shared theme |
+| Learning games (Seerah Timeline, Prophets in Order, Wudu and Salah steps, Word Search, Word Scramble) | the board slots above, with a plain themed panel as fallback; Seerah Challenge, Hadith Knowledge and Arabic Words use their `game*` pictures |
 | Chess and Ludo boards, Lineage, Ayah and Hijrah screens | Not touched (other branches own them). Only their hub tile pictures are new. |
 
 ## Content notes for the owner

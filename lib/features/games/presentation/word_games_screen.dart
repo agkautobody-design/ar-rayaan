@@ -14,6 +14,7 @@ import '../data/game_settings.dart';
 import '../data/games_store.dart';
 import '../data/learning_loader.dart';
 import '../engine/word_engine.dart';
+import '../ui/games_art.dart';
 import '../ui/games_theme.dart';
 import '../ui/learning_widgets.dart';
 import 'game_results_screen.dart';
@@ -168,7 +169,7 @@ class _WordSearchState extends ConsumerState<WordSearchScreen> {
           ],
           const SizedBox(height: 12),
           GameBoardBackdrop(
-            slot: 'wordsearch_grid',
+            slot: ArtSlot.wordSearchGrid,
             palette: pal,
             padding: const EdgeInsets.all(8),
             child: LayoutBuilder(
@@ -509,7 +510,7 @@ class _ScrambleState extends ConsumerState<ScrambleScreen> {
           ],
           const SizedBox(height: 12),
           GameBoardBackdrop(
-            slot: 'scramble_tile',
+            slot: ArtSlot.scrambleTile,
             palette: pal,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,

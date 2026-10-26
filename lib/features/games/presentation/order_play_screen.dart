@@ -15,6 +15,7 @@ import '../data/games_store.dart';
 import '../data/learning_loader.dart';
 import '../engine/game_registry.dart';
 import '../engine/order_engine.dart';
+import '../ui/games_art.dart';
 import '../ui/games_theme.dart';
 import '../ui/learning_widgets.dart';
 import 'game_results_screen.dart';
@@ -109,10 +110,12 @@ class _OrderPlayState extends ConsumerState<OrderPlayScreen> {
     return widget.topic == 'salah' ? 'Salah Steps' : 'Wudu Steps';
   }
 
-  String get _slot => switch (widget.gameId) {
-        'seerah-timeline' => 'seerah_timeline_board',
-        'prophets-order' => 'prophets_order_board',
-        _ => widget.topic == 'salah' ? 'salah_steps_board' : 'wudu_steps_board',
+  ArtSlot get _slot => switch (widget.gameId) {
+        'seerah-timeline' => ArtSlot.seerahTimelineBoard,
+        'prophets-order' => ArtSlot.prophetsOrderBoard,
+        _ => widget.topic == 'salah'
+            ? ArtSlot.salahStepsBoard
+            : ArtSlot.wuduStepsBoard,
       };
 
   @override

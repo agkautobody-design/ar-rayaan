@@ -38,18 +38,6 @@ Needs (a) the schematic map art (Makkah, Mina, Arafat, Muzdalifah, Jamarat; no p
 - Arabic Words: a list of Names whose meanings are close (for example Al-Qadir and Al-Muqtadir) approved by a scholar would let meaning questions be asked safely. Word-level meanings for dua words need a sourced list.
 - Wudu and Salah Steps: more guides can be added (ghusl, tayammum, the Hajj rites) once the owner decides which have a clear single order.
 
-## Art to export from the designs (all optional)
+## Art for the learning games
 
-The designs are not in the repo, so nothing was cropped. Each game draws the same theme in code. When you export a clean file with this name, put it in `assets/games/art/` (or run `python3 tool/games_art_crop.py <design.png> <slot> --box L T R B`, which crops, resizes to at most 1080 px wide and writes the `.webp`). No text, no buttons, no avatars, no faces; at most 150 KB each.
-
-| File (in `assets/games/art/`) | Used by | What to export |
-|---|---|---|
-| `seerah_timeline_board.webp` | Seerah Timeline | the card-list background of the timeline screen |
-| `prophets_order_board.webp` | Prophets in Order | the same, for the prophets screen |
-| `wudu_steps_board.webp` | Wudu steps | the steps background of the Wudu screen |
-| `salah_steps_board.webp` | Salah steps | the steps background of the Salah screen |
-| `wordsearch_grid.webp` | Word Search | the grid background |
-| `scramble_tile.webp` | Word Scramble | the letter-tile background |
-| `hajj_map.webp` | Hajj Map (hidden) | the schematic map |
-
-Memory cards (Names Memory) were not changed in this branch.
+The art system is in `docs/content_needed/GAMES_ART_NEEDED.md` (slots in `lib/features/games/ui/games_art.dart`, files in `assets/games/art/`, rebuilt by `tool/crop_game_art.py`). The designs have no clean text-free crop for the boards of these games, so seven fallback slots were added (`seerahTimelineBoard`, `prophetsOrderBoard`, `wuduStepsBoard`, `salahStepsBoard`, `wordSearchGrid`, `scrambleTile`, `hajjMap`). Each screen draws the same theme in code until the file exists. Seerah Challenge, Hadith Knowledge and Arabic Words use the existing `gameSeerahChallenge`, `gameHadith` and `gameArabicWords` pictures. The export sizes are in the art file.

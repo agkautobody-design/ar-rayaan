@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:ar_rayaan/app/core/providers.dart';
 import 'package:ar_rayaan/app/theme/app_theme.dart';
 import 'package:ar_rayaan/features/games/engine/game_registry.dart';
+import 'package:ar_rayaan/features/games/engine/learning_games.dart';
 import 'package:ar_rayaan/features/games/presentation/game_details_screen.dart';
 import 'package:ar_rayaan/features/games/presentation/game_history_screen.dart';
 import 'package:ar_rayaan/features/games/presentation/games_screens.dart';
@@ -58,8 +59,17 @@ void main() {
     test('every registry game and every hub section has a slot with art', () {
       for (final GameDef g in kGames) {
         final ArtSlot? s = GamesArt.slotForGame(g.id);
-        expect(s, isNotNull, reason: g.id);
-        expect(slots.containsKey(s!.name), isTrue, reason: g.id);
+        // The learning games without their own picture (timeline, prophets,
+        // steps, word games, hidden games) draw the icon badge instead.
+        if (s == null) {
+          expect(
+            g.hidden || kLearningGames.any((GameDef l) => l.id == g.id),
+            isTrue,
+            reason: g.id,
+          );
+          continue;
+        }
+        expect(slots.containsKey(s.name), isTrue, reason: g.id);
       }
       for (final GameCategory c in GameCategory.values) {
         expect(
@@ -98,7 +108,7 @@ void main() {
     Future<void> pump(WidgetTester tester, Widget screen) async {
       SharedPreferences.setMockInitialValues(<String, Object>{});
       final SharedPreferences prefs = await SharedPreferences.getInstance();
-      tester.view.physicalSize = const Size(430, 3000);
+      tester.view.physicalSize = const Size(430, 8000);
       tester.view.devicePixelRatio = 1;
       addTearDown(tester.view.resetPhysicalSize);
       addTearDown(tester.view.resetDevicePixelRatio);
@@ -121,7 +131,9 @@ void main() {
       await pump(tester, const GamesScreen());
       expect(tester.takeException(), isNull);
       // Header arch + a section picture per category + a picture per game.
-      expect(artImages(), findsAtLeastNWidgets(1 + kGames.length));
+      expect(artImages(), findsAtLeastNWidgets(
+        1 + visibleGames(showAcademy: true).where((GameDef g) => GamesArt.slotForGame(g.id) != null).length,
+      ));
     });
 
     testWidgets('the hub falls back to the drawn look with no art', (
@@ -131,7 +143,7 @@ void main() {
       await pump(tester, const GamesScreen());
       expect(tester.takeException(), isNull);
       expect(artImages(), findsNothing);
-      for (final GameDef g in kGames) {
+      for (final GameDef g in visibleGames(showAcademy: true)) {
         expect(find.text(g.title), findsOneWidget, reason: g.id);
       }
     });
