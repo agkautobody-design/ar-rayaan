@@ -91,6 +91,15 @@ import '../features/masjid/presentation/masjid_finder_screen.dart';
 import '../features/ramadan/presentation/ramadan_screen.dart';
 import '../features/settings/presentation/language_settings.dart';
 import '../features/home/presentation/home_quick_screen.dart';
+import '../features/games/engine/quiz_engine.dart' show QuizConfig;
+import '../features/games/games_flags.dart';
+import '../features/games/presentation/community_stub_screen.dart';
+import '../features/games/presentation/game_details_screen.dart';
+import '../features/games/presentation/game_history_screen.dart';
+import '../features/games/presentation/game_results_screen.dart';
+import '../features/games/presentation/game_setup_screen.dart';
+import '../features/games/presentation/memory_game_screen.dart';
+import '../features/games/presentation/quiz_play_screen.dart';
 import '../features/games/presentation/games_screens.dart';
 import '../features/games/presentation/games_extra.dart';
 import '../features/games/presentation/shatranj_screen.dart';
@@ -219,6 +228,7 @@ const Set<String> kShellTabPaths = <String>{
   AppRoutes.home,
   AppRoutes.noor,
   AppRoutes.journey,
+  AppRoutes.games,
   AppRoutes.explore,
   AppRoutes.family,
   AppRoutes.community,
@@ -483,19 +493,28 @@ GoRouter buildRouter({String initialLocation = '/'}) {
         ),
         GoRoute(
           path: '/games/ludo',
-          pageBuilder: (context, state) => _fade(const LudoScreen(), pill: false),
+          pageBuilder: (context, state) => _fade(
+            LudoScreen(
+              initialMode:
+                  int.tryParse(state.uri.queryParameters['mode'] ?? '') ?? 0,
+            ),
+            pill: false,
+          ),
         ),
         GoRoute(
           path: '/games/shatranj',
-          pageBuilder: (context, state) => _fade(const ShatranjScreen(), pill: false),
+          pageBuilder: (context, state) => _fade(
+            ShatranjScreen(
+              initialMode:
+                  int.tryParse(state.uri.queryParameters['mode'] ?? '') ?? 0,
+              searchDepth: state.uri.queryParameters['d'] == 'easy' ? 1 : 2,
+            ),
+            pill: false,
+          ),
         ),
         GoRoute(
           path: '/games/lineage',
           pageBuilder: (context, state) => _fade(const LineageChallengeScreen()),
-        ),
-        GoRoute(
-          path: '/games/ayah',
-          pageBuilder: (context, state) => _fade(const AyahCompletionScreen()),
         ),
         GoRoute(
           path: '/games/hijrah',
@@ -543,13 +562,82 @@ GoRouter buildRouter({String initialLocation = '/'}) {
             FeelingScreen(feelingId: state.pathParameters['id']!),
           ),
         ),
-        GoRoute(
-          path: AppRoutes.games,
-          pageBuilder: (context, state) => _fade(const GamesScreen()),
-        ),
+        // Stories Trivia now runs on the shared quiz engine, with a source
+        // under every answer; the old link keeps working.
         GoRoute(
           path: AppRoutes.trivia,
-          pageBuilder: (context, state) => _fade(const TriviaScreen()),
+          redirect: (context, state) => '/games/g/stories',
+        ),
+        // Ayah Completion is the "Complete the ayah" topic of Qur'an Knowledge.
+        GoRoute(
+          path: '/games/ayah',
+          redirect: (context, state) => '/games/g/qk/setup?topic=ayah',
+        ),
+        GoRoute(
+          path: '/games/history',
+          pageBuilder: (context, state) => _fade(const GameHistoryScreen()),
+        ),
+        GoRoute(
+          path: '/games/community',
+          // Hidden until accounts and a community service exist.
+          redirect: (context, state) =>
+              kGamesCommunityEnabled ? null : AppRoutes.games,
+          pageBuilder: (context, state) =>
+              _fade(const CommunityGamesStubScreen()),
+        ),
+        GoRoute(
+          path: '/games/memory',
+          pageBuilder: (context, state) => _fade(
+            MemoryGameScreen(
+              players:
+                  int.tryParse(state.uri.queryParameters['players'] ?? '') ??
+                      1,
+              pairs:
+                  int.tryParse(state.uri.queryParameters['pairs'] ?? '') ?? 8,
+            ),
+            pill: false,
+          ),
+        ),
+        GoRoute(
+          path: '/games/g/:id',
+          pageBuilder: (context, state) => _fade(
+            GameDetailsScreen(gameId: state.pathParameters['id']!),
+          ),
+        ),
+        GoRoute(
+          path: '/games/g/:id/setup',
+          pageBuilder: (context, state) => _fade(
+            GameSetupScreen(
+              gameId: state.pathParameters['id']!,
+              initialTopic: state.uri.queryParameters['topic'],
+              initialMode: state.uri.queryParameters['mode'],
+            ),
+          ),
+        ),
+        GoRoute(
+          path: '/games/g/:id/play',
+          pageBuilder: (context, state) => _fade(
+            QuizPlayScreen(
+              // A new key per start, so Play again never reuses a finished game.
+              key: ValueKey<String>(state.uri.toString()),
+              gameId: state.pathParameters['id']!,
+              config: QuizConfig.fromQuery(
+                state.pathParameters['id']!,
+                state.uri.queryParameters,
+              ),
+              resume: state.uri.queryParameters['resume'] == '1',
+            ),
+            pill: false,
+          ),
+        ),
+        GoRoute(
+          path: '/games/g/:id/results',
+          pageBuilder: (context, state) => _fade(
+            GameResultScreen(
+              gameId: state.pathParameters['id']!,
+              resultId: state.uri.queryParameters['rid'],
+            ),
+          ),
         ),
         GoRoute(
           path: AppRoutes.names99,
@@ -997,6 +1085,12 @@ GoRouter buildRouter({String initialLocation = '/'}) {
               GoRoute(
                 path: AppRoutes.journey,
                 pageBuilder: (c, s) => _fade(const JourneyScreen(), pill: false),
+              ),
+              // The Games hub keeps the bottom navigation in view; the games
+              // themselves are full screen outside the shell.
+              GoRoute(
+                path: AppRoutes.games,
+                pageBuilder: (c, s) => _fade(const GamesScreen(), pill: false),
               ),
             ],
           ),
