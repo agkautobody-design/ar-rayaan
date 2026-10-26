@@ -497,6 +497,11 @@ GoRouter buildRouter({String initialLocation = '/'}) {
             LudoScreen(
               initialMode:
                   int.tryParse(state.uri.queryParameters['mode'] ?? '') ?? 0,
+              players:
+                  int.tryParse(state.uri.queryParameters['players'] ?? '') ??
+                      2,
+              humans:
+                  int.tryParse(state.uri.queryParameters['humans'] ?? '') ?? 0,
             ),
             pill: false,
           ),

@@ -12,7 +12,7 @@ void main() {
         .where((f) => f.path.endsWith('.dart'));
     final referenced = <String>{};
     final re = RegExp(
-        r"assets/[A-Za-z0-9_\-/]+\.(?:jpg|png|json|ttf)");
+        r"assets/[A-Za-z0-9_\-/]+\.(?:jpg|png|webp|json|ttf)");
     for (final f in files) {
       for (final m in re.allMatches(f.readAsStringSync())) {
         referenced.add(m.group(0)!);

@@ -34,6 +34,8 @@ class GameSetupScreen extends ConsumerStatefulWidget {
 class _GameSetupState extends ConsumerState<GameSetupScreen> {
   PlayMode _mode = PlayMode.solo;
   int _players = 2;
+  // Ludo pass-and-play: how many of the seats share this phone.
+  int _humans = 2;
   int _count = 10;
   int _pairs = 8;
   GameDifficulty _difficulty = GameDifficulty.standard;
@@ -182,7 +184,9 @@ class _GameSetupState extends ConsumerState<GameSetupScreen> {
       ),
     ];
 
-    if (pass && playerChoices.length > 1) {
+    final bool ludo = g.id == 'ludo';
+    if ((pass || (ludo && _mode == PlayMode.solo)) &&
+        playerChoices.length > 1) {
       out.add(
         _Group(
           title: 'Players',
@@ -194,7 +198,33 @@ class _GameSetupState extends ConsumerState<GameSetupScreen> {
                 GameChip(
                   label: '$n players',
                   selected: _players == n,
-                  onTap: () => setState(() => _players = n),
+                  onTap: () => setState(() {
+                    _players = n;
+                    if (_humans > n) _humans = n;
+                  }),
+                ),
+            ],
+          ),
+        ),
+      );
+    }
+
+    // Ludo, pass and play with 3 or 4 seats: the rest are computer players.
+    if (ludo && pass && _players > 2) {
+      if (_humans > _players) _humans = _players;
+      if (_humans < 2) _humans = 2;
+      out.add(
+        _Group(
+          title: 'People on this phone',
+          child: Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children: <Widget>[
+              for (int n = 2; n <= _players; n++)
+                GameChip(
+                  label: '$n',
+                  selected: _humans == n,
+                  onTap: () => setState(() => _humans = n),
                 ),
             ],
           ),
@@ -339,9 +369,13 @@ class _GameSetupState extends ConsumerState<GameSetupScreen> {
         case PlayMode.solo:
           return g.id == 'chess'
               ? 'You play White against Hadi’s engine.'
-              : 'You are Red and Hadi takes Green.';
+              : 'You are Red. Hadi, and computer players for any other '
+                  'seat, take the rest.';
         case PlayMode.passAndPlay:
-          return 'Two players share this device and take turns.';
+          return g.id == 'ludo'
+              ? 'Two to four players take turns on this device. Computer '
+                  'players fill any seat nobody sits in.'
+              : 'Two players share this device and take turns.';
         case PlayMode.friends:
           return 'Opens the table screen, where you create a table or join '
               'one with a six-letter code. It needs the internet and the '
@@ -389,6 +423,11 @@ class _GameSetupState extends ConsumerState<GameSetupScreen> {
       queryParameters: <String, String>{
         'mode': '$mode',
         if (g.id == 'chess') 'd': _difficulty.name,
+        if (g.id == 'ludo' && _mode != PlayMode.friends) ...<String, String>{
+          'players': '$_players',
+          if (_mode == PlayMode.passAndPlay)
+            'humans': '${_players == 2 ? 2 : _humans}',
+        },
       },
     ).toString();
   }

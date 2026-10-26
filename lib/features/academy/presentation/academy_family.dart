@@ -245,6 +245,10 @@ class _ChildCard extends ConsumerWidget {
               },
             ),
             const SizedBox(height: 8),
+            _OnlineGamesSwitch(
+              childId: child['id'] as String,
+              childName: name,
+            ),
             _ParentWasiaBox(childName: name),
           ],
         ),
@@ -791,6 +795,62 @@ class _ChildPrivacyCardState extends ConsumerState<_ChildPrivacyCard> {
             ],
           ),
         ],
+      ),
+    );
+  }
+}
+
+/// The guardian's switch for online game tables, per child. Off for every
+/// new child; changing it needs the parent check. The room stores no name
+/// either way (see `game_rooms_service.dart`).
+class _OnlineGamesSwitch extends ConsumerStatefulWidget {
+  const _OnlineGamesSwitch({required this.childId, required this.childName});
+
+  final String childId;
+  final String childName;
+
+  @override
+  ConsumerState<_OnlineGamesSwitch> createState() => _OnlineGamesSwitchState();
+}
+
+class _OnlineGamesSwitchState extends ConsumerState<_OnlineGamesSwitch> {
+  bool _on = false;
+
+  @override
+  void initState() {
+    super.initState();
+    unawaited(
+      ref
+          .read(familyServiceProvider)
+          .onlineGamesAllowed(widget.childId)
+          .then((bool v) {
+        if (mounted) setState(() => _on = v);
+      }),
+    );
+  }
+
+  Future<void> _set(bool v) async {
+    if (!await requireParent(context, ref)) return;
+    await ref
+        .read(familyServiceProvider)
+        .setOnlineGamesAllowed(widget.childId, v);
+    if (mounted) setState(() => _on = v);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SwitchListTile(
+      key: Key('online-games-${widget.childId}'),
+      contentPadding: EdgeInsets.zero,
+      value: _on,
+      onChanged: _set,
+      title: Text('Online game tables', style: AppText.body),
+      subtitle: Text(
+        'Off (the default): ${widget.childName} can play Ludo and Shatranj '
+        'only on this device. On: ${widget.childName} can create or join a '
+        'table with a six-letter code. The table shows only \u201cPlayer 1\u201d '
+        'and \u201cPlayer 2\u201d: no name is sent, and there is no chat.',
+        style: AppText.caption,
       ),
     );
   }

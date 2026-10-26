@@ -1,11 +1,12 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
+import '../../academy/presentation/widgets/parent_gate.dart';
 import '../data/game_rooms_service.dart';
+import '../data/online_access.dart';
 
 /// The Online Hall lobby — create a room and share the code, or join one.
 /// Pops {'code','side'} on success; null on cancel.
@@ -14,8 +15,40 @@ class OnlineLobby extends StatefulWidget {
   final GameRoomsService service;
   const OnlineLobby({super.key, required this.game, required this.service});
 
+  /// Opens the lobby, after the family check: a child profile reaches it
+  /// only when a guardian has switched online tables on for that child, and
+  /// an adult on a device that has child profiles answers the parent check
+  /// first. [access] is for tests.
   static Future<Map<String, String>?> show(
-      BuildContext context, String game, GameRoomsService service) {
+    BuildContext context,
+    String game,
+    GameRoomsService service, {
+    OnlineAccess? access,
+  }) async {
+    final OnlineAccess gate = access ?? OnlineAccess();
+    final OnlineVerdict verdict = await gate.check();
+    if (!context.mounted) return null;
+    if (verdict.blocked) {
+      await showDialog<void>(
+        context: context,
+        builder: (BuildContext ctx) => AlertDialog(
+          backgroundColor: const Color(0xFF0A0F18),
+          title: Text('Online tables are off', style: AppText.titleMedium),
+          content: Text(verdict.message, style: AppText.bodyMuted),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () => Navigator.of(ctx).pop(),
+              child: const Text('OK'),
+            ),
+          ],
+        ),
+      );
+      return null;
+    }
+    if (verdict.needsParent) {
+      final bool ok = await showParentGate(context);
+      if (!ok || !context.mounted) return null;
+    }
     return showModalBottomSheet<Map<String, String>>(
       context: context,
       isScrollControlled: true,
@@ -55,22 +88,7 @@ class _OnlineLobbyState extends State<OnlineLobby> {
   String? _error;
   bool _canRetry = false;
   Future<void> Function()? _retry;
-  String _name = '';
   final _joinCtrl = TextEditingController();
-
-  @override
-  void initState() {
-    super.initState();
-    Future.microtask(() async {
-      try {
-        final prefs = await SharedPreferences.getInstance();
-        final n = prefs.getString('ar.majlis.name') ?? 'Guest of the Courtyard';
-        if (mounted) setState(() => _name = n);
-      } catch (_) {
-        // Storage blocked: the default name stands.
-      }
-    });
-  }
 
   @override
   void dispose() {
@@ -85,7 +103,7 @@ class _OnlineLobbyState extends State<OnlineLobby> {
     _retry = _create;
     setState(() { _busy = 'Creating your table\u2026'; _error = null; });
     try {
-      final r = await widget.service.createRoom(widget.game, _name);
+      final r = await widget.service.createRoom(widget.game);
       if (!mounted) return;
       if (r == null) {
         setState(() { _busy = null; _error = _unavailable; _canRetry = false; });
@@ -107,7 +125,7 @@ class _OnlineLobbyState extends State<OnlineLobby> {
     }
     setState(() { _busy = 'Joining\u2026'; _error = null; });
     try {
-      final r = await widget.service.joinRoom(typed, _name);
+      final r = await widget.service.joinRoom(typed);
       if (!mounted) return;
       if (r == null) {
         setState(() { _busy = null; _error = _unavailable; _canRetry = false; });
@@ -188,7 +206,11 @@ class _OnlineLobbyState extends State<OnlineLobby> {
             ),
           ]),
           const SizedBox(height: 8),
-          Text('Playing as your Majlis name.', style: AppText.bodyMuted.copyWith(fontSize: 12)),
+          Text(
+            'No name is shared. You appear as Player 1 or Player 2, and the '
+            'table is deleted when someone leaves.',
+            style: AppText.bodyMuted.copyWith(fontSize: 12),
+          ),
         ],
       ),
     );

@@ -64,6 +64,9 @@ class _ShatranjState extends State<ShatranjScreen> {
     },
   );
   bool _opponentLeft = false;
+  // True once the table has been seen, so a table that is not there yet
+  // (a cache that is still empty) is not mistaken for "the other player left".
+  bool _seenRoom = false;
   String? _syncError;
 
   static const _hadiLines = [
@@ -90,6 +93,9 @@ class _ShatranjState extends State<ShatranjScreen> {
   @override
   void dispose() {
     _roomSub?.cancel();
+    // Leaving the screen leaves the table, and a left table is deleted.
+    final String? code = roomCode;
+    if (mode == 3 && code != null) unawaited(_rooms.leave(code));
     super.dispose();
   }
 
@@ -453,6 +459,7 @@ class _ShatranjState extends State<ShatranjScreen> {
     _outbox.clear();
     _syncError = null;
     _opponentLeft = false;
+    _seenRoom = false;
     setState(() {
       mode = 3;
       roomCode = r['code'];
@@ -483,7 +490,22 @@ class _ShatranjState extends State<ShatranjScreen> {
 
   void _onRoom(DocumentSnapshot<Map<String, dynamic>> snap) {
     final Map<String, dynamic>? data = snap.data();
-    if (data == null || !mounted) return;
+    if (!mounted) return;
+    if (data == null) {
+      // The table is gone: the other player left (leaving deletes it).
+      if (_seenRoom &&
+          !snap.exists &&
+          !_opponentLeft &&
+          !status.startsWith('Checkmate') &&
+          !status.startsWith('Stalemate')) {
+        setState(() {
+          _opponentLeft = true;
+          status = 'Your opponent left the table';
+        });
+      }
+      return;
+    }
+    _seenRoom = true;
     final guest = data['guest'];
     if (mySide == 'host' && guest != null &&
         status.startsWith('Table') && data['status'] == 'playing') {
@@ -556,9 +578,9 @@ class _ShatranjState extends State<ShatranjScreen> {
                 TextButton(
                   onPressed: () {
                     if (mode == 3 && roomCode != null) {
-                      unawaited(_rooms.leave(roomCode!));
                       _roomSub?.cancel();
                       _roomSub = null;
+                      unawaited(_rooms.leave(roomCode!));
                       _outbox.clear();
                       _syncError = null;
                     }

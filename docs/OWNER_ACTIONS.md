@@ -18,6 +18,7 @@ Order matters: let this change deploy to the live site FIRST (merge, wait for th
 2. Replace the editor contents with the contents of `firestore.rules` from the repo (main branch). Click Publish.
 3. Confirm: Rules tab shows today's publish time. The Majlis stays gated in the app until moderation exists, so no user-visible change is expected there.
 What changed in the rules, so you know what to test:
+- Online games (`game_rooms`), privacy update: a table now holds only anonymous sign-in ids (`host: {uid}`, `guest: {uid}`), never a display name; `expireAt` may be at most 12 hours ahead (the app uses 6); reads and writes are refused once `expireAt` has passed; either player can delete the table (the app deletes it on leave). The old app wrote names, so publish only after the new app is live.
 - Online games (`game_rooms`): rooms can be read by code but not listed; the joiner can no longer rewrite moves, turn or result; a table is created with an exact set of fields; only one new numbered move per write; a finished or left table is closed.
 - Majlis: threads and posts only under the `courtyard` room; reads must carry a limit (the app sends 50 threads / 200 posts); display names are limited to ASCII letters and digits, space, `. _ ' -`, and Arabic/Urdu letters (so a Cyrillic "а" or an accented letter can not slip past the reserved-name check), and digits that imitate letters ("h4di") are folded before the reserved-name check.
 Quick test after publishing: open the live site on two devices, Games → Ludo → "Play a friend online", create a table on one, join with the code on the other, and play a few moves.
@@ -27,7 +28,14 @@ Not tested by CI: there is no Firestore emulator in the repo, so the rules were 
 Why: tables are never deleted by the app, so the `game_rooms` collection would only grow.
 1. Firebase console → Firestore Database → "Time to live" (TTL) → Create policy.
 2. Collection group: `game_rooms`. Timestamp field: `expireAt`. Create.
-3. Confirm: the policy shows as Serving. Every table now carries `expireAt` (24 hours after creation).
+3. Confirm: the policy shows as Serving. Every table now carries `expireAt` (6 hours after creation; the rules cap it at 12). The in-app privacy text says tables are deleted when someone leaves and expire on their own, so this policy is what makes that sentence true for tables abandoned without leaving.
+
+## 2c. Ludo art: files to export for a pixel-perfect board (optional)
+The Ludo board in the app is cut from your in-game mockup by `tool/crop_game_boards.py` (see its docstring; it writes `assets/games/ludo/`). It is clean on the track and in the yard sockets, but the yards have a soft fill where baked pawns were removed and three of the four pawn colours are recoloured copies of the green one. For perfection, export these from your design tool and drop them in `assets/games/ludo/` (same names; no code change):
+1. `board.png` at 2x: the empty board with the frame, no pawns, no dice, no avatars, sockets visible in every yard.
+2. One pawn sprite per colour, transparent PNG, same size, standing pose: `pawn_red`, `pawn_blue`, `pawn_yellow`, `pawn_green`.
+3. Six dice faces, transparent PNG: `dice_1` to `dice_6` (the app draws faces 1 to 6 in code today; only the idle dice is cut from your render).
+Calibration of the board cells lives in `lib/features/games/data/ludo_board_art.dart`; if the new board is a different size, tell Claude and it is re-fitted.
 
 ## 3. Request a Sunnah.com API key (10 minutes)
 Why: web-page checks of hadith are rate-limited (HTTP 429). A key lets the checker verify reliably.

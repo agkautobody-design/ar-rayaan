@@ -43,11 +43,30 @@ void main() {
     late String rooms;
     setUpAll(() => rooms = block('match /game_rooms/{code}'));
 
-    test('rooms can be fetched by code but never listed or deleted', () {
+    test('rooms can be fetched by code, never listed, and only a player '
+        'can delete one', () {
       expect(rooms, contains('allow get: if signedIn()'));
       expect(rooms, contains('allow list: if false'));
-      expect(rooms, contains('allow delete: if false'));
+      expect(rooms, contains('allow delete: if signedIn() && roomIsPlayer()'));
+      expect(rooms.contains('allow delete: if false'), isFalse);
       expect(rooms.contains('allow read:'), isFalse);
+    });
+
+    test('a room holds no name: players are {uid} only', () {
+      expect(rooms, contains("host.keys().hasOnly(['uid'])"));
+      expect(rooms, contains("guest.keys().hasOnly(['uid'])"));
+      expect(rooms.contains('validName'), isFalse);
+      expect(rooms.contains("'name'"), isFalse);
+    });
+
+    test('a room expires: no reads or writes after expireAt, 12 h at most',
+        () {
+      expect(rules, contains('function roomLive()'));
+      expect(rules, contains('resource.data.expireAt > request.time'));
+      expect(rooms, contains('allow get: if signedIn() && (resource == null || roomLive())'));
+      expect(rooms, contains('allow update: if signedIn() && roomLive()'));
+      expect(rooms, contains("duration.value(12, 'h')"));
+      expect(rooms.contains("duration.value(2, 'd')"), isFalse);
     });
 
     test('create is an exact field allow-list with server time and a TTL', () {
@@ -77,6 +96,22 @@ void main() {
       expect(rules, contains('changedKeys().size() == 0'));
       expect(rules, contains('removedKeys().size() == 0'));
       expect(rooms, contains("resource.data.status in ['waiting', 'playing']"));
+    });
+
+    test('the app lifetime fits the rule and no name is ever written', () {
+      expect(GameRoomsService.roomLifetime.inHours, lessThanOrEqualTo(12));
+      final String svc = File('lib/features/games/data/game_rooms_service.dart')
+          .readAsStringSync();
+      expect(svc, contains("'host': {'uid': uid}"));
+      expect(svc, contains("'guest': {'uid': uid}"));
+      expect(svc.contains("'name'"), isFalse);
+      expect(svc, contains('.delete()'));
+      expect(GameRoomsService.hostLabel, 'Player 1');
+      expect(GameRoomsService.guestLabel, 'Player 2');
+      final String lobby =
+          File('lib/features/games/presentation/online_lobby.dart')
+              .readAsStringSync();
+      expect(lobby.contains('majlis.name'), isFalse);
     });
 
     test('the game codes the app creates satisfy the create rule', () {
