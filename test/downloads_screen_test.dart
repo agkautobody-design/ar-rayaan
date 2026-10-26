@@ -51,23 +51,37 @@ Future<void> pumpApp(
   await t.pump(const Duration(milliseconds: 50));
 }
 
+/// Collects every Flutter error raised while [body] runs, as short text.
+Future<List<String>> collectErrors(Future<void> Function() body) async {
+  final List<String> errs = <String>[];
+  final FlutterExceptionHandler? prev = FlutterError.onError;
+  FlutterError.onError = (FlutterErrorDetails d) {
+    errs.add(d.toString().split('\n').take(14).join(' | '));
+  };
+  try {
+    await body();
+  } finally {
+    FlutterError.onError = prev;
+  }
+  return errs;
+}
+
+final List<String> errs0 = <String>[];
+
 void main() {
   testWidgets('phone: honest note, controls, nasheed reason, no overflow', (
     t,
   ) async {
-    await pumpApp(
-      t,
-      const DownloadsScreen(web: false),
-      FakeStore(),
-      canWifi: true,
-      scale: 1.5,
+    final List<String> errs = await collectErrors(
+      () => pumpApp(
+        t,
+        const DownloadsScreen(web: false),
+        FakeStore(),
+        canWifi: true,
+        scale: 1.5,
+      ),
     );
-    final Object? first = t.takeException();
-    expect(
-      first == null,
-      isTrue,
-      reason: first.toString().split('\n').take(8).join(' | '),
-    );
+    expect(errs, isEmpty, reason: errs.join(' ## '));
     expect(find.text('Download everything'), findsWidgets);
     expect(find.text('Wi-Fi only'), findsOneWidget);
     expect(find.textContaining('already inside this app'), findsOneWidget);
@@ -77,14 +91,55 @@ void main() {
     expect(t.takeException(), isNull);
   });
 
+  testWidgets('tapping what the screen offers raises no error', (t) async {
+    await pumpApp(
+      t,
+      const DownloadsScreen(web: false),
+      FakeStore(),
+      canWifi: true,
+    );
+    t.view.physicalSize = const Size(800, 600);
+    final List<String> errs = await collectErrors(() async {
+      final List<Widget> tappables = <Widget>[
+        ...t.widgetList<InkWell>(find.byType(InkWell)),
+        ...t.widgetList<GestureDetector>(find.byType(GestureDetector)),
+      ];
+      int n = 0;
+      for (final Widget w in tappables) {
+        if (n >= 25) break;
+        final Finder f = find.byWidget(w);
+        if (f.evaluate().isEmpty) continue;
+        try {
+          await t.tap(f.first, warnIfMissed: false);
+          await t.pumpAndSettle();
+          n++;
+        } catch (e) {
+          errs0.add('tap: $e');
+        }
+      }
+    });
+    expect(
+      <String>[...errs, ...errs0],
+      isEmpty,
+      reason: <String>[...errs, ...errs0].join(' ## '),
+    );
+  });
+
   testWidgets('phone at the default test size renders cleanly', (t) async {
-    await pumpApp(t, const DownloadsScreen(web: false), FakeStore(),
-        canWifi: true);
+    await pumpApp(
+      t,
+      const DownloadsScreen(web: false),
+      FakeStore(),
+      canWifi: true,
+    );
     t.view.physicalSize = const Size(800, 600);
     await t.pump(const Duration(milliseconds: 50));
     final Object? e = t.takeException();
-    expect(e == null, isTrue,
-        reason: e.toString().split('\n').take(8).join(' | '));
+    expect(
+      e == null,
+      isTrue,
+      reason: e.toString().split('\n').take(8).join(' | '),
+    );
   });
 
   testWidgets('web: says a browser cannot tell Wi-Fi apart', (t) async {
