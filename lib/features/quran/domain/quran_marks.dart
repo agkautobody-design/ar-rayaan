@@ -176,6 +176,9 @@ String exportMarks(
     int ayah,
   ) lookup,
   String? collectionId,
+  String credit =
+      'Arabic: Tanzil Uthmani (tanzil.net). Translation: Saheeh '
+          'International, via Tanzil.',
 }) {
   final StringBuffer b = StringBuffer();
   final String? title = collectionId == null
@@ -194,9 +197,6 @@ String exportMarks(
     if (m.note.trim().isNotEmpty) b.writeln('Note: ${m.note.trim()}');
     b.writeln();
   }
-  b.writeln(
-    'Arabic: Tanzil Uthmani (tanzil.net). Translation: Saheeh International, '
-    'via Tanzil. Exported from Ar-Rayaan.',
-  );
+  b.writeln('$credit Exported from Ar-Rayaan.');
   return b.toString();
 }

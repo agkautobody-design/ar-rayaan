@@ -69,6 +69,7 @@ import '../features/settings/presentation/settings_screen.dart';
 import '../features/share/domain/handout.dart';
 import '../features/share/presentation/handout_screen.dart';
 import '../features/share/presentation/share_screen.dart';
+import '../features/streaks/presentation/streaks_screen.dart';
 import '../features/sources/presentation/content_policy_screen.dart';
 import '../features/sources/presentation/sources_screen.dart';
 import '../features/stories/presentation/stories_screen.dart';
@@ -172,6 +173,8 @@ abstract final class AppRoutes {
   static const String calendar = '/calendar';
   static const String zakat = '/zakat';
   static const String share = '/share';
+  /// Gentle streaks: Qur'an, dhikr, prayers logged and days returned.
+  static const String streaks = '/streaks';
   static const String settings = '/settings';
   static const String sources = '/sources';
   static const String sourcesPolicy = '/sources/policy';
@@ -588,6 +591,10 @@ GoRouter buildRouter({String initialLocation = '/'}) {
       GoRoute(
         path: AppRoutes.share,
         pageBuilder: (c, s) => _fade(const ShareScreen()),
+      ),
+      GoRoute(
+        path: AppRoutes.streaks,
+        pageBuilder: (c, s) => _fade(const StreaksScreen()),
       ),
       GoRoute(
         path: AppRoutes.myAdditions,

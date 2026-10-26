@@ -4,10 +4,17 @@ import '../../../app/core/content_loader.dart';
 import '../application/quran_repository.dart';
 import '../domain/quran_index.dart';
 import '../domain/quran_models.dart';
+import '../domain/translation_pack.dart';
 
 /// Serves the complete Qur'an from the bundled asset (Tanzil Uthmani
 /// Arabic + Saheeh International). Parsed once, held in memory.
 class BundledQuranRepository implements QuranRepository {
+  /// [translation] resolves the translation pack to show in place of the
+  /// bundled English (null, or a null result, keeps the bundled English).
+  BundledQuranRepository({this.translation});
+
+  final Future<TranslationPack?> Function()? translation;
+
   List<Surah>? _cache;
 
   /// The download in progress, shared: the index, the reader and search all
@@ -23,6 +30,12 @@ class BundledQuranRepository implements QuranRepository {
   Future<List<Surah>> _fetch() async {
     final String raw = await ContentLoader.loadString(kQuranAsset);
     final List<dynamic> data = jsonDecode(raw) as List<dynamic>;
+    TranslationPack? pack;
+    try {
+      pack = await translation?.call();
+    } catch (_) {
+      pack = null;
+    }
     final List<Surah> surahs = <Surah>[
       for (final Map<String, dynamic> s in data.cast<Map<String, dynamic>>())
         Surah(
@@ -40,7 +53,9 @@ class BundledQuranRepository implements QuranRepository {
               Ayah(
                 number: v[0] as int,
                 arabic: v[1] as String,
-                english: v[2] as String,
+                english: pack == null
+                    ? v[2] as String
+                    : pack.textOf(s['n'] as int, v[0] as int),
               ),
           ],
         ),

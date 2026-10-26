@@ -19,6 +19,7 @@ import '../../menu/presentation/menu_screen.dart' show isAcademyRoute;
 import '../../elder/application/elder_mode.dart';
 import '../../hadi/presentation/hadi_ask_bar.dart';
 import '../../hadith/presentation/daily_hadith_banner.dart';
+import '../../streaks/presentation/streaks_card.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/gold_text.dart';
@@ -417,6 +418,7 @@ class HomeScreen extends ConsumerWidget {
                       // Below the tiles on purpose: it loads late, and above them it
                       // pushed the tiles down under a person's finger.
                       const DailyHadithBanner(),
+                      const StreaksCard(),
                       GlassCard(
                         strong: true,
                         padding: const EdgeInsets.all(16),

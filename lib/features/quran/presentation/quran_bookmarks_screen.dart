@@ -13,6 +13,7 @@ import '../application/quran_marks_controller.dart';
 import '../application/quran_providers.dart';
 import '../domain/quran_marks.dart';
 import '../domain/quran_models.dart';
+import '../domain/quran_texts.dart';
 import 'ayah_actions_sheet.dart';
 
 /// Everything the person saved in the Qur'an: bookmarks, notes and
@@ -47,6 +48,8 @@ class _QuranBookmarksScreenState extends ConsumerState<QuranBookmarksScreen> {
     final String text = exportMarks(
       marks,
       collectionId: _collectionId,
+      credit: (ref.read(quranTextsProvider).value ?? QuranTexts.fallback)
+          .shareCreditLine,
       lookup: (int s, int a) {
         final Ayah? ay = _ayahAt(all, s, a);
         if (ay == null) return null;

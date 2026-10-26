@@ -33,10 +33,12 @@ import '../application/quran_marks_controller.dart';
 import '../application/quran_offline.dart' show kQuranOfflineHint;
 import '../application/quran_providers.dart';
 import '../application/test_me_provider.dart';
+import '../application/translation_providers.dart';
 import '../domain/quran_marks.dart';
 import '../domain/quran_models.dart';
 import '../domain/quran_texts.dart';
 import '../domain/surah_search.dart';
+import '../../share/application/share_text.dart';
 import 'ayah_actions_sheet.dart';
 import 'hideable_arabic.dart';
 
@@ -325,7 +327,10 @@ class _ReaderState extends ConsumerState<_Reader> {
           );
         }
         if (index == n + 1) {
-          return _ReaderFooter(surah: surah.meta.number);
+          return _ReaderFooter(
+            surah: surah.meta.number,
+            surahName: surah.meta.transliteration,
+          );
         }
         final int i = index - 1;
         final Ayah ayah = surah.ayahs[i];
@@ -673,9 +678,10 @@ class _JumpToAyahDialogState extends State<_JumpToAyahDialog> {
 /// End of surah: how to save a place, and where the two texts come from
 /// (Tanzil asks for its source to be named and linked).
 class _ReaderFooter extends ConsumerStatefulWidget {
-  const _ReaderFooter({required this.surah});
+  const _ReaderFooter({required this.surah, required this.surahName});
 
   final int surah;
+  final String surahName;
 
   @override
   ConsumerState<_ReaderFooter> createState() => _ReaderFooterState();
@@ -693,7 +699,12 @@ class _ReaderFooterState extends ConsumerState<_ReaderFooter> {
       if (!mounted) return;
       unawaited(noteReturn(ref, ReturnAct.quran));
       unawaited(
-        showQuietDone(context, ref, moment: 'surah:${widget.surah}'),
+        showQuietDone(
+          context,
+          ref,
+          moment: 'surah:${widget.surah}',
+          shareText: milestoneShareText('reading Surah ${widget.surahName}'),
+        ),
       );
     });
   }
@@ -736,8 +747,7 @@ class _ReaderFooterState extends ConsumerState<_ReaderFooter> {
                 constraints: const BoxConstraints(minHeight: 48),
                 child: Center(
                   child: Text(
-                    'Arabic: Tanzil Uthmani · Translation: Saheeh '
-                    'International, via Tanzil.net',
+                    texts.footerLine,
                     style: AppText.caption.copyWith(
                       decoration: TextDecoration.underline,
                     ),
@@ -857,11 +867,17 @@ class _AyahBlock extends ConsumerWidget {
                 const SizedBox(height: 6),
               ] else
                 const SizedBox(height: 8),
-              Text(
-                ayah.english,
-                style: AppText.bodyMuted.copyWith(
-                  fontSize: 13 * follow,
-                  height: 1.55,
+              // Urdu and Arabic packs read right to left.
+              Directionality(
+                textDirection: ref.watch(translationRtlProvider)
+                    ? TextDirection.rtl
+                    : Directionality.of(context),
+                child: Text(
+                  ayah.english,
+                  style: AppText.bodyMuted.copyWith(
+                    fontSize: 13 * follow,
+                    height: 1.55,
+                  ),
                 ),
               ),
               if (hasNote)
