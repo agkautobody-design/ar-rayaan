@@ -14,6 +14,7 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
 import '../../academy/application/academy_providers.dart';
+import '../../hadi/presentation/hadi_stats_card.dart';
 import '../application/founder_auth.dart';
 import '../application/founder_commands.dart';
 import '../application/physician_engine.dart';
@@ -92,6 +93,8 @@ class _FounderConsoleScreenState
               ),
               const SizedBox(height: 12),
               const _PhysicianCard(),
+              const SizedBox(height: 12),
+              const HadiStatsCard(),
               if (_lastReport != null) ...<Widget>[
                 const SizedBox(height: 10),
                 for (final ProbeResult r in _lastReport!.results)

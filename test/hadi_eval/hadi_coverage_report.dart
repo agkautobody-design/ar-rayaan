@@ -5,11 +5,12 @@ library;
 
 import 'package:ar_rayaan/features/hadi/application/hadi_provider.dart';
 import 'package:ar_rayaan/features/hadi/data/hadi_routing.dart';
+import 'package:ar_rayaan/features/hadi/data/local_knowledge.dart';
 import 'package:ar_rayaan/features/hadi/data/offline_hadi_provider.dart';
 
 import 'hadi_coverage_corpus.dart';
 
-enum CoverageKind { answer, pointer, miss }
+enum CoverageKind { answer, guide, pointer, miss }
 
 class CoverageRow {
   const CoverageRow(this.question, this.kind, this.reply, this.buttons);
@@ -26,6 +27,7 @@ final RegExp _go = RegExp(r'\[GO:([^\]]+)\]');
 
 Future<List<CoverageRow>> runCoverage({
   List<String> questions = kCoverageQuestions,
+  LocalKnowledge? knowledge,
 }) async {
   const OfflineHadiProvider p = OfflineHadiProvider();
   final List<CoverageRow> out = <CoverageRow>[];
@@ -36,7 +38,22 @@ Future<List<CoverageRow>> runCoverage({
     ];
     final bool refusal = HadiRouting.isRefusal(a) ||
         a == OfflineHadiProvider.offTopicReply;
-    if (refusal) {
+    // The same rule the controller uses: a refusal or a bare pointer may be
+    // replaced by a confident quotation from the app's own guides and
+    // stories.
+    final KnowledgeMatch? hit = (knowledge != null &&
+            (refusal || own.isNotEmpty) &&
+            !LocalKnowledge.looksLikeLookup(q))
+        ? knowledge.confident(q)
+        : null;
+    if (hit != null) {
+      out.add(CoverageRow(
+        q,
+        CoverageKind.guide,
+        LocalKnowledge.compose(hit.entry),
+        <String>[if (hit.entry.route != null) hit.entry.route!],
+      ));
+    } else if (refusal) {
       out.add(CoverageRow(
         q,
         CoverageKind.miss,
@@ -68,7 +85,9 @@ String renderCoverage(List<CoverageRow> rows) {
       rows.where((CoverageRow r) => r.kind == CoverageKind.miss).length;
   final int pointers =
       rows.where((CoverageRow r) => r.kind == CoverageKind.pointer).length;
-  final int answers = rows.length - misses - pointers;
+  final int indexed =
+      rows.where((CoverageRow r) => r.kind == CoverageKind.guide).length;
+  final int answers = rows.length - misses - pointers - indexed;
   final StringBuffer b = StringBuffer()
     ..writeln('# Hadi offline coverage')
     ..writeln()
@@ -81,6 +100,9 @@ String renderCoverage(List<CoverageRow> rows) {
     ..writeln()
     ..writeln('- Questions: ${rows.length}')
     ..writeln('- Answered from the library: $answers')
+    ..writeln('- Answered by quoting an app guide, Q&A or story: $indexed')
+    ..writeln('- Verified-source answers: ${answers + indexed} '
+        '(${((answers + indexed) * 100 / rows.length).toStringAsFixed(1)}%)')
     ..writeln('- Pointed to a screen with a button: $pointers')
     ..writeln('- Misses: $misses '
         '(${(misses * 100 / rows.length).toStringAsFixed(1)}%)')
@@ -90,6 +112,7 @@ String renderCoverage(List<CoverageRow> rows) {
   for (final CoverageRow r in rows) {
     final String tag = switch (r.kind) {
       CoverageKind.answer => 'answer',
+      CoverageKind.guide => 'guide',
       CoverageKind.pointer => 'pointer',
       CoverageKind.miss => 'MISS',
     };
