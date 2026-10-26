@@ -8,7 +8,13 @@ import '../features/auth/presentation/signup_screen.dart';
 import '../features/auth/presentation/verify_screen.dart';
 import '../features/onboarding/presentation/onboarding_screen.dart';
 import '../features/search/presentation/search_screen.dart';
+import '../features/community/presentation/community_hub_screen.dart';
 import '../features/community/presentation/community_screen.dart';
+import '../features/community/presentation/forum_screens.dart';
+import '../features/community/presentation/friends_screens.dart';
+import '../features/community/presentation/meetup_screens.dart';
+import '../features/community/presentation/notifications_screens.dart';
+import '../features/community/presentation/rules_screen.dart';
 import '../features/academy/presentation/academy_home_screen.dart';
 import '../features/academy/presentation/course_overview_screen.dart';
 import '../features/academy/presentation/lesson_player_screen.dart';
@@ -127,6 +133,22 @@ abstract final class AppRoutes {
   static const String noorReflections = '/noor/reflections';
   static const String journey = '/journey';
   static const String community = '/community';
+  // Community phase 2 (forums, meet-ups, friends). Reachable only when the
+  // build has COMMUNITY_BACKEND on; each screen explains itself otherwise.
+  static const String communityHub = '/community/hub';
+  static const String communityForums = '/community/forums';
+  static const String communityForum = '/community/forum';
+  static const String communityThread = '/community/thread';
+  static const String communityCompose = '/community/compose';
+  static const String communityRules = '/community/rules';
+  static const String communityMeetups = '/community/meetups';
+  static const String communityMeetup = '/community/meetup';
+  static const String communityMeetupNew = '/community/meetups/new';
+  static const String communityFriends = '/community/friends';
+  static const String communityInvite = '/community/invite';
+  static const String communityNotifications = '/community/notifications';
+  static const String communityBlocked = '/community/blocked';
+  static const String communityNotices = '/community/notices';
   // The Family tab: the real Family Wing, inside the bottom-nav shell.
   static const String family = '/family';
   static const String academy = '/academy';
@@ -228,6 +250,8 @@ String parentRouteOf(String path) {
   if (p.startsWith('${AppRoutes.sakina}/')) return AppRoutes.sakina;
   if (p.startsWith('${AppRoutes.games}/')) return AppRoutes.games;
   if (p.startsWith('${AppRoutes.quran}/')) return AppRoutes.quran;
+  if (p == AppRoutes.communityHub) return AppRoutes.community;
+  if (p.startsWith('/community/')) return AppRoutes.communityHub;
   return AppRoutes.home;
 }
 
@@ -275,6 +299,80 @@ extension AppNavigation on BuildContext {
     }
   }
 }
+
+/// The community phase 2 screens. No Ask Hādi pill on any of them: community
+/// writing is opinion and never reaches Hādi, so the two are kept visibly
+/// apart. Each screen is inert unless the build turns the backend on.
+List<RouteBase> _communityRoutes() => <RouteBase>[
+  GoRoute(
+    path: AppRoutes.communityHub,
+    pageBuilder: (c, s) => _fade(const CommunityHubScreen(), pill: false),
+  ),
+  GoRoute(
+    path: AppRoutes.communityForums,
+    pageBuilder: (c, s) => _fade(const ForumCategoriesScreen(), pill: false),
+  ),
+  GoRoute(
+    path: '${AppRoutes.communityForum}/:slug',
+    pageBuilder: (c, s) => _fade(
+      ForumThreadListScreen(slug: s.pathParameters['slug']!),
+      pill: false,
+    ),
+  ),
+  GoRoute(
+    path: '${AppRoutes.communityThread}/:id',
+    pageBuilder: (c, s) => _fade(
+      ForumThreadScreen(threadId: s.pathParameters['id']!),
+      pill: false,
+    ),
+  ),
+  GoRoute(
+    path: '${AppRoutes.communityCompose}/:slug',
+    pageBuilder: (c, s) => _fade(
+      ForumComposeScreen(slug: s.pathParameters['slug']!),
+      pill: false,
+    ),
+  ),
+  GoRoute(
+    path: AppRoutes.communityRules,
+    pageBuilder: (c, s) => _fade(const CommunityRulesScreen(), pill: false),
+  ),
+  GoRoute(
+    path: AppRoutes.communityMeetups,
+    pageBuilder: (c, s) => _fade(const MeetupsScreen(), pill: false),
+  ),
+  GoRoute(
+    path: AppRoutes.communityMeetupNew,
+    pageBuilder: (c, s) => _fade(const MeetupCreateScreen(), pill: false),
+  ),
+  GoRoute(
+    path: '${AppRoutes.communityMeetup}/:id',
+    pageBuilder: (c, s) => _fade(
+      MeetupDetailScreen(meetupId: s.pathParameters['id']!),
+      pill: false,
+    ),
+  ),
+  GoRoute(
+    path: AppRoutes.communityFriends,
+    pageBuilder: (c, s) => _fade(const FriendsScreen(), pill: false),
+  ),
+  GoRoute(
+    path: AppRoutes.communityInvite,
+    pageBuilder: (c, s) => _fade(const InviteScreen(), pill: false),
+  ),
+  GoRoute(
+    path: AppRoutes.communityNotifications,
+    pageBuilder: (c, s) => _fade(const NotificationsScreen(), pill: false),
+  ),
+  GoRoute(
+    path: AppRoutes.communityBlocked,
+    pageBuilder: (c, s) => _fade(const BlockedScreen(), pill: false),
+  ),
+  GoRoute(
+    path: AppRoutes.communityNotices,
+    pageBuilder: (c, s) => _fade(const NoticesScreen(), pill: false),
+  ),
+];
 
 /// One page of the soft-fade transition. [pill] adds the "Ask Hādi" pill
 /// inside the page (see [AskHadiPillHost]); pass false for the tabs of the
@@ -426,6 +524,7 @@ GoRouter buildRouter({String initialLocation = '/'}) {
           path: AppRoutes.majlisNew,
           pageBuilder: (context, state) => _fade(const NewThreadScreen()),
         ),
+        ..._communityRoutes(),
         GoRoute(
           path: AppRoutes.notes,
           pageBuilder: (context, state) => _fade(const NotesScreen()),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../app/core/backend/backend_config.dart';
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
@@ -28,6 +29,21 @@ class CommunityScreen extends StatelessWidget {
       AppRoutes.prayerTimes,
     ),
   ];
+
+  /// Forums, meet-ups and friends exist only in a build that has the
+  /// community backend (COMMUNITY_BACKEND). With it off, which is the default
+  /// and the live app, this list is exactly [_working].
+  static List<(IconData, String, String, String)> get _rows =>
+      <(IconData, String, String, String)>[
+        ..._working,
+        if (BackendConfig.mode != BackendMode.off)
+          (
+            Icons.groups_2_outlined,
+            'Forums, meet-ups and friends',
+            'For adults. Community rules apply',
+            AppRoutes.communityHub,
+          ),
+      ];
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +93,7 @@ class CommunityScreen extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 16),
-                      for (final (icon, label, sub, route) in _working)
+                      for (final (icon, label, sub, route) in _rows)
                         Padding(
                           padding: const EdgeInsets.only(bottom: 10),
                           child: GlassCard(

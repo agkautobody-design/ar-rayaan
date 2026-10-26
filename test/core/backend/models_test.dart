@@ -141,6 +141,11 @@ void main() {
       'audience': 'sisters',
       'minorsPolicy': 'adults_only',
       'capacity': 20,
+      'organiser': <String, dynamic>{
+        'profileId': 'o',
+        'displayName': 'Imam',
+        'verified': true,
+      },
     });
     expect(m.venueKind, MeetupVenueKind.communityCentre);
     expect(m.audience, MeetupAudience.sisters);

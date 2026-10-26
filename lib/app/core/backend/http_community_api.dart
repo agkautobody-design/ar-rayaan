@@ -421,6 +421,276 @@ class HttpCommunityApi implements CommunityApi {
     return _parse(() => RedeemResult.fromJson(j));
   }
 
+  // ---- community rules -----------------------------------------------------
+  @override
+  Future<CommunityRulesStatus> communityRules() async {
+    final Map<String, dynamic> j = await _json('GET', '/v1/community/rules');
+    return _parse(() => CommunityRulesStatus.fromJson(j));
+  }
+
+  @override
+  Future<void> acceptCommunityRules(String version) async {
+    await _call(
+      'POST',
+      '/v1/community/rules/accept',
+      body: <String, dynamic>{'version': version},
+    );
+  }
+
+  // ---- forums ----------------------------------------------------------------
+  @override
+  Future<List<ForumCategory>> forumCategories() async {
+    final Map<String, dynamic> j = await _json('GET', '/v1/forum/categories');
+    return _parse(
+      () => _objects(j['categories']).map(ForumCategory.fromJson).toList(),
+    );
+  }
+
+  @override
+  Future<ThreadList> forumThreads(String slug, {DateTime? before}) async {
+    final Map<String, dynamic> j = await _json(
+      'GET',
+      '/v1/forum/categories/$slug/threads',
+      query: before == null
+          ? null
+          : <String, String>{'before': before.toUtc().toIso8601String()},
+    );
+    return _parse(() => ThreadList.fromJson(j));
+  }
+
+  @override
+  Future<ThreadView> forumThread(String threadId, {String? after}) async {
+    final Map<String, dynamic> j = await _json(
+      'GET',
+      '/v1/forum/threads/$threadId',
+      query: after == null ? null : <String, String>{'after': after},
+    );
+    return _parse(() => ThreadView.fromJson(j));
+  }
+
+  @override
+  Future<SubmitResult> startThread({
+    required String slug,
+    required String title,
+    required String body,
+  }) async {
+    final Map<String, dynamic> j = await _json(
+      'POST',
+      '/v1/forum/categories/$slug/threads',
+      body: <String, dynamic>{'title': title, 'body': body},
+    );
+    return _parse(() => SubmitResult.fromThreadJson(j));
+  }
+
+  @override
+  Future<SubmitResult> replyToThread(
+    String threadId,
+    String body, {
+    String? replyTo,
+  }) async {
+    final Map<String, dynamic> j = await _json(
+      'POST',
+      '/v1/forum/threads/$threadId/posts',
+      body: <String, dynamic>{
+        'body': body,
+        if (replyTo != null) 'replyTo': replyTo,
+      },
+    );
+    return _parse(() => SubmitResult.fromPostJson(j));
+  }
+
+  @override
+  Future<SubmitResult> editPost(String postId, String body) async {
+    final Map<String, dynamic> j = await _json(
+      'PATCH',
+      '/v1/forum/posts/$postId',
+      body: <String, dynamic>{'body': body},
+    );
+    return _parse(() => SubmitResult.fromPostJson(j));
+  }
+
+  @override
+  Future<void> deletePost(String postId) async {
+    await _call('DELETE', '/v1/forum/posts/$postId');
+  }
+
+  @override
+  Future<void> setHelpful(String postId, {required bool helpful}) async {
+    await _call(helpful ? 'PUT' : 'DELETE', '/v1/forum/posts/$postId/helpful');
+  }
+
+  // ---- report, hide ---------------------------------------------------------------
+  @override
+  Future<void> report({
+    required CommunityTarget target,
+    required String targetId,
+    required ReportReason reason,
+    String? details,
+  }) async {
+    await _call(
+      'POST',
+      '/v1/reports',
+      body: <String, dynamic>{
+        'targetType': target.name,
+        'targetId': targetId,
+        'reason': reason.wire,
+        if (details != null && details.trim().isNotEmpty) 'details': details,
+      },
+    );
+  }
+
+  @override
+  Future<void> hideForMe(CommunityTarget target, String targetId) async {
+    await _call(
+      'POST',
+      '/v1/hidden',
+      body: <String, dynamic>{
+        'targetType': target.name,
+        'targetId': targetId,
+      },
+    );
+  }
+
+  @override
+  Future<void> showAgain(CommunityTarget target, String targetId) async {
+    await _call('DELETE', '/v1/hidden/${target.name}/$targetId');
+  }
+
+  // ---- meet-ups ----------------------------------------------------------------
+  @override
+  Future<MeetupList> meetups({
+    String? city,
+    String? country,
+    MeetupAudience? audience,
+  }) async {
+    final Map<String, String> q = <String, String>{
+      if (city != null && city.trim().isNotEmpty) 'city': city.trim(),
+      if (country != null && country.trim().length == 2)
+        'country': country.trim().toUpperCase(),
+      if (audience != null) 'audience': audience.name,
+    };
+    final Map<String, dynamic> j = await _json('GET', '/v1/meetups', query: q);
+    return _parse(() => MeetupList.fromJson(j));
+  }
+
+  @override
+  Future<List<Meetup>> myMeetups() async {
+    final Map<String, dynamic> j = await _json('GET', '/v1/meetups/mine');
+    return _parse(() => MeetupList.fromJson(j).meetups);
+  }
+
+  @override
+  Future<List<MeetupReminder>> meetupReminders() async {
+    final Map<String, dynamic> j = await _json('GET', '/v1/meetups/reminders');
+    return _parse(
+      () => _objects(j['reminders']).map(MeetupReminder.fromJson).toList(),
+    );
+  }
+
+  @override
+  Future<MeetupDetail> meetup(String meetupId) async {
+    final Map<String, dynamic> j = await _json('GET', '/v1/meetups/$meetupId');
+    return _parse(() => MeetupDetail.fromJson(j));
+  }
+
+  @override
+  Future<Meetup> createMeetup(MeetupDraft draft) async {
+    final Map<String, dynamic> j = await _json(
+      'POST',
+      '/v1/meetups',
+      body: draft.toJson(),
+    );
+    return _parse(() => Meetup.fromJson(_object(j['meetup'])));
+  }
+
+  @override
+  Future<void> cancelMeetup(
+    String meetupId,
+    CancelReason reason, {
+    bool wholeSeries = false,
+  }) async {
+    await _call(
+      'POST',
+      '/v1/meetups/$meetupId/cancel',
+      body: <String, dynamic>{
+        'reason': reason.wire,
+        'scope': wholeSeries ? 'series' : 'this',
+      },
+    );
+  }
+
+  @override
+  Future<RsvpResult> rsvp(String meetupId, {String? childProfileId}) async {
+    final Map<String, dynamic> j = await _json(
+      'PUT',
+      '/v1/meetups/$meetupId/rsvp',
+      body: <String, dynamic>{
+        'acknowledge': true,
+        if (childProfileId != null) 'childProfileId': childProfileId,
+      },
+    );
+    return _parse(() => RsvpResult.fromJson(j));
+  }
+
+  @override
+  Future<void> cancelRsvp(String meetupId, {String? childProfileId}) async {
+    await _call(
+      'DELETE',
+      '/v1/meetups/$meetupId/rsvp',
+      query: childProfileId == null
+          ? null
+          : <String, String>{'childProfileId': childProfileId},
+    );
+  }
+
+  // ---- notifications --------------------------------------------------------------
+  @override
+  Future<NotificationPage> notifications({bool unreadOnly = false}) async {
+    final Map<String, dynamic> j = await _json(
+      'GET',
+      '/v1/notifications',
+      query: unreadOnly ? <String, String>{'unreadOnly': 'true'} : null,
+    );
+    return _parse(() => NotificationPage.fromJson(j));
+  }
+
+  @override
+  Future<void> markNotificationsRead({
+    List<String> ids = const <String>[],
+  }) async {
+    if (ids.isEmpty) return;
+    await _call(
+      'POST',
+      '/v1/notifications/read',
+      body: <String, dynamic>{'ids': ids},
+    );
+  }
+
+  @override
+  Future<void> markAllNotificationsRead() async {
+    await _call(
+      'POST',
+      '/v1/notifications/read',
+      body: <String, dynamic>{'all': true},
+    );
+  }
+
+  // ---- moderation, as the person it is about -----------------------------------------
+  @override
+  Future<ModerationInfo> myModeration() async {
+    final Map<String, dynamic> j = await _json('GET', '/v1/me/moderation');
+    return _parse(() => ModerationInfo.fromJson(j));
+  }
+
+  @override
+  Future<void> appeal(String actionId, String statement) async {
+    await _call(
+      'POST',
+      '/v1/appeals',
+      body: <String, dynamic>{'actionId': actionId, 'statement': statement},
+    );
+  }
+
   /// Closes the underlying HTTP client.
   void close() => _client.close();
 }

@@ -97,4 +97,95 @@ abstract interface class CommunityApi {
   Future<InvitePreview> previewInvite(String code);
 
   Future<RedeemResult> redeemInvite(String code, {String? asProfileId});
+
+  // ---- community rules -----------------------------------------------------
+  /// Whether I may write yet (profile, community-visible, rules accepted).
+  Future<CommunityRulesStatus> communityRules();
+
+  /// Records that I read and accept rules [version]; needed before the first
+  /// post, thread or meet-up.
+  Future<void> acceptCommunityRules(String version);
+
+  // ---- forums ----------------------------------------------------------------
+  /// Adults only. Community answers are opinion; scholar answers are in their
+  /// own category and labelled.
+  Future<List<ForumCategory>> forumCategories();
+
+  Future<ThreadList> forumThreads(String slug, {DateTime? before});
+
+  Future<ThreadView> forumThread(String threadId, {String? after});
+
+  Future<SubmitResult> startThread({
+    required String slug,
+    required String title,
+    required String body,
+  });
+
+  Future<SubmitResult> replyToThread(
+    String threadId,
+    String body, {
+    String? replyTo,
+  });
+
+  Future<SubmitResult> editPost(String postId, String body);
+
+  Future<void> deletePost(String postId);
+
+  /// One gentle reaction. There is no dislike and no ranking.
+  Future<void> setHelpful(String postId, {required bool helpful});
+
+  // ---- report, hide, block ----------------------------------------------------
+  Future<void> report({
+    required CommunityTarget target,
+    required String targetId,
+    required ReportReason reason,
+    String? details,
+  });
+
+  /// Hides a post, thread or meet-up for me only.
+  Future<void> hideForMe(CommunityTarget target, String targetId);
+
+  Future<void> showAgain(CommunityTarget target, String targetId);
+
+  // ---- meet-ups ----------------------------------------------------------------
+  Future<MeetupList> meetups({
+    String? city,
+    String? country,
+    MeetupAudience? audience,
+  });
+
+  /// Meet-ups I organise or have signed up for.
+  Future<List<Meetup>> myMeetups();
+
+  Future<List<MeetupReminder>> meetupReminders();
+
+  Future<MeetupDetail> meetup(String meetupId);
+
+  /// May come back `pendingReview` when the organiser is not yet verified.
+  Future<Meetup> createMeetup(MeetupDraft draft);
+
+  Future<void> cancelMeetup(
+    String meetupId,
+    CancelReason reason, {
+    bool wholeSeries = false,
+  });
+
+  /// [childProfileId] adds a child the caller is guardian of, only where the
+  /// organiser allows guardians to bring children.
+  Future<RsvpResult> rsvp(String meetupId, {String? childProfileId});
+
+  Future<void> cancelRsvp(String meetupId, {String? childProfileId});
+
+  // ---- notifications --------------------------------------------------------------
+  /// Polled; there is no push in phase 2.
+  Future<NotificationPage> notifications({bool unreadOnly = false});
+
+  Future<void> markNotificationsRead({List<String> ids = const <String>[]});
+
+  Future<void> markAllNotificationsRead();
+
+  // ---- moderation, as the person it is about -----------------------------------------
+  Future<ModerationInfo> myModeration();
+
+  Future<void> appeal(String actionId, String statement);
 }

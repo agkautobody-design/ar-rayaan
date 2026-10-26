@@ -112,4 +112,114 @@ class DisabledCommunityApi implements CommunityApi {
   @override
   Future<RedeemResult> redeemInvite(String code, {String? asProfileId}) =>
       _off<RedeemResult>();
+
+  @override
+  Future<CommunityRulesStatus> communityRules() => _off<CommunityRulesStatus>();
+
+  @override
+  Future<void> acceptCommunityRules(String version) => _off<void>();
+
+  @override
+  Future<List<ForumCategory>> forumCategories() => _off<List<ForumCategory>>();
+
+  @override
+  Future<ThreadList> forumThreads(String slug, {DateTime? before}) =>
+      _off<ThreadList>();
+
+  @override
+  Future<ThreadView> forumThread(String threadId, {String? after}) =>
+      _off<ThreadView>();
+
+  @override
+  Future<SubmitResult> startThread({
+    required String slug,
+    required String title,
+    required String body,
+  }) => _off<SubmitResult>();
+
+  @override
+  Future<SubmitResult> replyToThread(
+    String threadId,
+    String body, {
+    String? replyTo,
+  }) => _off<SubmitResult>();
+
+  @override
+  Future<SubmitResult> editPost(String postId, String body) =>
+      _off<SubmitResult>();
+
+  @override
+  Future<void> deletePost(String postId) => _off<void>();
+
+  @override
+  Future<void> setHelpful(String postId, {required bool helpful}) =>
+      _off<void>();
+
+  @override
+  Future<void> report({
+    required CommunityTarget target,
+    required String targetId,
+    required ReportReason reason,
+    String? details,
+  }) => _off<void>();
+
+  @override
+  Future<void> hideForMe(CommunityTarget target, String targetId) =>
+      _off<void>();
+
+  @override
+  Future<void> showAgain(CommunityTarget target, String targetId) =>
+      _off<void>();
+
+  @override
+  Future<MeetupList> meetups({
+    String? city,
+    String? country,
+    MeetupAudience? audience,
+  }) => _off<MeetupList>();
+
+  @override
+  Future<List<Meetup>> myMeetups() => _off<List<Meetup>>();
+
+  @override
+  Future<List<MeetupReminder>> meetupReminders() =>
+      _off<List<MeetupReminder>>();
+
+  @override
+  Future<MeetupDetail> meetup(String meetupId) => _off<MeetupDetail>();
+
+  @override
+  Future<Meetup> createMeetup(MeetupDraft draft) => _off<Meetup>();
+
+  @override
+  Future<void> cancelMeetup(
+    String meetupId,
+    CancelReason reason, {
+    bool wholeSeries = false,
+  }) => _off<void>();
+
+  @override
+  Future<RsvpResult> rsvp(String meetupId, {String? childProfileId}) =>
+      _off<RsvpResult>();
+
+  @override
+  Future<void> cancelRsvp(String meetupId, {String? childProfileId}) =>
+      _off<void>();
+
+  @override
+  Future<NotificationPage> notifications({bool unreadOnly = false}) =>
+      _off<NotificationPage>();
+
+  @override
+  Future<void> markNotificationsRead({List<String> ids = const <String>[]}) =>
+      _off<void>();
+
+  @override
+  Future<void> markAllNotificationsRead() => _off<void>();
+
+  @override
+  Future<ModerationInfo> myModeration() => _off<ModerationInfo>();
+
+  @override
+  Future<void> appeal(String actionId, String statement) => _off<void>();
 }
