@@ -14,6 +14,7 @@ extension type _CacheStorage._(JSObject _) implements JSObject {
 extension type _Cache._(JSObject _) implements JSObject {
   external JSPromise<_Resp?> match(JSString url);
   external JSPromise<JSAny?> put(JSString url, _Resp response);
+  external JSPromise<JSBoolean> delete(JSString url);
 }
 
 @JS('Response')
@@ -26,7 +27,7 @@ extension type _Resp._(JSObject _) implements JSObject {
 /// every cache whenever a new build is detected, so a stored copy can never
 /// outlive the build it came from. Needs https (or localhost); anywhere
 /// else every call quietly does nothing and the file is simply fetched.
-class _WebCache implements AssetTextCache {
+class _WebCache implements AssetTextCache, RemovableAssetCache {
   const _WebCache();
 
   static const String _name = 'ar-content-v1';
@@ -70,6 +71,15 @@ class _WebCache implements AssetTextCache {
     } catch (_) {
       // Storage full or blocked: the file is fetched again next time.
     }
+  }
+
+  @override
+  Future<void> remove(String key) async {
+    try {
+      final _Cache? c = await _open();
+      if (c == null) return;
+      await c.delete(_url(key).toJS).toDart;
+    } catch (_) {}
   }
 
   @override

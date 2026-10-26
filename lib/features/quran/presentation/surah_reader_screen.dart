@@ -29,6 +29,7 @@ import '../../../app/theme/widgets/screen_header.dart';
 import '../../elder/application/elder_mode.dart';
 import '../../habits/application/return_loop.dart';
 import '../../habits/presentation/quiet_done.dart';
+import '../../downloads/presentation/surah_download_button.dart';
 import '../application/quran_marks_controller.dart';
 import '../application/quran_offline.dart' show kQuranOfflineHint;
 import '../application/quran_providers.dart';
@@ -509,6 +510,7 @@ class _ReaderToolbar extends ConsumerWidget {
         alignment: WrapAlignment.end,
         crossAxisAlignment: WrapCrossAlignment.center,
         children: <Widget>[
+          SurahDownloadButton(surah: surah),
           Tooltip(
             message: 'Open the Hifz planner on this surah',
             child: TextButton.icon(

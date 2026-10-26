@@ -6,6 +6,7 @@ library;
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../application/web_file_save.dart';
 import '../application/web_print.dart';
 import '../domain/handout.dart';
 import 'share_actions.dart';
@@ -34,6 +35,15 @@ class MakeHandoutButton extends StatelessWidget {
       ),
     );
   }
+}
+
+/// A safe file name for a handout: letters and digits, dashes, `.html`.
+String handoutFileName(String title) {
+  final String slug = title
+      .toLowerCase()
+      .replaceAll(RegExp(r'[^a-z0-9]+'), '-')
+      .replaceAll(RegExp(r'^-+|-+$'), '');
+  return '${slug.isEmpty ? 'handout' : slug}.html';
 }
 
 class HandoutScreen extends StatelessWidget {
@@ -100,6 +110,28 @@ class _Page extends StatelessWidget {
                 icon: const Icon(Icons.print_outlined),
                 label: const Text('Print'),
               ),
+            if (webFileSaveSupported)
+              OutlinedButton.icon(
+                key: const Key('handout-save'),
+                style: OutlinedButton.styleFrom(minimumSize: const Size(48, 48)),
+                onPressed: () {
+                  final bool ok = saveTextFile(
+                    handoutFileName(data.title),
+                    data.toHtml(),
+                  );
+                  ScaffoldMessenger.maybeOf(context)
+                    ?..hideCurrentSnackBar()
+                    ..showSnackBar(SnackBar(
+                      content: Text(ok
+                          ? 'Saved to your Downloads folder. Open the file '
+                              'in any browser.'
+                          : 'The browser would not save the file. Use Copy '
+                              'instead.'),
+                    ));
+                },
+                icon: const Icon(Icons.save_alt_outlined),
+                label: const Text('Save to device'),
+              ),
             OutlinedButton.icon(
               key: const Key('handout-copy'),
               style: OutlinedButton.styleFrom(minimumSize: const Size(48, 48)),
@@ -116,8 +148,9 @@ class _Page extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.only(top: 8),
               child: Text(
-                'Printing from this app is available on the web version. '
-                'Here, copy the text and paste it into any document.',
+                'Printing, and saving a handout as a file, are available on the '
+                'web version. Here, copy the text and paste it into any '
+                'document.',
                 style: TextStyle(color: Color(0xFF444444), fontSize: 13),
               ),
             ),
