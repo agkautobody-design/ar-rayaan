@@ -2,6 +2,7 @@ import { buildApp } from './app.js';
 import { loadConfig } from './config.js';
 import { PgDb, type Db } from './db.js';
 import { createEmailSender } from './email.js';
+import { runCommunityJobs, runCommunityRetention } from './jobs/community.js';
 import { runRetention } from './jobs/retention.js';
 import { createLogger } from './logging.js';
 import { migrate } from './migrate.js';
@@ -42,9 +43,26 @@ async function main(): Promise<void> {
   }, 3_600_000);
   timer.unref();
 
+  const jobs = setInterval(() => {
+    runCommunityJobs(db, new Date()).then(
+      (r) => logger.info({ done: r }, 'community jobs'),
+      (err: unknown) => logger.error({ err: String(err) }, 'community jobs failed'),
+    );
+  }, 600_000);
+  jobs.unref();
+  const community = setInterval(() => {
+    runCommunityRetention(db, new Date()).then(
+      (r) => logger.info({ removed: r }, 'community retention run'),
+      (err: unknown) => logger.error({ err: String(err) }, 'community retention failed'),
+    );
+  }, 3_600_000);
+  community.unref();
+
   const stop = async (signal: string) => {
     logger.info({ signal }, 'shutting down');
     clearInterval(timer);
+    clearInterval(jobs);
+    clearInterval(community);
     await app.close();
     await db.close();
     process.exit(0);

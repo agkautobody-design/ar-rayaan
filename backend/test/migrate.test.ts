@@ -13,7 +13,7 @@ const EXPECTED_TABLES = [
   'invites', 'invite_redemptions', 'friendships', 'blocks',
   'forum_categories', 'forum_threads', 'forum_posts', 'forum_reactions',
   'credentials', 'reports', 'moderation_actions', 'strikes', 'sanctions', 'appeals', 'content_filters',
-  'meetups', 'meetup_rsvps', 'notifications', 'push_subscriptions', 'schema_migrations',
+  'meetups', 'meetup_rsvps', 'notifications', 'push_subscriptions', 'user_hidden', 'schema_migrations',
 ];
 
 describe('migrations and schema', () => {
@@ -53,7 +53,7 @@ describe('migrations and schema', () => {
   it('is idempotent and detects an edited migration', async () => {
     const again = await migrate(db);
     assert.equal(again.applied.length, 0);
-    assert.ok(again.skipped.length >= 6);
+    assert.ok(again.skipped.length >= 7);
 
     const tmp = await mkdtemp(path.join(os.tmpdir(), 'mig-'));
     await cp(MIGRATIONS_DIR, tmp, { recursive: true });

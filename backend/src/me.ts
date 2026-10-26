@@ -163,6 +163,32 @@ export async function registerMeRoutes(app: FastifyInstance, deps: Deps): Promis
         forumPosts: await byProfile(
           'select id, thread_id, body, label, status, created_at from forum_posts where author_profile_id = any($1::uuid[])',
         ),
+        forumThreads: await byProfile(
+          'select id, category_id, title, status, created_at from forum_threads where author_profile_id = any($1::uuid[])',
+        ),
+        forumReactions: await byProfile(
+          'select post_id, kind, created_at from forum_reactions where profile_id = any($1::uuid[])',
+        ),
+        reportsFiled: await byProfile(
+          'select id, target_type, target_id, reason, details, status, created_at from reports where reporter_profile_id = any($1::uuid[])',
+        ),
+        hiddenItems: await byProfile(
+          'select target_type, target_id, created_at from user_hidden where profile_id = any($1::uuid[])',
+        ),
+        meetupsOrganised: await byProfile(
+          'select id, title, venue_kind, venue_name, city, starts_at, status from meetups where organiser_profile_id = any($1::uuid[])',
+        ),
+        moderation: {
+          actionsAboutMe: await one(
+            'select id, action, reason, target_type, target_id, created_at, expires_at from moderation_actions where target_user_id = $1',
+          ),
+          strikes: await one('select points, created_at, expires_at from strikes where user_id = $1'),
+          sanctions: await one('select kind, starts_at, ends_at, lifted_at from sanctions where user_id = $1'),
+          appeals: await one('select action_id, statement, status, decision_note, created_at from appeals where user_id = $1'),
+        },
+        credentials: await one(
+          'select id, kind, org_name, evidence_note, verified_at, expires_at, revoked_at, created_at from credentials where user_id = $1',
+        ),
         meetupRsvps: await byProfile(
           'select meetup_id, profile_id, status, created_at from meetup_rsvps where profile_id = any($1::uuid[])',
         ),
