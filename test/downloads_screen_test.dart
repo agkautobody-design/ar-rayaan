@@ -54,7 +54,7 @@ Future<void> pumpApp(
 /// Collects every Flutter error raised while [body] runs, as short text.
 Future<List<String>> collectErrors(Future<void> Function() body) async {
   final List<String> errs = <String>[];
-  final FlutterExceptionHandler? prev = FlutterError.onError;
+  final void Function(FlutterErrorDetails)? prev = FlutterError.onError;
   FlutterError.onError = (FlutterErrorDetails d) {
     errs.add(d.toString().split('\n').take(14).join(' | '));
   };
