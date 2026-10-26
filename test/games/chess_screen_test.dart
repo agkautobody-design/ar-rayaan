@@ -190,36 +190,53 @@ void main() {
       expect(SavedChess.decode(ok.encode())!.uci, <String>['e2e4']);
     });
 
-    testWidgets('the settings sheet opens, lists every row and saves', (
-      tester,
-    ) async {
+    Future<ProviderContainer> openSheet(WidgetTester tester) async {
       final ProviderContainer c = await pumpChess(tester);
       await tester.tap(find.byIcon(Icons.settings_outlined));
       await tester.pump(const Duration(milliseconds: 400));
-      for (final String t in <String>[
-        'Chess Settings',
-        'Board Theme',
-        'Pieces Style',
-        'Sound Effects',
-        'Show Move Hints',
-        'Auto-queen promotion',
-        'Confirm resign',
-        'Auto Save Games',
-        'Classic wood',
-        'Green',
-        'Blue',
-        'Grey and black',
-      ]) {
-        expect(find.text(t), findsWidgets, reason: t);
-      }
+      return c;
+    }
+
+    testWidgets('the settings sheet opens with its title', (tester) async {
+      await openSheet(tester);
+      expect(find.text('Chess Settings'), findsOneWidget);
+      await leave(tester);
+    });
+
+    for (final String t in <String>[
+      'Board Theme',
+      'Pieces Style',
+      'Sound Effects',
+      'Show Move Hints',
+      'Auto-queen promotion',
+      'Confirm resign',
+      'Auto Save Games',
+      'Classic wood',
+      'Green',
+      'Blue',
+      'Grey and black',
+    ]) {
+      testWidgets('the settings sheet shows the row "$t"', (tester) async {
+        await openSheet(tester);
+        expect(find.text(t), findsWidgets);
+        await leave(tester);
+      });
+    }
+
+    testWidgets('the sound switch turns sound on and is saved', (tester) async {
+      final ProviderContainer c = await openSheet(tester);
       expect(c.read(chessSettingsProvider).sound, isFalse);
-      await tester.tap(find.text('Sound Effects'));
+      await tester.tap(find.byType(Switch).first);
       await tester.pump();
       expect(c.read(chessSettingsProvider).sound, isTrue);
+      await leave(tester);
+    });
+
+    testWidgets('choosing the Green board saves the theme', (tester) async {
+      final ProviderContainer c = await openSheet(tester);
       await tester.tap(find.text('Green'));
       await tester.pump();
       expect(c.read(chessSettingsProvider).theme, ChessBoardTheme.green);
-      expect(tester.takeException(), isNull);
       await leave(tester);
     });
   });
