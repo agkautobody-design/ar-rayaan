@@ -175,7 +175,7 @@ describe('forums', () => {
       ['visit https://bit.ly/abc', 'link_blocked'],
     ]) {
       breathe(ctx);
-      const r = await start(a, 'welcome', 'A title here', body);
+      const r = await start(a, 'welcome', 'A title here', body as string);
       assert.equal(r.status, 422, body);
       assert.equal(r.json.error.code, 'content_blocked');
       assert.equal(r.json.error.reason, reason);
@@ -203,7 +203,7 @@ describe('forums', () => {
     assert.equal(r.json.pendingReview, false);
     assert.equal(r.json.showHelp, true);
     const rep = await ctx.db.query(`select priority from reports where target_id = $1`, [r.json.postId]);
-    assert.ok(rep.rows[0]!.priority >= 80);
+    assert.ok((rep.rows[0] as { priority: number }).priority >= 80);
   });
 
   it('one gentle reaction: counted privately, never on your own post, never changes order', async () => {

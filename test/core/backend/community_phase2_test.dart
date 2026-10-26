@@ -227,7 +227,7 @@ void main() {
       final Meetup adults = await api.createMeetup(draft());
       await api.signOut();
       await signIn(api, 'p@b.co');
-      final BackendProfile kid = await api.addChild(nickname: 'K', teen: false);
+      final BackendProfile kid = await api.addChild(nickname: 'Kid', teen: false);
       await expectLater(
         api.rsvp(adults.id, childProfileId: kid.id),
         failsWith('adults_only'),
