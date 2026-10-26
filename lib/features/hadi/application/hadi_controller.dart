@@ -12,6 +12,8 @@ import '../../stories/application/saved_stories_controller.dart';
 import '../../stories/data/stories_repository.dart';
 import '../../hadith/application/feeling_providers.dart';
 import '../../hadith/domain/daily_hadith.dart';
+import '../../../app/core/packages/hadi_package.dart';
+import '../../../app/core/packages/usage_meter.dart';
 import '../../../app/core/subscription/subscription_service.dart';
 import '../../sakina/application/sakina_providers.dart';
 import '../../sakina/domain/crisis_detector.dart';
@@ -19,6 +21,9 @@ import '../data/groq_hadi_provider.dart';
 import '../data/hadi_explain.dart';
 import '../data/hadi_finder.dart';
 import '../data/hadi_routing.dart';
+import '../data/hosted_ai.dart';
+import '../data/hosted_cache.dart';
+import '../data/local_knowledge.dart';
 import '../data/offline_hadi_provider.dart';
 import '../grounding/answer_verifier.dart';
 import '../grounding/corpus.dart';
@@ -27,6 +32,8 @@ import '../grounding/minor_signal.dart';
 import '../grounding/passage.dart';
 import '../grounding/ruling_gate.dart';
 import 'hadi_bookmark.dart';
+import 'hadi_stats.dart';
+import 'local_knowledge_provider.dart';
 import 'hadi_provider.dart';
 
 /// Every screen Hādi is allowed to take a person to. Each entry MUST be a
@@ -121,6 +128,48 @@ const Map<String, String> kHadiGuideNames = <String, String>{
   'huda-nikah': 'the Nikah guide',
   'huda-travel': 'the Travel guide',
   'huda-illness': 'the Illness and Patience guide',
+  'huda-prayer': 'the How to Pray guide',
+  'huda-wudu': 'the Wudu guide',
+  'huda-ghusl': 'the Ghusl guide',
+  'huda-tayammum': 'the Tayammum guide',
+  'huda-adhan': 'the The Adhan and Iqamah guide',
+  'huda-jumuah': 'the Friday Prayer guide',
+  'huda-qada': 'the Making Up Missed Prayers guide',
+  'huda-nawafil': 'the The Rawatib guide',
+  'huda-mosque': 'the Mosque Manners guide',
+  'huda-home': 'the Entering and Leaving the Home guide',
+  'huda-janazah-wash': 'the Washing the Deceased guide',
+  'huda-janazah-prayer': 'the The Funeral Prayer guide',
+  'huda-janazah-burial': 'the The Burial and Visiting Graves guide',
+  'huda-condolence': 'the Consoling the Bereaved guide',
+  'huda-food': 'the Eating Manners guide',
+  'huda-sleep': 'the Sleeping Manners guide',
+  'huda-speech': 'the Speech guide',
+  'huda-greeting': 'the Greetings and Sneezing guide',
+  'huda-hajj-intro': 'the Hajj guide',
+  'huda-ihram': 'the Ihram guide',
+  'huda-tawaf': 'the Tawaf and Sa\'i guide',
+  'huda-arafat': 'the The Day of Arafah guide',
+  'huda-istikhara': 'the Istikhara guide',
+  'huda-tawba': 'the Tawba guide',
+  'huda-earning': 'the Earning guide',
+  'huda-gratitude': 'the Gratitude guide',
+  'huda-adhkar': 'the The Morning and Evening Adhkar guide',
+  'huda-baby': 'the The New Baby guide',
+  'huda-parents': 'the The Rights of Parents guide',
+  'huda-neighbors': 'the The Rights of Neighbors guide',
+  'huda-oaths': 'the Oaths and Vows guide',
+  'huda-knowledge': 'the Seeking Knowledge guide',
+  'huda-hardship': 'the Hardship and Relief guide',
+  'huda-death-prep': 'the Preparing guide',
+  'huda-hajj-overview': 'the Hajj guide',
+  'huda-umrah': 'the Umrah guide',
+  'huda-arafat-day': 'the The Day of Arafah guide',
+  'huda-ihram-rites': 'the Ihram guide',
+  'huda-zakat': 'the How Zakat Works guide',
+  'huda-sadaqah': 'the Giving Beyond the Obligation guide',
+  'huda-quran-daily': 'the A Daily Portion of Qur\'an guide',
+  'huda-children-deen': 'the Teaching Your Children the Deen guide',
 };
 
 /// Reads the [GO:] / [DO:] tokens a reply may carry. Pure, so it is tested
@@ -348,6 +397,11 @@ class HadiController extends Notifier<HadiState> {
 
   @override
   HadiState build() {
+    // Start loading the local index now, so it is ready by the first
+    // question. Nothing waits for it.
+    try {
+      ref.read(localKnowledgeProvider);
+    } catch (_) {}
     List<HadiMessage> messages = const <HadiMessage>[
       HadiMessage(fromHadi: true, text: kHadiGreeting),
     ];
@@ -704,6 +758,45 @@ class HadiController extends Notifier<HadiState> {
     }
   }
 
+  /// The hosted provider for [q], or null when the built-in library answers
+  /// it (the normal case) or a configured package limit is reached (the
+  /// library's own reply is then shown, with no message about it).
+  Future<HadiProvider?> _hostedFor(String q, List<HadiMessage> history) async {
+    try {
+      final String shelf = await const OfflineHadiProvider().ask(q, history);
+      if (!HadiRouting.isRefusal(shelf)) return null;
+    } catch (_) {
+      return null;
+    }
+    final HadiPackage pkg = ref.read(hadiPackageProvider);
+    final HadiPackageLimits limits = kHadiPackageLimits[pkg]!;
+    final UsageMeter meter = ref.read(usageMeterProvider);
+    if (!meter.snapshot(limits).canUse) return null;
+    final String norm = normaliseQuestion(q);
+    // A very short message may be a follow-up that depends on the thread:
+    // never cached.
+    final bool cacheable = norm.split(' ').length >= 3;
+    return HostedHadiProvider(
+      backend: ref.read(hostedAiProvider),
+      meter: meter,
+      package: pkg,
+      limits: limits,
+      cache: HostedAnswerCache(ref.read(sharedPreferencesProvider)),
+      cacheKey: cacheable ? '${madhhab.name}|$norm' : '',
+    );
+  }
+
+  /// The local index if it has finished loading, else null. Never waits: the
+  /// load starts when the controller is built, and a question asked before it
+  /// is ready is simply answered the old way.
+  LocalKnowledge? _knowledge() {
+    try {
+      return ref.read(localKnowledgeProvider).valueOrNull;
+    } catch (_) {
+      return null;
+    }
+  }
+
   Future<String> _ask(String question, {HadiProvider? provider}) async {
     if (question.trim().isEmpty || state.typing) return '';
     final String q = question.trim();
@@ -731,6 +824,7 @@ class HadiController extends Notifier<HadiState> {
           typing: false,
         );
         _persistThread(state.messages);
+        await _stat(HadiAnswerKind.safety);
         return fixed;
       }
     }
@@ -757,6 +851,7 @@ class HadiController extends Notifier<HadiState> {
         typing: false,
       );
       _persistThread(state.messages);
+      await _stat(HadiAnswerKind.safety);
       return reply;
     }
 
@@ -798,6 +893,7 @@ class HadiController extends Notifier<HadiState> {
               ],
         routes: medical ? HadiTokens.routesOf(reply) : const <String>[],
       ));
+      await _stat(HadiAnswerKind.safety);
       return medical ? HadiTokens.strip(reply) : reply;
     }
 
@@ -855,6 +951,73 @@ class HadiController extends Notifier<HadiState> {
           in state.messages.sublist(0, state.messages.length - 1))
         if (!m.sensitive && !m.ephemeral) m,
     ];
+    // Local knowledge first: the app's own verified guides and Q&A, quoted
+    // (never rewritten). Above the confidence threshold this answers alone,
+    // with zero API calls. Below it, the closest entry is offered and only
+    // then may hosted AI be considered.
+    KnowledgeMatch? closestMatch;
+    if (!onDeviceOnly &&
+        provider == null &&
+        p is OfflineHadiProvider &&
+        ruling != RulingClass.personal &&
+        !OfflineHadiProvider.asksMedical(q)) {
+      final LocalKnowledge? lk = _knowledge();
+      if (lk != null) {
+        String shelf = '';
+        try {
+          shelf = await const OfflineHadiProvider().ask(q, history);
+        } catch (_) {}
+        final bool refusal = HadiRouting.isRefusal(shelf);
+        final bool pointer = !refusal && shelf.contains('[GO:');
+        if ((refusal || pointer) &&
+            !isNavigationLike(q) &&
+            !LocalKnowledge.looksLikeLookup(q)) {
+          final KnowledgeMatch? hit = lk.confident(q);
+          if (hit != null) {
+            final String route = hit.entry.route ?? '';
+            String text = LocalKnowledge.compose(hit.entry);
+            if (ruling == RulingClass.general) {
+              text = '$text\n\n${RulingGate.generalFooter}';
+            }
+            state = state.copy(
+              messages: <HadiMessage>[
+                ...state.messages,
+                HadiMessage(
+                  fromHadi: true,
+                  text: text,
+                  routes: HadiTokens.isAllowed(route)
+                      ? <String>[route]
+                      : const <String>[],
+                ),
+              ],
+              typing: false,
+            );
+            _persistThread(state.messages);
+            await _stat(HadiAnswerKind.local);
+            return text;
+          }
+          if (refusal) closestMatch = lk.closest(q);
+        }
+      }
+    }
+    // Hosted AI (package-capped): only for a question the built-in library
+    // cannot answer, and never on any safety path above. The library always
+    // answers first and is never metered or gated.
+    bool hosted = false;
+    if (!onDeviceOnly &&
+        provider == null &&
+        p is OfflineHadiProvider &&
+        ruling == RulingClass.none &&
+        !isRulingShaped(q) &&
+        isHostedScope(q) &&
+        !OfflineHadiProvider.asksMedical(q) &&
+        ref.read(hostedAiProvider).isAvailable) {
+      final HadiProvider? h = await _hostedFor(q, history);
+      if (h != null) {
+        p = h;
+        hosted = true;
+      }
+    }
     final HadiCorpus corpus = await _corpus();
     bool usedLive = false;
     bool failedLive = false;
@@ -864,7 +1027,7 @@ class HadiController extends Notifier<HadiState> {
       if (p is! OfflineHadiProvider) {
         usedLive = true;
         final StringBuffer ctx = StringBuffer();
-        if (isNavigationLike(q)) {
+        if (!hosted && isNavigationLike(q)) {
           final String tocDigest = await _toc();
           if (tocDigest.isNotEmpty) {
             ctx.write('The app’s table of contents (so you can answer '
@@ -887,12 +1050,21 @@ class HadiController extends Notifier<HadiState> {
           }
         } catch (_) {}
         ctx.write('${madhhab.promptLine}\n');
+        if (hosted) ctx.write(kHostedAiScopeRules);
+        final KnowledgeMatch? near = closestMatch;
+        if (hosted && near != null) {
+          final String note = LocalKnowledge.compose(near.entry);
+          ctx.write('Closest checked entry in the app (background only, do '
+              'not repeat numbers from it):\n'
+              '${note.length > 600 ? note.substring(0, 600) : note}\n');
+        }
         if (ruling == RulingClass.general) {
           ctx.write('This is a general question about a ruling. Explain the '
               'general position and that schools differ. Do not apply it to '
               'the user’s own case.\n');
         }
-        final List<Passage> found = corpus.retrieve(q, limit: 4);
+        final List<Passage> found =
+            corpus.retrieve(q, limit: hosted ? kHostedMaxPassages : 4);
         if (found.isEmpty) {
           ctx.write('PASSAGES: none in the library match this question. Cite '
               'no verse or hadith.\n');
@@ -903,7 +1075,10 @@ class HadiController extends Notifier<HadiState> {
             ctx.write('${HadiCorpus.describeForModel(f)}\n');
           }
         }
-        liveQuestion = '${ctx.toString()}\nUser’s question: $q';
+        final String asked = hosted && q.length > kHostedMaxQuestionChars
+            ? q.substring(0, kHostedMaxQuestionChars)
+            : q;
+        liveQuestion = '${ctx.toString()}\nUser’s question: $asked';
       }
       // The offline shelf matches on the user's own words only.
       answer = await p.ask(p is OfflineHadiProvider ? q : liveQuestion, history);
@@ -963,6 +1138,11 @@ class HadiController extends Notifier<HadiState> {
         clean = 'I could not find a reply here that I can stand behind. '
             'Please ask in other words, or ask a qualified scholar.';
       }
+      if (hosted) {
+        final int cap =
+            kHadiPackageLimits[ref.read(hadiPackageProvider)]!.maxReplyChars;
+        clean = '${limitReply(clean, cap)}\n\n$kHostedAiLabel';
+      }
     } else if (crisis == null) {
       // The built-in shelf is written by hand. Whatever Qur'an verse or
       // library hadith its answer cites is printed under it from the app's
@@ -1009,6 +1189,12 @@ class HadiController extends Notifier<HadiState> {
         }
       }
     }
+    final KnowledgeMatch? cm = closestMatch;
+    if (cm != null && !usedLive && crisis == null && HadiRouting.isRefusal(clean)) {
+      final String r = cm.entry.route ?? '';
+      clean = '$clean\n\nClosest in my library: ${cm.entry.title}.';
+      if (HadiTokens.isAllowed(r) && !routes.contains(r)) routes.insert(0, r);
+    }
     // "Halal food near me" is a request for a place, not a ruling.
     if (ruling == RulingClass.general &&
         !clean.contains('I cannot see where you are, so I cannot name the '
@@ -1038,7 +1224,31 @@ class HadiController extends Notifier<HadiState> {
       typing: false,
     );
     _persistThread(state.messages);
+    final HadiProvider finalProvider = p;
+    await _stat(
+      crisis != null || grief
+          ? HadiAnswerKind.safety
+          : failedLive
+              ? HadiAnswerKind.failed
+              : usedLive && hosted
+                  ? (finalProvider is HostedHadiProvider &&
+                          finalProvider.servedFromCache
+                      ? HadiAnswerKind.cache
+                      : HadiAnswerKind.hosted)
+                  : usedLive
+                      ? HadiAnswerKind.hosted
+                      : HadiRouting.isRefusal(clean)
+                          ? HadiAnswerKind.miss
+                          : HadiAnswerKind.local,
+    );
     return clean;
+  }
+
+  /// Counts how this reply was made (on this device only).
+  Future<void> _stat(HadiAnswerKind k) async {
+    try {
+      await ref.read(hadiStatsProvider).record(k);
+    } catch (_) {}
   }
 }
 

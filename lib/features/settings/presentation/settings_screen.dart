@@ -20,6 +20,7 @@ import '../../elder/application/elder_mode.dart';
 import '../../habits/application/return_loop.dart';
 import '../../legal/legal_routes.dart';
 import '../../quran/presentation/quran_offline_card.dart';
+import '../../quran/presentation/quran_translation_card.dart';
 
 /// Settings — begins with the Sound toggle promised on the locked splash
 /// artwork ("Sound can be turned off in settings").
@@ -215,6 +216,12 @@ class SettingsScreen extends ConsumerWidget {
                       const SizedBox(height: 20),
                       Padding(
                         padding: const EdgeInsets.only(left: 4, bottom: 8),
+                        child: Text('QUR’AN TRANSLATION', style: AppText.eyebrow),
+                      ),
+                      const QuranTranslationCard(),
+                      const SizedBox(height: 20),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 4, bottom: 8),
                         child: Text(l10n.ui('ui.about').toUpperCase(), style: AppText.eyebrow),
                       ),
                       GlassCard(
@@ -326,10 +333,11 @@ class SettingsScreen extends ConsumerWidget {
                           ),
                           child: SwitchRow(
                             icon: Icons.wb_twilight_outlined,
-                            title: 'Show days I came back',
-                            subtitle: 'A quiet count for Qur\u2019an reading, '
-                                'adhkar and lessons. Never for prayers. '
-                                'Kept on this device only.',
+                            title: 'Keep my streaks',
+                            subtitle: 'Gentle streaks for Qur\u2019an reading, '
+                                'dhikr and lessons, kept on this device '
+                                'only. Prayers are read from your own '
+                                'prayer log and are never shared.',
                             value: ref.watch(returnLoopEnabledProvider),
                             onChanged: (bool v) => unawaited(
                               ref
@@ -346,6 +354,12 @@ class SettingsScreen extends ConsumerWidget {
                             fontSize: 12,
                             height: 1.5,
                           ),
+                        ),
+                        const SizedBox(height: 8),
+                        TextButton(
+                          key: const Key('open-streaks'),
+                          onPressed: () => context.open(AppRoutes.streaks),
+                          child: const Text('Open my streaks'),
                         ),
                         if (ref.watch(returnMessageProvider) != null) ...<Widget>[
                           const SizedBox(height: 8),

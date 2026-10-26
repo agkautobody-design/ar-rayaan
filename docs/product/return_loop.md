@@ -1,7 +1,8 @@
 # Return loop: "days returned" and quiet completion moments
 
 Status: built, owner-approved (Oct 2026). Both parts are small and can be
-switched off in code.
+switched off in code. Streaks and sharing (below, "Streaks and sharing") were
+added on top, also owner-approved.
 
 ## The decision
 
@@ -12,7 +13,8 @@ prayer_log.dart). The owner has narrowly approved two things:
 2. A quiet card at three natural finishing moments.
 
 Everything else about the old rule still stands: no points, no confetti, no
-share button, no leaderboard, no push nag, no loss or guilt message.
+leaderboard, no push nag, no loss or guilt message. (The old "no share
+button" rule was lifted by the owner: see "Streaks and sharing".)
 
 ## 1. Days returned (opt in)
 
@@ -61,3 +63,46 @@ share button, no leaderboard, no push nag, no loss or guilt message.
 - A user who wants to stop the count does it in Settings; nothing else needs
   clearing.
 - Not built, on purpose: reminders, history view, goals, badges.
+
+## Streaks and sharing (owner-approved, Oct 2026)
+
+Streaks (screen `/streaks`, card on Home, code in `lib/features/streaks/`):
+
+- One switch, the same as before ("Keep my streaks" in Settings and on the
+  Streaks screen). OFF by default; Home shows a quiet invitation with "Turn on"
+  and "Not now". To default it ON, change the `?? false` in
+  `ReturnLoopEnabledController.build`.
+- Four streaks: Qur'an reading, dhikr and tasbeeh (adhkar taps and tasbeeh
+  taps), prayers logged, and days returned (any of Qur'an, dhikr, lessons).
+- Qur'an, dhikr and lessons are stored in `ar.streaks.days` (dates only,
+  last 400 days, this device only). Prayers are NOT stored again: the streak
+  is read from the prayer log the person already keeps. A day counts when at
+  least one prayer is marked prayed (on time or late). A day with only
+  "excused" marks is skipped: it never counts against anyone and never uses
+  the grace day.
+- Same grace rule as above (one forgiven day per Monday to Sunday week); the
+  maths is `StreakMath.run` (pure; a test checks it agrees with
+  `ReturnLoop.daysReturned` when nothing is excused).
+- The Streaks screen has a month calendar (done = filled, grace day = ring,
+  excused = dash), and the month's count. No "lost" or "broken" wording
+  anywhere (a test scans the sources).
+- Switching off erases the stored days. The prayer log is left alone.
+- `ReturnAct` still has no prayer value; the prayers streak is read-only.
+
+Sharing (`lib/features/share/`):
+
+- Every share goes through a preview sheet (`showSharePreview`) that shows
+  the exact text. Nothing is posted automatically. Where the browser has the
+  Web Share API the button says Share; elsewhere it says "Copy to share" and
+  copies with a "Copied" message.
+- Entry points: an ayah (its actions sheet; Arabic, translation, reference and
+  the Tanzil / Saheeh International credit), a dhikr or dua (only ones that
+  carry their source), a story chapter and a hadith (existing share buttons now
+  preview first), a milestone ("I completed ..." on the completion card after
+  an adhkar set or a surah, and on the lesson-complete sheet), a "came back N
+  days" line for Qur'an, dhikr or days returned, and an invitation to
+  https://ar-rayaan.onrender.com (Verse Cards screen).
+- Prayer streaks are never offered for sharing. Notes, the prayer log and
+  reading history are never part of any shared text.
+- Text only. An image card needs a canvas-to-file share path that is not in
+  the app yet (no new dependencies); not built.

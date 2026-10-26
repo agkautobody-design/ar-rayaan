@@ -7,8 +7,11 @@ library;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show Clipboard, ClipboardData;
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../app/theme/app_colors.dart';
+import '../../../app/theme/app_typography.dart';
+import '../../elder/application/elder_mode.dart';
 import '../application/web_share.dart';
 
 /// Shown after a successful copy.
@@ -102,9 +105,172 @@ class ShareCopyButtons extends StatelessWidget {
             tooltip: 'Share $subject',
             constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
             icon: Icon(Icons.share_outlined, color: color, size: 20),
-            onPressed: () => shareWithFeedback(context, text, title: title),
+            onPressed: () => showSharePreview(
+              context,
+              text: text,
+              title: title,
+              subject: subject,
+            ),
           ),
       ],
+    );
+  }
+}
+
+/// Shown on the preview, so the person knows what is and is not sent.
+const String kSharePreviewNote =
+    'This is exactly what will be sent. Nothing is posted for you, and none '
+    'of your notes, prayer log or reading history is included.';
+
+/// Shows [text] exactly as it will be shared, with Copy and Share buttons.
+/// Nothing leaves the app until the person taps one of them. Where the
+/// browser has a share sheet, Share opens it; everywhere else the same
+/// button copies the text and says so.
+Future<void> showSharePreview(
+  BuildContext context, {
+  required String text,
+  String? title,
+  String subject = 'this',
+}) {
+  return showModalBottomSheet<void>(
+    context: context,
+    isScrollControlled: true,
+    showDragHandle: true,
+    backgroundColor: AppColors.navy,
+    builder: (BuildContext sheet) =>
+        SharePreviewSheet(text: text, title: title, subject: subject),
+  );
+}
+
+class SharePreviewSheet extends ConsumerWidget {
+  const SharePreviewSheet({
+    super.key,
+    required this.text,
+    this.title,
+    this.subject = 'this',
+  });
+
+  final String text;
+  final String? title;
+  final String subject;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final bool elder = ref.watch(elderModeProvider);
+    final double minTap = elder ? 64 : 48;
+    return SafeArea(
+      child: ConstrainedBox(
+        constraints: BoxConstraints(
+          maxHeight: MediaQuery.of(context).size.height * 0.9,
+        ),
+        child: SingleChildScrollView(
+          padding: const EdgeInsetsDirectional.fromSTEB(20, 0, 20, 16),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Text('PREVIEW', style: AppText.eyebrow),
+              const SizedBox(height: 8),
+              Container(
+                key: const Key('share-preview-card'),
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16),
+                  border: Border.all(
+                    color: AppColors.gold.withValues(alpha: 0.5),
+                  ),
+                  color: AppColors.night,
+                ),
+                child: SelectableText(
+                  text,
+                  key: const Key('share-preview-text'),
+                  style: AppText.body.copyWith(
+                    fontSize: elder ? 20 : 15,
+                    height: 1.6,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10),
+              Text(
+                kSharePreviewNote,
+                key: const Key('share-preview-note'),
+                style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.5),
+              ),
+              const SizedBox(height: 14),
+              ConstrainedBox(
+                constraints: BoxConstraints(minHeight: minTap),
+                child: FilledButton.icon(
+                  key: const Key('share-preview-share'),
+                  onPressed: () async {
+                    // Start the share first (the browser wants it straight
+                    // from the tap), then close the preview.
+                    final NavigatorState nav = Navigator.of(context);
+                    final Future<void> done = shareWithFeedback(
+                      context,
+                      text,
+                      title: title,
+                    );
+                    nav.pop();
+                    await done;
+                  },
+                  icon: Icon(
+                    webShareSupported ? Icons.share_outlined : Icons.copy,
+                  ),
+                  label: Text(
+                    webShareSupported ? 'Share' : 'Copy to share',
+                    style: TextStyle(fontSize: elder ? 20 : null),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 8),
+              ConstrainedBox(
+                constraints: BoxConstraints(minHeight: minTap),
+                child: TextButton(
+                  key: const Key('share-preview-cancel'),
+                  onPressed: () => Navigator.of(context).pop(),
+                  child: Text(
+                    'Not now',
+                    style: TextStyle(fontSize: elder ? 20 : null),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// A 48dp "Preview and share" icon button, shown on every platform: where
+/// there is no share sheet, the preview's button copies instead.
+class ShareCardButton extends StatelessWidget {
+  const ShareCardButton({
+    super.key,
+    required this.text,
+    this.title,
+    this.subject = 'this',
+    this.color = AppColors.gold,
+  });
+
+  final String text;
+  final String? title;
+  final String subject;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      key: const Key('share-card'),
+      tooltip: 'Preview and share $subject',
+      constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
+      icon: Icon(Icons.ios_share, color: color, size: 20),
+      onPressed: () => showSharePreview(
+        context,
+        text: text,
+        title: title,
+        subject: subject,
+      ),
     );
   }
 }

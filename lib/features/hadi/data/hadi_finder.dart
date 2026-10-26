@@ -358,6 +358,23 @@ abstract final class HadiFinder {
       requires: <String>['language', 'languages'],
     ),
     _Pointer(
+      <String>['tree', 'genealogy', 'lineage'],
+      'The Messengers’ family tree has its own screen.',
+      <String>['/family-tree'],
+      requires: <String>['tree'],
+    ),
+    _Pointer(
+      <String>['elder', 'elders', 'senior'],
+      'Elder Home is a simpler, larger home screen, and the text size is in '
+          'Settings.',
+      <String>['/home/elder', '/settings'],
+    ),
+    _Pointer(
+      <String>['wasia'],
+      'Wasia, the letter teacher, is in the Academy.',
+      <String>['/academy/gate'],
+    ),
+    _Pointer(
       <String>['names', '99'],
       'The 99 Names of Allah has its own screen under Games.',
       <String>['/games/names99'],

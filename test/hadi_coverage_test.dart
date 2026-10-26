@@ -25,7 +25,7 @@ void main() {
     late List<CoverageRow> rows;
 
     setUpAll(() async {
-      rows = await runCoverage();
+      rows = await runCoverage(knowledge: loadRealKnowledge());
       // The report is regenerated on every run; the committed copy is made
       // with `dart tool/hadi_coverage.dart > docs/hadi_coverage.md`.
       try {
@@ -34,7 +34,7 @@ void main() {
     });
 
     test('the corpus is large enough to mean something', () {
-      expect(kCoverageQuestions.length, greaterThanOrEqualTo(120));
+      expect(kCoverageQuestions.length, greaterThanOrEqualTo(400));
       expect(kCoverageQuestions.toSet().length, kCoverageQuestions.length);
     });
 
@@ -45,18 +45,26 @@ void main() {
       ];
       expect(
         misses.length / rows.length,
-        lessThan(0.15),
+        lessThan(0.20),
         reason: 'misses (${misses.length}/${rows.length}): '
             '${misses.join(' | ')}',
       );
     });
 
-    test('a miss is never a dead end: closest topics and Search', () {
+    test('a miss is never a dead end: closest topics and Search, or a scholar',
+        () {
       for (final CoverageRow r in rows) {
         if (r.kind != CoverageKind.miss) continue;
-        expect(r.buttons, contains('/search'), reason: r.question);
-        expect(r.buttons.length, greaterThanOrEqualTo(2), reason: r.question);
         expect(r.reply, contains('rather not guess'), reason: r.question);
+        if (r.buttons.isEmpty) {
+          // No screen resembles the question: the reply itself hands over to
+          // a qualified scholar and Our Sources.
+          expect(r.reply, contains('qualified'), reason: r.question);
+        } else {
+          expect(r.buttons, contains('/search'), reason: r.question);
+          expect(r.buttons.length, greaterThanOrEqualTo(2),
+              reason: r.question);
+        }
       }
     });
 

@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:ar_rayaan/features/hadi/data/local_knowledge.dart';
 import 'package:ar_rayaan/features/hadi/grounding/corpus.dart';
 
 /// The real corpus and the real bundled Qur'an, read from disk, so tests
@@ -36,3 +37,19 @@ String quranEnglish(int surah, int from, int to) {
 /// Letters and digits only, lower case.
 String condenseText(String s) =>
     s.toLowerCase().replaceAll(RegExp('[^a-z0-9]'), '');
+
+/// The local index over the real guides, Q&A bank and story packs.
+LocalKnowledge loadRealKnowledge() {
+  List<dynamic> list(String path) =>
+      json.decode(File(path).readAsStringSync()) as List<dynamic>;
+  final List<dynamic> stories = <dynamic>[
+    for (final String n in kHadiKnowledgeStoryPacks)
+      ...list('assets/stories/$n.json'),
+  ];
+  return LocalKnowledge.fromJson(
+    guides: list('assets/guides/guides.json'),
+    qa: (json.decode(File('assets/qa/qa_bank.json').readAsStringSync())
+        as Map<String, dynamic>)['questions'] as List<dynamic>,
+    stories: stories,
+  );
+}

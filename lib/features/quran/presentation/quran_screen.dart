@@ -336,8 +336,7 @@ class _TextCredit extends ConsumerWidget {
           constraints: const BoxConstraints(minHeight: 48),
           child: Center(
             child: Text(
-              'Arabic: Tanzil Uthmani · Translation: Saheeh International, '
-              'via Tanzil.net',
+              texts.footerLine,
               style: AppText.caption.copyWith(
                 decoration: TextDecoration.underline,
               ),

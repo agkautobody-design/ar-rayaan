@@ -5,17 +5,26 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../data/audioplayers_ayah_player.dart';
 import '../data/player_sources_pack.dart';
+import '../data/player_verified_pack.dart';
 import '../domain/player.dart';
 import 'package:ar_rayaan/features/academy/data/player_catalog_pack.dart';
 
-final playerCatalogProvider = FutureProvider<Catalog?>((Ref ref) {
-  return PlayerCatalogPack.load();
+final playerCatalogProvider = FutureProvider<Catalog?>((Ref ref) async {
+  final Catalog? base = await PlayerCatalogPack.load();
+  final List<Track> extra = await PlayerVerifiedPack.load();
+  if (base == null) return extra.isEmpty ? null : Catalog(extra);
+  return Catalog(<Track>[...base.tracks, ...extra]);
 });
 
 /// Approved YouTube / Spotify sources, by catalogue track id.
 final playerSourcesProvider =
-    FutureProvider<Map<String, TrackSources>>((Ref ref) {
-  return PlayerSourcesPack.load();
+    FutureProvider<Map<String, TrackSources>>((Ref ref) async {
+  final Map<String, TrackSources> base = await PlayerSourcesPack.load();
+  final List<Track> extra = await PlayerVerifiedPack.load();
+  return <String, TrackSources>{
+    ...base,
+    ...PlayerVerifiedPack.sourcesOf(extra),
+  };
 });
 
 class PlayerQueueNotifier extends StateNotifier<PlayerQueue> {

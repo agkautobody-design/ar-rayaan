@@ -85,6 +85,7 @@ class MenuScreen extends ConsumerWidget {
       [
         (Icons.local_library_outlined, 'Library', AppRoutes.stories),
         (Icons.bookmark_outline, 'Notes & Bookmarks', AppRoutes.notes),
+        (Icons.event_available_outlined, 'Streaks', AppRoutes.streaks),
         (Icons.download_outlined, 'Downloads', AppRoutes.downloads),
         (Icons.text_fields, 'Text size \u00b7 bigger words', AppRoutes.settings),
         (Icons.translate_outlined, 'Language & Voice \u00b7 your tongue, your choice', '/settings/language'),
@@ -170,7 +171,7 @@ class MenuScreen extends ConsumerWidget {
                     child: const _MenuRow(
                       icon: Icons.qr_code_2,
                       label: 'Share Ar-Rayaan',
-                      subtitle: 'Beta invite · QR code',
+                      subtitle: 'Invite a friend · verse cards · QR code',
                     ),
                   ),
                   const SizedBox(height: 16),

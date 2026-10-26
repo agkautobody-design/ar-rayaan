@@ -7,10 +7,23 @@ import '../../../app/core/content_loader.dart';
 import '../../../app/core/providers.dart';
 import '../data/bundled_quran_repository.dart';
 import '../domain/quran_models.dart';
+import '../domain/translation_pack.dart';
 import 'quran_repository.dart';
+import 'translation_providers.dart';
 
 final Provider<QuranRepository> quranRepositoryProvider =
-    Provider<QuranRepository>((ref) => BundledQuranRepository());
+    Provider<QuranRepository>((ref) {
+      // A new choice of translation builds a new repository (and so reloads
+      // the text with the chosen translation).
+      ref.watch(translationSelectionProvider);
+      return BundledQuranRepository(
+        translation: () async {
+          final ActiveTranslation active =
+              await ref.read(activeTranslationProvider.future);
+          return active.pack;
+        },
+      );
+    });
 
 /// Tells the Home tile the text may now be stored. A load that was replaced
 /// by a retry finishes with a disposed ref, which must not surface.
