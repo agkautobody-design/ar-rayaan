@@ -7,6 +7,7 @@ import 'package:ar_rayaan/app/theme/app_theme.dart';
 import 'package:ar_rayaan/features/games/data/game_settings.dart';
 import 'package:ar_rayaan/features/games/data/learning_loader.dart';
 import 'package:ar_rayaan/features/games/engine/game_registry.dart';
+import 'package:ar_rayaan/features/games/engine/learning_games.dart';
 import 'package:ar_rayaan/features/games/engine/order_engine.dart';
 import 'package:ar_rayaan/features/games/engine/quiz_engine.dart';
 import 'package:ar_rayaan/features/games/engine/word_engine.dart';
@@ -285,7 +286,7 @@ void main() {
 
     test('the new games state a source and invent no popularity', () {
       for (final GameDef g in kLearningGames.where((GameDef g) => !g.hidden)) {
-        expect(g.sourceNote.trim(), isNotEmpty, reason: g.id);
+        expect((g.sourceNote ?? '').trim(), isNotEmpty, reason: g.id);
         expect(g.howToPlay, isNotEmpty, reason: g.id);
         expect(g.blurb.toLowerCase(), isNot(contains('rated')), reason: g.id);
         expect(g.blurb.toLowerCase(), isNot(contains('popular')), reason: g.id);
