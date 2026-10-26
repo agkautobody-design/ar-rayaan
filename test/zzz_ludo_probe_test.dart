@@ -8,7 +8,7 @@ void main() {
   testWidgets('PROBE ludo game view', (WidgetTester tester) async {
     AppHarness.useSurface(tester);
     final List<String> seen = <String>[];
-    final FlutterExceptionHandler? old = FlutterError.onError;
+    final void Function(FlutterErrorDetails)? old = FlutterError.onError;
     FlutterError.onError = (FlutterErrorDetails d) {
       final String st = d.stack
           .toString()
