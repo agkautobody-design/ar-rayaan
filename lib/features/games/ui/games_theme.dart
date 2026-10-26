@@ -4,11 +4,12 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import 'games_art.dart';
 
 /// The Games look: the app's navy and gold, with a brighter gold for the
-/// things you press, a pointed-arch header and gold-bordered panels. All of
-/// it is drawn in code: no mock-up images are bundled, and every piece works
-/// without any art.
+/// things you press, a pointed-arch header and gold-bordered panels. The
+/// owner's art (`games_art.dart`) is laid over it where a file exists; every
+/// piece is also drawn in code, so it works without any art file.
 abstract final class GamesTheme {
   /// The gold of Play Now, Continue and Start (sampled from the final
   /// designs; a little warmer than the app's [AppColors.goldGradient]).
@@ -59,12 +60,17 @@ IconData gameIcon(String key) => switch (key) {
     };
 
 /// The header of every Games page: the usual back button and title, and
-/// under it a pointed arch with a skyline, a crescent and stars.
+/// under it the owner's art, or (with no art file) a pointed arch with a
+/// skyline, a crescent and stars drawn in code.
+///
+/// The default is the big arch (`hubHeader`). With [band] it is the slim
+/// skyline strip (`skylineBand`) with the tagline in a dark band under it.
 class ArchHeader extends StatelessWidget {
   const ArchHeader({
     required this.title,
     this.tagline,
     this.close = false,
+    this.band = false,
     super.key,
   });
 
@@ -73,6 +79,9 @@ class ArchHeader extends StatelessWidget {
   /// One short line inside the arch.
   final String? tagline;
   final bool close;
+
+  /// The slim strip instead of the big arch.
+  final bool band;
 
   @override
   Widget build(BuildContext context) {
@@ -83,38 +92,154 @@ class ArchHeader extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(20, 0, 20, 12),
           child: ExcludeSemantics(
             child: RepaintBoundary(
-              child: CustomPaint(
-                painter: const _ArchPainter(),
-                child: ConstrainedBox(
-                  constraints: const BoxConstraints(minHeight: 112),
-                  child: Align(
-                    alignment: Alignment.bottomCenter,
-                    child: tagline == null
-                        ? const SizedBox.shrink()
-                        : Container(
-                            width: double.infinity,
-                            // A dark band under the words: the sunset behind
-                            // them would not give the text enough contrast.
-                            color: AppColors.night.withValues(alpha: 0.72),
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 16,
-                              vertical: 8,
-                            ),
-                            child: Text(
-                              tagline!,
-                              textAlign: TextAlign.center,
-                              style: AppText.body.copyWith(
-                                color: GamesTheme.champagne,
-                              ),
-                            ),
-                          ),
-                  ),
-                ),
+              child: ArtBuilder(
+                slot: band ? ArtSlot.skylineBand : ArtSlot.hubHeader,
+                builder: (BuildContext context, bool present) {
+                  if (!present) return _PaintedArch(tagline: tagline);
+                  return band
+                      ? _ArtBand(tagline: tagline)
+                      : _ArtArch(tagline: tagline);
+                },
               ),
             ),
           ),
         ),
       ],
+    );
+  }
+}
+
+/// The big arch picture. The tagline sits in the dark sky inside the arch, so
+/// it needs no band behind it.
+class _ArtArch extends StatelessWidget {
+  const _ArtArch({this.tagline});
+
+  final String? tagline;
+
+  @override
+  Widget build(BuildContext context) {
+    return AspectRatio(
+      aspectRatio: 941 / 430,
+      child: LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints c) {
+          return Stack(
+            fit: StackFit.expand,
+            children: <Widget>[
+              GamesArt.asset(
+                ArtSlot.hubHeader,
+                alignment: Alignment.bottomCenter,
+              ),
+              if (tagline != null)
+                Align(
+                  alignment: const Alignment(0, 0.18),
+                  child: SizedBox(
+                    width: c.maxWidth * 0.5,
+                    height: c.maxHeight * 0.3,
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: SizedBox(
+                        width: c.maxWidth * 0.5,
+                        child: Text(
+                          tagline!,
+                          textAlign: TextAlign.center,
+                          style: AppText.body.copyWith(
+                            color: GamesTheme.champagne,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+            ],
+          );
+        },
+      ),
+    );
+  }
+}
+
+/// The slim skyline strip with a dark band for the tagline under it.
+class _ArtBand extends StatelessWidget {
+  const _ArtBand({this.tagline});
+
+  final String? tagline;
+
+  @override
+  Widget build(BuildContext context) {
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(GamesTheme.radius),
+        border: Border.all(color: GamesTheme.borderBright, width: 1.4),
+        boxShadow: const <BoxShadow>[
+          BoxShadow(color: Color(0x2ED4AF37), blurRadius: 16),
+        ],
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(GamesTheme.radius - 1),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            AspectRatio(
+              aspectRatio: 941 / 222,
+              child: GamesArt.asset(
+                ArtSlot.skylineBand,
+                alignment: Alignment.bottomCenter,
+              ),
+            ),
+            if (tagline != null)
+              Container(
+                width: double.infinity,
+                color: AppColors.night.withValues(alpha: 0.86),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 8,
+                ),
+                child: Text(
+                  tagline!,
+                  textAlign: TextAlign.center,
+                  style: AppText.body.copyWith(color: GamesTheme.champagne),
+                ),
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// The header drawn in code, used when the art file is missing.
+class _PaintedArch extends StatelessWidget {
+  const _PaintedArch({this.tagline});
+
+  final String? tagline;
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomPaint(
+      painter: const _ArchPainter(),
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(minHeight: 112),
+        child: Align(
+          alignment: Alignment.bottomCenter,
+          child: tagline == null
+              ? const SizedBox.shrink()
+              : Container(
+                  width: double.infinity,
+                  // A dark band under the words: the sunset behind them would
+                  // not give the text enough contrast.
+                  color: AppColors.night.withValues(alpha: 0.72),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 8,
+                  ),
+                  child: Text(
+                    tagline!,
+                    textAlign: TextAlign.center,
+                    style: AppText.body.copyWith(color: GamesTheme.champagne),
+                  ),
+                ),
+        ),
+      ),
     );
   }
 }
@@ -322,6 +447,7 @@ class GamePanel extends StatelessWidget {
     this.semanticsLabel,
     this.padding = const EdgeInsets.all(16),
     this.margin,
+    this.ornate = false,
     super.key,
   });
 
@@ -332,9 +458,31 @@ class GamePanel extends StatelessWidget {
   final EdgeInsetsGeometry padding;
   final EdgeInsetsGeometry? margin;
 
+  /// Lays the owner's Islamic pattern corners over the panel (only when the
+  /// art file is bundled; the panel is unchanged without it).
+  final bool ornate;
+
   @override
   Widget build(BuildContext context) {
     final BorderRadius radius = BorderRadius.circular(GamesTheme.radius);
+    final Widget inner = !ornate
+        ? Padding(padding: padding, child: child)
+        : ArtBuilder(
+            slot: ArtSlot.cornerOrnament,
+            builder: (BuildContext context, bool present) {
+              // Room for the corners so they never sit under the words.
+              final EdgeInsetsGeometry room = present
+                  ? padding.add(const EdgeInsets.all(8))
+                  : padding;
+              return Stack(
+                fit: StackFit.passthrough,
+                children: <Widget>[
+                  Padding(padding: room, child: child),
+                  if (present) const Positioned.fill(child: PanelCorners()),
+                ],
+              );
+            },
+          );
     final Widget box = Container(
       margin: margin,
       decoration: BoxDecoration(
@@ -348,7 +496,7 @@ class GamePanel extends StatelessWidget {
           BoxShadow(color: Color(0x2ED4AF37), blurRadius: 16),
         ],
       ),
-      child: Padding(padding: padding, child: child),
+      child: inner,
     );
     if (onTap == null) return box;
     final Widget tappable = FocusRing(
@@ -610,35 +758,74 @@ class GameProgressBar extends StatelessWidget {
 
 /// A section title with a one-line note under it.
 class SectionHeading extends StatelessWidget {
-  const SectionHeading({required this.title, this.note, super.key});
+  const SectionHeading({
+    required this.title,
+    this.note,
+    this.art,
+    super.key,
+  });
 
   final String title;
   final String? note;
 
+  /// A hub-category picture shown beside the title, when its file exists.
+  final ArtSlot? art;
+
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(4, 18, 4, 10),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Semantics(
-            header: true,
-            child: Text(
-              title,
-              style: AppText.titleMedium.copyWith(
-                color: GamesTheme.champagne,
-                fontSize: 20,
-              ),
+    final Widget words = Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Semantics(
+          header: true,
+          child: Text(
+            title,
+            style: AppText.titleMedium.copyWith(
+              color: GamesTheme.champagne,
+              fontSize: 20,
             ),
           ),
-          if (note != null)
-            Padding(
-              padding: const EdgeInsets.only(top: 2),
-              child: Text(note!, style: AppText.bodyMuted),
+        ),
+        if (note != null)
+          Padding(
+            padding: const EdgeInsets.only(top: 2),
+            child: Text(note!, style: AppText.bodyMuted),
+          ),
+      ],
+    );
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(4, 18, 4, 10),
+      child: art == null
+          ? words
+          : ArtBuilder(
+              slot: art!,
+              builder: (BuildContext context, bool present) {
+                if (!present) return words;
+                return Row(
+                  children: <Widget>[
+                    ExcludeSemantics(
+                      child: Container(
+                        width: 88,
+                        height: 44,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(
+                            color: GamesTheme.border,
+                            width: 1.2,
+                          ),
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(11),
+                          child: GamesArt.asset(art!),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(child: words),
+                  ],
+                );
+              },
             ),
-        ],
-      ),
     );
   }
 }

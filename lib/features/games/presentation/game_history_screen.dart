@@ -10,6 +10,7 @@ import '../../../app/theme/app_typography.dart';
 import '../data/game_history.dart';
 import '../data/games_store.dart';
 import '../engine/game_registry.dart';
+import '../ui/games_art.dart';
 import '../ui/games_theme.dart';
 
 /// /games/history - the games finished on this device, and the ones left
@@ -86,6 +87,7 @@ class _GameHistoryState extends ConsumerState<GameHistoryScreen> {
           const ArchHeader(
             title: 'Game history',
             tagline: 'Kept on this device only',
+            band: true,
           ),
           Wrap(
             spacing: 8,
@@ -155,7 +157,7 @@ class _SavedRow extends StatelessWidget {
         onTap: () => context.open('/games/g/${g.id}/play?resume=1'),
         child: Row(
           children: <Widget>[
-            GameBadge(iconKey: g.iconKey, size: 44),
+            ArtThumb(gameId: g.id, iconKey: g.iconKey, size: 44),
             const SizedBox(width: 12),
             Expanded(
               child: Column(
@@ -207,7 +209,11 @@ class _ResultRow extends StatelessWidget {
         ),
         child: Row(
           children: <Widget>[
-            GameBadge(iconKey: g?.iconKey ?? '', size: 44),
+            ArtThumb(
+              gameId: result.gameId,
+              iconKey: g?.iconKey ?? '',
+              size: 44,
+            ),
             const SizedBox(width: 12),
             Expanded(
               child: Column(
