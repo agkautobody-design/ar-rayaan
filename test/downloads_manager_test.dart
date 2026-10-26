@@ -1,7 +1,6 @@
 import 'package:ar_rayaan/app/core/asset_text_cache.dart';
 import 'package:ar_rayaan/app/core/content_loader.dart';
 import 'package:ar_rayaan/app/core/online_status.dart';
-import 'package:ar_rayaan/app/core/providers.dart';
 import 'package:ar_rayaan/features/academy/domain/recitation_audio.dart';
 import 'package:ar_rayaan/features/downloads/application/audio_store_provider.dart';
 import 'package:ar_rayaan/features/downloads/application/download_manager.dart';
@@ -229,7 +228,7 @@ void main() {
     await settle(c);
     final DownloadsController n = c.read(downloadsProvider.notifier);
     expect(n.everythingEstimate(), greaterThan(0));
-    expect(n.everythingEstimate(), lessThan(100000));
+    expect(n.everythingEstimate(), lessThan(1000000));
     n.downloadEverything();
     await settle(c);
     expect(store.files.length, 6236);

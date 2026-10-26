@@ -6,7 +6,6 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
-import '../../academy/domain/recitation_audio.dart';
 import '../../quran/presentation/reciter_picker.dart';
 import '../application/download_manager.dart';
 import '../domain/download_catalog.dart';

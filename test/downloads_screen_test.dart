@@ -1,4 +1,4 @@
-import 'package:ar_rayaan/app/core/providers.dart';
+import 'package:ar_rayaan/app/core/content_loader.dart';
 import 'package:ar_rayaan/features/downloads/application/audio_store_provider.dart';
 import 'package:ar_rayaan/features/downloads/application/download_manager.dart';
 import 'package:ar_rayaan/features/downloads/presentation/downloads_screen.dart';
@@ -10,7 +10,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'downloads_manager_test.dart' show FakeStore;
+import 'downloads_manager_test.dart' show FakeStore, MemCache;
 
 Future<void> pumpApp(
   WidgetTester t,
@@ -21,6 +21,9 @@ Future<void> pumpApp(
   double scale = 1,
 }) async {
   SharedPreferences.setMockInitialValues(<String, Object>{});
+  final old = ContentLoader.cache;
+  ContentLoader.cache = MemCache();
+  addTearDown(() => ContentLoader.cache = old);
   t.view.physicalSize = const Size(400, 3000);
   t.view.devicePixelRatio = 1;
   addTearDown(t.view.resetPhysicalSize);

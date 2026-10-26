@@ -230,7 +230,7 @@ class PackRow extends StatelessWidget {
               const SizedBox(height: 10),
               Semantics(
                 label: 'Progress for $title',
-                value: '${((f ?? 0) * 100).round()} percent',
+                value: '${(f * 100).round()} percent',
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(4),
                   child: LinearProgressIndicator(
