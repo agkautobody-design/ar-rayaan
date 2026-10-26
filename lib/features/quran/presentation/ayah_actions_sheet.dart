@@ -7,14 +7,24 @@ import '../../../app/theme/app_typography.dart';
 import '../application/quran_marks_controller.dart';
 import '../domain/quran_marks.dart';
 import '../domain/quran_models.dart';
+import '../domain/quran_texts.dart';
 
 /// The text copied for one ayah: Arabic, the translation, the reference and
 /// where both texts come from. Nothing is reworded.
-String ayahShareText(String surahName, int surah, Ayah ayah) {
+///
+/// [credit] is the source line for the translation actually shown (see
+/// `QuranTexts.shareCreditLine`); it defaults to the interim translation.
+String ayahShareText(
+  String surahName,
+  int surah,
+  Ayah ayah, {
+  String credit =
+      'Arabic: Tanzil Uthmani (tanzil.net). Translation: Saheeh '
+          'International, via Tanzil.',
+}) {
   return '${ayah.arabic}\n\n${ayah.english}\n\n'
       '— $surahName $surah:${ayah.number}\n'
-      'Arabic: Tanzil Uthmani (tanzil.net). Translation: Saheeh International, '
-      'via Tanzil. Shared from Ar-Rayaan.';
+      '$credit Shared from Ar-Rayaan.';
 }
 
 /// More actions for one ayah: note, collections, copy.
@@ -96,7 +106,14 @@ class AyahActionsSheet extends ConsumerWidget {
               onTap: () async {
                 await copyWithFeedback(
                   context,
-                  ayahShareText(surahName, surah, ayah),
+                  ayahShareText(
+                    surahName,
+                    surah,
+                    ayah,
+                    credit: (ref.read(quranTextsProvider).value ??
+                            QuranTexts.fallback)
+                        .shareCreditLine,
+                  ),
                   message: 'Copied',
                 );
               },
