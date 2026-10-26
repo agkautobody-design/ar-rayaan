@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../app/core/packages/hadi_package.dart';
 import '../../../app/core/packages/usage_meter.dart';
 import '../application/hadi_provider.dart';
+import 'groq_hadi_provider.dart' show HadiProviderException;
+import 'hosted_cache.dart';
 
 /// The hosted-AI seam for Hādi: answers out-of-library questions for people
 /// on a package that allows it.
