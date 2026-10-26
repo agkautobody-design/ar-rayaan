@@ -33,6 +33,7 @@ import '../application/quran_marks_controller.dart';
 import '../application/quran_offline.dart' show kQuranOfflineHint;
 import '../application/quran_providers.dart';
 import '../application/test_me_provider.dart';
+import '../application/translation_providers.dart';
 import '../domain/quran_marks.dart';
 import '../domain/quran_models.dart';
 import '../domain/quran_texts.dart';
@@ -736,8 +737,7 @@ class _ReaderFooterState extends ConsumerState<_ReaderFooter> {
                 constraints: const BoxConstraints(minHeight: 48),
                 child: Center(
                   child: Text(
-                    'Arabic: Tanzil Uthmani · Translation: Saheeh '
-                    'International, via Tanzil.net',
+                    texts.footerLine,
                     style: AppText.caption.copyWith(
                       decoration: TextDecoration.underline,
                     ),
@@ -857,11 +857,17 @@ class _AyahBlock extends ConsumerWidget {
                 const SizedBox(height: 6),
               ] else
                 const SizedBox(height: 8),
-              Text(
-                ayah.english,
-                style: AppText.bodyMuted.copyWith(
-                  fontSize: 13 * follow,
-                  height: 1.55,
+              // Urdu and Arabic packs read right to left.
+              Directionality(
+                textDirection: ref.watch(translationRtlProvider)
+                    ? TextDirection.rtl
+                    : Directionality.of(context),
+                child: Text(
+                  ayah.english,
+                  style: AppText.bodyMuted.copyWith(
+                    fontSize: 13 * follow,
+                    height: 1.55,
+                  ),
                 ),
               ),
               if (hasNote)
