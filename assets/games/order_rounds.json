@@ -1,0 +1,134 @@
+{
+ "note": "Order games. 'seerah': events in the order the Seerah School tells them (the story numbers must rise; each 'fact' must appear word for word in that story). 'prophets': rounds in which every pair is ordered by something the Messengers' tree states: Adam is the first man and first prophet, Muhammad is the Seal of the Prophets, or one is an Established ancestor of the other. Tested in test/games/learning_games_test.dart.",
+ "seerah": {
+  "events": [
+   {
+    "id": "birth",
+    "story": "seerah-01",
+    "label": "Born in the Year of the Elephant",
+    "fact": "the Prophet ﷺ was born on a Monday, the twelfth of Rabi' al-Awwal, in the Year of the Elephant"
+   },
+   {
+    "id": "hira",
+    "story": "seerah-04",
+    "label": "The first revelation in the cave of Hira",
+    "fact": "In the month of Ramadan, in the year he turned forty, the silence ended."
+   },
+   {
+    "id": "hijrah",
+    "story": "seerah-13",
+    "label": "The Hijrah: the cave of Thawr",
+    "fact": "entered a cave in Mount Thawr, below the city"
+   },
+   {
+    "id": "madinah",
+    "story": "seerah-14",
+    "label": "Arrival in Madinah",
+    "fact": "Clan after clan stopped his camel and invited him to stay with them"
+   },
+   {
+    "id": "badr",
+    "story": "seerah-17",
+    "label": "Badr",
+    "fact": "The Qur'an later named the day: 'the day of criterion - the day when the two armies met' (8:41)."
+   },
+   {
+    "id": "uhud",
+    "story": "seerah-19",
+    "label": "Uhud",
+    "fact": "The archers held the pass behind the Muslims as ordered"
+   },
+   {
+    "id": "trench",
+    "story": "seerah-21",
+    "label": "The Trench",
+    "fact": "The Prophet ﷺ ordered a trench dug around Madinah"
+   },
+   {
+    "id": "hudaybiyyah",
+    "story": "seerah-22",
+    "label": "Hudaybiyyah",
+    "fact": "the two sides agreed to put war away from the people for ten years"
+   },
+   {
+    "id": "makkah",
+    "story": "seerah-24",
+    "label": "The Conquest of Makkah",
+    "fact": "In Ramadan of the eighth year the Prophet ﷺ camped at Marr al-Zahran with ten thousand Muslims"
+   },
+   {
+    "id": "tabuk",
+    "story": "seerah-26",
+    "label": "Tabuk",
+    "fact": "the Prophet ﷺ ordered the Muslims to prepare to fight the Romans — Tabuk, in the year nine"
+   },
+   {
+    "id": "farewell",
+    "story": "seerah-27",
+    "label": "The Farewell Sermon",
+    "fact": "In the tenth year, the Prophet ﷺ performed his only full pilgrimage"
+   },
+   {
+    "id": "passing",
+    "story": "seerah-28",
+    "label": "The passing of the Prophet ﷺ",
+    "fact": "After the farewell pilgrimage and the sending of Usama's army, the illness began"
+   }
+  ]
+ },
+ "prophets": {
+  "rounds": [
+   [
+    "ibrahim",
+    "ishaq",
+    "yaqub",
+    "yusuf"
+   ],
+   [
+    "ibrahim",
+    "yaqub",
+    "yusuf"
+   ],
+   [
+    "ishaq",
+    "yaqub",
+    "yusuf"
+   ],
+   [
+    "adam",
+    "ibrahim",
+    "yusuf",
+    "muhammad"
+   ],
+   [
+    "adam",
+    "dawud",
+    "sulayman",
+    "muhammad"
+   ],
+   [
+    "adam",
+    "ibrahim",
+    "ishaq",
+    "muhammad"
+   ],
+   [
+    "adam",
+    "yaqub",
+    "yusuf",
+    "muhammad"
+   ],
+   [
+    "adam",
+    "zakariya",
+    "yahya",
+    "muhammad"
+   ],
+   [
+    "adam",
+    "sulayman",
+    "muhammad"
+   ]
+  ]
+ }
+}

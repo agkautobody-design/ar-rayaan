@@ -114,6 +114,11 @@ class _GamesScreenState extends ConsumerState<GamesScreen> {
             icon: Icons.history,
             onPressed: () => context.open('/games/history'),
           ),
+          OutlineAction(
+            label: 'Game settings',
+            icon: Icons.tune,
+            onPressed: () => context.open('/games/settings'),
+          ),
           if (kGamesCommunityEnabled)
             OutlineAction(
               label: 'Play with friends',

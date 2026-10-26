@@ -27,6 +27,7 @@ abstract final class RouteTitles {
     '/noor/reflections': 'My Reflections',
     '/games': 'Games',
     '/games/history': 'Game History',
+    '/games/settings': 'Game Settings',
     '/games/community': 'Games with Community',
     '/games/memory': 'Names Memory',
     '/games/ludo': 'Ludo',
