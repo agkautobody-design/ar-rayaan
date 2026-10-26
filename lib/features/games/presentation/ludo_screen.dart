@@ -8,6 +8,7 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../data/game_rooms_service.dart';
+import '../data/games_store.dart';
 import '../data/ludo_rules.dart';
 import '../data/room_moves.dart';
 import 'online_lobby.dart';
@@ -17,7 +18,11 @@ import 'online_lobby.dart';
 /// v1: two players (You vs Hadi, or pass-and-play). Four-player boards and
 /// four-player tables are not built yet.
 class LudoScreen extends StatefulWidget {
-  const LudoScreen({super.key});
+  /// [initialMode]: 0 opens the table menu, 1 starts against Hadi, 2 starts
+  /// two players on this device (the Games setup screen passes it).
+  const LudoScreen({this.initialMode = 0, super.key});
+
+  final int initialMode;
 
   @override
   State<LudoScreen> createState() => _LudoState();
@@ -74,6 +79,7 @@ class _LudoState extends State<LudoScreen> {
   int? selToken;
   String hadiLine = '';
   bool gameOver = false;
+  bool _recorded = false;
   final _rooms = GameRoomsService();
   String? roomCode;
   String mySide = 'host';
@@ -98,9 +104,9 @@ class _LudoState extends State<LudoScreen> {
   String? _syncError;
 
   static const _hadiLudo = [
-    'Hadi: The dice belong to Allah — the moves belong to you.',
+    'Hadi: The dice decide the roll; you decide the move.',
     'Hadi: A token sent home is not an ending; the board always invites return.',
-    'Hadi: Patience — the six will come, as rizq comes: on time.',
+    'Hadi: Patience. The six will come.',
     'Hadi: I protect my stars. Do you protect yours?',
     'Hadi: One careful step beats three hurried ones.',
   ];
@@ -108,6 +114,9 @@ class _LudoState extends State<LudoScreen> {
   @override
   void initState() {
     super.initState();
+    mode = widget.initialMode == 1 || widget.initialMode == 2
+        ? widget.initialMode
+        : 0;
     _reset();
   }
 
@@ -147,6 +156,7 @@ class _LudoState extends State<LudoScreen> {
     usedRoll = true;
     selToken = null;
     gameOver = false;
+    _recorded = false;
     hadiLine = '';
     status = mode == 1
         ? 'You are Red — Hadi takes Green'
@@ -195,8 +205,27 @@ class _LudoState extends State<LudoScreen> {
     }
   }
 
+  /// Writes a finished game on this device (local games only) once.
+  void _recordEnd() {
+    if (_recorded || (mode != 1 && mode != 2)) return;
+    _recorded = true;
+    final String outcome = status.replaceFirst(' — ', ': ');
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      recordBoardResult(
+        context,
+        gameId: 'ludo',
+        title: 'Ludo',
+        outcome: outcome,
+      );
+    });
+  }
+
   void _nextTurn({bool extra = false}) {
-    if (gameOver) return;
+    if (gameOver) {
+      _recordEnd();
+      return;
+    }
     if (!extra) turn = (turn + 1) % (mode == 2 ? 2 : 2);
     rolled = false;
     usedRoll = false;

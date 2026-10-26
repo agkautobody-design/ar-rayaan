@@ -10,6 +10,7 @@ import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import 'chess_pieces.dart';
 import '../data/game_rooms_service.dart';
+import '../data/games_store.dart';
 import '../data/room_moves.dart';
 import 'online_lobby.dart';
 
@@ -19,7 +20,13 @@ import 'online_lobby.dart';
 /// passant arrive in v2. Play Hadi (the engine, with his voice) or a friend
 /// beside you. Online rooms arrive with the family cloud.
 class ShatranjScreen extends StatefulWidget {
-  const ShatranjScreen({super.key});
+  /// [initialMode]: 0 opens the table menu, 1 starts against Hadi, 2 starts
+  /// two players on this device. [searchDepth] is how many moves ahead
+  /// Hadi looks (1 is Easy, 2 is Standard).
+  const ShatranjScreen({this.initialMode = 0, this.searchDepth = 2, super.key});
+
+  final int initialMode;
+  final int searchDepth;
 
   @override
   State<ShatranjScreen> createState() => _ShatranjState();
@@ -37,6 +44,7 @@ class _ShatranjState extends State<ShatranjScreen> {
   final _rnd = Random();
   bool aiThinking = false;
   String hadiLine = '';
+  bool _recorded = false;
   final _rooms = GameRoomsService();
   String? roomCode;
   String mySide = 'host';
@@ -59,10 +67,10 @@ class _ShatranjState extends State<ShatranjScreen> {
   String? _syncError;
 
   static const _hadiLines = [
-    'Hadi studies the board the way he studies a hadith — patiently.',
+    'Hadi studies the board patiently.',
     'Hadi: Every opening is a doorway. Choose yours well.',
     'Hadi: The middle game rewards the patient heart.',
-    'Hadi: A sacrifice given for position is sadaqah on the board.',
+    'Hadi: A sacrifice for position can pay off later.',
     'Hadi: I would rather lose beautifully than win without principle.',
     'Hadi: Your move carries intention — make it a good one.',
     'Hadi: Even the queen bows to the plan, not the power.',
@@ -73,6 +81,9 @@ class _ShatranjState extends State<ShatranjScreen> {
   @override
   void initState() {
     super.initState();
+    mode = widget.initialMode == 1 || widget.initialMode == 2
+        ? widget.initialMode
+        : 0;
     _reset();
   }
 
@@ -120,6 +131,27 @@ class _ShatranjState extends State<ShatranjScreen> {
             ? 'Two players, one board'
             : 'Choose your opponent below';
     hadiLine = '';
+    _recorded = false;
+  }
+
+  /// Writes a finished local game on this device, once.
+  void _recordEnd() {
+    if (_recorded || (mode != 1 && mode != 2)) return;
+    _recorded = true;
+    final String outcome = status.startsWith('Stalemate')
+        ? 'Stalemate: a draw'
+        : status.startsWith('Checkmate — you win')
+            ? 'Checkmate: White wins'
+            : status.replaceFirst(' — ', ': ');
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      recordBoardResult(
+        context,
+        gameId: 'chess',
+        title: 'Shatranj (chess)',
+        outcome: outcome,
+      );
+    });
   }
 
   bool _isWhite(String p) => p.isNotEmpty && p == p.toUpperCase();
@@ -308,6 +340,7 @@ class _ShatranjState extends State<ShatranjScreen> {
             ? 'Checkmate — you win. Hadi smiles: beautifully played.'
             : 'Stalemate — a drawn peace.';
       });
+      _recordEnd();
       return;
     }
     List<int>? best;
@@ -316,7 +349,7 @@ class _ShatranjState extends State<ShatranjScreen> {
     for (final m in moves) {
       final copy = List<String>.from(b);
       _applyOn(copy, m[0], m[1]);
-      final s = _search(copy, 2, -1e9, 1e9, true);
+      final s = _search(copy, widget.searchDepth, -1e9, 1e9, true);
       if (s < bestScore) {
         bestScore = s;
         best = m;
@@ -343,6 +376,7 @@ class _ShatranjState extends State<ShatranjScreen> {
       status = inCheck
           ? 'Checkmate — ${whiteToMove ? 'Black' : 'White'} wins'
           : 'Stalemate — a drawn peace';
+      _recordEnd();
     } else if (inCheck) {
       status = '${whiteToMove ? 'White' : 'Black'} is in check';
     } else {

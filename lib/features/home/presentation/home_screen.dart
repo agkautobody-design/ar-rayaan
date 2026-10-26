@@ -147,6 +147,12 @@ class HomeScreen extends ConsumerWidget {
         AppRoutes.academyGate,
       ),
       (
+        Icons.sports_esports_outlined,
+        'Games',
+        'Quizzes, Ludo & Shatranj',
+        AppRoutes.games,
+      ),
+      (
         Icons.trending_up,
         'My Journey',
         'Track, Reflect & Grow',
@@ -854,6 +860,7 @@ String _tileImage(String t) {
   }
   if (t.startsWith('Islamic')) return '$base/tile_calendar.jpg';
   if (t.startsWith('Stories')) return '$base/tile_knowledge.jpg';
+  if (t.startsWith('Games')) return '$base/tile_knowledge.jpg';
   // Fallback until a dedicated Academy tile image ships
   // (see state/art_list.md, Wave 1 #1).
   if (t.startsWith('Wasia')) return '$base/tile_knowledge.jpg';
