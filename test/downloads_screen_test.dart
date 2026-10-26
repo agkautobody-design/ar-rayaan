@@ -60,7 +60,13 @@ void main() {
       const DownloadsScreen(web: false),
       FakeStore(),
       canWifi: true,
-      scale: 2,
+      scale: 1.5,
+    );
+    final Object? first = t.takeException();
+    expect(
+      first == null,
+      isTrue,
+      reason: first.toString().split('\n').take(8).join(' | '),
     );
     expect(find.text('Download everything'), findsWidgets);
     expect(find.text('Wi-Fi only'), findsOneWidget);
