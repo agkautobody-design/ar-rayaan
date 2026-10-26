@@ -15,6 +15,8 @@ import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/core/content/content_sync.dart';
 import '../../../app/core/providers.dart';
 
+export 'games_hub_screen.dart' show GamesScreen;
+
 class TriviaQ {
   final String id, category, question, why;
   final List<String> options;
@@ -80,95 +82,6 @@ final namesProvider = FutureProvider<List<Name99>>((ref) {
         .toList();
   });
 });
-
-class GamesScreen extends ConsumerWidget {
-  const GamesScreen({super.key});
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    return Scaffold(
-      backgroundColor: Colors.transparent,
-      body: ListView(
-        padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
-        children: [
-          const ScreenHeader(title: 'Games', close: true),
-          Padding(
-            padding: const EdgeInsets.only(left: 4, bottom: 4),
-            child: Text('LEARN BY PLAYING', style: AppText.eyebrow),
-          ),
-          GlassCard(
-            onTap: () => context.open('/games/ludo'),
-            child: _gameRow(Icons.casino_outlined, 'Ludo \u00b7 the second crown',
-                'Dice, captures and four tokens racing home'),
-          ),
-          const SizedBox(height: 10),
-          GlassCard(
-            onTap: () => context.open('/games/shatranj'),
-            child: _gameRow(Icons.extension_outlined, 'Shatranj \u00b7 the crown jewel',
-                'Chess against Hadi\u2019s engine or a friend beside you'),
-          ),
-          const SizedBox(height: 10),
-          GlassCard(
-            onTap: () => context.open(AppRoutes.trivia),
-            child: _gameRow(Icons.quiz_outlined, 'Daily Trivia',
-                'Questions from the stories, graded and sourced'),
-          ),
-          const SizedBox(height: 10),
-          GlassCard(
-            onTap: () => context.open(AppRoutes.names99),
-            child: _gameRow(Icons.spa_outlined, 'The 99 Names',
-                'The beautiful names, one flashcard at a time'),
-          ),
-          const SizedBox(height: 10),
-          GlassCard(
-            onTap: () => context.open('/games/lineage'),
-            child: _gameRow(Icons.account_tree_outlined, 'Lineage Challenge',
-                'Who begot whom — the Messengers\u2019 tree as a game'),
-          ),
-          const SizedBox(height: 10),
-          GlassCard(
-            onTap: () => context.open('/games/ayah'),
-            child: _gameRow(Icons.format_quote_outlined, 'Ayah Completion',
-                'One word veiled — what did Allah say?'),
-          ),
-          const SizedBox(height: 10),
-          GlassCard(
-            onTap: () => context.open('/games/hijrah'),
-            child: _gameRow(Icons.route_outlined, 'The Hijrah Journey',
-                'Makkah to Madinah, station by station'),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _gameRow(IconData icon, String title, String sub) {
-    return Row(
-      children: [
-        Container(
-          width: 44, height: 44,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            border: Border.all(color: AppColors.gold.withValues(alpha: 0.35)),
-          ),
-          child: Icon(icon, size: 20, color: AppColors.goldLight),
-        ),
-        const SizedBox(width: 14),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(title, style: AppText.titleMedium),
-              const SizedBox(height: 2),
-              Text(sub, style: AppText.bodyMuted),
-            ],
-          ),
-        ),
-        const Icon(Icons.chevron_right, color: AppColors.gold),
-      ],
-    );
-  }
-}
 
 class TriviaScreen extends ConsumerStatefulWidget {
   const TriviaScreen({super.key});
