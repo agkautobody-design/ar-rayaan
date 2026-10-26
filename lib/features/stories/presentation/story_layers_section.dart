@@ -322,7 +322,7 @@ class _QuranPassage extends ConsumerWidget {
                     const SizedBox(height: 10),
                   ],
                   Text(
-                    'Arabic: Tanzil (Uthmani). English: ${(ref.watch(quranTextsProvider).value ?? QuranTexts.fallback).translation.short}.',
+                    'Arabic: Tanzil (Uthmani). English: ${(wref.watch(quranTextsProvider).value ?? QuranTexts.fallback).translation.short}.',
                     style: AppText.bodyMuted.copyWith(fontSize: 12),
                   ),
                 ],
