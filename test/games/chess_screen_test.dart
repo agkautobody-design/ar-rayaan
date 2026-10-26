@@ -226,6 +226,8 @@ void main() {
     testWidgets('the sound switch turns sound on and is saved', (tester) async {
       final ProviderContainer c = await openSheet(tester);
       expect(c.read(chessSettingsProvider).sound, isFalse);
+      await tester.ensureVisible(find.byType(Switch).first);
+      await tester.pump();
       await tester.tap(find.byType(Switch).first);
       await tester.pump();
       expect(c.read(chessSettingsProvider).sound, isTrue);
@@ -234,6 +236,8 @@ void main() {
 
     testWidgets('choosing the Green board saves the theme', (tester) async {
       final ProviderContainer c = await openSheet(tester);
+      await tester.ensureVisible(find.text('Green'));
+      await tester.pump();
       await tester.tap(find.text('Green'));
       await tester.pump();
       expect(c.read(chessSettingsProvider).theme, ChessBoardTheme.green);
