@@ -193,7 +193,9 @@ void main() {
     Future<ProviderContainer> openSheet(WidgetTester tester) async {
       final ProviderContainer c = await pumpChess(tester);
       await tester.tap(find.byIcon(Icons.settings_outlined));
-      await tester.pump(const Duration(milliseconds: 400));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 600));
+      await tester.pump(const Duration(milliseconds: 600));
       return c;
     }
 
