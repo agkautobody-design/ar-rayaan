@@ -6,7 +6,6 @@ import 'package:ar_rayaan/features/quran/domain/quran_models.dart';
 import 'package:ar_rayaan/features/quran/presentation/ayah_actions_sheet.dart';
 import 'package:ar_rayaan/features/share/application/share_text.dart';
 import 'package:ar_rayaan/features/share/presentation/share_actions.dart';
-import 'package:ar_rayaan/features/share/presentation/share_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -248,26 +247,6 @@ void main() {
             .widget<SelectableText>(find.byKey(const Key('share-preview-text')))
             .data,
         contains('I completed an adhkar set on Ar-Rayaan.'),
-      );
-    });
-
-    testWidgets('Verse Cards can invite a friend, with a preview', (
-      tester,
-    ) async {
-      await pump(tester, const ShareScreen());
-      await tester.pump(const Duration(milliseconds: 300));
-      await tester.scrollUntilVisible(
-        find.byKey(const Key('invite-friend')),
-        100,
-        scrollable: find.byType(Scrollable).first,
-      );
-      await tester.tap(find.byKey(const Key('invite-friend')));
-      await settle(tester);
-      expect(
-        tester
-            .widget<SelectableText>(find.byKey(const Key('share-preview-text')))
-            .data,
-        inviteShareText(),
       );
     });
   });

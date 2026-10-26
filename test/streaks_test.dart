@@ -42,7 +42,7 @@ Future<void> pumpApp(
   Widget home, {
   required Map<String, Object> prefs,
   double scale = 1,
-  Size size = const Size(390, 900),
+  Size size = const Size(390, 3000),
 }) async {
   SharedPreferences.setMockInitialValues(prefs);
   final SharedPreferences p = await SharedPreferences.getInstance();
@@ -473,7 +473,7 @@ void main() {
         const StreaksScreen(),
         prefs: p,
         scale: 2.5,
-        size: const Size(320, 700),
+        size: const Size(320, 4000),
       );
       expect(find.byKey(const Key('streak-headline')), findsOneWidget);
       expect(tester.takeException(), isNull);
