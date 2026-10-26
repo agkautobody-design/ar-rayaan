@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../app/core/providers.dart';
+import '../../streaks/application/streaks_providers.dart';
 import 'habits_providers.dart';
 
 /// Code-level kill switch for the whole return loop (the optional "days
@@ -120,7 +121,10 @@ class ReturnLoopEnabledController extends Notifier<bool> {
       await ref.read(sharedPreferencesProvider).setBool(key, on);
     } catch (_) {}
     // Turning it off forgets the days (silent reset); nothing lingers.
-    if (!on) await ref.read(returnDaysProvider.notifier).clear();
+    if (!on) {
+      await ref.read(returnDaysProvider.notifier).clear();
+      await ref.read(streaksStoreProvider.notifier).clear();
+    }
   }
 }
 
@@ -197,5 +201,20 @@ final Provider<String?> returnMessageProvider = Provider<String?>((Ref ref) {
 Future<void> noteReturn(WidgetRef ref, ReturnAct act) async {
   try {
     await ref.read(returnDaysProvider.notifier).record(act);
+  } catch (_) {}
+  await noteStreak(ref, switch (act) {
+    ReturnAct.quran => StreakAct.quran,
+    ReturnAct.adhkar => StreakAct.dhikr,
+    ReturnAct.lesson => StreakAct.lesson,
+  });
+}
+
+/// Records [act] for the streaks (Qur'an, dhikr, lessons). A no-op while
+/// "Keep my streaks" is off. Never throws.
+Future<void> noteStreak(WidgetRef ref, StreakAct act) async {
+  try {
+    if (!kReturnLoopEnabled) return;
+    if (!ref.read(returnLoopEnabledProvider)) return;
+    await ref.read(streaksStoreProvider.notifier).record(act);
   } catch (_) {}
 }

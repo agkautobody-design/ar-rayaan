@@ -11,6 +11,7 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../application/share_text.dart';
 import 'share_actions.dart';
 
 class ShareCard {
@@ -96,6 +97,35 @@ class _ShareState extends State<ShareScreen> {
                 );
               }),
 
+              const SizedBox(height: 12),
+              GlassCard(
+                child: Column(children: [
+                  Text('INVITE A FRIEND', style: AppText.eyebrow),
+                  const SizedBox(height: 6),
+                  Text(
+                    'See exactly what would be sent first. Nothing is posted '
+                    'for you.',
+                    style: AppText.bodyMuted.copyWith(fontSize: 13),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 10),
+                  ConstrainedBox(
+                    constraints: const BoxConstraints(minHeight: 48),
+                    child: FilledButton.icon(
+                      key: const Key('invite-friend'),
+                      onPressed: () => showSharePreview(
+                        context,
+                        text: inviteShareText(),
+                        title: 'Ar-Rayaan',
+                        subject: 'this invitation',
+                      ),
+                      icon: const Icon(Icons.ios_share, size: 18),
+                      label: const Text('Invite a friend'),
+                    ),
+                  ),
+                ]),
+              ),
+              const SizedBox(height: 16),
               Center(child: Text('LIGHT, SHARED', style: AppText.eyebrow)),
               const SizedBox(height: 16),
               Container(

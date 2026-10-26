@@ -38,6 +38,7 @@ import '../domain/quran_marks.dart';
 import '../domain/quran_models.dart';
 import '../domain/quran_texts.dart';
 import '../domain/surah_search.dart';
+import '../../share/application/share_text.dart';
 import 'ayah_actions_sheet.dart';
 import 'hideable_arabic.dart';
 
@@ -326,7 +327,10 @@ class _ReaderState extends ConsumerState<_Reader> {
           );
         }
         if (index == n + 1) {
-          return _ReaderFooter(surah: surah.meta.number);
+          return _ReaderFooter(
+            surah: surah.meta.number,
+            surahName: surah.meta.transliteration,
+          );
         }
         final int i = index - 1;
         final Ayah ayah = surah.ayahs[i];
@@ -674,9 +678,10 @@ class _JumpToAyahDialogState extends State<_JumpToAyahDialog> {
 /// End of surah: how to save a place, and where the two texts come from
 /// (Tanzil asks for its source to be named and linked).
 class _ReaderFooter extends ConsumerStatefulWidget {
-  const _ReaderFooter({required this.surah});
+  const _ReaderFooter({required this.surah, required this.surahName});
 
   final int surah;
+  final String surahName;
 
   @override
   ConsumerState<_ReaderFooter> createState() => _ReaderFooterState();
@@ -694,7 +699,12 @@ class _ReaderFooterState extends ConsumerState<_ReaderFooter> {
       if (!mounted) return;
       unawaited(noteReturn(ref, ReturnAct.quran));
       unawaited(
-        showQuietDone(context, ref, moment: 'surah:${widget.surah}'),
+        showQuietDone(
+          context,
+          ref,
+          moment: 'surah:${widget.surah}',
+          shareText: milestoneShareText('reading Surah ${widget.surahName}'),
+        ),
       );
     });
   }

@@ -12,6 +12,8 @@ import '../../../app/theme/widgets/speak_button.dart';
 import '../../../app/theme/widgets/whole_word_text.dart';
 import '../../habits/application/return_loop.dart';
 import '../../habits/presentation/quiet_done.dart';
+import '../../share/application/share_text.dart';
+import '../../share/presentation/share_actions.dart';
 import '../application/adhkar_providers.dart';
 import '../domain/adhkar_models.dart';
 
@@ -390,7 +392,24 @@ class _DhikrCard extends ConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             if (dhikr.translation != null)
-              SpeakButton(text: dhikr.translation!, size: 24)
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  SpeakButton(text: dhikr.translation!, size: 24),
+                  // Only a dhikr that carries its source can be shared.
+                  if (dhikr.source != null)
+                    ShareCardButton(
+                      text: composeShareText(
+                        title: set.titleEn,
+                        arabic: dhikr.arabic,
+                        body: dhikr.translation!,
+                        source: dhikr.source,
+                      ),
+                      title: set.titleEn,
+                      subject: 'this dhikr',
+                    ),
+                ],
+              )
             else
               const SizedBox.shrink(),
             Text(
@@ -424,7 +443,14 @@ class _DhikrCard extends ConsumerWidget {
                 if (!context.mounted) return;
                 if (progress.completedInSet(set) >= set.totalRepetitions) {
                   unawaited(
-                    showQuietDone(context, ref, moment: 'adhkar:${set.id}'),
+                    showQuietDone(
+                      context,
+                      ref,
+                      moment: 'adhkar:${set.id}',
+                      shareText: milestoneShareText(
+                        'the ${set.titleEn} adhkar',
+                      ),
+                    ),
                   );
                 }
               },
