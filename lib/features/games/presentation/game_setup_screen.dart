@@ -39,6 +39,8 @@ class _GameSetupState extends ConsumerState<GameSetupScreen> {
   GameDifficulty _difficulty = GameDifficulty.standard;
   bool _hints = true;
   String _topic = 'mixed';
+  String _playAs = 'white';
+  int _minutes = 0;
 
   @override
   void initState() {
@@ -266,23 +268,64 @@ class _GameSetupState extends ConsumerState<GameSetupScreen> {
       );
     }
 
-    if (g.hasDifficulty) {
-      final List<GameDifficulty> levels = g.id == 'chess'
-          ? const <GameDifficulty>[GameDifficulty.easy, GameDifficulty.standard]
-          : GameDifficulty.values;
-      if (!levels.contains(_difficulty)) _difficulty = GameDifficulty.standard;
+    if (g.hasDifficulty && (g.id != 'chess' || _mode == PlayMode.solo)) {
+      final bool chess = g.id == 'chess';
+      final List<GameDifficulty> levels = GameDifficulty.values;
       out.add(
         _Group(
-          title: g.id == 'chess' ? 'Hadi’s strength' : 'Difficulty',
+          title: chess ? 'Hadi’s strength' : 'Difficulty',
           child: Wrap(
             spacing: 8,
             runSpacing: 8,
             children: <Widget>[
               for (final GameDifficulty d in levels)
                 GameChip(
-                  label: d.label,
+                  label: chess ? _chessLevelLabel(d) : d.label,
                   selected: _difficulty == d,
                   onTap: () => setState(() => _difficulty = d),
+                ),
+            ],
+          ),
+        ),
+      );
+    }
+
+    if (g.id == 'chess' && _mode != PlayMode.friends) {
+      if (_mode == PlayMode.solo) {
+        out.add(
+          _Group(
+            title: 'Play as',
+            child: Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              children: <Widget>[
+                for (final String a in const <String>[
+                  'white',
+                  'black',
+                  'random',
+                ])
+                  GameChip(
+                    label: '${a[0].toUpperCase()}${a.substring(1)}',
+                    selected: _playAs == a,
+                    onTap: () => setState(() => _playAs = a),
+                  ),
+              ],
+            ),
+          ),
+        );
+      }
+      out.add(
+        _Group(
+          title: 'Clock per player',
+          child: Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children: <Widget>[
+              for (final int t in const <int>[0, 5, 10, 15, 30])
+                GameChip(
+                  label: t == 0 ? 'No clock' : '$t min',
+                  selected: _minutes == t,
+                  onTap: () => setState(() => _minutes = t),
                 ),
             ],
           ),
@@ -332,6 +375,12 @@ class _GameSetupState extends ConsumerState<GameSetupScreen> {
     }
     return m.label;
   }
+
+  String _chessLevelLabel(GameDifficulty d) => switch (d) {
+        GameDifficulty.easy => 'Beginner',
+        GameDifficulty.standard => 'Intermediate',
+        GameDifficulty.challenge => 'Advanced',
+      };
 
   String _modeNote(GameDef g, PlayMode m) {
     if (g.kind == GameEngineKind.board) {
@@ -388,7 +437,12 @@ class _GameSetupState extends ConsumerState<GameSetupScreen> {
       path: g.route,
       queryParameters: <String, String>{
         'mode': '$mode',
-        if (g.id == 'chess') 'd': _difficulty.name,
+        if (g.id == 'chess' && _mode == PlayMode.solo) ...<String, String>{
+          'd': _difficulty.name,
+          'as': _playAs,
+        },
+        if (g.id == 'chess' && _mode != PlayMode.friends && _minutes > 0)
+          't': '$_minutes',
       },
     ).toString();
   }

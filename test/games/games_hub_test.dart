@@ -244,8 +244,12 @@ void main() {
       expect(find.text('With a friend online'), findsOneWidget);
       expect(find.text('Free hints'), findsNothing);
       await pumpScreen(tester, const GameSetupScreen(gameId: 'chess'));
-      expect(find.text('Easy'), findsOneWidget);
+      expect(find.text('Beginner'), findsOneWidget);
+      expect(find.text('Intermediate'), findsOneWidget);
+      expect(find.text('Advanced'), findsOneWidget);
+      expect(find.text('Easy'), findsNothing);
       expect(find.text('Challenge'), findsNothing);
+      expect(find.text('No clock'), findsOneWidget);
     });
 
     testWidgets('setup: Names Memory asks for pairs', (tester) async {

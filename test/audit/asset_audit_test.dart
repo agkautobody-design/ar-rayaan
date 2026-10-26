@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:ar_rayaan/features/games/chess/chess_board_view.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 /// WAVE 6 — ASSET INTEGRITY. Every asset path referenced in shipped
@@ -31,5 +32,22 @@ void main() {
         .toList();
     expect(missing, isEmpty,
         reason: 'missing assets referenced in code: \$missing');
+  });
+
+  test('chess board art: every file the board asks for exists, none is orphaned',
+      () {
+    // The board builds these paths from the piece and the theme, so the
+    // literal-path scan above cannot see them.
+    final Set<String> wanted = ChessAssets.all().toSet();
+    for (final String p in wanted) {
+      expect(File(p).existsSync(), isTrue, reason: 'missing $p');
+    }
+    final Set<String> onDisk = Directory(ChessAssets.root)
+        .listSync(recursive: true)
+        .whereType<File>()
+        .map((File f) => f.path)
+        .toSet();
+    expect(onDisk.difference(wanted), isEmpty,
+        reason: 'files in assets/games/chess that nothing uses');
   });
 }

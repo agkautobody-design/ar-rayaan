@@ -285,8 +285,11 @@ const List<GameDef> kGames = <GameDef>[
     hasDifficulty: true,
     howToPlay: <String>[
       'White moves first. Tap a piece, then a square it can reach.',
-      'Win by checkmate. A stalemate is a draw.',
-      'This version has no castling or en passant, no clock and no undo.',
+      'Win by checkmate. A stalemate, the same position three times, fifty '
+          'moves with no capture or pawn move, or too few pieces left are draws.',
+      'Castling, en passant and choosing your promotion piece all work. You '
+          'can undo, ask for a hint, offer a draw or resign. A clock is '
+          'optional and off unless you choose one.',
     ],
   ),
   GameDef(
