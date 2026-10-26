@@ -180,3 +180,63 @@ export async function addChild(
   if (r.status !== 201) throw new Error(`child ${r.status} ${JSON.stringify(r.json)}`);
   return r.json.child.id as string;
 }
+
+// ---- community helpers (phase 2) --------------------------------------------
+
+export interface Member extends Session {
+  profileId: string;
+}
+
+let memberCounter = 0;
+
+/** An adult who has a community-visible profile and has accepted the rules. */
+export async function makeMember(ctx: Ctx, name?: string): Promise<Member> {
+  memberCounter += 1;
+  const s = await signUp(ctx);
+  const profileId = await makeProfile(ctx, s, name ?? `Member ${memberCounter}`, null, 'community');
+  const r = await call(ctx, 'POST', '/v1/community/rules/accept', { token: s.token, body: { version: '2026-10-draft-1' } });
+  if (r.status !== 204) throw new Error(`rules ${r.status} ${JSON.stringify(r.json)}`);
+  return { ...s, profileId };
+}
+
+/** Makes an account old enough (and trusted enough) to skip the new-account limits. */
+export async function seasoned(ctx: Ctx, m: Member): Promise<void> {
+  await ctx.db.query(`update users set created_at = $2 where id = $1`, [m.userId, new Date(ctx.clock.now().getTime() - 30 * 86_400_000)]);
+  for (let i = 0; i < 3; i += 1) {
+    const cat = (await ctx.db.query<{ id: string }>(`select id from forum_categories where slug = 'welcome'`)).rows[0]!.id;
+    const t = await ctx.db.query<{ id: string }>(
+      `insert into forum_threads (category_id, author_profile_id, title, created_at, last_post_at) values ($1, $2, $3, $4, $4) returning id`,
+      [cat, m.profileId, `Seed thread ${memberCounter}-${i}-${Math.random()}`, new Date(ctx.clock.now().getTime() - 20 * 86_400_000)],
+    );
+    await ctx.db.query(
+      `insert into forum_posts (thread_id, author_profile_id, body, created_at) values ($1, $2, 'seed', $3)`,
+      [t.rows[0]!.id, m.profileId, new Date(ctx.clock.now().getTime() - 20 * 86_400_000)],
+    );
+  }
+}
+
+export async function setRole(ctx: Ctx, userId: string, role: 'member' | 'moderator' | 'admin'): Promise<void> {
+  await ctx.db.query('update users set role = $2 where id = $1', [userId, role]);
+}
+
+export async function giveCredential(
+  ctx: Ctx,
+  userId: string,
+  kind: 'scholar' | 'organiser' | 'trusted_moderator',
+  org = 'Test Org',
+): Promise<string> {
+  const r = await ctx.db.query<{ id: string }>(
+    `insert into credentials (user_id, kind, org_name, verified_at, created_at) values ($1, $2, $3, $4, $4) returning id`,
+    [userId, kind, org, ctx.clock.now()],
+  );
+  return r.rows[0]!.id;
+}
+
+/** Moves the fake clock forward past the burst limit between posts. */
+export function breathe(ctx: Ctx): void {
+  ctx.clock.advanceMs(61_000);
+}
+
+export async function categoryId(ctx: Ctx, slug: string): Promise<string> {
+  return (await ctx.db.query<{ id: string }>('select id from forum_categories where slug = $1', [slug])).rows[0]!.id;
+}

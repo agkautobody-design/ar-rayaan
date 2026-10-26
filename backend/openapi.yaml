@@ -1,12 +1,15 @@
 openapi: 3.0.3
 info:
   title: Ar-Rayaan community API
-  version: 0.1.0
+  version: 0.2.0
   description: |
-    Phase 1 of the community backend: accounts, profiles, child profiles under a
-    guardian, friends, blocks and invites. Forums, meet-ups, moderation and
-    notifications are in the schema but have no routes yet (see
-    docs/product/backend_community_plan.md, section 12).
+    Phase 1: accounts, profiles, child profiles under a guardian, friends,
+    blocks and invites. Phase 2: forums, reports, moderation (queue, strikes,
+    appeals, credentials, filters, audit log), meet-ups and notifications.
+    Forums and meet-ups are for adults only; there are no direct messages.
+    Community content is always labelled as community opinion and is never
+    given to the Hadi assistant. See docs/product/backend_community_plan.md
+    and docs/product/moderation_handbook.md.
 
     Every error has the shape `{"error": {"code": "...", "message": "..."}}`.
     Authenticated routes take `Authorization: Bearer ar_...` (a session token
@@ -23,6 +26,11 @@ tags:
   - name: guardian
   - name: friends
   - name: invites
+  - name: forums
+  - name: safety
+  - name: moderation
+  - name: meetups
+  - name: notifications
 paths:
   /healthz:
     get:
@@ -406,6 +414,763 @@ paths:
         '403': { $ref: '#/components/responses/Error' }
         '404': { $ref: '#/components/responses/Error' }
         '409': { $ref: '#/components/responses/Error' }
+        '429': { $ref: '#/components/responses/Error' }
+  /v1/community/rules:
+    get:
+      tags: [forums]
+      security: [{ bearer: [] }]
+      summary: 'Current community rules version and whether I accepted it.'
+      responses:
+        '200': { description: OK }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+        '409': { $ref: '#/components/responses/Error' }
+        '422': { $ref: '#/components/responses/Error' }
+        '429': { $ref: '#/components/responses/Error' }
+  /v1/community/rules/accept:
+    post:
+      tags: [forums]
+      security: [{ bearer: [] }]
+      summary: 'Record that I read and accept the current community rules (needed before the first post).'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [version]
+              properties:
+                version: { type: string }
+      responses:
+        '204': { description: Accepted }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '422': { $ref: '#/components/responses/Error' }
+  /v1/forum/categories:
+    get:
+      tags: [forums]
+      security: [{ bearer: [] }]
+      summary: 'Forum categories with the rules that apply and whether I may start a thread or reply.'
+      description: 'Ask a scholar: members ask, only verified scholars answer. Sensitive topics and Ask a scholar hold every post for review.'
+      responses:
+        '200': { description: OK }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+        '409': { $ref: '#/components/responses/Error' }
+        '422': { $ref: '#/components/responses/Error' }
+        '429': { $ref: '#/components/responses/Error' }
+  /v1/forum/categories/{slug}/threads:
+    get:
+      tags: [forums]
+      security: [{ bearer: [] }]
+      summary: 'Threads in a category, pinned first then most recent activity. No popularity sort.'
+      parameters:
+        - { name: slug, in: path, required: true, schema: { type: string } }
+        - { name: before, in: query, required: false, schema: { type: string } }
+        - { name: limit, in: query, required: false, schema: { type: integer } }
+      responses:
+        '200': { description: OK }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+        '409': { $ref: '#/components/responses/Error' }
+        '422': { $ref: '#/components/responses/Error' }
+        '429': { $ref: '#/components/responses/Error' }
+    post:
+      tags: [forums]
+      security: [{ bearer: [] }]
+      summary: 'Start a thread (adults only; rules accepted; community-visible profile).'
+      parameters:
+        - { name: slug, in: path, required: true, schema: { type: string } }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [title, body]
+              properties:
+                title: { type: string }
+                body: { type: string }
+      responses:
+        '201': { description: Created (may be pending review) }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+        '409': { $ref: '#/components/responses/Error' }
+        '422': { $ref: '#/components/responses/Error' }
+        '429': { $ref: '#/components/responses/Error' }
+  /v1/forum/threads/{id}:
+    get:
+      tags: [forums]
+      security: [{ bearer: [] }]
+      summary: 'A thread and its posts, oldest first. Hidden or removed posts come back as placeholders.'
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: string, format: uuid } }
+        - { name: after, in: query, required: false, schema: { type: string } }
+        - { name: limit, in: query, required: false, schema: { type: integer } }
+      responses:
+        '200': { description: OK }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+        '409': { $ref: '#/components/responses/Error' }
+        '422': { $ref: '#/components/responses/Error' }
+        '429': { $ref: '#/components/responses/Error' }
+  /v1/forum/threads/{id}/posts:
+    post:
+      tags: [forums]
+      security: [{ bearer: [] }]
+      summary: 'Reply to a thread. Every post is labelled; members post as community opinion.'
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: string, format: uuid } }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [body]
+              properties:
+                body: { type: string }
+                replyTo: { type: string, format: uuid }
+      responses:
+        '201': { description: Created (may be pending review) }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+        '409': { $ref: '#/components/responses/Error' }
+        '422': { $ref: '#/components/responses/Error' }
+        '429': { $ref: '#/components/responses/Error' }
+  /v1/forum/posts/{id}:
+    patch:
+      tags: [forums]
+      security: [{ bearer: [] }]
+      summary: 'Edit my post within 15 minutes. Edits in reviewed categories are reviewed again.'
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: string, format: uuid } }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [body]
+              properties:
+                body: { type: string }
+      responses:
+        '200': { description: OK }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+        '409': { $ref: '#/components/responses/Error' }
+        '422': { $ref: '#/components/responses/Error' }
+        '429': { $ref: '#/components/responses/Error' }
+    delete:
+      tags: [forums]
+      security: [{ bearer: [] }]
+      summary: 'Delete my post (the opening post removes the thread).'
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: string, format: uuid } }
+      responses:
+        '204': { description: Removed }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+        '409': { $ref: '#/components/responses/Error' }
+        '422': { $ref: '#/components/responses/Error' }
+        '429': { $ref: '#/components/responses/Error' }
+  /v1/forum/posts/{id}/helpful:
+    put:
+      tags: [forums]
+      security: [{ bearer: [] }]
+      summary: 'Mark a post helpful. One gentle reaction; the count is shown only to the author.'
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: string, format: uuid } }
+      responses:
+        '204': { description: Marked }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+        '409': { $ref: '#/components/responses/Error' }
+        '422': { $ref: '#/components/responses/Error' }
+        '429': { $ref: '#/components/responses/Error' }
+    delete:
+      tags: [forums]
+      security: [{ bearer: [] }]
+      summary: 'Remove my helpful mark.'
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: string, format: uuid } }
+      responses:
+        '204': { description: Removed }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+        '409': { $ref: '#/components/responses/Error' }
+        '422': { $ref: '#/components/responses/Error' }
+        '429': { $ref: '#/components/responses/Error' }
+  /v1/reports:
+    post:
+      tags: [safety]
+      security: [{ bearer: [] }]
+      summary: 'Report a post, thread, profile or meet-up. Three independent reports (or one child-safety report) hide it until a person reviews it.'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [targetType, targetId, reason]
+              properties:
+                targetType: { type: string }
+                targetId: { type: string, format: uuid }
+                reason: { type: string }
+                details: { type: string }
+      responses:
+        '201': { description: Received (200 if already reported) }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+        '409': { $ref: '#/components/responses/Error' }
+        '429': { $ref: '#/components/responses/Error' }
+  /v1/hidden:
+    post:
+      tags: [safety]
+      security: [{ bearer: [] }]
+      summary: 'Hide a post, thread or meet-up for myself.'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [targetType, targetId]
+              properties:
+                targetType: { type: string }
+                targetId: { type: string, format: uuid }
+      responses:
+        '204': { description: Hidden }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+        '409': { $ref: '#/components/responses/Error' }
+        '422': { $ref: '#/components/responses/Error' }
+        '429': { $ref: '#/components/responses/Error' }
+  /v1/hidden/{targetType}/{targetId}:
+    delete:
+      tags: [safety]
+      security: [{ bearer: [] }]
+      summary: 'Show something I hid again.'
+      parameters:
+        - { name: targetType, in: path, required: true, schema: { type: string } }
+        - { name: targetId, in: path, required: true, schema: { type: string, format: uuid } }
+      responses:
+        '204': { description: Shown }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+        '409': { $ref: '#/components/responses/Error' }
+        '422': { $ref: '#/components/responses/Error' }
+        '429': { $ref: '#/components/responses/Error' }
+  /v1/mod/queue:
+    get:
+      tags: [moderation]
+      security: [{ bearer: [] }]
+      summary: 'Moderator queue: grouped reports (highest priority first) and content waiting for review.'
+      parameters:
+        - { name: limit, in: query, required: false, schema: { type: integer } }
+      responses:
+        '200': { description: OK }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+  /v1/mod/actions:
+    post:
+      tags: [moderation]
+      security: [{ bearer: [] }]
+      summary: 'Moderator action with a reason the person can read: hide, restore, remove, lock, warn, mute, suspend, ban, unban.'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [action, reason]
+              properties:
+                action: { type: string }
+                targetType: { type: string }
+                targetId: { type: string, format: uuid }
+                userId: { type: string, format: uuid }
+                reason: { type: string }
+                reportId: { type: string, format: uuid }
+                strikePoints: { type: integer }
+                durationDays: { type: integer }
+                indefinite: { type: boolean }
+      responses:
+        '201': { description: Done }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+        '409': { $ref: '#/components/responses/Error' }
+        '422': { $ref: '#/components/responses/Error' }
+  /v1/mod/queue/dismiss:
+    post:
+      tags: [moderation]
+      security: [{ bearer: [] }]
+      summary: 'Dismiss the open reports on a target (restores it if only an automatic hide had hidden it).'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [targetType, targetId]
+              properties:
+                targetType: { type: string }
+                targetId: { type: string, format: uuid }
+                note: { type: string }
+      responses:
+        '204': { description: Dismissed }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+  /v1/mod/review/{type}/{id}/approve:
+    post:
+      tags: [moderation]
+      security: [{ bearer: [] }]
+      summary: 'Approve a thread, post or meet-up waiting for review. Not your own.'
+      parameters:
+        - { name: type, in: path, required: true, schema: { type: string } }
+        - { name: id, in: path, required: true, schema: { type: string, format: uuid } }
+      responses:
+        '204': { description: Approved }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+        '409': { $ref: '#/components/responses/Error' }
+  /v1/mod/review/{type}/{id}/reject:
+    post:
+      tags: [moderation]
+      security: [{ bearer: [] }]
+      summary: 'Reject content waiting for review, with a reason the author can read.'
+      parameters:
+        - { name: type, in: path, required: true, schema: { type: string } }
+        - { name: id, in: path, required: true, schema: { type: string, format: uuid } }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [reason]
+              properties:
+                reason: { type: string }
+                strikePoints: { type: integer }
+      responses:
+        '204': { description: Rejected }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+        '409': { $ref: '#/components/responses/Error' }
+        '422': { $ref: '#/components/responses/Error' }
+  /v1/me/moderation:
+    get:
+      tags: [moderation]
+      security: [{ bearer: [] }]
+      summary: 'What moderators did about me, my strike points, active limits and appeals. Works for suspended accounts.'
+      responses:
+        '200': { description: OK }
+        '401': { $ref: '#/components/responses/Error' }
+  /v1/appeals:
+    post:
+      tags: [moderation]
+      security: [{ bearer: [] }]
+      summary: 'Appeal a moderation action about me (one per action, within 30 days). Works for suspended accounts.'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [actionId, statement]
+              properties:
+                actionId: { type: string, format: uuid }
+                statement: { type: string }
+      responses:
+        '201': { description: Appeal filed }
+        '401': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+        '409': { $ref: '#/components/responses/Error' }
+        '422': { $ref: '#/components/responses/Error' }
+        '429': { $ref: '#/components/responses/Error' }
+  /v1/mod/appeals:
+    get:
+      tags: [moderation]
+      security: [{ bearer: [] }]
+      summary: 'Open appeals.'
+      parameters:
+        - { name: limit, in: query, required: false, schema: { type: integer } }
+      responses:
+        '200': { description: OK }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+  /v1/mod/appeals/{id}/decide:
+    post:
+      tags: [moderation]
+      security: [{ bearer: [] }]
+      summary: 'Decide an appeal. A different moderator than the one who acted; bans and suspensions only by an admin.'
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: string, format: uuid } }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [decision, note]
+              properties:
+                decision: { type: string }
+                note: { type: string }
+      responses:
+        '204': { description: Decided }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+        '409': { $ref: '#/components/responses/Error' }
+        '422': { $ref: '#/components/responses/Error' }
+  /v1/me/credentials:
+    get:
+      tags: [moderation]
+      security: [{ bearer: [] }]
+      summary: 'My scholar, organiser and moderator applications and their state.'
+      responses:
+        '200': { description: OK }
+        '401': { $ref: '#/components/responses/Error' }
+  /v1/credentials:
+    post:
+      tags: [moderation]
+      security: [{ bearer: [] }]
+      summary: 'Apply for a scholar, organiser or trusted-moderator credential (verified by a human admin).'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [kind, orgName, evidenceNote]
+              properties:
+                kind: { type: string }
+                orgName: { type: string }
+                evidenceNote: { type: string }
+      responses:
+        '201': { description: Application received }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '409': { $ref: '#/components/responses/Error' }
+        '422': { $ref: '#/components/responses/Error' }
+        '429': { $ref: '#/components/responses/Error' }
+  /v1/mod/credentials:
+    get:
+      tags: [moderation]
+      security: [{ bearer: [] }]
+      summary: 'Credential applications waiting for verification.'
+      parameters:
+        - { name: limit, in: query, required: false, schema: { type: integer } }
+      responses:
+        '200': { description: OK }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+  /v1/mod/credentials/{id}/verify:
+    post:
+      tags: [moderation]
+      security: [{ bearer: [] }]
+      summary: 'Admin verifies a credential (trusted_moderator also grants the moderator role).'
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: string, format: uuid } }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                expiresInDays: { type: integer }
+                note: { type: string }
+      responses:
+        '204': { description: Verified }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+        '409': { $ref: '#/components/responses/Error' }
+  /v1/mod/credentials/{id}/revoke:
+    post:
+      tags: [moderation]
+      security: [{ bearer: [] }]
+      summary: 'Admin revokes a credential.'
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: string, format: uuid } }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [reason]
+              properties:
+                reason: { type: string }
+      responses:
+        '204': { description: Revoked }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+        '422': { $ref: '#/components/responses/Error' }
+  /v1/admin/filters:
+    get:
+      tags: [moderation]
+      security: [{ bearer: [] }]
+      summary: 'Content filters added by admins.'
+      responses:
+        '200': { description: OK }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+    post:
+      tags: [moderation]
+      security: [{ bearer: [] }]
+      summary: 'Add a block-word, review-word, blocked-link or allowed-domain filter (plain text, never a regular expression).'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [kind, pattern]
+              properties:
+                kind: { type: string }
+                pattern: { type: string }
+                note: { type: string }
+      responses:
+        '201': { description: Added }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '422': { $ref: '#/components/responses/Error' }
+  /v1/admin/filters/{id}:
+    delete:
+      tags: [moderation]
+      security: [{ bearer: [] }]
+      summary: 'Turn a filter off.'
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: string, format: uuid } }
+      responses:
+        '204': { description: Removed }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+  /v1/admin/audit:
+    get:
+      tags: [moderation]
+      security: [{ bearer: [] }]
+      summary: 'The append-only audit log (ids only), newest first.'
+      parameters:
+        - { name: limit, in: query, required: false, schema: { type: integer } }
+        - { name: before, in: query, required: false, schema: { type: string } }
+        - { name: action, in: query, required: false, schema: { type: string } }
+      responses:
+        '200': { description: OK }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+  /v1/meetups:
+    get:
+      tags: [meetups]
+      security: [{ bearer: [] }]
+      summary: 'Published upcoming meet-ups (public venues only).'
+      parameters:
+        - { name: city, in: query, required: false, schema: { type: string } }
+        - { name: country, in: query, required: false, schema: { type: string } }
+        - { name: audience, in: query, required: false, schema: { type: string } }
+        - { name: after, in: query, required: false, schema: { type: string } }
+        - { name: limit, in: query, required: false, schema: { type: integer } }
+      responses:
+        '200': { description: OK }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+        '409': { $ref: '#/components/responses/Error' }
+        '422': { $ref: '#/components/responses/Error' }
+        '429': { $ref: '#/components/responses/Error' }
+    post:
+      tags: [meetups]
+      security: [{ bearer: [] }]
+      summary: 'Create a meet-up (adults; public venue; a cafe must be confirmed halal). Published at once only for a verified organiser; otherwise it waits for review.'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [title, venueKind, venueName, city, country, startsAt, audience, minorsPolicy, acknowledgeOrganiserRules]
+              properties:
+                title: { type: string }
+                venueKind: { type: string }
+                venueName: { type: string }
+                city: { type: string }
+                country: { type: string }
+                startsAt: { type: string, format: date-time }
+                audience: { type: string }
+                minorsPolicy: { type: string }
+                acknowledgeOrganiserRules: { type: boolean }
+      responses:
+        '201': { description: Created }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '409': { $ref: '#/components/responses/Error' }
+        '422': { $ref: '#/components/responses/Error' }
+        '429': { $ref: '#/components/responses/Error' }
+  /v1/meetups/mine:
+    get:
+      tags: [meetups]
+      security: [{ bearer: [] }]
+      summary: 'Meet-ups I organise or have signed up for.'
+      responses:
+        '200': { description: OK }
+        '401': { $ref: '#/components/responses/Error' }
+  /v1/meetups/reminders:
+    get:
+      tags: [meetups]
+      security: [{ bearer: [] }]
+      summary: 'Upcoming meet-ups I am going to in the next 7 days, with reminder times.'
+      responses:
+        '200': { description: OK }
+        '401': { $ref: '#/components/responses/Error' }
+  /v1/meetups/{id}:
+    get:
+      tags: [meetups]
+      security: [{ bearer: [] }]
+      summary: 'One meet-up. The organiser also sees adult attendee names and a count of children; nobody sees a child name.'
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: string, format: uuid } }
+      responses:
+        '200': { description: OK }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+        '409': { $ref: '#/components/responses/Error' }
+        '422': { $ref: '#/components/responses/Error' }
+        '429': { $ref: '#/components/responses/Error' }
+    patch:
+      tags: [meetups]
+      security: [{ bearer: [] }]
+      summary: 'Edit my meet-up. Changes to an unverified organiser''s published meet-up send it back for review.'
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: string, format: uuid } }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title: { type: string }
+                startsAt: { type: string, format: date-time }
+                capacity: { type: integer }
+      responses:
+        '200': { description: OK }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+        '409': { $ref: '#/components/responses/Error' }
+        '422': { $ref: '#/components/responses/Error' }
+        '429': { $ref: '#/components/responses/Error' }
+  /v1/meetups/{id}/cancel:
+    post:
+      tags: [meetups]
+      security: [{ bearer: [] }]
+      summary: 'Cancel my meet-up (or the rest of its series). Attendees are notified.'
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: string, format: uuid } }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [reason]
+              properties:
+                reason: { type: string }
+                scope: { type: string }
+      responses:
+        '204': { description: Cancelled }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+        '409': { $ref: '#/components/responses/Error' }
+        '422': { $ref: '#/components/responses/Error' }
+  /v1/meetups/{id}/rsvp:
+    put:
+      tags: [meetups]
+      security: [{ bearer: [] }]
+      summary: 'Sign up (or join the waiting list when full). A guardian can add a child profile only where the organiser allows it.'
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: string, format: uuid } }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [acknowledge]
+              properties:
+                acknowledge: { type: boolean }
+                childProfileId: { type: string, format: uuid }
+      responses:
+        '200': { description: OK }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+        '409': { $ref: '#/components/responses/Error' }
+        '422': { $ref: '#/components/responses/Error' }
+        '429': { $ref: '#/components/responses/Error' }
+    delete:
+      tags: [meetups]
+      security: [{ bearer: [] }]
+      summary: 'Cancel my sign-up (and my children''s). The next person on the waiting list moves up.'
+      parameters:
+        - { name: id, in: path, required: true, schema: { type: string, format: uuid } }
+        - { name: childProfileId, in: query, required: false, schema: { type: string, format: uuid } }
+      responses:
+        '204': { description: Cancelled }
+        '401': { $ref: '#/components/responses/Error' }
+        '404': { $ref: '#/components/responses/Error' }
+  /v1/notifications:
+    get:
+      tags: [notifications]
+      security: [{ bearer: [] }]
+      summary: 'Poll my notifications (short codes and ids only). Use ?after= with the last createdAt for new ones.'
+      parameters:
+        - { name: after, in: query, required: false, schema: { type: string } }
+        - { name: limit, in: query, required: false, schema: { type: integer } }
+        - { name: unreadOnly, in: query, required: false, schema: { type: string } }
+      responses:
+        '200': { description: OK }
+        '401': { $ref: '#/components/responses/Error' }
+        '429': { $ref: '#/components/responses/Error' }
+  /v1/notifications/read:
+    post:
+      tags: [notifications]
+      security: [{ bearer: [] }]
+      summary: 'Mark notifications read (ids, or all).'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ids: { type: array, items: { type: string, format: uuid } }
+                all: { type: boolean }
+      responses:
+        '204': { description: Marked }
+        '401': { $ref: '#/components/responses/Error' }
         '429': { $ref: '#/components/responses/Error' }
 components:
   securitySchemes:

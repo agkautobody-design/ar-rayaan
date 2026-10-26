@@ -1,10 +1,38 @@
 import type { FastifyReply, FastifyRequest, preHandlerAsyncHookHandler } from 'fastify';
 import type { Deps } from './context.js';
+import type { Queryable } from './db.js';
 import { forbidden, tooMany, unauthorized } from './errors.js';
 import { hashToken, SESSION_TOKEN_PREFIX } from './security.js';
 
-/** Requires a valid bearer token; fills request.auth. */
-export function requireAuth(deps: Deps): preHandlerAsyncHookHandler {
+/**
+ * Lifts a suspension that had an end time which has now passed and that no
+ * other sanction keeps in force. A suspension set by hand (no sanction row)
+ * stays until a person lifts it. Returns true when the account is active again.
+ */
+export async function liftExpiredSuspension(q: Queryable, userId: string, now: Date): Promise<boolean> {
+  const s = await q.query<{ active: string; ended: string }>(
+    `select count(*) filter (where lifted_at is null and starts_at <= $2
+                               and (ends_at is null or ends_at > $2))::text as active,
+            count(*) filter (where kind = 'suspend' and lifted_at is null
+                               and ends_at is not null and ends_at <= $2)::text as ended
+       from sanctions where user_id = $1 and kind in ('suspend', 'ban')`,
+    [userId, now],
+  );
+  if (Number(s.rows[0]?.active ?? '0') !== 0 || Number(s.rows[0]?.ended ?? '0') === 0) return false;
+  await q.query(`update users set status = 'active' where id = $1 and status = 'suspended'`, [userId]);
+  return true;
+}
+
+/**
+ * Requires a valid bearer token; fills request.auth. A suspended or banned
+ * account is refused unless [allowRestricted] is set (only the routes a
+ * restricted person needs: see their notice and appeal). A suspension whose
+ * time has run out is lifted here, on the first request after it ends.
+ */
+export function requireAuth(
+  deps: Deps,
+  opts: { allowRestricted?: boolean } = {},
+): preHandlerAsyncHookHandler {
   return async (request: FastifyRequest) => {
     const header = request.headers.authorization;
     if (typeof header !== 'string' || !header.startsWith('Bearer ')) throw unauthorized();
@@ -26,7 +54,10 @@ export function requireAuth(deps: Deps): preHandlerAsyncHookHandler {
     );
     const row = r.rows[0];
     if (!row) throw unauthorized();
-    if (row.status !== 'active') {
+    if (row.status === 'suspended' && (await liftExpiredSuspension(deps.db, row.user_id, now))) {
+      row.status = 'active';
+    }
+    if (row.status !== 'active' && !(opts.allowRestricted && (row.status === 'suspended' || row.status === 'banned'))) {
       throw forbidden('account_restricted', 'This account cannot be used right now.');
     }
     // Touch at most once an hour: cheap, and enough to list "last used".

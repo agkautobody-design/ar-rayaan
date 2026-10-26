@@ -4,7 +4,7 @@ import { audit, type Deps } from './context.js';
 import { sqlState, UNIQUE_VIOLATION } from './db.js';
 import { ApiError, forbidden, notFound, tooMany, unauthorized, unprocessable } from './errors.js';
 import { FirebaseVerifier, TokenRejected } from './firebaseVerifier.js';
-import { limit, requireAuth } from './guards.js';
+import { limit, liftExpiredSuspension, requireAuth } from './guards.js';
 import {
   codeHash,
   emailHash,
@@ -99,7 +99,10 @@ export async function registerAuthRoutes(app: FastifyInstance, deps: Deps): Prom
         await o.refund?.();
         throw unprocessable('consent_outdated', 'Please read and accept the current Terms and Privacy Policy.');
       }
-    } else if (user.status === 'banned' || user.status === 'suspended') {
+    } else if (
+      (user.status === 'banned' || user.status === 'suspended') &&
+      !(user.status === 'suspended' && (await liftExpiredSuspension(db, user.id, now)))
+    ) {
       throw forbidden('account_restricted', 'This account cannot be used right now.');
     }
 

@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import '../../../features/majlis/domain/majlis_policy.dart';
+import 'backend_config.dart';
 import 'backend_exception.dart';
 import 'community_api.dart';
 import 'models.dart';
@@ -22,7 +23,9 @@ import 'models.dart';
 class FakeCommunityApi implements CommunityApi {
   FakeCommunityApi({DateTime Function()? clock, Random? random})
     : _now = clock ?? DateTime.now,
-      _random = random ?? Random(7);
+      _random = random ?? Random(7) {
+    _seedCommunity();
+  }
 
   /// The code every sign-in accepts.
   static const String fixedCode = '000000';
@@ -41,6 +44,22 @@ class FakeCommunityApi implements CommunityApi {
   final Map<String, _Invite> _invites = <String, _Invite>{}; // by code
   final Set<String> _codesRequested = <String>{};
   String? _me; // signed-in user id
+
+  // ---- community phase 2 state ---------------------------------------------
+  final Set<String> _acceptedRules = <String>{}; // user ids
+  final Set<String> _scholars = <String>{}; // user ids
+  final Set<String> _organisers = <String>{}; // user ids (verified)
+  final List<_Category> _categories = <_Category>[];
+  final List<_Thread> _threads = <_Thread>[];
+  final List<_Post> _posts = <_Post>[];
+  final Set<String> _helpful = <String>{}; // 'profileId|postId'
+  final Set<String> _hidden = <String>{}; // 'profileId|type|id'
+  final List<_Report> _reports = <_Report>[];
+  final List<_Meetup> _meetupList = <_Meetup>[];
+  final List<_Rsvp> _rsvps = <_Rsvp>[];
+  final List<_Note> _notes = <_Note>[];
+  final List<DateTime> _writeTimes = <DateTime>[];
+  final Map<String, _Sanction> _mutes = <String, _Sanction>{}; // by user id
 
   @override
   bool get enabled => true;
@@ -655,6 +674,1331 @@ class FakeCommunityApi implements CommunityApi {
           friendKind: creator.kind,
         );
       });
+
+  // ======================================================================
+  // Community phase 2: forums, meet-ups, notifications, moderation.
+  // Mirrors backend/src/{forums,meetups,reports,notifications}.ts closely
+  // enough that a screen behaves the same against the real service.
+  // ======================================================================
+
+  /// Test helper: this user may give scholar answers (a verified credential).
+  void makeScholar(String userId) => _scholars.add(userId);
+
+  /// Test helper: this user is a verified organiser (publishes at once).
+  void makeVerifiedOrganiser(String userId) => _organisers.add(userId);
+
+  /// Test helper: the signed-in user's id.
+  String? get signedInUserId => _me;
+
+  /// Test helper: mutes a user until [until] (null = until lifted).
+  void muteUser(String userId, {DateTime? until}) =>
+      _mutes[userId] = _Sanction(until);
+
+  /// Test helper: a moderator approves a held post or thread.
+  void approvePending(String id) {
+    for (final _Post p in _posts) {
+      if (p.id == id || p.threadId == id) {
+        if (p.status == 'pending_review') p.status = 'visible';
+      }
+    }
+    for (final _Thread t in _threads) {
+      if (t.id == id && t.status == 'pending_review') t.status = 'open';
+    }
+    for (final _Meetup m in _meetupList) {
+      if (m.id == id && m.status == 'pending_review') m.status = 'published';
+    }
+  }
+
+  /// Reports filed so far, for tests.
+  List<({String type, String id, ReportReason reason})> get filedReports =>
+      _reports
+          .map(
+            (_Report r) => (type: r.type, id: r.targetId, reason: r.reason),
+          )
+          .toList();
+
+  void _seedCommunity() {
+    void cat(
+      String slug,
+      String title,
+      String description,
+      ForumCategoryKind kind, {
+      String post = 'member',
+      String reply = 'member',
+      bool strict = false,
+      String note = '',
+    }) {
+      _categories.add(
+        _Category(
+          id: 'cat-$slug',
+          slug: slug,
+          title: title,
+          description: description,
+          kind: kind,
+          whoCanPost: post,
+          whoCanReply: reply,
+          strict: strict,
+          note: note,
+        ),
+      );
+    }
+    cat(
+      'welcome',
+      'Welcome and introductions',
+      'Say salam and introduce yourself. Be kind to people who are new.',
+      ForumCategoryKind.general,
+      note: 'Introductions only. Do not share contact details or where you live.',
+    );
+    cat(
+      'learning',
+      'Learning together',
+      'Study questions and tips shared as fellow learners.',
+      ForumCategoryKind.learning,
+      note:
+          'Replies here are community opinion, not rulings. Questions that '
+          'need a ruling belong in Ask a scholar.',
+    );
+    cat(
+      'daily-life',
+      'Daily life and family',
+      'Everyday life, family, work and community, with adab.',
+      ForumCategoryKind.family,
+      note: 'No private information about other people. No photos.',
+    );
+    cat(
+      'ask-scholar',
+      'Ask a scholar',
+      'Ask a question. Only verified scholars answer here, and their '
+          'answers are labelled.',
+      ForumCategoryKind.askScholar,
+      reply: 'scholar',
+      strict: true,
+      note:
+          'Every question is read by a moderator before it appears. '
+          'Community members do not answer here.',
+    );
+    cat(
+      'wellbeing',
+      'Wellbeing and support',
+      'Gentle support for the heart and mind. Support, not diagnosis.',
+      ForumCategoryKind.wellbeing,
+      note:
+          'If you are in danger, contact local emergency services or a '
+          'crisis line now.',
+    );
+    cat(
+      'announcements',
+      'Announcements',
+      'News from the Ar-Rayaan team.',
+      ForumCategoryKind.announcements,
+      post: 'moderator',
+      reply: 'moderator',
+      note: 'Staff only.',
+    );
+    cat(
+      'sensitive',
+      'Sensitive topics',
+      'Differences between schools of thought and other delicate subjects, '
+          'discussed with respect. Every post is reviewed before it appears.',
+      ForumCategoryKind.sensitive,
+      strict: true,
+      note:
+          'No takfir (declaring others out of the faith), no fatwa-giving, '
+          'no insults. Posts that break this are removed.',
+    );
+
+    // A little sample data so a developer can click through. It is plain
+    // development text and is never shown by a build without the fake.
+    final String hostProfile = seedAdult(
+      'Yusuf (sample)',
+      handle: 'yusuf_sample',
+      visibility: ProfileVisibility.community,
+    );
+    final String hostUser = _profiles[hostProfile]!.userId!;
+    final _Thread t = _Thread(
+      id: _id('thread'),
+      categoryId: 'cat-welcome',
+      authorProfileId: hostProfile,
+      title: 'Salam, welcome (sample thread)',
+      createdAt: _now(),
+    );
+    _threads.add(t);
+    _posts.add(
+      _Post(
+        id: _id('post'),
+        threadId: t.id,
+        authorProfileId: hostProfile,
+        body: 'Sample post for development. Say salam and introduce yourself.',
+        label: ForumLabel.communityOpinion,
+        createdAt: _now(),
+      ),
+    );
+    _organisers.add(hostUser);
+    _meetupList.add(
+      _Meetup(
+        id: _id('meetup'),
+        organiserProfileId: hostProfile,
+        title: 'Community tea after Jumu’ah (sample)',
+        description: 'A sample meet-up for development.',
+        venueKind: MeetupVenueKind.communityCentre,
+        venueName: 'Sample Community Centre',
+        city: 'Leicester',
+        country: 'GB',
+        startsAt: _now().add(const Duration(days: 3)),
+        audience: MeetupAudience.open,
+        minorsPolicy: false,
+        capacity: 20,
+        halal: false,
+        status: 'published',
+      ),
+    );
+  }
+
+  _Profile _writer() {
+    final _Profile p = _acting(null);
+    if (p.visibility != ProfileVisibility.community) {
+      _fail(
+        'community_visibility_required',
+        'To take part, choose “Visible in the community” in your '
+            'profile. Your display name will be shown.',
+        403,
+      );
+    }
+    if (!_acceptedRules.contains(p.userId)) {
+      _fail(
+        'rules_not_accepted',
+        'Please read and accept the community rules first.',
+        403,
+      );
+    }
+    final _Sanction? m = _mutes[p.userId];
+    if (m != null && (m.until == null || m.until!.isAfter(_now()))) {
+      _fail('muted', 'You cannot post right now.', 403);
+    }
+    return p;
+  }
+
+  void _burst() {
+    final DateTime cutoff = _now().subtract(const Duration(seconds: 60));
+    _writeTimes.removeWhere((DateTime t) => t.isBefore(cutoff));
+    if (_writeTimes.length >= 3) {
+      _fail('too_many_requests', 'Please slow down a little.', 429);
+    }
+    _writeTimes.add(_now());
+  }
+
+  static final RegExp _linkRe = RegExp(
+    r'(https?://|www\.|\b[a-z0-9-]+\.(com|net|org|io|me|co)\b)',
+    caseSensitive: false,
+  );
+  static final RegExp _homeRe = RegExp(
+    r'(come to my (house|home|flat)|my (home|house) address|at my (house|home|flat)\b)',
+    caseSensitive: false,
+  );
+  // A tiny stand-in for the server's lists (which a scholar must review).
+  static final RegExp _takfirRe = RegExp(
+    r'\b(takfir|kafir|kuffar|murtad)\b',
+    caseSensitive: false,
+  );
+
+  void _screen(Iterable<String> texts) {
+    for (final String t in texts) {
+      if (_linkRe.hasMatch(t)) {
+        _fail('content_blocked', 'That link cannot be shared here.', 422);
+      }
+      if (_homeRe.hasMatch(t)) {
+        _fail(
+          'content_blocked',
+          'Meet-ups and conversations happen in public places, never at '
+              'someone’s home.',
+          422,
+        );
+      }
+      if (_takfirRe.hasMatch(t)) {
+        _fail('content_blocked', 'That wording is not allowed here.', 422);
+      }
+    }
+  }
+
+  bool _standing(String need, _Profile p) {
+    switch (need) {
+      case 'scholar':
+        return _scholars.contains(p.userId);
+      case 'moderator':
+        return false; // the fake has no staff role
+      default:
+        return true;
+    }
+  }
+
+  ForumCategory _categoryView(_Category c, _Profile? me) => ForumCategory(
+    id: c.id,
+    slug: c.slug,
+    title: c.title,
+    description: c.description,
+    rulesNote: c.note,
+    kind: c.kind,
+    strictModeration: c.strict,
+    canStart: me != null && _standing(c.whoCanPost, me),
+    canReply: me != null && _standing(c.whoCanReply, me),
+    threadCount: _threads
+        .where(
+          (_Thread t) =>
+              t.categoryId == c.id &&
+              (t.status == 'open' || t.status == 'locked'),
+        )
+        .length,
+  );
+
+  bool _hiddenFor(String profileId, String type, String id) =>
+      _hidden.contains('$profileId|$type|$id');
+
+  ForumThread _threadView(_Thread t, String? meId) {
+    final int count = _posts
+        .where((_Post p) => p.threadId == t.id && p.status == 'visible')
+        .length;
+    final _Category c = _categories.firstWhere(
+      (_Category x) => x.id == t.categoryId,
+    );
+    final DateTime last = _posts
+        .where((_Post p) => p.threadId == t.id && p.status == 'visible')
+        .fold<DateTime>(
+          t.createdAt,
+          (DateTime a, _Post p) => p.createdAt.isAfter(a) ? p.createdAt : a,
+        );
+    return ForumThread(
+      id: t.id,
+      categoryId: t.categoryId,
+      categorySlug: c.slug,
+      title: t.title,
+      authorName: _profiles[t.authorProfileId]?.displayName ?? '',
+      authorProfileId: t.authorProfileId,
+      postCount: count,
+      createdAt: t.createdAt,
+      lastPostAt: last,
+      pinned: t.pinned,
+      locked: t.status == 'locked',
+      pendingReview: t.status == 'pending_review',
+      answered: _posts.any(
+        (_Post p) =>
+            p.threadId == t.id &&
+            p.label == ForumLabel.scholarAnswer &&
+            p.status == 'visible',
+      ),
+      mine: meId != null && t.authorProfileId == meId,
+    );
+  }
+
+  ForumPost _postView(_Post p, _Profile me) {
+    final bool mine = p.authorProfileId == me.id;
+    final bool gone =
+        _blockedEitherWay(me.id, p.authorProfileId) ||
+        _hiddenFor(me.id, 'post', p.id);
+    if (gone) {
+      return ForumPost(
+        id: p.id,
+        threadId: p.threadId,
+        label: p.label,
+        createdAt: p.createdAt,
+        status: 'hidden_by_you',
+        replyTo: p.replyTo,
+        mine: mine,
+      );
+    }
+    if (!mine && (p.status == 'hidden' || p.status == 'removed')) {
+      return ForumPost(
+        id: p.id,
+        threadId: p.threadId,
+        label: p.label,
+        createdAt: p.createdAt,
+        status: p.status,
+        replyTo: p.replyTo,
+      );
+    }
+    final int n = _helpful.where((String h) => h.endsWith('|${p.id}')).length;
+    return ForumPost(
+      id: p.id,
+      threadId: p.threadId,
+      replyTo: p.replyTo,
+      authorName: _profiles[p.authorProfileId]?.displayName ?? '',
+      authorProfileId: p.authorProfileId,
+      body: p.body,
+      label: p.label,
+      status: p.status,
+      createdAt: p.createdAt,
+      editedAt: p.editedAt,
+      helpfulByMe: _helpful.contains('${me.id}|${p.id}'),
+      helpfulCount: mine ? n : null,
+      scholarOrg: p.label == ForumLabel.scholarAnswer
+          ? 'Verified scholar'
+          : null,
+      mine: mine,
+    );
+  }
+
+  void _note(String userId, String kind, Map<String, dynamic> payload) {
+    _notes.add(
+      _Note(
+        id: _id('note'),
+        userId: userId,
+        kind: kind,
+        payload: payload,
+        createdAt: _now(),
+      ),
+    );
+  }
+
+  // ---- community rules ----------------------------------------------------
+  @override
+  Future<CommunityRulesStatus> communityRules() => _async(() {
+    final _Account a = _account;
+    final _Profile? p = _ownAdult(a.id);
+    final _Sanction? m = _mutes[a.id];
+    final bool muted = m != null && (m.until == null || m.until!.isAfter(_now()));
+    return CommunityRulesStatus(
+      version: kCommunityRulesVersion,
+      accepted: _acceptedRules.contains(a.id),
+      hasProfile: p != null,
+      communityVisible: p?.visibility == ProfileVisibility.community,
+      mutedUntil: muted ? (m.until?.toUtc().toIso8601String() ?? 'indefinite') : null,
+    );
+  });
+
+  @override
+  Future<void> acceptCommunityRules(String version) => _async(() {
+    final _Account a = _account;
+    if (version != kCommunityRulesVersion) {
+      _fail('rules_outdated', 'Please read the current community rules.', 422);
+    }
+    if (_ownAdult(a.id) == null) {
+      _fail('profile_required', 'Create your profile first.', 403);
+    }
+    _acceptedRules.add(a.id);
+  });
+
+  // ---- forums ----------------------------------------------------------------
+  @override
+  Future<List<ForumCategory>> forumCategories() => _async(() {
+    final _Profile? me = _ownAdult(_account.id);
+    return _categories.map((_Category c) => _categoryView(c, me)).toList();
+  });
+
+  @override
+  Future<ThreadList> forumThreads(String slug, {DateTime? before}) =>
+      _async(() {
+        final _Profile me = _acting(null);
+        final _Category c = _categories.firstWhere(
+          (_Category x) => x.slug == slug,
+          orElse: () => _fail('not_found', 'Not found.', 404),
+        );
+        final List<ForumThread> out =
+            _threads
+                .where(
+                  (_Thread t) =>
+                      t.categoryId == c.id &&
+                      (t.status == 'open' ||
+                          t.status == 'locked' ||
+                          (t.status == 'pending_review' &&
+                              t.authorProfileId == me.id)) &&
+                      !_blockedEitherWay(me.id, t.authorProfileId) &&
+                      !_hiddenFor(me.id, 'thread', t.id),
+                )
+                .map((_Thread t) => _threadView(t, me.id))
+                .where(
+                  (ForumThread t) =>
+                      before == null || t.pinned || t.lastPostAt.isBefore(before),
+                )
+                .toList()
+              ..sort((ForumThread a, ForumThread b) {
+                if (a.pinned != b.pinned) return a.pinned ? -1 : 1;
+                return b.lastPostAt.compareTo(a.lastPostAt);
+              });
+        return ThreadList(threads: out, hasMore: false);
+      });
+
+  _Thread _visibleThread(String id, _Profile me) {
+    final _Thread t = _threads.firstWhere(
+      (_Thread x) => x.id == id,
+      orElse: () => _fail('not_found', 'Not found.', 404),
+    );
+    final bool ok =
+        (t.status == 'open' || t.status == 'locked') &&
+            !_blockedEitherWay(me.id, t.authorProfileId) ||
+        (t.status == 'pending_review' && t.authorProfileId == me.id);
+    if (!ok) _fail('not_found', 'Not found.', 404);
+    return t;
+  }
+
+  @override
+  Future<ThreadView> forumThread(String threadId, {String? after}) => _async(() {
+    final _Profile me = _acting(null);
+    final _Thread t = _visibleThread(threadId, me);
+    final List<_Post> posts =
+        _posts
+            .where(
+              (_Post p) =>
+                  p.threadId == t.id &&
+                  (p.status == 'visible' ||
+                      p.status == 'hidden' ||
+                      p.status == 'removed' ||
+                      (p.status == 'pending_review' &&
+                          p.authorProfileId == me.id)),
+            )
+            .toList()
+          ..sort((_Post a, _Post b) => a.createdAt.compareTo(b.createdAt));
+    return ThreadView(
+      thread: _threadView(t, me.id),
+      posts: posts.map((_Post p) => _postView(p, me)).toList(),
+      hasMore: false,
+    );
+  });
+
+  @override
+  Future<SubmitResult> startThread({
+    required String slug,
+    required String title,
+    required String body,
+  }) => _async(() {
+    final _Profile me = _writer();
+    final String t = title.trim();
+    final String b = body.trim();
+    if (t.length < 4 || t.length > 140 || b.isEmpty || b.length > 4000) {
+      _fail('validation_failed', 'Some fields are missing or not valid.', 400);
+    }
+    _burst();
+    final _Category c = _categories.firstWhere(
+      (_Category x) => x.slug == slug,
+      orElse: () => _fail('not_found', 'Not found.', 404),
+    );
+    if (!_standing(c.whoCanPost, me)) {
+      _fail('not_allowed_here', 'You cannot start a thread in this category.', 403);
+    }
+    _screen(<String>[t, b]);
+    final bool pending = c.strict;
+    final _Thread th = _Thread(
+      id: _id('thread'),
+      categoryId: c.id,
+      authorProfileId: me.id,
+      title: t,
+      createdAt: _now(),
+      status: pending ? 'pending_review' : 'open',
+    );
+    _threads.add(th);
+    final _Post p = _Post(
+      id: _id('post'),
+      threadId: th.id,
+      authorProfileId: me.id,
+      body: b,
+      label: c.kind == ForumCategoryKind.askScholar
+          ? ForumLabel.question
+          : ForumLabel.communityOpinion,
+      createdAt: _now(),
+      status: pending ? 'pending_review' : 'visible',
+    );
+    _posts.add(p);
+    return SubmitResult(
+      threadId: th.id,
+      postId: p.id,
+      pendingReview: pending,
+      showHelp: false,
+    );
+  });
+
+  @override
+  Future<SubmitResult> replyToThread(
+    String threadId,
+    String body, {
+    String? replyTo,
+  }) => _async(() {
+    final _Profile me = _writer();
+    final String b = body.trim();
+    if (b.isEmpty || b.length > 4000) {
+      _fail('validation_failed', 'Some fields are missing or not valid.', 400);
+    }
+    _burst();
+    final _Thread t = _visibleThread(threadId, me);
+    if (t.status == 'locked') _fail('thread_locked', 'This thread is closed.');
+    final _Category c = _categories.firstWhere(
+      (_Category x) => x.id == t.categoryId,
+    );
+    if (!_standing(c.whoCanReply, me)) {
+      _fail(
+        'not_allowed_here',
+        c.kind == ForumCategoryKind.askScholar
+            ? 'Only verified scholars answer in Ask a scholar.'
+            : 'You cannot reply in this category.',
+        403,
+      );
+    }
+    _screen(<String>[b]);
+    final bool scholar =
+        c.kind == ForumCategoryKind.askScholar && _scholars.contains(me.userId);
+    final bool pending = c.strict && !scholar;
+    final _Post p = _Post(
+      id: _id('post'),
+      threadId: t.id,
+      authorProfileId: me.id,
+      body: b,
+      label: scholar ? ForumLabel.scholarAnswer : ForumLabel.communityOpinion,
+      createdAt: _now(),
+      replyTo: replyTo,
+      status: pending ? 'pending_review' : 'visible',
+    );
+    _posts.add(p);
+    if (!pending && t.authorProfileId != me.id) {
+      final String? owner = _profiles[t.authorProfileId]?.userId;
+      if (owner != null) {
+        _note(owner, 'forum_reply', <String, dynamic>{'threadId': t.id, 'postId': p.id});
+      }
+    }
+    return SubmitResult(
+      threadId: t.id,
+      postId: p.id,
+      pendingReview: pending,
+      showHelp: false,
+    );
+  });
+
+  @override
+  Future<SubmitResult> editPost(String postId, String body) => _async(() {
+    final _Profile me = _writer();
+    final _Post p = _posts.firstWhere(
+      (_Post x) => x.id == postId && x.authorProfileId == me.id,
+      orElse: () => _fail('not_found', 'Not found.', 404),
+    );
+    if (_now().difference(p.createdAt) > const Duration(minutes: 15)) {
+      _fail('edit_window_closed', 'Posts can be edited for 15 minutes.');
+    }
+    final String b = body.trim();
+    if (b.isEmpty || b.length > 4000) {
+      _fail('validation_failed', 'Some fields are missing or not valid.', 400);
+    }
+    _screen(<String>[b]);
+    p
+      ..body = b
+      ..editedAt = _now();
+    final _Thread t = _threads.firstWhere((_Thread x) => x.id == p.threadId);
+    final _Category c = _categories.firstWhere(
+      (_Category x) => x.id == t.categoryId,
+    );
+    if (c.strict && p.label != ForumLabel.scholarAnswer) {
+      p.status = 'pending_review';
+    }
+    return SubmitResult(
+      threadId: p.threadId,
+      postId: p.id,
+      pendingReview: p.status == 'pending_review',
+      showHelp: false,
+    );
+  });
+
+  @override
+  Future<void> deletePost(String postId) => _async(() {
+    final _Profile me = _acting(null);
+    final _Post p = _posts.firstWhere(
+      (_Post x) => x.id == postId && x.authorProfileId == me.id,
+      orElse: () => _fail('not_found', 'Not found.', 404),
+    );
+    final _Post? first = _posts
+        .where((_Post x) => x.threadId == p.threadId)
+        .fold<_Post?>(
+          null,
+          (_Post? a, _Post x) =>
+              a == null || x.createdAt.isBefore(a.createdAt) ? x : a,
+        );
+    if (first?.id == p.id) {
+      _threads.removeWhere((_Thread t) => t.id == p.threadId);
+      _posts.removeWhere((_Post x) => x.threadId == p.threadId);
+    } else {
+      p
+        ..status = 'removed'
+        ..body = '';
+    }
+  });
+
+  @override
+  Future<void> setHelpful(String postId, {required bool helpful}) => _async(() {
+    final _Profile me = _acting(null);
+    final _Post p = _posts.firstWhere(
+      (_Post x) => x.id == postId && x.status == 'visible',
+      orElse: () => _fail('not_found', 'Not found.', 404),
+    );
+    if (p.authorProfileId == me.id) {
+      _fail('own_content', 'You cannot do that to your own content.');
+    }
+    if (helpful) {
+      _helpful.add('${me.id}|$postId');
+    } else {
+      _helpful.remove('${me.id}|$postId');
+    }
+  });
+
+  // ---- report, hide ---------------------------------------------------------------
+  @override
+  Future<void> report({
+    required CommunityTarget target,
+    required String targetId,
+    required ReportReason reason,
+    String? details,
+  }) => _async(() {
+    final _Profile me = _acting(null);
+    final String? owner = _ownerProfileOf(target, targetId);
+    if (owner == null) _fail('not_found', 'Not found.', 404);
+    if (owner == me.id) {
+      _fail('own_content', 'You cannot report your own content.');
+    }
+    final bool dup = _reports.any(
+      (_Report r) =>
+          r.reporter == me.id && r.type == target.name && r.targetId == targetId,
+    );
+    if (dup) return;
+    _reports.add(
+      _Report(me.id, target.name, targetId, reason),
+    );
+    // Hide-first: a child-safety report, or three independent reports,
+    // hides the content until a person reviews it.
+    final int n = _reports
+        .where((_Report r) => r.type == target.name && r.targetId == targetId)
+        .length;
+    if (reason == ReportReason.childSafety || n >= 3) {
+      for (final _Post p in _posts) {
+        if (target == CommunityTarget.post &&
+            p.id == targetId &&
+            p.status == 'visible') {
+          p.status = 'hidden';
+        }
+      }
+      for (final _Thread t in _threads) {
+        if (target == CommunityTarget.thread &&
+            t.id == targetId &&
+            t.status == 'open') {
+          t.status = 'hidden';
+        }
+      }
+      for (final _Meetup m in _meetupList) {
+        if (target == CommunityTarget.meetup &&
+            m.id == targetId &&
+            m.status == 'published') {
+          m.status = 'hidden';
+        }
+      }
+    }
+  });
+
+  String? _ownerProfileOf(CommunityTarget t, String id) {
+    switch (t) {
+      case CommunityTarget.post:
+        for (final _Post p in _posts) {
+          if (p.id == id) return p.authorProfileId;
+        }
+      case CommunityTarget.thread:
+        for (final _Thread x in _threads) {
+          if (x.id == id) return x.authorProfileId;
+        }
+      case CommunityTarget.meetup:
+        for (final _Meetup m in _meetupList) {
+          if (m.id == id) return m.organiserProfileId;
+        }
+      case CommunityTarget.profile:
+        final _Profile? p = _profiles[id];
+        if (p != null && !p.kind.isMinor) return p.id;
+    }
+    return null;
+  }
+
+  @override
+  Future<void> hideForMe(CommunityTarget target, String targetId) => _async(() {
+    final _Profile me = _acting(null);
+    if (target == CommunityTarget.profile) {
+      _fail('validation_failed', 'Block the person instead.', 400);
+    }
+    if (_ownerProfileOf(target, targetId) == null) {
+      _fail('not_found', 'Not found.', 404);
+    }
+    _hidden.add('${me.id}|${target.name}|$targetId');
+  });
+
+  @override
+  Future<void> showAgain(CommunityTarget target, String targetId) => _async(() {
+    final _Profile me = _acting(null);
+    _hidden.remove('${me.id}|${target.name}|$targetId');
+  });
+
+  // ---- meet-ups ----------------------------------------------------------------
+  int _going(_Meetup m) => _rsvps
+      .where((_Rsvp r) => r.meetupId == m.id && r.status == 'going')
+      .length;
+
+  Meetup _meetupView(_Meetup m, String? meId) {
+    final int going = _going(m);
+    final _Profile org = _profiles[m.organiserProfileId]!;
+    final bool verified = _organisers.contains(org.userId);
+    String? mine;
+    for (final _Rsvp r in _rsvps) {
+      if (r.meetupId == m.id && r.profileId == meId && r.status != 'cancelled') {
+        mine = r.status;
+      }
+    }
+    return Meetup(
+      id: m.id,
+      title: m.title,
+      description: m.description,
+      venueKind: m.venueKind,
+      venueName: m.venueName,
+      venueAddress: m.venueAddress,
+      city: m.city,
+      country: m.country,
+      startsAt: m.startsAt,
+      endsAt: m.endsAt,
+      audience: m.audience,
+      guardianRsvpForMinors: m.minorsPolicy,
+      capacity: m.capacity,
+      spotsLeft: m.capacity == null
+          ? null
+          : (m.capacity! - going).clamp(0, 1 << 30),
+      goingCount: going,
+      waitlistCount: _rsvps
+          .where((_Rsvp r) => r.meetupId == m.id && r.status == 'waitlist')
+          .length,
+      accessibilityNotes: m.accessibilityNotes,
+      halalConfirmed: m.halal,
+      status: m.status,
+      recurrence: m.recurrence,
+      cancelReason: m.cancelReason,
+      organiser: MeetupOrganiser(
+        profileId: org.id,
+        displayName: org.displayName,
+        verified: verified,
+        orgName: verified ? 'Verified organiser' : null,
+      ),
+      mine: meId != null && m.organiserProfileId == meId,
+      myRsvp: mine,
+    );
+  }
+
+  @override
+  Future<MeetupList> meetups({
+    String? city,
+    String? country,
+    MeetupAudience? audience,
+  }) => _async(() {
+    final _Profile me = _acting(null);
+    final List<Meetup> out =
+        _meetupList
+            .where(
+              (_Meetup m) =>
+                  m.status == 'published' &&
+                  m.startsAt.isAfter(_now()) &&
+                  (city == null ||
+                      city.isEmpty ||
+                      m.city.toLowerCase() == city.toLowerCase()) &&
+                  (country == null ||
+                      country.isEmpty ||
+                      m.country == country.toUpperCase()) &&
+                  (audience == null || m.audience == audience) &&
+                  !_blockedEitherWay(me.id, m.organiserProfileId) &&
+                  !_hiddenFor(me.id, 'meetup', m.id),
+            )
+            .map((_Meetup m) => _meetupView(m, me.id))
+            .toList()
+          ..sort((Meetup a, Meetup b) => a.startsAt.compareTo(b.startsAt));
+    return MeetupList(meetups: out);
+  });
+
+  @override
+  Future<List<Meetup>> myMeetups() => _async(() {
+    final _Profile me = _acting(null);
+    return _meetupList
+        .where(
+          (_Meetup m) =>
+              m.organiserProfileId == me.id ||
+              _rsvps.any(
+                (_Rsvp r) =>
+                    r.meetupId == m.id &&
+                    r.profileId == me.id &&
+                    r.status != 'cancelled',
+              ),
+        )
+        .map((_Meetup m) => _meetupView(m, me.id))
+        .toList();
+  });
+
+  @override
+  Future<List<MeetupReminder>> meetupReminders() => _async(() {
+    final _Profile me = _acting(null);
+    final DateTime horizon = _now().add(const Duration(days: 7));
+    return _meetupList
+        .where(
+          (_Meetup m) =>
+              m.status == 'published' &&
+              m.startsAt.isAfter(_now()) &&
+              m.startsAt.isBefore(horizon) &&
+              _rsvps.any(
+                (_Rsvp r) =>
+                    r.meetupId == m.id &&
+                    r.profileId == me.id &&
+                    r.status == 'going',
+              ),
+        )
+        .map(
+          (_Meetup m) => MeetupReminder(
+            meetupId: m.id,
+            title: m.title,
+            startsAt: m.startsAt,
+            venueName: m.venueName,
+            city: m.city,
+            remindAt: <DateTime>[
+              m.startsAt.subtract(const Duration(hours: 24)),
+              m.startsAt.subtract(const Duration(hours: 2)),
+            ],
+          ),
+        )
+        .toList();
+  });
+
+  _Meetup _findMeetup(String id, _Profile me) {
+    final _Meetup m = _meetupList.firstWhere(
+      (_Meetup x) => x.id == id,
+      orElse: () => _fail('not_found', 'Not found.', 404),
+    );
+    final bool mineOrg = m.organiserProfileId == me.id;
+    final bool ok =
+        mineOrg ||
+        ((m.status == 'published' || m.status == 'cancelled') &&
+            !_blockedEitherWay(me.id, m.organiserProfileId));
+    if (!ok) _fail('not_found', 'Not found.', 404);
+    return m;
+  }
+
+  @override
+  Future<MeetupDetail> meetup(String meetupId) => _async(() {
+    final _Profile me = _acting(null);
+    final _Meetup m = _findMeetup(meetupId, me);
+    MeetupAttendees? att;
+    if (m.organiserProfileId == me.id) {
+      final List<MeetupAttendee> adults = <MeetupAttendee>[];
+      int kids = 0;
+      for (final _Rsvp r in _rsvps) {
+        if (r.meetupId != m.id || r.status == 'cancelled') continue;
+        final _Profile p = _profiles[r.profileId]!;
+        if (p.kind.isMinor) {
+          if (r.status == 'going') kids++;
+        } else {
+          adults.add(
+            MeetupAttendee(
+              profileId: p.id,
+              displayName: p.displayName,
+              status: r.status,
+            ),
+          );
+        }
+      }
+      att = MeetupAttendees(adults: adults, childrenGoing: kids);
+    }
+    return MeetupDetail(meetup: _meetupView(m, me.id), attendees: att);
+  });
+
+  @override
+  Future<Meetup> createMeetup(MeetupDraft d) => _async(() {
+    final _Profile me = _writer();
+    final String title = d.title.trim();
+    if (title.length < 4 ||
+        d.venueName.trim().length < 2 ||
+        d.city.trim().length < 2 ||
+        d.country.trim().length != 2) {
+      _fail('validation_failed', 'Some fields are missing or not valid.', 400);
+    }
+    _screen(<String>[title, d.description, d.venueName, d.venueAddress ?? '']);
+    final Duration lead = d.startsAt.difference(_now());
+    if (lead < const Duration(hours: 2)) {
+      _fail('too_soon', 'Meet-ups must be set at least two hours ahead.', 422);
+    }
+    if (lead > const Duration(days: 180)) {
+      _fail('too_far', 'Meet-ups can be set up to 180 days ahead.', 422);
+    }
+    if (d.venueKind == MeetupVenueKind.cafe && !d.halalConfirmed) {
+      _fail(
+        'halal_required',
+        'A cafe is accepted only when you confirm it is halal.',
+        422,
+      );
+    }
+    final bool verified = _organisers.contains(me.userId);
+    if (d.guardianRsvpForMinors) {
+      if (d.audience != MeetupAudience.families) {
+        _fail(
+          'minors_need_families',
+          'Children can only be included in a families meet-up.',
+          422,
+        );
+      }
+      if (!verified) {
+        _fail(
+          'minors_need_verified_organiser',
+          'Only a verified organiser can include children.',
+          422,
+        );
+      }
+    }
+    final _Meetup m = _Meetup(
+      id: _id('meetup'),
+      organiserProfileId: me.id,
+      title: title,
+      description: d.description.trim(),
+      venueKind: d.venueKind,
+      venueName: d.venueName.trim(),
+      venueAddress: d.venueAddress?.trim(),
+      city: d.city.trim(),
+      country: d.country.trim().toUpperCase(),
+      startsAt: d.startsAt,
+      endsAt: d.endsAt,
+      audience: d.audience,
+      minorsPolicy: d.guardianRsvpForMinors,
+      capacity: d.capacity,
+      accessibilityNotes: d.accessibilityNotes,
+      halal: d.halalConfirmed,
+      status: verified ? 'published' : 'pending_review',
+      recurrence: d.recurrence,
+    );
+    _meetupList.add(m);
+    for (final DateTime later in d.occurrences) {
+      _meetupList.add(
+        _Meetup(
+          id: _id('meetup'),
+          organiserProfileId: me.id,
+          title: title,
+          description: m.description,
+          venueKind: m.venueKind,
+          venueName: m.venueName,
+          venueAddress: m.venueAddress,
+          city: m.city,
+          country: m.country,
+          startsAt: later,
+          endsAt: d.endsAt?.add(later.difference(d.startsAt)),
+          audience: m.audience,
+          minorsPolicy: m.minorsPolicy,
+          capacity: m.capacity,
+          accessibilityNotes: m.accessibilityNotes,
+          halal: m.halal,
+          status: m.status,
+          recurrence: m.recurrence,
+        ),
+      );
+    }
+    return _meetupView(m, me.id);
+  });
+
+  @override
+  Future<void> cancelMeetup(
+    String meetupId,
+    CancelReason reason, {
+    bool wholeSeries = false,
+  }) => _async(() {
+    final _Profile me = _acting(null);
+    final _Meetup m = _meetupList.firstWhere(
+      (_Meetup x) => x.id == meetupId && x.organiserProfileId == me.id,
+      orElse: () => _fail('not_found', 'Not found.', 404),
+    );
+    if (m.status != 'published' && m.status != 'pending_review') {
+      _fail('invalid_state', 'This meet-up cannot be cancelled.');
+    }
+    m
+      ..status = 'cancelled'
+      ..cancelReason = reason.wire;
+    for (final _Rsvp r in _rsvps) {
+      if (r.meetupId == m.id && r.status != 'cancelled') {
+        r.status = 'cancelled';
+        final String? uid = _profiles[r.profileId]?.userId ??
+            _profiles[r.profileId]?.managedBy;
+        if (uid != null && uid != me.userId) {
+          _note(uid, 'meetup_cancelled', <String, dynamic>{
+            'meetupId': m.id,
+            'reason': reason.wire,
+          });
+        }
+      }
+    }
+  });
+
+  @override
+  Future<RsvpResult> rsvp(String meetupId, {String? childProfileId}) =>
+      _async(() {
+        final _Profile me = _writer();
+        final _Meetup m = _findMeetup(meetupId, me);
+        if (m.status != 'published') {
+          _fail('not_found', 'Not found.', 404);
+        }
+        if (!m.startsAt.isAfter(_now())) {
+          _fail('already_started', 'This meet-up has started.');
+        }
+        _Profile? child;
+        if (childProfileId != null) {
+          child = _profiles[childProfileId];
+          if (child == null || child.managedBy != me.userId) {
+            _fail('not_found', 'Not found.', 404);
+          }
+          if (!m.minorsPolicy) {
+            _fail('adults_only', 'This meet-up is for adults only.');
+          }
+        }
+        String put(_Profile p) {
+          final int going = _going(m);
+          final bool full = m.capacity != null && going >= m.capacity!;
+          final String status = full ? 'waitlist' : 'going';
+          _rsvps.removeWhere(
+            (_Rsvp r) => r.meetupId == m.id && r.profileId == p.id,
+          );
+          _rsvps.add(_Rsvp(m.id, p.id, status));
+          return status;
+        }
+
+        final String mine = put(me);
+        final String? kid = child == null ? null : put(child);
+        return RsvpResult(status: mine, childStatus: kid);
+      });
+
+  @override
+  Future<void> cancelRsvp(String meetupId, {String? childProfileId}) =>
+      _async(() {
+        final _Profile me = _acting(null);
+        final Set<String> who = <String>{
+          if (childProfileId == null) me.id,
+          ?childProfileId,
+          if (childProfileId == null)
+            for (final _Profile p in _profiles.values)
+              if (p.managedBy == me.userId) p.id,
+        };
+        for (final _Rsvp r in _rsvps) {
+          if (r.meetupId == meetupId && who.contains(r.profileId)) {
+            r.status = 'cancelled';
+          }
+        }
+        // The next person on the waiting list moves up.
+        final _Meetup? m = _meetupList
+            .where((_Meetup x) => x.id == meetupId)
+            .firstOrNull;
+        if (m != null && m.capacity != null) {
+          for (final _Rsvp r in _rsvps) {
+            if (_going(m) >= m.capacity!) break;
+            if (r.meetupId == meetupId && r.status == 'waitlist') {
+              r.status = 'going';
+              final String? uid = _profiles[r.profileId]?.userId;
+              if (uid != null) {
+                _note(uid, 'meetup_waitlist_promoted', <String, dynamic>{
+                  'meetupId': meetupId,
+                });
+              }
+            }
+          }
+        }
+      });
+
+  // ---- notifications --------------------------------------------------------------
+  @override
+  Future<NotificationPage> notifications({bool unreadOnly = false}) =>
+      _async(() {
+        final String uid = _account.id;
+        final List<_Note> mine = _notes
+            .where((_Note n) => n.userId == uid)
+            .toList()
+            .reversed
+            .toList();
+        return NotificationPage(
+          serverTime: _now(),
+          unreadCount: mine.where((_Note n) => n.readAt == null).length,
+          notifications: mine
+              .where((_Note n) => !unreadOnly || n.readAt == null)
+              .map(
+                (_Note n) => AppNotification(
+                  id: n.id,
+                  kind: n.kind,
+                  payload: n.payload,
+                  readAt: n.readAt,
+                  createdAt: n.createdAt,
+                ),
+              )
+              .toList(),
+        );
+      });
+
+  @override
+  Future<void> markNotificationsRead({
+    List<String> ids = const <String>[],
+  }) => _async(() {
+    final String uid = _account.id;
+    for (final _Note n in _notes) {
+      if (n.userId == uid && ids.contains(n.id)) n.readAt ??= _now();
+    }
+  });
+
+  @override
+  Future<void> markAllNotificationsRead() => _async(() {
+    final String uid = _account.id;
+    for (final _Note n in _notes) {
+      if (n.userId == uid) n.readAt ??= _now();
+    }
+  });
+
+  // ---- moderation, as the person it is about -----------------------------------------
+  @override
+  Future<ModerationInfo> myModeration() => _async(() {
+    _account;
+    return const ModerationInfo(
+      accountStatus: 'active',
+      strikePoints: 0,
+      actions: <ModerationNotice>[],
+    );
+  });
+
+  @override
+  Future<void> appeal(String actionId, String statement) => _async(() {
+    _account;
+    if (statement.trim().isEmpty) {
+      _fail('validation_failed', 'Some fields are missing or not valid.', 400);
+    }
+    _fail('not_found', 'Not found.', 404);
+  });
+}
+
+class _Sanction {
+  _Sanction(this.until);
+  final DateTime? until;
+}
+
+class _Category {
+  _Category({
+    required this.id,
+    required this.slug,
+    required this.title,
+    required this.description,
+    required this.kind,
+    required this.whoCanPost,
+    required this.whoCanReply,
+    required this.strict,
+    required this.note,
+  });
+  final String id;
+  final String slug;
+  final String title;
+  final String description;
+  final ForumCategoryKind kind;
+  final String whoCanPost;
+  final String whoCanReply;
+  final bool strict;
+  final String note;
+}
+
+class _Thread {
+  _Thread({
+    required this.id,
+    required this.categoryId,
+    required this.authorProfileId,
+    required this.title,
+    required this.createdAt,
+    this.status = 'open',
+  });
+  final String id;
+  final String categoryId;
+  final String authorProfileId;
+  final String title;
+  final DateTime createdAt;
+  String status;
+  bool pinned = false;
+}
+
+class _Post {
+  _Post({
+    required this.id,
+    required this.threadId,
+    required this.authorProfileId,
+    required this.body,
+    required this.label,
+    required this.createdAt,
+    this.replyTo,
+    this.status = 'visible',
+  });
+  final String id;
+  final String threadId;
+  final String authorProfileId;
+  String body;
+  final ForumLabel label;
+  final DateTime createdAt;
+  final String? replyTo;
+  String status;
+  DateTime? editedAt;
+}
+
+class _Report {
+  _Report(this.reporter, this.type, this.targetId, this.reason);
+  final String reporter;
+  final String type;
+  final String targetId;
+  final ReportReason reason;
+}
+
+class _Meetup {
+  _Meetup({
+    required this.id,
+    required this.organiserProfileId,
+    required this.title,
+    required this.venueKind,
+    required this.venueName,
+    required this.city,
+    required this.country,
+    required this.startsAt,
+    required this.audience,
+    required this.minorsPolicy,
+    required this.halal,
+    required this.status,
+    this.description = '',
+    this.venueAddress,
+    this.endsAt,
+    this.capacity,
+    this.accessibilityNotes,
+    this.recurrence = MeetupRecurrence.none,
+  });
+  final String id;
+  final String organiserProfileId;
+  final String title;
+  final String description;
+  final MeetupVenueKind venueKind;
+  final String venueName;
+  final String? venueAddress;
+  final String city;
+  final String country;
+  final DateTime startsAt;
+  final DateTime? endsAt;
+  final MeetupAudience audience;
+  final bool minorsPolicy;
+  final int? capacity;
+  final String? accessibilityNotes;
+  final bool halal;
+  final MeetupRecurrence recurrence;
+  String status;
+  String? cancelReason;
+}
+
+class _Rsvp {
+  _Rsvp(this.meetupId, this.profileId, this.status);
+  final String meetupId;
+  final String profileId;
+  String status;
+}
+
+class _Note {
+  _Note({
+    required this.id,
+    required this.userId,
+    required this.kind,
+    required this.payload,
+    required this.createdAt,
+  });
+  final String id;
+  final String userId;
+  final String kind;
+  final Map<String, dynamic> payload;
+  final DateTime createdAt;
+  DateTime? readAt;
 }
 
 class _Account {

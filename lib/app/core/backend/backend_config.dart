@@ -46,3 +46,8 @@ abstract final class BackendConfig {
 const String kCommunityTermsVersion = '2026-10-draft-1';
 const String kCommunityPrivacyVersion = '2026-10-draft-1';
 const String kCommunityParentConsentVersion = '2026-10-draft-1';
+
+/// Version of the community rules a person accepts before their first post.
+/// Must equal COMMUNITY_RULES_VERSION in backend/src/versions.ts. DRAFT until
+/// the owner and a scholar have reviewed the rules text.
+const String kCommunityRulesVersion = '2026-10-draft-1';

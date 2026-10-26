@@ -4,10 +4,15 @@ import { ZodError } from 'zod';
 import { registerAuthRoutes } from './auth.js';
 import type { Deps } from './context.js';
 import { ApiError } from './errors.js';
+import { registerForumRoutes } from './forums.js';
 import { registerFriendRoutes } from './friends.js';
 import { registerGuardianRoutes } from './guardian.js';
 import { registerInviteRoutes } from './invites.js';
 import { registerMeRoutes } from './me.js';
+import { registerMeetupRoutes } from './meetups.js';
+import { registerModerationRoutes } from './moderation.js';
+import { registerNotificationRoutes } from './notifications.js';
+import { registerReportRoutes } from './reports.js';
 import { logId } from './security.js';
 
 export interface RouteEntry {
@@ -143,5 +148,10 @@ export async function buildApp({ deps, logger }: BuildOptions): Promise<FastifyI
   await registerGuardianRoutes(app, deps);
   await registerFriendRoutes(app, deps);
   await registerInviteRoutes(app, deps);
+  await registerForumRoutes(app, deps);
+  await registerReportRoutes(app, deps);
+  await registerModerationRoutes(app, deps);
+  await registerMeetupRoutes(app, deps);
+  await registerNotificationRoutes(app, deps);
   return app;
 }
