@@ -62,6 +62,7 @@ flutter:
     - assets/family/
     - assets/guides/
     - assets/games/
+    - assets/games/art/
     - assets/feelings/
     - assets/majlis/
     - assets/share/
