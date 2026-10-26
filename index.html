@@ -118,8 +118,13 @@
               }));
             }
             if (window.caches && caches.keys) {
+              // Caches named ar-dl-* hold recitation the person chose to
+              // download; recorded audio does not change with the app, so
+              // they are kept (Settings > Downloads can delete them).
               jobs.push(caches.keys().then(function (ks) {
-                return Promise.all(ks.map(function (k) { return caches.delete(k); }));
+                return Promise.all(ks.filter(function (k) {
+                  return k.indexOf('ar-dl-') !== 0;
+                }).map(function (k) { return caches.delete(k); }));
               }));
             }
             Promise.all(jobs).then(function () { location.reload(); });
