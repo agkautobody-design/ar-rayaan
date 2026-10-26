@@ -51,6 +51,7 @@ flutter:
     - assets/images/
     - assets/images/tiles/
     - assets/quran/
+    - assets/quran/translations/
     - assets/academy/
     - assets/hadith/
     - assets/adhkar/
