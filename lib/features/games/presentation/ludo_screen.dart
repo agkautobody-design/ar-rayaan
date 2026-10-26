@@ -142,8 +142,8 @@ class _LudoState extends State<LudoScreen> {
     return _isHuman(seat)
         ? 'Player ${seat + 1}'
         : (seat == players - 1 && players - humans == 1
-            ? 'Hadi'
-            : 'Computer ${seat + 1}');
+              ? 'Hadi'
+              : 'Computer ${seat + 1}');
   }
 
   String _colourName(int seat) => LudoRules.colourNames[seats[seat]];
@@ -270,8 +270,11 @@ class _LudoState extends State<LudoScreen> {
             // on a turn that never comes.
             if (mode == 3 && roomCode != null) {
               _queueOnline(<String, dynamic>{
-                'by': mySide, 'd': r, 'pass': true,
-                'turn': passer, 'next': turn,
+                'by': mySide,
+                'd': r,
+                'pass': true,
+                'turn': passer,
+                'next': turn,
               });
             }
           });
@@ -294,12 +297,13 @@ class _LudoState extends State<LudoScreen> {
       if (mode == 3 && roomCode != null) {
         // Always sent, the winning move included, and the room is finished
         // after it: the opponent must see the last move and the result.
-        _queueOnline(
-          <String, dynamic>{
-            'by': mySide, 'd': d, 't': t, 'turn': mover, 'next': turn,
-          },
-          result: gameOver ? '${_colourName(mover)} wins' : null,
-        );
+        _queueOnline(<String, dynamic>{
+          'by': mySide,
+          'd': d,
+          't': t,
+          'turn': mover,
+          'next': turn,
+        }, result: gameOver ? '${_colourName(mover)} wins' : null);
       }
     });
   }
@@ -355,15 +359,20 @@ class _LudoState extends State<LudoScreen> {
     if (ok) {
       if (_syncError != null) setState(() => _syncError = null);
     } else if (!_outbox.isEmpty) {
-      setState(() => _syncError =
-          'Your move has not reached your opponent yet. Check your '
-          'connection, then retry.');
+      setState(
+        () => _syncError =
+            'Your move has not reached your opponent yet. Check your '
+            'connection, then retry.',
+      );
     }
   }
 
   Future<void> _onlineSetup() async {
-    final Map<String, String>? r =
-        await OnlineLobby.show(context, 'ludo', _rooms);
+    final Map<String, String>? r = await OnlineLobby.show(
+      context,
+      'ludo',
+      _rooms,
+    );
     if (r == null || !mounted) return;
     _outbox.clear();
     _syncError = null;
@@ -383,22 +392,26 @@ class _LudoState extends State<LudoScreen> {
           : 'Joined $roomCode — you are Player 2 (Yellow)';
     });
     await _roomSub?.cancel();
-    _roomSub = _rooms.watch(roomCode!)?.listen(
-      _onRoom,
-      onError: (Object e) {
-        if (!mounted) return;
-        setState(() => _syncError =
-            'The connection to the table dropped. It will resume when you '
-            'are back online.');
-      },
-    );
+    _roomSub = _rooms
+        .watch(roomCode!)
+        ?.listen(
+          _onRoom,
+          onError: (Object e) {
+            if (!mounted) return;
+            setState(
+              () => _syncError =
+                  'The connection to the table dropped. It will resume when you '
+                  'are back online.',
+            );
+          },
+        );
   }
 
   /// A remote move that is safe to look at: every index in range.
   static bool _sane(Map<String, dynamic> m) {
     final Object? d = m['d'], t = m['t'], next = m['next'];
-    final bool base = d is num && d >= 1 && d <= 6 &&
-        next is num && (next == 0 || next == 1);
+    final bool base =
+        d is num && d >= 1 && d <= 6 && next is num && (next == 0 || next == 1);
     if (!base) return false;
     return m['pass'] == true || (t is num && t >= 0 && t <= 3);
   }
@@ -418,7 +431,9 @@ class _LudoState extends State<LudoScreen> {
     }
     _seenRoom = true;
     final Object? guest = data['guest'];
-    if (mySide == 'host' && guest != null && data['status'] == 'playing' &&
+    if (mySide == 'host' &&
+        guest != null &&
+        data['status'] == 'playing' &&
         status.startsWith('Table')) {
       setState(() => status = 'Red to roll');
     }
@@ -437,9 +452,11 @@ class _LudoState extends State<LudoScreen> {
       }
       final int t = (m['t'] as num).toInt();
       if (turn != mover || !LudoRules.validMoves(tok, mover, d).contains(t)) {
-        setState(() => _syncError =
-            'A move from your opponent did not fit your board, so the two '
-            'boards are out of step. Leave the table and start a new one.');
+        setState(
+          () => _syncError =
+              'A move from your opponent did not fit your board, so the two '
+              'boards are out of step. Leave the table and start a new one.',
+        );
         continue;
       }
       setState(() {
@@ -580,8 +597,8 @@ class _LudoState extends State<LudoScreen> {
       eyebrow = name == 'You'
           ? "IT'S YOUR TURN"
           : (mine || mode == 3
-              ? "IT'S ${name.toUpperCase()}'S TURN"
-              : '${name.toUpperCase()} IS PLAYING');
+                ? "IT'S ${name.toUpperCase()}'S TURN"
+                : '${name.toUpperCase()} IS PLAYING');
       if (mode == 3 && roomCode != null && status.startsWith('Table')) {
         eyebrow = 'WAITING FOR PLAYER 2';
         title = 'Share the code $roomCode';
@@ -599,49 +616,52 @@ class _LudoState extends State<LudoScreen> {
       container: true,
       liveRegion: true,
       label: '$eyebrow. $title',
-      excludeSemantics: true,
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(18),
-          color: const Color(0xCC05090F),
-          border: Border.all(color: AppColors.goldLight.withValues(alpha: 0.8)),
-          boxShadow: const <BoxShadow>[
-            BoxShadow(color: Color(0x40D4AF37), blurRadius: 14),
-          ],
-        ),
-        child: Row(
-          children: <Widget>[
-            const Icon(Icons.casino, color: AppColors.goldLight, size: 30),
-            const SizedBox(width: 12),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  FittedBox(
-                    fit: BoxFit.scaleDown,
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      eyebrow,
-                      style: AppText.eyebrow.copyWith(fontSize: 11),
-                    ),
-                  ),
-                  FittedBox(
-                    fit: BoxFit.scaleDown,
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      title,
-                      style: const TextStyle(
-                        fontFamily: AppFonts.display,
-                        fontSize: 26,
-                        color: GamesTheme.champagne,
+      child: ExcludeSemantics(
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(18),
+            color: const Color(0xCC05090F),
+            border: Border.all(
+              color: AppColors.goldLight.withValues(alpha: 0.8),
+            ),
+            boxShadow: const <BoxShadow>[
+              BoxShadow(color: Color(0x40D4AF37), blurRadius: 14),
+            ],
+          ),
+          child: Row(
+            children: <Widget>[
+              const Icon(Icons.casino, color: AppColors.goldLight, size: 30),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    FittedBox(
+                      fit: BoxFit.scaleDown,
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        eyebrow,
+                        style: AppText.eyebrow.copyWith(fontSize: 12),
                       ),
                     ),
-                  ),
-                ],
+                    FittedBox(
+                      fit: BoxFit.scaleDown,
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        title,
+                        style: const TextStyle(
+                          fontFamily: AppFonts.display,
+                          fontSize: 26,
+                          color: GamesTheme.champagne,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -1010,120 +1030,122 @@ class _PlayerCard extends StatelessWidget {
     final String name = LudoRules.colourNames[colour];
     return Semantics(
       container: true,
-      label: '$label, $name, $home of 4 pawns home'
+      label:
+          '$label, $name, $home of 4 pawns home'
           '${active ? ', to play' : ''}${won ? ', winner' : ''}',
-      excludeSemantics: true,
-      child: Container(
-        padding: const EdgeInsets.fromLTRB(4, 8, 4, 8),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
-          color: const Color(0xB305090F),
-          border: Border.all(
-            color: active || won
-                ? AppColors.goldLight
-                : AppColors.gold.withValues(alpha: 0.35),
-            width: active || won ? 2 : 1,
+      child: ExcludeSemantics(
+        child: Container(
+          padding: const EdgeInsets.fromLTRB(4, 8, 4, 8),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16),
+            color: const Color(0xB305090F),
+            border: Border.all(
+              color: active || won
+                  ? AppColors.goldLight
+                  : AppColors.gold.withValues(alpha: 0.35),
+              width: active || won ? 2 : 1,
+            ),
+            boxShadow: active
+                ? const <BoxShadow>[
+                    BoxShadow(color: Color(0x80FFD367), blurRadius: 14),
+                  ]
+                : null,
           ),
-          boxShadow: active
-              ? const <BoxShadow>[
-                  BoxShadow(color: Color(0x80FFD367), blurRadius: 14),
-                ]
-              : null,
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            Stack(
-              clipBehavior: Clip.none,
-              children: <Widget>[
-                Container(
-                  width: 38,
-                  height: 38,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: kLudoColours[colour].withValues(alpha: 0.28),
-                    border: Border.all(color: AppColors.goldLight),
-                  ),
-                  child: Text(
-                    initials,
-                    textScaler: TextScaler.noScaling,
-                    style: const TextStyle(
-                      color: GamesTheme.champagne,
-                      fontWeight: FontWeight.w700,
-                      fontSize: 14,
-                    ),
-                  ),
-                ),
-                if (won)
-                  const Positioned(
-                    right: -8,
-                    top: -10,
-                    child: Icon(
-                      Icons.workspace_premium,
-                      color: AppColors.goldLight,
-                      size: 18,
-                    ),
-                  ),
-              ],
-            ),
-            const SizedBox(height: 4),
-            FittedBox(
-              fit: BoxFit.scaleDown,
-              child: Text(
-                label,
-                maxLines: 1,
-                style: const TextStyle(
-                  fontFamily: AppFonts.display,
-                  fontSize: 14,
-                  color: GamesTheme.champagne,
-                ),
-              ),
-            ),
-            const SizedBox(height: 2),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                LudoShapeMark(
-                  colour: colour,
-                  size: 9,
-                  color: kLudoColours[colour],
-                ),
-                const SizedBox(width: 4),
-                Flexible(
-                  child: FittedBox(
-                    fit: BoxFit.scaleDown,
-                    child: Text(
-                      name,
-                      style: AppText.caption.copyWith(fontSize: 11),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 4),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                for (final int p in tokens)
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Stack(
+                clipBehavior: Clip.none,
+                children: <Widget>[
                   Container(
-                    width: 10,
-                    height: 10,
-                    margin: const EdgeInsets.symmetric(horizontal: 2),
+                    width: 38,
+                    height: 38,
+                    alignment: Alignment.center,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: p == LudoRules.finished
-                          ? Colors.transparent
-                          : kLudoColours[colour],
-                      border: Border.all(
-                        color: kLudoColours[colour],
-                        width: 1.5,
+                      color: kLudoColours[colour].withValues(alpha: 0.28),
+                      border: Border.all(color: AppColors.goldLight),
+                    ),
+                    child: Text(
+                      initials,
+                      textScaler: TextScaler.noScaling,
+                      style: const TextStyle(
+                        color: GamesTheme.champagne,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 14,
                       ),
                     ),
                   ),
-              ],
-            ),
-          ],
+                  if (won)
+                    const Positioned(
+                      right: -8,
+                      top: -10,
+                      child: Icon(
+                        Icons.workspace_premium,
+                        color: AppColors.goldLight,
+                        size: 18,
+                      ),
+                    ),
+                ],
+              ),
+              const SizedBox(height: 4),
+              FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text(
+                  label,
+                  maxLines: 1,
+                  style: const TextStyle(
+                    fontFamily: AppFonts.display,
+                    fontSize: 14,
+                    color: GamesTheme.champagne,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 2),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  LudoShapeMark(
+                    colour: colour,
+                    size: 9,
+                    color: kLudoColours[colour],
+                  ),
+                  const SizedBox(width: 4),
+                  Flexible(
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Text(
+                        name,
+                        style: AppText.caption.copyWith(fontSize: 12),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 4),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  for (final int p in tokens)
+                    Container(
+                      width: 10,
+                      height: 10,
+                      margin: const EdgeInsets.symmetric(horizontal: 2),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: p == LudoRules.finished
+                            ? Colors.transparent
+                            : kLudoColours[colour],
+                        border: Border.all(
+                          color: kLudoColours[colour],
+                          width: 1.5,
+                        ),
+                      ),
+                    ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -1147,35 +1169,36 @@ class _SmallAction extends StatelessWidget {
     return Semantics(
       button: true,
       label: label,
-      excludeSemantics: true,
       onTap: onTap,
-      child: Material(
-        type: MaterialType.transparency,
-        child: InkWell(
-          onTap: onTap,
-          borderRadius: BorderRadius.circular(16),
-          child: Container(
-            constraints: const BoxConstraints(minWidth: 64, minHeight: 64),
-            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 8),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
-              color: const Color(0x8005090F),
-              border: Border.all(color: GamesTheme.border),
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Icon(icon, color: AppColors.goldLight, size: 24),
-                const SizedBox(height: 2),
-                FittedBox(
-                  fit: BoxFit.scaleDown,
-                  child: Text(
-                    label,
-                    maxLines: 1,
-                    style: AppText.caption.copyWith(fontSize: 11),
+      child: ExcludeSemantics(
+        child: Material(
+          type: MaterialType.transparency,
+          child: InkWell(
+            onTap: onTap,
+            borderRadius: BorderRadius.circular(16),
+            child: Container(
+              constraints: const BoxConstraints(minWidth: 64, minHeight: 64),
+              padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 8),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                color: const Color(0x8005090F),
+                border: Border.all(color: GamesTheme.border),
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Icon(icon, color: AppColors.goldLight, size: 24),
+                  const SizedBox(height: 2),
+                  FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Text(
+                      label,
+                      maxLines: 1,
+                      style: AppText.caption.copyWith(fontSize: 12),
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
@@ -1196,35 +1219,40 @@ class LudoDiceStage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Semantics(
       label: value == 0 ? 'Die, not rolled yet' : 'Die showing $value',
-      excludeSemantics: true,
-      child: Container(
-        width: size,
-        height: size,
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          gradient: const RadialGradient(
-            colors: <Color>[Color(0x66FFD367), Color(0x00FFD367)],
+      child: ExcludeSemantics(
+        child: Container(
+          width: size,
+          height: size,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            gradient: const RadialGradient(
+              colors: <Color>[Color(0x66FFD367), Color(0x00FFD367)],
+            ),
+            border: Border.all(
+              color: AppColors.goldLight.withValues(alpha: 0.7),
+              width: 1.6,
+            ),
+            boxShadow: const <BoxShadow>[
+              BoxShadow(
+                color: Color(0x80D4AF37),
+                blurRadius: 22,
+                spreadRadius: 2,
+              ),
+            ],
           ),
-          border: Border.all(
-            color: AppColors.goldLight.withValues(alpha: 0.7),
-            width: 1.6,
-          ),
-          boxShadow: const <BoxShadow>[
-            BoxShadow(color: Color(0x80D4AF37), blurRadius: 22, spreadRadius: 2),
-          ],
+          child: value == 0
+              ? Image.asset(
+                  LudoBoardArt.dice,
+                  width: size * 0.7,
+                  height: size * 0.7,
+                  fit: BoxFit.contain,
+                  gaplessPlayback: true,
+                  errorBuilder: (BuildContext ctx, Object e, StackTrace? st) =>
+                      DiceFace(value: 0, size: size * 0.6),
+                )
+              : DiceFace(value: value, size: size * 0.6),
         ),
-        child: value == 0
-            ? Image.asset(
-                LudoBoardArt.dice,
-                width: size * 0.7,
-                height: size * 0.7,
-                fit: BoxFit.contain,
-                gaplessPlayback: true,
-                errorBuilder: (BuildContext ctx, Object e, StackTrace? st) =>
-                    DiceFace(value: 0, size: size * 0.6),
-              )
-            : DiceFace(value: value, size: size * 0.6),
       ),
     );
   }
