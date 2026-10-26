@@ -127,7 +127,7 @@ void main() {
   test('the Academy switch removes the Hifz entry only', () {
     final List<GameDef> off = visibleGames(showAcademy: false);
     expect(off.any((GameDef g) => g.id == 'hifz'), isFalse);
-    expect(off.length, kGames.length - 1);
+    expect(off.length, visibleGames(showAcademy: true).length - 1);
   });
 
   test('Elder Mode shows three large cards', () {

@@ -49,6 +49,12 @@ IconData gameIcon(String key) => switch (key) {
       'chess' => Icons.extension_outlined,
       'ludo' => Icons.casino_outlined,
       'memory' => Icons.grid_view_outlined,
+      'seerah' => Icons.explore_outlined,
+      'timeline' => Icons.timeline_outlined,
+      'hadith' => Icons.format_quote_outlined,
+      'steps' => Icons.format_list_numbered_outlined,
+      'letters' => Icons.translate_outlined,
+      'grid' => Icons.apps_outlined,
       _ => Icons.sports_esports_outlined,
     };
 
