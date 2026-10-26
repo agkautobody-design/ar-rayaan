@@ -35,6 +35,8 @@ class HostedAiRequest {
     required this.history,
     required this.package,
     required this.maxReplyChars,
+    this.maxOutputTokens = kHostedMaxOutputTokens,
+    this.preferSmallModel = kHostedSmallModelFirst,
   });
 
   /// The question with the app's grounding context already attached.
@@ -47,6 +49,13 @@ class HostedAiRequest {
 
   /// A hint for the server; the app also shortens a longer reply.
   final int maxReplyChars;
+
+  /// Hard cap on the reply the model may write (cost control).
+  final int maxOutputTokens;
+
+  /// Small-model-first policy: the server should try its small, cheap model
+  /// and only escalate when it must. The app never names a model.
+  final bool preferSmallModel;
 }
 
 class HostedAiReply {
@@ -113,13 +122,33 @@ String limitReply(String text, int max) {
   return '${(sp > 0 ? cut.substring(0, sp) : cut).trimRight()}...';
 }
 
-/// Message shown when the person's allowance is spent. Never a paywall: the
-/// built-in library keeps answering.
-String hostedCapMessage({required bool monthSpent}) => monthSpent
-    ? 'You have used this month\'s AI messages. They return next month. '
-        'Meanwhile the built-in checked library keeps answering, free.'
-    : 'You have used today\'s AI messages. They return tomorrow. '
-        'Meanwhile the built-in checked library keeps answering, free.';
+/// Cost controls for the hosted path.
+const int kHostedMaxOutputTokens = 350;
+const int kHostedMaxHistory = 4;
+const int kHostedMaxQuestionChars = 500;
+const int kHostedMaxPassages = 2;
+
+/// Small-model-first policy flag (sent to the server as a hint).
+const bool kHostedSmallModelFirst = true;
+
+/// Hosted AI is for Islam-related questions only. Anything with no Islamic
+/// or app word in it is out of scope and never costs a call (the library's
+/// polite refusal is shown instead).
+bool isHostedScope(String question) => RegExp(
+      r'\b(?:allah|islam\w*|muslims?|quran\w*|qur.an|surah|ayah|ayat|verse|'
+      r'hadiths?|sunnah|sunan|prophets?|rasul|messenger|muhammad|sahaba|'
+      r'companions?|seerah|sirah|caliph\w*|imam|shaykh|sheikh|scholar|fiqh|'
+      r'madhhab|dua|duas|dhikr|adhkar|salah|salat|prayers?|pray|wudu|ghusl|'
+      r'tayammum|fast|fasting|ramadan|eid|zakat|zakah|sadaqah|hajj|umrah|'
+      r'kaaba|makkah|mecca|madinah|medina|masjid|mosque|halal|haram|jannah|'
+      r'paradise|hell|jahannam|angels?|jinn|shaytan|satan|iblis|akhirah|'
+      r'qiyamah|judgment|tawheed|tawhid|shirk|iman|taqwa|sabr|tawbah|'
+      r'repent\w*|nikah|hijab|khutbah|jumu.?ah|jummah|adhan|azan|qibla|'
+      r'sujood|ruku|rakah|rakat|tasbeeh|istighfar|barakah|ummah|dawah|'
+      r'revert|convert|shahada|shahadah|arabic|adam|ibrahim|abraham|musa|'
+      r'moses|isa|jesus|yusuf|joseph|nuh|noah|maryam|mary|dawud|sulaiman)\b',
+      caseSensitive: false,
+    ).hasMatch(question);
 
 /// True for a question that asks what is permitted, forbidden or required.
 /// Those go to a scholar, never to a hosted model, even when the library has
@@ -134,23 +163,43 @@ bool isRulingShaped(String question) => RegExp(
 
 /// Adapts a [HostedAi] backend to the provider contract the controller
 /// already uses, so a hosted reply goes through the same checks (reference
-/// verifier, ruling filter) as any live reply. Spends one message from the
-/// meter before the call and gives it back if the call fails.
+/// verifier, ruling filter) as any live reply.
+///
+/// Cost order: a saved answer for the same question first (no call, nothing
+/// counted), then the backend with a short request (last few messages only,
+/// hard token cap, small-model-first hint). A failed call gives the count
+/// back and saves nothing.
 class HostedHadiProvider implements HadiProvider {
   HostedHadiProvider({
     required this.backend,
     required this.meter,
     required this.package,
     required this.limits,
+    this.cache,
+    this.cacheKey = '',
   });
 
   final HostedAi backend;
   final UsageMeter meter;
   final HadiPackage package;
   final HadiPackageLimits limits;
+  final HostedAnswerCache? cache;
+
+  /// Normalised question (plus anything that changes the answer, such as the
+  /// school of law). Empty means: do not cache this one.
+  final String cacheKey;
+
+  /// True when the last [ask] was served from the saved answers.
+  bool servedFromCache = false;
 
   @override
   Future<String> ask(String question, List<HadiMessage> history) async {
+    servedFromCache = false;
+    final String? saved = cache?.get(cacheKey);
+    if (saved != null) {
+      servedFromCache = true;
+      return saved;
+    }
     if (!await meter.tryConsume(limits)) {
       throw const HostedAiCapReached();
     }
@@ -158,15 +207,15 @@ class HostedHadiProvider implements HadiProvider {
       final HostedAiReply r = await backend.ask(
         HostedAiRequest(
           question: question,
-          history: history,
+          history: history.length > kHostedMaxHistory
+              ? history.sublist(history.length - kHostedMaxHistory)
+              : history,
           package: package.name,
           maxReplyChars: limits.maxReplyChars,
         ),
       );
+      await cache?.put(cacheKey, r.text);
       return r.text;
-    } on HostedAiCapReached {
-      await meter.markDayExhausted(limits);
-      rethrow;
     } catch (_) {
       await meter.refund();
       rethrow;

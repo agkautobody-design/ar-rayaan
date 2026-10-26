@@ -3,9 +3,12 @@ import 'package:ar_rayaan/app/core/packages/usage_meter.dart';
 import 'package:ar_rayaan/app/core/providers.dart';
 import 'package:ar_rayaan/features/hadi/application/hadi_controller.dart';
 import 'package:ar_rayaan/features/hadi/application/hadi_provider.dart';
+import 'package:ar_rayaan/features/hadi/application/hadi_stats.dart';
+import 'package:ar_rayaan/features/hadi/application/local_knowledge_provider.dart';
 import 'package:ar_rayaan/features/hadi/data/groq_hadi_provider.dart';
 import 'package:ar_rayaan/features/hadi/data/hadi_routing.dart';
 import 'package:ar_rayaan/features/hadi/data/hosted_ai.dart';
+import 'package:ar_rayaan/features/hadi/data/hosted_cache.dart';
 import 'package:ar_rayaan/features/hadi/data/offline_hadi_provider.dart';
 import 'package:ar_rayaan/features/hadi/grounding/corpus.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -45,22 +48,14 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   group('package table', () {
-    test('every package has sane, ordered limits', () {
+    test('every package is unlimited by default (owner decision)', () {
       for (final HadiPackage p in HadiPackage.values) {
         final HadiPackageLimits l = kHadiPackageLimits[p]!;
-        expect(l.hostedPerDay, greaterThan(0), reason: p.name);
-        expect(l.hostedPerMonth, greaterThanOrEqualTo(l.hostedPerDay));
+        expect(l.hostedPerDay, isNull, reason: p.name);
+        expect(l.hostedPerMonth, isNull, reason: p.name);
         expect(l.maxReplyChars, greaterThan(100));
         expect(kHadiPackageLabels[p], isNotEmpty);
       }
-      expect(
-        kHadiPackageLimits[HadiPackage.free]!.hostedPerDay,
-        lessThanOrEqualTo(kHadiPackageLimits[HadiPackage.plus]!.hostedPerDay),
-      );
-      expect(
-        kHadiPackageLimits[HadiPackage.plus]!.hostedPerDay,
-        lessThanOrEqualTo(kHadiPackageLimits[HadiPackage.family]!.hostedPerDay),
-      );
     });
 
     test('tier ids map to packages and unknown means free', () {
@@ -71,7 +66,7 @@ void main() {
     });
   });
 
-  group('UsageMeter', () {
+  group('UsageMeter (dormant)', () {
     const HadiPackageLimits tiny = HadiPackageLimits(
       hostedPerDay: 2,
       hostedPerMonth: 3,
@@ -83,42 +78,26 @@ void main() {
       return UsageMeter(await SharedPreferences.getInstance(), clock: clock);
     }
 
-    test('counts down and stops at the daily cap', () async {
-      final UsageMeter m = await meterAt(() => DateTime(2026, 3, 10, 9));
-      expect(m.snapshot(tiny).label, '2 of 2 AI messages left today');
+    test('unlimited limits never block', () async {
+      final UsageMeter m = await meterAt(() => DateTime(2026, 3, 10));
+      for (int i = 0; i < 50; i++) {
+        expect(await m.tryConsume(const HadiPackageLimits()), isTrue);
+      }
+    });
+
+    test('when limits are switched on, they hold and reset', () async {
+      DateTime now = DateTime(2026, 3, 10, 9);
+      final UsageMeter m = await meterAt(() => now);
       expect(await m.tryConsume(tiny), isTrue);
-      expect(m.snapshot(tiny).label, '1 of 2 AI messages left today');
       expect(await m.tryConsume(tiny), isTrue);
-      expect(m.snapshot(tiny).canUse, isFalse);
       expect(await m.tryConsume(tiny), isFalse);
-      expect(m.snapshot(tiny).usedToday, 2);
-    });
-
-    test('the day resets, the month does not', () async {
-      DateTime now = DateTime(2026, 3, 10, 23, 59);
-      final UsageMeter m = await meterAt(() => now);
-      await m.tryConsume(tiny);
-      await m.tryConsume(tiny);
-      now = DateTime(2026, 3, 11, 0, 1);
-      final UsageSnapshot s = m.snapshot(tiny);
-      expect(s.usedToday, 0);
-      expect(s.usedThisMonth, 2);
-      expect(s.leftToday, 2);
-      expect(s.label, '1 of 2 AI messages left today'); // month room is 1
-      expect(s.remaining, 1);
-      expect(await m.tryConsume(tiny), isTrue);
-      expect(m.snapshot(tiny).canUse, isFalse);
-      expect(m.snapshot(tiny).monthSpent, isTrue);
-      expect(m.snapshot(tiny).label, contains('this month'));
-    });
-
-    test('a new month starts clean', () async {
-      DateTime now = DateTime(2026, 3, 31, 12);
-      final UsageMeter m = await meterAt(() => now);
-      await m.tryConsume(tiny);
-      now = DateTime(2026, 4, 1, 8);
-      expect(m.snapshot(tiny).usedThisMonth, 0);
+      now = DateTime(2026, 3, 11, 9);
       expect(m.snapshot(tiny).usedToday, 0);
+      expect(m.snapshot(tiny).usedThisMonth, 2);
+      expect(await m.tryConsume(tiny), isTrue);
+      expect(m.snapshot(tiny).canUse, isFalse); // month spent
+      now = DateTime(2026, 4, 1, 9);
+      expect(m.snapshot(tiny).canUse, isTrue);
     });
 
     test('refund gives one back and never goes below zero', () async {
@@ -128,21 +107,73 @@ void main() {
       await m.tryConsume(tiny);
       await m.refund();
       expect(m.snapshot(tiny).usedToday, 0);
-      expect(m.snapshot(tiny).usedThisMonth, 0);
     });
+  });
 
-    test('markDayExhausted spends the rest of the day', () async {
-      final UsageMeter m = await meterAt(() => DateTime(2026, 3, 10));
-      await m.markDayExhausted(tiny);
-      expect(m.snapshot(tiny).canUse, isFalse);
-    });
-
-    test('survives a restart (same prefs, new meter)', () async {
+  group('answer cache', () {
+    Future<SharedPreferences> prefs() async {
       SharedPreferences.setMockInitialValues(<String, Object>{});
-      final SharedPreferences prefs = await SharedPreferences.getInstance();
-      final DateTime t = DateTime(2026, 3, 10);
-      await UsageMeter(prefs, clock: () => t).tryConsume(tiny);
-      expect(UsageMeter(prefs, clock: () => t).snapshot(tiny).usedToday, 1);
+      return SharedPreferences.getInstance();
+    }
+
+    test('questions normalise to one key', () {
+      expect(normaliseQuestion('  Please, TELL me: what is Barzakh?!  '),
+          'what is barzakh');
+      expect(normaliseQuestion('What is Barzakh'),
+          normaliseQuestion('what is barzakh?'));
+    });
+
+    test('a saved answer is reused until it expires', () async {
+      DateTime now = DateTime(2026, 3, 10);
+      final HostedAnswerCache c =
+          HostedAnswerCache(await prefs(), clock: () => now);
+      expect(c.get('k'), isNull);
+      await c.put('k', 'an answer');
+      expect(c.get('k'), 'an answer');
+      now = now.add(const Duration(days: 29));
+      expect(c.get('k'), 'an answer');
+      now = now.add(const Duration(days: 2));
+      expect(c.get('k'), isNull);
+    });
+
+    test('the cache is bounded and drops the oldest', () async {
+      DateTime now = DateTime(2026, 3, 10);
+      final HostedAnswerCache c = HostedAnswerCache(
+        await prefs(),
+        clock: () => now,
+        maxEntries: 3,
+      );
+      for (int i = 0; i < 5; i++) {
+        now = now.add(const Duration(minutes: 1));
+        await c.put('k$i', 'a$i');
+      }
+      expect(c.get('k0'), isNull);
+      expect(c.get('k1'), isNull);
+      expect(c.get('k4'), 'a4');
+    });
+
+    test('empty keys and answers are not stored', () async {
+      final HostedAnswerCache c = HostedAnswerCache(await prefs());
+      await c.put('', 'x');
+      await c.put('k', '  ');
+      expect(c.get(''), isNull);
+      expect(c.get('k'), isNull);
+    });
+  });
+
+  group('local counters', () {
+    test('count, share and reset', () async {
+      SharedPreferences.setMockInitialValues(<String, Object>{});
+      final HadiStats st = HadiStats(await SharedPreferences.getInstance());
+      expect(st.localShare, isNull);
+      await st.record(HadiAnswerKind.local);
+      await st.record(HadiAnswerKind.local);
+      await st.record(HadiAnswerKind.cache);
+      await st.record(HadiAnswerKind.hosted);
+      expect(st.total, 4);
+      expect(st.localShare, 0.75);
+      await st.reset();
+      expect(st.total, 0);
     });
   });
 
@@ -163,13 +194,10 @@ void main() {
       expect(isRulingShaped('How deep is the Mariana Trench?'), isFalse);
     });
 
-    test('the cap message is kind and names the library', () {
-      for (final bool month in <bool>[true, false]) {
-        final String m = hostedCapMessage(monthSpent: month);
-        expect(m, contains('built-in checked library'));
-        expect(m.toLowerCase(), isNot(contains('upgrade')));
-        expect(m.toLowerCase(), isNot(contains('pay')));
-      }
+    test('hosted scope is Islam-related questions only', () {
+      expect(isHostedScope('What is barzakh in Islam?'), isTrue);
+      expect(isHostedScope('How deep is the Mariana Trench?'), isFalse);
+      expect(isHostedScope('Best pizza recipe'), isFalse);
     });
 
     test('with no backend, hosted AI is not available', () {
@@ -178,21 +206,38 @@ void main() {
   });
 
   group('Hadi with a hosted backend', () {
-    // Questions the built-in library declines (checked in the first test, so
-    // a change to the shelf shows up here instead of as a mystery).
-    const List<String> outside = <String>[
-      'How deep is the Mariana Trench?',
-      'Who built the pyramids of Giza?',
-      'What is the tallest mountain in Africa?',
-      'How far away is the planet Neptune?',
-      'Which river is the longest in Europe?',
+    // Islam-related questions that the library may not hold. The first test
+    // keeps only those it really declines, so a change to the shelf shows up
+    // there instead of as a mystery.
+    const List<String> candidates = <String>[
+      'What is the history of the Umayyad caliphate in Spain?',
+      'Explain the story of the Sleepers of the Cave in Islam',
+      'Why did the Abbasid caliphate move its capital to Baghdad?',
+      'What happened at the battle of Ain Jalut for Muslims?',
+      'Who were the great scholars of Andalusia in Islam?',
+      'How did Islam spread to Indonesia?',
+      'Tell me about Muslim astronomers of the golden age',
+      'What is the origin of the Ottoman caliphate in Islam?',
     ];
+
+    Future<List<String>> declined() async {
+      final List<String> out = <String>[];
+      for (final String q in candidates) {
+        final String r = await const OfflineHadiProvider().ask(
+          q,
+          const <HadiMessage>[],
+        );
+        if (HadiRouting.isRefusal(r) && !isRulingShaped(q) && isHostedScope(q)) {
+          out.add(q);
+        }
+      }
+      return out;
+    }
 
     Future<({ProviderContainer c, FakeHostedAi fake})> setup({
       FakeHostedAi? fake,
-      Map<String, Object> prefsInit = const <String, Object>{},
     }) async {
-      SharedPreferences.setMockInitialValues(prefsInit);
+      SharedPreferences.setMockInitialValues(<String, Object>{});
       final SharedPreferences prefs = await SharedPreferences.getInstance();
       final HadiCorpus corpus = loadRealCorpus();
       final FakeHostedAi f = fake ?? FakeHostedAi();
@@ -201,6 +246,7 @@ void main() {
           sharedPreferencesProvider.overrideWithValue(prefs),
           hadiCorpusProvider.overrideWith((ref) => corpus),
           hostedAiProvider.overrideWithValue(f),
+          localKnowledgeProvider.overrideWith((ref) async => null),
         ],
       );
       addTearDown(c.dispose);
@@ -210,33 +256,41 @@ void main() {
     HadiMessage last(ProviderContainer c) =>
         c.read(hadiControllerProvider).messages.last;
 
-    test('the shelf declines the test questions', () async {
-      for (final String q in outside) {
-        final String r = await const OfflineHadiProvider().ask(
-          q,
-          const <HadiMessage>[],
-        );
-        expect(HadiRouting.isRefusal(r), isTrue, reason: q);
-      }
+    int stat(ProviderContainer c, HadiAnswerKind k) =>
+        c.read(hadiStatsProvider).count(k);
+
+    test('the shelf declines enough of the test questions', () async {
+      expect((await declined()).length, greaterThanOrEqualTo(3));
     });
 
-    test('an out-of-library question gets a labelled hosted answer', () async {
+    test('an out-of-library question gets a labelled, short hosted request',
+        () async {
+      final List<String> qs = await declined();
       final s = await setup();
-      await s.c.read(hadiControllerProvider.notifier).ask(outside[0]);
+      await s.c.read(hadiControllerProvider.notifier).ask(qs[0]);
       expect(s.fake.requests, hasLength(1));
       final HadiMessage m = last(s.c);
       expect(m.live, isTrue);
       expect(m.text, contains(kHostedAiLabel));
-      expect(m.text, contains('As-salamu alaikum'));
-      // The server is told the package and the scope rules travel with the
-      // question.
-      expect(s.fake.requests.single.package, 'free');
-      expect(s.fake.requests.single.question, contains('Do not issue a fatwa'));
-      // One message spent.
-      final UsageSnapshot u = s.c
-          .read(usageMeterProvider)
-          .snapshot(kHadiPackageLimits[HadiPackage.free]!);
-      expect(u.usedToday, 1);
+      final HostedAiRequest r = s.fake.requests.single;
+      expect(r.package, 'free');
+      expect(r.question, contains('Do not issue a fatwa'));
+      expect(r.maxOutputTokens, kHostedMaxOutputTokens);
+      expect(r.preferSmallModel, isTrue);
+      expect(r.history.length, lessThanOrEqualTo(kHostedMaxHistory));
+      expect(stat(s.c, HadiAnswerKind.hosted), 1);
+    });
+
+    test('the same question twice costs one call', () async {
+      final List<String> qs = await declined();
+      final s = await setup();
+      final HadiController h = s.c.read(hadiControllerProvider.notifier);
+      await h.ask(qs[0]);
+      await h.ask('Please, ${qs[0].toUpperCase()}');
+      expect(s.fake.requests, hasLength(1));
+      expect(last(s.c).text, contains(kHostedAiLabel));
+      expect(stat(s.c, HadiAnswerKind.hosted), 1);
+      expect(stat(s.c, HadiAnswerKind.cache), 1);
     });
 
     test('a question the library answers never reaches the backend', () async {
@@ -247,101 +301,78 @@ void main() {
       expect(s.fake.requests, isEmpty);
       expect(last(s.c).live, isFalse);
       expect(last(s.c).text, isNot(contains(kHostedAiLabel)));
-      final UsageSnapshot u = s.c
-          .read(usageMeterProvider)
-          .snapshot(kHadiPackageLimits[HadiPackage.free]!);
-      expect(u.usedToday, 0);
+      expect(stat(s.c, HadiAnswerKind.local), 1);
     });
 
-    test('a crisis message is never sent and never counted', () async {
+    test('a crisis message is never sent', () async {
       final s = await setup();
       await s.c
           .read(hadiControllerProvider.notifier)
           .ask('I want to kill myself');
       expect(s.fake.requests, isEmpty);
       expect(last(s.c).crisis, isNotNull);
-      expect(last(s.c).text, isNot(contains(kHostedAiLabel)));
-      final UsageSnapshot u = s.c
-          .read(usageMeterProvider)
-          .snapshot(kHadiPackageLimits[HadiPackage.free]!);
-      expect(u.usedToday, 0);
+      expect(stat(s.c, HadiAnswerKind.safety), 1);
     });
 
-    test('a ruling or medical question is not sent to the backend', () async {
+    test('ruling, medical and off-topic questions are not sent', () async {
       final s = await setup();
       final HadiController h = s.c.read(hadiControllerProvider.notifier);
       await h.ask('Is bitcoin halal?');
       await h.ask('What dose of ibuprofen should I take?');
+      await h.ask('How deep is the Mariana Trench?');
       expect(s.fake.requests, isEmpty);
     });
 
-    test('at the cap Hadi says so kindly and the library still answers',
-        () async {
-      final s = await setup();
-      final HadiController h = s.c.read(hadiControllerProvider.notifier);
-      final int cap = kHadiPackageLimits[HadiPackage.free]!.hostedPerDay;
-      for (int i = 0; i < cap; i++) {
-        await h.ask(outside[i]);
-      }
-      expect(s.fake.requests, hasLength(cap));
-      await h.ask(outside[cap]);
-      // No extra call, no paywall wording, the library's reply is shown.
-      expect(s.fake.requests, hasLength(cap));
-      final HadiMessage m = last(s.c);
-      expect(m.live, isFalse);
-      expect(m.text, contains('used today\'s AI messages'));
-      expect(m.text, contains('built-in checked library'));
-      expect(HadiRouting.isRefusal(m.text), isTrue);
-      // Core answers still work at the cap.
-      await h.ask('How do I make wudu?');
-      expect(last(s.c).text, isNot(contains('used today')));
-      expect(last(s.c).text, isNotEmpty);
-    });
-
-    test('a failed hosted call is refunded and falls back', () async {
+    test('a failed hosted call falls back, is not counted or saved', () async {
+      final List<String> qs = await declined();
       final s = await setup(
         fake: FakeHostedAi(
           error: const HadiProviderException('The service is down.'),
         ),
       );
-      await s.c.read(hadiControllerProvider.notifier).ask(outside[0]);
-      expect(s.fake.requests, hasLength(1));
+      final HadiController h = s.c.read(hadiControllerProvider.notifier);
+      await h.ask(qs[0]);
       final HadiMessage m = last(s.c);
       expect(m.live, isFalse);
       expect(m.text, contains('Offline guidance'));
-      expect(m.text, isNot(contains(kHostedAiLabel)));
-      final UsageSnapshot u = s.c
-          .read(usageMeterProvider)
-          .snapshot(kHadiPackageLimits[HadiPackage.free]!);
-      expect(u.usedToday, 0);
+      expect(stat(s.c, HadiAnswerKind.failed), 1);
+      expect(
+        s.c
+            .read(usageMeterProvider)
+            .snapshot(kHadiPackageLimits[HadiPackage.free]!)
+            .usedToday,
+        0,
+      );
+      await h.ask(qs[0]);
+      expect(s.fake.requests, hasLength(2)); // nothing was cached
     });
 
-    test('a server-side cap is shown kindly and stops further calls',
-        () async {
-      final s = await setup(fake: FakeHostedAi(error: const HostedAiCapReached()));
+    test('nothing is capped: many hosted questions all go through', () async {
+      final List<String> qs = await declined();
+      final s = await setup();
       final HadiController h = s.c.read(hadiControllerProvider.notifier);
-      await h.ask(outside[0]);
-      final HadiMessage m = last(s.c);
-      expect(m.text, contains('built-in checked library'));
-      expect(m.retryQuestion, isNull);
-      await h.ask(outside[1]);
-      expect(s.fake.requests, hasLength(1)); // the meter now blocks locally
+      for (final String q in qs) {
+        await h.ask(q);
+      }
+      expect(s.fake.requests, hasLength(qs.length));
+      expect(last(s.c).text, contains(kHostedAiLabel));
     });
 
     test('a long hosted reply is shortened to the package limit', () async {
+      final List<String> qs = await declined();
       final s = await setup(
         fake: FakeHostedAi(reply: 'A sentence of plain words. ' * 100),
       );
-      await s.c.read(hadiControllerProvider.notifier).ask(outside[0]);
+      await s.c.read(hadiControllerProvider.notifier).ask(qs[0]);
       final int max = kHadiPackageLimits[HadiPackage.free]!.maxReplyChars;
       expect(
         last(s.c).text.length,
         lessThanOrEqualTo(max + kHostedAiLabel.length + 2),
       );
-      expect(last(s.c).text, contains(kHostedAiLabel));
     });
 
     test('with no backend configured nothing changes', () async {
+      final List<String> qs = await declined();
       SharedPreferences.setMockInitialValues(<String, Object>{});
       final SharedPreferences prefs = await SharedPreferences.getInstance();
       final HadiCorpus corpus = loadRealCorpus();
@@ -349,15 +380,13 @@ void main() {
         overrides: <Override>[
           sharedPreferencesProvider.overrideWithValue(prefs),
           hadiCorpusProvider.overrideWith((ref) => corpus),
+          localKnowledgeProvider.overrideWith((ref) async => null),
         ],
       );
       addTearDown(c.dispose);
-      await c.read(hadiControllerProvider.notifier).ask(outside[0]);
-      expect(c.read(hadiControllerProvider).messages.last.live, isFalse);
-      expect(
-        c.read(hadiControllerProvider).messages.last.text,
-        isNot(contains(kHostedAiLabel)),
-      );
+      await c.read(hadiControllerProvider.notifier).ask(qs[0]);
+      expect(last(c).live, isFalse);
+      expect(last(c).text, isNot(contains(kHostedAiLabel)));
     });
   });
 }

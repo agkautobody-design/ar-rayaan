@@ -18,27 +18,45 @@ const Map<HadiPackage, String> kHadiPackageLabels = <HadiPackage, String>{
   HadiPackage.family: 'Family',
 };
 
-/// What one package allows. Every number is a PLACEHOLDER chosen only so the
-/// meter can be built and tested; none of them is a decision.
-/// TODO-OWNER: set the real limits (see docs/product/hadi_packages.md).
+/// What one package allows. A null limit means UNLIMITED.
+///
+/// OWNER DECISION (Oct 2026): nothing is capped yet. Every package is
+/// unlimited and no limit is shown anywhere. The fields exist so caps can be
+/// switched on later by changing this one table (and the server proxy), with
+/// no other code change.
+/// TODO-OWNER: set real limits when caps are switched on.
 class HadiPackageLimits {
   const HadiPackageLimits({
-    required this.hostedPerDay,
-    required this.hostedPerMonth,
-    required this.maxReplyChars,
+    this.hostedPerDay,
+    this.hostedPerMonth,
+    this.maxReplyChars = 900,
     this.features = const <String>{},
   });
 
-  /// Hosted-AI messages allowed per local calendar day.
-  final int hostedPerDay;
+  /// Hosted-AI messages allowed per local calendar day (null = unlimited).
+  final int? hostedPerDay;
 
-  /// Hosted-AI messages allowed per local calendar month.
-  final int hostedPerMonth;
+  /// Hosted-AI messages allowed per local calendar month (null = unlimited).
+  final int? hostedPerMonth;
 
   /// A hosted reply longer than this is shortened at a sentence end.
   final int maxReplyChars;
 
   /// Feature flags for the package. Hādi's built-in library, the core
+  /// religious answers and every crisis or safety reply are NEVER gated by a
+  /// package and are not listed here.
+  final Set<String> features;
+}
+
+/// The single table of limits. All unlimited by default (see above).
+const Map<HadiPackage, HadiPackageLimits> kHadiPackageLimits =
+    <HadiPackage, HadiPackageLimits>{
+  HadiPackage.free: HadiPackageLimits(),
+  HadiPackage.plus: HadiPackageLimits(),
+  HadiPackage.family: HadiPackageLimits(),
+};
+
+/// Feature flags for the package. Hādi's built-in library, the core
   /// religious answers and every crisis or safety reply are NEVER gated by a
   /// package and are not listed here.
   final Set<String> features;

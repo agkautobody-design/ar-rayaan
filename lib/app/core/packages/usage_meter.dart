@@ -4,7 +4,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../providers.dart';
 import 'hadi_package.dart';
 
-/// A read of the meter against one package's limits.
+/// A read of the meter against one package's limits. With the default
+/// (unlimited) table, [canUse] is always true.
 class UsageSnapshot {
   const UsageSnapshot({
     required this.usedToday,
@@ -16,37 +17,20 @@ class UsageSnapshot {
   final int usedThisMonth;
   final HadiPackageLimits limits;
 
-  int get leftToday =>
-      (limits.hostedPerDay - usedToday).clamp(0, limits.hostedPerDay);
-  int get leftThisMonth =>
-      (limits.hostedPerMonth - usedThisMonth).clamp(0, limits.hostedPerMonth);
-
-  /// What the person can still use: the smaller of the day and month room.
-  int get remaining => leftToday < leftThisMonth ? leftToday : leftThisMonth;
-
-  bool get canUse => remaining > 0;
-
-  /// True when the month, not the day, is what ran out.
-  bool get monthSpent => leftThisMonth == 0;
-
-  /// "2 of 3 AI messages left today".
-  String get label {
-    if (monthSpent) {
-      return '0 of ${limits.hostedPerMonth} AI messages left this month';
-    }
-    return '$remaining of ${limits.hostedPerDay} AI messages left today';
+  bool get canUse {
+    final int? d = limits.hostedPerDay;
+    final int? m = limits.hostedPerMonth;
+    return (d == null || usedToday < d) && (m == null || usedThisMonth < m);
   }
 }
 
 /// Counts hosted-AI messages on this device, per local day and per month.
 ///
-/// This is a courtesy meter for the person's own display and a first line of
-/// defence. It is NOT enforcement: anything stored on a device can be reset
-/// by the person who owns it. The real cap must be enforced by the server
-/// proxy (see docs/product/hadi_packages.md).
-///
-/// Only hosted-AI messages are counted. The built-in library never touches
-/// this meter.
+/// DORMANT: the owner has decided not to cap anything yet, so with the
+/// default table this only counts. It is never shown to the person. If caps
+/// are switched on later, remember that anything stored on a device can be
+/// reset by its owner: the real cap must be enforced by the server proxy
+/// (see docs/product/hadi_packages.md).
 class UsageMeter {
   UsageMeter(this._prefs, {DateTime Function()? clock})
       : _clock = clock ?? DateTime.now;
@@ -68,15 +52,13 @@ class UsageMeter {
 
   String _monthStamp() => _dayStamp().substring(0, 7);
 
-  int _usedToday() =>
-      _prefs.getString(dayKey) == _dayStamp()
-          ? (_prefs.getInt(dayCountKey) ?? 0)
-          : 0;
+  int _usedToday() => _prefs.getString(dayKey) == _dayStamp()
+      ? (_prefs.getInt(dayCountKey) ?? 0)
+      : 0;
 
-  int _usedThisMonth() =>
-      _prefs.getString(monthKey) == _monthStamp()
-          ? (_prefs.getInt(monthCountKey) ?? 0)
-          : 0;
+  int _usedThisMonth() => _prefs.getString(monthKey) == _monthStamp()
+      ? (_prefs.getInt(monthCountKey) ?? 0)
+      : 0;
 
   UsageSnapshot snapshot(HadiPackageLimits limits) => UsageSnapshot(
         usedToday: _usedToday(),
@@ -84,30 +66,19 @@ class UsageMeter {
         limits: limits,
       );
 
-  /// Spends one message if the package still has room. Returns false, and
-  /// changes nothing, when the day or month allowance is used up.
+  /// Counts one hosted message if the package allows it. Returns false, and
+  /// changes nothing, when a configured limit is reached.
   Future<bool> tryConsume(HadiPackageLimits limits) async {
     if (!snapshot(limits).canUse) return false;
     await _write(_usedToday() + 1, _usedThisMonth() + 1);
     return true;
   }
 
-  /// Gives one message back (the hosted call failed, so the person should
-  /// not pay for it).
+  /// Gives one back (the hosted call failed).
   Future<void> refund() async {
     final int d = _usedToday();
     final int m = _usedThisMonth();
     await _write(d > 0 ? d - 1 : 0, m > 0 ? m - 1 : 0);
-  }
-
-  /// Marks today's allowance as spent, for when the server says so first.
-  Future<void> markDayExhausted(HadiPackageLimits limits) async {
-    final int m = _usedThisMonth();
-    final int extra = limits.hostedPerDay - _usedToday();
-    await _write(
-      limits.hostedPerDay,
-      extra > 0 ? m + extra : m,
-    );
   }
 
   Future<void> _write(int day, int month) async {

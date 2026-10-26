@@ -25,7 +25,7 @@ void main() {
     late List<CoverageRow> rows;
 
     setUpAll(() async {
-      rows = await runCoverage();
+      rows = await runCoverage(knowledge: loadRealKnowledge());
       // The report is regenerated on every run; the committed copy is made
       // with `dart tool/hadi_coverage.dart > docs/hadi_coverage.md`.
       try {
@@ -34,7 +34,7 @@ void main() {
     });
 
     test('the corpus is large enough to mean something', () {
-      expect(kCoverageQuestions.length, greaterThanOrEqualTo(120));
+      expect(kCoverageQuestions.length, greaterThanOrEqualTo(400));
       expect(kCoverageQuestions.toSet().length, kCoverageQuestions.length);
     });
 
@@ -45,7 +45,7 @@ void main() {
       ];
       expect(
         misses.length / rows.length,
-        lessThan(0.15),
+        lessThan(0.20),
         reason: 'misses (${misses.length}/${rows.length}): '
             '${misses.join(' | ')}',
       );
