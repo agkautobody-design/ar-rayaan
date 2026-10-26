@@ -486,6 +486,34 @@
     "settingsHeader": {
       "kind": "fallback",
       "note": "No Games settings screen exists on main yet, and no design crop is text-free."
+    },
+    "seerahTimelineBoard": {
+      "kind": "fallback",
+      "note": "Card-list background of the Seerah Timeline screen. The screen draws the same theme in code."
+    },
+    "prophetsOrderBoard": {
+      "kind": "fallback",
+      "note": "Card-list background of the Prophets in Order screen. No faces or figures."
+    },
+    "wuduStepsBoard": {
+      "kind": "fallback",
+      "note": "Steps background of the Wudu screen. No faces or figures."
+    },
+    "salahStepsBoard": {
+      "kind": "fallback",
+      "note": "Steps background of the Salah screen. No faces or figures."
+    },
+    "wordSearchGrid": {
+      "kind": "fallback",
+      "note": "Grid background of Word Search."
+    },
+    "scrambleTile": {
+      "kind": "fallback",
+      "note": "Letter-tile background of Word Scramble."
+    },
+    "hajjMap": {
+      "kind": "fallback",
+      "note": "Schematic Hajj map (hidden game, not used yet)."
     }
   },
   "totalBytes": 519286
