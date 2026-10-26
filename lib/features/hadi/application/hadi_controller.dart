@@ -397,6 +397,11 @@ class HadiController extends Notifier<HadiState> {
 
   @override
   HadiState build() {
+    // Start loading the local index now, so it is ready by the first
+    // question. Nothing waits for it.
+    try {
+      ref.read(localKnowledgeProvider);
+    } catch (_) {}
     List<HadiMessage> messages = const <HadiMessage>[
       HadiMessage(fromHadi: true, text: kHadiGreeting),
     ];
@@ -781,9 +786,12 @@ class HadiController extends Notifier<HadiState> {
     );
   }
 
-  Future<LocalKnowledge?> _knowledge() async {
+  /// The local index if it has finished loading, else null. Never waits: the
+  /// load starts when the controller is built, and a question asked before it
+  /// is ready is simply answered the old way.
+  LocalKnowledge? _knowledge() {
     try {
-      return await ref.read(localKnowledgeProvider.future);
+      return ref.read(localKnowledgeProvider).valueOrNull;
     } catch (_) {
       return null;
     }
@@ -953,7 +961,7 @@ class HadiController extends Notifier<HadiState> {
         p is OfflineHadiProvider &&
         ruling != RulingClass.personal &&
         !OfflineHadiProvider.asksMedical(q)) {
-      final LocalKnowledge? lk = await _knowledge();
+      final LocalKnowledge? lk = _knowledge();
       if (lk != null) {
         String shelf = '';
         try {

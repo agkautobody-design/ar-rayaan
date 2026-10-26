@@ -51,12 +51,20 @@ void main() {
       );
     });
 
-    test('a miss is never a dead end: closest topics and Search', () {
+    test('a miss is never a dead end: closest topics and Search, or a scholar',
+        () {
       for (final CoverageRow r in rows) {
         if (r.kind != CoverageKind.miss) continue;
-        expect(r.buttons, contains('/search'), reason: r.question);
-        expect(r.buttons.length, greaterThanOrEqualTo(2), reason: r.question);
         expect(r.reply, contains('rather not guess'), reason: r.question);
+        if (r.buttons.isEmpty) {
+          // No screen resembles the question: the reply itself hands over to
+          // a qualified scholar and Our Sources.
+          expect(r.reply, contains('qualified'), reason: r.question);
+        } else {
+          expect(r.buttons, contains('/search'), reason: r.question);
+          expect(r.buttons.length, greaterThanOrEqualTo(2),
+              reason: r.question);
+        }
       }
     });
 

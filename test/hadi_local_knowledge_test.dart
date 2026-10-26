@@ -116,6 +116,7 @@ void main() {
         ],
       );
       addTearDown(c.dispose);
+      await c.read(localKnowledgeProvider.future);
       return c;
     }
 
