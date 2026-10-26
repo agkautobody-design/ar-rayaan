@@ -16,6 +16,10 @@ class Track {
     this.lyricsLines = const <String>[],
     this.licenseLine,
     this.officialUrl,
+    this.occasion = 'general',
+    this.familyFriendly = true,
+    this.audioStyle = 'unknown',
+    this.youtubeId,
   });
 
   final String id;
@@ -29,6 +33,23 @@ class Track {
   final List<String> lyricsLines;
   final String? licenseLine;
   final String? officialUrl;
+
+  /// general, ramadan, eid, mawlid, hajj, istighfar, wedding or kids.
+  final String occasion;
+
+  /// Judged from the artist and title; not a scholar's ruling.
+  final bool familyFriendly;
+
+  /// 'vocals' or 'duff' only when the official upload's own title says so;
+  /// 'music' when it says live / acoustic; otherwise 'unknown' (instruments
+  /// were not checked).
+  final String audioStyle;
+
+  /// Verified YouTube video ID on the official channel, if any.
+  final String? youtubeId;
+
+  /// Voice only (or voice and duff), per the upload's own title.
+  bool get isVocalsOnly => audioStyle == 'vocals' || audioStyle == 'duff';
 
   /// True when the app can actually play this track in-app. Catalog
   /// entries without an audio file only link out to the artist's page.
@@ -45,6 +66,10 @@ class Track {
         if (lyricsLines.isNotEmpty) 'lyrics': lyricsLines,
         if (licenseLine != null) 'licenseLine': licenseLine,
         if (officialUrl != null) 'officialUrl': officialUrl,
+        'occasion': occasion,
+        'familyFriendly': familyFriendly,
+        'audioStyle': audioStyle,
+        if (youtubeId != null) 'youtube': youtubeId,
       };
 
   factory Track.fromJson(Map<String, dynamic> j) => Track(
@@ -60,6 +85,10 @@ class Track {
             .map((dynamic e) => e.toString()).toList(),
         licenseLine: j['licenseLine'] as String?,
         officialUrl: j['officialUrl'] as String?,
+        occasion: j['occasion'] as String? ?? 'general',
+        familyFriendly: j['familyFriendly'] as bool? ?? true,
+        audioStyle: j['audioStyle'] as String? ?? 'unknown',
+        youtubeId: j['youtube'] as String?,
       );
 }
 

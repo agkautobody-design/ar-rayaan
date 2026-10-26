@@ -322,6 +322,11 @@ class _BrowseSectionState extends ConsumerState<_BrowseSection> {
   /// default" (on when at least one track plays in the app).
   bool? _onlyHere;
 
+  /// Search text, occasion and voice-only filters for the larger catalogue.
+  String _query = '';
+  String? _occasion;
+  bool _vocalsOnly = false;
+
   void _say(String message) {
     ScaffoldMessenger.maybeOf(context)
       ?..hideCurrentSnackBar()
@@ -396,7 +401,7 @@ class _BrowseSectionState extends ConsumerState<_BrowseSection> {
       'artists' => catalog.artists,
       _ => catalog.poets,
     };
-    final List<Track> filtered = facetValue == null
+    final List<Track> faceted = facetValue == null
         ? catalog.tracks
         : switch (facet) {
             'themes' => catalog.byTheme(facetValue),
@@ -407,6 +412,20 @@ class _BrowseSectionState extends ConsumerState<_BrowseSection> {
                 .where((Track t) => t.poet == facetValue)
                 .toList(),
           };
+    final String q = _query.trim().toLowerCase();
+    final List<String> occasions = catalog.tracks
+        .map((Track t) => t.occasion)
+        .where((String o) => o != 'general')
+        .toSet()
+        .toList()
+      ..sort();
+    final List<Track> filtered = faceted.where((Track t) {
+      if (_occasion != null && t.occasion != _occasion) return false;
+      if (_vocalsOnly && !t.isVocalsOnly) return false;
+      if (q.isEmpty) return true;
+      return t.title.toLowerCase().contains(q) ||
+          t.artist.toLowerCase().contains(q);
+    }).toList();
     final Map<String, TrackSources> sources =
         ref.watch(playerSourcesProvider).valueOrNull ??
             const <String, TrackSources>{};
@@ -435,8 +454,11 @@ class _BrowseSectionState extends ConsumerState<_BrowseSection> {
                     'app yet. Each one opens a YouTube search in your '
                     'browser. Ar-Rayaan does not host them.'
                 : '$playableCount of ${catalog.tracks.length} tracks play '
-                    'here. The rest open a YouTube search in your browser. '
-                    'Ar-Rayaan does not host them.',
+                    'here, from the official channel. The rest open a '
+                    'YouTube search in your browser. Ar-Rayaan does not host '
+                    'or download them. \u201cVoice only\u201d is shown only '
+                    'when the official upload says so; other tracks may use '
+                    'instruments.',
             key: const Key('player-catalog-note'),
             style: AppText.caption,
           ),
@@ -469,24 +491,56 @@ class _BrowseSectionState extends ConsumerState<_BrowseSection> {
             const SizedBox(height: 6),
             SizedBox(
               height: 34,
-              child: ListView(
+              child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                children: <Widget>[
-                  for (final String v in values)
-                    Padding(
-                      padding: const EdgeInsets.only(right: 6),
-                      child: ActionChip(
-                        label: Text(v),
-                        onPressed: () {
-                          setState(() => _limit = _page);
-                          widget.onFacet(facet, v);
-                        },
-                      ),
-                    ),
-                ],
+                itemCount: values.length,
+                itemBuilder: (BuildContext context, int i) => Padding(
+                  padding: const EdgeInsets.only(right: 6),
+                  child: ActionChip(
+                    label: Text(values[i]),
+                    onPressed: () {
+                      setState(() => _limit = _page);
+                      widget.onFacet(facet, values[i]);
+                    },
+                  ),
+                ),
               ),
             ),
           ],
+          const SizedBox(height: 8),
+          TextField(
+            key: const Key('player-search'),
+            decoration: const InputDecoration(
+              isDense: true,
+              prefixIcon: Icon(Icons.search),
+              hintText: 'Search title or artist',
+            ),
+            onChanged: (String v) => setState(() {
+              _query = v;
+              _limit = _page;
+            }),
+          ),
+          const SizedBox(height: 6),
+          Wrap(spacing: 6, runSpacing: 4, children: <Widget>[
+            FilterChip(
+              key: const Key('player-vocals-only'),
+              label: const Text('Vocals / duff only'),
+              selected: _vocalsOnly,
+              onSelected: (bool v) => setState(() {
+                _vocalsOnly = v;
+                _limit = _page;
+              }),
+            ),
+            for (final String o in occasions)
+              FilterChip(
+                label: Text(o[0].toUpperCase() + o.substring(1)),
+                selected: _occasion == o,
+                onSelected: (bool v) => setState(() {
+                  _occasion = v ? o : null;
+                  _limit = _page;
+                }),
+              ),
+          ]),
           const Divider(height: 16),
           if (shown.isEmpty)
             Padding(
@@ -521,6 +575,13 @@ class _BrowseSectionState extends ConsumerState<_BrowseSection> {
                       ),
                       Text('${t.artist} \u00b7 ${t.language}',
                           style: AppText.caption),
+                      if (t.isVocalsOnly)
+                        Text(
+                            t.audioStyle == 'duff'
+                                ? 'Voice and duff'
+                                : 'Voice only',
+                            style: AppText.caption
+                                .copyWith(color: AppColors.gold)),
                     ],
                   ),
                 ),
