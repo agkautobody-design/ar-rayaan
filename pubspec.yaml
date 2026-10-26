@@ -63,6 +63,7 @@ flutter:
     - assets/guides/
     - assets/games/
     - assets/games/ludo/
+    - assets/games/art/
     - assets/feelings/
     - assets/majlis/
     - assets/share/

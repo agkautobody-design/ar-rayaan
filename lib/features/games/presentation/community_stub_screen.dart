@@ -22,8 +22,10 @@ class CommunityGamesStubScreen extends StatelessWidget {
           const ArchHeader(
             title: 'Games with community',
             tagline: 'Coming with community',
+            band: true,
           ),
           GamePanel(
+            ornate: true,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[

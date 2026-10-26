@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
@@ -31,5 +32,23 @@ void main() {
         .toList();
     expect(missing, isEmpty,
         reason: 'missing assets referenced in code: \$missing');
+  });
+
+  test('W6 Games art: every manifest slot has its file, within budget', () {
+    final dir = Directory('assets/games/art');
+    final manifest = jsonDecode(File('${dir.path}/manifest.json').readAsStringSync())
+        as Map<String, dynamic>;
+    final slots = manifest['slots'] as Map<String, dynamic>;
+    expect(slots, isNotEmpty);
+    var total = 0;
+    for (final e in slots.entries) {
+      final file = File((e.value as Map<String, dynamic>)['file'] as String);
+      expect(file.existsSync(), isTrue, reason: 'slot ${e.key}');
+      expect(file.path.split('/').last.split('.').first, e.key,
+          reason: 'file is named after its slot');
+      total += file.lengthSync();
+    }
+    // Art budget: keep the whole folder under 4 MB.
+    expect(total, lessThan(4 * 1024 * 1024));
   });
 }

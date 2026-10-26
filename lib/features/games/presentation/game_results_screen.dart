@@ -10,6 +10,7 @@ import '../data/game_history.dart';
 import '../data/games_store.dart';
 import '../engine/game_registry.dart';
 import '../engine/quiz_engine.dart';
+import '../ui/games_art.dart';
 import '../ui/games_theme.dart';
 
 /// The score of a finished game in plain words: "8 of 10", never a rank,
@@ -30,6 +31,7 @@ class ResultSummaryView extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
         const SizedBox(height: 12),
+        const ResultTrophyArt(),
         Center(child: Text('FINISHED', style: AppText.eyebrow)),
         const SizedBox(height: 6),
         Center(
@@ -58,9 +60,11 @@ class ResultSummaryView extends StatelessWidget {
           textAlign: TextAlign.center,
           style: AppText.bodyMuted,
         ),
+        const GoldDivider(),
         if (together) ...<Widget>[
-          const SizedBox(height: 14),
+          const SizedBox(height: 6),
           GamePanel(
+            ornate: true,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
