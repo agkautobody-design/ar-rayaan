@@ -2,7 +2,7 @@
 ///
 /// All numbers are pixels of `assets/games/ludo/board.webp` (863 x 686),
 /// measured on that file. They are DATA: if the picture is replaced (see
-/// `tool/crop_game_boards.py` and the asset list in the Ludo PR), re-measure
+/// `tool/crop_ludo_board.py` and the asset list in the Ludo PR), re-measure
 /// these and nothing else in the game changes.
 ///
 /// The picture is drawn in perspective (cells near the bottom are bigger), so

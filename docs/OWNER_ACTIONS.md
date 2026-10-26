@@ -31,7 +31,7 @@ Why: tables are never deleted by the app, so the `game_rooms` collection would o
 3. Confirm: the policy shows as Serving. Every table now carries `expireAt` (6 hours after creation; the rules cap it at 12). The in-app privacy text says tables are deleted when someone leaves and expire on their own, so this policy is what makes that sentence true for tables abandoned without leaving.
 
 ## 2c. Ludo art: files to export for a pixel-perfect board (optional)
-The Ludo board in the app is cut from your in-game mockup by `tool/crop_game_boards.py` (see its docstring; it writes `assets/games/ludo/`). It is clean on the track and in the yard sockets, but the yards have a soft fill where baked pawns were removed and three of the four pawn colours are recoloured copies of the green one. For perfection, export these from your design tool and drop them in `assets/games/ludo/` (same names; no code change):
+The Ludo board in the app is cut from your in-game mockup by `tool/crop_ludo_board.py` (see its docstring; it writes `assets/games/ludo/`). It is clean on the track and in the yard sockets, but the yards have a soft fill where baked pawns were removed and three of the four pawn colours are recoloured copies of the green one. For perfection, export these from your design tool and drop them in `assets/games/ludo/` (same names; no code change):
 1. `board.png` at 2x: the empty board with the frame, no pawns, no dice, no avatars, sockets visible in every yard.
 2. One pawn sprite per colour, transparent PNG, same size, standing pose: `pawn_red`, `pawn_blue`, `pawn_yellow`, `pawn_green`.
 3. Six dice faces, transparent PNG: `dice_1` to `dice_6` (the app draws faces 1 to 6 in code today; only the idle dice is cut from your render).

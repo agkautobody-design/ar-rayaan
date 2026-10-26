@@ -22,6 +22,6 @@ void main() {
   });
 
   test('the crop script is shipped beside the art', () {
-    expect(File('tool/crop_game_boards.py').existsSync(), isTrue);
+    expect(File('tool/crop_ludo_board.py').existsSync(), isTrue);
   });
 }

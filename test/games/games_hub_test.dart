@@ -84,7 +84,7 @@ void main() {
     testWidgets('lists the registered games in sections, without ratings', (
       tester,
     ) async {
-      await pumpScreen(tester, const GamesScreen());
+      await pumpScreen(tester, const GamesScreen(), height: 8000);
       expect(tester.takeException(), isNull);
       for (final GameCategory c in GameCategory.values) {
         expect(
@@ -93,8 +93,11 @@ void main() {
           reason: c.label,
         );
       }
-      for (final GameDef g in kGames) {
+      for (final GameDef g in visibleGames(showAcademy: true)) {
         expect(find.text(g.title), findsOneWidget, reason: g.id);
+      }
+      for (final GameDef g in hiddenGames) {
+        expect(find.text(g.title), findsNothing, reason: g.id);
       }
       for (final String bad in <String>[
         'Popular Games',
@@ -244,8 +247,12 @@ void main() {
       expect(find.text('With a friend online'), findsOneWidget);
       expect(find.text('Free hints'), findsNothing);
       await pumpScreen(tester, const GameSetupScreen(gameId: 'chess'));
-      expect(find.text('Easy'), findsOneWidget);
+      expect(find.text('Beginner'), findsOneWidget);
+      expect(find.text('Intermediate'), findsOneWidget);
+      expect(find.text('Advanced'), findsOneWidget);
+      expect(find.text('Easy'), findsNothing);
       expect(find.text('Challenge'), findsNothing);
+      expect(find.text('No clock'), findsOneWidget);
     });
 
     testWidgets('setup: Names Memory asks for pairs', (tester) async {

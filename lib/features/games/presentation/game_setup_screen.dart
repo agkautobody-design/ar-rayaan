@@ -6,7 +6,10 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/needs_internet_view.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/theme/widgets/switch_row.dart';
+import '../data/game_settings.dart';
+import '../data/learning_loader.dart';
 import '../engine/game_registry.dart';
+import '../engine/learning_banks.dart';
 import '../engine/memory_engine.dart';
 import '../engine/quiz_engine.dart';
 import '../ui/games_theme.dart';
@@ -41,10 +44,13 @@ class _GameSetupState extends ConsumerState<GameSetupScreen> {
   GameDifficulty _difficulty = GameDifficulty.standard;
   bool _hints = true;
   String _topic = 'mixed';
+  String _playAs = 'white';
+  int _minutes = 0;
 
   @override
   void initState() {
     super.initState();
+    _hints = ref.read(gameSettingsProvider).showHints;
     final String? t = widget.initialTopic;
     if (t != null && t.isNotEmpty) _topic = t;
     final GameDef? g = gameById(widget.gameId);
@@ -123,10 +129,36 @@ class _GameSetupState extends ConsumerState<GameSetupScreen> {
         data: (List<Name99> names) => _form(g, names: names),
       );
     }
+    if (g.id == 'seerah' || g.id == 'hadith' || g.id == 'arabic-words') {
+      // One size per game: every topic has at least 56 questions.
+      final AsyncValue<int> async = ref.watch(
+        poolSizeProvider('${g.id}|mixed'),
+      );
+      return async.when(
+        loading: () => const <Widget>[
+          SizedBox(height: 40),
+          Center(child: CircularProgressIndicator()),
+        ],
+        error: (Object e, StackTrace s) => <Widget>[
+          const SizedBox(height: 24),
+          Text(
+            'The questions could not be loaded. Please go back and try again.',
+            style: AppText.body,
+            textAlign: TextAlign.center,
+          ),
+        ],
+        data: (int n) => _form(g, pool: n),
+      );
+    }
     return _form(g);
   }
 
-  List<Widget> _form(GameDef g, {List<TriviaRow>? rows, List<Name99>? names}) {
+  List<Widget> _form(
+    GameDef g, {
+    List<TriviaRow>? rows,
+    List<Name99>? names,
+    int? pool,
+  }) {
     // What the pool can support.
     List<int> counts = const <int>[5, 10, 15, 20, 30];
     List<String> topics = const <String>[];
@@ -137,7 +169,14 @@ class _GameSetupState extends ConsumerState<GameSetupScreen> {
     } else if (g.id == 'qk') {
       topics = QuranTopics.all;
       if (!topics.contains(_topic)) _topic = 'mixed';
+    } else if (g.id == 'arabic-words') {
+      topics = ArabicWordTopics.all;
+      if (!topics.contains(_topic)) _topic = 'mixed';
+    } else if (g.id == 'salah-wudu') {
+      topics = const <String>['wudu', 'salah'];
+      if (!topics.contains(_topic)) _topic = 'wudu';
     }
+    if (pool != null) counts = countChoices(pool);
     if (counts.isNotEmpty && !counts.contains(_count)) {
       _count = counts.lastWhere(
         (int n) => n <= _count,
@@ -246,9 +285,7 @@ class _GameSetupState extends ConsumerState<GameSetupScreen> {
             children: <Widget>[
               for (final String t in topics)
                 GameChip(
-                  label: g.id == 'qk'
-                      ? QuranTopics.label(t)
-                      : (t == 'mixed' ? 'All topics' : t),
+                  label: _topicLabel(g, t),
                   selected: _topic == t,
                   onTap: () => setState(() => _topic = t),
                 ),
@@ -300,23 +337,64 @@ class _GameSetupState extends ConsumerState<GameSetupScreen> {
       );
     }
 
-    if (g.hasDifficulty) {
-      final List<GameDifficulty> levels = g.id == 'chess'
-          ? const <GameDifficulty>[GameDifficulty.easy, GameDifficulty.standard]
-          : GameDifficulty.values;
-      if (!levels.contains(_difficulty)) _difficulty = GameDifficulty.standard;
+    if (g.hasDifficulty && (g.id != 'chess' || _mode == PlayMode.solo)) {
+      final bool chess = g.id == 'chess';
+      final List<GameDifficulty> levels = GameDifficulty.values;
       out.add(
         _Group(
-          title: g.id == 'chess' ? 'Hadi’s strength' : 'Difficulty',
+          title: chess ? 'Hadi’s strength' : 'Difficulty',
           child: Wrap(
             spacing: 8,
             runSpacing: 8,
             children: <Widget>[
               for (final GameDifficulty d in levels)
                 GameChip(
-                  label: d.label,
+                  label: chess ? _chessLevelLabel(d) : d.label,
                   selected: _difficulty == d,
                   onTap: () => setState(() => _difficulty = d),
+                ),
+            ],
+          ),
+        ),
+      );
+    }
+
+    if (g.id == 'chess' && _mode != PlayMode.friends) {
+      if (_mode == PlayMode.solo) {
+        out.add(
+          _Group(
+            title: 'Play as',
+            child: Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              children: <Widget>[
+                for (final String a in const <String>[
+                  'white',
+                  'black',
+                  'random',
+                ])
+                  GameChip(
+                    label: '${a[0].toUpperCase()}${a.substring(1)}',
+                    selected: _playAs == a,
+                    onTap: () => setState(() => _playAs = a),
+                  ),
+              ],
+            ),
+          ),
+        );
+      }
+      out.add(
+        _Group(
+          title: 'Clock per player',
+          child: Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children: <Widget>[
+              for (final int t in const <int>[0, 5, 10, 15, 30])
+                GameChip(
+                  label: t == 0 ? 'No clock' : '$t min',
+                  selected: _minutes == t,
+                  onTap: () => setState(() => _minutes = t),
                 ),
             ],
           ),
@@ -354,6 +432,13 @@ class _GameSetupState extends ConsumerState<GameSetupScreen> {
     return out;
   }
 
+  String _topicLabel(GameDef g, String t) {
+    if (g.id == 'qk') return QuranTopics.label(t);
+    if (g.id == 'arabic-words') return ArabicWordTopics.label(t);
+    if (g.id == 'salah-wudu') return t == 'salah' ? 'The prayer (salah)' : 'Wudu';
+    return t == 'mixed' ? 'All topics' : t;
+  }
+
   bool _canStart(GameDef g, List<int> counts, List<int> pairChoices) {
     if (g.hasQuestions && counts.isEmpty) return false;
     if (g.id == 'memory' && pairChoices.isEmpty) return false;
@@ -366,6 +451,12 @@ class _GameSetupState extends ConsumerState<GameSetupScreen> {
     }
     return m.label;
   }
+
+  String _chessLevelLabel(GameDifficulty d) => switch (d) {
+        GameDifficulty.easy => 'Beginner',
+        GameDifficulty.standard => 'Intermediate',
+        GameDifficulty.challenge => 'Advanced',
+      };
 
   String _modeNote(GameDef g, PlayMode m) {
     if (g.kind == GameEngineKind.board) {
@@ -393,6 +484,12 @@ class _GameSetupState extends ConsumerState<GameSetupScreen> {
   }
 
   String _startRoute(GameDef g) {
+    if (g.kind == GameEngineKind.order || g.kind == GameEngineKind.words) {
+      return Uri(
+        path: '/games/g/${g.id}/play',
+        queryParameters: <String, String>{'topic': _topic},
+      ).toString();
+    }
     if (g.isQuiz) {
       final QuizConfig c = QuizConfig(
         gameId: g.id,
@@ -426,12 +523,17 @@ class _GameSetupState extends ConsumerState<GameSetupScreen> {
       path: g.route,
       queryParameters: <String, String>{
         'mode': '$mode',
-        if (g.id == 'chess') 'd': _difficulty.name,
         if (g.id == 'ludo' && _mode != PlayMode.friends) ...<String, String>{
           'players': '$_players',
           if (_mode == PlayMode.passAndPlay)
             'humans': '${_players == 2 ? 2 : _humans}',
         },
+        if (g.id == 'chess' && _mode == PlayMode.solo) ...<String, String>{
+          'd': _difficulty.name,
+          'as': _playAs,
+        },
+        if (g.id == 'chess' && _mode != PlayMode.friends && _minutes > 0)
+          't': '$_minutes',
       },
     ).toString();
   }
