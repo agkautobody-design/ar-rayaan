@@ -99,13 +99,14 @@ void main() {
       for (final String bad in <String>[
         'Popular Games',
         '4.8',
-        'coins',
         'Coming soon',
+        'Top players',
       ]) {
         expect(find.textContaining(bad), findsNothing, reason: bad);
       }
       expect(find.text('Play with friends'), findsNothing);
       expect(find.text('Game history'), findsOneWidget);
+      expect(find.textContaining('No ads, no coins'), findsOneWidget);
     });
 
     testWidgets('a filter chip narrows the list', (tester) async {
