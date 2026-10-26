@@ -10,6 +10,7 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/core/content/content_sync.dart';
+import '../../downloads/presentation/pack_save_row.dart';
 import '../domain/guide_glossary.dart';
 
 class Guide {
@@ -99,6 +100,8 @@ class HudaScreen extends ConsumerWidget {
                 padding: const EdgeInsets.only(left: 4, bottom: 4),
                 child: Text('GUIDES IN THE PROPHET\u2019S WAY', style: AppText.eyebrow),
               ),
+              // Browser only: save the guides for offline use.
+              const PackSaveRow(packIds: <String>['text-guides']),
               for (final cat in cats) ...[
                 Padding(
                   padding: const EdgeInsets.fromLTRB(4, 18, 4, 8),

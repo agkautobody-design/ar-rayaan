@@ -14,6 +14,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../app/core/providers.dart';
+import '../../downloads/application/audio_store_provider.dart';
 
 import '../data/audioplayers_ayah_player.dart';
 
@@ -262,8 +263,14 @@ final recitationPlayerProvider =
     speedSetter: audio.setSpeed,
     sourceResolver: (PlaybackEvent event) async {
       final ReciterPack pack = ref.read(selectedReciterProvider);
-      // Web has no file system: stream the per-ayah file directly.
-      if (kIsWeb) return pack.ayahUrl(event.ref);
+      // Web has no file system: use a copy saved in the browser (Settings >
+      // Downloads) when there is one, otherwise stream the per-ayah file.
+      if (kIsWeb) {
+        final String? saved = await ref
+            .read(audioFileStoreProvider)
+            .playable(pack, event.ref);
+        return saved ?? pack.ayahUrl(event.ref);
+      }
       final Directory dir = await ref.read(audioCacheDirProvider(pack.id).future);
       return resolvePlaybackSource(
         event: event,

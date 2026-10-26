@@ -17,3 +17,10 @@ abstract interface class AssetTextCache {
   /// Whether [key] is stored.
   Future<bool> has(String key);
 }
+
+/// A cache that can also forget a stored file (the browser one can). Kept as
+/// a separate interface so every other implementation stays valid.
+abstract interface class RemovableAssetCache {
+  /// Forgets the stored copy of [key]. Failures are swallowed.
+  Future<void> remove(String key);
+}

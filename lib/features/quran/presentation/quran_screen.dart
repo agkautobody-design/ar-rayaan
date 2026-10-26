@@ -113,6 +113,23 @@ class _QuranScreenState extends ConsumerState<QuranScreen> {
                       if (!searching) ...[
                         const QuranOfflineCard(compact: true),
                         const SizedBox(height: 12),
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: TextButton.icon(
+                            key: const Key('quran-downloads-link'),
+                            style: TextButton.styleFrom(
+                              minimumSize: const Size(48, 48),
+                              foregroundColor: AppColors.gold,
+                            ),
+                            onPressed: () => context.open(AppRoutes.downloads),
+                            icon: const Icon(
+                              Icons.download_for_offline_outlined,
+                              size: 18,
+                            ),
+                            label: const Text('Download recitation'),
+                          ),
+                        ),
+                        const SizedBox(height: 8),
                       ],
                       if (!searching) ...[
                         _AyatAlKursiShortcut(

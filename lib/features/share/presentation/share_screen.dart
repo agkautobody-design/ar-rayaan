@@ -15,13 +15,21 @@ import 'share_actions.dart';
 
 class ShareCard {
   final String id, kind, arabic, text, ref;
-  const ShareCard({required this.id, required this.kind, required this.arabic,
-      required this.text, required this.ref});
+  const ShareCard({
+    required this.id,
+    required this.kind,
+    required this.arabic,
+    required this.text,
+    required this.ref,
+  });
   factory ShareCard.fromJson(Map<String, dynamic> j) => ShareCard(
-      id: j['id'] as String, kind: j['kind'] as String, arabic: j['arabic'] as String? ?? '',
-      text: j['text'] as String, ref: j['ref'] as String);
+    id: j['id'] as String,
+    kind: j['kind'] as String,
+    arabic: j['arabic'] as String? ?? '',
+    text: j['text'] as String,
+    ref: j['ref'] as String,
+  );
 }
-
 
 /// VERSE CARDS - shareable light. A Qur'anic verse or hadith, framed in
 /// gold, one tap to send it down any road a message can travel.
@@ -45,8 +53,11 @@ class _ShareState extends State<ShareScreen> {
   Future<void> _load() async {
     final raw = await rootBundle.loadString('assets/share/cards.json');
     final d = json.decode(raw) as Map<String, dynamic>;
-    setState(() => _cards = (d['cards'] as List<dynamic>)
-        .map((e) => ShareCard.fromJson(e as Map<String, dynamic>)).toList());
+    setState(
+      () => _cards = (d['cards'] as List<dynamic>)
+          .map((e) => ShareCard.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
   }
 
   String get _message {
@@ -58,8 +69,10 @@ class _ShareState extends State<ShareScreen> {
   @override
   Widget build(BuildContext context) {
     if (_cards == null) {
-      return const Scaffold(backgroundColor: Colors.transparent,
-          body: Center(child: CircularProgressIndicator(color: AppColors.gold)));
+      return const Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Center(child: CircularProgressIndicator(color: AppColors.gold)),
+      );
     }
     final c = _cards![_i];
     return Scaffold(
@@ -71,109 +84,181 @@ class _ShareState extends State<ShareScreen> {
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
             children: [
               const ScreenHeader(title: 'Verse Cards', close: true),
-              Consumer(builder: (c, ref, _) {
-                final url = ref.watch(appUrlProvider);
-                return GlassCard(
-                  child: Column(children: [
-                    Text('BETA \u00b7 INVITE A TESTER', style: AppText.eyebrow),
-                    const SizedBox(height: 6),
-                    Text(url, style: AppText.body.copyWith(color: AppColors.goldLight, fontSize: 13)),
-                    const SizedBox(height: 8),
-                    Container(
-                      padding: const EdgeInsets.all(6),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: QrImageView(data: url, size: 96),
+              Consumer(
+                builder: (c, ref, _) {
+                  final url = ref.watch(appUrlProvider);
+                  return GlassCard(
+                    child: Column(
+                      children: [
+                        Text(
+                          'BETA \u00b7 INVITE A TESTER',
+                          style: AppText.eyebrow,
+                        ),
+                        const SizedBox(height: 6),
+                        Text(
+                          url,
+                          style: AppText.body.copyWith(
+                            color: AppColors.goldLight,
+                            fontSize: 13,
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        Container(
+                          padding: const EdgeInsets.all(6),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: QrImageView(data: url, size: 96),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          'ADD TO ANY HOME SCREEN',
+                          style: AppText.bodyMuted.copyWith(fontSize: 12),
+                        ),
+                        Text(
+                          'From a browser\'s menu: Add to Home Screen — it becomes a real app.',
+                          style: AppText.bodyMuted.copyWith(fontSize: 12),
+                        ),
+                      ],
                     ),
-                    const SizedBox(height: 4),
-                    Text('ADD TO ANY HOME SCREEN',
-                        style: AppText.bodyMuted.copyWith(fontSize: 12)),
-                    Text('From a browser\'s menu: Add to Home Screen — it becomes a real app.',
-                        style: AppText.bodyMuted.copyWith(fontSize: 12)),
-                  ]),
-                );
-              }),
+                  );
+                },
+              ),
 
               Center(child: Text('LIGHT, SHARED', style: AppText.eyebrow)),
               const SizedBox(height: 16),
               Container(
                 width: double.infinity,
-                padding: const EdgeInsets.symmetric(vertical: 34, horizontal: 20),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 34,
+                  horizontal: 20,
+                ),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(18),
-                  border: Border.all(color: AppColors.gold.withValues(alpha: 0.5), width: 1.4),
-                  boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.5), blurRadius: 18)],
+                  border: Border.all(
+                    color: AppColors.gold.withValues(alpha: 0.5),
+                    width: 1.4,
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withValues(alpha: 0.5),
+                      blurRadius: 18,
+                    ),
+                  ],
                   gradient: const LinearGradient(
-                    begin: Alignment.topCenter, end: Alignment.bottomCenter,
-                    colors: [Color(0x1405090F), Color(0xFF070C14)]),
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [Color(0x1405090F), Color(0xFF070C14)],
+                  ),
                 ),
-                child: Column(children: [
-                  if (c.arabic.isNotEmpty)
-                    Text(c.arabic, textDirection: TextDirection.rtl,
+                child: Column(
+                  children: [
+                    if (c.arabic.isNotEmpty)
+                      Text(
+                        c.arabic,
+                        textDirection: TextDirection.rtl,
                         textAlign: TextAlign.center,
-                        style: const TextStyle(fontFamily: 'Amiri', fontSize: 28,
-                            height: 1.9, color: Color(0xFFEAD9A8))),
-                  if (c.arabic.isNotEmpty) const SizedBox(height: 14),
-                  Text('\u201c${c.text}\u201d', textAlign: TextAlign.center,
-                      style: AppText.body.copyWith(fontSize: 16.5, height: 1.6)),
-                  const SizedBox(height: 10),
-                  Text('— ${c.ref}', style: AppText.eyebrow),
-                ]),
+                        style: const TextStyle(
+                          fontFamily: 'Amiri',
+                          fontSize: 28,
+                          height: 1.9,
+                          color: Color(0xFFEAD9A8),
+                        ),
+                      ),
+                    if (c.arabic.isNotEmpty) const SizedBox(height: 14),
+                    Text(
+                      '\u201c${c.text}\u201d',
+                      textAlign: TextAlign.center,
+                      style: AppText.body.copyWith(fontSize: 16.5, height: 1.6),
+                    ),
+                    const SizedBox(height: 10),
+                    Text('— ${c.ref}', style: AppText.eyebrow),
+                  ],
+                ),
               ),
               const SizedBox(height: 16),
-              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                for (var i = 0; i < _cards!.length; i++)
-                  Semantics(
-                    button: true,
-                    selected: i == _i,
-                    label: 'Card ${i + 1} of ${_cards!.length}',
-                    excludeSemantics: true,
-                    child: GestureDetector(
-                      behavior: HitTestBehavior.opaque,
-                      onTap: () => setState(() { _i = i; _copied = false; }),
-                      // Padding makes the touch area 48 high; the dot stays small.
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 6, vertical: 21),
-                        child: Container(
-                          width: i == _i ? 18 : 6, height: 6,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(3),
-                            color: i == _i ? AppColors.gold
-                                : AppColors.sand.withValues(alpha: 0.2)),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  for (var i = 0; i < _cards!.length; i++)
+                    Semantics(
+                      button: true,
+                      selected: i == _i,
+                      label: 'Card ${i + 1} of ${_cards!.length}',
+                      excludeSemantics: true,
+                      child: GestureDetector(
+                        behavior: HitTestBehavior.opaque,
+                        onTap: () => setState(() {
+                          _i = i;
+                          _copied = false;
+                        }),
+                        // Padding makes the touch area 48 high; the dot stays small.
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 6,
+                            vertical: 21,
+                          ),
+                          child: Container(
+                            width: i == _i ? 18 : 6,
+                            height: 6,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(3),
+                              color: i == _i
+                                  ? AppColors.gold
+                                  : AppColors.sand.withValues(alpha: 0.2),
+                            ),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-              ]),
+                ],
+              ),
               const SizedBox(height: 18),
-              Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-                ElevatedButton.icon(
-                  onPressed: () => launchUrl(
-                      Uri.parse('https://wa.me/?text=${Uri.encodeComponent(_message)}'),
-                      mode: LaunchMode.externalApplication),
-                  icon: const Icon(Icons.send_outlined, size: 16),
-                  label: const Text('WhatsApp'),
-                  style: ElevatedButton.styleFrom(
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ElevatedButton.icon(
+                    onPressed: () => launchUrl(
+                      Uri.parse(
+                        'https://wa.me/?text=${Uri.encodeComponent(_message)}',
+                      ),
+                      mode: LaunchMode.externalApplication,
+                    ),
+                    icon: const Icon(Icons.send_outlined, size: 16),
+                    label: const Text('WhatsApp'),
+                    style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.gold,
-                      foregroundColor: const Color(0xFF0A0F18)),
-                ),
-                TextButton.icon(
-                  onPressed: () async {
-                    final bool ok = await copyWithFeedback(context, _message);
-                    if (ok && mounted) setState(() => _copied = true);
-                  },
-                  icon: Icon(_copied ? Icons.check : Icons.copy, size: 15,
-                      color: AppColors.goldLight),
-                  label: Text(_copied ? 'Copied' : 'Copy',
-                      style: const TextStyle(color: AppColors.goldLight, fontSize: 13)),
-                ),
-              ]),
+                      foregroundColor: const Color(0xFF0A0F18),
+                    ),
+                  ),
+                  TextButton.icon(
+                    onPressed: () async {
+                      final bool ok = await copyWithFeedback(context, _message);
+                      if (ok && mounted) setState(() => _copied = true);
+                    },
+                    icon: Icon(
+                      _copied ? Icons.check : Icons.copy,
+                      size: 15,
+                      color: AppColors.goldLight,
+                    ),
+                    label: Text(
+                      _copied ? 'Copied' : 'Copy',
+                      style: const TextStyle(
+                        color: AppColors.goldLight,
+                        fontSize: 13,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
               const SizedBox(height: 8),
-              Center(child: Text('Swipe the dots \u00b7 send one to someone tonight',
-                  style: AppText.bodyMuted.copyWith(fontSize: 12))),
+              Center(
+                child: Text(
+                  'Swipe the dots \u00b7 send one to someone tonight',
+                  style: AppText.bodyMuted.copyWith(fontSize: 12),
+                ),
+              ),
             ],
           ),
         ),

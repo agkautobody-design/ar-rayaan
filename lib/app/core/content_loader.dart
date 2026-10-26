@@ -32,6 +32,17 @@ abstract final class ContentLoader {
     return raw;
   }
 
+  /// Forgets the stored copy of [key] (browser only; a no-op on the phone
+  /// apps, where the file is inside the install).
+  static Future<void> remove(String key) async {
+    final Object c = cache;
+    if (c is RemovableAssetCache) {
+      try {
+        await c.remove(key);
+      } catch (_) {}
+    }
+  }
+
   /// True when [key] opens with no connection: always on the native apps,
   /// and in the browser only once it has been stored by [loadString].
   static Future<bool> isAvailableOffline(String key) async {

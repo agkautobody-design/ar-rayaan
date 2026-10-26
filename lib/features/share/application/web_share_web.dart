@@ -20,8 +20,10 @@ Future<bool> webShare(String text, {String? title}) async {
     final JSObject data = JSObject();
     data['text'] = text.toJS;
     if (title != null) data['title'] = title.toJS;
-    final JSAny? result =
-        (web.window.navigator as JSObject).callMethod('share'.toJS, data);
+    final JSAny? result = (web.window.navigator as JSObject).callMethod(
+      'share'.toJS,
+      data,
+    );
     if (result == null) return false;
     await (result as JSPromise<JSAny?>).toDart;
     return true;

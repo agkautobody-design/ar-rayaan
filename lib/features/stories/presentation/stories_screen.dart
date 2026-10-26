@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../downloads/presentation/pack_save_row.dart';
 import '../../../app/core/web_offline.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
@@ -167,6 +168,16 @@ class StoriesScreen extends ConsumerWidget {
                 '$kLabelEstablished: ${storyLabelMeaning(kLabelEstablished)}',
                 style: AppText.bodyMuted.copyWith(fontSize: 12.5, height: 1.45),
               ),
+            ),
+            // Browser only: save the story packs for offline use.
+            const PackSaveRow(
+              packIds: <String>[
+                'text-seerah',
+                'text-prophets',
+                'text-stories',
+                'text-duas',
+                'text-hadith',
+              ],
             ),
           ];
           final List<_ShelfRow> rows = _shelfRows(
