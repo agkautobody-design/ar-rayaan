@@ -171,6 +171,48 @@ class SettingsScreen extends ConsumerWidget {
                         child: Text('OFFLINE', style: AppText.eyebrow),
                       ),
                       const QuranOfflineCard(),
+                      const SizedBox(height: 12),
+                      GlassCard(
+                        key: const Key('settings-downloads'),
+                        onTap: () => context.open(AppRoutes.downloads),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 14,
+                        ),
+                        child: Row(
+                          children: [
+                            const Icon(
+                              Icons.download_for_offline_outlined,
+                              size: 18,
+                              color: AppColors.gold,
+                            ),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Downloads',
+                                    style: AppText.body.copyWith(fontSize: 14),
+                                  ),
+                                  Text(
+                                    'Recitation audio, stories, guides and '
+                                    'duas to keep on this device. Download '
+                                    'everything, or one surah or juz at a '
+                                    'time.',
+                                    style: AppText.bodyMuted,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Icon(
+                              Icons.chevron_right,
+                              size: 16,
+                              color: AppColors.gold.withValues(alpha: 0.5),
+                            ),
+                          ],
+                        ),
+                      ),
                       const SizedBox(height: 20),
                       Padding(
                         padding: const EdgeInsets.only(left: 4, bottom: 8),

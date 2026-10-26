@@ -3,6 +3,7 @@
 /// until Pack 1 ships. Mood-reactive backdrop rides the atmosphere layer.
 library;
 
+import '../../downloads/domain/download_catalog.dart' show kNasheedNoDownloadNote;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -100,6 +101,15 @@ class _PlayerScreenState extends ConsumerState<PlayerScreen> {
                         const Icon(Icons.chevron_right, color: AppColors.gold),
                       ],
                     ),
+                  ),
+                ),
+                const SizedBox(height: 12),
+                // Why there is no Download button on a nasheed.
+                GlassCard(
+                  key: const Key('player-no-download'),
+                  child: Text(
+                    kNasheedNoDownloadNote,
+                    style: AppText.caption.copyWith(height: 1.5),
                   ),
                 ),
                 const SizedBox(height: 12),

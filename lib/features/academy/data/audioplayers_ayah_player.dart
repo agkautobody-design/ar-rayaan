@@ -33,7 +33,9 @@ class AudioplayersAyahPlayer implements AyahAudioPlayer {
     // completion must never advance the plan.
     _current = Completer<void>();
     final Completer<void> mine = _current!;
-    final bool isUrl = pathOrUrl.startsWith('http');
+    // A downloaded ayah in the browser arrives as a temporary blob: address.
+    final bool isUrl =
+        pathOrUrl.startsWith('http') || pathOrUrl.startsWith('blob:');
     final ap.Source source = isUrl
         ? ap.UrlSource(pathOrUrl)
         : ap.DeviceFileSource(pathOrUrl);

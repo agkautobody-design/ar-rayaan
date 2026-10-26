@@ -3,11 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('AudioPacksScreen says plainly that packs are not available', (t) async {
+  testWidgets('AudioPacksScreen points to Downloads and promises nothing else',
+      (t) async {
     await t.pumpWidget(const MaterialApp(home: AudioPacksScreen()));
     await t.pump();
     expect(find.text('Audio Packs'), findsOneWidget);
-    expect(find.text('NOT AVAILABLE YET'), findsOneWidget);
-    expect(find.textContaining('Planned: Juz Amma'), findsOneWidget);
+    expect(find.text('RECITATION DOWNLOADS'), findsOneWidget);
+    expect(find.byKey(const Key('audio-packs-open-downloads')), findsOneWidget);
+    // The old "not available yet" list is gone.
+    expect(find.textContaining('Planned:'), findsNothing);
+    expect(find.text('NOT AVAILABLE YET'), findsNothing);
   });
 }

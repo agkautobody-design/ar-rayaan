@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../../app/core/web_offline.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
@@ -192,81 +191,6 @@ class _NotesScreenState extends State<NotesScreen> {
                   ),
                 ),
               ),
-        ],
-      ),
-    );
-  }
-}
-
-/// The libraries that ship with the app - and what's coming. On the native
-/// apps they are on the device (work offline); on the web they are fetched
-/// when opened, and the screen says so (see [WebOffline]).
-class DownloadsScreen extends StatelessWidget {
-  const DownloadsScreen({super.key});
-
-  static const _packs = [
-    ('The Qur\u2019an — complete text', 'assets/quran/quran.json'),
-    ('Stories library — all collections', 'assets/stories/'),
-    ('Prophet lineage — the Messengers\u2019 Tree', 'assets/family/tree.json'),
-    ('Huda — 51 worship guides', 'assets/guides/guides.json'),
-    ('Daily Duas — 18 with Arabic', 'assets/stories/dailyduas.json'),
-    ('Games — trivia bank + the 99 Names', 'assets/games/'),
-    ('Hadiths for Our Times', 'assets/stories/modernhadith.json'),
-    ('Feelings — the guided paths', 'assets/feelings/feelings.json'),
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.transparent,
-      body: ListView(
-        padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
-        children: [
-          const ScreenHeader(title: 'Downloads', close: true),
-          Padding(
-            padding: const EdgeInsets.only(left: 4, bottom: 10),
-            child: Text(WebOffline.libraryHeader(), style: AppText.eyebrow),
-          ),
-          if (WebOffline.libraryNote() != null)
-            Padding(
-              padding: const EdgeInsets.only(left: 4, right: 4, bottom: 12),
-              child: Text(
-                WebOffline.libraryNote()!,
-                style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.5),
-              ),
-            ),
-          for (final p in _packs)
-            Padding(
-              padding: const EdgeInsets.only(bottom: 8),
-              child: GlassCard(
-                child: Row(
-                  children: [
-                    const Icon(
-                      Icons.check_circle_outline,
-                      color: AppColors.gold,
-                      size: 18,
-                    ),
-                    const SizedBox(width: 12),
-                    Expanded(child: Text(p.$1, style: AppText.body)),
-                  ],
-                ),
-              ),
-            ),
-          const SizedBox(height: 10),
-          GlassCard(
-            strong: true,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('COMING WITH THE VAULT', style: AppText.eyebrow),
-                const SizedBox(height: 6),
-                Text(
-                  'Recitation audio packs (multiple reciters) and tafsir depth arrive with the Quran Foundation vault — the keys are already collected.',
-                  style: AppText.bodyMuted.copyWith(height: 1.5),
-                ),
-              ],
-            ),
-          ),
         ],
       ),
     );

@@ -122,7 +122,9 @@ String quranOfflineMessage(
   required bool web,
   required bool alreadyStored,
 }) {
-  const String audio = 'Recitation audio still needs internet.';
+  const String audio =
+      'Recitation audio still needs internet unless you download it '
+      '(Settings > Downloads).';
   if (!web) {
     return 'The whole Qur’an (Arabic, English and transliteration) is '
         'inside this app, so it opens with no internet. $audio';
