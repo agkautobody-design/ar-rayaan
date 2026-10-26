@@ -10,6 +10,7 @@
 /// Pure Dart (no Flutter), so the logic can be checked with a plain Dart SDK.
 library;
 
+import '../data/ludo_rules.dart';
 import 'learning_games.dart';
 
 /// Where a game sits in the hub.
@@ -310,7 +311,7 @@ const List<GameDef> kGames = <GameDef>[
   GameDef(
     id: 'ludo',
     title: 'Ludo',
-    blurb: 'Dice, captures and four tokens racing home',
+    blurb: 'Dice, captures and four pawns racing home',
     category: GameCategory.family,
     modes: <PlayMode>{
       PlayMode.solo,
@@ -320,14 +321,9 @@ const List<GameDef> kGames = <GameDef>[
     route: '/games/ludo',
     iconKey: 'ludo',
     kind: GameEngineKind.board,
-    maxPlayers: 2,
+    maxPlayers: 4,
     hasSetup: true,
-    howToPlay: <String>[
-      'Roll the die. A six brings a token out and gives another roll.',
-      'Move a token the number rolled. Land on another colour to send it home.',
-      'Stars are safe squares. Get all four tokens home first.',
-      'Two players. No stakes of any kind.',
-    ],
+    howToPlay: LudoRules.howToPlay,
   ),
   GameDef(
     id: 'memory',

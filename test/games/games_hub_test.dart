@@ -576,7 +576,7 @@ void main() {
       await AppHarness.go(tester, find.byType(Scaffold).first, '/games/ludo?mode=2');
       expect(find.text('Two players'), findsNothing,
           reason: 'the table menu is skipped');
-      expect(find.textContaining('Two players — Red and Green'), findsOneWidget);
+      expect(find.textContaining('Two players — Red and Yellow'), findsOneWidget);
       await AppHarness.go(tester, find.byType(Scaffold).first, '/games/shatranj?mode=1');
       expect(find.textContaining('You are White'), findsOneWidget);
     });

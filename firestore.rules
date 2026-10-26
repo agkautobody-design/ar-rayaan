@@ -177,7 +177,16 @@ service cloud.firestore {
     // ── Online game rooms (Ludo, Shatranj) ─────────────────────────────
     // A room is found by its six-character code, so a room can be read by
     // anyone signed in who knows the code, but rooms can NOT be listed
-    // (nobody can enumerate other people's tables, names or ids).
+    // (nobody can enumerate other people's tables or ids).
+    //
+    // PRIVACY: a room holds no name. The players are only the anonymous
+    // Firebase sign-in ids ({uid}); the app shows them as "Player 1" and
+    // "Player 2". A room expires: it can not be read or written after its
+    // `expireAt` (at most 12 hours after creation), and either player can
+    // delete it (the app deletes it on leave). A child profile reaches this
+    // only after a guardian switched it on, which the app enforces
+    // (lib/features/games/data/online_access.dart); the rules can not know
+    // who is holding the phone.
     //
     //  * create: the host, with exactly the fields the app writes, status
     //    "waiting", no guest, an empty move log and server timestamps. The
@@ -192,14 +201,17 @@ service cloud.firestore {
     //    removing an earlier one), turn (to one of the two players),
     //    status (playing -> done or left; waiting -> left) and result.
     //    A "done" or "left" room is closed for good.
-    //  * delete: never from the app. Rooms carry an `expireAt` timestamp;
-    //    a Firestore TTL policy on it removes old rooms (docs/OWNER_ACTIONS).
+    //  * delete: either player, at any time (leaving a table deletes it).
+    //    Rooms also carry an `expireAt` timestamp; a Firestore TTL policy
+    //    on it removes anything left over (docs/OWNER_ACTIONS).
     //
     // Honest limit: this is not an anti-cheat. A player can still write a
     // move that is not legal; making the server the referee needs Cloud
     // Functions. The rules only stop outsiders and joiners from rewriting
     // the game.
     function roomHostUid() { return resource.data.host.uid; }
+
+    function roomLive() { return resource.data.expireAt > request.time; }
 
     function roomIsPlayer() {
       return request.auth.uid == resource.data.host.uid
@@ -225,7 +237,8 @@ service cloud.firestore {
     }
 
     match /game_rooms/{code} {
-      allow get: if signedIn();
+      // `resource == null` lets the app ask whether a code is free.
+      allow get: if signedIn() && (resource == null || roomLive());
       allow list: if false;
 
       allow create: if signedIn()
@@ -238,9 +251,8 @@ service cloud.firestore {
               'createdAt', 'lastTs', 'expireAt'])
         && request.resource.data.game in ['ludo', 'shatranj']
         && request.resource.data.status == 'waiting'
-        && request.resource.data.host.keys().hasOnly(['uid', 'name'])
+        && request.resource.data.host.keys().hasOnly(['uid'])
         && request.resource.data.host.uid == request.auth.uid
-        && validName(request.resource.data.host.name)
         && request.resource.data.guest == null
         && request.resource.data.turn == request.auth.uid
         && request.resource.data.moves is map
@@ -249,9 +261,9 @@ service cloud.firestore {
         && request.resource.data.lastTs == request.time
         && request.resource.data.expireAt is timestamp
         && request.resource.data.expireAt > request.time
-        && request.resource.data.expireAt <= request.time + duration.value(2, 'd');
+        && request.resource.data.expireAt <= request.time + duration.value(12, 'h');
 
-      allow update: if signedIn() && (
+      allow update: if signedIn() && roomLive() && (
         // Join: the waiting room gets its guest, and nothing else changes.
         (resource.data.status == 'waiting'
           && resource.data.guest == null
@@ -259,9 +271,8 @@ service cloud.firestore {
           && request.resource.data.diff(resource.data).affectedKeys()
                .hasOnly(['guest', 'status', 'lastTs'])
           && request.resource.data.status == 'playing'
-          && request.resource.data.guest.keys().hasOnly(['uid', 'name'])
+          && request.resource.data.guest.keys().hasOnly(['uid'])
           && request.resource.data.guest.uid == request.auth.uid
-          && validName(request.resource.data.guest.name)
           && request.resource.data.lastTs == request.time)
         ||
         // Play: the two players, players fixed, a short list of fields.
@@ -280,7 +291,9 @@ service cloud.firestore {
                   && request.resource.data.result.size() <= 40))
           && request.resource.data.lastTs == request.time)
       );
-      allow delete: if false;
+
+      // Leaving a table deletes it. Either player may, whatever the status.
+      allow delete: if signedIn() && roomIsPlayer();
     }
 
     // ── Hadi reports ───────────────────────────────────────────────────

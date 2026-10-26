@@ -200,10 +200,9 @@ void main() {
   });
 
   group('LudoRules', () {
-    List<List<int>> board() =>
-        List<List<int>>.generate(4, (_) => List<int>.filled(4, -1));
+    List<List<int>> board() => LudoRules.newTokens(4);
 
-    test('a token in the base needs a six', () {
+    test('a token in the yard needs a six', () {
       final List<List<int>> tok = board();
       expect(LudoRules.validMoves(tok, 0, 3), isEmpty);
       expect(LudoRules.validMoves(tok, 0, 6), <int>[0, 1, 2, 3]);
@@ -212,7 +211,7 @@ void main() {
 
     test('track tokens always move; finished ones never do', () {
       final List<List<int>> tok = board();
-      tok[1] = <int>[10, 58, -1, 51];
+      tok[1] = <int>[10, LudoRules.finished, -1, 30];
       expect(LudoRules.validMoves(tok, 1, 2), <int>[0, 3]);
       expect(LudoRules.validMoves(tok, 1, 6), <int>[0, 2, 3]);
       expect(LudoRules.onlyBaseTokens(tok, 1), isFalse);
@@ -220,7 +219,8 @@ void main() {
 
     test('the home column needs an exact roll', () {
       final List<List<int>> tok = board();
-      tok[0] = <int>[56, -1, -1, -1]; // two steps from the end
+      // two steps from the end
+      tok[0] = <int>[LudoRules.finished - 2, -1, -1, -1];
       expect(LudoRules.validMoves(tok, 0, 2), <int>[0]);
       expect(LudoRules.validMoves(tok, 0, 3), isEmpty);
     });

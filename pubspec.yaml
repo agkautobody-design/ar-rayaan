@@ -62,6 +62,7 @@ flutter:
     - assets/family/
     - assets/guides/
     - assets/games/
+    - assets/games/ludo/
     - assets/games/chess/pieces/
     - assets/games/chess/squares/
     - assets/games/art/

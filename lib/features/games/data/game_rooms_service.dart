@@ -11,6 +11,15 @@ import 'room_moves.dart';
 /// code, play. Moves are appended by the side that makes them; both clients
 /// listen and apply. Honest v1: dice rolled by the moving player are sent
 /// with the move (server-authoritative dice arrives with Cloud Functions).
+///
+/// PRIVACY (children's wing, see `children_privacy.dart`): a table stores NO
+/// name, e-mail or profile of anyone. The two seats are shown as "Player 1"
+/// and "Player 2" and that label is never written to the table. The only
+/// identifier on a table is the anonymous Firebase sign-in id of each player,
+/// which the security rules need to know who may write. A table lives at
+/// most [roomLifetime], is deleted by the player who leaves ([leave]), and a
+/// child profile can only reach this at all after a guardian switched it on
+/// (see `online_access.dart`).
 class GameRoomsService {
   /// With no arguments the hall uses Firebase if `main.dart` initialised it
   /// (see [CloudHandles.current]); otherwise [ready] is false and the lobby
@@ -48,10 +57,15 @@ class GameRoomsService {
   /// Firestore write waits for the connection forever; the caller must not.
   static const Duration netTimeout = Duration(seconds: 10);
 
-  /// A table is deleted by a Firestore TTL policy on `expireAt` (see
-  /// docs/OWNER_ACTIONS.md); until the owner turns that on, old tables just
-  /// sit there, unreadable without their code.
-  static const Duration roomLifetime = Duration(hours: 24);
+  /// A table can no longer be opened after this (the rules refuse reads past
+  /// `expireAt`) and a Firestore TTL policy on `expireAt` removes it (see
+  /// docs/OWNER_ACTIONS.md); until the owner turns that on, expired tables
+  /// just sit there, unreadable.
+  static const Duration roomLifetime = Duration(hours: 6);
+
+  /// What each seat is called on screen. Never stored on the table.
+  static const String hostLabel = 'Player 1';
+  static const String guestLabel = 'Player 2';
 
   static String newCode([Random? rnd]) {
     final Random r = rnd ?? Random.secure();
@@ -64,7 +78,7 @@ class GameRoomsService {
   /// Creates a table. Returns null when online play is unavailable in this
   /// build. Throws (a timeout or a Firebase error) when the
   /// network or the server refuses: the lobby shows that and offers a retry.
-  Future<Map<String, dynamic>?> createRoom(String game, String hostName) async {
+  Future<Map<String, dynamic>?> createRoom(String game) async {
     if (!await ready) return null;
     final uid = await _uid();
     if (uid == null) return null;
@@ -79,7 +93,7 @@ class GameRoomsService {
     final room = <String, dynamic>{
       'game': game,
       'status': 'waiting',
-      'host': {'uid': uid, 'name': hostName},
+      'host': {'uid': uid},
       'guest': null,
       'turn': uid,
       'moves': <String, dynamic>{},
@@ -94,7 +108,7 @@ class GameRoomsService {
   /// Joins a waiting table. Returns null when online play is unavailable,
   /// `{'error': ...}` for a table that is missing or full, and throws like
   /// `createRoom` when the network or server fails.
-  Future<Map<String, dynamic>?> joinRoom(String code, String guestName) async {
+  Future<Map<String, dynamic>?> joinRoom(String code) async {
     if (!await ready) return null;
     final uid = await _uid();
     if (uid == null) return null;
@@ -110,7 +124,7 @@ class GameRoomsService {
       return {'error': 'This is your own table: share the code with a friend'};
     }
     await ref.update({
-      'guest': {'uid': uid, 'name': guestName},
+      'guest': {'uid': uid},
       'status': 'playing',
       'lastTs': FieldValue.serverTimestamp(),
     }).timeout(netTimeout);
@@ -151,12 +165,13 @@ class GameRoomsService {
     }).timeout(netTimeout);
   }
 
+  /// Leaves the table by deleting it: nothing of the game stays on the
+  /// server. The other player's listener sees the table vanish and says the
+  /// opponent left. Best effort: if the network is down the expiry still
+  /// closes the table.
   Future<void> leave(String code) async {
     try {
-      await _db!.collection('game_rooms').doc(code).update({
-        'status': 'left',
-        'lastTs': FieldValue.serverTimestamp(),
-      }).timeout(netTimeout);
+      await _db!.collection('game_rooms').doc(code).delete().timeout(netTimeout);
     } catch (_) {}
   }
 }

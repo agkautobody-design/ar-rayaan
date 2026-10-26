@@ -17,13 +17,13 @@ class _FakeRooms extends GameRoomsService {
   int joinCalls = 0;
 
   @override
-  Future<Map<String, dynamic>?> createRoom(String game, String hostName) {
+  Future<Map<String, dynamic>?> createRoom(String game) {
     createCalls++;
     return create!();
   }
 
   @override
-  Future<Map<String, dynamic>?> joinRoom(String code, String guestName) {
+  Future<Map<String, dynamic>?> joinRoom(String code) {
     joinCalls++;
     return join!(code);
   }

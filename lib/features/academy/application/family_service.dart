@@ -40,6 +40,7 @@ class FamilyService {
   static const _activePref = 'ar.family.active';
   static const _consentPref = 'ar.family.consent';
   static const _cloudConsentPref = 'ar.family.cloud_consent';
+  static const _onlineGamesPref = 'ar.family.online_games';
 
   /// Version of the children's privacy text the parent agreed to.
   static const int consentVersion = kChildrenPrivacyVersion;
@@ -73,6 +74,24 @@ class FamilyService {
         'by': 'parent_or_guardian',
       }),
     );
+  }
+
+  // ---- online game tables (guardian switch, per child, default OFF) ----
+
+  /// Whether a guardian has switched online game tables on for [childId].
+  /// Off unless explicitly set; stored on this device only.
+  Future<bool> onlineGamesAllowed(String childId) async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getBool('$_onlineGamesPref.$childId') ?? false;
+  }
+
+  Future<void> setOnlineGamesAllowed(String childId, bool value) async {
+    final prefs = await SharedPreferences.getInstance();
+    if (value) {
+      await prefs.setBool('$_onlineGamesPref.$childId', true);
+    } else {
+      await prefs.remove('$_onlineGamesPref.$childId');
+    }
   }
 
   /// Cloud sync is opt-in and not offered in the UI yet.
@@ -137,6 +156,7 @@ class FamilyService {
     if (list.length == before) return false;
     await prefs.setString(_childrenPref, json.encode(list));
     await prefs.remove('$_progressPref.$id');
+    await prefs.remove('$_onlineGamesPref.$id');
     if (prefs.getString(_activePref) == id) {
       if (list.isEmpty) {
         await prefs.remove(_activePref);

@@ -9,7 +9,7 @@
 library;
 
 /// Bump when the text changes in a way a parent must agree to again.
-const int kChildrenPrivacyVersion = 3;
+const int kChildrenPrivacyVersion = 4;
 
 const String kChildrenPrivacyTitle = 'Children and the Family Wing';
 
@@ -21,6 +21,7 @@ const List<String> kChildrenPrivacyBullets = <String>[
   'Questions a child asks Wasia are answered from the app’s own lessons. The AI service is off for children until you turn it on. If you do, the question the child types is sent, with no name, progress or profile. When a child asks from inside a lesson, the text of that lesson (the app’s own wording, which says nothing about the child) goes with the question, so the answer stays about the lesson. You can turn it off again.',
   'What you type as a parent into “Ask Wasia” in the Family Wing is your own question. If an AI key or subscription is set up, it may be sent to the AI service while the parent check is open, with no child’s name or progress.',
   'You can delete one child, or everything, at any time from the Family Wing. Deleting removes the name and all progress from this device straight away.',
+  'Online game tables (Ludo and Shatranj, by a six-letter code) are OFF for every child until a parent switches them on, for that child, in the Family Wing. A table shows only “Player 1” and “Player 2”: no name, e-mail or profile is sent, and there is no chat. It is deleted when a player leaves and cannot be opened after six hours.',
   'There is no advertising, no tracking and no analytics about children in the app.',
 ];
 
@@ -38,6 +39,8 @@ Wasia and AI services. When a child uses Wasia, answers come from the app’s ow
 Consent and parental controls. Before a first profile is created the parent confirms that they are the child’s parent or guardian and agrees to this section. Adding or removing a child, and the AI setting for children, sit behind a parent check. A parent can delete a single child or all children at any time; deletion removes the name and all progress from the device immediately, and withdraws the stored consent.
 
 Retention. Profiles and progress are kept until the parent deletes them or the app is uninstalled, whichever comes first. Because the data is only on the device, we cannot retrieve it for you and do not hold a copy.
+
+Online game tables. Ludo and Shatranj can be played against a friend on another device through a six-letter code. This is the one place where a child could reach a server, so it is switched off for every child by default and only a parent can switch it on, per child, behind the parent check in the Family Wing. When it is on, a table is a short-lived record on Google Firebase that holds the moves of the game and an anonymous sign-in number that Firebase gives the device (it is not linked to a name, e-mail address or profile). It holds no name, no child profile, no progress and no chat: the two seats are shown only as “Player 1” and “Player 2”. A table is deleted when a player leaves it, cannot be opened after six hours, and an automatic clean-up removes expired tables from the server. Anyone who has the six-letter code can join an open table, so a parent should share the code only with someone they know.
 
 Advertising and analytics. The app contains no advertising and no analytics or crash-reporting service that receives information about children.
 
