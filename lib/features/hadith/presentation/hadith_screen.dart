@@ -10,17 +10,24 @@ import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/theme/widgets/speak_button.dart';
 import '../../share/application/share_text.dart';
 import '../../share/presentation/share_actions.dart';
+import '../application/hadith_marks_controller.dart';
 import '../application/hadith_providers.dart';
+import '../domain/hadith_marks.dart';
 import '../domain/hadith_models.dart';
 import 'daily_hadith_card.dart';
+import 'hadith_note_dialog.dart';
 
 /// Hadith — the Forty Hadith of Imam an-Nawawi (bundled, offline).
 /// New screen designed within the locked system — pending Founder approval.
 class HadithScreen extends ConsumerStatefulWidget {
-  const HadithScreen({super.key, this.initialNumber});
+  const HadithScreen({super.key, this.initialNumber, this.savedOnly = false});
 
   /// Scroll to this hadith on arrival (from a search result).
   final int? initialNumber;
+
+  /// Open showing only the hadith the person bookmarked or wrote a note on
+  /// (from the Notes screen).
+  final bool savedOnly;
 
   @override
   ConsumerState<HadithScreen> createState() => _HadithScreenState();
@@ -29,6 +36,7 @@ class HadithScreen extends ConsumerStatefulWidget {
 class _HadithScreenState extends ConsumerState<HadithScreen> {
   final GlobalKey _target = GlobalKey();
   bool _scrolled = false;
+  late bool _savedOnly = widget.savedOnly;
 
   void _scrollToTarget() {
     if (_scrolled || widget.initialNumber == null) return;
@@ -49,6 +57,7 @@ class _HadithScreenState extends ConsumerState<HadithScreen> {
     final AsyncValue<List<Hadith>> collection = ref.watch(
       hadithCollectionProvider,
     );
+    final HadithMarks marks = ref.watch(hadithMarksProvider);
 
     return Scaffold(
       body: SafeArea(
@@ -68,6 +77,12 @@ class _HadithScreenState extends ConsumerState<HadithScreen> {
                 ),
                 data: (List<Hadith> hadiths) {
                   _scrollToTarget();
+                  final List<Hadith> shown = _savedOnly
+                      ? <Hadith>[
+                          for (final Hadith h in hadiths)
+                            if (marks.of(h.number) != null) h,
+                        ]
+                      : hadiths;
                   return ListView(
                   // Build the whole list when opened at a hadith, so the
                   // target exists to scroll to.
@@ -105,7 +120,39 @@ class _HadithScreenState extends ConsumerState<HadithScreen> {
                         ],
                       ),
                     ),
-                    const SizedBox(height: 16),
+                    const SizedBox(height: 12),
+                    Wrap(
+                      spacing: 8,
+                      children: <Widget>[
+                        ChoiceChip(
+                          key: const Key('hadith-filter-all'),
+                          label: Text('All ${hadiths.length}'),
+                          selected: !_savedOnly,
+                          selectedColor: AppColors.gold.withValues(alpha: 0.25),
+                          onSelected: (_) => setState(() => _savedOnly = false),
+                        ),
+                        ChoiceChip(
+                          key: const Key('hadith-filter-saved'),
+                          label: Text('Saved ${marks.list().length}'),
+                          selected: _savedOnly,
+                          selectedColor: AppColors.gold.withValues(alpha: 0.25),
+                          onSelected: (_) => setState(() => _savedOnly = true),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 12),
+                    if (shown.isEmpty)
+                      GlassCard(
+                        blur: false,
+                        padding: const EdgeInsets.all(16),
+                        child: Text(
+                          'Nothing saved yet. Use the bookmark under a '
+                          'hadith to keep it here, or the note button to '
+                          'write a private note. Both stay on this device.',
+                          style: AppText.bodyMuted.copyWith(height: 1.5),
+                        ),
+                      )
+                    else
                     GlassCard(
                       blur: false,
                       padding: const EdgeInsets.symmetric(
@@ -114,17 +161,17 @@ class _HadithScreenState extends ConsumerState<HadithScreen> {
                       ),
                       child: Column(
                         children: [
-                          for (int i = 0; i < hadiths.length; i++) ...[
+                          for (int i = 0; i < shown.length; i++) ...[
                             if (i > 0)
                               Divider(
                                 height: 28,
                                 color: AppColors.gold.withValues(alpha: 0.1),
                               ),
                             _HadithBlock(
-                              key: hadiths[i].number == widget.initialNumber
+                              key: shown[i].number == widget.initialNumber
                                   ? _target
                                   : null,
-                              hadith: hadiths[i],
+                              hadith: shown[i],
                             ),
                           ],
                         ],
@@ -195,13 +242,16 @@ String hadithShareText(Hadith hadith) => composeShareText(
       source: hadith.sourceLine ?? 'The Forty Hadith of Imam an-Nawawi',
     );
 
-class _HadithBlock extends StatelessWidget {
+class _HadithBlock extends ConsumerWidget {
   const _HadithBlock({super.key, required this.hadith});
 
   final Hadith hadith;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final HadithMarks marks = ref.watch(hadithMarksProvider);
+    final bool bookmarked = marks.isBookmarked(hadith.number);
+    final String note = marks.noteOf(hadith.number);
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: Column(
@@ -247,6 +297,14 @@ class _HadithBlock extends StatelessWidget {
               ),
             ),
           ],
+          if (hadith.grade?.note != null) ...[
+            const SizedBox(height: 4),
+            Text(
+              hadith.grade!.note!,
+              key: ValueKey<String>('hadith-grade-note-${hadith.number}'),
+              style: AppText.caption.copyWith(height: 1.4),
+            ),
+          ],
           const SizedBox(height: 12),
           Text(
             hadith.arabic,
@@ -259,12 +317,64 @@ class _HadithBlock extends StatelessWidget {
             hadith.english,
             style: AppText.bodyMuted.copyWith(fontSize: 12.5, height: 1.6),
           ),
+          if (note.isNotEmpty) ...[
+            const SizedBox(height: 8),
+            Text(
+              'Your note: $note',
+              key: ValueKey<String>('hadith-note-${hadith.number}'),
+              style: AppText.caption.copyWith(
+                color: AppColors.gold,
+                height: 1.4,
+              ),
+            ),
+          ],
           const SizedBox(height: 8),
           Align(
             alignment: Alignment.centerRight,
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
+                IconButton(
+                  key: ValueKey<String>('hadith-bookmark-${hadith.number}'),
+                  tooltip: bookmarked
+                      ? 'Remove bookmark from hadith ${hadith.number}'
+                      : 'Bookmark hadith ${hadith.number}',
+                  constraints:
+                      const BoxConstraints(minWidth: 48, minHeight: 48),
+                  onPressed: () => ref
+                      .read(hadithMarksProvider.notifier)
+                      .toggleBookmark(hadith.number),
+                  icon: Icon(
+                    bookmarked ? Icons.bookmark : Icons.bookmark_border,
+                    color: AppColors.gold,
+                    size: 22,
+                  ),
+                ),
+                IconButton(
+                  key: ValueKey<String>('hadith-note-button-${hadith.number}'),
+                  tooltip: note.isEmpty
+                      ? 'Add a private note to hadith ${hadith.number}'
+                      : 'Edit your note on hadith ${hadith.number}',
+                  constraints:
+                      const BoxConstraints(minWidth: 48, minHeight: 48),
+                  onPressed: () async {
+                    final String? text = await showDialog<String>(
+                      context: context,
+                      builder: (BuildContext ctx) =>
+                          HadithNoteDialog(initial: note),
+                    );
+                    if (text != null) {
+                      await ref
+                          .read(hadithMarksProvider.notifier)
+                          .setNote(hadith.number, text);
+                    }
+                  },
+                  icon: const Icon(
+                    Icons.edit_note,
+                    color: AppColors.gold,
+                    size: 22,
+                  ),
+                ),
                 ShareCopyButtons(
                   text: hadithShareText(hadith),
                   title: 'Hadith ${hadith.number}',

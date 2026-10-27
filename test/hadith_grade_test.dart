@@ -13,16 +13,34 @@ void main() {
     int graded = 0;
     for (final Map<String, dynamic> h in data.cast<Map<String, dynamic>>()) {
       final HadithGrade? g = HadithGrade.fromJson(h);
-      // #19 is deliberately left ungraded until its grader is verified.
-      if (h['n'] == 19) {
-        expect(g, isNull);
-        continue;
-      }
       expect(h['src'], isA<String>(), reason: 'hadith ${h['n']}');
       expect(g, isNotNull, reason: 'hadith ${h['n']}');
       graded++;
     }
-    expect(graded, 41);
+    expect(graded, 42);
+  });
+
+  test('hadith 19 names its source, grade and grader (it was ungraded)', () {
+    final List<dynamic> data =
+        jsonDecode(File('assets/hadith/nawawi40.json').readAsStringSync())
+            as List<dynamic>;
+    final Map<String, dynamic> h =
+        data.cast<Map<String, dynamic>>().firstWhere((m) => m['n'] == 19);
+    expect(h['src'], contains('Tirmidhi'));
+    expect(HadithGrade.fromJson(h)!.grader, 'at-Tirmidhi');
+    expect(HadithGrade.fromJson(h)!.grade, 'hasan sahih');
+  });
+
+  test('hadith 12 shows the graders\' disagreement, not one grade alone', () {
+    final List<dynamic> data =
+        jsonDecode(File('assets/hadith/nawawi40.json').readAsStringSync())
+            as List<dynamic>;
+    final Map<String, dynamic> h =
+        data.cast<Map<String, dynamic>>().firstWhere((m) => m['n'] == 12);
+    final HadithGrade g = HadithGrade.fromJson(h)!;
+    expect(g.note, isNotNull);
+    expect(g.note, contains('Albani'));
+    expect(g.note, contains('Darussalam'));
   });
 
   test('Hadith.sourceLine shows source and grade with grader', () {

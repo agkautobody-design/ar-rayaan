@@ -34,9 +34,10 @@ class QuranTranslationCard extends ConsumerWidget {
         title: 'The Clear Quran (Dr. Mustafa Khattab), default',
         subtitle: clearInstalled
             ? 'English'
-            : 'The Clear Quran text is being added. Until then the interim '
-                  'translation is shown.',
-        selected: chosen == null,
+            : 'Not installed yet: its text is being added. Until then the '
+                  'interim translation is shown.',
+        // Only "selected" when its text is really what the reader shows.
+        selected: chosen == null && clearInstalled,
         onTap: () => ref.read(translationSelectionProvider.notifier).choose(null),
       ),
       for (final TranslationChoice c in choices)
@@ -53,7 +54,8 @@ class QuranTranslationCard extends ConsumerWidget {
         key: const Key('translation-interim'),
         title: 'Saheeh International (interim)',
         subtitle: 'English. Used only until the licensed text is in place.',
-        selected: chosen == kInterimEnglishId,
+        selected:
+            chosen == kInterimEnglishId || (chosen == null && !clearInstalled),
         onTap: () => ref
             .read(translationSelectionProvider.notifier)
             .choose(kInterimEnglishId),

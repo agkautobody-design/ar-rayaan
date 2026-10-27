@@ -79,6 +79,31 @@ const Map<String, List<String>> kPhraseAliases = <String, List<String>>{
   'being patient': <String>['patience'],
   'feeling sad': <String>['grief', 'hardship'],
   'feeling anxious': <String>['anxiety', 'worry'],
+  // words people type that the app's English does not use
+  'sirat': <String>['straight path', 'bridge'],
+  'shahadah': <String>['testify', 'testimony of faith', 'declaration of faith'],
+  'riba': <String>['usury', 'interest'],
+  'sabr': <String>['patience', 'patient', 'persevere'],
+  'tasbih': <String>['glorify', 'glorification', 'subhan allah'],
+  'taraweeh': <String>['tarawih', 'night prayer', 'qiyam'],
+  'iblees': <String>['satan', 'shaytan'],
+  'music': <String>['musical instruments', 'instruments of music'],
+  'backbiting': <String>['backbite', 'slander'],
+  'janazah': <String>['funeral', 'funeral prayer'],
+  'kursi': <String>['throne'],
+  'jannah': <String>['paradise'],
+  'jahannam': <String>['hell', 'fire'],
+  'qiyamah': <String>['day of judgment', 'resurrection', 'last day'],
+  'day of judgment': <String>['qiyamah', 'resurrection', 'last day'],
+  'doomsday': <String>['day of judgment', 'qiyamah', 'last day'],
+  'divorce': <String>['talaq'],
+  'talaq': <String>['divorce'],
+  'alcohol': <String>['wine', 'intoxicants', 'khamr'],
+  'khamr': <String>['alcohol', 'wine', 'intoxicants'],
+  'dhikr': <String>['remembrance of allah', 'remember allah'],
+  'istighfar': <String>['forgiveness', 'seek forgiveness'],
+  'tawbah': <String>['repentance', 'repent'],
+  'repentance': <String>['tawbah', 'repent'],
 };
 
 Map<String, List<String>>? _aliasIndex;
@@ -134,6 +159,8 @@ const Map<String, String> _synonyms = <String, String>{
   'sadaqat': 'charity',
   'charitabl': 'charity',
   'zakah': 'zakat',
+  'sabr': 'patienc',
+  'patient': 'patienc',
   // places and books
   'mosqu': 'masjid',
   'koran': 'quran',
@@ -197,6 +224,70 @@ const Map<String, String> kSpellingFolds = <String, String>{
   'mariam': 'maryam',
   'maryum': 'maryam',
   'mary': 'maryam',
+  // prophets: the app and the Saheeh text share one spelling for each
+  'noah': 'nuh',
+  'nooh': 'nuh',
+  'jonah': 'yunus',
+  'younus': 'yunus',
+  'david': 'dawud',
+  'dawood': 'dawud',
+  'dawoud': 'dawud',
+  'daud': 'dawud',
+  'solomon': 'sulayman',
+  'sulaiman': 'sulayman',
+  'suleiman': 'sulayman',
+  'sulaymaan': 'sulayman',
+  'ishmael': 'ismail',
+  'ismael': 'ismail',
+  'ismaeel': 'ismail',
+  'isaac': 'ishaq',
+  'ishaaq': 'ishaq',
+  'jacob': 'yaqub',
+  'yaqoub': 'yaqub',
+  'yacoub': 'yaqub',
+  'aaron': 'harun',
+  'haroon': 'harun',
+  'zechariah': 'zakariya',
+  'zachariah': 'zakariya',
+  'zakariyya': 'zakariya',
+  'zakaria': 'zakariya',
+  'ayub': 'ayyub',
+  'ayyoub': 'ayyub',
+  'ayoub': 'ayyub',
+  'idrees': 'idris',
+  'shuaib': 'shuayb',
+  // the last day and repentance
+  'judgement': 'judgment',
+  'qiyama': 'qiyamah',
+  'qiyaamah': 'qiyamah',
+  'kiyamah': 'qiyamah',
+  'jannat': 'jannah',
+  'janna': 'jannah',
+  'jahanam': 'jahannam',
+  'taubah': 'tawbah',
+  'tauba': 'tawbah',
+  'tawba': 'tawbah',
+  // the unseen
+  'iblis': 'iblees',
+  'shaytan': 'satan',
+  'shaitan': 'satan',
+  'shaytaan': 'satan',
+  'shaitaan': 'satan',
+  // sins and rites
+  'ghibah': 'backbiting',
+  'gheebah': 'backbiting',
+  'gibah': 'backbiting',
+  'janaza': 'janazah',
+  'janazeh': 'janazah',
+  'jinazah': 'janazah',
+  'tarawih': 'taraweeh',
+  'taraveeh': 'taraweeh',
+  'taraaweeh': 'taraweeh',
+  'shahada': 'shahadah',
+  'shahaadah': 'shahadah',
+  'sirath': 'sirat',
+  'siraat': 'sirat',
+  'ribaa': 'riba',
   // worship words
   'salaat': 'salah',
   'wudoo': 'wudu',
@@ -278,6 +369,13 @@ String _basicStem(String w) {
     s = s.substring(0, s.length - 1);
   }
   return s;
+}
+
+/// True when [word] is a spelling the search already folds or knows (a
+/// synonym or a variant spelling), so it is never "corrected".
+bool isKnownSpelling(String word) {
+  final String w = word.toLowerCase().replaceAll("'", '');
+  return kSpellingFolds.containsKey(w) || _synonyms.containsKey(_basicStem(w));
 }
 
 /// The matching stem of one word (synonym-folded).
