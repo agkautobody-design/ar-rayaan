@@ -335,7 +335,7 @@ Is it a duty? Scholars agree that learning what you need in order to practise yo
 The Seeking Knowledge guide in this app has more.
 """,
   go=['/huda/guide?id=huda-knowledge'],
-  review='Fard ayn / fard kifayah description of knowledge follows the classical summary, not text-checked here. Ibn Majah 224 is cited as weak with its grader.')
+  review='Fard ayn / fard kifayah description of knowledge follows the classical summary, not text-checked here. The saying that seeking knowledge is a duty is cited as weak, with its grader.')
 
 E('allah-loves-me',
   m=[r'\bdoes allah (?:love|care about|hear|see|know|forgive|remember|accept) me\b', r'\bwill allah (?:love|forgive|accept|hear|help|punish|ever forgive) me\b', r'\bis allah (?:angry|upset|mad|disappointed|punishing|testing) (?:with|at) me\b', r'\bis allah (?:punishing|testing) me\b', r'\bdoes allah hate me\b', r'\ballah (?:hates|abandoned|forgot|left|ignores|ignored) me\b', r'\bwill allah ever forgive\b', r'\bdoes allah forgive (?:all|every|big|major|everything)\b', r'\bis there hope for me\b', r'\bi feel (?:far|distant) from allah\b', r'\bi feel allah (?:doesn t|does not|isn t) \w+\b', r'\bcan allah forgive\b', r'\bi (?:committed|did) (?:a )?(?:big|major|terrible|huge|bad) sin\b', r'\bi m a (?:bad|terrible|sinful) muslim\b'],

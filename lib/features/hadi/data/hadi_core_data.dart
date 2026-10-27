@@ -2416,7 +2416,7 @@ const List<CoreEntry> kHadiCoreEntries = <CoreEntry>[
     answer: 'Islam places great value on knowledge. The first word revealed to the Prophet ﷺ was "Recite in the name of your Lord who created" (Qur\'an 96:1). Allah says: "Are those who know equal to those who do not know" (Qur\'an 39:9), and told the Prophet ﷺ to ask "My Lord, increase me in knowledge" (Qur\'an 20:114). He also says that "Allah will raise those who have believed among you and those who were given knowledge, by degrees" (Qur\'an 58:11).\n\nAbu Hurayrah reported the Prophet said whoever treads a path seeking knowledge, Allah makes the way to Paradise easy for him (Sahih Muslim 2699).\n\nIs it a duty? Scholars agree that learning what you need in order to practise your religion (how to pray, fast, deal honestly and live) is a duty on every Muslim; deeper study is a duty on the community as a whole. A saying often quoted for this, "Seeking knowledge is a duty upon every Muslim", is Sunan Ibn Majah 224, da\'if per Darussalam. It is graded weak, so it is not used as evidence, though the meaning is agreed.\n\nThe Seeking Knowledge guide in this app has more.\n\nSource: Qur\'an 96:1, 39:9, 20:114, 58:11; Sahih Muslim 2699; Sunan Ibn Majah 224, da\'if per Darussalam.\n[GO:/huda/guide?id=huda-knowledge]',
     topic: 'knowledge',
     beforeGate: true,
-    reviewNote: 'Fard ayn / fard kifayah description of knowledge follows the classical summary, not text-checked here. Ibn Majah 224 is cited as weak with its grader.',
+    reviewNote: 'Fard ayn / fard kifayah description of knowledge follows the classical summary, not text-checked here. The saying that seeking knowledge is a duty is cited as weak, with its grader.',
   ),
   CoreEntry(
     id: 'allah-loves-me',
