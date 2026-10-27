@@ -1,4 +1,3 @@
-import 'dart:async' show unawaited;
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -319,7 +318,7 @@ class _LessonRunnerState extends ConsumerState<LessonRunnerScreen> {
     if (nextId == null) {
       context.go('/academy/letters');
     } else {
-      unawaited(context.pushReplacement('/academy/letters/lesson/$nextId'));
+      context.pushReplacement('/academy/letters/lesson/$nextId');
     }
   }
 

@@ -171,7 +171,7 @@ class _LessonPlayerScreenState
                       key: const Key('next-lesson'),
                       onPressed: () {
                         Navigator.of(context).pop();
-                        unawaited(context.pushReplacement(lessonRoute(next)));
+                        context.pushReplacement(lessonRoute(next));
                       },
                       child: Text(
                           '${AcademyStrings.get('lesson.nextLesson')}: '

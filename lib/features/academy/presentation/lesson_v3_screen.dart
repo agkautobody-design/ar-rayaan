@@ -236,7 +236,7 @@ class _LessonV3ScreenState extends ConsumerState<LessonV3Screen> {
                     style: FilledButton.styleFrom(minimumSize: const Size(0, 48)),
                     onPressed: () {
                       Navigator.of(sheet).pop();
-                      unawaited(context.pushReplacement(lessonRoute(next)));
+                      context.pushReplacement(lessonRoute(next));
                     },
                     child: Text(
                       '${AcademyStrings.get('lesson.nextLesson')}: '
