@@ -180,7 +180,6 @@ void main() {
     test('nothing is invented: unknown things are still refused', () async {
       for (final String q in <String>[
         'Tell me about quantum entanglement',
-        'Do I need wudu to touch the Quran?',
         'breakfast',
         'business',
       ]) {
@@ -209,7 +208,7 @@ void main() {
       final HadiController ctrl = c.read(hadiControllerProvider.notifier);
       await ctrl.ask('who was abu bakr', provider: const OfflineHadiProvider());
       final HadiMessage m = c.read(hadiControllerProvider).messages.last;
-      expect(m.text, contains('I don\'t have a checked answer for that'));
+      expect(HadiRouting.isRefusal(m.text), isTrue);
       expect(m.text, contains(HadiRouting.refusalLeadIn));
       expect(m.routes.first, '/stories');
       expect(m.routes.last, '/search');

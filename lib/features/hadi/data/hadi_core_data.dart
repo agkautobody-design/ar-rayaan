@@ -2620,6 +2620,8 @@ const List<CoreEntry> kHadiCoreEntries = <CoreEntry>[
     ],
     avoid: <String>[
       r'\b(?:hadith|youtube|spotify)\b',
+      r'\b(?:hadi|you|ai)\b.*\boffline\b',
+      r'\boffline (?:mode|ai|hadi)\b',
     ],
     answer: 'Most of the app works without the internet. The Qur\'an text, the stories, the guides and the duas are already inside the app. What you can download is recitation audio, so you can listen with no connection.\n\nTo do it, open Downloads (from the menu). Pick a reciter and download a surah or more; each row shows its size, whether it is waiting, downloading, paused or on your device. A few points:\n- Downloads are for the reciter you have chosen only; change the reciter on that screen if you want another.\n- "Wi-Fi only" is a switch so that big downloads wait for Wi-Fi and do not use mobile data. Your phone only guesses which network it is on, so check before a big download.\n- You can pause at any time and delete any download later to free the space.\n- In a web browser, downloads are kept in the browser\'s storage, and the app still needs the internet to open. The Android app keeps everything on the phone and opens with no internet.\n[GO:/downloads]',
     topic: 'downloads',
@@ -2693,6 +2695,7 @@ const List<CoreEntry> kHadiCoreEntries = <CoreEntry>[
       r'\bis (?:hadi|this) (?:an? )?(?:offline|online)\b',
     ],
     avoid: <String>[
+      r'\boffline\b',
       r'\b(?:who (?:runs|owns|funds|pays for|is behind|made|built|created)|owner of|funded|funds it|funding|company behind)\b',
       r'\b(?:data of|big data|quran data)\b',
     ],

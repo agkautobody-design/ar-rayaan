@@ -56,7 +56,7 @@ Lessons, stories, hadith, my answers, the prayer screens and every long text are
 
 E('downloads-offline',
   m=[r'\bdownloads?\b', r'\bdownload(?:ing)? (?:the )?(?:quran|recitation|audio|surah|reciter|ayah|app|nasheed|content|duas?|lessons?)\b', r'\boffline\b', r'\bwithout (?:the )?(?:internet|wifi|wi fi|data|network)\b', r'\bno (?:internet|wifi|wi fi|network|connection|signal)\b', r'\b(?:work|works|working|use|using) (?:the )?(?:app )?(?:offline|without internet)\b', r'\bsave (?:the )?(?:recitation|audio|surah|quran)\b', r'\bstorage\b', r'\bdata usage\b', r'\bmobile data\b', r'\bhow much space\b', r'\bdelete (?:a |my |the )?downloads?\b', r'\bremove (?:a |my |the )?downloads?\b'],
-  x=[r'\b(?:hadith|youtube|spotify)\b'],
+  x=[r'\b(?:hadith|youtube|spotify)\b', r'\b(?:hadi|you|ai)\b.*\boffline\b', r'\boffline (?:mode|ai|hadi)\b'],
   topic='downloads',
   text="""
 Most of the app works without the internet. The Qur'an text, the stories, the guides and the duas are already inside the app. What you can download is recitation audio, so you can listen with no connection.
@@ -98,7 +98,7 @@ E('privacy-free-ads',
   m=[r'\bis (?:my )?(?:data|privacy|information|chat|chats|conversation|conversations|messages?) (?:private|safe|secure|stored|shared|sold|saved|recorded|tracked|kept)\b', r'\b(?:privacy|privacy policy|terms of service|terms and conditions)\b', r'\bdo you (?:track|store|save|record|sell|share|collect|log) (?:my |our )?(?:data|chats?|conversations?|messages?|questions?|location)\b', r'\bwho (?:sees|reads|can see|can read) (?:my )?(?:chats?|questions?|messages?|data|conversations?)\b',
      r'\bdoes (?:the )?app (?:have|show|contain|run) (?:ads|adverts|advertising|advertisements)\b', r'\bany ads\b', r'\badvert\w*\b', r'\bis (?:the )?app (?:free|paid|premium|subscription)\b', r'\bis (?:this|it) (?:free|paid)\b', r'\bhow much (?:does|do|is) (?:the )?(?:app|it) cost\b', r'\b(?:subscription|premium|pro version|in app purchase|paywall|pricing|price of the app)\b', r'\bwho (?:owns|runs|made|built|funds) (?:the |this )?app\b', r'\bwho is behind (?:the )?app\b',
      r'\bdelete (?:my )?(?:account|data|history|chats?|conversation|conversations)\b', r'\bclear (?:my )?(?:chat|history|conversations?|data)\b', r'\bdo i need (?:an? )?(?:account|login|sign ?up|api key)\b', r'\bsign in\b', r'\bapi key\b', r'\bis (?:it|hadi) online\b', r'\bdoes hadi (?:need|use|work) (?:the )?(?:internet|online|api|ai)\b', r'\bis (?:hadi|this) (?:an? )?(?:offline|online)\b'],
-  x=[r'\b(?:who (?:runs|owns|funds|pays for|is behind|made|built|created)|owner of|funded|funds it|funding|company behind)\b', r'\b(?:data of|big data|quran data)\b'],
+  x=[r'\boffline\b', r'\b(?:who (?:runs|owns|funds|pays for|is behind|made|built|created)|owner of|funded|funds it|funding|company behind)\b', r'\b(?:data of|big data|quran data)\b'],
   topic='privacy',
   text="""
 What I can tell you, from the app's own Privacy policy screen:

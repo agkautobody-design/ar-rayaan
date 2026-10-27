@@ -200,7 +200,7 @@ void main() {
       await AppHarness.go(tester, find.byType(Scaffold).first, '/hadi');
       final Finder field = find.descendant(
           of: find.byType(HadiScreen), matching: find.byType(TextField));
-      await tester.enterText(field, 'what time is it in Tokyo');
+      await tester.enterText(field, 'what is the capital of France');
       await tester.pump();
       await tester.tap(find.descendant(
           of: find.byType(HadiScreen), matching: find.byIcon(Icons.send)));
