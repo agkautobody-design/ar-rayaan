@@ -1,0 +1,568 @@
+{
+ "schema": 1,
+ "note": "Verified-phrase registry for the Family, Youth and Transactions courses (Academy v3). A lesson never contains Arabic of its own: it names a phrase here, in foundation.json, or an ayah of assets/quran/quran.json as q:<surah>:<ayah>. `status: verified` means the Arabic was found letter for letter in the cited primary-source text on the date below; it does NOT mean a scholar has reviewed it (see needsScholarReview).",
+ "checked": "2026-10-27",
+ "corpus": "github.com/fawazahmed0/hadith-api (branch 1, editions/ara-*.json); sunnah.com numbering; Muslim by Abd al-Baqi number",
+ "phrases": {
+  "fam.nikah.barak": {
+   "arabic": "بَارَكَ اللَّهُ لَكَ وَبَارَكَ عَلَيْكَ وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ",
+   "status": "verified",
+   "translit": "Baarakal-laahu laka wa baaraka 'alayka wa jama'a baynakumaa fee khayr",
+   "meaning": "May Allah bless you, and send blessings upon you, and bring you both together in good.",
+   "words": [
+    {
+     "tr": "baaraka",
+     "en": "blessed"
+    },
+    {
+     "tr": "Allaahu",
+     "en": "Allah"
+    },
+    {
+     "tr": "laka",
+     "en": "for you"
+    },
+    {
+     "tr": "wa-baaraka",
+     "en": "and blessed"
+    },
+    {
+     "tr": "'alayka",
+     "en": "upon you"
+    },
+    {
+     "tr": "wa-jama'a",
+     "en": "and brought together"
+    },
+    {
+     "tr": "baynakumaa",
+     "en": "between you both"
+    },
+    {
+     "tr": "fee",
+     "en": "in"
+    },
+    {
+     "tr": "khayr",
+     "en": "good"
+    }
+   ],
+   "sources": [
+    "Tirmidhi 1091 (graded sahih by al-Albani)"
+   ],
+   "copiedFrom": "Tirmidhi 1091 (graded by al-Albani; fawazahmed0/hadith-api, ara-tirmidhi)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "fam.child.refuge": {
+   "arabic": "أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّةِ مِنْ كُلِّ شَيْطَانٍ وَهَامَّةٍ وَمِنْ كُلِّ عَيْنٍ لاَمَّةٍ",
+   "status": "verified",
+   "translit": "A'oodhu bikalimaatil-laahit-taammati min kulli shaytaanin wa haammah, wa min kulli 'aynin laammah",
+   "meaning": "I seek refuge in the perfect words of Allah from every devil and every harmful creature, and from every harmful eye.",
+   "words": [
+    {
+     "tr": "a'oodhu",
+     "en": "I seek refuge"
+    },
+    {
+     "tr": "bi-kalimaati",
+     "en": "in the words of"
+    },
+    {
+     "tr": "Allaahi",
+     "en": "Allah"
+    },
+    {
+     "tr": "at-taammati",
+     "en": "the perfect"
+    },
+    {
+     "tr": "min",
+     "en": "from"
+    },
+    {
+     "tr": "kulli",
+     "en": "every"
+    },
+    {
+     "tr": "shaytaanin",
+     "en": "devil"
+    },
+    {
+     "tr": "wa-haammatin",
+     "en": "and harmful creature"
+    },
+    {
+     "tr": "wa-min",
+     "en": "and from"
+    },
+    {
+     "tr": "kulli",
+     "en": "every"
+    },
+    {
+     "tr": "'aynin",
+     "en": "eye"
+    },
+    {
+     "tr": "laammatin",
+     "en": "harmful"
+    }
+   ],
+   "sources": [
+    "Bukhari 3371 (the Prophet said this over his grandsons Hasan and Husayn)"
+   ],
+   "copiedFrom": "Bukhari 3371 (fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "fam.hamd": {
+   "arabic": "الْحَمْدُ لِلَّهِ",
+   "status": "verified",
+   "translit": "Al-hamdu lillaah",
+   "meaning": "Praise be to Allah.",
+   "words": [
+    {
+     "tr": "al-hamdu",
+     "en": "the praise"
+    },
+    {
+     "tr": "lillaah",
+     "en": "is for Allah"
+    }
+   ],
+   "sources": [
+    "Bukhari 6224 (the words)"
+   ],
+   "copiedFrom": "Bukhari 6224 (fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "fam.sneeze.reply": {
+   "arabic": "يَرْحَمُكَ اللَّهُ",
+   "status": "verified",
+   "translit": "Yarhamukal-laah",
+   "meaning": "May Allah have mercy on you.",
+   "words": [
+    {
+     "tr": "yarhamuka",
+     "en": "may He have mercy on you"
+    },
+    {
+     "tr": "Allaah",
+     "en": "Allah"
+    }
+   ],
+   "sources": [
+    "Bukhari 6224"
+   ],
+   "copiedFrom": "Bukhari 6224 (fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "fam.sneeze.back": {
+   "arabic": "يَهْدِيكُمُ اللَّهُ وَيُصْلِحُ بَالَكُمْ",
+   "status": "verified",
+   "translit": "Yahdeekumul-laahu wa yuslihu baalakum",
+   "meaning": "May Allah guide you and set your affairs right.",
+   "words": [
+    {
+     "tr": "yahdeekumu",
+     "en": "may He guide you"
+    },
+    {
+     "tr": "Allaahu",
+     "en": "Allah"
+    },
+    {
+     "tr": "wa-yuslihu",
+     "en": "and set right"
+    },
+    {
+     "tr": "baalakum",
+     "en": "your state"
+    }
+   ],
+   "sources": [
+    "Bukhari 6224"
+   ],
+   "copiedFrom": "Bukhari 6224 (fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "fam.eat.bismillah": {
+   "arabic": "بِسْمِ اللَّهِ",
+   "status": "verified",
+   "translit": "Bismil-laah",
+   "meaning": "In the name of Allah.",
+   "words": [
+    {
+     "tr": "bismi",
+     "en": "in the name of"
+    },
+    {
+     "tr": "Allaah",
+     "en": "Allah"
+    }
+   ],
+   "sources": [
+    "Abu Dawud 3767 (graded sahih by al-Albani)"
+   ],
+   "copiedFrom": "Abu Dawud 3767 (graded by al-Albani; fawazahmed0/hadith-api, ara-abudawud)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "fam.eat.forgot": {
+   "arabic": "بِسْمِ اللَّهِ أَوَّلَهُ وَآخِرَهُ",
+   "status": "verified",
+   "translit": "Bismil-laahi awwalahu wa aakhirah",
+   "meaning": "In the name of Allah at its beginning and at its end.",
+   "words": [
+    {
+     "tr": "bismi",
+     "en": "in the name of"
+    },
+    {
+     "tr": "Allaahi",
+     "en": "Allah"
+    },
+    {
+     "tr": "awwalahu",
+     "en": "its beginning"
+    },
+    {
+     "tr": "wa-aakhirahu",
+     "en": "and its end"
+    }
+   ],
+   "sources": [
+    "Abu Dawud 3767 (graded sahih by al-Albani)"
+   ],
+   "copiedFrom": "Abu Dawud 3767 (graded by al-Albani; fawazahmed0/hadith-api, ara-abudawud)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "yth.love.1": {
+   "arabic": "إِنِّي أُحِبُّكَ فِي اللَّهِ",
+   "status": "verified",
+   "translit": "Innee uhibbuka fil-laah",
+   "meaning": "I love you for the sake of Allah.",
+   "words": [
+    {
+     "tr": "innee",
+     "en": "indeed I"
+    },
+    {
+     "tr": "uhibbuka",
+     "en": "love you"
+    },
+    {
+     "tr": "fee",
+     "en": "for the sake of"
+    },
+    {
+     "tr": "Allaah",
+     "en": "Allah"
+    }
+   ],
+   "sources": [
+    "Abu Dawud 5125 (graded hasan by al-Albani)"
+   ],
+   "copiedFrom": "Abu Dawud 5125 (graded by al-Albani; fawazahmed0/hadith-api, ara-abudawud)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "yth.love.2": {
+   "arabic": "أَحَبَّكَ الَّذِي أَحْبَبْتَنِي لَهُ",
+   "status": "verified",
+   "translit": "Ahabbakal-ladhee ahbabtanee lah",
+   "meaning": "May He for whose sake you love me love you.",
+   "words": [
+    {
+     "tr": "ahabbaka",
+     "en": "may He love you"
+    },
+    {
+     "tr": "alladhee",
+     "en": "the One who"
+    },
+    {
+     "tr": "ahbabtanee",
+     "en": "you loved me"
+    },
+    {
+     "tr": "lahu",
+     "en": "for His sake"
+    }
+   ],
+   "sources": [
+    "Abu Dawud 5125 (graded hasan by al-Albani)"
+   ],
+   "copiedFrom": "Abu Dawud 5125 (graded by al-Albani; fawazahmed0/hadith-api, ara-abudawud)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "trx.halal.1": {
+   "arabic": "اللَّهُمَّ اكْفِنِي بِحَلاَلِكَ عَنْ حَرَامِكَ",
+   "status": "verified",
+   "translit": "Allaahummak-finee bihalaalika 'an haraamik",
+   "meaning": "O Allah, suffice me with what You have made lawful, away from what You have forbidden.",
+   "words": [
+    {
+     "tr": "Allaahumma",
+     "en": "O Allah"
+    },
+    {
+     "tr": "ikfinee",
+     "en": "suffice me"
+    },
+    {
+     "tr": "bihalaalika",
+     "en": "with Your lawful"
+    },
+    {
+     "tr": "'an",
+     "en": "away from"
+    },
+    {
+     "tr": "haraamika",
+     "en": "Your forbidden"
+    }
+   ],
+   "sources": [
+    "Tirmidhi 3563 (graded hasan by al-Albani and Darussalam)"
+   ],
+   "copiedFrom": "Tirmidhi 3563 (graded by al-Albani; fawazahmed0/hadith-api, ara-tirmidhi)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "trx.halal.2": {
+   "arabic": "وَأَغْنِنِي بِفَضْلِكَ عَمَّنْ سِوَاكَ",
+   "status": "verified",
+   "translit": "Wa aghninee bifadlika 'amman siwaak",
+   "meaning": "And make me independent, by Your bounty, of everyone besides You.",
+   "words": [
+    {
+     "tr": "wa-aghninee",
+     "en": "and enrich me"
+    },
+    {
+     "tr": "bifadlika",
+     "en": "with Your bounty"
+    },
+    {
+     "tr": "'amman",
+     "en": "away from whoever"
+    },
+    {
+     "tr": "siwaaka",
+     "en": "other than You"
+    }
+   ],
+   "sources": [
+    "Tirmidhi 3563 (graded hasan by al-Albani and Darussalam)"
+   ],
+   "copiedFrom": "Tirmidhi 3563 (graded by al-Albani; fawazahmed0/hadith-api, ara-tirmidhi)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "trx.halal": {
+   "parts": [
+    "trx.halal.1",
+    "trx.halal.2"
+   ],
+   "status": "verified",
+   "translit": "Allaahummak-finee bihalaalika 'an haraamik, wa aghninee bifadlika 'amman siwaak",
+   "meaning": "O Allah, suffice me with what You have made lawful, away from what You have forbidden, and make me independent, by Your bounty, of everyone besides You.",
+   "sources": [
+    "Tirmidhi 3563 (graded hasan by al-Albani and Darussalam)"
+   ],
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "trx.worry.1": {
+   "arabic": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ",
+   "status": "verified",
+   "translit": "Allaahumma innee a'oodhu bika minal-hammi wal-hazan",
+   "meaning": "O Allah, I seek refuge in You from worry and grief,",
+   "sources": [
+    "Bukhari 6369"
+   ],
+   "copiedFrom": "Bukhari 6369 (fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "trx.worry.2": {
+   "arabic": "وَالْعَجْزِ وَالْكَسَلِ",
+   "status": "verified",
+   "translit": "wal-'ajzi wal-kasal",
+   "meaning": "from weakness and laziness,",
+   "sources": [
+    "Bukhari 6369"
+   ],
+   "copiedFrom": "Bukhari 6369 (fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "trx.worry.3": {
+   "arabic": "وَالْجُبْنِ وَالْبُخْلِ",
+   "status": "verified",
+   "translit": "wal-jubni wal-bukhl",
+   "meaning": "from cowardice and stinginess,",
+   "sources": [
+    "Bukhari 6369"
+   ],
+   "copiedFrom": "Bukhari 6369 (fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "trx.worry.4": {
+   "arabic": "وَضَلَعِ الدَّيْنِ وَغَلَبَةِ الرِّجَالِ",
+   "status": "verified",
+   "translit": "wa dala'id-dayni wa ghalabatir-rijaal",
+   "meaning": "from the weight of debt and from being overpowered by men.",
+   "sources": [
+    "Bukhari 6369"
+   ],
+   "copiedFrom": "Bukhari 6369 (fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "trx.worry": {
+   "parts": [
+    "trx.worry.1",
+    "trx.worry.2",
+    "trx.worry.3",
+    "trx.worry.4"
+   ],
+   "status": "verified",
+   "translit": "Allaahumma innee a'oodhu bika minal-hammi wal-hazan, wal-'ajzi wal-kasal, wal-jubni wal-bukhl, wa dala'id-dayni wa ghalabatir-rijaal",
+   "meaning": "O Allah, I seek refuge in You from worry and grief, from weakness and laziness, from cowardice and stinginess, from the weight of debt and from being overpowered by men.",
+   "sources": [
+    "Bukhari 6369"
+   ],
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "trx.repay.1": {
+   "arabic": "بَارَكَ اللَّهُ لَكَ فِي أَهْلِكَ وَمَالِكَ",
+   "status": "verified",
+   "translit": "Baarakal-laahu laka fee ahlika wa maalik",
+   "meaning": "May Allah bless you in your family and your wealth.",
+   "words": [
+    {
+     "tr": "baaraka",
+     "en": "blessed"
+    },
+    {
+     "tr": "Allaahu",
+     "en": "Allah"
+    },
+    {
+     "tr": "laka",
+     "en": "for you"
+    },
+    {
+     "tr": "fee",
+     "en": "in"
+    },
+    {
+     "tr": "ahlika",
+     "en": "your family"
+    },
+    {
+     "tr": "wa-maalika",
+     "en": "and your wealth"
+    }
+   ],
+   "sources": [
+    "Nasa'i 4683 (graded sahih by al-Albani; hasan by Zubair Ali Zai)"
+   ],
+   "copiedFrom": "Nasa'i 4683 (graded by al-Albani; fawazahmed0/hadith-api, ara-nasai)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "trx.repay.2": {
+   "arabic": "إِنَّمَا جَزَاءُ السَّلَفِ الْحَمْدُ وَالأَدَاءُ",
+   "status": "verified",
+   "translit": "Innamaa jazaa'us-salafil-hamdu wal-adaa'",
+   "meaning": "The reward of a loan is praise and repayment.",
+   "words": [
+    {
+     "tr": "innamaa",
+     "en": "only"
+    },
+    {
+     "tr": "jazaa'u",
+     "en": "the reward of"
+    },
+    {
+     "tr": "as-salafi",
+     "en": "the loan"
+    },
+    {
+     "tr": "al-hamdu",
+     "en": "the praise"
+    },
+    {
+     "tr": "wal-adaa'u",
+     "en": "and the repayment"
+    }
+   ],
+   "sources": [
+    "Nasa'i 4683 (graded sahih by al-Albani; hasan by Zubair Ali Zai)"
+   ],
+   "copiedFrom": "Nasa'i 4683 (graded by al-Albani; fawazahmed0/hadith-api, ara-nasai)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "trx.repay": {
+   "parts": [
+    "trx.repay.1",
+    "trx.repay.2"
+   ],
+   "status": "verified",
+   "translit": "Baarakal-laahu laka fee ahlika wa maalik. Innamaa jazaa'us-salafil-hamdu wal-adaa'",
+   "meaning": "May Allah bless you in your family and your wealth. The reward of a loan is praise and repayment.",
+   "sources": [
+    "Nasa'i 4683 (graded sahih by al-Albani; hasan by Zubair Ali Zai)"
+   ],
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "trx.barakah.early": {
+   "arabic": "اللَّهُمَّ بَارِكْ لأُمَّتِي فِي بُكُورِهَا",
+   "status": "verified",
+   "translit": "Allaahumma baarik li-ummatee fee bukoorihaa",
+   "meaning": "O Allah, bless my community in its early mornings.",
+   "words": [
+    {
+     "tr": "Allaahumma",
+     "en": "O Allah"
+    },
+    {
+     "tr": "baarik",
+     "en": "bless"
+    },
+    {
+     "tr": "li-ummatee",
+     "en": "my community"
+    },
+    {
+     "tr": "fee",
+     "en": "in"
+    },
+    {
+     "tr": "bukoorihaa",
+     "en": "its early hours"
+    }
+   ],
+   "sources": [
+    "Tirmidhi 1212 (graded sahih by al-Albani)"
+   ],
+   "copiedFrom": "Tirmidhi 1212 (graded by al-Albani; fawazahmed0/hadith-api, ara-tirmidhi)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  }
+ }
+}

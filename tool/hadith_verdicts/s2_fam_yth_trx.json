@@ -1,0 +1,695 @@
+{
+ "abudawud:1308": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: may Allah have mercy on a man who gets up at night and prays and wakes his wife; if she refuses he sprinkles water on her face; and likewise the woman",
+  "grade": "Hasan Sahih (al-Albani)",
+  "grader": "al-Albani"
+ },
+ "abudawud:2085": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Musa: no marriage without the permission of a guardian",
+  "grade": "Sahih (al-Albani); Sahih (Zubair Ali Zai (Darussalam))",
+  "grader": "al-Albani, Zubair Ali Zai (Darussalam)"
+ },
+ "abudawud:2142": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Muawiya al-Qushayri: a wife's right is that you feed her when you eat, clothe her when you clothe yourself, do not strike her face, do not revile her, do not separate from her except in the house",
+  "grade": "Hasan Sahih (al-Albani); Isnaad Sahih (Zubair Ali Zai (Darussalam))",
+  "grader": "al-Albani, Zubair Ali Zai (Darussalam)"
+ },
+ "abudawud:2578": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Aisha: she raced the Prophet on a journey; she won when slim, he won later and said 'this is for that'",
+  "grade": "Sahih (al-Albani); Isnaad Sahih (Zubair Ali Zai (Darussalam))",
+  "grader": "al-Albani, Zubair Ali Zai (Darussalam)"
+ },
+ "abudawud:3767": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Aisha: when one eats he should mention the name of Allah, and if he forgets at the start say bismillah awwalahu wa akhirahu",
+  "grade": "Sahih (al-Albani); Isnaad Sahih (Zubair Ali Zai (Darussalam))",
+  "grader": "al-Albani, Zubair Ali Zai (Darussalam)"
+ },
+ "abudawud:4782": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Dharr: if angry while standing, sit; if it leaves, good; otherwise lie down",
+  "grade": "Sahih (al-Albani); Sahih (Zubair Ali Zai (Darussalam))",
+  "grader": "al-Albani, Zubair Ali Zai (Darussalam)"
+ },
+ "abudawud:495": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abdullah ibn Amr: command your children to pray at seven, beat them for it at ten, and arrange their beds separately",
+  "grade": "Hasan Sahih (al-Albani); Sahih (Zubair Ali Zai (Darussalam))",
+  "grader": "al-Albani, Zubair Ali Zai (Darussalam)"
+ },
+ "abudawud:5125": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Anas: a man said he loved another for Allah; the Prophet told him to tell him; the reply was: may He for whom you love me love you",
+  "grade": "Hasan (al-Albani); Isnaad Hasan (Zubair Ali Zai (Darussalam))",
+  "grader": "al-Albani, Zubair Ali Zai (Darussalam)"
+ },
+ "bukhari:1395": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Ibn Abbas: the Prophet sent Muadh to Yemen; Allah has made zakat obligatory, to be taken from the wealthy and given to the poor",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:1405": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Said: no zakat on property of less than five uqiyas of silver, less than five camels, less than five wasqs",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:143": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Ibn Abbas: the Prophet prayed Allah make him a learned scholar in religion",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:1454": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Anas: Abu Bakr wrote the orders of zakat; silver, the zakat is one-fortieth",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:1470": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: better for one to take a rope, cut wood, carry it on his back and sell it than to ask a person who may or may not give",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:1472": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Hakim ibn Hizam: this property is like a sweet fresh fruit; whoever takes it without greediness is blessed in it, whoever with greediness is not blessed, like one who eats but is never satisfied; the upper hand is better than the lower",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:1968": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Juhaifa: Salman told Abu Darda your Lord has a right on you, your soul has a right on you, your family has a right on you; the Prophet said Salman has spoken the truth",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:2072": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Miqdam: nobody has eaten a better meal than what he earned by working with his own hands; Prophet David ate from manual labour",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:2076": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Jabir: may Allah have mercy on one who is lenient in buying, selling and demanding back his money",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:2079": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Hakim ibn Hizam: buyer and seller have the option as long as they have not parted; if both told the truth and described the defects they are blessed; if they lied or hid, the blessings of their transaction are lost",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:2083": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: a time will come when people will not care whether they earned money lawfully or unlawfully",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:2086": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Awn ibn Abi Juhayfa: the Prophet forbade the price of a dog or blood, tattooing, and receiving or giving riba",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:2289": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Salama: the Prophet asked of the dead man whether he was in debt; he would not lead the prayer for one with debt unpaid until Abu Qatada said I will pay his debt",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:2387": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: whoever takes the money of the people with the intention of repaying it, Allah will repay it on his behalf; whoever takes it to spoil it, Allah will spoil him",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:2392": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: a man demanded a camel; the Prophet had them give him an older camel; the best among the people is he who repays his debts in the most handsome manner",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:2587": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Numan ibn Bashir: his father gave him a gift; the Prophet asked if he gave the like to all his sons; no; be afraid of Allah and be just to your children; he took the gift back",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:2620": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Asma bint Abu Bakr: her pagan mother came to her; the Prophet said yes, keep good relations with her",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:2652": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abdullah: the people of my generation are the best, then those who follow them, then those who follow the latter",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:2731": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Al-Miswar and Marwan on Hudaybiyyah: after the treaty the Companions did not obey the order to sacrifice and shave; the Prophet went to Umm Salama, she advised him to go out silently and do it himself, and when he did the people followed",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:2756": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Ibn Abbas: the mother of Sad ibn Ubada died; he asked if charity on her behalf would benefit her; the Prophet said yes",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:3113": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Ali: Fatima complained of the hand mill; the Prophet told them to say Allahu akbar 34, alhamdulillah 33, subhanallah 33 at bed, better than a servant",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:3371": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Ibn Abbas: the Prophet used to seek refuge with Allah for Hasan and Husayn with the perfect words of Allah from every devil, harmful creature and harmful eye",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:3461": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abdullah ibn Amr: convey from me even if it were a single sentence",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:4757": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Aisha slander story: Abu Bakr swore to stop helping Mistah; Allah revealed 24:22; Abu Bakr said yes I love that Allah forgive me and resumed spending",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:5063": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "three men resolve to pray all night, fast always, never marry; the Prophet says he fasts and breaks, sleeps, marries; whoever does not follow his way is not from him",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:5066": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Ibn Masud: young men who can marry should; whoever cannot should fast",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:5136": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: a previously married woman is not married until consulted, a virgin not until her permission; her silence is permission",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:516": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Qatada: the Prophet prayed carrying Umama bint Zaynab; he put her down when he prostrated and carried her when he stood",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:5167": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Anas: Abdur-Rahman ibn Awf married; the Prophet asked about the mahr and told him to give a banquet even with one sheep",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:52": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Numan ibn Bashir: halal is clear, haram is clear, between them are doubtful things; whoever avoids them saves his religion and honour",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:5228": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Aisha: the Prophet said he knew when she was pleased or angry: she said 'by the Lord of Muhammad' or 'by the Lord of Ibrahim'",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:528": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: a river at the door of anyone, bathing five times a day, is the example of the five prayers with which Allah blots out evil deeds",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:5362": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Ali: Fatima asked for a servant; the Prophet taught tasbih at bedtime; Ali said he never failed to recite it, even on the night of Siffin",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:5376": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Umar ibn Abi Salama: the Prophet told him, O boy, mention the name of Allah, eat with your right hand, eat from what is nearer to you",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:5534": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Musa: the example of a good companion and an evil one is a person carrying musk and another blowing bellows",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:56": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Sad ibn Abi Waqqas: you will be rewarded for whatever you spend for Allahs sake even the morsel you put in your wifes mouth",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:5971": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: a man asked who is most entitled to best companionship; the Prophet said your mother three times, then your father",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:5997": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: the Prophet kissed al-Hasan; al-Aqra said he had ten children and never kissed one; the Prophet said whoever is not merciful will not be treated mercifully",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:6018": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: whoever believes in Allah and the Last Day should speak good or keep quiet",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:6038": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Anas: served the Prophet ten years; he never said uff and never blamed him for what he did or did not do",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:6064": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: beware of suspicion; do not look for others faults, do not spy, do not be jealous",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:6077": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Ayyub: not lawful to desert a brother Muslim for more than three nights; the better is the one who greets first",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:6114": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: the strong one is not the one who overcomes people by strength but who controls himself in anger",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:6116": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: a man asked for advice; the Prophet said do not become angry, repeated",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:6224": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: when one sneezes he says Alhamdulillah, his brother says Yarhamukallah, and he replies Yahdikumullah wa yuslih balakum",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:6247": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Anas passed by boys, greeted them and said the Prophet used to do so",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:6369": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Anas: the Prophet used to seek refuge from worry and grief, weakness and laziness, cowardice and miserliness, heavy debt and being overpowered by men",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:6407": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Musa: the one who celebrates the praises of his Lord compared to the one who does not is as a living creature compared to a dead one",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:6412": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Ibn Abbas: two blessings that many people are deceived into losing: health and free time",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:6490": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: if one looks at a person superior in property and appearance, he should also look at one who is inferior",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:660": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: seven whom Allah will shade: just ruler, youth brought up in worship, heart attached to mosques, two who love for Allah, one who refuses a woman of rank, secret charity, one who remembers Allah in seclusion and weeps",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:676": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Aisha: the Prophet used to keep himself busy serving his family, and when it was time for prayer he would go for it",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:6927": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Aisha: some Jews greeted the Prophet with As-Samu Alaika; he said Allah is kind and lenient and likes kindness in all matters",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:707": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Qatada: the Prophet said he intends to prolong the prayer, hears a child cry and cuts it short so as not to trouble its mother",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "bukhari:893": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Ibn Umar: all of you are guardians and responsible; a man is the guardian of his family; a woman guardian of her husbands house",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "muslim:101": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: he who took up arms against us is not of us and he who acted dishonestly towards us is not of us",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "muslim:1015": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: Allah is Good and accepts only that which is good; a man lifts his hands but his food and drink are unlawful, how can his prayer be accepted",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "muslim:102": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: the Prophet passed a heap of grain, his fingers were wet inside, the owner said rain; why did you not put it on top so people could see; he who deceives is not of me",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "muslim:145": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: Islam initiated as something strange and it would revert to being strange, good tidings for the stranger",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "muslim:1584": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Said: gold for gold, silver for silver, wheat, barley, dates, salt, like for like, hand to hand; he who made an addition or asked for an addition dealt in usury",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "muslim:1598": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Jabir: the Prophet cursed the accepter of interest and its payer, the one who records it and the two witnesses; they are all equal",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "muslim:1631": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: when a man dies his deeds end except recurring charity, beneficial knowledge, or a pious son who prays for him",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "muslim:1829": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Ibn Umar: every one of you is a shepherd answerable for his flock; a man is a guardian over his family; a woman over her husbands household",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "muslim:1886": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Amr ibn al-As: all the sins of a martyr are forgiven except debt",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "muslim:2018": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Jabir: when a person enters his house and mentions Allahs name, Satan says no place to spend the night and no evening meal",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "muslim:2159": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Jarir: asked the Prophet about the sudden glance; he commanded me to turn away my eyes",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "muslim:2318": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: al-Aqra saw the Prophet kissing Hasan; he who does not show mercy will not be shown mercy",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "muslim:2328": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Aisha: the Prophet never struck anyone with his hand, neither a woman nor a servant, except when fighting in the cause of Allah",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "muslim:249": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: the Prophet at the graveyard said I love to see my brothers; our brothers are those who have not yet come into the world",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "muslim:2552": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abdullah ibn Umar: the finest act of goodness is that a person treat kindly the loved ones of his father",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "muslim:2558": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Anas: not lawful for a Muslim to keep his relations estranged beyond three days",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "muslim:2564": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: Allah does not look to your faces and your wealth but He looks to your heart and to your deeds",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "muslim:2588": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: charity does not decrease wealth; no one forgives another except that Allah increases his honour; no one humbles himself for Allah except that Allah raises him",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "muslim:2590": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: the servant who conceals the faults of others in this world, Allah conceals his faults on the Day of Resurrection",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "muslim:2594": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Aisha: kindness is not found in anything but it adds to its beauty and is not withdrawn from anything but it makes it defective",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "muslim:2612": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: when one of you fights his brother, avoid striking the face",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "muslim:2664": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: a strong believer is better and more lovable to Allah than a weak believer, and there is good in everyone",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "muslim:2963": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: when one looks at one higher in wealth and physical structure he should also see one lower",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "muslim:2965": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Sad: Allah loves the servant who is God-conscious, free from want and hidden",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "muslim:995": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: of the dinars you spend, the one yielding the greatest reward is the one spent on your family",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (compiler's criteria)"
+ },
+ "nasai:1141": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Shaddad: the Prophet prayed carrying Hasan or Husayn, put him down, prostrated long; the child was on his back",
+  "grade": "Sahih (al-Albani); Isnaad Sahih (Zubair Ali Zai (Darussalam))",
+  "grader": "al-Albani, Zubair Ali Zai (Darussalam)"
+ },
+ "nasai:4683": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abdullah ibn Abi Rabia: the Prophet borrowed forty thousand, repaid it and said 'barak Allahu laka fi ahlika wa malik, innama jaza as-salaf al-hamd wal-ada'",
+  "grade": "Sahih (al-Albani); Hasan (Zubair Ali Zai (Darussalam))",
+  "grader": "al-Albani, Zubair Ali Zai (Darussalam)"
+ },
+ "tirmidhi:1091": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: the Prophet's congratulation to a newlywed: barak Allahu laka wa baraka alayka wa jama'a baynakuma fi khayr",
+  "grade": "Sahih (al-Albani); Isnaad Sahih (Zubair Ali Zai (Darussalam))",
+  "grader": "al-Albani, Zubair Ali Zai (Darussalam)"
+ },
+ "tirmidhi:1101": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Musa: no marriage except with a wali",
+  "grade": "Sahih (al-Albani); Sahih (Zubair Ali Zai (Darussalam))",
+  "grader": "al-Albani, Zubair Ali Zai (Darussalam)"
+ },
+ "tirmidhi:1212": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Sakhr al-Ghamidi: the Prophet said 'O Allah, bless my Ummah in its early mornings'",
+  "grade": "Sahih (al-Albani); Isnaad Hasan (Zubair Ali Zai (Darussalam))",
+  "grader": "al-Albani, Zubair Ali Zai (Darussalam)"
+ },
+ "tirmidhi:1956": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Dharr: your smiling in the face of your brother is charity",
+  "grade": "Sahih (al-Albani); Isnaad Hasan (Zubair Ali Zai (Darussalam))",
+  "grader": "al-Albani, Zubair Ali Zai (Darussalam)"
+ },
+ "tirmidhi:2344": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Umar: if you were to rely upon Allah with the required reliance He would provide for you as a bird is provided for, it goes out in the morning empty and returns full",
+  "grade": "Sahih (al-Albani); Isnaad Hasan (Zubair Ali Zai (Darussalam))",
+  "grader": "al-Albani, Zubair Ali Zai (Darussalam)"
+ },
+ "tirmidhi:2378": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: a man is upon the religion of his friend so let one of you look at whom he befriends",
+  "grade": "Hasan (al-Albani); Isnaad Hasan (Zubair Ali Zai (Darussalam))",
+  "grader": "al-Albani, Zubair Ali Zai (Darussalam)"
+ },
+ "tirmidhi:2518": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Hasan ibn Ali: leave what makes you in doubt for what does not; the truth brings tranquility, falsehood sows doubt",
+  "grade": "Sahih (al-Albani); Isnaad Sahih (Zubair Ali Zai (Darussalam))",
+  "grader": "al-Albani, Zubair Ali Zai (Darussalam)"
+ },
+ "tirmidhi:3563": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Ali: the Prophet taught a mukatab the words 'Allahumma ikfini bihalalika an haramika wa aghnini bifadlika amman siwak'",
+  "grade": "Hasan (al-Albani); Hasan (Zubair Ali Zai (Darussalam))",
+  "grader": "al-Albani, Zubair Ali Zai (Darussalam)"
+ },
+ "tirmidhi:3895": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Aisha: the best of you is best to his family, and I am best to my family",
+  "grade": "Sahih (al-Albani); Hasan (Zubair Ali Zai (Darussalam))",
+  "grader": "al-Albani, Zubair Ali Zai (Darussalam)"
+ }
+}
