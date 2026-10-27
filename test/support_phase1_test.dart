@@ -302,7 +302,9 @@ void main() {
       expect(r.toLowerCase().contains('sakina'), isFalse);
       expect(r, contains('trust'));
       expect(r, contains('You choose who'));
-      expect(r, contains('help lines are listed just below'));
+      expect(r, contains('Show help lines'));
+      expect(r, contains('I believe you'));
+      expect(r, contains('not your fault'));
       expect(r.toLowerCase().contains('tell a parent'), isFalse);
     });
 

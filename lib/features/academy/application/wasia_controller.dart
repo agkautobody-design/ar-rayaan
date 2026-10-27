@@ -14,6 +14,7 @@ import '../../support/data/pack_repository.dart';
 import '../../support/domain/student_routing.dart';
 import '../../support/domain/support_engine.dart';
 import '../../support/domain/child_distress.dart';
+import '../../support/domain/safe_replies.dart';
 import 'child_age_band.dart';
 
 enum WasiaPersona { student, parent, teacher }
@@ -25,22 +26,39 @@ const String kWasiaChildLlmPref = 'ar.wasia.child_llm';
 /// Fixed reply when a message may describe self-harm, abuse or danger. It
 /// runs before ANY answer (shelf or live AI), nothing the person wrote is
 /// sent anywhere, and it never invents a phone number.
-String wasiaCrisisReply(WasiaPersona persona) {
+///
+/// A child ([WasiaPersona.student]) gets [ChildDistress.disclosureCard]:
+/// full sentences, "I believe you", "it is not your fault", a plain statement
+/// that the app tells nobody and keeps nothing but cannot promise to keep this
+/// secret from the grown-ups who help children, a choice of adults, and words
+/// that differ for ages 5-8 and 13-17. [band] is the age band the parent set
+/// ('5-8', '9-12' or '13-17'); [kind] adds "are you safe" first for
+/// self-harm.
+String wasiaCrisisReply(
+  WasiaPersona persona, {
+  CrisisKind? kind,
+  String band = ChildAgeBand.fallback,
+}) {
+  if (persona == WasiaPersona.student) {
+    if (kind == CrisisKind.extremism) {
+      return 'I cannot help with that. I would like you to talk to a '
+          'grown-up you trust about what you are feeling or what someone '
+          'is asking of you: a parent if it feels safe, a teacher, an imam '
+          'or a school counsellor. You are not in trouble for telling them.';
+    }
+    return ChildDistress.disclosureCard(
+      band,
+      selfHarm: kind == CrisisKind.selfHarm || kind == CrisisKind.suicideQuestion,
+    );
+  }
   // No pointer to the Sakina section: child mode closes it. The help lines
   // are shown under this message by the thread itself.
-  const String help =
-      'If you or someone else is in danger right now, call your country\u2019s '
-      'emergency number. The help lines are listed just below this message.';
-  if (persona == WasiaPersona.student) {
-    return 'Thank you for telling me \u2014 I am so glad you did. This is '
-        'something ${CrisisResponses.trustedAdultForChild} needs to know '
-        'about today. You choose who to tell. I cannot call or tell anyone '
-        'for you, so please do it now. You are not in trouble, and you are '
-        'not alone. $help';
-  }
   return 'I am so sorry you are carrying this, and I am glad you wrote it '
       'down. This needs a real person, not a lesson. Please reach out to '
-      'someone you trust today, or a local professional. $help';
+      'someone you trust today, or a local professional. If you or someone '
+      'else is in danger right now, call your country\u2019s emergency number. '
+      'The \u201cShow help lines\u201d button just below this message has '
+      'lines you can call or text.';
 }
 
 /// Pointer added to a parent's reply about a hurting or bullied child.
@@ -57,6 +75,34 @@ const String kWasiaParentDecline =
     'listen to a child who is hurting\u201d just below this box. For worship '
     'or daily-life questions, H\u0101di can help, or a teacher or scholar you '
     'trust.';
+
+/// Other ways to say that a question is outside Wasia's lesson shelf. None of
+/// them sends a child "back to the letters" as a way of not listening: the
+/// worry-words are handled before this point (see [ChildDistress]).
+const List<String> kWasiaDeclineVariants = <String>[
+  OfflineWasiaProvider.decline,
+  'I do not have a checked answer to that on my lesson shelf, and I would '
+      'rather not guess. H\u0101di in the app is the right place for '
+      'questions about worship and daily life, or you can ask a teacher you '
+      'trust. I am happy to go on with your lesson whenever you like.',
+  'That one is outside what I teach. I want to give you something true, not '
+      'a guess. You could ask H\u0101di, or a teacher or a grown-up you '
+      'trust. If it is about something that worries you, tell me and I will '
+      'listen.',
+  'I cannot find that on my lesson shelf. A grown-up you trust or H\u0101di '
+      'can help with it. If you would like to carry on with the lesson, I am '
+      'here.',
+];
+
+/// The same, inside a lesson box.
+const List<String> kWasiaNotInLessonVariants = <String>[
+  kWasiaNotInLesson,
+  'That is not in this lesson, so I cannot answer it from here. You could '
+      'ask it another way, or ask H\u0101di or a teacher you trust.',
+  'I do not see an answer to that in this lesson, and I would rather not '
+      'guess. H\u0101di or a teacher can help. If something is worrying '
+      'you, you can tell me.',
+];
 
 /// One brain, three voices. Research-backed shape: a specific, in-domain
 /// persona that NAMES its audience and context beats a generic role label —
@@ -267,6 +313,38 @@ class WasiaController extends StateNotifier<WasiaState> {
     if (_threadLesson != lessonId && state.messages.isNotEmpty) clear();
   }
 
+  /// A different wording each time Wasia has to say "that is outside what I
+  /// can teach", chosen by how many such answers the thread already holds.
+  String _declineVariant(bool inLesson) {
+    final List<String> options = inLesson ? kWasiaNotInLessonVariants : kWasiaDeclineVariants;
+    int seen = 0;
+    for (final HadiMessage m in state.messages) {
+      if (m.fromHadi && !m.sensitive && (kWasiaDeclineVariants.contains(m.text) || kWasiaNotInLessonVariants.contains(m.text) || m.text == OfflineWasiaProvider.decline || m.text == kWasiaNotInLesson)) {
+        seen++;
+      }
+    }
+    return options[seen % options.length];
+  }
+
+  /// Records a fixed, private exchange (never sent anywhere, never saved) and
+  /// returns [reply].
+  String _sensitiveReply(String q, String reply, {CrisisKind? crisis}) {
+    state = state.copy(
+      clearNotice: true,
+      messages: <HadiMessage>[
+        ...state.messages,
+        HadiMessage(fromHadi: false, text: q, sensitive: true),
+        HadiMessage(
+          fromHadi: true,
+          text: reply,
+          sensitive: true,
+          crisis: crisis,
+        ),
+      ],
+    );
+    return reply;
+  }
+
   /// Start a fresh conversation with Wasia.
   void clear() {
     _latch = null;
@@ -311,12 +389,34 @@ class WasiaController extends StateNotifier<WasiaState> {
       _threadLesson = lesson?.id;
       state = const WasiaState();
     }
-    // Safety net first: before the shelf, before any AI, nothing is sent.
+    // A parent or teacher writing that a child has told them something
+    // serious gets guidance for the ADULT (believe the child, do not promise
+    // secrecy, do not confront, call a child-protection line), not a card
+    // written to a child. Self-harm and medical emergencies still win.
     final CrisisKind? crisis = CrisisDetector.detect(q);
+    if (persona != WasiaPersona.student &&
+        crisis != CrisisKind.selfHarm &&
+        crisis != CrisisKind.suicideQuestion &&
+        crisis != CrisisKind.substanceEmergency &&
+        ChildConcern.disclosure(q)) {
+      _latch = CrisisKind.childSafety;
+      _latchChecks = 0;
+      return _sensitiveReply(
+        q,
+        '${ChildConcern.disclosureReply}\n\n'
+        '${persona == WasiaPersona.parent ? kWasiaParentListeningPointer : ChildConcern.guideInFamilyWing}',
+        crisis: CrisisKind.childSafety,
+      );
+    }
+    // Safety net first: before the shelf, before any AI, nothing is sent.
     if (crisis != null) {
       _latch = crisis == CrisisKind.extremism ? null : crisis;
       _latchChecks = 0;
-      final String reply = wasiaCrisisReply(persona);
+      final String reply = wasiaCrisisReply(
+        persona,
+        kind: crisis,
+        band: persona == WasiaPersona.student ? await _band() : ChildAgeBand.fallback,
+      );
       state = state.copy(
         clearNotice: true,
         messages: <HadiMessage>[
@@ -364,12 +464,25 @@ class WasiaController extends StateNotifier<WasiaState> {
     // push back to the lessons. Fixed wording by age band. Nothing is sent
     // anywhere and nothing is kept.
     if (persona == WasiaPersona.student) {
+      // A teacher writing in a lesson box about a quiet student: practical,
+      // safe guidance (and a kind line for a student who is the one writing).
+      if (ChildConcern.teacherNoticing(q, strict: true)) {
+        return _sensitiveReply(q, ChildConcern.teacherReply,
+            crisis: CrisisKind.childSafety);
+      }
       final ChildDistressKind? d = ChildDistress.detect(q);
       if (d != null) {
         final String band = await _band();
         final String reply = ChildDistress.reply(d, band);
-        _latch = CrisisKind.childSafety;
-        _latchChecks = 0;
+        // Reading worries and a friend's vape get a kind reply and a
+        // referral, not a crisis latch. The rest latch ("ok" then gets a
+        // safety check) and show the child helpline button.
+        final bool calm =
+            d == ChildDistressKind.learning || d == ChildDistressKind.vape;
+        if (!calm && d != ChildDistressKind.porn) {
+          _latch = CrisisKind.childSafety;
+          _latchChecks = 0;
+        }
         state = state.copy(
           clearNotice: true,
           messages: <HadiMessage>[
@@ -379,11 +492,29 @@ class WasiaController extends StateNotifier<WasiaState> {
               fromHadi: true,
               text: reply,
               sensitive: true,
-              crisis: CrisisKind.childSafety,
+              crisis: d == ChildDistressKind.learning
+                  ? null
+                  : CrisisKind.childSafety,
             ),
           ],
         );
         return reply;
+      }
+    } else {
+      // A parent or teacher worried about a young person who seems to be
+      // struggling, or a teacher noticing a quiet student.
+      final bool teacher =
+          persona == WasiaPersona.teacher || ChildConcern.teacherNoticing(q);
+      if (teacher && ChildConcern.teacherNoticing(q)) {
+        return _sensitiveReply(q, ChildConcern.teacherReply,
+            crisis: CrisisKind.childSafety);
+      }
+      if (ChildConcern.struggling(q)) {
+        return _sensitiveReply(
+          q,
+          '${ChildConcern.strugglingReply}\n\n'
+          '${persona == WasiaPersona.parent ? kWasiaParentListeningPointer : ChildConcern.guideInFamilyWing}',
+        );
       }
     }
     // School and learning worries (bullying, exam fear, "I am stupid", a
@@ -473,6 +604,11 @@ class WasiaController extends StateNotifier<WasiaState> {
           (offline == OfflineWasiaProvider.decline ||
               offline.contains('your letters'))) {
         offline = kWasiaParentDecline;
+      }
+      // The same sentence twice in a row feels like a wall: vary it.
+      if (persona == WasiaPersona.student &&
+          (offline == OfflineWasiaProvider.decline || offline == kWasiaNotInLesson)) {
+        offline = _declineVariant(offline == kWasiaNotInLesson);
       }
       if (quotaNote != null) offline = quotaNote + offline;
       state = state.copy(

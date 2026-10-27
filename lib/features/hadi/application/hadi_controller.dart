@@ -47,6 +47,8 @@ import '../../support/domain/emotion_intent.dart';
 import '../../support/domain/online_support_policy.dart';
 import '../../support/domain/quick_exit_signal.dart';
 import '../../support/domain/user_memory.dart';
+import '../../support/domain/safe_replies.dart';
+import '../../support/domain/child_distress.dart';
 import '../../support/domain/support_engine.dart';
 import 'hadi_bookmark.dart';
 import 'hadi_stats.dart';
@@ -79,7 +81,7 @@ const Set<String> kHadiNavWhitelist = <String>{
   '/academy/quranic-arabic', '/academy/hajj-umrah-pack',
   '/tasbeeh', '/settings/language', '/quran/bookmarks',
   '/kids', '/games/history', '/games/memory', '/games/ludo',
-  '/games/shatranj',
+  '/games/shatranj', '/support/listening-to-your-child',
 };
 
 /// Short names for the screens Hādi offers as buttons. A route that is not
@@ -123,6 +125,8 @@ const Map<String, String> kHadiRouteNames = <String, String>{
   '/academy/stories': 'Stories School',
   '/academy/hifz': 'the Hifz planner',
   '/sources/policy': 'How we handle religious content',
+  '/support/listening-to-your-child':
+      'the guide to listening to a child who is hurting',
   '/tasbeeh': 'the Tasbeeh counter',
   '/settings/language': 'Language and Voice',
   '/quran/bookmarks': 'your Qur’an bookmarks',
@@ -577,6 +581,9 @@ class HadiController extends Notifier<HadiState> {
     } catch (_) {}
     // A fresh conversation starts with no age on record and no crisis latch.
     _minorSession = false;
+    _cardTexts.clear();
+    _safeTexts.clear();
+    _aboutHadiCount = 0;
     _latch = null;
     _latchChecks = 0;
     _supportSession = SupportSession(seed: DateTime.now().microsecondsSinceEpoch);
@@ -694,7 +701,7 @@ class HadiController extends Notifier<HadiState> {
     final List<HadiMessage> m = state.messages;
     final int from = m.length > 6 ? m.length - 6 : 0;
     for (int i = from; i < m.length; i++) {
-      if (m[i].crisis != null) return true;
+      if (m[i].crisis != null && !_safeTexts.contains(m[i].text)) return true;
     }
     return false;
   }
@@ -786,6 +793,14 @@ class HadiController extends Notifier<HadiState> {
     }
     final String? ask = UserMemory.requestedText(q);
     if (ask == null) return null;
+    // Health, medicines, drinking, drugs, safety: never kept, whatever the
+    // switch says, and said plainly before anything about the switch.
+    if (!UserMemory.mayRemember(ask)) {
+      return 'I will not keep that, and nothing has been saved. I never keep '
+          'anything about health, medicines, drinking, drugs or safety, even '
+          'if you ask. This conversation is not saved either. If you want to '
+          'talk about it, I am listening.';
+    }
     if (!s.remember) {
       return 'I do not remember things unless you switch that on in Settings, under Support & wellbeing. Nothing has been saved.';
     }
@@ -850,14 +865,59 @@ class HadiController extends Notifier<HadiState> {
         'not need to explain more than that tonight.',
   ];
 
+  /// The first card for [kind], with the lines and the note about which
+  /// country they are for. Remembered so it can be rewritten if the person
+  /// picks another country under the lines.
+  String _cardText(CrisisKind kind, String? cc, bool picked) {
+    if (_minorSession && kind == CrisisKind.abuse) {
+      return ChildDistress.disclosureCard('13-17');
+    }
+    return '${CrisisResponses.textFor(kind, countryCode: cc)}\n\n'
+        '${CrisisResponses.regionNote(cc, picked: picked)}';
+  }
+
+  final Set<String> _cardTexts = <String>{};
+
+  /// Texts of the fixed replies from [_safeReply]; they carry help lines but
+  /// are not a full crisis card, so they do not stand in for one.
+  final Set<String> _safeTexts = <String>{};
+
+  /// The person chose a country under the help lines: rewrite every first
+  /// card in this conversation so its text names the lines now shown.
+  void rewriteCrisisCards(String cc) {
+    bool changed = false;
+    final List<HadiMessage> out = <HadiMessage>[];
+    for (final HadiMessage m in state.messages) {
+      if (m.fromHadi &&
+          m.crisis != null &&
+          _cardTexts.contains(m.text) &&
+          !(_minorSession && m.crisis == CrisisKind.childSafety)) {
+        final String t = _cardText(m.crisis!, cc, true);
+        _cardTexts.add(t);
+        out.add(HadiMessage(
+          fromHadi: true,
+          text: t,
+          crisis: m.crisis,
+          sensitive: true,
+        ));
+        changed = true;
+      } else {
+        out.add(m);
+      }
+    }
+    if (changed) state = state.copy(messages: out);
+  }
+
   /// The fixed reply for a crisis message, or null when the message should
   /// go on to the normal flow (an abuse follow-up question, answered from
   /// the on-device shelf only).
   String? _crisisReply(CrisisKind kind) {
-    final String? cc = ref.read(deviceCountryProvider);
+    final String? cc = ref.read(helpCountryProvider);
+    final bool picked = ref.read(pickedHelpCountryProvider) != null;
     if (!_crisisShownRecently()) {
-      return '${CrisisResponses.textFor(kind, countryCode: cc)}\n\n'
-          '${CrisisResponses.regionNote(cc)}';
+      final String card = _cardText(kind, cc, picked);
+      _cardTexts.add(card);
+      return card;
     }
     switch (kind) {
       case CrisisKind.selfHarm:
@@ -872,7 +932,9 @@ class HadiController extends Notifier<HadiState> {
             'any part of this is about you, the help lines above are still '
             'here.';
       case CrisisKind.abuse:
-        return null;
+        return _minorSession
+            ? CrisisResponses.followUpFor(CrisisKind.childSafety)
+            : null;
       case CrisisKind.childSafety:
       case CrisisKind.eatingDisorder:
       case CrisisKind.extremism:
@@ -1039,6 +1101,76 @@ class HadiController extends Notifier<HadiState> {
     }
   }
 
+  int _aboutHadiCount = 0;
+
+  /// A fixed reply for the requests in safe_replies.dart, or null.
+  HadiMessage? _safeReply(String q) {
+    final List<String> labels =
+        supportReviewLabels('support.safe-replies', 'support.safe-replies');
+    if (TaperRequest.detect(q)) {
+      return HadiMessage(
+        fromHadi: true,
+        text: TaperRequest.reply,
+        sensitive: true,
+        helpScope: 'addiction',
+        notes: labels,
+      );
+    }
+    if (CoerciveMarriage.detect(q)) {
+      return HadiMessage(
+        fromHadi: true,
+        text: CoerciveMarriage.asksAboutVerse(q)
+            ? '${CoerciveMarriage.reply}\n\n${CoerciveMarriage.verseNote}'
+            : CoerciveMarriage.reply,
+        sensitive: true,
+        crisis: CrisisKind.abuse,
+        notes: labels,
+      );
+    }
+    if (ChildConcern.disclosure(q)) {
+      return HadiMessage(
+        fromHadi: true,
+        text: '${ChildConcern.disclosureReply}\n\n${ChildConcern.guideBelow}',
+        sensitive: true,
+        crisis: CrisisKind.childSafety,
+        routes: const <String>['/support/listening-to-your-child'],
+        notes: labels,
+      );
+    }
+    if (ChildConcern.struggling(q)) {
+      return HadiMessage(
+        fromHadi: true,
+        text: '${ChildConcern.strugglingReply}\n\n${ChildConcern.guideBelow}',
+        sensitive: true,
+        routes: const <String>['/support/listening-to-your-child'],
+        notes: labels,
+      );
+    }
+    if (ChildConcern.teacherNoticing(q)) {
+      return HadiMessage(
+        fromHadi: true,
+        text: ChildConcern.teacherReply,
+        sensitive: true,
+        crisis: CrisisKind.childSafety,
+        notes: labels,
+      );
+    }
+    if (AboutHadi.saysOnlyFriend(q)) {
+      final String t = AboutHadi
+          .onlyFriend[_aboutHadiCount++ % AboutHadi.onlyFriend.length];
+      return HadiMessage(fromHadi: true, text: t, sensitive: true, notes: labels);
+    }
+    if (AboutHadi.asksWhatYouAre(q)) {
+      return HadiMessage(
+        fromHadi: true,
+        text: AboutHadi.whatYouAre,
+        sensitive: true,
+        notes: labels,
+      );
+    }
+    return null;
+  }
+
   Future<String> _ask(String question, {HadiProvider? provider}) async {
     if (question.trim().isEmpty || state.typing) return '';
     final String q = question.trim();
@@ -1048,9 +1180,15 @@ class HadiController extends Notifier<HadiState> {
     // SAFETY FIRST. Runs before any provider, offline or live. When it
     // fires, no provider is called, nothing is sent over the network, no
     // quota is spent, and the exchange is never saved to the device.
-    final CrisisKind? crisis = CrisisDetector.detect(q);
+    final CrisisKind? detected = CrisisDetector.detect(q);
+    // A young person describing someone hurting them is answered with the
+    // children's card and the children's lines, not the adult one.
+    final CrisisKind? crisis =
+        (_minorSession && detected == CrisisKind.abuse)
+            ? CrisisKind.childSafety
+            : detected;
     if (crisis != null) {
-      final String? fixed = _crisisReply(crisis);
+      final String? fixed = _crisisReply(detected!);
       if (fixed != null) {
         state = state.copy(
           messages: <HadiMessage>[
@@ -1110,6 +1248,25 @@ class HadiController extends Notifier<HadiState> {
         );
         await _stat(HadiAnswerKind.safety);
         return check;
+      }
+    }
+
+    // Moments that are not a crisis card and not a ruling, but where a wrong
+    // answer does harm. All fixed, all on the device, none saved or sent.
+    if (crisis == null) {
+      final HadiMessage? fixedMsg = _safeReply(q);
+      if (fixedMsg != null) {
+        _safeTexts.add(fixedMsg.text);
+        state = state.copy(
+          messages: <HadiMessage>[
+            ...state.messages,
+            HadiMessage(fromHadi: false, text: q, sensitive: true),
+            fixedMsg,
+          ],
+          typing: false,
+        );
+        await _stat(HadiAnswerKind.safety);
+        return fixedMsg.text;
       }
     }
 
@@ -1206,7 +1363,7 @@ class HadiController extends Notifier<HadiState> {
         reply = SupportReplies.build(
           topic: support,
           prior: prior,
-          countryCode: ref.read(deviceCountryProvider),
+          countryCode: ref.read(helpCountryProvider),
           verdict: SupportSignal.asksVerdict(q),
         );
       }

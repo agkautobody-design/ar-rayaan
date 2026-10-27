@@ -172,6 +172,21 @@ class SupportPathwayScreen extends ConsumerWidget {
                   : ListView(
                       padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
                       children: <Widget>[
+                        // Before any wording: if you are in danger, this
+                        // comes first and is the same on every pathway about
+                        // safety.
+                        if (path.id == 'domestic-abuse')
+                          GlassCard(
+                            key: const Key('pathway-emergency-row'),
+                            padding: const EdgeInsets.all(16),
+                            child: Text(
+                              'If you are in danger right now, call your local '
+                              'emergency number. If it is not safe to talk, '
+                              'leave this screen with “Exit now” above. You '
+                              'do not have to decide anything tonight.',
+                              style: AppText.body.copyWith(fontSize: 14),
+                            ),
+                          ),
                         if (pack == null || expired)
                           GlassCard(
                             padding: const EdgeInsets.all(16),

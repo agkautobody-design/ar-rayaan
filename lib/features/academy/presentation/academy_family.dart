@@ -802,6 +802,13 @@ class _ConsentDialog extends StatefulWidget {
 class _ConsentDialogState extends State<_ConsentDialog> {
   bool _agree = false;
   bool _showHint = false;
+  final ScrollController _scroll = ScrollController();
+
+  @override
+  void dispose() {
+    _scroll.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -814,8 +821,18 @@ class _ConsentDialogState extends State<_ConsentDialog> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Text(
+            'Scroll to read all of it.',
+            key: const Key('consent-scroll-cue'),
+            style: AppText.caption.copyWith(fontSize: 12),
+          ),
+          const SizedBox(height: 4),
           Flexible(
-            child: SingleChildScrollView(
+            child: Scrollbar(
+              controller: _scroll,
+              thumbVisibility: true,
+              child: SingleChildScrollView(
+              controller: _scroll,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -829,6 +846,7 @@ class _ConsentDialogState extends State<_ConsentDialog> {
                     ),
                 ],
               ),
+            ),
             ),
           ),
           CheckboxListTile(

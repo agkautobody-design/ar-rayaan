@@ -1899,8 +1899,9 @@ const List<_Entry> _knowledge = <_Entry>[
     <String>['does hadi remember me', 'hadi memory', 'clear hadi memory', 'clear my conversation', 'delete our chat', 'delete my chat', 'forget me', 'does hadi remember my name'],
     'In Settings, under Hadi, the switch "Hadi remembers you" lets Hadi '
     'greet you by name; it is stored on this device only. Hadi also '
-    'remembers your last conversation on this device, and you can clear it '
-    'from the Hadi screen.'
+    'does not save your conversations: they stay on screen for this visit '
+    'only. Hadi never keeps anything about your health, medicines, drinking, '
+    'drugs or safety, even if you ask.'
     '\n[GO:/settings]',
   ),
   _Entry(

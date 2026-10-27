@@ -115,14 +115,16 @@ class HelpLineTile extends StatelessWidget {
                           fontWeight: FontWeight.w600,
                         ),
                       ),
-                      const SizedBox(height: 2),
-                      Text(
-                        resource.detail,
-                        style: AppText.caption.copyWith(
-                          color: AppColors.sand.withValues(alpha: 0.7),
-                          height: 1.4,
+                      if (resource.detail.isNotEmpty) ...<Widget>[
+                        const SizedBox(height: 2),
+                        Text(
+                          resource.detail,
+                          style: AppText.caption.copyWith(
+                            color: AppColors.sand.withValues(alpha: 0.7),
+                            height: 1.4,
+                          ),
                         ),
-                      ),
+                      ],
                       const SizedBox(height: 2),
                       Text(
                         resource.contact,

@@ -172,6 +172,11 @@ void main() {
       expect(CheckinScheduler.isDue(s, d0.add(const Duration(days: 13))), isFalse);
       expect(CheckinScheduler.isDue(s, d0.add(const Duration(days: 14))), isTrue);
     });
+    test('hard is asked about again in three days', () {
+      final CheckinState s = CheckinScheduler.after(const CheckinState(), CheckinAnswer.hard, d0);
+      expect(CheckinScheduler.isDue(s, d0.add(const Duration(days: 2))), isFalse);
+      expect(CheckinScheduler.isDue(s, d0.add(const Duration(days: 3))), isTrue);
+    });
     test('rather not say and ignored wait four weeks', () {
       for (final CheckinAnswer a in <CheckinAnswer>[CheckinAnswer.rather, CheckinAnswer.ignored]) {
         final CheckinState s = CheckinScheduler.after(const CheckinState(), a, d0);

@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../../../app/router.dart';
 import '../../academy/application/wasia_controller.dart';
 import '../../hadi/application/hadi_controller.dart';
+import '../../sakina/application/sakina_providers.dart';
 import '../application/support_settings.dart';
 import '../domain/quick_exit_signal.dart';
 
@@ -37,6 +38,27 @@ class _PrivacyShieldState extends ConsumerState<PrivacyShield> with WidgetsBindi
     super.initState();
     WidgetsBinding.instance.addObserver(this);
     kQuickExitSignal.addListener(_exit);
+    // Private mode: opening the app (or reloading the page) never lands
+    // inside a conversation or a support screen from the last visit.
+    WidgetsBinding.instance.addPostFrameCallback((_) => _coldOpen());
+  }
+
+  static const List<String> _quietPrefixes = <String>[
+    '/hadi', '/support', '/sakina', '/kids/safety',
+  ];
+
+  void _coldOpen() {
+    if (!mounted || !_private) return;
+    try {
+      final String path =
+          widget.router.routeInformationProvider.value.uri.path;
+      for (final String p in _quietPrefixes) {
+        if (path == p || path.startsWith('$p/')) {
+          _exit();
+          return;
+        }
+      }
+    } catch (_) {}
   }
 
   @override
@@ -59,6 +81,8 @@ class _PrivacyShieldState extends ConsumerState<PrivacyShield> with WidgetsBindi
       ref.read(hadiControllerProvider.notifier).clearThread();
       ref.read(wasiaControllerProvider.notifier).clear();
       ref.read(wasiaParentControllerProvider.notifier).clear();
+      // The country picked for the help lines is part of what was said.
+      ref.read(pickedHelpCountryProvider.notifier).state = null;
     } catch (_) {}
     try {
       widget.router.go(AppRoutes.home);

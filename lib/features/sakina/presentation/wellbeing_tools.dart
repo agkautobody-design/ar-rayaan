@@ -13,6 +13,7 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../hadi/grounding/corpus.dart';
 import '../../hadi/grounding/passage.dart';
+import '../../support/presentation/privacy_shield.dart';
 import '../application/wellbeing_store.dart';
 import 'widgets/need_help_button.dart';
 
@@ -53,6 +54,10 @@ class _ToolScaffold extends StatelessWidget {
                   const SizedBox(width: 48),
                 ],
               ),
+            ),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: QuickExitButton(),
             ),
             Expanded(
               child: ListView(

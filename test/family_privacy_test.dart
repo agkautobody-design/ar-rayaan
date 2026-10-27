@@ -298,7 +298,8 @@ void main() {
       final String reply = await c
           .read(wasiaControllerProvider.notifier)
           .ask('I want to kill myself', persona: WasiaPersona.student);
-      expect(reply, wasiaCrisisReply(WasiaPersona.student));
+      expect(reply,
+          wasiaCrisisReply(WasiaPersona.student, kind: CrisisKind.selfHarm));
       expect(reply, contains('trust'));
       expect(RegExp(r'\d{3,}').hasMatch(reply), isFalse,
           reason: 'no phone number is ever invented');

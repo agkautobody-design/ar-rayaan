@@ -22,10 +22,10 @@ class ScholarReviewerCount {
 }
 
 /// Total items in the register. All are open until a named reviewer signs off.
-const int kScholarReviewTotal = 5395;
+const int kScholarReviewTotal = 5430;
 
 /// Items marked high priority.
-const int kScholarReviewHighPriority = 1239;
+const int kScholarReviewHighPriority = 1273;
 
 const List<ScholarReviewArea> kScholarReviewAreas = <ScholarReviewArea>[
     ScholarReviewArea('academy-lessons', 'Academy v3 lessons and steps', 457, 240),
@@ -43,12 +43,12 @@ const List<ScholarReviewArea> kScholarReviewAreas = <ScholarReviewArea>[
     ScholarReviewArea('stories-modern', 'Stories: modern hadith', 61, 11),
     ScholarReviewArea('dua-dhikr', 'Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas', 153, 23),
     ScholarReviewArea('new-muslim', 'New Muslim 30-day path', 30, 13),
-    ScholarReviewArea('sakina', 'Sakina rooms, feelings, safety copy, health', 53, 29),
+    ScholarReviewArea('sakina', 'Sakina rooms, feelings, safety copy, health', 57, 32),
     ScholarReviewArea('money', 'Zakat, will and estate, halal finance', 18, 18),
     ScholarReviewArea('prayer-calendar', 'Prayer times, qibla, Hijri calendar, observances', 41, 37),
     ScholarReviewArea('quran-text', 'Qur\'an text, translation, transliteration, licences', 9, 5),
     ScholarReviewArea('games', 'Games and quizzes with religious content', 13, 9),
-    ScholarReviewArea('languages', 'UI labels and crisis phrases in Arabic, Bangla, Urdu', 194, 90),
+    ScholarReviewArea('languages', 'UI labels and crisis phrases in Arabic, Bangla, Urdu', 225, 121),
     ScholarReviewArea('legal', 'Privacy, terms, children\'s privacy, community rules', 9, 9),
     ScholarReviewArea('noor-cards', 'Noor, share cards, Home daily cards', 43, 0),
     ScholarReviewArea('nasheeds', 'Nasheeds and audio', 5, 2),
@@ -60,8 +60,8 @@ const List<ScholarReviewerCount> kScholarReviewers = <ScholarReviewerCount>[
     ScholarReviewerCount('Fiqh scholar (per madhab)', 587),
     ScholarReviewerCount('Women\'s scholar', 151),
     ScholarReviewerCount('Arabic / tajweed / qira\'at specialist', 523),
-    ScholarReviewerCount('Clinician (Sakina and health content)', 1003),
-    ScholarReviewerCount('Native speaker (ar / bn / ur)', 229),
+    ScholarReviewerCount('Clinician (Sakina and health content)', 1007),
+    ScholarReviewerCount('Native speaker (ar / bn / ur)', 260),
     ScholarReviewerCount('Privacy lawyer', 13),
     ScholarReviewerCount('Rights holder / licensing (not a scholar)', 6),
     ScholarReviewerCount('App owner (product wording and voice, not a scholar)', 449),

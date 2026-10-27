@@ -80,7 +80,12 @@ abstract final class CheckinScheduler {
   /// not).
   static CheckinState after(CheckinState s, CheckinAnswer a, DateTime now) {
     final int base = intervalDays(s.frequency);
-    final int days = (a == CheckinAnswer.okay || a == CheckinAnswer.hard) ? base : base * 2;
+    // "It has been hard" is asked about again soon (three days, or sooner if
+    // the person chose a shorter interval), not after a month of silence.
+    // Turning check-ins off still ends it at once.
+    final int days = a == CheckinAnswer.hard
+        ? (base > 0 && base < 3 ? base : 3)
+        : (a == CheckinAnswer.okay ? base : base * 2);
     return s.copy(
       lastAsked: _day(now),
       nextDue: _day(now).add(Duration(days: days)),
