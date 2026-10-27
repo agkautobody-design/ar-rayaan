@@ -55,6 +55,27 @@
   "grade": "Sahih (Al-Albani); Sahih (Muhammad Muhyi Al-Din Abdul Hamid); Hasan (Shuaib Al Arnaut); Isnaad Hasan (Zubair Ali Zai)",
   "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
  },
+ "abudawud:3767": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Aisha: when one of you eats he should mention Allah's name; if he forgets at the beginning say Bismillahi awwalahu wa akhirahu",
+  "grade": "Sahih (Al-Albani); Sahih (Muhammad Muhyi Al-Din Abdul Hamid); Sahih Lighairihi (Shuaib Al Arnaut); Isnaad Sahih (Zubair Ali Zai)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
+ },
+ "abudawud:3855": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Usama bin Sharik: make use of medical treatment, Allah has not made a disease without a remedy except old age",
+  "grade": "Sahih (Al-Albani); Sahih (Muhammad Muhyi Al-Din Abdul Hamid); Isnaad Sahih (Zubair Ali Zai)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
+ },
+ "bukhari:1153": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abdullah bin Amr: you pray all night and fast by day? your eyesight will weaken; your body has a right on you, your family has a right; fast some days, pray and sleep",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
  "bukhari:1240": {
   "checked": "2026-10-27",
   "verdict": "ok",
@@ -174,6 +195,13 @@
   "grade": "Sahih",
   "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
  },
+ "bukhari:2311": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: caught a thief three nights; third night he taught Ayat al-Kursi at bedtime, a guard from Allah and no satan till morning; the Prophet: he spoke the truth though a liar, it was Satan",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
  "bukhari:2320": {
   "checked": "2026-10-27",
   "verdict": "ok",
@@ -216,10 +244,38 @@
   "grade": "Sahih",
   "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
  },
+ "bukhari:3371": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Ibn Abbas: the Prophet used to seek refuge for Hasan and Husayn: I seek refuge in the perfect words of Allah from every devil and harmful creature and every evil eye",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:3616": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Ibn Abbas: the Prophet visited a sick bedouin and said no harm, a purification if Allah wills; the bedouin answered fever that will take him to the grave; he said then so be it",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:39": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: religion is easy, whoever overburdens himself will not continue; do not be extremists, be near perfection, and worship in the morning, afternoon and last hours of the night",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
  "bukhari:4437": {
   "checked": "2026-10-27",
   "verdict": "ok",
   "note": "Aisha: in his last illness the Prophet looked up and said O Allah, in the highest companions",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:4439": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Aisha: when the Prophet was ill he recited the Muawidhatan and blew over himself and wiped his body; in his last illness Aisha did so for him",
   "grade": "Sahih",
   "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
  },
@@ -237,10 +293,87 @@
   "grade": "Sahih",
   "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
  },
+ "bukhari:5009": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Masud: whoever recites the last two verses of Surat al-Baqara at night, that will be sufficient for him",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:5063": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Anas: three men asked about the Prophet's worship and wanted all-night prayer, endless fasting and not marrying; he said I fast and break, sleep, marry; whoever does not follow my tradition is not from me",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:52": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Nu'man bin Bashir: the lawful and unlawful are clear; beware, there is a piece of flesh in the body, if good the whole body is good, if spoilt all is spoilt, it is the heart",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:5376": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Umar bin Abi Salama: a boy whose hand went around the dish; the Prophet said mention the name of Allah, eat with your right hand, eat from what is nearer to you",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:5393": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Nafi: Ibn Umar refused a poor man who ate much; the Prophet said a believer eats in one intestine and a kafir in seven",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:5458": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Umama: when the Prophet's table was lifted he said Alhamdulillahi kathiran tayyiban mubarakan feehi ghayra makfiyyin wala muwadda'in wala mustaghnan anhu Rabbana",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
  "bukhari:5671": {
   "checked": "2026-10-27",
   "verdict": "ok",
   "note": "Anas: none of you should wish for death because of a hardship; if he must, say \"O Allah, keep me alive as long as life is better for me and take me when death is better for me\"",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:5675": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Aisha: when the Prophet visited a patient he said take away the harm, Lord of the people, heal, You are the Healer, no cure but Yours, a cure that leaves no illness",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:5678": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: there is no disease that Allah has created except He also created its treatment",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:5728": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Saud (Sa'd): if you hear of plague in a land do not enter it; if it breaks out where you are do not leave",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:5736": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Said: companions treated a tribe's chief bitten by a snake by reciting al-Fatiha; the Prophet smiled, how did you know it is a ruqya, take the sheep and give me a share",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:5740": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: the effect of an evil eye is a fact",
   "grade": "Sahih",
   "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
  },
@@ -258,6 +391,20 @@
   "grade": "Sahih",
   "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
  },
+ "bukhari:6296": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Jabir: when you go to bed put out the lights, close the doors, tie the water skins, cover food and drink",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:6311": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Al-Bara: when you go to bed make wudu, lie on your right side and say Allahumma aslamtu wajhi ilayk ...; if you die you die on the fitra; make these the last words",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
  "bukhari:6312": {
   "checked": "2026-10-27",
   "verdict": "ok",
@@ -272,6 +419,27 @@
   "grade": "Sahih",
   "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
  },
+ "bukhari:6405": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: whoever says Subhan Allah wa bihamdihi one hundred times a day will be forgiven his sins even if like the foam of the sea",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:6406": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: two words light on the tongue, heavy in the balance, dear to the Merciful: Subhan Allah al-Azim, Subhan Allah wa bihamdihi",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:6407": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Musa: the example of one who remembers his Lord and one who does not is that of the living and the dead",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
  "bukhari:6412": {
   "checked": "2026-10-27",
   "verdict": "ok",
@@ -283,6 +451,13 @@
   "checked": "2026-10-27",
   "verdict": "ok",
   "note": "Ibn Umar: the Prophet took my shoulder and said be in this world as a stranger or traveler; Ibn Umar: do not expect the morning when evening comes",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:6464": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Aisha: do good deeds properly, sincerely and moderately; the most beloved deed to Allah is the most regular even if little",
   "grade": "Sahih",
   "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
  },
@@ -349,6 +524,20 @@
   "grade": "Sahih (Al-Albani); Sahih (Muhammad Fouad Abd al-Baqi); Hasan (Shuaib Al Arnaut); Isnaad Hasan (Zubair Ali Zai)",
   "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
  },
+ "ibnmajah:3349": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Miqdam bin Madikarib: a human fills no worse vessel than his stomach; a few mouthfuls to keep his spine straight; if he must, a third food, a third drink, a third air",
+  "grade": "Sahih (Al-Albani); Sahih (Muhammad Fouad Abd al-Baqi); Hasan Sahih (Shuaib Al Arnaut); Sahih (Zubair Ali Zai)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
+ },
+ "ibnmajah:3509": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Umamah bin Sahl: Amir bin Rabia admired Sahl bin Hunayf who fell ill; the Prophet said why would one of you kill his brother, if he sees something he likes let him pray for blessing; Amir made wudu and the water was poured over Sahl",
+  "grade": "Sahih (Al-Albani); Sahih (Muhammad Fouad Abd al-Baqi); Sahih (Shuaib Al Arnaut); Sahih (Zubair Ali Zai)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
+ },
  "muslim:1627": {
   "checked": "2026-10-27",
   "verdict": "ok",
@@ -377,10 +566,59 @@
   "grade": "Sahih",
   "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
  },
+ "muslim:2060": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Ibn Umar: a non-Muslim eats in seven intestines and a Muslim in one",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "muslim:2188": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Ibn Abbas: the influence of the evil eye is a fact; if anything would precede the destiny it would be the eye; when asked to take a bath, take a bath",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "muslim:2200": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Auf bin Malik: we practised incantation in jahiliyya; he said show me your incantations, no harm in incantation that does not contain shirk",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "muslim:2202": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Uthman bin Abi al-As complained of a pain; the Prophet said put your hand on the place, say Bismillah three times and seven times a'udhu billahi wa qudratihi min sharri ma ajidu wa uhadhir",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "muslim:2204": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Jabir: there is a remedy for every malady, and when the remedy is applied it is cured with the permission of Allah",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "muslim:2564": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: Allah does not look to your faces and your wealth but He looks to your hearts and your deeds",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
  "muslim:2632": {
   "checked": "2026-10-27",
   "verdict": "ok",
   "note": "Abu Huraira: any Muslim three of whose children die and who resigns calmly, Fire will not touch him but for the fulfilment of the oath",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "muslim:2655": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abdullah bin Amr: the hearts of all the sons of Adam are between two fingers of the Merciful as one heart, He turns it as He wills; O Allah Turner of the hearts turn our hearts to Your obedience",
   "grade": "Sahih",
   "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
  },
@@ -402,6 +640,13 @@
   "checked": "2026-10-27",
   "verdict": "ok",
   "note": "Aisha: he who loves to meet Allah, Allah loves to meet him; we all dislike death; he said it is when the believer is given glad tidings at death",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "muslim:2734": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Anas: Allah is pleased with the servant who says Al-hamdu lillah when he takes a morsel and when he drinks",
   "grade": "Sahih",
   "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
  },
@@ -538,6 +783,13 @@
   "grade": "Sahih (Ahmad Muhammad Shakir); Sahih (Al-Albani); Hasan (Zubair Ali Zai)",
   "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
  },
+ "tirmidhi:2038": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Usamah bin Sharik: Bedouins asked shall we treat; he said yes use remedies, Allah did not make a disease but He made a cure except old age",
+  "grade": "Sahih (Ahmad Muhammad Shakir); Sahih (Al-Albani); Hasan Sahih (Bashar Awad Maarouf); Isnaad Sahih (Zubair Ali Zai)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
+ },
  "tirmidhi:2092": {
   "checked": "2026-10-27",
   "verdict": "ok",
@@ -566,11 +818,25 @@
   "grade": "Sahih (Ahmad Muhammad Shakir); Sahih (Al-Albani); Hasan (Bashar Awad Maarouf); Isnaad Hasan (Zubair Ali Zai)",
   "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
  },
+ "tirmidhi:2380": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Miqdam bin Madikarib: a human fills no worse container than his stomach; a few bites to support his back; if not, a third food, a third drink, a third breath",
+  "grade": "Sahih (Ahmad Muhammad Shakir); Sahih (Al-Albani); Hasan Sahih (Bashar Awad Maarouf); Sahih (Zubair Ali Zai)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
+ },
  "tirmidhi:2460": {
   "checked": "2026-10-27",
   "verdict": "ok",
   "note": "Abu Said: the long report that the grave speaks, I am the house of the estranged ... graded very da'if (al-Albani) and da'if (Zubair Ali Zai); the garden or pit wording is in this report; not relied on",
   "grade": "Very Daif (Ahmad Muhammad Shakir); Very Daif (Al-Albani); Daif (Zubair Ali Zai)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
+ },
+ "tirmidhi:2517": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Anas: a man asked shall I tie my camel and rely on Allah or leave it loose; he said tie it and rely on Allah",
+  "grade": "Hasan (Ahmad Muhammad Shakir); Hasan (Al-Albani); Hasan (Zubair Ali Zai)",
   "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
  },
  "tirmidhi:998": {

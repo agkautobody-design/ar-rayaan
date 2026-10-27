@@ -210,6 +210,45 @@ P('hlth.sleep.wake', 'bukhari', '6312', 31, 39, "Alhamdu lillaahil-ladhee ahyaan
   W(('al-hamdu', 'the praise'), ('lillaahi', 'is for Allah'), ('alladhee', 'who'), ('ahyaanaa', 'gave us life'),
     ("ba'da", 'after'), ('maa', 'that'), ('amaatanaa', 'He made us die'), ('wa-ilayhi', 'and to Him'), ('an-nushoor', 'is the rising')))
 
+P('hlth.sleep.aslamtu', 'bukhari', '6311', 41, 67,
+  "Allaahumma aslamtu wajhee ilayk wa fawwadtu amree ilayk wa alja'tu zahree ilayk raghbatan wa rahbatan ilayk laa malja'a wa laa manjaa minka illaa ilayk aamantu bikitaabikal-ladhee anzalt wa binabiyyikal-ladhee arsalt",
+  'O Allah, I submit my face to You, I entrust my affair to You, and I rest my back on You, in hope and in fear of You. There is no refuge and no escape from You except to You. I believe in Your Book that You sent down and in Your Prophet whom You sent.')
+P('hlth.eat.begin', 'abudawud', '3767', 62, 65, "Bismil-laahi awwalahu wa aakhirahu",
+  'In the name of Allah at its beginning and at its end.',
+  W(('bismi', 'in the name of'), ('Allaahi', 'Allah'), ('awwalahu', 'its beginning'), ('wa-aakhirahu', 'and its end')))
+P('hlth.eat.end', 'bukhari', '5458', 25, 38,
+  "Alhamdu lillaahi katheeran tayyiban mubaarakan feehi ghayra makfiyyin wa laa muwadda'in wa laa mustaghnan 'anhu Rabbanaa",
+  'Praise be to Allah, much praise, good and blessed, which we can never repay enough, nor leave, nor do without, O our Lord.',
+  W(('al-hamdu', 'the praise'), ('lillaahi', 'is for Allah'), ('katheeran', 'much'), ('tayyiban', 'good'),
+    ('mubaarakan', 'blessed'), ('feehi', 'in it'), ('ghayra', 'not'), ('makfiyyin', 'sufficient'),
+    ('wa-laa', 'and not'), ("muwadda'in", 'farewelled'), ('wa-laa', 'and not'), ('mustaghnan', 'done without'),
+    ("'anhu", 'from it'), ('Rabbanaa', 'our Lord')))
+P('hlth.ruqyah.pain', 'muslim', '2202', 64, 71, "A'oodhu billaahi wa qudratihi min sharri maa ajidu wa uhaadhir",
+  'I seek refuge with Allah and with His power from the evil of what I feel and fear.',
+  W(("a'oodhu", 'I seek refuge'), ('billaahi', 'with Allah'), ('wa-qudratihi', 'and with His power'), ('min', 'from'),
+    ('sharri', 'the evil of'), ('maa', 'what'), ('ajidu', 'I find'), ('wa-uhaadhir', 'and I fear')))
+P('hlth.shifa', 'bukhari', '5675', 36, 50, "Adh-hibil-ba's Rabban-naas ishfi wa antash-Shaafee laa shifaa'a illaa shifaa'uka shifaa'an laa yughaadiru saqamaa",
+  'Take away the harm, Lord of the people. Heal, for You are the Healer. There is no cure but Your cure, a cure that leaves no illness behind.',
+  W(('adh-hibi', 'take away'), ("al-ba's", 'the harm'), ('Rabba', 'Lord of'), ('an-naas', 'the people'), ('ishfi', 'heal'),
+    ('wa-anta', 'and You are'), ('ash-Shaafee', 'the Healer'), ('laa', 'no'), ("shifaa'a", 'cure'), ('illaa', 'except'),
+    ("shifaa'uka", 'Your cure'), ("shifaa'an", 'a cure'), ('laa', 'not'), ('yughaadiru', 'it leaves'), ('saqaman', 'illness')))
+P('hlth.baas', 'bukhari', '3616', 46, 51, "Laa ba'sa tahoorun in shaa'al-laah",
+  'No harm: it is a cleansing, if Allah wills.',
+  W(('laa', 'no'), ("ba'sa", 'harm'), ('tahoorun', 'a cleansing'), ('in', 'if'), ('shaa\'a', 'wills'), ('Allaah', 'Allah')))
+P('hlth.eye.refuge', 'bukhari', '3371', 41, 52, "A'oodhu bi-kalimaatil-laahit-taammati min kulli shaytaanin wa haammatin wa min kulli 'aynin laammah",
+  'I seek refuge in the perfect words of Allah from every devil and every harmful creature, and from every evil eye.',
+  W(("a'oodhu", 'I seek refuge'), ('bi-kalimaati', 'in the words of'), ('Allaahi', 'Allah'), ('at-taammati', 'the perfect'),
+    ('min', 'from'), ('kulli', 'every'), ('shaytaanin', 'devil'), ('wa-haammatin', 'and harmful creature'),
+    ('wa-min', 'and from'), ('kulli', 'every'), ("'aynin", 'eye'), ('laammah', 'evil')))
+P('hlth.heart.dua', 'muslim', '2655', 70, 76, "Allaahumma musarrifal-quloobi sarrif quloobanaa 'alaa taa'atik",
+  'O Allah, Turner of the hearts, turn our hearts to obey You.',
+  W(('Allaahumma', 'O Allah'), ('musarrifa', 'Turner of'), ('al-quloobi', 'the hearts'), ('sarrif', 'turn'),
+    ('quloobanaa', 'our hearts'), ("'alaa", 'to'), ("taa'atika", 'Your obedience')))
+P('hlth.dhikr', 'bukhari', '6406', 32, 37, "Subhaanal-laahil-'azeem. Subhaanal-laahi wa bihamdih",
+  'Glory be to Allah the Magnificent. Glory be to Allah and praise be to Him.',
+  W(('subhaana', 'glory be to'), ('Allaahi', 'Allah'), ("al-'azeem", 'the Magnificent'), ('subhaana', 'glory be to'),
+    ('Allaahi', 'Allah'), ('wa-bihamdihi', 'and with His praise')))
+
 
 def spec_by_id():
     return {s['id']: s for s in SPEC}

@@ -794,6 +794,418 @@
    "copiedFrom": "Bukhari 6312 (fawazahmed0/hadith-api, ara-bukhari)",
    "needsScholarReview": true,
    "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "hlth.sleep.aslamtu": {
+   "arabic": "اللَّهُمَّ أَسْلَمْتُ وَجْهِي إِلَيْكَ وَفَوَّضْتُ أَمْرِي إِلَيْكَ وَأَلْجَأْتُ ظَهْرِي إِلَيْكَ رَغْبَةً وَرَهْبَةً إِلَيْكَ لاَ مَلْجَأَ وَلاَ مَنْجَا مِنْكَ إِلاَّ إِلَيْكَ آمَنْتُ بِكِتَابِكَ الَّذِي أَنْزَلْتَ وَبِنَبِيِّكَ الَّذِي أَرْسَلْتَ",
+   "status": "verified",
+   "translit": "Allaahumma aslamtu wajhee ilayk wa fawwadtu amree ilayk wa alja'tu zahree ilayk raghbatan wa rahbatan ilayk laa malja'a wa laa manjaa minka illaa ilayk aamantu bikitaabikal-ladhee anzalt wa binabiyyikal-ladhee arsalt",
+   "meaning": "O Allah, I submit my face to You, I entrust my affair to You, and I rest my back on You, in hope and in fear of You. There is no refuge and no escape from You except to You. I believe in Your Book that You sent down and in Your Prophet whom You sent.",
+   "sources": [
+    "Bukhari 6311"
+   ],
+   "copiedFrom": "Bukhari 6311 (fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "hlth.eat.begin": {
+   "arabic": "بِسْمِ اللَّهِ أَوَّلَهُ وَآخِرَهُ",
+   "status": "verified",
+   "translit": "Bismil-laahi awwalahu wa aakhirahu",
+   "meaning": "In the name of Allah at its beginning and at its end.",
+   "words": [
+    {
+     "tr": "bismi",
+     "en": "in the name of"
+    },
+    {
+     "tr": "Allaahi",
+     "en": "Allah"
+    },
+    {
+     "tr": "awwalahu",
+     "en": "its beginning"
+    },
+    {
+     "tr": "wa-aakhirahu",
+     "en": "and its end"
+    }
+   ],
+   "sources": [
+    "Abu Dawud 3767 (sahih per al-Albani)"
+   ],
+   "copiedFrom": "Abu Dawud 3767 (graded by al-Albani; fawazahmed0/hadith-api, ara-abudawud)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "hlth.eat.end": {
+   "arabic": "الْحَمْدُ لِلَّهِ كَثِيرًا طَيِّبًا مُبَارَكًا فِيهِ غَيْرَ مَكْفِيٍّ وَلاَ مُوَدَّعٍ وَلاَ مُسْتَغْنًى عَنْهُ رَبَّنَا",
+   "status": "verified",
+   "translit": "Alhamdu lillaahi katheeran tayyiban mubaarakan feehi ghayra makfiyyin wa laa muwadda'in wa laa mustaghnan 'anhu Rabbanaa",
+   "meaning": "Praise be to Allah, much praise, good and blessed, which we can never repay enough, nor leave, nor do without, O our Lord.",
+   "words": [
+    {
+     "tr": "al-hamdu",
+     "en": "the praise"
+    },
+    {
+     "tr": "lillaahi",
+     "en": "is for Allah"
+    },
+    {
+     "tr": "katheeran",
+     "en": "much"
+    },
+    {
+     "tr": "tayyiban",
+     "en": "good"
+    },
+    {
+     "tr": "mubaarakan",
+     "en": "blessed"
+    },
+    {
+     "tr": "feehi",
+     "en": "in it"
+    },
+    {
+     "tr": "ghayra",
+     "en": "not"
+    },
+    {
+     "tr": "makfiyyin",
+     "en": "sufficient"
+    },
+    {
+     "tr": "wa-laa",
+     "en": "and not"
+    },
+    {
+     "tr": "muwadda'in",
+     "en": "farewelled"
+    },
+    {
+     "tr": "wa-laa",
+     "en": "and not"
+    },
+    {
+     "tr": "mustaghnan",
+     "en": "done without"
+    },
+    {
+     "tr": "'anhu",
+     "en": "from it"
+    },
+    {
+     "tr": "Rabbanaa",
+     "en": "our Lord"
+    }
+   ],
+   "sources": [
+    "Bukhari 5458"
+   ],
+   "copiedFrom": "Bukhari 5458 (fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "hlth.ruqyah.pain": {
+   "arabic": "أَعُوذُ بِاللَّهِ وَقُدْرَتِهِ مِنْ شَرِّ مَا أَجِدُ وَأُحَاذِرُ",
+   "status": "verified",
+   "translit": "A'oodhu billaahi wa qudratihi min sharri maa ajidu wa uhaadhir",
+   "meaning": "I seek refuge with Allah and with His power from the evil of what I feel and fear.",
+   "words": [
+    {
+     "tr": "a'oodhu",
+     "en": "I seek refuge"
+    },
+    {
+     "tr": "billaahi",
+     "en": "with Allah"
+    },
+    {
+     "tr": "wa-qudratihi",
+     "en": "and with His power"
+    },
+    {
+     "tr": "min",
+     "en": "from"
+    },
+    {
+     "tr": "sharri",
+     "en": "the evil of"
+    },
+    {
+     "tr": "maa",
+     "en": "what"
+    },
+    {
+     "tr": "ajidu",
+     "en": "I find"
+    },
+    {
+     "tr": "wa-uhaadhir",
+     "en": "and I fear"
+    }
+   ],
+   "sources": [
+    "Muslim 2202"
+   ],
+   "copiedFrom": "Muslim 2202 (fawazahmed0/hadith-api, ara-muslim)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "hlth.shifa": {
+   "arabic": "أَذْهِبِ الْبَاسَ رَبَّ النَّاسِ اشْفِ وَأَنْتَ الشَّافِي لاَ شِفَاءَ إِلاَّ شِفَاؤُكَ شِفَاءً لاَ يُغَادِرُ سَقَمًا",
+   "status": "verified",
+   "translit": "Adh-hibil-ba's Rabban-naas ishfi wa antash-Shaafee laa shifaa'a illaa shifaa'uka shifaa'an laa yughaadiru saqamaa",
+   "meaning": "Take away the harm, Lord of the people. Heal, for You are the Healer. There is no cure but Your cure, a cure that leaves no illness behind.",
+   "words": [
+    {
+     "tr": "adh-hibi",
+     "en": "take away"
+    },
+    {
+     "tr": "al-ba's",
+     "en": "the harm"
+    },
+    {
+     "tr": "Rabba",
+     "en": "Lord of"
+    },
+    {
+     "tr": "an-naas",
+     "en": "the people"
+    },
+    {
+     "tr": "ishfi",
+     "en": "heal"
+    },
+    {
+     "tr": "wa-anta",
+     "en": "and You are"
+    },
+    {
+     "tr": "ash-Shaafee",
+     "en": "the Healer"
+    },
+    {
+     "tr": "laa",
+     "en": "no"
+    },
+    {
+     "tr": "shifaa'a",
+     "en": "cure"
+    },
+    {
+     "tr": "illaa",
+     "en": "except"
+    },
+    {
+     "tr": "shifaa'uka",
+     "en": "Your cure"
+    },
+    {
+     "tr": "shifaa'an",
+     "en": "a cure"
+    },
+    {
+     "tr": "laa",
+     "en": "not"
+    },
+    {
+     "tr": "yughaadiru",
+     "en": "it leaves"
+    },
+    {
+     "tr": "saqaman",
+     "en": "illness"
+    }
+   ],
+   "sources": [
+    "Bukhari 5675"
+   ],
+   "copiedFrom": "Bukhari 5675 (fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "hlth.baas": {
+   "arabic": "لاَ بَأْسَ طَهُورٌ إِنْ شَاءَ اللَّهُ",
+   "status": "verified",
+   "translit": "Laa ba'sa tahoorun in shaa'al-laah",
+   "meaning": "No harm: it is a cleansing, if Allah wills.",
+   "words": [
+    {
+     "tr": "laa",
+     "en": "no"
+    },
+    {
+     "tr": "ba'sa",
+     "en": "harm"
+    },
+    {
+     "tr": "tahoorun",
+     "en": "a cleansing"
+    },
+    {
+     "tr": "in",
+     "en": "if"
+    },
+    {
+     "tr": "shaa'a",
+     "en": "wills"
+    },
+    {
+     "tr": "Allaah",
+     "en": "Allah"
+    }
+   ],
+   "sources": [
+    "Bukhari 3616"
+   ],
+   "copiedFrom": "Bukhari 3616 (fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "hlth.eye.refuge": {
+   "arabic": "أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّةِ مِنْ كُلِّ شَيْطَانٍ وَهَامَّةٍ وَمِنْ كُلِّ عَيْنٍ لاَمَّةٍ",
+   "status": "verified",
+   "translit": "A'oodhu bi-kalimaatil-laahit-taammati min kulli shaytaanin wa haammatin wa min kulli 'aynin laammah",
+   "meaning": "I seek refuge in the perfect words of Allah from every devil and every harmful creature, and from every evil eye.",
+   "words": [
+    {
+     "tr": "a'oodhu",
+     "en": "I seek refuge"
+    },
+    {
+     "tr": "bi-kalimaati",
+     "en": "in the words of"
+    },
+    {
+     "tr": "Allaahi",
+     "en": "Allah"
+    },
+    {
+     "tr": "at-taammati",
+     "en": "the perfect"
+    },
+    {
+     "tr": "min",
+     "en": "from"
+    },
+    {
+     "tr": "kulli",
+     "en": "every"
+    },
+    {
+     "tr": "shaytaanin",
+     "en": "devil"
+    },
+    {
+     "tr": "wa-haammatin",
+     "en": "and harmful creature"
+    },
+    {
+     "tr": "wa-min",
+     "en": "and from"
+    },
+    {
+     "tr": "kulli",
+     "en": "every"
+    },
+    {
+     "tr": "'aynin",
+     "en": "eye"
+    },
+    {
+     "tr": "laammah",
+     "en": "evil"
+    }
+   ],
+   "sources": [
+    "Bukhari 3371"
+   ],
+   "copiedFrom": "Bukhari 3371 (fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "hlth.heart.dua": {
+   "arabic": "اللَّهُمَّ مُصَرِّفَ الْقُلُوبِ صَرِّفْ قُلُوبَنَا عَلَى طَاعَتِكَ",
+   "status": "verified",
+   "translit": "Allaahumma musarrifal-quloobi sarrif quloobanaa 'alaa taa'atik",
+   "meaning": "O Allah, Turner of the hearts, turn our hearts to obey You.",
+   "words": [
+    {
+     "tr": "Allaahumma",
+     "en": "O Allah"
+    },
+    {
+     "tr": "musarrifa",
+     "en": "Turner of"
+    },
+    {
+     "tr": "al-quloobi",
+     "en": "the hearts"
+    },
+    {
+     "tr": "sarrif",
+     "en": "turn"
+    },
+    {
+     "tr": "quloobanaa",
+     "en": "our hearts"
+    },
+    {
+     "tr": "'alaa",
+     "en": "to"
+    },
+    {
+     "tr": "taa'atika",
+     "en": "Your obedience"
+    }
+   ],
+   "sources": [
+    "Muslim 2655"
+   ],
+   "copiedFrom": "Muslim 2655 (fawazahmed0/hadith-api, ara-muslim)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "hlth.dhikr": {
+   "arabic": "سُبْحَانَ اللَّهِ الْعَظِيمِ سُبْحَانَ اللَّهِ وَبِحَمْدِهِ",
+   "status": "verified",
+   "translit": "Subhaanal-laahil-'azeem. Subhaanal-laahi wa bihamdih",
+   "meaning": "Glory be to Allah the Magnificent. Glory be to Allah and praise be to Him.",
+   "words": [
+    {
+     "tr": "subhaana",
+     "en": "glory be to"
+    },
+    {
+     "tr": "Allaahi",
+     "en": "Allah"
+    },
+    {
+     "tr": "al-'azeem",
+     "en": "the Magnificent"
+    },
+    {
+     "tr": "subhaana",
+     "en": "glory be to"
+    },
+    {
+     "tr": "Allaahi",
+     "en": "Allah"
+    },
+    {
+     "tr": "wa-bihamdihi",
+     "en": "and with His praise"
+    }
+   ],
+   "sources": [
+    "Bukhari 6406"
+   ],
+   "copiedFrom": "Bukhari 6406 (fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
   }
  }
 }
