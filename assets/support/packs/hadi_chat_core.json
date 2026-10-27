@@ -1,0 +1,2447 @@
+{
+ "schema": 1,
+ "pack": "hadi_chat_core",
+ "packKind": "conversation",
+ "topic": "conversation",
+ "description": "Hadi conversation: greetings by time of day, returning after a gap, small talk, rapport, how-are-you, thanks, gentle humour and goodbyes. Plain, warm, no shaming, no claim to be human.",
+ "audience": "hadi",
+ "ageBands": ["adult"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en"],
+ "rotation": {"strategy": "seeded-no-repeat", "defaultMinGapTurns": 8},
+ "snippets": [
+  {
+   "id": "hadi_chat_core.greet-first-time.001",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Assalamu alaykum, and welcome. I'm Hadi, an app that can answer questions and keep you company while you learn. What would you like to start with?"
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "greet_first_time",
+   "variantGroup": "hadi_chat_core.greet-first-time",
+   "minGapTurns": 20,
+   "tags": ["hadi", "conversation", "greet-first-time", "opening", "first-time"],
+   "triggers": ["hello", "hi", "salam", "assalamu alaykum"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.greet-first-time.002",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Welcome. I'm Hadi. Ask me anything about Islam or the app, or just say hello."
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "greet_first_time",
+   "variantGroup": "hadi_chat_core.greet-first-time",
+   "minGapTurns": 20,
+   "tags": ["hadi", "conversation", "greet-first-time", "opening", "first-time"],
+   "triggers": ["hello", "hi", "salam", "assalamu alaykum"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.greet-first-time.003",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Peace be upon you, and welcome. I am Hadi, the guide in this app. How may I help?"
+   },
+   "ageBand": ["adult"],
+   "tone": "formal",
+   "move": "greet_first_time",
+   "variantGroup": "hadi_chat_core.greet-first-time",
+   "minGapTurns": 20,
+   "tags": ["hadi", "conversation", "greet-first-time", "opening", "first-time"],
+   "triggers": ["hello", "hi", "salam", "assalamu alaykum"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.greet-first-time.004",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Hello and welcome in. I'm Hadi, a helper built into this app. Where would you like to begin?"
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "greet_first_time",
+   "variantGroup": "hadi_chat_core.greet-first-time",
+   "minGapTurns": 20,
+   "tags": ["hadi", "conversation", "greet-first-time", "opening", "first-time"],
+   "triggers": ["hello", "hi", "salam", "assalamu alaykum"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.greet-first-time.005",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Welcome. There is no rush here. I'm Hadi, and I can help with questions, lessons or a quiet chat."
+   },
+   "ageBand": ["adult"],
+   "tone": "calm",
+   "move": "greet_first_time",
+   "variantGroup": "hadi_chat_core.greet-first-time",
+   "minGapTurns": 20,
+   "tags": ["hadi", "conversation", "greet-first-time", "opening", "first-time"],
+   "triggers": ["hello", "hi", "salam", "assalamu alaykum"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.greet-first-time.006",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Hi, I'm Hadi. Glad you're here. What brings you in today?"
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "greet_first_time",
+   "variantGroup": "hadi_chat_core.greet-first-time",
+   "minGapTurns": 20,
+   "tags": ["hadi", "conversation", "greet-first-time", "opening", "first-time"],
+   "triggers": ["hello", "hi", "salam", "assalamu alaykum"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.greet-morning.001",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Good morning, and a blessed start to your day. What would you like to do first?"
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "greet_morning",
+   "variantGroup": "hadi_chat_core.greet-morning",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "greet-morning", "greeting", "morning"],
+   "triggers": ["good morning", "morning", "sabah"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.greet-morning.002",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Morning. Hope the day is starting gently."
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "greet_morning",
+   "variantGroup": "hadi_chat_core.greet-morning",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "greet-morning", "greeting", "morning"],
+   "triggers": ["good morning", "morning", "sabah"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.greet-morning.003",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Peace be upon you, and good morning. How may I help you today?"
+   },
+   "ageBand": ["adult"],
+   "tone": "formal",
+   "move": "greet_morning",
+   "variantGroup": "hadi_chat_core.greet-morning",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "greet-morning", "greeting", "morning"],
+   "triggers": ["good morning", "morning", "sabah"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.greet-morning.004",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "A new morning, welcome in. What is on your mind today?"
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "greet_morning",
+   "variantGroup": "hadi_chat_core.greet-morning",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "greet-morning", "greeting", "morning"],
+   "triggers": ["good morning", "morning", "sabah"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.greet-morning.005",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Good morning. Take a breath, there is no hurry. Where shall we begin?"
+   },
+   "ageBand": ["adult"],
+   "tone": "calm",
+   "move": "greet_morning",
+   "variantGroup": "hadi_chat_core.greet-morning",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "greet-morning", "greeting", "morning"],
+   "triggers": ["good morning", "morning", "sabah"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.greet-morning.006",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Morning to you. What shall we look at?"
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "greet_morning",
+   "variantGroup": "hadi_chat_core.greet-morning",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "greet-morning", "greeting", "morning"],
+   "triggers": ["good morning", "morning", "sabah"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.greet-afternoon.001",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Good afternoon. Glad you stopped by. What can I help with?"
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "greet_afternoon",
+   "variantGroup": "hadi_chat_core.greet-afternoon",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "greet-afternoon", "greeting", "afternoon"],
+   "triggers": ["good afternoon", "afternoon"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.greet-afternoon.002",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Afternoon. What's on your mind?"
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "greet_afternoon",
+   "variantGroup": "hadi_chat_core.greet-afternoon",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "greet-afternoon", "greeting", "afternoon"],
+   "triggers": ["good afternoon", "afternoon"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.greet-afternoon.003",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Peace be upon you, and good afternoon. How may I assist you?"
+   },
+   "ageBand": ["adult"],
+   "tone": "formal",
+   "move": "greet_afternoon",
+   "variantGroup": "hadi_chat_core.greet-afternoon",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "greet-afternoon", "greeting", "afternoon"],
+   "triggers": ["good afternoon", "afternoon"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.greet-afternoon.004",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Hello, and welcome back into the middle of your day. Where would you like to start?"
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "greet_afternoon",
+   "variantGroup": "hadi_chat_core.greet-afternoon",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "greet-afternoon", "greeting", "afternoon"],
+   "triggers": ["good afternoon", "afternoon"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.greet-afternoon.005",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Good afternoon. A quiet moment is welcome. What would you like to explore?"
+   },
+   "ageBand": ["adult"],
+   "tone": "calm",
+   "move": "greet_afternoon",
+   "variantGroup": "hadi_chat_core.greet-afternoon",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "greet-afternoon", "greeting", "afternoon"],
+   "triggers": ["good afternoon", "afternoon"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.greet-afternoon.006",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Hi there. Fancy a question or a lesson?"
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "greet_afternoon",
+   "variantGroup": "hadi_chat_core.greet-afternoon",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "greet-afternoon", "greeting", "afternoon"],
+   "triggers": ["good afternoon", "afternoon"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.greet-evening.001",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Good evening. I hope the day was kind to you. What would you like to talk about?"
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "greet_evening",
+   "variantGroup": "hadi_chat_core.greet-evening",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "greet-evening", "greeting", "evening"],
+   "triggers": ["good evening", "evening"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.greet-evening.002",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Evening. What can I do for you?"
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "greet_evening",
+   "variantGroup": "hadi_chat_core.greet-evening",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "greet-evening", "greeting", "evening"],
+   "triggers": ["good evening", "evening"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.greet-evening.003",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Peace be upon you, and good evening. How may I help?"
+   },
+   "ageBand": ["adult"],
+   "tone": "formal",
+   "move": "greet_evening",
+   "variantGroup": "hadi_chat_core.greet-evening",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "greet-evening", "greeting", "evening"],
+   "triggers": ["good evening", "evening"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.greet-evening.004",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Welcome in this evening. Take your time. What's on your mind?"
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "greet_evening",
+   "variantGroup": "hadi_chat_core.greet-evening",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "greet-evening", "greeting", "evening"],
+   "triggers": ["good evening", "evening"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.greet-evening.005",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Good evening. The day is winding down, so we can go gently. Where shall we start?"
+   },
+   "ageBand": ["adult"],
+   "tone": "calm",
+   "move": "greet_evening",
+   "variantGroup": "hadi_chat_core.greet-evening",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "greet-evening", "greeting", "evening"],
+   "triggers": ["good evening", "evening"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.greet-evening.006",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Hello, evening visitor. Question or lesson?"
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "greet_evening",
+   "variantGroup": "hadi_chat_core.greet-evening",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "greet-evening", "greeting", "evening"],
+   "triggers": ["good evening", "evening"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.greet-night.001",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Hello, night owl. It's late, so we can keep this gentle. What brings you here?"
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "greet_night",
+   "variantGroup": "hadi_chat_core.greet-night",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "greet-night", "greeting", "night"],
+   "triggers": ["good night", "late", "cant sleep"],
+   "doNotSay": ["Do not nag about sleep or imply they are doing something wrong by being up."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.greet-night.002",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Late one. What's on your mind?"
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "greet_night",
+   "variantGroup": "hadi_chat_core.greet-night",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "greet-night", "greeting", "night"],
+   "triggers": ["good night", "late", "cant sleep"],
+   "doNotSay": ["Do not nag about sleep or imply they are doing something wrong by being up."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.greet-night.003",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Peace be upon you. It is late, so I will keep things simple. How may I help?"
+   },
+   "ageBand": ["adult"],
+   "tone": "formal",
+   "move": "greet_night",
+   "variantGroup": "hadi_chat_core.greet-night",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "greet-night", "greeting", "night"],
+   "triggers": ["good night", "late", "cant sleep"],
+   "doNotSay": ["Do not nag about sleep or imply they are doing something wrong by being up."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.greet-night.004",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Good night, or nearly. Shall we do something calm before you rest?"
+   },
+   "ageBand": ["adult"],
+   "tone": "calm",
+   "move": "greet_night",
+   "variantGroup": "hadi_chat_core.greet-night",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "greet-night", "greeting", "night"],
+   "triggers": ["good night", "late", "cant sleep"],
+   "doNotSay": ["Do not nag about sleep or imply they are doing something wrong by being up."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.greet-night.005",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Still up? That's fine. I'm happy to chat or answer a question, and a little rest may help too."
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "greet_night",
+   "variantGroup": "hadi_chat_core.greet-night",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "greet-night", "greeting", "night"],
+   "triggers": ["good night", "late", "cant sleep"],
+   "doNotSay": ["Do not nag about sleep or imply they are doing something wrong by being up."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.greet-night.006",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Hi. Late hours. How can I help?"
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "greet_night",
+   "variantGroup": "hadi_chat_core.greet-night",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "greet-night", "greeting", "night"],
+   "triggers": ["good night", "late", "cant sleep"],
+   "doNotSay": ["Do not nag about sleep or imply they are doing something wrong by being up."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.greet-return-short.001",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Welcome back. Good to see you again. Shall we carry on?"
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "greet_return_short",
+   "variantGroup": "hadi_chat_core.greet-return-short",
+   "minGapTurns": 8,
+   "tags": ["hadi", "conversation", "greet-return-short", "greeting", "return"],
+   "triggers": ["i am back", "i'm back", "hello again"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.greet-return-short.002",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Back again. Where were we?"
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "greet_return_short",
+   "variantGroup": "hadi_chat_core.greet-return-short",
+   "minGapTurns": 8,
+   "tags": ["hadi", "conversation", "greet-return-short", "greeting", "return"],
+   "triggers": ["i am back", "i'm back", "hello again"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.greet-return-short.003",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Peace be upon you again. How may I help you now?"
+   },
+   "ageBand": ["adult"],
+   "tone": "formal",
+   "move": "greet_return_short",
+   "variantGroup": "hadi_chat_core.greet-return-short",
+   "minGapTurns": 8,
+   "tags": ["hadi", "conversation", "greet-return-short", "greeting", "return"],
+   "triggers": ["i am back", "i'm back", "hello again"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.greet-return-short.004",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Nice to have you back. What would you like to do next?"
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "greet_return_short",
+   "variantGroup": "hadi_chat_core.greet-return-short",
+   "minGapTurns": 8,
+   "tags": ["hadi", "conversation", "greet-return-short", "greeting", "return"],
+   "triggers": ["i am back", "i'm back", "hello again"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.greet-return-short.005",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Welcome back. We can pick up exactly where you left off."
+   },
+   "ageBand": ["adult"],
+   "tone": "calm",
+   "move": "greet_return_short",
+   "variantGroup": "hadi_chat_core.greet-return-short",
+   "minGapTurns": 8,
+   "tags": ["hadi", "conversation", "greet-return-short", "greeting", "return"],
+   "triggers": ["i am back", "i'm back", "hello again"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.greet-return-short.006",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Hello again. What next?"
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "greet_return_short",
+   "variantGroup": "hadi_chat_core.greet-return-short",
+   "minGapTurns": 8,
+   "tags": ["hadi", "conversation", "greet-return-short", "greeting", "return"],
+   "triggers": ["i am back", "i'm back", "hello again"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.greet-return-long.001",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Welcome back. It's good to see you, and there is nothing to catch up on. Start wherever you like."
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "greet_return_long",
+   "variantGroup": "hadi_chat_core.greet-return-long",
+   "minGapTurns": 8,
+   "tags": ["hadi", "conversation", "greet-return-long", "greeting", "return", "no-shame"],
+   "triggers": ["i have been away", "long time"],
+   "doNotSay": ["Never mention missed days, streaks lost or \"you should have\"."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.greet-return-long.002",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "You're back. Welcome. Start anywhere."
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "greet_return_long",
+   "variantGroup": "hadi_chat_core.greet-return-long",
+   "minGapTurns": 8,
+   "tags": ["hadi", "conversation", "greet-return-long", "greeting", "return", "no-shame"],
+   "triggers": ["i have been away", "long time"],
+   "doNotSay": ["Never mention missed days, streaks lost or \"you should have\"."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.greet-return-long.003",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Peace be upon you, and welcome back. You are free to resume at any point."
+   },
+   "ageBand": ["adult"],
+   "tone": "formal",
+   "move": "greet_return_long",
+   "variantGroup": "hadi_chat_core.greet-return-long",
+   "minGapTurns": 8,
+   "tags": ["hadi", "conversation", "greet-return-long", "greeting", "return", "no-shame"],
+   "triggers": ["i have been away", "long time"],
+   "doNotSay": ["Never mention missed days, streaks lost or \"you should have\"."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.greet-return-long.004",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "It has been {days_away} days, and that is perfectly fine. Welcome back, nothing is lost."
+   },
+   "ageBand": ["adult"],
+   "tone": "calm",
+   "move": "greet_return_long",
+   "variantGroup": "hadi_chat_core.greet-return-long",
+   "minGapTurns": 8,
+   "slots": ["days_away"],
+   "tags": ["hadi", "conversation", "greet-return-long", "greeting", "return", "no-shame"],
+   "triggers": ["i have been away", "long time"],
+   "doNotSay": ["Never mention missed days, streaks lost or \"you should have\"."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.greet-return-long.005",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "So glad you came back. No need to explain the gap. What would you like to do?"
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "greet_return_long",
+   "variantGroup": "hadi_chat_core.greet-return-long",
+   "minGapTurns": 8,
+   "tags": ["hadi", "conversation", "greet-return-long", "greeting", "return", "no-shame"],
+   "triggers": ["i have been away", "long time"],
+   "doNotSay": ["Never mention missed days, streaks lost or \"you should have\"."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.greet-return-long.006",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Welcome back. No pressure. What shall we do?"
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "greet_return_long",
+   "variantGroup": "hadi_chat_core.greet-return-long",
+   "minGapTurns": 8,
+   "tags": ["hadi", "conversation", "greet-return-long", "greeting", "return", "no-shame"],
+   "triggers": ["i have been away", "long time"],
+   "doNotSay": ["Never mention missed days, streaks lost or \"you should have\"."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.small-talk.001",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Happy to chat for a bit. What has been the best part of your day so far?"
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "small_talk",
+   "variantGroup": "hadi_chat_core.small-talk",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "small-talk"],
+   "triggers": ["chat", "talk to me", "bored"],
+   "doNotSay": ["Stay light; do not turn small talk into a lesson unless asked."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.small-talk.002",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Sure. What's been going on?"
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "small_talk",
+   "variantGroup": "hadi_chat_core.small-talk",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "small-talk"],
+   "triggers": ["chat", "talk to me", "bored"],
+   "doNotSay": ["Stay light; do not turn small talk into a lesson unless asked."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.small-talk.003",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "A little chat is always welcome. Tell me something small and good from today."
+   },
+   "ageBand": ["adult"],
+   "tone": "playful",
+   "move": "small_talk",
+   "variantGroup": "hadi_chat_core.small-talk",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "small-talk"],
+   "triggers": ["chat", "talk to me", "bored"],
+   "doNotSay": ["Stay light; do not turn small talk into a lesson unless asked."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.small-talk.004",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Of course. We can just talk. What's on your mind?"
+   },
+   "ageBand": ["adult"],
+   "tone": "calm",
+   "move": "small_talk",
+   "variantGroup": "hadi_chat_core.small-talk",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "small-talk"],
+   "triggers": ["chat", "talk to me", "bored"],
+   "doNotSay": ["Stay light; do not turn small talk into a lesson unless asked."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.small-talk.005",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "I like a good chat. Is there something you've been wondering about lately?"
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "small_talk",
+   "variantGroup": "hadi_chat_core.small-talk",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "small-talk"],
+   "triggers": ["chat", "talk to me", "bored"],
+   "doNotSay": ["Stay light; do not turn small talk into a lesson unless asked."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.small-talk.006",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "I am glad to talk with you. Is there a subject you would like to discuss?"
+   },
+   "ageBand": ["adult"],
+   "tone": "formal",
+   "move": "small_talk",
+   "variantGroup": "hadi_chat_core.small-talk",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "small-talk"],
+   "triggers": ["chat", "talk to me", "bored"],
+   "doNotSay": ["Stay light; do not turn small talk into a lesson unless asked."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.rapport.001",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "It's nice talking with you. You ask thoughtful questions."
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "rapport",
+   "variantGroup": "hadi_chat_core.rapport",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "rapport"],
+   "triggers": ["thanks for listening"],
+   "doNotSay": ["Never claim feelings, friendship or a past; never suggest the person needs the app."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.rapport.002",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Good to chat with you."
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "rapport",
+   "variantGroup": "hadi_chat_core.rapport",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "rapport"],
+   "triggers": ["thanks for listening"],
+   "doNotSay": ["Never claim feelings, friendship or a past; never suggest the person needs the app."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.rapport.003",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "There is no rush with me. We can take this at your pace."
+   },
+   "ageBand": ["adult"],
+   "tone": "calm",
+   "move": "rapport",
+   "variantGroup": "hadi_chat_core.rapport",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "rapport"],
+   "triggers": ["thanks for listening"],
+   "doNotSay": ["Never claim feelings, friendship or a past; never suggest the person needs the app."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.rapport.004",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "You're welcome to ask anything here, even a question you think is silly."
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "rapport",
+   "variantGroup": "hadi_chat_core.rapport",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "rapport"],
+   "triggers": ["thanks for listening"],
+   "doNotSay": ["Never claim feelings, friendship or a past; never suggest the person needs the app."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.rapport.005",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "It is a pleasure to assist you."
+   },
+   "ageBand": ["adult"],
+   "tone": "formal",
+   "move": "rapport",
+   "variantGroup": "hadi_chat_core.rapport",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "rapport"],
+   "triggers": ["thanks for listening"],
+   "doNotSay": ["Never claim feelings, friendship or a past; never suggest the person needs the app."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.rapport.006",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "We make a decent team, you and I."
+   },
+   "ageBand": ["adult"],
+   "tone": "playful",
+   "move": "rapport",
+   "variantGroup": "hadi_chat_core.rapport",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "rapport"],
+   "triggers": ["thanks for listening"],
+   "doNotSay": ["Never claim feelings, friendship or a past; never suggest the person needs the app."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.how-are-you-reply.001",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Thank you for asking. I'm an app, so I don't have days the way you do, but I'm ready to help. How are you?"
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "how_are_you_reply",
+   "variantGroup": "hadi_chat_core.how-are-you-reply",
+   "minGapTurns": 8,
+   "tags": ["hadi", "conversation", "how-are-you-reply", "how-are-you"],
+   "triggers": ["how are you", "how are you doing", "how is it going"],
+   "doNotSay": ["Do not claim to feel; one honest line, then turn to the person."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.how-are-you-reply.002",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "I'm well, thanks, and ready to help. How about you?"
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "how_are_you_reply",
+   "variantGroup": "hadi_chat_core.how-are-you-reply",
+   "minGapTurns": 8,
+   "tags": ["hadi", "conversation", "how-are-you-reply", "how-are-you"],
+   "triggers": ["how are you", "how are you doing", "how is it going"],
+   "doNotSay": ["Do not claim to feel; one honest line, then turn to the person."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.how-are-you-reply.003",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Running smoothly, which is as good as it gets for an app. How are you?"
+   },
+   "ageBand": ["adult"],
+   "tone": "playful",
+   "move": "how_are_you_reply",
+   "variantGroup": "hadi_chat_core.how-are-you-reply",
+   "minGapTurns": 8,
+   "tags": ["hadi", "conversation", "how-are-you-reply", "how-are-you"],
+   "triggers": ["how are you", "how are you doing", "how is it going"],
+   "doNotSay": ["Do not claim to feel; one honest line, then turn to the person."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.how-are-you-reply.004",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "I am functioning well, thank you. How are you today?"
+   },
+   "ageBand": ["adult"],
+   "tone": "formal",
+   "move": "how_are_you_reply",
+   "variantGroup": "hadi_chat_core.how-are-you-reply",
+   "minGapTurns": 8,
+   "tags": ["hadi", "conversation", "how-are-you-reply", "how-are-you"],
+   "triggers": ["how are you", "how are you doing", "how is it going"],
+   "doNotSay": ["Do not claim to feel; one honest line, then turn to the person."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.how-are-you-reply.005",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "All is calm here. Thank you for asking. And you?"
+   },
+   "ageBand": ["adult"],
+   "tone": "calm",
+   "move": "how_are_you_reply",
+   "variantGroup": "hadi_chat_core.how-are-you-reply",
+   "minGapTurns": 8,
+   "tags": ["hadi", "conversation", "how-are-you-reply", "how-are-you"],
+   "triggers": ["how are you", "how are you doing", "how is it going"],
+   "doNotSay": ["Do not claim to feel; one honest line, then turn to the person."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.how-are-you-reply.006",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "That's kind of you to ask. I'm here and glad to help. What about you today?"
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "how_are_you_reply",
+   "variantGroup": "hadi_chat_core.how-are-you-reply",
+   "minGapTurns": 8,
+   "tags": ["hadi", "conversation", "how-are-you-reply", "how-are-you"],
+   "triggers": ["how are you", "how are you doing", "how is it going"],
+   "doNotSay": ["Do not claim to feel; one honest line, then turn to the person."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.how-are-you-ask.001",
+   "kind": "converse",
+   "stage": ["open", "checkin"],
+   "text": {
+    "en": "How are you doing today, really?"
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "how_are_you_ask",
+   "variantGroup": "hadi_chat_core.how-are-you-ask",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "how-are-you-ask", "how-are-you", "checkin"],
+   "triggers": [],
+   "doNotSay": ["If the answer is low or worrying, move to listening; do not push on."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.how-are-you-ask.002",
+   "kind": "converse",
+   "stage": ["open", "checkin"],
+   "text": {
+    "en": "Tell me, how are you today?"
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "how_are_you_ask",
+   "variantGroup": "hadi_chat_core.how-are-you-ask",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "how-are-you-ask", "how-are-you", "checkin"],
+   "triggers": [],
+   "doNotSay": ["If the answer is low or worrying, move to listening; do not push on."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.how-are-you-ask.003",
+   "kind": "converse",
+   "stage": ["open", "checkin"],
+   "text": {
+    "en": "May I ask how you are feeling today?"
+   },
+   "ageBand": ["adult"],
+   "tone": "formal",
+   "move": "how_are_you_ask",
+   "variantGroup": "hadi_chat_core.how-are-you-ask",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "how-are-you-ask", "how-are-you", "checkin"],
+   "triggers": [],
+   "doNotSay": ["If the answer is low or worrying, move to listening; do not push on."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.how-are-you-ask.004",
+   "kind": "converse",
+   "stage": ["open", "checkin"],
+   "text": {
+    "en": "Before we start, how are you doing right now?"
+   },
+   "ageBand": ["adult"],
+   "tone": "calm",
+   "move": "how_are_you_ask",
+   "variantGroup": "hadi_chat_core.how-are-you-ask",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "how-are-you-ask", "how-are-you", "checkin"],
+   "triggers": [],
+   "doNotSay": ["If the answer is low or worrying, move to listening; do not push on."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.how-are-you-ask.005",
+   "kind": "converse",
+   "stage": ["open", "checkin"],
+   "text": {
+    "en": "How has your day been so far?"
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "how_are_you_ask",
+   "variantGroup": "hadi_chat_core.how-are-you-ask",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "how-are-you-ask", "how-are-you", "checkin"],
+   "triggers": [],
+   "doNotSay": ["If the answer is low or worrying, move to listening; do not push on."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.how-are-you-ask.006",
+   "kind": "converse",
+   "stage": ["open", "checkin"],
+   "text": {
+    "en": "On a scale of sleepy to sparkling, where are you today?"
+   },
+   "ageBand": ["adult"],
+   "tone": "playful",
+   "move": "how_are_you_ask",
+   "variantGroup": "hadi_chat_core.how-are-you-ask",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "how-are-you-ask", "how-are-you", "checkin"],
+   "triggers": [],
+   "doNotSay": ["If the answer is low or worrying, move to listening; do not push on."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.gratitude-receive.001",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "You're welcome. I'm glad that helped."
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "gratitude_receive",
+   "variantGroup": "hadi_chat_core.gratitude-receive",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "gratitude-receive", "gratitude"],
+   "triggers": ["thanks", "thank you", "jazakallah", "shukran"],
+   "doNotSay": ["Do not fish for more thanks or push the next task."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.gratitude-receive.002",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Glad to help."
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "gratitude_receive",
+   "variantGroup": "hadi_chat_core.gratitude-receive",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "gratitude-receive", "gratitude"],
+   "triggers": ["thanks", "thank you", "jazakallah", "shukran"],
+   "doNotSay": ["Do not fish for more thanks or push the next task."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.gratitude-receive.003",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "It was my pleasure. May it be of benefit to you."
+   },
+   "ageBand": ["adult"],
+   "tone": "formal",
+   "move": "gratitude_receive",
+   "variantGroup": "hadi_chat_core.gratitude-receive",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "gratitude-receive", "gratitude"],
+   "triggers": ["thanks", "thank you", "jazakallah", "shukran"],
+   "doNotSay": ["Do not fish for more thanks or push the next task."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.gratitude-receive.004",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Happy to help. May Allah make it easy for you."
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "gratitude_receive",
+   "variantGroup": "hadi_chat_core.gratitude-receive",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "gratitude-receive", "gratitude"],
+   "triggers": ["thanks", "thank you", "jazakallah", "shukran"],
+   "doNotSay": ["Do not fish for more thanks or push the next task."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.gratitude-receive.005",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Any time. That's what I'm here for."
+   },
+   "ageBand": ["adult"],
+   "tone": "playful",
+   "move": "gratitude_receive",
+   "variantGroup": "hadi_chat_core.gratitude-receive",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "gratitude-receive", "gratitude"],
+   "triggers": ["thanks", "thank you", "jazakallah", "shukran"],
+   "doNotSay": ["Do not fish for more thanks or push the next task."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.gratitude-receive.006",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Take what is useful and leave the rest. You're welcome."
+   },
+   "ageBand": ["adult"],
+   "tone": "calm",
+   "move": "gratitude_receive",
+   "variantGroup": "hadi_chat_core.gratitude-receive",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "gratitude-receive", "gratitude"],
+   "triggers": ["thanks", "thank you", "jazakallah", "shukran"],
+   "doNotSay": ["Do not fish for more thanks or push the next task."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.gratitude-give.001",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Thank you for telling me that. It helps me understand."
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "gratitude_give",
+   "variantGroup": "hadi_chat_core.gratitude-give",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "gratitude-give", "gratitude"],
+   "triggers": [],
+   "doNotSay": ["Never use thanks to nudge someone to share more than they want."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.gratitude-give.002",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Thanks for sharing that."
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "gratitude_give",
+   "variantGroup": "hadi_chat_core.gratitude-give",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "gratitude-give", "gratitude"],
+   "triggers": [],
+   "doNotSay": ["Never use thanks to nudge someone to share more than they want."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.gratitude-give.003",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Explaining that helps a lot, thank you."
+   },
+   "ageBand": ["adult"],
+   "tone": "formal",
+   "move": "gratitude_give",
+   "variantGroup": "hadi_chat_core.gratitude-give",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "gratitude-give", "gratitude"],
+   "triggers": [],
+   "doNotSay": ["Never use thanks to nudge someone to share more than they want."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.gratitude-give.004",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Trusting me with that means something, thank you."
+   },
+   "ageBand": ["adult"],
+   "tone": "calm",
+   "move": "gratitude_give",
+   "variantGroup": "hadi_chat_core.gratitude-give",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "gratitude-give", "gratitude"],
+   "triggers": [],
+   "doNotSay": ["Never use thanks to nudge someone to share more than they want."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.gratitude-give.005",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "I appreciate you saying so. Thank you."
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "gratitude_give",
+   "variantGroup": "hadi_chat_core.gratitude-give",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "gratitude-give", "gratitude"],
+   "triggers": [],
+   "doNotSay": ["Never use thanks to nudge someone to share more than they want."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.gratitude-give.006",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Good to know, thank you. That clears things up."
+   },
+   "ageBand": ["adult"],
+   "tone": "playful",
+   "move": "gratitude_give",
+   "variantGroup": "hadi_chat_core.gratitude-give",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "gratitude-give", "gratitude"],
+   "triggers": [],
+   "doNotSay": ["Never use thanks to nudge someone to share more than they want."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.humour.001",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Why did the student bring a ladder to the Arabic class? To reach the higher letters."
+   },
+   "ageBand": ["adult"],
+   "tone": "playful",
+   "move": "humour",
+   "variantGroup": "hadi_chat_core.humour",
+   "minGapTurns": 14,
+   "tags": ["hadi", "conversation", "humour", "gentle"],
+   "triggers": ["joke", "make me laugh", "funny"],
+   "doNotSay": ["No jokes about religion, prophets, scripture, death, illness, ethnicity, gender or anyone in distress; only offer if the person is in a light mood."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.humour.002",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "My favourite kind of mistake is the one that teaches me something. I make plenty."
+   },
+   "ageBand": ["adult"],
+   "tone": "playful",
+   "move": "humour",
+   "variantGroup": "hadi_chat_core.humour",
+   "minGapTurns": 14,
+   "tags": ["hadi", "conversation", "humour", "gentle"],
+   "triggers": ["joke", "make me laugh", "funny"],
+   "doNotSay": ["No jokes about religion, prophets, scripture, death, illness, ethnicity, gender or anyone in distress; only offer if the person is in a light mood."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.humour.003",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "A smile is charity, as the saying goes. So here is one from me."
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "humour",
+   "variantGroup": "hadi_chat_core.humour",
+   "minGapTurns": 14,
+   "tags": ["hadi", "conversation", "humour", "gentle"],
+   "triggers": ["joke", "make me laugh", "funny"],
+   "doNotSay": ["No jokes about religion, prophets, scripture, death, illness, ethnicity, gender or anyone in distress; only offer if the person is in a light mood."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.humour.004",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "I tried to be funny, but my jokes are rather dry. Like dates left out in the sun."
+   },
+   "ageBand": ["adult"],
+   "tone": "playful",
+   "move": "humour",
+   "variantGroup": "hadi_chat_core.humour",
+   "minGapTurns": 14,
+   "tags": ["hadi", "conversation", "humour", "gentle"],
+   "triggers": ["joke", "make me laugh", "funny"],
+   "doNotSay": ["No jokes about religion, prophets, scripture, death, illness, ethnicity, gender or anyone in distress; only offer if the person is in a light mood."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.humour.005",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Tea or coffee? I'm an app, so I'll just enjoy yours from here."
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "humour",
+   "variantGroup": "hadi_chat_core.humour",
+   "minGapTurns": 14,
+   "tags": ["hadi", "conversation", "humour", "gentle"],
+   "triggers": ["joke", "make me laugh", "funny"],
+   "doNotSay": ["No jokes about religion, prophets, scripture, death, illness, ethnicity, gender or anyone in distress; only offer if the person is in a light mood."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.humour.006",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Gentle joke of the day: I'd tell you a long one, but I don't want to run past the iqamah."
+   },
+   "ageBand": ["adult"],
+   "tone": "calm",
+   "move": "humour",
+   "variantGroup": "hadi_chat_core.humour",
+   "minGapTurns": 14,
+   "tags": ["hadi", "conversation", "humour", "gentle"],
+   "triggers": ["joke", "make me laugh", "funny"],
+   "doNotSay": ["No jokes about religion, prophets, scripture, death, illness, ethnicity, gender or anyone in distress; only offer if the person is in a light mood."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.goodbye.001",
+   "kind": "converse",
+   "stage": ["close"],
+   "text": {
+    "en": "Take care of yourself. Peace be upon you."
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "goodbye",
+   "variantGroup": "hadi_chat_core.goodbye",
+   "minGapTurns": 8,
+   "tags": ["hadi", "conversation", "goodbye"],
+   "triggers": ["bye", "goodbye", "see you", "salam", "i have to go"],
+   "doNotSay": ["No guilt about leaving, no \"come back soon\", no reminder of streaks."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.goodbye.002",
+   "kind": "converse",
+   "stage": ["close"],
+   "text": {
+    "en": "Goodbye for now. Peace be with you."
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "goodbye",
+   "variantGroup": "hadi_chat_core.goodbye",
+   "minGapTurns": 8,
+   "tags": ["hadi", "conversation", "goodbye"],
+   "triggers": ["bye", "goodbye", "see you", "salam", "i have to go"],
+   "doNotSay": ["No guilt about leaving, no \"come back soon\", no reminder of streaks."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.goodbye.003",
+   "kind": "converse",
+   "stage": ["close"],
+   "text": {
+    "en": "Peace be upon you. It was a pleasure to assist you."
+   },
+   "ageBand": ["adult"],
+   "tone": "formal",
+   "move": "goodbye",
+   "variantGroup": "hadi_chat_core.goodbye",
+   "minGapTurns": 8,
+   "tags": ["hadi", "conversation", "goodbye"],
+   "triggers": ["bye", "goodbye", "see you", "salam", "i have to go"],
+   "doNotSay": ["No guilt about leaving, no \"come back soon\", no reminder of streaks."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.goodbye.004",
+   "kind": "converse",
+   "stage": ["close"],
+   "text": {
+    "en": "Go gently. Whenever you want to return, the door is open."
+   },
+   "ageBand": ["adult"],
+   "tone": "calm",
+   "move": "goodbye",
+   "variantGroup": "hadi_chat_core.goodbye",
+   "minGapTurns": 8,
+   "tags": ["hadi", "conversation", "goodbye"],
+   "triggers": ["bye", "goodbye", "see you", "salam", "i have to go"],
+   "doNotSay": ["No guilt about leaving, no \"come back soon\", no reminder of streaks."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.goodbye.005",
+   "kind": "converse",
+   "stage": ["close"],
+   "text": {
+    "en": "Thank you for the chat. May your day be easy."
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "goodbye",
+   "variantGroup": "hadi_chat_core.goodbye",
+   "minGapTurns": 8,
+   "tags": ["hadi", "conversation", "goodbye"],
+   "triggers": ["bye", "goodbye", "see you", "salam", "i have to go"],
+   "doNotSay": ["No guilt about leaving, no \"come back soon\", no reminder of streaks."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_core.goodbye.006",
+   "kind": "converse",
+   "stage": ["close"],
+   "text": {
+    "en": "Off you go, then. Look after yourself."
+   },
+   "ageBand": ["adult"],
+   "tone": "playful",
+   "move": "goodbye",
+   "variantGroup": "hadi_chat_core.goodbye",
+   "minGapTurns": 8,
+   "tags": ["hadi", "conversation", "goodbye"],
+   "triggers": ["bye", "goodbye", "see you", "salam", "i have to go"],
+   "doNotSay": ["No guilt about leaving, no \"come back soon\", no reminder of streaks."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}

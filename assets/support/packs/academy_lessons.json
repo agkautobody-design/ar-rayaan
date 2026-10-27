@@ -1,0 +1,599 @@
+{
+ "schema": 1,
+ "pack": "academy_lessons",
+ "packKind": "knowledge",
+ "topic": "academy",
+ "description": "Key points from Academy lessons (Understanding the Qur'an, Creed, Dawah) as short retrievable facts, each pointing back to its lesson. The lesson stays the source of record.",
+ "audience": "both",
+ "ageBands": ["all"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en"],
+ "snippets": [
+  {
+   "id": "academy_lessons.lesson-fact.001",
+   "kind": "lesson-fact",
+   "stage": ["question"],
+   "text": {
+    "en": "The Qur'an began as speech, not paper. The first word revealed was iqra, read or recite. It came in pieces over twenty-three years, and every Ramadan Jibril reviewed the whole Qur'an with the Prophet."
+   },
+   "ageBand": ["all"],
+   "tags": ["academy", "lesson", "quran", "revelation"],
+   "triggers": ["how was the quran revealed", "twenty three years", "first revelation", "iqra"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/und.json#und.u1.l1"},
+    {"type": "quran", "ref": "96:1", "section": "Qur'an text"},
+    {"type": "quran", "ref": "25:32", "section": "Qur'an text"},
+    {"type": "hadith", "ref": "bukhari:3851", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "hadith", "ref": "bukhari:4998", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/und.json", "id": "und.u1.l1"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "academy_lessons.lesson-fact.002",
+   "kind": "lesson-fact",
+   "stage": ["question"],
+   "text": {
+    "en": "Allah promised to guard the Qur'an: it is He who sent down the reminder and He who will guard it. Muslims believe the promise was carried out through people, who memorised it and wrote it down."
+   },
+   "ageBand": ["all"],
+   "tags": ["academy", "lesson", "quran", "preservation"],
+   "triggers": ["is the quran preserved", "quran changed", "who collected the quran"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/und.json#und.u1.l2"},
+    {"type": "quran", "ref": "15:9", "section": "Qur'an text"},
+    {"type": "quran", "ref": "75:17-19", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/und.json", "id": "und.u1.l2"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "academy_lessons.lesson-fact.003",
+   "kind": "lesson-fact",
+   "stage": ["question"],
+   "text": {
+    "en": "The Qur'an says it was sent down as an Arabic Qur'an so that people might understand, and that Allah made it easy for remembrance. Many who do not speak Arabic have memorised it."
+   },
+   "ageBand": ["all"],
+   "tags": ["academy", "lesson", "quran", "arabic"],
+   "triggers": ["why is quran in arabic", "arabic quran", "memorise without arabic"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/und.json#und.u1.l3"},
+    {"type": "quran", "ref": "12:2", "section": "Qur'an text"},
+    {"type": "quran", "ref": "54:17", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/und.json", "id": "und.u1.l3"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "academy_lessons.lesson-fact.004",
+   "kind": "lesson-fact",
+   "stage": ["question"],
+   "text": {
+    "en": "A translation is a bridge, not the Qur'an itself. A word like muttaqeen has been rendered in several ways and each catches only part of it. The Qur'an asks people to reflect on its verses."
+   },
+   "ageBand": ["all"],
+   "tags": ["academy", "lesson", "quran", "translation"],
+   "triggers": ["is translation the quran", "reading quran in english", "translation of quran"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/und.json#und.u2.l1"},
+    {"type": "quran", "ref": "38:29", "section": "Qur'an text"},
+    {"type": "quran", "ref": "47:24", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/und.json", "id": "und.u2.l1"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "academy_lessons.lesson-fact.005",
+   "kind": "lesson-fact",
+   "stage": ["question"],
+   "text": {
+    "en": "Tartil is reciting slowly and clearly, giving each letter its due. Anas said the Prophet used to prolong the sounds. The one who struggles to recite and finds it hard has two rewards, so keep going slowly."
+   },
+   "ageBand": ["all"],
+   "tags": ["academy", "lesson", "quran", "tajweed"],
+   "triggers": ["tartil", "how to recite quran", "struggling to recite", "quran recitation hard"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/und.json#und.u2.l2"},
+    {"type": "quran", "ref": "73:4", "section": "Qur'an text"},
+    {"type": "hadith", "ref": "bukhari:5045", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "hadith", "ref": "muslim:798", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/und.json", "id": "und.u2.l2"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "academy_lessons.lesson-fact.006",
+   "kind": "lesson-fact",
+   "stage": ["question"],
+   "text": {
+    "en": "Small and steady beats large and rare. The Prophet said the most beloved deed to Allah is the most regular and constant, even if it is little. Set a daily portion of the Qur'an you can keep."
+   },
+   "ageBand": ["all"],
+   "tags": ["academy", "lesson", "quran", "routine"],
+   "triggers": ["daily quran portion", "how much quran per day", "finish quran quickly", "consistency"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/und.json#und.u3.l1"},
+    {"type": "hadith", "ref": "bukhari:6464", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "quran", "ref": "17:106", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/und.json", "id": "und.u3.l1"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "academy_lessons.lesson-fact.007",
+   "kind": "lesson-fact",
+   "stage": ["question"],
+   "text": {
+    "en": "The Qur'an calls itself a healing and a mercy for the believers, and the Prophet said Allah created no disease without creating its treatment. Use both: recite, and see a doctor."
+   },
+   "ageBand": ["all"],
+   "tags": ["academy", "lesson", "quran", "healing"],
+   "triggers": ["quran healing", "ruqyah and doctor", "is quran a cure"],
+   "doNotSay": ["Never imply recitation replaces medical care."],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/und.json#und.u3.l2"},
+    {"type": "quran", "ref": "17:82", "section": "Qur'an text"},
+    {"type": "quran", "ref": "10:57", "section": "Qur'an text"},
+    {"type": "hadith", "ref": "bukhari:5678", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/und.json", "id": "und.u3.l2"}],
+   "evidenceLevel": "D",
+   "risk": "medium",
+   "needsScholarReview": true,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "academy_lessons.lesson-fact.008",
+   "kind": "lesson-fact",
+   "stage": ["question"],
+   "text": {
+    "en": "The Prophet said to recite the Qur'an, for it will come as an intercessor on the Day of Resurrection for those who recite it. Abandoning it includes not listening, not pondering and not acting on it, as Ibn Kathir lists."
+   },
+   "ageBand": ["all"],
+   "tags": ["academy", "lesson", "quran"],
+   "triggers": ["abandoned quran", "quran intercede", "neglect of quran"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/und.json#und.u3.l3"},
+    {"type": "hadith", "ref": "muslim:804", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/und.json", "id": "und.u3.l3"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "academy_lessons.lesson-fact.009",
+   "kind": "lesson-fact",
+   "stage": ["question"],
+   "text": {
+    "en": "Surah Ar-Rahman opens by naming Allah the Most Merciful, then lists what His mercy did: He taught the Qur'an, created man and taught him clear speech. Surah Al-Ikhlas describes Him in four short verses."
+   },
+   "ageBand": ["all"],
+   "tags": ["academy", "lesson", "allah", "mercy"],
+   "triggers": ["how does quran introduce allah", "mercy first", "surah rahman"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/aqid.json#aqid.u1.l1"},
+    {"type": "quran", "ref": "55:1-4", "section": "Qur'an text"},
+    {"type": "quran", "ref": "112:1-4", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/aqid.json", "id": "aqid.u1.l1"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "academy_lessons.lesson-fact.010",
+   "kind": "lesson-fact",
+   "stage": ["question"],
+   "text": {
+    "en": "Ayat al-Kursi is the greatest verse in the Qur'an, as the Prophet told Ubayy ibn Ka'b. It says Allah is Ever-Living and Sustaining, that neither drowsiness nor sleep overtakes Him, and that nobody can intercede except by His leave."
+   },
+   "ageBand": ["all"],
+   "tags": ["academy", "lesson", "allah", "dhikr"],
+   "triggers": ["ayat al kursi", "greatest verse", "ayatul kursi meaning"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/aqid.json#aqid.u1.l2"},
+    {"type": "quran", "ref": "2:255", "section": "Qur'an text"},
+    {"type": "hadith", "ref": "muslim:810", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/aqid.json", "id": "aqid.u1.l2"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "academy_lessons.lesson-fact.011",
+   "kind": "lesson-fact",
+   "stage": ["question"],
+   "text": {
+    "en": "The basmala names mercy twice, Ar-Rahman and Ar-Raheem. Ibn Kathir says Ar-Rahman covers every kind of mercy Allah has, while Ar-Raheem is the mercy that reaches the believers. The Prophet said Allah made mercy in one hundred parts and sent one part down to earth."
+   },
+   "ageBand": ["all"],
+   "tags": ["academy", "lesson", "allah", "mercy"],
+   "triggers": ["rahman and raheem difference", "meaning of bismillah", "mercy of allah"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/aqid.json#aqid.u1.l3"},
+    {"type": "quran", "ref": "1:1", "section": "Qur'an text"},
+    {"type": "quran", "ref": "33:43", "section": "Qur'an text"},
+    {"type": "hadith", "ref": "bukhari:6000", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "hadith", "ref": "muslim:2752", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/aqid.json", "id": "aqid.u1.l3"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "academy_lessons.lesson-fact.012",
+   "kind": "lesson-fact",
+   "stage": ["question"],
+   "text": {
+    "en": "The names of Allah are not different gods. The Qur'an says to call on Allah or call on Ar-Rahman, for the best names belong to Him. Scholars explain counting the names as counting, memorising, understanding and acting on them."
+   },
+   "ageBand": ["all"],
+   "tags": ["academy", "lesson", "allah", "names"],
+   "triggers": ["99 names", "names of allah meaning", "learn the names"],
+   "doNotSay": ["Do not quote the ninety-nine-names hadith as authentic; its graders call the Tirmidhi version weak."],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/aqid.json#aqid.u1.l4"},
+    {"type": "quran", "ref": "17:110", "section": "Qur'an text"},
+    {"type": "quran", "ref": "20:8", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/aqid.json", "id": "aqid.u1.l4"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "academy_lessons.lesson-fact.013",
+   "kind": "lesson-fact",
+   "stage": ["question"],
+   "text": {
+    "en": "The Qur'an names some prophets and says there are others it has not told us about. A Muslim believes in all of them without difference, and believes Muhammad is the seal of the prophets."
+   },
+   "ageBand": ["all"],
+   "tags": ["academy", "lesson", "prophets"],
+   "triggers": ["do muslims believe in jesus", "prophets by name", "seal of the prophets"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/aqid.json#aqid.u2.l3"},
+    {"type": "quran", "ref": "2:285", "section": "Qur'an text"},
+    {"type": "quran", "ref": "4:164", "section": "Qur'an text"},
+    {"type": "quran", "ref": "33:40", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/aqid.json", "id": "aqid.u2.l3"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "academy_lessons.lesson-fact.014",
+   "kind": "lesson-fact",
+   "stage": ["question"],
+   "text": {
+    "en": "Allah is with us in three ways, say scholars: by knowledge and sight with everyone, by help and support with the believers, and by answering those who call. The Qur'an says He is closer than the jugular vein."
+   },
+   "ageBand": ["all"],
+   "tags": ["academy", "lesson", "allah", "nearness"],
+   "triggers": ["is allah near", "allah is with you", "closer than jugular vein"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/aqid.json#aqid.u3.l1"},
+    {"type": "quran", "ref": "57:4", "section": "Qur'an text"},
+    {"type": "quran", "ref": "20:46", "section": "Qur'an text"},
+    {"type": "quran", "ref": "2:153", "section": "Qur'an text"},
+    {"type": "quran", "ref": "50:16", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/aqid.json", "id": "aqid.u3.l1"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "academy_lessons.lesson-fact.015",
+   "kind": "lesson-fact",
+   "stage": ["question"],
+   "text": {
+    "en": "On the Day of Judgment the scales are just and no soul is wronged, even by an atom's weight. The Prophet said rights will be returned to their owners. This is good news for the person who was treated unjustly."
+   },
+   "ageBand": ["all"],
+   "tags": ["academy", "lesson", "akhira", "justice"],
+   "triggers": ["day of judgment fair", "justice on the last day", "scales"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/aqid.json#aqid.u3.l2"},
+    {"type": "quran", "ref": "21:47", "section": "Qur'an text"},
+    {"type": "quran", "ref": "99:7-8", "section": "Qur'an text"},
+    {"type": "hadith", "ref": "muslim:2582", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "hadith", "ref": "bukhari:2449", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/aqid.json", "id": "aqid.u3.l2"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "academy_lessons.lesson-fact.016",
+   "kind": "lesson-fact",
+   "stage": ["question"],
+   "text": {
+    "en": "Dawah means invitation, not forcing and not winning an argument. The Qur'an tells the Prophet to invite to the way of his Lord with wisdom and good instruction. Anyone can invite: a parent, a classmate or a neighbour."
+   },
+   "ageBand": ["all"],
+   "tags": ["academy", "lesson", "dawah"],
+   "triggers": ["what is dawah", "how to invite to islam", "sharing islam"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/daw.json#daw.u1.l1"},
+    {"type": "quran", "ref": "16:125", "section": "Qur'an text"},
+    {"type": "hadith", "ref": "bukhari:3925", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/daw.json", "id": "daw.u1.l1"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "academy_lessons.lesson-fact.017",
+   "kind": "lesson-fact",
+   "stage": ["question"],
+   "text": {
+    "en": "The Qur'an names three doors: wisdom, which is knowing what to say, how and when, good instruction given with care, and argument only in the best manner. The Prophet gave different answers to different people."
+   },
+   "ageBand": ["all"],
+   "tags": ["academy", "lesson", "dawah"],
+   "triggers": ["how to talk about islam", "wisdom in dawah", "debate islam"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/daw.json#daw.u1.l2"},
+    {"type": "quran", "ref": "16:125", "section": "Qur'an text"},
+    {"type": "hadith", "ref": "bukhari:26", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/daw.json", "id": "daw.u1.l2"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "academy_lessons.lesson-fact.018",
+   "kind": "lesson-fact",
+   "stage": ["question"],
+   "text": {
+    "en": "Repel evil with what is better, and the one who was an enemy may become a close friend. The Prophet had the chance to ask for harm to those who rejected him and chose hope for them instead."
+   },
+   "ageBand": ["all"],
+   "tags": ["academy", "lesson", "dawah", "patience"],
+   "triggers": ["when someone mocks my faith", "respond to insults", "taif"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/daw.json#daw.u1.l3"},
+    {"type": "quran", "ref": "41:34", "section": "Qur'an text"},
+    {"type": "hadith", "ref": "bukhari:3231", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/daw.json", "id": "daw.u1.l3"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "academy_lessons.lesson-fact.019",
+   "kind": "lesson-fact",
+   "stage": ["question"],
+   "text": {
+    "en": "Character is the loudest sermon. Even an opponent, Abu Sufyan, said the Prophet had never been accused of lying before his message. The Qur'an warns against saying what you do not do, which means words and deeds should match."
+   },
+   "ageBand": ["all"],
+   "tags": ["academy", "lesson", "dawah", "character"],
+   "triggers": ["live your islam", "character dawah", "be a good example"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/daw.json#daw.u1.l4"},
+    {"type": "hadith", "ref": "bukhari:7", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "quran", "ref": "61:2-3", "section": "Qur'an text"},
+    {"type": "hadith", "ref": "muslim:2674", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/daw.json", "id": "daw.u1.l4"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "academy_lessons.lesson-fact.020",
+   "kind": "lesson-fact",
+   "stage": ["question"],
+   "text": {
+    "en": "Gentleness does not water down the truth. The Prophet said kindness adds beauty to anything it is in. Gentleness changes how you say the message, not what the message is."
+   },
+   "ageBand": ["all"],
+   "tags": ["academy", "lesson", "dawah", "gentleness"],
+   "triggers": ["how to be gentle dawah", "kind but firm", "gentleness"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/daw.json#daw.u3.l1"},
+    {"type": "hadith", "ref": "muslim:2594", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/daw.json", "id": "daw.u3.l1"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "academy_lessons.lesson-fact.021",
+   "kind": "lesson-fact",
+   "stage": ["question"],
+   "text": {
+    "en": "Speak from knowledge. The Qur'an forbids saying about Allah what you do not know. When you do not know, say so. The Prophet said knowledge leaves when the scholars go and people take ignorant leaders who give rulings without knowledge."
+   },
+   "ageBand": ["all"],
+   "tags": ["academy", "lesson", "dawah", "knowledge"],
+   "triggers": ["i dont know the answer", "speak without knowledge", "fatwa without knowledge"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/daw.json#daw.u3.l2"},
+    {"type": "quran", "ref": "7:33", "section": "Qur'an text"},
+    {"type": "quran", "ref": "17:36", "section": "Qur'an text"},
+    {"type": "hadith", "ref": "bukhari:100", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/daw.json", "id": "daw.u3.l2"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "academy_lessons.lesson-fact.022",
+   "kind": "lesson-fact",
+   "stage": ["question"],
+   "text": {
+    "en": "Deliver the message and leave the result with Allah. The Qur'an tells the Prophet he is only a reminder and not a controller over them, and that he does not guide whom he likes, but Allah guides whom He wills."
+   },
+   "ageBand": ["all"],
+   "tags": ["academy", "lesson", "dawah", "tawakkul"],
+   "triggers": ["they wont accept islam", "guidance is from allah", "my family refuses islam"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/daw.json#daw.u3.l3"},
+    {"type": "quran", "ref": "88:21-22", "section": "Qur'an text"},
+    {"type": "quran", "ref": "16:82", "section": "Qur'an text"},
+    {"type": "quran", "ref": "28:56", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/daw.json", "id": "daw.u3.l3"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}
