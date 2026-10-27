@@ -1,0 +1,1063 @@
+{
+ "schema": 1,
+ "pack": "domestic_abuse",
+ "packKind": "support",
+ "topic": "domestic_abuse",
+ "description": "Abuse by a partner or family member at home: safety first, privacy, options without pressure, faith used for care and never as pressure to stay or to endure.",
+ "audience": "hadi",
+ "ageBands": ["adult"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en", "ar", "ur", "bn"],
+ "snippets": [
+  {
+   "id": "domestic_abuse.orient.001",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "First, is it safe to talk right now? If someone could see this screen, you can close it any time, and nothing here is shown to anyone. I'm an app, not a counsellor."
+   },
+   "ageBand": ["adult"],
+   "tags": ["domestic-abuse", "opening", "privacy", "safety-first"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: violence against women", "url": "https://www.who.int/news-room/fact-sheets/detail/violence-against-women", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "domestic_abuse.orient.002",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "You don't have to explain everything. I can listen, and I can show you people who help in confidence. What would you like to share?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["domestic-abuse", "opening", "honesty"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: violence against women", "url": "https://www.who.int/news-room/fact-sheets/detail/violence-against-women", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "domestic_abuse.orient.003",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "Whatever is happening, it isn't your fault. I'm here to listen without judging. Where would you like to begin?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["domestic-abuse", "opening", "not-your-fault"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: violence against women", "url": "https://www.who.int/news-room/fact-sheets/detail/violence-against-women", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "domestic_abuse.reflect.001",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you are frightened in your own home."
+   },
+   "ageBand": ["adult"],
+   "tags": ["domestic-abuse", "fear"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: violence against women", "url": "https://www.who.int/news-room/fact-sheets/detail/violence-against-women", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "domestic_abuse.reflect.002",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "You've been trying to keep the peace for a long time."
+   },
+   "ageBand": ["adult"],
+   "tags": ["domestic-abuse", "coping"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: violence against women", "url": "https://www.who.int/news-room/fact-sheets/detail/violence-against-women", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "domestic_abuse.reflect.003",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you're doubting yourself because of how you are spoken to."
+   },
+   "ageBand": ["adult"],
+   "tags": ["domestic-abuse", "emotional-abuse"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: violence against women", "url": "https://www.who.int/news-room/fact-sheets/detail/violence-against-women", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "domestic_abuse.reflect.004",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "You love this person, and you are also afraid of them. Both can be true."
+   },
+   "ageBand": ["adult"],
+   "tags": ["domestic-abuse", "ambivalence"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: violence against women", "url": "https://www.who.int/news-room/fact-sheets/detail/violence-against-women", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "domestic_abuse.reflect.005",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you feel alone and watched."
+   },
+   "ageBand": ["adult"],
+   "tags": ["domestic-abuse", "isolation", "control"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: violence against women", "url": "https://www.who.int/news-room/fact-sheets/detail/violence-against-women", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "domestic_abuse.reflect.006",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "You are worried about the children seeing this."
+   },
+   "ageBand": ["adult"],
+   "tags": ["domestic-abuse", "children"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: violence against women", "url": "https://www.who.int/news-room/fact-sheets/detail/violence-against-women", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "domestic_abuse.reflect.007",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "You are tired of making excuses for what happens."
+   },
+   "ageBand": ["adult"],
+   "tags": ["domestic-abuse", "normalising"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: violence against women", "url": "https://www.who.int/news-room/fact-sheets/detail/violence-against-women", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "domestic_abuse.ask.001",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Are you safe right now?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["domestic-abuse", "safety-check"],
+   "triggers": [],
+   "doNotSay": ["One question only; if no, go to the safety card; do not ask for details."],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: violence against women", "url": "https://www.who.int/news-room/fact-sheets/detail/violence-against-women", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "domestic_abuse.ask.002",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Would it help to talk about what has been happening, or about what you could do next?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["domestic-abuse", "choice"],
+   "triggers": [],
+   "doNotSay": ["Two options only; person chooses."],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: violence against women", "url": "https://www.who.int/news-room/fact-sheets/detail/violence-against-women", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "domestic_abuse.ask.003",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Is there someone you trust who could be with you, or whom you could go to if you needed to?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["domestic-abuse", "support", "safety-plan"],
+   "triggers": [],
+   "doNotSay": ["Never push disclosure to family or community leaders; some may side with the person causing harm."],
+   "sources": [
+    {"type": "background", "section": "RES_H1 6", "note": "Safety planning content (a bag, documents, a trusted person, phone safety) is standard domestic-abuse practice; the brief gave no single source; safeguarding and clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "domestic_abuse.ask.004",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Does the person ever try to control where you go, who you see, your phone or your money?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["domestic-abuse", "coercive-control"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: violence against women", "url": "https://www.who.int/news-room/fact-sheets/detail/violence-against-women", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "domestic_abuse.ask.005",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Have there been times when you were afraid for your life, such as being choked or threatened with a weapon?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["domestic-abuse", "high-risk"],
+   "triggers": [],
+   "doNotSay": ["If yes, go to the safety card at once."],
+   "sources": [
+    {"type": "background", "section": "RES_H1 6", "note": "Strangulation, threats to kill and escalation are standard high-risk markers in domestic-abuse practice (no source opened); safeguarding to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "domestic_abuse.ask.006",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What matters most to you right now?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["domestic-abuse", "values", "choice"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: violence against women", "url": "https://www.who.int/news-room/fact-sheets/detail/violence-against-women", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "domestic_abuse.affirm.001",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "Telling someone takes enormous courage."
+   },
+   "ageBand": ["adult"],
+   "tags": ["domestic-abuse", "effort"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: violence against women", "url": "https://www.who.int/news-room/fact-sheets/detail/violence-against-women", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "domestic_abuse.affirm.002",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "You are not overreacting."
+   },
+   "ageBand": ["adult"],
+   "tags": ["domestic-abuse", "validation"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: violence against women", "url": "https://www.who.int/news-room/fact-sheets/detail/violence-against-women", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "domestic_abuse.affirm.003",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "What you are feeling makes sense."
+   },
+   "ageBand": ["adult"],
+   "tags": ["domestic-abuse", "validation"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: violence against women", "url": "https://www.who.int/news-room/fact-sheets/detail/violence-against-women", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "domestic_abuse.explain.001",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Abuse is not only hitting. Insults, threats, controlling money and phone, and forcing sex are abuse too. None of it is deserved."
+   },
+   "ageBand": ["adult"],
+   "tags": ["domestic-abuse", "definition"],
+   "triggers": ["he doesn't hit me", "only shouts", "is this abuse"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: violence against women", "url": "https://www.who.int/news-room/fact-sheets/detail/violence-against-women", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "domestic_abuse.explain.002",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Abuse often gets worse over time, and leaving can be the most dangerous time. That's why planning with a trained advisor matters. You decide what's right for you."
+   },
+   "ageBand": ["adult"],
+   "tags": ["domestic-abuse", "risk", "planning"],
+   "triggers": ["should i leave", "if i leave"],
+   "doNotSay": ["Never tell someone to leave or to stay."],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: violence against women", "url": "https://www.who.int/news-room/fact-sheets/detail/violence-against-women", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"},
+    {"type": "background", "section": "RES_H1 6", "note": "Safety planning content (a bag, documents, a trusted person, phone safety) is standard domestic-abuse practice; the brief gave no single source; safeguarding and clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "medium",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "domestic_abuse.explain.003",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Many people who are abused stay for reasons that make sense: love, fear, children, money, family, faith. Staying isn't a failure and neither is leaving."
+   },
+   "ageBand": ["adult"],
+   "tags": ["domestic-abuse", "staying"],
+   "triggers": ["why do i stay", "why don't i leave"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: violence against women", "url": "https://www.who.int/news-room/fact-sheets/detail/violence-against-women", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "domestic_abuse.explain.004",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Advisors at specialist services can help with safety planning, housing, legal protection and your children. They keep what you say confidential, within the limits they will tell you."
+   },
+   "ageBand": ["adult"],
+   "tags": ["domestic-abuse", "services"],
+   "triggers": ["what can they do", "who can help"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: violence against women", "url": "https://www.who.int/news-room/fact-sheets/detail/violence-against-women", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"},
+    {"type": "institution", "title": "Muslim Women's Network UK helpline", "url": "https://mwnuk.co.uk/mwn-helpline", "section": "RES_H1 4.4", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "domestic_abuse.explain.005",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Abuse harms children even when they are not hit, and they often see and hear more than adults think. Their wellbeing is something advisors can help you plan around."
+   },
+   "ageBand": ["adult"],
+   "tags": ["domestic-abuse", "children"],
+   "triggers": ["children saw", "the kids"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: child maltreatment", "url": "https://www.who.int/news-room/fact-sheets/detail/child-maltreatment", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "domestic_abuse.plan-step.001",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: think of one safe person and one safe place you could go to quickly, if you needed to. You don't have to use them. Shall we think it through?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["domestic-abuse", "safety-plan"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 6", "note": "Safety planning content (a bag, documents, a trusted person, phone safety) is standard domestic-abuse practice; the brief gave no single source; safeguarding and clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "domestic_abuse.plan-step.002",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: if it's safe, keep ID, money and a spare phone charger somewhere you can reach fast, like with a trusted person. A specialist advisor can help you plan the rest."
+   },
+   "ageBand": ["adult"],
+   "tags": ["domestic-abuse", "safety-plan", "documents"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 6", "note": "Safety planning content (a bag, documents, a trusted person, phone safety) is standard domestic-abuse practice; the brief gave no single source; safeguarding and clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "domestic_abuse.plan-step.003",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: call a helpline when you are alone and it's safe, just to ask questions. You don't have to decide anything."
+   },
+   "ageBand": ["adult"],
+   "tags": ["domestic-abuse", "helpline"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: violence against women", "url": "https://www.who.int/news-room/fact-sheets/detail/violence-against-women", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "domestic_abuse.plan-step.004",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: if your phone could be checked, think about whether you can delete this chat or use a friend's phone to call. I can't see your phone, so you know best."
+   },
+   "ageBand": ["adult"],
+   "tags": ["domestic-abuse", "phone-safety"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 6", "note": "Safety planning content (a bag, documents, a trusted person, phone safety) is standard domestic-abuse practice; the brief gave no single source; safeguarding and clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "domestic_abuse.safety.001",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "If you are in danger now, call your emergency number. If it isn't safe to speak, many places let you press a key or stay on the line. Get to a room with a door that locks, or leave if you can do so safely.",
+    "ar": "إذا كنت في خطر الآن فاتصل برقم الطوارئ. وإن لم يكن التحدث آمنًا فكثير من الأماكن تتيح لك الضغط على زر أو البقاء على الخط. اذهب إلى غرفة بابها يُقفل، أو غادر إن استطعت ذلك بأمان.",
+    "ur": "اگر آپ ابھی خطرے میں ہیں تو ایمرجنسی نمبر پر کال کریں۔ اگر بولنا محفوظ نہ ہو تو بہت سی جگہوں پر کوئی بٹن دبانے یا لائن پر رہنے کی سہولت ہوتی ہے۔ ایسے کمرے میں چلے جائیں جس کا دروازہ بند ہو سکے، یا اگر محفوظ طریقے سے ممکن ہو تو وہاں سے نکل جائیں۔",
+    "bn": "আপনি এখন বিপদে থাকলে জরুরি নম্বরে ফোন করুন। কথা বলা নিরাপদ না হলে অনেক জায়গায় একটি বোতাম চাপা বা লাইনে থাকার সুযোগ আছে। যে ঘরের দরজা বন্ধ করা যায় সেখানে যান, কিংবা নিরাপদে পারলে বেরিয়ে যান।"
+   },
+   "ageBand": ["adult"],
+   "tags": ["domestic-abuse", "emergency"],
+   "triggers": ["he is going to kill me", "right now", "locked me in", "in danger now"],
+   "doNotSay": ["Never tell the person to stay and talk it through."],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: violence against women", "url": "https://www.who.int/news-room/fact-sheets/detail/violence-against-women", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": true,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "domestic_abuse.safety.002",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "If someone has choked you, threatened to kill you, or the attacks are getting worse, please get urgent help from a specialist service or the police. These are signs of serious danger."
+   },
+   "ageBand": ["adult"],
+   "tags": ["domestic-abuse", "high-risk", "strangulation"],
+   "triggers": ["choked me", "strangled", "threatened to kill"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 6", "note": "Strangulation, threats to kill and escalation are standard high-risk markers in domestic-abuse practice (no source opened); safeguarding to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "domestic_abuse.safety.003",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "If you are hurt, please get medical care. You can say what happened, or you can say less. A doctor or nurse can help, and many places have staff trained in this."
+   },
+   "ageBand": ["adult"],
+   "tags": ["domestic-abuse", "injury", "medical"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: violence against women", "url": "https://www.who.int/news-room/fact-sheets/detail/violence-against-women", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "domestic_abuse.referral.001",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "A domestic abuse helpline can talk through your options in confidence, any time you are ready. The lines for your country are listed below, and I can show them again.",
+    "ar": "يمكن لخط مساعدة العنف الأسري أن يناقش معك خياراتك بسرية في الوقت الذي يناسبك. خطوط بلدك مدرجة أدناه، ويمكنني عرضها مرة أخرى.",
+    "ur": "گھریلو تشدد کی ہیلپ لائن رازداری کے ساتھ آپ کے اختیارات پر بات کر سکتی ہے، جب بھی آپ تیار ہوں۔ آپ کے ملک کی لائنیں نیچے درج ہیں، اور انہیں دوبارہ دکھایا جا سکتا ہے۔",
+    "bn": "ঘরোয়া নির্যাতন বিষয়ক হেল্পলাইন গোপনীয়তার সঙ্গে আপনার সামনের পথগুলো নিয়ে কথা বলতে পারে, আপনি যখনই প্রস্তুত হবেন। আপনার দেশের লাইনগুলো নিচে দেওয়া আছে, আর আমি আবার দেখাতে পারি।"
+   },
+   "ageBand": ["adult"],
+   "tags": ["domestic-abuse", "helpline"],
+   "triggers": ["helpline", "who can i call"],
+   "doNotSay": ["Join with helplines.json scope domestic abuse; never type a number; flag lines not verified."],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": true,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "domestic_abuse.referral.002",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "Some services are run by and for Muslim women, and understand faith, family and community pressures. The list below shows what exists in your country."
+   },
+   "ageBand": ["adult"],
+   "tags": ["domestic-abuse", "muslim-services"],
+   "triggers": ["muslim women", "islamic"],
+   "doNotSay": ["Only verified services; some Muslim organisations may be affected by community pressure, so offer alongside non-faith services."],
+   "sources": [
+    {"type": "institution", "title": "Muslim Women's Network UK helpline", "url": "https://mwnuk.co.uk/mwn-helpline", "section": "RES_H1 4.4", "retrievedOn": "2026-10-27"},
+    {"type": "institution", "title": "Peaceful Families Project services directory", "url": "https://peacefulfamilies.org/services-directory-search.html", "section": "RES_H1 4.4", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "domestic_abuse.referral.003",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "If you want to speak to a scholar about your situation, it is better to choose one who understands abuse and will put your safety first. A specialist service can often suggest one."
+   },
+   "ageBand": ["adult"],
+   "tags": ["domestic-abuse", "scholar-handoff"],
+   "triggers": ["imam", "scholar", "is it haram to leave"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "institution", "title": "Peaceful Families Project services directory", "url": "https://peacefulfamilies.org/services-directory-search.html", "section": "RES_H1 4.4", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "domestic_abuse.islamic.001",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Islam does not allow anyone to harm another. The Prophet said that Allah has forbidden oppression, and that the best of people are those who are best to their families."
+   },
+   "ageBand": ["adult"],
+   "tags": ["domestic-abuse", "oppression", "family"],
+   "triggers": ["islam allows", "is it my fault"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "muslim:2577", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 5.1"},
+    {"type": "hadith", "ref": "tirmidhi:3895", "grade": "Hasan (Zubair Ali Zai); Sahih (Al-Albani, Ahmad Muhammad Shakir); Hasan Sahih (Bashar Awad Maarouf)", "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus", "section": "RES_H2 5.1"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "domestic_abuse.islamic.002",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet's wife Aisha said he never struck anyone with his hand, neither a servant nor a woman. Violence is not the example he gave."
+   },
+   "ageBand": ["adult"],
+   "tags": ["domestic-abuse", "example"],
+   "triggers": ["he says islam lets him", "a husband can hit"],
+   "doNotSay": ["Never discuss Qur'an 4:34 in the app; scholars differ and the app does not issue a fiqh ruling. Refer to a scholar who understands abuse."],
+   "sources": [
+    {"type": "hadith", "ref": "muslim:2328", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 5.1"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "domestic_abuse.islamic.003",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Qur'an commands living with your spouse in kindness, and forbids holding someone back in order to harm them. Marriage in Islam is meant to be a place of mercy."
+   },
+   "ageBand": ["adult"],
+   "tags": ["domestic-abuse", "marriage", "mercy"],
+   "triggers": ["marriage", "my husband says"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "4:19", "section": "RES_H2 5.1"},
+    {"type": "quran", "ref": "2:231", "section": "RES_H2 5.1"},
+    {"type": "quran", "ref": "30:21", "section": "RES_H2 5.1"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "domestic_abuse.islamic.004",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "When women came to complain about their husbands, the Prophet said such men are not the best of people. Reaching out for help is not disloyal."
+   },
+   "ageBand": ["adult"],
+   "tags": ["domestic-abuse", "complaint", "help-seeking"],
+   "triggers": ["complain", "shame on the family"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "abudawud:2146", "grade": "Sahih", "grader": "al-Albani", "section": "RES_H2 5.1"},
+    {"type": "hadith", "ref": "ibnmajah:1985", "grade": "Sahih", "grader": "Darussalam", "section": "RES_H2 5.1"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "domestic_abuse.islamic.005",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Patience in Islam never means accepting harm. You can ask for help and protect yourself and your children, and still trust Allah. The Prophet said to tie your camel and trust."
+   },
+   "ageBand": ["adult"],
+   "tags": ["domestic-abuse", "sabr", "action"],
+   "triggers": ["be patient", "sabr", "just pray"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "tirmidhi:2517", "grade": "hasan", "grader": "Darussalam", "section": "RES_H2 2.5"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "domestic_abuse.islamic.006",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Scholars differ on questions such as when a wife can seek separation or end the marriage, and the schools give different details. I can't give a ruling, and a scholar who understands abuse can advise you on your situation."
+   },
+   "ageBand": ["adult"],
+   "tags": ["domestic-abuse", "divorce", "fiqh", "scholar-handoff"],
+   "triggers": ["is divorce haram", "can i leave my husband", "khula"],
+   "doNotSay": ["Never say \"you must stay\" or \"you must leave\"."],
+   "sources": [
+    {"type": "fiqh", "title": "Scholars differ on grounds and procedure for khul' and faskh; no source opened for this brief", "level": "institution", "section": "RES_H2 5.2", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "disputed": true,
+   "schoolsNamed": ["hanafi", "maliki", "shafii", "hanbali"],
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "domestic_abuse.family.001",
+   "kind": "family",
+   "stage": ["explore"],
+   "text": {
+    "en": "If you are worried about someone you love, listen without blaming, and tell them you believe them. Let them choose the pace. If they are in danger, a specialist service can advise you on how to help safely."
+   },
+   "ageBand": ["adult"],
+   "tags": ["domestic-abuse", "friend", "family-of"],
+   "triggers": ["my sister", "my friend", "my daughter"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: violence against women", "url": "https://www.who.int/news-room/fact-sheets/detail/violence-against-women", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "domestic_abuse.summary.001",
+   "kind": "summary",
+   "stage": ["close"],
+   "text": {
+    "en": "What I've heard: you are afraid, {topic} is part of it, and you want to know what you can do. The next step is yours, and help is there when you want it."
+   },
+   "ageBand": ["adult"],
+   "slots": ["topic"],
+   "tags": ["domestic-abuse", "summary"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: violence against women", "url": "https://www.who.int/news-room/fact-sheets/detail/violence-against-women", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}

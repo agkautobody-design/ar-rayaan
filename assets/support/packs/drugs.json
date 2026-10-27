@@ -1,0 +1,1158 @@
+{
+ "schema": 1,
+ "pack": "drugs",
+ "packKind": "support",
+ "topic": "drugs",
+ "description": "Drugs: opioids, benzodiazepines and Z-drugs, stimulants, cannabis, GHB, and misuse of prescribed medicines. Listening, orientation and hand-over; never doses, tapers or advice to stop.",
+ "audience": "hadi",
+ "ageBands": ["adult"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en", "ar", "ur", "bn"],
+ "snippets": [
+  {
+   "id": "drugs.orient.001",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "I'm an app, not a doctor or a counsellor. I can listen, help you think things through, and point you to people who can help with drugs or medicines. What would you like to talk about?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "opening", "honesty"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.orient.002",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "You can tell me as much or as little as you like. I won't judge, and I won't tell you what you must do. I can listen and help you find the right human help. Where shall we start?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "opening", "honesty"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.orient.003",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "Is this about a drug, a medicine from a doctor, or a question you have for someone else? Any of those is fine."
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "opening", "door"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.reflect.001",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like this has been taking up more and more of your life."
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "concern"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.reflect.002",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "You want things to feel different, and you're not sure how to get there."
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "ambivalence"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.reflect.003",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like the drug helps with something painful, and it costs you something too."
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "coping", "ambivalence"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.reflect.004",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "You're worried about where this is heading."
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "concern"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.reflect.005",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you've been carrying this secret for a long time."
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "isolation", "secrecy"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.reflect.006",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like the medicine started as help and now feels like something else."
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "prescription"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.reflect.007",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "You're frightened of what might happen if you stop, and also of carrying on."
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "ambivalence", "withdrawal"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.reflect.008",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "Telling me took something. I'm glad you did."
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "effort"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.ask.001",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What's the one thing you'd most like to change about how things are now?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "goal"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.ask.002",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What does using give you, and what does it take from you?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "ambivalence"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.ask.003",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "When did you last feel like things were going the way you wanted?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "strengths", "hope"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.ask.004",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Would it be all right if I asked which medicine or drug this is about? It helps me point you to the right kind of help."
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "substance"],
+   "triggers": [],
+   "doNotSay": ["Do not ask how much or how often in detail; do not collect dose information."],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.ask.005",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Is any of this a medicine a doctor prescribed to you?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "prescription"],
+   "triggers": ["prescribed", "my doctor gave me"],
+   "doNotSay": ["If yes, route to the prescriber card; never advise stopping or changing it."],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "medium",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.ask.006",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Who knows about this, if anyone, and who would you feel safe telling?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "support"],
+   "triggers": [],
+   "doNotSay": ["Never push disclosure to family or community."],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.ask.007",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What would a good week look like for you, even a small one?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "goal", "hope"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.ask.008",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Is there anything about how you feel in your body or mind right now that worries you?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "safety-check"],
+   "triggers": ["feel ill", "feel sick", "shaky"],
+   "doNotSay": ["Any yes about seizures, trouble breathing, confusion or chest pain goes straight to the medical emergency pack."],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "medium",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.affirm.001",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "It isn't easy to talk about this, and you did."
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "effort"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.affirm.002",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "Wanting to understand your options is a real strength."
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "effort"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.affirm.003",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "You're still here and still asking questions. That counts."
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "effort", "hope"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.explain.001",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Medicines like methadone and buprenorphine are recommended by the World Health Organization as treatment for opioid dependence, and they can be life-saving. Some people worry it is swapping one drug for another. A doctor can explain how it works."
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "opioids", "treatment", "mat"],
+   "triggers": ["methadone", "suboxone", "buprenorphine", "subutex", "opioid treatment"],
+   "doNotSay": ["Do not argue; do not describe doses; point to a prescriber. Faith question goes to the scholar card."],
+   "sources": [
+    {"type": "guideline", "title": "WHO update on opioid dependence treatment and overdose prevention, 2 April 2026", "url": "https://www.who.int/news/item/02-04-2026-who-updates-guidelines-on-opioid-dependence-treatment-and-overdose-prevention", "section": "RES_H1 3.3", "retrievedOn": "2026-10-27"},
+    {"type": "guideline", "title": "WHO fact sheet: opioid overdose", "url": "https://www.who.int/news-room/fact-sheets/detail/opioid-overdose", "section": "RES_H1 2.4", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.explain.002",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Your body can become dependent on a medicine, even when you take it exactly as prescribed. That is not a character flaw and it is not the same as addiction. A prescriber can plan a slow, safe way forward."
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "benzodiazepines", "dependence"],
+   "triggers": ["xanax", "valium", "diazepam", "lorazepam", "clonazepam", "sleeping tablets", "zopiclone", "zolpidem", "benzos"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "study", "title": "Horowitz et al. 2026, benzodiazepine dependence and withdrawal, Psychological Medicine", "url": "https://www.cambridge.org/core/product/C172F9ABC3E2E32D7FB133132A4F8012/core-reader", "section": "RES_H1 2.2", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "B",
+   "risk": "high",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.explain.003",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Opioid withdrawal is very uncomfortable, and many people use again to end the discomfort. Treatment with medicine is usually safer than trying to get through it alone. A doctor can talk that through with you."
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "opioids", "withdrawal"],
+   "triggers": ["heroin", "opioid withdrawal", "coming off", "dope sick"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 2.4", "note": "Opioid withdrawal rarely fatal but severe; relapse after withdrawal is the main danger; medicine safer than unsupported withdrawal for most people (standard teaching; clinician to confirm)."},
+    {"type": "guideline", "title": "WHO update on opioid dependence treatment and overdose prevention, 2 April 2026", "url": "https://www.who.int/news/item/02-04-2026-who-updates-guidelines-on-opioid-dependence-treatment-and-overdose-prevention", "section": "RES_H1 3.3", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "C",
+   "risk": "medium",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.explain.004",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "For stimulants such as cocaine or amphetamine, the best-supported help is usually a structured programme with talking therapy and regular support. A drug service can set that up."
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "stimulants", "treatment"],
+   "triggers": ["cocaine", "crack", "meth", "amphetamine", "speed", "captagon", "adderall misuse"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 3.4", "note": "Contingency management and structured psychosocial programmes are the best-supported approach for stimulants (Cochrane titles seen in search only, not read); clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.explain.005",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "If cannabis leaves you feeling very suspicious, or you hear or see things others don't, please see a doctor soon. That is more important than anything else I can say."
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "cannabis", "psychosis"],
+   "triggers": ["weed", "cannabis", "marijuana", "hash", "skunk", "paranoid", "hearing voices"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 8", "note": "Psychosis with cannabis or stimulants is a clinician referral (standard teaching, no source opened); clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.explain.006",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Taking more of a medicine than prescribed, or using someone else's, is more common than people admit. You can ask the prescriber or a pharmacist about it without being judged, and I can help you find the words."
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "prescription", "misuse"],
+   "triggers": ["pills", "painkillers", "tramadol", "codeine", "pregabalin", "lyrica", "gabapentin"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 2.2", "note": "Misuse of prescribed medicines: route to prescriber or pharmacist, do not shame (research brief; clinician to confirm)."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.explain.007",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Many people find that medicine-based treatment, a talking therapy, and a peer group each help in different ways. You can try more than one."
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "treatment", "peer-support"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "NIAAA Core Resource on Alcohol: alcohol use disorder, risk, diagnosis and recovery", "url": "https://www.niaaa.nih.gov/health-professionals-communities/core-resource-on-alcohol/alcohol-use-disorder-risk-diagnosis-recovery", "section": "RES_H1 2.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.explain.008",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Using again after a long break can be especially risky, because your body may no longer cope with the amount it used to. Please talk to a doctor or a drug service before using again."
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "relapse", "tolerance"],
+   "triggers": ["used again", "relapsed", "after rehab", "after prison", "just got out"],
+   "doNotSay": ["Not a how-to. Never mention a quantity, a route or a combination except as a warning."],
+   "sources": [
+    {"type": "background", "section": "RES_H1 2.4", "note": "Mixing opioids with alcohol or benzodiazepines raises overdose risk; tolerance falls after time off (standard harm-reduction teaching, no source opened; WHO notes the post-prison window). Clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.plan-step.001",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: write down, just for yourself, what you'd want a doctor or a service to know. It can be three lines. I can help you shape it."
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "script", "doctor"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.plan-step.002",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: choose one person or service you could contact this week, and one thing you'd say first. Want to do that together?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "support", "script"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.plan-step.003",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: if you're using at the moment, think about who could be with you or check on you. Staying completely alone with it is where things tend to go wrong."
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "safety", "support"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 2.4", "note": "Overdoses are often witnessed (WHO 2013 report); presence of others is protective (standard harm-reduction teaching). Clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "medium",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.safety.001",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "If a doctor prescribed you a sleeping or anxiety tablet, please don't stop it or change it on your own, because stopping suddenly can cause seizures. Talk to the doctor who prescribed it about a slow plan. I can help you prepare what to say."
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "benzodiazepines", "prescription", "withdrawal"],
+   "triggers": ["i'm going to stop my tablets", "stop my xanax", "stop my diazepam", "cold turkey", "stopping my meds"],
+   "doNotSay": ["Never a taper schedule, never a percentage, never \"reduce by\"."],
+   "sources": [
+    {"type": "study", "title": "Horowitz et al. 2026, benzodiazepine dependence and withdrawal, Psychological Medicine", "url": "https://www.cambridge.org/core/product/C172F9ABC3E2E32D7FB133132A4F8012/core-reader", "section": "RES_H1 2.2", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "B",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.safety.002",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "GHB, GBL and 1,4-BD can cause severe, even life-threatening withdrawal within hours of the last use, with confusion, seeing things and seizures. If you use these regularly, please do not stop alone. Get medical help, and if you have any of those signs, call your emergency number now."
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "ghb", "gbl", "withdrawal", "emergency"],
+   "triggers": ["ghb", "gbl", "1,4-bd", "g ", "liquid ecstasy", "chemsex", "g addiction"],
+   "doNotSay": ["Hard stop. No home-detox language."],
+   "sources": [
+    {"type": "guideline", "title": "Austin Health toxicology guideline: GHB withdrawal (July 2023)", "url": "https://austin.org.au/Assets/Files/GHB%20Withdrawal.July%202023[1].pdf", "section": "RES_H1 2.3", "retrievedOn": "2026-10-27"},
+    {"type": "study", "title": "Neu et al. 2023, GHB/GBL withdrawal inpatient series", "url": "https://ascpjournal.BioMedCentral.com/counter/pdf/10.1186/s13722-023-00414-w.pdf", "section": "RES_H1 2.3", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.safety.003",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "If you take opioids, mixing them with alcohol or sleeping tablets makes an overdose much more likely. If someone cannot be woken, or is breathing very slowly or not at all, call your emergency number straight away."
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "opioids", "overdose", "emergency"],
+   "triggers": ["mixing", "drank and took", "took pills with alcohol"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: opioid overdose", "url": "https://www.who.int/news-room/fact-sheets/detail/opioid-overdose", "section": "RES_H1 2.4", "retrievedOn": "2026-10-27"},
+    {"type": "background", "section": "RES_H1 2.4", "note": "Mixing opioids with alcohol or benzodiazepines raises overdose risk; tolerance falls after time off (standard harm-reduction teaching, no source opened; WHO notes the post-prison window). Clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.safety.004",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "If a medicine or a drug has made you feel very unwell, confused, unable to breathe properly, or like you might pass out, call your emergency number now. Don't wait to see if it passes."
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "emergency"],
+   "triggers": ["took too much", "overdosed", "can't breathe", "feel like i will pass out"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: opioid overdose", "url": "https://www.who.int/news-room/fact-sheets/detail/opioid-overdose", "section": "RES_H1 2.4", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.referral.001",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "The doctor who prescribed it is the right person. You could say: \"I'm worried about how I'm taking this and I'd like a plan I can manage safely.\" You don't have to explain more than you want to."
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "prescription", "script", "doctor"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "study", "title": "Horowitz et al. 2026, benzodiazepine dependence and withdrawal, Psychological Medicine", "url": "https://www.cambridge.org/core/product/C172F9ABC3E2E32D7FB133132A4F8012/core-reader", "section": "RES_H1 2.2", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "B",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.referral.002",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "A pharmacist can often talk to you without an appointment and without judgement about medicines and how they affect you. That can be a good first conversation."
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "pharmacist"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 2.2", "note": "Prescription misuse: route to prescriber or pharmacist; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.referral.003",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "There are free, confidential services for people who use drugs and for their families. The help lines for your country are listed below, and I can show them again any time.",
+    "ar": "هناك خدمات مجانية وسرية لمن يتعاطون المخدرات ولأسرهم. خطوط المساعدة في بلدك مدرجة أدناه، ويمكنني عرضها مرة أخرى في أي وقت.",
+    "ur": "نشہ کرنے والوں اور ان کے خاندانوں کے لیے مفت اور رازدارانہ خدمات موجود ہیں۔ آپ کے ملک کی ہیلپ لائنیں نیچے درج ہیں، اور انہیں کسی بھی وقت دوبارہ دکھایا جا سکتا ہے۔",
+    "bn": "যারা মাদক ব্যবহার করেন এবং তাদের পরিবারের জন্য বিনামূল্যে ও গোপনীয় সেবা আছে। আপনার দেশের হেল্পলাইনগুলো নিচে দেওয়া আছে, আর যেকোনো সময় আমি আবার দেখাতে পারি।"
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "helpline"],
+   "triggers": ["helpline", "who can i call", "drug service"],
+   "doNotSay": ["Join with helplines.json scope addiction; never type a number."],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": true,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.referral.004",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "If there is no drug service near you that I can trust, a general doctor or hospital is still a good place to start, and the international directory below lists services in many countries."
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "no-service", "directory"],
+   "triggers": [],
+   "doNotSay": ["Be honest when helplines.json has no verified addiction line for the country."],
+   "sources": [
+    {"type": "background", "section": "RES_H1 7.10", "note": "Where no national substance-use service was found, say so honestly and offer a doctor route and an international directory."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.referral.005",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "In some countries using drugs is against the law, and asking for help can feel risky. A doctor or a faith-based counsellor you trust may be a safer first step than an official service. You decide."
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "legal-risk", "privacy"],
+   "triggers": [],
+   "doNotSay": ["Needs local legal review; do not give legal advice."],
+   "sources": [
+    {"type": "background", "section": "RES_H1 7.7", "note": "Drug use and some behaviours are criminal offences in several Gulf and other states; local legal review needed before pushing users to services."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "medium",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.islamic.001",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Struggling with a drug does not mean your faith is gone. The Qur'an tells people who feel they have gone too far not to despair of Allah's mercy."
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "mercy", "shame"],
+   "triggers": ["allah hates me", "too late", "beyond forgiveness"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "39:53", "section": "RES_H2 2.1"},
+    {"type": "quran", "ref": "4:28", "section": "RES_H2 2.1"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.islamic.002",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet taught that Allah has sent down a cure for every illness, and told people to seek treatment. Getting medical help for this is in keeping with that teaching."
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "treatment", "doctor"],
+   "triggers": ["is treatment allowed", "is it haram to see a doctor"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "ibnmajah:3438", "grade": "Sahih", "grader": "al-Albani", "section": "RES_H2 2.5"},
+    {"type": "hadith", "ref": "tirmidhi:2038", "grade": "Sahih (Ahmad Muhammad Shakir); Sahih (Al-Albani); Hasan Sahih (Bashar Awad Maarouf); Isnaad Sahih (Zubair Ali Zai)", "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus", "section": "RES_H2 2.5"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.islamic.003",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Scholars differ and I can't give a ruling. Some scholars and one national mufti have said medicine such as methadone, given under medical supervision, can be allowed as a case of necessity. If you want a ruling for your situation, a scholar you trust can advise you."
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "mat", "fiqh"],
+   "triggers": ["is methadone haram", "is suboxone halal", "is buprenorphine haram"],
+   "doNotSay": ["No fatwa body ruling (ECFR, IIFA, Dar al-Ifta, Malaysian NFC) was found on methadone or buprenorphine (RES_H2 10.3). Scholar must approve this line. Never say it is \"permitted\"."],
+   "sources": [
+    {"type": "fiqh", "title": "Perak Mufti statement on methadone, reported by Malaysiakini, 19 May 2005", "level": "news", "section": "RES_H2 3.6", "retrievedOn": "2026-10-27"},
+    {"type": "fiqh", "title": "Exeter doctoral thesis on necessity (darura) and the harm reduction programme in Malaysia", "level": "academic", "section": "RES_H2 3.6", "retrievedOn": "2026-10-27"},
+    {"type": "fiqh", "title": "Dar al-Ifta al-Misriyyah fatwa 5983 (1979) on narcotic medicine for treatment", "level": "institution", "section": "RES_H2 3.3", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "disputed": true,
+   "schoolsNamed": ["hanafi", "shafii", "other"],
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.islamic.004",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Please don't stop a prescribed medicine because of a religious worry without speaking to the doctor who prescribed it first. If you want to know what Islam says about your situation, a scholar can help you alongside your doctor."
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "prescription", "fiqh"],
+   "triggers": ["my medication is haram", "should i stop my pills because"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "fiqh", "title": "Dar al-Ifta al-Misriyyah fatwa 5983 and the darura conditions in Azahar et al., KATHA 2024", "level": "institution", "section": "RES_H2 3.5", "retrievedOn": "2026-10-27"},
+    {"type": "background", "section": "RES_H2 13", "note": "Safety line, not a fiqh claim: never stop prescribed or opioid-substitution medicine for religious reasons without the prescriber."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "askPermission": true,
+   "neverParaphrase": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.islamic.005",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Mercy is how the Prophet treated people who kept falling into the same struggle. He told people not to be harsh on a brother who was struggling, and not to help Satan against him."
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "mercy", "shame", "relapse"],
+   "triggers": ["i am a failure", "everyone hates me"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:6781", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 3.2"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.family.001",
+   "kind": "family",
+   "stage": ["explore"],
+   "text": {
+    "en": "If someone you love uses drugs, you didn't cause it and you can't make them stop. You can look after yourself, stay safe, and find support for families. Would you like to hear about those?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "family-of"],
+   "triggers": ["my son uses", "my brother is on", "my husband takes"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "NIAAA: Treatment for alcohol problems, finding and getting help", "url": "https://www.niaaa.nih.gov/publications/brochures-and-fact-sheets/treatment-alcohol-problems-finding-and-getting-help", "section": "RES_H1 3.6", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.family.002",
+   "kind": "family",
+   "stage": ["explore"],
+   "text": {
+    "en": "If you're worried someone has taken too much, don't wait. Call your emergency number, stay with them, and follow what the call-taker tells you."
+   },
+   "ageBand": ["adult"],
+   "tags": ["drugs", "family-of", "emergency"],
+   "triggers": ["my friend took", "he won't wake up", "she is not breathing"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: opioid overdose", "url": "https://www.who.int/news-room/fact-sheets/detail/opioid-overdose", "section": "RES_H1 2.4", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "askPermission": true,
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "drugs.summary.001",
+   "kind": "summary",
+   "stage": ["close"],
+   "text": {
+    "en": "So far: {topic} is on your mind, you'd like things to be safer or different, and we've talked about who could help. The next step is yours."
+   },
+   "ageBand": ["adult"],
+   "slots": ["topic"],
+   "tags": ["drugs", "summary"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}

@@ -1,0 +1,963 @@
+{
+ "schema": 1,
+ "pack": "grief_loss",
+ "packKind": "support",
+ "topic": "grief",
+ "description": "Grief and loss: death of a parent, spouse, child, miscarriage, sudden loss, and other losses. Accompany; never rush, never explain away.",
+ "audience": "hadi",
+ "ageBands": ["adult"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en"],
+ "snippets": [
+  {
+   "id": "grief_loss.orient.001",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "I'm so sorry for your loss. I'm an app, not a counsellor, but I can listen for as long as you like. Who or what have you lost?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["grief", "opening", "honesty"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "grief_loss.orient.002",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "There is no right way to grieve, and no timetable. You can tell me about them, or just how today feels."
+   },
+   "ageBand": ["adult"],
+   "tags": ["grief", "opening"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "grief_loss.orient.003",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "I'm here, and I'm listening. What would you like to say about them?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["grief", "opening"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "grief_loss.reflect.001",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like the loss is still very raw."
+   },
+   "ageBand": ["adult"],
+   "tags": ["grief", "raw"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "grief_loss.reflect.002",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "You miss them so much it hurts."
+   },
+   "ageBand": ["adult"],
+   "tags": ["grief", "longing"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "grief_loss.reflect.003",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you can't believe they're gone."
+   },
+   "ageBand": ["adult"],
+   "tags": ["grief", "shock"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "grief_loss.reflect.004",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "You're replaying the last days and wondering what you could have done."
+   },
+   "ageBand": ["adult"],
+   "tags": ["grief", "guilt", "rumination"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "grief_loss.reflect.005",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like everyone else has moved on and you haven't."
+   },
+   "ageBand": ["adult"],
+   "tags": ["grief", "isolation"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "grief_loss.reflect.006",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "You're angry, and that makes sense."
+   },
+   "ageBand": ["adult"],
+   "tags": ["grief", "anger"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "grief_loss.reflect.007",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like the house feels empty without them."
+   },
+   "ageBand": ["adult"],
+   "tags": ["grief", "absence"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "grief_loss.reflect.008",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "You are doing your best to keep going for the others."
+   },
+   "ageBand": ["adult"],
+   "tags": ["grief", "carrying-on"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "grief_loss.ask.001",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Would you like to tell me about them?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["grief", "story"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "grief_loss.ask.002",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What do you miss most?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["grief", "longing"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "grief_loss.ask.003",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "How are you sleeping and eating?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["grief", "self-care"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "medium",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "grief_loss.ask.004",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Is there someone close who is grieving with you, or are you doing this alone?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["grief", "support"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "grief_loss.ask.005",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Are there moments when you feel you can't go on without them?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["grief", "safety-check"],
+   "triggers": [],
+   "doNotSay": ["If yes or unclear, ask directly about suicide and go to the crisis flow."],
+   "sources": [
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "grief_loss.ask.006",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What would help a little today?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["grief", "goal"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "grief_loss.affirm.001",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "Grief is love with nowhere to go. It's not weakness."
+   },
+   "ageBand": ["adult"],
+   "tags": ["grief", "validation"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "grief_loss.affirm.002",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "You're doing the hard work of missing someone you love."
+   },
+   "ageBand": ["adult"],
+   "tags": ["grief", "validation"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "grief_loss.affirm.003",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "Telling me about them is a way of keeping them close."
+   },
+   "ageBand": ["adult"],
+   "tags": ["grief", "story"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "grief_loss.explain.001",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Grief comes in waves. It can bring sadness, anger, numbness, guilt, even relief. All of that can be normal. It often softens with time and support."
+   },
+   "ageBand": ["adult"],
+   "tags": ["grief", "normal"],
+   "triggers": ["am i normal", "is this normal"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.6", "note": "Grief is a normal response that usually eases with time and support; prolonged or disabling grief should go to a clinician. General teaching; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "grief_loss.explain.002",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Many people replay what they could have done differently. It's part of grief, and it is a sign of how much you cared. It doesn't mean it was your fault."
+   },
+   "ageBand": ["adult"],
+   "tags": ["grief", "guilt"],
+   "triggers": ["if only", "i should have"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.6", "note": "Grief is a normal response that usually eases with time and support; prolonged or disabling grief should go to a clinician. General teaching; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "grief_loss.explain.003",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Losing a baby, even early in pregnancy, is a real loss and deserves real grief. People may not know what to say, and your sadness is still valid."
+   },
+   "ageBand": ["adult"],
+   "tags": ["grief", "miscarriage", "baby"],
+   "triggers": ["miscarriage", "lost the baby", "stillborn"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.6", "note": "Grief is a normal response that usually eases with time and support; prolonged or disabling grief should go to a clinician. General teaching; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "grief_loss.explain.004",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "When a death is sudden or violent, grief can bring shock, flashbacks and trouble sleeping. A doctor or counsellor trained in this can help."
+   },
+   "ageBand": ["adult"],
+   "tags": ["grief", "sudden", "trauma"],
+   "triggers": ["sudden", "accident", "found him", "murdered"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.6", "note": "Grief is a normal response that usually eases with time and support; prolonged or disabling grief should go to a clinician. General teaching; no source opened; clinician to confirm."},
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "C",
+   "risk": "medium",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "grief_loss.explain.005",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Children grieve too, in short bursts and through play and questions. They need simple, honest words and reassurance that they're safe and not to blame."
+   },
+   "ageBand": ["adult"],
+   "tags": ["grief", "children"],
+   "triggers": ["my child is asking", "how do i tell the kids"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: adolescent mental health", "url": "https://www.who.int/news-room/fact-sheets/detail/adolescent-mental-health", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"},
+    {"type": "background", "section": "RES_H1 10.6", "note": "Grief is a normal response that usually eases with time and support; prolonged or disabling grief should go to a clinician. General teaching; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "grief_loss.explain.006",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "If grief is so heavy after many months that you can't work, sleep, or look after yourself, a doctor or counsellor can help. It is not a failure to ask."
+   },
+   "ageBand": ["adult"],
+   "tags": ["grief", "prolonged"],
+   "triggers": ["not getting better", "years later"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.6", "note": "Grief is a normal response that usually eases with time and support; prolonged or disabling grief should go to a clinician. General teaching; no source opened; clinician to confirm."},
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "C",
+   "risk": "medium",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "grief_loss.explain.007",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Anniversaries, Eid and Ramadan can bring grief back. It is normal. You can plan to be with someone, or to do something that honours them."
+   },
+   "ageBand": ["adult"],
+   "tags": ["grief", "anniversary", "eid"],
+   "triggers": ["first eid", "first ramadan", "anniversary"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.6", "note": "Grief is a normal response that usually eases with time and support; prolonged or disabling grief should go to a clinician. General teaching; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "grief_loss.plan-step.001",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: tell one person a memory of them this week. Shall we think of who?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["grief", "story", "support"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "grief_loss.plan-step.002",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: choose a small way to remember them, like making a dua for them, giving to charity in their name or cooking a dish they loved. Which feels right?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["grief", "remembrance"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "grief_loss.plan-step.003",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: eat something, drink water and rest for ten minutes. Grief drains the body too."
+   },
+   "ageBand": ["adult"],
+   "tags": ["grief", "self-care"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.6", "note": "Grief is a normal response that usually eases with time and support; prolonged or disabling grief should go to a clinician. General teaching; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "grief_loss.plan-step.004",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: ask one person to sit with you for an hour. You don't have to talk."
+   },
+   "ageBand": ["adult"],
+   "tags": ["grief", "support"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "grief_loss.safety.001",
+   "kind": "safety",
+   "stage": ["crisis"],
+   "text": {
+    "en": "If grief is making you feel you can't go on, or that you want to join them, please contact your emergency number or a crisis line now. You matter, and there are people who can help tonight."
+   },
+   "ageBand": ["adult"],
+   "tags": ["grief", "suicide", "crisis"],
+   "triggers": ["want to join him", "want to be with her", "cannot go on without", "want to die"],
+   "doNotSay": ["Join with helplines.json scope suicide."],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: suicide", "url": "https://www.who.int/news-room/fact-sheets/detail/suicide", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"},
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "grief_loss.referral.001",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "A bereavement counsellor or a doctor can help if the grief is stuck or overwhelming. You can say: \"I've lost someone and I'm struggling.\""
+   },
+   "ageBand": ["adult"],
+   "tags": ["grief", "counsellor", "script"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.6", "note": "Grief is a normal response that usually eases with time and support; prolonged or disabling grief should go to a clinician. General teaching; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "grief_loss.referral.002",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "Some Muslim bereavement services and chaplains support families after a death. The list below shows what is available in your country."
+   },
+   "ageBand": ["adult"],
+   "tags": ["grief", "muslim-services"],
+   "triggers": [],
+   "doNotSay": ["Only verified services."],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "grief_loss.islamic.001",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet wept when his son Ibrahim was dying, and said the eyes shed tears and the heart grieves. Tears are not a lack of faith."
+   },
+   "ageBand": ["adult"],
+   "tags": ["grief", "tears", "sabr"],
+   "triggers": ["i cry too much", "is crying haram", "am i not patient"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:1303", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 4.6"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "grief_loss.islamic.002",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet taught a supplication to say in times of calamity, asking Allah to reward you in your loss and give you something better. Many people find comfort saying it, and I can show it with the verified text."
+   },
+   "ageBand": ["adult"],
+   "tags": ["grief", "dua", "calamity"],
+   "triggers": ["what should i say", "dua for loss"],
+   "doNotSay": ["Arabic of the dua only from the verified phrase registry; none typed here."],
+   "sources": [
+    {"type": "hadith", "ref": "muslim:918", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 4.6"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "grief_loss.islamic.003",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet taught that no sorrow, sadness or hurt befalls a believer without Allah wiping away some of their sins. Your pain is seen."
+   },
+   "ageBand": ["adult"],
+   "tags": ["grief", "hardship", "mercy"],
+   "triggers": ["why me", "why did allah take"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:5641", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 2.2"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "grief_loss.islamic.004",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Qur'an says Allah does not burden a soul beyond what it can bear, and promises that with hardship comes ease. You are not expected to feel fine."
+   },
+   "ageBand": ["adult"],
+   "tags": ["grief", "ease", "mercy"],
+   "triggers": ["i cannot bear it", "too much"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "2:286", "section": "RES_H2 2.2"},
+    {"type": "quran", "ref": "94:5-6", "section": "RES_H2 2.2"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "grief_loss.islamic.005",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "You can still do things for the one you've lost: dua for them, charity given in their name, and kindness to those they loved. Scholars agree on these, and a scholar can answer questions about other acts."
+   },
+   "ageBand": ["adult"],
+   "tags": ["grief", "dua", "sadaqah", "remembrance"],
+   "triggers": ["what can i do for him", "can i still help her"],
+   "doNotSay": ["Scholar to confirm. Avoid ruling on Qur'an recitation for the dead; scholars differ."],
+   "sources": [
+    {"type": "fiqh", "title": "Dua, sadaqah and kindness to relatives as benefit to the deceased: scholarly consensus is described in general in the brief; no single source opened", "level": "institution", "section": "RES_H2 4.6", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "grief_loss.islamic.006",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Scholars differ about some customs after a death, such as gatherings and recitation, and I can't give a ruling. A scholar you trust can advise you."
+   },
+   "ageBand": ["adult"],
+   "tags": ["grief", "customs", "fiqh", "scholar-handoff"],
+   "triggers": ["40th day", "khatam", "is it bidah", "what is the ruling"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "fiqh", "title": "Scholars differ on mourning customs, gatherings and recitation for the deceased; no source opened for this brief", "level": "institution", "section": "RES_H2 4.6", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "disputed": true,
+   "schoolsNamed": ["hanafi", "maliki", "shafii", "hanbali"],
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "grief_loss.family.001",
+   "kind": "family",
+   "stage": ["explore"],
+   "text": {
+    "en": "If someone you know has lost a loved one, you don't need the perfect words. Be there, listen, say their name, and keep checking in after the first weeks."
+   },
+   "ageBand": ["adult"],
+   "tags": ["grief", "friend", "family-of"],
+   "triggers": ["what should i say to", "my friend lost"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.6", "note": "Grief is a normal response that usually eases with time and support; prolonged or disabling grief should go to a clinician. General teaching; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "grief_loss.summary.001",
+   "kind": "summary",
+   "stage": ["close"],
+   "text": {
+    "en": "What I've heard: you miss them deeply, {topic} is the hardest part, and you want to get through this. You don't have to do it alone."
+   },
+   "ageBand": ["adult"],
+   "slots": ["topic"],
+   "tags": ["grief", "summary"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}

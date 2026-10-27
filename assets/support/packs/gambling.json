@@ -1,0 +1,928 @@
+{
+ "schema": 1,
+ "pack": "gambling",
+ "packKind": "support",
+ "topic": "gambling",
+ "description": "Gambling, betting, gaming loot boxes and trading-as-betting: listening, debt and safety hand-over, faith framing without shame.",
+ "audience": "hadi",
+ "ageBands": ["adult"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en", "ar", "ur", "bn"],
+ "snippets": [
+  {
+   "id": "gambling.orient.001",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "I'm an app, not a counsellor or a money adviser. I can listen, help you think, and point you to people who can help with gambling and with debt. What's going on for you?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["gambling", "opening", "honesty"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "gambling.orient.002",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "This is a private space with no judgement. I can't fix the money side, but I can help you find someone who can. Where would you like to start?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["gambling", "opening", "honesty"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "gambling.orient.003",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "Is this about betting, cards, casino games, an app, or gaming with in-game purchases? Any of them is fine to talk about."
+   },
+   "ageBand": ["adult"],
+   "tags": ["gambling", "opening", "door"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "gambling.reflect.001",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like gambling has taken more than money from you."
+   },
+   "ageBand": ["adult"],
+   "tags": ["gambling", "concern"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "gambling.reflect.002",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "Part of you hopes the next bet will fix it, and part of you knows it might not."
+   },
+   "ageBand": ["adult"],
+   "tags": ["gambling", "ambivalence", "chasing"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "gambling.reflect.003",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you are carrying this and the worry about money all alone."
+   },
+   "ageBand": ["adult"],
+   "tags": ["gambling", "isolation", "debt"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "gambling.reflect.004",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "You're afraid of what happens when people find out."
+   },
+   "ageBand": ["adult"],
+   "tags": ["gambling", "secrecy", "fear"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "gambling.reflect.005",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like the rush and the regret come as a pair."
+   },
+   "ageBand": ["adult"],
+   "tags": ["gambling", "ambivalence"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "gambling.reflect.006",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "You want to protect the people who depend on you."
+   },
+   "ageBand": ["adult"],
+   "tags": ["gambling", "family", "values"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "gambling.ask.001",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What would you most like to be different about gambling?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["gambling", "goal", "change-talk"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "gambling.ask.002",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "When do you feel the pull strongest?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["gambling", "trigger"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "gambling.ask.003",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What has helped on the days you didn't bet?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["gambling", "strengths"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "gambling.ask.004",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Is the money side the most urgent thing right now, or is it how you feel?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["gambling", "priority"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "gambling.ask.005",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Who knows about the money situation, if anyone, and who would you trust with it?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["gambling", "support"],
+   "triggers": [],
+   "doNotSay": ["Never push disclosure."],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "gambling.ask.006",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Has any of this made you feel that life isn't worth it?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["gambling", "safety-check", "suicide"],
+   "triggers": [],
+   "doNotSay": ["If yes, move to the crisis flow; do not carry on with gambling advice."],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: suicide", "url": "https://www.who.int/news-room/fact-sheets/detail/suicide", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"},
+    {"type": "background", "section": "RES_H1 6", "note": "Gambling and debt carry raised suicide risk (brief); ask directly and kindly."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "gambling.affirm.001",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "Talking about money and gambling is hard. Thank you for trusting me with it."
+   },
+   "ageBand": ["adult"],
+   "tags": ["gambling", "effort"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "gambling.affirm.002",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "Wanting to stop chasing losses takes real honesty."
+   },
+   "ageBand": ["adult"],
+   "tags": ["gambling", "effort", "honesty"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "gambling.affirm.003",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "You're looking for a way through, and that matters."
+   },
+   "ageBand": ["adult"],
+   "tags": ["gambling", "effort", "hope"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "gambling.explain.001",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Gambling problems are common, and people do recover. Support usually combines talking help, practical steps with money, and often peers who have been there."
+   },
+   "ageBand": ["adult"],
+   "tags": ["gambling", "hope", "treatment"],
+   "triggers": ["can i stop", "is there hope"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 3.9", "note": "Self-exclusion, spending limits and urge delay are standard gambling-treatment content (no source opened); clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "gambling.explain.002",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Many places let you block yourself from betting sites, apps and venues. This is called self-exclusion, and it takes the decision out of the moment. A helpline can tell you what exists where you live."
+   },
+   "ageBand": ["adult"],
+   "tags": ["gambling", "self-exclusion"],
+   "triggers": ["block betting", "self exclusion", "ban myself"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 3.9", "note": "Self-exclusion, spending limits and urge delay are standard gambling-treatment content (no source opened); clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "gambling.explain.003",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Chasing losses, betting more to win back what you lost, is one of the most common traps. Stopping the chase is hard, and it is a good thing to bring to a counsellor."
+   },
+   "ageBand": ["adult"],
+   "tags": ["gambling", "chasing"],
+   "triggers": ["win it back", "chasing", "one more bet"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 3.9", "note": "Self-exclusion, spending limits and urge delay are standard gambling-treatment content (no source opened); clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "gambling.explain.004",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Free, confidential debt advice exists in many countries, and advisers have seen this before. Contact one before you borrow more, and before you sign anything."
+   },
+   "ageBand": ["adult"],
+   "tags": ["gambling", "debt", "advice"],
+   "triggers": ["loan", "debt", "owe", "borrowed"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 6", "note": "Debt, gambling and self-harm risk: debt advice and a doctor are the routes; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "gambling.explain.005",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Some games and apps use loot boxes and similar tricks that work like betting. If this is about gaming, the same support applies, and you are not silly for finding it hard to stop."
+   },
+   "ageBand": ["13-17", "adult"],
+   "tags": ["gambling", "loot-boxes", "gaming"],
+   "triggers": ["loot box", "fifa packs", "skins", "in-app purchases"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.6", "note": "Loot-box evidence was not researched; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "medium",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "gambling.plan-step.001",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: ask the bank or the betting provider about blocking gambling payments or setting a limit you can't change in the moment. Want help working out what to say?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["gambling", "limits", "script"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 3.9", "note": "Self-exclusion, spending limits and urge delay are standard gambling-treatment content (no source opened); clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "gambling.plan-step.002",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: tell yourself you'll wait fifteen minutes before any bet, and do one other thing in that time, like a walk, wudu or a call. Shall we choose that thing now?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["gambling", "delay", "urge"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 3.9", "note": "Self-exclusion, spending limits and urge delay are standard gambling-treatment content (no source opened); clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "gambling.plan-step.003",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: write down what you owe, to whom, and the dates. You don't have to fix it today, but a clear list helps an adviser help you."
+   },
+   "ageBand": ["adult"],
+   "tags": ["gambling", "debt", "list"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 6", "note": "Debt, gambling and self-harm risk: debt advice and a doctor are the routes; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "gambling.safety.001",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "If you feel you can't go on because of the money or the gambling, you matter more than any debt. Please contact your emergency number or a crisis line now. The lines for your country are listed below."
+   },
+   "ageBand": ["adult"],
+   "tags": ["gambling", "suicide", "crisis"],
+   "triggers": ["kill myself", "end it", "cannot go on", "can't face them"],
+   "doNotSay": ["Join with helplines.json scope suicide; do not minimise."],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: suicide", "url": "https://www.who.int/news-room/fact-sheets/detail/suicide", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"},
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "gambling.safety.002",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "If someone is threatening or frightening you over what you owe, please contact the police or a local advice service. You shouldn't have to handle that on your own."
+   },
+   "ageBand": ["adult"],
+   "tags": ["gambling", "threat", "loan-sharks"],
+   "triggers": ["loan shark", "threatening me", "collectors"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 6", "note": "Debt, gambling and self-harm risk: debt advice and a doctor are the routes; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "gambling.referral.001",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "A gambling helpline can listen, and often offers counselling and a way to block gambling. The lines for your country are listed below, and I can show them again whenever you like.",
+    "ar": "يمكن لخط مساعدة القمار أن يستمع إليك، وغالبًا يقدّم إرشادًا نفسيًا وطريقة لحظر المقامرة. خطوط بلدك مدرجة أدناه، ويمكنني عرضها مرة أخرى متى شئت.",
+    "ur": "جوئے کی ہیلپ لائن آپ کی بات سن سکتی ہے، اور اکثر مشاورت اور جوا بلاک کرنے کا طریقہ بھی فراہم کرتی ہے۔ آپ کے ملک کی لائنیں نیچے درج ہیں، اور جب چاہیں انہیں دوبارہ دکھایا جا سکتا ہے۔",
+    "bn": "জুয়ার হেল্পলাইন আপনার কথা শুনতে পারে, এবং প্রায়ই কাউন্সেলিং ও জুয়া ব্লক করার উপায় দেয়। আপনার দেশের লাইনগুলো নিচে দেওয়া আছে, আর আপনি চাইলে আবার দেখাতে পারি।"
+   },
+   "ageBand": ["adult"],
+   "tags": ["gambling", "helpline"],
+   "triggers": ["helpline", "who can i call"],
+   "doNotSay": ["Join with helplines.json scope addiction or gambling; never type a number."],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": true,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "gambling.referral.002",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "A debt adviser can talk to the people you owe and work out a plan. In many places this is free. You could say: \"I'm in debt because of gambling and I'd like help with a plan.\""
+   },
+   "ageBand": ["adult"],
+   "tags": ["gambling", "debt", "script"],
+   "triggers": ["debt advice"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 6", "note": "Debt, gambling and self-harm risk: debt advice and a doctor are the routes; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "gambling.referral.003",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "A doctor can help if gambling is linked to low mood, worry or sleep. You could say: \"I've been gambling and I'm struggling to stop.\""
+   },
+   "ageBand": ["adult"],
+   "tags": ["gambling", "doctor", "script"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "gambling.islamic.001",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Gambling is not what defines you. The Qur'an says Allah is the one who accepts repentance, and tells people who have gone too far not to despair of His mercy."
+   },
+   "ageBand": ["adult"],
+   "tags": ["gambling", "mercy", "shame"],
+   "triggers": ["allah will not forgive", "i am a gambler"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "39:53", "section": "RES_H2 2.1"},
+    {"type": "quran", "ref": "4:28", "section": "RES_H2 2.1"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "gambling.islamic.002",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Qur'an names gambling together with intoxicants and says their harm is greater than their benefit, and that Satan wants to create enmity and keep people from remembrance of Allah. Many people find this a reason to protect themselves with practical steps, not only guilt."
+   },
+   "ageBand": ["adult"],
+   "tags": ["gambling", "maysir", "meaning"],
+   "triggers": ["is gambling haram", "why is gambling haram"],
+   "doNotSay": ["Do not use as a rebuke; the ruling is not disputed, the tone is the point."],
+   "sources": [
+    {"type": "quran", "ref": "2:219", "section": "RES_H2 3.1"},
+    {"type": "quran", "ref": "5:90-91", "section": "RES_H2 3.1"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "gambling.islamic.003",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Scholars differ on whether money won through gambling can be kept or must be given away. I can't give a ruling. A scholar you trust can help you with that and with any debts you owe."
+   },
+   "ageBand": ["adult"],
+   "tags": ["gambling", "winnings", "debt", "fiqh"],
+   "triggers": ["can i keep the winnings", "haram money", "what do i do with the money"],
+   "doNotSay": ["Never state a ruling on winnings. Scholar to approve."],
+   "sources": [
+    {"type": "fiqh", "title": "Muftionline (South Africa) answer on gambling debts; NZF Knowledge Bank on zakat to debtors", "level": "institution", "section": "RES_H2 4.2", "retrievedOn": "2026-10-27"},
+    {"type": "background", "section": "RES_H2 11", "note": "No fatwa on winnings was opened (RES_H2 gaps); scholars to supply."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "disputed": true,
+   "schoolsNamed": ["hanafi", "maliki", "shafii", "hanbali"],
+   "needsScholarReview": true,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "gambling.islamic.004",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Making a plan and asking for help is part of relying on Allah, not a lack of it. The Prophet said to tie your camel and then trust."
+   },
+   "ageBand": ["adult"],
+   "tags": ["gambling", "tawakkul", "action"],
+   "triggers": ["just trust allah"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "tirmidhi:2517", "grade": "hasan", "grader": "Darussalam", "section": "RES_H2 2.5"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "gambling.islamic.005",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet taught that a person in hardship should be given time to repay. If you are in debt, asking for time, or for help with a plan, is not shameful."
+   },
+   "ageBand": ["adult"],
+   "tags": ["gambling", "debt", "mercy"],
+   "triggers": ["i cannot repay", "cannot pay back"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "muslim:1563", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 4.2"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "gambling.islamic.006",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet taught a supplication asking Allah to suffice you with what is lawful so that you need not turn to what is forbidden. Many people in debt find it comforting."
+   },
+   "ageBand": ["adult"],
+   "tags": ["gambling", "dua", "debt"],
+   "triggers": ["dua for debt"],
+   "doNotSay": ["Arabic of the dua only via the verified phrase registry; none typed here."],
+   "sources": [
+    {"type": "hadith", "ref": "tirmidhi:3563", "grade": "hasan", "grader": "Darussalam", "section": "RES_H2 4.2"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "gambling.family.001",
+   "kind": "family",
+   "stage": ["explore"],
+   "text": {
+    "en": "If someone you love gambles, you did not cause it and you can't control it. You can protect your own money and peace, and find support for families. Would you like to hear about that?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["gambling", "family-of"],
+   "triggers": ["my husband gambles", "my son bets", "my father gambled"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 3.9", "note": "Self-exclusion, spending limits and urge delay are standard gambling-treatment content (no source opened); clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "gambling.summary.001",
+   "kind": "summary",
+   "stage": ["close"],
+   "text": {
+    "en": "So far: {topic} is weighing on you, you'd like the gambling and the money to feel different, and the next step is yours to choose."
+   },
+   "ageBand": ["adult"],
+   "slots": ["topic"],
+   "tags": ["gambling", "summary"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "gambling.summary.002",
+   "kind": "summary",
+   "stage": ["close"],
+   "text": {
+    "en": "What I've heard: you want to stop chasing, you're worried about {topic}, and you're ready to talk to someone. Does that sound right?"
+   },
+   "ageBand": ["adult"],
+   "slots": ["topic"],
+   "tags": ["gambling", "summary"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}

@@ -1,0 +1,914 @@
+{
+ "schema": 1,
+ "pack": "family_of_struggling",
+ "packKind": "support",
+ "topic": "family",
+ "description": "For someone whose family member struggles with alcohol, drugs, gambling, porn, or similar: you did not cause it, you cannot control it, and you can look after yourself.",
+ "audience": "hadi",
+ "ageBands": ["adult"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en"],
+ "snippets": [
+  {
+   "id": "family_of_struggling.orient.001",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "I'm an app, not a counsellor. I can listen and help you think about how to look after yourself while someone you love is struggling. What's going on?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["family-of", "opening", "honesty"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_of_struggling.orient.002",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "Living with someone's addiction or struggle is tiring and lonely. You can talk here without anyone judging you. Where would you like to start?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["family-of", "opening"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_of_struggling.orient.003",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "Is this about a spouse, a child, a parent, a sibling or a friend? Any of them is fine to talk about."
+   },
+   "ageBand": ["adult"],
+   "tags": ["family-of", "opening", "door"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_of_struggling.reflect.001",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you have been worried about them for a long time."
+   },
+   "ageBand": ["adult"],
+   "tags": ["family-of", "worry"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_of_struggling.reflect.002",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "You love them, and you are exhausted."
+   },
+   "ageBand": ["adult"],
+   "tags": ["family-of", "ambivalence", "burnout"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_of_struggling.reflect.003",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you feel responsible for fixing this."
+   },
+   "ageBand": ["adult"],
+   "tags": ["family-of", "responsibility"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_of_struggling.reflect.004",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "You are angry, and you also feel guilty about being angry."
+   },
+   "ageBand": ["adult"],
+   "tags": ["family-of", "anger", "guilt"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_of_struggling.reflect.005",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you have been keeping this secret to protect the family."
+   },
+   "ageBand": ["adult"],
+   "tags": ["family-of", "secrecy", "shame"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_of_struggling.reflect.006",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "You've been carrying the whole household."
+   },
+   "ageBand": ["adult"],
+   "tags": ["family-of", "burden"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_of_struggling.reflect.007",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you don't know what to believe any more."
+   },
+   "ageBand": ["adult"],
+   "tags": ["family-of", "trust"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_of_struggling.ask.001",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What worries you most right now?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["family-of", "concern"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_of_struggling.ask.002",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What have you tried so far, and what has helped even a little?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["family-of", "strengths"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_of_struggling.ask.003",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Who do you have around you who supports you?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["family-of", "support"],
+   "triggers": [],
+   "doNotSay": ["Never push disclosure to wider family or community."],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_of_struggling.ask.004",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Are you and the children safe at home?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["family-of", "safety-check"],
+   "triggers": [],
+   "doNotSay": ["If no, switch to the domestic abuse or child abuse flow."],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "high",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_of_struggling.ask.005",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What would help you most this week?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["family-of", "goal"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_of_struggling.ask.006",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "When did you last do something just for yourself?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["family-of", "self-care"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_of_struggling.affirm.001",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "Asking for help for yourself is not selfish."
+   },
+   "ageBand": ["adult"],
+   "tags": ["family-of", "self-care"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_of_struggling.affirm.002",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "You have been doing a hard job for a long time."
+   },
+   "ageBand": ["adult"],
+   "tags": ["family-of", "effort"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_of_struggling.affirm.003",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "You deserve support too."
+   },
+   "ageBand": ["adult"],
+   "tags": ["family-of", "self-care"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_of_struggling.explain.001",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "You did not cause their struggle, you cannot control it, and you cannot cure it. You can look after yourself and respond to them in a caring way."
+   },
+   "ageBand": ["adult"],
+   "tags": ["family-of", "three-cs"],
+   "triggers": ["is it my fault", "did i cause it"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "NIAAA Core Resource on Alcohol: alcohol use disorder, risk, diagnosis and recovery", "url": "https://www.niaaa.nih.gov/health-professionals-communities/core-resource-on-alcohol/alcohol-use-disorder-risk-diagnosis-recovery", "section": "RES_H1 2.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_of_struggling.explain.002",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Some approaches teach families how to communicate in a way that makes it more likely that a loved one will accept help, and how to stay safe. A counsellor or a family support group can introduce these."
+   },
+   "ageBand": ["adult"],
+   "tags": ["family-of", "craft", "family-support"],
+   "triggers": ["how can i help", "how do i talk to him"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 3.7", "note": "Family-based approaches that help a loved one engage with treatment are described in the brief as general knowledge; clinician to supply a source."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_of_struggling.explain.003",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Shouting, threats or pleading rarely persuade someone in the middle of using. A calm moment, short and kind words, and a clear offer of help tend to work better."
+   },
+   "ageBand": ["adult"],
+   "tags": ["family-of", "communication"],
+   "triggers": ["i shouted", "i begged", "how to talk"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 3.7", "note": "Family-based approaches that help a loved one engage with treatment are described in the brief as general knowledge; clinician to supply a source."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_of_struggling.explain.004",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Paying their debts, making excuses for them or covering up can feel like love and still keep the problem going. A family worker can help you work out what to keep doing and what to stop."
+   },
+   "ageBand": ["adult"],
+   "tags": ["family-of", "enabling"],
+   "triggers": ["i paid his debts", "i lied for him"],
+   "doNotSay": ["Never \"tough love\" or \"cut him off\"."],
+   "sources": [
+    {"type": "background", "section": "RES_H1 3.7", "note": "Family-based approaches that help a loved one engage with treatment are described in the brief as general knowledge; clinician to supply a source."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_of_struggling.explain.005",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Research with Muslim communities describes stigma and fear of what others will think as common reasons families wait before seeking help. You are not alone in this."
+   },
+   "ageBand": ["adult"],
+   "tags": ["family-of", "stigma", "community"],
+   "triggers": ["what will people say", "community", "shame"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "study", "title": "ISPU / Stanford 2026: Substance use, addiction and recovery among American Muslims", "url": "https://ispu.org/research-areas/addiction-recovery/", "section": "RES_H1 4.1", "retrievedOn": "2026-10-27"},
+    {"type": "study", "title": "British South Asian and Muslim communities' perceptions of addiction and treatment services (2024)", "url": "https://researchportal.northumbria.ac.uk/en/publications/british-south-asian-and-muslim-communitys-perceptions-and-experie/", "section": "RES_H1 4.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "B",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_of_struggling.explain.006",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Family support groups and helplines exist for people like you, not only for the person who is struggling. Many people find it a relief to meet others who understand."
+   },
+   "ageBand": ["adult"],
+   "tags": ["family-of", "family-support"],
+   "triggers": ["support group", "who can i talk to"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "NIAAA Core Resource on Alcohol: alcohol use disorder, risk, diagnosis and recovery", "url": "https://www.niaaa.nih.gov/health-professionals-communities/core-resource-on-alcohol/alcohol-use-disorder-risk-diagnosis-recovery", "section": "RES_H1 2.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_of_struggling.plan-step.001",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: choose one thing that is only for you this week, like a walk, a call with a friend or time to pray in peace. Shall we pick it now?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["family-of", "self-care"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_of_struggling.plan-step.002",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: decide on one thing you will no longer do for them, such as lying to others, and one thing you will keep doing, such as offering a meal. A family worker can help you plan it."
+   },
+   "ageBand": ["adult"],
+   "tags": ["family-of", "boundaries"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 3.7", "note": "Family-based approaches that help a loved one engage with treatment are described in the brief as general knowledge; clinician to supply a source."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_of_struggling.plan-step.003",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: look up a family support helpline and write down one question you want to ask. I can show you the lines."
+   },
+   "ageBand": ["adult"],
+   "tags": ["family-of", "helpline"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_of_struggling.safety.001",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "If you are afraid for your safety or your children's safety, please contact your emergency number or a domestic abuse helpline. Your safety comes before trying to help them."
+   },
+   "ageBand": ["adult"],
+   "tags": ["family-of", "safety", "violence"],
+   "triggers": ["he hits me", "violent", "afraid of him"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: violence against women", "url": "https://www.who.int/news-room/fact-sheets/detail/violence-against-women", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_of_struggling.safety.002",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "If they have taken too much, can't be woken, or are breathing very slowly or not at all, call your emergency number now and stay with them."
+   },
+   "ageBand": ["adult"],
+   "tags": ["family-of", "overdose", "emergency"],
+   "triggers": ["not breathing", "won't wake", "overdose"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: opioid overdose", "url": "https://www.who.int/news-room/fact-sheets/detail/opioid-overdose", "section": "RES_H1 2.4", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_of_struggling.safety.003",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "If they say they want to end their life, or you are worried they might, stay with them if you can, and call your emergency number or a crisis line now."
+   },
+   "ageBand": ["adult"],
+   "tags": ["family-of", "suicide", "crisis"],
+   "triggers": ["says he wants to die", "suicidal", "wants to end it"],
+   "doNotSay": ["Join with helplines.json scope suicide."],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: suicide", "url": "https://www.who.int/news-room/fact-sheets/detail/suicide", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"},
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_of_struggling.referral.001",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "A family support helpline can listen to you and tell you what is available near you. The lines for your country are listed below."
+   },
+   "ageBand": ["adult"],
+   "tags": ["family-of", "helpline"],
+   "triggers": ["helpline", "who can i call"],
+   "doNotSay": ["Join with helplines.json scope addiction; never type a number."],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_of_struggling.referral.002",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "Your own doctor can help you with the stress, sleep and worry that come from living with this. You can say: \"I'm finding it hard to cope with a family member's problem.\""
+   },
+   "ageBand": ["adult"],
+   "tags": ["family-of", "doctor", "script"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_of_struggling.islamic.001",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "You are not responsible for whether another person turns back. The Qur'an says the Prophet's duty was to convey, and that guidance is from Allah. You can care for them and let go of the outcome."
+   },
+   "ageBand": ["adult"],
+   "tags": ["family-of", "guidance", "letting-go"],
+   "triggers": ["it is my fault", "i failed him", "what did i do wrong"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "28:56", "section": "RES_H2 2.3"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_of_struggling.islamic.002",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet taught that when someone is struggling, we should not be harsh on them or help Satan against them. Mercy and clear limits can go together."
+   },
+   "ageBand": ["adult"],
+   "tags": ["family-of", "mercy", "boundaries"],
+   "triggers": ["i am so angry at him", "i cannot forgive"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:6781", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 3.2"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_of_struggling.islamic.003",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Looking after yourself is not neglecting them. The Prophet taught that your body has a right over you and your family has a right over you."
+   },
+   "ageBand": ["adult"],
+   "tags": ["family-of", "self-care", "rights"],
+   "triggers": ["i should not rest", "selfish"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:6134", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 2.4"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_of_struggling.islamic.004",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Scholars differ on what a spouse or parent should do when a loved one will not seek help, and I can't give a ruling. A scholar you trust can advise you, ideally alongside a family worker."
+   },
+   "ageBand": ["adult"],
+   "tags": ["family-of", "fiqh", "scholar-handoff"],
+   "triggers": ["should i divorce him", "can i leave", "ruling"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "fiqh", "title": "Scholars differ on family duties and separation in addiction; no source opened for this brief", "level": "institution", "section": "RES_H2 3.6", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "disputed": true,
+   "schoolsNamed": ["hanafi", "maliki", "shafii", "hanbali"],
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_of_struggling.islamic.005",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Keeping a private matter private is not lying. You can ask for help for the family without announcing everything, and choose carefully whom to tell."
+   },
+   "ageBand": ["adult"],
+   "tags": ["family-of", "sitr", "privacy"],
+   "triggers": ["should i tell the imam", "who should i tell"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:6069", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 2.4"},
+    {"type": "fiqh", "title": "Islamweb fatwa 393796 and Darul Ifta Birmingham fatwa 08109", "level": "institution", "section": "RES_H2 2.4", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_of_struggling.family.001",
+   "kind": "family",
+   "stage": ["explore"],
+   "text": {
+    "en": "Children in these homes need to hear that it isn't their fault and that they are loved. A school counsellor or a doctor can help you talk with them."
+   },
+   "ageBand": ["adult"],
+   "tags": ["family-of", "children"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: child maltreatment", "url": "https://www.who.int/news-room/fact-sheets/detail/child-maltreatment", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "family_of_struggling.summary.001",
+   "kind": "summary",
+   "stage": ["close"],
+   "text": {
+    "en": "What I've heard: you love them, {topic} is wearing you down, and you want to look after yourself too. The next step is yours."
+   },
+   "ageBand": ["adult"],
+   "slots": ["topic"],
+   "tags": ["family-of", "summary"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}

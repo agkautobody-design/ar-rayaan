@@ -1,0 +1,839 @@
+{
+ "schema": 1,
+ "pack": "checkin",
+ "packKind": "support",
+ "topic": "checkin",
+ "description": "Gentle check-in lines after about two weeks, or after a gap: three tones, four age bands. No shaming for absence, no streaks, one open question, easy to ignore.",
+ "audience": "both",
+ "ageBands": ["adult", "13-17", "9-12", "5-8"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en", "ar", "ur", "bn"],
+ "snippets": [
+  {
+   "id": "checkin.checkin-adult.001",
+   "kind": "checkin",
+   "stage": ["checkin"],
+   "text": {
+    "en": "It's been a little while. No pressure at all. How have you been?",
+    "ar": "مضى وقت قصير. لا ضغط إطلاقًا. كيف حالك؟",
+    "ur": "کچھ وقت ہو گیا ہے۔ کوئی دباؤ نہیں۔ آپ کا حال کیسا ہے؟",
+    "bn": "কিছুদিন হয়ে গেল। কোনো চাপ নেই। আপনি কেমন ছিলেন?"
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "tags": ["checkin", "adult", "gap"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H3", "note": "Check-in design from the Hadi companion design brief: optional, never pushy, never a streak; no clinical claim."}
+   ],
+   "evidenceLevel": "X",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": true,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "checkin.checkin-adult.002",
+   "kind": "checkin",
+   "stage": ["checkin"],
+   "text": {
+    "en": "Hello again. I was thinking of you. How are things going for you?"
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "tags": ["checkin", "adult", "gap"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H3", "note": "Check-in design from the Hadi companion design brief: optional, never pushy, never a streak; no clinical claim."}
+   ],
+   "evidenceLevel": "X",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "checkin.checkin-adult.003",
+   "kind": "checkin",
+   "stage": ["checkin"],
+   "text": {
+    "en": "It's been about {days_away} days since we spoke. I'm glad to see you. How are you doing?"
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "slots": ["days_away"],
+   "tags": ["checkin", "adult", "gap", "days"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H3", "note": "Check-in design from the Hadi companion design brief: optional, never pushy, never a streak; no clinical claim."}
+   ],
+   "evidenceLevel": "X",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "checkin.checkin-adult.004",
+   "kind": "checkin",
+   "stage": ["checkin"],
+   "text": {
+    "en": "Welcome back. There's no need to explain where you've been. What's on your mind today?",
+    "ar": "أهلًا بعودتك. لا حاجة لتشرح أين كنت. ما الذي يشغل بالك اليوم؟",
+    "ur": "واپسی پر خوش آمدید۔ یہ بتانے کی ضرورت نہیں کہ آپ کہاں تھے۔ آج آپ کے ذہن میں کیا ہے؟",
+    "bn": "ফিরে আসায় স্বাগতম। কোথায় ছিলেন তা ব্যাখ্যা করার দরকার নেই। আজ আপনার মনে কী আছে?"
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "tags": ["checkin", "adult", "gap", "no-shame"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H3", "note": "Check-in design from the Hadi companion design brief: optional, never pushy, never a streak; no clinical claim."}
+   ],
+   "evidenceLevel": "X",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": true,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "checkin.checkin-adult.005",
+   "kind": "checkin",
+   "stage": ["checkin"],
+   "text": {
+    "en": "Good to see you. If today has been a hard one, we can start there. How are you?"
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "tags": ["checkin", "adult", "gap"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H3", "note": "Check-in design from the Hadi companion design brief: optional, never pushy, never a streak; no clinical claim."}
+   ],
+   "evidenceLevel": "X",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "checkin.checkin-adult.006",
+   "kind": "checkin",
+   "stage": ["checkin"],
+   "text": {
+    "en": "I hope the last couple of weeks have been kind to you. How have they been?"
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "tags": ["checkin", "adult", "gap"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H3", "note": "Check-in design from the Hadi companion design brief: optional, never pushy, never a streak; no clinical claim."}
+   ],
+   "evidenceLevel": "X",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "checkin.checkin-adult.007",
+   "kind": "checkin",
+   "stage": ["checkin"],
+   "text": {
+    "en": "Checking in. How are you doing?",
+    "ar": "أطمئن عليك. كيف حالك؟",
+    "ur": "خیریت دریافت کرنے آئے ہیں۔ آپ کا حال کیسا ہے؟",
+    "bn": "খোঁজ নিচ্ছি। কেমন আছেন?"
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "tags": ["checkin", "adult", "gap"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H3", "note": "Check-in design from the Hadi companion design brief: optional, never pushy, never a streak; no clinical claim."}
+   ],
+   "evidenceLevel": "X",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": true,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "checkin.checkin-adult.008",
+   "kind": "checkin",
+   "stage": ["checkin"],
+   "text": {
+    "en": "It's been a while. How have things been?",
+    "ar": "مضى وقت. كيف كانت الأمور؟",
+    "ur": "کافی وقت ہو گیا۔ حالات کیسے رہے؟",
+    "bn": "অনেকদিন হয়ে গেল। কেমন কাটল?"
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "tags": ["checkin", "adult", "gap"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H3", "note": "Check-in design from the Hadi companion design brief: optional, never pushy, never a streak; no clinical claim."}
+   ],
+   "evidenceLevel": "X",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": true,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "checkin.checkin-adult.009",
+   "kind": "checkin",
+   "stage": ["checkin"],
+   "text": {
+    "en": "Hello. How's it going?"
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "tags": ["checkin", "adult", "gap"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H3", "note": "Check-in design from the Hadi companion design brief: optional, never pushy, never a streak; no clinical claim."}
+   ],
+   "evidenceLevel": "X",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "checkin.checkin-adult.010",
+   "kind": "checkin",
+   "stage": ["checkin"],
+   "text": {
+    "en": "A quick hello. How are you today?"
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "tags": ["checkin", "adult", "gap"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H3", "note": "Check-in design from the Hadi companion design brief: optional, never pushy, never a streak; no clinical claim."}
+   ],
+   "evidenceLevel": "X",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "checkin.checkin-adult.011",
+   "kind": "checkin",
+   "stage": ["checkin"],
+   "text": {
+    "en": "Welcome back. How are you?"
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "tags": ["checkin", "adult", "gap"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H3", "note": "Check-in design from the Hadi companion design brief: optional, never pushy, never a streak; no clinical claim."}
+   ],
+   "evidenceLevel": "X",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "checkin.checkin-adult.012",
+   "kind": "checkin",
+   "stage": ["checkin"],
+   "text": {
+    "en": "Thinking of you. How are things?"
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "tags": ["checkin", "adult", "gap"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H3", "note": "Check-in design from the Hadi companion design brief: optional, never pushy, never a streak; no clinical claim."}
+   ],
+   "evidenceLevel": "X",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "checkin.checkin-adult.013",
+   "kind": "checkin",
+   "stage": ["checkin"],
+   "text": {
+    "en": "Peace be with you. I wanted to check in after some time. How have you been?"
+   },
+   "ageBand": ["adult"],
+   "tone": "formal",
+   "tags": ["checkin", "adult", "gap", "salam"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H3", "note": "Check-in design from the Hadi companion design brief: optional, never pushy, never a streak; no clinical claim."}
+   ],
+   "evidenceLevel": "X",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "checkin.checkin-adult.014",
+   "kind": "checkin",
+   "stage": ["checkin"],
+   "text": {
+    "en": "Good day. It has been {days_away} days since we last spoke. How are you keeping?"
+   },
+   "ageBand": ["adult"],
+   "tone": "formal",
+   "slots": ["days_away"],
+   "tags": ["checkin", "adult", "gap", "days"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H3", "note": "Check-in design from the Hadi companion design brief: optional, never pushy, never a streak; no clinical claim."}
+   ],
+   "evidenceLevel": "X",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "checkin.checkin-adult.015",
+   "kind": "checkin",
+   "stage": ["checkin"],
+   "text": {
+    "en": "Welcome back. I hope you are well. Is there anything you would like to talk about today?"
+   },
+   "ageBand": ["adult"],
+   "tone": "formal",
+   "tags": ["checkin", "adult", "gap"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H3", "note": "Check-in design from the Hadi companion design brief: optional, never pushy, never a streak; no clinical claim."}
+   ],
+   "evidenceLevel": "X",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "checkin.checkin-adult.016",
+   "kind": "checkin",
+   "stage": ["checkin"],
+   "text": {
+    "en": "I am glad you are here. How have things been since we last spoke?",
+    "ar": "يسعدني وجودك هنا. كيف كانت الأمور منذ آخر مرة تحدثنا فيها؟",
+    "ur": "مجھے خوشی ہے کہ آپ یہاں ہیں۔ پچھلی بات کے بعد سے حالات کیسے رہے؟",
+    "bn": "আপনি এখানে আছেন বলে ভালো লাগছে। শেষবার কথা হওয়ার পর থেকে কেমন কাটল?"
+   },
+   "ageBand": ["adult"],
+   "tone": "formal",
+   "tags": ["checkin", "adult", "gap"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H3", "note": "Check-in design from the Hadi companion design brief: optional, never pushy, never a streak; no clinical claim."}
+   ],
+   "evidenceLevel": "X",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": true,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "checkin.checkin-adult.017",
+   "kind": "checkin",
+   "stage": ["checkin"],
+   "text": {
+    "en": "It is good to hear from you again. How have you been?"
+   },
+   "ageBand": ["adult"],
+   "tone": "formal",
+   "tags": ["checkin", "adult", "gap"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H3", "note": "Check-in design from the Hadi companion design brief: optional, never pushy, never a streak; no clinical claim."}
+   ],
+   "evidenceLevel": "X",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "checkin.checkin-adult.018",
+   "kind": "checkin",
+   "stage": ["checkin"],
+   "text": {
+    "en": "Greetings. I hope this finds you well. What would you like to talk about?"
+   },
+   "ageBand": ["adult"],
+   "tone": "formal",
+   "tags": ["checkin", "adult", "gap"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H3", "note": "Check-in design from the Hadi companion design brief: optional, never pushy, never a streak; no clinical claim."}
+   ],
+   "evidenceLevel": "X",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "checkin.checkin-13-17.001",
+   "kind": "checkin",
+   "stage": ["checkin"],
+   "text": {
+    "en": "Hey. It's been a bit. How have things been going?"
+   },
+   "ageBand": ["13-17"],
+   "tone": "warm",
+   "tags": ["checkin", "13-17", "gap"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H3", "note": "Check-in design from the Hadi companion design brief: optional, never pushy, never a streak; no clinical claim."}
+   ],
+   "evidenceLevel": "X",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "checkin.checkin-13-17.002",
+   "kind": "checkin",
+   "stage": ["checkin"],
+   "text": {
+    "en": "Good to see you again. No need to explain anything. How are you doing?"
+   },
+   "ageBand": ["13-17"],
+   "tone": "warm",
+   "tags": ["checkin", "13-17", "gap", "no-shame"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H3", "note": "Check-in design from the Hadi companion design brief: optional, never pushy, never a streak; no clinical claim."}
+   ],
+   "evidenceLevel": "X",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "checkin.checkin-13-17.003",
+   "kind": "checkin",
+   "stage": ["checkin"],
+   "text": {
+    "en": "Hi. Just checking in. How's it going?"
+   },
+   "ageBand": ["13-17"],
+   "tone": "brief",
+   "tags": ["checkin", "13-17", "gap"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H3", "note": "Check-in design from the Hadi companion design brief: optional, never pushy, never a streak; no clinical claim."}
+   ],
+   "evidenceLevel": "X",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "checkin.checkin-13-17.004",
+   "kind": "checkin",
+   "stage": ["checkin"],
+   "text": {
+    "en": "Welcome back. How are you today?"
+   },
+   "ageBand": ["13-17"],
+   "tone": "brief",
+   "tags": ["checkin", "13-17", "gap"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H3", "note": "Check-in design from the Hadi companion design brief: optional, never pushy, never a streak; no clinical claim."}
+   ],
+   "evidenceLevel": "X",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "checkin.checkin-13-17.005",
+   "kind": "checkin",
+   "stage": ["checkin"],
+   "text": {
+    "en": "Hello. I hope you've been well. How have you been?"
+   },
+   "ageBand": ["13-17"],
+   "tone": "formal",
+   "tags": ["checkin", "13-17", "gap"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H3", "note": "Check-in design from the Hadi companion design brief: optional, never pushy, never a streak; no clinical claim."}
+   ],
+   "evidenceLevel": "X",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "checkin.checkin-13-17.006",
+   "kind": "checkin",
+   "stage": ["checkin"],
+   "text": {
+    "en": "Welcome back. Is there anything you'd like to talk about?"
+   },
+   "ageBand": ["13-17"],
+   "tone": "formal",
+   "tags": ["checkin", "13-17", "gap"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H3", "note": "Check-in design from the Hadi companion design brief: optional, never pushy, never a streak; no clinical claim."}
+   ],
+   "evidenceLevel": "X",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "checkin.checkin-9-12.001",
+   "kind": "checkin",
+   "stage": ["checkin"],
+   "text": {
+    "en": "Hi! Good to see you again. How have you been?"
+   },
+   "ageBand": ["9-12"],
+   "tone": "warm",
+   "tags": ["checkin", "9-12", "gap"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H3", "note": "Check-in design from the Hadi companion design brief: optional, never pushy, never a streak; no clinical claim."}
+   ],
+   "evidenceLevel": "X",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "checkin.checkin-9-12.002",
+   "kind": "checkin",
+   "stage": ["checkin"],
+   "text": {
+    "en": "I'm happy you're back. What's been going on?"
+   },
+   "ageBand": ["9-12"],
+   "tone": "warm",
+   "tags": ["checkin", "9-12", "gap"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H3", "note": "Check-in design from the Hadi companion design brief: optional, never pushy, never a streak; no clinical claim."}
+   ],
+   "evidenceLevel": "X",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "checkin.checkin-9-12.003",
+   "kind": "checkin",
+   "stage": ["checkin"],
+   "text": {
+    "en": "Hello! How are you today?"
+   },
+   "ageBand": ["9-12"],
+   "tone": "brief",
+   "tags": ["checkin", "9-12", "gap"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H3", "note": "Check-in design from the Hadi companion design brief: optional, never pushy, never a streak; no clinical claim."}
+   ],
+   "evidenceLevel": "X",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "checkin.checkin-9-12.004",
+   "kind": "checkin",
+   "stage": ["checkin"],
+   "text": {
+    "en": "Hi again. How's your week been?"
+   },
+   "ageBand": ["9-12"],
+   "tone": "brief",
+   "tags": ["checkin", "9-12", "gap"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H3", "note": "Check-in design from the Hadi companion design brief: optional, never pushy, never a streak; no clinical claim."}
+   ],
+   "evidenceLevel": "X",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "checkin.checkin-9-12.005",
+   "kind": "checkin",
+   "stage": ["checkin"],
+   "text": {
+    "en": "Hello. I hope you are well. How are you?"
+   },
+   "ageBand": ["9-12"],
+   "tone": "formal",
+   "tags": ["checkin", "9-12", "gap"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H3", "note": "Check-in design from the Hadi companion design brief: optional, never pushy, never a streak; no clinical claim."}
+   ],
+   "evidenceLevel": "X",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "checkin.checkin-9-12.006",
+   "kind": "checkin",
+   "stage": ["checkin"],
+   "text": {
+    "en": "Welcome back. What would you like to do today?"
+   },
+   "ageBand": ["9-12"],
+   "tone": "formal",
+   "tags": ["checkin", "9-12", "gap"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H3", "note": "Check-in design from the Hadi companion design brief: optional, never pushy, never a streak; no clinical claim."}
+   ],
+   "evidenceLevel": "X",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "checkin.checkin-5-8.001",
+   "kind": "checkin",
+   "stage": ["checkin"],
+   "text": {
+    "en": "Hello! I'm happy to see you. How are you?"
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "tags": ["checkin", "5-8", "gap"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H3", "note": "Check-in design from the Hadi companion design brief: optional, never pushy, never a streak; no clinical claim."}
+   ],
+   "evidenceLevel": "X",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "checkin.checkin-5-8.002",
+   "kind": "checkin",
+   "stage": ["checkin"],
+   "text": {
+    "en": "Hi! What did you do today?"
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "tags": ["checkin", "5-8", "gap"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H3", "note": "Check-in design from the Hadi companion design brief: optional, never pushy, never a streak; no clinical claim."}
+   ],
+   "evidenceLevel": "X",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "checkin.checkin-5-8.003",
+   "kind": "checkin",
+   "stage": ["checkin"],
+   "text": {
+    "en": "Hello. Welcome back. How are you?"
+   },
+   "ageBand": ["5-8"],
+   "tone": "formal",
+   "tags": ["checkin", "5-8", "gap"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H3", "note": "Check-in design from the Hadi companion design brief: optional, never pushy, never a streak; no clinical claim."}
+   ],
+   "evidenceLevel": "X",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}
