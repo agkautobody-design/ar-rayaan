@@ -76,6 +76,13 @@
   "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
   "verdict": "ok"
  },
+ "abudawud:499": {
+  "checked": "2026-10-27",
+  "grade": "Hasan Sahih",
+  "grader": "Al-Albani",
+  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
+  "verdict": "ok"
+ },
  "abudawud:83": {
   "checked": "2026-10-27",
   "grade": "Sahih",
@@ -329,6 +336,13 @@
   "verdict": "ok"
  },
  "muslim:1934": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Muslim (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
+  "verdict": "ok"
+ },
+ "muslim:1967": {
   "checked": "2026-10-27",
   "grade": "Sahih",
   "grader": "Sahih al-Muslim (compiler's criteria; sunnah.com shows no separate grade)",
