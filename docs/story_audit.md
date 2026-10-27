@@ -47,10 +47,10 @@ Chapters audited: 278, in 200 stories.
 | tales | tale-cave | 1 | M | Bukhari 2215 re-read 2026-10-20: the second man left a cousin who had asked 100 dinars (she said fear Allah, no orphans); the third hired ONE worker whose millet became cattle and a shepherd; the rock moved a bit, then two thirds, then fully. Body rewritten to the report. |
 | tales | tale-99 | 1 | M | Bukhari 3470 supports the story; the closing claim that the scholar was later killed by the same man is not in it (the man killed the one who said there was no repentance, before he found the scholar). Removed; "counted among the people of paradise" softened to "forgiven". |
 | tales | tale-dog | 1 | C | Bukhari 3467 supports the narrative; the "theology" paragraph is commentary. No change. |
-| tales | tale-barsisa | 1 | U | Already stated in the text and the sources as not from the Qur’an or an authentic hadith, neither believe nor disbelieve. Left as Interpretive; no source to check. |
+| tales | tale-barsisa | 1 | U | 2026-10-27: the monk tale could not be verified (not in Ibn Kathir's tafsir of 59:16 as bundled in the tafsir corpus) and is no longer retold. Chapter now gives Qur'an 59:16-17 and 14:22 and says the tale is not retold. Labelled Interpretive. |
 | tales | tale-boy-king | 1 | M | Muslim 3005 re-read 2026-10-20 and the number added. The hadith has the mountain shaking, then a boat capsizing (not beasts at his feet), and it does not say Surah al-Buruj was revealed about it; both corrected. |
 | tales | tale-yasin | 1 | Q | Qur’an 36:20-27. The line that the city "answered by killing him" is not stated in the verses; reworded to what they say. |
-| tales | tale-umar-milk | 1 | U | Night-walk episode attributed to Ibn al-Jawzi and "the historians"; no text opened. Relabelled Seerah report (source not checked). Label: Seerah report (source not checked). |
+| tales | tale-umar-milk | 1 | M | 2026-10-27 accuracy pass: the night-walk and boiling-stones account had no source we could open and is no longer told. Replaced by the report in Muwatta Malik, Book 17, no. 29 (Zayd ibn Aslam: Umar vomited milk from the zakat camels; read in the corpus; a report through a later narrator) with the Bukhari 3842 parallel for Abu Bakr. Labelled Interpretive. |
 | tales | tale-khalid-letter | 1 | U | Deathbed words attributed to Ibn al-Athir/al-Tabari; no text opened. The "letter to his brother", "asked to be carried against the enemy", "grave dug with his own hands" and the quoted burial words are not supported and were removed; "in his old age" removed. Relabelled Seerah report (source not checked). Label: Seerah report. Read: Ibn al-Athir, Usd al-Ghaba (al-Ilmiyya ed., shamela.ws/book/1110), vol. 2 p. 143 (2026-10-21). Details in docs/audit/verify_vd.md. |
 | tales | tale-crow | 1 | Q | Qur’an 5:27-31 supports the narrative; the closing lines are commentary. No change. |
 | tales | tale-cave-people | 1 | M | Qur’an 18:9-26. "A king who demanded worship he had not earned" is not in the verses; removed. |
@@ -327,3 +327,16 @@ Chapters audited: 278, in 200 stories.
 
 Source opened: Ibn Hisham, al-Sira al-Nabawiyya, ed. Mustafa al-Saqqa, Ibrahim al-Abyari and Abd al-Hafiz al-Shalabi (al-Halabi, Cairo, 2nd ed. 1955), on shamela.ws (book 23833), pages as printed (vol. 1 p. N = shamela sequence N+23; vol. 2 p. N = sequence N+737). Each row above marked "Label: Seerah report. Read:" states the volume and pages read and what was and was not on them. Hadith cited in those chapters were re-read on sunnah.com (verdicts in tool/hadith_verdicts/t2.json). A claim not found on the pages read was removed or moved to a closing sentence that says it was not checked. Chapters not listed here keep "Seerah report (source not checked)": no text of the named book was opened for them. Ibn Hisham's text is Ibn Ishaq's biography as edited by Ibn Hisham; it is a report, not revelation, and nothing here has been scholar-reviewed.
 
+
+
+## Accuracy pass on ghayb, signs, tales and khutbahs (2026-10-27)
+
+Every Qur'an quotation was checked word for word against the bundled text and every hadith number and wording against the fawazahmed0 hadith corpus. Grades are given only as named graders report them; where al-Albani and Zubair Ali Za'i disagree (Tirmidhi 2431, 3153; Ibn Majah 4080) the text says so or does not rely on the report. Removed as weak or wrong: Tirmidhi 2306, 2460, 2210, 3187, 2459, 2318, Abu Dawud 4784; the Seventy Wings title; "kathiran"; "Friday is a legal day off"; "Die before you die"; 2:275 as proof of possession. Corrected numbers: Muslim 129 (not 131), Tirmidhi 1071 for Munkar and Nakir, Bukhari 5017, 3269, Bukhari 2222 and Muslim 155 for the descent of Isa, Muslim 2946 narrator Hisham ibn Amir, Muslim 2766 for the scholar in the 99-killings report. Editor notes were deleted. Still not scholar-reviewed.
+
+| pack | id | chapter | class | notes |
+|---|---|---|---|---|
+| khutbahs | kh-structure | 1 | C | New. Bukhari 928, Muslim 862, 873 verified. |
+| khutbahs | kh-structure | 2 | C | New. Muslim 868, 867 and Qur'an 33:56 verified. |
+| khutbahs | kh-structure | 3 | C | New. Muslim 869, 867, 851, Bukhari 934 and Qur'an 62:9 verified. |
+| khutbahs | kh-structure | 4 | RF | New. States that the schools differ on what is obligatory; gives no ruling. |
+| khutbahs | kh-structure | 5 | RF | New. Explains how the app's khutbahs are built. Label: Reflection. |
