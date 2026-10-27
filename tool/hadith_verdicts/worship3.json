@@ -1,0 +1,23 @@
+{
+ "abudawud:4737": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Al-Albani",
+  "note": "Number and wording read against the full hadith text in the hadith corpus (adhkar and Ramadan duas audit). I seek refuge for you both (Hasan and Husayn); 'U`idhukuma' wording",
+  "verdict": "ok"
+ },
+ "ibnmajah:3850": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Al-Albani",
+  "note": "Number and wording read against the full hadith text in the hadith corpus (adhkar and Ramadan duas audit). Laylat al-Qadr dua, short form without 'Karim'; Zubair Ali Zai graded it da'if",
+  "verdict": "ok"
+ },
+ "tirmidhi:2060": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Al-Albani",
+  "note": "Number and wording read against the full hadith text in the hadith corpus (adhkar and Ramadan duas audit). 'U`idhukuma' wording; al-Tirmidhi: hasan sahih",
+  "verdict": "ok"
+ }
+}

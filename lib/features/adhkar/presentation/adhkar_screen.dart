@@ -628,14 +628,14 @@ class AdhkarChooser extends StatelessWidget {
         ),
         const SizedBox(height: 14),
         // A plain counter, first on the list: one big button, a target of
-        // 33 or 100 (the existing Dhikr Session screen).
+        // 33, 99 or 100 (the Tasbeeh screen).
         row(
           const AdhkarChoice(
             label: 'Tasbih counter',
             icon: Icons.touch_app_outlined,
           ),
-          'One big button. Tap to count to 33 or 100',
-          () => context.open('/academy/dhikr'),
+          'One big button. Tap to count to 33, 99 or 100',
+          () => context.open(AppRoutes.tasbeeh),
         ),
         const SizedBox(height: 6),
         if (open != null) ...[

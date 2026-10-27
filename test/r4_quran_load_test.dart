@@ -317,7 +317,7 @@ void main() {
             ),
           ),
           GoRoute(
-            path: '/academy/dhikr',
+            path: '/tasbeeh',
             builder: (BuildContext c, GoRouterState s) {
               opened = s.uri.path;
               return const Scaffold(body: Text('counter page'));
@@ -339,7 +339,7 @@ void main() {
       );
       await tester.tap(row);
       await tester.pumpAndSettle();
-      expect(opened, '/academy/dhikr');
+      expect(opened, '/tasbeeh');
     });
   });
 }

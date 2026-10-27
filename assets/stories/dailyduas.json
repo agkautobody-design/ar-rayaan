@@ -85,7 +85,9 @@
     "heading": "Entering the Home",
     "body": "'In the name of Allah. O Allah, I ask You the good of entering and the good of leaving. In the name of Allah we enter, in the name of Allah we leave, and upon our Lord we rely.' This wording is reported in Abu Dawud 5096, a narration scholars (al-Albani among them) grade daʿif, so treat the words as a customary dua, not a certain text. What is established is saying Bismillah on entering: then Shaytan tells his companion 'no lodging or supper here tonight' (Muslim 2018). The threshold is a border — cross it with the Name and the house changes citizenship.",
     "dua": "بِسْمِ اللَّهِ، اللَّهُمَّ إِنِّي أَسْأَلُكَ خَيْرَ الْمَوْلَجِ وَخَيْرَ الْمَخْرَجِ، بِسْمِ اللَّهِ وَلَجْنَا، وَبِسْمِ اللَّهِ خَرَجْنَا، وَعَلَى رَبِّنَا تَوَكَّلْنَا",
-    "arabic": "بِسْمِ اللَّهِ اللَّهُمَّ إِنِّي أَسْأَلُكَ خَيْرَ الْمَوْلَجِ وَخَيْرَ الْمَخْرَجِ بِسْمِ اللَّهِ وَلَجْنَا وَبِسْمِ اللَّهِ خَرَجْنَا وَعَلَىٰ رَبِّنَا تَوَكَّلْنَا"
+    "arabic": "بِسْمِ اللَّهِ اللَّهُمَّ إِنِّي أَسْأَلُكَ خَيْرَ الْمَوْلَجِ وَخَيْرَ الْمَخْرَجِ بِسْمِ اللَّهِ وَلَجْنَا وَبِسْمِ اللَّهِ خَرَجْنَا وَعَلَىٰ رَبِّنَا تَوَكَّلْنَا",
+    "tl": "Bismillah. Allahumma inni as'aluka khayral-mawliji wa khayral-makhraj. Bismillahi walajna, wa bismillahi kharajna, wa 'ala rabbina tawakkalna.",
+    "tlSource": "Rendered letter by letter from the Arabic shown, by the app author (a learning aid, not copied from a published transliteration); flagged for scholar review"
    }
   ],
   "familyQuestion": "Which person in your life needs this dua most this week — and will you tell them you prayed it?"
@@ -105,8 +107,10 @@
    {
     "heading": "Before Eating",
     "body": "Begin with Bismillah; if you forget at the start, say: 'Bismillahi awwalahu wa akhirahu — in the name of Allah, its beginning and its end' (Abu Dawud 3767, sahih per al-Albani). The table is where the family gathers — let the Name gather it first.",
-    "dua": "بِسْمِ اللَّهِ، وَإِنْ نَسِيتَ: بِسْمِ اللَّهِ أَوَّلَهُ وَآخِرَهُ",
-    "arabic": "بِسْمِ اللَّهِ وَإِنْ نَسِيتَ فَقُلْ بِسْمِ اللَّهِ أَوَّلَهُ وَآخِرَهُ"
+    "dua": "بِسْمِ اللَّهِ أَوَّلَهُ وَآخِرَهُ",
+    "arabic": "بِسْمِ اللَّهِ أَوَّلَهُ وَآخِرَهُ",
+    "tl": "bismillahi awwalahu wa akhirahu",
+    "tlSource": "fitrahive/dua-dhikr (MIT), Hisn al-Muslim-based; wording matches the Arabic shown (the opening 'Bismillah' is said first; this is the wording for one who forgot at the start)"
    }
   ],
   "familyQuestion": "Which person in your life needs this dua most this week — and will you tell them you prayed it?"
@@ -128,7 +132,9 @@
     "heading": "After Eating",
     "body": "'All praise is for Allah who fed us, gave us drink, and made us Muslims.' This exact wording is reported in Tirmidhi 3457 (daif per Darussalam) and Abu Dawud 3850 (daif per al-Albani), both graded daʿif; what is established is the praise itself — the Prophet ﷺ said Allah is pleased with the servant who says Alhamdulillah when taking a morsel of food or a drink (Muslim 2734).",
     "dua": "الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنَا وَسَقَانَا وَجَعَلَنَا مُسْلِمِينَ",
-    "arabic": "الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنَا وَسَقَانَا وَجَعَلَنَا مُسْلِمِينَ"
+    "arabic": "الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنَا وَسَقَانَا وَجَعَلَنَا مُسْلِمِينَ",
+    "tl": "Alhamdu lillahil-ladhi at'amana wa saqana wa ja'alana muslimin.",
+    "tlSource": "Rendered letter by letter from the Arabic shown, by the app author (a learning aid, not copied from a published transliteration); flagged for scholar review"
    }
   ],
   "familyQuestion": "Which person in your life needs this dua most this week — and will you tell them you prayed it?"
@@ -241,7 +247,9 @@
     "heading": "For the Sick",
     "body": "'Remove the harm, O Lord of mankind; heal — You are the Healer. There is no healing but Your healing, a healing that leaves no illness.' The Prophet ﷺ made this dua for the sick (Bukhari 5675). Pair it with the doctor — tawakkul never cancelled the means.",
     "dua": "أَذْهِبِ الْبَاسَ رَبَّ النَّاسِ، اشْفِ أَنْتَ الشَّافِي، لَا شِفَاءَ إِلَّا شِفَاوُكَ، شِفَاءً لَا يُغَادِرُ سَقَمًا",
-    "arabic": "أَذْهِبِ الْبَاسَ رَبَّ النَّاسِ اشْفِ أَنْتَ الشَّافِي لَا شِفَاءَ إِلَّا شِفَاوُكَ شِفَاءً لَا يُغَادِرُ سَقَمًا"
+    "arabic": "أَذْهِبِ الْبَاسَ رَبَّ النَّاسِ اشْفِ أَنْتَ الشَّافِي لَا شِفَاءَ إِلَّا شِفَاوُكَ شِفَاءً لَا يُغَادِرُ سَقَمًا",
+    "tl": "Adh-hibil-ba's, rabban-nas, ishfi anta ash-shafi, la shifa'a illa shifa'uk, shifa'an la yughadiru saqama.",
+    "tlSource": "Rendered letter by letter from the Arabic shown, by the app author (a learning aid, not copied from a published transliteration); flagged for scholar review"
    }
   ],
   "familyQuestion": "Which person in your life needs this dua most this week — and will you tell them you prayed it?"
@@ -308,7 +316,9 @@
     "heading": "For Parents",
     "body": "'My Lord, have mercy upon them as they brought me up [when I was] small' (17:24). The dua embedded in the verse of their right. For living parents it covers their old age; for those gone, it keeps the door between the worlds open — the child's dua for the parent is answered without veil.",
     "dua": "رَبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا",
-    "arabic": "رَبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا"
+    "arabic": "رَبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا",
+    "tl": "Rabbir-hamhuma kama rabbayani saghira.",
+    "tlSource": "Rendered letter by letter from the Arabic shown, by the app author (a learning aid, not copied from a published transliteration); flagged for scholar review (Qur'an 17:24)"
    }
   ],
   "familyQuestion": "Which person in your life needs this dua most this week — and will you tell them you prayed it?"
@@ -329,7 +339,9 @@
     "heading": "For the Children",
     "body": "'Our Lord, grant us from among our wives and offspring comfort to our eyes and make us an example for the righteous' (25:74). The dua of Ibrahim's tradition. Pair it with the named dua over each child by name — the Prophet ﷺ prayed for Abdullah ibn Abbas by name and he never forgot it.",
     "dua": "رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا",
-    "arabic": "رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا"
+    "arabic": "رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا",
+    "tl": "Rabbana hab lana min azwajina wa dhurriyyatina qurrata a'yunin waj'alna lil-muttaqina imama.",
+    "tlSource": "Rendered letter by letter from the Arabic shown, by the app author (a learning aid, not copied from a published transliteration); flagged for scholar review (Qur'an 25:74)"
    }
   ],
   "familyQuestion": "Which person in your life needs this dua most this week — and will you tell them you prayed it?"
@@ -582,7 +594,9 @@
     "heading": "Asking Provision",
     "body": "O Allah, I ask You for wide, halal, wholesome provision, without hardship, and answer my call without refusal.",
     "arabic": "اللَّهُمَّ إِنِّي أَسْأَلُكَ رِزْقًا وَاسِعًا حَلَالًا طَيِّبًا، مِنْ غَيْرِ كَدٍّ، وَاسْتَجِبْ دُعَائِي مِنْ غَيْرِ رَدٍّ",
-    "dua": null
+    "dua": null,
+    "tl": "Allahumma inni as'aluka rizqan wasi'an halalan tayyiban, min ghayri kaddin, wastajib du'a'i min ghayri radd.",
+    "tlSource": "Rendered letter by letter from the Arabic shown, by the app author (a learning aid, not copied from a published transliteration); flagged for scholar review; the wording itself has no verified source"
    }
   ],
   "familyQuestion": "Who in your family needs this dua tonight — and will you tell them you prayed it for them?"
@@ -603,7 +617,9 @@
     "heading": "For the Whole Household",
     "body": "Our Lord, grant us from our spouses and offspring comfort to our eyes, and make us leaders for the righteous.",
     "arabic": "رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا",
-    "dua": null
+    "dua": null,
+    "tl": "Rabbana hab lana min azwajina wa dhurriyyatina qurrata a'yunin waj'alna lil-muttaqina imama.",
+    "tlSource": "Rendered letter by letter from the Arabic shown, by the app author (a learning aid, not copied from a published transliteration); flagged for scholar review (Qur'an 25:74)"
    }
   ],
   "familyQuestion": "Who in your family needs this dua tonight — and will you tell them you prayed it for them?"
@@ -663,14 +679,16 @@
   "subtitle": "Aisha asked what to say in Laylat al-Qadr — this was the answer",
   "sourceLabel": "Established",
   "sources": [
-   "Sunan at-Tirmidhi 3513 (sahih per Darussalam)"
+   "Sunan Ibn Majah 3850 (da'if per Zubair Ali Zai; sahih per al-Albani); Jami` at-Tirmidhi 3513 has the same with 'Karim' added (hasan sahih per al-Tirmidhi)"
   ],
   "chapters": [
    {
     "heading": "The Night Prayer's Door",
-    "body": "O Allah, You are Pardoning and love to pardon — pardon me. Aisha asked the Prophet ﷺ what to say on Laylat al-Qadr, and this was his answer (Tirmidhi 3513, sahih per Darussalam). The night is worth more than a thousand months (97:3) — and its door fits inside one breath. Say it through the odd nights the way rain says itself to the earth: continuously, hopefully, without counting.",
+    "body": "O Allah, You are Pardoning and love to pardon — pardon me. Aisha asked the Prophet ﷺ what to say on Laylat al-Qadr, and this was his answer (Ibn Majah 3850, da'if per Zubair Ali Zai; sahih per al-Albani; Tirmidhi 3513 adds 'Karim', hasan sahih per al-Tirmidhi). The night is worth more than a thousand months (97:3) — and its door fits inside one breath. Say it through the odd nights the way rain says itself to the earth: continuously, hopefully, without counting.",
     "arabic": "اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي",
-    "dua": null
+    "dua": null,
+    "tl": "Allahumma innaka 'afuwwun tuhibbul-'afwa fa'fu 'anni.",
+    "tlSource": "Rendered letter by letter from the Arabic shown, by the app author (a learning aid, not copied from a published transliteration); flagged for scholar review"
    }
   ],
   "familyQuestion": "Who in your family needs this dua tonight — and will you tell them you prayed it for them?"
@@ -714,7 +732,9 @@
     "heading": "At Suhoor — the Fast Begins",
     "body": "I intend the fast of tomorrow from the month of Ramadan (the intention is in the heart; saying these words is customary, not a reported wording).",
     "arabic": "وَبِصَوْمِ غَدٍ نَّوَيْتُ مِنْ شَهْرِ رَمَضَانَ",
-    "dua": null
+    "dua": null,
+    "tl": "Wa bi-sawmi ghadin nawaytu min shahri Ramadan.",
+    "tlSource": "Rendered letter by letter from the Arabic shown, by the app author (a learning aid, not copied from a published transliteration); flagged for scholar review; customary wording, not a reported text"
    }
   ],
   "familyQuestion": "Which person in your family needs this dua most this week — and will you teach it to them?"
@@ -827,8 +847,10 @@
    {
     "heading": "The Witr Qunut",
     "body": "O Allah, guide me among those You have guided, pardon me among those You have pardoned, protect me among those You have protected — bless what You have given, and shield me from the evil You have decreed, for You decree and none decrees against You.",
-    "arabic": "اللَّهُمَّ اهْدِنِي فِيمَنْ هَدَيْتَ، وَعَافِنِي فِيمَنْ عَافَيْتَ، وَتَوَلَّنِي فِيمَنْ تَوَلَّيْتَ، وَبَارِكْ لِي فِيمَا أَعْطَيْتَ، وَقِنِي شَرَّ مَا قَضَيْتَ، فَإِنَّكَ تَقْضِي وَلَا يُقْضَى عَلَيْكَ، إِنَّهُ لَا يَذِلُّ مَنْ وَالَيْتَ، تَبَارَكْتَ رَبَّنَا وَتَعَالَيْتَ",
-    "dua": null
+    "arabic": "اللَّهُمَّ اهْدِنِي فِيمَنْ هَدَيْتَ، وَعَافِنِي فِيمَنْ عَافَيْتَ، وَتَوَلَّنِي فِيمَنْ تَوَلَّيْتَ، وَبَارِكْ لِي فِيمَا أَعْطَيْتَ، وَقِنِي شَرَّ مَا قَضَيْتَ، فَإِنَّكَ تَقْضِي وَلَا يُقْضَى عَلَيْكَ، وَإِنَّهُ لَا يَذِلُّ مَنْ وَالَيْتَ، تَبَارَكْتَ رَبَّنَا وَتَعَالَيْتَ",
+    "dua": null,
+    "tl": "Allahummahdini fiman hadayt, wa 'afini fiman 'afayt, wa tawallani fiman tawallayt, wa barik li fima a'tayt, wa qini sharra ma qadayt, fa innaka taqdi wa la yuqda 'alayk, wa innahu la yadhillu man walayt, tabarakta rabbana wa ta'alayt.",
+    "tlSource": "Rendered letter by letter from the Arabic shown, by the app author (a learning aid, not copied from a published transliteration); flagged for scholar review"
    }
   ],
   "familyQuestion": "Which person in your family needs this dua most this week — and will you teach it to them?"
@@ -911,7 +933,7 @@
   "subtitle": "The Prophet ﷺ said this over al-Hasan and al-Husayn, passing his hands over their heads",
   "sourceLabel": "Established",
   "sources": [
-   "Sahih al-Bukhari 3371"
+   "Jami` at-Tirmidhi 2060 (hasan sahih per al-Tirmidhi; sahih per al-Albani); Sunan Abi Dawud 4737 (sahih per al-Albani); Sahih al-Bukhari 3371 has the same words in the first person (A`udhu)"
   ],
   "chapters": [
    {
@@ -932,16 +954,18 @@
   "title": "The Ten Days' Takbir",
   "kicker": "DAILY DUAS · WORSHIP",
   "subtitle": "The loud glorification of Dhul-Hijjah's first ten days — the days Allah swears by (89:2)",
-  "sourceLabel": "Established",
+  "sourceLabel": "Interpretive",
   "sources": [
-   "Sunan al-Kubra Baihaqi"
+   "Customary wording of the takbir of the ten days and the days of Tashreeq, earlier cited only as al-Bayhaqi, Sunan al-Kubra, with no number; the report and its grade were not verified here and the app does not present it as a text from the Prophet ﷺ — listed for scholarly review"
   ],
   "chapters": [
    {
     "heading": "The Ten Days' Takbir",
     "body": "Allah is Greatest, Allah is Greatest; there is no god but Allah; Allah is Greatest, Allah is Greatest, and to Allah belongs all praise.",
     "arabic": "اللَّهُ أَكْبَرُ، اللَّهُ أَكْبَرُ، لَا إِلَٰهَ إِلَّا اللَّهُ، وَاللَّهُ أَكْبَرُ، اللَّهُ أَكْبَرُ، وَلِلَّهِ الْحَمْدُ",
-    "dua": null
+    "dua": null,
+    "tl": "Allahu akbar, Allahu akbar, la ilaha illallah, wallahu akbar, Allahu akbar, wa lillahil-hamd.",
+    "tlSource": "Rendered letter by letter from the Arabic shown, by the app author (a learning aid, not copied from a published transliteration); flagged for scholar review"
    }
   ],
   "familyQuestion": "Which person in your family needs this dua most this week — and will you teach it to them?"

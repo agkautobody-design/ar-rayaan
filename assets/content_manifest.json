@@ -26,9 +26,9 @@
    "version": 4
   },
   "guides/guides.json": {
-   "bytes": 241825,
-   "sha256": "6dd35930cd1f25dc27ed93b599c56839424e5ae30ae2a0c1ed992fa0dbf82117",
-   "version": 12
+   "bytes": 242086,
+   "sha256": "39e9f74ee74470eb87776269089fcd06e0bfbb82dddb75a015b0c3cab985f79d",
+   "version": 13
   },
   "share/cards.json": {
    "bytes": 2808,
@@ -41,9 +41,9 @@
    "version": 8
   },
   "stories/dailyduas.json": {
-   "bytes": 56717,
-   "sha256": "990ef05616431a4b36b9d79aba6115bb17321bd158ff9bbec9d8f050084b91d7",
-   "version": 7
+   "bytes": 60736,
+   "sha256": "2b910d1e2865ffbf1e884faefe7770a2407a8e4a13fcbf9b29d374f21ec90bc4",
+   "version": 8
   },
   "stories/ghayb.json": {
    "bytes": 96022,
