@@ -1,4 +1,11 @@
 {
+ "abudawud:4693": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "al-Albani",
+  "note": "Adam created from a handful of all the earth; Abu Musa al-Ash'ari; text read in the fawazahmed0 corpus (al-Albani: Sahih)",
+  "verdict": "ok"
+ },
  "abudawud:4727": {
   "checked": "2026-10-20",
   "grade": "Sahih",
@@ -139,6 +146,20 @@
   "note": "Abu Huraira; Yusuf in prison, would have answered the summoner; also Ibrahim and Lut",
   "verdict": "ok"
  },
+ "bukhari:3380": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Prophet at Al-Hijr: do not enter the houses of the unjust unless weeping; Ibn Umar; text read in the fawazahmed0 corpus",
+  "verdict": "ok"
+ },
+ "bukhari:3390": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "The honorable son of the honorable: Yusuf son of Ya'qub son of Ishaq son of Ibrahim; Ibn Umar; text read in the fawazahmed0 corpus",
+  "verdict": "ok"
+ },
  "bukhari:3395": {
   "checked": "2026-10-20",
   "grade": "Sahih",
@@ -186,6 +207,13 @@
   "grade": "Sahih",
   "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
   "note": "Abu Huraira; Adam and Musa dispute, Adam wins; chapter The death of Musa",
+  "verdict": "ok"
+ },
+ "bukhari:3416": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "None should say I am better than Yunus bin Matta; Abu Huraira; text read in the fawazahmed0 corpus",
   "verdict": "ok"
  },
  "bukhari:3417": {
@@ -371,10 +399,10 @@
   "verdict": "ok"
  },
  "ibnmajah:4080": {
-  "checked": "2026-10-20",
-  "grade": "Sahih",
-  "grader": "Darussalam",
-  "note": "Digging each day; worm in necks; Abu Hurairah",
+  "checked": "2026-10-27",
+  "grade": "Sahih (al-Albani); graders differ",
+  "grader": "al-Albani",
+  "note": "Digging each day; worm in necks; Abu Hurairah. Darussalam (Zubair Ali Za'i) is recorded as Da'if for this report, so the earlier 'Sahih (Darussalam)' was wrong. Read in the fawazahmed0 corpus; scholar review advised.",
   "verdict": "ok"
  },
  "muslim:174": {
@@ -476,17 +504,17 @@
   "verdict": "ok"
  },
  "tirmidhi:2312": {
-  "checked": "2026-10-20",
-  "grade": "Hasan gharib",
-  "grader": "al-Tirmidhi (remark only; no Albani/Darussalam grade shown on sunnah.com)",
-  "note": "Abu Dharr: angels prostrating in heaven; page says heavens \"moan\"",
+  "checked": "2026-10-27",
+  "grade": "Hasan gharib (al-Tirmidhi); Hasan (al-Albani, Darussalam)",
+  "grader": "al-Tirmidhi; al-Albani; Darussalam",
+  "note": "Abu Dharr: angels prostrating in heaven; page says heavens \"moan\"; read in the fawazahmed0 corpus",
   "verdict": "ok"
  },
  "tirmidhi:3153": {
-  "checked": "2026-10-20",
-  "grade": "Hasan gharib (Tirmidhi); Sahih (Darussalam)",
-  "grader": "Tirmidhi; Darussalam",
-  "note": "Yajuj/Majuj dig daily; Abu Hurairah",
+  "checked": "2026-10-27",
+  "grade": "Hasan gharib (al-Tirmidhi); Sahih (al-Albani, Ahmad Shakir); graders differ",
+  "grader": "al-Tirmidhi; al-Albani",
+  "note": "Yajuj/Majuj dig daily; Abu Hurairah. Darussalam (Zubair Ali Za'i) is recorded as Da'if for this report, so the earlier note 'Sahih (Darussalam)' was wrong. Read in the fawazahmed0 corpus; scholar review advised.",
   "verdict": "ok"
  }
 }
