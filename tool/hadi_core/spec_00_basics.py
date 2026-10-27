@@ -111,7 +111,7 @@ If the husband divorces her before the marriage is consummated, half of the agre
   review='The schools\' difference on a minimum is mentioned without numbers.')
 
 E('madhhab-which',
-  m=[r'\bwhich madhh?ab\b', r'\bwhich (?:school|mazhab) (?:of (?:law|fiqh) )?(?:is|do|should|are)\b', r'\bbest madhh?ab\b', r'\bwhat madhh?ab\b', r'\bwhat school (?:of (?:law|thought) )?do you follow\b', r'\bwhich school (?:of (?:law|thought) )?do you follow\b', r'\bdo you follow (?:a|any) (?:madhh?ab|school)\b', r'\bshould i follow a madhh?ab\b', r'\bdo i have to follow a madhh?ab\b', r'\bwhat is a madhh?ab\b', r'\bfour (?:schools|madhh?abs|imams)\b', r'\bhanafi (?:or|vs|versus) (?:shafi|maliki|hanbali)\b', r'\bhanafi shafi\b'],
+  m=[r'\bwhich madhh?ab\b', r'\bwhich (?:school|mazhab) (?:of (?:law|fiqh) )?(?:is|do|should|are)\b', r'\bbest madhh?ab\b', r'\bwhat madhh?ab\b', r'\bwhat school (?:of (?:law|thought) )?do you follow\b', r'\bwhich school (?:of (?:law|thought) )?do you follow\b', r'\bdo you follow (?:a|any) (?:madhh?ab|school)\b', r'\bshould i follow a madhh?ab\b', r'\bdo i have to follow a madhh?ab\b'],
   topic='madhhab',
   text="""
 I do not follow one school and I do not rank them. A madhhab is a school of Islamic law, a way of working out rulings from the Qur'an and the Sunnah. The four well-known Sunni schools are Hanafi, Maliki, Shafi'i and Hanbali. They agree on belief and on the main acts of worship, and differ on some details (for example the number of rak'ahs of witr, or whether jewelry is subject to zakat). I say so when an answer depends on the school.

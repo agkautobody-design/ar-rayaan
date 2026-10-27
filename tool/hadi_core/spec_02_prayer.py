@@ -60,7 +60,7 @@ E('jumuah-basics',
      r'\bwhat is jumuah\b', r'\bis jumuah (?:obligatory|fard|compulsory|wajib|mandatory)\b',
      r'\bjumuah (?:obligatory|fard|compulsory|mandatory)\b', r'\bmust (?:i|women|woman) (?:attend|go to|pray) jumuah\b',
      r'\bwomen\b.*\bjumuah\b', r'\bfriday prayers?\b', r'\bjumuah\b'],
-  x=[r'\b(?:app|screen|game|guide|khutbah|khutba|sermon)\b'],
+  x=[r'\b(?:masjid|masajid|mosque|mosques|near me|nearest|closest|nearby)\b', r'\b(?:app|screen|game|guide|khutbah|khutba|sermon)\b'],
   topic='jumuah',
   text="""
 Jumu'ah (the Friday prayer) is two rak'ahs, prayed in congregation at the time of Dhuhr, in place of Dhuhr. Before it, the imam gives two short sermons (khutbahs), and listening to them is part of the prayer.
@@ -200,7 +200,7 @@ E('prayer-rakahs',
      r'\b(?:fajr|dhuhr|asr|maghrib|isha)\b.*\b(?:how many|rakah)\b', r'\bhow many (?:fard|obligatory|farz) (?:prayers?)\b',
      r'\b(?:fajr|dhuhr|asr|maghrib|isha)\b.*\bsunnah\b', r'\bsunnah\b.*\b(?:fajr|dhuhr|asr|maghrib|isha)\b',
      r'\brawatib\b', r'\bsunnah (?:prayers?|rakah)\b'],
-  x=[r'\b(?:app|screen)\b'],
+  x=[r'\b(?:tahajj?ud|tahajud|qiyam|duha|ishraq|tarawee?h|istikhara|janazah|eid)\b', r'\b(?:app|screen)\b'],
   topic='rakahs',
   text="""
 The five daily prayers have 17 obligatory (fard) rak'ahs: Fajr 2, Dhuhr 4, Asr 4, Maghrib 3, Isha 4. On Friday, Jumu'ah (2 rak'ahs with the khutbah) takes the place of Dhuhr. A traveller shortens the four-rak'ah prayers to 2.

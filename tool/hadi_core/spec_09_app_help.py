@@ -3,7 +3,7 @@
 # Game rules are not here: they are built at runtime from the game list (hadi_game_help.dart).
 
 E('hadi-about',
-  m=[r'\bwhat can (?:you|hadi) do\b', r'\bwhat (?:do|can) you (?:help|know)\b', r'\bwhat are you\b', r'\bwho are you\b', r'\bwho is hadi\b', r'\bwho made you\b', r'\bwho (?:built|created|developed) (?:you|hadi)\b', r'\bhow (?:do|does) (?:you|hadi) work\b', r'\bhow can you help\b', r'\bwhat (?:is|s) hadi\b', r'\bwhat can i ask\b', r'\bwhat should i ask\b', r'\bhelp me\b$', r'^help$', r'\bwhat topics\b', r'\bwhat do you cover\b', r'\bwhat are your (?:features|abilities|capabilities)\b',
+  m=[r'\bwhat can (?:you|hadi) do\b', r'\bwhat (?:do|can) you (?:help|know)\b', r'\bwhat are you\b', r'\bwho are you\b', r'\bwho is hadi\b', r'\bwho made you\b', r'\bwho (?:built|created|developed) (?:you|hadi)\b', r'\bhow can you help\b', r'\bwhat (?:is|s) hadi\b', r'\bwhat can i ask\b', r'\bwhat should i ask\b', r'\bhelp me\b$', r'^help$', r'\bwhat topics\b', r'\bwhat do you cover\b', r'\bwhat are your (?:features|abilities|capabilities)\b', r'\bhow (?:do|does) (?:you|hadi) work\b',
      r'\bare you (?:an? )?(?:ai|bot|robot|human|real|person|chatgpt|scholar|sheikh|shaykh|imam|mufti|alim)\b', r'\bis this (?:an? )?(?:ai|bot|human|person)\b', r'\bcan i trust you\b', r'\bare you reliable\b', r'\bare your answers (?:correct|right|accurate|reliable)\b', r'\bcan you make mistakes\b', r'\bdo you make mistakes\b',
      r'\bcan you (?:issue|give|make) (?:me )?(?:a )?fatwa\b', r'\bwhat is a fatwa\b.*\byou\b', r'\bdo you give fatwas?\b', r'\bcan you give (?:islamic )?rulings?\b'],
   x=[r'\b(?:hits?|beats?|divorce|talaq|my husband|my wife)\b'],
@@ -16,6 +16,8 @@ I can help with:
 - What is halal and haram in food, money and everyday life, and family and marriage questions.
 - The basics of belief, the Prophet's life, the companions and Islamic history.
 - Du'as, and where to find things in the app: Qur'an, Prayer Times, Qibla, Games, the Academy and more.
+
+Who has reviewed this: no one yet. The app's own words are "Not yet scholar-reviewed. No named scholar has reviewed this app yet. We check every citation we can, we say so when we cannot, and we will name a reviewer here only once one has agreed to be named."
 
 Where the schools of law differ, I say so and do not pick one for you. For a ruling on your own case (a divorce, an inheritance, a debt), I will not guess: a qualified scholar who can ask you questions must answer. I can be wrong, so please treat my answers as a study aid and check the source. If I do not know something, I say so.
 

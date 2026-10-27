@@ -42,7 +42,7 @@ E('nikah-basics',
      r'\bforced marriage\b', r'\barranged marriage\b', r'\bmarry without (?:my )?(?:parents?|family|wali|father)\b', r'\bwalima\b', r'\bis (?:marriage|nikah) (?:compulsory|obligatory|fard|sunnah|required|mandatory)\b', r'\bwhy (?:should|do) (?:i|muslims?) (?:get )?marr(?:y|ied)\b', r'^marriage$', r'\bhow to marry\b', r'\bwhat is marriage\b', r'\bislamic wedding\b', r'\bengagement\b'],
   x=[r'\b(?:games?|story|prophet s marriage|marriages of the prophet)\b', r'\b(?:non muslim|christian|jewish|jew|hindu|buddhist|atheist)\b'],
   topic='marriage',
-  go=['/huda/guide?id=huda-nikah'],
+  go=['/huda/guide?id=huda-nikah', '/academy/family-life'],
   text="""
 Marriage (nikah) is a sunnah the Prophet ﷺ encouraged, and he forbade giving up marriage for worship ({H ibnmajah:1849|Samurah reported the Messenger of Allah forbade celibacy}). It is a strong covenant: Allah calls it a solemn covenant ({QR 4:21}), and {Q 30:21|He placed between you affection and mercy}.
 
@@ -104,7 +104,7 @@ What is allowed: meeting a possible spouse with a family member present, asking 
 
 If you have already crossed the line, or have a relationship now, do not despair. Stop what is forbidden, turn to Allah in repentance, and if you wish to be together, ask for her or his hand through the family. Allah says: {Q 39:53|do not despair of the mercy of Allah}. If you want, I can say more about repentance or about finding a spouse.
 """,
-  go=['/huda/guide?id=huda-nikah'],
+  go=['/huda/guide?id=huda-nikah', '/academy/family-life'],
   review='Dating and chaperoned meetings: standard views; not text-checked beyond the cited texts.')
 
 E('polygamy',

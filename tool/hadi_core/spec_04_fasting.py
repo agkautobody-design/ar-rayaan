@@ -120,10 +120,10 @@ E('fast-breakers',
   m=[r'\b(?:invalidat\w*|nullif\w*|break|breaks|breaking|broke|spoil\w*|ruin\w*|void\w*|cancel\w*|ends?)\b.*\b' + _FAST + r'\b',
      r'\bwhat (?:breaks|invalidates|nullifies|spoils) (?:the |my |a )?(?:fast|fasting)\b', r'\bdoes\b.*\bbreak (?:the |my )?(?:fast|fasting)\b',
      r'\bwhat (?:is|are) (?:the )?(?:things? )?(?:that )?(?:allowed|permitted|not allowed|forbidden|haram|prohibited) (?:while|when|during) (?:fast\w*|ramadan)\b'],
-  x=[r'\b(?:iftar|suhoor|say|dua|recite|eat first|meal|when (?:do|should|can))\b'],
+  x=[r'\b(?:kaffar\w*|fidyah|expiation|penalty|atone\w*)\b', r'\b(?:iftar|suhoor|say|dua|recite|eat first|meal|when (?:do|should|can))\b'],
   topic='fasting',
   text="""
-What breaks the fast (all schools agree):
+The fast runs from true dawn until sunset ({QR 2:187}). What breaks the fast (all schools agree):
 - Eating or drinking on purpose, anything that reaches the stomach by the mouth (including swallowed medicine and smoking).
 - Marital intercourse in the day (with a penalty if deliberate).
 - Deliberately making yourself vomit.
