@@ -1296,10 +1296,10 @@
  },
  "tirmidhi:3431": {
   "verdict": "ok",
-  "grade": "daif",
-  "grader": "Darussalam",
-  "checked": "2026-10-20",
-  "note": "Umar; praise on seeing afflicted"
+  "grade": "Daif (Zubair Ali Zai); Hasan (Al-Albani, Ahmad Muhammad Shakir)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus",
+  "checked": "2026-10-27",
+  "note": "Umar; praise on seeing someone afflicted. Graders differ"
  },
  "tirmidhi:3457": {
   "verdict": "ok",
@@ -1317,10 +1317,10 @@
  },
  "tirmidhi:3513": {
   "verdict": "ok",
-  "grade": "sahih",
-  "grader": "Darussalam",
-  "checked": "2026-10-20",
-  "note": "Aisha; Laylat al-Qadr dua"
+  "grade": "Daif (Zubair Ali Zai); Sahih (Al-Albani, Ahmad Muhammad Shakir); Hasan Sahih (Bashar Awad Maarouf)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus",
+  "checked": "2026-10-27",
+  "note": "Aisha: what to say if she knows Laylat al-Qadr (Allahumma innaka afuwwun). Graders differ"
  },
  "tirmidhi:3537": {
   "verdict": "ok",
@@ -1387,10 +1387,10 @@
  },
  "tirmidhi:3895": {
   "verdict": "ok",
-  "grade": "sahih",
-  "grader": "Darussalam",
-  "checked": "2026-10-20",
-  "note": "Aisha; best to family"
+  "grade": "Hasan (Zubair Ali Zai); Sahih (Al-Albani, Ahmad Muhammad Shakir); Hasan Sahih (Bashar Awad Maarouf)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus",
+  "checked": "2026-10-27",
+  "note": "Aisha: the best of you are the best to their families. Graders differ in degree (hasan vs sahih)"
  },
  "abudawud:1551": {
   "verdict": "wrong",

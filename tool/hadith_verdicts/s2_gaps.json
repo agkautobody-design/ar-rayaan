@@ -1,0 +1,16 @@
+{
+ "tirmidhi:2083": {
+  "verdict": "ok",
+  "checked": "2026-10-27",
+  "note": "Ibn Abbas: visiting the sick (not at the time of death) and saying seven times: I ask Allah the Magnificent, Lord of the Magnificent Throne, to cure you",
+  "grade": "Sahih (Ahmad Muhammad Shakir, Al-Albani, Zubair Ali Zai)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
+ },
+ "bukhari:71": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
+  "checked": "2026-10-27",
+  "note": "Muawiya; if Allah wants good for a person He gives him understanding of the religion"
+ }
+}

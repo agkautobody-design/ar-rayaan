@@ -4,599 +4,750 @@
   "collection": "newmuslim",
   "title": "Day 1: The Shahada — Your Door",
   "kicker": "THE NEW MUSLIM PATH · DAY 1 OF 30",
-  "subtitle": "One step a day — gently, surely",
+  "subtitle": "The sentence that begins Islam",
   "sourceLabel": "Established",
   "sources": [
-   "Qur'an",
-   "Sahih al-Bukhari",
-   "Sahih Muslim"
+   "Qur’an 3:19",
+   "Sahih al-Bukhari 8",
+   "Sahih al-Bukhari 1395",
+   "Sahih Muslim 403"
   ],
   "chapters": [
    {
     "heading": "Day 1 — The Shahada — Your Door",
-    "body": "The testimony that none deserves worship but Allah, and that Muhammad is His Messenger, is the door into Islam. You do not need to know everything first — you need only believe it sincerely, as the Prophet ﷺ taught: 'Islam is built on five' (Bukhari 8), and this is the first.\n\nIn the Qur'an: 'Indeed, the religion in the sight of Allah is Islam' (3:19).\n\nToday's step: Say the shahada aloud, even alone, even quietly: Ash-hadu an la ilaha illa Allah, wa ash-hadu anna Muhammadan Rasulullah. Then write down the date — your Islam has a birthday now.\n\nYou are not behind, and you are not alone. Every born Muslim had a first day — and the Prophet ﷺ said: 'Allah is gentle and loves gentleness in all things' (Bukhari 6927). Take today's step, say 'alhamdulillah,' and rest."
+    "body": "The testimony that none deserves worship but Allah, and that Muhammad is His Messenger, is the door into Islam. You do not need to know everything first. You need to mean it. The Prophet ﷺ sent Mu’adh to Yemen and told him to begin by inviting people to testify that none has the right to be worshipped but Allah and that Muhammad is Allah’s Messenger, and only after that to teach them the five prayers (Bukhari 1395).\n\nIn the Qur’an: ‘Indeed, the religion in the sight of Allah is Islam’ (Qur’an 3:19).\n\nToday’s step: Read the two halves below slowly. The first half is about Allah alone (no god but Allah). The second is about His Messenger (Muhammad ﷺ). When you mean both, say the shahada aloud, in Arabic, once. There is no ceremony and no one’s permission to wait for. Scholars differ on whether a bath (ghusl) is required or only recommended afterwards, so ask an imam when you can. Then write the date down. (Not yet scholar-reviewed.)"
+   },
+   {
+    "heading": "The words of the shahada",
+    "body": "This is the shahada as the Prophet ﷺ taught it in the sitting of the prayer (Muslim 403). Meaning: I bear witness that there is no god but Allah, and I bear witness that Muhammad is the Messenger of Allah.",
+    "arabic": "أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ اللَّهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ اللَّهِ",
+    "tl": "Ash-hadu al-laa ilaaha illal-laah, wa ash-hadu anna Muhammadan rasoolul-laah",
+    "tlSource": "Ar-Rayaan phrase registry (assets/academy/phrases/foundation.json): Arabic copied from the cited hadith, transliteration by the app author, not yet scholar-reviewed",
+    "label": "Established"
    }
   ],
-  "familyQuestion": "Who could walk this path beside you — a friend, a family member, or someone at the masjid?"
+  "familyQuestion": "Who could you tell today, if you wish to tell someone?"
  },
  {
   "id": "newmuslim-02",
   "collection": "newmuslim",
   "title": "Day 2: The Five Pillars — the Frame of the House",
   "kicker": "THE NEW MUSLIM PATH · DAY 2 OF 30",
-  "subtitle": "One step a day — gently, surely",
+  "subtitle": "Five things Islam is built on",
   "sourceLabel": "Established",
   "sources": [
-   "Qur'an",
-   "Sahih al-Bukhari",
-   "Sahih Muslim"
+   "Qur’an 2:43",
+   "Sahih al-Bukhari 8",
+   "Sahih Muslim 8"
   ],
   "chapters": [
    {
     "heading": "Day 2 — The Five Pillars — the Frame of the House",
-    "body": "Islam stands on five: the testimony, the prayer, the alms, the fast of Ramadan, and the pilgrimage for those able. They are not a test to pass but a house to live in, built one room at a time over your whole life.\n\nIn the Qur'an: 'And establish prayer and give zakah and bow with those who bow [in worship and obedience]' (2:43).\n\nToday's step: Read the five pillars once more (Huda has the guides) and learn just their NAMES by heart — that is today's whole task.\n\nYou are not behind, and you are not alone. Every born Muslim had a first day — and the Prophet ﷺ said: 'Allah is gentle and loves gentleness in all things' (Bukhari 6927). Take today's step, say 'alhamdulillah,' and rest."
+    "body": "Islam stands on five: the testimony, the prayer, the alms, the fast of Ramadan, and the pilgrimage for those able. The Prophet ﷺ said Islam is built on five (Bukhari 8). In Arabic they are: shahada (the testimony), salah (the prayer), zakat (the alms), sawm (the fast of Ramadan) and Hajj (the pilgrimage to Makkah).\n\nIn the Qur’an: ‘establish prayer and give zakah’ (Qur’an 2:43).\n\nThese are the acts of Islam. The hadith of Jibril (Muslim 8) also lists what a Muslim believes: Allah, His angels, His books, His messengers, the Last Day, and the divine decree. Acts and belief belong together.\n\nToday’s step: Learn the five by their names, in order: shahada, salah, zakat, sawm, Hajj. Say them aloud twice. That is today’s whole task. You have already done the first."
    }
   ],
-  "familyQuestion": "Who could walk this path beside you — a friend, a family member, or someone at the masjid?"
+  "familyQuestion": "Which of the five do you already know the most about?"
  },
  {
   "id": "newmuslim-03",
   "collection": "newmuslim",
   "title": "Day 3: Talking to Allah — Your First Dua",
   "kicker": "THE NEW MUSLIM PATH · DAY 3 OF 30",
-  "subtitle": "One step a day — gently, surely",
+  "subtitle": "Asking, in your own words",
   "sourceLabel": "Established",
   "sources": [
-   "Qur'an",
-   "Sahih al-Bukhari",
-   "Sahih Muslim"
+   "Qur’an 2:186",
+   "Qur’an 40:60",
+   "Qur’an 2:201"
   ],
   "chapters": [
    {
     "heading": "Day 3 — Talking to Allah — Your First Dua",
-    "body": "Before rules, a relationship. Allah says: 'Call upon Me; I will respond to you' (40:60). There is no intermediary and no special language required in your own words — the daily duas shelf gives you the Prophet's ﷺ words for every moment.\n\nIn the Qur'an: 'And when My servants ask you concerning Me — indeed, I am near' (2:186).\n\nToday's step: Say one dua in your own words today — ask for help, gratitude, or guidance. One honest sentence is a complete prayer.\n\nYou are not behind, and you are not alone. Every born Muslim had a first day — and the Prophet ﷺ said: 'Allah is gentle and loves gentleness in all things' (Bukhari 6927). Take today's step, say 'alhamdulillah,' and rest."
+    "body": "Before the rules, a relationship. Dua means calling on Allah and asking Him. There is no go-between and no special place or language needed for it. Allah says: ‘Call upon Me; I will respond to you’ (Qur’an 40:60).\n\nAnd: ‘indeed I am near. I respond to the invocation of the supplicant when he calls upon Me’ (Qur’an 2:186).\n\nA simple way to ask: begin by praising Allah, say what you need, and finish by asking Him to accept it. Ask for this world and the next. Below is a short dua from the Qur’an that asks for both.\n\nToday’s step: Make one dua today in your own language, outside the prayer: one honest sentence is enough. (Scholars differ on using your own language inside the prayer itself. Day 13 comes back to that.)"
+   },
+   {
+    "heading": "A dua from the Qur’an",
+    "body": "Meaning: ‘Our Lord, give us in this world [that which is] good and in the Hereafter [that which is] good and protect us from the punishment of the Fire’ (Qur’an 2:201). The transliteration is not in the app yet; ask a teacher or listen to a reciter.",
+    "arabic": "وَمِنۡهُم مَّن يَقُولُ رَبَّنَآ ءَاتِنَا فِي ٱلدُّنۡيَا حَسَنَةٗ وَفِي ٱلۡأٓخِرَةِ حَسَنَةٗ وَقِنَا عَذَابَ ٱلنَّارِ"
    }
   ],
-  "familyQuestion": "Who could walk this path beside you — a friend, a family member, or someone at the masjid?"
+  "familyQuestion": "Who could walk this path beside you: a friend, a family member, or someone at the masjid?"
  },
  {
   "id": "newmuslim-04",
   "collection": "newmuslim",
   "title": "Day 4: Wudu — Washing Before Standing",
   "kicker": "THE NEW MUSLIM PATH · DAY 4 OF 30",
-  "subtitle": "One step a day — gently, surely",
+  "subtitle": "The washing before prayer, step by step",
   "sourceLabel": "Established",
   "sources": [
-   "Qur'an",
-   "Sahih al-Bukhari",
-   "Sahih Muslim"
+   "Qur’an 5:6",
+   "Qur’an 2:222",
+   "Sahih al-Bukhari 159",
+   "Sahih al-Bukhari 135",
+   "Sahih Muslim 223",
+   "Sahih Muslim 234"
   ],
   "chapters": [
    {
     "heading": "Day 4 — Wudu — Washing Before Standing",
-    "body": "Purification before prayer is a mercy, not a burden: water washes the limbs and slows the heart. The Prophet ﷺ said cleanliness is half of faith (Muslim 223).\n\nIn the Qur'an: 'Indeed, Allah loves those who are constantly repentant and loves those who purify themselves' (2:222).\n\nToday's step: Learn wudu once, step by step (Huda's Wudu guide). Do it slowly, even if you are alone. Feel the water — this is preparation for standing before the King.\n\nYou are not behind, and you are not alone. Every born Muslim had a first day — and the Prophet ﷺ said: 'Allah is gentle and loves gentleness in all things' (Bukhari 6927). Take today's step, say 'alhamdulillah,' and rest."
+    "body": "Wudu (also spelled wudhu, the ablution before prayer) is washing the limbs so that you can stand before Allah in prayer. The Qur’an gives the command: ‘when you rise to [perform] prayer, wash your faces and your forearms to the elbows and wipe over your heads and wash your feet to the ankles’ (Qur’an 5:6). It adds: ‘Allah does not intend to make difficulty for you, but He intends to purify you’ (Qur’an 5:6).\n\nThe Prophet ﷺ said that cleanliness is half of faith (Muslim 223), and that the prayer of one who has broken his wudu is not accepted until he makes wudu again (Bukhari 135).\n\nHow Uthman described the Prophet’s ﷺ wudu (Bukhari 159): pour water over the hands and wash them three times; rinse the mouth and put water in the nose and blow it out; wash the face and the forearms up to the elbows, three times; pass wet hands over the head; wash the feet up to the ankles, three times. The Prophet ﷺ then said that whoever makes wudu like this and prays two rak’ahs without letting his mind wander to other things, his past sins are forgiven (Bukhari 159).\n\nThe schools differ on details such as keeping the exact order and how much of the head is wiped, so if you follow a school, follow its teacher. (Not yet scholar-reviewed.)\n\nToday’s step: Make wudu once, slowly, in this order, even if you are not about to pray. Feel each part. Say Bismillah at the start (below) and the closing words when you finish."
+   },
+   {
+    "heading": "Before wudu",
+    "body": "Say this quietly before your hands touch the water. Meaning: In the name of Allah. (Nasa’i 78, sahih isnad per al-Albani).",
+    "arabic": "بِسْمِ اللَّهِ",
+    "tl": "Bismil-laah",
+    "tlSource": "Ar-Rayaan phrase registry (assets/academy/phrases/foundation.json): Arabic copied from the cited hadith, transliteration by the app author, not yet scholar-reviewed"
+   },
+   {
+    "heading": "After wudu",
+    "body": "The Prophet ﷺ taught these words for when wudu is finished (Muslim 234). Meaning: I bear witness that there is no god but Allah alone, with no partner, and I bear witness that Muhammad is His servant and His Messenger.",
+    "arabic": "أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ",
+    "tl": "Ash-hadu al-laa ilaaha illal-laahu wahdahu laa shareeka lah, wa ash-hadu anna Muhammadan 'abduhu wa rasooluh",
+    "tlSource": "Ar-Rayaan phrase registry (assets/academy/phrases/foundation.json): Arabic copied from the cited hadith, transliteration by the app author, not yet scholar-reviewed"
    }
   ],
-  "familyQuestion": "Who could walk this path beside you — a friend, a family member, or someone at the masjid?"
+  "familyQuestion": "Who could walk this path beside you: a friend, a family member, or someone at the masjid?"
  },
  {
   "id": "newmuslim-05",
   "collection": "newmuslim",
   "title": "Day 5: Your First Prayer — Two Rak'ahs",
   "kicker": "THE NEW MUSLIM PATH · DAY 5 OF 30",
-  "subtitle": "One step a day — gently, surely",
-  "sourceLabel": "Established",
+  "subtitle": "The shape of one round of prayer",
+  "sourceLabel": "Interpretive",
   "sources": [
-   "Qur'an",
-   "Sahih al-Bukhari",
-   "Sahih Muslim"
+   "Sahih al-Bukhari 757",
+   "Sahih al-Bukhari 1395",
+   "Sahih Muslim 772",
+   "Sahih al-Bukhari 689",
+   "Abu Dawud 874 (graded sahih by al-Albani)",
+   "Qur’an 29:45"
   ],
   "chapters": [
    {
     "heading": "Day 5 — Your First Prayer — Two Rak'ahs",
-    "body": "The five daily prayers are meetings with Allah — not performances. Start with two. Stand, recite al-Fatihah (the opening of the Qur'an), bow, prostrate. The words come with repetition; the presence comes with sincerity.\n\nIn the Qur'an: 'Indeed, prayer prohibits immorality and wrongdoing, and the remembrance of Allah is greater' (29:45).\n\nToday's step: Pray two rak'ahs today, however imperfectly. Wasia's lessons and the Huda prayer guide stand beside you. Imperfect and done beats perfect and postponed.\n\nYou are not behind, and you are not alone. Every born Muslim had a first day — and the Prophet ﷺ said: 'Allah is gentle and loves gentleness in all things' (Bukhari 6927). Take today's step, say 'alhamdulillah,' and rest."
+    "body": "A rak’ah is one round of prayer: standing, bowing, prostrating and sitting. Two rak’ahs is the Fajr prayer, and it is where many new Muslims begin.\n\nA man once prayed too quickly, and the Prophet ﷺ told him three times to go back and pray again. Then he taught him: say the takbir, recite what you know of the Qur’an, bow until you are at ease, rise until you stand straight, prostrate until you are at ease, then sit until you are at ease, and do the same in every prayer (Bukhari 757). The lesson of that hadith is stillness: stay still in each position.\n\nIn the Qur’an: ‘prayer prohibits immorality and wrongdoing, and the remembrance of Allah is greater’ (Qur’an 29:45).\n\nToday’s step: Learn the order only: stand, bow, rise, prostrate, sit, prostrate, then rise or finish. Do one rak’ah slowly with the words below, even if the words are read from a card. All five daily prayers are enjoined (Bukhari 1395). Learning the words takes time, and this Path teaches them over days. Do not wait to be perfect: pray what you can, and keep learning. If you can already pray more, pray more. Ask an imam about any part you are unsure of. (Not yet scholar-reviewed.)",
+    "label": "Interpretive"
+   },
+   {
+    "heading": "Standing and bowing",
+    "body": "Allahu akbar begins the prayer and moves it from one position to the next. In the bow you say: Glory be to my Lord, the Magnificent.",
+    "arabic": "اللَّهُ أَكْبَرُ\nسُبْحَانَ رَبِّيَ الْعَظِيمِ",
+    "tl": "Allaahu akbar\nSubhaana Rabbiyal-'Azeem",
+    "tlSource": "Ar-Rayaan phrase registry (assets/academy/phrases/foundation.json): Arabic copied from the cited hadith, transliteration by the app author, not yet scholar-reviewed"
+   },
+   {
+    "heading": "Rising, prostrating, sitting between",
+    "body": "Rising from the bow: Allah hears the one who praises Him. Our Lord, and to You belongs all praise. In the prostration: Glory be to my Lord, the Most High. Between the two prostrations: My Lord, forgive me. (Abu Dawud 874, graded sahih by al-Albani).",
+    "arabic": "سَمِعَ اللَّهُ لِمَنْ حَمِدَهُ رَبَّنَا وَلَكَ الْحَمْدُ\nسُبْحَانَ رَبِّيَ الأَعْلَى\nرَبِّ اغْفِرْ لِي",
+    "tl": "Sami'al-laahu liman hamidah. Rabbanaa wa lakal-hamd\nSubhaana Rabbiyal-A'laa\nRabbigh-fir lee",
+    "tlSource": "Ar-Rayaan phrase registry (assets/academy/phrases/foundation.json): Arabic copied from the cited hadith, transliteration by the app author, not yet scholar-reviewed"
    }
   ],
-  "familyQuestion": "Who could walk this path beside you — a friend, a family member, or someone at the masjid?"
+  "familyQuestion": "Who could walk this path beside you: a friend, a family member, or someone at the masjid?"
  },
  {
   "id": "newmuslim-06",
   "collection": "newmuslim",
   "title": "Day 6: Meeting the Qur'an — Al-Fatihah",
   "kicker": "THE NEW MUSLIM PATH · DAY 6 OF 30",
-  "subtitle": "One step a day — gently, surely",
+  "subtitle": "The seven verses you will say in every prayer",
   "sourceLabel": "Established",
   "sources": [
-   "Qur'an",
-   "Sahih al-Bukhari",
-   "Sahih Muslim"
+   "Qur’an 1:1-7",
+   "Qur’an 2:2",
+   "Sahih al-Bukhari 756",
+   "Sahih Muslim 395"
   ],
   "chapters": [
    {
     "heading": "Day 6 — Meeting the Qur'an — Al-Fatihah",
-    "body": "The Qur'an is Allah's direct speech, preserved for fourteen centuries. Begin with al-Fatihah — the seven verses you will recite in every prayer for the rest of your life. Recite it; its meaning: praise, mercy, and the straight road.\n\nIn the Qur'an: 'This is the Book about which there is no doubt, a guidance for those conscious of Allah' (2:2).\n\nToday's step: Read al-Fatihah in translation once, then listen to a reciter say it (the Player and Qur'an sections). Let your ears learn before your tongue does.\n\nYou are not behind, and you are not alone. Every born Muslim had a first day — and the Prophet ﷺ said: 'Allah is gentle and loves gentleness in all things' (Bukhari 6927). Take today's step, say 'alhamdulillah,' and rest."
+    "body": "The Qur’an is the word of Allah. Al-Fatihah (“The Opening”) is its first surah. It has seven verses and you will say it in every rak’ah of every prayer. The Prophet ﷺ said there is no prayer for one who does not recite it (Bukhari 756). In a hadith, Allah says that He has divided the prayer between Himself and His servant, and answers the servant at each verse (Muslim 395).\n\nIn the Qur’an: ‘This is the Book about which there is no doubt, a guidance for those conscious of Allah’ (Qur’an 2:2).\n\nIts meaning, line by line: (1) In the name of Allah, the Entirely Merciful, the Especially Merciful. (2) [All] praise is [due] to Allah, Lord of the worlds - (3) The Entirely Merciful, the Especially Merciful, (4) Sovereign of the Day of Recompense. (5) It is You we worship and You we ask for help. (6) Guide us to the straight path - (7) The path of those upon whom You have bestowed favor, not of those who have evoked [Your] anger or of those who are astray.\n\nToday’s step: Read the translation once, then listen to a reciter say it in the Qur’an section of the app. Let your ears learn it before your tongue does."
+   },
+   {
+    "heading": "Al-Fatihah",
+    "body": "Read it slowly, one verse at a time. The Arabic is copied from the Qur’an text in this app; the transliteration is a learning aid, not sacred text, and a reciter will teach you the sound.",
+    "arabic": "بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ ٱلۡحَمۡدُ لِلَّهِ رَبِّ ٱلۡعَٰلَمِينَ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ مَٰلِكِ يَوۡمِ ٱلدِّينِ إِيَّاكَ نَعۡبُدُ وَإِيَّاكَ نَسۡتَعِينُ ٱهۡدِنَا ٱلصِّرَٰطَ ٱلۡمُسۡتَقِيمَ صِرَٰطَ ٱلَّذِينَ أَنۡعَمۡتَ عَلَيۡهِمۡ غَيۡرِ ٱلۡمَغۡضُوبِ عَلَيۡهِمۡ وَلَا ٱلضَّآلِّينَ",
+    "tl": "Bismillaahir-Rahmaanir-Raheem Al-hamdu lillaahi Rabbil-'aalameen Ar-Rahmaanir-Raheem Maaliki Yawmid-Deen Iyyaaka na'budu wa iyyaaka nasta'een Ihdinas-siraatal-mustaqeem Siraatal-lazeena an'amta 'alayhim, ghayril-maghdoobi 'alayhim wa lad-daaalleen",
+    "tlSource": "Qur’an transliteration already approved in this app (Tanzil text; assets/quran/transliteration.json)"
    }
   ],
-  "familyQuestion": "Who could walk this path beside you — a friend, a family member, or someone at the masjid?"
+  "familyQuestion": "Who could walk this path beside you: a friend, a family member, or someone at the masjid?"
  },
  {
   "id": "newmuslim-07",
   "collection": "newmuslim",
   "title": "Day 7: Who Was Muhammad ﷺ?",
   "kicker": "THE NEW MUSLIM PATH · DAY 7 OF 30",
-  "subtitle": "One step a day — gently, surely",
+  "subtitle": "The Messenger, and how to know him",
   "sourceLabel": "Established",
   "sources": [
-   "Qur'an",
-   "Sahih al-Bukhari",
-   "Sahih Muslim"
+   "Qur’an 33:40",
+   "Qur’an 21:107",
+   "Qur’an 68:4",
+   "Qur’an 3:31",
+   "Sahih al-Bukhari 6927",
+   "Sahih al-Bukhari 3370"
   ],
   "chapters": [
    {
     "heading": "Day 7 — Who Was Muhammad ﷺ?",
-    "body": "The final Messenger — a man whose enemies could not fault his honesty, who wept over his ummah, who said he was sent to perfect noble character (reported in Musnad Ahmad; grade not re-checked). Loving him is part of loving the message he carried.\n\nIn the Qur'an: 'And We have not sent you except as a mercy to the worlds' (21:107).\n\nToday's step: Read one story from the Seerah shelf today — any one. Notice how he treated the weak, the children, his enemies. That is the sunnah in one word: mercy.\n\nYou are not behind, and you are not alone. Every born Muslim had a first day — and the Prophet ﷺ said: 'Allah is gentle and loves gentleness in all things' (Bukhari 6927). Take today's step, say 'alhamdulillah,' and rest."
+    "body": "Muslims believe Muhammad ﷺ is the Messenger of Allah and the last of the prophets: ‘the Messenger of Allah and last of the prophets’ (Qur’an 33:40). The Qur’an says of him: ‘We have not sent you, [O Muhammad], except as a mercy to the worlds’ (Qur’an 21:107) and ‘you are of a great moral character’ (Qur’an 68:4).\n\nLoving him means following him: ‘If you should love Allah, then follow me, [so] Allah will love you and forgive you your sins’ (Qur’an 3:31).\n\nA small picture of his character: when some people came and greeted him with a curse, and Aisha answered back angrily, he told her that Allah is kind and likes kindness in all matters (Bukhari 6927).\n\nMuslims send blessings on him whenever he is named. The words below are the blessing taught in the prayer.\n\nToday’s step: Read one story from the Seerah shelf. Notice how he treated the weak, the children, and those who wronged him."
+   },
+   {
+    "heading": "The blessing on the Prophet ﷺ",
+    "body": "Taught in the prayer (Bukhari 3370). Meaning: O Allah, send prayers upon Muhammad and upon the family of Muhammad, as You sent prayers upon Ibrahim and upon the family of Ibrahim. You are Praiseworthy, Glorious.",
+    "arabic": "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ",
+    "tl": "Allaahumma salli 'alaa Muhammadin wa 'alaa aali Muhammad, kamaa sallayta 'alaa Ibraaheema wa 'alaa aali Ibraaheem, innaka Hameedun Majeed",
+    "tlSource": "Ar-Rayaan phrase registry (assets/academy/phrases/foundation.json): Arabic copied from the cited hadith, transliteration by the app author, not yet scholar-reviewed"
    }
   ],
-  "familyQuestion": "Who could walk this path beside you — a friend, a family member, or someone at the masjid?"
+  "familyQuestion": "Who could walk this path beside you: a friend, a family member, or someone at the masjid?"
  },
  {
   "id": "newmuslim-08",
   "collection": "newmuslim",
   "title": "Day 8: The Mosque — Your Second Home",
   "kicker": "THE NEW MUSLIM PATH · DAY 8 OF 30",
-  "subtitle": "One step a day — gently, surely",
+  "subtitle": "Where to go, and what to expect",
   "sourceLabel": "Established",
   "sources": [
-   "Qur'an",
-   "Sahih al-Bukhari",
-   "Sahih Muslim"
+   "Qur’an 9:18",
+   "Sahih al-Bukhari 660"
   ],
   "chapters": [
    {
     "heading": "Day 8 — The Mosque — Your Second Home",
-    "body": "The masjid is not a building; it is the heartbeat of the community. Enter it with wudu, pray two rak'ahs of greeting, sit. No one will ask for your credentials — the mosque's door does not check papers.\n\nIn the Qur'an: 'And [He revealed] that the masjids are for Allah, so do not invoke with Allah anyone' (72:18).\n\nToday's step: Visit a mosque this week — for prayer, or even ten quiet minutes. Introduce yourself to ONE person. That single handshake is how community begins.\n\nYou are not behind, and you are not alone. Every born Muslim had a first day — and the Prophet ﷺ said: 'Allah is gentle and loves gentleness in all things' (Bukhari 6927). Take today's step, say 'alhamdulillah,' and rest."
+    "body": "The masjid is where the community prays together, learns, and meets. The Qur’an says: ‘The mosques of Allah are only to be maintained by those who believe in Allah and the Last Day and establish prayer and give zakah’ (Qur’an 9:18). The Prophet ﷺ named, among seven whom Allah will shade on the Day when there is no shade but His, a man whose heart is attached to the mosques (Bukhari 660).\n\nWhat to expect: you will be welcome whatever your background and you do not need to prove anything. Many mosques ask you to remove shoes before the prayer hall and have a separate place for women, and most have someone at the door or office who can answer questions. Every mosque differs, so ask.\n\nToday’s step: Find the nearest mosque and its prayer times, and visit this week, for a prayer or just ten quiet minutes. Greet one person and tell them you are new. That one conversation is how community begins."
    }
   ],
-  "familyQuestion": "Who could walk this path beside you — a friend, a family member, or someone at the masjid?"
+  "familyQuestion": "Who could go to the mosque with you for the first time?"
  },
  {
   "id": "newmuslim-09",
   "collection": "newmuslim",
   "title": "Day 9: Halal and the Table",
   "kicker": "THE NEW MUSLIM PATH · DAY 9 OF 30",
-  "subtitle": "One step a day — gently, surely",
-  "sourceLabel": "Established",
+  "subtitle": "What is lawful to eat and drink",
+  "sourceLabel": "Interpretive",
   "sources": [
-   "Qur'an",
-   "Sahih al-Bukhari",
-   "Sahih Muslim"
+   "Qur’an 2:172",
+   "Qur’an 5:3",
+   "Qur’an 5:5",
+   "Qur’an 5:90"
   ],
   "chapters": [
    {
     "heading": "Day 9 — Halal and the Table",
-    "body": "What you eat carries worship with it: 'O you who have believed, eat from the good things which We have provided for you and be grateful to Allah if it is [indeed] Him that you worship' (2:172). The basics: no pork, no alcohol, and meat slaughtered according to the rite — the Tayyib module walks you gently through the rest.\n\nIn the Qur'an: 'Prohibited to you are dead animals, blood, the flesh of swine' (5:3).\n\nToday's step: Check your kitchen today; replace one doubtful item. Small steps, no panic — and ask at the masjid when unsure. Questions are worship too.\n\nYou are not behind, and you are not alone. Every born Muslim had a first day — and the Prophet ﷺ said: 'Allah is gentle and loves gentleness in all things' (Bukhari 6927). Take today's step, say 'alhamdulillah,' and rest."
+    "body": "Halal means lawful. The Qur’an tells believers: ‘eat from the good things which We have provided for you and be grateful to Allah’ (Qur’an 2:172).\n\nThe Qur’an names what is forbidden: ‘dead animals, blood, the flesh of swine, and that which has been dedicated to other than Allah’ (Qur’an 5:3). Alcohol is forbidden too: ‘intoxicants, gambling, [sacrificing on] stone alters [to other than Allah], and divining arrows are but defilement from the work of Satan, so avoid it’ (Qur’an 5:90).\n\nOn meat, the Qur’an also says: ‘the food of those who were given the Scripture is lawful for you’ (Qur’an 5:5). Scholars differ on how that applies to ordinary supermarket meat. Some require meat slaughtered by a Muslim with Allah’s name mentioned; others accept the meat of the People of the Scripture. Until you have asked a scholar you trust, choose halal-certified meat, fish or vegetarian food. If a food has an ingredient you are unsure of, such as gelatine or alcohol in flavourings, read the label and ask. (Not yet scholar-reviewed.)\n\nToday’s step: Go through your kitchen with the labels in mind. Set aside anything with pork or alcohol, and write down one question to ask at the masjid. Do not worry about the past; begin from today.",
+    "label": "Interpretive"
    }
   ],
-  "familyQuestion": "Who could walk this path beside you — a friend, a family member, or someone at the masjid?"
+  "familyQuestion": "Who could walk this path beside you: a friend, a family member, or someone at the masjid?"
  },
  {
   "id": "newmuslim-10",
   "collection": "newmuslim",
-  "title": "Day 10: The First Ten — a Rest and a Review",
+  "title": "Day 10: The First Ten — Pace and Review",
   "kicker": "THE NEW MUSLIM PATH · DAY 10 OF 30",
-  "subtitle": "One step a day — gently, surely",
+  "subtitle": "How to keep going",
   "sourceLabel": "Established",
   "sources": [
-   "Qur'an",
-   "Sahih al-Bukhari",
-   "Sahih Muslim"
+   "Sahih al-Bukhari 39",
+   "Sahih al-Bukhari 6464",
+   "Qur’an 2:286"
   ],
   "chapters": [
    {
-    "heading": "Day 10 — The First Ten — a Rest and a Review",
-    "body": "Ten days in, you have stood, washed, spoken to Allah, met His Book and His Messenger, and entered His house. That is more than most people do in a decade of thinking about it.\n\nIn the Qur'an: 'Allah does not charge a soul except [with that within] its capacity' (2:286).\n\nToday's step: Rest today — review nothing. Say alhamdulillah, and know: the next twenty days continue this pace. Islam was built for humans, not angels.\n\nYou are not behind, and you are not alone. Every born Muslim had a first day — and the Prophet ﷺ said: 'Allah is gentle and loves gentleness in all things' (Bukhari 6927). Take today's step, say 'alhamdulillah,' and rest."
+    "heading": "Day 10 — The First Ten — Pace and Review",
+    "body": "In ten days you have learned the shahada, the five pillars, how to ask Allah, wudu, the shape of a rak’ah, Al-Fatihah, the Messenger ﷺ, the mosque and the table. That is a lot, so today is for pace.\n\nThe Prophet ﷺ said that religion is easy, that whoever overburdens himself will not be able to continue, and to do what you can and be near to perfection (Bukhari 39). He said that the deed most beloved to Allah is the most regular and constant, even if it is little (Bukhari 6464). In the Qur’an: ‘Allah does not charge a soul except [with that within] its capacity’ (Qur’an 2:286).\n\nToday’s step: Go back over the days and tick off what you can already do: say the shahada, make wudu, do one rak’ah, say the takbir, find the mosque. Pick the one that is weakest and do it once more today. Then stop."
    }
   ],
-  "familyQuestion": "Who could walk this path beside you — a friend, a family member, or someone at the masjid?"
+  "familyQuestion": "Who could walk this path beside you: a friend, a family member, or someone at the masjid?"
  },
  {
   "id": "newmuslim-11",
   "collection": "newmuslim",
   "title": "Day 11: Learning Al-Fatihah by Heart",
   "kicker": "THE NEW MUSLIM PATH · DAY 11 OF 30",
-  "subtitle": "One step a day — gently, surely",
-  "sourceLabel": "Established",
+  "subtitle": "Words to say until the surah is learned",
+  "sourceLabel": "Interpretive",
   "sources": [
-   "Qur'an",
-   "Sahih al-Bukhari",
-   "Sahih Muslim"
+   "Sahih al-Bukhari 756",
+   "Sahih Muslim 395",
+   "Abu Dawud 832 (graded hasan by al-Albani)",
+   "Qur’an 54:17"
   ],
   "chapters": [
    {
     "heading": "Day 11 — Learning Al-Fatihah by Heart",
-    "body": "Now that your ears know al-Fatihah, let the tongue learn it — a verse a day. It is the greatest surah: 'There is no prayer for the one who does not recite the Opening of the Book' (Bukhari 756).\n\nIn the Qur'an: 'And We have certainly made the Qur'an easy for remembrance — so is there any who will remember?' (54:17).\n\nToday's step: Learn the first two verses of al-Fatihah today — listen five times, then recite five times. The rest arrives day by day.\n\nYou are not behind, and you are not alone. Every born Muslim had a first day — and the Prophet ﷺ said: 'Allah is gentle and loves gentleness in all things' (Bukhari 6927). Take today's step, say 'alhamdulillah,' and rest."
+    "body": "Al-Fatihah is part of every rak’ah. The Prophet ﷺ said there is no prayer for one who does not recite it (Bukhari 756). Scholars differ on details: the Maliki, Shafi’i and Hanbali schools make it a required part of every rak’ah, and the Hanafi school makes it required (wajib). (Not yet scholar-reviewed.)\n\nA man once came to the Prophet ﷺ and said he could not memorise anything of the Qur’an, and asked for something to be enough for him. The Prophet ﷺ taught him to say the five phrases below (Abu Dawud 832, graded hasan by al-Albani). If you cannot yet say Al-Fatihah, say these in the place of the recitation while you learn it, and pray the prayers anyway.\n\nThe Qur’an says: ‘We have certainly made the Qur’an easy for remembrance, so is there any who will remember’ (Qur’an 54:17).\n\nToday’s step: Learn the first two verses of Al-Fatihah: listen five times, then say them five times. Add two more verses on each of the next days.",
+    "label": "Interpretive"
+   },
+   {
+    "heading": "If you cannot yet recite the Fatihah",
+    "body": "Meaning: Glory be to Allah, and praise be to Allah, and there is no god but Allah, and Allah is the Greatest, and there is no power and no strength except with Allah.",
+    "arabic": "سُبْحَانَ اللَّهِ وَالْحَمْدُ لِلَّهِ وَلاَ إِلَهَ إِلاَّ اللَّهُ وَاللَّهُ أَكْبَرُ وَلاَ حَوْلَ وَلاَ قُوَّةَ إِلاَّ بِاللَّهِ",
+    "tl": "Subhaanal-laah, wal-hamdu lillaah, wa laa ilaaha illal-laah, wallaahu akbar, wa laa hawla wa laa quwwata illaa billaah",
+    "tlSource": "Ar-Rayaan phrase registry (assets/academy/phrases/foundation.json): Arabic copied from the cited hadith, transliteration by the app author, not yet scholar-reviewed"
    }
   ],
-  "familyQuestion": "Who could walk this path beside you — a friend, a family member, or someone at the masjid?"
+  "familyQuestion": "Who could walk this path beside you: a friend, a family member, or someone at the masjid?"
  },
  {
   "id": "newmuslim-12",
   "collection": "newmuslim",
   "title": "Day 12: The Prayer Times — Five Appointments",
   "kicker": "THE NEW MUSLIM PATH · DAY 12 OF 30",
-  "subtitle": "One step a day — gently, surely",
-  "sourceLabel": "Established",
+  "subtitle": "When each prayer begins and ends",
+  "sourceLabel": "Interpretive",
   "sources": [
-   "Qur'an",
-   "Sahih al-Bukhari",
-   "Sahih Muslim"
+   "Qur’an 4:103",
+   "Sahih Muslim 612",
+   "Sahih al-Bukhari 1395",
+   "Sahih al-Bukhari 597"
   ],
   "chapters": [
    {
     "heading": "Day 12 — The Prayer Times — Five Appointments",
-    "body": "Fajr before dawn, Dhuhr at midday, Asr in the afternoon, Maghrib at sunset, Isha at night. The times move with the sun; the app's prayer screen follows your location so you never need to calculate.\n\nIn the Qur'an: 'Indeed, prayer has been decreed upon the believers a decree of specified times' (4:103).\n\nToday's step: Do not aim for all five yet. Choose ONE prayer this week — the easiest for your schedule — and guard it like an appointment with a king. Because it is.\n\nYou are not behind, and you are not alone. Every born Muslim had a first day — and the Prophet ﷺ said: 'Allah is gentle and loves gentleness in all things' (Bukhari 6927). Take today's step, say 'alhamdulillah,' and rest."
+    "body": "The Qur’an says: ‘prayer has been decreed upon the believers a decree of specified times’ (Qur’an 4:103).\n\nThe Prophet ﷺ set out the times (Muslim 612): Fajr lasts until the first part of the sun appears. Dhuhr lasts until Asr comes. Asr lasts until the sun turns yellow. Maghrib lasts until the twilight has disappeared. Isha lasts until half of the night has passed. The prayer times screen works out these times for your location.\n\nThe usual number of rak’ahs is Fajr 2, Dhuhr 4, Asr 4, Maghrib 3 and Isha 4. (Not yet scholar-reviewed.)\n\nThe five prayers are enjoined on every Muslim (Bukhari 1395). Learning them takes time, so the Path adds them step by step; that is a way of learning, not a permission to leave any of them. If you forget a prayer or sleep through it, the Prophet ﷺ said to pray it when you remember it (Bukhari 597).\n\nToday’s step: Open the prayer times screen and write down today’s five times. Set a reminder for the next one and be ready for it a few minutes early, with wudu.",
+    "label": "Interpretive"
    }
   ],
-  "familyQuestion": "Who could walk this path beside you — a friend, a family member, or someone at the masjid?"
+  "familyQuestion": "Who could walk this path beside you: a friend, a family member, or someone at the masjid?"
  },
  {
   "id": "newmuslim-13",
   "collection": "newmuslim",
   "title": "Day 13: Sujud — the Nearest Place",
   "kicker": "THE NEW MUSLIM PATH · DAY 13 OF 30",
-  "subtitle": "One step a day — gently, surely",
-  "sourceLabel": "Established",
+  "subtitle": "Prostration and asking",
+  "sourceLabel": "Interpretive",
   "sources": [
-   "Qur'an",
-   "Sahih al-Bukhari",
-   "Sahih Muslim"
+   "Sahih Muslim 482",
+   "Sahih al-Bukhari 812",
+   "Qur’an 96:19",
+   "Sahih Muslim 772",
+   "Abu Dawud 874 (graded sahih by al-Albani)"
   ],
   "chapters": [
    {
     "heading": "Day 13 — Sujud — the Nearest Place",
-    "body": "In prostration, the slave is nearest to his Lord (Muslim 482). The forehead touches the earth — the posture of absolute trust. This is where you pour out what words cannot carry.\n\nIn the Qur'an: 'Prostrate and draw near to Allah' (96:19).\n\nToday's step: In your next prayer, add one extra moment in sujud — one personal sentence, in any language: gratitude, a worry, a hope. That moment is the whole religion in miniature.\n\nYou are not behind, and you are not alone. Every born Muslim had a first day — and the Prophet ﷺ said: 'Allah is gentle and loves gentleness in all things' (Bukhari 6927). Take today's step, say 'alhamdulillah,' and rest."
+    "body": "The Prophet ﷺ said that the nearest a servant is to his Lord is when he is prostrating, so make dua there (Muslim 482). The Qur’an says: ‘prostrate and draw near [to Allah]’ (Qur’an 96:19).\n\nHe ﷺ said he was ordered to prostrate on seven parts: the forehead together with the nose, both hands, both knees, and the toes of both feet (Bukhari 812).\n\nWhat to say: the tasbih of the prostration below. Scholars differ on whether you may make a dua in your own words, or in a language other than Arabic, during the obligatory prayer itself. Ask your imam which your school allows. After the salam you may ask in any language. (Not yet scholar-reviewed.)\n\nToday’s step: In your next prayer, take your time in sujud: say the tasbih, stay still, and notice that you are as close as you will ever be. Afterwards, sit and make your own dua.",
+    "label": "Interpretive"
+   },
+   {
+    "heading": "In prostration",
+    "body": "Say the first in the prostration (Muslim 772) and the second while sitting between the two prostrations (Abu Dawud 874, graded sahih by al-Albani). Meaning: Glory be to my Lord, the Most High. And: My Lord, forgive me.",
+    "arabic": "سُبْحَانَ رَبِّيَ الأَعْلَى\nرَبِّ اغْفِرْ لِي",
+    "tl": "Subhaana Rabbiyal-A'laa\nRabbigh-fir lee",
+    "tlSource": "Ar-Rayaan phrase registry (assets/academy/phrases/foundation.json): Arabic copied from the cited hadith, transliteration by the app author, not yet scholar-reviewed"
    }
   ],
-  "familyQuestion": "Who could walk this path beside you — a friend, a family member, or someone at the masjid?"
+  "familyQuestion": "Who could walk this path beside you: a friend, a family member, or someone at the masjid?"
  },
  {
   "id": "newmuslim-14",
   "collection": "newmuslim",
   "title": "Day 14: Zakat — the Poor's Right in Your Wealth",
   "kicker": "THE NEW MUSLIM PATH · DAY 14 OF 30",
-  "subtitle": "One step a day — gently, surely",
+  "subtitle": "The third pillar",
   "sourceLabel": "Established",
   "sources": [
-   "Qur'an",
-   "Sahih al-Bukhari",
-   "Sahih Muslim"
+   "Qur’an 9:103",
+   "Qur’an 9:60",
+   "Qur’an 70:24-25",
+   "Sahih al-Bukhari 1395"
   ],
   "chapters": [
    {
     "heading": "Day 14 — Zakat — the Poor's Right in Your Wealth",
-    "body": "Zakat purifies wealth: 2.5% of saved wealth above the nisab, given yearly to the categories Allah named. It is not charity from the rich; it is the poor's right (70:24-25).\n\nIn the Qur'an: 'from their wealth a charity by which you purify them and cause them increase' (9:103).\n\nToday's step: Read the Zakat module's introduction — no calculations yet. Today, just learn that in Islam, wealth has an owner above you, and He gave the poor a share.\n\nYou are not behind, and you are not alone. Every born Muslim had a first day — and the Prophet ﷺ said: 'Allah is gentle and loves gentleness in all things' (Bukhari 6927). Take today's step, say 'alhamdulillah,' and rest."
+    "body": "Zakat is the third pillar. It is a fixed share of savings that reach a minimum (the nisab) and is paid to the people the Qur’an names. The Prophet ﷺ told Mu’adh that Allah has made zakat obligatory on their property, taken from the wealthy among them and given to the poor among them (Bukhari 1395).\n\nThe Qur’an describes those in whose wealth there is ‘a known right for the petitioner and the deprived’ (Qur’an 70:24-25) and tells the Prophet ﷺ: ‘Take, [O, Muhammad], from their wealth a charity by which you purify them and cause them increase’ (Qur’an 9:103).\n\nIt names who may receive it: ‘Zakah expenditures are only for the poor and for the needy and for those employed to collect [zakah] and for bringing hearts together [for Islam] and for freeing captives [or slaves] and for those in debt and for the cause of Allah and for the [stranded] traveler’ (Qur’an 9:60).\n\nToday’s step: Open the Zakat screen and read how it works. You do not need to pay or calculate anything today. Just notice the idea: the poor have a right in your wealth."
    }
   ],
-  "familyQuestion": "Who could walk this path beside you — a friend, a family member, or someone at the masjid?"
+  "familyQuestion": "Who could walk this path beside you: a friend, a family member, or someone at the masjid?"
  },
  {
   "id": "newmuslim-15",
   "collection": "newmuslim",
   "title": "Day 15: The Qur'an — Your Daily Portion",
   "kicker": "THE NEW MUSLIM PATH · DAY 15 OF 30",
-  "subtitle": "One step a day — gently, surely",
+  "subtitle": "A little, every day",
   "sourceLabel": "Established",
   "sources": [
-   "Qur'an",
-   "Sahih al-Bukhari",
-   "Sahih Muslim"
+   "Qur’an 73:20",
+   "Qur’an 54:17",
+   "Sahih al-Bukhari 6464"
   ],
   "chapters": [
    {
     "heading": "Day 15 — The Qur'an — Your Daily Portion",
-    "body": "The Qur'an was revealed over 23 years; it is learned the same way — a little, always. 'The most beloved deeds to Allah are the most consistent, even if small' (Bukhari 6464).\n\nIn the Qur'an: 'so recite what is easy [for you] of the Qur'an' (73:20).\n\nToday's step: Set a daily portion — even one page, even three lines. Read it with the translation open. One page a day finishes the Qur'an in a year.\n\nYou are not behind, and you are not alone. Every born Muslim had a first day — and the Prophet ﷺ said: 'Allah is gentle and loves gentleness in all things' (Bukhari 6927). Take today's step, say 'alhamdulillah,' and rest."
+    "body": "The best way to stay with the Qur’an is a small portion that you actually read. The Prophet ﷺ said the deed most beloved to Allah is the most regular and constant, even if little (Bukhari 6464). The Qur’an itself says: ‘recite what is easy [for you] of the Qur’an’ (Qur’an 73:20) and ‘We have certainly made the Qur’an easy for remembrance’ (Qur’an 54:17).\n\nPlan: choose a fixed time (after Fajr or before sleep) and a fixed size, such as one page or a few verses. Read the translation next to the Arabic, and read the same portion again the next day if it moved you.\n\nToday’s step: Open the Qur’an reader, choose your portion and time, and read it today. Write the time down."
    }
   ],
-  "familyQuestion": "Who could walk this path beside you — a friend, a family member, or someone at the masjid?"
+  "familyQuestion": "Who could walk this path beside you: a friend, a family member, or someone at the masjid?"
  },
  {
   "id": "newmuslim-16",
   "collection": "newmuslim",
   "title": "Day 16: Forgiveness — the Door That Never Closes",
   "kicker": "THE NEW MUSLIM PATH · DAY 16 OF 30",
-  "subtitle": "One step a day — gently, surely",
+  "subtitle": "Istighfar",
   "sourceLabel": "Established",
   "sources": [
-   "Qur'an",
-   "Sahih al-Bukhari",
-   "Sahih Muslim"
+   "Qur’an 39:53",
+   "Sahih Muslim 121",
+   "Sahih al-Bukhari 6307",
+   "Abu Dawud 874 (graded sahih by al-Albani)"
   ],
   "chapters": [
    {
     "heading": "Day 16 — Forgiveness — the Door That Never Closes",
-    "body": "Whatever came before the shahada is erased; whatever comes after has a door back: 'Allah forgives all sins' (39:53). Despair is the only locked door, and Allah locked it from inside the house of hope.\n\nIn the Qur'an: 'Say: O My servants who have transgressed against themselves, do not despair of the mercy of Allah' (39:53).\n\nToday's step: Say astaghfirullah ten times today — slowly, knowing what it means. Then let one old guilt go. Allah already has.\n\nYou are not behind, and you are not alone. Every born Muslim had a first day — and the Prophet ﷺ said: 'Allah is gentle and loves gentleness in all things' (Bukhari 6927). Take today's step, say 'alhamdulillah,' and rest."
+    "body": "Allah says: ‘O My servants who have transgressed against themselves [by sinning], do not despair of the mercy of Allah. Indeed, Allah forgives all sins’ (Qur’an 39:53).\n\nThe Prophet ﷺ taught that Islam wipes out what came before it (Muslim 121). A new Muslim begins with a clean page. And after the shahada, anyone can slip: even the Prophet ﷺ said he asked forgiveness from Allah and turned to Him in repentance more than seventy times a day (Bukhari 6307).\n\nIstighfar means asking forgiveness. The simplest form is “Astaghfirullah” (I ask Allah’s forgiveness). Between the two prostrations in the prayer you say the short dua below.\n\nToday’s step: Say Astaghfirullah slowly ten times, thinking about what you are asking. Then let one old guilt go. Repentance means stopping, regretting, and resolving not to return, and Allah receives the one who returns."
+   },
+   {
+    "heading": "Between the two prostrations",
+    "body": "Said while sitting between the two prostrations (Abu Dawud 874, graded sahih by al-Albani). Meaning: My Lord, forgive me. You can also ask forgiveness in your own words at any time.",
+    "arabic": "رَبِّ اغْفِرْ لِي",
+    "tl": "Rabbigh-fir lee",
+    "tlSource": "Ar-Rayaan phrase registry (assets/academy/phrases/foundation.json): Arabic copied from the cited hadith, transliteration by the app author, not yet scholar-reviewed"
    }
   ],
-  "familyQuestion": "Who could walk this path beside you — a friend, a family member, or someone at the masjid?"
+  "familyQuestion": "Who could walk this path beside you: a friend, a family member, or someone at the masjid?"
  },
  {
   "id": "newmuslim-17",
   "collection": "newmuslim",
   "title": "Day 17: Family and Old Friends",
   "kicker": "THE NEW MUSLIM PATH · DAY 17 OF 30",
-  "subtitle": "One step a day — gently, surely",
+  "subtitle": "Staying kind while your life changes",
   "sourceLabel": "Established",
   "sources": [
-   "Qur'an",
-   "Sahih al-Bukhari",
-   "Sahih Muslim"
+   "Qur’an 17:23-24",
+   "Qur’an 31:15",
+   "Qur’an 60:8",
+   "Sahih al-Bukhari 6927"
   ],
   "chapters": [
    {
     "heading": "Day 17 — Family and Old Friends",
-    "body": "Some around you may not understand your change. The Qur'an's own command concerning those who do not fight your faith: 'being righteous toward them and acting justly toward them' (60:8). You were not sent to argue; you were sent to be near.\n\nIn the Qur'an: 'And do not argue with the People of the Scripture except in a way that is best' (29:46).\n\nToday's step: Do one ordinary kindness for a family member today — no lectures, no announcements. Let your character carry the message the tongue doesn't need to.\n\nYou are not behind, and you are not alone. Every born Muslim had a first day — and the Prophet ﷺ said: 'Allah is gentle and loves gentleness in all things' (Bukhari 6927). Take today's step, say 'alhamdulillah,' and rest."
+    "body": "Some of the people around you may not understand your change. The Qur’an is clear about parents: ‘your Lord has decreed that you not worship except Him, and to parents, good treatment’ (Qur’an 17:23). And even if they push you away from the faith: ‘do not obey them but accompany them in [this] world with appropriate kindness’ (Qur’an 31:15).\n\nFor others who do not fight you over your religion: ‘Allah does not forbid you from those who do not fight you because of religion and do not expel you from your homes - from being righteous toward them and acting justly toward them’ (Qur’an 60:8). The Prophet ﷺ told Aisha that Allah is kind and likes kindness in all matters (Bukhari 6927).\n\nToday’s step: Do one ordinary kindness for a family member or an old friend: a call, a meal, some help. Do not lecture or announce anything. Let your character speak first. Keep your prayers and what you eat simple, and tell them kindly what you need."
    }
   ],
-  "familyQuestion": "Who could walk this path beside you — a friend, a family member, or someone at the masjid?"
+  "familyQuestion": "Which relative or friend would be glad to hear from you today?"
  },
  {
   "id": "newmuslim-18",
   "collection": "newmuslim",
   "title": "Day 18: The Weekend Rhythm — Jumu'ah",
   "kicker": "THE NEW MUSLIM PATH · DAY 18 OF 30",
-  "subtitle": "One step a day — gently, surely",
-  "sourceLabel": "Established",
+  "subtitle": "The Friday prayer",
+  "sourceLabel": "Interpretive",
   "sources": [
-   "Qur'an",
-   "Sahih al-Bukhari",
-   "Sahih Muslim"
+   "Qur’an 62:9-10",
+   "Abu Dawud 1067 (graded sahih by al-Albani)"
   ],
   "chapters": [
    {
     "heading": "Day 18 — The Weekend Rhythm — Jumu'ah",
-    "body": "Friday is the weekly gathering: a sermon and a congregational prayer that replaces Dhuhr. 'when [the adhan] is called for the prayer on the day of Jumu'ah [Friday], then proceed to the remembrance of Allah' (62:9).\n\nIn the Qur'an: 'O you who have believed, when [the adhan] is called for the prayer on the day of Jumu'ah [Friday], then proceed to the remembrance of Allah and leave trade' (62:9).\n\nToday's step: If Friday is near: plan to attend Jumu'ah at the mosque you visited — arrive early, sit, listen. If not: learn what the day means and mark the next one.\n\nYou are not behind, and you are not alone. Every born Muslim had a first day — and the Prophet ﷺ said: 'Allah is gentle and loves gentleness in all things' (Bukhari 6927). Take today's step, say 'alhamdulillah,' and rest."
+    "body": "Jumu’ah is the Friday congregational prayer. There is a sermon (khutbah) and then a two-rak’ah prayer that takes the place of Dhuhr for those who attend. The Qur’an says: ‘when [the adhan] is called for the prayer on the day of Jumu'ah [Friday], then proceed to the remembrance of Allah and leave trade’ (Qur’an 62:9).\n\nWho must attend? The Prophet ﷺ said: the Friday prayer in congregation is a necessary duty for every Muslim, with four exceptions: a slave, a woman, a boy and a sick person (Abu Dawud 1067, graded sahih by al-Albani). So it is a duty for adult male Muslims who are resident and healthy. Women are not required but may attend; ask your imam about travellers and other cases. (Not yet scholar-reviewed.)\n\nAfter the prayer: ‘when the prayer has been concluded, disperse within the land and seek from the bounty of Allah, and remember Allah often’ (Qur’an 62:10).\n\nToday’s step: Find out the Jumu’ah time at your nearest mosque and when the sermon starts. If you can, plan to go next Friday, arrive early, make wudu, and listen to the sermon.",
+    "label": "Interpretive"
    }
   ],
-  "familyQuestion": "Who could walk this path beside you — a friend, a family member, or someone at the masjid?"
+  "familyQuestion": "Who could walk this path beside you: a friend, a family member, or someone at the masjid?"
  },
  {
   "id": "newmuslim-19",
   "collection": "newmuslim",
   "title": "Day 19: Eating with Bismillah",
   "kicker": "THE NEW MUSLIM PATH · DAY 19 OF 30",
-  "subtitle": "One step a day — gently, surely",
+  "subtitle": "Begin with the name of Allah",
   "sourceLabel": "Established",
   "sources": [
-   "Qur'an",
-   "Sahih al-Bukhari",
-   "Sahih Muslim"
+   "Sahih Muslim 2018",
+   "Sahih Muslim 2734",
+   "Qur’an 2:172"
   ],
   "chapters": [
    {
     "heading": "Day 19 — Eating with Bismillah",
-    "body": "The table is worship: Say Bismillah when you begin: when a man mentions Allah's name on entering his home and when eating, Shaytan has no lodging or supper there (Muslim 2018).\n\nIn the Qur'an: 'eat from the good things which We have provided for you and be grateful to Allah if it is [indeed] Him that you worship' (2:172).\n\nToday's step: Today: bismillah before eating, alhamdulillah after. Two sentences that turn every meal into prayer — the easiest habit in Islam.\n\nYou are not behind, and you are not alone. Every born Muslim had a first day — and the Prophet ﷺ said: 'Allah is gentle and loves gentleness in all things' (Bukhari 6927). Take today's step, say 'alhamdulillah,' and rest."
+    "body": "The table becomes worship when we begin with Allah’s name. The Prophet ﷺ said that when a person mentions Allah’s name on entering his house and when eating, Satan says to his companions that there is no place to spend the night and no evening meal; but when he does not mention Allah’s name, Satan says that they have found both (Muslim 2018).\n\nBefore eating say “Bismillah” (in the name of Allah). After eating, praise Allah. The Prophet ﷺ said that Allah is pleased with the servant who praises Him after eating a morsel or drinking a sip (Muslim 2734). The simplest praise is “Alhamdulillah” (all praise is for Allah). The Qur’an says: ‘eat from the good things which We have provided for you and be grateful to Allah’ (Qur’an 2:172).\n\nToday’s step: Say Bismillah before every meal and Alhamdulillah after it today, even a glass of water. If you forget at the start, say it when you remember."
    }
   ],
-  "familyQuestion": "Who could walk this path beside you — a friend, a family member, or someone at the masjid?"
+  "familyQuestion": "Who could walk this path beside you: a friend, a family member, or someone at the masjid?"
  },
  {
   "id": "newmuslim-20",
   "collection": "newmuslim",
-  "title": "Day 20: Twenty Days — the Man You Are Becoming",
+  "title": "Day 20: Twenty Days — Missed a Day?",
   "kicker": "THE NEW MUSLIM PATH · DAY 20 OF 30",
-  "subtitle": "One step a day — gently, surely",
-  "sourceLabel": "Established",
+  "subtitle": "What to do when you fall behind",
+  "sourceLabel": "Interpretive",
   "sources": [
-   "Qur'an",
-   "Sahih al-Bukhari",
-   "Sahih Muslim"
+   "Sahih al-Bukhari 597",
+   "Sahih al-Bukhari 39",
+   "Sahih al-Bukhari 6464",
+   "Qur’an 4:103"
   ],
   "chapters": [
    {
-    "heading": "Day 20 — Twenty Days — the Man You Are Becoming",
-    "body": "Look back: you testify, you wash, you stand, you bow, you speak to Allah in your own words, you give, you forgive, you gather. Twenty days ago you had not done one of these.\n\nIn the Qur'an: 'Indeed, Allah will not change the condition of a people until they change what is in themselves' (13:11).\n\nToday's step: Rest and review — and if some days were missed, do not restart the count. Just continue. The door was never closed; you were never outside it.\n\nYou are not behind, and you are not alone. Every born Muslim had a first day — and the Prophet ﷺ said: 'Allah is gentle and loves gentleness in all things' (Bukhari 6927). Take today's step, say 'alhamdulillah,' and rest."
+    "heading": "Day 20 — Twenty Days — Missed a Day?",
+    "body": "Twenty days in, some days will have been missed. Do not restart the count; continue from where you are. The Prophet ﷺ said that religion is easy and that whoever overburdens himself will not be able to continue (Bukhari 39), and that the most beloved deed is the most regular, even if little (Bukhari 6464).\n\nIf you miss a prayer through forgetting or sleep, the Prophet ﷺ said to pray it when you remember it, and that there is no expiation for it except that (Bukhari 597). Do not skip the next one because you missed the last. Scholars differ on details of making up a prayer that was missed on purpose; ask an imam. (Not yet scholar-reviewed.)\n\nToday’s step: Look back at the last twenty days. Write down what you have kept (even one thing) and what you dropped. Pick one dropped thing and do it again today, small and complete.",
+    "label": "Interpretive"
    }
   ],
-  "familyQuestion": "Who could walk this path beside you — a friend, a family member, or someone at the masjid?"
+  "familyQuestion": "Who could walk this path beside you: a friend, a family member, or someone at the masjid?"
  },
  {
   "id": "newmuslim-21",
   "collection": "newmuslim",
   "title": "Day 21: Building All Five Prayers",
   "kicker": "THE NEW MUSLIM PATH · DAY 21 OF 30",
-  "subtitle": "One step a day — gently, surely",
-  "sourceLabel": "Established",
+  "subtitle": "The sitting and the ending of the prayer",
+  "sourceLabel": "Interpretive",
   "sources": [
-   "Qur'an",
-   "Sahih al-Bukhari",
-   "Sahih Muslim"
+   "Sahih al-Bukhari 831",
+   "Sahih Muslim 403",
+   "Sahih al-Bukhari 3370",
+   "Abu Dawud 996 (graded sahih by al-Albani)",
+   "Sahih al-Bukhari 1395"
   ],
   "chapters": [
    {
     "heading": "Day 21 — Building All Five Prayers",
-    "body": "From one guarded prayer, grow toward five — not by force, but by appointment. Add one prayer to your routine this week, then another. The structure holds the heart.\n\nIn the Qur'an: 'Indeed, prayer prohibits immorality and wrongdoing' (29:45).\n\nToday's step: Choose the next prayer to add (Wasia suggests keeping Fajr or Isha — the bookends of the day). Miss it? Pray when you remember. Never abandon it for missing it.\n\nYou are not behind, and you are not alone. Every born Muslim had a first day — and the Prophet ﷺ said: 'Allah is gentle and loves gentleness in all things' (Bukhari 6927). Take today's step, say 'alhamdulillah,' and rest."
+    "body": "You now know the shape of a two-rak’ah prayer. The five prayers are Fajr (2), Dhuhr (4), Asr (4), Maghrib (3) and Isha (4). In prayers of more than two rak’ahs there is a short sitting after the second rak’ah, and in the last sitting you finish with the tashahhud, the blessing on the Prophet ﷺ, and the salam. The Prophet ﷺ taught the tashahhud as he taught a surah of the Qur’an (Muslim 403; the wording below is from Bukhari 831).\n\nSchools differ here: the Shafi’i and Hanbali schools make the blessing on the Prophet ﷺ in the last sitting required, and the Hanafi and Maliki schools make it recommended. (Not yet scholar-reviewed.)\n\nThe five prayers are enjoined on every Muslim (Bukhari 1395). Many new Muslims learn the prayers gradually, and that is a way of learning, not a permission to postpone them. If you are not yet praying all five, add the missing ones as soon as you can. \n\nToday’s step: Learn the tashahhud, the first half. Say it in the last sitting of a prayer, and end with the salam below, to the right and to the left.",
+    "label": "Interpretive"
+   },
+   {
+    "heading": "The tashahhud",
+    "body": "Meaning: All greetings, prayers and good things belong to Allah. Peace be upon you, O Prophet, and the mercy of Allah and His blessings. Peace be upon us and upon the righteous servants of Allah. I bear witness that there is no god but Allah, and I bear witness that Muhammad is His servant and His Messenger.",
+    "arabic": "التَّحِيَّاتُ لِلَّهِ وَالصَّلَوَاتُ وَالطَّيِّبَاتُ السَّلاَمُ عَلَيْكَ أَيُّهَا النَّبِيُّ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ السَّلاَمُ عَلَيْنَا وَعَلَى عِبَادِ اللَّهِ الصَّالِحِينَ أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ اللَّهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ",
+    "tl": "At-tahiyyaatu lillaahi was-salawaatu wat-tayyibaat. As-salaamu 'alayka ayyuhan-Nabiyyu wa rahmatul-laahi wa barakaatuh. As-salaamu 'alaynaa wa 'alaa 'ibaadil-laahis-saaliheen. Ash-hadu al-laa ilaaha illal-laah, wa ash-hadu anna Muhammadan 'abduhu wa rasooluh.",
+    "tlSource": "Ar-Rayaan phrase registry (assets/academy/phrases/foundation.json): Arabic copied from the cited hadith, transliteration by the app author, not yet scholar-reviewed"
+   },
+   {
+    "heading": "The blessing and the salam",
+    "body": "The blessing on the Prophet ﷺ (Bukhari 3370) and the salam that ends the prayer (the Prophet ﷺ gave the salam to his right and left: Abu Dawud 996, graded sahih by al-Albani). Meaning: O Allah, send prayers upon Muhammad and upon the family of Muhammad, as You sent prayers upon Ibrahim and upon the family of Ibrahim. You are Praiseworthy, Glorious. Then: Peace be upon you, and the mercy of Allah.",
+    "arabic": "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ\nالسَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ",
+    "tl": "Allaahumma salli 'alaa Muhammadin wa 'alaa aali Muhammad, kamaa sallayta 'alaa Ibraaheema wa 'alaa aali Ibraaheem, innaka Hameedun Majeed\nAs-salaamu 'alaykum wa rahmatul-laah",
+    "tlSource": "Ar-Rayaan phrase registry (assets/academy/phrases/foundation.json): Arabic copied from the cited hadith, transliteration by the app author, not yet scholar-reviewed"
    }
   ],
-  "familyQuestion": "Who could walk this path beside you — a friend, a family member, or someone at the masjid?"
+  "familyQuestion": "Who could walk this path beside you: a friend, a family member, or someone at the masjid?"
  },
  {
   "id": "newmuslim-22",
   "collection": "newmuslim",
-  "title": "Day 22: Adhkar — the Daily Rememberances",
+  "title": "Day 22: Adhkar — the Daily Remembrances",
   "kicker": "THE NEW MUSLIM PATH · DAY 22 OF 30",
-  "subtitle": "One step a day — gently, surely",
+  "subtitle": "Morning and evening words",
   "sourceLabel": "Established",
   "sources": [
-   "Qur'an",
-   "Sahih al-Bukhari",
-   "Sahih Muslim"
+   "Abu Dawud 5082 (graded hasan by al-Albani)",
+   "Qur’an 112:1-4",
+   "Qur’an 3:191"
   ],
   "chapters": [
    {
-    "heading": "Day 22 — Adhkar — the Daily Rememberances",
-    "body": "Morning and evening litanies are the believer's armor — short phrases, mighty meanings: Ayat al-Kursi, the three quls, the master istighfar. 'They will suffice you against everything' (Abu Dawud 5082, hasan per al-Albani, of the three quls).\n\nIn the Qur'an: 'Who remember Allah while standing or sitting or [lying] on their sides and give thought to the creation of the heavens and the earth' (3:191).\n\nToday's step: Open the Daily Duas shelf and choose ONE morning dua. Just one, every morning for a week. Let it become as automatic as breathing.\n\nYou are not behind, and you are not alone. Every born Muslim had a first day — and the Prophet ﷺ said: 'Allah is gentle and loves gentleness in all things' (Bukhari 6927). Take today's step, say 'alhamdulillah,' and rest."
+    "heading": "Day 22 — Adhkar — the Daily Remembrances",
+    "body": "Adhkar means remembrances: short phrases of dhikr said at fixed times. The Prophet ﷺ told a Companion to say the Qur’an’s Surah al-Ikhlas (“Say, He is Allah, One”) and the two surahs of refuge (al-Falaq and an-Nas) three times each in the morning and evening, and that they would serve him for every purpose (Abu Dawud 5082, graded hasan by al-Albani).\n\nThe Qur’an describes believers as those ‘Who remember Allah while standing or sitting or [lying] on their sides’ (Qur’an 3:191).\n\nMeaning of Surah al-Ikhlas: Say, \"He is Allah, [who is] One, Allah, the Eternal Refuge. He neither begets nor is born, Nor is there to Him any equivalent.\"\n\nToday’s step: Learn Surah al-Ikhlas below (four short verses): listen, repeat, and say it three times this evening. Over the coming days add al-Falaq and an-Nas."
+   },
+   {
+    "heading": "Surah al-Ikhlas",
+    "body": "Say it three times in the morning and three times in the evening (Abu Dawud 5082, graded hasan by al-Albani). Read it slowly, one verse at a time, with the meaning above.",
+    "arabic": "قُلۡ هُوَ ٱللَّهُ أَحَدٌ ٱللَّهُ ٱلصَّمَدُ لَمۡ يَلِدۡ وَلَمۡ يُولَدۡ وَلَمۡ يَكُن لَّهُۥ كُفُوًا أَحَدُۢ",
+    "tl": "Qul huwal-laahu 'ahad Allaahus-samad Lam yalid wa lam yoolad Wa lam yakul-lahoo kufuwan 'ahad",
+    "tlSource": "Qur’an transliteration already approved in this app (Tanzil text; assets/quran/transliteration.json)"
    }
   ],
-  "familyQuestion": "Who could walk this path beside you — a friend, a family member, or someone at the masjid?"
+  "familyQuestion": "Who could walk this path beside you: a friend, a family member, or someone at the masjid?"
  },
  {
   "id": "newmuslim-23",
   "collection": "newmuslim",
   "title": "Day 23: Trials and the Why Question",
   "kicker": "THE NEW MUSLIM PATH · DAY 23 OF 30",
-  "subtitle": "One step a day — gently, surely",
+  "subtitle": "When hard things come",
   "sourceLabel": "Established",
   "sources": [
-   "Qur'an",
-   "Sahih al-Bukhari",
-   "Sahih Muslim"
+   "Qur’an 2:155-156",
+   "Qur’an 2:216",
+   "Qur’an 94:5-6",
+   "Qur’an 2:286"
   ],
   "chapters": [
    {
     "heading": "Day 23 — Trials and the Why Question",
-    "body": "Hard days will come, and the heart will ask why. The answer is not a sentence; it is a direction: 'perhaps you dislike a thing and Allah makes therein much good' (4:19). Patience is not pretending; it is holding on while it hurts.\n\nIn the Qur'an: 'Allah does not charge a soul except [with that within] its capacity' (2:286).\n\nToday's step: When today's small difficulty comes — traffic, a word, a delay — say 'alhamdulillah ala kulli hal' silently. Train the muscle on small weights.\n\nYou are not behind, and you are not alone. Every born Muslim had a first day — and the Prophet ﷺ said: 'Allah is gentle and loves gentleness in all things' (Bukhari 6927). Take today's step, say 'alhamdulillah,' and rest."
+    "body": "Hard days will come, and the heart will ask why. The Qur’an does not hide that: ‘We will surely test you with something of fear and hunger and a loss of wealth and lives and fruits, but give good tidings to the patient’ (Qur’an 2:155). It tells us what the patient say: ‘Indeed we belong to Allah, and indeed to Him we will return’ (Qur’an 2:156).\n\nOn what we cannot see: ‘perhaps you hate a thing and it is good for you; and perhaps you love a thing and it is bad for you. And Allah Knows, while you know not’ (Qur’an 2:216). And on the weight we carry: ‘Allah does not charge a soul except [with that within] its capacity’ (Qur’an 2:286) and ‘with hardship [will be] ease’ (Qur’an 94:5).\n\nPatience is not pretending that it does not hurt. It is holding on to Allah while it hurts.\n\nToday’s step: When a small difficulty comes today (a delay, a hard word), say the verse below to yourself and take a breath before you answer. If you are in real pain or distress, talk to someone you trust, and to a doctor or counsellor if you need to."
+   },
+   {
+    "heading": "What the patient say",
+    "body": "The Qur’an gives these words for the believer when disaster strikes (Qur’an 2:156). Meaning: Who, when disaster strikes them, say, \"Indeed we belong to Allah, and indeed to Him we will return.\"",
+    "arabic": "ٱلَّذِينَ إِذَآ أَصَٰبَتۡهُم مُّصِيبَةٞ قَالُوٓاْ إِنَّا لِلَّهِ وَإِنَّآ إِلَيۡهِ رَٰجِعُونَ"
    }
   ],
-  "familyQuestion": "Who could walk this path beside you — a friend, a family member, or someone at the masjid?"
+  "familyQuestion": "Who could walk this path beside you: a friend, a family member, or someone at the masjid?"
  },
  {
   "id": "newmuslim-24",
   "collection": "newmuslim",
   "title": "Day 24: Islamic Character — the Visible Prayer",
   "kicker": "THE NEW MUSLIM PATH · DAY 24 OF 30",
-  "subtitle": "One step a day — gently, surely",
+  "subtitle": "Truthful, kind, careful with words",
   "sourceLabel": "Established",
   "sources": [
-   "Qur'an",
-   "Sahih al-Bukhari",
-   "Sahih Muslim"
+   "Qur’an 33:21",
+   "Qur’an 68:4",
+   "Sahih al-Bukhari 6018",
+   "Sahih al-Bukhari 12"
   ],
   "chapters": [
    {
     "heading": "Day 24 — Islamic Character — the Visible Prayer",
-    "body": "The Prophet ﷺ was asked about the most beloved deeds; he answered, the most consistent, even if small. Character is that: truthfulness in speech, the salaam given first, the anger swallowed.\n\nIn the Qur'an: 'There has certainly been for you in the Messenger of Allah an excellent pattern for anyone whose hope is in Allah and the Last Day and [who] remembers Allah often' (33:21).\n\nToday's step: Practice one: speak only truth today — including the small exaggerations. Feel the cost of it; that cost is what makes it worship.\n\nYou are not behind, and you are not alone. Every born Muslim had a first day — and the Prophet ﷺ said: 'Allah is gentle and loves gentleness in all things' (Bukhari 6927). Take today's step, say 'alhamdulillah,' and rest."
+    "body": "Prayer is between you and Allah, but character is what people see. The Qur’an says: ‘There has certainly been for you in the Messenger of Allah an excellent pattern for anyone whose hope is in Allah and the Last Day’ (Qur’an 33:21).\n\nThe Prophet ﷺ said that whoever believes in Allah and the Last Day should not harm his neighbour, should honour his guest generously, and should say what is good or keep quiet (Bukhari 6018). When he was asked which deeds in Islam are good, he said: to feed others and to greet those you know and those you do not know (Bukhari 12).\n\nToday’s step: Choose one: speak only what is good or say nothing; be the first to give the greeting; or do one small favour for a neighbour. Do just that one, all day, and notice what it costs."
    }
   ],
-  "familyQuestion": "Who could walk this path beside you — a friend, a family member, or someone at the masjid?"
+  "familyQuestion": "Who could walk this path beside you: a friend, a family member, or someone at the masjid?"
  },
  {
   "id": "newmuslim-25",
   "collection": "newmuslim",
   "title": "Day 25: Ramadan — Your First Fast Approaches",
   "kicker": "THE NEW MUSLIM PATH · DAY 25 OF 30",
-  "subtitle": "One step a day — gently, surely",
+  "subtitle": "What the fast is, and who it is for",
   "sourceLabel": "Established",
   "sources": [
-   "Qur'an",
-   "Sahih al-Bukhari",
-   "Sahih Muslim"
+   "Qur’an 2:183-185",
+   "Sahih al-Bukhari 1904"
   ],
   "chapters": [
    {
     "heading": "Day 25 — Ramadan — Your First Fast Approaches",
-    "body": "Fasting: from dawn to sunset, food, drink, and desire — replaced by awareness of Allah. 'Fasting is a shield' (Bukhari 1904). If Ramadan is far, use Mondays and Thursdays: the Prophet ﷺ fasted them weekly.\n\nIn the Qur'an: 'O you who have believed, decreed upon you is fasting as it was decreed upon those before you that you may become righteous' (2:183).\n\nToday's step: Try one sunnah fast this week (Monday or Thursday), even if months from Ramadan. The body learns what the heart knows.\n\nYou are not behind, and you are not alone. Every born Muslim had a first day — and the Prophet ﷺ said: 'Allah is gentle and loves gentleness in all things' (Bukhari 6927). Take today's step, say 'alhamdulillah,' and rest."
+    "body": "Fasting in Ramadan is the fourth pillar. From dawn to sunset a Muslim keeps away from food, drink and marital relations. The Qur’an says: ‘decreed upon you is fasting as it was decreed upon those before you that you may become righteous’ (Qur’an 2:183). And: ‘Allah intends for you ease and does not intend for you hardship’ (Qur’an 2:185).\n\nThe ill and travellers are given a concession: ‘whoever is ill or on a journey - then an equal number of other days’ (Qur’an 2:185). If you have a medical condition or are pregnant, nursing, or on medication, ask a doctor and a scholar before you fast.\n\nThe Prophet ﷺ said that Allah says every deed of Adam’s sons is for them except fasting, which is for Allah, and that fasting is a shield (Bukhari 1904).\n\nToday’s step: Find the first day of the coming Ramadan in the app and note the fasting hours for your city. Read the Ramadan guide, and learn that the fast ends at sunset (Maghrib). You do not need to fast today."
    }
   ],
-  "familyQuestion": "Who could walk this path beside you — a friend, a family member, or someone at the masjid?"
+  "familyQuestion": "Who could walk this path beside you: a friend, a family member, or someone at the masjid?"
  },
  {
   "id": "newmuslim-26",
   "collection": "newmuslim",
-  "title": "Day 26: The Ummah — a Billion Siblings",
+  "title": "Day 26: The Ummah — Your Wider Family",
   "kicker": "THE NEW MUSLIM PATH · DAY 26 OF 30",
-  "subtitle": "One step a day — gently, surely",
+  "subtitle": "Brothers and sisters in faith",
   "sourceLabel": "Established",
   "sources": [
-   "Qur'an",
-   "Sahih al-Bukhari",
-   "Sahih Muslim"
+   "Qur’an 49:10",
+   "Qur’an 3:103",
+   "Qur’an 49:13",
+   "Qur’an 4:86",
+   "Sahih al-Bukhari 12",
+   "Sahih Muslim 45",
+   "Abu Dawud 996 (graded sahih by al-Albani)"
   ],
   "chapters": [
    {
-    "heading": "Day 26 — The Ummah — a Billion Siblings",
-    "body": "You did not join a religion; you joined a family that spans every race and century. 'The believers are but brothers' (49:10). Somewhere tonight, a million Muslims are praying the same words you are learning.\n\nIn the Qur'an: 'And hold firmly to the rope of Allah all together and do not become divided' (3:103).\n\nToday's step: Learn the salaam's full form — Assalamu alaikum wa rahmatullah — and give it to a stranger at the mosque. Watch what it opens.\n\nYou are not behind, and you are not alone. Every born Muslim had a first day — and the Prophet ﷺ said: 'Allah is gentle and loves gentleness in all things' (Bukhari 6927). Take today's step, say 'alhamdulillah,' and rest."
+    "heading": "Day 26 — The Ummah — Your Wider Family",
+    "body": "You did not only join a belief; you joined a community. The Qur’an says: ‘The believers are but brothers’ (Qur’an 49:10) and ‘hold firmly to the rope of Allah all together and do not become divided’ (Qur’an 3:103). It also reminds us that people differ in tribe and nation: ‘the most noble of you in the sight of Allah is the most righteous of you’ (Qur’an 49:13).\n\nThe Prophet ﷺ said that none of you truly believes until he loves for his brother what he loves for himself (Muslim 45). Asked what is good in Islam, he named greeting those you know and those you do not (Bukhari 12).\n\nThe Qur’an says how to answer a greeting: ‘when you are greeted with a greeting, greet [in return] with one better than it or [at least] return it’ (Qur’an 4:86). The reply to “As-salaamu alaykum” is “Wa alaykumus-salaam”.\n\nToday’s step: Give the full greeting (below) to someone at the masjid or a Muslim neighbour, and answer when you are greeted."
+   },
+   {
+    "heading": "The greeting",
+    "body": "The salam the Prophet ﷺ gave at the end of the prayer (Abu Dawud 996, graded sahih by al-Albani). Meaning: Peace be upon you, and the mercy of Allah.",
+    "arabic": "السَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ",
+    "tl": "As-salaamu 'alaykum wa rahmatul-laah",
+    "tlSource": "Ar-Rayaan phrase registry (assets/academy/phrases/foundation.json): Arabic copied from the cited hadith, transliteration by the app author, not yet scholar-reviewed"
    }
   ],
-  "familyQuestion": "Who could walk this path beside you — a friend, a family member, or someone at the masjid?"
+  "familyQuestion": "Who could walk this path beside you: a friend, a family member, or someone at the masjid?"
  },
  {
   "id": "newmuslim-27",
   "collection": "newmuslim",
   "title": "Day 27: Knowledge — the Path of Students",
   "kicker": "THE NEW MUSLIM PATH · DAY 27 OF 30",
-  "subtitle": "One step a day — gently, surely",
+  "subtitle": "Learning from people who know",
   "sourceLabel": "Established",
   "sources": [
-   "Qur'an",
-   "Sahih al-Bukhari",
-   "Sahih Muslim"
+   "Qur’an 39:9",
+   "Qur’an 20:114",
+   "Qur’an 16:43",
+   "Sahih al-Bukhari 71"
   ],
   "chapters": [
    {
     "heading": "Day 27 — Knowledge — the Path of Students",
-    "body": "Islam has no clergy and no gatekeepers of knowledge. 'Are those who know equal to those who do not know?' (39:9). Seekers are the heirs of the prophets (Abu Dawud 3641, sahih per al-Albani).\n\nIn the Qur'an: 'And say: My Lord, increase me in knowledge' (20:114).\n\nToday's step: Pick ONE course or teacher to follow for the next year — the Academy, a local class, a trusted online scholar. Depth with one teacher beats scattered readings.\n\nYou are not behind, and you are not alone. Every born Muslim had a first day — and the Prophet ﷺ said: 'Allah is gentle and loves gentleness in all things' (Bukhari 6927). Take today's step, say 'alhamdulillah,' and rest."
+    "body": "Islam asks every Muslim to learn. The Qur’an says: ‘Are those who know equal to those who do not know?’ (Qur’an 39:9) and teaches us to ask: ‘My Lord, increase me in knowledge’ (Qur’an 20:114). The Prophet ﷺ said: if Allah wants good for a person, He makes him understand the religion (Bukhari 71).\n\nLearn from people, not only from feeds: ‘ask the people of the message if you do not know’ (Qur’an 16:43). Pick one teacher or course and stay with it for a while, rather than reading everything at once. A local imam, a class at your mosque, or a course in the Academy can each be that place. The Academy courses are not yet scholar-reviewed, so check what matters against a teacher you trust.\n\nToday’s step: Choose one source of learning to follow for the next three months and write its name down."
    }
   ],
-  "familyQuestion": "Who could walk this path beside you — a friend, a family member, or someone at the masjid?"
+  "familyQuestion": "Who could walk this path beside you: a friend, a family member, or someone at the masjid?"
  },
  {
   "id": "newmuslim-28",
   "collection": "newmuslim",
   "title": "Day 28: Hard Questions and Honest Doubt",
   "kicker": "THE NEW MUSLIM PATH · DAY 28 OF 30",
-  "subtitle": "One step a day — gently, surely",
+  "subtitle": "What to do with questions",
   "sourceLabel": "Established",
   "sources": [
-   "Qur'an",
-   "Sahih al-Bukhari",
-   "Sahih Muslim"
+   "Qur’an 16:43",
+   "Qur’an 2:286"
   ],
   "chapters": [
    {
     "heading": "Day 28 — Hard Questions and Honest Doubt",
-    "body": "Every believer meets questions: science, suffering, history. Islam has carried scholars for fourteen centuries; bring your questions to qualified teachers rather than midnight feeds. Doubt asked honestly is a search, not a sin.\n\nIn the Qur'an: 'So ask the people of the message if you do not know' (16:43).\n\nToday's step: Write down your three hardest questions. Bring them to a teacher — at the masjid, or through Hadi with a scholar's channel open beside you. Questions are how the religion deepens.\n\nYou are not behind, and you are not alone. Every born Muslim had a first day — and the Prophet ﷺ said: 'Allah is gentle and loves gentleness in all things' (Bukhari 6927). Take today's step, say 'alhamdulillah,' and rest."
+    "body": "Every believer has questions, about suffering, science, history, or things in the religion that are hard to take. Asking is not a sin. The Qur’an tells us what to do when we do not know: ‘ask the people of the message if you do not know’ (Qur’an 16:43).\n\nA good way to ask: write the question down, keep it short, find a teacher or imam you trust and ask them in person; look for the evidence they give. Be wary of answers from anonymous accounts, and of anyone who is sure about everything. Hadi shows its sources for the answers it gives from the app, so you can check them. Open questions belong with a scholar.\n\nAllah knows the weight of what you carry: ‘Allah does not charge a soul except [with that within] its capacity’ (Qur’an 2:286).\n\nToday’s step: Write down your three hardest questions. Bring one to a teacher this week."
    }
   ],
-  "familyQuestion": "Who could walk this path beside you — a friend, a family member, or someone at the masjid?"
+  "familyQuestion": "Who could walk this path beside you: a friend, a family member, or someone at the masjid?"
  },
  {
   "id": "newmuslim-29",
   "collection": "newmuslim",
   "title": "Day 29: Giving — Sadaqah Beyond Zakat",
   "kicker": "THE NEW MUSLIM PATH · DAY 29 OF 30",
-  "subtitle": "One step a day — gently, surely",
+  "subtitle": "Charity in many forms",
   "sourceLabel": "Established",
   "sources": [
-   "Qur'an",
-   "Sahih al-Bukhari",
-   "Sahih Muslim"
+   "Qur’an 2:261",
+   "Jami’ at-Tirmidhi 1956 (hasan per Darussalam)",
+   "Sahih Muslim 1914",
+   "Sahih al-Bukhari 660",
+   "Sahih al-Bukhari 2989"
   ],
   "chapters": [
    {
     "heading": "Day 29 — Giving — Sadaqah Beyond Zakat",
-    "body": "Zakat is the pillar; sadaqah is the river. A smile is sadaqah (Tirmidhi 1956, hasan per Darussalam); removing harm from the path earned a man Allah's thanks and forgiveness (Muslim 1914). You have been giving longer than you knew.\n\nIn the Qur'an: 'The example of those who spend their wealth in the way of Allah is like a seed [of grain] which grows seven spikes' (2:261).\n\nToday's step: Give something today — money, time, a meal — in secret if you can. Then feel the paradox: the hand that gives is the hand that feels richer.\n\nYou are not behind, and you are not alone. Every born Muslim had a first day — and the Prophet ﷺ said: 'Allah is gentle and loves gentleness in all things' (Bukhari 6927). Take today's step, say 'alhamdulillah,' and rest."
+    "body": "Zakat is the pillar; sadaqah is everything beyond it, and it is not only money. The Prophet ﷺ said that smiling in your brother’s face is charity (Tirmidhi 1956, hasan per Darussalam). A man who found a thorny twig on the road and moved it aside, Allah appreciated it and forgave him (Muslim 1914). Helping a person onto his animal, or removing harm from the road, is also charity (Bukhari 2989).\n\nThe Qur’an says: ‘The example of those who spend their wealth in the way of Allah is like a seed [of grain] which grows seven spikes; in each spike is a hundred grains’ (Qur’an 2:261). And among the seven whom Allah will shade is a man who gives so secretly that his left hand does not know what his right hand has given (Bukhari 660).\n\nToday’s step: Give something today, in secret if you can: money, time, a meal, or a task done for someone. Tell no one."
    }
   ],
-  "familyQuestion": "Who could walk this path beside you — a friend, a family member, or someone at the masjid?"
+  "familyQuestion": "Who could walk this path beside you: a friend, a family member, or someone at the masjid?"
  },
  {
   "id": "newmuslim-30",
   "collection": "newmuslim",
-  "title": "Day 30: Thirty Days — a Muslim Now",
+  "title": "Day 30: Thirty Days — Where You Are Now",
   "kicker": "THE NEW MUSLIM PATH · DAY 30 OF 30",
-  "subtitle": "One step a day — gently, surely",
+  "subtitle": "Looking back, and going on",
   "sourceLabel": "Established",
   "sources": [
-   "Qur'an",
-   "Sahih al-Bukhari",
-   "Sahih Muslim"
+   "Qur’an 6:162-163",
+   "Sahih al-Bukhari 1395",
+   "Sahih al-Bukhari 39"
   ],
   "chapters": [
    {
-    "heading": "Day 30 — Thirty Days — a Muslim Now",
-    "body": "Look at the ground you have covered: testimony, prayer, purification, the Book, the Messenger, the mosque, the table, the family, the ummah, the giving. Thirty days ago this was all a stranger's country; today it is your address.\n\nIn the Qur'an: 'This day I have perfected for you your religion and completed My favor upon you and have approved for you Islam as religion' (5:3).\n\nToday's step: Say the shahada once more — not as a door this time, but as a home. Then begin again at Day 1, not because you need it, but because the path only deepens. Welcome home, and may Allah keep you.\n\nYou are not behind, and you are not alone. Every born Muslim had a first day — and the Prophet ﷺ said: 'Allah is gentle and loves gentleness in all things' (Bukhari 6927). Take today's step, say 'alhamdulillah,' and rest."
+    "heading": "Day 30 — Thirty Days — Where You Are Now",
+    "body": "Thirty days ago you may not have known how to say the shahada. Now you know how to say it, wash for prayer, pray a rak’ah, begin the Fatihah, find the mosque, eat with Bismillah, ask for forgiveness, and ask for help. Nobody finishes learning, and the path does not end here.\n\nThe Qur’an teaches the believer to say: ‘my prayer, my rites of sacrifice, my living and my dying are for Allah, Lord of the worlds’ (Qur’an 6:162).\n\nChoose a plan for the next thirty days: all five prayers as soon as you are able (Bukhari 1395), a daily portion of the Qur’an, one morning and evening dhikr, one weekly visit to the mosque, and one teacher. Remember: religion is easy, and whoever overburdens himself will not be able to continue (Bukhari 39).\n\nToday’s step: Say the shahada again, with the words below, now knowing what each word means. Then write your plan for the next thirty days, and tell one person."
+   },
+   {
+    "heading": "The shahada",
+    "body": "Meaning: I bear witness that there is no god but Allah, and I bear witness that Muhammad is the Messenger of Allah.",
+    "arabic": "أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ اللَّهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ اللَّهِ",
+    "tl": "Ash-hadu al-laa ilaaha illal-laah, wa ash-hadu anna Muhammadan rasoolul-laah",
+    "tlSource": "Ar-Rayaan phrase registry (assets/academy/phrases/foundation.json): Arabic copied from the cited hadith, transliteration by the app author, not yet scholar-reviewed"
    }
   ],
-  "familyQuestion": "Who could walk this path beside you — a friend, a family member, or someone at the masjid?"
+  "familyQuestion": "Who will you tell about your plan for the next thirty days?"
  }
 ]

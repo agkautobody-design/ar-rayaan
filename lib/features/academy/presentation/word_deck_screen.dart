@@ -8,6 +8,7 @@ import 'package:go_router/go_router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../domain/word_gloss.dart';
 
 /// A card in the plain flashcard viewer (the spaced-repetition deck lives in
 /// domain/word_deck.dart and is practised at /academy/review).
@@ -28,6 +29,20 @@ class WordPackCard {
       !gloss.contains('(in context)') &&
       (glossSource?.trim().isNotEmpty ?? false);
 
+  /// The card with its meaning from the separate glosses file (the pack
+  /// itself is checksum-pinned and carries none).
+  WordPackCard withGloss(Map<String, WordGloss> glosses) {
+    final WordGloss? g = glosses['${sourceAyah[0]}:${sourceAyah[1]}:$arabic'];
+    if (g == null || hasMeaning) return this;
+    return WordPackCard(
+        arabic: arabic,
+        gloss: g.gloss,
+        glossSource: kWordGlossSource,
+        occurrences: occurrences,
+        frequencyRank: frequencyRank,
+        sourceAyah: sourceAyah);
+  }
+
   factory WordPackCard.fromJson(Map<String, dynamic> j) => WordPackCard(
         arabic: j['arabic'] as String,
         gloss: j['gloss'] as String,
@@ -41,8 +56,16 @@ class WordPackCard {
 final wordPackProvider = FutureProvider<List<WordPackCard>>((ref) async {
   final raw = await rootBundle.loadString('assets/academy/word_pack.json');
   final d = json.decode(raw) as Map<String, dynamic>;
+  Map<String, WordGloss> glosses = <String, WordGloss>{};
+  try {
+    glosses = parseWordGlosses(
+        await rootBundle.loadString('assets/academy/word_glosses.json'));
+  } catch (_) {
+    // No meanings file: the cards show no meaning rather than an invented one.
+  }
   return (d['cards'] as List<dynamic>)
-      .map((e) => WordPackCard.fromJson(e as Map<String, dynamic>))
+      .map((e) => WordPackCard.fromJson(e as Map<String, dynamic>)
+          .withGloss(glosses))
       .toList();
 });
 
@@ -159,7 +182,7 @@ class _WordDeckScreenState extends ConsumerState<WordDeckScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 6),
                 child: Text(
                   'The 300 most frequent words of the Qur\u2019an, most common first. '
-                  'Some meanings are still being verified and show no gloss until they are.',
+                  'Meanings are written for this app from the Qur\u2019an\u2019s own verses and have not yet been reviewed by a scholar of Arabic.',
                   textAlign: TextAlign.center,
                   style: AppText.bodyMuted.copyWith(height: 1.55),
                 ),

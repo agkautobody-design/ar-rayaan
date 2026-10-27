@@ -38,7 +38,7 @@ const List<_FamUnit> kFamilyUnits = <_FamUnit>[
       ),
       _FamLesson(
         title: 'The Best of You',
-        body: 'The best of you is the one who is best to his wife (Tirmidhi 3895, sahih per Darussalam). And the most complete believer in faith is the one with the best character (Tirmidhi 1162, hasan per Darussalam). The measure of a Muslim is not the masjid face; it is the kitchen face.',
+        body: 'The best of you is the one who is best to his wife (Tirmidhi 3895, hasan per Darussalam, sahih per al-Albani). And the most complete believer in faith is the one with the best character (Tirmidhi 1162, hasan per Darussalam). The measure of a Muslim is not the masjid face; it is the kitchen face.',
         practice: 'Be gentler at home today than you were at any meeting. Let the family see the best version first.',
       ),
       _FamLesson(
