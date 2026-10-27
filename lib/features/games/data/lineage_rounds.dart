@@ -94,6 +94,10 @@ List<LineageRound> buildLineageRounds(
       ...parentIds,
       ..._strings(n, 'children'),
       ..._strings(n, 'spouses'),
+      // A true parent's own spouse is also a parent of this person's
+      // siblings, or of the person, in some trees: never offer a spouse of a
+      // true parent as the wrong answer.
+      for (final String p in parentIds) ..._strings(byId[p] ?? n, 'spouses'),
     };
     final String answerId = parentIds[rnd.nextInt(parentIds.length)];
     final String answerName = byId[answerId]!['name'] as String;

@@ -147,14 +147,10 @@ void main() {
   group('Stories Trivia', () {
     test('only questions that name a source are used', () {
       final List<QuizQuestion> pool = storiesPool(trivia);
-      expect(pool.length, greaterThan(20));
-      expect(pool.length, lessThan(trivia.length));
+      expect(pool.length, greaterThan(200));
+      // Every shipped question names its source now; none is left out.
+      expect(pool.length, trivia.length);
       pool.forEach(checkQuestion);
-      final Set<String> ids = pool.map((QuizQuestion q) => q.id).toSet();
-      // These carry no reference in their explanation.
-      for (final String dropped in <String>['tq-09', 'tq-21', 'tq-24']) {
-        expect(ids.contains(dropped), isFalse, reason: dropped);
-      }
     });
 
     test('citations are read from the explanation', () {

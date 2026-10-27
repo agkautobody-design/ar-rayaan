@@ -1975,12 +1975,12 @@
   "note": "Number removed from the content. The sunnah.com page could not be read (HTTP 429 rate limit) or was not re-checked; claim kept without a number as \"reported\"."
  },
  "bukhari:528": {
-  "verdict": "wrong",
-  "grade": "",
-  "grader": "",
-  "checked": "2026-10-20",
-  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Abu Hurayrah; five prayers like river erase sins",
-  "correct": "none"
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "checked": "2026-10-27",
+  "note": "528 = Abu Hurayrah, the five prayers like a river at the door. The 2026-10-20 wrong verdict was about an old claim; the games trivia cites it for the river example only.",
+  "correct": ""
  },
  "bukhari:5763": {
   "verdict": "wrong",

@@ -2296,12 +2296,12 @@
   "note": "early arrival camel cow ram (Abu Hurayrah)"
  },
  "bukhari:883": {
-  "verdict": "wrong",
-  "correct": "none",
-  "grade": "",
-  "grader": "",
-  "checked": "2026-10-20",
-  "note": "883 = Salman Friday bathing/forgiveness; nothing about two rakahs"
+  "verdict": "ok",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "checked": "2026-10-27",
+  "note": "883 = Salman al-Farisi, Friday bath and forgiveness between two Fridays. The 2026-10-20 wrong verdict was about an old two-rak'ah claim; the games trivia now cites it for the Friday bath only."
  },
  "bukhari:887": {
   "verdict": "ok",
