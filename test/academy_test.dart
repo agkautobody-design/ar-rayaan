@@ -269,7 +269,7 @@ void main() {
       expect(find.text('1/$total'), findsOneWidget);
       expect(find.text('You are welcome here'), findsOneWidget);
       // The provenance label is always on screen.
-      expect(find.textContaining('Not yet scholar-reviewed'), findsOneWidget);
+      expect(find.textContaining('Scholar review needed'), findsOneWidget);
 
       await tester.tap(find.text('Next'));
       await tester.pumpAndSettle();

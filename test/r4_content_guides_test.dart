@@ -32,10 +32,10 @@ void main() {
         expect((g['madhhabNote'] as String).trim(), isNotEmpty);
       });
 
-      test('says it is not yet scholar-reviewed', () {
+      test('says it is scholar review needed', () {
         final List<dynamic> sources = byId[id]!['sources'] as List<dynamic>;
         expect(sources.first as String,
-            startsWith('Status: not yet scholar-reviewed'));
+            startsWith('Status: scholar review needed'));
       });
 
       test('Hadi may open it', () {

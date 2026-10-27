@@ -74,7 +74,7 @@ Lesson steps flagged by the author:
 - `path.u2.l1/madhab`: Each row states the commonly taught position of each school. Needs a scholar to confirm the wording of every row.
 - `path.u3.l1/madhab`: Each row states the commonly taught position of each school on Al-Fatihah in prayer. Needs a scholar to confirm each row.
 
-Every `contrast` step (madhab rows) and every explanation written by the app author; the app already shows "Not yet scholar-reviewed".
+Every `contrast` step (madhab rows) and every explanation written by the app author; the app already shows "Scholar review needed".
 
 ## Illustration needs (none used yet; silhouette figures, no faces)
 Wudu: each of the 9 steps (hands, mouth, nose, face, arms, head and ears, feet). Salah: standing with hands raised, hands folded (3 school variants), bowing, standing up, prostration (seven parts touching), sitting between, tashahhud sitting, salam turning head. Qibla/prayer-mat setup.

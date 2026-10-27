@@ -3,6 +3,7 @@
 /// user wants the answer now. Every answer carries its source.
 library;
 
+import '../../../app/core/scholar_review.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -55,6 +56,10 @@ class QaBankScreen extends ConsumerWidget {
               padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
               children: <Widget>[
                 const ScreenHeader(title: 'Q&A', close: true),
+                const ScholarReviewNote(
+                  reviewKey: 'qa',
+                  padding: EdgeInsets.only(bottom: 8),
+                ),
                 Text('الأسئلة',
                     style: AppText.arabic.copyWith(
                         fontSize: 28, color: AppColors.gold)),

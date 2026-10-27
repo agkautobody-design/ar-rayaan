@@ -1,3 +1,4 @@
+import '../../../app/core/scholar_review.dart';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -73,6 +74,10 @@ class _ShareState extends State<ShareScreen> {
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
             children: [
               const ScreenHeader(title: 'Verse Cards', close: true),
+              const ScholarReviewNote(
+                reviewKey: 'noor.card',
+                padding: EdgeInsets.only(bottom: 8),
+              ),
               Consumer(builder: (c, ref, _) {
                 final url = ref.watch(appUrlProvider);
                 return GlassCard(

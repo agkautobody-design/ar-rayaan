@@ -5,6 +5,7 @@
 /// the module itself.
 library;
 
+import '../../../app/core/scholar_review.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -198,6 +199,10 @@ class DuaSchoolScreen extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
             children: <Widget>[
               const ScreenHeader(title: 'Duʿa & Adhkar'),
+              const ScholarReviewNote(
+                reviewKey: 'school.dua',
+                padding: EdgeInsets.only(bottom: 8),
+              ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 12),
                 child: Text(

@@ -1080,5 +1080,5 @@
    ]
   }
  ],
- "source": "Letters v2 (units 5-7). Rules of vowels, sukun, shaddah, tanween and joining are standard Arabic reading rules; every Quran word shown is taken letter for letter from the bundled Quran text at the reference on its card (checked by test/letters_v2_test.dart). No word meanings are given. Not yet scholar-reviewed."
+ "source": "Letters v2 (units 5-7). Rules of vowels, sukun, shaddah, tanween and joining are standard Arabic reading rules; every Quran word shown is taken letter for letter from the bundled Quran text at the reference on its card (checked by test/letters_v2_test.dart). No word meanings are given. Scholar review needed."
 }

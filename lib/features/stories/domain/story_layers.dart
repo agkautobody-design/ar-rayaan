@@ -18,12 +18,14 @@
 /// under the fixed badge [kEarlierBadge] and the three-class rule.
 library;
 
+import '../../../app/core/scholar_review.dart';
+
 /// Fixed badge on every earlier account. Never reworded per item.
 const String kEarlierBadge = 'Not from the Qur’an';
 
 /// Fixed review banner. There is no named reviewer yet, so the app only
-/// ever states that review has not happened.
-const String kReviewBanner = 'Not yet scholar-reviewed';
+/// ever states that review is still needed.
+const String kReviewBanner = kScholarReviewNeeded;
 
 /// Label printed on a disagreement between named works.
 const String kDisputedLabel = 'Disputed in the sources';

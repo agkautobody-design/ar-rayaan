@@ -5,6 +5,7 @@
 /// the frame so the road ahead is honest, not empty.
 library;
 
+import '../../../app/core/scholar_review.dart';
 import 'package:flutter/material.dart';
 
 import '../../../app/router.dart';
@@ -52,7 +53,7 @@ const List<_HistEra> kHistoryEras = <_HistEra>[
       ),
       _HistChapter(
         title: 'The Pot of Milk',
-        note: 'A report (Muwatta Malik, through Zayd ibn Aslam) that Umar made himself vomit milk he learned came from the zakat camels. A report, not an eyewitness chain; not yet scholar-reviewed.',
+        note: 'A report (Muwatta Malik, through Zayd ibn Aslam) that Umar made himself vomit milk he learned came from the zakat camels. A report, not an eyewitness chain; scholar review needed.',
         storyId: 'tale-umar-milk',
       ),
       _HistChapter(
@@ -89,7 +90,7 @@ const List<_HistEra> kHistoryEras = <_HistEra>[
       ),
       _HistChapter(
         title: 'Khalid — Words on His Deathbed',
-        note: 'The words reported on Khalid ibn al-Walid\u2019s deathbed (Ibn al-Athir, Usd al-Ghaba; a seerah report, not from the six books, not yet scholar-reviewed).',
+        note: 'The words reported on Khalid ibn al-Walid\u2019s deathbed (Ibn al-Athir, Usd al-Ghaba; a seerah report, not from the six books, scholar review needed).',
         storyId: 'tale-khalid-letter',
       ),
       _HistChapter(
@@ -140,6 +141,10 @@ class HistorySchoolScreen extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
             children: <Widget>[
               const ScreenHeader(title: 'Islamic History', close: true),
+              const ScholarReviewNote(
+                reviewKey: 'school.history',
+                padding: EdgeInsets.only(bottom: 8),
+              ),
               Text('التاريخ',
                   style: AppText.arabic.copyWith(fontSize: 28, color: AppColors.gold)),
               const SizedBox(height: 6),

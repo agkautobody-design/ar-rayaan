@@ -4,6 +4,7 @@
 /// by the hadith feature); the others name their own source.
 library;
 
+import '../../../app/core/scholar_review.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -73,7 +74,7 @@ const List<_HadithLesson> kHadithLessons = <_HadithLesson>[
     meaning:
         'A saying attributed to the Prophet ﷺ tells us to take advantage of five before five: youth before old age, health before sickness, wealth before poverty, free time before busyness, and life before death. It is reported in some collections (for example al-Hakim’s Mustadrak, which is not one of the six books); its wording and grade were not checked for this app, so it is taught here as a reminder and not as a ruling.',
     character: 'Name one of the five you still hold; spend it well today.',
-    source: 'Reported in al-Hakim’s Mustadrak; not checked here (not yet scholar-reviewed)',
+    source: 'Reported in al-Hakim’s Mustadrak; not checked here (scholar review needed)',
   ),
   _HadithLesson(
     title: 'Lesson 5 — The Allowed and the Forbidden Are Clear',
@@ -365,6 +366,10 @@ class HadithSchoolScreen extends ConsumerWidget {
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
             children: <Widget>[
               const ScreenHeader(title: 'Hadith School', close: true),
+              const ScholarReviewNote(
+                reviewKey: 'school.hadith-school',
+                padding: EdgeInsets.only(bottom: 8),
+              ),
               Text('الحديث',
                   style: AppText.arabic.copyWith(fontSize: 28, color: AppColors.gold)),
               const SizedBox(height: 6),

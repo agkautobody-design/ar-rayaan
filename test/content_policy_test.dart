@@ -8,7 +8,7 @@ void main() {
     final String all = ContentPolicyScreen.sections
         .expand(((String, List<String>) s) => <String>[s.$1, ...s.$2])
         .join('\n');
-    expect(ContentPolicyScreen.reviewStatus, 'Not yet scholar-reviewed');
+    expect(ContentPolicyScreen.reviewStatus, 'Scholar review needed');
     final RegExp bare = RegExp(r'(?<!not yet )(?<!not )scholar-reviewed',
         caseSensitive: false);
     expect(bare.hasMatch(all), isFalse);
@@ -28,6 +28,6 @@ void main() {
     ));
     await tester.pump(const Duration(milliseconds: 300));
     expect(tester.takeException(), isNull);
-    expect(find.textContaining('Not yet scholar-reviewed'), findsWidgets);
+    expect(find.textContaining('Scholar review needed'), findsWidgets);
   });
 }

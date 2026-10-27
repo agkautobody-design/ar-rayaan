@@ -88,7 +88,7 @@ void main() {
       await tester.pump(const Duration(milliseconds: 200));
 
       expect(find.text('GO DEEPER'), findsOneWidget);
-      expect(find.textContaining('Not yet scholar-reviewed'), findsOneWidget);
+      expect(find.textContaining('Scholar review needed'), findsOneWidget);
       expect(find.byKey(const ValueKey<String>('layer-quran')), findsOneWidget);
       expect(find.byKey(const ValueKey<String>('layer-hadith')), findsOneWidget);
       expect(find.byKey(const ValueKey<String>('layer-scholarly')), findsOneWidget);

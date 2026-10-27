@@ -1,9 +1,9 @@
 /// Provenance and review status for every manifest lesson.
 ///
 /// Religious-content standard (Abdul, 20 Oct 2026): a lesson may be labelled
-/// "scholar-reviewed" only when a NAMED reviewer and a date are recorded.
-/// None exists yet, so every lesson carries [LessonReviewStatus
-/// .notYetScholarReviewed] and the fixed label "Not yet scholar-reviewed".
+/// reviewed only when a NAMED reviewer and a date are recorded. None exists
+/// yet, so every lesson carries [LessonReviewStatus.notYetScholarReviewed]
+/// and the fixed label "Scholar review needed" ([kScholarReviewNeeded]).
 /// `test/lesson_provenance_test.dart` fails the build when a manifest lesson
 /// has no entry here, when an entry claims review without a reviewer, or when
 /// a lesson cites a Qur'an reference that does not exist.
@@ -13,13 +13,13 @@
 /// never drift from what the lesson says.
 library;
 
+import '../../../app/core/scholar_review.dart';
 import 'hifz_planner.dart' show ayatInSurah;
 
 enum LessonReviewStatus { notYetScholarReviewed, scholarReviewed }
 
-/// The label shown to the learner. Fixed wording: never "scholar-reviewed"
-/// on its own.
-const String kNotYetReviewedLabel = 'Not yet scholar-reviewed';
+/// The label shown to the learner. Fixed wording, shared by the whole app.
+const String kNotYetReviewedLabel = kScholarReviewNeeded;
 
 class LessonProvenance {
   const LessonProvenance({

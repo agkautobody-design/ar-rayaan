@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../app/core/scholar_review.dart';
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
@@ -143,6 +144,10 @@ class HudaScreen extends ConsumerWidget {
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
             children: [
               const ScreenHeader(title: 'Huda', close: true),
+              const ScholarReviewNote(
+                reviewKey: 'huda',
+                padding: EdgeInsets.only(left: 4, bottom: 8),
+              ),
               Padding(
                 padding: const EdgeInsets.only(left: 4, bottom: 4),
                 child: Text('GUIDES IN THE PROPHET\u2019S WAY', style: AppText.eyebrow),
@@ -293,6 +298,8 @@ class GuideScreen extends StatelessWidget {
           ),
           const SizedBox(height: 4),
           Text(guide.subtitle, style: AppText.bodyMuted),
+          const SizedBox(height: 8),
+          ScholarReviewNote(reviewKey: 'huda.guide.${guide.id}'),
           ..._glossaryBlock(),
           if (guide.showPositions) ...[
             const SizedBox(height: 14),
@@ -392,6 +399,10 @@ class GuideScreen extends StatelessWidget {
                 children: [
                   Text('MADHHAB NOTE', style: AppText.eyebrow),
                   const SizedBox(height: 6),
+                  ScholarReviewNote(
+                    reviewKey: 'huda.madhhab.${guide.id}',
+                    padding: const EdgeInsets.only(bottom: 6),
+                  ),
                   Text(
                     guide.madhhabNote!,
                     style: AppText.bodyMuted.copyWith(height: 1.5),
@@ -437,6 +448,10 @@ class _RecitationsCard extends StatelessWidget {
         children: <Widget>[
           Text('WHAT YOU SAY', style: AppText.eyebrow),
           const SizedBox(height: 4),
+          const ScholarReviewNote(
+            reviewKey: 'huda.guide',
+            padding: EdgeInsets.only(bottom: 4),
+          ),
           Text(
             'The Arabic is copied from the cited source. The transliteration and '
             'meaning are learning aids and have not yet been reviewed by a scholar.',

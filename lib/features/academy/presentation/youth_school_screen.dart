@@ -4,6 +4,7 @@
 /// khutbahs on the phone and anxiety.
 library;
 
+import '../../../app/core/scholar_review.dart';
 import 'package:flutter/material.dart';
 
 import '../../../app/theme/app_colors.dart';
@@ -104,6 +105,10 @@ class YouthSchoolScreen extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
             children: <Widget>[
               const ScreenHeader(title: 'Youth', close: true),
+              const ScholarReviewNote(
+                reviewKey: 'school.youth',
+                padding: EdgeInsets.only(bottom: 8),
+              ),
               Text('الشباب',
                   style: AppText.arabic.copyWith(fontSize: 28, color: AppColors.gold)),
               const SizedBox(height: 6),

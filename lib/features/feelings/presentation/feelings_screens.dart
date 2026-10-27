@@ -1,3 +1,4 @@
+import '../../../app/core/scholar_review.dart';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -97,6 +98,10 @@ class FeelingsScreen extends ConsumerWidget {
           padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
           children: [
             const ScreenHeader(title: 'For Your Heart', close: true),
+            const ScholarReviewNote(
+              reviewKey: 'sakina.feeling',
+              padding: const EdgeInsets.only(bottom: 8),
+            ),
             Padding(
               padding: const EdgeInsets.only(left: 4, bottom: 6),
               child: Text('HOW ARE YOU FEELING RIGHT NOW?', style: AppText.eyebrow),
@@ -174,6 +179,10 @@ class FeelingScreen extends ConsumerWidget {
         ),
         error: (e, _) => Column(children: [
           const ScreenHeader(title: 'Feelings', close: true),
+          const ScholarReviewNote(
+            reviewKey: 'sakina.feeling',
+            padding: const EdgeInsets.only(bottom: 8),
+          ),
           Expanded(
             child: NeedsInternetView(
               what: 'This guide',
@@ -193,6 +202,10 @@ class FeelingScreen extends ConsumerWidget {
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
             children: [
               ScreenHeader(title: f.feeling, close: true),
+              ScholarReviewNote(
+                reviewKey: 'sakina.feeling.${f.id.replaceFirst('feel-', '')}',
+                padding: const EdgeInsets.only(bottom: 8),
+              ),
               const SizedBox(height: 8),
               Text(f.line, style: AppText.bodyMuted),
               const SizedBox(height: 18),

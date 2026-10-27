@@ -81,7 +81,7 @@ void main() {
     expect(find.text('Sign in'), findsOneWidget);
     // The footer claims only what is true.
     expect(find.textContaining('AUTHENTIC'), findsNothing);
-    expect(find.text('SOURCES SHOWN · NOT YET SCHOLAR-REVIEWED'),
+    expect(find.text('SOURCES SHOWN · SCHOLAR REVIEW NEEDED'),
         findsOneWidget);
 
     // A shipped module row routes.

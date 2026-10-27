@@ -1,3 +1,4 @@
+import '../../../app/core/scholar_review.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -41,6 +42,10 @@ class _CalendarScreenState extends ConsumerState<CalendarScreen> {
         child: Column(
           children: [
             const ScreenHeader(title: 'Islamic Calendar'),
+            const ScholarReviewNote(
+              reviewKey: 'calendar',
+              padding: const EdgeInsets.only(bottom: 8),
+            ),
             Expanded(
               child: ListView(
                 padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
