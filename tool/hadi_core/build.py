@@ -133,7 +133,24 @@ def card(key, summary):
     CARDS.append((key, summary))
 
 
+_SPLIT = re.compile(r"(?<=[a-z]) (s|t|re|ve|ll)(?=\b)")
+_FIXED = (('qur an', 'quran'), ('ka aba', 'kaaba'), ('ka bah', 'kaaba'), ('da if', 'daif'),
+          ('shi a', 'shia'), ('shi ite', 'shiite'), ('mi raj', 'miraj'))
+
+
+def fixpat(p):
+    """The app drops apostrophes before matching ("don't" is "dont",
+    "prophet's" is "prophets"), so patterns written with a space there get
+    joined up."""
+    p = _SPLIT.sub(lambda m: m.group(1), p)
+    for a, b in _FIXED:
+        p = p.replace(a, b)
+    return p
+
+
 def E(id, m, text, x=(), go=(), src=None, topic='', gate=True, why='', review=''):
+    m = [fixpat(p) for p in m]
+    x = [fixpat(p) for p in x]
     ENTRIES.append(dict(id=id, m=list(m), x=list(x), text=text.strip(), go=list(go),
                         src=src, topic=topic, gate=gate, why=why.strip(), review=review))
 
