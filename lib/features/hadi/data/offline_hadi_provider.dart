@@ -1,6 +1,7 @@
 import '../../sakina/domain/crisis_detector.dart';
 import '../application/hadi_provider.dart';
 import '../grounding/ruling_gate.dart';
+import 'hadi_core.dart';
 import 'hadi_explain.dart';
 import 'hadi_finder.dart';
 import 'hadi_routing.dart';
@@ -1061,6 +1062,13 @@ class OfflineHadiProvider implements HadiProvider {
   Future<String> _routed(String asked, List<HadiMessage> history) async {
     final String n = CrisisDetector.normalize(asked);
     final bool heavy = _distress.hasMatch(n) && !_thirdPartyQuestion(n);
+
+    // The built-in answers come first: they are matched on the topic, so an
+    // everyday question (the funeral prayer, the conditions of prayer, what
+    // breaks wudu, how a game is played) gets its own answer and never the
+    // nearest-sounding one from the shelf below.
+    final CoreHit? core = HadiCore.answer(asked, history);
+    if (core != null) return core.text;
 
     // Replies that say what Hādi can do, or send the person to content the
     // app already has, before the shelf is searched.
