@@ -1,0 +1,476 @@
+{
+ "schema": 1,
+ "pack": "misconceptions",
+ "packKind": "knowledge",
+ "topic": "misconceptions",
+ "description": "Common doubts and misunderstandings about Islam, answered gently from the Qur'an and authentic hadith, using the Dawah school and the Q&A bank in the app. Answers start with listening, not debate.",
+ "audience": "both",
+ "ageBands": ["all"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en"],
+ "snippets": [
+  {
+   "id": "misconceptions.misconception.001",
+   "kind": "misconception",
+   "stage": ["question"],
+   "text": {
+    "en": "Why do bad things happen? Start with care, not a lecture. The Qur'an says Allah tests people with fear, loss and hardship, gives good news to the patient, never burdens a soul beyond its capacity, and that with hardship comes ease. We cannot always say why a particular thing happened to a particular person, and it is wrong to tell someone their suffering was a punishment."
+   },
+   "ageBand": ["adult"],
+   "tags": ["misconception", "doubt", "suffering", "qadar"],
+   "triggers": ["why do bad things happen", "why does god allow suffering", "why is there evil"],
+   "doNotSay": ["If the person is grieving, offer presence first; never say a loss was a punishment."],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/daw.json#daw.u2.l1"},
+    {"type": "quran", "ref": "2:155-156", "section": "Qur'an text"},
+    {"type": "quran", "ref": "2:286", "section": "Qur'an text"},
+    {"type": "quran", "ref": "94:5-6", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/daw.json", "id": "daw.u2.l1"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "misconceptions.misconception.002",
+   "kind": "misconception",
+   "stage": ["question"],
+   "text": {
+    "en": "The Prophet said that no fatigue, illness, sorrow or harm reaches a Muslim, even a thorn's prick, but Allah expiates some of their wrongs for it. Hardship is not proof that Allah has left someone."
+   },
+   "ageBand": ["adult"],
+   "tags": ["misconception", "doubt", "suffering", "sabr"],
+   "triggers": ["is my illness a punishment", "is god angry with me", "why am i suffering"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/daw.json#daw.u2.l1"},
+    {"type": "hadith", "ref": "bukhari:5641", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/daw.json", "id": "daw.u2.l1"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "misconceptions.misconception.003",
+   "kind": "misconception",
+   "stage": ["question"],
+   "text": {
+    "en": "The believer's affair is all good. The Prophet said that if good reaches them they are thankful, and if hardship reaches them they are patient, and both are good for them."
+   },
+   "ageBand": ["adult"],
+   "tags": ["misconception", "doubt", "sabr", "shukr"],
+   "triggers": ["patience and gratitude", "affair of the believer"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/daw.json#daw.u2.l1"},
+    {"type": "hadith", "ref": "muslim:2999", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/daw.json", "id": "daw.u2.l1"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "misconceptions.misconception.004",
+   "kind": "misconception",
+   "stage": ["question"],
+   "text": {
+    "en": "Islam is too strict. The Qur'an says Allah intends ease for you and not hardship, and has placed no difficulty on you in the religion. Aisha said that when the Prophet was given a choice between two matters he chose the easier, as long as it was not wrong."
+   },
+   "ageBand": ["adult"],
+   "tags": ["misconception", "doubt", "ease", "strict"],
+   "triggers": ["islam is too strict", "too many rules", "islam is hard", "islam is difficult"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/daw.json#daw.u2.l2"},
+    {"type": "quran", "ref": "2:185", "section": "Qur'an text"},
+    {"type": "quran", "ref": "22:78", "section": "Qur'an text"},
+    {"type": "hadith", "ref": "bukhari:6126", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/daw.json", "id": "daw.u2.l2"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "misconceptions.misconception.005",
+   "kind": "misconception",
+   "stage": ["question"],
+   "text": {
+    "en": "Ease does not mean dropping what is required. Prayer and fasting remain, and Allah gave concessions in hardship: the sick and the traveller may delay or shorten some acts. When describing Islam, say that the rules exist, and put mercy and ease first."
+   },
+   "ageBand": ["adult"],
+   "tags": ["misconception", "doubt", "ease", "concessions"],
+   "triggers": ["can i skip prayer if hard", "is islam flexible", "rules and ease"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/daw.json#daw.u2.l2"},
+    {"type": "quran", "ref": "2:185", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/daw.json", "id": "daw.u2.l2"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "misconceptions.misconception.006",
+   "kind": "misconception",
+   "stage": ["question"],
+   "text": {
+    "en": "The Prophet said the religion is easy, and whoever overburdens himself in it will not be able to continue, so aim for the mark, stay near it and take heart. A new Muslim can begin with what is required and build slowly."
+   },
+   "ageBand": ["adult"],
+   "tags": ["misconception", "doubt", "ease", "new-muslim"],
+   "triggers": ["too much at once", "overwhelmed new muslim", "where to start"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/daw.json#daw.u2.l2"},
+    {"type": "hadith", "ref": "bukhari:39", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/daw.json", "id": "daw.u2.l2"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "misconceptions.misconception.007",
+   "kind": "misconception",
+   "stage": ["question"],
+   "text": {
+    "en": "The Qur'an was written by Muhammad. The Qur'an mentions this claim and answers it with a challenge: bring a surah like it. It also says he did not recite or write scripture before it. Muslims believe it is the word of Allah. You are not expected to prove it to anyone, only to understand the answer."
+   },
+   "ageBand": ["adult"],
+   "tags": ["misconception", "doubt", "quran", "authorship"],
+   "triggers": ["quran written by muhammad", "who wrote the quran", "did muhammad make up the quran"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/daw.json#daw.u2.l3"},
+    {"type": "quran", "ref": "10:38", "section": "Qur'an text"},
+    {"type": "quran", "ref": "17:88", "section": "Qur'an text"},
+    {"type": "quran", "ref": "29:48", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/daw.json", "id": "daw.u2.l3"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "misconceptions.misconception.008",
+   "kind": "misconception",
+   "stage": ["question"],
+   "text": {
+    "en": "Surah Abasa begins by correcting the Prophet for frowning at a blind man who came to him. People who give this argument say a person who made up a book might not include a passage that corrects himself. It is offered for reflection, not as a proof."
+   },
+   "ageBand": ["adult"],
+   "tags": ["misconception", "doubt", "quran", "authorship"],
+   "triggers": ["abasa", "prophet frowned", "quran corrects prophet"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/daw.json#daw.u2.l3"},
+    {"type": "quran", "ref": "80:1-10", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/daw.json", "id": "daw.u2.l3"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "misconceptions.misconception.009",
+   "kind": "misconception",
+   "stage": ["question"],
+   "text": {
+    "en": "Jubayr ibn Mut'im, not yet a Muslim, heard the Prophet recite Surah At-Tur in the Maghrib prayer. At the verses asking whether they were created from nothing or are the creators, he said his heart was about to fly. He later became Muslim."
+   },
+   "ageBand": ["adult"],
+   "tags": ["misconception", "doubt", "quran", "effect"],
+   "triggers": ["jubayr", "effect of quran", "surah at tur"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/daw.json#daw.u2.l3"},
+    {"type": "hadith", "ref": "bukhari:4854", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "quran", "ref": "52:35-37", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/daw.json", "id": "daw.u2.l3"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "misconceptions.misconception.010",
+   "kind": "misconception",
+   "stage": ["question"],
+   "text": {
+    "en": "I have done too much wrong for Allah to forgive me. The Qur'an speaks to exactly this person and tells them not to despair of Allah's mercy. It says Allah forgives all sins, for He is the Forgiving, the Merciful."
+   },
+   "ageBand": ["adult"],
+   "tags": ["misconception", "doubt", "mercy", "despair"],
+   "triggers": ["allah will not forgive me", "i have done too much", "too late to repent", "beyond forgiveness"],
+   "doNotSay": ["If despair is mixed with thoughts of self-harm, move to the shame and despair support pack."],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/daw.json#daw.u2.l4"},
+    {"type": "quran", "ref": "39:53", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/daw.json", "id": "daw.u2.l4"}, {"asset": "assets/qa/qa_bank.json", "id": "questions[8]"}],
+   "evidenceLevel": "D",
+   "risk": "medium",
+   "needsScholarReview": true,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "misconceptions.misconception.011",
+   "kind": "misconception",
+   "stage": ["question"],
+   "text": {
+    "en": "The Prophet told of a man who killed ninety-nine people and asked a monk if he could be forgiven. He kept seeking, set out for a village of good people, and died on the way. The angels of mercy took him because he was nearer to that village. The door of return stays open."
+   },
+   "ageBand": ["adult"],
+   "tags": ["misconception", "doubt", "mercy", "tawba"],
+   "triggers": ["man who killed ninety nine", "can murderer be forgiven", "story of repentance"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/daw.json#daw.u2.l4"},
+    {"type": "hadith", "ref": "bukhari:3470", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/daw.json", "id": "daw.u2.l4"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "misconceptions.misconception.012",
+   "kind": "misconception",
+   "stage": ["question"],
+   "text": {
+    "en": "Allah is more pleased with a servant's repentance than a man who lost his animal with his food and drink in the desert and then finds it. A believer's fear of past mistakes is a sign of life in the heart, not a sign of rejection."
+   },
+   "ageBand": ["adult"],
+   "tags": ["misconception", "doubt", "mercy", "tawba"],
+   "triggers": ["allah happy with repentance", "does allah accept tawba", "guilt after sin"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/daw.json#daw.u2.l4"},
+    {"type": "hadith", "ref": "bukhari:6308", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "hadith", "ref": "muslim:2744", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/daw.json", "id": "daw.u2.l4"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "misconceptions.misconception.013",
+   "kind": "misconception",
+   "stage": ["question"],
+   "text": {
+    "en": "Allah says that if a person comes with wrongs nearly as great as the earth and meets Him without associating anything with Him, He will come with forgiveness nearly as great. The hadith is graded acceptable by several scholars who differ on the level."
+   },
+   "ageBand": ["adult"],
+   "tags": ["misconception", "doubt", "mercy", "hope"],
+   "triggers": ["sins like the earth", "forgiveness as great as the earth"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/daw.json#daw.u2.l4"},
+    {"type": "hadith", "ref": "tirmidhi:3540", "grade": "Sahih", "grader": "al-Albani (hadith-api reference); at-Tirmidhi: gharib; Zubair Ali Zai: isnad hasan", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/daw.json", "id": "daw.u2.l4"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "misconceptions.misconception.014",
+   "kind": "misconception",
+   "stage": ["question"],
+   "text": {
+    "en": "For someone coming to Islam, the Prophet said that Islam wipes out what came before it. For a Muslim who slips, the way back is sincere repentance, and the door stays open."
+   },
+   "ageBand": ["adult"],
+   "tags": ["misconception", "doubt", "new-muslim", "tawba"],
+   "triggers": ["past before islam forgiven", "does islam erase my past", "my past life"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/daw.json#daw.u2.l4"},
+    {"type": "hadith", "ref": "muslim:121", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/daw.json", "id": "daw.u2.l4"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "misconceptions.misconception.015",
+   "kind": "misconception",
+   "stage": ["question"],
+   "text": {
+    "en": "Waswas, or whispers and doubts, are a trial and not a sign that faith is gone. The Prophet said Allah has forgiven his followers the evil thoughts that cross their minds as long as they are not acted on or spoken."
+   },
+   "ageBand": ["adult"],
+   "tags": ["misconception", "doubt", "waswas"],
+   "triggers": ["waswas", "whispers", "blasphemous thoughts", "doubts about faith"],
+   "doNotSay": ["Do not argue with intrusive thoughts; if distress is high, suggest the support pack and a clinician."],
+   "sources": [
+    {"type": "asset", "ref": "assets/qa/qa_bank.json#questions[6]"},
+    {"type": "hadith", "ref": "bukhari:5269", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "hadith", "ref": "muslim:127", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/qa/qa_bank.json", "id": "questions[6]"}],
+   "evidenceLevel": "D",
+   "risk": "medium",
+   "needsScholarReview": true,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "misconceptions.misconception.016",
+   "kind": "misconception",
+   "stage": ["question"],
+   "text": {
+    "en": "Anger. When a man asked for advice, the Prophet said only: do not become angry, and repeated it. He said the strong one is who controls himself in anger. Practical steps are in the Q&A answer."
+   },
+   "ageBand": ["adult"],
+   "tags": ["misconception", "doubt", "anger"],
+   "triggers": ["i get angry", "anger in islam", "control my anger"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/qa/qa_bank.json#questions[13]"},
+    {"type": "hadith", "ref": "bukhari:6116", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "hadith", "ref": "bukhari:6114", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "hadith", "ref": "muslim:2609", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/qa/qa_bank.json", "id": "questions[13]"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "misconceptions.misconception.017",
+   "kind": "misconception",
+   "stage": ["question"],
+   "text": {
+    "en": "Is it wrong to cry when someone dies? No. The Prophet's eyes shed tears when his son Ibrahim was dying, and he called it mercy. Grief is not a lack of faith."
+   },
+   "ageBand": ["adult"],
+   "tags": ["misconception", "doubt", "grief"],
+   "triggers": ["is crying haram", "crying for the dead", "cry at funeral"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/qa/qa_bank.json#questions[15]"}
+   ],
+   "crossRef": [{"asset": "assets/qa/qa_bank.json", "id": "questions[15]"}],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "misconceptions.misconception.018",
+   "kind": "misconception",
+   "stage": ["question"],
+   "text": {
+    "en": "What is the ruling on music? Scholars differ, and this answer does not settle it. The majority of classical scholars across the four schools held that instruments are not permitted, while allowing the hand-drum on occasions such as weddings and Eid. Some scholars permit it under conditions. Ask a trusted scholar."
+   },
+   "ageBand": ["adult"],
+   "tags": ["misconception", "doubt", "music", "ikhtilaf"],
+   "triggers": ["is music haram", "listening to music", "singing in islam"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/qa/qa_bank.json#questions[1]"}
+   ],
+   "crossRef": [{"asset": "assets/qa/qa_bank.json", "id": "questions[1]"}],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "disputed": true,
+   "schoolsNamed": ["hanafi", "maliki", "shafii", "hanbali"],
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}

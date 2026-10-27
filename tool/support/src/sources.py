@@ -85,6 +85,54 @@ def asset(path, ident=None, note=None):
     return d
 
 
+def HV(ref, section='RES_H2 knowledge'):
+    """A hadith that already has an ok verdict in tool/hadith_verdicts (other gates
+    wrote it), for knowledge packs. Same output shape as H()."""
+    v = _verdicts().get(ref)
+    assert v and v['verdict'] == 'ok', 'no ok verdict for ' + ref
+    book = ref.split(':')[0]
+    if book in ('bukhari', 'muslim'):
+        return {'type': 'hadith', 'ref': ref, 'grade': 'Sahih', 'grader': 'two Sahihs', 'section': section}
+    return {'type': 'hadith', 'ref': ref, 'grade': v['grade'], 'grader': v.get('grader') or 'al-Albani', 'section': section}
+
+
+def guide(gid, note=None):
+    d = {'type': 'asset', 'ref': 'assets/guides/guides.json#' + gid}
+    if note:
+        d['note'] = note
+    return d
+
+
+def lesson(course_file, lid, note=None):
+    d = {'type': 'asset', 'ref': 'assets/academy/lessons_v3/%s.json#%s' % (course_file, lid)}
+    if note:
+        d['note'] = note
+    return d
+
+
+def qa(i, note=None):
+    d = {'type': 'asset', 'ref': 'assets/qa/qa_bank.json#questions[%d]' % i}
+    if note:
+        d['note'] = note
+    return d
+
+
+def xg(gid):
+    return {'asset': 'assets/guides/guides.json', 'id': gid}
+
+
+def xl(course_file, lid):
+    return {'asset': 'assets/academy/lessons_v3/%s.json' % course_file, 'id': lid}
+
+
+def xq(i):
+    return {'asset': 'assets/qa/qa_bank.json', 'id': 'questions[%d]' % i}
+
+
+def auth(title='Wording written for this app; no external claim'):
+    return {'type': 'authored', 'title': title}
+
+
 def app(title):
     return {'type': 'app', 'title': title}
 

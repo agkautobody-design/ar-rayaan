@@ -12,8 +12,9 @@ CLIN = "Clinician (Sakina and health content)"
 NATIVE = "Native speaker (ar / bn / ur)"
 LAWYER = "Privacy lawyer"
 RIGHTS = "Rights holder / licensing (not a scholar)"
+OWNER = "App owner (product wording and voice, not a scholar)"
 
-REVIEWER_TYPES = [HADITH, FIQH, WOMEN, ARABIC, CLIN, NATIVE, LAWYER, RIGHTS]
+REVIEWER_TYPES = [HADITH, FIQH, WOMEN, ARABIC, CLIN, NATIVE, LAWYER, RIGHTS, OWNER]
 
 MADHABS = ["Hanafi", "Maliki", "Shafi'i", "Hanbali"]
 
@@ -43,6 +44,7 @@ AREAS = [
     ("legal", "Privacy, terms, children's privacy, community rules"),
     ("noor-cards", "Noor, share cards, Home daily cards"),
     ("nasheeds", "Nasheeds and audio"),
+    ("support-packs", "Hadi and Wasia support, conversation and knowledge packs (assets/support/packs)"),
 ]
 AREA_TITLE = dict(AREAS)
 

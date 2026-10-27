@@ -1,0 +1,385 @@
+{
+ "schema": 1,
+ "pack": "new_muslim_faq",
+ "packKind": "knowledge",
+ "topic": "new_muslim",
+ "description": "First questions from someone new to Islam: the shahada, first steps, wudu, first prayer, the past, and not being overwhelmed. From the Path course and guides in the app.",
+ "audience": "both",
+ "ageBands": ["all"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en"],
+ "snippets": [
+  {
+   "id": "new_muslim_faq.faq.001",
+   "kind": "faq",
+   "stage": ["question"],
+   "text": {
+    "en": "How do I become a Muslim? By saying the shahada with understanding and sincerity: there is no god but Allah, and Muhammad is the Messenger of Allah. You do not need a special place or a witness to mean it, though many people say it with others around them."
+   },
+   "ageBand": ["adult", "13-17"],
+   "tags": ["new-muslim", "faq", "shahada"],
+   "triggers": ["how to become muslim", "how to convert", "say shahada", "accept islam"],
+   "doNotSay": ["No pressure; do not rush a person; scholar to confirm the line about witnesses."],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/the-path.json#path.u0.l1"},
+    {"type": "hadith", "ref": "bukhari:8", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "quran", "ref": "34:28", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/the-path.json", "id": "path.u0.l1"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_faq.faq.002",
+   "kind": "faq",
+   "stage": ["question"],
+   "text": {
+    "en": "What does the shahada mean? The first half takes away every false object of worship and affirms Allah alone. The second half says Allah sent Muhammad to all people with the Qur'an, so you trust what he told and follow his way of worship."
+   },
+   "ageBand": ["adult", "13-17"],
+   "tags": ["new-muslim", "faq", "shahada"],
+   "triggers": ["meaning of shahada", "la ilaha illallah", "what does la ilaha illa allah mean"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/the-path.json#path.u0.l1"},
+    {"type": "quran", "ref": "34:28", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/the-path.json", "id": "path.u0.l1"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_faq.faq.003",
+   "kind": "faq",
+   "stage": ["question"],
+   "text": {
+    "en": "What do I do first after saying the shahada? The Prophet taught that the next duty is the five daily prayers. You do not need to do everything at once. Begin with wudu, then your first prayer, then Al-Fatihah, one lesson at a time."
+   },
+   "ageBand": ["adult", "13-17"],
+   "tags": ["new-muslim", "faq", "first-steps"],
+   "triggers": ["what next after shahada", "first steps new muslim", "new muslim guide"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/the-path.json#path.u0.l1"},
+    {"type": "hadith", "ref": "bukhari:39", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/the-path.json", "id": "path.u0.l1"}, {"asset": "assets/academy/lessons_v3/the-path.json", "id": "path.u1.l1"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_faq.faq.004",
+   "kind": "faq",
+   "stage": ["question"],
+   "text": {
+    "en": "Is my past forgiven when I become Muslim? The Prophet said that Islam wipes out what came before it. A new Muslim begins with a clean page, and the Qur'an tells those who feel they have gone too far not to despair of Allah's mercy."
+   },
+   "ageBand": ["adult", "13-17"],
+   "tags": ["new-muslim", "faq", "past", "mercy"],
+   "triggers": ["is my past forgiven", "what about my past", "sins before islam"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/the-path.json#path.u0.l1"},
+    {"type": "hadith", "ref": "muslim:121", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "quran", "ref": "39:53", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/the-path.json", "id": "path.u0.l1"}, {"asset": "assets/academy/lessons_v3/daw.json", "id": "daw.u2.l4"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_faq.faq.005",
+   "kind": "faq",
+   "stage": ["question"],
+   "text": {
+    "en": "Why do we wash before prayer? The Qur'an commands wudu, and the Prophet said the prayer of one who has broken their wudu is not accepted until they make it again. The Qur'an names four parts: the face, the arms to the elbows, wiping the head, and the feet to the ankles."
+   },
+   "ageBand": ["adult", "13-17"],
+   "tags": ["new-muslim", "faq", "wudu"],
+   "triggers": ["why wudu", "wudu steps", "how to make wudu", "parts of wudu"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/the-path.json#path.u1.l1"},
+    {"type": "quran", "ref": "5:6", "section": "Qur'an text"},
+    {"type": "hadith", "ref": "bukhari:135", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/the-path.json", "id": "path.u1.l1"}, {"asset": "assets/guides/guides.json", "id": "huda-wudu"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_faq.faq.006",
+   "kind": "faq",
+   "stage": ["question"],
+   "text": {
+    "en": "I missed a spot in wudu, what now? A man left a fingernail-sized spot dry and the Prophet told him to go back and make his wudu well. A missed part is easy to fix: wash it and carry on. No one is shamed for it."
+   },
+   "ageBand": ["adult", "13-17"],
+   "tags": ["new-muslim", "faq", "wudu"],
+   "triggers": ["missed a spot wudu", "dry spot wudu", "is my wudu valid"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/the-path.json#path.u1.l1"},
+    {"type": "hadith", "ref": "muslim:243", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/the-path.json", "id": "path.u1.l1"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_faq.faq.007",
+   "kind": "faq",
+   "stage": ["question"],
+   "text": {
+    "en": "What breaks wudu? Scholars agree on what comes out of the front or back passage, such as urine, stool and wind, and on deep sleep or fainting. Scholars differ on light sleep while sitting, bleeding, vomiting and touching: the Hanafi, Maliki, Shafi'i and Hanbali schools each hold their own view. Doubt alone does not break wudu."
+   },
+   "ageBand": ["adult", "13-17"],
+   "tags": ["new-muslim", "faq", "wudu", "ikhtilaf"],
+   "triggers": ["what breaks wudu", "does touching break wudu", "does bleeding break wudu"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/the-path.json#path.u1.l1"},
+    {"type": "hadith", "ref": "bukhari:135", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/the-path.json", "id": "path.u1.l1"}, {"asset": "assets/guides/guides.json", "id": "huda-wudu"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "disputed": true,
+   "schoolsNamed": ["hanafi", "maliki", "shafii", "hanbali"],
+   "needsScholarReview": true,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_faq.faq.008",
+   "kind": "faq",
+   "stage": ["question"],
+   "text": {
+    "en": "What if I do not know the prayer yet? The Prophet once told a man to go back and pray again until he prayed well, then taught him: say the takbir, recite, bow until at ease, stand, prostrate until at ease, sit until at ease, and do the same through the prayer. Learn it a step at a time."
+   },
+   "ageBand": ["adult", "13-17"],
+   "tags": ["new-muslim", "faq", "prayer", "learning"],
+   "triggers": ["i dont know how to pray", "how to pray", "first prayer", "cant memorise prayer"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/the-path.json#path.u2.l1"},
+    {"type": "hadith", "ref": "bukhari:757", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/the-path.json", "id": "path.u2.l1"}, {"asset": "assets/guides/guides.json", "id": "huda-prayer"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_faq.faq.009",
+   "kind": "faq",
+   "stage": ["question"],
+   "text": {
+    "en": "What if I miss a prayer? The Prophet said whoever forgets a prayer or sleeps through it should pray it when they remember it. With several missed prayers, scholars differ on order and method, and the Hanafi, Maliki, Shafi'i and Hanbali schools each give their own detail, so ask a trusted teacher."
+   },
+   "ageBand": ["adult", "13-17"],
+   "tags": ["new-muslim", "faq", "qada"],
+   "triggers": ["missed prayer", "make up prayers", "qada prayer", "overslept fajr"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/qa/qa_bank.json#questions[2]"},
+    {"type": "hadith", "ref": "bukhari:597", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "hadith", "ref": "muslim:684", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/qa/qa_bank.json", "id": "questions[2]"}, {"asset": "assets/guides/guides.json", "id": "huda-qada"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "disputed": true,
+   "schoolsNamed": ["hanafi", "shafii", "maliki", "hanbali"],
+   "needsScholarReview": true,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_faq.faq.010",
+   "kind": "faq",
+   "stage": ["question"],
+   "text": {
+    "en": "Do I have to do everything perfectly? No. The Prophet said the religion is easy and that whoever makes it too hard for himself will not be able to keep it up. Do what you can, keep it steady, and build slowly."
+   },
+   "ageBand": ["adult", "13-17"],
+   "tags": ["new-muslim", "faq", "ease"],
+   "triggers": ["overwhelmed", "too much to learn", "i keep failing", "not perfect muslim"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/the-path.json#path.u0.l1"},
+    {"type": "hadith", "ref": "bukhari:39", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/the-path.json", "id": "path.u0.l1"}, {"asset": "assets/academy/lessons_v3/daw.json", "id": "daw.u2.l2"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_faq.faq.011",
+   "kind": "faq",
+   "stage": ["question"],
+   "text": {
+    "en": "Do I have to learn Arabic right away? You will need a few short Arabic phrases for prayer, which the Path teaches word by word. Understanding the meaning matters, and a translation is a bridge to it."
+   },
+   "ageBand": ["adult", "13-17"],
+   "tags": ["new-muslim", "faq", "arabic", "quran"],
+   "triggers": ["do i need arabic", "learn arabic quickly", "quran in english"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/the-path.json#path.u3.l1"},
+    {"type": "asset", "ref": "assets/academy/lessons_v3/und.json#und.u2.l1"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/the-path.json", "id": "path.u3.l1"}, {"asset": "assets/academy/lessons_v3/und.json", "id": "und.u2.l1"}],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_faq.faq.012",
+   "kind": "faq",
+   "stage": ["question"],
+   "text": {
+    "en": "How should one treat relatives who are not Muslim? Kindness stays. The Qur'an says that if they push you to join others with Allah, do not follow them in that, but keep good company with them in this world."
+   },
+   "ageBand": ["adult", "13-17"],
+   "tags": ["new-muslim", "faq", "family", "parents"],
+   "triggers": ["family not muslim", "parents against my conversion", "telling my family"],
+   "doNotSay": ["No instruction to hide or to disclose; if there is a threat of harm, move to the support pack."],
+   "sources": [
+    {"type": "asset", "ref": "assets/qa/qa_bank.json#questions[14]"},
+    {"type": "quran", "ref": "31:15", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/qa/qa_bank.json", "id": "questions[14]"}, {"asset": "assets/guides/guides.json", "id": "huda-parents"}],
+   "evidenceLevel": "D",
+   "risk": "medium",
+   "needsScholarReview": true,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_faq.faq.013",
+   "kind": "faq",
+   "stage": ["question"],
+   "text": {
+    "en": "Do I have to tell people I became Muslim? There is no rule to announce it. You decide when and how, based on your safety and wellbeing. If you fear for your safety, speak to a trusted person in your local mosque or a convert support group."
+   },
+   "ageBand": ["adult", "13-17"],
+   "tags": ["new-muslim", "faq", "privacy"],
+   "triggers": ["hide that im muslim", "announce conversion", "should i tell my family"],
+   "doNotSay": ["Do not tell someone to hide or to announce; scholar and safeguarding review."],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-parents"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-parents"}],
+   "evidenceLevel": "N",
+   "risk": "medium",
+   "needsScholarReview": true,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_faq.faq.014",
+   "kind": "faq",
+   "stage": ["question"],
+   "text": {
+    "en": "I feel lonely as a new Muslim. Many new Muslims do. Start small: say salam, visit a mosque at a quiet time, ask for a new-Muslim class or a buddy, and keep learning one lesson a day."
+   },
+   "ageBand": ["adult", "13-17"],
+   "tags": ["new-muslim", "faq", "loneliness", "community"],
+   "triggers": ["lonely new muslim", "no muslim friends", "where to find community"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-greeting"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-greeting"}, {"asset": "assets/guides/guides.json", "id": "huda-mosque"}],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}

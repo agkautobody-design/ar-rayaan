@@ -1,0 +1,800 @@
+{
+ "schema": 1,
+ "pack": "etiquette",
+ "packKind": "knowledge",
+ "topic": "etiquette",
+ "description": "Everyday Islamic manners (adab): eating, greetings, speech, sleep, home, neighbours, parents, visiting the sick, condolence, gratitude and seeking knowledge. Drawn from the Huda guides in the app.",
+ "audience": "both",
+ "ageBands": ["all"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en"],
+ "snippets": [
+  {
+   "id": "etiquette.etiquette.001",
+   "kind": "etiquette",
+   "stage": ["question"],
+   "text": {
+    "en": "Begin eating by mentioning Allah's name, and if you forget, say it when you remember. Eat with the right hand and from the part of the dish nearest to you."
+   },
+   "ageBand": ["all"],
+   "tags": ["etiquette", "adab", "eating"],
+   "triggers": ["eating manners", "bismillah before eating", "right hand eating", "how to eat islamic"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-food"},
+    {"type": "hadith", "ref": "bukhari:5376", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-food"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "etiquette.etiquette.002",
+   "kind": "etiquette",
+   "stage": ["question"],
+   "text": {
+    "en": "Do not overfill the stomach. The guide gives the saying that a few mouthfuls are enough to keep the back straight, and that if one must, a third is for food, a third for drink and a third for air."
+   },
+   "ageBand": ["all"],
+   "tags": ["etiquette", "adab", "eating", "moderation"],
+   "triggers": ["overeating", "third of stomach", "eat less"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-food"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-food"}],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "etiquette.etiquette.003",
+   "kind": "etiquette",
+   "stage": ["question"],
+   "text": {
+    "en": "Eat together. The Prophet said the food of two is enough for three, and the food of three is enough for four."
+   },
+   "ageBand": ["all"],
+   "tags": ["etiquette", "adab", "eating", "sharing"],
+   "triggers": ["eating together", "sharing food", "food for two"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-food"},
+    {"type": "hadith", "ref": "bukhari:5392", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-food"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "etiquette.etiquette.004",
+   "kind": "etiquette",
+   "stage": ["question"],
+   "text": {
+    "en": "Thank Allah while eating. The Prophet said Allah is pleased with a servant who says alhamdulillah after a morsel of food and a sip of drink."
+   },
+   "ageBand": ["all"],
+   "tags": ["etiquette", "adab", "eating", "gratitude"],
+   "triggers": ["dua after eating", "thank allah for food"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-food"},
+    {"type": "hadith", "ref": "muslim:2734", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-food"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "etiquette.etiquette.005",
+   "kind": "etiquette",
+   "stage": ["question"],
+   "text": {
+    "en": "Greet people you know and people you do not know. A man asked the Prophet which part of Islam is best, and he said to feed the poor and greet those you know and those you do not know."
+   },
+   "ageBand": ["all"],
+   "tags": ["etiquette", "adab", "greeting", "salam"],
+   "triggers": ["salam", "how to greet", "assalamu alaykum", "greet strangers"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-greeting"},
+    {"type": "hadith", "ref": "bukhari:12", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-greeting"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "etiquette.etiquette.006",
+   "kind": "etiquette",
+   "stage": ["question"],
+   "text": {
+    "en": "Spread the salam among yourselves, because it builds love. The Prophet taught that you will not believe until you love one another, and spreading the greeting fosters that love."
+   },
+   "ageBand": ["all"],
+   "tags": ["etiquette", "adab", "greeting", "salam"],
+   "triggers": ["spread salam", "importance of salam"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-greeting"},
+    {"type": "hadith", "ref": "muslim:54", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-greeting"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "etiquette.etiquette.007",
+   "kind": "etiquette",
+   "stage": ["question"],
+   "text": {
+    "en": "The younger person greets the elder, the passer-by greets the one sitting, and the small group greets the large group. If someone greets you, reply with a better greeting or at least the same."
+   },
+   "ageBand": ["all"],
+   "tags": ["etiquette", "adab", "greeting"],
+   "triggers": ["who greets first", "reply to salam"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-greeting"},
+    {"type": "hadith", "ref": "bukhari:6231", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "quran", "ref": "4:86", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-greeting"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "etiquette.etiquette.008",
+   "kind": "etiquette",
+   "stage": ["question"],
+   "text": {
+    "en": "When you sneeze, say alhamdulillah. The one who hears it says yarhamukallah, and you reply with the dua that Allah guide them and set their affairs right."
+   },
+   "ageBand": ["all"],
+   "tags": ["etiquette", "adab", "sneezing"],
+   "triggers": ["sneezing", "what to say when sneezing", "yarhamukallah"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-greeting"},
+    {"type": "hadith", "ref": "bukhari:6224", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-greeting"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "etiquette.etiquette.009",
+   "kind": "etiquette",
+   "stage": ["question"],
+   "text": {
+    "en": "Whether to start the salam to a non-Muslim, and how to return their greeting, is a question that scholars treat in detail. Scholars differ, so ask a qualified scholar."
+   },
+   "ageBand": ["all"],
+   "tags": ["etiquette", "adab", "greeting", "non-muslim"],
+   "triggers": ["salam to non muslim", "greet christians", "greet a non-muslim"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-greeting"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-greeting"}],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "disputed": true,
+   "schoolsNamed": ["other"],
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "etiquette.etiquette.010",
+   "kind": "etiquette",
+   "stage": ["question"],
+   "text": {
+    "en": "Five rights a Muslim has over another: return their greeting, visit them when ill, follow their funeral, accept their invitation, and say yarhamukallah when they sneeze."
+   },
+   "ageBand": ["all"],
+   "tags": ["etiquette", "adab", "rights", "brotherhood"],
+   "triggers": ["rights of a muslim", "rights of brother"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-greeting"},
+    {"type": "hadith", "ref": "muslim:2162", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-greeting"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "etiquette.etiquette.011",
+   "kind": "etiquette",
+   "stage": ["question"],
+   "text": {
+    "en": "Speak good or keep quiet. The Prophet said whoever believes in Allah and the Last Day should say what is good or be silent."
+   },
+   "ageBand": ["all"],
+   "tags": ["etiquette", "adab", "speech"],
+   "triggers": ["good speech", "speak good or be silent", "watch your tongue"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-speech"},
+    {"type": "hadith", "ref": "bukhari:6475", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-speech"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "etiquette.etiquette.012",
+   "kind": "etiquette",
+   "stage": ["question"],
+   "text": {
+    "en": "Do not backbite. The Qur'an compares it to eating the flesh of your dead brother. Scholars allow naming a wrong only for a need, such as seeking justice, warning someone of harm, or asking a scholar for a ruling."
+   },
+   "ageBand": ["all"],
+   "tags": ["etiquette", "adab", "speech", "backbiting"],
+   "triggers": ["backbiting", "gheebah", "talking behind someone"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-speech"},
+    {"type": "quran", "ref": "49:12", "section": "Qur'an text"},
+    {"type": "quran", "ref": "4:148", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-speech"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "etiquette.etiquette.013",
+   "kind": "etiquette",
+   "stage": ["question"],
+   "text": {
+    "en": "Avoid arguing even when you are right. The Prophet promised a house in the surroundings of Paradise for a man who leaves quarrelling even when he is right."
+   },
+   "ageBand": ["all"],
+   "tags": ["etiquette", "adab", "speech", "arguing"],
+   "triggers": ["arguing", "quarrelling", "debate manners"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-speech"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-speech"}],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "etiquette.etiquette.014",
+   "kind": "etiquette",
+   "stage": ["question"],
+   "text": {
+    "en": "Before sleep, make wudu as for prayer, lie on your right side, and say the words the Prophet taught. He also used to cup his hands, recite the last three surahs, blow into them and wipe over his body."
+   },
+   "ageBand": ["all"],
+   "tags": ["etiquette", "adab", "sleep"],
+   "triggers": ["sleeping manners", "before sleep", "sunnah of sleeping", "right side sleeping"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-sleep"},
+    {"type": "hadith", "ref": "bukhari:247", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "hadith", "ref": "bukhari:5017", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-sleep"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "etiquette.etiquette.015",
+   "kind": "etiquette",
+   "stage": ["question"],
+   "text": {
+    "en": "Enter the home with the right foot and mention Allah's name, and greet the people of the house with peace. The Qur'an tells us to give greetings of peace upon each other when we enter houses."
+   },
+   "ageBand": ["all"],
+   "tags": ["etiquette", "adab", "home"],
+   "triggers": ["entering home", "dua entering house", "leaving home dua"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-home"},
+    {"type": "quran", "ref": "24:61", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-home"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "etiquette.etiquette.016",
+   "kind": "etiquette",
+   "stage": ["question"],
+   "text": {
+    "en": "The neighbour has a great right. The Prophet said that Jibril kept advising him about the neighbour so much that he thought the neighbour would be made an heir. Someone whose neighbour is not safe from their harm does not truly believe."
+   },
+   "ageBand": ["all"],
+   "tags": ["etiquette", "adab", "neighbours"],
+   "triggers": ["rights of neighbours", "neighbor", "neighbour manners"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-neighbors"},
+    {"type": "hadith", "ref": "bukhari:6014", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "hadith", "ref": "bukhari:6016", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "quran", "ref": "4:36", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-neighbors"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "etiquette.etiquette.017",
+   "kind": "etiquette",
+   "stage": ["question"],
+   "text": {
+    "en": "Share food with your neighbour, and give gifts first to the one whose door is nearer to you."
+   },
+   "ageBand": ["all"],
+   "tags": ["etiquette", "adab", "neighbours", "sharing"],
+   "triggers": ["gift to neighbour", "share food neighbours"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-neighbors"},
+    {"type": "hadith", "ref": "bukhari:6020", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-neighbors"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "etiquette.etiquette.018",
+   "kind": "etiquette",
+   "stage": ["question"],
+   "text": {
+    "en": "Treat your parents with good companionship and never say a word of impatience to them. The Prophet said the mother has the first claim on your good company, then again the mother, then again the mother, then the father."
+   },
+   "ageBand": ["all"],
+   "tags": ["etiquette", "adab", "parents"],
+   "triggers": ["rights of parents", "respect parents", "honour mother", "say uff to parents"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-parents"},
+    {"type": "quran", "ref": "17:23-24", "section": "Qur'an text"},
+    {"type": "hadith", "ref": "bukhari:5971", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-parents"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "etiquette.etiquette.019",
+   "kind": "etiquette",
+   "stage": ["question"],
+   "text": {
+    "en": "Your parents are to be followed in what is lawful. No one is to be followed in something that disobeys Allah."
+   },
+   "ageBand": ["all"],
+   "tags": ["etiquette", "adab", "parents", "limits"],
+   "triggers": ["obey parents", "parents ask me to do wrong", "limit of obedience"],
+   "doNotSay": ["If a young person describes harm from a parent, move to the support pack; never use this to press obedience."],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-parents"},
+    {"type": "hadith", "ref": "bukhari:7257", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-parents"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "etiquette.etiquette.020",
+   "kind": "etiquette",
+   "stage": ["question"],
+   "text": {
+    "en": "After your parents die you can still do good for them. The Prophet said that a man's deeds end except for continuing charity, knowledge that helps others, and a righteous child who prays for him."
+   },
+   "ageBand": ["all"],
+   "tags": ["etiquette", "adab", "parents", "dua"],
+   "triggers": ["dua for deceased parents", "help parents after death"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-parents"},
+    {"type": "hadith", "ref": "muslim:1631", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-parents"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "etiquette.etiquette.021",
+   "kind": "etiquette",
+   "stage": ["question"],
+   "text": {
+    "en": "Visit the sick and ask Allah for their healing. The Prophet used to say: take away the disease, Lord of the people, cure him, for You are the One who cures."
+   },
+   "ageBand": ["all"],
+   "tags": ["etiquette", "adab", "illness", "visiting"],
+   "triggers": ["visit the sick", "dua for sick", "ill person"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-illness"},
+    {"type": "hadith", "ref": "bukhari:5675", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "hadith", "ref": "muslim:2162", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-illness"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "etiquette.etiquette.022",
+   "kind": "etiquette",
+   "stage": ["question"],
+   "text": {
+    "en": "Seek treatment when you are ill. The Prophet said Allah has not created a disease except that He has also created its treatment, and illness can be a means of forgiveness for a believer."
+   },
+   "ageBand": ["all"],
+   "tags": ["etiquette", "adab", "illness", "treatment"],
+   "triggers": ["is it okay to take medicine", "tawakkul and medicine", "seeing a doctor"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-illness"},
+    {"type": "hadith", "ref": "bukhari:5678", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "hadith", "ref": "bukhari:5641", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-illness"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "etiquette.etiquette.023",
+   "kind": "etiquette",
+   "stage": ["question"],
+   "text": {
+    "en": "When someone is bereaved, say words of comfort and bring food. The Prophet taught that what Allah takes is His and what He gives is His, and told the community to prepare food for the family of Jafar."
+   },
+   "ageBand": ["all"],
+   "tags": ["etiquette", "adab", "condolence", "death"],
+   "triggers": ["condolence", "what to say when someone dies", "comfort the bereaved", "inna lillahi"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-condolence"},
+    {"type": "hadith", "ref": "bukhari:1284", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-condolence"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "etiquette.etiquette.024",
+   "kind": "etiquette",
+   "stage": ["question"],
+   "text": {
+    "en": "Crying at a death is allowed. The Prophet wept and said the eyes shed tears and the heart grieves, and we say only what pleases our Lord."
+   },
+   "ageBand": ["all"],
+   "tags": ["etiquette", "adab", "grief", "condolence"],
+   "triggers": ["is it wrong to cry", "crying at funeral", "grief"],
+   "doNotSay": ["Warm and brief; for deep grief, also offer the grief support pack."],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-condolence"},
+    {"type": "hadith", "ref": "bukhari:1303", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-condolence"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "etiquette.etiquette.025",
+   "kind": "etiquette",
+   "stage": ["question"],
+   "text": {
+    "en": "The believer thanks Allah in ease and is patient in hardship, and both are good. Allah promises more to those who are grateful."
+   },
+   "ageBand": ["all"],
+   "tags": ["etiquette", "adab", "gratitude", "patience"],
+   "triggers": ["gratitude", "shukr", "be thankful", "patience and thanks"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-gratitude"},
+    {"type": "quran", "ref": "14:7", "section": "Qur'an text"},
+    {"type": "hadith", "ref": "muslim:2999", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-gratitude"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "etiquette.etiquette.026",
+   "kind": "etiquette",
+   "stage": ["question"],
+   "text": {
+    "en": "Seek knowledge with the right intention. The Prophet said that whoever treads a path to knowledge, Allah makes easy for him a path to Paradise, and the best of you are those who learn the Qur'an and teach it."
+   },
+   "ageBand": ["all"],
+   "tags": ["etiquette", "adab", "knowledge"],
+   "triggers": ["seeking knowledge", "learn islam", "study religion"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-knowledge"},
+    {"type": "hadith", "ref": "muslim:2699", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "hadith", "ref": "bukhari:5027", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-knowledge"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "etiquette.etiquette.027",
+   "kind": "etiquette",
+   "stage": ["question"],
+   "text": {
+    "en": "Start with the obligatory knowledge: how to pray and how to purify for it. The guide suggests beginning with the Prayer and Wudu guides."
+   },
+   "ageBand": ["all"],
+   "tags": ["etiquette", "adab", "knowledge", "beginner"],
+   "triggers": ["where to start learning islam", "what to learn first"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-knowledge"}, {"asset": "assets/guides/guides.json", "id": "huda-prayer"}, {"asset": "assets/guides/guides.json", "id": "huda-wudu"}],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "etiquette.etiquette.028",
+   "kind": "etiquette",
+   "stage": ["question"],
+   "text": {
+    "en": "Keep a small, regular portion of Qur'an each day. The guide gives the saying that the most beloved deeds are the most regular, even if little, and reciting with measured pace is encouraged."
+   },
+   "ageBand": ["all"],
+   "tags": ["etiquette", "adab", "quran", "routine"],
+   "triggers": ["daily quran", "how much quran per day", "quran routine"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-quran-daily"},
+    {"type": "quran", "ref": "73:4", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-quran-daily"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "etiquette.etiquette.029",
+   "kind": "etiquette",
+   "stage": ["question"],
+   "text": {
+    "en": "Most scholars require wudu to touch the printed mushaf, while some, including the Zahiri school, do not. Scholars differ, so follow your school or ask a teacher. Reciting from memory without wudu is permitted."
+   },
+   "ageBand": ["all"],
+   "tags": ["etiquette", "adab", "quran", "mushaf", "madhhab"],
+   "triggers": ["touch quran without wudu", "wudu to hold quran"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-quran-daily"},
+    {"type": "quran", "ref": "56:79", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-quran-daily"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "disputed": true,
+   "schoolsNamed": ["hanafi", "maliki", "shafii", "hanbali", "other"],
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "etiquette.etiquette.030",
+   "kind": "etiquette",
+   "stage": ["question"],
+   "text": {
+    "en": "Travel with the dua the Prophet said on mounting: glory to Him who subjected this to us. Appoint a leader if three travel together, and return to your family quickly once your business is done."
+   },
+   "ageBand": ["all"],
+   "tags": ["etiquette", "adab", "travel"],
+   "triggers": ["travel dua", "safar dua", "travelling manners"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-travel"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-travel"}],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "etiquette.etiquette.031",
+   "kind": "etiquette",
+   "stage": ["question"],
+   "text": {
+    "en": "Be careful with ordinary things: keep food clean and good, and eat what is lawful and wholesome. The Qur'an tells believers to eat of the good things provided and to be grateful."
+   },
+   "ageBand": ["all"],
+   "tags": ["etiquette", "adab", "halal", "eating"],
+   "triggers": ["halal food", "what can i eat", "tayyib"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-food"},
+    {"type": "quran", "ref": "2:172", "section": "Qur'an text"},
+    {"type": "quran", "ref": "2:168", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-food"}, {"asset": "assets/guides/guides.json", "id": "huda-halal-food"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}

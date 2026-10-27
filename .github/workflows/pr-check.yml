@@ -60,6 +60,7 @@ jobs:
           python3 tool/support/validate_helplines.py --self-test 2>&1 | tee -a support.log
           python3 tool/support/validate_helplines.py 2>&1 | tee -a support.log
           python3 tool/support/build_helplines.py --check 2>&1 | tee -a support.log
+          python3 tool/support/build_packs.py --check 2>&1 | tee -a support.log
         continue-on-error: true
 
       - uses: subosito/flutter-action@v2

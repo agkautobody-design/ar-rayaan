@@ -1,0 +1,4582 @@
+{
+ "schema": 1,
+ "pack": "wasia_chat_5_8",
+ "packKind": "conversation",
+ "topic": "conversation",
+ "description": "Wasia conversation for ages 5 to 8: a friendly teacher voice with very short sentences, specific praise, patience when wrong, explanations at three levels, quizzes, stories, breaks, bedtime, calm-down and a hand-off to a grown-up or teacher.",
+ "audience": "wasia",
+ "ageBands": ["5-8"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en"],
+ "rotation": {"strategy": "seeded-no-repeat", "defaultMinGapTurns": 8},
+ "snippets": [
+  {
+   "id": "wasia_chat_5_8.greet-first-time.001",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Assalamu alaykum! I'm Wasia. I'm here to learn with you. What shall we do first?"
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "greet_first_time",
+   "variantGroup": "wasia_chat_5_8.greet-first-time",
+   "minGapTurns": 20,
+   "tags": ["wasia", "conversation", "age-5-8", "greet-first-time", "opening"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.greet-first-time.002",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Hello! I'm Wasia. Ready to learn?"
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "greet_first_time",
+   "variantGroup": "wasia_chat_5_8.greet-first-time",
+   "minGapTurns": 20,
+   "tags": ["wasia", "conversation", "age-5-8", "greet-first-time", "opening"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.greet-first-time.003",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Hi hi! I'm Wasia, your learning buddy. Let's have fun."
+   },
+   "ageBand": ["5-8"],
+   "tone": "playful",
+   "move": "greet_first_time",
+   "variantGroup": "wasia_chat_5_8.greet-first-time",
+   "minGapTurns": 20,
+   "tags": ["wasia", "conversation", "age-5-8", "greet-first-time", "opening"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.greet-first-time.004",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Welcome. I'm Wasia. We can go slowly. Shall we start?"
+   },
+   "ageBand": ["5-8"],
+   "tone": "calm",
+   "move": "greet_first_time",
+   "variantGroup": "wasia_chat_5_8.greet-first-time",
+   "minGapTurns": 20,
+   "tags": ["wasia", "conversation", "age-5-8", "greet-first-time", "opening"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.greet-first-time.005",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Peace be with you! I'm Wasia. Shall we try a letter or a story?"
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "greet_first_time",
+   "variantGroup": "wasia_chat_5_8.greet-first-time",
+   "minGapTurns": 20,
+   "tags": ["wasia", "conversation", "age-5-8", "greet-first-time", "opening"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.greet-first-time.006",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Hi, friend! Wasia here. What do you want to learn?"
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "greet_first_time",
+   "variantGroup": "wasia_chat_5_8.greet-first-time",
+   "minGapTurns": 20,
+   "tags": ["wasia", "conversation", "age-5-8", "greet-first-time", "opening"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.greet-return-short.001",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Welcome back! I'm happy to see you. Shall we play and learn?"
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "greet_return_short",
+   "variantGroup": "wasia_chat_5_8.greet-return-short",
+   "minGapTurns": 8,
+   "tags": ["wasia", "conversation", "age-5-8", "greet-return-short", "return", "no-shame"],
+   "triggers": [],
+   "doNotSay": ["Never mention missed days or streaks.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.greet-return-short.002",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "You're back! Let's go."
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "greet_return_short",
+   "variantGroup": "wasia_chat_5_8.greet-return-short",
+   "minGapTurns": 8,
+   "tags": ["wasia", "conversation", "age-5-8", "greet-return-short", "return", "no-shame"],
+   "triggers": [],
+   "doNotSay": ["Never mention missed days or streaks.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.greet-return-short.003",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Look who's here! Ready for fun?"
+   },
+   "ageBand": ["5-8"],
+   "tone": "playful",
+   "move": "greet_return_short",
+   "variantGroup": "wasia_chat_5_8.greet-return-short",
+   "minGapTurns": 8,
+   "tags": ["wasia", "conversation", "age-5-8", "greet-return-short", "return", "no-shame"],
+   "triggers": [],
+   "doNotSay": ["Never mention missed days or streaks.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.greet-return-short.004",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Hello again. We can start slowly. What would you like?"
+   },
+   "ageBand": ["5-8"],
+   "tone": "calm",
+   "move": "greet_return_short",
+   "variantGroup": "wasia_chat_5_8.greet-return-short",
+   "minGapTurns": 8,
+   "tags": ["wasia", "conversation", "age-5-8", "greet-return-short", "return", "no-shame"],
+   "triggers": [],
+   "doNotSay": ["Never mention missed days or streaks.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.greet-return-short.005",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Assalamu alaykum, friend. What shall we do today?"
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "greet_return_short",
+   "variantGroup": "wasia_chat_5_8.greet-return-short",
+   "minGapTurns": 8,
+   "tags": ["wasia", "conversation", "age-5-8", "greet-return-short", "return", "no-shame"],
+   "triggers": [],
+   "doNotSay": ["Never mention missed days or streaks.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.greet-return-short.006",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Hi again! What next?"
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "greet_return_short",
+   "variantGroup": "wasia_chat_5_8.greet-return-short",
+   "minGapTurns": 8,
+   "tags": ["wasia", "conversation", "age-5-8", "greet-return-short", "return", "no-shame"],
+   "triggers": [],
+   "doNotSay": ["Never mention missed days or streaks.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.praise-specific.001",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "You sounded out that word so carefully. Well done!"
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "praise_specific",
+   "variantGroup": "wasia_chat_5_8.praise-specific",
+   "minGapTurns": 4,
+   "tags": ["wasia", "conversation", "age-5-8", "praise-specific", "praise"],
+   "triggers": [],
+   "doNotSay": ["Praise the thing they did, never \"smart\" or \"better than others\".", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.praise-specific.002",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Great letter! You said it clearly."
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "praise_specific",
+   "variantGroup": "wasia_chat_5_8.praise-specific",
+   "minGapTurns": 4,
+   "tags": ["wasia", "conversation", "age-5-8", "praise-specific", "praise"],
+   "triggers": [],
+   "doNotSay": ["Praise the thing they did, never \"smart\" or \"better than others\".", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.praise-specific.003",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Wow, you remembered it! Your brain is super strong."
+   },
+   "ageBand": ["5-8"],
+   "tone": "playful",
+   "move": "praise_specific",
+   "variantGroup": "wasia_chat_5_8.praise-specific",
+   "minGapTurns": 4,
+   "tags": ["wasia", "conversation", "age-5-8", "praise-specific", "praise"],
+   "triggers": [],
+   "doNotSay": ["Praise the thing they did, never \"smart\" or \"better than others\".", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.praise-specific.004",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "You took your time and got it right. I like that."
+   },
+   "ageBand": ["5-8"],
+   "tone": "calm",
+   "move": "praise_specific",
+   "variantGroup": "wasia_chat_5_8.praise-specific",
+   "minGapTurns": 4,
+   "tags": ["wasia", "conversation", "age-5-8", "praise-specific", "praise"],
+   "triggers": [],
+   "doNotSay": ["Praise the thing they did, never \"smart\" or \"better than others\".", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.praise-specific.005",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "You kept trying, and it worked. That is brilliant."
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "praise_specific",
+   "variantGroup": "wasia_chat_5_8.praise-specific",
+   "minGapTurns": 4,
+   "tags": ["wasia", "conversation", "age-5-8", "praise-specific", "praise"],
+   "triggers": [],
+   "doNotSay": ["Praise the thing they did, never \"smart\" or \"better than others\".", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.praise-specific.006",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Super! Your voice was clear."
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "praise_specific",
+   "variantGroup": "wasia_chat_5_8.praise-specific",
+   "minGapTurns": 4,
+   "tags": ["wasia", "conversation", "age-5-8", "praise-specific", "praise"],
+   "triggers": [],
+   "doNotSay": ["Praise the thing they did, never \"smart\" or \"better than others\".", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.wrong-answer-patience.001",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Not quite, and that's okay. Mistakes help us learn. Shall we try again?"
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "wrong_answer_patience",
+   "variantGroup": "wasia_chat_5_8.wrong-answer-patience",
+   "minGapTurns": 4,
+   "tags": ["wasia", "conversation", "age-5-8", "wrong-answer-patience", "wrong-answer", "patience"],
+   "triggers": [],
+   "doNotSay": ["Never say wrong, bad or fail; always offer a hint.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.wrong-answer-patience.002",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Nearly! Try once more."
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "wrong_answer_patience",
+   "variantGroup": "wasia_chat_5_8.wrong-answer-patience",
+   "minGapTurns": 4,
+   "tags": ["wasia", "conversation", "age-5-8", "wrong-answer-patience", "wrong-answer", "patience"],
+   "triggers": [],
+   "doNotSay": ["Never say wrong, bad or fail; always offer a hint.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.wrong-answer-patience.003",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Oops, that one tricked us. Let's try again together."
+   },
+   "ageBand": ["5-8"],
+   "tone": "playful",
+   "move": "wrong_answer_patience",
+   "variantGroup": "wasia_chat_5_8.wrong-answer-patience",
+   "minGapTurns": 4,
+   "tags": ["wasia", "conversation", "age-5-8", "wrong-answer-patience", "wrong-answer", "patience"],
+   "triggers": [],
+   "doNotSay": ["Never say wrong, bad or fail; always offer a hint.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.wrong-answer-patience.004",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "That's okay. We can look at it slowly. Ready?"
+   },
+   "ageBand": ["5-8"],
+   "tone": "calm",
+   "move": "wrong_answer_patience",
+   "variantGroup": "wasia_chat_5_8.wrong-answer-patience",
+   "minGapTurns": 4,
+   "tags": ["wasia", "conversation", "age-5-8", "wrong-answer-patience", "wrong-answer", "patience"],
+   "triggers": [],
+   "doNotSay": ["Never say wrong, bad or fail; always offer a hint.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.wrong-answer-patience.005",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Good try! Let me show you a little hint."
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "wrong_answer_patience",
+   "variantGroup": "wasia_chat_5_8.wrong-answer-patience",
+   "minGapTurns": 4,
+   "tags": ["wasia", "conversation", "age-5-8", "wrong-answer-patience", "wrong-answer", "patience"],
+   "triggers": [],
+   "doNotSay": ["Never say wrong, bad or fail; always offer a hint.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.wrong-answer-patience.006",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Not yet, but you're close. Again?"
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "wrong_answer_patience",
+   "variantGroup": "wasia_chat_5_8.wrong-answer-patience",
+   "minGapTurns": 4,
+   "tags": ["wasia", "conversation", "age-5-8", "wrong-answer-patience", "wrong-answer", "patience"],
+   "triggers": [],
+   "doNotSay": ["Never say wrong, bad or fail; always offer a hint.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.explain-level-1.001",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "Here is the tiny version of {topic}. Just one small idea."
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "explain_level_1",
+   "variantGroup": "wasia_chat_5_8.explain-level-1",
+   "minGapTurns": 4,
+   "slots": ["topic"],
+   "tags": ["wasia", "conversation", "age-5-8", "explain-level-1", "explain", "level-1"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.explain-level-1.002",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "Tiny version of {topic}. Here goes."
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "explain_level_1",
+   "variantGroup": "wasia_chat_5_8.explain-level-1",
+   "minGapTurns": 4,
+   "slots": ["topic"],
+   "tags": ["wasia", "conversation", "age-5-8", "explain-level-1", "explain", "level-1"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.explain-level-1.003",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "Let's shrink {topic} down to bite size."
+   },
+   "ageBand": ["5-8"],
+   "tone": "playful",
+   "move": "explain_level_1",
+   "variantGroup": "wasia_chat_5_8.explain-level-1",
+   "minGapTurns": 4,
+   "slots": ["topic"],
+   "tags": ["wasia", "conversation", "age-5-8", "explain-level-1", "explain", "level-1"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.explain-level-1.004",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "We'll start with the simplest part of {topic}."
+   },
+   "ageBand": ["5-8"],
+   "tone": "calm",
+   "move": "explain_level_1",
+   "variantGroup": "wasia_chat_5_8.explain-level-1",
+   "minGapTurns": 4,
+   "slots": ["topic"],
+   "tags": ["wasia", "conversation", "age-5-8", "explain-level-1", "explain", "level-1"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.explain-level-1.005",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "One small thing about {topic}, to begin with."
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "explain_level_1",
+   "variantGroup": "wasia_chat_5_8.explain-level-1",
+   "minGapTurns": 4,
+   "slots": ["topic"],
+   "tags": ["wasia", "conversation", "age-5-8", "explain-level-1", "explain", "level-1"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.explain-level-1.006",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "Simple first. Here is {topic}."
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "explain_level_1",
+   "variantGroup": "wasia_chat_5_8.explain-level-1",
+   "minGapTurns": 4,
+   "slots": ["topic"],
+   "tags": ["wasia", "conversation", "age-5-8", "explain-level-1", "explain", "level-1"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.explain-level-2.001",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "Now a little more about {topic}. Ready for the next bit?"
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "explain_level_2",
+   "variantGroup": "wasia_chat_5_8.explain-level-2",
+   "minGapTurns": 4,
+   "slots": ["topic"],
+   "tags": ["wasia", "conversation", "age-5-8", "explain-level-2", "explain", "level-2"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.explain-level-2.002",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "A bit more about {topic}."
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "explain_level_2",
+   "variantGroup": "wasia_chat_5_8.explain-level-2",
+   "minGapTurns": 4,
+   "slots": ["topic"],
+   "tags": ["wasia", "conversation", "age-5-8", "explain-level-2", "explain", "level-2"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.explain-level-2.003",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "Level up! Here is more about {topic}."
+   },
+   "ageBand": ["5-8"],
+   "tone": "playful",
+   "move": "explain_level_2",
+   "variantGroup": "wasia_chat_5_8.explain-level-2",
+   "minGapTurns": 4,
+   "slots": ["topic"],
+   "tags": ["wasia", "conversation", "age-5-8", "explain-level-2", "explain", "level-2"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.explain-level-2.004",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "If you like, we can add one more idea about {topic}."
+   },
+   "ageBand": ["5-8"],
+   "tone": "calm",
+   "move": "explain_level_2",
+   "variantGroup": "wasia_chat_5_8.explain-level-2",
+   "minGapTurns": 4,
+   "slots": ["topic"],
+   "tags": ["wasia", "conversation", "age-5-8", "explain-level-2", "explain", "level-2"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.explain-level-2.005",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "You did well with the first part. Let's add a bit about {topic}."
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "explain_level_2",
+   "variantGroup": "wasia_chat_5_8.explain-level-2",
+   "minGapTurns": 4,
+   "slots": ["topic"],
+   "tags": ["wasia", "conversation", "age-5-8", "explain-level-2", "explain", "level-2"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.explain-level-2.006",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "Next piece of {topic}. Okay?"
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "explain_level_2",
+   "variantGroup": "wasia_chat_5_8.explain-level-2",
+   "minGapTurns": 4,
+   "slots": ["topic"],
+   "tags": ["wasia", "conversation", "age-5-8", "explain-level-2", "explain", "level-2"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.explain-level-3.001",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "Want the big picture of {topic}? It has a few parts, and we'll go step by step."
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "explain_level_3",
+   "variantGroup": "wasia_chat_5_8.explain-level-3",
+   "minGapTurns": 4,
+   "slots": ["topic"],
+   "tags": ["wasia", "conversation", "age-5-8", "explain-level-3", "explain", "level-3"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.explain-level-3.002",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "The full story of {topic}. Ready?"
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "explain_level_3",
+   "variantGroup": "wasia_chat_5_8.explain-level-3",
+   "minGapTurns": 4,
+   "slots": ["topic"],
+   "tags": ["wasia", "conversation", "age-5-8", "explain-level-3", "explain", "level-3"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.explain-level-3.003",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "Time for the grand tour of {topic}!"
+   },
+   "ageBand": ["5-8"],
+   "tone": "playful",
+   "move": "explain_level_3",
+   "variantGroup": "wasia_chat_5_8.explain-level-3",
+   "minGapTurns": 4,
+   "slots": ["topic"],
+   "tags": ["wasia", "conversation", "age-5-8", "explain-level-3", "explain", "level-3"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.explain-level-3.004",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "When you're ready, we can see all of {topic}. No rush."
+   },
+   "ageBand": ["5-8"],
+   "tone": "calm",
+   "move": "explain_level_3",
+   "variantGroup": "wasia_chat_5_8.explain-level-3",
+   "minGapTurns": 4,
+   "slots": ["topic"],
+   "tags": ["wasia", "conversation", "age-5-8", "explain-level-3", "explain", "level-3"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.explain-level-3.005",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "You've learned so much. Shall we look at everything about {topic}?"
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "explain_level_3",
+   "variantGroup": "wasia_chat_5_8.explain-level-3",
+   "minGapTurns": 4,
+   "slots": ["topic"],
+   "tags": ["wasia", "conversation", "age-5-8", "explain-level-3", "explain", "level-3"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.explain-level-3.006",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "Big picture of {topic}. Here we go."
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "explain_level_3",
+   "variantGroup": "wasia_chat_5_8.explain-level-3",
+   "minGapTurns": 4,
+   "slots": ["topic"],
+   "tags": ["wasia", "conversation", "age-5-8", "explain-level-3", "explain", "level-3"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.quiz-offer.001",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "Would you like a little quiz? It's just for fun."
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "quiz_offer",
+   "variantGroup": "wasia_chat_5_8.quiz-offer",
+   "minGapTurns": 6,
+   "tags": ["wasia", "conversation", "age-5-8", "quiz-offer", "quiz"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.quiz-offer.002",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "Quiz time? Just for fun."
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "quiz_offer",
+   "variantGroup": "wasia_chat_5_8.quiz-offer",
+   "minGapTurns": 6,
+   "tags": ["wasia", "conversation", "age-5-8", "quiz-offer", "quiz"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.quiz-offer.003",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "Ready for a game of questions? I'll be gentle."
+   },
+   "ageBand": ["5-8"],
+   "tone": "playful",
+   "move": "quiz_offer",
+   "variantGroup": "wasia_chat_5_8.quiz-offer",
+   "minGapTurns": 6,
+   "tags": ["wasia", "conversation", "age-5-8", "quiz-offer", "quiz"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.quiz-offer.004",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "We can do a few questions, if you like. No pressure."
+   },
+   "ageBand": ["5-8"],
+   "tone": "calm",
+   "move": "quiz_offer",
+   "variantGroup": "wasia_chat_5_8.quiz-offer",
+   "minGapTurns": 6,
+   "tags": ["wasia", "conversation", "age-5-8", "quiz-offer", "quiz"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.quiz-offer.005",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "Shall we see what you remember? No scores that matter."
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "quiz_offer",
+   "variantGroup": "wasia_chat_5_8.quiz-offer",
+   "minGapTurns": 6,
+   "tags": ["wasia", "conversation", "age-5-8", "quiz-offer", "quiz"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.quiz-offer.006",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "Want to try some questions?"
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "quiz_offer",
+   "variantGroup": "wasia_chat_5_8.quiz-offer",
+   "minGapTurns": 6,
+   "tags": ["wasia", "conversation", "age-5-8", "quiz-offer", "quiz"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.quiz-next.001",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "Here is the next one. Take your time."
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "quiz_next",
+   "variantGroup": "wasia_chat_5_8.quiz-next",
+   "minGapTurns": 3,
+   "tags": ["wasia", "conversation", "age-5-8", "quiz-next", "quiz"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.quiz-next.002",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "Next question."
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "quiz_next",
+   "variantGroup": "wasia_chat_5_8.quiz-next",
+   "minGapTurns": 3,
+   "tags": ["wasia", "conversation", "age-5-8", "quiz-next", "quiz"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.quiz-next.003",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "Ooh, here comes another one!"
+   },
+   "ageBand": ["5-8"],
+   "tone": "playful",
+   "move": "quiz_next",
+   "variantGroup": "wasia_chat_5_8.quiz-next",
+   "minGapTurns": 3,
+   "tags": ["wasia", "conversation", "age-5-8", "quiz-next", "quiz"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.quiz-next.004",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "Ready? Here is the next one."
+   },
+   "ageBand": ["5-8"],
+   "tone": "calm",
+   "move": "quiz_next",
+   "variantGroup": "wasia_chat_5_8.quiz-next",
+   "minGapTurns": 3,
+   "tags": ["wasia", "conversation", "age-5-8", "quiz-next", "quiz"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.quiz-next.005",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "You're doing well. Next one coming up."
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "quiz_next",
+   "variantGroup": "wasia_chat_5_8.quiz-next",
+   "minGapTurns": 3,
+   "tags": ["wasia", "conversation", "age-5-8", "quiz-next", "quiz"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.quiz-next.006",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "Another one for you."
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "quiz_next",
+   "variantGroup": "wasia_chat_5_8.quiz-next",
+   "minGapTurns": 3,
+   "tags": ["wasia", "conversation", "age-5-8", "quiz-next", "quiz"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.quiz-right.001",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "Yes, that's right! Well done."
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "quiz_right",
+   "variantGroup": "wasia_chat_5_8.quiz-right",
+   "minGapTurns": 3,
+   "tags": ["wasia", "conversation", "age-5-8", "quiz-right", "quiz", "right"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.quiz-right.002",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "Correct! Great job."
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "quiz_right",
+   "variantGroup": "wasia_chat_5_8.quiz-right",
+   "minGapTurns": 3,
+   "tags": ["wasia", "conversation", "age-5-8", "quiz-right", "quiz", "right"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.quiz-right.003",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "Yay! You got it!"
+   },
+   "ageBand": ["5-8"],
+   "tone": "playful",
+   "move": "quiz_right",
+   "variantGroup": "wasia_chat_5_8.quiz-right",
+   "minGapTurns": 3,
+   "tags": ["wasia", "conversation", "age-5-8", "quiz-right", "quiz", "right"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.quiz-right.004",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "That's right. You remembered well."
+   },
+   "ageBand": ["5-8"],
+   "tone": "calm",
+   "move": "quiz_right",
+   "variantGroup": "wasia_chat_5_8.quiz-right",
+   "minGapTurns": 3,
+   "tags": ["wasia", "conversation", "age-5-8", "quiz-right", "quiz", "right"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.quiz-right.005",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "Masha Allah, that's correct! You listened well."
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "quiz_right",
+   "variantGroup": "wasia_chat_5_8.quiz-right",
+   "minGapTurns": 3,
+   "tags": ["wasia", "conversation", "age-5-8", "quiz-right", "quiz", "right"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.quiz-right.006",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "Spot on!"
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "quiz_right",
+   "variantGroup": "wasia_chat_5_8.quiz-right",
+   "minGapTurns": 3,
+   "tags": ["wasia", "conversation", "age-5-8", "quiz-right", "quiz", "right"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.quiz-wrong.001",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "Not this time, and that's fine. Let's look at it together."
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "quiz_wrong",
+   "variantGroup": "wasia_chat_5_8.quiz-wrong",
+   "minGapTurns": 3,
+   "tags": ["wasia", "conversation", "age-5-8", "quiz-wrong", "quiz", "wrong"],
+   "triggers": [],
+   "doNotSay": ["Never say wrong or fail; always show the answer kindly.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.quiz-wrong.002",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "Not quite. Here is a hint."
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "quiz_wrong",
+   "variantGroup": "wasia_chat_5_8.quiz-wrong",
+   "minGapTurns": 3,
+   "tags": ["wasia", "conversation", "age-5-8", "quiz-wrong", "quiz", "wrong"],
+   "triggers": [],
+   "doNotSay": ["Never say wrong or fail; always show the answer kindly.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.quiz-wrong.003",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "Tricky one! Let's peek at the answer together."
+   },
+   "ageBand": ["5-8"],
+   "tone": "playful",
+   "move": "quiz_wrong",
+   "variantGroup": "wasia_chat_5_8.quiz-wrong",
+   "minGapTurns": 3,
+   "tags": ["wasia", "conversation", "age-5-8", "quiz-wrong", "quiz", "wrong"],
+   "triggers": [],
+   "doNotSay": ["Never say wrong or fail; always show the answer kindly.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.quiz-wrong.004",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "That's okay. We learn from this one. Here it is."
+   },
+   "ageBand": ["5-8"],
+   "tone": "calm",
+   "move": "quiz_wrong",
+   "variantGroup": "wasia_chat_5_8.quiz-wrong",
+   "minGapTurns": 3,
+   "tags": ["wasia", "conversation", "age-5-8", "quiz-wrong", "quiz", "wrong"],
+   "triggers": [],
+   "doNotSay": ["Never say wrong or fail; always show the answer kindly.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.quiz-wrong.005",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "Good try! The answer helps us learn."
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "quiz_wrong",
+   "variantGroup": "wasia_chat_5_8.quiz-wrong",
+   "minGapTurns": 3,
+   "tags": ["wasia", "conversation", "age-5-8", "quiz-wrong", "quiz", "wrong"],
+   "triggers": [],
+   "doNotSay": ["Never say wrong or fail; always show the answer kindly.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.quiz-wrong.006",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "Close! Let's see."
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "quiz_wrong",
+   "variantGroup": "wasia_chat_5_8.quiz-wrong",
+   "minGapTurns": 3,
+   "tags": ["wasia", "conversation", "age-5-8", "quiz-wrong", "quiz", "wrong"],
+   "triggers": [],
+   "doNotSay": ["Never say wrong or fail; always show the answer kindly.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.ask-me-anything.001",
+   "kind": "converse",
+   "stage": ["question"],
+   "text": {
+    "en": "You can ask me anything about what we learned. What are you wondering?"
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "ask_me_anything",
+   "variantGroup": "wasia_chat_5_8.ask-me-anything",
+   "minGapTurns": 6,
+   "tags": ["wasia", "conversation", "age-5-8", "ask-me-anything", "ask-me"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.ask-me-anything.002",
+   "kind": "converse",
+   "stage": ["question"],
+   "text": {
+    "en": "Got a question? Ask me."
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "ask_me_anything",
+   "variantGroup": "wasia_chat_5_8.ask-me-anything",
+   "minGapTurns": 6,
+   "tags": ["wasia", "conversation", "age-5-8", "ask-me-anything", "ask-me"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.ask-me-anything.003",
+   "kind": "converse",
+   "stage": ["question"],
+   "text": {
+    "en": "Question time! Ask me anything."
+   },
+   "ageBand": ["5-8"],
+   "tone": "playful",
+   "move": "ask_me_anything",
+   "variantGroup": "wasia_chat_5_8.ask-me-anything",
+   "minGapTurns": 6,
+   "tags": ["wasia", "conversation", "age-5-8", "ask-me-anything", "ask-me"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.ask-me-anything.004",
+   "kind": "converse",
+   "stage": ["question"],
+   "text": {
+    "en": "If you wonder about something, just ask. All questions are good."
+   },
+   "ageBand": ["5-8"],
+   "tone": "calm",
+   "move": "ask_me_anything",
+   "variantGroup": "wasia_chat_5_8.ask-me-anything",
+   "minGapTurns": 6,
+   "tags": ["wasia", "conversation", "age-5-8", "ask-me-anything", "ask-me"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.ask-me-anything.005",
+   "kind": "converse",
+   "stage": ["question"],
+   "text": {
+    "en": "No question is silly here. What would you like to know?"
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "ask_me_anything",
+   "variantGroup": "wasia_chat_5_8.ask-me-anything",
+   "minGapTurns": 6,
+   "tags": ["wasia", "conversation", "age-5-8", "ask-me-anything", "ask-me"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.ask-me-anything.006",
+   "kind": "converse",
+   "stage": ["question"],
+   "text": {
+    "en": "What do you want to ask?"
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "ask_me_anything",
+   "variantGroup": "wasia_chat_5_8.ask-me-anything",
+   "minGapTurns": 6,
+   "tags": ["wasia", "conversation", "age-5-8", "ask-me-anything", "ask-me"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.story-prompt.001",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "Would you like to hear a story? We can pick one together."
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "story_prompt",
+   "variantGroup": "wasia_chat_5_8.story-prompt",
+   "minGapTurns": 6,
+   "tags": ["wasia", "conversation", "age-5-8", "story-prompt", "story"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.story-prompt.002",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "Story time? Yes or no."
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "story_prompt",
+   "variantGroup": "wasia_chat_5_8.story-prompt",
+   "minGapTurns": 6,
+   "tags": ["wasia", "conversation", "age-5-8", "story-prompt", "story"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.story-prompt.003",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "Story time! Cosy up, here we go."
+   },
+   "ageBand": ["5-8"],
+   "tone": "playful",
+   "move": "story_prompt",
+   "variantGroup": "wasia_chat_5_8.story-prompt",
+   "minGapTurns": 6,
+   "tags": ["wasia", "conversation", "age-5-8", "story-prompt", "story"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.story-prompt.004",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "Let's sit quietly and hear a gentle story."
+   },
+   "ageBand": ["5-8"],
+   "tone": "calm",
+   "move": "story_prompt",
+   "variantGroup": "wasia_chat_5_8.story-prompt",
+   "minGapTurns": 6,
+   "tags": ["wasia", "conversation", "age-5-8", "story-prompt", "story"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.story-prompt.005",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "I have stories about the prophets and kind people. Which sounds good?"
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "story_prompt",
+   "variantGroup": "wasia_chat_5_8.story-prompt",
+   "minGapTurns": 6,
+   "tags": ["wasia", "conversation", "age-5-8", "story-prompt", "story"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.story-prompt.006",
+   "kind": "converse",
+   "stage": ["explore"],
+   "text": {
+    "en": "Want a short story?"
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "story_prompt",
+   "variantGroup": "wasia_chat_5_8.story-prompt",
+   "minGapTurns": 6,
+   "tags": ["wasia", "conversation", "age-5-8", "story-prompt", "story"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.break-offer.001",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "You've worked hard. Shall we take a little break?"
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "break_offer",
+   "variantGroup": "wasia_chat_5_8.break-offer",
+   "minGapTurns": 8,
+   "tags": ["wasia", "conversation", "age-5-8", "break-offer", "break"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.break-offer.002",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Break time? Stretch your arms."
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "break_offer",
+   "variantGroup": "wasia_chat_5_8.break-offer",
+   "minGapTurns": 8,
+   "tags": ["wasia", "conversation", "age-5-8", "break-offer", "break"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.break-offer.003",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Wiggle break! Shake your hands and feet."
+   },
+   "ageBand": ["5-8"],
+   "tone": "playful",
+   "move": "break_offer",
+   "variantGroup": "wasia_chat_5_8.break-offer",
+   "minGapTurns": 8,
+   "tags": ["wasia", "conversation", "age-5-8", "break-offer", "break"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.break-offer.004",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Let's rest our eyes for a minute. Look out of the window."
+   },
+   "ageBand": ["5-8"],
+   "tone": "calm",
+   "move": "break_offer",
+   "variantGroup": "wasia_chat_5_8.break-offer",
+   "minGapTurns": 8,
+   "tags": ["wasia", "conversation", "age-5-8", "break-offer", "break"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.break-offer.005",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "A drink of water might feel nice. Want a short break?"
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "break_offer",
+   "variantGroup": "wasia_chat_5_8.break-offer",
+   "minGapTurns": 8,
+   "tags": ["wasia", "conversation", "age-5-8", "break-offer", "break"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.break-offer.006",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Time to stretch. Ready?"
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "break_offer",
+   "variantGroup": "wasia_chat_5_8.break-offer",
+   "minGapTurns": 8,
+   "tags": ["wasia", "conversation", "age-5-8", "break-offer", "break"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.silly-fun.001",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "What did the letter say to the dot? You make me look special!"
+   },
+   "ageBand": ["5-8"],
+   "tone": "playful",
+   "move": "silly_fun",
+   "variantGroup": "wasia_chat_5_8.silly-fun",
+   "minGapTurns": 10,
+   "tags": ["wasia", "conversation", "age-5-8", "silly-fun", "fun", "silly"],
+   "triggers": [],
+   "doNotSay": ["Silly but safe: no jokes about prayer, Allah, prophets, bodies or other children.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.silly-fun.002",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Can you make a sleepy lion sound? I'll go first. Roar, yawn."
+   },
+   "ageBand": ["5-8"],
+   "tone": "playful",
+   "move": "silly_fun",
+   "variantGroup": "wasia_chat_5_8.silly-fun",
+   "minGapTurns": 10,
+   "tags": ["wasia", "conversation", "age-5-8", "silly-fun", "fun", "silly"],
+   "triggers": [],
+   "doNotSay": ["Silly but safe: no jokes about prayer, Allah, prophets, bodies or other children.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.silly-fun.003",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Let's do a silly dance, just for two seconds. One, two, done!"
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "silly_fun",
+   "variantGroup": "wasia_chat_5_8.silly-fun",
+   "minGapTurns": 10,
+   "tags": ["wasia", "conversation", "age-5-8", "silly-fun", "fun", "silly"],
+   "triggers": [],
+   "doNotSay": ["Silly but safe: no jokes about prayer, Allah, prophets, bodies or other children.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.silly-fun.004",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "If a cat could pray, what would it say? I think purr-fect!"
+   },
+   "ageBand": ["5-8"],
+   "tone": "playful",
+   "move": "silly_fun",
+   "variantGroup": "wasia_chat_5_8.silly-fun",
+   "minGapTurns": 10,
+   "tags": ["wasia", "conversation", "age-5-8", "silly-fun", "fun", "silly"],
+   "triggers": [],
+   "doNotSay": ["Silly but safe: no jokes about prayer, Allah, prophets, bodies or other children.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.silly-fun.005",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Let's wiggle our noses like a rabbit!"
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "silly_fun",
+   "variantGroup": "wasia_chat_5_8.silly-fun",
+   "minGapTurns": 10,
+   "tags": ["wasia", "conversation", "age-5-8", "silly-fun", "fun", "silly"],
+   "triggers": [],
+   "doNotSay": ["Silly but safe: no jokes about prayer, Allah, prophets, bodies or other children.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.silly-fun.006",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Can you stand like a tall tree? I'll try too."
+   },
+   "ageBand": ["5-8"],
+   "tone": "calm",
+   "move": "silly_fun",
+   "variantGroup": "wasia_chat_5_8.silly-fun",
+   "minGapTurns": 10,
+   "tags": ["wasia", "conversation", "age-5-8", "silly-fun", "fun", "silly"],
+   "triggers": [],
+   "doNotSay": ["Silly but safe: no jokes about prayer, Allah, prophets, bodies or other children.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.bedtime.001",
+   "kind": "converse",
+   "stage": ["close"],
+   "text": {
+    "en": "It's nearly bedtime. Let's take three slow breaths together."
+   },
+   "ageBand": ["5-8"],
+   "tone": "calm",
+   "move": "bedtime",
+   "variantGroup": "wasia_chat_5_8.bedtime",
+   "minGapTurns": 10,
+   "tags": ["wasia", "conversation", "age-5-8", "bedtime", "calm"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.bedtime.002",
+   "kind": "converse",
+   "stage": ["close"],
+   "text": {
+    "en": "Time to rest. You did lovely things today. Sleep well."
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "bedtime",
+   "variantGroup": "wasia_chat_5_8.bedtime",
+   "minGapTurns": 10,
+   "tags": ["wasia", "conversation", "age-5-8", "bedtime", "calm"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.bedtime.003",
+   "kind": "converse",
+   "stage": ["close"],
+   "text": {
+    "en": "Bedtime. Good night, friend."
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "bedtime",
+   "variantGroup": "wasia_chat_5_8.bedtime",
+   "minGapTurns": 10,
+   "tags": ["wasia", "conversation", "age-5-8", "bedtime", "calm"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.bedtime.004",
+   "kind": "converse",
+   "stage": ["close"],
+   "text": {
+    "en": "Let's say a little thank you for today, and get cosy."
+   },
+   "ageBand": ["5-8"],
+   "tone": "calm",
+   "move": "bedtime",
+   "variantGroup": "wasia_chat_5_8.bedtime",
+   "minGapTurns": 10,
+   "tags": ["wasia", "conversation", "age-5-8", "bedtime", "calm"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.bedtime.005",
+   "kind": "converse",
+   "stage": ["close"],
+   "text": {
+    "en": "Sweet dreams. May your night be peaceful."
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "bedtime",
+   "variantGroup": "wasia_chat_5_8.bedtime",
+   "minGapTurns": 10,
+   "tags": ["wasia", "conversation", "age-5-8", "bedtime", "calm"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.bedtime.006",
+   "kind": "converse",
+   "stage": ["close"],
+   "text": {
+    "en": "Snuggle down like a sleepy bear. Good night!"
+   },
+   "ageBand": ["5-8"],
+   "tone": "playful",
+   "move": "bedtime",
+   "variantGroup": "wasia_chat_5_8.bedtime",
+   "minGapTurns": 10,
+   "tags": ["wasia", "conversation", "age-5-8", "bedtime", "calm"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.calm-down.001",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Let's breathe in slowly, and out slowly. We'll do it together."
+   },
+   "ageBand": ["5-8"],
+   "tone": "calm",
+   "move": "calm_down",
+   "variantGroup": "wasia_chat_5_8.calm-down",
+   "minGapTurns": 6,
+   "tags": ["wasia", "conversation", "age-5-8", "calm-down", "feelings"],
+   "triggers": [],
+   "doNotSay": ["If a child says they are hurt or scared by someone, say a trusted grown-up can help and show the child help screen; do not probe.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.calm-down.002",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "It's okay to feel upset. Let's rest for a moment."
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "calm_down",
+   "variantGroup": "wasia_chat_5_8.calm-down",
+   "minGapTurns": 6,
+   "tags": ["wasia", "conversation", "age-5-8", "calm-down", "feelings"],
+   "triggers": [],
+   "doNotSay": ["If a child says they are hurt or scared by someone, say a trusted grown-up can help and show the child help screen; do not probe.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.calm-down.003",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Big breath in. Slow breath out."
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "calm_down",
+   "variantGroup": "wasia_chat_5_8.calm-down",
+   "minGapTurns": 6,
+   "tags": ["wasia", "conversation", "age-5-8", "calm-down", "feelings"],
+   "triggers": [],
+   "doNotSay": ["If a child says they are hurt or scared by someone, say a trusted grown-up can help and show the child help screen; do not probe.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.calm-down.004",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Put your hand on your tummy. Feel it go up and down."
+   },
+   "ageBand": ["5-8"],
+   "tone": "calm",
+   "move": "calm_down",
+   "variantGroup": "wasia_chat_5_8.calm-down",
+   "minGapTurns": 6,
+   "tags": ["wasia", "conversation", "age-5-8", "calm-down", "feelings"],
+   "triggers": [],
+   "doNotSay": ["If a child says they are hurt or scared by someone, say a trusted grown-up can help and show the child help screen; do not probe.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.calm-down.005",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "You are safe. Let's squeeze our hands, then let go."
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "calm_down",
+   "variantGroup": "wasia_chat_5_8.calm-down",
+   "minGapTurns": 6,
+   "tags": ["wasia", "conversation", "age-5-8", "calm-down", "feelings"],
+   "triggers": [],
+   "doNotSay": ["If a child says they are hurt or scared by someone, say a trusted grown-up can help and show the child help screen; do not probe.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.calm-down.006",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Let's blow out pretend candles, nice and slow."
+   },
+   "ageBand": ["5-8"],
+   "tone": "playful",
+   "move": "calm_down",
+   "variantGroup": "wasia_chat_5_8.calm-down",
+   "minGapTurns": 6,
+   "tags": ["wasia", "conversation", "age-5-8", "calm-down", "feelings"],
+   "triggers": [],
+   "doNotSay": ["If a child says they are hurt or scared by someone, say a trusted grown-up can help and show the child help screen; do not probe.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.bored.001",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Feeling bored? Let's try something different, like letters, a story or a game."
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "bored",
+   "variantGroup": "wasia_chat_5_8.bored",
+   "minGapTurns": 6,
+   "tags": ["wasia", "conversation", "age-5-8", "bored"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.bored.002",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Bored? Let's change it up."
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "bored",
+   "variantGroup": "wasia_chat_5_8.bored",
+   "minGapTurns": 6,
+   "tags": ["wasia", "conversation", "age-5-8", "bored"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.bored.003",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Boring is boring! Shall we play a quick game?"
+   },
+   "ageBand": ["5-8"],
+   "tone": "playful",
+   "move": "bored",
+   "variantGroup": "wasia_chat_5_8.bored",
+   "minGapTurns": 6,
+   "tags": ["wasia", "conversation", "age-5-8", "bored"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.bored.004",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "That's okay. Shall we do something short and easy?"
+   },
+   "ageBand": ["5-8"],
+   "tone": "calm",
+   "move": "bored",
+   "variantGroup": "wasia_chat_5_8.bored",
+   "minGapTurns": 6,
+   "tags": ["wasia", "conversation", "age-5-8", "bored"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.bored.005",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Let's pick something you like. What sounds fun?"
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "bored",
+   "variantGroup": "wasia_chat_5_8.bored",
+   "minGapTurns": 6,
+   "tags": ["wasia", "conversation", "age-5-8", "bored"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.bored.006",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Want a game instead?"
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "bored",
+   "variantGroup": "wasia_chat_5_8.bored",
+   "minGapTurns": 6,
+   "tags": ["wasia", "conversation", "age-5-8", "bored"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.cant-do-it.001",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "That's a hard one. Let's do it in tiny steps together."
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "cant_do_it",
+   "variantGroup": "wasia_chat_5_8.cant-do-it",
+   "minGapTurns": 5,
+   "tags": ["wasia", "conversation", "age-5-8", "cant-do-it", "patience"],
+   "triggers": [],
+   "doNotSay": ["Never say \"easy\" or \"just\".", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.cant-do-it.002",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "It's tricky. I'll help."
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "cant_do_it",
+   "variantGroup": "wasia_chat_5_8.cant-do-it",
+   "minGapTurns": 5,
+   "tags": ["wasia", "conversation", "age-5-8", "cant-do-it", "patience"],
+   "triggers": [],
+   "doNotSay": ["Never say \"easy\" or \"just\".", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.cant-do-it.003",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Tricky tricky! Let's crack it together."
+   },
+   "ageBand": ["5-8"],
+   "tone": "playful",
+   "move": "cant_do_it",
+   "variantGroup": "wasia_chat_5_8.cant-do-it",
+   "minGapTurns": 5,
+   "tags": ["wasia", "conversation", "age-5-8", "cant-do-it", "patience"],
+   "triggers": [],
+   "doNotSay": ["Never say \"easy\" or \"just\".", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.cant-do-it.004",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "It's okay. We can go slowly. Just the first bit now."
+   },
+   "ageBand": ["5-8"],
+   "tone": "calm",
+   "move": "cant_do_it",
+   "variantGroup": "wasia_chat_5_8.cant-do-it",
+   "minGapTurns": 5,
+   "tags": ["wasia", "conversation", "age-5-8", "cant-do-it", "patience"],
+   "triggers": [],
+   "doNotSay": ["Never say \"easy\" or \"just\".", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.cant-do-it.005",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "You don't have to do it all. Just try the first part."
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "cant_do_it",
+   "variantGroup": "wasia_chat_5_8.cant-do-it",
+   "minGapTurns": 5,
+   "tags": ["wasia", "conversation", "age-5-8", "cant-do-it", "patience"],
+   "triggers": [],
+   "doNotSay": ["Never say \"easy\" or \"just\".", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.cant-do-it.006",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Let's try a smaller piece."
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "cant_do_it",
+   "variantGroup": "wasia_chat_5_8.cant-do-it",
+   "minGapTurns": 5,
+   "tags": ["wasia", "conversation", "age-5-8", "cant-do-it", "patience"],
+   "triggers": [],
+   "doNotSay": ["Never say \"easy\" or \"just\".", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.hate-this.001",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "It sounds like this isn't fun right now. Shall we stop or try something else?"
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "hate_this",
+   "variantGroup": "wasia_chat_5_8.hate-this",
+   "minGapTurns": 6,
+   "tags": ["wasia", "conversation", "age-5-8", "hate-this", "feelings"],
+   "triggers": [],
+   "doNotSay": ["Never insist; never say \"you have to\"; offer a change or a stop.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.hate-this.002",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Okay. We can stop."
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "hate_this",
+   "variantGroup": "wasia_chat_5_8.hate-this",
+   "minGapTurns": 6,
+   "tags": ["wasia", "conversation", "age-5-8", "hate-this", "feelings"],
+   "triggers": [],
+   "doNotSay": ["Never insist; never say \"you have to\"; offer a change or a stop.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.hate-this.003",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Not your favourite? Let's find something better."
+   },
+   "ageBand": ["5-8"],
+   "tone": "playful",
+   "move": "hate_this",
+   "variantGroup": "wasia_chat_5_8.hate-this",
+   "minGapTurns": 6,
+   "tags": ["wasia", "conversation", "age-5-8", "hate-this", "feelings"],
+   "triggers": [],
+   "doNotSay": ["Never insist; never say \"you have to\"; offer a change or a stop.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.hate-this.004",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "That's okay to feel. We can take a rest."
+   },
+   "ageBand": ["5-8"],
+   "tone": "calm",
+   "move": "hate_this",
+   "variantGroup": "wasia_chat_5_8.hate-this",
+   "minGapTurns": 6,
+   "tags": ["wasia", "conversation", "age-5-8", "hate-this", "feelings"],
+   "triggers": [],
+   "doNotSay": ["Never insist; never say \"you have to\"; offer a change or a stop.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.hate-this.005",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Thank you for telling me. What would feel better?"
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "hate_this",
+   "variantGroup": "wasia_chat_5_8.hate-this",
+   "minGapTurns": 6,
+   "tags": ["wasia", "conversation", "age-5-8", "hate-this", "feelings"],
+   "triggers": [],
+   "doNotSay": ["Never insist; never say \"you have to\"; offer a change or a stop.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.hate-this.006",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Let's do something different."
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "hate_this",
+   "variantGroup": "wasia_chat_5_8.hate-this",
+   "minGapTurns": 6,
+   "tags": ["wasia", "conversation", "age-5-8", "hate-this", "feelings"],
+   "triggers": [],
+   "doNotSay": ["Never insist; never say \"you have to\"; offer a change or a stop.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.curiosity-islam.001",
+   "kind": "converse",
+   "stage": ["question"],
+   "text": {
+    "en": "What a great thing to wonder about! Let me share a little."
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "curiosity_islam",
+   "variantGroup": "wasia_chat_5_8.curiosity-islam",
+   "minGapTurns": 5,
+   "tags": ["wasia", "conversation", "age-5-8", "curiosity-islam", "curiosity", "islam"],
+   "triggers": [],
+   "doNotSay": ["Answer only from the checked knowledge packs; if unsure, hand off to a grown-up or teacher.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.curiosity-islam.002",
+   "kind": "converse",
+   "stage": ["question"],
+   "text": {
+    "en": "Good question! Here is a small answer."
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "curiosity_islam",
+   "variantGroup": "wasia_chat_5_8.curiosity-islam",
+   "minGapTurns": 5,
+   "tags": ["wasia", "conversation", "age-5-8", "curiosity-islam", "curiosity", "islam"],
+   "triggers": [],
+   "doNotSay": ["Answer only from the checked knowledge packs; if unsure, hand off to a grown-up or teacher.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.curiosity-islam.003",
+   "kind": "converse",
+   "stage": ["question"],
+   "text": {
+    "en": "Ooh, I love questions about Islam! Let's find out."
+   },
+   "ageBand": ["5-8"],
+   "tone": "playful",
+   "move": "curiosity_islam",
+   "variantGroup": "wasia_chat_5_8.curiosity-islam",
+   "minGapTurns": 5,
+   "tags": ["wasia", "conversation", "age-5-8", "curiosity-islam", "curiosity", "islam"],
+   "triggers": [],
+   "doNotSay": ["Answer only from the checked knowledge packs; if unsure, hand off to a grown-up or teacher.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.curiosity-islam.004",
+   "kind": "converse",
+   "stage": ["question"],
+   "text": {
+    "en": "That's a lovely question. Let's look at it gently."
+   },
+   "ageBand": ["5-8"],
+   "tone": "calm",
+   "move": "curiosity_islam",
+   "variantGroup": "wasia_chat_5_8.curiosity-islam",
+   "minGapTurns": 5,
+   "tags": ["wasia", "conversation", "age-5-8", "curiosity-islam", "curiosity", "islam"],
+   "triggers": [],
+   "doNotSay": ["Answer only from the checked knowledge packs; if unsure, hand off to a grown-up or teacher.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.curiosity-islam.005",
+   "kind": "converse",
+   "stage": ["question"],
+   "text": {
+    "en": "I'm glad you asked. Asking questions is a good way to learn."
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "curiosity_islam",
+   "variantGroup": "wasia_chat_5_8.curiosity-islam",
+   "minGapTurns": 5,
+   "tags": ["wasia", "conversation", "age-5-8", "curiosity-islam", "curiosity", "islam"],
+   "triggers": [],
+   "doNotSay": ["Answer only from the checked knowledge packs; if unsure, hand off to a grown-up or teacher.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.curiosity-islam.006",
+   "kind": "converse",
+   "stage": ["question"],
+   "text": {
+    "en": "Great question. Short answer coming."
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "curiosity_islam",
+   "variantGroup": "wasia_chat_5_8.curiosity-islam",
+   "minGapTurns": 5,
+   "tags": ["wasia", "conversation", "age-5-8", "curiosity-islam", "curiosity", "islam"],
+   "triggers": [],
+   "doNotSay": ["Answer only from the checked knowledge packs; if unsure, hand off to a grown-up or teacher.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.grownup-handoff.001",
+   "kind": "converse",
+   "stage": ["handoff"],
+   "text": {
+    "en": "That is a big question. A grown-up you trust, like your teacher, can help with it."
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "grownup_handoff",
+   "variantGroup": "wasia_chat_5_8.grownup-handoff",
+   "minGapTurns": 5,
+   "tags": ["wasia", "conversation", "age-5-8", "grownup-handoff", "handoff", "grown-up"],
+   "triggers": [],
+   "doNotSay": ["Never \"ask your parents\" as the only route; never ask for secrecy; a teacher or any trusted grown-up counts.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.grownup-handoff.002",
+   "kind": "converse",
+   "stage": ["handoff"],
+   "text": {
+    "en": "Let's ask a grown-up or a teacher about that one."
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "grownup_handoff",
+   "variantGroup": "wasia_chat_5_8.grownup-handoff",
+   "minGapTurns": 5,
+   "tags": ["wasia", "conversation", "age-5-8", "grownup-handoff", "handoff", "grown-up"],
+   "triggers": [],
+   "doNotSay": ["Never \"ask your parents\" as the only route; never ask for secrecy; a teacher or any trusted grown-up counts.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.grownup-handoff.003",
+   "kind": "converse",
+   "stage": ["handoff"],
+   "text": {
+    "en": "Ooh, that's a super question for a teacher!"
+   },
+   "ageBand": ["5-8"],
+   "tone": "playful",
+   "move": "grownup_handoff",
+   "variantGroup": "wasia_chat_5_8.grownup-handoff",
+   "minGapTurns": 5,
+   "tags": ["wasia", "conversation", "age-5-8", "grownup-handoff", "handoff", "grown-up"],
+   "triggers": [],
+   "doNotSay": ["Never \"ask your parents\" as the only route; never ask for secrecy; a teacher or any trusted grown-up counts.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.grownup-handoff.004",
+   "kind": "converse",
+   "stage": ["handoff"],
+   "text": {
+    "en": "Some questions are best asked to someone who knows you. A teacher could help."
+   },
+   "ageBand": ["5-8"],
+   "tone": "calm",
+   "move": "grownup_handoff",
+   "variantGroup": "wasia_chat_5_8.grownup-handoff",
+   "minGapTurns": 5,
+   "tags": ["wasia", "conversation", "age-5-8", "grownup-handoff", "handoff", "grown-up"],
+   "triggers": [],
+   "doNotSay": ["Never \"ask your parents\" as the only route; never ask for secrecy; a teacher or any trusted grown-up counts.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.grownup-handoff.005",
+   "kind": "converse",
+   "stage": ["handoff"],
+   "text": {
+    "en": "I don't know that well enough. A grown-up you trust can help you."
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "grownup_handoff",
+   "variantGroup": "wasia_chat_5_8.grownup-handoff",
+   "minGapTurns": 5,
+   "tags": ["wasia", "conversation", "age-5-8", "grownup-handoff", "handoff", "grown-up"],
+   "triggers": [],
+   "doNotSay": ["Never \"ask your parents\" as the only route; never ask for secrecy; a teacher or any trusted grown-up counts.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.grownup-handoff.006",
+   "kind": "converse",
+   "stage": ["handoff"],
+   "text": {
+    "en": "A teacher can answer that better than me."
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "grownup_handoff",
+   "variantGroup": "wasia_chat_5_8.grownup-handoff",
+   "minGapTurns": 5,
+   "tags": ["wasia", "conversation", "age-5-8", "grownup-handoff", "handoff", "grown-up"],
+   "triggers": [],
+   "doNotSay": ["Never \"ask your parents\" as the only route; never ask for secrecy; a teacher or any trusted grown-up counts.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.lesson-start.001",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Let's begin {lesson}. Ready when you are."
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "lesson_start",
+   "variantGroup": "wasia_chat_5_8.lesson-start",
+   "minGapTurns": 6,
+   "slots": ["lesson"],
+   "tags": ["wasia", "conversation", "age-5-8", "lesson-start"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.lesson-start.002",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Starting {lesson}. Here we go."
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "lesson_start",
+   "variantGroup": "wasia_chat_5_8.lesson-start",
+   "minGapTurns": 6,
+   "slots": ["lesson"],
+   "tags": ["wasia", "conversation", "age-5-8", "lesson-start"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.lesson-start.003",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Hooray, it's time for {lesson}!"
+   },
+   "ageBand": ["5-8"],
+   "tone": "playful",
+   "move": "lesson_start",
+   "variantGroup": "wasia_chat_5_8.lesson-start",
+   "minGapTurns": 6,
+   "slots": ["lesson"],
+   "tags": ["wasia", "conversation", "age-5-8", "lesson-start"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.lesson-start.004",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "We'll start {lesson} slowly. Take a breath first."
+   },
+   "ageBand": ["5-8"],
+   "tone": "calm",
+   "move": "lesson_start",
+   "variantGroup": "wasia_chat_5_8.lesson-start",
+   "minGapTurns": 6,
+   "slots": ["lesson"],
+   "tags": ["wasia", "conversation", "age-5-8", "lesson-start"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.lesson-start.005",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "Today we are learning {lesson}. It's going to be fun."
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "lesson_start",
+   "variantGroup": "wasia_chat_5_8.lesson-start",
+   "minGapTurns": 6,
+   "slots": ["lesson"],
+   "tags": ["wasia", "conversation", "age-5-8", "lesson-start"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.lesson-start.006",
+   "kind": "converse",
+   "stage": ["open"],
+   "text": {
+    "en": "{lesson} time. Let's go."
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "lesson_start",
+   "variantGroup": "wasia_chat_5_8.lesson-start",
+   "minGapTurns": 6,
+   "slots": ["lesson"],
+   "tags": ["wasia", "conversation", "age-5-8", "lesson-start"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.lesson-end.001",
+   "kind": "converse",
+   "stage": ["close"],
+   "text": {
+    "en": "You finished {lesson}! I'm proud of how you tried."
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "lesson_end",
+   "variantGroup": "wasia_chat_5_8.lesson-end",
+   "minGapTurns": 6,
+   "slots": ["lesson"],
+   "tags": ["wasia", "conversation", "age-5-8", "lesson-end"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.lesson-end.002",
+   "kind": "converse",
+   "stage": ["close"],
+   "text": {
+    "en": "{lesson} is done. Well done."
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "lesson_end",
+   "variantGroup": "wasia_chat_5_8.lesson-end",
+   "minGapTurns": 6,
+   "slots": ["lesson"],
+   "tags": ["wasia", "conversation", "age-5-8", "lesson-end"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.lesson-end.003",
+   "kind": "converse",
+   "stage": ["close"],
+   "text": {
+    "en": "Hooray, {lesson} is finished! High five."
+   },
+   "ageBand": ["5-8"],
+   "tone": "playful",
+   "move": "lesson_end",
+   "variantGroup": "wasia_chat_5_8.lesson-end",
+   "minGapTurns": 6,
+   "slots": ["lesson"],
+   "tags": ["wasia", "conversation", "age-5-8", "lesson-end"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.lesson-end.004",
+   "kind": "converse",
+   "stage": ["close"],
+   "text": {
+    "en": "That was {lesson}. You did well. Time to rest."
+   },
+   "ageBand": ["5-8"],
+   "tone": "calm",
+   "move": "lesson_end",
+   "variantGroup": "wasia_chat_5_8.lesson-end",
+   "minGapTurns": 6,
+   "slots": ["lesson"],
+   "tags": ["wasia", "conversation", "age-5-8", "lesson-end"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.lesson-end.005",
+   "kind": "converse",
+   "stage": ["close"],
+   "text": {
+    "en": "All done with {lesson}. Thank you for learning with me."
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "lesson_end",
+   "variantGroup": "wasia_chat_5_8.lesson-end",
+   "minGapTurns": 6,
+   "slots": ["lesson"],
+   "tags": ["wasia", "conversation", "age-5-8", "lesson-end"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.lesson-end.006",
+   "kind": "converse",
+   "stage": ["close"],
+   "text": {
+    "en": "Finished {lesson}! Great work."
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "lesson_end",
+   "variantGroup": "wasia_chat_5_8.lesson-end",
+   "minGapTurns": 6,
+   "slots": ["lesson"],
+   "tags": ["wasia", "conversation", "age-5-8", "lesson-end"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.encourage.001",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Keep going. You are learning something new every time."
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "encourage",
+   "variantGroup": "wasia_chat_5_8.encourage",
+   "minGapTurns": 5,
+   "tags": ["wasia", "conversation", "age-5-8", "encourage"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.encourage.002",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "You can do it!"
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "encourage",
+   "variantGroup": "wasia_chat_5_8.encourage",
+   "minGapTurns": 5,
+   "tags": ["wasia", "conversation", "age-5-8", "encourage"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.encourage.003",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Go go go! You're getting better and better."
+   },
+   "ageBand": ["5-8"],
+   "tone": "playful",
+   "move": "encourage",
+   "variantGroup": "wasia_chat_5_8.encourage",
+   "minGapTurns": 5,
+   "tags": ["wasia", "conversation", "age-5-8", "encourage"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.encourage.004",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Little by little. That is how we learn."
+   },
+   "ageBand": ["5-8"],
+   "tone": "calm",
+   "move": "encourage",
+   "variantGroup": "wasia_chat_5_8.encourage",
+   "minGapTurns": 5,
+   "tags": ["wasia", "conversation", "age-5-8", "encourage"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.encourage.005",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "I like how you keep trying. That is brave."
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "encourage",
+   "variantGroup": "wasia_chat_5_8.encourage",
+   "minGapTurns": 5,
+   "tags": ["wasia", "conversation", "age-5-8", "encourage"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.encourage.006",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Nice try. One more time."
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "encourage",
+   "variantGroup": "wasia_chat_5_8.encourage",
+   "minGapTurns": 5,
+   "tags": ["wasia", "conversation", "age-5-8", "encourage"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.celebrate.001",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "You did it! Masha Allah, I'm so happy for you."
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "celebrate",
+   "variantGroup": "wasia_chat_5_8.celebrate",
+   "minGapTurns": 5,
+   "tags": ["wasia", "conversation", "age-5-8", "celebrate"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.celebrate.002",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Hooray! Well done."
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "celebrate",
+   "variantGroup": "wasia_chat_5_8.celebrate",
+   "minGapTurns": 5,
+   "tags": ["wasia", "conversation", "age-5-8", "celebrate"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.celebrate.003",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Woohoo! Let's do a happy clap. Clap clap!"
+   },
+   "ageBand": ["5-8"],
+   "tone": "playful",
+   "move": "celebrate",
+   "variantGroup": "wasia_chat_5_8.celebrate",
+   "minGapTurns": 5,
+   "tags": ["wasia", "conversation", "age-5-8", "celebrate"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.celebrate.004",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "You finished it. That is a lovely thing."
+   },
+   "ageBand": ["5-8"],
+   "tone": "calm",
+   "move": "celebrate",
+   "variantGroup": "wasia_chat_5_8.celebrate",
+   "minGapTurns": 5,
+   "tags": ["wasia", "conversation", "age-5-8", "celebrate"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.celebrate.005",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Look how much you learned. Alhamdulillah."
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "celebrate",
+   "variantGroup": "wasia_chat_5_8.celebrate",
+   "minGapTurns": 5,
+   "tags": ["wasia", "conversation", "age-5-8", "celebrate"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.celebrate.006",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Great job today!"
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "celebrate",
+   "variantGroup": "wasia_chat_5_8.celebrate",
+   "minGapTurns": 5,
+   "tags": ["wasia", "conversation", "age-5-8", "celebrate"],
+   "triggers": [],
+   "doNotSay": ["Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.goodbye.001",
+   "kind": "converse",
+   "stage": ["close"],
+   "text": {
+    "en": "Bye for now, friend. Peace be with you."
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "goodbye",
+   "variantGroup": "wasia_chat_5_8.goodbye",
+   "minGapTurns": 6,
+   "tags": ["wasia", "conversation", "age-5-8", "goodbye"],
+   "triggers": [],
+   "doNotSay": ["No guilt, no \"come back soon\", no streaks.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.goodbye.002",
+   "kind": "converse",
+   "stage": ["close"],
+   "text": {
+    "en": "Bye! Salam."
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "goodbye",
+   "variantGroup": "wasia_chat_5_8.goodbye",
+   "minGapTurns": 6,
+   "tags": ["wasia", "conversation", "age-5-8", "goodbye"],
+   "triggers": [],
+   "doNotSay": ["No guilt, no \"come back soon\", no streaks.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.goodbye.003",
+   "kind": "converse",
+   "stage": ["close"],
+   "text": {
+    "en": "See you later, alligator!"
+   },
+   "ageBand": ["5-8"],
+   "tone": "playful",
+   "move": "goodbye",
+   "variantGroup": "wasia_chat_5_8.goodbye",
+   "minGapTurns": 6,
+   "tags": ["wasia", "conversation", "age-5-8", "goodbye"],
+   "triggers": [],
+   "doNotSay": ["No guilt, no \"come back soon\", no streaks.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.goodbye.004",
+   "kind": "converse",
+   "stage": ["close"],
+   "text": {
+    "en": "Time to rest. Peace be with you."
+   },
+   "ageBand": ["5-8"],
+   "tone": "calm",
+   "move": "goodbye",
+   "variantGroup": "wasia_chat_5_8.goodbye",
+   "minGapTurns": 6,
+   "tags": ["wasia", "conversation", "age-5-8", "goodbye"],
+   "triggers": [],
+   "doNotSay": ["No guilt, no \"come back soon\", no streaks.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.goodbye.005",
+   "kind": "converse",
+   "stage": ["close"],
+   "text": {
+    "en": "Thank you for learning with me today. Salam."
+   },
+   "ageBand": ["5-8"],
+   "tone": "warm",
+   "move": "goodbye",
+   "variantGroup": "wasia_chat_5_8.goodbye",
+   "minGapTurns": 6,
+   "tags": ["wasia", "conversation", "age-5-8", "goodbye"],
+   "triggers": [],
+   "doNotSay": ["No guilt, no \"come back soon\", no streaks.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "wasia_chat_5_8.goodbye.006",
+   "kind": "converse",
+   "stage": ["close"],
+   "text": {
+    "en": "Goodbye, friend."
+   },
+   "ageBand": ["5-8"],
+   "tone": "brief",
+   "move": "goodbye",
+   "variantGroup": "wasia_chat_5_8.goodbye",
+   "minGapTurns": 6,
+   "tags": ["wasia", "conversation", "age-5-8", "goodbye"],
+   "triggers": [],
+   "doNotSay": ["No guilt, no \"come back soon\", no streaks.", "Child band: short words, no scary or shaming words, no secrets, no pressure."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}
