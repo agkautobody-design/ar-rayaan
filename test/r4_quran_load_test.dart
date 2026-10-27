@@ -240,8 +240,9 @@ void main() {
         ),
       );
       await tester.pumpAndSettle();
-      // The default shows its name, not a bare number.
-      expect(find.text('18 · Al-Kahf'), findsOneWidget);
+      // The default is the Juz Amma plan, starting at An-Nas; the picker shows
+      // a name, not a bare number.
+      expect(find.text('114 · An-Nas'), findsOneWidget);
 
       await tester.tap(find.byKey(const Key('hifz-surah-picker')));
       await tester.pumpAndSettle();

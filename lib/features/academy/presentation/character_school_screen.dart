@@ -69,7 +69,7 @@ const List<_CharUnit> kCharacterUnits = <_CharUnit>[
       ),
       _CharLesson(
         title: 'Arrogance — The False Height',
-        body: 'No one with an atom\u2019s weight of arrogance enters Paradise (Muslim 91). The Prophet ﷺ defined it as refusing truth and despising people. Musa was called to speak despite his stutter; the Messenger ﷺ wept for his people. Greatness in this deen bends low.',
+        body: 'No one with an atom\u2019s weight of arrogance enters Paradise (Muslim 91). The Prophet ﷺ defined it as refusing truth and despising people. Musa was sent to speak to Pharaoh and asked for his brother\u2019s help (Qur\u2019an 20:27-30); the Messenger ﷺ wept for his people. Greatness in this deen bends low.',
         practice: 'Do one anonymous good deed this week — let no one know, including the one who benefits.',
       ),
       _CharLesson(
@@ -90,7 +90,7 @@ const List<_CharUnit> kCharacterUnits = <_CharUnit>[
       ),
       _CharLesson(
         title: 'Forgiveness — Releasing the Debtor',
-        body: 'The Prophet ﷺ was asked to curse the people of Taif and he prayed for their children instead. Allah described the servants of the Merciful as those who pardon people (3:134) — and the reward for pardoning is measured by Allah, who loves to pardon.',
+        body: 'When the Angel of the Mountains offered to let two mountains fall on those who had rejected him, the Prophet ﷺ refused and hoped for their children instead (Bukhari 3231). Allah described the servants of the Merciful as those who pardon people (3:134) — and the reward for pardoning is measured by Allah, who loves to pardon.',
         practice: 'Release one person from a debt of yours tonight — in your heart first, then in your behavior.',
       ),
       _CharLesson(

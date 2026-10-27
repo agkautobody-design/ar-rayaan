@@ -186,7 +186,7 @@ Words = total words in the story's chapters. Label column is for you to fill in.
 | khutbahs | kh-abubakr | The First Sermon of the First Caliph | 508 | |
 | khutbahs | kh-innalillah | The Grammar of Loss | 456 | |
 | khutbahs | kh-phone | The Phone in the Hand | 494 | |
-| khutbahs | kh-anxiety | Anxiety and the Medicine of Ta'weel | 429 | |
+| khutbahs | kh-anxiety | Anxiety and the Reframing of Ta'weel | 429 | |
 | khutbahs | kh-debt | The Quiet Chain | 452 | |
 | khutbahs | kh-lonely | Loneliness in the Crowd | 465 | |
 | khutbahs | kh-raising | Raising Children in the Feed | 482 | |
@@ -293,13 +293,13 @@ Words = total words in the story's chapters. Label column is for you to fill in.
 | newmuslim | newmuslim-17 | Day 17: Family and Old Friends | 130 | |
 | newmuslim | newmuslim-18 | Day 18: The Weekend Rhythm — Jumu'ah | 141 | |
 | newmuslim | newmuslim-19 | Day 19: Eating with Bismillah | 121 | |
-| newmuslim | newmuslim-20 | Day 20: Twenty Days — the Man You Are Becoming | 124 | |
+| newmuslim | newmuslim-20 | Day 20: Twenty Days — Missed a Day? | 124 | |
 | newmuslim | newmuslim-21 | Day 21: Building All Five Prayers | 111 | |
-| newmuslim | newmuslim-22 | Day 22: Adhkar — the Daily Rememberances | 131 | |
+| newmuslim | newmuslim-22 | Day 22: Adhkar — the Daily Remembrances | 131 | |
 | newmuslim | newmuslim-23 | Day 23: Trials and the Why Question | 125 | |
 | newmuslim | newmuslim-24 | Day 24: Islamic Character — the Visible Prayer | 130 | |
 | newmuslim | newmuslim-25 | Day 25: Ramadan — Your First Fast Approaches | 125 | |
-| newmuslim | newmuslim-26 | Day 26: The Ummah — a Billion Siblings | 120 | |
+| newmuslim | newmuslim-26 | Day 26: The Ummah — Your Wider Family | 120 | |
 | newmuslim | newmuslim-27 | Day 27: Knowledge — the Path of Students | 116 | |
 | newmuslim | newmuslim-28 | Day 28: Hard Questions and Honest Doubt | 122 | |
 | newmuslim | newmuslim-29 | Day 29: Giving — Sadaqah Beyond Zakat | 136 | |

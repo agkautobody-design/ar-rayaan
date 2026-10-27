@@ -714,7 +714,7 @@ abstract final class HadiRouting {
       'Nikah is the app’s own guide: it covers consent, the guardian and '
       'witnesses, the mahr, and the spirit of the home, with the line '
       '“The best of you is the best to his wives, and I am the best of you '
-      'to my wives” (Tirmidhi 3895, sahih per al-Albani). Family Life '
+      'to my wives” (Tirmidhi 3895, sahih per al-Albani; hasan per Darussalam). Family Life '
       'School covers mercy '
       'between spouses and the trust of children.\n\n'
       'For your own situation, a qualified scholar is the right person; Our '

@@ -83,7 +83,7 @@ const List<_StoriesUnit> kStoriesUnits = <_StoriesUnit>[
       ),
       _StoryChapter(
         title: 'Musa — Before Pharaoh',
-        virtue: 'A stuttering shepherd demanded freedom from the world\u2019s tyrant — with a staff and a brother. Courage is a stutter that keeps speaking.',
+        virtue: 'Musa was sent to the world\u2019s tyrant with a message, and asked Allah to untie the knot from his tongue and to send his brother Harun, who was more fluent, beside him (Qur\u2019an 20:27-30; 28:34). Courage is speaking while asking for help.',
         familyQuestion: 'What is your \'staff\' — the small thing you carry that could face something big?',
         storyId: 'prophet-musa',
       ),
@@ -136,8 +136,8 @@ const List<_StoriesUnit> kStoriesUnits = <_StoriesUnit>[
         storyId: 'woman-umm-salama',
       ),
       _StoryChapter(
-        title: 'The Man Who Asked for Water',
-        virtue: 'Barsisa\u2019s story warns — but within it lies the door: repentance has no statute of limitations while the heart beats.',
+        title: 'Barsisa — A Tale We Cannot Verify',
+        virtue: 'A monk\u2019s tale some commentaries tell about 59:16. It is not from the Qur\u2019an or an authentic hadith, so the app gives the Qur\u2019an\u2019s parable of Shaytan (59:16; 14:22) and not the tale.',
         familyQuestion: 'What does this story warn you about — and what does it promise you?',
         storyId: 'tale-barsisa',
       ),
@@ -532,8 +532,8 @@ const List<_StoriesUnit> kStoriesUnits = <_StoriesUnit>[
         storyId: 'prophet-shuayb',
       ),
       _StoryChapter(
-        title: 'Musa and Harun — The Stutterer and His Brother',
-        virtue: 'Musa asked for Harun because he feared his stutter would fail the message; Allah answered the ask and sent both. Weakness acknowledged is strength assisted.',
+        title: 'Musa and Harun — The Brother at His Side',
+        virtue: 'Musa asked Allah to untie the knot from his tongue and to send Harun, who was more fluent, with him (Qur\u2019an 20:27-30; 28:34). Later reports speak of a speech impediment; the Qur\u2019an does not say so. Asking for support is strength assisted.',
         familyQuestion: 'Who is your Harun — the one you can ask to stand beside you when your own voice shakes?',
         storyId: 'prophet-musa',
       ),
@@ -634,7 +634,7 @@ const List<_StoriesUnit> kStoriesUnits = <_StoriesUnit>[
         storyId: 'kh-phone',
       ),
       _StoryChapter(
-        title: 'Anxiety and the Medicine of Ta\u2019weel',
+        title: 'Anxiety and the Reframing of Ta\u2019weel',
         virtue: 'Perhaps you dislike a thing and it is good for you (2:216). The re-framing that turns the 3am ceiling into a conversation.',
         familyQuestion: 'What are you anxious about — and what could the ta\u2019weel be?',
         storyId: 'kh-anxiety',

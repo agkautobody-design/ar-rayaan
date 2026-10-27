@@ -51,9 +51,17 @@ abstract final class RecallChecks {
     return sorted;
   }
 
-  /// The generated check for [lesson], or null when the lesson has a
-  /// hand-written check or offers no suitable sentence.
+  /// Generated (auto-cloze) checks are retired. The 85-lesson audit found they
+  /// blanked English filler words ("timers", "stands", "actually") and so
+  /// tested no Islamic knowledge, while still showing a score. A lesson now
+  /// ends in its hand-written check or in its Try step. The builder stays for
+  /// its own unit tests only.
+  static const bool generatedChecksEnabled = false;
+
+  /// The generated check for [lesson]: always null while
+  /// [generatedChecksEnabled] is false.
   static RecallCheck? forLesson(AcademyLesson lesson) {
+    if (!generatedChecksEnabled) return null;
     if (_cache.containsKey(lesson.id)) return _cache[lesson.id];
     RecallCheck? built;
     if (!hasHandWrittenCheck(lesson)) {

@@ -82,7 +82,7 @@ const List<_WomUnit> kWomenUnits = <_WomUnit>[
       ),
       _WomLesson(
         title: 'Umm Ayman — The One They Forgot to List',
-        body: 'She raised the Prophet ﷺ after his parents died — and he called her \'my mother after my mother.\' The barakah of a household often lives with the person no one thinks to mention.',
+        body: 'Ibn Sa\u2019d (a seerah source, not one of the six hadith books) reports that Umm Ayman looked after the boy Muhammad ﷺ after his mother Amina died, and that when he died she wept because revelation had ended. Not yet scholar-reviewed. The barakah of a household often lives with the person no one thinks to mention.',
         practice: 'Thank one person who raised, fed, or cleaned for you — the invisible ones first.',
         storyId: 'woman-umm-ayman',
       ),
@@ -141,8 +141,8 @@ const List<_WomUnit> kWomenUnits = <_WomUnit>[
         storyId: 'woman-aisha',
       ),
       _WomLesson(
-        title: 'Zaynab — Generosity That Hurt',
-        body: 'She gave so much to the poor that the Prophet ﷺ told her to keep something for herself — and she answered that what she gave, Allah would replace. The wife who out-gave the household.',
+        title: 'Zaynab — Generosity With Her Own Hands',
+        body: 'When some of the Prophet\u2019s ﷺ wives asked which of them would join him first, he said the one with the longest hands; Aisha related that this was Zaynab, because she worked with her hands and gave in charity (Sahih Muslim 2452). The wife known for what her own hands gave.',
         practice: 'Give one thing this week that actually costs you — and tell no one.',
         storyId: 'woman-zaynab',
       ),

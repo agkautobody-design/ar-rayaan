@@ -1,0 +1,4786 @@
+{
+ "schema": 3,
+ "course": "aqid",
+ "lessons": [
+  {
+   "id": "aqid.u1.l1",
+   "title": "The Most Merciful Taught the Book",
+   "minutes": 16,
+   "intro": "Learn how the Qur’an introduces Allah: first with mercy, then in four short ayat that describe Him. You will also learn how a Muslim comes to know Allah in the first place.",
+   "steps": [
+    {
+     "id": "start",
+     "kind": "teach",
+     "title": "Start with who He is",
+     "body": [
+      "Most lessons begin with rules. This course begins with a person to know: Allah. Rules make more sense once you know who is asking.",
+      "How can anyone know what the Creator is like? We cannot work it out from the outside. So Muslims take what Allah says about Himself in the Qur’an, and what the Prophet ﷺ taught about Him in authentic hadith. What a Muslim holds in the heart as true about Allah is called aqeedah (creed).",
+      "We begin with Surah Ar-Rahman. It opens with a single word."
+     ]
+    },
+    {
+     "id": "rahman",
+     "kind": "say",
+     "title": "The opening of Surah Ar-Rahman",
+     "refs": [
+      "q:55:1",
+      "q:55:2",
+      "q:55:3",
+      "q:55:4"
+     ],
+     "note": "Read one word at a time. The first word is a name of Allah: Ar-Rahman, the Most Merciful. After it come three things He did.",
+     "words": {
+      "q:55:1": [
+       {
+        "tr": "ar-Rahmaan",
+        "en": "the Most Merciful"
+       }
+      ],
+      "q:55:2": [
+       {
+        "tr": "'allama",
+        "en": "taught"
+       },
+       {
+        "tr": "al-Qur'aan",
+        "en": "the Qur’an"
+       }
+      ],
+      "q:55:3": [
+       {
+        "tr": "khalaqa",
+        "en": "created"
+       },
+       {
+        "tr": "al-insaan",
+        "en": "man"
+       }
+      ],
+      "q:55:4": [
+       {
+        "tr": "'allamahu",
+        "en": "taught him"
+       },
+       {
+        "tr": "al-bayaan",
+        "en": "clear speech"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 55:1-4"
+    },
+    {
+     "id": "mercy",
+     "kind": "teach",
+     "title": "Mercy first, and the first gift is guidance",
+     "body": [
+      "Before the surah says anything else, it calls Allah Ar-Rahman, the Most Merciful. Then it lists what His mercy did: He taught the Qur’an, He created man, and He taught man bayan, which means clear speech. Al-Hasan al-Basri explained bayan as eloquent speech.",
+      "Ibn Kathir explains these ayat as Allah reminding people of His favours and His mercy: He sent down the Qur’an and made it easy to learn and to understand."
+     ],
+     "label": "[Interpretive]",
+     "source": "Tafsir Ibn Kathir on Qur’an 55:1-4",
+     "review": "The meaning of 55:1-4 is summarised from Tafsir Ibn Kathir (English text in the spa5k tafsir archive). Please confirm the wording."
+    },
+    {
+     "id": "order",
+     "kind": "why",
+     "title": "Notice the order",
+     "body": [
+      "Read the four ayat again. Teaching the Qur’an is named before the creation of man. One way to take this: the Giver of life is also the Giver of guidance, and the guidance is named first.",
+      "This is a reflection to think about, not a ruling. The ayat do not explain the order."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "ikhlas",
+     "kind": "say",
+     "title": "A second portrait: Surah Al-Ikhlas",
+     "refs": [
+      "q:112:1",
+      "q:112:2",
+      "q:112:3",
+      "q:112:4"
+     ],
+     "note": "Four short ayat. Say each one slowly. Together they answer the question: who is Allah?",
+     "words": {
+      "q:112:1": [
+       {
+        "tr": "qul",
+        "en": "say"
+       },
+       {
+        "tr": "huwa",
+        "en": "He is"
+       },
+       {
+        "tr": "Allaahu",
+        "en": "Allah"
+       },
+       {
+        "tr": "ahad",
+        "en": "One"
+       }
+      ],
+      "q:112:2": [
+       {
+        "tr": "Allaahu",
+        "en": "Allah"
+       },
+       {
+        "tr": "as-Samad",
+        "en": "the Eternal Refuge"
+       }
+      ],
+      "q:112:3": [
+       {
+        "tr": "lam",
+        "en": "not"
+       },
+       {
+        "tr": "yalid",
+        "en": "He begets"
+       },
+       {
+        "tr": "wa-lam",
+        "en": "and not"
+       },
+       {
+        "tr": "yoolad",
+        "en": "He is born"
+       }
+      ],
+      "q:112:4": [
+       {
+        "tr": "wa-lam",
+        "en": "and not"
+       },
+       {
+        "tr": "yakun",
+        "en": "is"
+       },
+       {
+        "tr": "lahu",
+        "en": "to Him"
+       },
+       {
+        "tr": "kufuwan",
+        "en": "any equal"
+       },
+       {
+        "tr": "ahad",
+        "en": "anyone"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 112:1-4"
+    },
+    {
+     "id": "hear",
+     "kind": "listen",
+     "title": "Listen to Surah Al-Ikhlas",
+     "ref": "q:112:1-4",
+     "repeats": 2,
+     "note": "Listen to each ayah, then say it aloud in the pause. The reciter’s name is shown on the player."
+    },
+    {
+     "id": "ikhlasmeaning",
+     "kind": "teach",
+     "title": "What the four ayat say",
+     "body": [
+      "Ibn Kathir explains each part. Ahad means the One, the Single, with no peer, no helper and no rival. As-Samad: Ibn Abbas said it means the One whom all creation depends on for their needs and requests. “He neither begets nor is born” means Allah has no child, no parent and no spouse. The last ayah says that nothing is equal to Him or like Him."
+     ],
+     "bullets": [
+      "Ahad: He is One, with no partner.",
+      "As-Samad: everyone needs Him; He needs no one.",
+      "He has no parents and no children.",
+      "Nothing is like Him."
+     ],
+     "label": "[Interpretive]",
+     "source": "Tafsir Ibn Kathir on Qur’an 112:1-4",
+     "review": "Explanation of Ahad, As-Samad and kufuwan from Tafsir Ibn Kathir (including the report from Ibn Abbas). Please confirm."
+    },
+    {
+     "id": "loved",
+     "kind": "story",
+     "title": "The man who loved this surah",
+     "body": [
+      "The Prophet ﷺ sent a man to lead a small army. In every prayer, he ended his recitation with Surah Al-Ikhlas. When they came back, the others told the Prophet ﷺ, who said: ask him why he does this.",
+      "The man said: because it describes Ar-Rahman, and I love to recite it. The Prophet ﷺ said: tell him that Allah loves him.",
+      "In another report, the Prophet ﷺ said that Surah Al-Ikhlas is equal to one third of the Qur’an (Bukhari 5013). Scholars explain this as being about its weight in meaning, because it is so complete about who Allah is. It does not mean you can recite it three times and skip the rest of the Qur’an."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 7375; Muslim 813; Bukhari 5013",
+     "review": "The last sentence (what “a third of the Qur’an” means) is the common explanation, worded by the app author. Please confirm."
+    },
+    {
+     "id": "method",
+     "kind": "howto",
+     "title": "How to learn about Allah safely",
+     "intro": "A simple method for building a correct picture of Allah.",
+     "steps": [
+      {
+       "text": "Start with what Allah said about Himself.",
+       "detail": "The Qur’an first. Read ayat like the ones in this lesson with their meaning."
+      },
+      {
+       "text": "Add what the Prophet ﷺ taught about Him.",
+       "detail": "Only from authentic hadith. This app always shows the source, so you can check it."
+      },
+      {
+       "text": "Do not picture Him, and do not compare Him to anything He made.",
+       "detail": "The Qur’an says there is nothing like Him (42:11) and that nothing is equal to Him (112:4)."
+      },
+      {
+       "text": "When a question troubles you, ask.",
+       "detail": "Ask a teacher you trust, or ask Hadi, who shows his sources. Doubts are not a sin; leaving them unanswered is what hurts."
+      },
+      {
+       "text": "Let it change what you do.",
+       "detail": "Knowing Allah is meant to change how you pray, how you treat people and what you hope for."
+      }
+     ],
+     "mistakes": [
+      "Making up a picture of Allah because it feels right.",
+      "Taking a belief from a video or a rumour without a source.",
+      "Thinking you have to understand everything before you start."
+     ],
+     "label": "[Interpretive]",
+     "source": "Qur’an 42:11; Qur’an 112:4",
+     "review": "A practical method for learning aqeedah, worded by the app author. Please confirm that nothing here goes against any of the Sunni schools of creed (Athari, Ashari, Maturidi)."
+    },
+    {
+     "id": "seq",
+     "kind": "arrange",
+     "title": "Put them in order",
+     "prompt": "Put these in the order they appear in Surah Ar-Rahman (55:1-4).",
+     "explain": "The surah names Ar-Rahman first, then three things His mercy did: teaching the Qur’an, creating man, and teaching man clear speech.",
+     "items": [
+      {
+       "text": "The name Ar-Rahman",
+       "why": "The surah begins with the name: Ar-Rahman.",
+       "back": "rahman"
+      },
+      {
+       "text": "He taught the Qur’an",
+       "why": "This comes right after the name.",
+       "back": "rahman"
+      },
+      {
+       "text": "He created man",
+       "why": "Creation is named after the teaching of the Qur’an.",
+       "back": "rahman"
+      },
+      {
+       "text": "He taught man clear speech (bayan)",
+       "why": "The last of the four ayat.",
+       "back": "rahman"
+      }
+     ]
+    },
+    {
+     "id": "words",
+     "kind": "match",
+     "title": "Match the words",
+     "prompt": "Tap an Arabic word, then its meaning.",
+     "pairs": [
+      {
+       "left": {
+        "word": "q:55:1#0"
+       },
+       "right": {
+        "text": "The Most Merciful"
+       },
+       "why": "Ar-Rahman is the first word of Surah 55.",
+       "back": "rahman"
+      },
+      {
+       "left": {
+        "word": "q:55:2#0"
+       },
+       "right": {
+        "text": "taught"
+       },
+       "why": "Allama means taught. He taught the Qur’an.",
+       "back": "rahman"
+      },
+      {
+       "left": {
+        "word": "q:112:1#3"
+       },
+       "right": {
+        "text": "One"
+       },
+       "why": "Ahad means One. Allah is One.",
+       "back": "ikhlasmeaning"
+      },
+      {
+       "left": {
+        "word": "q:112:2#1"
+       },
+       "right": {
+        "text": "the Eternal Refuge"
+       },
+       "why": "As-Samad is the One everyone turns to for their needs.",
+       "back": "ikhlasmeaning"
+      },
+      {
+       "left": {
+        "word": "q:112:4#3"
+       },
+       "right": {
+        "text": "an equal"
+       },
+       "why": "Kufuwan means an equal. Nothing is equal to Him.",
+       "back": "ikhlasmeaning"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1",
+       "type": "mcq",
+       "q": "What is the first word of Surah Ar-Rahman?",
+       "options": [
+        {
+         "text": "A command: “Read”",
+         "reteach": "No. “Read” is the first word revealed in another surah. Surah Ar-Rahman opens with a name of Allah.",
+         "back": "rahman"
+        },
+        {
+         "text": "A command: “Say”",
+         "reteach": "No. “Say” opens Surah Al-Ikhlas. Surah Ar-Rahman opens with a name of Allah.",
+         "back": "rahman"
+        },
+        {
+         "text": "A name of Allah: Ar-Rahman, the Most Merciful"
+        }
+       ],
+       "answer": 2,
+       "explain": "Surah Ar-Rahman opens with the name Ar-Rahman, the Most Merciful (55:1)."
+      },
+      {
+       "id": "c2",
+       "type": "mcq",
+       "q": "Which three things does Surah Ar-Rahman say He did right after the name Ar-Rahman?",
+       "options": [
+        {
+         "text": "Created the heavens, the earth and the sea",
+         "reteach": "Not in these four ayat. They name the Qur’an, man and clear speech.",
+         "back": "rahman"
+        },
+        {
+         "text": "Taught the Qur’an, created man, taught him clear speech"
+        },
+        {
+         "text": "Sent the angels, the books and the messengers",
+         "reteach": "Those are important, but they are not the three things named in 55:2-4.",
+         "back": "rahman"
+        }
+       ],
+       "answer": 1,
+       "explain": "The three things are teaching the Qur’an, creating man, and teaching man clear speech."
+      },
+      {
+       "id": "c3",
+       "type": "fill",
+       "q": "Which word fills the blank in the first ayah of Al-Ikhlas?",
+       "options": [
+        {
+         "word": "q:112:2#1",
+         "reteach": "That word is As-Samad, the Eternal Refuge. It opens the next ayah. The first ayah says He is Allah, who is One.",
+         "back": "ikhlasmeaning"
+        },
+        {
+         "word": "q:55:1#0",
+         "reteach": "That word is Ar-Rahman. It opens Surah 55. In Al-Ikhlas the word we need means One.",
+         "back": "ikhlasmeaning"
+        },
+        {
+         "word": "q:112:1#3"
+        }
+       ],
+       "answer": 2,
+       "explain": "Ahad means One: Say, He is Allah, One.",
+       "fill": {
+        "ref": "q:112:1",
+        "blank": 3,
+        "show": "arabic"
+       }
+      },
+      {
+       "id": "c4",
+       "type": "mcq",
+       "q": "Ibn Abbas explained As-Samad as the One…",
+       "options": [
+        {
+         "text": "who is hidden from creation",
+         "reteach": "No. As-Samad is about creation needing Him, not about being hidden.",
+         "back": "ikhlasmeaning"
+        },
+        {
+         "text": "who rests after creating",
+         "reteach": "No. Allah is never tired (you will see this in Ayat al-Kursi). As-Samad means the One everyone depends on.",
+         "back": "ikhlasmeaning"
+        },
+        {
+         "text": "whom all creation depends on for their needs"
+        }
+       ],
+       "answer": 2,
+       "explain": "As-Samad: everyone needs Him, and He needs no one (Ibn Kathir, quoting Ibn Abbas)."
+      },
+      {
+       "id": "c5",
+       "type": "mcq",
+       "q": "What does “He neither begets nor is born” teach about Allah?",
+       "options": [
+        {
+         "text": "Allah is one of several gods",
+         "reteach": "No. The surah begins by saying He is One, and ends by saying nothing is equal to Him.",
+         "back": "ikhlasmeaning"
+        },
+        {
+         "text": "Allah has no parents and no children"
+        },
+        {
+         "text": "Allah is like a very powerful human",
+         "reteach": "No. The last ayah says there is nothing equal to Him.",
+         "back": "ikhlasmeaning"
+        }
+       ],
+       "answer": 1,
+       "explain": "Allah has no parent and no child. He is not like His creation."
+      },
+      {
+       "id": "c6",
+       "type": "scenario",
+       "q": "What would you tell your friend?",
+       "options": [
+        {
+         "text": "We do not picture Him. Nothing is like Him, so we learn about Him from what He told us."
+        },
+        {
+         "text": "Yes, picture whatever helps you feel close to Him.",
+         "reteach": "The Qur’an teaches that nothing is like Him and nothing is equal to Him, so a picture will always be wrong.",
+         "back": "method"
+        },
+        {
+         "text": "Yes, but picture the strongest king you can imagine.",
+         "reteach": "No. Nothing is like Him, not even the strongest king. We learn about Him from what He said.",
+         "back": "method"
+        }
+       ],
+       "answer": 0,
+       "explain": "Nothing is equal to Him (112:4) and there is nothing like Him (42:11).",
+       "scenario": "A friend says: I imagine God as a very old man sitting on a cloud. Is that what Muslims believe?"
+      },
+      {
+       "id": "c7",
+       "type": "mcq",
+       "q": "Why did the Prophet ﷺ say Allah loved the man who ended his prayers with Surah Al-Ikhlas?",
+       "options": [
+        {
+         "text": "Because he recited it the loudest",
+         "reteach": "No. The report says nothing about loudness. The man said he loved it because it describes Ar-Rahman.",
+         "back": "loved"
+        },
+        {
+         "text": "The man loved it because it describes Ar-Rahman"
+        },
+        {
+         "text": "Because he led the army",
+         "reteach": "No. The reason was his love for the surah and what it says about Allah.",
+         "back": "loved"
+        }
+       ],
+       "answer": 1,
+       "explain": "The man loved reciting it because it describes Ar-Rahman. The Prophet ﷺ said: tell him that Allah loves him."
+      },
+      {
+       "id": "c8",
+       "type": "mcq",
+       "q": "Where does a Muslim take what he or she believes about Allah from?",
+       "options": [
+        {
+         "text": "From what Allah says about Himself in the Qur’an and from authentic hadith"
+        },
+        {
+         "text": "From what feels right to each person",
+         "reteach": "No. We cannot work out from the outside what Allah is like. We take it from what He told us.",
+         "back": "start"
+        },
+        {
+         "text": "From what most people around us believe",
+         "reteach": "No. A belief about Allah needs a source, not a crowd.",
+         "back": "start"
+        }
+       ],
+       "answer": 0,
+       "explain": "Beliefs about Allah come from the Qur’an and authentic hadith, which this app always shows with their source."
+      },
+      {
+       "id": "c9",
+       "type": "fill",
+       "q": "Which word completes the first ayah of Al-Ikhlas in transliteration?",
+       "options": [
+        {
+         "text": "ahad"
+        },
+        {
+         "text": "samad",
+         "reteach": "As-Samad is the word of the next ayah. In the first ayah the missing word means One.",
+         "back": "ikhlasmeaning"
+        },
+        {
+         "text": "rahmaan",
+         "reteach": "Ar-Rahman is the first word of Surah 55. In Al-Ikhlas the missing word means One.",
+         "back": "ikhlasmeaning"
+        }
+       ],
+       "answer": 0,
+       "explain": "Qul huwal-laahu ahad: Say, He is Allah, One.",
+       "fill": {
+        "ref": "q:112:1",
+        "blank": 2,
+        "show": "translit"
+       }
+      }
+     ],
+     "title": "Check yourself"
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Read it yourself",
+     "body": "Open Surah Al-Ikhlas in the Qur’an reader. Read the four ayat slowly, with the meaning under each one.",
+     "route": "/quran/112",
+     "button": "Open Surah 112"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "canDo": [
+      "Say how Surah Ar-Rahman begins, and name three things He did",
+      "Recite Surah Al-Ikhlas and explain Ahad and As-Samad",
+      "Explain why we do not picture Allah or compare Him to anything",
+      "Say where a Muslim takes beliefs about Allah from"
+     ],
+     "next": "Next: Ayat al-Kursi, the greatest ayah of the Qur’an."
+    }
+   ]
+  },
+  {
+   "id": "aqid.u1.l2",
+   "title": "No Slumber, No Sleep",
+   "minutes": 16,
+   "intro": "Learn Ayat al-Kursi: what its ten statements say about Allah, why the Prophet ﷺ called it the greatest ayah, and how to say it before you sleep.",
+   "steps": [
+    {
+     "id": "greatest",
+     "kind": "teach",
+     "title": "The greatest ayah",
+     "body": [
+      "The Prophet ﷺ asked his Companion Ubayy ibn Ka’b which ayah in the Book of Allah is the greatest. Ubayy first said that Allah and His Messenger know best. When he was asked again, he named the ayah that begins “Allah, there is no god but He, the Living, the Eternal.” The Prophet ﷺ struck him on the chest and said: may knowledge be pleasant for you.",
+      "That ayah is Ayat al-Kursi, because it mentions Allah’s Kursi. It is ayah 255 of Surah Al-Baqarah."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 810"
+    },
+    {
+     "id": "ayah",
+     "kind": "say",
+     "title": "Ayat al-Kursi",
+     "refs": [
+      "q:2:255"
+     ],
+     "note": "Read it one word at a time. Under each Arabic word you will see how it sounds and what it means. Do not worry about getting all of it today; the next cards break it into parts.",
+     "words": {
+      "q:2:255": [
+       {
+        "tr": "Allaahu",
+        "en": "Allah"
+       },
+       {
+        "tr": "laa",
+        "en": "no"
+       },
+       {
+        "tr": "ilaaha",
+        "en": "god"
+       },
+       {
+        "tr": "illaa",
+        "en": "except"
+       },
+       {
+        "tr": "huwa",
+        "en": "Him"
+       },
+       {
+        "tr": "al-Hayyu",
+        "en": "the Ever-Living"
+       },
+       {
+        "tr": "al-Qayyoomu",
+        "en": "the Sustainer of all existence"
+       },
+       {
+        "tr": "laa",
+        "en": "not"
+       },
+       {
+        "tr": "ta'khudhuhu",
+        "en": "takes Him"
+       },
+       {
+        "tr": "sinatun",
+        "en": "drowsiness"
+       },
+       {
+        "tr": "wa-laa",
+        "en": "and not"
+       },
+       {
+        "tr": "nawmun",
+        "en": "sleep"
+       },
+       {
+        "tr": "lahu",
+        "en": "to Him belongs"
+       },
+       {
+        "tr": "maa",
+        "en": "whatever"
+       },
+       {
+        "tr": "fee",
+        "en": "in"
+       },
+       {
+        "tr": "as-samaawaati",
+        "en": "the heavens"
+       },
+       {
+        "tr": "wa-maa",
+        "en": "and whatever"
+       },
+       {
+        "tr": "fee",
+        "en": "in"
+       },
+       {
+        "tr": "al-ardi",
+        "en": "the earth"
+       },
+       {
+        "tr": "man",
+        "en": "who"
+       },
+       {
+        "tr": "dhaa",
+        "en": "is it"
+       },
+       {
+        "tr": "alladhee",
+        "en": "that"
+       },
+       {
+        "tr": "yashfa'u",
+        "en": "can intercede"
+       },
+       {
+        "tr": "'indahu",
+        "en": "with Him"
+       },
+       {
+        "tr": "illaa",
+        "en": "except"
+       },
+       {
+        "tr": "bi-idhnihi",
+        "en": "by His permission"
+       },
+       {
+        "tr": "ya'lamu",
+        "en": "He knows"
+       },
+       {
+        "tr": "maa",
+        "en": "what"
+       },
+       {
+        "tr": "bayna",
+        "en": "is between"
+       },
+       {
+        "tr": "aydeehim",
+        "en": "their hands (before them)"
+       },
+       {
+        "tr": "wa-maa",
+        "en": "and what"
+       },
+       {
+        "tr": "khalfahum",
+        "en": "is behind them"
+       },
+       {
+        "tr": "wa-laa",
+        "en": "and they do not"
+       },
+       {
+        "tr": "yuheetoona",
+        "en": "encompass"
+       },
+       {
+        "tr": "bi-shay'in",
+        "en": "a thing"
+       },
+       {
+        "tr": "min",
+        "en": "of"
+       },
+       {
+        "tr": "'ilmihi",
+        "en": "His knowledge"
+       },
+       {
+        "tr": "illaa",
+        "en": "except"
+       },
+       {
+        "tr": "bimaa",
+        "en": "for what"
+       },
+       {
+        "tr": "shaa'a",
+        "en": "He wills"
+       },
+       {
+        "tr": "wasi'a",
+        "en": "extends over"
+       },
+       {
+        "tr": "kursiyyuhu",
+        "en": "His Kursi"
+       },
+       {
+        "tr": "as-samaawaati",
+        "en": "the heavens"
+       },
+       {
+        "tr": "wal-arda",
+        "en": "and the earth"
+       },
+       {
+        "tr": "wa-laa",
+        "en": "and not"
+       },
+       {
+        "tr": "ya'ooduhu",
+        "en": "tires Him"
+       },
+       {
+        "tr": "hifzuhumaa",
+        "en": "their preservation"
+       },
+       {
+        "tr": "wa-huwa",
+        "en": "and He"
+       },
+       {
+        "tr": "al-'Aliyyu",
+        "en": "the Most High"
+       },
+       {
+        "tr": "al-'Azeemu",
+        "en": "the Most Great"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 2:255"
+    },
+    {
+     "id": "hear",
+     "kind": "listen",
+     "title": "Listen to Ayat al-Kursi",
+     "ref": "q:2:255",
+     "repeats": 2,
+     "note": "Listen once all the way through. Then listen again and say it with the reciter, a few words at a time."
+    },
+    {
+     "id": "p1",
+     "kind": "teach",
+     "title": "Parts 1 and 2: who He is",
+     "body": [
+      "Ibn Kathir reads the ayah as ten statements. The first is: Allah, there is no god but Him. He alone is the Lord of all creation.",
+      "The second is Al-Hayy Al-Qayyum. Al-Hayy: the Ever-Living, who never dies. Al-Qayyum: the One who sustains everyone and everything. All creation depends on Him, and He depends on nothing He created."
+     ],
+     "label": "[Interpretive]",
+     "source": "Tafsir Ibn Kathir on Qur’an 2:255",
+     "review": "Plain-words summary of the first two of the ten statements in Tafsir Ibn Kathir. Please confirm."
+    },
+    {
+     "id": "p2",
+     "kind": "teach",
+     "title": "Part 3: no drowsiness, no sleep",
+     "body": [
+      "Sinah is drowsiness, the first edge of sleep. Nawm is full sleep. The ayah says neither of them overtakes Allah. Ibn Kathir notes that sleep is stronger than drowsiness, so the ayah removes the small weakness first and then the large one.",
+      "The Prophet ﷺ taught the same: Allah does not sleep, and it does not suit Him to sleep (Muslim 179).",
+      "So there is no moment when the world is unwatched. He knows everything at every moment."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 2:255; Muslim 179; Tafsir Ibn Kathir on Qur’an 2:255"
+    },
+    {
+     "id": "p3",
+     "kind": "teach",
+     "title": "Parts 4 and 5: He owns it all, and nobody speaks for another without His leave",
+     "body": [
+      "To Him belongs whatever is in the heavens and the earth. Everyone in them is His servant.",
+      "Then the ayah asks a question: who can intercede with Him, except by His permission? Nobody. Even the angels and the prophets can speak for someone only if He allows it."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 2:255; Tafsir Ibn Kathir on Qur’an 2:255"
+    },
+    {
+     "id": "p4",
+     "kind": "teach",
+     "title": "Parts 6 to 10: knowledge, the Kursi, and the end of the ayah",
+     "body": [
+      "He knows what is before people and what is behind them. People can know only what He lets them know.",
+      "His Kursi extends over the heavens and the earth. Ibn Kathir reports Ibn Abbas as saying that the Kursi is the footstool, and that no one can truly measure the Throne. Scholars do not describe more than what is reported.",
+      "Looking after the heavens and the earth does not tire Him. And He is the Most High, the Most Great."
+     ],
+     "label": "[Interpretive]",
+     "source": "Qur’an 2:255; Tafsir Ibn Kathir on Qur’an 2:255",
+     "review": "The explanation of Kursi (report from Ibn Abbas that it is the footstool) is from Tafsir Ibn Kathir. Scholars of different schools of creed explain such descriptions differently. Please confirm the wording."
+    },
+    {
+     "id": "guard",
+     "kind": "story",
+     "title": "Abu Hurayrah and the visitor",
+     "body": [
+      "The Prophet ﷺ put Abu Hurayrah in charge of looking after the Ramadan charity food. For three nights a visitor came and took handfuls. Each night he said he was poor, and Abu Hurayrah let him go. On the third night, the visitor said: I will teach you words that will benefit you. When you go to bed, recite Ayat al-Kursi from the beginning to the end. A guard from Allah will stay with you, and no devil will come near you until morning.",
+      "In the morning the Prophet ﷺ said: he told you the truth, though he is a liar. He then told Abu Hurayrah that the visitor was Shaytan."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 2311"
+    },
+    {
+     "id": "bed",
+     "kind": "howto",
+     "title": "How to recite it before you sleep",
+     "intro": "A short habit with a source.",
+     "steps": [
+      {
+       "text": "Get ready for bed.",
+       "detail": "The hadith says to recite it when you go to your bed."
+      },
+      {
+       "text": "Say the whole ayah.",
+       "detail": "The report says to recite it from the beginning to the end. If you cannot yet say it by heart, read it from this lesson."
+      },
+      {
+       "text": "Say it slowly, knowing what it means.",
+       "detail": "It is remembrance of who Allah is. The meaning is what protects the heart."
+      },
+      {
+       "text": "Then sleep.",
+       "detail": "Trust that He is the One who does not sleep."
+      }
+     ],
+     "mistakes": [
+      "Treating it like a lucky charm without knowing what it says.",
+      "Skipping the second half because it is harder to remember."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 2311"
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "Put them in order",
+     "prompt": "Put the ideas of Ayat al-Kursi in the order they appear in the ayah.",
+     "explain": "The ayah moves from who He is, to what never touches Him, to what He owns, to what He knows, and ends with His height and greatness.",
+     "items": [
+      {
+       "text": "No god but Allah, the Ever-Living, the Sustainer",
+       "why": "The ayah opens by naming Allah and two of His great names.",
+       "back": "p1"
+      },
+      {
+       "text": "Neither drowsiness nor sleep takes Him",
+       "why": "This follows right after Al-Hayy Al-Qayyum.",
+       "back": "p2"
+      },
+      {
+       "text": "Everything in the heavens and earth is His",
+       "why": "After the sleep statement comes ownership.",
+       "back": "p3"
+      },
+      {
+       "text": "No one intercedes except by His permission",
+       "why": "This comes after ownership.",
+       "back": "p3"
+      },
+      {
+       "text": "He knows what is before and behind them",
+       "why": "Then comes His knowledge.",
+       "back": "p4"
+      },
+      {
+       "text": "His Kursi extends over the heavens and the earth",
+       "why": "Near the end of the ayah.",
+       "back": "p4"
+      },
+      {
+       "text": "He is the Most High, the Most Great",
+       "why": "The last words of the ayah.",
+       "back": "p4"
+      }
+     ]
+    },
+    {
+     "id": "words",
+     "kind": "match",
+     "title": "Match the words",
+     "prompt": "Tap an Arabic word, then its meaning.",
+     "pairs": [
+      {
+       "left": {
+        "word": "q:2:255#5"
+       },
+       "right": {
+        "text": "the Ever-Living"
+       },
+       "why": "Al-Hayy: He never dies.",
+       "back": "p1"
+      },
+      {
+       "left": {
+        "word": "q:2:255#6"
+       },
+       "right": {
+        "text": "the Sustainer of all existence"
+       },
+       "why": "Al-Qayyum: everything depends on Him.",
+       "back": "p1"
+      },
+      {
+       "left": {
+        "word": "q:2:255#9"
+       },
+       "right": {
+        "text": "drowsiness"
+       },
+       "why": "Sinah is drowsiness, the first edge of sleep.",
+       "back": "p2"
+      },
+      {
+       "left": {
+        "word": "q:2:255#11"
+       },
+       "right": {
+        "text": "sleep"
+       },
+       "why": "Nawm is full sleep.",
+       "back": "p2"
+      },
+      {
+       "left": {
+        "word": "q:2:255#48"
+       },
+       "right": {
+        "text": "the Most High"
+       },
+       "why": "Al-Aliyy: He is above all.",
+       "back": "p4"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1",
+       "type": "mcq",
+       "q": "Which ayah did the Prophet ﷺ confirm is the greatest in the Qur’an?",
+       "options": [
+        {
+         "text": "The first ayah of Al-Fatihah",
+         "reteach": "No. Ubayy ibn Ka’b named Ayat al-Kursi and the Prophet ﷺ approved.",
+         "back": "greatest"
+        },
+        {
+         "text": "Ayat al-Kursi (2:255)"
+        },
+        {
+         "text": "The last ayah of Al-Baqarah",
+         "reteach": "No. That ayah has its own merit, but the greatest ayah is Ayat al-Kursi.",
+         "back": "greatest"
+        }
+       ],
+       "answer": 1,
+       "explain": "Ubayy ibn Ka’b named Ayat al-Kursi, and the Prophet ﷺ said: may knowledge be pleasant for you (Muslim 810)."
+      },
+      {
+       "id": "c2",
+       "type": "fill",
+       "q": "Which word fills the blank?",
+       "options": [
+        {
+         "word": "q:2:255#5",
+         "reteach": "That word is Al-Hayy, the Ever-Living. It comes just before the blank. The blank is the next name: Al-Qayyum.",
+         "back": "p1"
+        },
+        {
+         "word": "q:2:255#6"
+        },
+        {
+         "word": "q:2:255#48",
+         "reteach": "That word is Al-Aliyy, the Most High, from the end of the ayah. The blank is Al-Qayyum.",
+         "back": "p4"
+        }
+       ],
+       "answer": 1,
+       "explain": "Al-Hayy Al-Qayyum: the Ever-Living, the Sustainer of all existence.",
+       "fill": {
+        "ref": "q:2:255",
+        "blank": 6,
+        "show": "arabic"
+       }
+      },
+      {
+       "id": "c3",
+       "type": "mcq",
+       "q": "What does Al-Qayyum mean?",
+       "options": [
+        {
+         "text": "The One who stays awake all night",
+         "reteach": "No. The ayah says no sleep touches Him, but that is a different statement. Al-Qayyum means the One everything depends on.",
+         "back": "p1"
+        },
+        {
+         "text": "The One who lives in the highest heaven",
+         "reteach": "No. Al-Qayyum is about sustaining all creation, not a place.",
+         "back": "p1"
+        },
+        {
+         "text": "The One who sustains everyone and everything"
+        }
+       ],
+       "answer": 2,
+       "explain": "Al-Qayyum: everything stands by Him, and He stands by Himself."
+      },
+      {
+       "id": "c4",
+       "type": "mcq",
+       "q": "What is the difference between sinah and nawm?",
+       "options": [
+        {
+         "text": "Sinah is sleep and nawm is a dream",
+         "reteach": "No. Sinah is drowsiness, the first edge of sleep. Nawm is full sleep.",
+         "back": "p2"
+        },
+        {
+         "text": "Sinah is drowsiness, nawm is full sleep; neither touches Him"
+        },
+        {
+         "text": "They mean the same thing, said twice for beauty",
+         "reteach": "No. They are two steps: drowsiness first, then sleep. The ayah removes both.",
+         "back": "p2"
+        }
+       ],
+       "answer": 1,
+       "explain": "Sinah is drowsiness. Nawm is sleep. The ayah removes both from Allah."
+      },
+      {
+       "id": "c5",
+       "type": "scenario",
+       "q": "What does the ayah teach?",
+       "options": [
+        {
+         "text": "A prophet can always speak for anyone",
+         "reteach": "No. The ayah asks who can intercede except by His permission. The answer is nobody.",
+         "back": "p3"
+        },
+        {
+         "text": "No one can speak for another with Allah unless He gives permission"
+        },
+        {
+         "text": "Only angels can speak for people",
+         "reteach": "No. The ayah says nobody at all can, unless He allows it.",
+         "back": "p3"
+        }
+       ],
+       "answer": 1,
+       "explain": "The ayah says: who can intercede with Him except by His permission?",
+       "scenario": "A friend says: I will ask a prophet to speak to Allah for me whenever I like. They can say anything to Him."
+      },
+      {
+       "id": "c6",
+       "type": "mcq",
+       "q": "What does the report of Abu Hurayrah say you get when you recite Ayat al-Kursi as you go to bed?",
+       "options": [
+        {
+         "text": "A guard from Allah stays with you and no devil comes near until morning"
+        },
+        {
+         "text": "You will not need to sleep",
+         "reteach": "No. The report promises protection while you sleep, not that you will not sleep.",
+         "back": "guard"
+        },
+        {
+         "text": "You will see the angels in your dream",
+         "reteach": "No. The report promises a guard from Allah and no devil near you.",
+         "back": "guard"
+        }
+       ],
+       "answer": 0,
+       "explain": "The report is in Bukhari 2311."
+      },
+      {
+       "id": "c7",
+       "type": "mcq",
+       "q": "Why does the ayah say “not drowsiness” before “not sleep”?",
+       "options": [
+        {
+         "text": "Because Allah sometimes dozes but never sleeps",
+         "reteach": "No. The ayah removes both. Nothing of either touches Him.",
+         "back": "p2"
+        },
+        {
+         "text": "Because drowsiness is for angels and sleep for people",
+         "reteach": "No. Both are removed from Allah. This is about Him, not about angels or people.",
+         "back": "p2"
+        },
+        {
+         "text": "Sleep is stronger than drowsiness, so the ayah removes the small weakness and then the large one"
+        }
+       ],
+       "answer": 2,
+       "explain": "Ibn Kathir notes that sleep is stronger than drowsiness."
+      },
+      {
+       "id": "c8",
+       "type": "mcq",
+       "q": "Which of these is true about reciting Ayat al-Kursi as you go to bed?",
+       "options": [
+        {
+         "text": "Reciting only the first line is the same",
+         "reteach": "No. The report says to recite it until you finish the whole ayah.",
+         "back": "bed"
+        },
+        {
+         "text": "It only counts if you do not know the meaning",
+         "reteach": "No. The meaning matters. It is remembrance of who Allah is.",
+         "back": "bed"
+        },
+        {
+         "text": "The report says to recite the whole ayah, from beginning to end"
+        }
+       ],
+       "answer": 2,
+       "explain": "The report says to recite Ayat al-Kursi from the beginning to the end."
+      },
+      {
+       "id": "c9",
+       "type": "mcq",
+       "q": "Which of these tells us Allah does not need rest?",
+       "options": [
+        {
+         "text": "The Kursi is small",
+         "reteach": "No. The ayah says His Kursi extends over the heavens and the earth.",
+         "back": "p4"
+        },
+        {
+         "text": "People look after the heavens",
+         "reteach": "No. The ayah says He looks after them, and that it does not tire Him.",
+         "back": "p4"
+        },
+        {
+         "text": "Looking after the heavens and the earth does not tire Him"
+        }
+       ],
+       "answer": 2,
+       "explain": "And their preservation tires Him not (2:255)."
+      },
+      {
+       "id": "c10",
+       "lookback": "aqid.u1.l1#c5"
+      },
+      {
+       "id": "c11",
+       "lookback": "aqid.u1.l1#c8"
+      }
+     ],
+     "title": "Check yourself"
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Read it yourself",
+     "body": "Open Surah Al-Baqarah in the Qur’an reader. Ayat al-Kursi is ayah 255. You can find it by scrolling or by searching for the ayah number.",
+     "route": "/quran/2",
+     "button": "Open Surah 2"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "canDo": [
+      "Name Ayat al-Kursi as the greatest ayah and say who named it",
+      "Explain Al-Hayy, Al-Qayyum, sinah and nawm",
+      "Say what the ayah teaches about intercession",
+      "Recite it before sleep, knowing what it says"
+     ],
+     "next": "Next: the name we say most, Ar-Rahman Ar-Raheem."
+    }
+   ]
+  },
+  {
+   "id": "aqid.u1.l3",
+   "title": "The Attribute We Say Most",
+   "minutes": 15,
+   "intro": "Learn the two names of mercy in the basmala, what scholars say separates them, and the hadith about Allah’s mercy that every beginner should hear.",
+   "steps": [
+    {
+     "id": "basmala",
+     "kind": "say",
+     "title": "The basmala",
+     "refs": [
+      "q:1:1"
+     ],
+     "note": "You say this at the start of most things. Look at the last two words: both come from the word for mercy.",
+     "words": {
+      "q:1:1": [
+       {
+        "tr": "bismi",
+        "en": "in the name of"
+       },
+       {
+        "tr": "Allaahi",
+        "en": "Allah"
+       },
+       {
+        "tr": "ar-Rahmaani",
+        "en": "the Entirely Merciful"
+       },
+       {
+        "tr": "ar-Raheemi",
+        "en": "the Especially Merciful"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 1:1"
+    },
+    {
+     "id": "twice",
+     "kind": "teach",
+     "title": "Mercy, named twice",
+     "body": [
+      "Of all the things Allah could put first, the basmala names mercy, and names it twice: Ar-Rahman and Ar-Raheem. The basmala opens every surah of the Qur’an except Surah At-Tawbah (Surah 9).",
+      "Both names come from rahmah, mercy. So you say the words of mercy again and again every day, in every prayer."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 1:1",
+     "review": "The statement that every surah except At-Tawbah opens with the basmala is a standard fact about the Qur’anic text; please confirm."
+    },
+    {
+     "id": "difference",
+     "kind": "teach",
+     "title": "What is the difference between the two?",
+     "body": [
+      "Ibn Kathir says Ar-Rahman has more meanings of mercy than Ar-Raheem. He quotes Abu Ali al-Farisi: Ar-Rahman, a name only for Allah, covers every kind of mercy that Allah has. Ar-Raheem is the mercy that reaches the believers, as the Qur’an says (33:43) that He is ever Raheem to the believers.",
+      "Another early scholar, al-Azrami, is quoted as saying: He is Ar-Rahman with all of creation and Ar-Raheem with the believers.",
+      "A simple way to remember it: Ar-Rahman is mercy that reaches everyone. Ar-Raheem is mercy that reaches the believers in a special way."
+     ],
+     "label": "[Interpretive]",
+     "source": "Tafsir Ibn Kathir on Qur’an 1:1; Qur’an 33:43",
+     "review": "Summary of the difference between Ar-Rahman and Ar-Raheem from Tafsir Ibn Kathir (Abu Ali al-Farisi, al-Azrami). The last “simple way to remember” sentence is the app author’s. Scholars hold other views too. Please confirm."
+    },
+    {
+     "id": "mercy",
+     "kind": "say",
+     "title": "The hadith about His mercy",
+     "refs": [
+      "aqid.mercy"
+     ],
+     "note": "The Prophet ﷺ said that when Allah created creation, He wrote in His Book, which is with Him on the Throne: my mercy overcomes my anger.",
+     "label": "[Established]",
+     "source": "Bukhari 7404; Muslim 2751"
+    },
+    {
+     "id": "mother",
+     "kind": "story",
+     "title": "Allah is more merciful than a mother",
+     "body": [
+      "Some captives were brought to the Prophet ﷺ. Among them was a woman who was looking for her baby. When she found a child among the captives she held it to her chest and nursed it.",
+      "The Prophet ﷺ asked his Companions: do you think this woman would throw her child in the fire? They said: no, not if she could help it. He said: Allah is more merciful to His servants than this woman is to her child."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 5999; Muslim 2754"
+    },
+    {
+     "id": "hundred",
+     "kind": "teach",
+     "title": "One part of a hundred",
+     "body": [
+      "The Prophet ﷺ said that Allah made mercy in one hundred parts. He kept ninety-nine with Him and sent down one part to the earth. Because of that one part, creatures are kind to each other. Even a horse lifts its hoof from its baby so it does not hurt it.",
+      "Think of the best kindness you have ever received. That was one part of a hundred."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 6000; Muslim 2752"
+    },
+    {
+     "id": "use",
+     "kind": "howto",
+     "title": "Using the names in your day",
+     "intro": "Four small ways to turn this lesson into a habit.",
+     "steps": [
+      {
+       "text": "Say the basmala on purpose.",
+       "detail": "Before you eat, start a task or open the Qur’an. Think: I am beginning with the Most Merciful."
+      },
+      {
+       "text": "When you feel you have failed, name His mercy.",
+       "detail": "Say: Ya Rahman, Ya Raheem. You are speaking to the One whose mercy overcomes His anger."
+      },
+      {
+       "text": "Pass mercy on.",
+       "detail": "The Prophet ﷺ said that the one part of mercy is why creatures are kind to each other. Be a place where it lands."
+      },
+      {
+       "text": "Do not use mercy as an excuse.",
+       "detail": "Knowing He is merciful is meant to make you turn to Him more, not less."
+      }
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "Put them in order",
+     "prompt": "Put these in the order of the lesson: from what you say to what the hadith teaches.",
+     "explain": "The lesson moves from the words you say, to what scholars say about them, to what the Prophet ﷺ said about the mercy behind them.",
+     "items": [
+      {
+       "text": "Say the basmala: Allah, the Entirely Merciful, the Especially Merciful",
+       "why": "We began with the words you already say.",
+       "back": "basmala"
+      },
+      {
+       "text": "Mercy is named twice",
+       "why": "The basmala names mercy twice.",
+       "back": "twice"
+      },
+      {
+       "text": "Ar-Rahman is for all creation; Ar-Raheem includes the believers",
+       "why": "Scholars explain how the two names differ.",
+       "back": "difference"
+      },
+      {
+       "text": "Allah’s mercy overcomes His anger",
+       "why": "The hadith about mercy.",
+       "back": "mercy"
+      },
+      {
+       "text": "One part of mercy is on the earth; ninety-nine are with Him",
+       "why": "The hadith of the hundred parts.",
+       "back": "hundred"
+      }
+     ]
+    },
+    {
+     "id": "words",
+     "kind": "match",
+     "title": "Match the words",
+     "prompt": "Tap an Arabic word, then its meaning.",
+     "pairs": [
+      {
+       "left": {
+        "word": "q:1:1#2"
+       },
+       "right": {
+        "text": "the Entirely Merciful"
+       },
+       "why": "Ar-Rahman: mercy that covers everything.",
+       "back": "difference"
+      },
+      {
+       "left": {
+        "word": "q:1:1#3"
+       },
+       "right": {
+        "text": "the Especially Merciful"
+       },
+       "why": "Ar-Raheem: mercy that includes the believers.",
+       "back": "difference"
+      },
+      {
+       "left": {
+        "word": "aqid.mercy#2"
+       },
+       "right": {
+        "text": "overcomes"
+       },
+       "why": "Taghlibu means overcomes. His mercy overcomes His anger.",
+       "back": "mercy"
+      },
+      {
+       "left": {
+        "word": "aqid.mercy#3"
+       },
+       "right": {
+        "text": "My anger"
+       },
+       "why": "Ghadabee means my anger.",
+       "back": "mercy"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1",
+       "type": "mcq",
+       "q": "What does the basmala say about Allah, twice?",
+       "options": [
+        {
+         "text": "That He is merciful: Ar-Rahman and Ar-Raheem"
+        },
+        {
+         "text": "That He is powerful",
+         "reteach": "Allah is powerful, but the basmala names mercy. It says Ar-Rahman Ar-Raheem.",
+         "back": "twice"
+        },
+        {
+         "text": "That He is far away",
+         "reteach": "No. The basmala names two names of mercy.",
+         "back": "twice"
+        }
+       ],
+       "answer": 0,
+       "explain": "Ar-Rahman and Ar-Raheem both come from rahmah, mercy."
+      },
+      {
+       "id": "c2",
+       "type": "mcq",
+       "q": "In Ibn Kathir’s explanation, which name is for mercy that includes the believers in a special way?",
+       "options": [
+        {
+         "text": "Ar-Rahman",
+         "reteach": "Ar-Rahman covers every kind of mercy for all creation. Ar-Raheem is the one explained as mercy that reaches the believers.",
+         "back": "difference"
+        },
+        {
+         "text": "Neither, both mean exactly the same",
+         "reteach": "Some scholars said they are similar, but Ibn Kathir reports the view that Ar-Rahman is wider and Ar-Raheem is for the believers.",
+         "back": "difference"
+        },
+        {
+         "text": "Ar-Raheem"
+        }
+       ],
+       "answer": 2,
+       "explain": "He is ever Raheem to the believers (33:43)."
+      },
+      {
+       "id": "c3",
+       "type": "fill",
+       "q": "Which Arabic word completes the basmala?",
+       "options": [
+        {
+         "word": "q:1:1#2",
+         "reteach": "That is Ar-Rahman, the first mercy name. The last word of the basmala is Ar-Raheem.",
+         "back": "basmala"
+        },
+        {
+         "word": "q:1:1#1",
+         "reteach": "That is the name Allah, which is the second word. The blank is the last word: Ar-Raheem.",
+         "back": "basmala"
+        },
+        {
+         "word": "q:1:1#3"
+        }
+       ],
+       "answer": 2,
+       "explain": "The basmala ends with Ar-Raheem.",
+       "fill": {
+        "ref": "q:1:1",
+        "blank": 3,
+        "show": "arabic"
+       }
+      },
+      {
+       "id": "c4",
+       "type": "mcq",
+       "q": "What does the Prophet ﷺ say Allah wrote in His Book about His mercy?",
+       "options": [
+        {
+         "text": "My anger comes before My mercy",
+         "reteach": "No, the hadith says the opposite: His mercy overcomes His anger.",
+         "back": "mercy"
+        },
+        {
+         "text": "My mercy is only for the righteous",
+         "reteach": "No. The hadith says His mercy overcomes His anger, and the hundred-parts hadith says all creatures share one part of it.",
+         "back": "mercy"
+        },
+        {
+         "text": "My mercy overcomes My anger"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 7404 and Muslim 2751."
+      },
+      {
+       "id": "c5",
+       "type": "scenario",
+       "q": "What did he teach from it?",
+       "options": [
+        {
+         "text": "Allah is as merciful as any mother",
+         "reteach": "Not quite. The Prophet ﷺ said Allah is more merciful than she is to her child.",
+         "back": "mother"
+        },
+        {
+         "text": "Mothers are more merciful than Allah",
+         "reteach": "No. The Prophet ﷺ said Allah is more merciful.",
+         "back": "mother"
+        },
+        {
+         "text": "Allah is more merciful to His servants than she is to her child"
+        }
+       ],
+       "answer": 2,
+       "explain": "Allah is more merciful to His servants than this woman is to her child (Bukhari 5999).",
+       "scenario": "A woman in the story of the captives found her baby and nursed him. The Prophet ﷺ asked if she would throw him in the fire."
+      },
+      {
+       "id": "c6",
+       "type": "mcq",
+       "q": "How many parts of mercy did Allah send down to earth, according to the hadith?",
+       "options": [
+        {
+         "text": "Ninety-nine parts",
+         "reteach": "No. He kept ninety-nine parts with Him. One part came down to the earth.",
+         "back": "hundred"
+        },
+        {
+         "text": "One part out of a hundred"
+        },
+        {
+         "text": "Ten parts out of a hundred",
+         "reteach": "No. One part out of a hundred came down.",
+         "back": "hundred"
+        }
+       ],
+       "answer": 1,
+       "explain": "One part came down; ninety-nine are with Him (Bukhari 6000)."
+      },
+      {
+       "id": "c7",
+       "type": "mcq",
+       "q": "Why do animals and people show kindness to each other, according to the hadith?",
+       "options": [
+        {
+         "text": "Because of instinct only",
+         "reteach": "The hadith gives the reason: the one part of mercy that Allah sent down to the earth.",
+         "back": "hundred"
+        },
+        {
+         "text": "Because kindness is learned from school",
+         "reteach": "The hadith gives the reason: the one part of mercy that Allah sent down to the earth.",
+         "back": "hundred"
+        },
+        {
+         "text": "Because of the one part of mercy that Allah sent down"
+        }
+       ],
+       "answer": 2,
+       "explain": "It is because of that one part that creatures show mercy to each other."
+      },
+      {
+       "id": "c8",
+       "type": "mcq",
+       "q": "Which surah does not open with the basmala?",
+       "options": [
+        {
+         "text": "Surah Al-Fatihah",
+         "reteach": "Al-Fatihah opens with the basmala.",
+         "back": "twice"
+        },
+        {
+         "text": "Surah Al-Ikhlas",
+         "reteach": "Surah Al-Ikhlas has the basmala before it, like the other surahs.",
+         "back": "twice"
+        },
+        {
+         "text": "Surah At-Tawbah (Surah 9)"
+        }
+       ],
+       "answer": 2,
+       "explain": "Every surah has the basmala at its start except Surah At-Tawbah."
+      },
+      {
+       "id": "c9",
+       "lookback": "aqid.u1.l1#c1"
+      },
+      {
+       "id": "c10",
+       "lookback": "aqid.u1.l2#c3"
+      }
+     ],
+     "title": "Check yourself"
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Say it on purpose",
+     "body": "Open Al-Fatihah and read the first ayah slowly. Notice the two mercy names, then read the next ayah that repeats them.",
+     "route": "/quran/1",
+     "button": "Open Al-Fatihah"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "canDo": [
+      "Read the basmala and name its two mercy words",
+      "Explain, in one sentence, how Ar-Rahman and Ar-Raheem are said to differ",
+      "Say the hadith: my mercy overcomes my anger",
+      "Tell the hadith of the mother and her baby"
+     ],
+     "next": "Next: the Names of Allah, and how to learn them."
+    }
+   ]
+  },
+  {
+   "id": "aqid.u1.l4",
+   "title": "His Are the Most Beautiful Names",
+   "minutes": 16,
+   "intro": "Learn what the names of Allah are, what the Prophet ﷺ said about the ninety-nine, and how to learn and use the names with understanding.",
+   "steps": [
+    {
+     "id": "hadith",
+     "kind": "say",
+     "title": "The ninety-nine names",
+     "refs": [
+      "aqid.names99"
+     ],
+     "note": "The Prophet ﷺ gave the number, and a promise for the one who learns them.",
+     "label": "[Established]",
+     "source": "Bukhari 2736; Muslim 2677"
+    },
+    {
+     "id": "ayah",
+     "kind": "say",
+     "title": "Call on Him by them",
+     "refs": [
+      "q:7:180"
+     ],
+     "note": "This ayah tells us what to do with the names: call on Him by them.",
+     "words": {
+      "q:7:180": [
+       {
+        "tr": "wa-lillaahi",
+        "en": "and to Allah belong"
+       },
+       {
+        "tr": "al-asmaa'u",
+        "en": "the names"
+       },
+       {
+        "tr": "al-husnaa",
+        "en": "the best"
+       },
+       {
+        "tr": "fa-ud'oohu",
+        "en": "so call on Him"
+       },
+       {
+        "tr": "bihaa",
+        "en": "by them"
+       },
+       {
+        "tr": "wa-dharoo",
+        "en": "and leave"
+       },
+       {
+        "tr": "alladheena",
+        "en": "those who"
+       },
+       {
+        "tr": "yulhidoona",
+        "en": "deviate"
+       },
+       {
+        "tr": "fee",
+        "en": "in"
+       },
+       {
+        "tr": "asmaa'ihi",
+        "en": "His names"
+       },
+       {
+        "tr": "sayujzawna",
+        "en": "they will be recompensed"
+       },
+       {
+        "tr": "maa",
+        "en": "for what"
+       },
+       {
+        "tr": "kaanoo",
+        "en": "they used to"
+       },
+       {
+        "tr": "ya'maloona",
+        "en": "do"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 7:180"
+    },
+    {
+     "id": "hear",
+     "kind": "listen",
+     "title": "Listen to the ayah",
+     "ref": "q:7:180",
+     "repeats": 2,
+     "note": "Listen once, then say it in the pause. Notice how the ayah ends: it warns about twisting His names."
+    },
+    {
+     "id": "two",
+     "kind": "teach",
+     "title": "One God, many names",
+     "body": [
+      "Another ayah says the names are not different gods. It tells us to call upon Allah or call upon Ar-Rahman, because whichever name we call, the best names belong to Him (17:110). The names are all for the One.",
+      "In Surah Ta-Ha, Allah says there is no god but He, and that the best names belong to Him (20:8)."
+     ],
+     "quran": "q:20:8",
+     "label": "[Established]",
+     "source": "Qur’an 17:110; Qur’an 20:8"
+    },
+    {
+     "id": "meaning",
+     "kind": "teach",
+     "title": "What the hadith means, and what it does not say",
+     "body": [
+      "Ahsaaha, the word translated “counts them”, has been explained by scholars as: counting them, memorising them, understanding what they mean, and acting on them. The fullest sense is all four.",
+      "Many scholars, including al-Nawawi in his commentary on Muslim, say the hadith does not mean Allah has only ninety-nine names. The number is the group the Prophet ﷺ promised a reward for learning.",
+      "The numbered list many Muslims learn comes from a hadith in Tirmidhi (3507). Shakir, al-Albani and Zubair Ali Zai all graded that hadith as weak (daif). Because of this, scholars have compiled the names from the Qur’an and sound hadith, and their lists differ a little."
+     ],
+     "label": "[Interpretive]",
+     "source": "Bukhari 2736; Tirmidhi 3507 (graded weak by Shakir, al-Albani and Zubair Ali Zai)",
+     "review": "(1) The range of explanations of ahsaaha, (2) the statement that al-Nawawi says the hadith does not limit Allah’s names to ninety-nine, and (3) the statement that scholars’ lists differ, are standard but worded by the app author and not checked against the original commentaries. Please confirm."
+    },
+    {
+     "id": "names",
+     "kind": "say",
+     "title": "Names in Surah Al-Hashr",
+     "refs": [
+      "q:59:22",
+      "q:59:23",
+      "q:59:24"
+     ],
+     "note": "These three ayat hold many of the names. The English under each ayah explains them. We will take a few.",
+     "words": {
+      "q:59:23": [
+       {
+        "tr": "huwa",
+        "en": "He is"
+       },
+       {
+        "tr": "Allaahu",
+        "en": "Allah"
+       },
+       {
+        "tr": "alladhee",
+        "en": "who"
+       },
+       {
+        "tr": "laa",
+        "en": "no"
+       },
+       {
+        "tr": "ilaaha",
+        "en": "god"
+       },
+       {
+        "tr": "illaa",
+        "en": "except"
+       },
+       {
+        "tr": "huwa",
+        "en": "Him"
+       },
+       {
+        "tr": "al-Maliku",
+        "en": "the Sovereign"
+       },
+       {
+        "tr": "al-Quddoosu",
+        "en": "the Pure"
+       },
+       {
+        "tr": "as-Salaamu",
+        "en": "the Perfection"
+       },
+       {
+        "tr": "al-Mu'minu",
+        "en": "the Bestower of faith"
+       },
+       {
+        "tr": "al-Muhayminu",
+        "en": "the Overseer"
+       },
+       {
+        "tr": "al-'Azeezu",
+        "en": "the Exalted in Might"
+       },
+       {
+        "tr": "al-Jabbaaru",
+        "en": "the Compeller"
+       },
+       {
+        "tr": "al-Mutakabbiru",
+        "en": "the Superior"
+       },
+       {
+        "tr": "subhaana",
+        "en": "exalted is"
+       },
+       {
+        "tr": "Allaahi",
+        "en": "Allah"
+       },
+       {
+        "tr": "'ammaa",
+        "en": "above what"
+       },
+       {
+        "tr": "yushrikoona",
+        "en": "they associate with Him"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 59:22-24"
+    },
+    {
+     "id": "answer",
+     "kind": "teach",
+     "title": "Each name answers a need",
+     "body": [
+      "Every name tells you something true about Allah, and each one meets something a human being needs.",
+      "You feel small: He is Al-Aziz, the Exalted in Might. You feel you have failed: He is Al-Ghafur, the Forgiving. You wonder if anyone hears you: He is As-Sami, the Hearing. You worry about tomorrow: He is Ar-Razzaq, the Provider.",
+      "These pairings are one way to remember the names. They are the app author’s own way of grouping, not a ruling."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "learn",
+     "kind": "howto",
+     "title": "How to learn a name",
+     "intro": "Three names a week is enough. The aim is to know Him, not to collect names.",
+     "steps": [
+      {
+       "text": "Read it in Arabic with its meaning.",
+       "detail": "Start with the ones you just saw: Ar-Rahman, Al-Malik, Al-Aziz, Al-Ghafur."
+      },
+      {
+       "text": "Find it in an ayah.",
+       "detail": "Many ayat end with two names that fit the ayah, for example Al-Ghafur and Ar-Raheem (39:53)."
+      },
+      {
+       "text": "Call on Him by it.",
+       "detail": "This is what 7:180 says. Ask by the name that fits your need: Ya Ghafur, forgive me."
+      },
+      {
+       "text": "Take names only from revelation.",
+       "detail": "Scholars say we call Allah only by names He or His Messenger gave Him. The ayah warns against deviation about His names."
+      }
+     ],
+     "label": "[Interpretive]",
+     "source": "Qur’an 7:180",
+     "review": "“Scholars say we call Allah only by names He or His Messenger gave Him” is the common position (the names are taken from revelation). Please confirm."
+    },
+    {
+     "id": "learnorder",
+     "kind": "arrange",
+     "title": "Put them in order",
+     "prompt": "Put the steps for learning a name in order.",
+     "explain": "Meet the name, see it in an ayah, call on Him by it, and let it change you.",
+     "items": [
+      {
+       "text": "Read the name in Arabic with its meaning",
+       "why": "First meet the name.",
+       "back": "learn"
+      },
+      {
+       "text": "Find an ayah that uses it",
+       "why": "Then see how Allah uses it.",
+       "back": "learn"
+      },
+      {
+       "text": "Call on Him by it in your own words",
+       "why": "Then use it in dua, as 7:180 says.",
+       "back": "ayah"
+      },
+      {
+       "text": "Notice how it changes what you do",
+       "why": "Knowing a name is meant to change you.",
+       "back": "meaning"
+      }
+     ]
+    },
+    {
+     "id": "namesmatch",
+     "kind": "match",
+     "title": "Match the names",
+     "prompt": "Tap an Arabic name, then its meaning.",
+     "pairs": [
+      {
+       "left": {
+        "word": "q:59:22#11"
+       },
+       "right": {
+        "text": "the Entirely Merciful"
+       },
+       "why": "Ar-Rahman.",
+       "back": "names"
+      },
+      {
+       "left": {
+        "word": "q:59:23#7"
+       },
+       "right": {
+        "text": "the Sovereign"
+       },
+       "why": "Al-Malik: the King who owns everything.",
+       "back": "names"
+      },
+      {
+       "left": {
+        "word": "q:59:23#12"
+       },
+       "right": {
+        "text": "the Exalted in Might"
+       },
+       "why": "Al-Aziz.",
+       "back": "names"
+      },
+      {
+       "left": {
+        "word": "q:85:14#1"
+       },
+       "right": {
+        "text": "the Forgiving"
+       },
+       "why": "Al-Ghafur.",
+       "back": "learn"
+      },
+      {
+       "left": {
+        "word": "q:51:58#3"
+       },
+       "right": {
+        "text": "the Provider"
+       },
+       "why": "Ar-Razzaq.",
+       "back": "learn"
+      },
+      {
+       "left": {
+        "word": "q:42:11#17"
+       },
+       "right": {
+        "text": "the Hearing"
+       },
+       "why": "As-Sami.",
+       "back": "learn"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1",
+       "type": "mcq",
+       "q": "How many names of Allah does the hadith in Bukhari and Muslim mention?",
+       "options": [
+        {
+         "text": "Seventy-seven",
+         "reteach": "No. The Prophet ﷺ said ninety-nine.",
+         "back": "hadith"
+        },
+        {
+         "text": "Ninety-nine"
+        },
+        {
+         "text": "Three hundred and sixty-five",
+         "reteach": "No. The hadith says ninety-nine, one hundred less one.",
+         "back": "hadith"
+        }
+       ],
+       "answer": 1,
+       "explain": "There are ninety-nine names, one hundred less one (Bukhari 2736)."
+      },
+      {
+       "id": "c2",
+       "type": "mcq",
+       "q": "What does the ayah 7:180 tell us to do with the best names?",
+       "options": [
+        {
+         "text": "Call on Him by them"
+        },
+        {
+         "text": "Keep them secret",
+         "reteach": "No. The ayah says to call on Him by them.",
+         "back": "ayah"
+        },
+        {
+         "text": "Use them only in prayer",
+         "reteach": "The ayah says to call on Him by them. Dua is a main way to do that.",
+         "back": "ayah"
+        }
+       ],
+       "answer": 0,
+       "explain": "And to Allah belong the best names, so invoke Him by them (7:180)."
+      },
+      {
+       "id": "c3",
+       "type": "mcq",
+       "q": "Which is one explanation of the word ahsaaha in the hadith?",
+       "options": [
+        {
+         "text": "Only writing them on a wall",
+         "reteach": "No. Scholars explain it as counting, memorising, understanding and acting on them.",
+         "back": "meaning"
+        },
+        {
+         "text": "Only saying them once",
+         "reteach": "No. The explanations include memorising, understanding and acting on them.",
+         "back": "meaning"
+        },
+        {
+         "text": "Counting them, memorising them, understanding them and acting on them"
+        }
+       ],
+       "answer": 2,
+       "explain": "Scholars give the sense of counting, memorising, understanding and acting on the names."
+      },
+      {
+       "id": "c4",
+       "type": "mcq",
+       "q": "Does the hadith mean Allah has only ninety-nine names?",
+       "options": [
+        {
+         "text": "Many scholars say no: the number is the group the reward is promised for"
+        },
+        {
+         "text": "Yes, it limits all His names to ninety-nine",
+         "reteach": "Many scholars, including al-Nawawi, say it does not limit them. The number is for the group the reward is promised for.",
+         "back": "meaning"
+        },
+        {
+         "text": "Nobody has ever discussed it",
+         "reteach": "Scholars have discussed it for centuries.",
+         "back": "meaning"
+        }
+       ],
+       "answer": 0,
+       "explain": "Many scholars say the hadith does not limit His names to ninety-nine."
+      },
+      {
+       "id": "c5",
+       "type": "mcq",
+       "q": "The common numbered list of ninety-nine names comes from a hadith in Tirmidhi. How do Shakir, al-Albani and Zubair Ali Zai grade it?",
+       "options": [
+        {
+         "text": "Weak (daif): Shakir, al-Albani and Zubair Ali Zai"
+        },
+        {
+         "text": "Sahih, graded by all scholars",
+         "reteach": "No. Shakir, al-Albani and Zubair Ali Zai graded it weak (daif).",
+         "back": "meaning"
+        },
+        {
+         "text": "Hasan, graded by al-Bukhari",
+         "reteach": "No. It is a hadith in Tirmidhi that Shakir, al-Albani and Zubair Ali Zai graded weak (daif).",
+         "back": "meaning"
+        }
+       ],
+       "answer": 0,
+       "explain": "Tirmidhi 3507 is graded weak by Shakir, al-Albani and Zubair Ali Zai, so scholars draw the names from the Qur’an and from reports that are firmly established."
+      },
+      {
+       "id": "c6",
+       "type": "fill",
+       "q": "Which Arabic word is Al-Aziz in this ayah of Al-Hashr?",
+       "options": [
+        {
+         "word": "q:59:23#12"
+        },
+        {
+         "word": "q:59:23#7",
+         "reteach": "That word is Al-Malik, the Sovereign. Al-Aziz comes a few names later.",
+         "back": "names"
+        },
+        {
+         "word": "q:59:23#13",
+         "reteach": "That word is Al-Jabbar, the Compeller. Al-Aziz comes just before it.",
+         "back": "names"
+        }
+       ],
+       "answer": 0,
+       "explain": "Al-Aziz: the Exalted in Might.",
+       "fill": {
+        "ref": "q:59:23",
+        "blank": 12,
+        "show": "arabic"
+       }
+      },
+      {
+       "id": "c7",
+       "type": "scenario",
+       "q": "What would you tell your friend?",
+       "options": [
+        {
+         "text": "Learn the names He and His Messenger gave. The ayah warns against deviating about His names."
+        },
+        {
+         "text": "Good idea, any beautiful name is fine",
+         "reteach": "The ayah warns against deviation concerning His names. Scholars say we take His names from revelation.",
+         "back": "learn"
+        },
+        {
+         "text": "Only the Arabic language can have names for Allah",
+         "reteach": "What matters is not the language. It is that His names are taken from what He and His Messenger said.",
+         "back": "learn"
+        }
+       ],
+       "answer": 0,
+       "explain": "Take the names from the Qur’an and authentic hadith.",
+       "scenario": "A friend says: I made a new name for Allah because I like how it sounds, and I use it in my prayers."
+      },
+      {
+       "id": "c8",
+       "type": "mcq",
+       "q": "Which name fits someone who feels they have failed again?",
+       "options": [
+        {
+         "text": "Al-Jabbar, the Compeller",
+         "reteach": "That name is true of Him, but it is not the one to turn to for forgiveness. Al-Ghafur is.",
+         "back": "answer"
+        },
+        {
+         "text": "Al-Ghafur, the Forgiving"
+        },
+        {
+         "text": "Al-Malik, the Sovereign",
+         "reteach": "Also true of Him, but for forgiveness we turn to Al-Ghafur.",
+         "back": "answer"
+        }
+       ],
+       "answer": 1,
+       "explain": "Al-Ghafur means the Forgiving (39:53)."
+      },
+      {
+       "id": "c9",
+       "lookback": "aqid.u1.l3#c4"
+      },
+      {
+       "id": "c10",
+       "lookback": "aqid.u1.l2#c1"
+      }
+     ],
+     "title": "Check yourself"
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Ask Hadi about a name",
+     "body": "Ask Hadi: What does the name Al-Ghafur mean? Look at the sources he shows under his answer.",
+     "route": "/hadi",
+     "button": "Ask Hadi"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "canDo": [
+      "Say the hadith of the ninety-nine names and what the Prophet ﷺ promised",
+      "Explain what 7:180 tells us to do with the names",
+      "Name five names of Allah with their meanings",
+      "Say how to learn a name in four steps"
+     ],
+     "next": "Next: what Allah sent: one message to every nation."
+    }
+   ]
+  },
+  {
+   "id": "aqid.u2.l1",
+   "title": "One Message, Many Messengers",
+   "minutes": 15,
+   "intro": "Learn why Muslims say Islam is not a new religion: every prophet brought the same call, and the Qur’an says so in its own words.",
+   "steps": [
+    {
+     "id": "start",
+     "kind": "teach",
+     "title": "Is Islam a new religion?",
+     "body": [
+      "A common question: Islam started with Muhammad ﷺ about 1,400 years ago, so how can it be the religion of Ibrahim or Musa?",
+      "The Qur’an answers this directly. It says Allah sent a messenger to every nation, and that every messenger brought the same first message: worship Allah alone.",
+      "This lesson looks at what stays the same from one prophet to the next, and what changes."
+     ]
+    },
+    {
+     "id": "every",
+     "kind": "say",
+     "title": "Two ayat on the one message",
+     "refs": [
+      "q:16:36",
+      "q:21:25"
+     ],
+     "note": "Read these slowly. In the first, Allah sends a messenger to every nation. In the second, every messenger is told that there is no god but Allah.",
+     "label": "[Established]",
+     "source": "Qur’an 16:36; Qur’an 21:25"
+    },
+    {
+     "id": "islam",
+     "kind": "teach",
+     "title": "What the word Islam means",
+     "body": [
+      "Islam means submitting to Allah. Because of this, the Qur’an can say that the religion with Allah is Islam (3:19), and that Ibrahim was a Muslim, one who submits to Allah (3:67). It also tells believers to say that they believe in what was sent to all the prophets and make no difference between them (2:136).",
+      "So when a Muslim says Islam is the religion of every prophet, they mean this: the core message, worship Allah alone, has always been the same."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 3:19; Qur’an 3:67; Qur’an 2:136"
+    },
+    {
+     "id": "brothers",
+     "kind": "say",
+     "title": "The Prophet ﷺ on the prophets",
+     "refs": [
+      "aqid.prophets"
+     ],
+     "note": "The Prophet ﷺ compared the prophets to brothers from one father with different mothers. The father stands for the one religion. The mothers stand for the different laws.",
+     "label": "[Established]",
+     "source": "Bukhari 3443"
+    },
+    {
+     "id": "same",
+     "kind": "teach",
+     "title": "What stays the same, and what changes",
+     "body": [
+      "What stays the same: believing in Allah alone, in the angels, the books, the messengers and the Last Day, and living as a servant of Allah.",
+      "What can change: the detailed laws. The Qur’an says that to each community Allah gave a law and a way (5:48). It also says that Isa came to make lawful some of what had been forbidden to his people (3:50).",
+      "This is why a Muslim does not see the Qur’an as cancelling the earlier prophets. It confirms what came before it and is the last word (5:48)."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 5:48; Qur’an 3:50"
+    },
+    {
+     "id": "chain",
+     "kind": "teach",
+     "title": "A chain of messengers",
+     "body": [
+      "The Qur’an says Allah chose Adam and Nuh and the family of Ibrahim over the worlds (3:33). It then says He sent Nuh and Ibrahim and placed prophethood and scripture among their descendants (57:26). After the earlier messengers, He sent Isa, the son of Maryam (5:46). The Qur’an ends the line with Muhammad, the last of the prophets (33:40).",
+      "So the order of the main names is: Adam, Nuh, Ibrahim, Musa, Isa, and then Muhammad ﷺ. Many other prophets came between them."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 3:33; Qur’an 57:26; Qur’an 5:46; Qur’an 33:40",
+     "review": "The order Adam, Nuh, Ibrahim, Musa, Isa, Muhammad is the commonly taught order. Musa is placed by the order of the books (the Torah before the Gospel); please confirm the wording."
+    },
+    {
+     "id": "answer",
+     "kind": "howto",
+     "title": "Answering a friend who calls Islam a new religion",
+     "intro": "A short way to explain it gently.",
+     "steps": [
+      {
+       "text": "Listen first.",
+       "detail": "Ask what they mean. Some friends mean that Muhammad ﷺ started a new movement; some mean something else."
+      },
+      {
+       "text": "Explain the word.",
+       "detail": "Islam means submission to Allah. In the Qur’an, Ibrahim is called a Muslim (3:67)."
+      },
+      {
+       "text": "Show the common message.",
+       "detail": "Share 21:25: every messenger was told to worship Allah alone."
+      },
+      {
+       "text": "Be honest about differences.",
+       "detail": "Say that laws differed (5:48), and that Muslims believe earlier books were changed over time."
+      },
+      {
+       "text": "Stay kind.",
+       "detail": "You are explaining, not winning. The Qur’an tells us to argue only in the best way (29:46)."
+      }
+     ],
+     "mistakes": [
+      "Saying that other religions are all the same. Muslims believe in one core message, but they also believe the earlier books were changed.",
+      "Turning the talk into an argument."
+     ],
+     "label": "[Interpretive]",
+     "source": "Qur’an 29:46; Qur’an 3:67; Qur’an 21:25",
+     "review": "A practical approach worded by the app author. The belief that earlier books were changed is the common Sunni teaching; please confirm the phrasing."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "Put the messengers in order",
+     "prompt": "Put these in the order the Qur’an and the lesson give them.",
+     "explain": "Adam, Nuh, Ibrahim, Isa, then Muhammad ﷺ, the last of the prophets.",
+     "items": [
+      {
+       "text": "Adam",
+       "why": "Allah chose Adam first (3:33).",
+       "back": "chain"
+      },
+      {
+       "text": "Nuh",
+       "why": "Nuh comes next in 3:33 and 57:26.",
+       "back": "chain"
+      },
+      {
+       "text": "Ibrahim",
+       "why": "Ibrahim follows Nuh in 57:26.",
+       "back": "chain"
+      },
+      {
+       "text": "Isa",
+       "why": "Isa came after the earlier messengers (5:46).",
+       "back": "chain"
+      },
+      {
+       "text": "Muhammad ﷺ",
+       "why": "The last of the prophets (33:40).",
+       "back": "chain"
+      }
+     ]
+    },
+    {
+     "id": "proofs",
+     "kind": "match",
+     "title": "Match each claim to its ayah",
+     "prompt": "Tap a statement, then the ayah that says it.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Every nation had a messenger"
+       },
+       "right": {
+        "ref": "q:16:36"
+       },
+       "why": "This ayah says Allah sent a messenger to every nation.",
+       "back": "every"
+      },
+      {
+       "left": {
+        "text": "Every messenger: worship Me alone"
+       },
+       "right": {
+        "ref": "q:21:25"
+       },
+       "why": "Allah revealed to every messenger that there is no god but Him.",
+       "back": "every"
+      },
+      {
+       "left": {
+        "text": "Ibrahim was a Muslim"
+       },
+       "right": {
+        "ref": "q:3:67"
+       },
+       "why": "Ibrahim submitted to Allah.",
+       "back": "islam"
+      },
+      {
+       "left": {
+        "text": "Muhammad is the last prophet"
+       },
+       "right": {
+        "ref": "q:33:40"
+       },
+       "why": "He is the Messenger of Allah and the seal of the prophets.",
+       "back": "chain"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1",
+       "type": "mcq",
+       "q": "What did every messenger ask people to do first?",
+       "options": [
+        {
+         "text": "Worship Allah alone"
+        },
+        {
+         "text": "Build a new city",
+         "reteach": "No. The Qur’an says every messenger was sent with the call to worship Allah alone.",
+         "back": "every"
+        },
+        {
+         "text": "Follow a new set of laws",
+         "reteach": "Laws could differ between communities, but the first call was always the same.",
+         "back": "same"
+        }
+       ],
+       "answer": 0,
+       "explain": "Every messenger was told to call people to worship Allah alone (21:25)."
+      },
+      {
+       "id": "c2",
+       "type": "mcq",
+       "q": "What does the word Islam mean?",
+       "options": [
+        {
+         "text": "The religion of Muhammad ﷺ only",
+         "reteach": "The word means submission, and the Qur’an calls Ibrahim a Muslim long before Muhammad ﷺ.",
+         "back": "islam"
+        },
+        {
+         "text": "Submitting to Allah"
+        },
+        {
+         "text": "Peace between nations",
+         "reteach": "Islam shares a root with peace, but the word itself means submission to Allah.",
+         "back": "islam"
+        }
+       ],
+       "answer": 1,
+       "explain": "Islam means submitting to Allah."
+      },
+      {
+       "id": "c3",
+       "type": "mcq",
+       "q": "In the hadith, how did the Prophet ﷺ describe the prophets?",
+       "options": [
+        {
+         "text": "Rivals who disagreed",
+         "reteach": "No. He called them brothers.",
+         "back": "brothers"
+        },
+        {
+         "text": "Teachers with different religions",
+         "reteach": "No. He said their religion is one.",
+         "back": "brothers"
+        },
+        {
+         "text": "Brothers from one father, with different mothers"
+        }
+       ],
+       "answer": 2,
+       "explain": "The prophets are brothers from one father; their mothers are different, and their religion is one (Bukhari 3443)."
+      },
+      {
+       "id": "c4",
+       "type": "mcq",
+       "q": "In that hadith, what does “one father” stand for?",
+       "options": [
+        {
+         "text": "The one religion: the call to worship Allah alone"
+        },
+        {
+         "text": "One family",
+         "reteach": "The brotherhood is about their message, not their blood.",
+         "back": "brothers"
+        },
+        {
+         "text": "One law for everyone",
+         "reteach": "The laws differed. The father stands for what is shared.",
+         "back": "same"
+        }
+       ],
+       "answer": 0,
+       "explain": "The shared core is the one father; the different laws are the different mothers."
+      },
+      {
+       "id": "c5",
+       "type": "mcq",
+       "q": "What can differ from one prophet to another?",
+       "options": [
+        {
+         "text": "Belief in Allah alone",
+         "reteach": "This is the part that stays the same.",
+         "back": "same"
+        },
+        {
+         "text": "Belief in the Last Day",
+         "reteach": "This also stays the same.",
+         "back": "same"
+        },
+        {
+         "text": "The detailed laws"
+        }
+       ],
+       "answer": 2,
+       "explain": "The Qur’an says each community received a law and a way (5:48)."
+      },
+      {
+       "id": "c6",
+       "type": "mcq",
+       "q": "Who does the Qur’an name as the last of the prophets?",
+       "options": [
+        {
+         "text": "Isa",
+         "reteach": "Isa came before Muhammad ﷺ.",
+         "back": "chain"
+        },
+        {
+         "text": "Musa",
+         "reteach": "Musa came long before.",
+         "back": "chain"
+        },
+        {
+         "text": "Muhammad ﷺ"
+        }
+       ],
+       "answer": 2,
+       "explain": "Muhammad ﷺ is the Messenger of Allah and the last of the prophets (33:40)."
+      },
+      {
+       "id": "c7",
+       "type": "scenario",
+       "q": "Which reply fits what you learned?",
+       "options": [
+        {
+         "text": "You are right. Before that there was no Islam at all.",
+         "reteach": "The Qur’an says the message of submission came to every nation.",
+         "back": "every"
+        },
+        {
+         "text": "Islam is the same as every other religion.",
+         "reteach": "Muslims do not say that. The core message is the same, but laws differ and Muslims believe earlier books were changed.",
+         "back": "same"
+        },
+        {
+         "text": "Islam means submission to Allah, and the Qur’an calls Ibrahim a Muslim. The message is the same one all prophets brought."
+        }
+       ],
+       "answer": 2,
+       "explain": "Explain the word and the shared message, and be honest about the differences.",
+       "scenario": "A classmate says: Islam is a religion that began in the 7th century."
+      },
+      {
+       "id": "lb1",
+       "lookback": "aqid.u1.l1#c5"
+      }
+     ],
+     "title": "Check yourself"
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Find the ayah",
+     "body": "Open Surah Al-Anbiya, which means the Prophets. Find ayah 25 and read the meaning under it.",
+     "route": "/quran/21",
+     "button": "Open Surah 21"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "canDo": [
+      "Explain why Islam is not a new religion in the Qur’an’s view",
+      "Say what the word Islam means",
+      "Explain what stays the same and what can change between prophets",
+      "Name the main messengers in order"
+     ],
+     "next": "Next: the unseen. Why do we believe in what we cannot see?"
+    }
+   ]
+  },
+  {
+   "id": "aqid.u2.l2",
+   "title": "Believing in the Unseen",
+   "minutes": 16,
+   "intro": "Learn what the unseen is, how the hadith of Jibril lists the six pillars of faith, and what the angels and the decree (qadar) mean for daily life.",
+   "steps": [
+    {
+     "id": "ghayb",
+     "kind": "teach",
+     "title": "Belief in the unseen",
+     "body": [
+      "The Qur’an opens with a guidance for those who are mindful of Allah, and the first thing it says about them is that they believe in the unseen (2:3). The unseen (ghayb) is whatever our senses cannot reach: Allah, the angels, the Last Day.",
+      "The Qur’an says that the keys of the unseen are with Allah, and no one knows them but Him (6:59). He shares some of it with messengers (72:26-27)."
+     ],
+     "quran": "q:2:3",
+     "label": "[Established]",
+     "source": "Qur’an 2:3; Qur’an 6:59; Qur’an 72:26-27"
+    },
+    {
+     "id": "unseen",
+     "kind": "say",
+     "title": "The ayah in Arabic",
+     "refs": [
+      "q:2:3"
+     ],
+     "note": "Read one word at a time. The third word is the unseen.",
+     "words": {
+      "q:2:3": [
+       {
+        "tr": "alladheena",
+        "en": "those who"
+       },
+       {
+        "tr": "yu'minoona",
+        "en": "believe"
+       },
+       {
+        "tr": "bil-ghaybi",
+        "en": "in the unseen"
+       },
+       {
+        "tr": "wa-yuqeemoona",
+        "en": "and establish"
+       },
+       {
+        "tr": "as-salaata",
+        "en": "the prayer"
+       },
+       {
+        "tr": "wa-mimmaa",
+        "en": "and from what"
+       },
+       {
+        "tr": "razaqnaahum",
+        "en": "We provided them"
+       },
+       {
+        "tr": "yunfiqoon",
+        "en": "they spend"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 2:3"
+    },
+    {
+     "id": "jibril",
+     "kind": "story",
+     "title": "The visitor in white",
+     "body": [
+      "One day a man in very white clothes, with very black hair, came to the Prophet ﷺ while he sat with his Companions. No one knew him, and he showed no sign of travel. He sat close to the Prophet ﷺ and asked about Islam, about faith, and about ihsan.",
+      "After the man left, the Prophet ﷺ told Umar that it was Jibril, who had come to teach them their religion. This is the hadith of Jibril. It is the clearest short summary of faith."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 8"
+    },
+    {
+     "id": "pillars",
+     "kind": "say",
+     "title": "The six pillars of faith",
+     "refs": [
+      "aqid.iman"
+     ],
+     "note": "This is the answer given in the hadith. Read the six parts: Allah, His angels, His books, His messengers, the Last Day, and the decree.",
+     "label": "[Established]",
+     "source": "Muslim 8"
+    },
+    {
+     "id": "angels",
+     "kind": "teach",
+     "title": "The angels",
+     "body": [
+      "The angels are creatures of Allah made from light, as the Prophet ﷺ taught (Muslim 2996). The Qur’an says they do what they are commanded and do not disobey (66:6). They have wings (35:1) and they are honoured servants, not children of Allah (21:26-27).",
+      "The Qur’an also says two angels record what a person does (82:10-12). Believing in them is part of faith. It reminds us that we are always watched over and that our deeds are kept."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 2996; Qur’an 66:6; Qur’an 35:1; Qur’an 21:26-27; Qur’an 82:10-12"
+    },
+    {
+     "id": "qadar",
+     "kind": "teach",
+     "title": "The decree (qadar)",
+     "body": [
+      "The last pillar is belief in qadar, the decree of Allah. The Qur’an says that Allah created everything with a measure (54:49), and that no disaster strikes except what is written before it happens (57:22).",
+      "It also says that people choose: whoever wills may take a way to his Lord (76:29). Then it adds that we do not will except what Allah wills (76:30). Muslims hold both together: Allah knows and decreed all things, and people are responsible for their choices.",
+      "The Prophet ﷺ gave practical advice: work for what helps you and ask Allah for help. If something goes wrong, do not say “if I had done that, it would not have happened”. Say: this is the decree of Allah, and what He willed He did. The word “if” opens the door to Shaytan (Muslim 2664)."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 54:49; Qur’an 57:22; Qur’an 76:29-30; Muslim 2664"
+    },
+    {
+     "id": "schools",
+     "kind": "contrast",
+     "title": "How the schools explain choice and decree",
+     "intro": "Sunni scholars agree on both ideas. They differ in how they explain how the two fit together.",
+     "agree": "All three affirm that Allah knows and decreed everything, that people choose, and that people are responsible.",
+     "rows": [
+      {
+       "name": "Ashari",
+       "text": "Allah creates every action, and a person “acquires” it (kasb) by choosing. Both the decree and human responsibility are real."
+      },
+      {
+       "name": "Maturidi",
+       "text": "Allah decreed all things and gives people real ability to choose. People are held responsible for that choice."
+      },
+      {
+       "name": "Athari (hadith tradition)",
+       "text": "Affirm what the Qur’an and hadith say about decree and choice, and refrain from going deeper into how they fit together."
+      }
+     ],
+     "closing": "This is a high-level summary for beginners. Ask a teacher for more.",
+     "label": "[Interpretive]",
+     "review": "A short beginner summary of Ashari, Maturidi and Athari positions on qadar, worded by the app author. Please check each row."
+    },
+    {
+     "id": "pillars_order",
+     "kind": "arrange",
+     "title": "Put the pillars in the order of the hadith",
+     "prompt": "Put the six pillars in the order Jibril heard them.",
+     "explain": "Allah, angels, books, messengers, the Last Day, and the decree.",
+     "items": [
+      {
+       "text": "Allah",
+       "why": "The first pillar in the hadith.",
+       "back": "pillars"
+      },
+      {
+       "text": "His angels",
+       "why": "The second.",
+       "back": "pillars"
+      },
+      {
+       "text": "His books",
+       "why": "The third.",
+       "back": "pillars"
+      },
+      {
+       "text": "His messengers",
+       "why": "The fourth.",
+       "back": "pillars"
+      },
+      {
+       "text": "The Last Day",
+       "why": "The fifth.",
+       "back": "pillars"
+      },
+      {
+       "text": "The decree (qadar)",
+       "why": "The sixth, added with “its good and its bad”.",
+       "back": "pillars"
+      }
+     ]
+    },
+    {
+     "id": "terms",
+     "kind": "match",
+     "title": "Match the idea to its meaning",
+     "prompt": "Tap a word, then what it means.",
+     "pairs": [
+      {
+       "left": {
+        "word": "q:2:3#2"
+       },
+       "right": {
+        "text": "The unseen"
+       },
+       "why": "Al-ghayb is whatever our senses cannot reach.",
+       "back": "unseen"
+      },
+      {
+       "left": {
+        "word": "q:2:3#1"
+       },
+       "right": {
+        "text": "They believe"
+       },
+       "why": "Yu’minoon is from iman, faith.",
+       "back": "unseen"
+      },
+      {
+       "left": {
+        "word": "q:2:3#4"
+       },
+       "right": {
+        "text": "The prayer"
+       },
+       "why": "As-salaat, the prayer, is mentioned right after faith.",
+       "back": "unseen"
+      },
+      {
+       "left": {
+        "word": "q:2:3#7"
+       },
+       "right": {
+        "text": "They spend"
+       },
+       "why": "Yunfiqoon means they spend in Allah’s way.",
+       "back": "unseen"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1",
+       "type": "mcq",
+       "q": "What is the unseen (ghayb)?",
+       "options": [
+        {
+         "text": "Things that are hidden by people, like secrets",
+         "reteach": "That is secrecy. The unseen means what we cannot reach with our senses.",
+         "back": "ghayb"
+        },
+        {
+         "text": "What our senses cannot reach, such as Allah, the angels and the Last Day"
+        },
+        {
+         "text": "Things that are only imaginary",
+         "reteach": "No. Muslims believe the unseen is real and was told to us.",
+         "back": "ghayb"
+        }
+       ],
+       "answer": 1,
+       "explain": "The unseen is real but beyond our senses."
+      },
+      {
+       "id": "c2",
+       "type": "mcq",
+       "q": "What are the six pillars of faith?",
+       "options": [
+        {
+         "text": "Prayer, fasting, zakat, Hajj, shahada and charity",
+         "reteach": "Those are acts of Islam. The pillars of faith are beliefs.",
+         "back": "pillars"
+        },
+        {
+         "text": "Allah, the Qur’an, the Prophet ﷺ, the Kaaba, the Day and the heart",
+         "reteach": "The hadith names six things, and they are not this list.",
+         "back": "pillars"
+        },
+        {
+         "text": "Allah, angels, books, messengers, the Last Day and the decree"
+        }
+       ],
+       "answer": 2,
+       "explain": "The hadith of Jibril lists them."
+      },
+      {
+       "id": "c3",
+       "type": "mcq",
+       "q": "What were the angels made from, according to the hadith?",
+       "options": [
+        {
+         "text": "Light"
+        },
+        {
+         "text": "Fire",
+         "reteach": "The jinn were made from fire.",
+         "back": "angels"
+        },
+        {
+         "text": "Clay",
+         "reteach": "Adam was made from clay.",
+         "back": "angels"
+        }
+       ],
+       "answer": 0,
+       "explain": "The angels were created from light (Muslim 2996)."
+      },
+      {
+       "id": "c4",
+       "type": "mcq",
+       "q": "Who came in the hadith of Jibril?",
+       "options": [
+        {
+         "text": "The angel Jibril, as a man in white"
+        },
+        {
+         "text": "A traveller from far away",
+         "reteach": "No. He showed no signs of travel, and it was Jibril.",
+         "back": "jibril"
+        },
+        {
+         "text": "Umar ibn al-Khattab",
+         "reteach": "Umar told the story. The visitor was Jibril.",
+         "back": "jibril"
+        }
+       ],
+       "answer": 0,
+       "explain": "The Prophet ﷺ told Umar it was Jibril."
+      },
+      {
+       "id": "c5",
+       "type": "mcq",
+       "q": "What is a safe way to hold decree and choice together?",
+       "options": [
+        {
+         "text": "Allah knows and decreed all things, and people still choose and are responsible"
+        },
+        {
+         "text": "People have no choice at all",
+         "reteach": "The Qur’an says whoever wills may take a way to his Lord.",
+         "back": "qadar"
+        },
+        {
+         "text": "Allah does not know what people will do",
+         "reteach": "The Qur’an says nothing is outside His knowledge and decree.",
+         "back": "qadar"
+        }
+       ],
+       "answer": 0,
+       "explain": "Muslims hold both (Qur’an 76:29-30)."
+      },
+      {
+       "id": "c6",
+       "type": "scenario",
+       "q": "What does the hadith advise?",
+       "options": [
+        {
+         "text": "Keep thinking about every “if”",
+         "reteach": "The Prophet ﷺ said “if” opens the door to Shaytan.",
+         "back": "qadar"
+        },
+        {
+         "text": "Say: this is Allah’s decree. What He willed, He did. Do not dwell on “if”."
+        },
+        {
+         "text": "Never make plans again",
+         "reteach": "The Prophet ﷺ also told us to strive for what helps and ask Allah for help.",
+         "back": "qadar"
+        }
+       ],
+       "answer": 1,
+       "explain": "Strive, ask Allah for help, and accept what happens as His decree (Muslim 2664).",
+       "scenario": "After an accident, a friend says: if I had left five minutes earlier, none of this would have happened."
+      },
+      {
+       "id": "c7",
+       "type": "mcq",
+       "q": "What do the Ashari, Maturidi and Athari agree on about qadar?",
+       "options": [
+        {
+         "text": "Allah knows and decreed all things, and people are responsible for their choices"
+        },
+        {
+         "text": "People have no responsibility",
+         "reteach": "All three affirm responsibility.",
+         "back": "schools"
+        },
+        {
+         "text": "Allah decreed nothing",
+         "reteach": "All three affirm the decree.",
+         "back": "schools"
+        }
+       ],
+       "answer": 0,
+       "explain": "They differ only in how they explain it."
+      },
+      {
+       "id": "c8",
+       "type": "fill",
+       "q": "Which word means “the unseen” in 2:3?",
+       "options": [
+        {
+         "word": "q:2:3#4",
+         "reteach": "That is “the prayer”.",
+         "back": "unseen"
+        },
+        {
+         "word": "q:2:3#7",
+         "reteach": "That is “they spend”.",
+         "back": "unseen"
+        },
+        {
+         "word": "q:2:3#2"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bil-ghaybi means in the unseen.",
+       "fill": {
+        "ref": "q:2:3",
+        "blank": 2,
+        "show": "arabic"
+       }
+      },
+      {
+       "id": "lb1",
+       "lookback": "aqid.u1.l2#c1"
+      }
+     ],
+     "title": "Check yourself"
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Read the opening of Al-Baqarah",
+     "body": "Open Surah Al-Baqarah and read the first five ayat with the meaning under them. Find the word for the unseen in ayah 3.",
+     "route": "/quran/2",
+     "button": "Open Surah 2"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "canDo": [
+      "Say what the unseen is",
+      "Name the six pillars of faith in order",
+      "Explain what the angels are and what they do",
+      "Explain, in simple words, how decree and choice go together"
+     ],
+     "next": "Next: the prophets by name, and what they have in common."
+    }
+   ]
+  },
+  {
+   "id": "aqid.u2.l3",
+   "title": "The Prophets We Know by Name",
+   "minutes": 16,
+   "intro": "Learn how the Qur’an names prophets, how to tell their stories safely, how Ibrahim reasoned his way to the Creator, and what it means that Muhammad ﷺ is the last.",
+   "steps": [
+    {
+     "id": "start",
+     "kind": "teach",
+     "title": "Believing in all of them",
+     "body": [
+      "Believing in the messengers is the fourth pillar of faith. A Muslim believes in all of them and makes no difference between them in faith (2:285). To deny one is to deny the message.",
+      "The Qur’an names some prophets and says there are others it has not told us about (4:164; 40:78). So we believe in all, and we speak with certainty only about the ones the Qur’an and the authentic hadith name."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 2:285; Qur’an 4:164; Qur’an 40:78"
+    },
+    {
+     "id": "names",
+     "kind": "say",
+     "title": "A list of prophets",
+     "refs": [
+      "q:6:84",
+      "q:6:85",
+      "q:6:86"
+     ],
+     "note": "Surah Al-An’am gives a long list of prophets in three ayat. Read the Arabic one ayah at a time. The next cards match some of the names.",
+     "label": "[Established]",
+     "source": "Qur’an 6:84-86"
+    },
+    {
+     "id": "count",
+     "kind": "teach",
+     "title": "How many prophets are named?",
+     "body": [
+      "Scholars commonly say that twenty-five prophets are named in the Qur’an. Some counts differ: for example, scholars differ about Dhul-Kifl. The Qur’an itself does not give a number.",
+      "There is no need to memorise a count. What matters is that the Qur’an says there were many more than the ones it names (40:78)."
+     ],
+     "label": "[Interpretive]",
+     "review": "The count of twenty-five named prophets is the common teaching, and scholars differ on a few names such as Dhul-Kifl. The app does not use the often-repeated figure of 124,000 prophets, because the hadith that gives it is not sound. Please confirm the wording."
+    },
+    {
+     "id": "ibrahim",
+     "kind": "story",
+     "title": "Ibrahim looks for his Lord",
+     "body": [
+      "The Qur’an tells how Ibrahim spoke to his people about the star, the moon and the sun. At night he saw a star and said: this is my lord. When it set, he said that he did not love what disappears. He did the same with the moon and then the sun. Each one set (6:76-78).",
+      "Then he said to his people that he was free of what they joined with Allah, and that he turned his face to the One who made the heavens and the earth (6:79).",
+      "Many scholars explain that Ibrahim was showing his people, step by step, that something which sets cannot be a lord. The ayat say that this was the argument Allah gave to Ibrahim against his people (6:83)."
+     ],
+     "label": "[Interpretive]",
+     "source": "Qur’an 6:76-79; Qur’an 6:83; Tafsir Ibn Kathir on Qur’an 6:76-79",
+     "review": "That Ibrahim was arguing with his people (not truly doubting) is the explanation many scholars give, supported by 6:83. Please confirm it fits the Sunni tafsir tradition as worded."
+    },
+    {
+     "id": "turn",
+     "kind": "say",
+     "title": "Ibrahim’s words",
+     "refs": [
+      "q:6:79"
+     ],
+     "note": "Say the ayah slowly. It is a good answer to anyone who asks where your faith comes from.",
+     "words": {
+      "q:6:79": [
+       {
+        "tr": "innee",
+        "en": "indeed I"
+       },
+       {
+        "tr": "wajjahtu",
+        "en": "have turned"
+       },
+       {
+        "tr": "wajhiya",
+        "en": "my face"
+       },
+       {
+        "tr": "lilladhee",
+        "en": "to the One who"
+       },
+       {
+        "tr": "fatara",
+        "en": "created"
+       },
+       {
+        "tr": "as-samaawaati",
+        "en": "the heavens"
+       },
+       {
+        "tr": "wal-arda",
+        "en": "and the earth"
+       },
+       {
+        "tr": "haneefan",
+        "en": "inclining to the truth"
+       },
+       {
+        "tr": "wa-maa",
+        "en": "and not"
+       },
+       {
+        "tr": "anaa",
+        "en": "I am"
+       },
+       {
+        "tr": "mina",
+        "en": "of"
+       },
+       {
+        "tr": "al-mushrikeen",
+        "en": "those who join others with Allah"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 6:79"
+    },
+    {
+     "id": "seal",
+     "kind": "teach",
+     "title": "The last of the prophets",
+     "body": [
+      "The Qur’an says that Muhammad ﷺ is the Messenger of Allah and the seal of the prophets (33:40). Seal here means the one who closes the line: no prophet comes after him.",
+      "Isa, the Qur’an says, spoke to his people with signs from Allah (3:49). Muslims believe in him as a prophet, and many Muslims also believe he will return near the end of time. The details of that belief come from hadith and are for a later course."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 33:40; Qur’an 3:49"
+    },
+    {
+     "id": "hear",
+     "kind": "listen",
+     "title": "Listen to the ayah of the seal",
+     "ref": "q:33:40",
+     "repeats": 2,
+     "note": "Listen once, then say it aloud. Notice the word khatam, the seal."
+    },
+    {
+     "id": "safe",
+     "kind": "howto",
+     "title": "How to tell a prophet’s story safely",
+     "intro": "Stories are loved by children and adults. Here is a safe way to tell them.",
+     "steps": [
+      {
+       "text": "Begin with the Qur’an.",
+       "detail": "Read the ayat about that prophet and their meaning."
+      },
+      {
+       "text": "Add authentic hadith.",
+       "detail": "Check the source and grade. This app shows both."
+      },
+      {
+       "text": "Leave out what has no source.",
+       "detail": "If a detail is only in a storybook, say you do not know."
+      },
+      {
+       "text": "Stay respectful.",
+       "detail": "Say “peace be upon him” when you mention a prophet. Never draw or imagine their faces."
+      },
+      {
+       "text": "Tell the lesson.",
+       "detail": "Each story teaches patience, trust or honesty. Say what it teaches."
+      }
+     ],
+     "mistakes": [
+      "Adding details from films or storybooks as if they were revealed.",
+      "Making jokes about a prophet."
+     ],
+     "label": "[Interpretive]",
+     "source": "Qur’an 4:164",
+     "review": "Practical guidance worded by the app author. The rule about not showing images is the app’s policy. Please confirm."
+    },
+    {
+     "id": "ibrahim_order",
+     "kind": "arrange",
+     "title": "Put the story in order",
+     "prompt": "Put Ibrahim’s search in the order the ayat tell it.",
+     "explain": "Star, moon, sun, and then he turns to the Creator.",
+     "items": [
+      {
+       "text": "He sees a star",
+       "why": "This comes first (6:76).",
+       "back": "ibrahim"
+      },
+      {
+       "text": "He sees the moon",
+       "why": "Next (6:77).",
+       "back": "ibrahim"
+      },
+      {
+       "text": "He sees the sun",
+       "why": "Next (6:78).",
+       "back": "ibrahim"
+      },
+      {
+       "text": "He turns his face to the One who made the heavens and the earth",
+       "why": "Last (6:79).",
+       "back": "ibrahim"
+      }
+     ]
+    },
+    {
+     "id": "who",
+     "kind": "match",
+     "title": "Match the prophet to the ayah",
+     "prompt": "Tap a prophet and match the name in the Qur’an.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Ishaq (Isaac)"
+       },
+       "right": {
+        "word": "q:6:84#2"
+       },
+       "why": "Ishaq is named in 6:84.",
+       "back": "names"
+      },
+      {
+       "left": {
+        "text": "Ya’qub (Jacob)"
+       },
+       "right": {
+        "word": "q:6:84#3"
+       },
+       "why": "Ya’qub is named with Ishaq.",
+       "back": "names"
+      },
+      {
+       "left": {
+        "text": "Isa (Jesus)"
+       },
+       "right": {
+        "word": "q:6:85#2"
+       },
+       "why": "Isa is named in 6:85.",
+       "back": "names"
+      },
+      {
+       "left": {
+        "text": "Ismail (Ishmael)"
+       },
+       "right": {
+        "word": "q:6:86#0"
+       },
+       "why": "Ismail is named in 6:86.",
+       "back": "names"
+      },
+      {
+       "left": {
+        "text": "Yunus (Jonah)"
+       },
+       "right": {
+        "word": "q:6:86#2"
+       },
+       "why": "Yunus is named in 6:86.",
+       "back": "names"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1",
+       "type": "mcq",
+       "q": "What does believing in the messengers mean?",
+       "options": [
+        {
+         "text": "Believing only in Muhammad ﷺ",
+         "reteach": "A Muslim believes in all the messengers.",
+         "back": "start"
+        },
+        {
+         "text": "Believing in the ones whose stories we like",
+         "reteach": "We believe in all of them.",
+         "back": "start"
+        },
+        {
+         "text": "Believing in all of them and making no difference between them in faith"
+        }
+       ],
+       "answer": 2,
+       "explain": "We make no difference between any of them (2:285)."
+      },
+      {
+       "id": "c2",
+       "type": "mcq",
+       "q": "Does the Qur’an tell us about every prophet?",
+       "options": [
+        {
+         "text": "Yes, every prophet is named",
+         "reteach": "The Qur’an says there are some it has not told us about.",
+         "back": "start"
+        },
+        {
+         "text": "Only twelve prophets were sent",
+         "reteach": "The Qur’an says there were many.",
+         "back": "start"
+        },
+        {
+         "text": "No. It says there were prophets whose stories it has not told us"
+        }
+       ],
+       "answer": 2,
+       "explain": "See 4:164 and 40:78."
+      },
+      {
+       "id": "c3",
+       "type": "mcq",
+       "q": "How many prophets are commonly said to be named in the Qur’an?",
+       "options": [
+        {
+         "text": "Exactly 124,000",
+         "reteach": "That figure comes from a hadith that is not sound and is not about the named prophets.",
+         "back": "count"
+        },
+        {
+         "text": "Three",
+         "reteach": "Many more than three are named.",
+         "back": "count"
+        },
+        {
+         "text": "Twenty-five, though some counts differ"
+        }
+       ],
+       "answer": 2,
+       "explain": "The common teaching is twenty-five."
+      },
+      {
+       "id": "c4",
+       "type": "mcq",
+       "q": "Why did Ibrahim say he does not love what sets?",
+       "options": [
+        {
+         "text": "Something that disappears cannot be a lord"
+        },
+        {
+         "text": "He was afraid of the dark",
+         "reteach": "The ayat give a different reason: what sets cannot be a lord.",
+         "back": "ibrahim"
+        },
+        {
+         "text": "He wanted to rest",
+         "reteach": "No. He was showing his people that these things are not gods.",
+         "back": "ibrahim"
+        }
+       ],
+       "answer": 0,
+       "explain": "He used the star, the moon and the sun to show that what sets cannot be a lord."
+      },
+      {
+       "id": "c5",
+       "type": "fill",
+       "q": "Which Arabic word means “my face” in 6:79?",
+       "options": [
+        {
+         "word": "q:6:79#2"
+        },
+        {
+         "word": "q:6:79#3",
+         "reteach": "That is lilladhee, “to the One who”.",
+         "back": "turn"
+        },
+        {
+         "word": "q:6:79#5",
+         "reteach": "That is as-samaawaat, “the heavens”.",
+         "back": "turn"
+        }
+       ],
+       "answer": 0,
+       "explain": "Wajhiya means my face.",
+       "fill": {
+        "ref": "q:6:79",
+        "blank": 2,
+        "show": "arabic"
+       }
+      },
+      {
+       "id": "c6",
+       "type": "mcq",
+       "q": "What does “seal of the prophets” mean?",
+       "options": [
+        {
+         "text": "The first prophet",
+         "reteach": "The seal closes the line. It is not the first.",
+         "back": "seal"
+        },
+        {
+         "text": "The greatest builder",
+         "reteach": "It is about the end of the line of prophets.",
+         "back": "seal"
+        },
+        {
+         "text": "The last prophet: no prophet comes after him"
+        }
+       ],
+       "answer": 2,
+       "explain": "Muhammad ﷺ is the last of the prophets (33:40)."
+      },
+      {
+       "id": "c7",
+       "type": "mcq",
+       "q": "Where should a story about a prophet come from?",
+       "options": [
+        {
+         "text": "Any storybook",
+         "reteach": "Storybooks may add details with no source.",
+         "back": "safe"
+        },
+        {
+         "text": "The Qur’an and authentic hadith"
+        },
+        {
+         "text": "Films",
+         "reteach": "Films add details for drama.",
+         "back": "safe"
+        }
+       ],
+       "answer": 1,
+       "explain": "Begin with the Qur’an and authentic hadith."
+      },
+      {
+       "id": "c8",
+       "type": "scenario",
+       "q": "What do you do?",
+       "options": [
+        {
+         "text": "Repeat it to others, since it sounds nice",
+         "reteach": "Without a source we do not pass it on as fact.",
+         "back": "safe"
+        },
+        {
+         "text": "Say it is surely false",
+         "reteach": "You do not know that either. Ask for the source.",
+         "back": "safe"
+        },
+        {
+         "text": "Ask where it comes from, and say you only speak with certainty about what has a sound source."
+        }
+       ],
+       "answer": 2,
+       "explain": "Ask for the source.",
+       "scenario": "Your cousin tells a vivid story about Nuh that you have never heard in the Qur’an or hadith."
+      },
+      {
+       "id": "lb1",
+       "lookback": "aqid.u2.l1#c1"
+      }
+     ],
+     "title": "Check yourself"
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Read Ibrahim’s story",
+     "body": "Open Surah Al-An’am and read ayat 76 to 79 with the meaning under them.",
+     "route": "/quran/6",
+     "button": "Open Surah 6"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "canDo": [
+      "Say what believing in the messengers means",
+      "Retell Ibrahim’s search for his Lord in four steps",
+      "Say what seal of the prophets means",
+      "Explain why we only tell stories that have a source"
+     ],
+     "next": "Next: Allah is with you. Three ways the Qur’an uses this phrase."
+    }
+   ]
+  },
+  {
+   "id": "aqid.u3.l1",
+   "title": "He Is With You",
+   "minutes": 16,
+   "intro": "Learn three ways the Qur’an says Allah is with us: in knowledge, in help, and in answering when we call. See how Abu Bakr and the Prophet ﷺ lived it in the cave.",
+   "steps": [
+    {
+     "id": "start",
+     "kind": "teach",
+     "title": "Three ways Allah is “with” you",
+     "body": [
+      "The Qur’an often says that Allah is with people. Scholars explain that this is used in more than one way. One way is general: He is with everyone by His knowledge, hearing and sight. Another is special: He is with the believers by His help and support. A third is nearness to the one who calls on Him.",
+      "None of this means that Allah is mixed with His creation or that He needs a place. It means He knows us, helps us and answers us."
+     ],
+     "label": "[Interpretive]",
+     "source": "Tafsir Ibn Kathir on Qur’an 57:4; Qur’an 58:7",
+     "review": "The grouping into general and special “withness” is a common way scholars explain these ayat. Please confirm the wording and that it does not go beyond Ibn Kathir."
+    },
+    {
+     "id": "general",
+     "kind": "say",
+     "title": "With everyone: He knows",
+     "refs": [
+      "q:57:4"
+     ],
+     "note": "The ayah says He created the heavens and the earth, that He knows all that goes in and out, and that He is with you wherever you are. The ayah ends by saying He sees what you do. Read the last part carefully.",
+     "words": {
+      "q:57:4": [
+       {
+        "tr": "huwa",
+        "en": "He"
+       },
+       {
+        "tr": "alladhee",
+        "en": "who"
+       },
+       {
+        "tr": "khalaqa",
+        "en": "created"
+       },
+       {
+        "tr": "as-samaawaati",
+        "en": "the heavens"
+       },
+       {
+        "tr": "wal-arda",
+        "en": "and the earth"
+       },
+       {
+        "tr": "fee",
+        "en": "in"
+       },
+       {
+        "tr": "sittati",
+        "en": "six"
+       },
+       {
+        "tr": "ayyaamin",
+        "en": "days"
+       },
+       {
+        "tr": "thumma",
+        "en": "then"
+       },
+       {
+        "tr": "istawaa",
+        "en": "He rose"
+       },
+       {
+        "tr": "alaa",
+        "en": "above"
+       },
+       {
+        "tr": "al-arshi",
+        "en": "the Throne"
+       },
+       {
+        "tr": "ya'lamu",
+        "en": "He knows"
+       },
+       {
+        "tr": "maa",
+        "en": "what"
+       },
+       {
+        "tr": "yaliju",
+        "en": "goes"
+       },
+       {
+        "tr": "fee",
+        "en": "in"
+       },
+       {
+        "tr": "al-ardi",
+        "en": "the earth"
+       },
+       {
+        "tr": "wa-maa",
+        "en": "and what"
+       },
+       {
+        "tr": "yakhruju",
+        "en": "comes out"
+       },
+       {
+        "tr": "minhaa",
+        "en": "from it"
+       },
+       {
+        "tr": "wa-maa",
+        "en": "and what"
+       },
+       {
+        "tr": "yanzilu",
+        "en": "comes down"
+       },
+       {
+        "tr": "mina",
+        "en": "from"
+       },
+       {
+        "tr": "as-samaa'i",
+        "en": "the sky"
+       },
+       {
+        "tr": "wa-maa",
+        "en": "and what"
+       },
+       {
+        "tr": "ya'ruju",
+        "en": "goes up"
+       },
+       {
+        "tr": "feehaa",
+        "en": "in it"
+       },
+       {
+        "tr": "wa-huwa",
+        "en": "and He"
+       },
+       {
+        "tr": "ma'akum",
+        "en": "is with you"
+       },
+       {
+        "tr": "ayna",
+        "en": "wherever"
+       },
+       {
+        "tr": "maa",
+        "en": "(adds emphasis)"
+       },
+       {
+        "tr": "kuntum",
+        "en": "you are"
+       },
+       {
+        "tr": "wallaahu",
+        "en": "and Allah"
+       },
+       {
+        "tr": "bimaa",
+        "en": "of what"
+       },
+       {
+        "tr": "ta'maloona",
+        "en": "you do"
+       },
+       {
+        "tr": "baseer",
+        "en": "is All-Seeing"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 57:4"
+    },
+    {
+     "id": "special",
+     "kind": "teach",
+     "title": "With the believers: He helps",
+     "body": [
+      "To Musa and Harun, Allah said: do not fear, I am with you both; I hear and I see (20:46). To the believers He says that He is with the patient (2:153).",
+      "Here “with” means help, support and care. It is why a believer in trouble can say, with Musa, that Allah is near."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 20:46; Qur’an 2:153"
+    },
+    {
+     "id": "cave",
+     "kind": "story",
+     "title": "In the cave",
+     "body": [
+      "When the Prophet ﷺ left Makkah, he and Abu Bakr hid in a cave. The pursuers came close. Abu Bakr said: if one of them looks under his feet, he will see us.",
+      "The Prophet ﷺ replied: Abu Bakr, what do you think of two, the third of whom is Allah? (Bukhari 3653). The Qur’an describes the same moment: the Prophet ﷺ told his companion not to grieve because Allah is with us, and Allah sent down calm on him (9:40)."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 3653; Bukhari 4663; Qur’an 9:40"
+    },
+    {
+     "id": "near",
+     "kind": "say",
+     "title": "Near to the one who asks",
+     "refs": [
+      "q:2:186"
+     ],
+     "note": "When His servants ask about Him, He says He is near and answers the one who calls. Say the ayah slowly, then think of one thing you would ask for.",
+     "label": "[Established]",
+     "source": "Qur’an 2:186"
+    },
+    {
+     "id": "closer",
+     "kind": "teach",
+     "title": "Closer than the vein",
+     "body": [
+      "The Qur’an says that Allah created man and knows what his soul whispers to him, and that He is closer than the jugular vein (50:16). Ibn Kathir explains that the nearness here refers to His angels, who are closer to a person than his own vein, and he rejects reading “We” as only “Our knowledge”. Other scholars read it as nearness in knowledge.",
+      "Either way, nothing about you is hidden from Him."
+     ],
+     "label": "[Interpretive]",
+     "source": "Qur’an 50:16; Tafsir Ibn Kathir on Qur’an 50:16",
+     "review": "Ibn Kathir reads the nearness in 50:16 as the angels; others read it as knowledge. Please confirm the wording and that the dispute is stated fairly."
+    },
+    {
+     "id": "schools",
+     "kind": "contrast",
+     "title": "How the schools explain “with you”",
+     "intro": "Sunni scholars agree that Allah is not mixed with His creation and that nothing is like Him. They differ in how they explain such words.",
+     "agree": "All agree: He is not like His creation, He is not mixed with it, and He knows and hears us.",
+     "rows": [
+      {
+       "name": "Athari",
+       "text": "Affirm the words as Allah said them: He is with us, and He is above the Throne, in a way that suits Him. Do not ask how, and do not compare Him to anything."
+      },
+      {
+       "name": "Ashari and Maturidi",
+       "text": "Being with us means His knowledge, power, help and care. He is not in any place, and He is not mixed with creation."
+      }
+     ],
+     "closing": "This is a short summary for beginners. Ask a teacher for more.",
+     "label": "[Interpretive]",
+     "review": "Short beginner summary of the Athari and Ashari/Maturidi positions on the “with you” ayat and istiwa. Please check each row, and add the Maturidi view if it should be a separate row."
+    },
+    {
+     "id": "close",
+     "kind": "howto",
+     "title": "Feeling Allah’s nearness",
+     "intro": "Knowing He is near should help in hard moments.",
+     "steps": [
+      {
+       "text": "Pause and say His name.",
+       "detail": "Say Allah, or ask with a short dua. He is near and answers (2:186)."
+      },
+      {
+       "text": "Remember the cave.",
+       "detail": "When you feel outnumbered, say to yourself: what do you think of two, the third of whom is Allah?"
+      },
+      {
+       "text": "Tell someone you trust.",
+       "detail": "Allah being near does not replace people who can help you."
+      },
+      {
+       "text": "Ask for help now if you are in danger.",
+       "detail": "If you think of ending your life or harming someone, tell a person you trust and contact your local emergency number straight away."
+      }
+     ],
+     "mistakes": [
+      "Staying silent about a real problem and thinking you should handle it alone."
+     ],
+     "label": "[Interpretive]",
+     "source": "Qur’an 2:186; Bukhari 3653",
+     "review": "A practical note worded by the app author. The safety sentence is deliberate. Please keep it or reword it."
+    },
+    {
+     "id": "cave_order",
+     "kind": "arrange",
+     "title": "Put the cave scene in order",
+     "prompt": "Put the events in the order of the story.",
+     "explain": "Danger, fear, the reply, then calm.",
+     "items": [
+      {
+       "text": "The pursuers come close",
+       "why": "The scene begins with the danger.",
+       "back": "cave"
+      },
+      {
+       "text": "Abu Bakr says they may see them",
+       "why": "He fears for the Prophet ﷺ.",
+       "back": "cave"
+      },
+      {
+       "text": "The Prophet ﷺ says Allah is the third",
+       "why": "The reply that calms him.",
+       "back": "cave"
+      },
+      {
+       "text": "Allah sends down calm",
+       "why": "The ayah says He sent down tranquillity (9:40).",
+       "back": "cave"
+      }
+     ]
+    },
+    {
+     "id": "with",
+     "kind": "match",
+     "title": "Match the meaning to the ayah",
+     "prompt": "Tap a meaning, then the ayah.",
+     "pairs": [
+      {
+       "left": {
+        "text": "With everyone by knowledge"
+       },
+       "right": {
+        "ref": "q:57:4"
+       },
+       "why": "He is with you wherever you are, and sees what you do.",
+       "back": "general"
+      },
+      {
+       "left": {
+        "text": "With Musa and Harun by help"
+       },
+       "right": {
+        "ref": "q:20:46"
+       },
+       "why": "I am with you both; I hear and I see.",
+       "back": "special"
+      },
+      {
+       "left": {
+        "text": "With the patient"
+       },
+       "right": {
+        "ref": "q:2:153"
+       },
+       "why": "Allah is with the patient.",
+       "back": "special"
+      },
+      {
+       "left": {
+        "text": "Near to the one who calls"
+       },
+       "right": {
+        "ref": "q:2:186"
+       },
+       "why": "He is near and answers.",
+       "back": "near"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1",
+       "type": "mcq",
+       "q": "What does it mean that Allah is with everyone in 57:4?",
+       "options": [
+        {
+         "text": "He is mixed with creation",
+         "reteach": "Muslim scholars agree that Allah is not mixed with His creation.",
+         "back": "general"
+        },
+        {
+         "text": "He lives in every place",
+         "reteach": "No. He is not in a place, and nothing is like Him.",
+         "back": "general"
+        },
+        {
+         "text": "He knows, hears and sees them"
+        }
+       ],
+       "answer": 2,
+       "explain": "He is with everyone by His knowledge, hearing and sight."
+      },
+      {
+       "id": "c2",
+       "type": "mcq",
+       "q": "What does “with the patient” in 2:153 mean?",
+       "options": [
+        {
+         "text": "He is waiting for them to finish",
+         "reteach": "It means help and support.",
+         "back": "special"
+        },
+        {
+         "text": "He only helps prophets",
+         "reteach": "The ayah speaks of all the patient.",
+         "back": "special"
+        },
+        {
+         "text": "Allah is with them to help and support them"
+        }
+       ],
+       "answer": 2,
+       "explain": "It is a special support for the patient."
+      },
+      {
+       "id": "c3",
+       "type": "mcq",
+       "q": "What did the Prophet ﷺ say to Abu Bakr in the cave?",
+       "options": [
+        {
+         "text": "Keep quiet and wait for the guards",
+         "reteach": "He answered with trust in Allah.",
+         "back": "cave"
+        },
+        {
+         "text": "We will leave now",
+         "reteach": "They stayed in the cave.",
+         "back": "cave"
+        },
+        {
+         "text": "What do you think of two, the third of whom is Allah?"
+        }
+       ],
+       "answer": 2,
+       "explain": "He told Abu Bakr that Allah was the third (Bukhari 3653)."
+      },
+      {
+       "id": "c4",
+       "type": "mcq",
+       "q": "What does 2:186 say about someone who calls on Him?",
+       "options": [
+        {
+         "text": "He is near and answers"
+        },
+        {
+         "text": "He is far and only hears the loudest",
+         "reteach": "The ayah says He is near.",
+         "back": "near"
+        },
+        {
+         "text": "He answers only at special times",
+         "reteach": "The ayah says when he calls upon Me.",
+         "back": "near"
+        }
+       ],
+       "answer": 0,
+       "explain": "He is near and answers the one who calls."
+      },
+      {
+       "id": "c5",
+       "type": "mcq",
+       "q": "What do all Sunni schools agree on about the “with you” ayat?",
+       "options": [
+        {
+         "text": "He is not mixed with creation and nothing is like Him"
+        },
+        {
+         "text": "He is in every place",
+         "reteach": "They reject this.",
+         "back": "schools"
+        },
+        {
+         "text": "The words mean nothing",
+         "reteach": "They affirm that the words are true.",
+         "back": "schools"
+        }
+       ],
+       "answer": 0,
+       "explain": "They agree on this and differ in explaining the words."
+      },
+      {
+       "id": "c6",
+       "type": "fill",
+       "q": "Which word means “with you” in 57:4?",
+       "options": [
+        {
+         "word": "q:57:4#28"
+        },
+        {
+         "word": "q:57:4#13",
+         "reteach": "That is maa, “what”.",
+         "back": "general"
+        },
+        {
+         "word": "q:57:4#27",
+         "reteach": "That is wa-huwa, “and He”.",
+         "back": "general"
+        }
+       ],
+       "answer": 0,
+       "explain": "Ma’akum means with you.",
+       "fill": {
+        "ref": "q:57:4",
+        "blank": 28,
+        "show": "arabic"
+       }
+      },
+      {
+       "id": "c7",
+       "type": "scenario",
+       "q": "What fits this lesson?",
+       "options": [
+        {
+         "text": "Tell him to be quiet and bear it",
+         "reteach": "Allah being near does not mean we should ignore real danger.",
+         "back": "close"
+        },
+        {
+         "text": "Remind him that Allah is near, and encourage him to talk to someone he trusts. If he is in danger, urge him to contact emergency help."
+        },
+        {
+         "text": "Tell him it will pass and change the subject",
+         "reteach": "Listen, and encourage him to get help.",
+         "back": "close"
+        }
+       ],
+       "answer": 1,
+       "explain": "Nearness to Allah and getting help from people go together.",
+       "scenario": "A friend says he feels completely alone and that no one can help him."
+      },
+      {
+       "id": "lb1",
+       "lookback": "aqid.u1.l2#c9"
+      },
+      {
+       "id": "lb2",
+       "lookback": "aqid.u2.l2#c3"
+      }
+     ],
+     "title": "Check yourself"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "canDo": [
+      "Name three ways the Qur’an uses “with” for Allah",
+      "Retell the cave scene and what the Prophet ﷺ said",
+      "Say what Sunni schools agree on about “with you”",
+      "Say what to do when you feel alone or in danger"
+     ],
+     "next": "Next: the Balance. Justice on the Day of Judgment."
+    }
+   ]
+  },
+  {
+   "id": "aqid.u3.l2",
+   "title": "The Balance",
+   "minutes": 16,
+   "intro": "Learn what the Qur’an says about the scales on the Day of Judgment, why no one will be wronged, and what this means for how we treat one another now.",
+   "steps": [
+    {
+     "id": "start",
+     "kind": "teach",
+     "title": "A balance that is fair",
+     "body": [
+      "On the Day of Judgment, the Qur’an says, Allah places scales of justice and no soul is wronged at all (21:47). Even something as small as an atom’s weight is counted (99:7-8; 4:40).",
+      "This is good news for the person who was treated unjustly and could not get justice in life. It is a warning for the one who wronged others."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 21:47; Qur’an 99:7-8; Qur’an 4:40"
+    },
+    {
+     "id": "scales",
+     "kind": "say",
+     "title": "The scales",
+     "refs": [
+      "q:21:47"
+     ],
+     "note": "Read slowly. The ayah says no soul will be wronged and that even a mustard seed’s weight will be brought forth.",
+     "label": "[Established]",
+     "source": "Qur’an 21:47"
+    },
+    {
+     "id": "balance",
+     "kind": "say",
+     "title": "Do not break the balance",
+     "refs": [
+      "q:55:7",
+      "q:55:8",
+      "q:55:9"
+     ],
+     "note": "Surah Ar-Rahman says Allah set the balance and tells us not to transgress in it. It tells us to weigh with justice and not to make the balance fall short.",
+     "words": {
+      "q:55:7": [
+       {
+        "tr": "was-samaa'a",
+        "en": "and the sky"
+       },
+       {
+        "tr": "rafa'ahaa",
+        "en": "He raised it"
+       },
+       {
+        "tr": "wa-wada'a",
+        "en": "and He set"
+       },
+       {
+        "tr": "al-meezaan",
+        "en": "the balance"
+       }
+      ],
+      "q:55:8": [
+       {
+        "tr": "allaa",
+        "en": "that not"
+       },
+       {
+        "tr": "tatghaw",
+        "en": "you transgress"
+       },
+       {
+        "tr": "fee",
+        "en": "in"
+       },
+       {
+        "tr": "al-meezaan",
+        "en": "the balance"
+       }
+      ],
+      "q:55:9": [
+       {
+        "tr": "wa-aqeemoo",
+        "en": "and establish"
+       },
+       {
+        "tr": "al-wazna",
+        "en": "the weight"
+       },
+       {
+        "tr": "bil-qisti",
+        "en": "with justice"
+       },
+       {
+        "tr": "wa-laa",
+        "en": "and do not"
+       },
+       {
+        "tr": "tukhsiroo",
+        "en": "make deficient"
+       },
+       {
+        "tr": "al-meezaan",
+        "en": "the balance"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 55:7-9"
+    },
+    {
+     "id": "zulm",
+     "kind": "say",
+     "title": "A hadith qudsi on injustice",
+     "refs": [
+      "aqid.zulm"
+     ],
+     "note": "Allah says that He made injustice forbidden for Himself and forbidden between people. This is a hadith qudsi, a saying where the Prophet ﷺ reports Allah’s own words.",
+     "label": "[Established]",
+     "source": "Muslim 2577"
+    },
+    {
+     "id": "rights",
+     "kind": "teach",
+     "title": "Rights will be returned",
+     "body": [
+      "The Prophet ﷺ said that rights will be returned to their owners on the Day of Resurrection, even the hornless sheep will take its right from the horned one (Muslim 2582).",
+      "He also taught: if a man has wronged another in his honour or anything else, he should seek forgiveness from him now, before a day when there is no money, only good deeds. Good deeds are taken from the wrongdoer, and if he has none, the sins of the wronged are placed on him (Bukhari 2449)."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 2582; Bukhari 2449"
+    },
+    {
+     "id": "bankrupt",
+     "kind": "story",
+     "title": "Who is bankrupt?",
+     "body": [
+      "The Prophet ﷺ asked the Companions: do you know who is bankrupt? They said: the one with no money. He said: the bankrupt person of my community comes on the Day of Resurrection with prayer, fasting and zakat, but he has insulted this one, slandered that one, taken the money of another, shed blood and hit someone. His good deeds are given to those he wronged. If they run out, their sins are put on him, and he is thrown into the Fire (Muslim 2581)."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 2581"
+    },
+    {
+     "id": "justice",
+     "kind": "teach",
+     "title": "Justice in daily life",
+     "body": [
+      "The Qur’an tells believers to stand firm for Allah as witnesses of justice, and not to let hatred of a people stop them from being just (5:8). It warns those who cheat when they weigh and measure (83:1-3).",
+      "This means that justice is not just for courts. It is how we weigh in a shop, how we treat a person we dislike, and how we speak about someone who is not there."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 5:8; Qur’an 83:1-3"
+    },
+    {
+     "id": "amend",
+     "kind": "howto",
+     "title": "Making it right",
+     "intro": "If you wronged someone, the hadith says to put it right now.",
+     "steps": [
+      {
+       "text": "Name what you did.",
+       "detail": "Be honest with yourself. Did you take, insult or spread something about someone?"
+      },
+      {
+       "text": "Ask Allah for forgiveness.",
+       "detail": "Repent sincerely and promise not to repeat it."
+      },
+      {
+       "text": "Return what is owed.",
+       "detail": "Return the money, or ask the person for what would make it right."
+      },
+      {
+       "text": "Ask their forgiveness.",
+       "detail": "Do it now, as the Prophet ﷺ advised, before the day when only deeds count."
+      },
+      {
+       "text": "If you cannot reach them, pray for them and give charity on their behalf.",
+       "detail": "Scholars discuss this; ask a teacher about your case."
+      }
+     ],
+     "mistakes": [
+      "Waiting for the person to forgive you before you change.",
+      "Excusing it as a small thing."
+     ],
+     "label": "[Interpretive]",
+     "source": "Bukhari 2449; Muslim 2577",
+     "review": "A practical sequence based on Bukhari 2449 and the general teaching on repentance, worded by the app author. The last step, charity on their behalf, should be confirmed by a scholar."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "Put them in order",
+     "prompt": "Put these in the order of the bankrupt person’s story.",
+     "explain": "He comes with good deeds, his wrongs are found, his deeds are given to those he wronged, and if they run out, their sins are put on him.",
+     "items": [
+      {
+       "text": "He comes with prayer, fasting and zakat",
+       "why": "He has real good deeds.",
+       "back": "bankrupt"
+      },
+      {
+       "text": "He is found to have wronged people",
+       "why": "He insulted, slandered, took money and hit.",
+       "back": "bankrupt"
+      },
+      {
+       "text": "His good deeds are given to those he wronged",
+       "why": "It is how the account is settled.",
+       "back": "bankrupt"
+      },
+      {
+       "text": "Their sins are put on him if his deeds run out",
+       "why": "The settling continues until it is complete.",
+       "back": "bankrupt"
+      }
+     ]
+    },
+    {
+     "id": "words",
+     "kind": "match",
+     "title": "Match the word",
+     "prompt": "Tap an Arabic word, then its meaning.",
+     "pairs": [
+      {
+       "left": {
+        "word": "q:55:7#3"
+       },
+       "right": {
+        "text": "the balance"
+       },
+       "why": "Al-meezaan is the balance.",
+       "back": "balance"
+      },
+      {
+       "left": {
+        "word": "q:55:9#1"
+       },
+       "right": {
+        "text": "the weight"
+       },
+       "why": "Al-wazn is the weight.",
+       "back": "balance"
+      },
+      {
+       "left": {
+        "word": "q:55:9#2"
+       },
+       "right": {
+        "text": "with justice"
+       },
+       "why": "Bil-qisti means with justice.",
+       "back": "balance"
+      },
+      {
+       "left": {
+        "word": "q:55:9#4"
+       },
+       "right": {
+        "text": "make deficient"
+       },
+       "why": "Tukhsiroo means to cause loss.",
+       "back": "balance"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1",
+       "type": "mcq",
+       "q": "What does the Qur’an say about the scales on the Day of Judgment?",
+       "options": [
+        {
+         "text": "They are just, and no soul is wronged"
+        },
+        {
+         "text": "They are sometimes unfair",
+         "reteach": "The Qur’an says no soul will be wronged at all.",
+         "back": "start"
+        },
+        {
+         "text": "They only count big deeds",
+         "reteach": "Even an atom’s weight is counted.",
+         "back": "start"
+        }
+       ],
+       "answer": 0,
+       "explain": "No soul will be wronged (21:47)."
+      },
+      {
+       "id": "c2",
+       "type": "mcq",
+       "q": "What does Allah say in the hadith qudsi about injustice?",
+       "options": [
+        {
+         "text": "He allows it in some cases",
+         "reteach": "He forbade it for Himself and between people.",
+         "back": "zulm"
+        },
+        {
+         "text": "He only forbade it for kings",
+         "reteach": "It is forbidden between all people.",
+         "back": "zulm"
+        },
+        {
+         "text": "He has forbidden it for Himself and made it forbidden between us"
+        }
+       ],
+       "answer": 2,
+       "explain": "Muslim 2577."
+      },
+      {
+       "id": "c3",
+       "type": "mcq",
+       "q": "What is the lesson of the bankrupt person?",
+       "options": [
+        {
+         "text": "Money matters most",
+         "reteach": "He is bankrupt in good deeds, not money.",
+         "back": "bankrupt"
+        },
+        {
+         "text": "Prayer does not matter",
+         "reteach": "It matters, but wronging people can take it away.",
+         "back": "bankrupt"
+        },
+        {
+         "text": "Worship does not cancel wronging people"
+        }
+       ],
+       "answer": 2,
+       "explain": "The bankrupt wronged people (Muslim 2581)."
+      },
+      {
+       "id": "c4",
+       "type": "mcq",
+       "q": "What should someone do who has wronged a person in honour or any other way?",
+       "options": [
+        {
+         "text": "Wait until the Day of Judgment",
+         "reteach": "The hadith says do it before a day when there is no money.",
+         "back": "rights"
+        },
+        {
+         "text": "Ignore it",
+         "reteach": "The hadith tells them to seek forgiveness now.",
+         "back": "rights"
+        },
+        {
+         "text": "Ask for their forgiveness now"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 2449."
+      },
+      {
+       "id": "c5",
+       "type": "mcq",
+       "q": "Does justice in the Qur’an apply to people we dislike?",
+       "options": [
+        {
+         "text": "No, only to friends",
+         "reteach": "The Qur’an says do not let hatred stop you from being just.",
+         "back": "justice"
+        },
+        {
+         "text": "Yes, hatred must not stop us from being just"
+        },
+        {
+         "text": "Only in court",
+         "reteach": "It applies in daily life.",
+         "back": "justice"
+        }
+       ],
+       "answer": 1,
+       "explain": "See 5:8."
+      },
+      {
+       "id": "c6",
+       "type": "fill",
+       "q": "Which word means “the balance” in 55:7?",
+       "options": [
+        {
+         "word": "q:55:7#1",
+         "reteach": "That is rafa’ahaa, “He raised it”.",
+         "back": "balance"
+        },
+        {
+         "word": "q:55:7#3"
+        },
+        {
+         "word": "q:55:7#0",
+         "reteach": "That is was-samaa’a, “and the sky”.",
+         "back": "balance"
+        }
+       ],
+       "answer": 1,
+       "explain": "Al-meezaan.",
+       "fill": {
+        "ref": "q:55:7",
+        "blank": 3,
+        "show": "arabic"
+       }
+      },
+      {
+       "id": "c7",
+       "type": "scenario",
+       "q": "What fits the lesson?",
+       "options": [
+        {
+         "text": "Keep it, because he did not notice",
+         "reteach": "This is taking what is not yours.",
+         "back": "justice"
+        },
+        {
+         "text": "Give it to charity and say nothing",
+         "reteach": "He is owed it, so the owed amount goes back to him if you can.",
+         "back": "amend"
+        },
+        {
+         "text": "Return what is owed, ask forgiveness from Allah, and be honest with him."
+        }
+       ],
+       "answer": 2,
+       "explain": "Give back what is owed.",
+       "scenario": "You overcharged a customer by mistake and he did not notice."
+      },
+      {
+       "id": "lb1",
+       "lookback": "aqid.u1.l4#c7"
+      },
+      {
+       "id": "lb2",
+       "lookback": "aqid.u3.l1#c3"
+      }
+     ],
+     "title": "Check yourself"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "canDo": [
+      "Say what the Qur’an says about the scales on the Day of Judgment",
+      "Retell the hadith of the bankrupt person",
+      "Say what to do if you have wronged someone",
+      "Say why justice applies even to people we dislike"
+     ],
+     "next": "Next: a creed you can carry, a summary of the course."
+    }
+   ]
+  },
+  {
+   "id": "aqid.u3.l3",
+   "title": "A Creed You Can Carry",
+   "minutes": 14,
+   "intro": "Bring the course together: who Allah is, what we believe about the unseen, the prophets, His nearness and His justice, in a form you can say in a few lines.",
+   "steps": [
+    {
+     "id": "start",
+     "kind": "teach",
+     "title": "What you now hold",
+     "body": [
+      "This course moved from Allah’s mercy and His names, to the unseen, to the prophets, to His nearness and justice. These are not separate ideas. They fit together: the One who is Merciful sent messengers; He is near; and He is just.",
+      "This lesson gathers them into a short creed you can carry."
+     ]
+    },
+    {
+     "id": "iman",
+     "kind": "say",
+     "title": "The pillars again",
+     "refs": [
+      "aqid.iman"
+     ],
+     "note": "Say this slowly. It is the Prophet’s own summary of faith.",
+     "label": "[Established]",
+     "source": "Muslim 8"
+    },
+    {
+     "id": "ihsan",
+     "kind": "say",
+     "title": "Ihsan: worship as if you see Him",
+     "refs": [
+      "aqid.ihsan"
+     ],
+     "note": "The same hadith adds ihsan, the highest level: to worship Allah as if you see Him, knowing that He sees you.",
+     "label": "[Established]",
+     "source": "Muslim 8"
+    },
+    {
+     "id": "summary",
+     "kind": "teach",
+     "title": "Your creed in six lines",
+     "body": [
+      "Allah is One, with no partner, and nothing is like Him (112:1-4).",
+      "He is Merciful, and His mercy overcomes His anger (Bukhari 7404).",
+      "He has most beautiful names, and we know Him by them (7:180).",
+      "He sent messengers to every nation with one message; Muhammad ﷺ is the last (33:40).",
+      "We believe in the unseen: angels, books, the Last Day and the decree (Muslim 8).",
+      "He is near, He sees us, and He is just: no soul will be wronged (21:47)."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 112:1-4; Bukhari 7404; Qur’an 7:180; Qur’an 33:40; Muslim 8; Qur’an 21:47"
+    },
+    {
+     "id": "hear",
+     "kind": "listen",
+     "title": "Listen to Al-Ikhlas once more",
+     "ref": "q:112:1-4",
+     "repeats": 2,
+     "note": "The surah that began the course. Listen, then say it aloud with the meaning in mind."
+    },
+    {
+     "id": "change",
+     "kind": "why",
+     "title": "A creed is meant to change you",
+     "body": [
+      "The Prophet ﷺ did not teach belief as a list to memorise. In the hadith of Jibril, faith, Islam and ihsan come together: what you believe, what you do, and how you do it.",
+      "When you know that He is merciful, you hope. When you know He is just, you give people their rights. When you know He sees you, you act the same in private as in public."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "carry",
+     "kind": "howto",
+     "title": "How to keep it alive",
+     "intro": "A creed lives when it is used.",
+     "steps": [
+      {
+       "text": "Say the six lines once a week.",
+       "detail": "In your own words, then go back to the sources."
+      },
+      {
+       "text": "Pick one name of Allah each week.",
+       "detail": "Think about where you need it."
+      },
+      {
+       "text": "Ask questions.",
+       "detail": "Keep a short list and ask a teacher."
+      },
+      {
+       "text": "Check sources.",
+       "detail": "When someone tells you something about Allah, ask where it comes from."
+      }
+     ],
+     "mistakes": [
+      "Memorising lines without understanding them.",
+      "Arguing about the creed instead of living by it."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "journey",
+     "kind": "arrange",
+     "title": "Put the course in order",
+     "prompt": "Put the topics in the order of this course.",
+     "explain": "Mercy, names, unseen and prophets, nearness and justice.",
+     "items": [
+      {
+       "text": "Allah’s mercy",
+       "why": "The course opened with Ar-Rahman.",
+       "back": "start"
+      },
+      {
+       "text": "His names",
+       "why": "The names came next.",
+       "back": "start"
+      },
+      {
+       "text": "The unseen and the prophets",
+       "why": "These came in unit two.",
+       "back": "start"
+      },
+      {
+       "text": "His nearness and His justice",
+       "why": "These came in unit three.",
+       "back": "start"
+      }
+     ]
+    },
+    {
+     "id": "recall",
+     "kind": "match",
+     "title": "Match the idea to its source",
+     "prompt": "Tap a statement, then the source.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Nothing is equal to Him"
+       },
+       "right": {
+        "ref": "q:112:4"
+       },
+       "why": "Al-Ikhlas ends this way.",
+       "back": "start"
+      },
+      {
+       "left": {
+        "text": "The last of the prophets"
+       },
+       "right": {
+        "ref": "q:33:40"
+       },
+       "why": "Muhammad ﷺ.",
+       "back": "start"
+      },
+      {
+       "left": {
+        "text": "The scales are just"
+       },
+       "right": {
+        "ref": "q:21:47"
+       },
+       "why": "No soul is wronged.",
+       "back": "start"
+      },
+      {
+       "left": {
+        "text": "He is with you wherever you are"
+       },
+       "right": {
+        "ref": "q:57:4"
+       },
+       "why": "By knowledge and sight.",
+       "back": "start"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "items": [
+      {
+       "id": "lb1",
+       "lookback": "aqid.u1.l1#c4"
+      },
+      {
+       "id": "lb2",
+       "lookback": "aqid.u1.l2#c3"
+      },
+      {
+       "id": "lb3",
+       "lookback": "aqid.u1.l3#c4"
+      },
+      {
+       "id": "lb4",
+       "lookback": "aqid.u1.l4#c1"
+      },
+      {
+       "id": "lb5",
+       "lookback": "aqid.u2.l1#c1"
+      },
+      {
+       "id": "lb6",
+       "lookback": "aqid.u2.l2#c2"
+      },
+      {
+       "id": "lb7",
+       "lookback": "aqid.u2.l3#c1"
+      },
+      {
+       "id": "lb8",
+       "lookback": "aqid.u3.l1#c1"
+      },
+      {
+       "id": "c1",
+       "type": "mcq",
+       "q": "Which pillar did the hadith of Jibril name last?",
+       "options": [
+        {
+         "text": "The decree (qadar)"
+        },
+        {
+         "text": "The Last Day",
+         "reteach": "The Last Day was fifth.",
+         "back": "iman"
+        },
+        {
+         "text": "His angels",
+         "reteach": "The angels were second.",
+         "back": "iman"
+        }
+       ],
+       "answer": 0,
+       "explain": "Decree was the sixth."
+      },
+      {
+       "id": "c2",
+       "type": "mcq",
+       "q": "What is ihsan?",
+       "options": [
+        {
+         "text": "To give charity",
+         "reteach": "That is part of good, but ihsan is the level of worship.",
+         "back": "ihsan"
+        },
+        {
+         "text": "To pray five times",
+         "reteach": "Prayer is a pillar of Islam. Ihsan is how you worship.",
+         "back": "ihsan"
+        },
+        {
+         "text": "To worship Allah as if you see Him"
+        }
+       ],
+       "answer": 2,
+       "explain": "Ihsan: worship as if you see Him, and if you do not, He sees you."
+      }
+     ],
+     "title": "Check yourself"
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Read the end of Al-Hashr",
+     "body": "Open Surah Al-Hashr and read the last ayat, which list many of the names of Allah, with the meaning under them.",
+     "route": "/quran/59",
+     "button": "Open Surah 59"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "canDo": [
+      "Say the six pillars of faith in order",
+      "Say ihsan in your own words",
+      "State your creed in six short lines",
+      "Say how to keep your faith alive after the course"
+     ],
+     "next": "Next: Understanding the Qur’an. It is time to look at the book itself."
+    }
+   ]
+  }
+ ]
+}

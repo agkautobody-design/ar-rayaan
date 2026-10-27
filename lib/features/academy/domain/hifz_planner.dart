@@ -22,6 +22,19 @@ const List<int> kAyahCounts = <int>[
 int ayatInSurah(int surah) =>
     surah >= 1 && surah <= kAyahCounts.length ? kAyahCounts[surah - 1] : 0;
 
+/// Juz Amma, the 30th part, is surahs 78 (An-Naba) to 114 (An-Nas).
+const int kJuzAmmaFirstSurah = 78;
+const int kJuzAmmaLastSurah = 114;
+
+/// Ayat in all of Juz Amma (564).
+int juzAmmaAyat() {
+  int total = 0;
+  for (int s = kJuzAmmaFirstSurah; s <= kJuzAmmaLastSurah; s++) {
+    total += ayatInSurah(s);
+  }
+  return total;
+}
+
 class HifzPlan {
   const HifzPlan({
     required this.targetSurah,

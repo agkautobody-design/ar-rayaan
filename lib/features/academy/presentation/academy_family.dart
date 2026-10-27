@@ -486,7 +486,7 @@ class _ExamScreenState extends ConsumerState<ExamScreen> {
             children: [
               ScreenHeader(title: exam['title'] as String? ?? 'Exam', close: true),
               const ActiveChildBanner(),
-              Text('QUESTION ${_i + 1} OF ${qs.length} \u00b7 SCORE $_score',
+              Text('QUESTION ${_i + 1} OF ${qs.length}',
                   style: AppText.eyebrow),
               const SizedBox(height: 12),
               GlassCard(
@@ -504,8 +504,8 @@ class _ExamScreenState extends ConsumerState<ExamScreen> {
                       padding: const EdgeInsets.symmetric(vertical: 6),
                       child: Text(options[o],
                           textAlign: TextAlign.center,
-                          style: const TextStyle(fontFamily: 'Amiri', fontSize: 30,
-                              color: Color(0xFFEAD9A8))),
+                          // Arabic options in Amiri; English ones in the body face.
+                          style: quizOptionStyle(options[o])),
                     ),
                   ),
                 ),

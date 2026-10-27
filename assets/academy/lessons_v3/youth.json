@@ -1,0 +1,3744 @@
+{
+ "schema": 3,
+ "course": "youth",
+ "lessons": [
+  {
+   "id": "yth.u1.l1",
+   "title": "The honor you were born with",
+   "minutes": 14,
+   "intro": "What Allah says about your worth, and what to do when the world tells you otherwise.",
+   "steps": [
+    {
+     "id": "hook",
+     "kind": "teach",
+     "title": "Who decides what you are worth?",
+     "body": [
+      "Likes, grades, sizes, followers: all day, something is telling you what you are worth. Most of it changes every week.",
+      "In this lesson you will hear what Allah says about your worth, a worth you were given before you did anything. You will read two ayat, one hadith, and finish with a short thing to say when you feel small."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "honor",
+     "kind": "say",
+     "title": "Honoured by Allah",
+     "refs": [
+      "q:17:70"
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 17:70",
+     "note": "Allah says He honoured the children of Adam, carried them on land and sea, provided good things for them, and preferred them over much of His creation. This is said about all people, not only about the good ones."
+    },
+    {
+     "id": "hear",
+     "kind": "listen",
+     "title": "Hear the ayah",
+     "ref": "q:17:70",
+     "repeats": 2,
+     "note": "Listen, then say it after the reciter in the pause."
+    },
+    {
+     "id": "stature",
+     "kind": "teach",
+     "title": "The best of stature",
+     "body": [
+      "Allah swears that He created the human being in the best of stature (95:4). Elsewhere He tells the angels that when He had shaped Adam and breathed into him of His created soul, they were to prostrate to him (15:29).",
+      "Scholars explain that this honour is part of how people were made: the mind, the ability to speak, to choose, and to know their Lord. You did not earn it, and you cannot lose it by failing an exam."
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 95:4; Qur'an 15:29",
+     "quran": "q:95:4"
+    },
+    {
+     "id": "two",
+     "kind": "contrast",
+     "title": "Two kinds of honour",
+     "intro": "Scholars often separate the honour that comes with being human from the honour of nearness to Allah. The sentence below is a way of explaining the two ayat, not a quotation.",
+     "agree": "Everyone is honoured, and nearness to Allah is a matter of the heart.",
+     "rows": [
+      {
+       "name": "The honour you are born with",
+       "text": "Every human being is honoured by Allah in how they were made (17:70). Nobody can take it away, and no one has more of it than another."
+      },
+      {
+       "name": "The honour you can grow",
+       "text": "The ayah of 49:13 says the most honourable in the sight of Allah is the most conscious of Him. This one is about taqwa, and it can grow or fade."
+      },
+      {
+       "name": "What does not count",
+       "text": "Looks, wealth, tribe and followers. Muslim 2564 says Allah does not look at your faces and wealth, but at your hearts and deeds."
+      }
+     ],
+     "closing": "Start from your honour; grow your nearness.",
+     "label": "[Interpretive]",
+     "source": "Qur'an 17:70; Qur'an 49:13; Muslim 2564",
+     "review": "The two-kinds-of-honour framing is a teaching summary, not a classical quotation. Please confirm the wording."
+    },
+    {
+     "id": "noble",
+     "kind": "say",
+     "title": "The most noble of you",
+     "refs": [
+      "q:49:13"
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 49:13",
+     "note": "Allah made people into peoples and tribes so that they would know one another. The most noble in His sight is the most righteous. Not the richest, the tallest or the most popular."
+    },
+    {
+     "id": "heart",
+     "kind": "teach",
+     "title": "What Allah looks at",
+     "body": [
+      "Abu Huraira reported that the Messenger of Allah ﷺ said: Allah does not look at your faces and your wealth, but He looks at your hearts and your deeds (Muslim 2564).",
+      "A like count looks at your face. This hadith says Allah looks at something a camera cannot see."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 2564"
+    },
+    {
+     "id": "small",
+     "kind": "howto",
+     "title": "When you feel small",
+     "intro": "This is a short routine to say it to yourself, quietly, when the feed or the room makes you feel less.",
+     "steps": [
+      {
+       "text": "Stop and breathe.",
+       "detail": "Feeling small is a feeling. It is not a verdict."
+      },
+      {
+       "text": "Say what you know.",
+       "detail": "Allah honoured the children of Adam (17:70). That includes me."
+      },
+      {
+       "text": "Ask: what is Allah looking at?",
+       "detail": "My heart and my deeds (Muslim 2564). What is one small good deed I can do now?"
+      },
+      {
+       "text": "Do it.",
+       "detail": "Pray, call someone, give something, help someone."
+      },
+      {
+       "text": "Leave the comparison.",
+       "detail": "It is a number, and it changes."
+      }
+     ],
+     "mistakes": [
+      "Fixing your worth to a number.",
+      "Hiding it and telling nobody.",
+      "Thinking honour means you cannot make mistakes."
+     ],
+     "label": "[Reflection]",
+     "source": "Qur'an 17:70; Muslim 2564"
+    },
+    {
+     "id": "c1",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1a",
+       "q": "Who gives a person their basic honour, according to 17:70?",
+       "options": [
+        {
+         "text": "Allah"
+        },
+        {
+         "text": "Their grades",
+         "reteach": "No. 17:70 says Allah honoured the children of Adam.",
+         "back": "honor"
+        },
+        {
+         "text": "Their followers",
+         "reteach": "No. The honour is from Allah, before any of these.",
+         "back": "honor"
+        }
+       ],
+       "answer": 0,
+       "explain": "Qur’an 17:70.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1b",
+       "q": "What does 95:4 say Allah created the human being in?",
+       "options": [
+        {
+         "text": "A weak form",
+         "reteach": "No. 95:4 says the best of stature.",
+         "back": "stature"
+        },
+        {
+         "text": "A hidden form",
+         "reteach": "No. The ayah says the best of stature.",
+         "back": "stature"
+        },
+        {
+         "text": "The best of stature"
+        }
+       ],
+       "answer": 2,
+       "explain": "Qur’an 95:4.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1c",
+       "q": "According to 49:13, who is the most noble in the sight of Allah?",
+       "options": [
+        {
+         "text": "The most righteous"
+        },
+        {
+         "text": "The one from the largest tribe",
+         "reteach": "No. 49:13 says the most righteous.",
+         "back": "noble"
+        },
+        {
+         "text": "The richest",
+         "reteach": "No. It says the most righteous.",
+         "back": "noble"
+        }
+       ],
+       "answer": 0,
+       "explain": "Qur’an 49:13.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1d",
+       "q": "What is the best response?",
+       "options": [
+        {
+         "text": "Remember that Allah looks at the heart and deeds, then do one good deed"
+        },
+        {
+         "text": "Delete the app forever tonight",
+         "reteach": "A big reaction is not what the hadith says. It names hearts and deeds.",
+         "back": "heart"
+        },
+        {
+         "text": "Post something to get more likes",
+         "reteach": "That chases the number again.",
+         "back": "heart"
+        }
+       ],
+       "answer": 0,
+       "explain": "Muslim 2564.",
+       "type": "scenario",
+       "scenario": "Sara posted a photo and it got few likes. She feels worthless."
+      }
+     ]
+    },
+    {
+     "id": "steps",
+     "kind": "arrange",
+     "prompt": "Put the routine for feeling small in order.",
+     "items": [
+      {
+       "text": "Stop and breathe",
+       "why": "First, slow down.",
+       "back": "small"
+      },
+      {
+       "text": "Say what you know about your honour",
+       "why": "17:70 is the reminder.",
+       "back": "honor"
+      },
+      {
+       "text": "Ask what Allah is looking at",
+       "why": "Hearts and deeds.",
+       "back": "heart"
+      },
+      {
+       "text": "Do one small good deed",
+       "why": "Act on it.",
+       "back": "small"
+      },
+      {
+       "text": "Leave the comparison",
+       "why": "Let it go.",
+       "back": "small"
+      }
+     ],
+     "explain": "Breathe, remember your honour, ask what Allah looks at, do a good deed, and leave the comparison."
+    },
+    {
+     "id": "mm",
+     "kind": "match",
+     "prompt": "Match each text to what it teaches. Tap one on the left, then its meaning on the right.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Qur’an 17:70"
+       },
+       "right": {
+        "text": "Allah honoured the children of Adam"
+       },
+       "why": "It is the ayah of the born-with honour.",
+       "back": "honor"
+      },
+      {
+       "left": {
+        "text": "Qur’an 95:4"
+       },
+       "right": {
+        "text": "Created in the best of stature"
+       },
+       "why": "It speaks of how we were made.",
+       "back": "stature"
+      },
+      {
+       "left": {
+        "text": "Qur’an 49:13"
+       },
+       "right": {
+        "text": "The most noble is the most righteous"
+       },
+       "why": "It is the honour you can grow.",
+       "back": "noble"
+      },
+      {
+       "left": {
+        "text": "Muslim 2564"
+       },
+       "right": {
+        "text": "Allah looks at hearts and deeds"
+       },
+       "why": "It is the hadith about not judging by faces and wealth.",
+       "back": "heart"
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c2a",
+       "q": "Which of these is honour you are born with?",
+       "options": [
+        {
+         "text": "The honour of a high score",
+         "reteach": "A score can change. The honour in 17:70 is from Allah.",
+         "back": "two"
+        },
+        {
+         "text": "The honour of being a human being, given by Allah"
+        },
+        {
+         "text": "The honour of a famous family",
+         "reteach": "No. 49:13 says it is not about tribe.",
+         "back": "two"
+        }
+       ],
+       "answer": 1,
+       "explain": "Qur’an 17:70.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2b",
+       "q": "What can you do to grow the honour of 49:13?",
+       "options": [
+        {
+         "text": "Get more followers",
+         "reteach": "No. It is the most righteous.",
+         "back": "two"
+        },
+        {
+         "text": "Grow in taqwa, being conscious of Allah"
+        },
+        {
+         "text": "Hide your faults",
+         "reteach": "No. It is about righteousness.",
+         "back": "noble"
+        }
+       ],
+       "answer": 1,
+       "explain": "Taqwa.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2c",
+       "q": "A hadith says Allah does not look at which two things?",
+       "options": [
+        {
+         "text": "Your prayers and your fasting",
+         "reteach": "No. He looks at your hearts and deeds.",
+         "back": "heart"
+        },
+        {
+         "text": "Your faces and your wealth"
+        },
+        {
+         "text": "Your hearts and your deeds",
+         "reteach": "These are what He does look at.",
+         "back": "heart"
+        }
+       ],
+       "answer": 1,
+       "explain": "Muslim 2564.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2d",
+       "q": "The lesson says the two-kinds-of-honour framing is...",
+       "options": [
+        {
+         "text": "A teaching summary, not a classical quotation"
+        },
+        {
+         "text": "A hadith",
+         "reteach": "It is not a hadith. It is a summary of the two ayat.",
+         "back": "two"
+        },
+        {
+         "text": "A ruling",
+         "reteach": "It is not a ruling.",
+         "back": "two"
+        }
+       ],
+       "answer": 0,
+       "explain": "Flagged for scholar review.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Read the ayah",
+     "body": "Open Surah Al-Isra and read ayah 70. Then write one honest sentence: Allah honoured me, and one good deed I can do today is...",
+     "route": "/quran/17",
+     "button": "Open Surah Al-Isra"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Say who gave you your first honour, and name the ayah.",
+      "Say what 49:13 says about being noble.",
+      "Say what Allah looks at, according to Muslim 2564.",
+      "Use the routine for feeling small."
+     ],
+     "next": "Next: Chosen, Adam’s answer."
+    }
+   ]
+  },
+  {
+   "id": "yth.u1.l2",
+   "title": "Chosen — Adam’s answer",
+   "minutes": 15,
+   "intro": "The story of the angels’ question, what Adam was taught, and the way back when you slip.",
+   "steps": [
+    {
+     "id": "hook",
+     "kind": "teach",
+     "title": "Before you, there was a question",
+     "body": [
+      "When Allah announced that He would place a successor on earth, the angels asked a hard question. The answer to that question is part of who you are.",
+      "This lesson follows the story of Adam in the Qur’an: the question of the angels, what Allah taught Adam, and what happened when he slipped. It ends with something practical for the days when you slip too."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "khalifa",
+     "kind": "say",
+     "title": "The question of the angels",
+     "refs": [
+      "q:2:30"
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 2:30",
+     "note": "Allah said He would make a successor on the earth. The angels asked whether He would place on it one who causes corruption and sheds blood, while they declare His praise. Allah answered: I know that which you do not know."
+    },
+    {
+     "id": "hear",
+     "kind": "listen",
+     "title": "Hear the ayah",
+     "ref": "q:2:30",
+     "repeats": 2,
+     "note": "Listen to how the question and the answer are recited."
+    },
+    {
+     "id": "names",
+     "kind": "teach",
+     "title": "What Adam was taught",
+     "body": [
+      "Allah taught Adam the names, all of them. He showed them to the angels and asked them to tell Him the names. They said that they had no knowledge except what He taught them. Then Adam told them the names (2:31-33).",
+      "The scholars understand this as knowledge being part of what makes people able to carry responsibility on earth. You are not on earth by accident, and your mind is not a small thing."
+     ],
+     "label": "[Interpretive]",
+     "source": "Qur'an 2:31-33",
+     "review": "The explanation that the names show knowledge as the basis of the human role is a common tafsir summary; please confirm the attribution."
+    },
+    {
+     "id": "slip",
+     "kind": "say",
+     "title": "Adam slips and returns",
+     "refs": [
+      "q:7:23"
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 7:23; Qur'an 2:37",
+     "note": "After Adam and his wife ate from the tree they had been told to avoid, they said: our Lord, we have wronged ourselves, and if You do not forgive us and have mercy on us, we will surely be among the losers. Allah accepted their repentance (2:37)."
+    },
+    {
+     "id": "accept",
+     "kind": "teach",
+     "title": "Allah accepted him",
+     "body": [
+      "The Qur’an says that Adam received words from his Lord, and Allah accepted his repentance, for He is the one who accepts repentance, the Merciful (2:37).",
+      "Notice what the Qur’an does not say. It does not say that Adam stayed in shame. The first human being made a mistake and came back, and that return is part of the story we were given. We are told it so that we know that coming back is open to us as well."
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 2:37",
+     "quran": "q:2:37"
+    },
+    {
+     "id": "hope",
+     "kind": "say",
+     "title": "Do not despair",
+     "refs": [
+      "q:39:53"
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 39:53",
+     "note": "Allah calls to those who have wronged themselves: do not despair of the mercy of Allah. Allah forgives all sins. He is the Forgiving, the Merciful."
+    },
+    {
+     "id": "answer",
+     "kind": "contrast",
+     "title": "The question and the answer",
+     "intro": "The legacy lesson said your purpose is what the angels could not see. This is a short reading of the ayah, not a quote.",
+     "agree": "Everyone agrees that the ayah gives people a role as successors on the earth.",
+     "rows": [
+      {
+       "name": "The question of the angels",
+       "text": "Will you place one who causes corruption and sheds blood? A fair worry: people can do harm."
+      },
+      {
+       "name": "Allah’s answer",
+       "text": "I know that which you do not know. People can do harm, and people can also do great good, learn, repent, and return."
+      },
+      {
+       "name": "For you",
+       "text": "You are not defined by your worst day. You were created with a purpose, and you can return when you slip."
+      }
+     ],
+     "closing": "Carry the role and come back when you fall.",
+     "label": "[Interpretive]",
+     "source": "Qur'an 2:30",
+     "review": "The reading of Allah’s answer as a hopeful reply is a common reflection, not a specific tafsir citation. Please confirm."
+    },
+    {
+     "id": "return",
+     "kind": "howto",
+     "title": "When you slip: a way back",
+     "intro": "This follows the example of Adam and the call of 39:53.",
+     "steps": [
+      {
+       "text": "Stop and admit it, to Allah.",
+       "detail": "Adam said: we have wronged ourselves (7:23)."
+      },
+      {
+       "text": "Ask for forgiveness.",
+       "detail": "Say the words of Adam in 7:23, or simply ask in your own language."
+      },
+      {
+       "text": "Do not despair.",
+       "detail": "Allah forgives all sins (39:53)."
+      },
+      {
+       "text": "Put right what you can.",
+       "detail": "Apologise, return what is owed, change what led to it."
+      },
+      {
+       "text": "Decide your next step.",
+       "detail": "Pray the next prayer on time. A small good step is enough."
+      }
+     ],
+     "mistakes": [
+      "Staying away from prayer out of shame.",
+      "Telling yourself it is too late.",
+      "Repeating the sin and calling it fate."
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 7:23; Qur'an 39:53"
+    },
+    {
+     "id": "c1",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1a",
+       "q": "What did Allah answer the angels in 2:30?",
+       "options": [
+        {
+         "text": "I know that which you do not know"
+        },
+        {
+         "text": "You are right, they will fail",
+         "reteach": "No. He said I know that which you do not know.",
+         "back": "khalifa"
+        },
+        {
+         "text": "Do not ask",
+         "reteach": "No. He answered with I know that which you do not know.",
+         "back": "khalifa"
+        }
+       ],
+       "answer": 0,
+       "explain": "Qur’an 2:30.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1b",
+       "q": "What did Adam and his wife say after they slipped?",
+       "options": [
+        {
+         "text": "It was not our fault",
+         "reteach": "No. They said we have wronged ourselves (7:23).",
+         "back": "slip"
+        },
+        {
+         "text": "We will leave the garden",
+         "reteach": "The ayah has them asking for forgiveness.",
+         "back": "slip"
+        },
+        {
+         "text": "Our Lord, we have wronged ourselves"
+        }
+       ],
+       "answer": 2,
+       "explain": "Qur’an 7:23.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1c",
+       "q": "What does 39:53 tell people who have wronged themselves?",
+       "options": [
+        {
+         "text": "Do not despair of the mercy of Allah"
+        },
+        {
+         "text": "Hide it from everyone",
+         "reteach": "No. It tells them not to despair of Allah’s mercy.",
+         "back": "hope"
+        },
+        {
+         "text": "Wait until you are old",
+         "reteach": "No. It calls them now.",
+         "back": "hope"
+        }
+       ],
+       "answer": 0,
+       "explain": "Qur’an 39:53.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1d",
+       "q": "What is the right step?",
+       "options": [
+        {
+         "text": "Ask Allah for forgiveness, put right what you can, and pray the next prayer on time"
+        },
+        {
+         "text": "Skip prayer until he feels clean",
+         "reteach": "This is the opposite. Return, do not stay away.",
+         "back": "return"
+        },
+        {
+         "text": "Tell himself it does not matter",
+         "reteach": "It matters, and so does mercy.",
+         "back": "return"
+        }
+       ],
+       "answer": 0,
+       "explain": "The way back.",
+       "type": "scenario",
+       "scenario": "Bilal slipped badly last night. He feels ashamed and wants to skip the next prayer."
+      }
+     ]
+    },
+    {
+     "id": "story",
+     "kind": "arrange",
+     "prompt": "Put the events in the order the Qur’an tells them.",
+     "items": [
+      {
+       "text": "Allah announces a successor on the earth",
+       "why": "The story starts with the announcement (2:30).",
+       "back": "khalifa"
+      },
+      {
+       "text": "The angels ask their question",
+       "why": "They ask about corruption and bloodshed.",
+       "back": "khalifa"
+      },
+      {
+       "text": "Allah teaches Adam the names",
+       "why": "He shows them to the angels.",
+       "back": "names"
+      },
+      {
+       "text": "Adam slips and says: we have wronged ourselves",
+       "why": "This is 7:23.",
+       "back": "slip"
+      },
+      {
+       "text": "Allah accepts his repentance",
+       "why": "This is 2:37.",
+       "back": "accept"
+      }
+     ],
+     "explain": "Announcement, question, names, slip, repentance accepted."
+    },
+    {
+     "id": "mm",
+     "kind": "match",
+     "prompt": "Match each text to its message. Tap one on the left, then its meaning on the right.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Qur’an 2:30"
+       },
+       "right": {
+        "text": "A successor on earth, and a question"
+       },
+       "why": "It is the start of the story.",
+       "back": "khalifa"
+      },
+      {
+       "left": {
+        "text": "Qur’an 2:31-33"
+       },
+       "right": {
+        "text": "Adam taught the names"
+       },
+       "why": "It shows knowledge.",
+       "back": "names"
+      },
+      {
+       "left": {
+        "text": "Qur’an 7:23"
+       },
+       "right": {
+        "text": "The words of Adam asking forgiveness"
+       },
+       "why": "You can say them.",
+       "back": "slip"
+      },
+      {
+       "left": {
+        "text": "Qur’an 39:53"
+       },
+       "right": {
+        "text": "Do not despair of mercy"
+       },
+       "why": "It is a call to those who sinned.",
+       "back": "hope"
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c2a",
+       "q": "What does 2:37 say Allah did for Adam?",
+       "options": [
+        {
+         "text": "He sent him away with no hope",
+         "reteach": "No. He accepted his repentance.",
+         "back": "accept"
+        },
+        {
+         "text": "He accepted his repentance"
+        },
+        {
+         "text": "He ignored him",
+         "reteach": "No. He accepted it.",
+         "back": "accept"
+        }
+       ],
+       "answer": 1,
+       "explain": "Qur’an 2:37.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2b",
+       "q": "What did the angels say they knew?",
+       "options": [
+        {
+         "text": "Everything",
+         "reteach": "No. They said they had no knowledge except what He taught them (2:32).",
+         "back": "names"
+        },
+        {
+         "text": "Only what Allah taught them"
+        },
+        {
+         "text": "Nothing at all",
+         "reteach": "They said they had no knowledge except what He taught them.",
+         "back": "names"
+        }
+       ],
+       "answer": 1,
+       "explain": "Qur’an 2:32.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2c",
+       "q": "The lesson says the reading of the answer as hopeful is...",
+       "options": [
+        {
+         "text": "A hadith",
+         "reteach": "It is not a hadith.",
+         "back": "answer"
+        },
+        {
+         "text": "A common reflection, flagged for scholar review"
+        },
+        {
+         "text": "A proof of a ruling",
+         "reteach": "It is a reflection, not a ruling.",
+         "back": "answer"
+        }
+       ],
+       "answer": 1,
+       "explain": "Interpretive.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2d",
+       "q": "What is a good thing to say to a friend who thinks it is too late?",
+       "options": [
+        {
+         "text": "Allah forgives all sins; do not despair of His mercy"
+        },
+        {
+         "text": "You are right, it is too late",
+         "reteach": "No. 39:53 says do not despair.",
+         "back": "hope"
+        },
+        {
+         "text": "Just stop thinking about it",
+         "reteach": "Return to Allah rather than ignoring it.",
+         "back": "return"
+        }
+       ],
+       "answer": 0,
+       "explain": "Qur’an 39:53.",
+       "type": "scenario",
+       "scenario": "A friend says he has sinned too much and it is too late to return."
+      }
+     ]
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Read the story",
+     "body": "Open Surah Al-Baqarah and read ayat 30 to 37, or Al-A’raf 23. Then name one thing you can do that could serve others.",
+     "route": "/quran/2",
+     "button": "Open Surah Al-Baqarah"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Retell the question of the angels and Allah’s answer.",
+      "Say what Adam said after he slipped.",
+      "Say what 39:53 tells people who have sinned.",
+      "Give the steps of a way back."
+     ],
+     "next": "Next: Carrying the faith forward."
+    }
+   ]
+  },
+  {
+   "id": "yth.u1.l3",
+   "title": "Carrying the faith forward",
+   "minutes": 14,
+   "intro": "What the Prophet ﷺ said about the generations, about those who come later, and about passing on what you know.",
+   "steps": [
+    {
+     "id": "hook",
+     "kind": "teach",
+     "title": "Born too late?",
+     "body": [
+      "Some people feel the best days of Islam are over: the Prophet ﷺ and his companions were the real thing, and we are just what is left. Others feel the opposite, that they are the generation that will fix everything.",
+      "This lesson looks at what the Prophet ﷺ actually said about the generations, the one hadith about those who come later, and what you are asked to carry."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "best",
+     "kind": "teach",
+     "title": "What he said about the generations",
+     "body": [
+      "Abdullah reported that the Prophet ﷺ said: the people of my generation are the best, then those who follow them, then those who follow the latter (Bukhari 2652).",
+      "So the hadith does not say that we are the best generation. It says the first ones were. That is not a reason to give up. It is a reason to learn from them, to study how they lived, and to ask Allah to make us follow them."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 2652"
+    },
+    {
+     "id": "brothers",
+     "kind": "story",
+     "title": "My brothers who have not come yet",
+     "body": [
+      "Abu Huraira reported that the Messenger of Allah ﷺ went to the graveyard and said: peace be upon you, abode of the believers. He added that he would love to see his brothers. The Companions asked: are we not your brothers? He said: you are my companions; our brothers are those who have not yet come into the world.",
+      "Think about that. The Prophet ﷺ spoke of people who would believe in him without having seen him, and called them his brothers. That includes believers today."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 249"
+    },
+    {
+     "id": "strange",
+     "kind": "teach",
+     "title": "Strange, and glad tidings",
+     "body": [
+      "Abu Huraira reported that the Prophet ﷺ said: Islam began as something strange and it will return to being strange, so glad tidings for the strangers (Muslim 145).",
+      "Some people hear this and feel alone. Read it again: it ends with glad tidings. If holding to your faith feels unusual at your school or your work, this hadith tells you it has happened before, and that the ones who hold on are praised."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 145"
+    },
+    {
+     "id": "convey",
+     "kind": "teach",
+     "title": "Your job: convey",
+     "body": [
+      "Abdullah ibn Amr reported that the Prophet ﷺ said: convey from me even if it is a single sentence (Bukhari 3461).",
+      "You do not need to be a scholar to pass on a good thing you truly know. You do need to be careful: pass on only what you know to be true, and say when you do not know."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 3461"
+    },
+    {
+     "id": "youths",
+     "kind": "say",
+     "title": "Youths who believed",
+     "refs": [
+      "q:18:13"
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 18:13",
+     "note": "Allah tells the story of the People of the Cave: they were youths who believed in their Lord, and He increased them in guidance. It is one of the first stories the Qur’an tells about young people holding to their faith."
+    },
+    {
+     "id": "ibrahim",
+     "kind": "say",
+     "title": "A young man called Ibrahim",
+     "refs": [
+      "q:21:60"
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 21:60",
+     "note": "When Ibrahim spoke against the idols, the people said: we heard a young man mention them, who is called Ibrahim. The Qur’an remembers him as a young man who spoke up."
+    },
+    {
+     "id": "carry",
+     "kind": "howto",
+     "title": "One sunnah to practise this week",
+     "intro": "You do not need to do all. Choose one and keep it.",
+     "steps": [
+      {
+       "text": "Choose one sunnah.",
+       "detail": "Something small and clear: saying Bismillah, greeting with salam, sitting to eat, sleeping on your right side."
+      },
+      {
+       "text": "Learn it properly.",
+       "detail": "Find the hadith. Ask your teacher if you are not sure."
+      },
+      {
+       "text": "Do it without making a show.",
+       "detail": "You are not on a stage."
+      },
+      {
+       "text": "If someone asks, answer simply.",
+       "detail": "This is how you convey a single sentence."
+      },
+      {
+       "text": "Keep it for a week.",
+       "detail": "Then add another."
+      }
+     ],
+     "mistakes": [
+      "Doing it to impress.",
+      "Lecturing your friends.",
+      "Passing on something you are not sure of."
+     ],
+     "label": "[Reflection]",
+     "source": "Bukhari 3461"
+    },
+    {
+     "id": "c1",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1a",
+       "q": "What does Bukhari 2652 say about the generations?",
+       "options": [
+        {
+         "text": "The people of his generation are the best, then those who follow them, then those who follow the latter"
+        },
+        {
+         "text": "The last generation is the best",
+         "reteach": "No. The hadith names the first generations as best.",
+         "back": "best"
+        },
+        {
+         "text": "All generations are the same",
+         "reteach": "No. The hadith ranks them.",
+         "back": "best"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 2652.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1b",
+       "q": "What did the Prophet ﷺ call the believers who would come after him?",
+       "options": [
+        {
+         "text": "His companions",
+         "reteach": "No. He said: you are my companions, and our brothers are those who have not yet come.",
+         "back": "brothers"
+        },
+        {
+         "text": "His followers only",
+         "reteach": "He used the word brothers.",
+         "back": "brothers"
+        },
+        {
+         "text": "His brothers"
+        }
+       ],
+       "answer": 2,
+       "explain": "Muslim 249.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1c",
+       "q": "What does Muslim 145 say about the strangers?",
+       "options": [
+        {
+         "text": "Glad tidings for them"
+        },
+        {
+         "text": "They will be forgotten",
+         "reteach": "No. It says glad tidings for the strangers.",
+         "back": "strange"
+        },
+        {
+         "text": "They should hide",
+         "reteach": "No. The hadith praises them.",
+         "back": "strange"
+        }
+       ],
+       "answer": 0,
+       "explain": "Muslim 145.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1d",
+       "q": "A friend at school asks why you do not eat before saying Bismillah. What is a good answer?",
+       "options": [
+        {
+         "text": "Answer simply and kindly, and only share what you know to be true"
+        },
+        {
+         "text": "Lecture him about it for an hour",
+         "reteach": "The hadith says to convey, not to lecture.",
+         "back": "convey"
+        },
+        {
+         "text": "Make up an answer so you do not look unsure",
+         "reteach": "Do not say what you do not know. Say you will check.",
+         "back": "convey"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 3461.",
+       "type": "scenario",
+       "scenario": "A classmate notices you say Bismillah and asks why."
+      }
+     ]
+    },
+    {
+     "id": "chain",
+     "kind": "arrange",
+     "prompt": "Put these in order, from the first to the later.",
+     "items": [
+      {
+       "text": "The Prophet ﷺ and his generation",
+       "why": "The first generation.",
+       "back": "best"
+      },
+      {
+       "text": "The generation that follows them",
+       "why": "The second.",
+       "back": "best"
+      },
+      {
+       "text": "The generation that follows them",
+       "why": "The third.",
+       "back": "best"
+      },
+      {
+       "text": "Believers who come later, including today",
+       "why": "The Prophet ﷺ called them his brothers (Muslim 249).",
+       "back": "brothers"
+      }
+     ],
+     "explain": "The order of Bukhari 2652, and then the later believers of Muslim 249."
+    },
+    {
+     "id": "mm",
+     "kind": "match",
+     "prompt": "Match each text to its meaning. Tap one on the left, then its meaning on the right.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Bukhari 2652"
+       },
+       "right": {
+        "text": "The first generations are the best"
+       },
+       "why": "It ranks the early generations.",
+       "back": "best"
+      },
+      {
+       "left": {
+        "text": "Muslim 249"
+       },
+       "right": {
+        "text": "Believers who come later are his brothers"
+       },
+       "why": "It comforts those who never saw him.",
+       "back": "brothers"
+      },
+      {
+       "left": {
+        "text": "Muslim 145"
+       },
+       "right": {
+        "text": "Glad tidings for the strangers"
+       },
+       "why": "It is for those who hold on when it feels unusual.",
+       "back": "strange"
+      },
+      {
+       "left": {
+        "text": "Bukhari 3461"
+       },
+       "right": {
+        "text": "Convey even one sentence"
+       },
+       "why": "It is your job to pass on what you know.",
+       "back": "convey"
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c2a",
+       "q": "Why is it wrong to say the hadith calls our generation the best?",
+       "options": [
+        {
+         "text": "Because it does not mention generations",
+         "reteach": "It does mention them.",
+         "back": "best"
+        },
+        {
+         "text": "Because Bukhari 2652 names the early generations as best"
+        },
+        {
+         "text": "Because only the Prophet ﷺ was the best",
+         "reteach": "The hadith speaks about generations.",
+         "back": "best"
+        }
+       ],
+       "answer": 1,
+       "explain": "Learn from them.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2b",
+       "q": "Who were the People of the Cave, according to 18:13?",
+       "options": [
+        {
+         "text": "Old men",
+         "reteach": "No. The ayah says youths.",
+         "back": "youths"
+        },
+        {
+         "text": "Youths who believed in their Lord"
+        },
+        {
+         "text": "Kings",
+         "reteach": "No. They were youths.",
+         "back": "youths"
+        }
+       ],
+       "answer": 1,
+       "explain": "Qur’an 18:13.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2c",
+       "q": "What does the lesson ask you to be careful about when you convey?",
+       "options": [
+        {
+         "text": "To pass on everything you hear",
+         "reteach": "No. Pass on what you know to be true.",
+         "back": "convey"
+        },
+        {
+         "text": "To pass on only what you know to be true, and to say when you do not know"
+        },
+        {
+         "text": "To keep quiet always",
+         "reteach": "The hadith says to convey.",
+         "back": "convey"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 3461.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2d",
+       "q": "What is the right feeling for a believer who holds on when it feels unusual?",
+       "options": [
+        {
+         "text": "Hope, because the hadith ends with glad tidings"
+        },
+        {
+         "text": "Shame",
+         "reteach": "No. Muslim 145 says glad tidings.",
+         "back": "strange"
+        },
+        {
+         "text": "Pride in being better",
+         "reteach": "It is hope, not pride.",
+         "back": "strange"
+        }
+       ],
+       "answer": 0,
+       "explain": "Muslim 145.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Read the youths of the cave",
+     "body": "Open Surah Al-Kahf and read ayat 9 to 16. It tells how young people held to their faith.",
+     "route": "/quran/18",
+     "button": "Open Surah Al-Kahf"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Say what Bukhari 2652 says and what it does not say.",
+      "Say whom the Prophet ﷺ called his brothers.",
+      "Say what Muslim 145 tells the strangers.",
+      "Name one sunnah you will practise this week."
+     ],
+     "next": "Next: The scroll that eats the hour."
+    }
+   ]
+  },
+  {
+   "id": "yth.u2.l1",
+   "title": "The scroll that eats the hour",
+   "minutes": 14,
+   "intro": "Time as a blessing, what Surah Al-Asr teaches, and one small limit you can keep.",
+   "steps": [
+    {
+     "id": "hook",
+     "kind": "teach",
+     "title": "Where did the hour go?",
+     "body": [
+      "You pick up the phone for a minute. Then it is an hour. Nothing bad happened, and nothing good did either. Most of us know this feeling.",
+      "This lesson is about time. You will read the short surah about time, a hadith about a blessing most people lose, and plan one small limit that you can keep. It is about your phone, but it applies to any screen."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "asr",
+     "kind": "say",
+     "title": "By time",
+     "refs": [
+      "q:103:1",
+      "q:103:2",
+      "q:103:3"
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 103:1-3",
+     "note": "Allah swears by time, and says that mankind is in loss, except those who believe, do righteous deeds, and advise each other to truth and to patience. Time is the field of this loss, and the way out is faith, good deeds, and good company."
+    },
+    {
+     "id": "hear",
+     "kind": "listen",
+     "title": "Hear Surah Al-Asr",
+     "ref": "q:103:3",
+     "repeats": 2,
+     "note": "Listen to the last ayah. Notice the words for truth and patience."
+    },
+    {
+     "id": "free",
+     "kind": "teach",
+     "title": "The blessing most people lose",
+     "body": [
+      "Ibn Abbas reported that the Prophet ﷺ said: there are two blessings that many people lose by being careless with them: health and free time (Bukhari 6412).",
+      "Free time is a blessing from Allah. The scroll does not announce that it is taking it. It just takes a minute, and then another."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 6412"
+    },
+    {
+     "id": "distract",
+     "kind": "teach",
+     "title": "What distracts from remembrance",
+     "body": [
+      "Allah says: do not let your wealth and your children distract you from the remembrance of Allah; whoever does that, they are the losers (63:9). The ayah names wealth and children, which are good things. A good thing can still push out remembrance when it takes too much of you.",
+      "A phone is not named in the ayah. The lesson applies the idea: when anything, even a good thing, pushes out remembrance and prayer, it is time to put it back in its place."
+     ],
+     "label": "[Interpretive]",
+     "source": "Qur'an 63:9",
+     "quran": "q:63:9",
+     "review": "The application of 63:9 to phones is a reflection; the ayah itself names wealth and children. Please confirm."
+    },
+    {
+     "id": "anchor",
+     "kind": "teach",
+     "title": "Five anchors",
+     "body": [
+      "The Prophet ﷺ said: if there were a river at the door of one of you and he bathed in it five times a day, would any dirt remain on him? They said no. He said: that is the example of the five prayers; Allah wipes away sins through them (Bukhari 528).",
+      "Five prayers cut the day into five parts. If you let the prayer call you away from the screen, the day has a shape that the feed cannot give it."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 528"
+    },
+    {
+     "id": "idle",
+     "kind": "say",
+     "title": "Turn away from idle talk",
+     "refs": [
+      "q:23:3"
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 23:3",
+     "note": "One quality of the believers in Surah Al-Mu’minun is that they turn away from idle talk. This is not about being boring. It is about not letting empty noise fill the day."
+    },
+    {
+     "id": "limit",
+     "kind": "howto",
+     "title": "Set one limit you can keep",
+     "intro": "Choose one of these. Small and kept is better than big and broken.",
+     "steps": [
+      {
+       "text": "Notice first.",
+       "detail": "Look at your screen time for yesterday. Do not judge, just look."
+      },
+      {
+       "text": "Pick one place.",
+       "detail": "No phone at meals, or none in the bedroom, or none in the first ten minutes after Fajr."
+      },
+      {
+       "text": "Make it easy.",
+       "detail": "Charge the phone in another room. Turn off notifications you do not need."
+      },
+      {
+       "text": "Replace, do not just remove.",
+       "detail": "Put something in its place: a walk, a call, a few ayat."
+      },
+      {
+       "text": "Tell someone.",
+       "detail": "Ask a friend or family member to do it with you."
+      }
+     ],
+     "mistakes": [
+      "Deleting everything at once and going back after two days.",
+      "Making it a punishment.",
+      "Telling yourself it is only a minute."
+     ],
+     "label": "[Reflection]",
+     "source": "Qur'an 103:1-3; Bukhari 6412"
+    },
+    {
+     "id": "c1",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1a",
+       "q": "In Surah Al-Asr, who is not in loss?",
+       "options": [
+        {
+         "text": "Those who believe, do righteous deeds, and advise each other to truth and patience"
+        },
+        {
+         "text": "Those who have free time",
+         "reteach": "No. 103:3 names the believers who do good and advise each other.",
+         "back": "asr"
+        },
+        {
+         "text": "Those who avoid people",
+         "reteach": "No. They advise each other, so they are with people.",
+         "back": "asr"
+        }
+       ],
+       "answer": 0,
+       "explain": "Qur’an 103:3.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1b",
+       "q": "What are the two blessings many people lose, in Bukhari 6412?",
+       "options": [
+        {
+         "text": "Wealth and fame",
+         "reteach": "No. The hadith says health and free time.",
+         "back": "free"
+        },
+        {
+         "text": "Friends and family",
+         "reteach": "No. It is health and free time.",
+         "back": "free"
+        },
+        {
+         "text": "Health and free time"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 6412.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1c",
+       "q": "What does the lesson say about applying 63:9 to phones?",
+       "options": [
+        {
+         "text": "It is a reflection; the ayah itself names wealth and children"
+        },
+        {
+         "text": "The ayah names phones",
+         "reteach": "It does not. It names wealth and children.",
+         "back": "distract"
+        },
+        {
+         "text": "It has nothing to do with it",
+         "reteach": "It is an application of the idea, not the wording.",
+         "back": "distract"
+        }
+       ],
+       "answer": 0,
+       "explain": "Interpretive.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1d",
+       "q": "What is a good first limit?",
+       "options": [
+        {
+         "text": "Charge the phone in another room at night"
+        },
+        {
+         "text": "Delete every app today and never reinstall",
+         "reteach": "That is too big to keep. Small and kept is better.",
+         "back": "limit"
+        },
+        {
+         "text": "Check it more often to see what you miss",
+         "reteach": "That is the opposite of a limit.",
+         "back": "limit"
+        }
+       ],
+       "answer": 0,
+       "explain": "Pick one place.",
+       "type": "scenario",
+       "scenario": "Adam wakes up and scrolls for forty minutes before Fajr is over."
+      }
+     ]
+    },
+    {
+     "id": "plan",
+     "kind": "arrange",
+     "prompt": "Put the steps of setting a limit in order.",
+     "items": [
+      {
+       "text": "Notice your screen time",
+       "why": "Look first, do not judge.",
+       "back": "limit"
+      },
+      {
+       "text": "Pick one place or time",
+       "why": "For example, no phone at meals.",
+       "back": "limit"
+      },
+      {
+       "text": "Make it easy",
+       "why": "Charge it elsewhere. Turn off notifications.",
+       "back": "limit"
+      },
+      {
+       "text": "Replace it with something",
+       "why": "A walk, a call, a few ayat.",
+       "back": "limit"
+      },
+      {
+       "text": "Tell someone",
+       "why": "Do it with a friend.",
+       "back": "limit"
+      }
+     ],
+     "explain": "Notice, pick, make easy, replace, tell someone."
+    },
+    {
+     "id": "mm",
+     "kind": "match",
+     "prompt": "Match each text to its message. Tap one on the left, then its meaning on the right.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Qur’an 103:1-3"
+       },
+       "right": {
+        "text": "Time is a field of loss and gain"
+       },
+       "why": "It names the way out of loss.",
+       "back": "asr"
+      },
+      {
+       "left": {
+        "text": "Bukhari 6412"
+       },
+       "right": {
+        "text": "Health and free time are blessings"
+       },
+       "why": "Many people lose them.",
+       "back": "free"
+      },
+      {
+       "left": {
+        "text": "Qur’an 63:9"
+       },
+       "right": {
+        "text": "Do not be distracted from remembrance"
+       },
+       "why": "It names wealth and children.",
+       "back": "distract"
+      },
+      {
+       "left": {
+        "text": "Bukhari 528"
+       },
+       "right": {
+        "text": "The five prayers as a river"
+       },
+       "why": "They wash away sins.",
+       "back": "anchor"
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c2a",
+       "q": "What does the river example in Bukhari 528 teach?",
+       "options": [
+        {
+         "text": "Rivers are good for health",
+         "reteach": "No. The hadith uses the river as an example of the prayers.",
+         "back": "anchor"
+        },
+        {
+         "text": "The five prayers wipe away sins, like bathing five times a day"
+        },
+        {
+         "text": "You only need to pray once",
+         "reteach": "No. It speaks of five times.",
+         "back": "anchor"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 528.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2b",
+       "q": "Which is a replace, not just remove, action?",
+       "options": [
+        {
+         "text": "Delete the phone and sit in silence",
+         "reteach": "Replace the habit with something good, not just silence.",
+         "back": "limit"
+        },
+        {
+         "text": "Phone away at meals, and talk with the family"
+        },
+        {
+         "text": "Keep scrolling at meals",
+         "reteach": "That is not a limit.",
+         "back": "limit"
+        }
+       ],
+       "answer": 1,
+       "explain": "Replace.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2c",
+       "q": "What does 23:3 say believers turn away from?",
+       "options": [
+        {
+         "text": "All speech",
+         "reteach": "No. It says idle talk.",
+         "back": "idle"
+        },
+        {
+         "text": "Idle talk"
+        },
+        {
+         "text": "Family",
+         "reteach": "No. It says idle talk.",
+         "back": "idle"
+        }
+       ],
+       "answer": 1,
+       "explain": "Qur’an 23:3.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2d",
+       "q": "A friend says one minute does not matter. What does Bukhari 6412 add?",
+       "options": [
+        {
+         "text": "Free time is a blessing, and many people lose it by being careless"
+        },
+        {
+         "text": "He is right, minutes do not matter",
+         "reteach": "The hadith treats free time as a blessing.",
+         "back": "free"
+        },
+        {
+         "text": "Only hours matter",
+         "reteach": "The hadith speaks of free time itself.",
+         "back": "free"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 6412.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Pray on time, phone away",
+     "body": "Open prayer times and make the next prayer a phone-free one: put the phone in another room before you begin.",
+     "route": "/prayer",
+     "button": "Open prayer times"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Say what Surah Al-Asr says about time and loss.",
+      "Name the two blessings of Bukhari 6412.",
+      "Explain why the lesson calls 63:9 and phones a reflection.",
+      "Set one limit you can keep."
+     ],
+     "next": "Next: The feed is not real."
+    }
+   ]
+  },
+  {
+   "id": "yth.u2.l2",
+   "title": "The feed is not real",
+   "minutes": 14,
+   "intro": "Why the feed makes you feel small, what the Prophet ﷺ said about looking up and looking down, and how to clean up.",
+   "steps": [
+    {
+     "id": "hook",
+     "kind": "teach",
+     "title": "Everyone else looks fine",
+     "body": [
+      "You see their holiday, their grades, their friends. You do not see their night. Of course it feels like everyone is doing better than you.",
+      "This lesson is about comparing yourself to what you see online. You will read what the Prophet ﷺ said about looking at those above and below you, an ayah about what we should not wish for, and a short plan for cleaning up your feed."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "hearts",
+     "kind": "teach",
+     "title": "What counts with Allah",
+     "body": [
+      "Abu Huraira reported that the Messenger of Allah ﷺ said: Allah does not look at your faces and your wealth, but He looks at your hearts and your deeds (Muslim 2564).",
+      "The feed shows faces and wealth. Allah looks at something else. So when the feed makes you feel small, remember that it is measuring the wrong thing."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 2564"
+    },
+    {
+     "id": "below",
+     "kind": "teach",
+     "title": "Look at who is below you",
+     "body": [
+      "Abu Huraira reported that the Prophet ﷺ said: when one of you looks at someone who is above him in wealth and appearance, let him also look at someone who is below him (Bukhari 6490). In Muslim 2963 he added that this is better, so that you do not look down on the favours of Allah.",
+      "This is not about feeling superior. It is about balance. If you only look up, you will always feel poor, and you will forget what you have been given."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 6490; Muslim 2963"
+    },
+    {
+     "id": "wish",
+     "kind": "say",
+     "title": "Do not wish for what others have",
+     "refs": [
+      "q:4:32"
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 4:32",
+     "note": "Allah says: do not wish for that by which Allah has favoured some of you over others. Each has a share of what they have earned. Ask Allah of His bounty. It is a calm ayah, and it answers envy with a du’a, not with a fight."
+    },
+    {
+     "id": "mock",
+     "kind": "say",
+     "title": "Do not ridicule",
+     "refs": [
+      "q:49:11"
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 49:11",
+     "note": "The same feed that makes you feel small can make you cruel. 49:11 says do not let a people ridicule another people, perhaps they are better than them, and do not call each other by bad nicknames."
+    },
+    {
+     "id": "spy",
+     "kind": "teach",
+     "title": "Suspicion and spying",
+     "body": [
+      "The Prophet ﷺ said: beware of suspicion, for suspicion is the worst of false tales; do not look for each other’s faults, do not spy, do not be jealous of one another (Bukhari 6064).",
+      "Much of the feed is built on looking for faults and wondering about people. This hadith asks us to stop at the first step."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 6064"
+    },
+    {
+     "id": "clean",
+     "kind": "howto",
+     "title": "Clean up your feed",
+     "intro": "This is practical advice in the spirit of the sources above.",
+     "steps": [
+      {
+       "text": "Notice how each account makes you feel.",
+       "detail": "Small? Angry? Jealous? Or calm and motivated?"
+      },
+      {
+       "text": "Unfollow or mute the ones that make you feel small.",
+       "detail": "You do not have to explain."
+      },
+      {
+       "text": "Follow a few that call you to good.",
+       "detail": "Qur’an recitation, knowledge, helpful skills, friends who are kind."
+      },
+      {
+       "text": "Remember that it is chosen.",
+       "detail": "What you see is chosen by the person and by the app."
+      },
+      {
+       "text": "Say a du’a for the person you envy.",
+       "detail": "Ask Allah to bless them and to give you good as well."
+      }
+     ],
+     "mistakes": [
+      "Spying on people to feel better or worse.",
+      "Posting only to compete.",
+      "Passing on unchecked news."
+     ],
+     "label": "[Reflection]",
+     "source": "Qur'an 4:32; Bukhari 6064"
+    },
+    {
+     "id": "c1",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1a",
+       "q": "What did the Prophet ﷺ say to do after looking at someone above you in wealth and appearance?",
+       "options": [
+        {
+         "text": "Look also at someone below you"
+        },
+        {
+         "text": "Work harder to catch up",
+         "reteach": "The hadith says to look at someone below you.",
+         "back": "below"
+        },
+        {
+         "text": "Stop looking at people",
+         "reteach": "He said to look also at those below you.",
+         "back": "below"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 6490.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1b",
+       "q": "What does 4:32 tell us not to do?",
+       "options": [
+        {
+         "text": "Ask Allah for anything",
+         "reteach": "No. It says to ask Allah of His bounty.",
+         "back": "wish"
+        },
+        {
+         "text": "Work for a living",
+         "reteach": "No. It says each has a share of what they have earned.",
+         "back": "wish"
+        },
+        {
+         "text": "Wish for what Allah has given others more of"
+        }
+       ],
+       "answer": 2,
+       "explain": "Qur’an 4:32.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1c",
+       "q": "What does Muslim 2564 say Allah looks at?",
+       "options": [
+        {
+         "text": "Hearts and deeds"
+        },
+        {
+         "text": "Faces and wealth",
+         "reteach": "No. These are what He does not look at.",
+         "back": "hearts"
+        },
+        {
+         "text": "Followers",
+         "reteach": "No. He looks at hearts and deeds.",
+         "back": "hearts"
+        }
+       ],
+       "answer": 0,
+       "explain": "Muslim 2564.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1d",
+       "q": "What is a good thing to do?",
+       "options": [
+        {
+         "text": "Mute those accounts and follow a few that call to good"
+        },
+        {
+         "text": "Keep scrolling to see more",
+         "reteach": "This makes the feeling stronger.",
+         "back": "clean"
+        },
+        {
+         "text": "Message her to complain",
+         "reteach": "This does not help you.",
+         "back": "clean"
+        }
+       ],
+       "answer": 0,
+       "explain": "Clean your feed.",
+       "type": "scenario",
+       "scenario": "Every time Mariam sees one account, she feels jealous and bad about her life."
+      }
+     ]
+    },
+    {
+     "id": "envy",
+     "kind": "arrange",
+     "prompt": "Put the steps for jealousy in order.",
+     "items": [
+      {
+       "text": "Notice the feeling",
+       "why": "Name it: jealousy.",
+       "back": "clean"
+      },
+      {
+       "text": "Look at who is below you",
+       "why": "Bukhari 6490.",
+       "back": "below"
+      },
+      {
+       "text": "Ask Allah of His bounty",
+       "why": "4:32.",
+       "back": "wish"
+      },
+      {
+       "text": "Pray for the person you envy",
+       "why": "Wish them good.",
+       "back": "clean"
+      },
+      {
+       "text": "Mute or unfollow if needed",
+       "why": "Protect your heart.",
+       "back": "clean"
+      }
+     ],
+     "explain": "Notice, look below, ask Allah, pray for them, and mute if needed."
+    },
+    {
+     "id": "mm",
+     "kind": "match",
+     "prompt": "Match each text to its message. Tap one on the left, then its meaning on the right.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Muslim 2564"
+       },
+       "right": {
+        "text": "Allah looks at hearts and deeds"
+       },
+       "why": "Not faces and wealth.",
+       "back": "hearts"
+      },
+      {
+       "left": {
+        "text": "Bukhari 6490"
+       },
+       "right": {
+        "text": "Look also at those below you"
+       },
+       "why": "It balances comparison.",
+       "back": "below"
+      },
+      {
+       "left": {
+        "text": "Qur’an 4:32"
+       },
+       "right": {
+        "text": "Do not wish for what others have"
+       },
+       "why": "Ask Allah of His bounty.",
+       "back": "wish"
+      },
+      {
+       "left": {
+        "text": "Qur’an 49:11"
+       },
+       "right": {
+        "text": "Do not ridicule or insult"
+       },
+       "why": "It guards against cruelty.",
+       "back": "mock"
+      },
+      {
+       "left": {
+        "text": "Bukhari 6064"
+       },
+       "right": {
+        "text": "Beware of suspicion and spying"
+       },
+       "why": "It stops at the first step.",
+       "back": "spy"
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c2a",
+       "q": "Why does the lesson say the feed is not real?",
+       "options": [
+        {
+         "text": "Because all posts are lies",
+         "reteach": "The lesson does not say that. It says the feed is chosen.",
+         "back": "hearts"
+        },
+        {
+         "text": "It shows chosen parts, like faces and wealth, while Allah looks at hearts and deeds"
+        },
+        {
+         "text": "Because nobody is happy",
+         "reteach": "The lesson does not say that.",
+         "back": "hearts"
+        }
+       ],
+       "answer": 1,
+       "explain": "Muslim 2564.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2b",
+       "q": "What does Muslim 2963 give as the reason to look at those below?",
+       "options": [
+        {
+         "text": "So that you feel superior",
+         "reteach": "No. It is to be grateful for the favours of Allah.",
+         "back": "below"
+        },
+        {
+         "text": "So that you do not look down on the favours of Allah"
+        },
+        {
+         "text": "So that you ignore others",
+         "reteach": "No. It is to see Allah’s favours.",
+         "back": "below"
+        }
+       ],
+       "answer": 1,
+       "explain": "Muslim 2963.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2c",
+       "q": "What should you say about someone you envy?",
+       "options": [
+        {
+         "text": "Share something bad about them",
+         "reteach": "This is the opposite of 49:11.",
+         "back": "mock"
+        },
+        {
+         "text": "Ask Allah to bless them and to give you good as well"
+        },
+        {
+         "text": "Say nothing and hold a grudge",
+         "reteach": "Better to make du’a.",
+         "back": "clean"
+        }
+       ],
+       "answer": 1,
+       "explain": "A du’a for them.",
+       "type": "scenario",
+       "scenario": "Your classmate got the place you wanted."
+      },
+      {
+       "id": "c2d",
+       "q": "What does Bukhari 6064 say to avoid?",
+       "options": [
+        {
+         "text": "Suspicion and spying on faults"
+        },
+        {
+         "text": "Asking questions in class",
+         "reteach": "It speaks about suspicion and spying.",
+         "back": "spy"
+        },
+        {
+         "text": "Making friends",
+         "reteach": "No. It speaks about suspicion and spying.",
+         "back": "spy"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 6064.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Clean five accounts",
+     "body": "Open your phone and unfollow or mute five accounts that make you feel small. Then follow one that calls to good. Come back and read ayah 32 of Surah An-Nisa.",
+     "route": "/quran/4",
+     "button": "Open Surah An-Nisa"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Say what Allah looks at, from Muslim 2564.",
+      "Say what to do after you look at someone above you.",
+      "Say what 4:32 asks of us.",
+      "Describe how to clean up your feed."
+     ],
+     "next": "Next: Guarding the gaze."
+    }
+   ]
+  },
+  {
+   "id": "yth.u2.l3",
+   "title": "Guarding the gaze",
+   "minutes": 14,
+   "intro": "What the Qur’an and the Prophet ﷺ taught about the gaze, and practical steps for the screen.",
+   "steps": [
+    {
+     "id": "hook",
+     "kind": "teach",
+     "title": "The easiest sin",
+     "body": [
+      "The gaze used to need a street. Now it needs a thumb. The ayah about lowering the gaze is old, but the test is new.",
+      "This lesson explains what the Qur’an and the Prophet ﷺ said about the gaze, for both young men and young women, with simple steps for the screen. It is written without shame: everyone struggles with this."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "men",
+     "kind": "say",
+     "title": "The command to the men",
+     "refs": [
+      "q:24:30"
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 24:30",
+     "note": "Allah says: tell the believing men to reduce some of their vision and guard their private parts; that is purer for them. Allah is acquainted with what they do."
+    },
+    {
+     "id": "women",
+     "kind": "teach",
+     "title": "And to the women",
+     "body": [
+      "The next ayah gives the same instruction to believing women: to reduce some of their vision and guard their private parts (24:31). The command is for both, and the Qur’an addresses them in the same words at the start."
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 24:31",
+     "quran": "q:24:31"
+    },
+    {
+     "id": "glance",
+     "kind": "story",
+     "title": "The sudden glance",
+     "body": [
+      "Jarir ibn Abdullah said that he asked the Messenger of Allah ﷺ about the sudden glance. The Prophet ﷺ commanded him to turn away his eyes (Muslim 2159).",
+      "The first look that you did not choose is not the problem. What matters is what you do next: turn away, or keep looking."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 2159"
+    },
+    {
+     "id": "asked",
+     "kind": "teach",
+     "title": "The eye will be asked",
+     "body": [
+      "Allah says: do not follow that of which you have no knowledge. Hearing, sight and the heart will each be questioned (17:36).",
+      "This includes what we watch. It is one of the reasons that scholars connect lowering the gaze to guarding the heart."
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 17:36",
+     "quran": "q:17:36"
+    },
+    {
+     "id": "exceptions",
+     "kind": "contrast",
+     "title": "Where scholars say there is room",
+     "intro": "The rule is general, and scholars discuss exceptions. This is only a short note.",
+     "agree": "The command to lower the gaze is for everyone.",
+     "rows": [
+      {
+       "name": "The rule",
+       "text": "Both men and women are told to reduce some of their vision (24:30-31)."
+      },
+      {
+       "name": "Looking with a need",
+       "text": "Scholars discuss cases such as treatment by a doctor, looking at someone you intend to propose to, or a witness in court. The details differ by school."
+      },
+      {
+       "name": "What this means for you",
+       "text": "If you are not sure whether a situation is allowed, ask a qualified teacher. Do not rely on a search result."
+      }
+     ],
+     "closing": "Start with the rule, and ask about the cases.",
+     "label": "[Interpretive]",
+     "source": "Qur'an 24:30; Qur'an 24:31",
+     "review": "Please confirm the summary of exceptions (doctor, proposal, witness) and that the details differ by school."
+    },
+    {
+     "id": "marry",
+     "kind": "teach",
+     "title": "Another route the Prophet ﷺ gave",
+     "body": [
+      "Ibn Mas’ud reported that the Prophet ﷺ said: young men, whoever of you can marry, should marry, because it lowers the gaze and protects chastity; and whoever cannot, should fast, for it is a shield (Bukhari 5066).",
+      "This is not a command to marry before you are ready. It shows that the Prophet ﷺ treated the gaze as a real need, and gave real answers: marriage when able, and fasting when not."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 5066"
+    },
+    {
+     "id": "screen",
+     "kind": "howto",
+     "title": "Practical steps for the screen",
+     "intro": "None of these is a fatwa. They are tools that many people find helpful.",
+     "steps": [
+      {
+       "text": "Turn away at once.",
+       "detail": "When something comes up, close it, look elsewhere."
+      },
+      {
+       "text": "Change the setting.",
+       "detail": "Do not scroll alone in the dark; keep devices out of the bedroom."
+      },
+      {
+       "text": "Make du’a.",
+       "detail": "Ask Allah for help. It is part of the answer."
+      },
+      {
+       "text": "Fill the gap.",
+       "detail": "Pray two rak’ahs, walk, call a friend."
+      },
+      {
+       "text": "Do not despair.",
+       "detail": "If you slip, make tawbah and start again (Qur’an 39:53)."
+      },
+      {
+       "text": "Ask for help.",
+       "detail": "Talk to a trusted older person or counsellor if it is becoming a habit."
+      }
+     ],
+     "mistakes": [
+      "Staying alone with it.",
+      "Leaving the prayer out of shame.",
+      "Blaming only the other person."
+     ],
+     "label": "[Reflection]",
+     "source": "Qur'an 39:53"
+    },
+    {
+     "id": "c1",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1a",
+       "q": "Who is told to reduce some of their vision in 24:30-31?",
+       "options": [
+        {
+         "text": "Believing men and believing women"
+        },
+        {
+         "text": "Only men",
+         "reteach": "No. 24:31 gives the same instruction to believing women.",
+         "back": "women"
+        },
+        {
+         "text": "Only women",
+         "reteach": "No. 24:30 is for men and 24:31 for women.",
+         "back": "men"
+        }
+       ],
+       "answer": 0,
+       "explain": "Qur’an 24:30-31.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1b",
+       "q": "What did the Prophet ﷺ tell Jarir to do about a sudden glance?",
+       "options": [
+        {
+         "text": "Look again to be sure",
+         "reteach": "No. He told him to turn away his eyes.",
+         "back": "glance"
+        },
+        {
+         "text": "Nothing",
+         "reteach": "He gave an instruction: turn away.",
+         "back": "glance"
+        },
+        {
+         "text": "Turn away his eyes"
+        }
+       ],
+       "answer": 2,
+       "explain": "Muslim 2159.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1c",
+       "q": "What does 17:36 say will be questioned?",
+       "options": [
+        {
+         "text": "Hearing, sight and the heart"
+        },
+        {
+         "text": "Only the tongue",
+         "reteach": "No. It says hearing, sight and the heart.",
+         "back": "asked"
+        },
+        {
+         "text": "Only the hands",
+         "reteach": "No. It says hearing, sight and the heart.",
+         "back": "asked"
+        }
+       ],
+       "answer": 0,
+       "explain": "Qur’an 17:36.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1d",
+       "q": "What is the best next step?",
+       "options": [
+        {
+         "text": "Close it, look elsewhere, and make du’a"
+        },
+        {
+         "text": "Keep looking since it already happened",
+         "reteach": "The sudden glance is not the issue; looking again is.",
+         "back": "glance"
+        },
+        {
+         "text": "Hide it and never speak to anyone",
+         "reteach": "Do not stay alone with it.",
+         "back": "screen"
+        }
+       ],
+       "answer": 0,
+       "explain": "Turn away.",
+       "type": "scenario",
+       "scenario": "Something inappropriate comes up on Hamza’s feed."
+      }
+     ]
+    },
+    {
+     "id": "slip",
+     "kind": "arrange",
+     "prompt": "Put these in order for when something comes up.",
+     "items": [
+      {
+       "text": "Turn away at once",
+       "why": "Close it.",
+       "back": "glance"
+      },
+      {
+       "text": "Change the setting",
+       "why": "Phone out of the bedroom.",
+       "back": "screen"
+      },
+      {
+       "text": "Make du’a",
+       "why": "Ask Allah for help.",
+       "back": "screen"
+      },
+      {
+       "text": "Fill the gap with something good",
+       "why": "Pray, walk, call.",
+       "back": "screen"
+      },
+      {
+       "text": "If you slipped, make tawbah and ask for help",
+       "why": "Do not despair (39:53).",
+       "back": "screen"
+      }
+     ],
+     "explain": "Turn away, change the setting, du’a, fill the gap, tawbah and help."
+    },
+    {
+     "id": "mm",
+     "kind": "match",
+     "prompt": "Match each text to its message. Tap one on the left, then its meaning on the right.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Qur’an 24:30"
+       },
+       "right": {
+        "text": "The command to the men"
+       },
+       "why": "It says that is purer for them.",
+       "back": "men"
+      },
+      {
+       "left": {
+        "text": "Qur’an 24:31"
+       },
+       "right": {
+        "text": "The same command to the women"
+       },
+       "why": "It repeats the words.",
+       "back": "women"
+      },
+      {
+       "left": {
+        "text": "Muslim 2159"
+       },
+       "right": {
+        "text": "Turn away from the sudden glance"
+       },
+       "why": "It is about the first look.",
+       "back": "glance"
+      },
+      {
+       "left": {
+        "text": "Qur’an 17:36"
+       },
+       "right": {
+        "text": "Sight will be questioned"
+       },
+       "why": "It reminds us that we are accountable.",
+       "back": "asked"
+      },
+      {
+       "left": {
+        "text": "Bukhari 5066"
+       },
+       "right": {
+        "text": "Marry if able, otherwise fast"
+       },
+       "why": "It is the Prophet’s advice to young men.",
+       "back": "marry"
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c2a",
+       "q": "Does the lesson say all looking is forbidden in every case?",
+       "options": [
+        {
+         "text": "Yes, in every case",
+         "reteach": "Scholars discuss exceptions such as a doctor or a proposal.",
+         "back": "exceptions"
+        },
+        {
+         "text": "No. Scholars discuss cases, and the details differ by school"
+        },
+        {
+         "text": "No, there are no rules",
+         "reteach": "The rule is clear: reduce some of the vision.",
+         "back": "exceptions"
+        }
+       ],
+       "answer": 1,
+       "explain": "Ask a qualified teacher about particular cases.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2b",
+       "q": "What did Bukhari 5066 advise young men who cannot marry?",
+       "options": [
+        {
+         "text": "Travel",
+         "reteach": "No. It says fast.",
+         "back": "marry"
+        },
+        {
+         "text": "Fast, for it is a shield"
+        },
+        {
+         "text": "Wait without doing anything",
+         "reteach": "It says fast.",
+         "back": "marry"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 5066.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2c",
+       "q": "What should someone do if they slipped again?",
+       "options": [
+        {
+         "text": "Stop praying",
+         "reteach": "This is the opposite of what the lesson says.",
+         "back": "screen"
+        },
+        {
+         "text": "Make tawbah, start again, and ask a trusted person for help"
+        },
+        {
+         "text": "Say it is a lost cause",
+         "reteach": "39:53 says do not despair.",
+         "back": "screen"
+        }
+       ],
+       "answer": 1,
+       "explain": "Qur’an 39:53.",
+       "type": "scenario",
+       "scenario": "Imran slipped last night after a week of doing well."
+      },
+      {
+       "id": "c2d",
+       "q": "The ayah says lowering the gaze is...",
+       "options": [
+        {
+         "text": "Purer for them"
+        },
+        {
+         "text": "Easier for them",
+         "reteach": "The ayah says purer for them.",
+         "back": "men"
+        },
+        {
+         "text": "Required only in public",
+         "reteach": "The ayah says purer for them.",
+         "back": "men"
+        }
+       ],
+       "answer": 0,
+       "explain": "Qur’an 24:30.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Set one screen rule",
+     "body": "Choose one rule for tonight: phone out of the bedroom, or off after Isha. Then read ayah 30 of Surah An-Nur.",
+     "route": "/quran/24",
+     "button": "Open Surah An-Nur"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Say who is told to reduce their vision in 24:30-31.",
+      "Say what to do after a sudden glance.",
+      "Say what 17:36 says will be questioned.",
+      "Name two practical steps for the screen.",
+      "Say what to do if you slip."
+     ],
+     "next": "Next: Choose your company."
+    }
+   ]
+  },
+  {
+   "id": "yth.u3.l1",
+   "title": "Choose your company",
+   "minutes": 14,
+   "intro": "What the Qur’an and the Prophet ﷺ said about friends, and how to choose and be a good one.",
+   "steps": [
+    {
+     "id": "hook",
+     "kind": "teach",
+     "title": "Who is in your circle?",
+     "body": [
+      "You become a little like the people you spend time with. Most of us know it, and most of us do not choose on purpose.",
+      "This lesson uses one hadith, one picture from the Prophet ﷺ, and two ayat to help you choose your company, and to be a good friend yourself."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "friend",
+     "kind": "teach",
+     "title": "On the religion of his friend",
+     "body": [
+      "Abu Huraira reported that the Messenger of Allah ﷺ said: a man is upon the religion of his friend, so let one of you look at whom he befriends (Tirmidhi 2378 (graded hasan by al-Albani)).",
+      "It does not say a person is the same as his friend. It says he follows him, in habits, speech, and what he thinks is normal. So choose carefully."
+     ],
+     "label": "[Established]",
+     "source": "Tirmidhi 2378 (graded hasan by al-Albani)"
+    },
+    {
+     "id": "musk",
+     "kind": "story",
+     "title": "The musk seller and the blacksmith",
+     "body": [
+      "Abu Musa reported that the Prophet ﷺ gave this example: a good companion and an evil companion are like a person carrying musk and a person blowing a bellows. The musk carrier will either give you some, or you will buy some from him, or you will smell a good smell from him. The one blowing the bellows will either burn your clothes, or you will smell a bad smell (Bukhari 5534).",
+      "He does not tell you to cut off everyone who is not perfect. He tells you what each kind of company does to you."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 5534"
+    },
+    {
+     "id": "regret",
+     "kind": "say",
+     "title": "The regret of the wrong friend",
+     "refs": [
+      "q:25:27",
+      "q:25:28",
+      "q:25:29"
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 25:27-29",
+     "note": "On the Day of Judgment, the wrongdoer will bite his hands and say: I wish I had taken a way with the Messenger. I wish I had not taken that one as a friend. He led me away from the remembrance after it had come to me."
+    },
+    {
+     "id": "righteous",
+     "kind": "say",
+     "title": "Friends on that Day",
+     "refs": [
+      "q:43:67"
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 43:67",
+     "note": "Close friends, on that Day, will be enemies to each other, except the righteous. A friendship built on good survives."
+    },
+    {
+     "id": "patient",
+     "kind": "teach",
+     "title": "Keep yourself with them",
+     "body": [
+      "Allah tells His Messenger ﷺ to keep himself patient with those who call upon their Lord morning and evening, seeking His face; and not to let his eyes pass over them, desiring the adornments of this life (18:28).",
+      "The ayah asks you to choose to sit with good people, even when others seem more exciting. Notice it says patient: it takes effort."
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 18:28",
+     "quran": "q:18:28"
+    },
+    {
+     "id": "choose",
+     "kind": "howto",
+     "title": "How to choose and be a good friend",
+     "intro": "These are practical, in the spirit of the sources above.",
+     "steps": [
+      {
+       "text": "Name your three closest friends.",
+       "detail": "Write the names down."
+      },
+      {
+       "text": "Ask what each brings out in you.",
+       "detail": "Honesty? Prayer? Gossip? Laziness?"
+      },
+      {
+       "text": "Make room for a good one.",
+       "detail": "Join a halaqah, a masjid youth group, a sports team with good manners."
+      },
+      {
+       "text": "Be the musk, too.",
+       "detail": "Remind kindly, give a gift, keep secrets, make du’a for them."
+      },
+      {
+       "text": "Do not drop people in anger.",
+       "detail": "Spend less time if needed, but stay kind."
+      }
+     ],
+     "mistakes": [
+      "Cutting everyone off.",
+      "Staying in a group that pulls you away from prayer because you fear being alone.",
+      "Giving advice with a sneer."
+     ],
+     "label": "[Reflection]",
+     "source": "Tirmidhi 2378 (graded hasan by al-Albani); Bukhari 5534"
+    },
+    {
+     "id": "c1",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1a",
+       "q": "What does the hadith say a man is upon?",
+       "options": [
+        {
+         "text": "The religion of his friend"
+        },
+        {
+         "text": "The religion of his country",
+         "reteach": "No. It says the religion of his friend.",
+         "back": "friend"
+        },
+        {
+         "text": "The wealth of his friend",
+         "reteach": "No. It says the religion of his friend.",
+         "back": "friend"
+        }
+       ],
+       "answer": 0,
+       "explain": "Tirmidhi 2378 (graded hasan by al-Albani).",
+       "type": "mcq"
+      },
+      {
+       "id": "c1b",
+       "q": "In Bukhari 5534, what is the good companion compared to?",
+       "options": [
+        {
+         "text": "A person carrying water",
+         "reteach": "No. It is musk.",
+         "back": "musk"
+        },
+        {
+         "text": "A person blowing a bellows",
+         "reteach": "That is the evil companion.",
+         "back": "musk"
+        },
+        {
+         "text": "A person carrying musk"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 5534.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1c",
+       "q": "What does 43:67 say about close friends on that Day?",
+       "options": [
+        {
+         "text": "They will be enemies, except the righteous"
+        },
+        {
+         "text": "They will all be friends",
+         "reteach": "No. They will be enemies except the righteous.",
+         "back": "righteous"
+        },
+        {
+         "text": "They will not remember each other",
+         "reteach": "No. The ayah says they will be enemies, except the righteous.",
+         "back": "righteous"
+        }
+       ],
+       "answer": 0,
+       "explain": "Qur’an 43:67.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1d",
+       "q": "What is a good step?",
+       "options": [
+        {
+         "text": "Spend less time with them, stay kind, and make room for better company"
+        },
+        {
+         "text": "Cut them off with a harsh message",
+         "reteach": "The lesson says not to drop people in anger.",
+         "back": "choose"
+        },
+        {
+         "text": "Stay and do whatever they do",
+         "reteach": "This is what the hadith warns about.",
+         "back": "friend"
+        }
+       ],
+       "answer": 0,
+       "explain": "Choose carefully.",
+       "type": "scenario",
+       "scenario": "Zayd’s group mocks him for praying and keeps him up late. He wants out."
+      }
+     ]
+    },
+    {
+     "id": "plan",
+     "kind": "arrange",
+     "prompt": "Put the steps in order.",
+     "items": [
+      {
+       "text": "Name your three closest friends",
+       "why": "Start by looking.",
+       "back": "choose"
+      },
+      {
+       "text": "Ask what each brings out in you",
+       "why": "Be honest.",
+       "back": "choose"
+      },
+      {
+       "text": "Make room for good company",
+       "why": "Join something good.",
+       "back": "choose"
+      },
+      {
+       "text": "Be a good friend yourself",
+       "why": "Be the musk.",
+       "back": "choose"
+      },
+      {
+       "text": "Stay kind when you step back",
+       "why": "No anger.",
+       "back": "choose"
+      }
+     ],
+     "explain": "Name, ask, make room, be good, stay kind."
+    },
+    {
+     "id": "mm",
+     "kind": "match",
+     "prompt": "Match each text to its message. Tap one on the left, then its meaning on the right.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Tirmidhi 2378 (graded hasan by al-Albani)"
+       },
+       "right": {
+        "text": "A man follows the religion of his friend"
+       },
+       "why": "Look at whom you befriend.",
+       "back": "friend"
+      },
+      {
+       "left": {
+        "text": "Bukhari 5534"
+       },
+       "right": {
+        "text": "The musk carrier and the one with the bellows"
+       },
+       "why": "Good and bad companions.",
+       "back": "musk"
+      },
+      {
+       "left": {
+        "text": "Qur’an 25:27-29"
+       },
+       "right": {
+        "text": "The regret of the wrong friend"
+       },
+       "why": "He led me away from the remembrance.",
+       "back": "regret"
+      },
+      {
+       "left": {
+        "text": "Qur’an 43:67"
+       },
+       "right": {
+        "text": "Friends, except the righteous"
+       },
+       "why": "A friendship on good lasts.",
+       "back": "righteous"
+      },
+      {
+       "left": {
+        "text": "Qur’an 18:28"
+       },
+       "right": {
+        "text": "Keep yourself with those who call upon their Lord"
+       },
+       "why": "It takes patience.",
+       "back": "patient"
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c2a",
+       "q": "What does the hadith about friends ask you to do?",
+       "options": [
+        {
+         "text": "Avoid all friends",
+         "reteach": "No. It asks you to look carefully at whom you befriend.",
+         "back": "friend"
+        },
+        {
+         "text": "Look carefully at whom you befriend"
+        },
+        {
+         "text": "Befriend whoever is popular",
+         "reteach": "No. It asks you to look carefully.",
+         "back": "friend"
+        }
+       ],
+       "answer": 1,
+       "explain": "Tirmidhi 2378 (graded hasan by al-Albani).",
+       "type": "mcq"
+      },
+      {
+       "id": "c2b",
+       "q": "What does 18:28 ask for?",
+       "options": [
+        {
+         "text": "Leaving the group quickly",
+         "reteach": "No. It asks for patience in keeping with them.",
+         "back": "patient"
+        },
+        {
+         "text": "Patience in keeping with those who call upon their Lord"
+        },
+        {
+         "text": "Avoiding everyone",
+         "reteach": "No. It asks you to keep with good people.",
+         "back": "patient"
+        }
+       ],
+       "answer": 1,
+       "explain": "Qur’an 18:28.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2c",
+       "q": "In 25:28, what does the wrongdoer wish?",
+       "options": [
+        {
+         "text": "That he had more friends",
+         "reteach": "No. He wishes he had not taken that one.",
+         "back": "regret"
+        },
+        {
+         "text": "That he had not taken that one as a friend"
+        },
+        {
+         "text": "That he had been richer",
+         "reteach": "No. It is about the friend.",
+         "back": "regret"
+        }
+       ],
+       "answer": 1,
+       "explain": "Qur’an 25:28.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2d",
+       "q": "What does it mean to be the musk?",
+       "options": [
+        {
+         "text": "To be the kind of friend who gives good"
+        },
+        {
+         "text": "To wear perfume",
+         "reteach": "No. It means to be a good influence.",
+         "back": "choose"
+        },
+        {
+         "text": "To lecture",
+         "reteach": "No. The musk gives or is pleasant to be near.",
+         "back": "musk"
+        }
+       ],
+       "answer": 0,
+       "explain": "Be a good companion.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Name your three",
+     "body": "Think of your closest three friends. Ask what each brings out in you. Then read ayah 28 of Surah Al-Kahf.",
+     "route": "/quran/18",
+     "button": "Open Surah Al-Kahf"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Say what the hadith says about a man and his friend.",
+      "Describe the musk and bellows picture.",
+      "Say what 18:28 asks of you.",
+      "Name one way to be a good friend."
+     ],
+     "next": "Next: Halal money."
+    }
+   ]
+  },
+  {
+   "id": "yth.u3.l2",
+   "title": "Halal money — even the penny",
+   "minutes": 14,
+   "intro": "Why the source of your money matters, the doubt test, and a simple check for a job or deal.",
+   "steps": [
+    {
+     "id": "hook",
+     "kind": "teach",
+     "title": "Your first pay",
+     "body": [
+      "A first job, pocket money, a side hustle, a gift: money comes into a young person’s hands for the first time. Where it came from matters as much as how much.",
+      "This lesson explains why the source of your money matters, the doubt test the Prophet ﷺ gave, and a hadith about the cost of mixing halal and haram. It gives a simple check you can use for a job or a deal."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "eat",
+     "kind": "say",
+     "title": "Eat from the good things",
+     "refs": [
+      "q:2:172"
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 2:172",
+     "note": "Allah says: O you who have believed, eat from the good things We have provided for you, and be grateful to Allah if it is Him you worship. The good things (tayyibat) come with gratitude."
+    },
+    {
+     "id": "good",
+     "kind": "teach",
+     "title": "Allah is good",
+     "body": [
+      "Abu Huraira reported that the Prophet ﷺ said: O people, Allah is Good and accepts only what is good. Then he mentioned a man who travels far, dusty and dishevelled, raising his hands to the sky and saying: O Lord, O Lord, while his food is unlawful, his drink is unlawful, his clothing is unlawful and he was nourished by the unlawful; so how can his prayer be answered? (Muslim 1015).",
+      "The hadith lists everything that supports a person’s life, and ties it to du’a. It does not say a single wrong penny ruins a person. It says that earning matters to how we pray."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 1015"
+    },
+    {
+     "id": "doubt",
+     "kind": "teach",
+     "title": "The doubt test",
+     "body": [
+      "Al-Hasan ibn Ali remembered the Prophet ﷺ saying: leave what makes you doubt for what does not make you doubt. The truth brings tranquility, and falsehood brings doubt (Tirmidhi 2518 (graded sahih by al-Albani)).",
+      "This gives you a quick test for a job or a deal. If something leaves you uneasy, ask someone who knows before you go ahead."
+     ],
+     "label": "[Established]",
+     "source": "Tirmidhi 2518 (graded sahih by al-Albani)"
+    },
+    {
+     "id": "clear",
+     "kind": "teach",
+     "title": "The clear and the doubtful",
+     "body": [
+      "Nu’man ibn Bashir reported that the Prophet ﷺ said: the halal is clear and the haram is clear, and between them are doubtful matters that most people do not know. Whoever avoids the doubtful matters has protected his religion and honour. Whoever falls into the doubtful is like a shepherd who grazes his flock around a protected pasture and is about to graze in it (Bukhari 52).",
+      "So there are three groups: clear halal, clear haram, and unclear. For the unclear ones, ask and be careful."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 52"
+    },
+    {
+     "id": "warn",
+     "kind": "teach",
+     "title": "A time when people do not care",
+     "body": [
+      "Abu Huraira reported that the Prophet ﷺ said: a time will come when people will not care whether what they earned was lawful or unlawful (Bukhari 2083).",
+      "This is a warning against being careless. It is easy to take a job or a deal because everyone does, without asking."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 2083"
+    },
+    {
+     "id": "check",
+     "kind": "howto",
+     "title": "A simple check for a job or deal",
+     "intro": "This is a practical checklist. It does not replace asking a scholar.",
+     "steps": [
+      {
+       "text": "Ask what it is.",
+       "detail": "What is the work or the deal, in plain words?"
+      },
+      {
+       "text": "Ask who is hurt.",
+       "detail": "Is anyone cheated, lied to, or harmed?"
+      },
+      {
+       "text": "Ask if the thing itself is allowed.",
+       "detail": "Is the product or work something Islam forbids?"
+      },
+      {
+       "text": "Run the doubt test.",
+       "detail": "Does it leave you uneasy?"
+      },
+      {
+       "text": "Ask a person who knows.",
+       "detail": "A trusted imam, teacher or parent. Bring the details."
+      },
+      {
+       "text": "Decide, and trust Allah.",
+       "detail": "If you leave something for His sake, trust that He will replace it with better."
+      }
+     ],
+     "mistakes": [
+      "Taking it because everyone does.",
+      "Not asking because you fear the answer.",
+      "Hiding details when you ask."
+     ],
+     "label": "[Reflection]",
+     "source": "Tirmidhi 2518 (graded sahih by al-Albani); Bukhari 52",
+     "review": "Please confirm that the last step, trusting that Allah replaces what is left for His sake, does not need a source; it is stated as a reflection."
+    },
+    {
+     "id": "c1",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1a",
+       "q": "What does Muslim 1015 say about Allah and what He accepts?",
+       "options": [
+        {
+         "text": "Allah is Good and accepts only what is good"
+        },
+        {
+         "text": "He accepts anything with sincerity alone",
+         "reteach": "The hadith links the food and clothing to du’a.",
+         "back": "good"
+        },
+        {
+         "text": "He accepts nothing from the young",
+         "reteach": "No. The hadith does not say that.",
+         "back": "good"
+        }
+       ],
+       "answer": 0,
+       "explain": "Muslim 1015.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1b",
+       "q": "What is the doubt test?",
+       "options": [
+        {
+         "text": "Take what you like most",
+         "reteach": "No. The test is to leave what makes you doubt.",
+         "back": "doubt"
+        },
+        {
+         "text": "Ask nobody",
+         "reteach": "No. If you feel doubt, ask someone who knows.",
+         "back": "doubt"
+        },
+        {
+         "text": "Leave what makes you doubt for what does not"
+        }
+       ],
+       "answer": 2,
+       "explain": "Tirmidhi 2518 (graded sahih by al-Albani).",
+       "type": "mcq"
+      },
+      {
+       "id": "c1c",
+       "q": "What does Bukhari 52 say about the doubtful matters?",
+       "options": [
+        {
+         "text": "Whoever avoids them protects his religion and honour"
+        },
+        {
+         "text": "They are always haram",
+         "reteach": "The hadith does not say that.",
+         "back": "clear"
+        },
+        {
+         "text": "They are always halal",
+         "reteach": "The hadith does not say that.",
+         "back": "clear"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 52.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1d",
+       "q": "What is the right step?",
+       "options": [
+        {
+         "text": "Gather the details, run the doubt test, and ask a trusted person who knows"
+        },
+        {
+         "text": "Take it quickly before it is gone",
+         "reteach": "Ask first.",
+         "back": "check"
+        },
+        {
+         "text": "Hide the details when you ask",
+         "reteach": "Bring all details.",
+         "back": "check"
+        }
+       ],
+       "answer": 0,
+       "explain": "Ask.",
+       "type": "scenario",
+       "scenario": "Layla is offered a well-paid job selling something she is not sure is allowed."
+      }
+     ]
+    },
+    {
+     "id": "steps",
+     "kind": "arrange",
+     "prompt": "Put the check in order.",
+     "items": [
+      {
+       "text": "Ask what it is, in plain words",
+       "why": "First, understand.",
+       "back": "check"
+      },
+      {
+       "text": "Ask who is hurt",
+       "why": "Look for harm.",
+       "back": "check"
+      },
+      {
+       "text": "Ask if the thing itself is allowed",
+       "why": "Check the product.",
+       "back": "check"
+      },
+      {
+       "text": "Run the doubt test",
+       "why": "Listen to your unease.",
+       "back": "doubt"
+      },
+      {
+       "text": "Ask a person who knows",
+       "why": "Bring the details.",
+       "back": "check"
+      }
+     ],
+     "explain": "Understand, harm, allowed, doubt test, ask."
+    },
+    {
+     "id": "mm",
+     "kind": "match",
+     "prompt": "Match each text to its message. Tap one on the left, then its meaning on the right.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Qur’an 2:172"
+       },
+       "right": {
+        "text": "Eat from the good things and be grateful"
+       },
+       "why": "It links halal and gratitude.",
+       "back": "eat"
+      },
+      {
+       "left": {
+        "text": "Muslim 1015"
+       },
+       "right": {
+        "text": "Allah is Good and accepts only what is good"
+       },
+       "why": "It ties food and du’a.",
+       "back": "good"
+      },
+      {
+       "left": {
+        "text": "Tirmidhi 2518 (graded sahih by al-Albani)"
+       },
+       "right": {
+        "text": "Leave what makes you doubt"
+       },
+       "why": "The doubt test.",
+       "back": "doubt"
+      },
+      {
+       "left": {
+        "text": "Bukhari 52"
+       },
+       "right": {
+        "text": "The clear and the doubtful"
+       },
+       "why": "The shepherd by the pasture.",
+       "back": "clear"
+      },
+      {
+       "left": {
+        "text": "Bukhari 2083"
+       },
+       "right": {
+        "text": "A time when people do not care how they earn"
+       },
+       "why": "It is a warning.",
+       "back": "warn"
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c2a",
+       "q": "Does Muslim 1015 say that one wrong penny ruins all a person’s du’a?",
+       "options": [
+        {
+         "text": "Yes, always",
+         "reteach": "The lesson does not say that.",
+         "back": "good"
+        },
+        {
+         "text": "No. It says earning matters to how we pray, and it describes someone whose whole living is unlawful"
+        },
+        {
+         "text": "It says nothing about earning",
+         "reteach": "It says a lot about earning and du’a.",
+         "back": "good"
+        }
+       ],
+       "answer": 1,
+       "explain": "Muslim 1015.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2b",
+       "q": "What does Bukhari 2083 warn about?",
+       "options": [
+        {
+         "text": "People earning too little",
+         "reteach": "It speaks about not caring if it is lawful.",
+         "back": "warn"
+        },
+        {
+         "text": "People not caring how they earn"
+        },
+        {
+         "text": "People earning too much",
+         "reteach": "It speaks about not caring if it is lawful.",
+         "back": "warn"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 2083.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2c",
+       "q": "What should you do with the details when you ask a teacher?",
+       "options": [
+        {
+         "text": "Hide the parts you are afraid of",
+         "reteach": "This gives a wrong answer.",
+         "back": "check"
+        },
+        {
+         "text": "Share all of them"
+        },
+        {
+         "text": "Share only the good parts",
+         "reteach": "Share all.",
+         "back": "check"
+        }
+       ],
+       "answer": 1,
+       "explain": "Be open.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2d",
+       "q": "In 2:172, what comes with eating the good things?",
+       "options": [
+        {
+         "text": "Gratitude to Allah"
+        },
+        {
+         "text": "Fasting",
+         "reteach": "The ayah says to be grateful to Allah.",
+         "back": "eat"
+        },
+        {
+         "text": "Silence",
+         "reteach": "The ayah says to be grateful to Allah.",
+         "back": "eat"
+        }
+       ],
+       "answer": 0,
+       "explain": "Qur’an 2:172.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Check one thing",
+     "body": "Pick one source of your money, or a deal you are considering. Run the check. Then read ayah 172 of Surah Al-Baqarah.",
+     "route": "/quran/2",
+     "button": "Open Surah Al-Baqarah"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Say what Muslim 1015 teaches about earning and du’a.",
+      "Say the doubt test.",
+      "Describe the three groups in Bukhari 52.",
+      "Use the check on a job or deal."
+     ],
+     "next": "Next: Seven under the shade."
+    }
+   ]
+  },
+  {
+   "id": "yth.u3.l3",
+   "title": "Seven under the shade",
+   "minutes": 14,
+   "intro": "The hadith of the seven whom Allah will shade, and what you can start while you are young.",
+   "steps": [
+    {
+     "id": "hook",
+     "kind": "teach",
+     "title": "What you can do only now",
+     "body": [
+      "Some things are easiest when you are young: a fresh memory, plenty of energy, a clear schedule. Later they get harder.",
+      "This lesson reads one of the best-known hadith about young people, the list of seven whom Allah will shade, and asks what you can start now. It does not promise a result; it shows what the Prophet ﷺ praised."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "seven",
+     "kind": "teach",
+     "title": "Seven whom Allah will shade",
+     "body": [
+      "Abu Huraira reported that the Prophet ﷺ said: Allah will shade seven on the Day when there is no shade but His: a just ruler; a youth who grew up in the worship of Allah; a man whose heart is attached to the mosques; two people who love each other for Allah’s sake, meeting and parting upon it; a man called by a woman of rank and beauty who says: I fear Allah; a man who gives charity so secretly that his left hand does not know what his right gives; and a man who remembers Allah in seclusion and his eyes overflow (Bukhari 660).",
+      "The second one is a young person. The hadith praises the youth who grew up in worship, not the one who waited until later."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 660"
+    },
+    {
+     "id": "cave",
+     "kind": "say",
+     "title": "Youths who believed",
+     "refs": [
+      "q:18:13"
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 18:13",
+     "note": "The Qur’an says of the People of the Cave that they were youths who believed in their Lord, and Allah increased them in guidance."
+    },
+    {
+     "id": "refuge",
+     "kind": "say",
+     "title": "I seek refuge in Allah",
+     "refs": [
+      "q:12:23"
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 12:23",
+     "note": "Yusuf, a young man in a house where he was tempted, said: I seek the refuge of Allah. This is the response of the fifth person in the hadith, the one who is called and says: I fear Allah. Read the meaning of what he said."
+    },
+    {
+     "id": "strong",
+     "kind": "teach",
+     "title": "A strong believer",
+     "body": [
+      "Abu Huraira reported that the Prophet ﷺ said: the strong believer is better and more beloved to Allah than the weak believer, and there is good in both. Be keen on what benefits you, seek help from Allah, and do not lose heart (Muslim 2664).",
+      "Strength here means more than the body. It is energy, time, and the will to learn that you can put to use for what benefits you."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 2664"
+    },
+    {
+     "id": "now",
+     "kind": "contrast",
+     "title": "Now and later",
+     "intro": "This is a reflection, not a ruling.",
+     "agree": "Every age has things that are easier for it.",
+     "rows": [
+      {
+       "name": "What is easier when you are young",
+       "text": "Memorising, learning a language, long nights, trying new habits, health."
+      },
+      {
+       "name": "What is easier when you are older",
+       "text": "Some forms of charity, knowledge from experience, steady patience."
+      },
+      {
+       "name": "A fair thought",
+       "text": "Neither is better. The aim is not to postpone what you can do now."
+      }
+     ],
+     "closing": "Do now what is easier now.",
+     "label": "[Reflection]"
+    },
+    {
+     "id": "start",
+     "kind": "howto",
+     "title": "Thirty minutes this week",
+     "intro": "Choose one of these and put it in your diary.",
+     "steps": [
+      {
+       "text": "Choose one: memorise, pray at night, learn Arabic, or serve.",
+       "detail": "A small, specific plan: memorise five ayat, or pray two rak’ahs after Isha."
+      },
+      {
+       "text": "Pick a time.",
+       "detail": "A fixed time and place."
+      },
+      {
+       "text": "Start tiny.",
+       "detail": "Ten minutes is enough on day one."
+      },
+      {
+       "text": "Do it for Allah, not for a show.",
+       "detail": "The hadith praises secret charity and private remembrance."
+      },
+      {
+       "text": "Ask Allah for help.",
+       "detail": "Seek help from Allah (Muslim 2664)."
+      }
+     ],
+     "mistakes": [
+      "Planning for hours and starting nothing.",
+      "Telling everyone and quitting quietly.",
+      "Looking down on people who are older."
+     ],
+     "label": "[Reflection]",
+     "source": "Muslim 2664; Bukhari 660"
+    },
+    {
+     "id": "c1",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1a",
+       "q": "How many people does Allah shade in Bukhari 660?",
+       "options": [
+        {
+         "text": "Seven"
+        },
+        {
+         "text": "Five",
+         "reteach": "No. The hadith says seven.",
+         "back": "seven"
+        },
+        {
+         "text": "Ten",
+         "reteach": "No. It says seven.",
+         "back": "seven"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 660.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1b",
+       "q": "Which of the seven is a young person?",
+       "options": [
+        {
+         "text": "A just ruler",
+         "reteach": "No. The youth is a separate one.",
+         "back": "seven"
+        },
+        {
+         "text": "A man whose heart is attached to the mosques",
+         "reteach": "That is a different one.",
+         "back": "seven"
+        },
+        {
+         "text": "A youth who grew up in the worship of Allah"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 660.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1c",
+       "q": "What did Yusuf say when he was tempted?",
+       "options": [
+        {
+         "text": "I seek the refuge of Allah"
+        },
+        {
+         "text": "I will think about it",
+         "reteach": "No. He took refuge in Allah.",
+         "back": "refuge"
+        },
+        {
+         "text": "I am not allowed",
+         "reteach": "He said: I seek the refuge of Allah.",
+         "back": "refuge"
+        }
+       ],
+       "answer": 0,
+       "explain": "Qur’an 12:23.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1d",
+       "q": "What is the right way to begin?",
+       "options": [
+        {
+         "text": "Start with ten minutes at a fixed time, and ask Allah for help"
+        },
+        {
+         "text": "Plan three hours and begin next month",
+         "reteach": "Start tiny, now.",
+         "back": "start"
+        },
+        {
+         "text": "Wait until you are older",
+         "reteach": "The lesson is to do what is easier now.",
+         "back": "now"
+        }
+       ],
+       "answer": 0,
+       "explain": "Start tiny.",
+       "type": "scenario",
+       "scenario": "Noor wants to memorise Qur’an but feels she has no time."
+      }
+     ]
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "prompt": "Put these in order, as in the list of seven.",
+     "items": [
+      {
+       "text": "A just ruler",
+       "why": "The first.",
+       "back": "seven"
+      },
+      {
+       "text": "A youth who grew up in the worship of Allah",
+       "why": "The second.",
+       "back": "seven"
+      },
+      {
+       "text": "A man whose heart is attached to the mosques",
+       "why": "The third.",
+       "back": "seven"
+      },
+      {
+       "text": "Two who love each other for Allah’s sake",
+       "why": "The fourth.",
+       "back": "seven"
+      }
+     ],
+     "explain": "The first four in the order of Bukhari 660."
+    },
+    {
+     "id": "mm",
+     "kind": "match",
+     "prompt": "Match each text to its message. Tap one on the left, then its meaning on the right.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Bukhari 660"
+       },
+       "right": {
+        "text": "Seven whom Allah will shade"
+       },
+       "why": "It includes a youth who grew up in worship.",
+       "back": "seven"
+      },
+      {
+       "left": {
+        "text": "Qur’an 18:13"
+       },
+       "right": {
+        "text": "Youths who believed"
+       },
+       "why": "Allah increased them in guidance.",
+       "back": "cave"
+      },
+      {
+       "left": {
+        "text": "Qur’an 12:23"
+       },
+       "right": {
+        "text": "I seek the refuge of Allah"
+       },
+       "why": "Yusuf’s answer to temptation.",
+       "back": "refuge"
+      },
+      {
+       "left": {
+        "text": "Muslim 2664"
+       },
+       "right": {
+        "text": "The strong believer is better and more beloved"
+       },
+       "why": "Be keen on what benefits you.",
+       "back": "strong"
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c2a",
+       "q": "What does Muslim 2664 say about the strong believer?",
+       "options": [
+        {
+         "text": "Only the strong have good",
+         "reteach": "No. It says there is good in both.",
+         "back": "strong"
+        },
+        {
+         "text": "He is better and more beloved to Allah than the weak believer, and there is good in both"
+        },
+        {
+         "text": "Strength is only in the body",
+         "reteach": "The lesson says strength includes energy, time and will.",
+         "back": "strong"
+        }
+       ],
+       "answer": 1,
+       "explain": "Muslim 2664.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2b",
+       "q": "Which of the seven is praised for secret charity?",
+       "options": [
+        {
+         "text": "The just ruler",
+         "reteach": "No. The ruler is another one.",
+         "back": "seven"
+        },
+        {
+         "text": "The man whose left hand does not know what his right hand gives"
+        },
+        {
+         "text": "The youth",
+         "reteach": "No. The youth is a different one.",
+         "back": "seven"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 660.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2c",
+       "q": "What does the lesson say about the claim that youth is capital?",
+       "options": [
+        {
+         "text": "It is a hadith",
+         "reteach": "No. It is a reflection.",
+         "back": "now"
+        },
+        {
+         "text": "It is only a reflection; the hadith praises the youth who grew up in worship but does not say youth is capital"
+        },
+        {
+         "text": "It is a ruling",
+         "reteach": "No. It is a reflection.",
+         "back": "now"
+        }
+       ],
+       "answer": 1,
+       "explain": "Reflection.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2d",
+       "q": "Which of the seven fits Yusuf’s answer in 12:23?",
+       "options": [
+        {
+         "text": "The one who is called by a woman of rank and beauty and says: I fear Allah"
+        },
+        {
+         "text": "The just ruler",
+         "reteach": "No. The ruler is another one.",
+         "back": "refuge"
+        },
+        {
+         "text": "The one who remembers Allah in seclusion",
+         "reteach": "No. That is another one.",
+         "back": "refuge"
+        }
+       ],
+       "answer": 0,
+       "explain": "The fifth.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Start with the Qur’an",
+     "body": "Open the Qur’an and read the first ayat of Surah Al-Kahf, which tells of the youths. Then write down one thing to start this week.",
+     "route": "/quran/18",
+     "button": "Open Surah Al-Kahf"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Name at least five of the seven in Bukhari 660, including the youth.",
+      "Say what Yusuf said in 12:23.",
+      "Say what Muslim 2664 asks you to be keen on.",
+      "Pick one thing to do for thirty minutes this week."
+     ],
+     "next": "You have finished the Youth course."
+    }
+   ]
+  }
+ ]
+}

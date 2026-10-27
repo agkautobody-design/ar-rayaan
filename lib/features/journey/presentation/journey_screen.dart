@@ -228,6 +228,7 @@ class _DoneCard extends ConsumerWidget {
         openedSurah: stats.readingStarted,
         reflections: stats.reflections,
         lessonsDone: stats.lessonsDone,
+        ayatMemorised: stats.ayatMemorised,
       ),
     );
     final List<(String, String, String)> rows = <(String, String, String)>[

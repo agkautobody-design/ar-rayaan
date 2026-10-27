@@ -72,7 +72,7 @@ const List<_SeerahEra> kSeerahEras = <_SeerahEra>[
       _SeerahStory(id: 'seerah-21', title: 'The Trench', note: 'A city defended with a ditch and words — Salman\u2019s idea, thirty days of digging.'),
       _SeerahStory(id: 'seerah-22', title: 'Hudaybiyyah', note: 'A treaty that looked like surrender — and a sura that named a clear conquest (48:1).'),
       _SeerahStory(id: 'seerah-23', title: 'Khaybar', note: 'After the broken truce, the fortress fell — and the Prophet ate poisoned food that would carry to his final illness.'),
-      _SeerahStory(id: 'seerah-25', title: 'Hunayn and the Return to Taif', note: 'Victory over ten thousand at Hunayn, and he went back to the city that stoned him — to call them again.'),
+      _SeerahStory(id: 'seerah-25', title: 'Hunayn and the Return to Taif', note: 'The day of Hunayn, when great numbers did not decide the battle (Qur\u2019an 9:25), and the return to Taif, whose people came to him in the end (seerah sources).'),
     ],
   ),
   _SeerahEra(
