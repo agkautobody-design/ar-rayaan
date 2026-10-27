@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:ui' as ui show TextDirection;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
@@ -19,11 +20,16 @@ import '../../../app/theme/widgets/focus_ring.dart';
 
 class RamadanDay {
   final int day; final String theme, arabic, text, source;
+
+  /// Latin-letter reading of [arabic] and where it came from (JSON `translit`
+  /// and `translitSource`). Null when the day has none.
+  final String? translit, translitSource;
   const RamadanDay({required this.day, required this.theme, required this.arabic,
-      required this.text, required this.source});
+      required this.text, required this.source, this.translit, this.translitSource});
   factory RamadanDay.fromJson(Map<String, dynamic> j) => RamadanDay(
       day: (j['day'] as num).toInt(), theme: j['theme'] as String, arabic: j['arabic'] as String,
-      text: j['text'] as String, source: j['source'] as String);
+      text: j['text'] as String, source: j['source'] as String,
+      translit: j['translit'] as String?, translitSource: j['translitSource'] as String?);
 }
 
 final ramadanDaysProvider = FutureProvider<List<RamadanDay>>((ref) async {
@@ -201,6 +207,32 @@ class _RamadanState extends ConsumerState<RamadanScreen> {
                       if (today != null) ...[
                         const SizedBox(height: 8),
                         Text('Today\'s theme: ${today.theme}', style: AppText.bodyMuted),
+                        if (today.arabic.isNotEmpty) ...[
+                          const SizedBox(height: 6),
+                          Text(today.arabic,
+                              key: const Key('ramadan-today-arabic'),
+                              textAlign: TextAlign.center,
+                              textDirection: ui.TextDirection.rtl,
+                              style: AppText.arabic.copyWith(
+                                  fontSize: 22, height: 1.9, color: AppColors.sand)),
+                        ],
+                        if (today.translit != null)
+                          Padding(
+                            padding: const EdgeInsets.only(top: 4, bottom: 4),
+                            child: Text(today.translit!,
+                                key: const Key('ramadan-today-translit'),
+                                textAlign: TextAlign.center,
+                                style: AppText.bodyMuted.copyWith(
+                                    fontSize: 13, height: 1.5, fontStyle: FontStyle.italic)),
+                          ),
+                        if (today.translit != null && today.translitSource != null)
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 6),
+                            child: Text('Transliteration: ${today.translitSource!}',
+                                key: const Key('ramadan-today-translit-source'),
+                                textAlign: TextAlign.center,
+                                style: AppText.bodyMuted.copyWith(fontSize: 12)),
+                          ),
                         Text(today.text, textAlign: TextAlign.center,
                             style: AppText.body.copyWith(height: 1.5, fontSize: 13)),
                         Text(today.source, textAlign: TextAlign.center,
