@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:ar_rayaan/app/core/providers.dart';
 import 'package:ar_rayaan/features/hadi/application/hadi_controller.dart';
 import 'package:ar_rayaan/features/hadi/application/hadi_provider.dart';
+import 'package:ar_rayaan/features/hadi/data/hadi_decline.dart';
 import 'package:ar_rayaan/features/hadi/data/hadi_finder.dart';
 import 'package:ar_rayaan/features/hadi/data/hadi_routing.dart';
 import 'package:ar_rayaan/features/hadi/data/offline_hadi_provider.dart';
@@ -55,6 +56,8 @@ void main() {
         () {
       for (final CoverageRow r in rows) {
         if (r.kind != CoverageKind.miss) continue;
+        final bool outside = r.reply.contains(HadiDecline.outOfScopeMarker);
+        if (outside) continue;
         expect(r.reply, contains('rather not guess'), reason: r.question);
         if (r.buttons.isEmpty) {
           // No screen resembles the question: the reply itself hands over to

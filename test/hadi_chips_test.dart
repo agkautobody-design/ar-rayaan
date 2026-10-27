@@ -12,21 +12,21 @@ Future<String> offline(String q) =>
 const Map<String, String> kChipMustSay = <String, String>{
   'What is the virtue of Surah Al-Kahf?': 'Al-Kahf',
   "A du'a for anxiety": 'worry and grief',
-  'How do I pray Witr?': 'Witr is prayed',
-  'What can you do?': 'Three things',
+  'How do I pray Witr?': 'odd-numbered',
+  'What can you do?': 'I can help with',
   'Who is Wasia?': 'Wasia is the AI teacher',
   'Take me to the Stories': '[GO:/stories]',
   "A du'a before sleep": 'Bismika Allahumma amutu wa ahya',
   "How do I pray two rak'ahs?": 'two-rak',
   'Find the dua for leaving home': 'Leaving home',
   'I feel so alone': 'with you wherever you are',
-  'How do I make wudu?': 'six obligatory steps',
-  'What breaks my wudu?': 'nullified',
+  'How do I make wudu?': 'The steps',
+  'What breaks my wudu?': 'Wudu is broken by',
   'I want to memorize Quran': 'memoriz',
   'Dua for my parents': 'Rabbir hamhumaa',
   'I keep making the same sin': 'despair of the mercy of Allah',
   'What is zakat?': 'Zakat is the third pillar',
-  'How do I start fasting?': 'fourth pillar',
+  'How do I start fasting?': 'pillars of Islam',
   'I had a bad dream': 'shaytan',
   "Show me today's prayer times": '[GO:/prayer]',
 };
@@ -53,7 +53,7 @@ void main() {
     for (final HadiExchange e in kProposedHadiExchanges) {
       test('"${e.question}" gets its own real answer', () async {
         final String a = await offline(e.question);
-        expect(fallbacks.contains(a), isFalse,
+        expect(fallbacks.contains(a) || OfflineHadiProvider.isDecline(a), isFalse,
             reason: 'a chip must never land on a decline or a generic reply');
         expect(a, contains(kChipMustSay[e.question]!));
         expect(a.toLowerCase().contains('istikhara'), isFalse);

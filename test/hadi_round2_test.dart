@@ -212,7 +212,7 @@ void main() {
           isNot(contains('From dawn to sunset')));
       expect(await ask('Who is exempt from fasting?'),
           isNot(contains('From dawn to sunset')));
-      expect(await ask('How do I start fasting?'), contains('fourth pillar'));
+      expect(await ask('How do I start fasting?'), contains('pillars of Islam'));
     });
   });
 

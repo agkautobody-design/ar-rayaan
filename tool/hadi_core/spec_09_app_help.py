@@ -110,6 +110,15 @@ What I cannot tell you: I do not have a price list or a statement about future p
 """,
   review='Quotes and paraphrases the Privacy policy screen; checked by test/hadi_eval/app_help_facts_test.dart.')
 
+E('wasia-who',
+  m=[r'\bwho is wasia\b', r'\bwhat is wasia\b', r'\bwho s wasia\b', r'^wasia$', r'\btell me about wasia\b', r'\bis wasia (?:real|a person|an ai|a robot|ai)\b'],
+  topic='academy',
+  text="""
+Wasia is the AI teacher of the Wasia Academy, the letter school built with love. She teaches the Arabic alphabet, reads with the child, and speaks in three voices: student, parent, and a Teachers' Corner for parents. Shall I take you there?
+""",
+  go=['/academy/gate'],
+  review='Restates the app\'s existing description of Wasia; no Islamic ruling.')
+
 E('academy-help',
   m=[r'\bwhat is (?:the )?(?:wasia )?academy\b', r'\bwasia\b', r'\b(?:wasia )?academy\b.*\b(?:what|how|where|start|begin|open|lessons?|courses?|schools?)\b', r'\bhow (?:do|to|can) i (?:start|begin|use) (?:the )?academy\b', r'\bwhere (?:is|are) (?:the )?(?:academy|lessons|courses)\b', r'\bi want to learn (?:islam|arabic|quran|prayer)\b.*\bapp\b', r'\bwhat (?:lessons|courses|schools) (?:are|do you have|does the app have)\b', r'\bletter school\b', r'\bschool of letters\b', r'\bteacher in the app\b'],
   x=[r'\b(?:hifz|memori[sz]e)\b'],

@@ -36,8 +36,8 @@ Future<List<CoverageRow>> runCoverage({
     final List<String> own = <String>[
       for (final RegExpMatch m in _go.allMatches(a)) m.group(1)!,
     ];
-    final bool refusal = HadiRouting.isRefusal(a) ||
-        a == OfflineHadiProvider.offTopicReply;
+    final bool refusal =
+        HadiRouting.isRefusal(a) || OfflineHadiProvider.isDecline(a);
     // The same rule the controller uses: a refusal or a bare pointer may be
     // replaced by a confident quotation from the app's own guides and
     // stories.

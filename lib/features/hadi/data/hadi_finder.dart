@@ -343,9 +343,12 @@ abstract final class HadiFinder {
     ),
     _Pointer(
       <String>['streak', 'streaks'],
-      'A streak counts the days in a row you read, make dhikr or log a '
-          'prayer. It is gentle: a missed day is never shown as a failure. '
-          'Your streaks are on their own screen.',
+      'Streaks are optional and off until you turn on "Keep my streaks" '
+          '(Settings, under "Coming back"). When on, a private calendar on '
+          'your device marks the days you read, make dhikr, log a prayer or '
+          'come back. One day off each week is forgiven, and there are no '
+          'points, ranks or leaderboards. Your streaks are on their own '
+          'screen.',
       <String>['/streaks'],
       bare: true,
     ),

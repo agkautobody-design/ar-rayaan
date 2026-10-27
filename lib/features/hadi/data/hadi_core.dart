@@ -323,24 +323,63 @@ abstract final class HadiCore {
     return '$c $topic';
   }
 
+  static final RegExp _wantsMore = RegExp(
+    r'^(?:(?:tell me|give me|show me) )?(?:(?:another|one more|more|something else|'
+    r'anything else|other)\b.*\b(?:about|on|of|regarding) (?:it|that|this)|'
+    r'(?:tell me )?more(?: about (?:it|that|this))?|go on|and then|continue)$',
+  );
+
+  /// The reply to "tell me more" / "another thing about it" when nothing
+  /// further is on the shelf, or null when [question] is not that request.
+  static String? moreReply(String question, List<HadiMessage> history) {
+    if (history.isEmpty || !_wantsMore.hasMatch(canon(question))) return null;
+    return 'That is everything I have checked on this, and I will not add '
+        'anything I cannot source. Ask about one part of it, for example its '
+        'conditions, what breaks it, or who it applies to, and I will answer '
+        'that. Search also finds stories, guides and du\u2019as on it.'
+        '\n[GO:/search]';
+  }
+
+  /// The entry whose answer Hādi gave last, if it was a built-in one.
+  static CoreEntry? _lastEntry(List<HadiMessage> history) {
+    for (int i = history.length - 1; i >= 0; i--) {
+      final HadiMessage m = history[i];
+      if (!m.fromHadi) continue;
+      final String b = _body(m.text);
+      for (final _Compiled e in _compiled) {
+        if (_body(e.entry.answer) == b) return e.entry;
+      }
+      return null;
+    }
+    return null;
+  }
+
+  static String? _sourceLine(String answer) {
+    for (final String l in answer.split('\n')) {
+      if (l.startsWith('Source:')) return l;
+    }
+    return null;
+  }
+
   /// The answer to [question] given the conversation so far, or null when
   /// no built-in answer fits. A bare "why?" gets the entry's own reason.
   static CoreHit? answer(String question, List<HadiMessage> history) {
     final String c = canon(question);
     if (c.isEmpty) return null;
     if (c == 'why' || c == 'why is that' || c == 'why so') {
-      for (int i = history.length - 1; i >= 0; i--) {
-        final HadiMessage m = history[i];
-        if (!m.fromHadi) continue;
-        final String b = _body(m.text);
-        for (final _Compiled e in _compiled) {
-          if (e.entry.why.isNotEmpty && _body(e.entry.answer) == b) {
-            return CoreHit(e.entry, e.entry.why);
-          }
-        }
-        break;
-      }
-      return null;
+      final CoreEntry? last = _lastEntry(history);
+      if (last == null) return null;
+      if (last.why.isNotEmpty) return CoreHit(last, last.why);
+      final String? src = _sourceLine(last.answer);
+      return CoreHit(
+        last,
+        src == null
+            ? 'The reasons are in the answer above. Tell me which part is '
+                'unclear and I will say it another way.'
+            : 'The reasons are in the answer above, and they rest on these '
+                'texts: ${src.replaceFirst(RegExp(r'^Source:\s*'), '')}\n'
+                'Tell me which part is unclear and I will say it another way.',
+      );
     }
     final CoreEntry? e = _find(c);
     if (e != null) return CoreHit(e, e.answer);

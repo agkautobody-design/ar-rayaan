@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:ar_rayaan/app/core/providers.dart';
 import 'package:ar_rayaan/features/hadi/application/hadi_controller.dart';
 import 'package:ar_rayaan/features/hadi/application/hadi_provider.dart';
+import 'package:ar_rayaan/features/hadi/data/hadi_decline.dart';
 import 'package:ar_rayaan/features/hadi/data/offline_hadi_provider.dart';
 import 'package:ar_rayaan/features/hadi/grounding/answer_verifier.dart';
 import 'package:ar_rayaan/features/hadi/grounding/corpus.dart';
@@ -315,6 +316,7 @@ void main() {
         OfflineHadiProvider.scriptReplyUrdu,
         ...OfflineHadiProvider.rudeReplies,
         ...OfflineHadiProvider.distressReplies,
+        ...HadiDecline.all,
       ]) {
         expect(
           OfflineHadiProvider.schoolNote(
