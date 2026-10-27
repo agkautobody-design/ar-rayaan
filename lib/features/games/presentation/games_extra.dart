@@ -224,11 +224,11 @@ class HijrahMapScreen extends StatelessWidget {
   const HijrahMapScreen({super.key});
 
   static const _stops = [
-    ('Makkah', 'The night of the departure', 'Quraysh had voted to kill him — one man from every clan, so the blood-price would crush his family. The Prophet ﷺ slipped out while they watched his door.', 'Sahih al-Bukhari 3905'),
-    ('The Cave of Thawr', 'Three nights in the cave', 'With Abu Bakr beside him, and the hunters at the mouth of the cave, he said: \u201cdo not grieve; indeed Allah is with us\u201d (9:40). Later tradition adds a spider\u2019s web; it is not in the Qur\u2019an or in Bukhari 3905.', 'Qur\u2019an 9:40'),
-    ('The Road North', 'Suraqa and the changing of the earth', 'The rider chasing the bounty — a hundred camels — was thrown twice from his horse as the ground seized it. He asked for a letter of safety and rode home guarding the document he had come to kill for.', 'Sahih al-Bukhari 3905'),
-    ('Quba', 'The first mosque', 'Fourteen days building Masjid Quba — \u201ca mosque founded on righteousness from the first day\u201d (9:108) — before entering the city.', 'Qur\u2019an 9:108'),
-    ('Madinah', 'The city that ran to meet him', 'Every roof emptied; every voice called the takbir; the date-palms were crowded with people. The hijrah was complete — and history\u2019s calendar began again from that year.', 'Seerah: Ibn Ishaq'),
+    ('Makkah', 'The night of the departure', 'The disbelievers plotted “to restrain you or kill you or evict you” (8:30). The Prophet ﷺ left Makkah with Abu Bakr and made for a cave on the mountain of Thawr.', 'Qur’an 8:30 · Sahih al-Bukhari 3905'),
+    ('The Cave of Thawr', 'Three nights in the cave', 'With Abu Bakr beside him he said: “do not grieve; indeed Allah is with us” (9:40). They stayed in the cave three nights. Later tradition adds a spider’s web; it is not in the Qur’an or in Bukhari 3905.', 'Qur’an 9:40 · Sahih al-Bukhari 3905'),
+    ('The Road North', 'Suraqa and the sinking horse', 'Suraqa ibn Malik rode after them for the reward Quraysh had announced, equal to a blood-price. His horse stumbled, then sank into the ground up to its knees. He called for safety, told them what Quraysh planned, and was asked: “Do not tell others about us.”', 'Sahih al-Bukhari 3906'),
+    ('Quba', 'The first stop near Madinah', 'He stayed with Banu Amr ibn Awf at Quba: fourteen nights in Bukhari 3932, ten in Bukhari 3906. The Qur’an speaks of “a mosque founded on righteousness from the first day” (9:108), understood to be Masjid Quba.', 'Sahih al-Bukhari 3932, 3906 · Qur’an 9:108'),
+    ('Madinah', 'The city that came out to see him', 'The news spread in Madinah and the people came out saying, “Allah’s Prophet has come!” He alighted near the house of Abu Ayyub.', 'Sahih al-Bukhari 3911'),
   ];
 
   @override

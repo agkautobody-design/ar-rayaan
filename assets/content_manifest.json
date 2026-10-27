@@ -16,14 +16,14 @@
    "version": 1
   },
   "games/names99.json": {
-   "bytes": 12954,
-   "sha256": "72216662c9e9b9ae3301cef91dc3e7890cf551be0900e72ae22acc81dc2e8700",
-   "version": 2
+   "bytes": 19240,
+   "sha256": "dfc1e1b3914a250081db73ec640702fc57f47827b2d95b7c6b7ccaf2cb378a5b",
+   "version": 3
   },
   "games/trivia.json": {
-   "bytes": 12480,
-   "sha256": "41f1f5836e187c9a31de7bd1014ccc213e65da5870a5190087af27c433b236e9",
-   "version": 3
+   "bytes": 163217,
+   "sha256": "6cce1f59bddfb17daf930f559c59619f09e674b0136cd2be1eabe04af7e01075",
+   "version": 4
   },
   "guides/guides.json": {
    "bytes": 77489,
@@ -66,13 +66,13 @@
    "version": 4
   },
   "stories/prophets.json": {
-   "bytes": 62600,
-   "sha256": "871e0f1e7e4994dd3a7d0bbab3f8ebfbcc3f26d1121f874124d17e387504beef",
-   "version": 4
+   "bytes": 90422,
+   "sha256": "4f2cdc745da11e6ba917386277b0f9011d656d1606f4452a67066b6c2074b5d9",
+   "version": 5
   },
   "stories/seerah.json": {
-   "bytes": 83086,
-   "sha256": "0fcb41e8483f77caf0e94f304c56f035e75af72539cca8c6a0c6e57fd029f428",
+   "bytes": 83122,
+   "sha256": "f87d74dd45cb8ceda7b7fe79716b0dd735dec3d03f29d32103d07d0ab76ab10e",
    "version": 7
   },
   "stories/signs.json": {

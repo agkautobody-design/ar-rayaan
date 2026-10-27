@@ -112,6 +112,27 @@ void gradeTests() {
       }
     });
 
+    test('only authentic reports are served: sahih or hasan, never weak', () {
+      for (final DailyHadith h in DailyHadiths.all) {
+        expect(h.isAuthentic, isTrue, reason: '${h.source}: ${h.grade}');
+        final String low = h.text.toLowerCase();
+        expect(low, isNot(contains('review pending')), reason: h.source);
+        expect(low, isNot(contains('not yet verified')), reason: h.source);
+        expect(h.source, isNot(contains('daif')), reason: h.source);
+        expect(h.source, isNot(contains("da'if")), reason: h.source);
+        // Every report names the book and a number: nothing "unnumbered".
+        expect(h.source, contains(RegExp(r'\d')), reason: h.text);
+      }
+    });
+
+    test('the weak reports removed from the rotation stay out', () {
+      for (final DailyHadith h in DailyHadiths.all) {
+        expect(h.source, isNot(contains('Tirmidhi 2317')));
+        expect(h.source, isNot(contains('Tirmidhi 2499')));
+        expect(h.source, isNot(contains('Abu Dawud 5090')));
+      }
+    });
+
     test('HadithGrade needs both a grade and a grader', () {
       expect(HadithGrade.fromJson(<String, dynamic>{'grade': 'hasan'}), isNull);
       expect(

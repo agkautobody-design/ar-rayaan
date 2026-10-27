@@ -1,0 +1,37 @@
+{
+ "bukhari:2442": {
+  "verdict": "ok",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "checked": "2026-10-27",
+  "note": "Ibn Umar: a Muslim is the brother of a Muslim; whoever fulfils his brother's need, Allah fulfils his need (checked against the hadith-api eng-bukhari / ara-bukhari editions)"
+ },
+ "bukhari:5986": {
+  "verdict": "ok",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "checked": "2026-10-27",
+  "note": "Anas: whoever loves that his provision be expanded and his life prolonged, let him keep the ties of kinship (hadith-api eng/ara-bukhari)"
+ },
+ "bukhari:6065": {
+  "verdict": "ok",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "checked": "2026-10-27",
+  "note": "Anas: do not hate one another, do not envy one another, do not turn away from one another, be servants of Allah as brothers (hadith-api eng/ara-bukhari)"
+ },
+ "bukhari:6116": {
+  "verdict": "ok",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "checked": "2026-10-27",
+  "note": "Abu Hurayrah: a man asked for advice; the Prophet said 'Do not become angry', repeated (hadith-api eng/ara-bukhari)"
+ },
+ "tirmidhi:3540": {
+  "verdict": "ok",
+  "grade": "Sahih",
+  "grader": "al-Albani (hadith-api reference); at-Tirmidhi: gharib; Zubair Ali Zai: isnad hasan",
+  "checked": "2026-10-27",
+  "note": "Anas: O son of Adam, were your sins to reach the clouds of the sky (hadith-api eng/ara-tirmidhi)"
+ }
+}

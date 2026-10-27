@@ -1,0 +1,627 @@
+{
+ "schema": 1,
+ "note": "Verified-phrase registry for Academy v3 lessons. A lesson never contains Arabic of its own: it names a phrase here, or an ayah of assets/quran/quran.json as q:<surah>:<ayah>. `status: verified` means the Arabic was found letter for letter in the cited primary-source text on the date below; it does NOT mean a scholar has reviewed it (see needsScholarReview). Rebuild or re-check with tool/academy_phrases.py.",
+ "checked": "2026-10-27",
+ "corpus": "github.com/fawazahmed0/hadith-api (branch 1, editions/ara-*.json); sunnah.com numbering; Muslim by Abd al-Baqi number",
+ "phrases": {
+  "shahada.tawhid": {
+   "arabic": "أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ اللَّهُ",
+   "status": "verified",
+   "translit": "Ash-hadu al-laa ilaaha illal-laah",
+   "meaning": "I bear witness that there is no god but Allah.",
+   "words": [
+    {
+     "tr": "ash-hadu",
+     "en": "I bear witness"
+    },
+    {
+     "tr": "an",
+     "en": "that"
+    },
+    {
+     "tr": "laa",
+     "en": "no"
+    },
+    {
+     "tr": "ilaaha",
+     "en": "god"
+    },
+    {
+     "tr": "illaa",
+     "en": "except"
+    },
+    {
+     "tr": "Allaah",
+     "en": "Allah"
+    }
+   ],
+   "sources": [
+    "Muslim 403 (the words, as the Prophet taught them inside the tashahhud)",
+    "Muslim 379 (the same words in the adhan)"
+   ],
+   "copiedFrom": "Muslim 403 (fawazahmed0/hadith-api, ara-muslim)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "shahada.risala": {
+   "arabic": "وَأَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ اللَّهِ",
+   "status": "verified",
+   "translit": "Wa ash-hadu anna Muhammadan rasoolul-laah",
+   "meaning": "And I bear witness that Muhammad is the Messenger of Allah.",
+   "words": [
+    {
+     "tr": "wa-ash-hadu",
+     "en": "and I bear witness"
+    },
+    {
+     "tr": "anna",
+     "en": "that"
+    },
+    {
+     "tr": "Muhammadan",
+     "en": "Muhammad"
+    },
+    {
+     "tr": "rasoolu",
+     "en": "messenger of"
+    },
+    {
+     "tr": "Allaah",
+     "en": "Allah"
+    }
+   ],
+   "sources": [
+    "Muslim 403 (the words, as the Prophet taught them inside the tashahhud)",
+    "Muslim 379 (the same words in the adhan)"
+   ],
+   "copiedFrom": "Muslim 403 (fawazahmed0/hadith-api, ara-muslim)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "shahada.full": {
+   "parts": [
+    "shahada.tawhid",
+    "shahada.risala"
+   ],
+   "status": "verified",
+   "translit": "Ash-hadu al-laa ilaaha illal-laah, wa ash-hadu anna Muhammadan rasoolul-laah",
+   "meaning": "I bear witness that there is no god but Allah, and I bear witness that Muhammad is the Messenger of Allah.",
+   "sources": [
+    "Bukhari 8 (it is the first pillar of Islam)",
+    "Muslim 403 (the words)"
+   ],
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "takbir": {
+   "arabic": "اللَّهُ أَكْبَرُ",
+   "status": "verified",
+   "translit": "Allaahu akbar",
+   "meaning": "Allah is the Greatest.",
+   "words": [
+    {
+     "tr": "Allaahu",
+     "en": "Allah"
+    },
+    {
+     "tr": "akbar",
+     "en": "the Greatest"
+    }
+   ],
+   "sources": [
+    "Muslim 379 (the words, in the adhan)",
+    "Abu Dawud 61 (graded hasan sahih by al-Albani): the prayer is entered by takbir"
+   ],
+   "copiedFrom": "Muslim 379 (fawazahmed0/hadith-api, ara-muslim)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "ruku.tasbih": {
+   "arabic": "سُبْحَانَ رَبِّيَ الْعَظِيمِ",
+   "status": "verified",
+   "translit": "Subhaana Rabbiyal-'Azeem",
+   "meaning": "Glory be to my Lord, the Magnificent.",
+   "words": [
+    {
+     "tr": "subhaana",
+     "en": "glory be to"
+    },
+    {
+     "tr": "Rabbiya",
+     "en": "my Lord"
+    },
+    {
+     "tr": "al-'Azeem",
+     "en": "the Magnificent"
+    }
+   ],
+   "sources": [
+    "Muslim 772"
+   ],
+   "copiedFrom": "Muslim 772 (fawazahmed0/hadith-api, ara-muslim)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "rise.sami": {
+   "arabic": "سَمِعَ اللَّهُ لِمَنْ حَمِدَهُ",
+   "status": "verified",
+   "translit": "Sami'al-laahu liman hamidah",
+   "meaning": "Allah hears the one who praises Him.",
+   "words": [
+    {
+     "tr": "sami'a",
+     "en": "hears"
+    },
+    {
+     "tr": "Allaahu",
+     "en": "Allah"
+    },
+    {
+     "tr": "liman",
+     "en": "the one who"
+    },
+    {
+     "tr": "hamidah",
+     "en": "praised Him"
+    }
+   ],
+   "sources": [
+    "Bukhari 689",
+    "Muslim 772"
+   ],
+   "copiedFrom": "Bukhari 689 (fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "rise.rabbana": {
+   "arabic": "رَبَّنَا وَلَكَ الْحَمْدُ",
+   "status": "verified",
+   "translit": "Rabbanaa wa lakal-hamd",
+   "meaning": "Our Lord, and to You belongs all praise.",
+   "words": [
+    {
+     "tr": "Rabbanaa",
+     "en": "our Lord"
+    },
+    {
+     "tr": "wa-laka",
+     "en": "and to You"
+    },
+    {
+     "tr": "al-hamd",
+     "en": "the praise"
+    }
+   ],
+   "sources": [
+    "Bukhari 689"
+   ],
+   "copiedFrom": "Bukhari 689 (fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "rise": {
+   "parts": [
+    "rise.sami",
+    "rise.rabbana"
+   ],
+   "status": "verified",
+   "translit": "Sami'al-laahu liman hamidah. Rabbanaa wa lakal-hamd",
+   "meaning": "Allah hears the one who praises Him. Our Lord, and to You belongs all praise.",
+   "sources": [
+    "Bukhari 689"
+   ],
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "sujud.tasbih": {
+   "arabic": "سُبْحَانَ رَبِّيَ الأَعْلَى",
+   "status": "verified",
+   "translit": "Subhaana Rabbiyal-A'laa",
+   "meaning": "Glory be to my Lord, the Most High.",
+   "words": [
+    {
+     "tr": "subhaana",
+     "en": "glory be to"
+    },
+    {
+     "tr": "Rabbiya",
+     "en": "my Lord"
+    },
+    {
+     "tr": "al-A'laa",
+     "en": "the Most High"
+    }
+   ],
+   "sources": [
+    "Muslim 772"
+   ],
+   "copiedFrom": "Muslim 772 (fawazahmed0/hadith-api, ara-muslim)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "between.rabbighfir": {
+   "arabic": "رَبِّ اغْفِرْ لِي",
+   "status": "verified",
+   "translit": "Rabbigh-fir lee",
+   "meaning": "My Lord, forgive me.",
+   "words": [
+    {
+     "tr": "Rabbi",
+     "en": "my Lord"
+    },
+    {
+     "tr": "ighfir",
+     "en": "forgive"
+    },
+    {
+     "tr": "lee",
+     "en": "me"
+    }
+   ],
+   "sources": [
+    "Abu Dawud 874 (graded sahih by al-Albani)"
+   ],
+   "copiedFrom": "Abu Dawud 874 (graded by al-Albani; fawazahmed0/hadith-api, ara-abudawud)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "tashahhud.1": {
+   "arabic": "التَّحِيَّاتُ لِلَّهِ وَالصَّلَوَاتُ وَالطَّيِّبَاتُ",
+   "status": "verified",
+   "translit": "At-tahiyyaatu lillaahi was-salawaatu wat-tayyibaat",
+   "meaning": "All greetings, prayers and good things belong to Allah.",
+   "sources": [
+    "Bukhari 831"
+   ],
+   "copiedFrom": "Bukhari 831 (fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "tashahhud.2": {
+   "arabic": "السَّلاَمُ عَلَيْكَ أَيُّهَا النَّبِيُّ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ",
+   "status": "verified",
+   "translit": "As-salaamu 'alayka ayyuhan-Nabiyyu wa rahmatul-laahi wa barakaatuh",
+   "meaning": "Peace be upon you, O Prophet, and the mercy of Allah and His blessings.",
+   "sources": [
+    "Bukhari 831"
+   ],
+   "copiedFrom": "Bukhari 831 (fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "tashahhud.3": {
+   "arabic": "السَّلاَمُ عَلَيْنَا وَعَلَى عِبَادِ اللَّهِ الصَّالِحِينَ",
+   "status": "verified",
+   "translit": "As-salaamu 'alaynaa wa 'alaa 'ibaadil-laahis-saaliheen",
+   "meaning": "Peace be upon us and upon the righteous servants of Allah.",
+   "sources": [
+    "Bukhari 831"
+   ],
+   "copiedFrom": "Bukhari 831 (fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "tashahhud.4": {
+   "arabic": "أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ اللَّهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ",
+   "status": "verified",
+   "translit": "Ash-hadu al-laa ilaaha illal-laah, wa ash-hadu anna Muhammadan 'abduhu wa rasooluh",
+   "meaning": "I bear witness that there is no god but Allah, and I bear witness that Muhammad is His servant and His Messenger.",
+   "sources": [
+    "Bukhari 831"
+   ],
+   "copiedFrom": "Bukhari 831 (fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "tashahhud": {
+   "parts": [
+    "tashahhud.1",
+    "tashahhud.2",
+    "tashahhud.3",
+    "tashahhud.4"
+   ],
+   "status": "verified",
+   "translit": "At-tahiyyaatu lillaahi was-salawaatu wat-tayyibaat. As-salaamu 'alayka ayyuhan-Nabiyyu wa rahmatul-laahi wa barakaatuh. As-salaamu 'alaynaa wa 'alaa 'ibaadil-laahis-saaliheen. Ash-hadu al-laa ilaaha illal-laah, wa ash-hadu anna Muhammadan 'abduhu wa rasooluh.",
+   "meaning": "All greetings, prayers and good things belong to Allah. Peace be upon you, O Prophet, and the mercy of Allah and His blessings. Peace be upon us and upon the righteous servants of Allah. I bear witness that there is no god but Allah, and I bear witness that Muhammad is His servant and His Messenger.",
+   "sources": [
+    "Bukhari 831",
+    "Muslim 403 (Ibn Abbas teaches another authentic wording)"
+   ],
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "salawat.1": {
+   "arabic": "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ",
+   "status": "verified",
+   "translit": "Allaahumma salli 'alaa Muhammadin wa 'alaa aali Muhammad, kamaa sallayta 'alaa Ibraaheema wa 'alaa aali Ibraaheem, innaka Hameedun Majeed",
+   "meaning": "O Allah, send prayers upon Muhammad and upon the family of Muhammad, as You sent prayers upon Ibrahim and upon the family of Ibrahim. You are Praiseworthy, Glorious.",
+   "sources": [
+    "Bukhari 3370"
+   ],
+   "copiedFrom": "Bukhari 3370 (fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "salawat.2": {
+   "arabic": "اللَّهُمَّ بَارِكْ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا بَارَكْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ",
+   "status": "verified",
+   "translit": "Allaahumma baarik 'alaa Muhammadin wa 'alaa aali Muhammad, kamaa baarakta 'alaa Ibraaheema wa 'alaa aali Ibraaheem, innaka Hameedun Majeed",
+   "meaning": "O Allah, bless Muhammad and the family of Muhammad, as You blessed Ibrahim and the family of Ibrahim. You are Praiseworthy, Glorious.",
+   "sources": [
+    "Bukhari 3370"
+   ],
+   "copiedFrom": "Bukhari 3370 (fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "salawat": {
+   "parts": [
+    "salawat.1",
+    "salawat.2"
+   ],
+   "status": "verified",
+   "translit": "Allaahumma salli 'alaa Muhammadin wa 'alaa aali Muhammad, kamaa sallayta 'alaa Ibraaheema wa 'alaa aali Ibraaheem, innaka Hameedun Majeed. Allaahumma baarik 'alaa Muhammadin wa 'alaa aali Muhammad, kamaa baarakta 'alaa Ibraaheema wa 'alaa aali Ibraaheem, innaka Hameedun Majeed.",
+   "meaning": "O Allah, send prayers upon Muhammad and upon the family of Muhammad, as You sent prayers upon Ibrahim and upon the family of Ibrahim. You are Praiseworthy, Glorious. O Allah, bless Muhammad and the family of Muhammad, as You blessed Ibrahim and the family of Ibrahim. You are Praiseworthy, Glorious.",
+   "sources": [
+    "Bukhari 3370",
+    "Muslim 406 (another wording of the same teaching)"
+   ],
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "salam": {
+   "arabic": "السَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ",
+   "status": "verified",
+   "translit": "As-salaamu 'alaykum wa rahmatul-laah",
+   "meaning": "Peace be upon you, and the mercy of Allah.",
+   "words": [
+    {
+     "tr": "as-salaamu",
+     "en": "the peace"
+    },
+    {
+     "tr": "'alaykum",
+     "en": "be upon you"
+    },
+    {
+     "tr": "wa-rahmatu",
+     "en": "and the mercy of"
+    },
+    {
+     "tr": "Allaah",
+     "en": "Allah"
+    }
+   ],
+   "sources": [
+    "Abu Dawud 996 (graded sahih by al-Albani)"
+   ],
+   "copiedFrom": "Abu Dawud 996 (graded by al-Albani; fawazahmed0/hadith-api, ara-abudawud)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "amin": {
+   "arabic": "آمِينَ",
+   "status": "verified",
+   "translit": "Aameen",
+   "meaning": "O Allah, answer (our prayer).",
+   "sources": [
+    "Bukhari 780"
+   ],
+   "copiedFrom": "Bukhari 780 (fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "wudu.bismillah": {
+   "arabic": "بِسْمِ اللَّهِ",
+   "status": "verified",
+   "translit": "Bismil-laah",
+   "meaning": "In the name of Allah.",
+   "words": [
+    {
+     "tr": "bismi",
+     "en": "in the name of"
+    },
+    {
+     "tr": "Allaah",
+     "en": "Allah"
+    }
+   ],
+   "sources": [
+    "Nasa'i 78 (graded sahih isnad by al-Albani)",
+    "Abu Dawud 101 (graded sahih by al-Albani)"
+   ],
+   "copiedFrom": "Nasa'i 78 (graded by al-Albani; fawazahmed0/hadith-api, ara-nasai)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "wudu.dua.1": {
+   "arabic": "أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ",
+   "status": "verified",
+   "translit": "Ash-hadu al-laa ilaaha illal-laahu wahdahu laa shareeka lah",
+   "meaning": "I bear witness that there is no god but Allah alone, with no partner.",
+   "sources": [
+    "Muslim 234"
+   ],
+   "copiedFrom": "Muslim 234.02 (fawazahmed0/hadith-api, ara-muslim)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "wudu.dua.2": {
+   "arabic": "وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ",
+   "status": "verified",
+   "translit": "Wa ash-hadu anna Muhammadan 'abduhu wa rasooluh",
+   "meaning": "And I bear witness that Muhammad is His servant and His Messenger.",
+   "sources": [
+    "Muslim 234"
+   ],
+   "copiedFrom": "Muslim 234.02 (fawazahmed0/hadith-api, ara-muslim)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "wudu.dua": {
+   "parts": [
+    "wudu.dua.1",
+    "wudu.dua.2"
+   ],
+   "status": "verified",
+   "translit": "Ash-hadu al-laa ilaaha illal-laahu wahdahu laa shareeka lah, wa ash-hadu anna Muhammadan 'abduhu wa rasooluh",
+   "meaning": "I bear witness that there is no god but Allah alone, with no partner, and I bear witness that Muhammad is His servant and His Messenger.",
+   "sources": [
+    "Muslim 234"
+   ],
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "dhikr.1": {
+   "arabic": "سُبْحَانَ اللَّهِ",
+   "status": "verified",
+   "translit": "Subhaanal-laah",
+   "meaning": "Glory be to Allah.",
+   "words": [
+    {
+     "tr": "subhaana",
+     "en": "glory be to"
+    },
+    {
+     "tr": "Allaah",
+     "en": "Allah"
+    }
+   ],
+   "sources": [
+    "Abu Dawud 832 (graded hasan by al-Albani)"
+   ],
+   "copiedFrom": "Abu Dawud 832 (graded by al-Albani; fawazahmed0/hadith-api, ara-abudawud)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "dhikr.2": {
+   "arabic": "وَالْحَمْدُ لِلَّهِ",
+   "status": "verified",
+   "translit": "Wal-hamdu lillaah",
+   "meaning": "And praise be to Allah.",
+   "words": [
+    {
+     "tr": "wal-hamdu",
+     "en": "and the praise"
+    },
+    {
+     "tr": "lillaah",
+     "en": "is for Allah"
+    }
+   ],
+   "sources": [
+    "Abu Dawud 832 (graded hasan by al-Albani)"
+   ],
+   "copiedFrom": "Abu Dawud 832 (graded by al-Albani; fawazahmed0/hadith-api, ara-abudawud)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "dhikr.3": {
+   "arabic": "وَلاَ إِلَهَ إِلاَّ اللَّهُ",
+   "status": "verified",
+   "translit": "Wa laa ilaaha illal-laah",
+   "meaning": "And there is no god but Allah.",
+   "words": [
+    {
+     "tr": "wa-laa",
+     "en": "and no"
+    },
+    {
+     "tr": "ilaaha",
+     "en": "god"
+    },
+    {
+     "tr": "illaa",
+     "en": "except"
+    },
+    {
+     "tr": "Allaah",
+     "en": "Allah"
+    }
+   ],
+   "sources": [
+    "Abu Dawud 832 (graded hasan by al-Albani)"
+   ],
+   "copiedFrom": "Abu Dawud 832 (graded by al-Albani; fawazahmed0/hadith-api, ara-abudawud)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "dhikr.4": {
+   "arabic": "وَاللَّهُ أَكْبَرُ",
+   "status": "verified",
+   "translit": "Wallaahu akbar",
+   "meaning": "And Allah is the Greatest.",
+   "words": [
+    {
+     "tr": "wallaahu",
+     "en": "and Allah"
+    },
+    {
+     "tr": "akbar",
+     "en": "the Greatest"
+    }
+   ],
+   "sources": [
+    "Abu Dawud 832 (graded hasan by al-Albani)"
+   ],
+   "copiedFrom": "Abu Dawud 832 (graded by al-Albani; fawazahmed0/hadith-api, ara-abudawud)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "dhikr.5": {
+   "arabic": "وَلاَ حَوْلَ وَلاَ قُوَّةَ إِلاَّ بِاللَّهِ",
+   "status": "verified",
+   "translit": "Wa laa hawla wa laa quwwata illaa billaah",
+   "meaning": "And there is no power and no strength except with Allah.",
+   "words": [
+    {
+     "tr": "wa-laa",
+     "en": "and no"
+    },
+    {
+     "tr": "hawla",
+     "en": "power"
+    },
+    {
+     "tr": "wa-laa",
+     "en": "and no"
+    },
+    {
+     "tr": "quwwata",
+     "en": "strength"
+    },
+    {
+     "tr": "illaa",
+     "en": "except"
+    },
+    {
+     "tr": "billaah",
+     "en": "with Allah"
+    }
+   ],
+   "sources": [
+    "Abu Dawud 832 (graded hasan by al-Albani)"
+   ],
+   "copiedFrom": "Abu Dawud 832 (graded by al-Albani; fawazahmed0/hadith-api, ara-abudawud)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "dhikr.beginner": {
+   "parts": [
+    "dhikr.1",
+    "dhikr.2",
+    "dhikr.3",
+    "dhikr.4",
+    "dhikr.5"
+   ],
+   "status": "verified",
+   "translit": "Subhaanal-laah, wal-hamdu lillaah, wa laa ilaaha illal-laah, wallaahu akbar, wa laa hawla wa laa quwwata illaa billaah",
+   "meaning": "Glory be to Allah, and praise be to Allah, and there is no god but Allah, and Allah is the Greatest, and there is no power and no strength except with Allah.",
+   "sources": [
+    "Abu Dawud 832 (graded hasan by al-Albani)"
+   ],
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  }
+ }
+}

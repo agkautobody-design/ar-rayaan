@@ -138,14 +138,20 @@ class SourcesScreen extends ConsumerWidget {
                     'Only Bukhari and Muslim are known as the two Sahihayn. '
                     'The four Sunan contain sahih, hasan and weaker reports, so '
                     'every hadith in Ar-Rayaan names its collection and number '
-                    'and carries a grade only where one has been checked '
-                    '(against sunnah.com and the hadith-api editions of '
-                    'fawazahmed0, with grades from the compilers and '
-                    'al-Albani). Where a grade could not be checked, it is '
-                    'left off.\n\n'
-                    'Readable now in-app: The Forty Hadith of Imam an-Nawawi '
-                    '(42 narrations) and the daily hadith. The full six-book '
-                    'library arrives in a coming update.',
+                    'and carries a grade only where one has been checked, with '
+                    'the name of who gave it: the compiler (for example '
+                    'at-Tirmidhi), al-Albani, or Darussalam (the grading of '
+                    'Zubair Ali Zai). The numbers and grades were checked '
+                    'against the hadith-api editions of fawazahmed0, which '
+                    'follow sunnah.com. Where two graders differ, the '
+                    'difference is shown, never hidden. The Daily Hadith '
+                    'only ever offers reports graded sahih or hasan. Where a '
+                    'grade could not be checked, it is left off.\n\n'
+                    'Readable in the app: The Forty Hadith of Imam an-Nawawi '
+                    '(42 narrations, each with its source and grade), the '
+                    'daily hadith, and the hadith quoted in the stories, '
+                    'guides and adhkar. You can bookmark a hadith and add a '
+                    'note to it; both stay on your device.',
                     style: AppText.bodyMuted.copyWith(
                       fontSize: 12,
                       height: 1.5,
