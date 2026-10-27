@@ -34,7 +34,7 @@ ROOT = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, HERE)
 
 from rg import (ARABIC, AREAS, AREA_TITLE, CLIN, FIQH, HADITH, LAWYER, MADHABS,  # noqa: E402
-                NATIVE, REVIEWER_TYPES, RIGHTS, WOMEN)
+                NATIVE, OWNER, REVIEWER_TYPES, RIGHTS, WOMEN)
 
 REGISTER_JSON = os.path.join(ROOT, 'tool', 'scholar_review', 'register.json')
 REGISTER_MD = os.path.join(ROOT, 'docs', 'SCHOLAR_REVIEW_REGISTER.md')
@@ -1185,6 +1185,71 @@ def build_games_noor():
 
 # ============================================================ run
 
+# ============================================================ support packs
+
+CHILD_BANDS = ('5-8', '9-12', '13-17')
+RX_WOMEN_SP = re.compile(r"marriage|marry|wife|husband|spouse|divorce|talaq|mahr|nikah|menstru|pregnan|women|woman|mother", re.I)
+
+
+def build_support_packs():
+    """One register item per snippet in assets/support/packs/*.json."""
+    for path in sorted(glob.glob(os.path.join(ROOT, 'assets', 'support', 'packs', '*.json'))):
+        d = rj(path)
+        pack = d['pack']
+        rel = 'assets/support/packs/%s' % os.path.basename(path)
+        for sn in d['snippets']:
+            text = sn['text'].get('en', '')
+            srcs = sn.get('sources', [])
+            has_rel = any(x.get('type') in ('hadith', 'quran') or 'hadith' in x.get('type', '') for x in srcs)
+            bands = sn.get('ageBand', [])
+            child = any(b in CHILD_BANDS for b in bands)
+            disputed = bool(re.search(r'scholars differ', text, re.I))
+            native = sn.get('needsNativeClinicianReview')
+            clin = sn.get('needsClinicianReview')
+            schol = sn.get('needsScholarReview')
+            also = []
+            if native:
+                lead = NATIVE
+                also = [CLIN]
+            elif clin:
+                lead = CLIN
+                if schol or has_rel:
+                    also.append(HADITH)
+            elif disputed:
+                lead = FIQH
+                also = [HADITH]
+            elif schol or has_rel:
+                lead = HADITH
+            else:
+                lead = OWNER
+            if disputed and lead != FIQH:
+                also.append(FIQH)
+            if RX_WOMEN_SP.search(text) and d.get('topic') in ('family_parenting', 'domestic_abuse', 'sexual_violence', 'new_muslim', 'etiquette'):
+                also.append(WOMEN)
+            flags = []
+            if native:
+                flags.append('needsNativeClinicianReview')
+            if clin:
+                flags.append('needsClinicianReview')
+            if schol:
+                flags.append('needsScholarReview')
+            if child:
+                flags.append('child age band %s: clinician and safeguarding review' % '/'.join(b for b in bands if b in CHILD_BANDS))
+            if disputed:
+                flags.append('states that scholars differ: each named school to be checked')
+            why = 'Support-module snippet (kind %s, pack kind %s, risk %s, evidence %s, status %s). Flags: %s. No named reviewer has signed off.' % (
+                sn.get('kind'), d.get('packKind'), sn.get('risk'), sn.get('evidenceLevel'), sn.get('status'),
+                '; '.join(flags) if flags else 'none (product wording)')
+            pri = 'high' if (sn.get('risk') == 'high' or native) else ('low' if lead == OWNER and sn.get('risk') == 'low' else 'normal')
+            R.add(
+                id='support.' + sn['id'], area='support-packs', subarea=pack,
+                where_app='Hadi / Wasia support module > pack "%s" (%s)' % (pack, d.get('packKind')),
+                file=rel, key=sn['id'],
+                what=text, why=why, reviewer=lead, also=also,
+                source=['Support packs build (tool/support/build_packs.py)'] + ['%s %s' % (x.get('type'), x.get('ref', x.get('title', ''))) for x in srcs[:3]],
+                priority=pri, label_surface='Hadi / Wasia reply (support, conversation or knowledge pack)')
+
+
 def build_all():
     build_lessons()
     build_phrases()
@@ -1207,6 +1272,7 @@ def build_all():
     manual_items.add_all(R)
     import enrich
     enrich.apply(R)
+    build_support_packs()
 
 
 
@@ -1229,6 +1295,8 @@ COVERAGE = [
     ('Sakina rooms', r'sakina\.room\.'), ('Privacy lawyer: Terms', r'legal\.terms'), ('Privacy lawyer: children', r'legal\.children-privacy'),
     ('Nasheeds', r'nasheed\.catalogue'), ('Which son was sacrificed', r'sacrificed'), ('Khidr identity', r'Khidr|prophet-musa'),
     ('Zihar', r'zihar'), ('Neglecting prayer', r'neglect|abandon'),
+    ('Support packs: all packs', r'support\.[a-z_0-9]+\.[a-z-]+\.001$'), ('Support packs: Hadi conversation', r'support\.hadi_chat_core\.'),
+    ('Support packs: Wasia conversation', r'support\.wasia_chat_5_8\.'), ('Support packs: knowledge', r'support\.family_parenting\.'),
 ]
 
 

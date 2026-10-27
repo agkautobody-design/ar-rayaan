@@ -1,0 +1,790 @@
+{
+ "schema": 1,
+ "pack": "fasting_zakat_hajj",
+ "packKind": "knowledge",
+ "topic": "fasting_zakat_hajj",
+ "description": "Ramadan and fasting, the night prayers, Eid, zakat, zakat al-Fitr, sadaqah, hajj and umrah as short how-tos and facts, with where the four schools differ. Drawn from the Huda guides in the app.",
+ "audience": "both",
+ "ageBands": ["all"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en"],
+ "snippets": [
+  {
+   "id": "fasting_zakat_hajj.fact.001",
+   "kind": "fact",
+   "stage": ["question"],
+   "text": {
+    "en": "Fasting in Ramadan is a pillar of Islam. The Qur'an decrees it as it was decreed on those before, so that you may become mindful of Allah. It runs from the dawn to the sunset."
+   },
+   "ageBand": ["all"],
+   "tags": ["fasting", "zakat", "hajj", "ramadan"],
+   "triggers": ["why do we fast", "what is fasting", "ramadan fast", "fasting hours"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-fasting"},
+    {"type": "quran", "ref": "2:183", "section": "Qur'an text"},
+    {"type": "quran", "ref": "2:187", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-fasting"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "fasting_zakat_hajj.howto.001",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "Eat suhoor before dawn, for there is a blessing in it, and break the fast promptly at sunset. The Prophet used to break his fast with fresh dates, or dry dates, or water."
+   },
+   "ageBand": ["all"],
+   "tags": ["fasting", "zakat", "hajj", "suhoor", "iftar"],
+   "triggers": ["suhoor", "iftar", "how to break fast", "sehri"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-fasting"},
+    {"type": "hadith", "ref": "bukhari:1923", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "hadith", "ref": "bukhari:1957", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-fasting"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "fasting_zakat_hajj.faq.001",
+   "kind": "faq",
+   "stage": ["question"],
+   "text": {
+    "en": "If you eat or drink by forgetting, complete your fast. The Prophet said that Allah fed you and gave you drink."
+   },
+   "ageBand": ["all"],
+   "tags": ["fasting", "zakat", "hajj", "forgetting"],
+   "triggers": ["ate by mistake while fasting", "forgot i was fasting", "drank water forgetfully"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-fasting"},
+    {"type": "hadith", "ref": "bukhari:1933", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-fasting"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "fasting_zakat_hajj.fact.002",
+   "kind": "fact",
+   "stage": ["question"],
+   "text": {
+    "en": "What happens when you eat forgetfully is not agreed by all the schools. Scholars differ: the Hanafi, Shafi'i and Hanbali schools say the fast is not broken, while the Maliki school says the fast is broken and the day is made up."
+   },
+   "ageBand": ["all"],
+   "tags": ["fasting", "zakat", "hajj", "madhhab"],
+   "triggers": ["maliki forgetful eating", "does forgetting break fast"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-fasting"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-fasting"}],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "disputed": true,
+   "schoolsNamed": ["hanafi", "shafii", "hanbali", "maliki"],
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "fasting_zakat_hajj.fact.003",
+   "kind": "fact",
+   "stage": ["question"],
+   "text": {
+    "en": "People who may break the fast are those who are ill or travelling, who make up the days later. The elderly who cannot fast feed a poor person for each day in most schools, and menstruating women make up the days."
+   },
+   "ageBand": ["all"],
+   "tags": ["fasting", "zakat", "hajj", "excused"],
+   "triggers": ["can i skip fasting", "ill and fasting", "travelling and fasting", "elderly fasting", "fidyah"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-fasting"},
+    {"type": "quran", "ref": "2:184", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-fasting"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "fasting_zakat_hajj.fact.004",
+   "kind": "fact",
+   "stage": ["question"],
+   "text": {
+    "en": "The rules for a pregnant or nursing woman who misses fasts differ by school. Scholars differ on whether she makes up the days only or also feeds a poor person for each day, depending on whether she fears for herself or for the child. Ask a scholar for your own case."
+   },
+   "ageBand": ["all"],
+   "tags": ["fasting", "zakat", "hajj", "pregnancy", "madhhab"],
+   "triggers": ["pregnant fasting", "nursing mother fasting", "breastfeeding fasting", "fidyah pregnant"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-fasting"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-fasting"}],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "disputed": true,
+   "schoolsNamed": ["hanafi", "maliki", "shafii", "hanbali"],
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "fasting_zakat_hajj.fact.005",
+   "kind": "fact",
+   "stage": ["question"],
+   "text": {
+    "en": "Deliberate sexual intercourse in Ramadan requires expiation: freeing a slave, and if that is not possible fasting two months in a row, and if not feeding sixty poor people. For deliberate eating or drinking, scholars differ: the Hanafi and Maliki schools also require it, and the Shafi'i and Hanbali schools only for intercourse."
+   },
+   "ageBand": ["adult"],
+   "tags": ["fasting", "zakat", "hajj", "kaffarah", "madhhab"],
+   "triggers": ["kaffarah", "broke fast on purpose", "expiation of fast"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-fasting"},
+    {"type": "hadith", "ref": "bukhari:1936", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "hadith", "ref": "muslim:1111", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-fasting"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "disputed": true,
+   "schoolsNamed": ["hanafi", "maliki", "shafii", "hanbali"],
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "fasting_zakat_hajj.fact.006",
+   "kind": "fact",
+   "stage": ["question"],
+   "text": {
+    "en": "Eye drops, and injections that do not nourish, do not break the fast in the majority view. Scholars differ on some medical cases, so ask about yours."
+   },
+   "ageBand": ["all"],
+   "tags": ["fasting", "zakat", "hajj", "medical"],
+   "triggers": ["eye drops fasting", "injection fasting", "medicine while fasting", "does insulin break fast"],
+   "doNotSay": ["For a medical case, tell the person to ask a doctor and a scholar; no medical advice."],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-fasting"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-fasting"}],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "disputed": true,
+   "schoolsNamed": ["other"],
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "fasting_zakat_hajj.fact.007",
+   "kind": "fact",
+   "stage": ["question"],
+   "text": {
+    "en": "In the nights of Ramadan the Prophet prayed, and he said whoever stands in prayer in them out of faith and hope of reward has their past sins forgiven. The extra night prayer in Ramadan is called taraweeh."
+   },
+   "ageBand": ["all"],
+   "tags": ["fasting", "zakat", "hajj", "taraweeh", "ramadan"],
+   "triggers": ["taraweeh", "night prayer ramadan", "qiyam ramadan"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-taraweeh"},
+    {"type": "hadith", "ref": "bukhari:37", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-taraweeh"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "fasting_zakat_hajj.fact.008",
+   "kind": "fact",
+   "stage": ["question"],
+   "text": {
+    "en": "The number of rak'ahs in taraweeh differs. Scholars differ: the Hanafi, Shafi'i and Hanbali schools say twenty plus witr, the Maliki practice in Madinah is thirty-six, and all four accept eleven as the Prophet's practice."
+   },
+   "ageBand": ["all"],
+   "tags": ["fasting", "zakat", "hajj", "taraweeh", "madhhab"],
+   "triggers": ["how many rakat taraweeh", "taraweeh 8 or 20", "taraweeh rakah"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-taraweeh"},
+    {"type": "hadith", "ref": "bukhari:1147", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-taraweeh"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "disputed": true,
+   "schoolsNamed": ["hanafi", "maliki", "shafii", "hanbali"],
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "fasting_zakat_hajj.fact.009",
+   "kind": "fact",
+   "stage": ["question"],
+   "text": {
+    "en": "Laylat al-Qadr, the Night of Decree, is better than a thousand months. The Prophet said to seek it in the odd nights of the last ten nights of Ramadan."
+   },
+   "ageBand": ["all"],
+   "tags": ["fasting", "zakat", "hajj", "laylat-al-qadr", "ramadan"],
+   "triggers": ["laylat al qadr", "night of power", "night of decree", "last ten nights"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-taraweeh"},
+    {"type": "quran", "ref": "97:3", "section": "Qur'an text"},
+    {"type": "hadith", "ref": "bukhari:2017", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-taraweeh"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "fasting_zakat_hajj.fact.010",
+   "kind": "fact",
+   "stage": ["question"],
+   "text": {
+    "en": "I'tikaf is staying in the mosque for worship, and the Prophet did it in the last ten days of Ramadan. Scholars differ on its minimum time: the Hanafi, Shafi'i and Hanbali schools allow a day or less, and the Maliki school requires at least a day and a night."
+   },
+   "ageBand": ["all"],
+   "tags": ["fasting", "zakat", "hajj", "itikaf", "madhhab"],
+   "triggers": ["itikaf", "seclusion in mosque"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-taraweeh"},
+    {"type": "hadith", "ref": "bukhari:2026", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-taraweeh"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "disputed": true,
+   "schoolsNamed": ["hanafi", "maliki", "shafii", "hanbali"],
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "fasting_zakat_hajj.fact.011",
+   "kind": "fact",
+   "stage": ["question"],
+   "text": {
+    "en": "Fasting is forbidden on the two Eid days, the day of breaking the fast and the day of the sacrifice. The days of Tashriq, the eleventh to thirteenth of Dhul-Hijjah, are days of eating and drinking."
+   },
+   "ageBand": ["all"],
+   "tags": ["fasting", "zakat", "hajj", "eid"],
+   "triggers": ["fasting on eid", "can i fast on eid", "days of tashriq"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-eid"},
+    {"type": "hadith", "ref": "bukhari:1990", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-eid"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "fasting_zakat_hajj.fact.012",
+   "kind": "fact",
+   "stage": ["question"],
+   "text": {
+    "en": "The Eid prayer is two rak'ahs with no adhan and no iqamah, and the sermon comes after the prayer. Wash, wear your best clothes and go to the prayer ground."
+   },
+   "ageBand": ["all"],
+   "tags": ["fasting", "zakat", "hajj", "eid"],
+   "triggers": ["eid prayer", "how to pray eid", "eid khutbah", "eid adhan"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-eid"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-eid"}],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "fasting_zakat_hajj.fact.013",
+   "kind": "fact",
+   "stage": ["question"],
+   "text": {
+    "en": "The extra takbirs in the Eid prayer differ. Scholars differ: the Hanafi school says three in each rak'ah, the Maliki and Hanbali schools six in the first and five in the second, and the Shafi'i school seven in the first and five in the second."
+   },
+   "ageBand": ["all"],
+   "tags": ["fasting", "zakat", "hajj", "eid", "madhhab"],
+   "triggers": ["eid takbirs", "how many takbir eid"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-eid"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-eid"}],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "disputed": true,
+   "schoolsNamed": ["hanafi", "maliki", "shafii", "hanbali"],
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "fasting_zakat_hajj.fact.014",
+   "kind": "fact",
+   "stage": ["question"],
+   "text": {
+    "en": "Zakat is a pillar of Islam. It is owed on wealth that reaches the minimum level, called the nisab, and is held for a year. The rate on savings and cash is one-fortieth, which is two and a half in every hundred."
+   },
+   "ageBand": ["all"],
+   "tags": ["fasting", "zakat", "hajj", "rate"],
+   "triggers": ["what is zakat", "zakat rate", "how much is zakat", "who must pay zakat"],
+   "doNotSay": ["Never compute the person's zakat from memory; send them to the calculator and a scholar."],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-zakat"},
+    {"type": "quran", "ref": "2:43", "section": "Qur'an text"},
+    {"type": "hadith", "ref": "bukhari:1454", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "hadith", "ref": "bukhari:1395", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-zakat"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "fasting_zakat_hajj.fact.015",
+   "kind": "fact",
+   "stage": ["question"],
+   "text": {
+    "en": "Zakat can be given only to the eight categories the Qur'an names: the poor, the needy, those employed to collect it, those whose hearts are being won, freeing captives, those in debt, in the cause of Allah, and the stranded traveller. It is not a general donation."
+   },
+   "ageBand": ["all"],
+   "tags": ["fasting", "zakat", "hajj", "recipients"],
+   "triggers": ["who can receive zakat", "zakat recipients", "eight categories", "can i give zakat to"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-zakat"},
+    {"type": "quran", "ref": "9:60", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-zakat"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "fasting_zakat_hajj.fact.016",
+   "kind": "fact",
+   "stage": ["question"],
+   "text": {
+    "en": "Zakat on women's jewellery worn for adornment is disputed. Scholars differ: the Hanafi school says zakat is due, while the Maliki, Shafi'i and Hanbali schools say it is not due on lawful jewellery in ordinary use."
+   },
+   "ageBand": ["all"],
+   "tags": ["fasting", "zakat", "hajj", "jewellery", "madhhab"],
+   "triggers": ["zakat on jewellery", "zakat on gold worn", "wife gold zakat"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-zakat"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-zakat"}],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "disputed": true,
+   "schoolsNamed": ["hanafi", "maliki", "shafii", "hanbali"],
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "fasting_zakat_hajj.faq.002",
+   "kind": "faq",
+   "stage": ["question"],
+   "text": {
+    "en": "The Zakat Calculator in the app can work out an amount, and it states which school's rules it applies. For debts and your own case, ask a scholar."
+   },
+   "ageBand": ["all"],
+   "tags": ["fasting", "zakat", "hajj", "calculator"],
+   "triggers": ["calculate zakat", "zakat calculator", "zakat on debts"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-zakat"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-zakat"}],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "fasting_zakat_hajj.fact.017",
+   "kind": "fact",
+   "stage": ["question"],
+   "text": {
+    "en": "Zakat al-Fitr is a charity due at the end of Ramadan. It is paid for each person before the Eid prayer, to the poor, as a purification for the fasting person and food for the needy. If it is paid after the prayer it is ordinary charity."
+   },
+   "ageBand": ["all"],
+   "tags": ["fasting", "zakat", "hajj", "zakat-fitr"],
+   "triggers": ["zakat al fitr", "fitrana", "sadaqat ul fitr", "fitra"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-zakat-fitr"},
+    {"type": "hadith", "ref": "bukhari:1503", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "hadith", "ref": "bukhari:1509", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-zakat-fitr"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "fasting_zakat_hajj.fact.018",
+   "kind": "fact",
+   "stage": ["question"],
+   "text": {
+    "en": "Whether zakat al-Fitr may be paid in money differs. Scholars differ: the Hanafi school allows the value in cash, the Maliki and Shafi'i schools say food only, and the Hanbali relied-upon view is food. Use the figure your local scholars announce."
+   },
+   "ageBand": ["all"],
+   "tags": ["fasting", "zakat", "hajj", "zakat-fitr", "madhhab"],
+   "triggers": ["fitra in cash", "can i pay fitrana in money"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-zakat-fitr"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-zakat-fitr"}],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "disputed": true,
+   "schoolsNamed": ["hanafi", "maliki", "shafii", "hanbali"],
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "fasting_zakat_hajj.fact.019",
+   "kind": "fact",
+   "stage": ["question"],
+   "text": {
+    "en": "Sadaqah is voluntary charity with no fixed amount or time. Even a good word is charity, and the Prophet said that charity does not decrease wealth. Giving in secret is praised."
+   },
+   "ageBand": ["all"],
+   "tags": ["fasting", "zakat", "hajj", "sadaqah"],
+   "triggers": ["sadaqah", "voluntary charity", "give charity", "small charity"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-sadaqah"},
+    {"type": "quran", "ref": "2:271", "section": "Qur'an text"},
+    {"type": "hadith", "ref": "bukhari:6023", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "hadith", "ref": "muslim:2588", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-sadaqah"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "fasting_zakat_hajj.fact.020",
+   "kind": "fact",
+   "stage": ["question"],
+   "text": {
+    "en": "Hajj is a pillar of Islam, once in a lifetime for those who are able. Ability means the means to go and return, health, a safe road and provision for the family left behind."
+   },
+   "ageBand": ["all"],
+   "tags": ["fasting", "zakat", "hajj"],
+   "triggers": ["hajj obligation", "who must do hajj", "is hajj obligatory", "once in a lifetime"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-hajj-intro"},
+    {"type": "quran", "ref": "3:97", "section": "Qur'an text"},
+    {"type": "hadith", "ref": "muslim:1337", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-hajj-intro"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "fasting_zakat_hajj.fact.021",
+   "kind": "fact",
+   "stage": ["question"],
+   "text": {
+    "en": "The rites of Hajj are from the eighth to the thirteenth of Dhul-Hijjah, starting with ihram, then Mina, Arafah, Muzdalifah, stoning the jamarat, the sacrifice, the shaving or shortening, and the tawaf and sa'i."
+   },
+   "ageBand": ["all"],
+   "tags": ["fasting", "zakat", "hajj", "steps"],
+   "triggers": ["hajj steps", "days of hajj", "hajj rituals", "what happens in hajj"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-hajj-overview"},
+    {"type": "hadith", "ref": "muslim:1218", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-hajj-overview"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "fasting_zakat_hajj.fact.022",
+   "kind": "fact",
+   "stage": ["question"],
+   "text": {
+    "en": "The pillars of Hajj differ by school. Scholars differ: the Hanafi school counts standing at Arafah and the tawaf of Ifadah, the Maliki and Hanbali schools add ihram and sa'i, and the Shafi'i school also adds shaving or shortening and the order of the rites."
+   },
+   "ageBand": ["all"],
+   "tags": ["fasting", "zakat", "hajj", "madhhab"],
+   "triggers": ["pillars of hajj", "rukn hajj"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-hajj-intro"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-hajj-intro"}],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "disputed": true,
+   "schoolsNamed": ["hanafi", "maliki", "shafii", "hanbali"],
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "fasting_zakat_hajj.fact.023",
+   "kind": "fact",
+   "stage": ["question"],
+   "text": {
+    "en": "The three ways of doing Hajj are ifrad, hajj only; qiran, hajj and umrah together; and tamattu', umrah first and then hajj. Scholars differ on which is best: the Hanafi school prefers qiran, the Maliki and Shafi'i schools ifrad, and the Hanbali school tamattu'."
+   },
+   "ageBand": ["all"],
+   "tags": ["fasting", "zakat", "hajj", "madhhab"],
+   "triggers": ["tamattu", "qiran", "ifrad", "types of hajj"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-hajj-intro"},
+    {"type": "hadith", "ref": "bukhari:1562", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-hajj-intro"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "disputed": true,
+   "schoolsNamed": ["hanafi", "maliki", "shafii", "hanbali"],
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "fasting_zakat_hajj.howto.002",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "Ihram: bathe, then men wear two unsewn cloths, make the intention at the miqat and say the talbiyah. The talbiyah continues until you begin the stoning on the tenth for Hajj, or until you begin tawaf for umrah."
+   },
+   "ageBand": ["all"],
+   "tags": ["fasting", "zakat", "hajj", "ihram", "talbiyah"],
+   "triggers": ["ihram", "talbiyah", "miqat", "ihram clothes"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-ihram"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-ihram"}],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "fasting_zakat_hajj.howto.003",
+   "kind": "howto",
+   "stage": ["question"],
+   "text": {
+    "en": "Umrah in a day: enter ihram at the miqat, make seven circuits of the Kaaba, pray two rak'ahs behind the Station of Ibrahim, walk seven lengths between Safa and Marwah, then shave or shorten the hair."
+   },
+   "ageBand": ["all"],
+   "tags": ["fasting", "zakat", "hajj", "umrah", "steps"],
+   "triggers": ["how to do umrah", "umrah steps", "tawaf", "saee"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-umrah"},
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-tawaf"},
+    {"type": "hadith", "ref": "bukhari:1602", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "quran", "ref": "2:158", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-umrah"}, {"asset": "assets/guides/guides.json", "id": "huda-tawaf"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "fasting_zakat_hajj.fact.024",
+   "kind": "fact",
+   "stage": ["question"],
+   "text": {
+    "en": "The ruling on umrah differs. Scholars differ: the Shafi'i and Hanbali schools say it is obligatory once in a lifetime, and the Hanafi and Maliki schools say a confirmed sunnah."
+   },
+   "ageBand": ["all"],
+   "tags": ["fasting", "zakat", "hajj", "umrah", "madhhab"],
+   "triggers": ["is umrah obligatory", "umrah ruling"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-umrah"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-umrah"}],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "disputed": true,
+   "schoolsNamed": ["hanafi", "maliki", "shafii", "hanbali"],
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "fasting_zakat_hajj.fact.025",
+   "kind": "fact",
+   "stage": ["question"],
+   "text": {
+    "en": "The day of Arafah is the heart of Hajj. The Prophet said there is no day on which Allah frees more servants from the Fire, and the pilgrim stays at Arafah until sunset. The pilgrim does not fast on that day."
+   },
+   "ageBand": ["all"],
+   "tags": ["fasting", "zakat", "hajj", "arafah"],
+   "triggers": ["day of arafah", "arafat", "standing at arafah"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-arafat"},
+    {"type": "hadith", "ref": "muslim:1348", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-arafat"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}

@@ -208,6 +208,7 @@ Rules: only rows read on an operator or official page on `verifiedOn` are in `he
 
 * `draft` -> `clinician_approved` -> `scholar_approved` (if religious) -> `shippable`. High-risk items need both where relevant. Child material needs a safeguarding lead.
 * Every snippet is registered in the review register (`tool/scholar_review/build_register.py` -> `docs/SCHOLAR_REVIEW_REGISTER.md`, `register.json`), under the label "Scholar review needed" or the clinician equivalent.
+* The register area is `support-packs`: one item per snippet, id `support.<snippet id>`. The lead reviewer comes from the snippet flags: native speaker (with clinician) for translations, clinician for clinical or child-band snippets, fiqh scholar when the text says scholars differ, hadith scholar for other Qur'an, hadith or lesson-based text, and the app owner for product wording (app help, plain conversation).
 * Reviewer names are recorded in the snippet (`reviewedBy`, `reviewedOn`), never invented.
 
 ## 11. Running the checks
@@ -215,6 +216,8 @@ Rules: only rows read on an operator or official page on `verifiedOn` are in `he
 ```
 python3 tool/support/validate_packs.py            # all packs
 python3 tool/support/validate_packs.py --self-test
+python3 tool/support/build_packs.py --check        # generated JSON matches tool/support/src
+python3 tool/scholar_review/build_register.py --check
 python3 tool/hadith_check.py check                # also scans assets/support (CI)
 python3 tool/quran_ref_check.py                   # also scans assets/support (CI)
 ```
