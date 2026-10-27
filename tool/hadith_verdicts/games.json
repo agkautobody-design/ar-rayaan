@@ -1,0 +1,162 @@
+{
+ "bukhari:1423": {
+  "checked": "2026-10-27",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Hurayrah; seven shaded by Allah, first a just ruler. Checked against the Arabic and English corpus text by phrase; used in games trivia.",
+  "verdict": "ok"
+ },
+ "bukhari:1520": {
+  "checked": "2026-10-27",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Aisha; best jihad for women is Hajj Mabrur. Checked against the Arabic and English corpus text by phrase; used in games trivia.",
+  "verdict": "ok"
+ },
+ "bukhari:1894": {
+  "checked": "2026-10-27",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Hurayrah; fasting is a shield. Checked against the Arabic and English corpus text by phrase; used in games trivia.",
+  "verdict": "ok"
+ },
+ "bukhari:1898": {
+  "checked": "2026-10-27",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Hurayrah; gates of Paradise opened when Ramadan begins. Checked against the Arabic and English corpus text by phrase; used in games trivia.",
+  "verdict": "ok"
+ },
+ "bukhari:1901": {
+  "checked": "2026-10-27",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Hurayrah; prayer on the night of Qadr, past sins forgiven. Checked against the Arabic and English corpus text by phrase; used in games trivia.",
+  "verdict": "ok"
+ },
+ "bukhari:245": {
+  "checked": "2026-10-27",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Hudhayfah; the Prophet cleaned his mouth with siwak on waking at night. Checked against the Arabic and English corpus text by phrase; used in games trivia.",
+  "verdict": "ok"
+ },
+ "bukhari:2700": {
+  "checked": "2026-10-27",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Al-Bara; Hudaybiyyah treaty three conditions, Abu Jandal returned. Checked against the Arabic and English corpus text by phrase; used in games trivia.",
+  "verdict": "ok"
+ },
+ "bukhari:2835": {
+  "checked": "2026-10-27",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Anas; Emigrants and Ansar digging the trench around Madinah. Checked against the Arabic and English corpus text by phrase; used in games trivia.",
+  "verdict": "ok"
+ },
+ "bukhari:3039": {
+  "checked": "2026-10-27",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Al-Bara; Abdullah ibn Jubair commander of fifty archers at Uhud. Checked against the Arabic and English corpus text by phrase; used in games trivia.",
+  "verdict": "ok"
+ },
+ "bukhari:3338": {
+  "checked": "2026-10-27",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Hurayrah; the Dajjal is one-eyed. Checked against the Arabic and English corpus text by phrase; used in games trivia.",
+  "verdict": "ok"
+ },
+ "bukhari:3906": {
+  "checked": "2026-10-27",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Suraqa ibn Malik; horse sank, Do not tell others about us; Quba ten nights. Checked against the corpus text by phrase; used in the Hijrah game.",
+  "verdict": "ok"
+ },
+ "bukhari:3911": {
+  "checked": "2026-10-27",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Anas; arrival in Madinah, Suraqa thrown, people came out. Checked against the corpus text by phrase; used in the Hijrah game.",
+  "verdict": "ok"
+ },
+ "bukhari:3932": {
+  "checked": "2026-10-27",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Anas; stayed fourteen nights with Bani Amr ibn Awf. Checked against the corpus text by phrase; used in the Hijrah game.",
+  "verdict": "ok"
+ },
+ "bukhari:40": {
+  "checked": "2026-10-27",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Al-Bara; prayed toward Bayt al-Maqdis sixteen or seventeen months. Checked against the Arabic and English corpus text by phrase; used in games trivia.",
+  "verdict": "ok"
+ },
+ "bukhari:45": {
+  "checked": "2026-10-27",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Umar and the Jewish man; verse of perfected religion revealed on Friday at Arafat. Checked against the Arabic and English corpus text by phrase; used in games trivia.",
+  "verdict": "ok"
+ },
+ "bukhari:5010": {
+  "checked": "2026-10-27",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Hurayrah; Ayat al-Kursi at bedtime, guard from Allah. Checked against the Arabic and English corpus text by phrase; used in games trivia.",
+  "verdict": "ok"
+ },
+ "bukhari:603": {
+  "checked": "2026-10-27",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Anas; Bilal ordered to pronounce the adhan twice and the iqamah once. Checked against the Arabic and English corpus text by phrase; used in games trivia.",
+  "verdict": "ok"
+ },
+ "bukhari:6400": {
+  "checked": "2026-10-27",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Hurayrah; the hour on Friday for dua. Checked against the Arabic and English corpus text by phrase; used in games trivia.",
+  "verdict": "ok"
+ },
+ "bukhari:7534": {
+  "checked": "2026-10-27",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Ibn Masud; best deeds: prayers at their fixed times. Checked against the Arabic and English corpus text by phrase; used in games trivia.",
+  "verdict": "ok"
+ },
+ "muslim:418": {
+  "checked": "2026-10-27",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Aisha; the Prophet ordered Abu Bakr to lead the people in prayer in his illness. Checked against the Arabic and English corpus text by phrase; used in games trivia.",
+  "verdict": "ok"
+ }
+}
