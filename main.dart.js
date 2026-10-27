@@ -18676,6 +18676,8 @@ for(l=n.c,r=l.length,q=0;q<r;++q)s.push("[GO:"+l[q]+"]")
 return n.b+"\n"+B.b.aD(s,"\n")}return null},
 cDW(a){var s,r=A.dr(a)
 if(r.split(" ").length>12)return!1
+s=A.J("\\b(?:download|downloads|downloading|save|saving)\\b",!0,!1,!1)
+if(s.b.test(r))return!1
 s=A.J("\\b(?:hadi|you|u|this)\\b",!0,!1,!1)
 if(s.b.test(r)){s=A.J("\\b(?:offline|off\\s*line|not\\s+connected|no\\s+internet|not\\s+live|not\\s+online|no\\s+ai|no\\s+api|without\\s+ai)\\b",!0,!1,!1)
 s=s.b.test(r)}else s=!1
