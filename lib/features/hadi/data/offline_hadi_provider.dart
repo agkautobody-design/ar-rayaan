@@ -1,8 +1,11 @@
 import '../../sakina/domain/crisis_detector.dart';
 import '../application/hadi_provider.dart';
 import '../grounding/ruling_gate.dart';
+import 'hadi_core.dart';
+import 'hadi_decline.dart';
 import 'hadi_explain.dart';
 import 'hadi_finder.dart';
+import 'hadi_game_help.dart';
 import 'hadi_routing.dart';
 
 /// Curated knowledge for offline use — always available, no key, no
@@ -35,6 +38,15 @@ class OfflineHadiProvider implements HadiProvider {
 
   static String declineFor(bool hasKey) => hasKey ? declineKeyed : decline;
 
+  /// True when [reply] is a refusal or a "not on my shelf" reply of any kind:
+  /// the fixed one above, the ruling one, or one of the varied replies in
+  /// [HadiDecline]. Tests and the chat screen use this instead of comparing
+  /// with a single string.
+  static bool isDecline(String reply) =>
+      reply == decline ||
+      reply.contains(rulingDecline) ||
+      HadiDecline.isDecline(reply);
+
   /// For "is X halal / allowed?" questions the shelf has no entry for.
   static const String rulingDecline =
       'I do not have a verified answer on whether that specific thing is '
@@ -65,7 +77,9 @@ class OfflineHadiProvider implements HadiProvider {
   /// True when [answer] is a real shelf answer and not one of the fixed
   /// replies (declines, redirects, comfort replies, navigation).
   static bool _isShelfAnswer(String answer) {
-    if (HadiRouting.isFixed(answer) || HadiExplain.isFixed(answer)) {
+    if (HadiRouting.isFixed(answer) ||
+        HadiExplain.isFixed(answer) ||
+        HadiDecline.isDecline(answer)) {
       return false;
     }
     // "contains", not "equals": the controller may put a line in front of a
@@ -383,7 +397,7 @@ class OfflineHadiProvider implements HadiProvider {
 
   /// A greeting, thanks or goodbye on its own, answered in kind. Anything
   /// longer than a greeting is a real question and goes to the shelf.
-  static String? smallTalk(String question) {
+  static String? smallTalk(String question, [int turn = 0]) {
     final String n = CrisisDetector.normalize(question);
     if (n.isEmpty || n.split(' ').length > 8) return null;
     if (_salamGreeting.hasMatch(n)) {
@@ -392,6 +406,17 @@ class OfflineHadiProvider implements HadiProvider {
           "about worship, the Qur'an, this app, or simply talk.";
     }
     if (_hello.hasMatch(n)) {
+      if (turn > 0) {
+        const List<String> again = <String>[
+          'Hello again. What is on your mind? I can help with prayer, '
+              "fasting, the Qur'an, family questions or how this app works.",
+          'I am here. Ask your question whenever you are ready, or tell me '
+              'what you would like to learn about.',
+          'Peace be upon you. Is there something you were thinking of '
+              'asking?',
+        ];
+        return again[(turn - 1) % again.length];
+      }
       return 'As-salamu alaykum, and welcome. How may I help you today? Ask '
           "me about worship, the Qur'an, this app, or simply talk.";
     }
@@ -1024,7 +1049,7 @@ class OfflineHadiProvider implements HadiProvider {
     final String? grief = griefReply(question);
     if (grief != null) return grief;
 
-    final String? chat = smallTalk(question);
+    final String? chat = smallTalk(question, history.length);
     if (chat != null) return chat;
 
     // A short "yes please" means the thing Hādi just offered, not a new
@@ -1061,6 +1086,18 @@ class OfflineHadiProvider implements HadiProvider {
   Future<String> _routed(String asked, List<HadiMessage> history) async {
     final String n = CrisisDetector.normalize(asked);
     final bool heavy = _distress.hasMatch(n) && !_thirdPartyQuestion(n);
+
+    // The built-in answers come first: they are matched on the topic, so an
+    // everyday question (the funeral prayer, the conditions of prayer, what
+    // breaks wudu, how a game is played) gets its own answer and never the
+    // nearest-sounding one from the shelf below.
+    final CoreHit? core = HadiCore.answer(asked, history);
+    if (core != null) return core.text;
+    final String? more = HadiCore.moreReply(asked, history);
+    if (more != null) return more;
+    final String? gameHelp = HadiGameHelp.answer(asked) ??
+        HadiGameHelp.answer(HadiCore.expandFollowUp(asked, history) ?? '');
+    if (gameHelp != null) return gameHelp;
 
     // Replies that say what Hādi can do, or send the person to content the
     // app already has, before the shelf is searched.
@@ -1568,9 +1605,15 @@ class OfflineHadiProvider implements HadiProvider {
     if (_distress.hasMatch(n) && !_thirdPartyQuestion(n)) {
       return distressReplies[pick % distressReplies.length];
     }
-    if (_offTopic.hasMatch(n)) return offTopicReply;
+    final String? outside = HadiDecline.outOfScope(
+      question,
+      round: HadiRouting.refusalsInARow(history),
+      islamic: _islamicWord.hasMatch(n),
+    );
+    if (outside != null) return outside;
+    if (_offTopic.hasMatch(n)) return HadiDecline.general();
     return HadiRouting.variantFor(question, history, ruling: false) ??
-        declineFor(hasKey);
+        HadiDecline.unknown(question);
   }
 
   /// The "Open …" buttons to put under a plain refusal (the first one, whose
@@ -2007,9 +2050,9 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['forgive', 'repent', 'tawbah', 'sin', 'same sin', 'keep sinning', 'sin again', 'sinning again', 'repeated sin', 'fall into sin', 'sin over and over'],
     'Allah says: “do not despair of the mercy of Allah. Indeed, Allah '
-    'forgives all sins.” (Qur\'an 39:53). The Prophet ﷺ said: “Every son of Adam '
-    'sins, and the best of sinners are those who repent.” (Jami\' '
-    'at-Tirmidhi 2499, weak per Darussalam). The door is open — walk through it.',
+    'forgives all sins.” (Qur\'an 39:53). The Prophet ﷺ said: “If you did not sin, '
+    'Allah would replace you with a people who sin, seek forgiveness, and '
+    'are forgiven.” (Sahih Muslim 2749). The door is open — walk through it.',
   ),
   _Entry(
     <String>['mother', 'father', 'parents'],
@@ -2076,7 +2119,7 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['what can you do', 'what do you do', 'features', 'guide me'],
     'Three things, always: (1) answer from the Qur\'an and the '
-    'Sihah Sitta - verses, du\'as, rulings, with sources; (2) teach '
+    'authentic hadith collections - verses, du\'as, rulings, with sources; (2) teach '
     'you this app room by room - prayer times, Qur\'an, stories, '
     'zakat, games; (3) walk you there myself - just say "take me '
     'to..." and I will. What shall we begin with?',
@@ -2233,8 +2276,8 @@ const List<_Entry> _knowledge = <_Entry>[
     <String>['dua for parents', 'my parents', 'parents', 'mother dua', 'father dua'],
     'The Qur\'an itself teaches the du\'a: "Rabbir hamhumaa kamaa '
     'rabbayaani saghira" - My Lord, have mercy on them as they '
-    'raised me when I was small (Al-Isra 24). Say it after every '
-    'prayer; it is among the most beloved of speech.',
+    'raised me when I was small (Al-Isra 24). You can say it at any '
+    'time, for parents who are alive and for those who have died.',
   ),
   _Entry(
     <String>['dua for the sick', 'someone sick', 'visiting the sick', 'ill dua', 'cure dua'],
@@ -3220,11 +3263,12 @@ const List<_Entry> _knowledge = <_Entry>[
   // ========== PRAYER & WUDU ==========
   _Entry(
     <String>['wudu', 'ablution', 'how to make wudu', 'wudhu', 'wuzu', 'wudoo'],
-    'Wudu has six obligatory steps: (1) intention, (2) washing the face, '
-    '(3) washing the hands to the elbows, (4) wiping the head, (5) washing '
-    'the feet to the ankles, (6) maintaining sequence. The Prophet ﷺ said that '
-    'whoever performs wudu well, his sins come out of his body, even from '
-    'beneath his fingernails (Sahih Muslim 245).',
+    'The Qur\'an names the obligatory acts of wudu: "wash your faces and '
+    'your forearms to the elbows and wipe over your heads and wash your feet '
+    'to the ankles" (Qur\'an 5:6). The schools add the intention and the '
+    'order as conditions in some views. The Prophet ﷺ said that whoever '
+    'performs wudu well, his sins come out of his body, even from beneath '
+    'his fingernails (Sahih Muslim 245).',
   ),
   _Entry(
     <String>['wudu nullifiers', 'breaks wudu', 'break my wudu', 'nullify wudu', 'invalidate wudu', 'invalidates wudu', 'lost wudu'],
@@ -3273,10 +3317,11 @@ const List<_Entry> _knowledge = <_Entry>[
   ),
   _Entry(
     <String>['maghrib', 'sunset prayer', 'evening prayer'],
-    'Maghrib is three rak\'ahs, prayed immediately after sunset until '
-    'twilight disappears. The Prophet ﷺ said: "My Ummah will continue to be '
-    'upon good as long as they hasten to break the fast and delay the suhur." '
-    '(Sahih al-Bukhari 1957). Hastening Maghrib is from the sunnah.',
+    'Maghrib is three rak\'ahs. Its time begins when the sun has set and '
+    'lasts until the red twilight disappears. It is the sunnah not to '
+    'delay it: the Prophet \ufdfa said the people will remain on the right '
+    'path as long as they hasten the breaking of the fast (Sahih '
+    'al-Bukhari 1957).',
   ),
   _Entry(
     <String>['isha', 'night prayer'],
@@ -3797,12 +3842,16 @@ const List<_Entry> _knowledge = <_Entry>[
   // ========== EMOTIONAL SUPPORT ==========
   _Entry(
     <String>['depression', 'sad', 'hopeless', 'empty'],
-    'Allah says: "And We will surely test you with something of fear and '
-    'hunger and a loss of wealth and lives and fruits, but give good tidings '
-    'to the patient." (Qur\'an 2:155). The Prophet ﷺ experienced deep grief '
-    '— he wept for Ibrahim, he lost Khadijah and Abu Talib in the same year. '
-    'Depression is not a lack of faith; it is a test. Seek help: medical, '
-    'spiritual, and communal.',
+    "I am sorry you feel this way, and I am glad you said it. Feeling "
+    'sad, empty or hopeless does not mean your faith is weak. The Prophet '
+    '\ufdfa wept when his son Ibrahim died and said: "The eyes shed tears '
+    'and the heart is grieved, but we say only what pleases our Lord" '
+    '(Sahih al-Bukhari 1303). Allah says: "do not despair of the '
+    'mercy of Allah" (Qur\'an 39:53). Persistent low mood can also be an '
+    'illness, like any other, and it needs care: please speak to a '
+    'doctor or counsellor and to someone you trust, as well as turning to '
+    'prayer and du\'a. If you ever think of harming yourself, contact your '
+    'local emergency number or a crisis line right away.',
   ),
   _Entry(
     <String>['loneliness', 'alone', 'no friends', 'isolated'],
@@ -4416,7 +4465,7 @@ const List<_Entry> _knowledge = <_Entry>[
     'Mawdu is a fabricated hadith, invented and falsely attributed to the '
     'Prophet ﷺ. It is a major sin to fabricate hadith. The Prophet ﷺ said: '
     '"Whoever lies about me intentionally, let him take his seat in the '
-    'Fire." (Sahih al-Bukhari 106, Sahih Muslim 3).',
+    'Fire." (Sahih al-Bukhari 106, 3461).',
   ),
   _Entry(
     <String>['zina', 'adultery', 'fornication', 'boyfriend', 'girlfriend',

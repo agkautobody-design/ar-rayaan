@@ -57,7 +57,7 @@ abstract final class AnswerVerifier {
 
   static final RegExp _hadithRef = RegExp(
     r"(?:Sahih\s+|Sunan\s+|Jami[ʿ'’`]?\s*(?:at-|al-)?\s*)?(?:al-|an-|at-)?"
-    r"(Bukhari|Muslim|Abu\s+Dawu?d|Abu\s+Dawood|Tirmidhi|Nasa['’]?i|Ibn\s+Majah)"
+    r"(Bukhari|Muslim|Abu\s+Dawu?d|Abi\s+Dawu?d|Abu\s+Dawood|Tirmidhi|Nasa['’]?i|Ibn\s+Majah)"
     r"\s*(?:,|:|#|no\.?|number|hadith)?\s*\(?(\d{1,5})\)?",
     caseSensitive: false,
   );

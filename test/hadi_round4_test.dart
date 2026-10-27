@@ -98,9 +98,11 @@ void main() {
       ]) {
         final String a = await const OfflineHadiProvider()
             .ask(q, const <HadiMessage>[]);
-        expect(a, contains('do not have a verified answer'), reason: q);
-        expect(a, contains('[GO:/sources]'), reason: q);
-        expect(a.contains('best of you'), isFalse, reason: q);
+        // A firm, sourced answer: it is wrong, with the verse in context.
+        expect(a, startsWith('No.'), reason: q);
+        expect(a, contains('Qur\'an 4:34'), reason: q);
+        expect(a, contains('Sahih Muslim 2328'), reason: q);
+        expect(a.contains('do not have a verified answer'), isFalse, reason: q);
       }
     });
 

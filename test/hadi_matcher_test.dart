@@ -80,12 +80,12 @@ void main() {
   group('offline matcher: whole words, not substrings', () {
     test('"breakfast" is not a Ramadan-fasting question', () async {
       final String a = await ask('breakfast');
-      expect(a, OfflineHadiProvider.decline);
+      expect(OfflineHadiProvider.isDecline(a), isTrue);
     });
 
     test('"business" is not a sin/zina/other keyword hit', () async {
       final String a = await ask('business');
-      expect(a, OfflineHadiProvider.decline);
+      expect(OfflineHadiProvider.isDecline(a), isTrue);
     });
 
     test('"my husband beats me" gets safety help, not table manners',
@@ -113,24 +113,24 @@ void main() {
 
     test('an unrelated question is declined, not matched to nonsense',
         () async {
-      expect(await ask('Tell me about quantum entanglement'),
-          OfflineHadiProvider.decline);
+      expect(OfflineHadiProvider.isDecline(await ask('Tell me about quantum entanglement')), isTrue);
     });
 
     test('a question about something else is told so, not sent to a scholar',
         () async {
-      expect(await ask('Who will win the football match?'),
-          OfflineHadiProvider.offTopicReply);
-      expect(await ask('Who won the world cup?'),
-          OfflineHadiProvider.offTopicReply);
+      expect(OfflineHadiProvider.isDecline(await ask('Who will win the football match?')), isTrue);
+      expect(OfflineHadiProvider.isDecline(await ask('Who won the world cup?')), isTrue);
     });
   });
 
   group('offline matcher: rulings are not guessed', () {
-    test('"is a credit card halal" does not return a generic halal answer',
+    test('"is a credit card halal" is answered by how it is used, not yes or no',
         () async {
       final String a = await ask('is a credit card halal');
-      expect(a, OfflineHadiProvider.rulingDecline);
+      expect(a, contains('interest'));
+      expect(a, contains('qualified scholar'));
+      expect(a.startsWith('Yes'), isFalse);
+      expect(a.startsWith('No'), isFalse);
     });
 
     test('a ruling-shaped question that matches gets the scholar note',
@@ -181,13 +181,13 @@ void main() {
         'wudu breaks',
         'does sleeping break wudu',
       ]) {
-        expect(await ask(q), contains('nullified'), reason: q);
+        expect(await ask(q), contains('Wudu is broken by'), reason: q);
       }
     });
 
     test('how-to intent picks the how-to entry, not the what-is one',
         () async {
-      expect(await ask('how do i perform wudu'), contains('six obligatory'));
+      expect(await ask('how do i perform wudu'), contains('The steps'));
       expect(await ask('what is zakat'), contains('third pillar'));
       expect(await ask('how do i pay zakat'), contains('third pillar'));
     });
@@ -202,7 +202,7 @@ void main() {
       expect(await ask('ramadhan'), contains('Ramadan'));
       expect(await ask('ramazan tips'), contains('Ramadan'));
       expect(await ask('tahajud'), contains('Tahajjud'));
-      expect(await ask('how do i make wuduu'), contains('six obligatory'));
+      expect(await ask('how do i make wuduu'), contains('The steps'));
     });
 
     test('navigation requests still navigate', () async {
@@ -220,7 +220,7 @@ void main() {
         'how do i make coffee',
         'prayin',
       ]) {
-        expect(await ask(q), OfflineHadiProvider.decline, reason: q);
+        expect(OfflineHadiProvider.isDecline(await ask(q)), isTrue, reason: q);
       }
     });
 

@@ -49,9 +49,12 @@ void main() {
         'is it allowed to combine maghrib and isha on a trip',
       ]) {
         final String a = await ask(q);
-        expect(a, contains('do not have a verified answer'), reason: q);
+        // The built-in answer now covers combining, with its source and the
+        // schools' differences, and still opens the Travel guide.
+        expect(a, contains('Combining:'), reason: q);
+        expect(a, contains('Sahih al-Bukhari 1111'), reason: q);
         expect(a, contains('[GO:/huda/guide?id=huda-travel]'), reason: q);
-        expect(a.contains('Dhuhr is four'), isFalse, reason: q);
+        expect(a.contains('do not have a verified answer'), isFalse, reason: q);
         expect(a.contains('Perhaps you meant'), isFalse, reason: q);
       }
     });

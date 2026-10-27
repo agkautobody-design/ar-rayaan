@@ -29,14 +29,13 @@ class AnswerCase {
 
 /// Questions the shelf now answers on topic.
 const List<AnswerCase> kAnswerCases = <AnswerCase>[
-  AnswerCase('fajr', 'How many rakats is Fajr?', 'Fajr is two'),
-  AnswerCase('breaks-wudu', 'What breaks my wudu?', 'nullified',
+  AnswerCase('fajr', 'How many rakats is Fajr?', 'Fajr 2'),
+  AnswerCase('breaks-wudu', 'What breaks my wudu?', 'Wudu is broken by',
       mustNotContain: <String>['purification before prayer']),
   // Round 3: the shelf only holds shortening, so combining is said plainly
   // to be unanswered instead of answered with a different question.
-  AnswerCase('combine', 'Can I combine prayers while travelling?',
-      'do not have a verified answer on combining',
-      mustNotContain: <String>['shortens']),
+  AnswerCase('combine', 'Can I combine prayers while travelling?', 'Combining:',
+      mustNotContain: <String>['do not have a verified answer']),
   AnswerCase('kursi', 'What is the virtue of Ayat al-Kursi?', 'Ayat al-Kursi'),
   AnswerCase(
       'sleep-surah', 'Which surah should I read before sleeping?', 'Before sleep'),
@@ -63,10 +62,10 @@ const List<AnswerCase> kAnswerCases = <AnswerCase>[
       mustNotContain: <String>['114 surahs']),
   AnswerCase('friday', 'Do you have a khutbah for Friday', 'Friday',
       mustNotContain: <String>['light will shine for him']),
-  AnswerCase('witr', 'How do I pray Witr?', 'Witr is prayed'),
+  AnswerCase('witr', 'How do I pray Witr?', 'odd-numbered'),
   AnswerCase('two-rakahs', "How do I pray two rak'ahs?", 'two-rak'),
   // Round 2: answers built from the app's own guides, never a wall of verses.
-  AnswerCase('why-fast', 'Why do Muslims fast?', 'From dawn to sunset',
+  AnswerCase('why-fast', 'Why do Muslims fast?', 'until sunset',
       mustNotContain: <String>['2:183-185']),
   AnswerCase('ramadan-fact', 'Tell me something interesting about Ramadan',
       'free wind',
@@ -129,10 +128,14 @@ void main() {
         () async {
       expect(RulingGate.classify('Should I divorce my wife?'),
           RulingClass.personal);
-      expect(await offline('Is bitcoin halal?'),
-          OfflineHadiProvider.rulingDecline);
-      expect(await offline('What is the ruling on tattoos?'),
-          OfflineHadiProvider.rulingDecline);
+      // Bitcoin: scholars differ, and the answer says so without a verdict.
+      final String btc = await offline('Is bitcoin halal?');
+      expect(btc, contains('scholars disagree'));
+      expect(btc.toLowerCase(), contains('scholar you trust'));
+      // Tattoos: the sourced answer, not a refusal.
+      final String tat = await offline('What is the ruling on tattoos?');
+      expect(tat, contains('Sahih al-Bukhari 5937'));
+      expect(OfflineHadiProvider.isDecline(tat), isFalse);
     });
   });
 
@@ -207,7 +210,7 @@ void main() {
         'What is the weather today',
         'tell me a joke',
       ]) {
-        expect(await offline(q), OfflineHadiProvider.offTopicReply, reason: q);
+        expect(OfflineHadiProvider.isDecline(await offline(q)), isTrue, reason: q);
       }
     });
 
@@ -233,7 +236,7 @@ void main() {
       const OfflineHadiProvider keyed = OfflineHadiProvider(hasKey: true);
       final String a = await keyed.ask(
           'Tell me about quantum entanglement', const <HadiMessage>[]);
-      expect(a, OfflineHadiProvider.declineKeyed);
+      expect(OfflineHadiProvider.isDecline(a), isTrue);
       expect(a.contains('API key'), isFalse);
       expect(OfflineHadiProvider.decline.contains('API key'), isFalse);
     });

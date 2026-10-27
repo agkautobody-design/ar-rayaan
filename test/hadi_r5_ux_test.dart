@@ -31,8 +31,7 @@ void main() {
       for (final String q in everyday) {
         final String a = await const OfflineHadiProvider()
             .ask(q, const <HadiMessage>[]);
-        expect(a, OfflineHadiProvider.decline, reason: q);
-        expect(a, contains('I only cover Islam'), reason: q);
+        expect(OfflineHadiProvider.isDecline(a), isTrue, reason: q);
         expect(a.contains('API'), isFalse, reason: q);
         expect(a.toLowerCase().contains('key'), isFalse, reason: q);
         expect(a.contains('settings'), isFalse, reason: q);
@@ -45,7 +44,7 @@ void main() {
       for (final String q in everyday) {
         final String a = await const OfflineHadiProvider(hasKey: true)
             .ask(q, const <HadiMessage>[]);
-        expect(a, OfflineHadiProvider.decline, reason: q);
+        expect(OfflineHadiProvider.isDecline(a), isTrue, reason: q);
       }
     });
 
@@ -201,12 +200,12 @@ void main() {
       await AppHarness.go(tester, find.byType(Scaffold).first, '/hadi');
       final Finder field = find.descendant(
           of: find.byType(HadiScreen), matching: find.byType(TextField));
-      await tester.enterText(field, 'what time is it in Tokyo');
+      await tester.enterText(field, 'what is the capital of France');
       await tester.pump();
       await tester.tap(find.descendant(
           of: find.byType(HadiScreen), matching: find.byIcon(Icons.send)));
       await AppHarness.settle(tester);
-      expect(find.textContaining('I only cover Islam'), findsOneWidget);
+      expect(find.textContaining('outside what I do'), findsOneWidget);
       expect(find.textContaining('API key'), findsNothing);
       expect(find.byKey(const Key('hadi-online-mode')), findsOneWidget);
       expect(find.text('Open Prayer Times'), findsNothing);

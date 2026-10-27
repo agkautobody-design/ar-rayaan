@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:ar_rayaan/app/core/providers.dart';
 import 'package:ar_rayaan/features/hadi/application/hadi_controller.dart';
 import 'package:ar_rayaan/features/hadi/application/hadi_provider.dart';
+import 'package:ar_rayaan/features/hadi/data/hadi_decline.dart';
 import 'package:ar_rayaan/features/hadi/data/offline_hadi_provider.dart';
 import 'package:ar_rayaan/features/hadi/grounding/answer_verifier.dart';
 import 'package:ar_rayaan/features/hadi/grounding/corpus.dart';
@@ -130,7 +131,7 @@ void main() {
 
     test('a hadith that is not in the library, or an impossible ayah, gets no card',
         () {
-      expect(AnswerVerifier.citedIds('See Sahih Muslim 2018.', corpus), isEmpty);
+      expect(AnswerVerifier.citedIds('See Sahih Muslim 9999.', corpus), isEmpty);
       expect(AnswerVerifier.citedIds('See Qur\'an 2:9999.', corpus), isEmpty);
       expect(AnswerVerifier.citedIds('It was 5:30 in the evening.', corpus),
           isEmpty);
@@ -286,7 +287,7 @@ void main() {
       final ProviderContainer c = await container();
       final HadiController ctrl = c.read(hadiControllerProvider.notifier);
       await ctrl.setMadhhab(Madhhab.hanafi);
-      final String a = await ctrl.ask('Is bitcoin halal?',
+      final String a = await ctrl.ask('Is it halal to sell my house to my brother for less?',
           provider: const OfflineHadiProvider());
       expect(a, contains(OfflineHadiProvider.rulingDecline));
       expect(a.contains('You follow the'), isFalse);
@@ -315,6 +316,7 @@ void main() {
         OfflineHadiProvider.scriptReplyUrdu,
         ...OfflineHadiProvider.rudeReplies,
         ...OfflineHadiProvider.distressReplies,
+        ...HadiDecline.all,
       ]) {
         expect(
           OfflineHadiProvider.schoolNote(

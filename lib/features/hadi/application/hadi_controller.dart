@@ -18,6 +18,7 @@ import '../../../app/core/subscription/subscription_service.dart';
 import '../../sakina/application/sakina_providers.dart';
 import '../../sakina/domain/crisis_detector.dart';
 import '../data/groq_hadi_provider.dart';
+import '../data/hadi_core.dart';
 import '../data/hadi_explain.dart';
 import '../data/hadi_finder.dart';
 import '../data/hadi_routing.dart';
@@ -61,6 +62,8 @@ const Set<String> kHadiNavWhitelist = <String>{
   '/academy/dua', '/academy/hifz', '/academy/recitation',
   '/academy/quranic-arabic', '/academy/hajj-umrah-pack',
   '/tasbeeh', '/settings/language', '/quran/bookmarks',
+  '/kids', '/games/history', '/games/memory', '/games/ludo',
+  '/games/shatranj',
 };
 
 /// Short names for the screens Hādi offers as buttons. A route that is not
@@ -100,6 +103,7 @@ const Map<String, String> kHadiRouteNames = <String, String>{
   '/academy/ramadan-mode': 'Ramadan Mode',
   '/ramadan': 'the Ramadan screen',
   '/academy/family-life': 'Family Life School',
+  '/academy/family': 'the Family Wing',
   '/academy/stories': 'Stories School',
   '/academy/hifz': 'the Hifz planner',
   '/sources/policy': 'How we handle religious content',
@@ -116,6 +120,11 @@ const Map<String, String> kHadiRouteNames = <String, String>{
   '/academy/letters': 'the Arabic letters',
   '/academy/arabic-language': 'the Arabic language school',
   '/games/trivia': 'Trivia',
+  '/kids': 'For Children',
+  '/games/history': 'Game history',
+  '/games/memory': 'Memory Match',
+  '/games/ludo': 'Ludo',
+  '/games/shatranj': 'Shatranj (chess)',
 };
 
 /// The Huda guides Hādi may open directly, as `/huda/guide?id=<id>`, with the
@@ -875,9 +884,15 @@ class HadiController extends Notifier<HadiState> {
         crisis == null && OfflineHadiProvider.griefReply(q) != null;
 
     // Rulings about one person's own case are never answered by a model.
-    final RulingClass ruling = (crisis == null && !grief)
-        ? RulingGate.classify(q)
-        : RulingClass.none;
+    // A few built-in answers are general and safe to give even though the
+    // question reads like a ruling about one person ("Is it okay to hit my
+    // wife?"): those are answered, not handed over.
+    final RulingClass rawRuling =
+        (crisis == null && !grief) ? RulingGate.classify(q) : RulingClass.none;
+    final RulingClass ruling =
+        (rawRuling == RulingClass.personal && HadiCore.claims(q))
+            ? RulingClass.none
+            : rawRuling;
     if (ruling == RulingClass.personal) {
       final HadiCorpus corpus = await _corpus();
       final Madhhab m = madhhab;
@@ -981,7 +996,9 @@ class HadiController extends Notifier<HadiState> {
           shelf = await const OfflineHadiProvider().ask(q, history);
         } catch (_) {}
         final bool refusal = HadiRouting.isRefusal(shelf);
-        final bool pointer = !refusal && shelf.contains('[GO:');
+        final bool pointer = !refusal &&
+            shelf.contains('[GO:') &&
+            !HadiCore.isCoreAnswer(shelf);
         if ((refusal || pointer) &&
             !isNavigationLike(q) &&
             !LocalKnowledge.looksLikeLookup(q)) {
@@ -1166,7 +1183,11 @@ class HadiController extends Notifier<HadiState> {
       sources = AnswerVerifier.citedIds(
         clean,
         corpus,
-        limit: HadiExplain.isComposed(clean) ? 2 : 5,
+        limit: HadiExplain.isComposed(clean)
+            ? 2
+            : HadiCore.isCoreAnswer(clean)
+                ? 6
+                : 5,
       );      // Said once per conversation, plainly: with no key, every answer here
       // comes from the app's built-in checked library and nothing else.
       if (!grief &&

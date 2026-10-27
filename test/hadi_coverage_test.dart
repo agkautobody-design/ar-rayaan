@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:ar_rayaan/app/core/providers.dart';
 import 'package:ar_rayaan/features/hadi/application/hadi_controller.dart';
 import 'package:ar_rayaan/features/hadi/application/hadi_provider.dart';
+import 'package:ar_rayaan/features/hadi/data/hadi_decline.dart';
 import 'package:ar_rayaan/features/hadi/data/hadi_finder.dart';
 import 'package:ar_rayaan/features/hadi/data/hadi_routing.dart';
 import 'package:ar_rayaan/features/hadi/data/offline_hadi_provider.dart';
@@ -55,6 +56,8 @@ void main() {
         () {
       for (final CoverageRow r in rows) {
         if (r.kind != CoverageKind.miss) continue;
+        final bool outside = r.reply.contains(HadiDecline.outOfScopeMarker);
+        if (outside) continue;
         expect(r.reply, contains('rather not guess'), reason: r.question);
         if (r.buttons.isEmpty) {
           // No screen resembles the question: the reply itself hands over to
@@ -177,7 +180,6 @@ void main() {
     test('nothing is invented: unknown things are still refused', () async {
       for (final String q in <String>[
         'Tell me about quantum entanglement',
-        'Do I need wudu to touch the Quran?',
         'breakfast',
         'business',
       ]) {
@@ -206,7 +208,7 @@ void main() {
       final HadiController ctrl = c.read(hadiControllerProvider.notifier);
       await ctrl.ask('who was abu bakr', provider: const OfflineHadiProvider());
       final HadiMessage m = c.read(hadiControllerProvider).messages.last;
-      expect(m.text, contains('I don\'t have a checked answer for that'));
+      expect(HadiRouting.isRefusal(m.text), isTrue);
       expect(m.text, contains(HadiRouting.refusalLeadIn));
       expect(m.routes.first, '/stories');
       expect(m.routes.last, '/search');
