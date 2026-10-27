@@ -41,6 +41,27 @@
   "checked": "2026-10-27",
   "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
  },
+ "abudawud:355": {
+  "verdict": "ok",
+  "grade": "Sahih",
+  "grader": "Darussalam",
+  "checked": "2026-10-27",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
+ },
+ "abudawud:4283": {
+  "verdict": "ok",
+  "grade": "Sahih",
+  "grader": "al-Albani",
+  "checked": "2026-10-27",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
+ },
+ "abudawud:4604": {
+  "verdict": "ok",
+  "grade": "Sahih",
+  "grader": "al-Albani",
+  "checked": "2026-10-27",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
+ },
  "abudawud:494": {
   "verdict": "ok",
   "grade": "Hasan sahih",
@@ -91,6 +112,13 @@
   "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
  },
  "bukhari:1147": {
+  "verdict": "ok",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-27",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
+ },
+ "bukhari:12": {
   "verdict": "ok",
   "grade": "",
   "grader": "",
@@ -314,6 +342,20 @@
   "checked": "2026-10-27",
   "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
  },
+ "bukhari:2916": {
+  "verdict": "ok",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-27",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
+ },
+ "bukhari:3": {
+  "verdict": "ok",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-27",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
+ },
  "bukhari:3006": {
   "verdict": "ok",
   "grade": "",
@@ -321,7 +363,28 @@
   "checked": "2026-10-27",
   "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
  },
+ "bukhari:3015": {
+  "verdict": "ok",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-27",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
+ },
+ "bukhari:3166": {
+  "verdict": "ok",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-27",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
+ },
  "bukhari:3225": {
+  "verdict": "ok",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-27",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
+ },
+ "bukhari:3231": {
   "verdict": "ok",
   "grade": "",
   "grader": "",
@@ -356,7 +419,42 @@
   "checked": "2026-10-27",
   "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
  },
+ "bukhari:3448": {
+  "verdict": "ok",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-27",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
+ },
+ "bukhari:349": {
+  "verdict": "ok",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-27",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
+ },
+ "bukhari:3651": {
+  "verdict": "ok",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-27",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
+ },
  "bukhari:386": {
+  "verdict": "ok",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-27",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
+ },
+ "bukhari:3902": {
+  "verdict": "ok",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-27",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
+ },
+ "bukhari:3959": {
   "verdict": "ok",
   "grade": "",
   "grader": "",
@@ -385,6 +483,13 @@
   "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
  },
  "bukhari:5273": {
+  "verdict": "ok",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-27",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
+ },
+ "bukhari:5376": {
   "verdict": "ok",
   "grade": "",
   "grader": "",
@@ -447,6 +552,13 @@
   "checked": "2026-10-27",
   "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
  },
+ "bukhari:5999": {
+  "verdict": "ok",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-27",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
+ },
  "bukhari:7257": {
   "verdict": "ok",
   "grade": "",
@@ -455,6 +567,13 @@
   "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
  },
  "bukhari:756": {
+  "verdict": "ok",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-27",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
+ },
+ "bukhari:8": {
   "verdict": "ok",
   "grade": "",
   "grader": "",
@@ -531,6 +650,13 @@
   "checked": "2026-10-27",
   "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
  },
+ "ibnmajah:224": {
+  "verdict": "ok",
+  "grade": "Da'if",
+  "grader": "Darussalam",
+  "checked": "2026-10-27",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
+ },
  "muslim:1162": {
   "verdict": "ok",
   "grade": "",
@@ -539,6 +665,13 @@
   "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
  },
  "muslim:1164": {
+  "verdict": "ok",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-27",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
+ },
+ "muslim:121": {
   "verdict": "ok",
   "grade": "",
   "grader": "",
@@ -567,6 +700,20 @@
   "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
  },
  "muslim:1598": {
+  "verdict": "ok",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-27",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
+ },
+ "muslim:162": {
+  "verdict": "ok",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-27",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
+ },
+ "muslim:1763": {
   "verdict": "ok",
   "grade": "",
   "grader": "",
@@ -615,6 +762,13 @@
   "checked": "2026-10-27",
   "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
  },
+ "muslim:2348": {
+  "verdict": "ok",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-27",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
+ },
  "muslim:2551": {
   "verdict": "ok",
   "grade": "",
@@ -637,6 +791,13 @@
   "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
  },
  "muslim:276": {
+  "verdict": "ok",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-27",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
+ },
+ "muslim:2996": {
   "verdict": "ok",
   "grade": "",
   "grader": "",
@@ -693,6 +854,13 @@
   "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
  },
  "muslim:749": {
+  "verdict": "ok",
+  "grade": "",
+  "grader": "",
+  "checked": "2026-10-27",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
+ },
+ "muslim:8": {
   "verdict": "ok",
   "grade": "",
   "grader": "",
@@ -763,6 +931,20 @@
   "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
  },
  "tirmidhi:1720": {
+  "verdict": "ok",
+  "grade": "Sahih",
+  "grader": "Darussalam",
+  "checked": "2026-10-27",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
+ },
+ "tirmidhi:3747": {
+  "verdict": "ok",
+  "grade": "Sahih",
+  "grader": "al-Albani",
+  "checked": "2026-10-27",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); the app summary was read against that text."
+ },
+ "tirmidhi:3768": {
   "verdict": "ok",
   "grade": "Sahih",
   "grader": "Darussalam",
