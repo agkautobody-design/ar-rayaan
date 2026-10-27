@@ -1,0 +1,2706 @@
+{
+ "schema": 1,
+ "verifiedOn": "2026-10-27",
+ "about": "Help lines joined to support snippets by country and scope. Only entries in \"helplines\" (status verified, read on an operator or official page on verifiedOn) may be shown. \"toVerify\" entries were not confirmed and must never be shown. Numbers are never typed into snippet text. Child lines (audience child) are kept apart from adult lines. Hours are null where the source did not state them.",
+ "scopes": [
+  "suicide",
+  "addiction",
+  "domestic-abuse",
+  "child",
+  "sexual-violence",
+  "general",
+  "emergency",
+  "smoking",
+  "gambling",
+  "elder",
+  "eating",
+  "poison",
+  "muslim"
+ ],
+ "helplines": [
+  {
+   "id": "us-988",
+   "country": "US",
+   "service": "988 Suicide & Crisis Lifeline",
+   "number": "988",
+   "text": "Text 988",
+   "url": null,
+   "hours": null,
+   "scope": [
+    "suicide",
+    "general"
+   ],
+   "language": [
+    "en",
+    "es"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://988lifeline.org/get-help/",
+   "status": "verified",
+   "notes": "Hours not stated on the get-help page. Chat at chat.988lifeline.org."
+  },
+  {
+   "id": "us-ctl",
+   "country": "US",
+   "service": "Crisis Text Line",
+   "number": null,
+   "text": "Text HOME to 741741",
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "suicide",
+    "general"
+   ],
+   "language": [
+    "en",
+    "es"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.crisistextline.org/text-us/",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "us-ndvh",
+   "country": "US",
+   "service": "National Domestic Violence Hotline",
+   "number": "1-800-799-7233",
+   "text": "Text START to 88788",
+   "url": null,
+   "hours": null,
+   "scope": [
+    "domestic-abuse"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.thehotline.org/search/sms:88788",
+   "status": "verified",
+   "notes": "Hours not stated on the fetched page."
+  },
+  {
+   "id": "us-rainn",
+   "country": "US",
+   "service": "RAINN National Sexual Assault Hotline",
+   "number": "1-800-656-4673",
+   "text": "Text HOPE to 64673",
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "sexual-violence"
+   ],
+   "language": [
+    "en",
+    "es"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://rainn.org/learn-about-rainn/contact-us/",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "us-childhelp",
+   "country": "US",
+   "service": "Childhelp National Child Abuse Hotline",
+   "number": "1-800-422-4453",
+   "text": "Text GO to 800-422-4453",
+   "url": null,
+   "hours": null,
+   "scope": [
+    "child"
+   ],
+   "language": [
+    "en",
+    "es"
+   ],
+   "audience": "child-or-adult-concerned",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.childhelphotline.org/",
+   "status": "verified",
+   "notes": "Not a reporting line and not connected to 911. Hours not stated."
+  },
+  {
+   "id": "us-samhsa",
+   "country": "US",
+   "service": "SAMHSA National Helpline",
+   "number": "1-800-662-4357",
+   "text": null,
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "addiction",
+    "general"
+   ],
+   "language": [
+    "en",
+    "es"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.samhsa.gov/find-help/helplines/national-helpline",
+   "status": "verified",
+   "notes": "Treatment referral and information, not a crisis line."
+  },
+  {
+   "id": "us-poison",
+   "country": "US",
+   "service": "Poison Help",
+   "number": "1-800-222-1222",
+   "text": null,
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "poison",
+    "emergency"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.poison.org/need-immediate-assistance",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "us-gambling",
+   "country": "US",
+   "service": "National Problem Gambling Helpline",
+   "number": "1-800-697-3738",
+   "text": "Text 1-800-MY-RESET",
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "gambling"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.ncpgambling.org/help-treatment/about-the-national-problem-gambling-helpline/",
+   "status": "verified",
+   "notes": "The older 1-800-GAMBLER is not on the operator page; use 1-800-MY-RESET."
+  },
+  {
+   "id": "us-quit",
+   "country": "US",
+   "service": "1-800-QUIT-NOW",
+   "number": "1-800-784-8669",
+   "text": "Text QUITNOW to 333888 (texting portal)",
+   "url": null,
+   "hours": null,
+   "scope": [
+    "smoking"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.cdc.gov/tobacco/hcp/patient-care/quitlines-and-other-resources.html",
+   "status": "verified",
+   "notes": "Hours not stated; may offer a call-back at busy times."
+  },
+  {
+   "id": "us-eldercare",
+   "country": "US",
+   "service": "Eldercare Locator",
+   "number": "1-800-677-1116",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "elder"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://eldercare.acl.gov/home",
+   "status": "verified",
+   "notes": "Finds local services for older adults. The page does not call it an abuse line."
+  },
+  {
+   "id": "us-911",
+   "country": "US",
+   "service": "Emergency services",
+   "number": "911",
+   "text": null,
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "emergency"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.911.gov/calling-911/",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "ca-988",
+   "country": "CA",
+   "service": "9-8-8 Suicide Crisis Helpline",
+   "number": "9-8-8",
+   "text": "Text 9-8-8",
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "suicide",
+    "general"
+   ],
+   "language": [
+    "en",
+    "fr"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://988.ca/get-help/what-to-expect",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "ca-khp",
+   "country": "CA",
+   "service": "Kids Help Phone",
+   "number": "1-800-668-6868",
+   "text": "Text CONNECT to 686868",
+   "url": null,
+   "hours": "24/7 phone and text",
+   "scope": [
+    "child",
+    "suicide",
+    "general"
+   ],
+   "language": [
+    "en",
+    "multiple"
+   ],
+   "audience": "child",
+   "verifiedOn": "2026-10-27",
+   "source": "https://kidshelpphone.ca/urgent-help",
+   "status": "verified",
+   "notes": "Page contradicts itself on live-chat hours; chat not relied on."
+  },
+  {
+   "id": "ca-naseeha",
+   "country": "CA",
+   "service": "Naseeha Muslim Youth Helpline",
+   "number": "1-866-627-3342",
+   "text": null,
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "muslim",
+    "suicide",
+    "general"
+   ],
+   "language": [
+    "en",
+    "fr",
+    "ar",
+    "ur",
+    "hi",
+    "pa",
+    "bn",
+    "gu"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.naseeha.org/helpline-textline",
+   "status": "verified",
+   "notes": "Page names no countries served; based in Ontario."
+  },
+  {
+   "id": "gb-samaritans",
+   "country": "GB",
+   "service": "Samaritans",
+   "number": "116 123",
+   "text": null,
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "suicide",
+    "general"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.samaritans.org/how-we-can-help/contact-samaritan/talk-us-phone/",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "gb-shout",
+   "country": "GB",
+   "service": "Shout",
+   "number": null,
+   "text": "Text SHOUT to 85258",
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "suicide",
+    "general"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://giveusashout.org/get-help/",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "gb-myh",
+   "country": "GB",
+   "service": "Muslim Youth Helpline",
+   "number": "0808 808 2008",
+   "text": null,
+   "url": null,
+   "hours": "16:00-22:00 daily",
+   "scope": [
+    "muslim",
+    "general",
+    "suicide"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://myh.org.uk/how-we-can-help/call-us/",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "gb-ndah",
+   "country": "GB",
+   "service": "National Domestic Abuse Helpline (Refuge)",
+   "number": "0808 2000 247",
+   "text": null,
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "domestic-abuse"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://refuge.org.uk/i-need-help-now/how-we-can-help-you/national-domestic-abuse-helpline/",
+   "status": "verified",
+   "notes": "Page names no country scope; London-based, serves the UK."
+  },
+  {
+   "id": "gb-mwn",
+   "country": "GB",
+   "service": "Muslim Women's Network UK helpline",
+   "number": "0800 999 5786",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "domestic-abuse",
+    "muslim",
+    "general"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.mwnuk.co.uk/contact-mwnuk",
+   "status": "verified",
+   "notes": "Hours and eligibility not stated on the page."
+  },
+  {
+   "id": "gb-karma",
+   "country": "GB",
+   "service": "Karma Nirvana (honour-based abuse)",
+   "number": "0800 5999 247",
+   "text": null,
+   "url": null,
+   "hours": "Mon-Fri 09:00-17:00",
+   "scope": [
+    "domestic-abuse"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://karmanirvana.org.uk/get-help/helpline/",
+   "status": "verified",
+   "notes": "For emergencies call 999."
+  },
+  {
+   "id": "gb-rapecrisis",
+   "country": "GB",
+   "service": "Rape Crisis England & Wales support line",
+   "number": "0808 500 2222",
+   "text": null,
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "sexual-violence"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://rapecrisis.org.uk/get-help/want-to-talk/",
+   "status": "verified",
+   "notes": "Ages 16+, England and Wales. Page metadata shows one digit fewer; body text used."
+  },
+  {
+   "id": "gb-childline",
+   "country": "GB",
+   "service": "Childline",
+   "number": "0800 1111",
+   "text": null,
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "child"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "child",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.childline.org.uk/get-support/contacting-childline/",
+   "status": "verified",
+   "notes": "UK, Channel Islands only."
+  },
+  {
+   "id": "gb-nspcc",
+   "country": "GB",
+   "service": "NSPCC Helpline (adults worried about a child)",
+   "number": "0808 800 5000",
+   "text": null,
+   "url": null,
+   "hours": "Mon-Fri 10:00-16:00",
+   "scope": [
+    "child"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult-concerned",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.nspcc.org.uk/about-us/our-services/nspcc-helpline/",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "gb-frank",
+   "country": "GB",
+   "service": "FRANK (drugs)",
+   "number": "0300 123 6600",
+   "text": "Text 82111",
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "addiction"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://talktofrank.com/contact-frank",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "gb-drinkline",
+   "country": "GB",
+   "service": "Drinkline",
+   "number": "0300 123 1110",
+   "text": null,
+   "url": null,
+   "hours": "Weekdays 09:00-20:00, weekends 11:00-16:00",
+   "scope": [
+    "addiction"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.nhs.uk/live-well/alcohol-advice/alcohol-support/",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "gb-nacoa",
+   "country": "GB",
+   "service": "Nacoa (children of alcohol-dependent parents)",
+   "number": "0800 358 3456",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "addiction",
+    "child"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "child-or-adult-concerned",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.nhs.uk/live-well/alcohol-advice/alcohol-support/",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "gb-gamcare",
+   "country": "GB",
+   "service": "GamCare / National Gambling Treatment Service",
+   "number": "0808 80 20 133",
+   "text": null,
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "gambling"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.gamcare.org.uk/get-support/",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "gb-smoke-eng",
+   "country": "GB",
+   "service": "Smokefree National Helpline (England)",
+   "number": "0300 123 1044",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "smoking"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.nhs.uk/live-well/quit-smoking/nhs-stop-smoking-services-help-you-quit/",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "gb-smoke-sco",
+   "country": "GB",
+   "service": "Quit Your Way Scotland",
+   "number": "0800 84 84 84",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "smoking"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.nhs.uk/live-well/quit-smoking/nhs-stop-smoking-services-help-you-quit/",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "gb-smoke-wal",
+   "country": "GB",
+   "service": "Help Me Quit (Wales)",
+   "number": "0800 085 2219",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "smoking"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.nhs.uk/live-well/quit-smoking/nhs-stop-smoking-services-help-you-quit/",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "gb-999",
+   "country": "GB",
+   "service": "Emergency services",
+   "number": "999",
+   "text": null,
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "emergency"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.londonambulance.nhs.uk/our-services/emergency-care/calling-999/",
+   "status": "verified",
+   "notes": "Page says when to call; does not state hours or cost."
+  },
+  {
+   "id": "ie-samaritans",
+   "country": "IE",
+   "service": "Samaritans",
+   "number": "116 123",
+   "text": null,
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "suicide",
+    "general"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.samaritans.org/ireland/how-we-can-help/contact-samaritan/",
+   "status": "verified",
+   "notes": "Page does not say the call is free from Ireland specifically."
+  },
+  {
+   "id": "ie-pieta",
+   "country": "IE",
+   "service": "Pieta",
+   "number": "1800 247 247",
+   "text": "Text HELP to 51444",
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "suicide",
+    "general"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.pieta.ie/how-we-can-help/helpline/",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "ie-hse-drugs",
+   "country": "IE",
+   "service": "HSE Drugs and Alcohol Helpline",
+   "number": "1800 459 459",
+   "text": null,
+   "url": null,
+   "hours": "Mon-Fri 09:30-17:30",
+   "scope": [
+    "addiction"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www2.hse.ie/services/habit-addiction/drugs-and-alcohol-helpline/",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "ie-childline",
+   "country": "IE",
+   "service": "Childline (ISPCC)",
+   "number": "1800 66 66 66",
+   "text": null,
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "child"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "child",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.childline.ie/about-us",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "ie-womensaid",
+   "country": "IE",
+   "service": "Women's Aid National Freephone Helpline",
+   "number": "1800 341 900",
+   "text": null,
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "domestic-abuse"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.womensaid.ie/about-us/contact-us/",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "ie-drcc",
+   "country": "IE",
+   "service": "Dublin Rape Crisis Centre National Helpline",
+   "number": "1800 77 8888",
+   "text": null,
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "sexual-violence"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.drcc.ie/services/helpline/",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "ie-quit",
+   "country": "IE",
+   "service": "HSE Quit Team",
+   "number": "1800 201 203",
+   "text": null,
+   "url": null,
+   "hours": "Mon-Wed 10-20 (Wed to 19), Thu 10-19, Fri 10-17, Sat 10-14",
+   "scope": [
+    "smoking"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www2.hse.ie/living-well/quit-smoking/contact/",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "ie-alone",
+   "country": "IE",
+   "service": "ALONE support line (older people)",
+   "number": "0818 222 024",
+   "text": null,
+   "url": null,
+   "hours": "Daily 08:00-20:00",
+   "scope": [
+    "elder"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://alone.ie/referral-information/",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "ie-112",
+   "country": "IE",
+   "service": "Emergency services",
+   "number": "112 or 999",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "emergency"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.gov.ie/en/department-of-the-taoiseach/services/how-to-contact-emergency-services-in-ireland/",
+   "status": "verified",
+   "notes": "Both free; hours not stated on the page."
+  },
+  {
+   "id": "au-lifeline",
+   "country": "AU",
+   "service": "Lifeline",
+   "number": "13 11 14",
+   "text": "Text 0477 13 11 14",
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "suicide",
+    "general"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.lifeline.org.au/get-help/national-services/lifeline-crisis-support",
+   "status": "verified",
+   "notes": "English; interpreters via 13 14 50."
+  },
+  {
+   "id": "au-1800respect",
+   "country": "AU",
+   "service": "1800RESPECT",
+   "number": "1800 737 732",
+   "text": "Text 0458 737 732",
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "domestic-abuse",
+    "sexual-violence"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://1800respect.org.au/calling-1800respect",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "au-kids",
+   "country": "AU",
+   "service": "Kids Helpline",
+   "number": "1800 55 1800",
+   "text": null,
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "child"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "child",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.kidshelpline.com.au/get-help/phone-counselling/",
+   "status": "verified",
+   "notes": "Ages 5-25 per health.gov.au."
+  },
+  {
+   "id": "au-nadh",
+   "country": "AU",
+   "service": "National Alcohol and Other Drug Hotline",
+   "number": "1800 250 015",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "addiction"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.health.gov.au/our-work/drug-help/how-to-find-help",
+   "status": "verified",
+   "notes": "Hours not stated on the fetched page."
+  },
+  {
+   "id": "au-fds",
+   "country": "AU",
+   "service": "Family Drug Support",
+   "number": "1300 368 186",
+   "text": null,
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "addiction"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.health.gov.au/our-work/drug-help/how-to-find-help",
+   "status": "verified",
+   "notes": "For families."
+  },
+  {
+   "id": "au-quit",
+   "country": "AU",
+   "service": "Quitline",
+   "number": "13 7848",
+   "text": null,
+   "url": null,
+   "hours": "Varies by state; mostly Mon-Fri 08:00-20:00",
+   "scope": [
+    "smoking"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.quit.org.au/en/support-and-resources/ways-to-get-in-touch",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "au-elder",
+   "country": "AU",
+   "service": "1800 ELDERHelp",
+   "number": "1800 353 374",
+   "text": null,
+   "url": null,
+   "hours": "Varies by state",
+   "scope": [
+    "elder"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.health.gov.au/contacts/elder-abuse-phone-line",
+   "status": "verified",
+   "notes": "Routes to the state service; not a crisis line."
+  },
+  {
+   "id": "au-000",
+   "country": "AU",
+   "service": "Triple Zero",
+   "number": "000",
+   "text": null,
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "emergency"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.triplezero.gov.au/triple-zero/How-to-Call-000",
+   "status": "verified",
+   "notes": "Text-based service 106 for speech or hearing difficulty."
+  },
+  {
+   "id": "nz-1737",
+   "country": "NZ",
+   "service": "1737 Need to talk?",
+   "number": "1737",
+   "text": "Text 1737",
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "suicide",
+    "general"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.1737.org.nz/how-1737-works",
+   "status": "verified",
+   "notes": "Not a crisis team; call 111 in danger."
+  },
+  {
+   "id": "nz-lifeline",
+   "country": "NZ",
+   "service": "Lifeline Aotearoa",
+   "number": "0800 543 354",
+   "text": "Text 4357",
+   "url": null,
+   "hours": "07:00-24:00",
+   "scope": [
+    "general",
+    "suicide"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://mentalhealth.org.nz/get-help-support/helplines-support/",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "nz-samaritans",
+   "country": "NZ",
+   "service": "Samaritans NZ",
+   "number": "0800 726 666",
+   "text": null,
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "general",
+    "suicide"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://mentalhealth.org.nz/get-help-support/helplines-support/",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "nz-depression",
+   "country": "NZ",
+   "service": "Depression Helpline",
+   "number": "0800 111 757",
+   "text": "Text 4202",
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "general"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://mentalhealth.org.nz/get-help-support/helplines-support/",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "nz-youthline",
+   "country": "NZ",
+   "service": "Youthline",
+   "number": "0800 37 66 33",
+   "text": "Text 234",
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "child",
+    "general",
+    "suicide"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "child",
+   "verifiedOn": "2026-10-27",
+   "source": "https://youthline.co.nz/get-help/helpline/",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "nz-adh",
+   "country": "NZ",
+   "service": "Alcohol Drug Helpline",
+   "number": "0800 787 797",
+   "text": null,
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "addiction"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://alcoholdrughelp.org.nz/",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "nz-gambling",
+   "country": "NZ",
+   "service": "Gambling Helpline",
+   "number": "0800 654 655",
+   "text": "Text 8006",
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "gambling"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://gamblinghelpline.co.nz/contact",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "nz-quit",
+   "country": "NZ",
+   "service": "Quitline",
+   "number": "0800 778 778",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "smoking"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://quit.org.nz/",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "nz-refuge",
+   "country": "NZ",
+   "service": "Women's Refuge",
+   "number": "0800 733 843",
+   "text": null,
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "domestic-abuse"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://womensrefuge.org.nz/get-help/",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "nz-safetotalk",
+   "country": "NZ",
+   "service": "Safe to talk (sexual harm)",
+   "number": "0800 044 334",
+   "text": "Text 4334",
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "sexual-violence"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.safetotalk.nz/contact-us/",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "nz-111",
+   "country": "NZ",
+   "service": "Emergency services",
+   "number": "111",
+   "text": null,
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "emergency"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.govt.nz/browse/law-crime-and-justice/crimes-and-emergencies/111-emergency-service/",
+   "status": "verified",
+   "notes": "Cost and hours not stated on the page."
+  },
+  {
+   "id": "sa-937",
+   "country": "SA",
+   "service": "Ministry of Health 937 (health information line)",
+   "number": "937",
+   "text": null,
+   "url": null,
+   "hours": "24/7 for medical consultations",
+   "scope": [
+    "general"
+   ],
+   "language": [
+    "ar"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.moh.gov.sa/Ministry/MediaCenter/Ads/Documents/937%20BOOKLET-V2.pdf",
+   "status": "verified",
+   "notes": "Health information and consultation. The booklet does not mention mental-health counselling: do not present as a suicide or crisis line."
+  },
+  {
+   "id": "sa-1919",
+   "country": "SA",
+   "service": "Domestic Violence Reporting Centre",
+   "number": "1919",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "domestic-abuse",
+    "child",
+    "elder"
+   ],
+   "language": [
+    "ar",
+    "en"
+   ],
+   "audience": "adult-or-concerned",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.hrsd.gov.sa/en/ministry-services/services/%D8%A7%D9%84%D8%A5%D8%A8%D9%84%D8%A7%D8%BA-%D8%B9%D9%86-%D8%A7%D9%84%D8%B9%D9%86%D9%81-%D8%A7%D9%84%D8%A3%D8%B3%D8%B1%D9%8A",
+   "status": "verified",
+   "notes": "For citizens and residents; third-party reports allowed. Hours not stated on the page."
+  },
+  {
+   "id": "ae-999",
+   "country": "AE",
+   "service": "Police",
+   "number": "999",
+   "text": null,
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "emergency"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://u.ae/en/information-and-services/justice-safety-and-the-law/Safety/handling-emergencies",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "ae-998",
+   "country": "AE",
+   "service": "Ambulance",
+   "number": "998",
+   "text": null,
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "emergency"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://u.ae/en/information-and-services/justice-safety-and-the-law/Safety/handling-emergencies",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "ae-997",
+   "country": "AE",
+   "service": "Fire / Civil Defence",
+   "number": "997",
+   "text": null,
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "emergency"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://u.ae/en/information-and-services/justice-safety-and-the-law/Safety/handling-emergencies",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "qa-mh",
+   "country": "QA",
+   "service": "National Mental Health Helpline (HMC)",
+   "number": "16000 then option 4",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "suicide",
+    "general"
+   ],
+   "language": [
+    "ar",
+    "en",
+    "tl",
+    "hi",
+    "ur",
+    "ml"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.hamad.qa/EN/news/2025/April/Pages/National-Mental-Health-Helpline-Celebrates-Milestone-in-Providing-Specialized-Support-Across-Qatar.aspx",
+   "status": "verified",
+   "notes": "Hours not stated on the page."
+  },
+  {
+   "id": "qa-aman",
+   "country": "QA",
+   "service": "Aman Centre hotline",
+   "number": "919",
+   "text": null,
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "domestic-abuse",
+    "child",
+    "elder"
+   ],
+   "language": [
+    "multiple"
+   ],
+   "audience": "adult-or-concerned",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.aman.org.qa/en/faq",
+   "status": "verified",
+   "notes": "Eligibility not stated; services open to all citizens and residents."
+  },
+  {
+   "id": "qa-999",
+   "country": "QA",
+   "service": "Emergency services",
+   "number": "999",
+   "text": null,
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "emergency"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://portal.moi.gov.qa/UNCCPCJDoha/English/Emergency_Services.html",
+   "status": "verified",
+   "notes": "992 is the service for deaf people."
+  },
+  {
+   "id": "my-befrienders",
+   "country": "MY",
+   "service": "Befrienders Kuala Lumpur",
+   "number": "+603-7627 2929",
+   "text": null,
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "suicide",
+    "general"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.befrienders.org.my/contact",
+   "status": "verified",
+   "notes": "Phone only; no chat; does not do crisis support by DM."
+  },
+  {
+   "id": "my-kasih",
+   "country": "MY",
+   "service": "Talian Kasih",
+   "number": "15999",
+   "text": "WhatsApp 019-261 5999",
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "domestic-abuse",
+    "child",
+    "elder"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult-or-concerned",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.malaysia.gov.my/en/topics/talian-kasih-15999",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "my-999",
+   "country": "MY",
+   "service": "Emergency services (MERS 999)",
+   "number": "999",
+   "text": null,
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "emergency"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.malaysia.gov.my/en/categories/safety-and-community/public-safety/mers-999-emergency-line",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "id-healing119",
+   "country": "ID",
+   "service": "Healing119.id (Ministry of Health)",
+   "number": "119 then extension 8",
+   "text": null,
+   "url": null,
+   "hours": "Morning to night (exact hours not stated)",
+   "scope": [
+    "suicide",
+    "general"
+   ],
+   "language": [
+    "id"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://kesprimkom.kemkes.go.id/konten/158/151/0/cegah-bunuh-diri-dukung-kesehatan-jiwa-kenali-layanan-healing119-id",
+   "status": "verified",
+   "notes": "Free; WhatsApp chat via the website."
+  },
+  {
+   "id": "id-129",
+   "country": "ID",
+   "service": "SAPA 129 (women and children)",
+   "number": "129",
+   "text": "WhatsApp 08-111-129-129",
+   "url": null,
+   "hours": null,
+   "scope": [
+    "domestic-abuse",
+    "child",
+    "sexual-violence"
+   ],
+   "language": [
+    "id"
+   ],
+   "audience": "adult-or-concerned",
+   "verifiedOn": "2026-10-27",
+   "source": "https://laporsapa129.kemenpppa.go.id/",
+   "status": "verified",
+   "notes": "Hours not stated."
+  },
+  {
+   "id": "id-bnn",
+   "country": "ID",
+   "service": "BNN Call Center",
+   "number": "184",
+   "text": null,
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "addiction"
+   ],
+   "language": [
+    "id"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://bnn.go.id/resmi-diluncurkan-layanan-bnn-call-center-184-siap-terima-laporan-dan-pengaduan/",
+   "status": "verified",
+   "notes": "Narcotics reports and rehabilitation consultation."
+  },
+  {
+   "id": "pk-rozan",
+   "country": "PK",
+   "service": "Rozan Counselling Helpline",
+   "number": "0304-111-1741",
+   "text": null,
+   "url": null,
+   "hours": "Mon-Fri 09:30-17:00 (to 15:00 in Ramadan)",
+   "scope": [
+    "general",
+    "child",
+    "domestic-abuse"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://rozan.org/rozan-counseling-helpline/",
+   "status": "verified",
+   "notes": "Toll-free 0800-22-444. Not a 24-hour crisis line."
+  },
+  {
+   "id": "pk-1099",
+   "country": "PK",
+   "service": "Ministry of Human Rights helpline",
+   "number": "1099",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "general",
+    "domestic-abuse",
+    "child"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult-or-concerned",
+   "verifiedOn": "2026-10-27",
+   "source": "https://portal.mohr.gov.pk/media_library/helpline-1099/",
+   "status": "verified",
+   "notes": "Human-rights complaints. Hours not stated."
+  },
+  {
+   "id": "bd-999",
+   "country": "BD",
+   "service": "National emergency service",
+   "number": "999",
+   "text": null,
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "emergency"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://bangladesh.gov.bd/pages/static-pages/69a55ba386514399668e4e89",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "bd-109",
+   "country": "BD",
+   "service": "National Helpline Centre (violence against women and children)",
+   "number": "109",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "domestic-abuse",
+    "child"
+   ],
+   "language": [
+    "bn"
+   ],
+   "audience": "adult-or-concerned",
+   "verifiedOn": "2026-10-27",
+   "source": "https://bangladesh.gov.bd/pages/static-pages/69a55ba386514399668e4e89",
+   "status": "verified",
+   "notes": "Page text truncated after the purpose line; hours not stated."
+  },
+  {
+   "id": "bd-kpr",
+   "country": "BD",
+   "service": "Kaan Pete Roi",
+   "number": "+880 9612-119911",
+   "text": null,
+   "url": null,
+   "hours": "Daily 15:00-03:00",
+   "scope": [
+    "suicide",
+    "general"
+   ],
+   "language": [
+    "bn"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://kaanpeteroi.org/helpline-service/",
+   "status": "verified",
+   "notes": "Emotional support, not an emergency service."
+  },
+  {
+   "id": "in-telemanas",
+   "country": "IN",
+   "service": "Tele-MANAS",
+   "number": "14416",
+   "text": null,
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "suicide",
+    "general"
+   ],
+   "language": [
+    "multiple"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2118790&reg=48&lang=2",
+   "status": "verified",
+   "notes": "20 languages by state."
+  },
+  {
+   "id": "in-quit",
+   "country": "IN",
+   "service": "National Tobacco Quitline",
+   "number": "1800 112 356",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "smoking"
+   ],
+   "language": [
+    "multiple"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://ntcp.mohfw.gov.in/national_tobacco_quit_line_services",
+   "status": "verified",
+   "notes": "Missed call 011-22901701."
+  },
+  {
+   "id": "in-elderline",
+   "country": "IN",
+   "service": "Elderline",
+   "number": "14567",
+   "text": null,
+   "url": null,
+   "hours": "Daily 08:00-20:00",
+   "scope": [
+    "elder"
+   ],
+   "language": [
+    "multiple"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2284996&reg=48&lang=2",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "in-181",
+   "country": "IN",
+   "service": "Women Helpline",
+   "number": "181",
+   "text": null,
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "domestic-abuse",
+    "sexual-violence"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1910101",
+   "status": "verified",
+   "notes": "Source is a March 2023 government release."
+  },
+  {
+   "id": "in-1098",
+   "country": "IN",
+   "service": "CHILDLINE",
+   "number": "1098",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "child"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "child",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.childlineindia.org/",
+   "status": "verified",
+   "notes": "Hours and cost not stated on the page; it points to 112 for immediate danger."
+  },
+  {
+   "id": "in-112",
+   "country": "IN",
+   "service": "Emergency (single number)",
+   "number": "112",
+   "text": null,
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "emergency"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://112.gov.in/",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "eg-122",
+   "country": "EG",
+   "service": "Police emergency (Nagda)",
+   "number": "122",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "emergency"
+   ],
+   "language": [
+    "ar"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://moi.gov.eg/home/EmergancyNumber",
+   "status": "verified",
+   "notes": "Interior Ministry list also gives 180 for civil protection. No ambulance number or 112 on the page."
+  },
+  {
+   "id": "tr-183",
+   "country": "TR",
+   "service": "ALO 183 Social Support Line",
+   "number": "183",
+   "text": null,
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "domestic-abuse",
+    "child",
+    "elder",
+    "general"
+   ],
+   "language": [
+    "tr"
+   ],
+   "audience": "adult-or-concerned",
+   "verifiedOn": "2026-10-27",
+   "source": "https://aile.gov.tr/yalova/haberler/alo-183-destek-hatti-ile-bizlere-7-24-ulasabilirsiniz/",
+   "status": "verified",
+   "notes": "Free from within Turkey. Page dated 2021."
+  },
+  {
+   "id": "tr-115",
+   "country": "TR",
+   "service": "YEDAM 115 (addiction counselling)",
+   "number": "115",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "addiction"
+   ],
+   "language": [
+    "tr"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.yedam.org.tr/telefon-ile-danismanlik",
+   "status": "verified",
+   "notes": "Hours not on the fetched page."
+  },
+  {
+   "id": "za-sadag",
+   "country": "ZA",
+   "service": "SADAG Suicide Crisis Line",
+   "number": "0800 567 567",
+   "text": null,
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "suicide",
+    "general"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.sadag.org/",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "za-dsd",
+   "country": "ZA",
+   "service": "Substance Abuse Line (Dept of Social Development)",
+   "number": "0800 12 13 14",
+   "text": "SMS 32312",
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "addiction"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.sadag.org/",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "za-gbv",
+   "country": "ZA",
+   "service": "GBV Command Centre",
+   "number": "0800 428 428",
+   "text": null,
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "domestic-abuse",
+    "sexual-violence"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.gov.za/about-government/government-call-centres-and-help-lines",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "za-lifeline",
+   "country": "ZA",
+   "service": "LifeLine National Crisis Line",
+   "number": "0861 322 322",
+   "text": null,
+   "url": null,
+   "hours": "24/7",
+   "scope": [
+    "suicide",
+    "general"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.gov.za/about-government/government-call-centres-and-help-lines",
+   "status": "verified",
+   "notes": null
+  },
+  {
+   "id": "za-childline",
+   "country": "ZA",
+   "service": "Childline South Africa",
+   "number": "116",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "child"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "child-or-adult-concerned",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.gov.za/about-government/government-call-centres-and-help-lines",
+   "status": "verified",
+   "notes": "Listed for reporting child abuse; hours not stated."
+  },
+  {
+   "id": "ng-surpin",
+   "country": "NG",
+   "service": "SURPIN helpline",
+   "number": "+234-908-021-7555",
+   "text": null,
+   "url": null,
+   "hours": "24/7 (per site)",
+   "scope": [
+    "suicide",
+    "general"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://www.surpinng.com/",
+   "status": "verified",
+   "notes": "Site lists four numbers (+234-903-440-0009, +234-814-224-1007, +234-8000787746); does not say which is toll-free. Non-governmental."
+  },
+  {
+   "id": "ng-ndlea",
+   "country": "NG",
+   "service": "NDLEA hotline",
+   "number": "0800 1020 3040",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "addiction"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://ndlea.gov.ng/contact",
+   "status": "verified",
+   "notes": "Law-enforcement reporting line for drug activity, not a counselling service. Hours not stated."
+  },
+  {
+   "id": "int-findahelpline",
+   "country": "INT",
+   "service": "Find A Helpline (ThroughLine)",
+   "number": null,
+   "text": null,
+   "url": "https://findahelpline.com/",
+   "hours": null,
+   "scope": [
+    "suicide",
+    "general",
+    "domestic-abuse",
+    "addiction"
+   ],
+   "language": [
+    "multiple"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://findahelpline.com/",
+   "status": "verified",
+   "notes": "Free directory covering 175+ countries, by topic. A directory, not a service."
+  },
+  {
+   "id": "int-befrienders",
+   "country": "INT",
+   "service": "Befrienders Worldwide",
+   "number": null,
+   "text": null,
+   "url": "https://befrienders.org/find-support-now/suicide-prevention-services/",
+   "hours": null,
+   "scope": [
+    "suicide",
+    "general"
+   ],
+   "language": [
+    "multiple"
+   ],
+   "audience": "adult",
+   "verifiedOn": "2026-10-27",
+   "source": "https://befrienders.org/find-support-now/suicide-prevention-services/",
+   "status": "verified",
+   "notes": "Directory of emotional-support centres by country and language."
+  },
+  {
+   "id": "int-chi",
+   "country": "INT",
+   "service": "Child Helpline International",
+   "number": null,
+   "text": null,
+   "url": "https://childhelplineinternational.org/helplines/",
+   "hours": null,
+   "scope": [
+    "child"
+   ],
+   "language": [
+    "multiple"
+   ],
+   "audience": "child-or-adult-concerned",
+   "verifiedOn": "2026-10-27",
+   "source": "https://childhelplineinternational.org/helplines/",
+   "status": "verified",
+   "notes": "Directory of national child helplines."
+  }
+ ],
+ "toVerify": [
+  {
+   "id": "us-anad",
+   "country": "US",
+   "service": "ANAD Eating Disorders Helpline",
+   "number": "1-888-375-7767",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "eating"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": null,
+   "source": null,
+   "status": "unverified",
+   "notes": "In the app; not re-confirmed today."
+  },
+  {
+   "id": "sg-sos",
+   "country": "SG",
+   "service": "Samaritans of Singapore",
+   "number": "1767",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "suicide",
+    "general"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": null,
+   "source": null,
+   "status": "unverified",
+   "notes": "In the app; not re-confirmed today."
+  },
+  {
+   "id": "ca-911",
+   "country": "CA",
+   "service": "Emergency services",
+   "number": "911",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "emergency"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": null,
+   "source": null,
+   "status": "unverified",
+   "notes": "RCMP page blocked automated reads; not confirmed on an official page."
+  },
+  {
+   "id": "ca-smokers",
+   "country": "CA",
+   "service": "Smokers' Helpline",
+   "number": null,
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "smoking"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": null,
+   "source": "https://www.smokershelpline.ca/",
+   "status": "unverified",
+   "notes": "Operator page returned no content when fetched."
+  },
+  {
+   "id": "ca-dv",
+   "country": "CA",
+   "service": "Assaulted Women's Helpline / provincial DV lines",
+   "number": null,
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "domestic-abuse"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": null,
+   "source": null,
+   "status": "unverified",
+   "notes": "No national line confirmed; use findahelpline."
+  },
+  {
+   "id": "gb-mch",
+   "country": "GB",
+   "service": "Muslim Community Helpline",
+   "number": "020 8904 8193",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "muslim",
+    "general"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": null,
+   "source": null,
+   "status": "unverified",
+   "notes": "In the app (checked 2026-10-20); not re-confirmed on an operator page today."
+  },
+  {
+   "id": "gb-beat",
+   "country": "GB",
+   "service": "Beat Eating Disorders",
+   "number": "0808 801 0677",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "eating"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": null,
+   "source": null,
+   "status": "unverified",
+   "notes": "In the app; not re-confirmed today."
+  },
+  {
+   "id": "gb-elder",
+   "country": "GB",
+   "service": "Action on Elder Abuse helpline",
+   "number": null,
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "elder"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": null,
+   "source": "https://www.elderabuse.org.uk/reporting-options",
+   "status": "unverified",
+   "notes": "Operator page blocked automated reads."
+  },
+  {
+   "id": "ie-gambling",
+   "country": "IE",
+   "service": "National gambling helpline",
+   "number": null,
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "gambling"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": null,
+   "source": "https://www.gamblingsupport.ie/contact/",
+   "status": "unverified",
+   "notes": "The only page read was a regional Wexford service, not a national helpline."
+  },
+  {
+   "id": "au-gho",
+   "country": "AU",
+   "service": "Gambling Help Online",
+   "number": "1800 858 858",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "gambling"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": null,
+   "source": "https://www.gamblinghelponline.org.au/immediate-help",
+   "status": "unverified",
+   "notes": "Operator pages returned an error when fetched."
+  },
+  {
+   "id": "au-poison",
+   "country": "AU",
+   "service": "Poisons Information Centre",
+   "number": "13 11 26",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "poison"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": null,
+   "source": "https://www.poisonsinfo.nsw.gov.au/",
+   "status": "unverified",
+   "notes": "Only the NSW centre page was read; national coverage not confirmed."
+  },
+  {
+   "id": "au-butterfly",
+   "country": "AU",
+   "service": "Butterfly Foundation",
+   "number": "1800 33 4673",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "eating"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": null,
+   "source": null,
+   "status": "unverified",
+   "notes": "In the app; not re-confirmed today."
+  },
+  {
+   "id": "nz-elder",
+   "country": "NZ",
+   "service": "Elder Abuse Response Service",
+   "number": null,
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "elder"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": null,
+   "source": "https://ageconcern.org.nz/get-support/elder-abuse-and-neglect-prevention/",
+   "status": "unverified",
+   "notes": "Age Concern page gave no number for it."
+  },
+  {
+   "id": "sa-emergency",
+   "country": "SA",
+   "service": "Emergency numbers (911, 997, 999)",
+   "number": null,
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "emergency"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": null,
+   "source": "https://my.gov.sa/en/emergency-contact",
+   "status": "unverified",
+   "notes": "my.gov.sa lists services without digits; numbers not confirmed on an official page."
+  },
+  {
+   "id": "sa-child",
+   "country": "SA",
+   "service": "Child protection line 116111",
+   "number": "116111",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "child"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": null,
+   "source": null,
+   "status": "unverified",
+   "notes": "Not confirmed on an official page."
+  },
+  {
+   "id": "ae-hope",
+   "country": "AE",
+   "service": "National Mental Health Support Line (800 HOPE)",
+   "number": "800 4673",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "suicide",
+    "general"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": null,
+   "source": "https://u.ae/en/information-and-services/health-and-fitness/Health-and-wellbeing/mental-health",
+   "status": "unverified",
+   "notes": "No official page found; u.ae mental-health page lists no helpline."
+  },
+  {
+   "id": "kw-112",
+   "country": "KW",
+   "service": "Emergency services",
+   "number": "112",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "emergency"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": null,
+   "source": "https://e.gov.kw/sites/kgoenglish/Pages/Visitors/TourismInKuwait/EssintialServicesEmergencies.aspx",
+   "status": "unverified",
+   "notes": "Official e.gov.kw page returned an error."
+  },
+  {
+   "id": "kw-mh",
+   "country": "KW",
+   "service": "Kuwait mental-health / family lines",
+   "number": null,
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "suicide",
+    "domestic-abuse"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": null,
+   "source": null,
+   "status": "unverified",
+   "notes": "No official number found."
+  },
+  {
+   "id": "id-112",
+   "country": "ID",
+   "service": "Emergency services",
+   "number": "112",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "emergency"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": null,
+   "source": "https://layanan112.komdigi.go.id/tentang",
+   "status": "unverified",
+   "notes": "Official page blocked automated reads."
+  },
+  {
+   "id": "pk-umang",
+   "country": "PK",
+   "service": "Umang Pakistan",
+   "number": "0311-7786264",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "suicide",
+    "general"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": null,
+   "source": null,
+   "status": "unverified",
+   "notes": "Operator page does not show the number; it describes paid therapy sessions."
+  },
+  {
+   "id": "pk-emergency",
+   "country": "PK",
+   "service": "Rescue 1122 and Police 15",
+   "number": "1122",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "emergency"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": null,
+   "source": "https://pcsw.punjab.gov.pk/important_helplines",
+   "status": "unverified",
+   "notes": "Official Punjab page blocked automated reads."
+  },
+  {
+   "id": "bd-drug",
+   "country": "BD",
+   "service": "Department of Narcotics Control",
+   "number": "+880 1908888888",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "addiction"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": null,
+   "source": null,
+   "status": "unverified",
+   "notes": "Source page not re-confirmed in this pass."
+  },
+  {
+   "id": "in-ncb",
+   "country": "IN",
+   "service": "NCB MANAS helpline",
+   "number": "14446",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "addiction"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": null,
+   "source": "https://nmba.dosje.gov.in/toll-free",
+   "status": "unverified",
+   "notes": "Government page showed no number."
+  },
+  {
+   "id": "in-telemanas-page",
+   "country": "IN",
+   "service": "Tele-MANAS operator site",
+   "number": null,
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "suicide"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": null,
+   "source": "https://telemanas.mohfw.gov.in/",
+   "status": "unverified",
+   "notes": "telemanas.mohfw.gov.in blocks automated reads; number confirmed via PIB instead."
+  },
+  {
+   "id": "eg-mh",
+   "country": "EG",
+   "service": "Egypt mental-health hotline",
+   "number": null,
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "suicide",
+    "general"
+   ],
+   "language": [
+    "ar"
+   ],
+   "audience": "adult",
+   "verifiedOn": null,
+   "source": "https://nmhp.mohp.gov.eg/mental/web/en",
+   "status": "unverified",
+   "notes": "Ministry page blocked automated reads."
+  },
+  {
+   "id": "eg-child",
+   "country": "EG",
+   "service": "Child helpline",
+   "number": "16000",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "child"
+   ],
+   "language": [
+    "ar"
+   ],
+   "audience": "child",
+   "verifiedOn": null,
+   "source": "https://sis.gov.eg/en/media-center/news/nccm-keen-to-protect-children-s-rights/",
+   "status": "unverified",
+   "notes": "Government page blocked automated reads."
+  },
+  {
+   "id": "eg-ambulance",
+   "country": "EG",
+   "service": "Ambulance 123 / unified 112",
+   "number": "123",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "emergency"
+   ],
+   "language": [
+    "ar"
+   ],
+   "audience": "adult",
+   "verifiedOn": null,
+   "source": "https://moi.gov.eg/home/EmergancyNumber",
+   "status": "unverified",
+   "notes": "Interior Ministry page lists neither; 112 reported only unofficially."
+  },
+  {
+   "id": "tr-112",
+   "country": "TR",
+   "service": "Emergency 112",
+   "number": "112",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "emergency"
+   ],
+   "language": [
+    "tr"
+   ],
+   "audience": "adult",
+   "verifiedOn": null,
+   "source": "https://www.112.gov.tr/",
+   "status": "unverified",
+   "notes": "Both official pages blocked automated reads."
+  },
+  {
+   "id": "tr-mh",
+   "country": "TR",
+   "service": "Turkey crisis / mental-health line",
+   "number": null,
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "suicide",
+    "general"
+   ],
+   "language": [
+    "tr"
+   ],
+   "audience": "adult",
+   "verifiedOn": null,
+   "source": null,
+   "status": "unverified",
+   "notes": "No official suicide-prevention line confirmed."
+  },
+  {
+   "id": "za-emergency",
+   "country": "ZA",
+   "service": "Emergency 10111 / 10177 / 112",
+   "number": "10111",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "emergency"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": null,
+   "source": null,
+   "status": "unverified",
+   "notes": "Not on the pages read."
+  },
+  {
+   "id": "ng-112",
+   "country": "NG",
+   "service": "Emergency 112",
+   "number": "112",
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "emergency"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": null,
+   "source": null,
+   "status": "unverified",
+   "notes": "Not read on an official page."
+  },
+  {
+   "id": "int-iasp",
+   "country": "INT",
+   "service": "IASP crisis centres directory",
+   "number": null,
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "suicide"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": null,
+   "source": "https://www.iasp.info/crisis-centres-helplines/",
+   "status": "unverified",
+   "notes": "Page returned only a redirect notice."
+  },
+  {
+   "id": "us-nat-elder",
+   "country": "US",
+   "service": "National elder abuse hotline",
+   "number": null,
+   "text": null,
+   "url": null,
+   "hours": null,
+   "scope": [
+    "elder"
+   ],
+   "language": [
+    "en"
+   ],
+   "audience": "adult",
+   "verifiedOn": null,
+   "source": "https://stg-ncea.acl.gov/Suspect-Abuse/Reporting-Abuse.aspx",
+   "status": "unverified",
+   "notes": "NCEA page blocked automated reads."
+  }
+ ]
+}
