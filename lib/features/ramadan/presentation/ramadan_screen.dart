@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:ui' as ui show TextDirection;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
@@ -211,7 +212,7 @@ class _RamadanState extends ConsumerState<RamadanScreen> {
                           Text(today.arabic,
                               key: const Key('ramadan-today-arabic'),
                               textAlign: TextAlign.center,
-                              textDirection: TextDirection.rtl,
+                              textDirection: ui.TextDirection.rtl,
                               style: AppText.arabic.copyWith(
                                   fontSize: 22, height: 1.9, color: AppColors.sand)),
                         ],
