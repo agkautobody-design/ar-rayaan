@@ -954,6 +954,7 @@ abstract final class HelpResources {
       url: 'https://findahelpline.com',
       kinds: <HelpKind>{
         HelpKind.suicide,
+        HelpKind.emergency,
         HelpKind.abuse,
         HelpKind.addiction,
         HelpKind.general,

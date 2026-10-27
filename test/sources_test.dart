@@ -9,7 +9,7 @@ void main() {
 
   testWidgets('Our Sources is honest about the Qur’an, hadith and guidance',
       (tester) async {
-    tester.view.physicalSize = const Size(430, 3600);
+    tester.view.physicalSize = const Size(430, 5200);
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);

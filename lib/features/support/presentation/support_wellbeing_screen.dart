@@ -96,7 +96,7 @@ class SupportWellbeingScreen extends ConsumerWidget {
                               ),
                             ),
                             _note('It only appears when you open Hadi or Wasia. It is never a '
-                                'notification, and it is never tied to streaks or activity. '
+                                'notification, and it is never tied to activity. '
                                 'Only the day it was last asked and this setting are stored.'),
                           ],
                         ),

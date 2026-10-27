@@ -16,7 +16,7 @@ import '../../support/domain/checkin_scheduler.dart';
 import '../../support/domain/student_routing.dart';
 import '../../support/domain/support_engine.dart';
 import '../../support/domain/support_pack.dart';
-import 'family_service.dart';
+import 'child_age_band.dart';
 
 enum WasiaPersona { student, parent, teacher }
 
@@ -220,16 +220,7 @@ class WasiaController extends StateNotifier<WasiaState> {
   SupportSession _support = SupportSession(seed: DateTime.now().microsecondsSinceEpoch);
 
   /// The age band a parent set for the active child, or the default.
-  Future<String> _band() async {
-    try {
-      final FamilyService fs = FamilyService();
-      final String? id = await fs.activeChildId();
-      if (id == null) return FamilyService.defaultAgeBand;
-      return await fs.ageBand(id);
-    } catch (_) {
-      return FamilyService.defaultAgeBand;
-    }
-  }
+  Future<String> _band() => ChildAgeBand.active();
 
   /// The gentle check-in for a child, in the words of their age band. In
   /// memory only: nothing the child answers is stored, and no parent sees it.

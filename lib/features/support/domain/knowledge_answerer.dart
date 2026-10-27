@@ -40,7 +40,12 @@ abstract final class KnowledgeAnswerer {
     int v = 0;
     for (final String t in s.triggers) {
       final String nt = CrisisDetector.normalize(t);
-      if (nt.isNotEmpty && ' $normalized '.contains(' $nt ')) v += 4;
+      if (nt.isEmpty) continue;
+      final List<String> tt = tokens(t);
+      if (' $normalized '.contains(' $nt ') ||
+          (tt.isNotEmpty && tt.every(words.contains))) {
+        v += 4;
+      }
     }
     for (final String tag in s.tags) {
       for (final String w in tokens(tag)) {

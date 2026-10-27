@@ -20,10 +20,11 @@ void main() {
     final Map<String, dynamic> doc = json.decode(raw) as Map<String, dynamic>;
     final Set<String> hidden = <String>{
       for (final dynamic e in doc['toVerify'] as List<dynamic>)
-        ((e as Map<String, dynamic>)['number'] ?? '').toString(),
-    }..remove('');
+        if (((e as Map<String, dynamic>)['number'] ?? '').toString().isNotEmpty)
+          '${e['country']}|${e['number']}',
+    };
     for (final HelpResource r in rows) {
-      expect(hidden.contains(r.contact), isFalse, reason: 'unverified: ${r.name}');
+      expect(hidden.contains('${r.countries.join(',')}|${r.contact}'), isFalse, reason: 'unverified: ${r.name}');
     }
   });
 
