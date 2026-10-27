@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../app_colors.dart';
 
@@ -65,7 +66,8 @@ class FocusableTap extends StatefulWidget {
     super.key,
   });
 
-  final VoidCallback onTap;
+  /// Null makes the region inert (nothing to activate, no hand cursor).
+  final VoidCallback? onTap;
   final Widget child;
   final double borderRadius;
   final HitTestBehavior behavior;
@@ -80,14 +82,24 @@ class _FocusableTapState extends State<FocusableTap> {
   @override
   Widget build(BuildContext context) {
     return FocusableActionDetector(
-      mouseCursor: SystemMouseCursors.click,
+      enabled: widget.onTap != null,
+      mouseCursor: widget.onTap != null
+          ? SystemMouseCursors.click
+          : MouseCursor.defer,
       onShowFocusHighlight: (bool v) {
         if (v != _focused && mounted) setState(() => _focused = v);
+      },
+      // Enter as well as Space: on the web Flutter's defaults activate on
+      // Space only, so a keyboard user's Enter did nothing.
+      shortcuts: const <ShortcutActivator, Intent>{
+        SingleActivator(LogicalKeyboardKey.enter): ActivateIntent(),
+        SingleActivator(LogicalKeyboardKey.numpadEnter): ActivateIntent(),
+        SingleActivator(LogicalKeyboardKey.space): ActivateIntent(),
       },
       actions: <Type, Action<Intent>>{
         ActivateIntent: CallbackAction<ActivateIntent>(
           onInvoke: (ActivateIntent _) {
-            widget.onTap();
+            widget.onTap?.call();
             return null;
           },
         ),

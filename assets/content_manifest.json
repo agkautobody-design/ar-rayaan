@@ -6,9 +6,9 @@
    "version": 4
   },
   "feelings/feelings.json": {
-   "bytes": 26496,
-   "sha256": "ee4a8a32a13bce1bf5fba825f7b753a5df3ab59768d0b2f764512d15b9982bbd",
-   "version": 5
+   "bytes": 28414,
+   "sha256": "03be0fd60a5c1e0b703df257a6622935df84f2a4002288e0252afe92b7bcd956",
+   "version": 6
   },
   "finance/paper_market.json": {
    "bytes": 3108,
@@ -26,19 +26,19 @@
    "version": 4
   },
   "guides/guides.json": {
-   "bytes": 241828,
-   "sha256": "3523e97fbaea1fa53bb52c3eddc1c5f2fe613d346208e15b97c006d42600ee5b",
+   "bytes": 241825,
+   "sha256": "6dd35930cd1f25dc27ed93b599c56839424e5ae30ae2a0c1ed992fa0dbf82117",
    "version": 12
   },
   "share/cards.json": {
-   "bytes": 2639,
-   "sha256": "f6eb3a284024dd1303a83da230f5bb9350294d281847e7b665582aa1bdcd6f8d",
-   "version": 2
+   "bytes": 2808,
+   "sha256": "058f33655fbb30b589a4d38f273cbc8ba01598f6d80562f057d2a19cfc02313c",
+   "version": 3
   },
   "stories/companions.json": {
-   "bytes": 46966,
-   "sha256": "ef56cbfe273fbdd0b52017c003dc981b277baad0f64474a964e870bc2a85664e",
-   "version": 7
+   "bytes": 48390,
+   "sha256": "069cffda8766986b092e519dd048d8609f0a3fdb42e8dd00d0aa50306e4cdbd0",
+   "version": 8
   },
   "stories/dailyduas.json": {
    "bytes": 56717,
@@ -56,9 +56,9 @@
    "version": 9
   },
   "stories/modernhadith.json": {
-   "bytes": 51732,
-   "sha256": "1218f61cefc376e2e2987887c0591ef879369c2f1e2c18ec43067955aaa65b70",
-   "version": 15
+   "bytes": 54788,
+   "sha256": "672996881a5046efeefce2ea2780dad9d61e120718b329f8888f19e0adf6f46b",
+   "version": 16
   },
   "stories/newmuslim.json": {
    "bytes": 37931,
@@ -71,9 +71,9 @@
    "version": 5
   },
   "stories/seerah.json": {
-   "bytes": 66202,
-   "sha256": "1e5b8b783da34589bb924c693a32442a80b96f24bd80b5bb885ef6e78aa0c021",
-   "version": 6
+   "bytes": 83122,
+   "sha256": "f87d74dd45cb8ceda7b7fe79716b0dd735dec3d03f29d32103d07d0ab76ab10e",
+   "version": 7
   },
   "stories/signs.json": {
    "bytes": 21442,
@@ -86,9 +86,9 @@
    "version": 7
   },
   "stories/women.json": {
-   "bytes": 44342,
-   "sha256": "7f52fd2e504c85b7f9e9131653a3314022608aaa518a46bdb2cf464ac42d2b7b",
-   "version": 7
+   "bytes": 45244,
+   "sha256": "7541f75926170e9df7925b31568b4bd0aaee58d04039f81fcd9e061ec4b98303",
+   "version": 8
   }
  },
  "schema": 1

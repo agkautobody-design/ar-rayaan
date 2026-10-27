@@ -103,3 +103,13 @@ python3 tool/check_daily_content.py
 ```
 If it exits non-zero (it prints the story id and the reason), the job must drop the new entry (`git checkout -- assets/stories assets/content_version.json`) and stop; it must not edit the checker or the audit file to make it pass. Better still, make the job open a pull request instead of pushing (item 1), so the PR check runs the same gate.
 Confirm: the next daily run either adds a story that passes the check, or adds nothing.
+
+## 17. Parent PIN and child mode: what to know, and what you must decide
+What changed: the parent check is now a 4 to 6 digit PIN, chosen by the first grown-up who reaches a gate on a device (salted hash, kept on the device only; five wrong tries lock it for five minutes; it stays open for two minutes). A parent can turn on child mode (from Kids Corner or the Family Wing): the app then shows only Kids Corner, the Arabic letters and the stories school, until the PIN is entered.
+Caveats to accept or change: (a) a child who reaches a gate before any parent has set a PIN can set one; so set the PIN first on a shared device. (b) Clearing the browser's site data removes the PIN (there is no recovery by e-mail, because nothing about children leaves the device). (c) The Games door is left out of child mode because the game data is owned elsewhere and has not been reviewed for children. (d) The privacy text still needs a lawyer's review for COPPA/PIPEDA wording.
+
+## 18. Contact address (still open)
+The Terms and Privacy screens say the contact address is "not published yet". Give Claude one real address (or a form link) to put there; none was invented.
+
+## 19. Left as it was, by decision or ownership
+Streaks on worship (wording only made truthful; behaviour is your decision). The 30-day New Muslim content. Qur'an reader details (the "first time only" banner when the text is already saved, ayah numbers in button names, duplicate bookmark controls), Hadi's offline wording, the lesson result announcement and the Academy streak row label: those code areas belong to other work. Tab order out of step with the screen-reader tree is a Flutter web engine behaviour, not something the app can fix.

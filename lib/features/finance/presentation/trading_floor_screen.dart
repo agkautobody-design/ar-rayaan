@@ -12,6 +12,7 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../zakat/domain/zakat_calculation.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 class PaperCo {
   final String sym, name, sector, blurb;
@@ -182,10 +183,12 @@ class _FloorState extends ConsumerState<TradingFloorScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(children: [
                 for (final (_, t) in [('Learn', 0), ('Floor', 1), ('Budget', 2), ('Savings', 3)].indexed)
-                  Expanded(child: GestureDetector(
+                  Expanded(child: FocusableTap(
                     onTap: () => setState(() => _tab = t.$2),
                     child: Container(
                       margin: const EdgeInsets.symmetric(horizontal: 3),
+                      constraints: const BoxConstraints(minHeight: 44),
+                      alignment: Alignment.center,
                       padding: const EdgeInsets.symmetric(vertical: 8),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),

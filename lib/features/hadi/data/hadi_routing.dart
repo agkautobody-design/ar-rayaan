@@ -172,8 +172,9 @@ abstract final class HadiRouting {
         'question, and your doctor or pharmacist is the right person for '
         'it, not me. If a doctor has prescribed it, please keep following '
         'your doctor’s advice, and do not stop or change a medicine on your '
-        'own. The Illness and Patience guide in this app says: “Allah has '
-        'made a remedy for every illness He created, so seek treatment”. '
+        'own. The Illness and Patience guide in this app says: “There is no '
+        'disease that Allah has created, except that He also has created its '
+        'treatment” (Sahih al-Bukhari 5678). '
         'If part of your question is whether something is permitted, a '
         'qualified scholar can speak to that; Our Sources lists one. '
         '$comfort\n[GO:/huda/guide?id=huda-illness]\n[GO:/sources]';
@@ -559,9 +560,10 @@ abstract final class HadiRouting {
       'I do not have a verified answer on combining prayers on a journey, '
       'and I will not answer a different question in its place. It depends on the details of the journey and on your school, '
       'so please ask a qualified scholar; Our Sources lists one.\n\n'
-      'The nearest thing in the app is the Travel guide. On the shortened '
-      'prayer it points to Qur’an 4:101, and its school note says: “follow '
-      'your school’s fiqh for your journey”.'
+      'The nearest thing in the app is the Travel guide, which points to the '
+      'Prayer While Travelling guide for the shortened prayer. Its school '
+      'note says: “The distance and duration at which a traveller may '
+      'shorten the prayer differ by school”.'
       '\n[GO:/huda/guide?id=huda-travel]\n[GO:/sources]';
 
   // Someone Hadi has no source on.
@@ -711,8 +713,9 @@ abstract final class HadiRouting {
       'each spouse, and I will not quote one side only. Marriage — The '
       'Nikah is the app’s own guide: it covers consent, the guardian and '
       'witnesses, the mahr, and the spirit of the home, with the line '
-      '“the best of you is the best of you to their wives” (Tirmidhi '
-      '3895, sahih per Darussalam). Family Life School covers mercy '
+      '“The best of you is the best to his wives, and I am the best of you '
+      'to my wives” (Tirmidhi 3895, sahih per al-Albani). Family Life '
+      'School covers mercy '
       'between spouses and the trust of children.\n\n'
       'For your own situation, a qualified scholar is the right person; Our '
       'Sources lists one.'

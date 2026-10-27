@@ -329,15 +329,15 @@
   {
    "id": "sq-26",
    "story": "seerah-14",
-   "prompt": "At which place, before entering Madinah, did he found a mosque that a footnote calls the first mosque built in Islam?",
+   "prompt": "At which place, before entering Madinah, did the Prophet ﷺ found a mosque?",
    "answer": "Quba",
    "wrong": [
     "Badr",
     "Hudaybiyyah",
     "Taif"
    ],
-   "evidence": "founded his mosque there, which a footnote calls the first mosque built in Islam",
-   "why": "At Quba he founded his mosque, which a footnote calls the first mosque built in Islam."
+   "evidence": "founded his mosque there",
+   "why": "At Quba the Prophet ﷺ stayed from Monday to Thursday and founded his mosque there, by Ibn Hisham's account."
   },
   {
    "id": "sq-27",
@@ -407,15 +407,15 @@
   {
    "id": "sq-32",
    "story": "seerah-19",
-   "prompt": "Which commander, still on the enemy side that day, wheeled his cavalry through the empty pass at Uhud?",
+   "prompt": "Which commander, not yet a Muslim, led the right wing of Quraysh's cavalry at Uhud?",
    "answer": "Khalid ibn al-Walid",
    "wrong": [
     "Amr ibn al-As",
     "Abu Sufyan",
     "Amr ibn Abd Wudd"
    ],
-   "evidence": "Khalid ibn al-Walid, still an enemy commander that day, saw the pass empty",
-   "why": "Khalid ibn al-Walid, still an enemy commander that day, saw the pass empty and wheeled his cavalry through it."
+   "evidence": "Khalid ibn al-Walid, not yet a Muslim, commanding the right wing of the cavalry",
+   "why": "Ibn Hisham (vol. 2 p. 66) has Khalid ibn al-Walid, not yet a Muslim, commanding the right wing of the cavalry and Ikrima ibn Abi Jahl the left."
   },
   {
    "id": "sq-33",
@@ -511,15 +511,15 @@
   {
    "id": "sq-40",
    "story": "seerah-23",
-   "prompt": "Which ruler took the Prophet’s ﷺ letter, read it and tore it?",
+   "prompt": "Which ruler read the Prophet's ﷺ letter and tore it?",
    "answer": "Kisra, king of Persia",
    "wrong": [
     "Heraclius, Caesar of the Romans",
     "The Negus of Abyssinia",
     "Al-Muqawqis of Alexandria"
    ],
-   "evidence": "Kisra took the Prophet's letter, read it and tore it",
-   "why": "Kisra took the Prophet’s letter, read it and tore it."
+   "evidence": "who passed it to Kisra; he read it and tore it",
+   "why": "In Bukhari 64 (Ibn Abbas) the governor of Bahrain passed the letter to Kisra, who read it and tore it."
   },
   {
    "id": "sq-41",
@@ -602,28 +602,28 @@
   {
    "id": "sq-47",
    "story": "seerah-27",
-   "prompt": "In which year did the Prophet ﷺ perform his only full pilgrimage?",
+   "prompt": "After nine years in Madinah without Hajj, in which year did the Prophet ﷺ announce that he would go, according to Jabir (Muslim 1218)?",
    "answer": "The tenth year",
    "wrong": [
     "The second year",
     "The fifth year",
     "The eighth year"
    ],
-   "evidence": "In the tenth year, the Prophet ﷺ performed his only full pilgrimage",
-   "why": "In the tenth year the Prophet ﷺ performed his only full pilgrimage."
+   "evidence": "announced in the tenth year that he would go",
+   "why": "Jabir ibn Abdullah says he stayed nine years in Madinah without performing Hajj, then announced in the tenth year that he would go (Muslim 1218)."
   },
   {
    "id": "sq-48",
    "story": "seerah-27",
-   "prompt": "At which place did he deliver the Farewell Sermon, standing on his camel?",
+   "prompt": "At which place did he come down to the valley bottom on his she-camel al-Qaswa and address the people?",
    "answer": "Arafat",
    "wrong": [
     "Quba",
     "Hunayn",
     "Badr"
    ],
-   "evidence": "at Arafat, standing on his camel",
-   "why": "At Arafat, standing on his camel, he delivered the Farewell Sermon."
+   "evidence": "he came down to the bottom of the valley on his she-camel al-Qaswa",
+   "why": "At Arafat, after the sun had passed its height, he came down to the bottom of the valley on his she-camel al-Qaswa and addressed the people (Muslim 1218)."
   },
   {
    "id": "sq-49",

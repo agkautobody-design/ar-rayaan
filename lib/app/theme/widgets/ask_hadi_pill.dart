@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../core/kids_mode.dart';
 import '../../router.dart';
 import '../app_colors.dart';
 import '../app_typography.dart';
@@ -103,25 +104,32 @@ class _AskHadiPillHostState extends State<AskHadiPillHost> {
         ),
         if (!keyboardOpen)
           Positioned.fill(
-            child: Align(
-              alignment: AlignmentDirectional.bottomEnd,
-              child: Padding(
-                padding: EdgeInsetsDirectional.only(
-                  end: 12 + safe.right,
-                  bottom: 8 + safe.bottom,
-                ),
-                child: ExcludeSemantics(
-                  excluding: _hidden,
-                  child: IgnorePointer(
-                    ignoring: _hidden,
-                    child: AnimatedOpacity(
-                      opacity: _hidden ? 0 : 1,
-                      duration: const Duration(milliseconds: 160),
-                      child: const AskHadiPill(),
+            // Not drawn while a child is in Kids Corner: Hadi is an AI
+            // assistant for grown-ups (see kKidsMode).
+            child: ValueListenableBuilder<bool>(
+              valueListenable: kKidsMode,
+              builder: (BuildContext c, bool kids, Widget? _) => kids
+                  ? const SizedBox.shrink()
+                  : Align(
+                      alignment: AlignmentDirectional.bottomEnd,
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.only(
+                          end: 12 + safe.right,
+                          bottom: 8 + safe.bottom,
+                        ),
+                        child: ExcludeSemantics(
+                          excluding: _hidden,
+                          child: IgnorePointer(
+                            ignoring: _hidden,
+                            child: AnimatedOpacity(
+                              opacity: _hidden ? 0 : 1,
+                              duration: const Duration(milliseconds: 160),
+                              child: const AskHadiPill(),
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-              ),
             ),
           ),
       ],
