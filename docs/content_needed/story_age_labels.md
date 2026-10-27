@@ -186,7 +186,7 @@ Words = total words in the story's chapters. Label column is for you to fill in.
 | khutbahs | kh-abubakr | The First Sermon of the First Caliph | 508 | |
 | khutbahs | kh-innalillah | The Grammar of Loss | 456 | |
 | khutbahs | kh-phone | The Phone in the Hand | 494 | |
-| khutbahs | kh-anxiety | Anxiety and the Medicine of Ta'weel | 429 | |
+| khutbahs | kh-anxiety | Anxiety and the Reframing of Ta'weel | 429 | |
 | khutbahs | kh-debt | The Quiet Chain | 452 | |
 | khutbahs | kh-lonely | Loneliness in the Crowd | 465 | |
 | khutbahs | kh-raising | Raising Children in the Feed | 482 | |

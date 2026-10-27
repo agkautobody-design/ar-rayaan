@@ -12,5 +12,33 @@
   "grader": "Included in Sahih al-Bukhari",
   "checked": "2026-10-27",
   "note": "Muawiya; if Allah wants good for a person He gives him understanding of the religion"
+ },
+ "bukhari:2916": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
+  "checked": "2026-10-27",
+  "note": "Aisha; the Prophet died with his iron armour mortgaged to a Jew for thirty sa of BARLEY (not wheat)"
+ },
+ "bukhari:3902": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
+  "checked": "2026-10-27",
+  "note": "Ibn Abbas; revelation at forty, thirteen years in Makkah, ten in Madinah, died at sixty-three"
+ },
+ "bukhari:2509": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
+  "checked": "2026-10-27",
+  "note": "Aisha; food bought on credit, armour mortgaged"
+ },
+ "bukhari:3536": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Included in Sahih al-Bukhari",
+  "checked": "2026-10-27",
+  "note": "Aisha; died aged sixty-three"
  }
 }

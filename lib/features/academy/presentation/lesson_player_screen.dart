@@ -84,11 +84,21 @@ class _LessonPlayerScreenState
       if (kind == AcademyStepKind.text ||
           kind == AcademyStepKind.embed ||
           kind == AcademyStepKind.demo) {
-        setState(() => _index = i);
+        setState(() {
+          _index = i;
+          _checkSubmitted = false;
+          _result = null;
+          _answers.clear();
+        });
         return;
       }
     }
-    setState(() => _index = 0);
+    setState(() {
+      _index = 0;
+      _checkSubmitted = false;
+      _result = null;
+      _answers.clear();
+    });
   }
 
   Future<void> _next() async {
@@ -299,6 +309,89 @@ class _LessonPlayerScreenState
     });
   }
 
+  /// True when every question of the check has an answer.
+  bool _allAnswered(List<AssessmentItem> items) =>
+      items.isNotEmpty &&
+      _answers.length == items.length &&
+      !_answers.contains(-1);
+
+  void _retryCheck() => setState(() {
+        _checkSubmitted = false;
+        _result = null;
+        _answers.clear();
+      });
+
+  /// The bottom button. A check GATES the lesson: it advances only after every
+  /// answer is right (the audit found a failed check still let the lesson
+  /// complete). A wrong answer re-teaches under the question and offers
+  /// "Try once more" or "Show me again"; nothing is timed or scored.
+  Widget _bottomBar(AcademyStep step) {
+    final bool isCheck = step.kind == AcademyStepKind.check;
+    final List<AssessmentItem> items = isCheck
+        ? (RecallChecks.itemsFor(step.assessmentId!) ??
+            const <AssessmentItem>[])
+        : const <AssessmentItem>[];
+    final bool failed = isCheck && _checkSubmitted && _result?.passed != true;
+    final bool ready = !isCheck || _checkSubmitted || _allAnswered(items);
+    final String label;
+    if (!isCheck) {
+      label = AcademyStrings.get('common.next');
+    } else if (!_checkSubmitted) {
+      label = AcademyStrings.get('check.continue');
+    } else if (failed) {
+      label = AcademyStrings.get('check.retry');
+    } else {
+      label = AcademyStrings.get('common.next');
+    }
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(20, 0, 20, 16),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          if (isCheck && !_checkSubmitted && !ready)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: Text(
+                AcademyStrings.get('check.answerAll'),
+                key: const Key('check-answer-all'),
+                style: AppText.caption,
+                textAlign: TextAlign.center,
+              ),
+            ),
+          if (failed)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 4),
+              child: TextButton(
+                key: const Key('check-show-again'),
+                onPressed: _showAgain,
+                child: Text(AcademyStrings.get('try.again')),
+              ),
+            ),
+          SizedBox(
+            width: double.infinity,
+            child: FilledButton(
+              key: const Key('lesson-bottom-button'),
+              onPressed: !ready
+                  ? null
+                  : () {
+                      if (isCheck && !_checkSubmitted) {
+                        _submitCheck(items);
+                        return;
+                      }
+                      if (failed) {
+                        _retryCheck();
+                        return;
+                      }
+                      _next();
+                    },
+              child: Text(label),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final AcademyStep step = _step;
@@ -434,34 +527,7 @@ class _LessonPlayerScreenState
                 ),
               ),
               if (step.kind != AcademyStepKind.try_)
-              Padding(
-                padding: const EdgeInsets.fromLTRB(20, 0, 20, 16),
-                child: SizedBox(
-                  width: double.infinity,
-                  child: FilledButton(
-                    onPressed: () {
-                      if (step.kind == AcademyStepKind.check &&
-                          !_checkSubmitted) {
-                        final List<AssessmentItem> items =
-                            RecallChecks.itemsFor(step.assessmentId!) ??
-                                const <AssessmentItem>[];
-                        if (items.isNotEmpty &&
-                            _answers.length == items.length &&
-                            !_answers.contains(-1)) {
-                          _submitCheck(items);
-                        }
-                        return;
-                      }
-                      _next();
-                    },
-                    child: Text(
-                      step.kind == AcademyStepKind.check && !_checkSubmitted
-                          ? AcademyStrings.get('check.continue')
-                          : AcademyStrings.get('common.next'),
-                    ),
-                  ),
-                ),
-              ),
+                _bottomBar(step),
             ],
           ),
         ),
@@ -602,7 +668,7 @@ class _StepBody extends StatelessWidget {
               const SizedBox(height: 14),
               if (route != null)
                 FilledButton.icon(
-                  onPressed: () => context.go(route),
+                  onPressed: () => context.push(route),
                   icon: const Icon(Icons.open_in_new, size: 18),
                   label: Text(AcademyStrings.get('common.open')),
                 )
