@@ -22,7 +22,7 @@
     "body": "This is the shahada as the Prophet ﷺ taught it in the sitting of the prayer (Muslim 403). Meaning: I bear witness that there is no god but Allah, and I bear witness that Muhammad is the Messenger of Allah.",
     "arabic": "أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ اللَّهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ اللَّهِ",
     "tl": "Ash-hadu al-laa ilaaha illal-laah, wa ash-hadu anna Muhammadan rasoolul-laah",
-    "tlSource": "Ar-Rayaan phrase registry (assets/academy/phrases/foundation.json): Arabic copied from the cited hadith, transliteration by the app author, scholar review needed",
+    "tlSource": "Ar-Rayaan phrase registry: Arabic copied from the cited hadith, transliteration by the app author, scholar review needed",
     "label": "Established"
    }
   ],
@@ -67,8 +67,10 @@
    },
    {
     "heading": "A dua from the Qur’an",
-    "body": "Meaning: ‘Our Lord, give us in this world [that which is] good and in the Hereafter [that which is] good and protect us from the punishment of the Fire’ (Qur’an 2:201). The transliteration is not in the app yet; ask a teacher or listen to a reciter.",
-    "arabic": "وَمِنۡهُم مَّن يَقُولُ رَبَّنَآ ءَاتِنَا فِي ٱلدُّنۡيَا حَسَنَةٗ وَفِي ٱلۡأٓخِرَةِ حَسَنَةٗ وَقِنَا عَذَابَ ٱلنَّارِ"
+    "body": "Meaning: ‘Our Lord, give us in this world [that which is] good and in the Hereafter [that which is] good and protect us from the punishment of the Fire’ (Qur’an 2:201). The transliteration is a learning aid, not sacred text: a reciter will teach you the sound.",
+    "arabic": "رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ",
+    "tl": "Rabbanā ātinā fid-dunyā ḥasanah wa fi 'l-ākhirati ḥasanah wa qinā `adhāban-nār.",
+    "tlSource": "Hisn 235 (sunnah.com/hisn:235)"
    }
   ],
   "familyQuestion": "Who could walk this path beside you: a friend, a family member, or someone at the masjid?"
@@ -98,14 +100,14 @@
     "body": "Say this quietly before your hands touch the water. Meaning: In the name of Allah. (Nasa’i 78, sahih isnad per al-Albani).",
     "arabic": "بِسْمِ اللَّهِ",
     "tl": "Bismil-laah",
-    "tlSource": "Ar-Rayaan phrase registry (assets/academy/phrases/foundation.json): Arabic copied from the cited hadith, transliteration by the app author, scholar review needed"
+    "tlSource": "Ar-Rayaan phrase registry: Arabic copied from the cited hadith, transliteration by the app author, scholar review needed"
    },
    {
     "heading": "After wudu",
     "body": "The Prophet ﷺ taught these words for when wudu is finished (Muslim 234). Meaning: I bear witness that there is no god but Allah alone, with no partner, and I bear witness that Muhammad is His servant and His Messenger.",
     "arabic": "أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ",
     "tl": "Ash-hadu al-laa ilaaha illal-laahu wahdahu laa shareeka lah, wa ash-hadu anna Muhammadan 'abduhu wa rasooluh",
-    "tlSource": "Ar-Rayaan phrase registry (assets/academy/phrases/foundation.json): Arabic copied from the cited hadith, transliteration by the app author, scholar review needed"
+    "tlSource": "Ar-Rayaan phrase registry: Arabic copied from the cited hadith, transliteration by the app author, scholar review needed"
    }
   ],
   "familyQuestion": "Who could walk this path beside you: a friend, a family member, or someone at the masjid?"
@@ -123,7 +125,12 @@
    "Sahih Muslim 772",
    "Sahih al-Bukhari 689",
    "Abu Dawud 874 (graded sahih by al-Albani)",
-   "Qur’an 29:45"
+   "Qur’an 29:45",
+   "Sahih al-Bukhari 831",
+   "Sahih Muslim 403",
+   "Abu Dawud 996 (graded sahih by al-Albani)",
+   "Abu Dawud 832 (graded hasan by al-Albani)",
+   "Sahih al-Bukhari 756"
   ],
   "chapters": [
    {
@@ -132,18 +139,32 @@
     "label": "Interpretive"
    },
    {
+    "heading": "Standing: Al-Fatihah",
+    "body": "The prayer begins with the takbir, Allahu akbar (next card). Then, standing, recite Al-Fatihah and, if you know one, a short surah after it (Bukhari 756; the Prophet ﷺ told the man who prayed badly to recite what he knew, Bukhari 757). Day 6 teaches Al-Fatihah, and the Academy has a word-by-word lesson on it. Until you know it, say the five phrases of Day 11 in its place (Abu Dawud 832, graded hasan by al-Albani), and pray anyway.",
+    "arabic": "بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ ٱلۡحَمۡدُ لِلَّهِ رَبِّ ٱلۡعَٰلَمِينَ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ مَٰلِكِ يَوۡمِ ٱلدِّينِ إِيَّاكَ نَعۡبُدُ وَإِيَّاكَ نَسۡتَعِينُ ٱهۡدِنَا ٱلصِّرَٰطَ ٱلۡمُسۡتَقِيمَ صِرَٰطَ ٱلَّذِينَ أَنۡعَمۡتَ عَلَيۡهِمۡ غَيۡرِ ٱلۡمَغۡضُوبِ عَلَيۡهِمۡ وَلَا ٱلضَّآلِّينَ",
+    "tl": "Bismillaahir-Rahmaanir-Raheem Al-hamdu lillaahi Rabbil-'aalameen Ar-Rahmaanir-Raheem Maaliki Yawmid-Deen Iyyaaka na'budu wa iyyaaka nasta'een Ihdinas-siraatal-mustaqeem Siraatal-lazeena an'amta 'alayhim, ghayril-maghdoobi 'alayhim wa lad-daaalleen",
+    "tlSource": "Qur’an transliteration already approved in this app (Tanzil text)"
+   },
+   {
     "heading": "Standing and bowing",
     "body": "Allahu akbar begins the prayer and moves it from one position to the next. In the bow you say: Glory be to my Lord, the Magnificent.",
     "arabic": "اللَّهُ أَكْبَرُ\nسُبْحَانَ رَبِّيَ الْعَظِيمِ",
     "tl": "Allaahu akbar\nSubhaana Rabbiyal-'Azeem",
-    "tlSource": "Ar-Rayaan phrase registry (assets/academy/phrases/foundation.json): Arabic copied from the cited hadith, transliteration by the app author, scholar review needed"
+    "tlSource": "Ar-Rayaan phrase registry: Arabic copied from the cited hadith, transliteration by the app author, scholar review needed"
    },
    {
     "heading": "Rising, prostrating, sitting between",
     "body": "Rising from the bow: Allah hears the one who praises Him. Our Lord, and to You belongs all praise. In the prostration: Glory be to my Lord, the Most High. Between the two prostrations: My Lord, forgive me. (Abu Dawud 874, graded sahih by al-Albani).",
     "arabic": "سَمِعَ اللَّهُ لِمَنْ حَمِدَهُ رَبَّنَا وَلَكَ الْحَمْدُ\nسُبْحَانَ رَبِّيَ الأَعْلَى\nرَبِّ اغْفِرْ لِي",
     "tl": "Sami'al-laahu liman hamidah. Rabbanaa wa lakal-hamd\nSubhaana Rabbiyal-A'laa\nRabbigh-fir lee",
-    "tlSource": "Ar-Rayaan phrase registry (assets/academy/phrases/foundation.json): Arabic copied from the cited hadith, transliteration by the app author, scholar review needed"
+    "tlSource": "Ar-Rayaan phrase registry: Arabic copied from the cited hadith, transliteration by the app author, scholar review needed"
+   },
+   {
+    "heading": "The second rak’ah, the sitting and the salam",
+    "body": "Rise for the second rak’ah and do the same: Al-Fatihah, bow, rise, two prostrations (Bukhari 757: ‘do that throughout your prayer’). After the second prostration, sit. Here you say the tashahhud, and then end the prayer with the salam, turning the head to the right and then the left (Abu Dawud 996, graded sahih by al-Albani). In Fajr, the prayer ends here. Day 21 adds the blessing on the Prophet ﷺ before the salam. Schools differ on parts of the sitting and the salam: ask your imam how yours does it. (Scholar review needed.)\n\nTashahhud, meaning: All greetings, prayers and good things belong to Allah. Peace be upon you, O Prophet, and the mercy of Allah and His blessings. Peace be upon us and upon the righteous servants of Allah. I bear witness that there is no god but Allah, and I bear witness that Muhammad is His servant and His Messenger (Bukhari 831; Muslim 403).\n\nThe salam, meaning: Peace be upon you, and the mercy of Allah.",
+    "arabic": "التَّحِيَّاتُ لِلَّهِ وَالصَّلَوَاتُ وَالطَّيِّبَاتُ السَّلاَمُ عَلَيْكَ أَيُّهَا النَّبِيُّ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ السَّلاَمُ عَلَيْنَا وَعَلَى عِبَادِ اللَّهِ الصَّالِحِينَ أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ اللَّهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ\nالسَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ",
+    "tl": "At-tahiyyaatu lillaahi was-salawaatu wat-tayyibaat. As-salaamu 'alayka ayyuhan-Nabiyyu wa rahmatul-laahi wa barakaatuh. As-salaamu 'alaynaa wa 'alaa 'ibaadil-laahis-saaliheen. Ash-hadu al-laa ilaaha illal-laah, wa ash-hadu anna Muhammadan 'abduhu wa rasooluh.\nAs-salaamu 'alaykum wa rahmatul-laah",
+    "tlSource": "Ar-Rayaan phrase registry: Arabic copied from the cited hadith, transliteration by the app author, scholar review needed"
    }
   ],
   "familyQuestion": "Who could walk this path beside you: a friend, a family member, or someone at the masjid?"
@@ -164,14 +185,14 @@
   "chapters": [
    {
     "heading": "Day 6 — Meeting the Qur'an — Al-Fatihah",
-    "body": "The Qur’an is the word of Allah. Al-Fatihah (“The Opening”) is its first surah. It has seven verses and you will say it in every rak’ah of every prayer. The Prophet ﷺ said there is no prayer for one who does not recite it (Bukhari 756). In a hadith, Allah says that He has divided the prayer between Himself and His servant, and answers the servant at each verse (Muslim 395).\n\nIn the Qur’an: ‘This is the Book about which there is no doubt, a guidance for those conscious of Allah’ (Qur’an 2:2).\n\nIts meaning, line by line: (1) In the name of Allah, the Entirely Merciful, the Especially Merciful. (2) [All] praise is [due] to Allah, Lord of the worlds - (3) The Entirely Merciful, the Especially Merciful, (4) Sovereign of the Day of Recompense. (5) It is You we worship and You we ask for help. (6) Guide us to the straight path - (7) The path of those upon whom You have bestowed favor, not of those who have evoked [Your] anger or of those who are astray.\n\nToday’s step: Read the translation once, then listen to a reciter say it in the Qur’an section of the app. Let your ears learn it before your tongue does."
+    "body": "The Qur’an is the word of Allah. Al-Fatihah (“The Opening”) is its first surah. It has seven verses and you will say it in every rak’ah of every prayer. The Prophet ﷺ said there is no prayer for one who does not recite it (Bukhari 756). In a hadith, Allah says that He has divided the prayer between Himself and His servant, and answers the servant at each verse (Muslim 395).\n\nIn the Qur’an: ‘This is the Book about which there is no doubt, a guidance for those conscious of Allah’ (Qur’an 2:2).\n\nIts meaning, line by line: (1) In the name of Allah, the Entirely Merciful, the Especially Merciful. (2) [All] praise is [due] to Allah, Lord of the worlds - (3) The Entirely Merciful, the Especially Merciful, (4) Sovereign of the Day of Recompense. (5) It is You we worship and You we ask for help. (6) Guide us to the straight path - (7) The path of those upon whom You have bestowed favor, not of those who have evoked [Your] anger or of those who are astray.\n\nFor a word-by-word reading, open the Academy, the Path course, lesson “Al-Fatihah, word by word”.\n\nToday’s step: Read the translation once, then listen to a reciter say it in the Qur’an section of the app. Let your ears learn it before your tongue does."
    },
    {
     "heading": "Al-Fatihah",
     "body": "Read it slowly, one verse at a time. The Arabic is copied from the Qur’an text in this app; the transliteration is a learning aid, not sacred text, and a reciter will teach you the sound.",
     "arabic": "بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ ٱلۡحَمۡدُ لِلَّهِ رَبِّ ٱلۡعَٰلَمِينَ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ مَٰلِكِ يَوۡمِ ٱلدِّينِ إِيَّاكَ نَعۡبُدُ وَإِيَّاكَ نَسۡتَعِينُ ٱهۡدِنَا ٱلصِّرَٰطَ ٱلۡمُسۡتَقِيمَ صِرَٰطَ ٱلَّذِينَ أَنۡعَمۡتَ عَلَيۡهِمۡ غَيۡرِ ٱلۡمَغۡضُوبِ عَلَيۡهِمۡ وَلَا ٱلضَّآلِّينَ",
     "tl": "Bismillaahir-Rahmaanir-Raheem Al-hamdu lillaahi Rabbil-'aalameen Ar-Rahmaanir-Raheem Maaliki Yawmid-Deen Iyyaaka na'budu wa iyyaaka nasta'een Ihdinas-siraatal-mustaqeem Siraatal-lazeena an'amta 'alayhim, ghayril-maghdoobi 'alayhim wa lad-daaalleen",
-    "tlSource": "Qur’an transliteration already approved in this app (Tanzil text; assets/quran/transliteration.json)"
+    "tlSource": "Qur’an transliteration already approved in this app (Tanzil text)"
    }
   ],
   "familyQuestion": "Who could walk this path beside you: a friend, a family member, or someone at the masjid?"
@@ -201,7 +222,7 @@
     "body": "Taught in the prayer (Bukhari 3370). Meaning: O Allah, send prayers upon Muhammad and upon the family of Muhammad, as You sent prayers upon Ibrahim and upon the family of Ibrahim. You are Praiseworthy, Glorious.",
     "arabic": "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ",
     "tl": "Allaahumma salli 'alaa Muhammadin wa 'alaa aali Muhammad, kamaa sallayta 'alaa Ibraaheema wa 'alaa aali Ibraaheem, innaka Hameedun Majeed",
-    "tlSource": "Ar-Rayaan phrase registry (assets/academy/phrases/foundation.json): Arabic copied from the cited hadith, transliteration by the app author, scholar review needed"
+    "tlSource": "Ar-Rayaan phrase registry: Arabic copied from the cited hadith, transliteration by the app author, scholar review needed"
    }
   ],
   "familyQuestion": "Who could walk this path beside you: a friend, a family member, or someone at the masjid?"
@@ -291,7 +312,7 @@
     "body": "Meaning: Glory be to Allah, and praise be to Allah, and there is no god but Allah, and Allah is the Greatest, and there is no power and no strength except with Allah.",
     "arabic": "سُبْحَانَ اللَّهِ وَالْحَمْدُ لِلَّهِ وَلاَ إِلَهَ إِلاَّ اللَّهُ وَاللَّهُ أَكْبَرُ وَلاَ حَوْلَ وَلاَ قُوَّةَ إِلاَّ بِاللَّهِ",
     "tl": "Subhaanal-laah, wal-hamdu lillaah, wa laa ilaaha illal-laah, wallaahu akbar, wa laa hawla wa laa quwwata illaa billaah",
-    "tlSource": "Ar-Rayaan phrase registry (assets/academy/phrases/foundation.json): Arabic copied from the cited hadith, transliteration by the app author, scholar review needed"
+    "tlSource": "Ar-Rayaan phrase registry: Arabic copied from the cited hadith, transliteration by the app author, scholar review needed"
    }
   ],
   "familyQuestion": "Who could walk this path beside you: a friend, a family member, or someone at the masjid?"
@@ -343,7 +364,7 @@
     "body": "Say the first in the prostration (Muslim 772) and the second while sitting between the two prostrations (Abu Dawud 874, graded sahih by al-Albani). Meaning: Glory be to my Lord, the Most High. And: My Lord, forgive me.",
     "arabic": "سُبْحَانَ رَبِّيَ الأَعْلَى\nرَبِّ اغْفِرْ لِي",
     "tl": "Subhaana Rabbiyal-A'laa\nRabbigh-fir lee",
-    "tlSource": "Ar-Rayaan phrase registry (assets/academy/phrases/foundation.json): Arabic copied from the cited hadith, transliteration by the app author, scholar review needed"
+    "tlSource": "Ar-Rayaan phrase registry: Arabic copied from the cited hadith, transliteration by the app author, scholar review needed"
    }
   ],
   "familyQuestion": "Who could walk this path beside you: a friend, a family member, or someone at the masjid?"
@@ -412,7 +433,7 @@
     "body": "Said while sitting between the two prostrations (Abu Dawud 874, graded sahih by al-Albani). Meaning: My Lord, forgive me. You can also ask forgiveness in your own words at any time.",
     "arabic": "رَبِّ اغْفِرْ لِي",
     "tl": "Rabbigh-fir lee",
-    "tlSource": "Ar-Rayaan phrase registry (assets/academy/phrases/foundation.json): Arabic copied from the cited hadith, transliteration by the app author, scholar review needed"
+    "tlSource": "Ar-Rayaan phrase registry: Arabic copied from the cited hadith, transliteration by the app author, scholar review needed"
    }
   ],
   "familyQuestion": "Who could walk this path beside you: a friend, a family member, or someone at the masjid?"
@@ -525,14 +546,14 @@
     "body": "Meaning: All greetings, prayers and good things belong to Allah. Peace be upon you, O Prophet, and the mercy of Allah and His blessings. Peace be upon us and upon the righteous servants of Allah. I bear witness that there is no god but Allah, and I bear witness that Muhammad is His servant and His Messenger.",
     "arabic": "التَّحِيَّاتُ لِلَّهِ وَالصَّلَوَاتُ وَالطَّيِّبَاتُ السَّلاَمُ عَلَيْكَ أَيُّهَا النَّبِيُّ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ السَّلاَمُ عَلَيْنَا وَعَلَى عِبَادِ اللَّهِ الصَّالِحِينَ أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ اللَّهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ",
     "tl": "At-tahiyyaatu lillaahi was-salawaatu wat-tayyibaat. As-salaamu 'alayka ayyuhan-Nabiyyu wa rahmatul-laahi wa barakaatuh. As-salaamu 'alaynaa wa 'alaa 'ibaadil-laahis-saaliheen. Ash-hadu al-laa ilaaha illal-laah, wa ash-hadu anna Muhammadan 'abduhu wa rasooluh.",
-    "tlSource": "Ar-Rayaan phrase registry (assets/academy/phrases/foundation.json): Arabic copied from the cited hadith, transliteration by the app author, scholar review needed"
+    "tlSource": "Ar-Rayaan phrase registry: Arabic copied from the cited hadith, transliteration by the app author, scholar review needed"
    },
    {
     "heading": "The blessing and the salam",
     "body": "The blessing on the Prophet ﷺ (Bukhari 3370) and the salam that ends the prayer (the Prophet ﷺ gave the salam to his right and left: Abu Dawud 996, graded sahih by al-Albani). Meaning: O Allah, send prayers upon Muhammad and upon the family of Muhammad, as You sent prayers upon Ibrahim and upon the family of Ibrahim. You are Praiseworthy, Glorious. Then: Peace be upon you, and the mercy of Allah.",
     "arabic": "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ\nالسَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ",
     "tl": "Allaahumma salli 'alaa Muhammadin wa 'alaa aali Muhammad, kamaa sallayta 'alaa Ibraaheema wa 'alaa aali Ibraaheem, innaka Hameedun Majeed\nAs-salaamu 'alaykum wa rahmatul-laah",
-    "tlSource": "Ar-Rayaan phrase registry (assets/academy/phrases/foundation.json): Arabic copied from the cited hadith, transliteration by the app author, scholar review needed"
+    "tlSource": "Ar-Rayaan phrase registry: Arabic copied from the cited hadith, transliteration by the app author, scholar review needed"
    }
   ],
   "familyQuestion": "Who could walk this path beside you: a friend, a family member, or someone at the masjid?"
@@ -559,7 +580,7 @@
     "body": "Say it three times in the morning and three times in the evening (Abu Dawud 5082, graded hasan by al-Albani). Read it slowly, one verse at a time, with the meaning above.",
     "arabic": "قُلۡ هُوَ ٱللَّهُ أَحَدٌ ٱللَّهُ ٱلصَّمَدُ لَمۡ يَلِدۡ وَلَمۡ يُولَدۡ وَلَمۡ يَكُن لَّهُۥ كُفُوًا أَحَدُۢ",
     "tl": "Qul huwal-laahu 'ahad Allaahus-samad Lam yalid wa lam yoolad Wa lam yakul-lahoo kufuwan 'ahad",
-    "tlSource": "Qur’an transliteration already approved in this app (Tanzil text; assets/quran/transliteration.json)"
+    "tlSource": "Qur’an transliteration already approved in this app (Tanzil text)"
    }
   ],
   "familyQuestion": "Who could walk this path beside you: a friend, a family member, or someone at the masjid?"
@@ -656,7 +677,7 @@
     "body": "The salam the Prophet ﷺ gave at the end of the prayer (Abu Dawud 996, graded sahih by al-Albani). Meaning: Peace be upon you, and the mercy of Allah.",
     "arabic": "السَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ",
     "tl": "As-salaamu 'alaykum wa rahmatul-laah",
-    "tlSource": "Ar-Rayaan phrase registry (assets/academy/phrases/foundation.json): Arabic copied from the cited hadith, transliteration by the app author, scholar review needed"
+    "tlSource": "Ar-Rayaan phrase registry: Arabic copied from the cited hadith, transliteration by the app author, scholar review needed"
    }
   ],
   "familyQuestion": "Who could walk this path beside you: a friend, a family member, or someone at the masjid?"
@@ -738,14 +759,14 @@
   "chapters": [
    {
     "heading": "Day 30 — Thirty Days — Where You Are Now",
-    "body": "Thirty days ago you may not have known how to say the shahada. Now you know how to say it, wash for prayer, pray a rak’ah, begin the Fatihah, find the mosque, eat with Bismillah, ask for forgiveness, and ask for help. Nobody finishes learning, and the path does not end here.\n\nThe Qur’an teaches the believer to say: ‘my prayer, my rites of sacrifice, my living and my dying are for Allah, Lord of the worlds’ (Qur’an 6:162).\n\nChoose a plan for the next thirty days: all five prayers as soon as you are able (Bukhari 1395), a daily portion of the Qur’an, one morning and evening dhikr, one weekly visit to the mosque, and one teacher. Remember: religion is easy, and whoever overburdens himself will not be able to continue (Bukhari 39).\n\nToday’s step: Say the shahada again, with the words below, now knowing what each word means. Then write your plan for the next thirty days, and tell one person."
+    "body": "Thirty days ago you may not have known how to say the shahada. Now you know how to say it, wash for prayer, pray a rak’ah, begin the Fatihah, find the mosque, eat with Bismillah, ask for forgiveness, and ask for help. Nobody finishes learning, and the path does not end here.\n\nThe Qur’an teaches the believer to say: ‘my prayer, my rites of sacrifice, my living and my dying are for Allah, Lord of the worlds’ (Qur’an 6:162).\n\nChoose a plan for the next thirty days: all five prayers as soon as you are able (Bukhari 1395), a daily portion of the Qur’an, one morning and evening dhikr, one weekly visit to the mosque, and one teacher. Remember: religion is easy, and whoever overburdens himself will not be able to continue (Bukhari 39).\n\nToday’s step: Say the shahada again, with the words below and their meaning. Then write your plan for the next thirty days, and tell one person."
    },
    {
     "heading": "The shahada",
     "body": "Meaning: I bear witness that there is no god but Allah, and I bear witness that Muhammad is the Messenger of Allah.",
     "arabic": "أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ اللَّهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ اللَّهِ",
     "tl": "Ash-hadu al-laa ilaaha illal-laah, wa ash-hadu anna Muhammadan rasoolul-laah",
-    "tlSource": "Ar-Rayaan phrase registry (assets/academy/phrases/foundation.json): Arabic copied from the cited hadith, transliteration by the app author, scholar review needed"
+    "tlSource": "Ar-Rayaan phrase registry: Arabic copied from the cited hadith, transliteration by the app author, scholar review needed"
    }
   ],
   "familyQuestion": "Who will you tell about your plan for the next thirty days?"

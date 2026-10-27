@@ -16,6 +16,7 @@ import '../data/learning_loader.dart';
 import '../engine/word_engine.dart';
 import '../ui/games_art.dart';
 import '../ui/games_theme.dart';
+import '../../hadi/data/hadi_game_ask.dart';
 import '../ui/learning_widgets.dart';
 import 'game_results_screen.dart';
 
@@ -24,10 +25,11 @@ const String _wordSource = 'The glossary of the Huda guides in the app: the '
     'a ruling.';
 
 /// The Huda glossary terms with their meanings, as a sentence for Hadi.
-String _askAbout(Iterable<WordClue> words) => clip(
-      'What do these words mean in the prayer guides: '
-      '${words.map((WordClue w) => w.term).join(', ')}?',
-      480,
+String _askAbout(Iterable<WordClue> words) => HadiGameAsk.words(
+      entries: <({String term, String meaning})>[
+        for (final WordClue w in words) (term: w.term, meaning: w.clue),
+      ],
+      source: _wordSource,
     );
 
 // ---------------------------------------------------------------------------

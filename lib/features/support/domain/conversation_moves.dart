@@ -18,6 +18,26 @@ abstract final class ConversationMoves {
     if (hasAny(<String>['how are you', 'how r u', 'hows it going', 'how are you doing'])) {
       return 'how_are_you_reply';
     }
+    // A bare "what?" or "I don't understand" is confusion. "What is zakat?"
+    // is a question: it must reach the answers, never this line.
+    if (n == 'what' ||
+        n == 'huh' ||
+        n == 'what do you mean' ||
+        n == 'i dont understand' ||
+        n == 'i do not understand' ||
+        n == 'i dont get it' ||
+        n == 'confused' ||
+        n == 'im confused' ||
+        n == 'i am confused') {
+      return 'handle_confusion';
+    }
+    // "What is salam?" / "Is hi a greeting?" are questions about a word, not a
+    // greeting: they go on to the answers.
+    if (RegExp(r'\b(?:what|whats|how|why|when|where|who|which)\b|'
+            r'^(?:is|are|can|could|do|does|did|should|will|would)\b')
+        .hasMatch(n)) {
+      return null;
+    }
     if (hasAny(<String>['thanks', 'thank you', 'jazakallah', 'jazak allah', 'shukran'])) {
       return 'gratitude_receive';
     }
@@ -30,9 +50,6 @@ abstract final class ConversationMoves {
       if (h < 17) return 'greet_afternoon';
       if (h < 21) return 'greet_evening';
       return 'greet_night';
-    }
-    if (hasAny(<String>['what', 'huh', 'i dont understand', 'confused'])) {
-      return words <= 3 ? 'handle_confusion' : null;
     }
     return null;
   }

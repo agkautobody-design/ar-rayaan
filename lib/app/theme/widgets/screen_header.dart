@@ -38,7 +38,24 @@ class ScreenHeader extends StatelessWidget {
   /// Back / Close: pop when there is a screen underneath, otherwise go to the
   /// screen this one belongs to (a lesson's school, a story's library), and
   /// Home only for a screen that belongs nowhere.
-  static void _leave(BuildContext context) {
+  static final RegExp _gameScreen = RegExp(
+    r'^/games/(?:ludo|shatranj|lineage|hijrah|ayah|memory|trivia|names99|g/[^/]+/play)/?$',
+  );
+
+  static void _leave(BuildContext context, {bool close = false}) {
+    // Closing a game goes back to the games, not to the setup page the game
+    // was started from (which made a finished or abandoned game look like it
+    // was starting again).
+    if (close) {
+      try {
+        if (_gameScreen.hasMatch(GoRouterState.of(context).uri.path)) {
+          context.go(AppRoutes.games);
+          return;
+        }
+      } catch (_) {
+        // Not under a route (a bare test harness): leave as usual.
+      }
+    }
     if (context.canPop()) {
       context.pop();
       return;
@@ -79,7 +96,7 @@ class ScreenHeader extends StatelessWidget {
           _RoundButton(
             icon: close ? Icons.close : Icons.arrow_back,
             tooltip: close ? 'Close' : 'Back',
-            onTap: onBack ?? () => _leave(context),
+            onTap: onBack ?? () => _leave(context, close: close),
           ),
           Expanded(
             // The title sits between two fixed 44 px buttons, so at very

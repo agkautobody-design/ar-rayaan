@@ -20,6 +20,7 @@ import '../data/learning_loader.dart';
 import '../engine/game_registry.dart';
 import '../engine/quiz_engine.dart';
 import '../ui/games_theme.dart';
+import '../../hadi/data/hadi_game_ask.dart';
 import '../ui/learning_widgets.dart';
 import 'game_results_screen.dart';
 import 'games_screens.dart';
@@ -450,11 +451,11 @@ class _QuizPlayState extends ConsumerState<QuizPlayScreen> {
   }
 
   /// The question Hadi is asked from "Ask Hadi about this".
-  String _askText(QuizQuestion q) => clip(
-        'I just answered this quiz question: ${q.prompt} The right answer is '
-        '${q.options[q.answer]}. Can you explain it, and what the source '
-        'says? Source: ${q.citation}',
-        480,
+  String _askText(QuizQuestion q) => HadiGameAsk.quiz(
+        prompt: q.prompt,
+        answer: q.options[q.answer],
+        explanation: q.explanation,
+        citation: q.citation,
       );
 
   Widget _option(QuizSession s, int o) {

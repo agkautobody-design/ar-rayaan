@@ -58,7 +58,9 @@ void main() {
 
     test('Tirmidhi 2499 (weak) and unread pages are not in the corpus', () {
       expect(corpus.hadithByRef('Tirmidhi', '2499'), isNull);
-      expect(corpus.hadithByRef('Muslim', '132'), isNull);
+      // Muslim 132 ("that is clear faith") is now a checked card: it was
+      // read against the hadith source for the Hadi doubt answer.
+      expect(corpus.hadithByRef('Muslim', '132'), isNotNull);
       // Bukhari 5999 (the mother and her child) is now a checked card.
       expect(corpus.hadithByRef('Bukhari', '5999'), isNotNull);
     });

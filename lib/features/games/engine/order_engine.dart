@@ -411,12 +411,31 @@ String stepLabel(String step) {
   return s;
 }
 
+/// Guides end with notes that are not a move in the sequence ("What breaks
+/// wudu", "If you are unsure ...", "Aloud or silent ..."). In an ordering game
+/// they would be cards with no place in the order, so they are left out; the
+/// guide itself still shows them.
+bool _isOrderedStep(String step) {
+  final String s = step.toLowerCase();
+  for (final String start in const <String>[
+    'what breaks',
+    'if you are unsure',
+    'if you cannot',
+    'if you doubt',
+    'aloud or silent',
+    'do every position',
+  ]) {
+    if (s.startsWith(start)) return false;
+  }
+  return true;
+}
+
 /// Builds the step rounds for one guide: the first half, the second half, and
 /// all the steps together. The right order is the guide's own order.
 List<OrderRound> buildStepOrder(GuideSteps g) {
   final List<String> steps = <String>[
     for (final String s in g.steps)
-      if (s.trim().isNotEmpty) s.trim(),
+      if (s.trim().isNotEmpty && _isOrderedStep(s.trim())) s.trim(),
   ];
   if (steps.length < 4 || g.sources.isEmpty) return <OrderRound>[];
   final List<OrderItem> items = <OrderItem>[
