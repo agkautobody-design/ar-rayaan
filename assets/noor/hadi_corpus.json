@@ -1901,6 +1901,264 @@
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
    "verifiedOn": "2026-10-27"
+  },
+  {
+   "id": "h:abudawud-2356",
+   "collection": "Sunan Abu Dawud",
+   "number": "2356",
+   "english": "Anas said the Prophet used to break his fast with fresh dates before praying, or dry dates, or a few mouthfuls of water",
+   "grade": "Hasan sahih",
+   "grader": "al-Albani",
+   "topics": [
+    "anas",
+    "used",
+    "break",
+    "fast",
+    "fresh",
+    "dates",
+    "before",
+    "praying"
+   ],
+   "verifiedAt": "https://sunnah.com/abudawud:2356",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-27"
+  },
+  {
+   "id": "h:abudawud-2357",
+   "collection": "Sunan Abu Dawud",
+   "number": "2357",
+   "english": "Ibn Umar reported the Prophet said when he broke his fast: thirst has gone, the veins are moist and the reward is sure if Allah wills",
+   "grade": "Hasan",
+   "grader": "al-Albani",
+   "topics": [
+    "umar",
+    "reported",
+    "broke",
+    "fast",
+    "thirst",
+    "gone",
+    "veins",
+    "moist"
+   ],
+   "verifiedAt": "https://sunnah.com/abudawud:2357",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-27"
+  },
+  {
+   "id": "h:abudawud-2366",
+   "collection": "Sunan Abu Dawud",
+   "number": "2366",
+   "english": "The Prophet told Laqit ibn Saburah to snuff water up freely unless he is fasting",
+   "grade": "Sahih",
+   "grader": "al-Albani",
+   "topics": [
+    "told",
+    "laqit",
+    "saburah",
+    "snuff",
+    "water",
+    "freely",
+    "unless",
+    "fasting"
+   ],
+   "verifiedAt": "https://sunnah.com/abudawud:2366",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-27"
+  },
+  {
+   "id": "h:bukhari-1903",
+   "collection": "Sahih al-Bukhari",
+   "number": "1903",
+   "english": "The Prophet said whoever does not give up forged speech and evil actions, Allah has no need of his leaving his food and drink",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "whoever",
+    "give",
+    "forged",
+    "speech",
+    "evil",
+    "actions",
+    "need",
+    "leaving"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:1903",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-27"
+  },
+  {
+   "id": "h:bukhari-1923",
+   "collection": "Sahih al-Bukhari",
+   "number": "1923",
+   "english": "The Prophet said to take suhoor as there is a blessing in it",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "take",
+    "suhoor",
+    "there",
+    "blessing"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:1923",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-27"
+  },
+  {
+   "id": "h:bukhari-1927",
+   "collection": "Sahih al-Bukhari",
+   "number": "1927",
+   "english": "Aisha said the Prophet used to kiss and embrace his wives while fasting and he had more control over his desires than any of you",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "aisha",
+    "used",
+    "kiss",
+    "embrace",
+    "wives",
+    "while",
+    "fasting",
+    "more"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:1927",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-27"
+  },
+  {
+   "id": "h:bukhari-1933",
+   "collection": "Sahih al-Bukhari",
+   "number": "1933",
+   "english": "The Prophet said that if somebody eats or drinks forgetfully he should complete his fast, for Allah gave him what he ate or drank",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "somebody",
+    "eats",
+    "drinks",
+    "forgetfully",
+    "should",
+    "complete",
+    "fast",
+    "gave"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:1933",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-27"
+  },
+  {
+   "id": "h:bukhari-1936",
+   "collection": "Sahih al-Bukhari",
+   "number": "1936",
+   "english": "A man told the Prophet he was ruined because he had relations with his wife while fasting; the Prophet asked if he could free a slave, then fast two months, then feed sixty poor people",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "told",
+    "ruined",
+    "because",
+    "relations",
+    "wife",
+    "while",
+    "fasting",
+    "asked"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:1936",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-27"
+  },
+  {
+   "id": "h:bukhari-1957",
+   "collection": "Sahih al-Bukhari",
+   "number": "1957",
+   "english": "The Prophet said the people will remain on the right path as long as they hasten the breaking of the fast",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "people",
+    "remain",
+    "right",
+    "path",
+    "long",
+    "hasten",
+    "breaking",
+    "fast"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:1957",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-27"
+  },
+  {
+   "id": "h:bukhari-887",
+   "collection": "Sahih al-Bukhari",
+   "number": "887",
+   "english": "The Prophet said that if it were not hard on his followers he would have ordered the siwak for every prayer",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "hard",
+    "followers",
+    "ordered",
+    "siwak",
+    "every",
+    "prayer"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:887",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-27"
+  },
+  {
+   "id": "h:muslim-1162",
+   "collection": "Sahih Muslim",
+   "number": "1162",
+   "english": "Abu Qatadah reported the Prophet was asked about fasting; he said he hoped fasting Arafah would atone for the preceding and coming year and fasting Ashura for the preceding year",
+   "grade": "In Sahih Muslim",
+   "grader": "Included in Sahih Muslim; the collection gives no separate grade",
+   "topics": [
+    "qatadah",
+    "reported",
+    "asked",
+    "about",
+    "fasting",
+    "hoped",
+    "arafah",
+    "atone"
+   ],
+   "verifiedAt": "https://sunnah.com/muslim:1162",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-27"
+  },
+  {
+   "id": "h:muslim-1164",
+   "collection": "Sahih Muslim",
+   "number": "1164",
+   "english": "Abu Ayyub reported the Prophet said whoever fasted Ramadan and followed it with six days of Shawwal, it is as if he fasted perpetually",
+   "grade": "In Sahih Muslim",
+   "grader": "Included in Sahih Muslim; the collection gives no separate grade",
+   "topics": [
+    "ayyub",
+    "reported",
+    "whoever",
+    "fasted",
+    "ramadan",
+    "followed",
+    "days",
+    "shawwal"
+   ],
+   "verifiedAt": "https://sunnah.com/muslim:1164",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-27"
   }
  ]
 }

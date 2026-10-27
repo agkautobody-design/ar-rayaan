@@ -109,12 +109,34 @@ E('fast-vomit',
      r'\b' + _FAST + r'\b.*\b(?:vomit\w*|throw\w* up|threw up|puk\w*)\b'],
   topic='fasting',
   text="""
-If vomit comes up on its own (you are ill, or something upset your stomach), your fast is not broken and you do not make it up. If you make yourself vomit on purpose, the fast is broken and you must make the day up. The Prophet ﷺ said: whoever is overcome by vomiting need not make up the fast, and whoever vomits on purpose must make it up ({H tirmidhi:720|The Prophet said whoever is overcome by vomiting is not required to make up the fast, and whoever vomits on purpose must make it up, sahih per al-Albani}).
+If vomit comes up on its own (you are ill, or something upset your stomach), your fast is not broken and you do not make it up. If you make yourself vomit on purpose, the fast is broken and you must make the day up. A report attributed to the Prophet ﷺ says the same, but scholars grade it differently (al-Albani sahih, Darussalam da'if), so the ruling rests on the general view of the scholars rather than on it.
 
 If some vomit goes back down your throat against your will, the fast stands; if you swallow it on purpose, the fast is broken.
 """,
   go=['/huda/guide?id=huda-fasting'],
-  review='Tirmidhi 720: al-Albani and Shakir call it sahih; Darussalam grades it da\'if, so scholars differ on its grade. The ruling itself is the majority view.')
+  review='Vomiting ruling is the majority view; the report usually quoted is graded differently by graders, so it is not cited.')
+
+E('fast-breakers',
+  m=[r'\b(?:invalidat\w*|nullif\w*|break|breaks|breaking|broke|spoil\w*|ruin\w*|void\w*|cancel\w*|ends?)\b.*\b' + _FAST + r'\b',
+     r'\bwhat (?:breaks|invalidates|nullifies|spoils) (?:the |my |a )?(?:fast|fasting)\b', r'\bdoes\b.*\bbreak (?:the |my )?(?:fast|fasting)\b',
+     r'\bwhat (?:is|are) (?:the )?(?:things? )?(?:that )?(?:allowed|permitted|not allowed|forbidden|haram|prohibited) (?:while|when|during) (?:fast\w*|ramadan)\b'],
+  x=[r'\b(?:iftar|suhoor|say|dua|recite|eat first|meal|when (?:do|should|can))\b'],
+  topic='fasting',
+  text="""
+What breaks the fast (all schools agree):
+- Eating or drinking on purpose, anything that reaches the stomach by the mouth (including swallowed medicine and smoking).
+- Marital intercourse in the day (with a penalty if deliberate).
+- Deliberately making yourself vomit.
+- Menstruation or postnatal bleeding, even a moment before sunset.
+- Deliberately releasing semen.
+- Leaving the intention, or choosing to stop the fast.
+
+What does not break it: eating or drinking by forgetting ({H bukhari:1933|The Prophet said that if somebody eats or drinks forgetfully he should complete his fast, for Allah gave him what he ate or drank}); things you did not intend such as dust, a fly, or water going down while rinsing; a wet dream; brushing your teeth without swallowing; a bath, swimming or rain on you; perfume or smelling food; kissing your spouse without going further; blood tests and most injections; eye drops and skin creams; swallowing your own saliva.
+
+Each of those has its own answer: ask me about the one you have in mind. Fasting also means guarding the tongue: lying and backbiting do not break the fast but spoil its reward.
+""",
+  go=['/huda/guide?id=huda-fasting'],
+  review='Summary list of what does and does not break the fast is the general view of the schools; details are in the specific entries.')
 
 E('fast-exempt',
   m=[r'\b(?:exempt\w*|excus\w*|allowed to (?:skip|miss|break|not)|permitted to (?:skip|miss|break|not)|who (?:does|do|is|are) not have to|who need not|who can skip|who can miss|who must not|who should not|not required to)\b.*\b' + _FAST + r'\b',
@@ -170,9 +192,9 @@ Suhoor (the pre-dawn meal) and iftar (the meal that ends the fast) are both sunn
 
 Suhoor: eat before dawn; the Prophet ﷺ said: take suhoor, for there is a blessing in it ({H bukhari:1923|The Prophet said to take suhoor as there is a blessing in it}). Eat and drink until the white thread of dawn appears clearly from the black thread of night ({QR 2:187}); stop when the Fajr time begins.
 
-Iftar: break the fast at sunset, without delay. The Prophet ﷺ said the people will keep to the right path as long as they hasten to break the fast ({H bukhari:1957|The Prophet said the people will remain on the right path as long as they hasten the breaking of the fast}). His practice was to break his fast with fresh dates before praying, then dried dates, and if there were none, a few sips of water ({H abudawud:2356|Anas said the Prophet used to break his fast with fresh dates before praying, or dry dates, or a few mouthfuls of water, hasan sahih per al-Albani}).
+Iftar: break the fast at sunset, without delay. The Prophet ﷺ said the people will keep to the right path as long as they hasten to break the fast ({H bukhari:1957|The Prophet said the people will remain on the right path as long as they hasten the breaking of the fast}). His practice was to break his fast with fresh dates before praying, then dried dates, and if there were none, a few sips of water ({H abudawud:2356|Anas said the Prophet used to break his fast with fresh dates before praying, or dry dates, or a few mouthfuls of water}).
 
-The du'a: the Prophet ﷺ is reported to have said when breaking the fast: "Dhahaba az-zama'u wabtallatil-'urooqu wa thabatal-ajru in sha' Allah" (the thirst has gone, the veins are moist, and the reward is confirmed, if Allah wills) ({H abudawud:2357|Ibn Umar reported the Prophet said when he broke his fast: thirst has gone, the veins are moist and the reward is sure if Allah wills, hasan per al-Albani}).
+The du'a: the Prophet ﷺ is reported to have said when breaking the fast: "Dhahaba az-zama'u wabtallatil-'urooqu wa thabatal-ajru in sha' Allah" (the thirst has gone, the veins are moist, and the reward is confirmed, if Allah wills) ({H abudawud:2357|Ibn Umar reported the Prophet said when he broke his fast: thirst has gone, the veins are moist and the reward is sure if Allah wills}).
 
 The intention is in the heart. It is enough to decide the night before that you will fast tomorrow (some schools require the night-before intention for a fard fast; the Hanafi school accepts it up to before midday for Ramadan). No words need to be said aloud.
 """,
@@ -207,7 +229,7 @@ E('ramadan-basics',
   x=[r'\b(?:app|screen|calendar|date|dates|when is|which day|time)\b'],
   topic='fasting',
   text="""
-Ramadan is the ninth month of the Islamic calendar, the month in which the Qur'an was revealed. Fasting (sawm) in it is one of the five pillars of Islam. Allah says: {Q 2:183|fasting is decreed upon you as it was decreed upon those before you that you may become righteous}, and {Q 2:185|The month of Ramadhan [is that] in which was revealed the Qur'an}.
+Ramadan is the ninth month of the Islamic calendar, the month in which the Qur'an was revealed. Fasting (sawm) in it is one of the five pillars of Islam. Allah says: {Q 2:183|decreed upon you is fasting as it was decreed upon those before you that you may become righteous}, and {Q 2:185|The month of Ramadhan [is that] in which was revealed the Qur'an}.
 
 What fasting is: from true dawn (Fajr) until sunset (Maghrib) you give up food, drink and marital relations, with the intention to obey Allah. It also means guarding the tongue and the eyes. The Prophet ﷺ said that whoever does not give up false speech and bad conduct, Allah has no need of his giving up food and drink ({H bukhari:1903|The Prophet said whoever does not give up forged speech and evil actions, Allah has no need of his leaving his food and drink}).
 
