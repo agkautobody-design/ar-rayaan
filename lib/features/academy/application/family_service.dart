@@ -41,6 +41,14 @@ class FamilyService {
   static const _consentPref = 'ar.family.consent';
   static const _cloudConsentPref = 'ar.family.cloud_consent';
   static const _onlineGamesPref = 'ar.family.online_games';
+  static const _bandPref = 'ar.family.age_band';
+
+  /// The age bands a parent can choose for a child. Used only to pick the
+  /// words Wasia uses with that child (never to profile them).
+  static const List<String> ageBands = <String>['5-8', '9-12', '13-17'];
+
+  /// Used when the parent has not chosen one.
+  static const String defaultAgeBand = '9-12';
 
   /// Version of the children's privacy text the parent agreed to.
   static const int consentVersion = kChildrenPrivacyVersion;
@@ -92,6 +100,19 @@ class FamilyService {
     } else {
       await prefs.remove('$_onlineGamesPref.$childId');
     }
+  }
+
+  /// The parent-set age band for [childId], or the default.
+  Future<String> ageBand(String childId) async {
+    final prefs = await SharedPreferences.getInstance();
+    final String? v = prefs.getString('$_bandPref.$childId');
+    return (v != null && ageBands.contains(v)) ? v : defaultAgeBand;
+  }
+
+  Future<void> setAgeBand(String childId, String band) async {
+    if (!ageBands.contains(band)) return;
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('$_bandPref.$childId', band);
   }
 
   /// Cloud sync is opt-in and not offered in the UI yet.
@@ -157,6 +178,7 @@ class FamilyService {
     await prefs.setString(_childrenPref, json.encode(list));
     await prefs.remove('$_progressPref.$id');
     await prefs.remove('$_onlineGamesPref.$id');
+    await prefs.remove('$_bandPref.$id');
     if (prefs.getString(_activePref) == id) {
       if (list.isEmpty) {
         await prefs.remove(_activePref);

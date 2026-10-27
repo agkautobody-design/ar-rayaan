@@ -253,3 +253,46 @@ def add_all(R):
         'The conversation is memory-only. The key is kept in the secure store on a phone and memory-only in a browser. Report drops text from crisis, support and minor exchanges.',
         'RES_H3 D3, D4, D10: health disclosures were stored in plain text and could be uploaded by the Report button.',
         LAWYER, ['RES_H3_hadi_companion_design'], 'high', sub='privacy')
+
+    # ------------------------------------------------ support module (Phase 2)
+    add('support.packs', 'sakina', 'Hadi / Wasia > every reply written from a support pack (11 pathways, shame, cravings, grief, relapse)',
+        'assets/support/packs/*.json; lib/features/support/domain/support_engine.dart', 'Pack snippets and the reply engine (orient, reflect, ask, plan-step)',
+        'Listening wording, reflections, one-question asks and plan steps, rotated so no line repeats. Drafts until each snippet is signed.',
+        'Owner approved packs as the source of wording. Shown with "Scholar review needed" and "Clinician review needed" until sign-off.',
+        CLIN, ['docs/support/pack_format.md'], 'high', also=[FIQH, NATIVE], sub='support',
+        surf='Support pathway screens and under each reply')
+    add('support.pathways', 'sakina', 'Support hub and the eleven pathway screens',
+        'lib/features/support/presentation/support_pathway_screens.dart', 'kSupportPathways',
+        'Page structure, what each pathway promises, the hand-over to people, and the quick-exit placement.',
+        'Abuse-in-progress features first: quick exit, private mode, safe word. A safeguarding specialist should read the abuse pathways.',
+        CLIN, ['RES_H3_hadi_companion_design'], 'high', also=[LAWYER], sub='support')
+    add('support.checkin', 'sakina', 'Hadi / Wasia > the gentle check-in ("how are you really doing?")',
+        'lib/features/support/domain/checkin_scheduler.dart; assets/support/packs/checkin.json', 'CheckinScheduler; checkin pack',
+        'In-app only, at most every 2 weeks (4 after "rather not say"), permanent off, only the date and the off flag stored. Wasia wording by age band; the answer is never shown to a parent.',
+        'Owner decision. The wording and the intervals need a clinician; the child version also a child-protection specialist.',
+        CLIN, ['RES_H3_hadi_companion_design'], 'high', also=[LAWYER], sub='support')
+    add('support.memory', 'sakina', 'Settings > Let Hadi remember things I tell it; What Hadi knows about me',
+        'lib/features/support/domain/user_memory.dart; lib/features/support/application/support_settings.dart', 'UserMemory; SupportSettingsNotifier',
+        'Opt-in, encrypted on device, view, edit, delete, export. Crisis, abuse and support content is never remembered.',
+        'Privacy by default. A lawyer should confirm the data-protection wording and the export.',
+        LAWYER, ['RES_H3_hadi_companion_design'], 'high', sub='privacy')
+    add('support.online-consent', 'sakina', 'Settings > Use the online model for support chats',
+        'lib/features/support/domain/online_support_policy.dart; lib/features/support/presentation/support_wellbeing_screen.dart', 'SupportOnlinePolicy; consent dialog',
+        'Default off, plain consent, managed key only (never the user\'s own key), never in crisis, for a minor or for fixed wording; the reply is checked before use.',
+        'Sensitive disclosures leaving the device is a legal and clinical question.',
+        LAWYER, ['RES_H3_hadi_companion_design'], 'high', also=[CLIN], sub='privacy')
+    add('support.student-routing', 'sakina', 'Wasia > learning worry, bullying, anxiety, teen exposure, disclosure',
+        'lib/features/support/domain/student_routing.dart', 'StudentRouting word lists',
+        'Which messages go to the student_problems pack. A learning difficulty is referred, never diagnosed. Bullying, exposure and family strain add a trusted-adult line.',
+        'English word lists only; written for coverage.',
+        CLIN, ['RES_H3_hadi_companion_design', 'R9_T1_children'], 'high', also=[LAWYER, NATIVE], sub='children')
+    add('support.children-age-band', 'sakina', 'Parent controls > age band per child; children privacy version 5',
+        'lib/features/academy/domain/children_privacy.dart; docs/content_needed/children_privacy_age_band.md', 'kChildrenPrivacyVersion = 5',
+        'The parent sets 5-8, 9-12 or 13-17; Wasia keeps no emotional profile; the parent never sees chats or safety events.',
+        'A lawyer should confirm this against children\'s privacy law in the markets served.',
+        LAWYER, ['docs/content_needed/children_privacy_age_band.md'], 'high', sub='children')
+    add('support.helplines', 'sakina', 'Help lines shown in the app',
+        'assets/support/helplines.json; lib/features/support/data/helplines_loader.dart; lib/features/sakina/domain/sakina_content.dart', 'HelplinesLoader; HelpResources.shown',
+        'Only lines with a verified-on date and an https source are shown. Unconfirmed emergency rows are hidden.',
+        'Numbers change. Each needs re-checking on its date.',
+        CLIN, ['docs/support/pack_format.md'], 'high', sub='support')

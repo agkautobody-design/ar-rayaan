@@ -1,7 +1,7 @@
 {
  "generated_by": "tool/scholar_review/build_register.py",
  "note": "Every item has status \"open\". A status changes only when a named scholar signs off (lib/app/core/scholar_review.dart). No reviewer has been named yet.",
- "total": 3742,
+ "total": 3750,
  "totals_by_area": {
   "academy-lessons": {
    "title": "Academy v3 lessons and steps",
@@ -80,8 +80,8 @@
   },
   "sakina": {
    "title": "Sakina rooms, feelings, safety copy, health",
-   "items": 42,
-   "high_priority": 18
+   "items": 50,
+   "high_priority": 26
   },
   "money": {
    "title": "Zakat, will and estate, halal finance",
@@ -129,13 +129,13 @@
   "Fiqh scholar (per madhab)": 545,
   "Women's scholar": 151,
   "Arabic / tajweed / qira'at specialist": 523,
-  "Clinician (Sakina and health content)": 93,
+  "Clinician (Sakina and health content)": 98,
   "Native speaker (ar / bn / ur)": 194,
-  "Privacy lawyer": 10,
+  "Privacy lawyer": 13,
   "Rights holder / licensing (not a scholar)": 6
  },
  "totals_by_priority": {
-  "high": 1117,
+  "high": 1125,
   "normal": 2368,
   "low": 257
  },
@@ -80345,6 +80345,176 @@
    "priority": "high",
    "source_of_flag": [
     "RES_H3_hadi_companion_design"
+   ],
+   "label_surface": "",
+   "status": "open"
+  },
+  {
+   "id": "support.packs",
+   "area": "sakina",
+   "subarea": "support",
+   "where_in_app": "Hadi / Wasia > every reply written from a support pack (11 pathways, shame, cravings, grief, relapse)",
+   "file": "assets/support/packs/*.json; lib/features/support/domain/support_engine.dart",
+   "key": "Pack snippets and the reply engine (orient, reflect, ask, plan-step)",
+   "what_to_review": "Listening wording, reflections, one-question asks and plan steps, rotated so no line repeats. Drafts until each snippet is signed.",
+   "why_flagged": "Owner approved packs as the source of wording. Shown with \"Scholar review needed\" and \"Clinician review needed\" until sign-off.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [
+    "Fiqh scholar (per madhab)",
+    "Native speaker (ar / bn / ur)"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/support/pack_format.md"
+   ],
+   "label_surface": "Support pathway screens and under each reply",
+   "status": "open"
+  },
+  {
+   "id": "support.pathways",
+   "area": "sakina",
+   "subarea": "support",
+   "where_in_app": "Support hub and the eleven pathway screens",
+   "file": "lib/features/support/presentation/support_pathway_screens.dart",
+   "key": "kSupportPathways",
+   "what_to_review": "Page structure, what each pathway promises, the hand-over to people, and the quick-exit placement.",
+   "why_flagged": "Abuse-in-progress features first: quick exit, private mode, safe word. A safeguarding specialist should read the abuse pathways.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [
+    "Privacy lawyer"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "RES_H3_hadi_companion_design"
+   ],
+   "label_surface": "",
+   "status": "open"
+  },
+  {
+   "id": "support.checkin",
+   "area": "sakina",
+   "subarea": "support",
+   "where_in_app": "Hadi / Wasia > the gentle check-in (\"how are you really doing?\")",
+   "file": "lib/features/support/domain/checkin_scheduler.dart; assets/support/packs/checkin.json",
+   "key": "CheckinScheduler; checkin pack",
+   "what_to_review": "In-app only, at most every 2 weeks (4 after \"rather not say\"), permanent off, only the date and the off flag stored. Wasia wording by age band; the answer is never shown to a parent.",
+   "why_flagged": "Owner decision. The wording and the intervals need a clinician; the child version also a child-protection specialist.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [
+    "Privacy lawyer"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "RES_H3_hadi_companion_design"
+   ],
+   "label_surface": "",
+   "status": "open"
+  },
+  {
+   "id": "support.memory",
+   "area": "sakina",
+   "subarea": "privacy",
+   "where_in_app": "Settings > Let Hadi remember things I tell it; What Hadi knows about me",
+   "file": "lib/features/support/domain/user_memory.dart; lib/features/support/application/support_settings.dart",
+   "key": "UserMemory; SupportSettingsNotifier",
+   "what_to_review": "Opt-in, encrypted on device, view, edit, delete, export. Crisis, abuse and support content is never remembered.",
+   "why_flagged": "Privacy by default. A lawyer should confirm the data-protection wording and the export.",
+   "reviewer_type": "Privacy lawyer",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "RES_H3_hadi_companion_design"
+   ],
+   "label_surface": "",
+   "status": "open"
+  },
+  {
+   "id": "support.online-consent",
+   "area": "sakina",
+   "subarea": "privacy",
+   "where_in_app": "Settings > Use the online model for support chats",
+   "file": "lib/features/support/domain/online_support_policy.dart; lib/features/support/presentation/support_wellbeing_screen.dart",
+   "key": "SupportOnlinePolicy; consent dialog",
+   "what_to_review": "Default off, plain consent, managed key only (never the user's own key), never in crisis, for a minor or for fixed wording; the reply is checked before use.",
+   "why_flagged": "Sensitive disclosures leaving the device is a legal and clinical question.",
+   "reviewer_type": "Privacy lawyer",
+   "also_reviewers": [
+    "Clinician (Sakina and health content)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "RES_H3_hadi_companion_design"
+   ],
+   "label_surface": "",
+   "status": "open"
+  },
+  {
+   "id": "support.student-routing",
+   "area": "sakina",
+   "subarea": "children",
+   "where_in_app": "Wasia > learning worry, bullying, anxiety, teen exposure, disclosure",
+   "file": "lib/features/support/domain/student_routing.dart",
+   "key": "StudentRouting word lists",
+   "what_to_review": "Which messages go to the student_problems pack. A learning difficulty is referred, never diagnosed. Bullying, exposure and family strain add a trusted-adult line.",
+   "why_flagged": "English word lists only; written for coverage.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [
+    "Privacy lawyer",
+    "Native speaker (ar / bn / ur)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "RES_H3_hadi_companion_design",
+    "R9_T1_children"
+   ],
+   "label_surface": "",
+   "status": "open"
+  },
+  {
+   "id": "support.children-age-band",
+   "area": "sakina",
+   "subarea": "children",
+   "where_in_app": "Parent controls > age band per child; children privacy version 5",
+   "file": "lib/features/academy/domain/children_privacy.dart; docs/content_needed/children_privacy_age_band.md",
+   "key": "kChildrenPrivacyVersion = 5",
+   "what_to_review": "The parent sets 5-8, 9-12 or 13-17; Wasia keeps no emotional profile; the parent never sees chats or safety events.",
+   "why_flagged": "A lawyer should confirm this against children's privacy law in the markets served.",
+   "reviewer_type": "Privacy lawyer",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/content_needed/children_privacy_age_band.md"
+   ],
+   "label_surface": "",
+   "status": "open"
+  },
+  {
+   "id": "support.helplines",
+   "area": "sakina",
+   "subarea": "support",
+   "where_in_app": "Help lines shown in the app",
+   "file": "assets/support/helplines.json; lib/features/support/data/helplines_loader.dart; lib/features/sakina/domain/sakina_content.dart",
+   "key": "HelplinesLoader; HelpResources.shown",
+   "what_to_review": "Only lines with a verified-on date and an https source are shown. Unconfirmed emergency rows are hidden.",
+   "why_flagged": "Numbers change. Each needs re-checking on its date.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "docs/support/pack_format.md"
    ],
    "label_surface": "",
    "status": "open"

@@ -8,6 +8,7 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../../support/application/support_settings.dart';
 import '../application/sakina_providers.dart';
 import '../domain/sakina_content.dart';
 import 'widgets/help_line_tile.dart';
@@ -202,6 +203,13 @@ class SakinaScreen extends ConsumerWidget {
   }
 }
 
+/// The support page a room opens, for the rooms that have one.
+String? _pathwayFor(String roomId) => switch (roomId) {
+      'quiet-war' => AppRoutes.support,
+      'marriage' => '${AppRoutes.support}/domestic-abuse',
+      _ => null,
+    };
+
 class _RoomCard extends ConsumerWidget {
   const _RoomCard({required this.room});
 
@@ -283,6 +291,18 @@ class _RoomCard extends ConsumerWidget {
               HelpLineTile(resource: r),
             ],
             const SizedBox(height: 8),
+            if (_pathwayFor(room.id) != null &&
+                ref.watch(supportSettingsProvider).showSakina)
+              Align(
+                alignment: Alignment.centerLeft,
+                child: OutlinedButton.icon(
+                  key: Key('room-pathway-${room.id}'),
+                  style: OutlinedButton.styleFrom(minimumSize: const Size(48, 48)),
+                  onPressed: () => context.open(_pathwayFor(room.id)!),
+                  icon: const Icon(Icons.arrow_forward, size: 18),
+                  label: const Text('Open the support pages'),
+                ),
+              ),
             Align(
               alignment: Alignment.centerLeft,
               child: Text(

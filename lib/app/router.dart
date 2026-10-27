@@ -71,6 +71,8 @@ import '../features/calendar/presentation/calendar_screen.dart';
 import '../features/hadith/presentation/hadith_screen.dart';
 import '../features/qibla/presentation/qibla_screen.dart';
 import '../features/sakina/presentation/sakina_screen.dart';
+import '../features/support/presentation/support_pathway_screens.dart';
+import '../features/support/presentation/support_wellbeing_screen.dart';
 import '../features/sakina/presentation/wellbeing_tools.dart';
 import '../features/settings/presentation/settings_screen.dart';
 import '../features/share/domain/handout.dart';
@@ -225,6 +227,8 @@ abstract final class AppRoutes {
   static const String sourcesReview = '/sources/review';
   static const String quranBookmarks = '/quran/bookmarks';
   static const String sakina = '/sakina';
+  static const String support = '/support';
+  static const String supportSettings = '/settings/support';
   static const String sakinaSteady = '/sakina/steady';
   static const String sakinaMood = '/sakina/mood';
   static const String sakinaSafety = '/sakina/safety';
@@ -271,6 +275,8 @@ String parentRouteOf(String path) {
   if (p.startsWith('${AppRoutes.huda}/')) return AppRoutes.huda;
   if (p.startsWith('${AppRoutes.feelings}/')) return AppRoutes.feelings;
   if (p.startsWith('${AppRoutes.sakina}/')) return AppRoutes.sakina;
+  if (p.startsWith('${AppRoutes.support}/')) return AppRoutes.support;
+  if (p == AppRoutes.supportSettings) return AppRoutes.settings;
   if (p.startsWith('${AppRoutes.games}/')) return AppRoutes.games;
   if (p.startsWith('${AppRoutes.quran}/')) return AppRoutes.quran;
   if (p == AppRoutes.communityHub) return AppRoutes.community;
@@ -874,6 +880,21 @@ GoRouter buildRouter({String initialLocation = '/'}) {
       GoRoute(
         path: AppRoutes.sakina,
         pageBuilder: (c, s) => _fade(const SakinaScreen()),
+      ),
+      GoRoute(
+        path: AppRoutes.support,
+        pageBuilder: (c, s) => _fade(const SupportHubScreen(), pill: false),
+      ),
+      GoRoute(
+        path: '${AppRoutes.support}/:id',
+        pageBuilder: (c, s) => _fade(
+          SupportPathwayScreen(id: s.pathParameters['id'] ?? ''),
+          pill: false,
+        ),
+      ),
+      GoRoute(
+        path: AppRoutes.supportSettings,
+        pageBuilder: (c, s) => _fade(const SupportWellbeingScreen(), pill: false),
       ),
       // The three small tools are real routes so the browser Back button and
       // the in-app arrow both return to Sakina.

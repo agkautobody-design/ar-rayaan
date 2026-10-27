@@ -10,6 +10,13 @@ import '../../hadi/grounding/ruling_gate.dart';
 import '../../hadi/data/groq_hadi_provider.dart';
 import '../data/offline_wasia_provider.dart';
 import '../domain/lesson_grounding.dart';
+import '../../support/application/support_settings.dart';
+import '../../support/data/pack_repository.dart';
+import '../../support/domain/checkin_scheduler.dart';
+import '../../support/domain/student_routing.dart';
+import '../../support/domain/support_engine.dart';
+import '../../support/domain/support_pack.dart';
+import 'family_service.dart';
 
 enum WasiaPersona { student, parent, teacher }
 
@@ -37,6 +44,13 @@ String wasiaCrisisReply(WasiaPersona persona) {
       'down. This needs a real person, not a lesson. Please reach out to '
       'someone you trust today, or a local professional. $help';
 }
+
+/// The check-in line used when no pack is loaded, by age band.
+const Map<String, String> kWasiaCheckinFallback = <String, String>{
+  '5-8': 'Hello. How are you today?',
+  '9-12': 'No hurry, I just like to ask now and then: how are you, really?',
+  '13-17': 'No agenda, I just like to check in now and then. How are you really doing?',
+};
 
 /// One brain, three voices. Research-backed shape: a specific, in-domain
 /// persona that NAMES its audience and context beats a generic role label —
@@ -200,6 +214,96 @@ class WasiaController extends StateNotifier<WasiaState> {
   CrisisKind? _latch;
   int _latchChecks = 0;
 
+  /// The memory of a school-and-learning support conversation: rotation
+  /// history only. It lives in memory, holds nothing about the child, and is
+  /// dropped with the thread.
+  SupportSession _support = SupportSession(seed: DateTime.now().microsecondsSinceEpoch);
+
+  /// The age band a parent set for the active child, or the default.
+  Future<String> _band() async {
+    try {
+      final FamilyService fs = FamilyService();
+      final String? id = await fs.activeChildId();
+      if (id == null) return FamilyService.defaultAgeBand;
+      return await fs.ageBand(id);
+    } catch (_) {
+      return FamilyService.defaultAgeBand;
+    }
+  }
+
+  /// The gentle check-in for a child, in the words of their age band. In
+  /// memory only: nothing the child answers is stored, and no parent sees it.
+  /// Call when a Wasia screen opens.
+  Future<void> maybeCheckin() async {
+    try {
+      if (state.messages.any((HadiMessage m) => m.checkin)) return;
+      final SupportSettingsNotifier n = ref.read(supportSettingsProvider.notifier);
+      final SupportSettings s = ref.read(supportSettingsProvider);
+      if (s.privateMode) return;
+      final DateTime now = DateTime.now();
+      if (s.checkin.lastAsked == null) {
+        await n.saveCheckin(CheckinScheduler.start(s.checkin, now));
+        return;
+      }
+      if (!CheckinScheduler.isDue(s.checkin, now)) return;
+      final String band = await _band();
+      final SupportPack? p = SupportPackRepository.byName('checkin');
+      String line = kWasiaCheckinFallback[band] ?? kWasiaCheckinFallback['9-12']!;
+      if (p != null && !p.expiredAt(now)) {
+        final List<SupportSnippet> options = <SupportSnippet>[
+          for (final SupportSnippet x in p.snippets)
+            if (x.kind == 'checkin' && x.matchesAge(band) && x.audience != 'hadi' &&
+                (SupportPackRepository.allowDraft || x.shippable))
+              x,
+        ];
+        if (options.isNotEmpty) line = options[now.day % options.length].textIn('en');
+      }
+      await n.saveCheckin(CheckinScheduler.after(s.checkin, CheckinAnswer.ignored, now));
+      state = state.copy(messages: <HadiMessage>[
+        ...state.messages,
+        HadiMessage(fromHadi: true, text: line, ephemeral: true, sensitive: true, checkin: true),
+      ]);
+    } catch (_) {}
+  }
+
+  /// The child's answer to the check-in. If it has been hard, Wasia offers a
+  /// trusted adult and a child helpline, and never defaults to "tell a
+  /// parent". The answer is not stored and is not shown to a parent.
+  Future<void> answerCheckin(CheckinAnswer a) async {
+    final SupportSettingsNotifier n = ref.read(supportSettingsProvider.notifier);
+    final SupportSettings s = ref.read(supportSettingsProvider);
+    await n.saveCheckin(CheckinScheduler.after(s.checkin, a, DateTime.now()));
+    final String reply = switch (a) {
+      CheckinAnswer.okay => 'That is good to hear. I am here for your letters whenever you like.',
+      CheckinAnswer.hard => 'Thank you for telling me. Hard days happen, and you are not in trouble. '
+          'If it feels heavy, you can talk to ${CrisisResponses.trustedAdultForChild}. You choose who.',
+      CheckinAnswer.rather => 'That is fine. You do not have to say. I am here for your letters.',
+      CheckinAnswer.ignored => '',
+    };
+    state = state.copy(messages: <HadiMessage>[
+      for (final HadiMessage m in state.messages)
+        if (!m.checkin) m,
+      if (reply.isNotEmpty)
+        HadiMessage(
+          fromHadi: true,
+          text: reply,
+          ephemeral: true,
+          sensitive: true,
+          crisis: a == CheckinAnswer.hard ? CrisisKind.childSafety : null,
+        ),
+    ]);
+  }
+
+  Future<void> stopCheckins() async {
+    final SupportSettingsNotifier n = ref.read(supportSettingsProvider.notifier);
+    final SupportSettings s = ref.read(supportSettingsProvider);
+    await n.saveCheckin(CheckinScheduler.turnOff(s.checkin, DateTime.now()));
+    state = state.copy(messages: <HadiMessage>[
+      for (final HadiMessage m in state.messages)
+        if (!m.checkin) m,
+    ]);
+  }
+
   /// Whose voice the current thread was started in. A thread never mixes
   /// voices: the persona prompt is sent once, with the first message, so a
   /// parent's words must not ride along into a child's conversation.
@@ -222,6 +326,7 @@ class WasiaController extends StateNotifier<WasiaState> {
   void clear() {
     _latch = null;
     _latchChecks = 0;
+    _support = SupportSession(seed: DateTime.now().microsecondsSinceEpoch);
     _threadPersona = null;
     _threadLesson = null;
     state = const WasiaState();
@@ -304,6 +409,50 @@ class WasiaController extends StateNotifier<WasiaState> {
           ],
         );
         return reply;
+      }
+    }
+    // School and learning worries (bullying, exam fear, "I am stupid", a
+    // video that upset them, a parent's worry about a learning difference) are
+    // answered on the device from the student_problems pack. Nothing is sent
+    // anywhere, nothing is saved, no label is put on the child, and a learning
+    // difference is referred, never diagnosed.
+    if (persona != WasiaPersona.teacher) {
+      final bool parent = persona == WasiaPersona.parent;
+      final StudentConcern? concern = StudentRouting.classify(q, parent: parent);
+      final SupportEngine? eng = SupportPackRepository.engine;
+      if (concern != null && eng != null) {
+        final String band = parent ? 'adult' : await _band();
+        final SupportTurn? turn = eng.reply(
+          _support,
+          pack: 'student_problems',
+          userText: q,
+          ageBand: band,
+          extraCues: StudentRouting.cues(concern),
+        );
+        if (turn != null) {
+          final bool childAtRisk = !parent &&
+              (concern == StudentConcern.bullying ||
+                  concern == StudentConcern.exposure ||
+                  concern == StudentConcern.familyStrain);
+          final String text = childAtRisk
+              ? '${turn.text}\n\nIf it keeps happening or it scares you, tell ${CrisisResponses.trustedAdultForChild}.'
+              : turn.text;
+          state = state.copy(
+            clearNotice: true,
+            messages: <HadiMessage>[
+              ...state.messages,
+              HadiMessage(fromHadi: false, text: q, sensitive: true),
+              HadiMessage(
+                fromHadi: true,
+                text: text,
+                sensitive: true,
+                supportIds: turn.ids,
+                crisis: childAtRisk ? CrisisKind.childSafety : null,
+              ),
+            ],
+          );
+          return text;
+        }
       }
     }
     // Keyless: Wasia teaches from her OWN curated shelf — the Academy
