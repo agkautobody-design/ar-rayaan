@@ -133,7 +133,7 @@ def card(key, summary):
     CARDS.append((key, summary))
 
 
-def E(id, m, text, x=(), go=(), src=None, topic='', gate=False, why='', review=''):
+def E(id, m, text, x=(), go=(), src=None, topic='', gate=True, why='', review=''):
     ENTRIES.append(dict(id=id, m=list(m), x=list(x), text=text.strip(), go=list(go),
                         src=src, topic=topic, gate=gate, why=why.strip(), review=review))
 
