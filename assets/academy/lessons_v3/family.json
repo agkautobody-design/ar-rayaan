@@ -1,0 +1,4419 @@
+{
+ "schema": 3,
+ "course": "family",
+ "lessons": [
+  {
+   "id": "fam.u1.l1",
+   "title": "Why marriage at all",
+   "minutes": 16,
+   "intro": "Why Islam encourages marriage, how a marriage is made, and what to say to a couple who have just married.",
+   "steps": [
+    {
+     "id": "hook",
+     "kind": "teach",
+     "title": "A promise, not just a party",
+     "body": [
+      "Marriage is one of the oldest human ways of building a home. In Islam it is more than a celebration or a paper. It is a promise made before Allah, and a way for two people to care for each other, for children, and for a wider family.",
+      "In this lesson you will learn why Islam encourages marriage, what makes a Muslim marriage valid, and what to say to a couple who have just married. It is written for everyone: married, engaged, hoping to marry one day, or a parent or grown child helping someone else. No earlier knowledge is needed."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "signs",
+     "kind": "teach",
+     "title": "Calm, affection and mercy",
+     "body": [
+      "Allah says that one of His signs is that He made mates for us from among ourselves, so that we find calm in them, and that He placed between spouses affection and mercy. The ayah ends by saying this is for people who think.",
+      "Three words are worth knowing. Sukun is calm: a person you can rest next to. Mawaddah is warm affection that shows in what a person does. Rahmah is mercy: patience with faults and care when the other is weak, tired or in the wrong. A marriage is meant to grow all three."
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 30:21",
+     "quran": "q:30:21"
+    },
+    {
+     "id": "covenant",
+     "kind": "teach",
+     "title": "A solemn covenant",
+     "body": [
+      "In another place the Qur’an calls the marriage bond a solemn covenant: a heavy, serious promise (4:21). That one word tells you how Islam sees it. It is not a casual deal that anyone can drop when it becomes difficult, and it is not an ownership of one person by another. It is a promise to treat each other well.",
+      "The next ayah is about living together. It tells husbands to live with their wives in kindness, and adds that you may dislike something in a person while Allah has placed much good in it (4:19)."
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 4:21; Qur'an 4:19",
+     "quran": "q:4:21"
+    },
+    {
+     "id": "call",
+     "kind": "teach",
+     "title": "The call to marry",
+     "body": [
+      "Islam does not ask believers to give up family life in order to worship more. In Bukhari 5063, three men heard how the Prophet ﷺ worshipped and each decided to go further: one would pray all night forever, one would fast every day, one would never marry. The Prophet ﷺ told them that he is the most conscious of Allah among them, yet he fasts and breaks his fast, sleeps, and marries; whoever turns away from his way is not one of his followers.",
+      "He also spoke to young people directly. He said that whoever among them is able to marry should marry, because it helps to lower the gaze and guard modesty, and whoever is not able should fast, because fasting protects (Bukhari 5066). The Qur’an says to help the unmarried among you to marry, and that if they are poor Allah will enrich them from His bounty (24:32)."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 5063; Bukhari 5066; Qur'an 24:32"
+    },
+    {
+     "id": "ruling",
+     "kind": "contrast",
+     "title": "Is marriage required?",
+     "intro": "Scholars describe the ruling on marriage by a person’s situation, and the schools word it a little differently.",
+     "rows": [
+      {
+       "name": "A person who wants to marry and can afford it",
+       "text": "Hanafi and Hanbali: a recommended sunnah. Maliki: recommended for most people. Shafi’i: permissible in itself, and recommended for someone who wants it and has the means."
+      },
+      {
+       "name": "A person who fears falling into sin and can afford to marry",
+       "text": "All four schools: marriage becomes obligatory for this person."
+      },
+      {
+       "name": "A person who cannot support a spouse",
+       "text": "Do not rush. The Qur’an tells those who cannot find the means to marry to stay chaste until Allah enriches them (24:33), and the Prophet ﷺ advised fasting (Bukhari 5066)."
+      },
+      {
+       "name": "A person who would wrong a spouse",
+       "text": "Scholars say it is disliked, and in some cases forbidden, for this person to marry until they can treat a spouse justly."
+      }
+     ],
+     "closing": "If you are unsure which describes you, ask a trusted imam or teacher. It is a personal question and the answer depends on your life.",
+     "source": "Qur'an 24:33; Bukhari 5066",
+     "review": "The ruling on marriage by situation and the wording per school (Hanafi/Hanbali sunnah, Maliki recommended for most, Shafi’i permissible/recommended for the one who wants it). Written from general knowledge of the fiqh manuals, not checked against a primary text here. Needs a scholar."
+    },
+    {
+     "id": "how",
+     "kind": "howto",
+     "title": "How a marriage is made",
+     "intro": "This is the simple outline. The details of the contract differ a little between the schools, and the next table shows where.",
+     "steps": [
+      {
+       "text": "Both people agree freely.",
+       "detail": "The Prophet ﷺ said that a woman who has been married before is not given in marriage until she is consulted, and a woman who has not is not given until her permission is asked. People asked how a young woman gives permission, and he said: by her silence (Bukhari 5136). A marriage is not something done to a person."
+      },
+      {
+       "text": "Agree the mahr.",
+       "detail": "The mahr is a gift from the groom to the bride. It is hers (Qur’an 4:4). It can be money or something else of value, and the couple agree it together. It is not a price paid for her."
+      },
+      {
+       "text": "The contract is spoken, with a guardian and witnesses.",
+       "detail": "Most schools require the bride’s guardian (wali) and two witnesses. See the table after this step for where the schools differ."
+      },
+      {
+       "text": "Make it known, and hold a meal.",
+       "detail": "When Abdur-Rahman ibn Awf married, the Prophet ﷺ told him to hold a wedding meal even if it was only one sheep (Bukhari 5167). The meal is simple. It can be small."
+      },
+      {
+       "text": "Pray for them.",
+       "detail": "Friends and family say a short blessing. You will learn it in the next step."
+      }
+     ],
+     "mistakes": [
+      "Treating the wedding as the marriage. The wedding is one day. The marriage is the promise that follows it.",
+      "Making the mahr or the party so costly that it delays people from marrying.",
+      "Arranging a marriage for someone without asking them."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 5136; Qur'an 4:4; Bukhari 5167"
+    },
+    {
+     "id": "bless",
+     "kind": "say",
+     "title": "What to say to a newly married couple",
+     "refs": [
+      "fam.nikah.barak"
+     ],
+     "label": "[Established]",
+     "source": "Tirmidhi 1091 (graded sahih by al-Albani)",
+     "note": "When the Prophet ﷺ congratulated a man on his marriage, this is what he said. You can say it to a friend or relative after the contract or at the wedding. Read it slowly, one word at a time. There is no recording of this one in the app yet, because only the Qur’an has recordings here."
+    },
+    {
+     "id": "contract",
+     "kind": "contrast",
+     "title": "Where the schools differ on the contract",
+     "intro": "All four schools agree that a valid marriage needs the bride’s consent, a mahr, and that it is made openly. They differ on these details.",
+     "rows": [
+      {
+       "name": "The guardian (wali)",
+       "text": "Maliki, Shafi’i and Hanbali: a woman’s marriage needs her guardian. They rely on reports such as Abu Dawud 2085 and Tirmidhi 1101 (graded sahih by al-Albani). Hanafi (the view of Abu Hanifa): an adult woman of sound mind may contract her own marriage, though involving her guardian is strongly encouraged."
+      },
+      {
+       "name": "Witnesses",
+       "text": "Hanafi, Shafi’i and Hanbali: two witnesses must be present when the contract is made. Maliki: the marriage must be made public, and witnesses are needed at the latest before the couple live together."
+      },
+      {
+       "name": "The least mahr",
+       "text": "Hanafi: at least ten dirhams. Maliki: at least a quarter of a dinar (about three dirhams). Shafi’i and Hanbali: no fixed minimum."
+      }
+     ],
+     "closing": "A couple should follow the practice of their own school or of the imam who marries them, and be sure the paperwork required by the country they live in is done too.",
+     "source": "Abu Dawud 2085 (graded sahih by al-Albani); Tirmidhi 1101 (graded sahih by al-Albani)",
+     "review": "Every row of this table (wali, witnesses, minimum mahr per school) is written from general fiqh knowledge and has not been checked against the manuals. Needs a scholar to confirm each school’s wording."
+    },
+    {
+     "id": "together",
+     "kind": "why",
+     "title": "What a marriage asks of both people",
+     "body": [
+      "A marriage is not a place where one person is served and the other serves. The measure the Prophet ﷺ gave (next lesson) is how good you are to your family, and the Qur’an tells spouses to deal with each other in kindness.",
+      "Marriage is also never a licence to harm. The Qur’an forbids keeping a spouse in order to harm them (2:231). If you are being hurt, in body or in spirit, you are not asked to put up with it quietly. Safety comes first. Talk to a trusted imam, a counsellor, a doctor, or a helpline in your country. In an emergency, call the emergency number."
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 2:231; Qur'an 4:19",
+     "quran": "q:2:231"
+    },
+    {
+     "id": "c1",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1a",
+       "q": "Which three gifts does Allah say He places between spouses?",
+       "options": [
+        {
+         "text": "Calm, affection and mercy"
+        },
+        {
+         "text": "Wealth, beauty and fame",
+         "reteach": "No. The ayah names calm (sukun), affection (mawaddah) and mercy (rahmah). They are things of the heart that grow with kindness.",
+         "back": "signs"
+        },
+        {
+         "text": "Obedience, silence and patience",
+         "reteach": "No. Those are not the three named. Allah names calm, affection and mercy, and they belong to both spouses.",
+         "back": "signs"
+        }
+       ],
+       "answer": 0,
+       "explain": "Qur’an 30:21: calm in each other, and affection and mercy placed between them.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1b",
+       "q": "What does the Qur’an call the marriage bond in 4:21?",
+       "options": [
+        {
+         "text": "A business deal",
+         "reteach": "No. The Qur’an uses a much heavier word: a solemn covenant, a serious promise.",
+         "back": "covenant"
+        },
+        {
+         "text": "A private matter that needs no promise",
+         "reteach": "No. It is a covenant: the promise is the heart of it.",
+         "back": "covenant"
+        },
+        {
+         "text": "A solemn covenant"
+        }
+       ],
+       "answer": 2,
+       "explain": "Marriage is called a solemn covenant, so it is to be kept with care.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1c",
+       "q": "What did the Prophet ﷺ tell the three men who wanted to give up marriage so they could worship more?",
+       "options": [
+        {
+         "text": "That he prays and sleeps, fasts and breaks his fast, and marries, and whoever turns away from his way is not one of his followers"
+        },
+        {
+         "text": "That they were right, and he praised them",
+         "reteach": "No. He told them his own way includes marrying, and that turning away from it is not his path.",
+         "back": "call"
+        },
+        {
+         "text": "He said nothing about it",
+         "reteach": "He did answer them. The report is in Bukhari 5063: he fasts and breaks, sleeps, prays and marries.",
+         "back": "call"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 5063. Family life is part of the Prophet’s way, not a distraction from worship.",
+       "type": "scenario",
+       "scenario": "Three men decide to give up sleeping, eating by day, and marrying so that they can worship more."
+      },
+      {
+       "id": "c1d",
+       "q": "What does the Prophet ﷺ teach about a woman’s agreement to marriage?",
+       "options": [
+        {
+         "text": "She must be asked, and her silence can be her agreement"
+        },
+        {
+         "text": "Her family can decide for her without asking",
+         "reteach": "No. In Bukhari 5136 the Prophet ﷺ said she is not given in marriage until her permission is asked.",
+         "back": "how"
+        },
+        {
+         "text": "Her agreement matters only the second time she marries",
+         "reteach": "No. The report says a previously married woman must be consulted and a woman not married before must give her permission.",
+         "back": "how"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 5136: a woman is asked, and the people were told that her silence is her permission.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "prompt": "Put the main moments of a marriage in order.",
+     "items": [
+      {
+       "text": "Both people agree freely",
+       "why": "Everything starts with their own agreement. Nobody is married without it.",
+       "back": "how"
+      },
+      {
+       "text": "The mahr is agreed",
+       "why": "The couple usually settle the gift to the bride before or at the contract.",
+       "back": "how"
+      },
+      {
+       "text": "The contract is spoken with the guardian and witnesses",
+       "why": "This is the moment the marriage begins, in front of the people who are needed (details depend on the school).",
+       "back": "contract"
+      },
+      {
+       "text": "Friends and family say the blessing",
+       "why": "They congratulate the couple with the words the Prophet ﷺ used.",
+       "back": "bless"
+      },
+      {
+       "text": "A wedding meal is held",
+       "why": "The Prophet ﷺ told Abdur-Rahman ibn Awf to hold a meal, even a simple one.",
+       "back": "how"
+      }
+     ],
+     "explain": "The marriage begins with free agreement and a spoken contract. The blessing and the meal come when it is made public."
+    },
+    {
+     "id": "words",
+     "kind": "match",
+     "prompt": "Match the word to its meaning. Tap one on the left, then its meaning on the right.",
+     "pairs": [
+      {
+       "left": {
+        "text": "sukun"
+       },
+       "right": {
+        "text": "Calm: someone you can rest beside"
+       },
+       "why": "Sukun is calm. It is the first gift Allah names in 30:21.",
+       "back": "signs"
+      },
+      {
+       "left": {
+        "text": "mawaddah"
+       },
+       "right": {
+        "text": "Warm affection shown in what you do"
+       },
+       "why": "Mawaddah is warm love that shows in actions.",
+       "back": "signs"
+      },
+      {
+       "left": {
+        "text": "rahmah"
+       },
+       "right": {
+        "text": "Mercy: patience with faults and care in weakness"
+       },
+       "why": "Rahmah is mercy. It is what keeps a marriage going when one person is tired or in the wrong.",
+       "back": "signs"
+      },
+      {
+       "left": {
+        "text": "mahr"
+       },
+       "right": {
+        "text": "The bride’s gift from the groom, and it is hers"
+       },
+       "why": "The mahr belongs to the bride (4:4).",
+       "back": "how"
+      },
+      {
+       "left": {
+        "text": "wali"
+       },
+       "right": {
+        "text": "The bride’s guardian in the contract"
+       },
+       "why": "The wali is the bride’s guardian. Three schools require one; the Hanafi school allows an adult woman to contract herself.",
+       "back": "contract"
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c2a",
+       "q": "Who does the mahr belong to?",
+       "options": [
+        {
+         "text": "Her father",
+         "reteach": "No. The mahr is the bride’s own gift (4:4). It does not go to her family.",
+         "back": "how"
+        },
+        {
+         "text": "The bride"
+        },
+        {
+         "text": "The groom’s family",
+         "reteach": "No. It comes from the groom to the bride. It is hers.",
+         "back": "how"
+        }
+       ],
+       "answer": 1,
+       "explain": "The mahr is the bride’s. It is a gift, not a price.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2b",
+       "q": "Which word completes the blessing for a newly married couple? It asks Allah to bring them together in ____.",
+       "options": [
+        {
+         "text": "maal",
+         "reteach": "Maal means wealth. The blessing asks for something more lasting: that they be brought together in good (khayr).",
+         "back": "bless"
+        },
+        {
+         "text": "khayr"
+        },
+        {
+         "text": "dunyaa",
+         "reteach": "Dunyaa means this world. The word in the blessing is khayr: good.",
+         "back": "bless"
+        }
+       ],
+       "answer": 1,
+       "explain": "The blessing ends: wa jama’a baynakuma fee khayr: and may He bring you both together in good.",
+       "type": "fill",
+       "fill": {
+        "ref": "fam.nikah.barak",
+        "blank": 9,
+        "show": "translit"
+       }
+      },
+      {
+       "id": "c2c",
+       "q": "Which is true about the guardian (wali) in the marriage contract?",
+       "options": [
+        {
+         "text": "All four schools say exactly the same",
+         "reteach": "No. They differ here, and the table shows how. None of them is a mistake to correct in another Muslim.",
+         "back": "contract"
+        },
+        {
+         "text": "The schools differ: three require a guardian, and the Hanafi school allows an adult woman to contract her own marriage"
+        },
+        {
+         "text": "No school speaks of a guardian at all",
+         "reteach": "They all speak of it. The schools that require a guardian rely on the Prophet’s words that there is no marriage without a guardian.",
+         "back": "contract"
+        }
+       ],
+       "answer": 1,
+       "explain": "Maliki, Shafi’i and Hanbali require a guardian; Hanafi scholars allow an adult woman to contract her own marriage.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2d",
+       "q": "What should this student do?",
+       "options": [
+        {
+         "text": "Keep chaste, fast, and ask Allah to enrich them, rather than rushing into something they cannot carry"
+        },
+        {
+         "text": "Marry now and think about money later, whatever happens",
+         "reteach": "The Qur’an (24:33) tells those who cannot find the means to wait until Allah enriches them, and the Prophet ﷺ advised fasting.",
+         "back": "ruling"
+        },
+        {
+         "text": "Stop caring about faith altogether",
+         "reteach": "No. Allah and His Messenger ﷺ give a way for exactly this situation: patience, fasting, and trust.",
+         "back": "ruling"
+        }
+       ],
+       "answer": 0,
+       "explain": "Qur’an 24:33 and Bukhari 5066.",
+       "type": "scenario",
+       "scenario": "A student wants to marry, but cannot yet support a family and is finding it hard to stay patient."
+      },
+      {
+       "id": "c2e",
+       "q": "A person in a marriage is being hurt. What does Islam ask of them?",
+       "options": [
+        {
+         "text": "To stay quiet no matter what happens",
+         "reteach": "No. 2:231 forbids keeping a spouse in order to harm them. You are not asked to be silent about harm.",
+         "back": "together"
+        },
+        {
+         "text": "Safety comes first: keeping a spouse to harm them is forbidden, and they should seek a trusted imam, counsellor or helpline"
+        },
+        {
+         "text": "Nothing can be done",
+         "reteach": "Something can: talk to a trusted imam, a counsellor or a helpline, and in an emergency call the emergency number.",
+         "back": "together"
+        }
+       ],
+       "answer": 1,
+       "explain": "Qur’an 2:231 forbids harm. Seeking help is right, not shameful.",
+       "type": "scenario",
+       "scenario": "Someone tells you that a spouse has been hurting them, and asks if they must just endure it."
+      }
+     ]
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Ask Hādi a question about marriage",
+     "body": "Is there something about marriage you have wondered about: the mahr, the contract, what to say to a couple? Ask Hādi. Every answer shows where it comes from.",
+     "route": "/hadi",
+     "button": "Open Hādi"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Name the three gifts Allah places between spouses, and what each means.",
+      "Say why Islam encourages marriage, and what the Prophet ﷺ told the three men.",
+      "Outline how a marriage is made, and say where the schools differ.",
+      "Say the blessing for a newly married couple, with its meaning.",
+      "Say where to turn if a marriage is causing harm."
+     ],
+     "next": "Next: The best of you."
+    }
+   ]
+  },
+  {
+   "id": "fam.u1.l2",
+   "title": "The best of you",
+   "minutes": 15,
+   "intro": "The Prophet’s measure of a good person, how he lived it at home, and small habits that make a home kinder.",
+   "steps": [
+    {
+     "id": "hook",
+     "kind": "teach",
+     "title": "Who are you at home?",
+     "body": [
+      "Many of us keep our best manners for visitors, colleagues and strangers, and give our family what is left over: the tired, short-tempered version of ourselves.",
+      "Islam turns that around. The question is not only how you behave in the mosque or at work. It is how you behave in the kitchen, in the car and at the end of a long day, with the people who cannot leave."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "best",
+     "kind": "teach",
+     "title": "The best of you",
+     "body": [
+      "Aisha reported that the Messenger of Allah ﷺ said: the best of you is the one who is best to his family, and I am the best of you to my family. The word he used for family is ahl, the people of your household.",
+      "This is a measure of goodness that cannot be faked, because your family sees you when you are not performing. A person can pray long, speak well and be generous in public, and still fall short of this measure."
+     ],
+     "label": "[Established]",
+     "source": "Tirmidhi 3895 (graded sahih by al-Albani, hasan by Darussalam)"
+    },
+    {
+     "id": "race",
+     "kind": "story",
+     "title": "A race on a journey",
+     "body": [
+      "Aisha told this about the Prophet ﷺ. She was travelling with him and raced him on foot, and she won. Later, when she had put on some weight, they raced again, and he won. He said to her: this one is for that one.",
+      "It is a small, laughing moment, and it was kept and told for centuries because it shows how he was with his wife: he played with her, he remembered a joke from long before, and he did not need to win."
+     ],
+     "label": "[Established]",
+     "source": "Abu Dawud 2578 (graded sahih by al-Albani)"
+    },
+    {
+     "id": "notices",
+     "kind": "story",
+     "title": "He noticed her mood",
+     "body": [
+      "The Prophet ﷺ once told Aisha: I know when you are pleased with me and when you are angry with me. She asked how. He said that when she was pleased she would say, no, by the Lord of Muhammad, and when she was angry she would say, no, by the Lord of Ibrahim. She answered: yes, but I only leave out your name.",
+      "Look at what he did. He paid attention to her feelings, and he said it with a smile instead of a complaint. Noticing is a gift you can give a family member every day."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 5228"
+    },
+    {
+     "id": "kindness",
+     "kind": "teach",
+     "title": "Kindness, and a smile",
+     "body": [
+      "The Qur’an tells husbands to live with their wives in kindness, and gives a reason that is easy to remember: you may dislike something in a person, and Allah may have placed a great deal of good in it (4:19).",
+      "The Prophet ﷺ also said that smiling in the face of your brother is charity (Tirmidhi 1956, graded sahih by al-Albani). That hadith speaks of every fellow Muslim. It certainly includes the ones you live with."
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 4:19; Tirmidhi 1956 (graded sahih by al-Albani)",
+     "quran": "q:4:19"
+    },
+    {
+     "id": "owed",
+     "kind": "teach",
+     "title": "What a wife is owed",
+     "body": [
+      "A man asked the Prophet ﷺ what the right of a wife is over her husband. He answered: that you feed her when you eat, that you clothe her when you clothe yourself, that you do not strike her face, that you do not insult her, and that you do not keep away from her except inside the house.",
+      "In plain words: provide for her at the level you live at, speak to her with respect, and if you are angry and need distance, do not send her away or leave. This report is about the husband’s duties because the question was about them. The next lesson is about mercy running both ways."
+     ],
+     "label": "[Established]",
+     "source": "Abu Dawud 2142 (graded hasan sahih by al-Albani)",
+     "review": "The plain-words paraphrase of \"do not keep away from her except inside the house\" (do not send her away or leave) is the app author’s reading. Please confirm the wording."
+    },
+    {
+     "id": "force",
+     "kind": "teach",
+     "title": "Anger and the hands",
+     "body": [
+      "Aisha reported that the Prophet ﷺ never struck anyone with his hand, neither a woman nor a servant, except when fighting in the cause of Allah (Muslim 2328). He also told people who are quarrelling to avoid striking the face (Muslim 2612).",
+      "Some people use a verse about disagreement between spouses (4:34) to excuse harsh treatment at home. Scholars have read that verse in different ways, and this lesson does not try to settle it. What is clear is the Prophet’s own example: he never struck a woman. Nothing in Islam allows injuring, shaming or frightening a spouse, and the best of the believers are the best to their families.",
+      "If you are on the receiving end of this, it is not your fault, and you do not have to put up with it. See the safety note in the last lesson, and talk to someone you trust."
+     ],
+     "label": "[Interpretive]",
+     "source": "Muslim 2328; Muslim 2612",
+     "review": "This step mentions Qur’an 4:34 without giving a ruling and says no scholar permits injuring or shaming a spouse. Needs a scholar to confirm the wording and balance."
+    },
+    {
+     "id": "habits",
+     "kind": "howto",
+     "title": "Seven small habits for a kinder home",
+     "intro": "None of these needs money or a special occasion. Pick one and do it this week.",
+     "steps": [
+      {
+       "text": "Greet each other, and smile.",
+       "detail": "The Prophet ﷺ called a smile charity (Tirmidhi 1956, graded sahih by al-Albani)."
+      },
+      {
+       "text": "Notice something, and say it kindly.",
+       "detail": "Like the Prophet ﷺ did with Aisha: \"I can tell you are tired\" is a better start than \"what is wrong with you?\""
+      },
+      {
+       "text": "Say thank you for ordinary things.",
+       "detail": "The meal, the washing, the work. Small thanks stop small resentments growing."
+      },
+      {
+       "text": "Listen to the end before you answer.",
+       "detail": "Put the phone down. Let the other person finish."
+      },
+      {
+       "text": "Play together.",
+       "detail": "Laugh, walk, race. The Prophet ﷺ did (Abu Dawud 2578, graded sahih by al-Albani)."
+      },
+      {
+       "text": "Keep small promises.",
+       "detail": "If you say \"I will call at six\", call at six."
+      },
+      {
+       "text": "Say sorry quickly.",
+       "detail": "You do not have to be wrong in every way. You can still be sorry that it hurt."
+      }
+     ],
+     "label": "[Reflection]",
+     "source": "Tirmidhi 1956 (graded sahih by al-Albani); Abu Dawud 2578 (graded sahih by al-Albani)"
+    },
+    {
+     "id": "c1",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1a",
+       "q": "According to the hadith, who are the best of people?",
+       "options": [
+        {
+         "text": "Those who are best to their families"
+        },
+        {
+         "text": "Those who pray the longest",
+         "reteach": "Prayer matters a great deal, but this hadith measures goodness by how you treat your family.",
+         "back": "best"
+        },
+        {
+         "text": "Those who earn the most",
+         "reteach": "No. Wealth is not the measure here. The Prophet ﷺ said the best of you is the best to his family.",
+         "back": "best"
+        }
+       ],
+       "answer": 0,
+       "explain": "The best of you is the best to his family (Tirmidhi 3895, graded sahih by al-Albani).",
+       "type": "mcq"
+      },
+      {
+       "id": "c1b",
+       "q": "What does this hadith say about this person?",
+       "options": [
+        {
+         "text": "Work manners matter more than home manners",
+         "reteach": "The hadith says the opposite: the family sees you with nothing to prove.",
+         "back": "best"
+        },
+        {
+         "text": "Home life is private, so it does not count",
+         "reteach": "It counts. The Prophet ﷺ set the test at home.",
+         "back": "best"
+        },
+        {
+         "text": "Real goodness shows at home first"
+        }
+       ],
+       "answer": 2,
+       "explain": "The best of you is the best to his family: so a person who is warm outside and harsh at home has missed the measure.",
+       "type": "scenario",
+       "scenario": "A man is polite and patient with everyone at work, and sharp and impatient with his family."
+      },
+      {
+       "id": "c1c",
+       "q": "What does the story of Aisha’s race show?",
+       "options": [
+        {
+         "text": "The Prophet ﷺ played and joked with his wife"
+        },
+        {
+         "text": "He never joked at home",
+         "reteach": "No. Abu Dawud 2578 (graded sahih by al-Albani) shows him racing her and laughing about it years later.",
+         "back": "race"
+        },
+        {
+         "text": "Races are only for men",
+         "reteach": "No. Aisha raced the Prophet ﷺ, twice, on a journey.",
+         "back": "race"
+        }
+       ],
+       "answer": 0,
+       "explain": "They raced twice, she won once and he won once, and he said: this one is for that one.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1d",
+       "q": "In Bukhari 6114, who does the Prophet ﷺ call strong?",
+       "options": [
+        {
+         "text": "The one who controls himself when angry"
+        },
+        {
+         "text": "The one who wins every fight",
+         "reteach": "No. He said the strong one is not the one who overcomes people by strength.",
+         "back": "force"
+        },
+        {
+         "text": "The one who never feels anger",
+         "reteach": "No. Anger is a feeling. The strong one is the one who controls himself while angry.",
+         "back": "force"
+        }
+       ],
+       "answer": 0,
+       "explain": "The strong one is the one who controls himself in anger (Bukhari 6114).",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "anger",
+     "kind": "arrange",
+     "prompt": "Your anger is rising in the middle of an argument. Put these steps in the order that helps most.",
+     "items": [
+      {
+       "text": "Notice the anger and stop talking",
+       "why": "Words said in anger are the ones that leave marks. The strong one is the one who controls himself (Bukhari 6114).",
+       "back": "force"
+      },
+      {
+       "text": "Sit down; if it stays, lie down",
+       "why": "The Prophet ﷺ told an angry person standing to sit, and if the anger stays, to lie down (Abu Dawud 4782, graded sahih by al-Albani).",
+       "back": "force"
+      },
+      {
+       "text": "Ask Allah for help and calm down",
+       "why": "Say a short du’a or make wudu. When you are calm, you can think about what you want to say.",
+       "back": "habits"
+      },
+      {
+       "text": "Come back and say what hurt, kindly",
+       "why": "Talk about the problem, not about the other person’s whole character.",
+       "back": "habits"
+      },
+      {
+       "text": "Say sorry for your part",
+       "why": "Even if the other person was also wrong, apologising for your own part ends arguments.",
+       "back": "habits"
+      }
+     ],
+     "explain": "First stop. Then change your position. Then calm yourself. Then speak kindly and take responsibility for your part."
+    },
+    {
+     "id": "stories",
+     "kind": "match",
+     "prompt": "Match each story or saying to what it teaches. Tap one on the left, then its meaning on the right.",
+     "pairs": [
+      {
+       "left": {
+        "text": "The race with Aisha"
+       },
+       "right": {
+        "text": "Play and laughter belong in a marriage"
+       },
+       "why": "The Prophet ﷺ raced his wife and laughed about it.",
+       "back": "race"
+      },
+      {
+       "left": {
+        "text": "By the Lord of Muhammad, by the Lord of Ibrahim"
+       },
+       "right": {
+        "text": "Noticing a family member’s mood, and saying it kindly"
+       },
+       "why": "He noticed her mood from a small change in her words.",
+       "back": "notices"
+      },
+      {
+       "left": {
+        "text": "Sit down; if it stays, lie down"
+       },
+       "right": {
+        "text": "What to do when anger comes while you are standing"
+       },
+       "why": "It is the Prophet’s advice for anger.",
+       "back": "anger"
+      },
+      {
+       "left": {
+        "text": "Never struck a woman or a servant"
+       },
+       "right": {
+        "text": "The Prophet’s own practice at home"
+       },
+       "why": "Aisha reported it (Muslim 2328).",
+       "back": "force"
+      },
+      {
+       "left": {
+        "text": "A smile"
+       },
+       "right": {
+        "text": "A small act that counts as charity"
+       },
+       "why": "Smiling in your brother’s face is charity.",
+       "back": "kindness"
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c2a",
+       "q": "Which of these is part of what the Prophet ﷺ said a wife is owed?",
+       "options": [
+        {
+         "text": "To be kept away from her own family",
+         "reteach": "No. That is not in the report. Abu Dawud 2142 (graded hasan sahih by al-Albani) lists food, clothing, no insulting and no striking the face.",
+         "back": "owed"
+        },
+        {
+         "text": "To be fed and clothed as her husband is"
+        },
+        {
+         "text": "To stay silent when there is a disagreement",
+         "reteach": "No. The report asks the husband to speak with respect and not to insult.",
+         "back": "owed"
+        }
+       ],
+       "answer": 1,
+       "explain": "Feed her as you eat, clothe her as you clothe yourself, do not insult her, do not strike her face, and do not keep away from her except inside the house.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2b",
+       "q": "You are angry and standing in the kitchen after a bad day. What does the Prophet ﷺ advise?",
+       "options": [
+        {
+         "text": "Walk out and slam the door",
+         "reteach": "No. Leaving in a rage makes things worse. The Prophet ﷺ told an angry person to sit, and to lie down if it remains.",
+         "back": "anger"
+        },
+        {
+         "text": "Sit down, and if the anger stays, lie down"
+        },
+        {
+         "text": "Say everything now so it is out",
+         "reteach": "No. Words said in anger leave marks. Stop and control yourself first.",
+         "back": "anger"
+        }
+       ],
+       "answer": 1,
+       "explain": "Abu Dawud 4782 (graded sahih by al-Albani).",
+       "type": "scenario",
+       "scenario": "You are standing in the kitchen, very angry about something your spouse said."
+      },
+      {
+       "id": "c2c",
+       "q": "What did Aisha report about the Prophet ﷺ and striking?",
+       "options": [
+        {
+         "text": "He struck only when he was angry",
+         "reteach": "No. She said he never struck a woman or servant at all. The report is Muslim 2328.",
+         "back": "force"
+        },
+        {
+         "text": "He never struck anyone with his hand, neither a woman nor a servant, except when fighting in the cause of Allah"
+        },
+        {
+         "text": "Nothing is reported about it",
+         "reteach": "It is reported in Muslim 2328.",
+         "back": "force"
+        }
+       ],
+       "answer": 1,
+       "explain": "Muslim 2328.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2d",
+       "q": "Your spouse comes home tired and quiet. Which is closer to the way the Prophet ﷺ treated Aisha?",
+       "options": [
+        {
+         "text": "Notice it kindly and ask, or help"
+        },
+        {
+         "text": "Ignore it and keep watching the screen",
+         "reteach": "The Prophet ﷺ noticed Aisha’s mood from a few words. Noticing is part of the way.",
+         "back": "notices"
+        },
+        {
+         "text": "Say their mood is annoying",
+         "reteach": "That would add to the weight. The Prophet ﷺ noticed and spoke with warmth.",
+         "back": "notices"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 5228: he noticed, and he said it with a smile.",
+       "type": "scenario",
+       "scenario": "Your spouse comes in and sits down without saying much."
+      },
+      {
+       "id": "c2e",
+       "q": "What does the Prophet ﷺ say about smiling at a fellow Muslim?",
+       "options": [
+        {
+         "text": "It is a sin if it is too wide",
+         "reteach": "No. There is no such rule. He called a smile charity.",
+         "back": "kindness"
+        },
+        {
+         "text": "It is charity"
+        },
+        {
+         "text": "It has no value in Islam",
+         "reteach": "It does. He called it charity (Tirmidhi 1956, graded sahih by al-Albani).",
+         "back": "kindness"
+        }
+       ],
+       "answer": 1,
+       "explain": "Your smiling in the face of your brother is charity.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Pick one habit",
+     "body": "Choose one of the seven habits and do it today. If you want help with the words for a sincere apology, ask Hādi.",
+     "route": "/hadi",
+     "button": "Open Hādi"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Say the hadith that measures goodness by how you treat your family.",
+      "Tell two short stories of how the Prophet ﷺ was with his wife.",
+      "Say what to do when anger comes, in order.",
+      "Say clearly that the Prophet ﷺ never struck a woman, and that harm is never allowed.",
+      "Name one small habit you will start this week."
+     ],
+     "next": "Next: Mercy between you."
+    }
+   ]
+  },
+  {
+   "id": "fam.u1.l3",
+   "title": "Mercy between you",
+   "minutes": 15,
+   "intro": "Covering faults, settling quarrels, getting fair help, and knowing when to seek safety.",
+   "steps": [
+    {
+     "id": "hook",
+     "kind": "teach",
+     "title": "The same quarrel, every week",
+     "body": [
+      "Most arguments at home are small: who was supposed to do what, a tone of voice, a forgotten message. The trouble is not that there is a disagreement. The trouble is what we do with it.",
+      "In this lesson you will learn what the Qur’an and the Prophet ﷺ say about covering faults, settling quarrels, getting fair help when you are stuck, and how long a silence may last."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "garments",
+     "kind": "teach",
+     "title": "Clothing for each other",
+     "body": [
+      "The Qur’an says of spouses: they are a garment for you, and you are a garment for them. The ayah speaks about the nights of Ramadan, and the picture is easy to understand. A garment is close to the body, it covers, it protects, and it warms.",
+      "Scholars take from this image that spouses cover one another’s faults and protect one another, rather than exposing each other."
+     ],
+     "label": "[Interpretive]",
+     "source": "Qur'an 2:187",
+     "quran": "q:2:187",
+     "review": "The explanation of the garment image (closeness, covering, protection) is the app author’s summary of standard commentary. Please confirm."
+    },
+    {
+     "id": "cover",
+     "kind": "teach",
+     "title": "Cover, and do not broadcast",
+     "body": [
+      "The Prophet ﷺ said that Allah will conceal on the Day of Resurrection the faults of the person who conceals the faults of others in this world (Muslim 2590). He also said that whoever believes in Allah and the Last Day should say what is good or stay quiet (Bukhari 6018).",
+      "At home this means: do not use your spouse’s faults as stories to tell your friends, do not post about them, and do not bring up an old mistake to win a new argument. If you need advice, take it to one fair, trusted person, not to an audience."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 2590; Bukhari 6018"
+    },
+    {
+     "id": "help",
+     "kind": "teach",
+     "title": "When you cannot settle it alone",
+     "body": [
+      "The Qur’an says that if a couple fear a break between them, a fair person from his side and a fair person from her side should be sent to them. If both want peace, Allah will bring it about between them (4:35). Another ayah says that settling between them is best (4:128).",
+      "So there is a step between silence and separation: ask a fair, wise and trusted person from each family, or an imam or counsellor, to help you talk."
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 4:35; Qur'an 4:128",
+     "quran": "q:4:35"
+    },
+    {
+     "id": "umm",
+     "kind": "story",
+     "title": "The Prophet listened to his wife",
+     "body": [
+      "At Hudaybiyyah, after the peace treaty was written, the Prophet ﷺ told the Companions three times to get up, sacrifice their animals and shave their heads. None of them moved. He went to his wife Umm Salama and told her what had happened.",
+      "She advised him to go out and say nothing to anyone, but to sacrifice and call the barber himself. He did, and when the people saw it they stood up and did the same.",
+      "The Messenger of Allah ﷺ asked for his wife’s advice in a hard moment and acted on it. A good family takes counsel from each other."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 2731"
+    },
+    {
+     "id": "talk",
+     "kind": "howto",
+     "title": "When you disagree: five steps",
+     "intro": "These are practical suggestions based on the Qur’an and Sunnah. Use them as a guide, not a script.",
+     "steps": [
+      {
+       "text": "Pause before you speak.",
+       "detail": "The strong one is the one who controls himself in anger (Bukhari 6114). If you need to, sit down first."
+      },
+      {
+       "text": "Talk about the problem, not the person.",
+       "detail": "\"I felt hurt when the plans changed\" opens a door. \"You always...\" closes it."
+      },
+      {
+       "text": "Listen to the end.",
+       "detail": "Repeat back what you heard before you reply."
+      },
+      {
+       "text": "Own your part and say sorry.",
+       "detail": "Even when you were only partly wrong."
+      },
+      {
+       "text": "Do not let silence harden.",
+       "detail": "The Prophet ﷺ said it is not lawful for a Muslim to desert a brother for more than three nights, and the better one is the one who greets first (Bukhari 6077). The report speaks of Muslims in general; the same spirit applies at home."
+      }
+     ],
+     "mistakes": [
+      "Bringing up old faults to win the new argument.",
+      "Going quiet for days to punish someone.",
+      "Telling the whole family your side before you have talked to your spouse."
+     ],
+     "label": "[Reflection]",
+     "source": "Bukhari 6114; Bukhari 6077",
+     "review": "The use of the three-nights report for spouses is the app author’s application of its spirit. Needs a scholar to confirm the wording."
+    },
+    {
+     "id": "trouble",
+     "kind": "teach",
+     "title": "When a marriage is in real trouble",
+     "body": [
+      "Sometimes helping each other is not enough. Divorce is allowed in Islam, but it is a serious matter with detailed rules, and the schools differ in some of them. Do not take your rules from social media or from a friend. Ask a qualified imam.",
+      "Two things are certain. A spouse must not be kept in order to harm them (2:231). And a person who is being hurt in body or in spirit should get safe first, and then get help from a trusted imam, a counsellor or a helpline. In an emergency, call the emergency number."
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 2:231",
+     "quran": "q:2:231",
+     "review": "The statement that divorce is allowed but serious with rules that differ by school is general. Please confirm."
+    },
+    {
+     "id": "c1",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1a",
+       "q": "In 2:187, what are spouses called for each other?",
+       "options": [
+        {
+         "text": "Garments (clothing)"
+        },
+        {
+         "text": "Servants",
+         "reteach": "No. The Qur’an uses the picture of a garment: close, covering, protecting.",
+         "back": "garments"
+        },
+        {
+         "text": "Rivals",
+         "reteach": "No. The word is garment, a picture of closeness and covering.",
+         "back": "garments"
+        }
+       ],
+       "answer": 0,
+       "explain": "They are a garment for you, and you are a garment for them.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1b",
+       "q": "What did the Prophet ﷺ say about concealing the faults of others?",
+       "options": [
+        {
+         "text": "Faults should be shared widely so people can help",
+         "reteach": "No. The Prophet ﷺ said Allah conceals the faults of the one who conceals others’ faults (Muslim 2590).",
+         "back": "cover"
+        },
+        {
+         "text": "It only applies to strangers",
+         "reteach": "It applies to everyone, and at home it matters most.",
+         "back": "cover"
+        },
+        {
+         "text": "Allah will conceal the faults of the one who conceals them"
+        }
+       ],
+       "answer": 2,
+       "explain": "Muslim 2590.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1c",
+       "q": "What is the better thing to do?",
+       "options": [
+        {
+         "text": "Keep it between the two of you, and if you need advice, ask one fair, trusted person"
+        },
+        {
+         "text": "Post it online so people can judge",
+         "reteach": "No. That exposes your spouse and cannot be taken back. The Prophet ﷺ taught concealing faults.",
+         "back": "cover"
+        },
+        {
+         "text": "Tell all your friends your side",
+         "reteach": "This turns a private quarrel into a public one. Cover, and do not broadcast.",
+         "back": "cover"
+        }
+       ],
+       "answer": 0,
+       "explain": "Cover and do not broadcast (Muslim 2590). Take advice from one fair, trusted person.",
+       "type": "scenario",
+       "scenario": "After a quarrel you are tempted to tell your friends everything your spouse did wrong."
+      },
+      {
+       "id": "c1d",
+       "q": "How long may a Muslim stay not speaking to another Muslim, according to Bukhari 6077?",
+       "options": [
+        {
+         "text": "No more than three nights, and the better one is the one who greets first"
+        },
+        {
+         "text": "As long as it takes",
+         "reteach": "No. The Prophet ﷺ said it is not lawful beyond three nights.",
+         "back": "talk"
+        },
+        {
+         "text": "A whole month",
+         "reteach": "No. The limit is three nights.",
+         "back": "talk"
+        }
+       ],
+       "answer": 0,
+       "explain": "Not lawful for more than three nights; the better of the two is the one who greets first.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "repair",
+     "kind": "arrange",
+     "prompt": "Put the steps of repairing after a quarrel in order.",
+     "items": [
+      {
+       "text": "Cool down",
+       "why": "Pause, sit down, and control yourself before you speak (Bukhari 6114).",
+       "back": "talk"
+      },
+      {
+       "text": "Talk about the problem, not the person",
+       "why": "Say what happened and how it felt, without attacking the person.",
+       "back": "talk"
+      },
+      {
+       "text": "Listen to the end and say sorry for your part",
+       "why": "Listening and apologising turn a quarrel into a conversation.",
+       "back": "talk"
+      },
+      {
+       "text": "If you are stuck, bring a fair person from each side",
+       "why": "The Qur’an says to send an arbiter from his people and one from hers (4:35).",
+       "back": "help"
+      },
+      {
+       "text": "Do not leave it silent for days",
+       "why": "The Prophet ﷺ said not to desert a Muslim for more than three nights, and the better is the one who greets first (Bukhari 6077).",
+       "back": "talk"
+      }
+     ],
+     "explain": "Cool down. Name the problem. Listen and apologise. Get fair help if you are stuck. Do not let the silence harden."
+    },
+    {
+     "id": "ayat",
+     "kind": "match",
+     "prompt": "Match each saying to what it asks of you. Tap one on the left, then its meaning on the right.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Qur’an 4:35"
+       },
+       "right": {
+        "text": "Send a fair person from each side to help"
+       },
+       "why": "It is the ayah about arbiters from his people and hers.",
+       "back": "help"
+      },
+      {
+       "left": {
+        "text": "Qur’an 4:128"
+       },
+       "right": {
+        "text": "Settling between them is best"
+       },
+       "why": "It says that settlement is best.",
+       "back": "help"
+      },
+      {
+       "left": {
+        "text": "Muslim 2590"
+       },
+       "right": {
+        "text": "Conceal faults and Allah will conceal yours"
+       },
+       "why": "It is the hadith about concealing faults.",
+       "back": "cover"
+      },
+      {
+       "left": {
+        "text": "Bukhari 6077"
+       },
+       "right": {
+        "text": "Do not stay silent with a fellow Muslim for more than three nights"
+       },
+       "why": "It is the hadith about the three nights.",
+       "back": "talk"
+      },
+      {
+       "left": {
+        "text": "Qur’an 2:231"
+       },
+       "right": {
+        "text": "Do not keep a spouse in order to harm them"
+       },
+       "why": "It forbids holding a spouse in order to harm.",
+       "back": "trouble"
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c2a",
+       "q": "A couple cannot settle a long quarrel on their own. What does the Qur’an say?",
+       "options": [
+        {
+         "text": "It is private, so nothing more can be done",
+         "reteach": "No. 4:35 gives a way: a fair person from each family.",
+         "back": "help"
+        },
+        {
+         "text": "Send a fair person from his side and one from hers; if both want peace, Allah will bring it about"
+        },
+        {
+         "text": "The stronger person decides",
+         "reteach": "No. The ayah asks for fair people from both sides to work towards peace.",
+         "back": "help"
+        }
+       ],
+       "answer": 1,
+       "explain": "Qur’an 4:35.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2b",
+       "q": "What does the story of Umm Salama show?",
+       "options": [
+        {
+         "text": "He did not talk to his wives about public matters",
+         "reteach": "No. At Hudaybiyyah he went to Umm Salama and listened to her advice.",
+         "back": "umm"
+        },
+        {
+         "text": "The Prophet ﷺ asked his wife for advice and acted on it"
+        },
+        {
+         "text": "She told him to be silent and do nothing",
+         "reteach": "Not quite. She advised him to go out, say nothing to anyone, and do the sacrifice and shaving himself. It worked.",
+         "back": "umm"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 2731: he did what she advised, and the people followed him.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2c",
+       "q": "What is the right answer?",
+       "options": [
+        {
+         "text": "Yes. She should stay quiet to keep the family together",
+         "reteach": "No. 2:231 forbids holding a spouse in order to harm. Safety comes first.",
+         "back": "trouble"
+        },
+        {
+         "text": "No. A spouse must not be kept in order to harm them, and the person should get safe and get help"
+        },
+        {
+         "text": "Yes. Complaining is always wrong",
+         "reteach": "No. Seeking help from a trusted imam, a counsellor or a helpline is right.",
+         "back": "trouble"
+        }
+       ],
+       "answer": 1,
+       "explain": "Qur’an 2:231. Get safe, then get help from someone you trust.",
+       "type": "scenario",
+       "scenario": "A woman says: my husband hurts me, but I must keep quiet to protect my family. Is she right?"
+      },
+      {
+       "id": "c2d",
+       "q": "Which is a better way to begin a hard conversation?",
+       "options": [
+        {
+         "text": "I felt hurt when the plans changed. Can we talk about it?"
+        },
+        {
+         "text": "You always ruin everything.",
+         "reteach": "This attacks the person. Talk about the problem, not the person.",
+         "back": "talk"
+        },
+        {
+         "text": "Fine. Do whatever you want.",
+         "reteach": "This closes the door instead of opening it.",
+         "back": "talk"
+        }
+       ],
+       "answer": 0,
+       "explain": "Name the problem and how it felt, without attacking.",
+       "type": "scenario",
+       "scenario": "You are upset because your spouse changed the plans without telling you."
+      },
+      {
+       "id": "c2e",
+       "q": "What is true about divorce in Islam?",
+       "options": [
+        {
+         "text": "It is forbidden in every case",
+         "reteach": "No. It is allowed, though it is serious and has rules.",
+         "back": "trouble"
+        },
+        {
+         "text": "It is allowed but serious, with detailed rules that differ between schools, so ask a qualified imam"
+        },
+        {
+         "text": "It is a casual matter with no rules",
+         "reteach": "No. It has detailed rules. Do not take them from social media.",
+         "back": "trouble"
+        }
+       ],
+       "answer": 1,
+       "explain": "Allowed, serious, and governed by detailed rules.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Plan how you would say sorry",
+     "body": "Think of a small hurt at home that has not been mended. Ask Hādi for kind words to start the conversation.",
+     "route": "/hadi",
+     "button": "Open Hādi"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Say what the garment image of 2:187 asks of spouses.",
+      "Cover faults and keep family matters private, as the Prophet ﷺ taught.",
+      "Name the step the Qur’an gives between silence and separation.",
+      "Know the limit on not speaking, and who is the better one.",
+      "Say where to turn if someone is being harmed."
+     ],
+     "next": "Next: Children, the trust."
+    }
+   ]
+  },
+  {
+   "id": "fam.u2.l1",
+   "title": "The first teacher",
+   "minutes": 15,
+   "intro": "What the Qur’an and the Prophet ﷺ ask of us towards our parents, in hard times too, and after they have passed.",
+   "steps": [
+    {
+     "id": "hook",
+     "kind": "teach",
+     "title": "Your first teachers",
+     "body": [
+      "Before you could read, someone taught you to speak, to eat, and to say your first words. For most of us that someone was a parent.",
+      "The Qur’an puts the duty to parents straight after the duty to worship Allah alone. In this lesson you will learn what is asked of you, in plain words: what to do while your parents are alive, how to handle hard situations, and what you can still do for them after they have died. It is for anyone with parents, living or gone."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "who",
+     "kind": "story",
+     "title": "Who is most deserving of my care?",
+     "body": [
+      "A man came to the Prophet ﷺ and asked: who among the people is most deserving of my good company? The Prophet ﷺ said: your mother. The man asked: and then who? He said: your mother. The man asked again: and then who? He said: your mother. The man asked a fourth time: and then who? He said: your father.",
+      "Notice the three. The Prophet ﷺ did not need long speeches. He repeated one word three times, and the father is named fourth. Scholars say this is because of what a mother goes through: pregnancy, birth and early care. Both parents are owed good treatment."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 5971"
+    },
+    {
+     "id": "weakness",
+     "kind": "teach",
+     "title": "She carried you",
+     "body": [
+      "The Qur’an itself reminds us. Allah says that He has enjoined upon people care for their parents, that the mother carried the child in weakness upon weakness, and that the child is to be grateful to Allah and to the parents (31:14). In another ayah we are told she carried and delivered the child with hardship (46:15).",
+      "This is not said to make anyone feel guilty. It is a reminder, so that when your parent is slow, repeats a story or needs help, you remember who once did the same for you."
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 31:14; Qur'an 46:15",
+     "quran": "q:31:14"
+    },
+    {
+     "id": "uff",
+     "kind": "say",
+     "title": "Not even “uff”",
+     "refs": [
+      "q:17:23",
+      "q:17:24"
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 17:23-24",
+     "note": "Allah commands good treatment of parents, even when they are old and living with you. Do not say uff (a small sound of annoyance) and do not push them away; speak to them with a noble word. Then lower the wing of humility out of mercy, and make this du’a for them. Read the meaning under each line."
+    },
+    {
+     "id": "hear",
+     "kind": "listen",
+     "title": "Hear the du’a for your parents",
+     "ref": "q:17:24",
+     "repeats": 2,
+     "note": "Listen to how the du’a is recited. The second half is the words to say for your parents. In the pause, say it after the reciter."
+    },
+    {
+     "id": "ways",
+     "kind": "howto",
+     "title": "Ways to honour your parents, now",
+     "intro": "You do not need to do all of these. Choose the ones that fit your parents and your life.",
+     "steps": [
+      {
+       "text": "Speak gently, and keep your voice low.",
+       "detail": "The Qur’an says not even uff (17:23). Take care with your tone, especially when you are tired."
+      },
+      {
+       "text": "Call, visit, and listen.",
+       "detail": "A short call every day is worth more than a big visit once a year. Let them finish their sentence."
+      },
+      {
+       "text": "Help without being asked.",
+       "detail": "A lift to an appointment, shopping, fixing a tap, helping with a phone."
+      },
+      {
+       "text": "Make du’a for them.",
+       "detail": "Use the du’a of 17:24 that you just read."
+      },
+      {
+       "text": "Be kind to their friends and relatives.",
+       "detail": "The Prophet ﷺ said that the finest act of goodness is that a person treat kindly the loved ones of his father (Muslim 2552)."
+      },
+      {
+       "text": "Be patient when they are hard to be patient with.",
+       "detail": "Tiredness, memory, pain and fear can change a person. Do not take it as an attack."
+      }
+     ],
+     "mistakes": [
+      "Talking about them with others in a way you would not say to their face.",
+      "Only visiting when you need something.",
+      "Thinking that good treatment means you must never disagree. You can disagree gently."
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 17:23-24; Muslim 2552"
+    },
+    {
+     "id": "limits",
+     "kind": "teach",
+     "title": "When it is hard",
+     "body": [
+      "Some parents are not Muslim. Some ask for things that are wrong. Some have been hard on their children. The Qur’an speaks to this directly. If they push you to join others with Allah in worship, do not obey them, but still keep them company in this world with appropriate kindness (31:15).",
+      "Asma bint Abu Bakr told the Prophet ﷺ that her mother, who was not a Muslim, had come to her and hoped for help. She asked if she should keep good relations with her. He said: yes, keep good relations with her (Bukhari 2620).",
+      "So the line is clear. You do not have to obey a command to do wrong. You are still asked to treat your parents with respect and kindness. If you are being harmed, be safe first, and ask a trusted imam or teacher how to balance respect and safety."
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 31:15; Bukhari 2620",
+     "quran": "q:31:15"
+    },
+    {
+     "id": "after",
+     "kind": "teach",
+     "title": "After they have passed",
+     "body": [
+      "The Prophet ﷺ said that when a person dies, their deeds come to an end except for three: ongoing charity, knowledge that continues to benefit people, and a righteous child who prays for them (Muslim 1631).",
+      "When the mother of Sa’d ibn Ubada died, he asked the Prophet ﷺ whether it would benefit her if he gave charity on her behalf. The Prophet ﷺ said yes (Bukhari 2756). Many people give charity, help the poor, or fund water for their parents. A child’s du’a is also a gift. The Qur’an records the du’a of Nuh, which asks forgiveness for himself, his parents, and the believers (71:28)."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 1631; Bukhari 2756; Qur’an 71:28",
+     "quran": "q:71:28"
+    },
+    {
+     "id": "c1",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1a",
+       "q": "In Bukhari 5971, whom did the Prophet ﷺ name first, second and third as most deserving of good company?",
+       "options": [
+        {
+         "text": "His mother, three times"
+        },
+        {
+         "text": "His father, then his mother",
+         "reteach": "No. The Prophet ﷺ said mother three times, and then father.",
+         "back": "who"
+        },
+        {
+         "text": "Close friends first",
+         "reteach": "No. He named the mother first, three times, and then the father.",
+         "back": "who"
+        }
+       ],
+       "answer": 0,
+       "explain": "Your mother, your mother, your mother, then your father.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1b",
+       "q": "What does 17:23 say not to say to parents?",
+       "options": [
+        {
+         "text": "Any word at all",
+         "reteach": "No. The ayah says to speak a noble word. What it forbids is even a small sound of annoyance.",
+         "back": "uff"
+        },
+        {
+         "text": "Salam",
+         "reteach": "No. A greeting is always good. The ayah forbids uff.",
+         "back": "uff"
+        },
+        {
+         "text": "Uff, a sound of annoyance"
+        }
+       ],
+       "answer": 2,
+       "explain": "Do not say uff to them, and do not push them away; speak with a noble word.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1c",
+       "q": "What should Layla do?",
+       "options": [
+        {
+         "text": "Not obey the command to do wrong, but still treat her mother with kindness and respect"
+        },
+        {
+         "text": "Obey her mother, whatever she says",
+         "reteach": "The Qur’an (31:15) says do not obey a command to join others with Allah, but accompany them in this world with appropriate kindness.",
+         "back": "limits"
+        },
+        {
+         "text": "Cut her off completely",
+         "reteach": "No. 31:15 says to keep company with appropriate kindness. Bukhari 2620 tells Asma to keep good relations with her non-Muslim mother.",
+         "back": "limits"
+        }
+       ],
+       "answer": 0,
+       "explain": "Qur’an 31:15 and Bukhari 2620: refuse what is wrong, and still be kind.",
+       "type": "scenario",
+       "scenario": "Layla’s mother is not Muslim and has asked her to do something that Layla knows is wrong."
+      },
+      {
+       "id": "c1d",
+       "q": "Which three things does the Prophet ﷺ say continue to benefit a person after death?",
+       "options": [
+        {
+         "text": "Ongoing charity, useful knowledge, and a righteous child who prays for them"
+        },
+        {
+         "text": "Wealth, fame and a large funeral",
+         "reteach": "No. Muslim 1631 names ongoing charity, knowledge, and a righteous child who prays for them.",
+         "back": "after"
+        },
+        {
+         "text": "Prayer, fasting and pilgrimage done by others in advance",
+         "reteach": "No. The three in Muslim 1631 are ongoing charity, knowledge that benefits, and a righteous child who prays.",
+         "back": "after"
+        }
+       ],
+       "answer": 0,
+       "explain": "Muslim 1631.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "answers",
+     "kind": "arrange",
+     "prompt": "Put the Prophet’s four answers in the order he gave them.",
+     "items": [
+      {
+       "text": "First answer: your mother",
+       "why": "The Prophet ﷺ named his mother first.",
+       "back": "who"
+      },
+      {
+       "text": "Second answer: your mother",
+       "why": "He repeated it a second time when asked who comes next.",
+       "back": "who"
+      },
+      {
+       "text": "Third answer: your mother",
+       "why": "He said it a third time.",
+       "back": "who"
+      },
+      {
+       "text": "Fourth answer: your father",
+       "why": "Only on the fourth question did he name the father.",
+       "back": "who"
+      }
+     ],
+     "explain": "Mother, mother, mother, then father (Bukhari 5971). Both are owed good treatment."
+    },
+    {
+     "id": "verses",
+     "kind": "match",
+     "prompt": "Match each ayah or hadith to what it teaches. Tap one on the left, then its meaning on the right.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Qur’an 17:23"
+       },
+       "right": {
+        "text": "Do not even say uff to your parents"
+       },
+       "why": "It tells us to say a noble word and not even uff.",
+       "back": "uff"
+      },
+      {
+       "left": {
+        "text": "Qur’an 31:14"
+       },
+       "right": {
+        "text": "Your mother carried you in weakness upon weakness"
+       },
+       "why": "It reminds us of what a mother goes through.",
+       "back": "weakness"
+      },
+      {
+       "left": {
+        "text": "Qur’an 31:15"
+       },
+       "right": {
+        "text": "Refuse what is wrong, but still be kind"
+       },
+       "why": "It separates obedience from kindness.",
+       "back": "limits"
+      },
+      {
+       "left": {
+        "text": "Muslim 1631"
+       },
+       "right": {
+        "text": "A righteous child who prays for you keeps benefiting you"
+       },
+       "why": "It is the hadith about the three ongoing deeds.",
+       "back": "after"
+      },
+      {
+       "left": {
+        "text": "Bukhari 2756"
+       },
+       "right": {
+        "text": "Charity given for a parent who has died can benefit them"
+       },
+       "why": "It is the report of Sa’d and his mother.",
+       "back": "after"
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c2a",
+       "q": "What does the Prophet ﷺ call the finest act of goodness towards a father?",
+       "options": [
+        {
+         "text": "To pay for his funeral",
+         "reteach": "No. Muslim 2552 says the finest act of goodness is treating kindly the loved ones of your father.",
+         "back": "ways"
+        },
+        {
+         "text": "To treat kindly the loved ones of your father"
+        },
+        {
+         "text": "To keep a distance from his friends",
+         "reteach": "No. It is the opposite: be kind to his loved ones.",
+         "back": "ways"
+        }
+       ],
+       "answer": 1,
+       "explain": "Muslim 2552.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2b",
+       "q": "Her mother has died. What can Hana still do for her?",
+       "options": [
+        {
+         "text": "Nothing, because her deeds have ended",
+         "reteach": "No. A righteous child’s du’a and charity on her behalf continue to benefit (Muslim 1631, Bukhari 2756).",
+         "back": "after"
+        },
+        {
+         "text": "Make du’a for her, give charity on her behalf, and keep kind ties with her friends"
+        },
+        {
+         "text": "Only make a large funeral",
+         "reteach": "A funeral is not what the hadith names. It names charity, knowledge and du’a.",
+         "back": "after"
+        }
+       ],
+       "answer": 1,
+       "explain": "Du’a and charity (Muslim 1631, Bukhari 2756).",
+       "type": "scenario",
+       "scenario": "Hana’s mother died last year. She misses her and wants to do something for her."
+      },
+      {
+       "id": "c2c",
+       "q": "Which words of 17:24 are the du’a for parents?",
+       "options": [
+        {
+         "text": "My Lord, make my parents rich",
+         "reteach": "This is not in the ayah. It asks for mercy upon them, as they raised me when I was small.",
+         "back": "uff"
+        },
+        {
+         "text": "My Lord, have mercy upon them as they brought me up when I was small"
+        },
+        {
+         "text": "My Lord, forgive me for disobeying them",
+         "reteach": "Not in this ayah. The ayah asks mercy for them, in return for the way they raised us.",
+         "back": "uff"
+        }
+       ],
+       "answer": 1,
+       "explain": "Qur’an 17:24.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2d",
+       "q": "What is the right way to answer?",
+       "options": [
+        {
+         "text": "Ask her to repeat anything you did not catch, and listen kindly"
+        },
+        {
+         "text": "Sigh loudly and say she has told you already",
+         "reteach": "The ayah says not even uff. A sigh is a sound of annoyance.",
+         "back": "uff"
+        },
+        {
+         "text": "Say nothing and look at your phone",
+         "reteach": "This tells her she is not worth your attention. Listen to the end.",
+         "back": "ways"
+        }
+       ],
+       "answer": 0,
+       "explain": "Patience and a gentle voice (17:23).",
+       "type": "scenario",
+       "scenario": "Your grandmother tells you the same story for the third time this week."
+      },
+      {
+       "id": "c2e",
+       "q": "In 31:14, what does Allah remind us the mother went through?",
+       "options": [
+        {
+         "text": "She earned money for the child",
+         "reteach": "No. The ayah speaks about carrying the child in weakness upon weakness.",
+         "back": "weakness"
+        },
+        {
+         "text": "She carried the child in weakness upon weakness"
+        },
+        {
+         "text": "She taught the child to read",
+         "reteach": "No. The ayah speaks about carrying the child, in weakness upon weakness.",
+         "back": "weakness"
+        }
+       ],
+       "answer": 1,
+       "explain": "Qur’an 31:14.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Read the ayah and call a parent",
+     "body": "Open Surah Al-Isra and read ayat 23 and 24. Then call or visit a parent, or make du’a for them if they have passed.",
+     "route": "/quran/17",
+     "button": "Open Surah Al-Isra"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Say who the Prophet ﷺ named first, and how many times.",
+      "Say what 17:23 asks of you towards your parents.",
+      "Know where obedience stops and kindness continues (31:15).",
+      "Say what you can still do for parents who have passed.",
+      "Say the du’a of 17:24 and its meaning."
+     ],
+     "next": "Next: Teaching the prayer."
+    }
+   ]
+  },
+  {
+   "id": "fam.u2.l2",
+   "title": "Teaching the prayer",
+   "minutes": 15,
+   "intro": "What the Prophet ﷺ taught about children and prayer, what to make of the hard word in the hadith, and a gentle plan by age.",
+   "steps": [
+    {
+     "id": "hook",
+     "kind": "teach",
+     "title": "Children learn by watching",
+     "body": [
+      "Nobody learns to pray from a lecture. Children learn the prayer the way they learn to walk: by being near it, copying it, and being helped. The Prophet ﷺ taught the prayer the same way.",
+      "In this lesson you will learn what the Prophet ﷺ said about when to ask a child to pray, how he treated children in the prayer, and a gentle plan that fits each age. If you are the child, this will also explain why your parents ask what they ask."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "command",
+     "kind": "teach",
+     "title": "Enjoin your family to pray",
+     "body": [
+      "Allah told His Messenger ﷺ to enjoin prayer upon his family and to be steadfast in it (20:132). Luqman told his son to establish prayer (31:17). Teaching the prayer begins with the parent doing it.",
+      "The Prophet ﷺ gave an age guide. Abdullah ibn Amr reported that he said: command your children to pray when they are seven years old, and beat them for it when they are ten years old, and separate them in their beds."
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 20:132; Qur'an 31:17; Abu Dawud 495 (graded hasan sahih by al-Albani)",
+     "quran": "q:20:132"
+    },
+    {
+     "id": "beat",
+     "kind": "teach",
+     "title": "What does “beat” mean here?",
+     "body": [
+      "The word in the hadith is a word for striking, and we should not hide that. But the Prophet ﷺ himself never struck a woman or a servant (Muslim 2328), and he told people to avoid the face when quarrelling (Muslim 2612).",
+      "Scholars who explain this hadith say it is about a ten-year-old who is not praying after three years of being taught, and that any striking is only a light tap meant to train, never in anger, never on the face, and never causing pain or a mark. Many teachers and scholars today say the better way is calm, firm discipline with no hitting at all, and that this fits the Prophet’s own example.",
+      "Three things are clear: the child is first taught gently; there is no excuse for violence; and if you fear you will lose your temper, do not touch the child at all."
+     ],
+     "label": "[Interpretive]",
+     "source": "Abu Dawud 495 (graded hasan sahih by al-Albani); Muslim 2328; Muslim 2612",
+     "review": "This step explains the word for striking in the 7/10-year hadith. It says classical scholars limit it to a light, non-harmful tap and that many modern scholars prefer no hitting. Needs a scholar to confirm the wording and attributions."
+    },
+    {
+     "id": "near",
+     "kind": "teach",
+     "title": "Children near you in prayer",
+     "body": [
+      "The Prophet ﷺ welcomed children in the prayer. He once prayed carrying his granddaughter Umama: when he prostrated he put her down, and when he stood he lifted her again (Bukhari 516). Another time one of his grandsons climbed on his back while he was prostrating, and he made the prostration long so as not to disturb him (Nasa’i 1141, graded sahih by al-Albani).",
+      "He also said that he sometimes begins a prayer meaning to make it long, but when he hears a child cry he shortens it, because he does not want to trouble the child’s mother (Bukhari 707).",
+      "So a child near you in prayer is welcome, not a problem to remove."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 516; Nasa’i 1141 (graded sahih by al-Albani); Bukhari 707"
+    },
+    {
+     "id": "plan",
+     "kind": "howto",
+     "title": "A gentle plan by age",
+     "intro": "This follows the hadith above and the practice of many teachers. Every child is different. Go at their pace.",
+     "steps": [
+      {
+       "text": "Under seven: let them be near you.",
+       "detail": "Let them stand beside you, copy you, and hear you recite. Do not correct every movement."
+      },
+      {
+       "text": "Teach the words, one at a time.",
+       "detail": "Start with Allahu akbar, then the words of bowing and prostrating. Use the Path course lessons on wudu, the prayer and Al-Fatihah."
+      },
+      {
+       "text": "At seven: ask them, kindly and every day, to pray.",
+       "detail": "Pray where they can see you, ask them to join, and sit with them after."
+      },
+      {
+       "text": "At ten: be firmer, and keep calm.",
+       "detail": "Talk about it. Link it to things they care about, like screen time. Never shame them in front of others."
+      },
+      {
+       "text": "Separate their beds at ten.",
+       "detail": "This is part of the same hadith. It is about modesty and growing up."
+      },
+      {
+       "text": "At puberty: the prayer is required.",
+       "detail": "All four schools agree that prayer becomes obligatory when a person reaches puberty and is of sound mind. Until then the training prepares them."
+      }
+     ],
+     "mistakes": [
+      "Making the prayer a punishment or a threat.",
+      "Correcting every mistake in front of other people.",
+      "Expecting a six-year-old to pray like an adult.",
+      "Not praying yourself."
+     ],
+     "label": "[Interpretive]",
+     "source": "Abu Dawud 495 (graded hasan sahih by al-Albani)",
+     "review": "The plan by age and the statement that all four schools agree prayer becomes obligatory at puberty are general teaching, not checked against the manuals. Please confirm."
+    },
+    {
+     "id": "first",
+     "kind": "say",
+     "title": "First words to teach",
+     "refs": [
+      "takbir",
+      "ruku.tasbih",
+      "sujud.tasbih"
+     ],
+     "label": "[Established]",
+     "source": "Muslim 379; Muslim 772",
+     "note": "These are three short phrases a child can learn first: the opening takbir, the words of bowing, and the words of prostrating. Say them together slowly. There are no recordings of these phrases in the app yet."
+    },
+    {
+     "id": "c1",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1a",
+       "q": "At what age does the hadith say to command children to pray?",
+       "options": [
+        {
+         "text": "Seven"
+        },
+        {
+         "text": "Three",
+         "reteach": "No. The hadith says seven. Before that, children are simply near the prayer and copy it.",
+         "back": "command"
+        },
+        {
+         "text": "Fifteen",
+         "reteach": "No. The hadith says seven for being told to pray and ten for the further step.",
+         "back": "command"
+        }
+       ],
+       "answer": 0,
+       "explain": "Seven (Abu Dawud 495, graded hasan sahih by al-Albani).",
+       "type": "mcq"
+      },
+      {
+       "id": "c1b",
+       "q": "Did the Prophet ﷺ allow children near him in the prayer?",
+       "options": [
+        {
+         "text": "No. Children must be kept out of the prayer",
+         "reteach": "No. Bukhari 516 and 707 show him welcoming children.",
+         "back": "near"
+        },
+        {
+         "text": "Only boys",
+         "reteach": "No. He carried his granddaughter Umama in prayer.",
+         "back": "near"
+        },
+        {
+         "text": "Yes. He prayed carrying his granddaughter and shortened prayers when he heard a child cry"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 516 and 707.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1c",
+       "q": "What is the best way to respond?",
+       "options": [
+        {
+         "text": "Pray beside him, teach the words one at a time, and keep encouraging him kindly"
+        },
+        {
+         "text": "Hit him until he prays",
+         "reteach": "No. The Prophet ﷺ never struck a woman or servant (Muslim 2328), and he welcomed children. Teach, do not terrorise.",
+         "back": "beat"
+        },
+        {
+         "text": "Wait until he is fifteen, then start",
+         "reteach": "The hadith says to start asking at seven. And before that he can be near you.",
+         "back": "plan"
+        }
+       ],
+       "answer": 0,
+       "explain": "Under seven: let him be near you and copy. At seven, ask kindly.",
+       "type": "scenario",
+       "scenario": "Your six-year-old son wants to stand next to you when you pray, but he does not know any of the words."
+      },
+      {
+       "id": "c1d",
+       "q": "What do all four schools say about when prayer becomes obligatory?",
+       "options": [
+        {
+         "text": "At puberty, for someone of sound mind"
+        },
+        {
+         "text": "At age seven",
+         "reteach": "No. At seven the child is asked to pray as training. The duty begins at puberty.",
+         "back": "plan"
+        },
+        {
+         "text": "Only once they marry",
+         "reteach": "No. It begins at puberty.",
+         "back": "plan"
+        }
+       ],
+       "answer": 0,
+       "explain": "Obligation begins at puberty. Before it the child is in training.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "ages",
+     "kind": "arrange",
+     "prompt": "Put the stages of teaching the prayer in order.",
+     "items": [
+      {
+       "text": "Let the child be near you and copy",
+       "why": "Under seven, learning begins by being close and watching.",
+       "back": "plan"
+      },
+      {
+       "text": "Teach the words, one at a time",
+       "why": "Short phrases first: the takbir, then bowing and prostrating.",
+       "back": "plan"
+      },
+      {
+       "text": "At seven, ask them each day, kindly",
+       "why": "This is the age the Prophet ﷺ named for being asked to pray.",
+       "back": "command"
+      },
+      {
+       "text": "At ten, be firmer and keep calm",
+       "why": "The hadith names ten for the further step; use calm discipline and talk.",
+       "back": "beat"
+      },
+      {
+       "text": "At puberty, it becomes their own duty",
+       "why": "Obligation begins at puberty.",
+       "back": "plan"
+      }
+     ],
+     "explain": "Near you, then words, then asked kindly at seven, firmer at ten, and a duty at puberty."
+    },
+    {
+     "id": "moments",
+     "kind": "match",
+     "prompt": "Match each moment to what it teaches. Tap one on the left, then its meaning on the right.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Seven years old"
+       },
+       "right": {
+        "text": "The age to start asking a child to pray"
+       },
+       "why": "Abu Dawud 495 (graded hasan sahih by al-Albani) names seven.",
+       "back": "command"
+      },
+      {
+       "left": {
+        "text": "Ten years old"
+       },
+       "right": {
+        "text": "Be firmer, and separate their beds"
+       },
+       "why": "Ten is the next age named in the same hadith.",
+       "back": "command"
+      },
+      {
+       "left": {
+        "text": "The Prophet carrying Umama in prayer"
+       },
+       "right": {
+        "text": "Children may be near you while you pray"
+       },
+       "why": "Bukhari 516.",
+       "back": "near"
+      },
+      {
+       "left": {
+        "text": "A crying child, a shortened prayer"
+       },
+       "right": {
+        "text": "Mercy for the child and the mother"
+       },
+       "why": "Bukhari 707.",
+       "back": "near"
+      },
+      {
+       "left": {
+        "text": "Puberty"
+       },
+       "right": {
+        "text": "The prayer becomes obligatory"
+       },
+       "why": "This is the age of duty.",
+       "back": "plan"
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c2a",
+       "q": "What did the Prophet ﷺ do in Bukhari 707 when he heard a child cry during the prayer?",
+       "options": [
+        {
+         "text": "He stopped the prayer",
+         "reteach": "No. He shortened it. He wanted to be gentle with the mother.",
+         "back": "near"
+        },
+        {
+         "text": "He shortened the prayer so as not to trouble the child’s mother"
+        },
+        {
+         "text": "He asked the family to leave",
+         "reteach": "No. He shortened the prayer.",
+         "back": "near"
+        }
+       ],
+       "answer": 1,
+       "explain": "He said he meant to make it long, but shortened it because he disliked to trouble the mother.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2b",
+       "q": "What does the lesson say about the word for striking in the hadith?",
+       "options": [
+        {
+         "text": "It allows any amount of striking if the child will not pray",
+         "reteach": "No. The Prophet ﷺ never struck a woman or servant (Muslim 2328), and told people to avoid the face (Muslim 2612). Scholars limit it strictly.",
+         "back": "beat"
+        },
+        {
+         "text": "It is not an excuse for violence: scholars limit it to a light training tap at most, and many prefer calm discipline with no hitting"
+        },
+        {
+         "text": "It is a mistranslation and the hadith is not in the books",
+         "reteach": "The hadith is in Abu Dawud 495 (graded hasan sahih by al-Albani). The question is how scholars understand the word, not whether it exists.",
+         "back": "beat"
+        }
+       ],
+       "answer": 1,
+       "explain": "Teach first; no violence; if you might lose your temper, do not touch the child at all.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2c",
+       "q": "What is a good first step?",
+       "options": [
+        {
+         "text": "Make a chart and shame them when they miss",
+         "reteach": "Shaming turns the prayer into a punishment. Invite and keep calm.",
+         "back": "plan"
+        },
+        {
+         "text": "Pray in front of them every day, and invite them to join"
+        },
+        {
+         "text": "Wait until they ask",
+         "reteach": "You can invite them. Seven is the age the Prophet ﷺ named for asking.",
+         "back": "plan"
+        }
+       ],
+       "answer": 1,
+       "explain": "Your example is the first lesson.",
+       "type": "scenario",
+       "scenario": "A father says his eight-year-old never prays and he does not know where to start."
+      },
+      {
+       "id": "c2d",
+       "q": "Which sentence is true about separating beds at ten?",
+       "options": [
+        {
+         "text": "It is part of the same hadith and is about modesty as children grow up"
+        },
+        {
+         "text": "It is a punishment",
+         "reteach": "No. It is part of the same hadith and is about modesty.",
+         "back": "command"
+        },
+        {
+         "text": "It is not in the hadith",
+         "reteach": "It is: the hadith ends with separating them in their beds.",
+         "back": "command"
+        }
+       ],
+       "answer": 0,
+       "explain": "Command them at seven, a further step at ten, and separate their beds (Abu Dawud 495, graded hasan sahih by al-Albani).",
+       "type": "mcq"
+      },
+      {
+       "id": "c2e",
+       "q": "Which phrase is the opening of the prayer, said when you begin?",
+       "options": [
+        {
+         "text": "Subhana rabbiyal-a’la",
+         "reteach": "That is said in prostration.",
+         "back": "first"
+        },
+        {
+         "text": "Allahu akbar"
+        },
+        {
+         "text": "As-salamu alaykum wa rahmatullah",
+         "reteach": "That is said at the end, to finish the prayer.",
+         "back": "first"
+        }
+       ],
+       "answer": 1,
+       "explain": "The prayer starts with the takbir.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Pray where they can see you",
+     "body": "Pray the next prayer where a child or someone you are teaching can see you, and invite them to stand beside you.",
+     "route": "/prayer",
+     "button": "Open prayer times"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Say the ages the Prophet ﷺ named, and what each asks of the parent.",
+      "Explain why “beat” is not an excuse for violence.",
+      "Give three ways to bring a young child into the prayer.",
+      "Name the first three phrases to teach.",
+      "Say when the prayer becomes obligatory."
+     ],
+     "next": "Next: Mercy, not severity."
+    }
+   ]
+  },
+  {
+   "id": "fam.u2.l3",
+   "title": "Mercy, not severity",
+   "minutes": 15,
+   "intro": "How the Prophet ﷺ treated children, and a calm way to correct them when you are tired.",
+   "steps": [
+    {
+     "id": "hook",
+     "kind": "teach",
+     "title": "A spill, a long day",
+     "body": [
+      "It has been a long day. The milk goes over, the homework is not done, and your voice rises before you decide to raise it. Every parent knows this moment.",
+      "What does the Prophet ﷺ teach us for it? In this lesson: how he was with children, why kindness is worth more than harshness, and a calm way to correct a child when you are tired."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "kiss",
+     "kind": "story",
+     "title": "He kissed his grandson",
+     "body": [
+      "Abu Huraira told that the Prophet ﷺ kissed his grandson al-Hasan while al-Aqra’ ibn Habis was sitting there. Al-Aqra’ said: I have ten children and I have never kissed any of them. The Prophet ﷺ looked at him and said: whoever is not merciful will not be shown mercy.",
+      "A strong man had no habit of affection, and the Prophet ﷺ did not praise that. He told him mercy is something we are asked to show."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 5997; Muslim 2318"
+    },
+    {
+     "id": "kind",
+     "kind": "teach",
+     "title": "Kindness makes things beautiful",
+     "body": [
+      "Aisha reported that the Prophet ﷺ said: kindness is not found in anything except that it adds to its beauty, and it is not taken out of anything except that it makes it defective (Muslim 2594). Another time he said that Allah is kind and gentle and loves kindness in all matters (Bukhari 6927).",
+      "For a parent, this means: when you must correct a child, how you do it matters as much as what you say."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 2594; Bukhari 6927"
+    },
+    {
+     "id": "uff",
+     "kind": "story",
+     "title": "Ten years, and never uff",
+     "body": [
+      "Anas ibn Malik served the Prophet ﷺ for ten years, as a boy. He said that in all that time the Prophet ﷺ never said uff to him, and never asked him: why did you do that, or why did you not do that? (Bukhari 6038).",
+      "It does not mean there were no mistakes. It means that the way he corrected them left a child feeling safe, so that decades later Anas still spoke of him with love."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 6038"
+    },
+    {
+     "id": "fair",
+     "kind": "teach",
+     "title": "Be fair between your children",
+     "body": [
+      "Nu’man ibn Bashir said that his father gave him a gift, and his mother asked the father to make the Prophet ﷺ a witness. The Prophet ﷺ asked: have you given the like of it to all your sons? The father said no. The Prophet ﷺ said: fear Allah, and be just to your children. The father went back and took the gift back (Bukhari 2587).",
+      "Children notice favouritism early, and it hurts. Treat them fairly in gifts and in attention, even though they are different."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 2587"
+    },
+    {
+     "id": "greet",
+     "kind": "teach",
+     "title": "He greeted children",
+     "body": [
+      "Anas once passed some boys, greeted them, and said that the Prophet ﷺ used to do this (Bukhari 6247). Greeting a child first tells them that they are a person who deserves respect, and it teaches them to greet."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 6247"
+    },
+    {
+     "id": "correct",
+     "kind": "howto",
+     "title": "A calm way to correct a child",
+     "intro": "This is practical advice, in the spirit of the reports above. Adjust it to the age of your child.",
+     "steps": [
+      {
+       "text": "Pause.",
+       "detail": "Take a breath. If you are very angry, step out of the room for a minute. The strong one is the one who controls himself in anger (Bukhari 6114)."
+      },
+      {
+       "text": "Check that everyone is safe.",
+       "detail": "First: is anyone hurt?"
+      },
+      {
+       "text": "Say what happened in plain words.",
+       "detail": "\"The milk spilled.\" Not \"You are always careless.\""
+      },
+      {
+       "text": "Ask for what you want next time.",
+       "detail": "\"Next time, hold the glass with both hands.\""
+      },
+      {
+       "text": "Let the child help put it right.",
+       "detail": "Wiping the table is a good lesson, and it keeps their dignity."
+      },
+      {
+       "text": "Finish with warmth.",
+       "detail": "A hug, a smile. The Prophet ﷺ kissed his grandson. Correction should not end with distance."
+      }
+     ],
+     "mistakes": [
+      "Shouting names such as lazy or stupid. Words stay inside a child.",
+      "Correcting in front of others.",
+      "Different rules every day, so the child cannot know what is expected.",
+      "Hitting. The Prophet ﷺ never struck a woman or servant (Muslim 2328)."
+     ],
+     "label": "[Reflection]",
+     "source": "Bukhari 6114; Muslim 2328"
+    },
+    {
+     "id": "safe",
+     "kind": "teach",
+     "title": "If a child is in danger",
+     "body": [
+      "Everything above is about ordinary mistakes. If a child is being hurt, in body or in spirit, they should be protected. A child who is being harmed should tell a trusted adult, such as a teacher, a doctor, or a relative, and in most countries there are child protection lines.",
+      "A parent who fears they might hurt a child in anger should step away from the child, call someone who can help, and seek support. Asking for help is a sign of strength."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "c1",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1a",
+       "q": "What did the Prophet ﷺ say to al-Aqra’, who had never kissed any of his ten children?",
+       "options": [
+        {
+         "text": "Whoever is not merciful will not be shown mercy"
+        },
+        {
+         "text": "Everyone has a different way and none is better",
+         "reteach": "He did not say that. He said whoever is not merciful will not be shown mercy.",
+         "back": "kiss"
+        },
+        {
+         "text": "Kissing children is not part of Islam",
+         "reteach": "No. He kissed al-Hasan, and said mercy is asked of us.",
+         "back": "kiss"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 5997 and Muslim 2318.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1b",
+       "q": "What did Anas report about ten years in the Prophet’s service?",
+       "options": [
+        {
+         "text": "He corrected him every day, sharply",
+         "reteach": "No. He said the Prophet ﷺ never said uff to him.",
+         "back": "uff"
+        },
+        {
+         "text": "He never spoke to him",
+         "reteach": "No. He served him for ten years and was spoken to gently.",
+         "back": "uff"
+        },
+        {
+         "text": "He never said uff to him, and never blamed him for what he did or did not do"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 6038.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1c",
+       "q": "What does the Prophet ﷺ teach the father to do?",
+       "options": [
+        {
+         "text": "Be just to all his children, so he should not give one more than the others"
+        },
+        {
+         "text": "Reward the best-behaved child most",
+         "reteach": "No. In Bukhari 2587, he asked the father to be just between his children and to take the gift back.",
+         "back": "fair"
+        },
+        {
+         "text": "Give the eldest the most",
+         "reteach": "No. Be just to your children.",
+         "back": "fair"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 2587.",
+       "type": "scenario",
+       "scenario": "A father gives a large gift to one son, because that son is his favourite."
+      },
+      {
+       "id": "c1d",
+       "q": "Which is closer to the way of mercy?",
+       "options": [
+        {
+         "text": "Take a breath, say what happened, and let her help to clean up"
+        },
+        {
+         "text": "Shout and name-call to make sure she learns",
+         "reteach": "Shouting and name-calling leave marks on a child. The way of mercy is calm.",
+         "back": "correct"
+        },
+        {
+         "text": "Say nothing and hope it goes away",
+         "reteach": "Gentle correction is still correction. Say it calmly.",
+         "back": "correct"
+        }
+       ],
+       "answer": 0,
+       "explain": "Pause, name what happened, and let the child help put it right.",
+       "type": "scenario",
+       "scenario": "Your daughter knocks over the milk on purpose, and you are very tired."
+      }
+     ]
+    },
+    {
+     "id": "spill",
+     "kind": "arrange",
+     "prompt": "A child has broken something. Put your response in order.",
+     "items": [
+      {
+       "text": "Pause and breathe",
+       "why": "Anger makes us say what we regret (Bukhari 6114).",
+       "back": "correct"
+      },
+      {
+       "text": "Check that nobody is hurt",
+       "why": "Safety comes first.",
+       "back": "correct"
+      },
+      {
+       "text": "Say what happened, calmly",
+       "why": "Describe the event, not the child’s character.",
+       "back": "correct"
+      },
+      {
+       "text": "Let the child help put it right",
+       "why": "Fixing the mistake teaches more than being shouted at.",
+       "back": "correct"
+      },
+      {
+       "text": "Finish with warmth",
+       "why": "A hug or a smile shows that the relationship is safe.",
+       "back": "kiss"
+      }
+     ],
+     "explain": "Pause, check safety, name what happened, repair together, and end with warmth."
+    },
+    {
+     "id": "reports",
+     "kind": "match",
+     "prompt": "Match each report to what it teaches. Tap one on the left, then its meaning on the right.",
+     "pairs": [
+      {
+       "left": {
+        "text": "The kiss for al-Hasan"
+       },
+       "right": {
+        "text": "Mercy is something we are asked to show"
+       },
+       "why": "Bukhari 5997.",
+       "back": "kiss"
+      },
+      {
+       "left": {
+        "text": "Ten years and never uff"
+       },
+       "right": {
+        "text": "Correcting gently so a child feels safe"
+       },
+       "why": "Bukhari 6038.",
+       "back": "uff"
+      },
+      {
+       "left": {
+        "text": "The gift taken back"
+       },
+       "right": {
+        "text": "Be fair between your children"
+       },
+       "why": "Bukhari 2587.",
+       "back": "fair"
+      },
+      {
+       "left": {
+        "text": "Greeting boys on the road"
+       },
+       "right": {
+        "text": "Respecting children by greeting them first"
+       },
+       "why": "Bukhari 6247.",
+       "back": "greet"
+      },
+      {
+       "left": {
+        "text": "Kindness adds beauty"
+       },
+       "right": {
+        "text": "Gentleness improves everything it touches"
+       },
+       "why": "Muslim 2594.",
+       "back": "kind"
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c2a",
+       "q": "What does Muslim 2594 say about kindness?",
+       "options": [
+        {
+         "text": "It is a weakness in a parent",
+         "reteach": "No. The Prophet ﷺ said kindness adds beauty to everything.",
+         "back": "kind"
+        },
+        {
+         "text": "It adds beauty to whatever it is in, and its absence makes things defective"
+        },
+        {
+         "text": "It is only for strangers",
+         "reteach": "No. It is for everything, and especially for the people at home.",
+         "back": "kind"
+        }
+       ],
+       "answer": 1,
+       "explain": "Kindness is not found in anything except that it adds to its beauty.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2b",
+       "q": "A mother asks: should I hit my child to teach him? Which is the best answer for this app to give?",
+       "options": [
+        {
+         "text": "Yes, as often as needed",
+         "reteach": "No. Violence is not the Prophet’s way. See Muslim 2328.",
+         "back": "correct"
+        },
+        {
+         "text": "The Prophet ﷺ never struck a woman or servant; teach with calm correction, and if you are close to losing control, step away and get support"
+        },
+        {
+         "text": "Never talk about it",
+         "reteach": "Silence helps no one. Calm correction and support are better.",
+         "back": "safe"
+        }
+       ],
+       "answer": 1,
+       "explain": "Muslim 2328 and the steps for a calm correction.",
+       "type": "scenario",
+       "scenario": "A mother says she feels she is losing her temper with her children and asks what she should do."
+      },
+      {
+       "id": "c2c",
+       "q": "What did the Prophet ﷺ do when he passed children?",
+       "options": [
+        {
+         "text": "He ignored them",
+         "reteach": "No. Bukhari 6247 reports that he greeted boys.",
+         "back": "greet"
+        },
+        {
+         "text": "He greeted them"
+        },
+        {
+         "text": "He asked them to leave",
+         "reteach": "No. He greeted them.",
+         "back": "greet"
+        }
+       ],
+       "answer": 1,
+       "explain": "Anas passed boys, greeted them, and said the Prophet ﷺ used to do it.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2d",
+       "q": "A child tells a trusted teacher that someone at home hurts them. What is right?",
+       "options": [
+        {
+         "text": "The child should be protected, and adults should get help from the right people"
+        },
+        {
+         "text": "Nothing should be said outside the home",
+         "reteach": "No. A child who is being hurt must be protected. Seek help.",
+         "back": "safe"
+        },
+        {
+         "text": "The child is to blame",
+         "reteach": "No. A child is never to blame for being hurt.",
+         "back": "safe"
+        }
+       ],
+       "answer": 0,
+       "explain": "Protect the child and get help.",
+       "type": "scenario",
+       "scenario": "A child tells a teacher that someone at home hurts them."
+      },
+      {
+       "id": "c2e",
+       "q": "Which is a mistake to avoid when correcting?",
+       "options": [
+        {
+         "text": "Naming what happened",
+         "reteach": "That is part of the right way.",
+         "back": "correct"
+        },
+        {
+         "text": "Correcting in front of other people"
+        },
+        {
+         "text": "Letting the child help fix it",
+         "reteach": "That is part of the right way.",
+         "back": "correct"
+        }
+       ],
+       "answer": 1,
+       "explain": "Correct in private, calmly.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Plan one calm response",
+     "body": "Think of the moment at home when you lose your patience most. Ask Hādi to help you plan words to use next time.",
+     "route": "/hadi",
+     "button": "Open Hādi"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Say what the Prophet ﷺ told al-Aqra’ about mercy.",
+      "Name the fair thing to do with gifts between children.",
+      "Explain Muslim 2594 about kindness in your own words.",
+      "Give the steps of a calm correction.",
+      "Know where to turn if a child is in danger."
+     ],
+     "next": "Next: The best provision."
+    }
+   ]
+  },
+  {
+   "id": "fam.u2.l4",
+   "title": "The best provision",
+   "minutes": 16,
+   "intro": "What a parent gives that cannot be bought: manners, faith and du’a.",
+   "steps": [
+    {
+     "id": "hook",
+     "kind": "teach",
+     "title": "More than food and school",
+     "body": [
+      "A parent provides a lot: a bed, meals, school fees. But what a child carries into adult life is something else: how to talk, how to ask, how to pray, how to say sorry.",
+      "This lesson is about the provision that cannot be bought: manners, faith, and du’a, and how to give them to a child in small, daily ways."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "fire",
+     "kind": "teach",
+     "title": "Protect your family",
+     "body": [
+      "Allah tells the believers to protect themselves and their families from a Fire. The ayah is serious. It means that a parent’s duty is not only to the body, but to the direction of the family: toward Allah.",
+      "This is not a call to fear. It is a call to teach, with love, and above all by example."
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 66:6",
+     "quran": "q:66:6"
+    },
+    {
+     "id": "shepherd",
+     "kind": "teach",
+     "title": "Every one of you is a shepherd",
+     "body": [
+      "Ibn Umar reported that the Prophet ﷺ said: every one of you is a shepherd and is responsible for his flock. A man is a guardian of his family and is responsible for them. A woman is a guardian of her husband’s house and is responsible for it.",
+      "The word shepherd is a kind one. A shepherd does not drive the flock with a stick: he guides, feeds, protects and knows each one. Both parents carry this duty."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 893; Muslim 1829"
+    },
+    {
+     "id": "spend",
+     "kind": "teach",
+     "title": "What you spend on your family",
+     "body": [
+      "The Prophet ﷺ told Sa’d ibn Abi Waqqas that he would be rewarded for whatever he spent for the sake of Allah, even the morsel he put into his wife’s mouth (Bukhari 56). He also said that among all the dinars a person spends, the one with the greatest reward is the one spent on his family (Muslim 995).",
+      "Feeding, clothing, and educating your children with halal earnings is worship. It is not a lesser act than charity to strangers."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 56; Muslim 995"
+    },
+    {
+     "id": "luqman",
+     "kind": "say",
+     "title": "Luqman teaches his son",
+     "refs": [
+      "q:31:13",
+      "q:31:17",
+      "q:31:18",
+      "q:31:19"
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 31:13; 31:17-19",
+     "note": "Luqman is the Qur’an’s picture of a wise father. Read the five things he teaches his son: worship Allah alone, pray, do good and forbid wrong, be patient, do not be arrogant, and be moderate and lower your voice. Notice that he speaks to his son tenderly: O my son."
+    },
+    {
+     "id": "manners",
+     "kind": "howto",
+     "title": "Three small manners to teach",
+     "intro": "A child learns manners by doing them beside you.",
+     "steps": [
+      {
+       "text": "Eating.",
+       "detail": "Umar ibn Abi Salama was a boy whose hand wandered over the dish. The Prophet ﷺ told him: O boy, mention the name of Allah, eat with your right hand, and eat from what is nearest to you (Bukhari 5376). If you forget to say it at the start, say it when you remember (Abu Dawud 3767, graded sahih by al-Albani)."
+      },
+      {
+       "text": "Greeting.",
+       "detail": "Greet children first, as the Prophet ﷺ did (Bukhari 6247), and teach them to greet."
+      },
+      {
+       "text": "Sneezing.",
+       "detail": "The Prophet ﷺ taught: the one who sneezes says Alhamdulillah, the one who hears says Yarhamukallah, and the sneezer answers Yahdeekumullah wa yuslih balakum (Bukhari 6224)."
+      }
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 5376; Abu Dawud 3767 (graded sahih by al-Albani); Bukhari 6247; Bukhari 6224"
+    },
+    {
+     "id": "words",
+     "kind": "say",
+     "title": "The words for these moments",
+     "refs": [
+      "fam.eat.bismillah",
+      "fam.eat.forgot",
+      "fam.hamd",
+      "fam.sneeze.reply",
+      "fam.sneeze.back"
+     ],
+     "label": "[Established]",
+     "source": "Abu Dawud 3767 (graded sahih by al-Albani); Bukhari 6224",
+     "note": "Say each phrase slowly with your child. The first two are for eating, the third is said by the one who sneezes, the fourth by the person who hears, and the last by the sneezer in reply. There are no recordings of these in the app yet."
+    },
+    {
+     "id": "dua",
+     "kind": "say",
+     "title": "Du’a for your children",
+     "refs": [
+      "q:25:74",
+      "fam.child.refuge"
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 25:74; Bukhari 3371",
+     "note": "The first is a Qur’anic du’a: our Lord, grant us from our wives and offspring comfort to our eyes. The second is what the Prophet ﷺ said when he sought Allah’s protection for his grandsons Hasan and Husayn. You can say it over your children."
+    },
+    {
+     "id": "knowledge",
+     "kind": "teach",
+     "title": "Ask Allah to make them learned",
+     "body": [
+      "When Ibn Abbas, then a boy, placed water for the Prophet ﷺ to wash, the Prophet ﷺ made du’a for him: O Allah, make him learned in the religion (Bukhari 143). Parents can ask Allah for the same for their children: knowledge, understanding, and a good heart."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 143"
+    },
+    {
+     "id": "c1",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1a",
+       "q": "What does 66:6 tell believers to protect their families from?",
+       "options": [
+        {
+         "text": "A Fire"
+        },
+        {
+         "text": "Poverty",
+         "reteach": "No. The ayah says protect yourselves and your families from a Fire.",
+         "back": "fire"
+        },
+        {
+         "text": "Criticism",
+         "reteach": "No. The ayah says a Fire.",
+         "back": "fire"
+        }
+       ],
+       "answer": 0,
+       "explain": "Qur’an 66:6.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1b",
+       "q": "What does the Prophet ﷺ call the person who looks after his family?",
+       "options": [
+        {
+         "text": "A ruler with unlimited power",
+         "reteach": "No. He used the words guardian and shepherd: one who is responsible and cares.",
+         "back": "shepherd"
+        },
+        {
+         "text": "Someone with no responsibility",
+         "reteach": "No. He said each of you is responsible for his flock.",
+         "back": "shepherd"
+        },
+        {
+         "text": "A guardian and a shepherd responsible for them"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 893 and Muslim 1829.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1c",
+       "q": "What are the three instructions the Prophet ﷺ gave to the boy at the dish, in Bukhari 5376?",
+       "options": [
+        {
+         "text": "Mention the name of Allah, eat with your right hand, and eat from what is nearest to you"
+        },
+        {
+         "text": "Eat quickly, eat everything, and do not talk",
+         "reteach": "No. The three are: mention Allah’s name, use the right hand, eat from what is nearest.",
+         "back": "manners"
+        },
+        {
+         "text": "Wash, pray, and sit",
+         "reteach": "No. Those are not in this report. The three are about eating.",
+         "back": "manners"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 5376.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1d",
+       "q": "A mother says she feels guilty because she works long hours to feed her children. What does the hadith say?",
+       "options": [
+        {
+         "text": "Spending on your family with halal earnings is rewarded, even the morsel you place in a mouth"
+        },
+        {
+         "text": "Working for the family has no reward",
+         "reteach": "No. Bukhari 56 and Muslim 995 say it is rewarded.",
+         "back": "spend"
+        },
+        {
+         "text": "Only charity to strangers counts",
+         "reteach": "No. The one with the greatest reward is the dinar spent on the family (Muslim 995).",
+         "back": "spend"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 56 and Muslim 995.",
+       "type": "scenario",
+       "scenario": "A mother works two jobs and feels that she is not doing enough for her children."
+      }
+     ]
+    },
+    {
+     "id": "dish",
+     "kind": "arrange",
+     "prompt": "Put the three instructions of Bukhari 5376 in the order the Prophet ﷺ gave them.",
+     "items": [
+      {
+       "text": "Mention the name of Allah",
+       "why": "He began with Bismillah.",
+       "back": "manners"
+      },
+      {
+       "text": "Eat with your right hand",
+       "why": "The second instruction.",
+       "back": "manners"
+      },
+      {
+       "text": "Eat from what is nearest to you",
+       "why": "The third instruction.",
+       "back": "manners"
+      }
+     ],
+     "explain": "First Bismillah, then the right hand, then the part of the dish nearest to you (Bukhari 5376)."
+    },
+    {
+     "id": "phrases",
+     "kind": "match",
+     "prompt": "Match each Arabic phrase to when it is said. Tap one on the left, then its meaning on the right.",
+     "pairs": [
+      {
+       "left": {
+        "ref": "fam.eat.bismillah"
+       },
+       "right": {
+        "text": "Before you start to eat"
+       },
+       "why": "This is Bismillah, in the name of Allah.",
+       "back": "words"
+      },
+      {
+       "left": {
+        "ref": "fam.hamd"
+       },
+       "right": {
+        "text": "Said by the one who sneezes"
+       },
+       "why": "It is Alhamdulillah: praise be to Allah.",
+       "back": "words"
+      },
+      {
+       "left": {
+        "ref": "fam.sneeze.reply"
+       },
+       "right": {
+        "text": "Said to someone who has sneezed and praised Allah"
+       },
+       "why": "It means: may Allah have mercy on you.",
+       "back": "words"
+      },
+      {
+       "left": {
+        "ref": "fam.sneeze.back"
+       },
+       "right": {
+        "text": "The reply of the person who sneezed"
+       },
+       "why": "It means: may Allah guide you and set your affairs right.",
+       "back": "words"
+      },
+      {
+       "left": {
+        "ref": "fam.child.refuge"
+       },
+       "right": {
+        "text": "Seeking Allah’s protection for children"
+       },
+       "why": "The Prophet ﷺ said it over Hasan and Husayn.",
+       "back": "dua"
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c2a",
+       "q": "What should you say if you forgot to say Bismillah when you started eating?",
+       "options": [
+        {
+         "text": "Nothing; it is too late",
+         "reteach": "No. The Prophet ﷺ taught to say it when you remember (Abu Dawud 3767, graded sahih by al-Albani).",
+         "back": "manners"
+        },
+        {
+         "text": "Bismillah awwalahu wa akhirahu"
+        },
+        {
+         "text": "Alhamdulillah",
+         "reteach": "That is said after sneezing, or to thank Allah. For forgetting Bismillah, say Bismillah awwalahu wa akhirahu.",
+         "back": "words"
+        }
+       ],
+       "answer": 1,
+       "explain": "In the name of Allah at its beginning and at its end.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2b",
+       "q": "What do you say to a person who sneezes and says Alhamdulillah?",
+       "options": [
+        {
+         "text": "Wa alaykum as-salam",
+         "reteach": "That is the reply to a greeting, not to a sneeze.",
+         "back": "manners"
+        },
+        {
+         "text": "Yarhamukallah, may Allah have mercy on you"
+        },
+        {
+         "text": "Allahu akbar",
+         "reteach": "That is the takbir. The reply to a sneeze is Yarhamukallah.",
+         "back": "manners"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 6224.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2c",
+       "q": "Which words did the Prophet ﷺ say to seek protection for Hasan and Husayn?",
+       "options": [
+        {
+         "text": "Allahu akbar three times",
+         "reteach": "No. This was a du’a seeking refuge in the perfect words of Allah.",
+         "back": "dua"
+        },
+        {
+         "text": "I seek refuge in the perfect words of Allah from every devil and harmful creature and from every harmful eye"
+        },
+        {
+         "text": "Peace be upon you",
+         "reteach": "No. That is a greeting. He sought refuge in the perfect words of Allah.",
+         "back": "dua"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 3371.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2d",
+       "q": "What du’a did the Prophet ﷺ make for Ibn Abbas?",
+       "options": [
+        {
+         "text": "O Allah, make him learned in the religion"
+        },
+        {
+         "text": "O Allah, make him rich",
+         "reteach": "No. He asked for knowledge: make him learned in the religion.",
+         "back": "knowledge"
+        },
+        {
+         "text": "O Allah, give him a long life",
+         "reteach": "No. He asked that he be made learned in the religion.",
+         "back": "knowledge"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 143.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2e",
+       "q": "Luqman’s advice includes lowering your voice. What does the Qur’an say is the most disagreeable of sounds?",
+       "options": [
+        {
+         "text": "A whisper",
+         "reteach": "No. Luqman says to lower your voice. The most disagreeable of sounds is the voice of donkeys (31:19).",
+         "back": "luqman"
+        },
+        {
+         "text": "The voice of donkeys"
+        },
+        {
+         "text": "A child’s laughter",
+         "reteach": "No. The ayah says the voice of donkeys.",
+         "back": "luqman"
+        }
+       ],
+       "answer": 1,
+       "explain": "Qur’an 31:19.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Learn one du’a with your child",
+     "body": "Open the adhkar and choose one short du’a to learn this week together.",
+     "route": "/adhkar",
+     "button": "Open adhkar"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Say what 66:6 asks parents to protect their family from.",
+      "Explain the shepherd hadith.",
+      "Teach three manners with the words the Prophet ﷺ taught.",
+      "Name the Qur’anic du’a for your children.",
+      "Say why spending on the family with halal earnings is worship."
+     ],
+     "next": "Next: Serving the family."
+    }
+   ]
+  },
+  {
+   "id": "fam.u3.l1",
+   "title": "Serving the family",
+   "minutes": 15,
+   "intro": "What the Prophet ﷺ did at home, how scholars speak about housework, and a way to share the load.",
+   "steps": [
+    {
+     "id": "hook",
+     "kind": "teach",
+     "title": "Who washes the dishes?",
+     "body": [
+      "In many homes the biggest arguments are not about faith. They are about dishes, laundry, and who did more today. This lesson looks at what the Prophet ﷺ did at home, and what that says about work at home and worship.",
+      "It is for anyone who lives with other people: spouses, parents, grown children, flatmates."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "aisha",
+     "kind": "story",
+     "title": "What did he do at home?",
+     "body": [
+      "Al-Aswad asked Aisha: what did the Prophet ﷺ use to do in his house? She said: he used to keep himself busy serving his family, and when it was time for prayer, he would go out for it.",
+      "The Messenger of Allah, the leader of the community, spent his time at home helping with the work of the house. Then, when the prayer was called, he went. Work at home and prayer were not enemies."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 676"
+    },
+    {
+     "id": "worship",
+     "kind": "teach",
+     "title": "Home work can be worship",
+     "body": [
+      "The Prophet ﷺ told Sa’d that what he spent on his family, even a morsel placed in his wife’s mouth, would be rewarded (Bukhari 56). If food is rewarded, so is the effort of cooking it, cleaning up after it, and serving those who eat it, when done with a sincere intention.",
+      "This does not mean the home is only for one person to work. It means no task at home is too small to count."
+     ],
+     "label": "[Interpretive]",
+     "source": "Bukhari 56; Bukhari 676"
+    },
+    {
+     "id": "duty",
+     "kind": "contrast",
+     "title": "Is housework a duty?",
+     "intro": "Scholars have discussed this question. Here is a fair summary, and a note that you should ask a qualified scholar about your own case.",
+     "agree": "Everyone agrees on kindness and sharing.",
+     "rows": [
+      {
+       "name": "What is agreed",
+       "text": "The husband must provide food, clothing and a place to live. The Prophet ﷺ himself helped at home. Kindness and cooperation are encouraged by everyone."
+      },
+      {
+       "name": "Some jurists",
+       "text": "Several classical jurists, commonly reported from the Hanafi, Shafi’i and Hanbali schools, say a wife is not legally obliged to do the housework, and that doing it is generosity."
+      },
+      {
+       "name": "Other jurists",
+       "text": "Some, including many Maliki scholars, say it follows local custom: what is normal for a wife in that place and in her situation."
+      },
+      {
+       "name": "What this means in practice",
+       "text": "Do not use the law as a stick. In a working household the practical answer is to talk, share the load, and treat each other as the Prophet ﷺ treated his family."
+      }
+     ],
+     "closing": "Learn what scholars say, then settle it with each other in kindness.",
+     "label": "[Interpretive]",
+     "source": "Bukhari 676",
+     "review": "Please confirm the summary of the schools’ views on a wife’s legal duty to do housework (Hanafi, Shafi’i, Hanbali, Maliki) and the wording of the practical note."
+    },
+    {
+     "id": "fatima",
+     "kind": "story",
+     "title": "Fatima and the grinding stone",
+     "body": [
+      "Ali reported that Fatima, the Prophet’s daughter, suffered from grinding grain with the hand mill. When she heard that servants had come from the war gains, she went to ask her father for one, but did not find him, so she told Aisha.",
+      "When the Prophet ﷺ came, he visited them at night while they were in bed. He said: shall I tell you something better than what you asked? When you go to your beds, say Allahu akbar 34 times, alhamdulillah 33 times and subhanallah 33 times.",
+      "Notice that the Prophet ﷺ did not dismiss her hard work. He gave them something to carry them through the tiredness. Ali said he never missed it afterwards."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 3113; Bukhari 5362"
+    },
+    {
+     "id": "tasbih",
+     "kind": "say",
+     "title": "The words for bedtime",
+     "refs": [
+      "takbir",
+      "dhikr.1",
+      "dhikr.2"
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 3113",
+     "note": "These three are the phrases of the bedtime tasbih. The Prophet ﷺ asked for Allahu akbar 34 times, alhamdulillah 33 times, and subhanallah 33 times. In the app the phrases are shown with a joining and at the start of some; the meaning is the same. There is no recording of these in the app yet."
+    },
+    {
+     "id": "share",
+     "kind": "howto",
+     "title": "Sharing the work",
+     "intro": "There is no single correct split. Here is a way to start.",
+     "steps": [
+      {
+       "text": "List the jobs.",
+       "detail": "Cooking, dishes, laundry, shopping, school runs, bills, bins, cleaning the bathroom."
+      },
+      {
+       "text": "Say who is available when.",
+       "detail": "A person who leaves at six is not the one to cook at six."
+      },
+      {
+       "text": "Split by time and strength, not only by custom.",
+       "detail": "Both partners may be tired. Count paid work too."
+      },
+      {
+       "text": "Ask, do not order.",
+       "detail": "The Prophet ﷺ asked and helped. A request lands better than an accusation."
+      },
+      {
+       "text": "Do one job before being asked.",
+       "detail": "Do it quietly, so only Allah knows (Bukhari 676)."
+      },
+      {
+       "text": "Say thank you.",
+       "detail": "People keep doing what is noticed. Thank them out loud."
+      }
+     ],
+     "mistakes": [
+      "Keeping a score of who did more.",
+      "Saying a job is beneath you when the Prophet ﷺ did it.",
+      "Redoing the work in front of the person who did it."
+     ],
+     "label": "[Reflection]",
+     "source": "Bukhari 676"
+    },
+    {
+     "id": "c1",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1a",
+       "q": "What did Aisha say the Prophet ﷺ used to do at home?",
+       "options": [
+        {
+         "text": "He kept himself busy serving his family, and went out when the prayer was called"
+        },
+        {
+         "text": "He only prayed in his room",
+         "reteach": "No. Bukhari 676 says he served his family, and went for the prayer when it was time.",
+         "back": "aisha"
+        },
+        {
+         "text": "He left all housework to others",
+         "reteach": "No. He kept busy serving his family.",
+         "back": "aisha"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 676.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1b",
+       "q": "What did the Prophet ﷺ teach Ali and Fatima to say at bedtime?",
+       "options": [
+        {
+         "text": "Subhanallah 100 times only",
+         "reteach": "No. The hadith has 34, 33 and 33.",
+         "back": "fatima"
+        },
+        {
+         "text": "A long supplication in Arabic only",
+         "reteach": "No. It was these three phrases with counts.",
+         "back": "fatima"
+        },
+        {
+         "text": "Allahu akbar 34 times, alhamdulillah 33 times, subhanallah 33 times"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 3113.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1c",
+       "q": "What is the best response?",
+       "options": [
+        {
+         "text": "Talk it through, share the jobs by time and strength, and thank each other"
+        },
+        {
+         "text": "Stay silent and resent it",
+         "reteach": "Resentment grows when it is not said. Talk kindly.",
+         "back": "share"
+        },
+        {
+         "text": "Cite the law at her",
+         "reteach": "The law is not a stick. Talk and share, as the Prophet ﷺ did.",
+         "back": "duty"
+        }
+       ],
+       "answer": 0,
+       "explain": "Share the load, and speak kindly.",
+       "type": "scenario",
+       "scenario": "Nadia and Omar both work full days. Dishes pile up, and they are both tired and short with each other."
+      },
+      {
+       "id": "c1d",
+       "q": "Do scholars agree that a wife is legally obliged to do all the housework?",
+       "options": [
+        {
+         "text": "No. They differ, and everyone agrees on kindness and sharing"
+        },
+        {
+         "text": "Yes, all schools agree she must",
+         "reteach": "No. Scholars differ. Some say it is generosity, others say it follows custom.",
+         "back": "duty"
+        },
+        {
+         "text": "Yes, but only in the Hanafi school",
+         "reteach": "The lesson reports that scholars differ. Do not turn it into a single ruling.",
+         "back": "duty"
+        }
+       ],
+       "answer": 0,
+       "explain": "They differ; kindness is agreed.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "night",
+     "kind": "arrange",
+     "prompt": "Put the bedtime tasbih in order.",
+     "items": [
+      {
+       "text": "Allahu akbar",
+       "why": "The takbir is said 34 times.",
+       "back": "tasbih"
+      },
+      {
+       "text": "Alhamdulillah",
+       "why": "Praise is said 33 times.",
+       "back": "tasbih"
+      },
+      {
+       "text": "Subhanallah",
+       "why": "Glory be to Allah is said 33 times.",
+       "back": "tasbih"
+      }
+     ],
+     "explain": "The hadith lists the three; scholars note the counts are 34, 33 and 33 in total 100."
+    },
+    {
+     "id": "terms",
+     "kind": "match",
+     "prompt": "Match each phrase to its meaning. Tap one on the left, then its meaning on the right.",
+     "pairs": [
+      {
+       "left": {
+        "ref": "takbir"
+       },
+       "right": {
+        "text": "Allah is the Greatest"
+       },
+       "why": "This is Allahu akbar.",
+       "back": "tasbih"
+      },
+      {
+       "left": {
+        "ref": "dhikr.1"
+       },
+       "right": {
+        "text": "Glory be to Allah"
+       },
+       "why": "This is Subhanallah.",
+       "back": "tasbih"
+      },
+      {
+       "left": {
+        "ref": "dhikr.2"
+       },
+       "right": {
+        "text": "And praise be to Allah"
+       },
+       "why": "This is Alhamdulillah, with a joining and.",
+       "back": "tasbih"
+      },
+      {
+       "left": {
+        "text": "Bukhari 676"
+       },
+       "right": {
+        "text": "What the Prophet did at home"
+       },
+       "why": "This is Aisha’s answer.",
+       "back": "aisha"
+      },
+      {
+       "left": {
+        "text": "Bukhari 3113"
+       },
+       "right": {
+        "text": "The story of Fatima and the hand mill"
+       },
+       "why": "It is where the bedtime tasbih comes from.",
+       "back": "fatima"
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c2a",
+       "q": "Why does the lesson say small tasks at home can be worship?",
+       "options": [
+        {
+         "text": "Because housework is a pillar of Islam",
+         "reteach": "No. The lesson says no task is too small to count with sincere intention.",
+         "back": "worship"
+        },
+        {
+         "text": "The Prophet ﷺ said even a morsel placed in a wife’s mouth is rewarded when done for Allah"
+        },
+        {
+         "text": "Because only housework counts",
+         "reteach": "No. All good work counts.",
+         "back": "worship"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 56 and Bukhari 676.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2b",
+       "q": "When the call to prayer came, what did the Prophet ﷺ do?",
+       "options": [
+        {
+         "text": "He finished the housework first",
+         "reteach": "Bukhari 676 says he went for the prayer when it was time.",
+         "back": "aisha"
+        },
+        {
+         "text": "He went out for it"
+        },
+        {
+         "text": "He prayed at home every time",
+         "reteach": "The report says he went out for the prayer.",
+         "back": "aisha"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 676.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2c",
+       "q": "What should a person do to start?",
+       "options": [
+        {
+         "text": "Announce it to the family",
+         "reteach": "The aim is sincerity. Keep it quiet.",
+         "back": "share"
+        },
+        {
+         "text": "Do one job before anyone asks, and keep it quiet"
+        },
+        {
+         "text": "Wait to be told",
+         "reteach": "Do it before being asked.",
+         "back": "share"
+        }
+       ],
+       "answer": 1,
+       "explain": "Do one job quietly.",
+       "type": "scenario",
+       "scenario": "You want to start helping at home but do not know where to begin."
+      },
+      {
+       "id": "c2d",
+       "q": "What did the Prophet ﷺ do when Fatima asked for a servant?",
+       "options": [
+        {
+         "text": "He gave them a dhikr to say at bedtime"
+        },
+        {
+         "text": "He sent a servant",
+         "reteach": "No. In Bukhari 3113 he told them something better, the tasbih.",
+         "back": "fatima"
+        },
+        {
+         "text": "He told her not to complain",
+         "reteach": "No. He visited them and gave them something to say.",
+         "back": "fatima"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 3113.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Do one job unasked",
+     "body": "Pick one job at home and do it today before anyone asks. Then, before bed, say the tasbih.",
+     "route": "/adhkar",
+     "button": "Open adhkar"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Say what Aisha reported about the Prophet ﷺ at home.",
+      "Explain why home work can be worship.",
+      "Say that scholars differ on the legal duty of housework, and that kindness is agreed.",
+      "Give three steps to share the work.",
+      "Say the three phrases of the bedtime tasbih."
+     ],
+     "next": "Next: The family that prays."
+    }
+   ]
+  },
+  {
+   "id": "fam.u3.l2",
+   "title": "The family that prays",
+   "minutes": 14,
+   "intro": "Small habits that make a home a place of remembrance, and the hadith that encourage them.",
+   "steps": [
+    {
+     "id": "hook",
+     "kind": "teach",
+     "title": "A house that remembers Allah",
+     "body": [
+      "Some homes are quiet and some are loud. Few are a place where Allah is mentioned. This lesson is about small habits that make a home a place of remembrance: dhikr, night prayer, and the words when you enter.",
+      "You do not need a big plan. One small habit, done together, is a good beginning."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "living",
+     "kind": "teach",
+     "title": "The living and the dead",
+     "body": [
+      "The Prophet ﷺ said that the example of the one who remembers his Lord, compared to the one who does not, is like a living creature compared to a dead one (Bukhari 6407).",
+      "The comparison is strong. A home that mentions Allah has life in it, even when it is poor or noisy."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 6407"
+    },
+    {
+     "id": "hearts",
+     "kind": "say",
+     "title": "Hearts find rest",
+     "refs": [
+      "q:13:28"
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 13:28",
+     "note": "Allah says that hearts find peace through remembering Him. Read the meaning. This is why a family dhikr is not an extra: it is a source of calm for the whole home."
+    },
+    {
+     "id": "hear",
+     "kind": "listen",
+     "title": "Hear it recited",
+     "ref": "q:13:28",
+     "repeats": 2,
+     "note": "Listen once, then say it after the reciter in the pause."
+    },
+    {
+     "id": "enter",
+     "kind": "teach",
+     "title": "When you enter your home",
+     "body": [
+      "Jabir reported that the Prophet ﷺ said: when a person enters his house and mentions Allah’s name when entering and when eating, Satan says: you have no place to spend the night and no supper here. When he enters without mentioning Allah, Satan says: you have found a place to spend the night (Muslim 2018).",
+      "So a simple habit: say Bismillah when you come in, and when you start to eat. The next lesson in the app’s adhkar section has the full words for entering."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 2018"
+    },
+    {
+     "id": "night",
+     "kind": "teach",
+     "title": "Waking each other for night prayer",
+     "body": [
+      "Abu Huraira reported that the Prophet ﷺ said: may Allah have mercy on a man who gets up at night and prays, and wakes his wife; if she refuses, he sprinkles water on her face. May Allah have mercy on a woman who gets up at night and prays, and wakes her husband; if he refuses, she sprinkles water on his face (Abu Dawud 1308, graded hasan sahih by al-Albani).",
+      "It is mutual. Husband and wife encourage each other to the night prayer. The water is a gentle, playful picture, not force. If a spouse is ill, tired or has small children, kindness decides."
+     ],
+     "label": "[Established]",
+     "source": "Abu Dawud 1308 (graded hasan sahih by al-Albani)"
+    },
+    {
+     "id": "habits",
+     "kind": "howto",
+     "title": "Three small habits to start",
+     "intro": "Choose one for this week. When it feels natural, add another.",
+     "steps": [
+      {
+       "text": "Say Bismillah when entering and when eating.",
+       "detail": "It takes a second. Teach children to say it too."
+      },
+      {
+       "text": "Pray one prayer together.",
+       "detail": "Fajr or Maghrib are common choices. Even two people count."
+      },
+      {
+       "text": "Say the tasbih before sleep.",
+       "detail": "Allahu akbar 34, alhamdulillah 33, subhanallah 33, as in Bukhari 3113."
+      },
+      {
+       "text": "Read a little Qur’an out loud.",
+       "detail": "One short surah or a page a day."
+      },
+      {
+       "text": "Let children see you do it.",
+       "detail": "Children copy what they see, so the best lesson is your example."
+      }
+     ],
+     "mistakes": [
+      "Making it a long lecture that children dread.",
+      "Starting too many habits at once.",
+      "Forcing a family member who is ill or exhausted."
+     ],
+     "label": "[Reflection]",
+     "source": "Bukhari 3113; Muslim 2018"
+    },
+    {
+     "id": "c1",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1a",
+       "q": "In Bukhari 6407, what is the one who remembers Allah compared to?",
+       "options": [
+        {
+         "text": "A living creature, compared to a dead one"
+        },
+        {
+         "text": "A rich man compared to a poor man",
+         "reteach": "No. The comparison is the living and the dead.",
+         "back": "living"
+        },
+        {
+         "text": "A rock compared to water",
+         "reteach": "No. It is the living and the dead.",
+         "back": "living"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 6407.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1b",
+       "q": "According to 13:28, what gives hearts peace?",
+       "options": [
+        {
+         "text": "Wealth",
+         "reteach": "No. The ayah says hearts find peace in the remembrance of Allah.",
+         "back": "hearts"
+        },
+        {
+         "text": "Busy schedules",
+         "reteach": "No. It is the remembrance of Allah.",
+         "back": "hearts"
+        },
+        {
+         "text": "The remembrance of Allah"
+        }
+       ],
+       "answer": 2,
+       "explain": "Qur’an 13:28.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1c",
+       "q": "What does Muslim 2018 teach about entering the house?",
+       "options": [
+        {
+         "text": "Mention Allah’s name on entering and eating, and Satan finds no place there"
+        },
+        {
+         "text": "Enter silently",
+         "reteach": "The hadith says to mention Allah’s name.",
+         "back": "enter"
+        },
+        {
+         "text": "Say it only once a year",
+         "reteach": "The hadith speaks of every entry and every meal.",
+         "back": "enter"
+        }
+       ],
+       "answer": 0,
+       "explain": "Muslim 2018.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1d",
+       "q": "A wife is tired and unwell and does not wake for night prayer. What is the kind response?",
+       "options": [
+        {
+         "text": "Let her rest; the hadith is about encouraging, not forcing"
+        },
+        {
+         "text": "Pour water on her anyway",
+         "reteach": "The hadith is a gentle picture of encouragement. If someone is ill or exhausted, be kind.",
+         "back": "night"
+        },
+        {
+         "text": "Tell her she is failing",
+         "reteach": "No. Kindness comes first.",
+         "back": "night"
+        }
+       ],
+       "answer": 0,
+       "explain": "Encourage, and be kind when someone is ill or tired.",
+       "type": "scenario",
+       "scenario": "A husband wants to pray at night and sees his wife is unwell and exhausted."
+      }
+     ]
+    },
+    {
+     "id": "start",
+     "kind": "arrange",
+     "prompt": "Put these in a sensible order for starting a family habit.",
+     "items": [
+      {
+       "text": "Choose one small habit",
+       "why": "Start with one habit, not five.",
+       "back": "habits"
+      },
+      {
+       "text": "Do it yourself first",
+       "why": "Children copy what they see.",
+       "back": "habits"
+      },
+      {
+       "text": "Invite the family, kindly",
+       "why": "An invitation lands better than an order.",
+       "back": "night"
+      },
+      {
+       "text": "Keep it short and regular",
+       "why": "A short habit each day beats a long one once a month.",
+       "back": "habits"
+      },
+      {
+       "text": "Add another habit later",
+       "why": "Build slowly.",
+       "back": "habits"
+      }
+     ],
+     "explain": "One habit, do it first, invite kindly, keep it short, add later."
+    },
+    {
+     "id": "words",
+     "kind": "match",
+     "prompt": "Match each item to what it is about. Tap one on the left, then its meaning on the right.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Bukhari 6407"
+       },
+       "right": {
+        "text": "The living and the dead"
+       },
+       "why": "It compares remembering Allah to life.",
+       "back": "living"
+      },
+      {
+       "left": {
+        "text": "Qur’an 13:28"
+       },
+       "right": {
+        "text": "Hearts find peace in remembrance"
+       },
+       "why": "It tells us where peace comes from.",
+       "back": "hearts"
+      },
+      {
+       "left": {
+        "text": "Muslim 2018"
+       },
+       "right": {
+        "text": "Mention Allah on entering the house"
+       },
+       "why": "Satan finds no place.",
+       "back": "enter"
+      },
+      {
+       "left": {
+        "text": "Abu Dawud 1308 (al-Albani: hasan sahih)"
+       },
+       "right": {
+        "text": "Waking each other for night prayer"
+       },
+       "why": "Mutual encouragement between spouses.",
+       "back": "night"
+      },
+      {
+       "left": {
+        "text": "Bukhari 3113"
+       },
+       "right": {
+        "text": "The bedtime tasbih"
+       },
+       "why": "It was taught to Ali and Fatima.",
+       "back": "habits"
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c2a",
+       "q": "Which statement about Abu Dawud 1308 (graded hasan sahih by al-Albani) is correct?",
+       "options": [
+        {
+         "text": "It is only for husbands",
+         "reteach": "No. It covers both the man and the woman.",
+         "back": "night"
+        },
+        {
+         "text": "It speaks of both husband and wife waking each other"
+        },
+        {
+         "text": "It is a command to use force",
+         "reteach": "No. It is a gentle picture of encouragement.",
+         "back": "night"
+        }
+       ],
+       "answer": 1,
+       "explain": "Mutual encouragement (graded hasan sahih by al-Albani).",
+       "type": "mcq"
+      },
+      {
+       "id": "c2b",
+       "q": "What is the first habit suggested?",
+       "options": [
+        {
+         "text": "Fast every day",
+         "reteach": "That is too much to start. The first habit is Bismillah.",
+         "back": "habits"
+        },
+        {
+         "text": "Say Bismillah on entering and eating"
+        },
+        {
+         "text": "Read a whole juz daily",
+         "reteach": "Start smaller.",
+         "back": "habits"
+        }
+       ],
+       "answer": 1,
+       "explain": "Start with Bismillah.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2c",
+       "q": "Which is the best way to introduce a new habit to children?",
+       "options": [
+        {
+         "text": "Announce it with rules and punishments",
+         "reteach": "This turns remembrance into a punishment.",
+         "back": "habits"
+        },
+        {
+         "text": "Do it in front of them, keep it short, and invite them"
+        },
+        {
+         "text": "Say nothing and hope they notice",
+         "reteach": "They notice, but a gentle invitation helps.",
+         "back": "habits"
+        }
+       ],
+       "answer": 1,
+       "explain": "Example, short, invite.",
+       "type": "scenario",
+       "scenario": "A mother wants her children to start remembering Allah at home."
+      },
+      {
+       "id": "c2d",
+       "q": "What does Qur’an 13:28 say hearts do through remembrance?",
+       "options": [
+        {
+         "text": "Find assurance"
+        },
+        {
+         "text": "Become proud",
+         "reteach": "No. They find assurance and peace.",
+         "back": "hearts"
+        },
+        {
+         "text": "Become tired",
+         "reteach": "No. They find assurance.",
+         "back": "hearts"
+        }
+       ],
+       "answer": 0,
+       "explain": "Qur’an 13:28.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Start one habit tonight",
+     "body": "Open the adhkar and pick the sleeping dhikr to say with your family tonight.",
+     "route": "/adhkar",
+     "button": "Open adhkar"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Say what Bukhari 6407 compares.",
+      "Explain what 13:28 says about hearts.",
+      "Say what to say when you enter your house and why.",
+      "Describe the night prayer hadith and its gentle spirit.",
+      "Choose one habit for this week."
+     ],
+     "next": "Next: Forgiveness in the house."
+    }
+   ]
+  },
+  {
+   "id": "fam.u3.l3",
+   "title": "Forgiveness in the house",
+   "minutes": 15,
+   "intro": "Restraining anger, forgiving as Abu Bakr did, and a way to say sorry.",
+   "steps": [
+    {
+     "id": "hook",
+     "kind": "teach",
+     "title": "Who says sorry first?",
+     "body": [
+      "Anyone who has lived with other people knows the quiet that follows an argument. Both are waiting for the other to speak. This lesson is about breaking that silence, in a way that fits what the Qur’an and the Prophet ﷺ taught about forgiving.",
+      "It is for spouses, siblings, parents, children, and housemates."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "anger",
+     "kind": "say",
+     "title": "Restraining anger",
+     "refs": [
+      "q:3:134"
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 3:134",
+     "note": "Allah describes the people of good: those who spend in ease and hardship, who restrain their anger, and who pardon people. He loves the doers of good. Forgiving begins with controlling the first reaction."
+    },
+    {
+     "id": "strong",
+     "kind": "teach",
+     "title": "The strong one",
+     "body": [
+      "A man asked the Prophet ﷺ for advice. He said: do not become angry. The man asked again and again, and each time he said: do not become angry (Bukhari 6116). In another report the Prophet ﷺ said that the strong one is not the one who overcomes people by strength, but the one who controls himself in anger (Bukhari 6114).",
+      "So the first step is to pause. It is not weakness."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 6116; Bukhari 6114"
+    },
+    {
+     "id": "mistah",
+     "kind": "story",
+     "title": "Abu Bakr and Mistah",
+     "body": [
+      "During the slander against Aisha, Mistah, a poor relative whom Abu Bakr supported, joined those who spoke. Abu Bakr was hurt and swore to stop helping him. Then Allah revealed: do not let those of virtue and wealth among you swear not to give to relatives and the needy. Let them pardon and overlook. Would you not like that Allah should forgive you? (24:22).",
+      "Abu Bakr said: yes, by Allah, I would like that Allah forgive me. He gave Mistah his support again. Here the ayah asks a person to forgive someone who really hurt him, and links it to the hope that Allah will forgive us."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 4757; Qur'an 24:22",
+     "quran": "q:24:22"
+    },
+    {
+     "id": "rank",
+     "kind": "teach",
+     "title": "Forgiving raises you",
+     "body": [
+      "The Prophet ﷺ said that charity does not reduce wealth, that no one forgives another except that Allah increases him in honour, and that no one humbles himself for Allah except that Allah raises him (Muslim 2588).",
+      "This is the opposite of what pride says. Pride says the one who says sorry first loses. The hadith says that forgiving earns honour with Allah."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 2588"
+    },
+    {
+     "id": "limit",
+     "kind": "contrast",
+     "title": "Forgiving, and staying safe",
+     "intro": "Forgiveness is not the same as having no boundaries.",
+     "agree": "Pardon when you safely can, and seek help when you are not safe.",
+     "rows": [
+      {
+       "name": "Forgiving",
+       "text": "You can let go of the wish for revenge and leave the matter to Allah. 42:40 says that whoever pardons and makes reconciliation, his reward is with Allah."
+      },
+      {
+       "name": "Staying safe",
+       "text": "Forgiving does not mean staying in a home where you are hurt. If someone is violent or abusive, protect yourself and seek help from trusted people."
+      },
+      {
+       "name": "Fair settlement",
+       "text": "The same ayah allows a fair response to a wrong. Pardoning is better, but it is not a duty to put yourself in danger."
+      }
+     ],
+     "closing": "Forgive in the heart; protect yourself in practice.",
+     "label": "[Interpretive]",
+     "source": "Qur'an 42:40",
+     "review": "Please confirm that the framing of forgiveness versus safety in cases of abuse is acceptable and add a referral line if the app has one."
+    },
+    {
+     "id": "greet",
+     "kind": "teach",
+     "title": "The better one greets first",
+     "body": [
+      "The Prophet ﷺ said it is not lawful for a Muslim to desert his brother for more than three nights, when they meet and turn away from each other, and the better of the two is the one who greets the other first (Bukhari 6077).",
+      "Scholars apply this to people who are on bad terms. A family member who is cross can use the same idea: greet first, and see how the other answers. Applying it to spouses is an application, not the exact wording of the hadith."
+     ],
+     "label": "[Interpretive]",
+     "source": "Bukhari 6077",
+     "review": "The hadith is about brothers in Islam. The application to spouses and family members is an extension; please confirm the wording."
+    },
+    {
+     "id": "repair",
+     "kind": "howto",
+     "title": "A way to say sorry",
+     "intro": "These steps follow the guidance above. Adapt them to the person and the situation.",
+     "steps": [
+      {
+       "text": "Cool down.",
+       "detail": "If you are still angry, wait. Say nothing you will have to take back (Bukhari 6116)."
+      },
+      {
+       "text": "Choose a quiet time and place.",
+       "detail": "Not in front of others, and not when either is hungry or rushed."
+      },
+      {
+       "text": "Start with the greeting.",
+       "detail": "Say salam first (Bukhari 6077)."
+      },
+      {
+       "text": "Name your part.",
+       "detail": "I raised my voice. I am sorry."
+      },
+      {
+       "text": "Do not add a but.",
+       "detail": "But cancels the apology."
+      },
+      {
+       "text": "Ask how to put it right.",
+       "detail": "What would help?"
+      },
+      {
+       "text": "Make du’a for each other.",
+       "detail": "Ask Allah to forgive both of you."
+      }
+     ],
+     "mistakes": [
+      "Saying sorry only to end the argument.",
+      "Bringing up old arguments.",
+      "Waiting for the other to speak first."
+     ],
+     "label": "[Reflection]",
+     "source": "Bukhari 6116; Bukhari 6077"
+    },
+    {
+     "id": "c1",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1a",
+       "q": "What did the Prophet ﷺ say to the man who asked for advice in Bukhari 6116?",
+       "options": [
+        {
+         "text": "Do not become angry"
+        },
+        {
+         "text": "Always be silent",
+         "reteach": "No. The advice was do not become angry.",
+         "back": "strong"
+        },
+        {
+         "text": "Be firm",
+         "reteach": "No. The man asked again and again and received the same answer.",
+         "back": "strong"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 6116.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1b",
+       "q": "What did Abu Bakr do after 24:22 was revealed?",
+       "options": [
+        {
+         "text": "He refused to forgive",
+         "reteach": "No. He said he wanted Allah to forgive him, and he resumed.",
+         "back": "mistah"
+        },
+        {
+         "text": "He asked someone else to help Mistah",
+         "reteach": "No. He resumed helping him himself.",
+         "back": "mistah"
+        },
+        {
+         "text": "He forgave Mistah and gave his support again"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 4757.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1c",
+       "q": "What is a good first move?",
+       "options": [
+        {
+         "text": "Greet first with salam when you are calm"
+        },
+        {
+         "text": "Wait until the other person speaks first",
+         "reteach": "The better one is the one who greets first (Bukhari 6077).",
+         "back": "greet"
+        },
+        {
+         "text": "Say nothing for a week",
+         "reteach": "Bukhari 6077 warns against leaving someone for more than three nights.",
+         "back": "greet"
+        }
+       ],
+       "answer": 0,
+       "explain": "Salam first.",
+       "type": "scenario",
+       "scenario": "Two siblings have not spoken for two days after an argument."
+      },
+      {
+       "id": "c1d",
+       "q": "Someone at home is violent. What does the lesson say?",
+       "options": [
+        {
+         "text": "Protect yourself and seek help; forgiving in the heart is different from staying in danger"
+        },
+        {
+         "text": "You must stay and forgive",
+         "reteach": "No. Forgiveness does not require staying where you are being hurt.",
+         "back": "limit"
+        },
+        {
+         "text": "You must take revenge",
+         "reteach": "No. Pardoning is better, but safety comes first.",
+         "back": "limit"
+        }
+       ],
+       "answer": 0,
+       "explain": "Be safe first.",
+       "type": "scenario",
+       "scenario": "A woman says her husband is violent and asks if Islam asks her to forgive and stay."
+      }
+     ]
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "prompt": "Put the steps of saying sorry in order.",
+     "items": [
+      {
+       "text": "Cool down",
+       "why": "Do not speak in anger.",
+       "back": "strong"
+      },
+      {
+       "text": "Pick a quiet time",
+       "why": "Privacy helps.",
+       "back": "repair"
+      },
+      {
+       "text": "Greet first with salam",
+       "why": "Begin with peace.",
+       "back": "greet"
+      },
+      {
+       "text": "Name your part, without a but",
+       "why": "Say it plainly.",
+       "back": "repair"
+      },
+      {
+       "text": "Ask how to put it right",
+       "why": "Listen.",
+       "back": "repair"
+      }
+     ],
+     "explain": "Cool down, quiet time, salam, name your part, ask how to put it right."
+    },
+    {
+     "id": "ref",
+     "kind": "match",
+     "prompt": "Match each text to what it teaches. Tap one on the left, then its meaning on the right.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Qur’an 3:134"
+       },
+       "right": {
+        "text": "Restrain anger and pardon"
+       },
+       "why": "It describes the people of good.",
+       "back": "anger"
+      },
+      {
+       "left": {
+        "text": "Qur’an 24:22"
+       },
+       "right": {
+        "text": "Pardon and overlook, as you hope Allah forgives you"
+       },
+       "why": "It is the ayah about Mistah.",
+       "back": "mistah"
+      },
+      {
+       "left": {
+        "text": "Muslim 2588"
+       },
+       "right": {
+        "text": "Forgiving raises a person in honour"
+       },
+       "why": "It reverses what pride says.",
+       "back": "rank"
+      },
+      {
+       "left": {
+        "text": "Bukhari 6077"
+       },
+       "right": {
+        "text": "The better one greets first"
+       },
+       "why": "It is about not deserting someone.",
+       "back": "greet"
+      },
+      {
+       "left": {
+        "text": "Qur’an 42:40"
+       },
+       "right": {
+        "text": "Pardon brings reward with Allah"
+       },
+       "why": "It also allows a fair response.",
+       "back": "limit"
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c2a",
+       "q": "What does Muslim 2588 say Allah does for the one who forgives?",
+       "options": [
+        {
+         "text": "Reduces his wealth",
+         "reteach": "No. It says charity does not reduce wealth, and forgiving increases honour.",
+         "back": "rank"
+        },
+        {
+         "text": "Increases him in honour"
+        },
+        {
+         "text": "Makes him weak",
+         "reteach": "No. It increases his honour.",
+         "back": "rank"
+        }
+       ],
+       "answer": 1,
+       "explain": "Muslim 2588.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2b",
+       "q": "Which is a mistake when saying sorry?",
+       "options": [
+        {
+         "text": "Naming your own part",
+         "reteach": "That is the right way.",
+         "back": "repair"
+        },
+        {
+         "text": "Adding a but, such as I am sorry but you started it"
+        },
+        {
+         "text": "Choosing a quiet time",
+         "reteach": "That is the right way.",
+         "back": "repair"
+        }
+       ],
+       "answer": 1,
+       "explain": "A but cancels the apology.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2c",
+       "q": "The lesson applies Bukhari 6077 to spouses. How should it be described?",
+       "options": [
+        {
+         "text": "As the exact wording of the hadith",
+         "reteach": "The hadith is about brothers in Islam; the lesson extends the idea.",
+         "back": "greet"
+        },
+        {
+         "text": "As an application of the idea, not the exact wording of the hadith"
+        },
+        {
+         "text": "As a ruling",
+         "reteach": "It is not a ruling, only an application.",
+         "back": "greet"
+        }
+       ],
+       "answer": 1,
+       "explain": "An application; flagged for scholar review.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2d",
+       "q": "What does 3:134 say about the people of good?",
+       "options": [
+        {
+         "text": "They restrain their anger and pardon people"
+        },
+        {
+         "text": "They never feel anger",
+         "reteach": "No. They restrain it.",
+         "back": "anger"
+        },
+        {
+         "text": "They take revenge quickly",
+         "reteach": "No. They pardon.",
+         "back": "anger"
+        }
+       ],
+       "answer": 0,
+       "explain": "Qur’an 3:134.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Say it tonight",
+     "body": "Think of one person at home you need to make peace with. Greet them first, and say what you need to say. If you cannot, make du’a for them.",
+     "route": "/adhkar",
+     "button": "Open adhkar"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Say what the Prophet ﷺ answered the man who asked for advice.",
+      "Retell what Abu Bakr did after 24:22.",
+      "Say why forgiving raises a person (Muslim 2588).",
+      "Explain how forgiving differs from staying in danger.",
+      "List the steps of a good apology."
+     ],
+     "next": "You have finished the Family course."
+    }
+   ]
+  }
+ ]
+}
