@@ -5,7 +5,7 @@
     "line": "When the chest is tight and tomorrow won't sit still",
     "dua": {
       "arabic": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ",
-      "body": "O Allah, I seek refuge in You from anxiety and grief, from incapacity and laziness, from miserliness and cowardice, from the burden of debt and being overpowered by men.",
+      "body": "O Allah, I seek refuge in You from worry and grief, from incapacity and laziness, from cowardice and miserliness, from the burden of debt and from being overpowered by men. The Prophet ﷺ used to say this.",
       "source": "Sahih al-Bukhari 6369"
     },
     "items": [
@@ -13,19 +13,19 @@
         "type": "story",
         "storyId": "kh-anxiety",
         "title": "Anxiety and the Medicine of Ta'weel",
-        "why": "The sermon for the 3am ceiling"
+        "why": "A reflection for the 3am ceiling"
       },
       {
         "type": "story",
         "storyId": "mh-soul-heart",
         "title": "The Morsel of Flesh",
-        "why": "Your heart is the governor of the body — and it can be treated"
+        "why": "The hadith on the heart: when it is sound, the whole body is sound"
       },
       {
         "type": "story",
         "storyId": "prophet-ayyub",
         "title": "Ayyub — The Patient One",
-        "why": "The dua from darkness: 'You are the Most Merciful of the merciful'"
+        "why": "His dua in deep affliction: 'You are the Most Merciful of the merciful' (21:83)"
       }
     ]
   },
@@ -35,7 +35,7 @@
     "line": "When something or someone is gone",
     "dua": {
       "arabic": "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ، اللَّهُمَّ أْجُرْنِي فِي مُصِيبَتِي وَاخْلُفْ لِي خَيْرًا مِنْهَا",
-      "body": "Indeed we belong to Allah, and indeed to Him we return. O Allah, reward me in my affliction and replace it for me with better.",
+      "body": "Indeed we belong to Allah, and indeed to Him we return. O Allah, reward me in my affliction and give me something better than it in exchange. The Prophet ﷺ taught that whoever says this when struck by a calamity, Allah gives them something better.",
       "source": "Sahih Muslim 918; Qur'an 2:156"
     },
     "items": [
@@ -43,19 +43,19 @@
         "type": "story",
         "storyId": "kh-innalillah",
         "title": "The Grammar of Loss",
-        "why": "The sentence that turns a hit into an address"
+        "why": "The words to say when loss strikes (2:156)"
       },
       {
         "type": "story",
         "storyId": "woman-umm-salama",
-        "title": "Umm Salama — Whose Question Became a Verse",
-        "why": "She said the dua — and her replacement was the Messenger ﷺ"
+        "title": "Umm Salama — The Dua and What Followed",
+        "why": "She said this dua after Abu Salama died (Muslim 918)"
       },
       {
         "type": "story",
         "storyId": "kh-yaqub",
         "title": "The Beautiful Patience",
-        "why": "Ya'qub held a stained shirt for years — and was right to hope"
+        "why": "Ya'qub's grief for Yusuf: 'patience is most fitting' (12:18), and no despair of relief (12:87)"
       }
     ]
   },
@@ -65,27 +65,27 @@
     "line": "When the heat rises and the tongue loads",
     "dua": {
       "arabic": "أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ",
-      "body": "I seek refuge in Allah from the accursed Shaytan. Then sit if you stand, and perform wudu — water against fire.",
-      "source": "Sahih al-Bukhari 3282; Sunan Abi Dawud 4784, weak per al-Albani"
+      "body": "I seek refuge in Allah from the accursed Shaytan. The Prophet ﷺ said this word relaxes a man in anger (Bukhari 3282). He also said: if one of you is angry while standing, let him sit; if the anger leaves, good, and if not, let him lie down (Abu Dawud 4782: sahih per al-Albani and Darussalam).",
+      "source": "Sahih al-Bukhari 3282; Sunan Abi Dawud 4782 (sahih per al-Albani; sahih per Darussalam)"
     },
     "items": [
       {
         "type": "story",
         "storyId": "prophet-yusuf",
         "title": "Yusuf — 'No Blame Upon You'",
-        "why": "The grudge that melted into 'no blame upon you today'"
+        "why": "The grudge that melted into 'No blame will there be upon you today' (12:92)"
       },
       {
         "type": "story",
         "storyId": "ghayb-pb-anger",
         "title": "Play 5: Anger & Argument",
-        "why": "Shaytan pours oil; you carry water"
+        "why": "Repel evil with what is better (41:34); the strong one controls himself in anger"
       },
       {
         "type": "story",
         "storyId": "prophet-ibrahim",
         "title": "The Two Rivers of Ibrahim",
-        "why": "The man who smashed idols answered fire with coolness"
+        "why": "He answered his people's fire with reason, not rage (21:51-70)"
       }
     ]
   },
@@ -94,28 +94,28 @@
     "feeling": "Lonely",
     "line": "When the crowd is full and the room is empty",
     "dua": {
-      "arabic": "لَا إِلَٰهَ إِلَّا اللَّهُ الْعَظِيمُ الْحَلِيمُ",
-      "body": "There is no deity but Allah, the Magnificent, the Forbearing — say it in the loneliness; He is nearer than the vein the loneliness aches in.",
-      "source": "Sahih al-Bukhari 6346; Qur'an 50:16"
+      "arabic": "وَهُوَ مَعَكُمْ أَيْنَ مَا كُنتُمْ ۚ وَنَحْنُ أَقْرَبُ إِلَيْهِ مِنْ حَبْلِ الْوَرِيدِ",
+      "body": "And He is with you wherever you are. And We are closer to him than his jugular vein.",
+      "source": "Qur'an 57:4; 50:16"
     },
     "items": [
       {
         "type": "story",
         "storyId": "kh-lonely",
         "title": "Loneliness in the Crowd",
-        "why": "Five hundred friends and no one to call — and the three doors back"
+        "why": "A crowded feed and no one to call — and the ways back to people"
       },
       {
         "type": "story",
         "storyId": "woman-maryam",
         "title": "Maryam — The Palm Tree",
-        "why": "Alone in labor — and provision descended at her feet"
+        "why": "Alone in labor, and Allah provided for her there (19:22-26)"
       },
       {
         "type": "story",
         "storyId": "prophet-yunus",
         "title": "Yunus — The Whale's Belly",
-        "why": "Darker than your dark, and one sentence reached the Throne"
+        "why": "Alone in three darknesses, he called — and Allah answered (21:87-88)"
       }
     ]
   },
@@ -124,8 +124,8 @@
     "feeling": "Grateful",
     "line": "When the heart is full and you want to say it well",
     "dua": {
-      "arabic": "الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنَا وَسَقَانَا وَجَعَلَنَا مُسْلِمِينَ",
-      "body": "All praise is for Allah who fed us, gave us drink, and made us Muslims. Gratitude is the wealth that increases — 'if you are grateful, I will surely increase you.'",
+      "arabic": "الْحَمْدُ لِلَّهِ",
+      "body": "Al-hamdu lillah — all praise is for Allah. The Prophet ﷺ said Allah is pleased with the servant who eats a morsel of food and praises Him for it, or drinks a drink and praises Him for it. And Allah says: 'If you are grateful, I will surely increase you.'",
       "source": "Sahih Muslim 2734; Qur'an 14:7"
     },
     "items": [
@@ -133,19 +133,19 @@
         "type": "story",
         "storyId": "kh-atom",
         "title": "The Weight of One Atom",
-        "why": "Gratitude for the small is the deposit that pays at the end"
+        "why": "Whoever does an atom's weight of good will see it (99:7)"
       },
       {
         "type": "story",
         "storyId": "prophet-sulayman",
         "title": "Sulayman — The Kingdom",
-        "why": "The mightiest king prayed only to be grateful"
+        "why": "The mightiest king asked to be enabled to be grateful (27:19)"
       },
       {
         "type": "story",
         "storyId": "mh-money-hand",
         "title": "The Upper Hand",
-        "why": "Give from the gratitude — 'sadaqah does not decrease wealth'"
+        "why": "Giving from what you have been given"
       }
     ]
   },
@@ -155,27 +155,27 @@
     "line": "When the tank is empty and the week won't end",
     "dua": {
       "arabic": "اللَّهُمَّ أَعِنِّي عَلَى ذِكْرِكَ وَشُكْرِكَ وَحُسْنِ عِبَادَتِكَ",
-      "body": "O Allah, help me to remember You, thank You, and worship You well. Rest is written into your design — the night was made for it.",
-      "source": "Sunan Abi Dawud 1522, sahih per al-Albani; Qur'an 17:12"
+      "body": "O Allah, help me to remember You, to thank You, and to worship You well. The Prophet ﷺ told Mu'adh never to leave this after any prayer. And Allah reminds us: 'We made your sleep a means for rest.' If tiredness will not lift with rest, it is worth seeing a doctor.",
+      "source": "Sunan Abi Dawud 1522 (sahih per al-Albani; sahih per Darussalam); Qur'an 78:9"
     },
     "items": [
       {
         "type": "story",
         "storyId": "kh-burnout",
         "title": "Built to Rest",
-        "why": "You were built to rest — and Friday is a standing appointment"
+        "why": "Rest is part of how you were made; the Friday pause is a standing appointment"
       },
       {
         "type": "story",
         "storyId": "mh-money-birds",
         "title": "The Birds Leave Hungry",
-        "why": "Provision flows to the one who works the morning and releases the outcome"
+        "why": "Tawakkul is not sitting still: the birds go out in the morning"
       },
       {
         "type": "story",
         "storyId": "dua-sleep",
         "title": "Before Sleep — Ayat al-Kursi",
-        "why": "A guardian is promised for the night — rest guarded"
+        "why": "The Prophet ﷺ taught Ayat al-Kursi at bedtime: a guardian from Allah stays over you (Bukhari 2311)"
       }
     ]
   },
@@ -184,28 +184,28 @@
     "feeling": "Afraid",
     "line": "When the dark gets loud",
     "dua": {
-      "arabic": "قُلْ أَعُوذُ بِرَبِّ النَّاسِ، مَلِكِ النَّاسِ، إِلَٰهِ النَّاسِ",
-      "body": "Say: I seek refuge in the Lord of mankind, the King of mankind, the God of mankind — the three quls, blown into the hands and wiped over the body, three times.",
-      "source": "Sahih al-Bukhari 5017; Qur'an 114"
+      "arabic": "قُلْ هُوَ اللَّهُ أَحَدٌ، قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ، قُلْ أَعُوذُ بِرَبِّ النَّاسِ",
+      "body": "Every night when he went to bed, the Prophet ﷺ would cup his hands together, blow into them after reciting al-Ikhlas, al-Falaq and an-Nas, and wipe over whatever he could of his body, starting with his head and face — three times.",
+      "source": "Sahih al-Bukhari 5017"
     },
     "items": [
       {
         "type": "story",
         "storyId": "ghayb-protection",
         "title": "Protection from the Jinn",
-        "why": "The fortress is five minutes of habit — never hours of fear"
+        "why": "A few short daily habits of protection, rather than hours of fear"
       },
       {
         "type": "story",
         "storyId": "prophet-ibrahim",
         "title": "Ibrahim — The Fire That Cooled",
-        "why": "'Be coolness and safety upon Ibrahim' — the fire obeyed"
+        "why": "'O fire, be coolness and safety upon Abraham' (21:69)"
       },
       {
         "type": "story",
         "storyId": "seerah-13",
         "title": "The Hijrah — The Second of Two",
-        "why": "'Do not grieve; indeed Allah is with us' — said in a cave with hunters at the door"
+        "why": "'Do not grieve; indeed Allah is with us' — said in the cave while Quraysh searched (9:40)"
       }
     ]
   },
@@ -215,27 +215,27 @@
     "line": "When you did the thing and the shame is loud",
     "dua": {
       "arabic": "أَسْتَغْفِرُ اللَّهَ الَّذِي لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ وَأَتُوبُ إِلَيْهِ",
-      "body": "I seek Allah's forgiveness — He besides whom there is no deity, the Ever-Living, the Sustainer — and I turn to Him. The door has no lock on the inside.",
-      "source": "Sunan Abi Dawud 1517, sahih per al-Albani; Qur'an 39:53"
+      "body": "I ask forgiveness of Allah, there is no deity but Him, the Ever-Living, the Sustainer, and I turn to Him in repentance. The Prophet ﷺ said whoever says this is forgiven, even if he fled from the battlefield. And Allah says: do not despair of His mercy (39:53).",
+      "source": "Sunan Abi Dawud 1517 (sahih per al-Albani; hasan per Darussalam); Qur'an 39:53"
     },
     "items": [
       {
         "type": "story",
         "storyId": "prophet-adam",
         "title": "Adam — The First Repentance",
-        "why": "One honest sentence opened the door of mercy for every sinner after him"
+        "why": "He asked forgiveness and Allah accepted his repentance (2:37; 7:23)"
       },
       {
         "type": "story",
         "storyId": "tale-99",
         "title": "The Man Who Killed 99",
-        "why": "The road to paradise, measured in miles of intention"
+        "why": "Even after ninety-nine, repentance was accepted (Bukhari 3470)"
       },
       {
         "type": "story",
         "storyId": "tale-dog",
         "title": "The Prostitute's Thirst",
-        "why": "One bowl of water — and the ledger was closed by mercy"
+        "why": "Allah forgave her for giving water to a thirsty dog (Bukhari 3467)"
       }
     ]
   },
@@ -245,27 +245,27 @@
     "line": "When something good is coming and you can feel it",
     "dua": {
       "arabic": "حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ",
-      "body": "Sufficient for us is Allah, and [He is] the best Disposer of affairs. Said by the Prophet's ﷺ household, and the favor that followed astonished them.",
-      "source": "Qur'an 3:173"
+      "body": "Sufficient for us is Allah, and [He is] the best Disposer of affairs. Ibrahim ﷺ said it when he was thrown into the fire, and Muhammad ﷺ said it when people warned that an army had gathered against them (Bukhari 4563). Allah says that they returned with favor from Allah and bounty, no harm having touched them (3:174).",
+      "source": "Sahih al-Bukhari 4563; Qur'an 3:173-174"
     },
     "items": [
       {
         "type": "story",
         "storyId": "kh-taif",
         "title": "Taif — Praying for Your Enemies' Grandchildren",
-        "why": "The dua that refused the mountains and chose the future"
+        "why": "Offered the mountains to crush the city, he hoped for their descendants instead (Bukhari 3231)"
       },
       {
         "type": "story",
         "storyId": "seerah-22",
         "title": "Hudaybiyyah — The Clear Conquest",
-        "why": "The treaty everyone hated opened all of Arabia"
+        "why": "A treaty that troubled even Umar — and Allah called it 'a clear conquest' (48:1)"
       },
       {
         "type": "story",
-        "storyId": "prophet-sulayman",
-        "title": "The Queen's Throne",
-        "why": "Power and wisdom can serve the same end: guidance"
+        "storyId": "kh-yaqub",
+        "title": "The Beautiful Patience",
+        "why": "'Despair not of relief from Allah' (12:87)"
       }
     ]
   },
@@ -275,7 +275,7 @@
     "line": "When the map is gone and every road looks the same",
     "dua": {
       "arabic": "اللَّهُمَّ إِنْ كُنْتَ تَعْلَمُ أَنَّ هَٰذَا الْأَمْرَ خَيْرٌ لِي فِي دِينِي وَمَعَاشِي وَعَاقِبَةِ أَمْرِي فَاقْدُرْهُ لِي وَيَسِّرْهُ لِي",
-      "body": "O Allah, if You know this matter to be good for me in my religion, my livelihood, and my outcome — decree it for me and ease it; and if it is bad, turn it and me away, and decree good for me wherever it is.",
+      "body": "The Prophet ﷺ taught the istikhara prayer for decisions, as he taught the surahs of the Qur'an: pray two rak'ahs other than the obligatory prayer, then say: O Allah, if You know this matter to be good for me in my religion, my livelihood and the consequence of my affairs, then decree it for me and ease it for me; and if You know it to be bad for me, turn it away from me and me away from it, and decree for me the good wherever it is.",
       "source": "Sahih al-Bukhari 6382"
     },
     "items": [
@@ -283,13 +283,13 @@
         "type": "story",
         "storyId": "prophet-ibrahim",
         "title": "Ibrahim — The Seeker",
-        "why": "He reasoned his way to Allah before a single prophet taught him"
+        "why": "He looked honestly — star, moon, sun — until he found the One who does not set (6:76-79)"
       },
       {
         "type": "story",
         "storyId": "mh-soul-solitude",
         "title": "Solitude Is a Room",
-        "why": "The quiet hour is part of the house of the deen, not an escape from it"
+        "why": "A quiet hour to listen; the Prophet ﷺ sought seclusion in Hira (Bukhari 3)"
       }
     ]
   },
@@ -299,7 +299,7 @@
     "line": "When the heart is quiet and you want to keep it",
     "dua": {
       "arabic": "اللَّهُمَّ إِنِّي أَسْأَلُكَ الْهُدَىٰ وَالتُّقَىٰ وَالْعَفَافَ وَالْغِنَىٰ",
-      "body": "O Allah, I ask You for guidance, piety, chastity, and self-sufficiency — the Prophet ﷺ would say this in his prayer. Peace is not the absence of trouble; it is the presence of sufficiency in Allah.",
+      "body": "O Allah, I ask You for guidance, piety, chastity and self-sufficiency. The Prophet ﷺ used to make this supplication.",
       "source": "Sahih Muslim 2721"
     },
     "items": [
@@ -307,19 +307,19 @@
         "type": "story",
         "storyId": "mh-soul-solitude",
         "title": "Solitude Is a Room",
-        "why": "Protect the quiet — it is part of the house of the deen"
+        "why": "Protect the quiet — it can be part of the deen, not an escape from it"
       },
       {
         "type": "story",
         "storyId": "kh-burnout",
         "title": "Built to Rest",
-        "why": "Rest is written into your design; keep the appointment"
+        "why": "Rest is part of how you were made; keep the appointment"
       },
       {
         "type": "story",
         "storyId": "tale-cave",
         "title": "The Three Men in the Cave",
-        "why": "Honest deeds held a sealed cave — peace is built the same way"
+        "why": "Each prayed by an honest deed, and the rock moved (Bukhari 2215)"
       }
     ]
   },
@@ -328,28 +328,28 @@
     "feeling": "Overwhelmed",
     "line": "When everything is due and there is only one of you",
     "dua": {
-      "arabic": "لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ، وَهُوَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ",
-      "body": "There is no deity but Allah alone, without partner; His is the dominion and His is the praise, and He is over all things able. The Prophet ﷺ said: whoever says it in distress, Allah frees him from it.",
-      "source": "Sahih al-Bukhari 3295"
+      "arabic": "لَا إِلَٰهَ إِلَّا اللَّهُ الْعَظِيمُ الْحَلِيمُ، لَا إِلَٰهَ إِلَّا اللَّهُ رَبُّ الْعَرْشِ الْعَظِيمِ، لَا إِلَٰهَ إِلَّا اللَّهُ رَبُّ السَّمَاوَاتِ وَرَبُّ الْأَرْضِ وَرَبُّ الْعَرْشِ الْكَرِيمِ",
+      "body": "The Prophet ﷺ used to say at times of distress: There is no deity but Allah, the Mighty, the Forbearing. There is no deity but Allah, Lord of the Mighty Throne. There is no deity but Allah, Lord of the heavens, Lord of the earth, and Lord of the Noble Throne.",
+      "source": "Sahih al-Bukhari 6346; Sahih Muslim 2730"
     },
     "items": [
       {
         "type": "story",
         "storyId": "kh-burnout",
         "title": "Built to Rest",
-        "why": "The night was made for rest — and Friday is a legal stop"
+        "why": "Even trade pauses for the call to Friday prayer (62:9)"
       },
       {
         "type": "story",
         "storyId": "mh-money-birds",
         "title": "The Birds Leave Hungry",
-        "why": "Work the morning; release the outcome"
+        "why": "Do the morning's work and trust the rest to Allah"
       },
       {
         "type": "story",
         "storyId": "dua-sleep",
         "title": "Before Sleep — Ayat al-Kursi",
-        "why": "The night has a Guardian you do not pay"
+        "why": "A guardian from Allah stays over you through the night (Bukhari 2311)"
       }
     ]
   },
@@ -359,7 +359,7 @@
     "line": "When someone you trusted broke the trust",
     "dua": {
       "arabic": "وَمَن يَتَّقِ اللَّهَ يَجْعَل لَّهُ مَخْرَجًا",
-      "body": "And whoever fears Allah - He will make for him a way out And will provide for him from where he does not expect. Betrayal is recorded, and justice is His.",
+      "body": "And whoever fears Allah, He will make for him a way out, and will provide for him from where he does not expect.",
       "source": "Qur'an 65:2-3"
     },
     "items": [
@@ -367,19 +367,19 @@
         "type": "story",
         "storyId": "prophet-yusuf",
         "title": "Yusuf — 'No Blame Upon You'",
-        "why": "Betrayed by his own brothers — and he named his forgiveness after them"
+        "why": "Betrayed by his own brothers, he said at the end: 'No blame will there be upon you today' (12:92)"
       },
       {
         "type": "story",
         "storyId": "kh-taif",
         "title": "Taif — Praying for Your Enemies' Grandchildren",
-        "why": "Stoned by the city he came to help — and he answered with a dua for their children"
+        "why": "Turned away by the city he went to for help, and he prayed for their descendants"
       },
       {
         "type": "story",
-        "storyId": "tale-uwais",
-        "title": "Uwais al-Qarni",
-        "why": "The man who honored a mother and was honored by Heaven"
+        "storyId": "kh-yaqub",
+        "title": "The Beautiful Patience",
+        "why": "Lied to by his own sons, Ya'qub said: 'patience is most fitting' (12:18)"
       }
     ]
   },
@@ -389,27 +389,27 @@
     "line": "When someone else's blessing stings",
     "dua": {
       "arabic": "أَمْ يَحْسُدُونَ النَّاسَ عَلَىٰ مَا آتَاهُمُ اللَّهُ مِن فَضْلِهِ",
-      "body": "Or do they envy people for what Allah has given them of His bounty? Blessings are distributed by decree, not by comparison.",
-      "source": "Qur'an 4:54"
+      "body": "Or do they envy people for what Allah has given them of His bounty? And do not wish for that by which Allah has made some of you exceed others. And ask Allah of His bounty.",
+      "source": "Qur'an 4:54; 4:32"
     },
     "items": [
       {
         "type": "story",
         "storyId": "mh-money-birds",
         "title": "The Birds Leave Hungry",
-        "why": "Provision is written — envy cannot move it, work and trust can"
+        "why": "Provision is from Allah: go out in the morning and trust"
       },
       {
         "type": "story",
         "storyId": "kh-atom",
         "title": "The Weight of One Atom",
-        "why": "Your small unseen deeds are on the scale no one else can see"
+        "why": "Small unseen good is not lost (99:7)"
       },
       {
         "type": "story",
         "storyId": "prophet-sulayman",
         "title": "Sulayman — The Kingdom",
-        "why": "He asked for a kingdom no one would have after him — then thanked, not compared"
+        "why": "With a kingdom no one else would have, he asked to be grateful (27:19)"
       }
     ]
   },
@@ -419,7 +419,7 @@
     "line": "When nothing reaches you, not even the pain",
     "dua": {
       "arabic": "فَإِنَّ مَعَ الْعُسْرِ يُسْرًا ۝ إِنَّ مَعَ الْعُسْرِ يُسْرًا",
-      "body": "For indeed, with hardship [will be] ease. The feeling of nothing is not the fact of nothing — ease is traveling with the hardship, in the same sentence twice.",
+      "body": "For indeed, with hardship [will be] ease. Indeed, with hardship [will be] ease. If you have felt little or nothing for weeks, please talk to a doctor or a counselor; asking for help is not a failure of faith.",
       "source": "Qur'an 94:5-6"
     },
     "items": [
@@ -427,19 +427,19 @@
         "type": "story",
         "storyId": "prophet-ayyub",
         "title": "Ayyub — The Patient One",
-        "why": "Years of loss and illness, and one dua moved the mountain"
+        "why": "Years of affliction, then a dua, and a spring opened (38:41-42)"
       },
       {
         "type": "story",
         "storyId": "dua-waking",
         "title": "The Morning Remembrance",
-        "why": "Small repeated words are how the heart wakes back up"
+        "why": "A few words on waking — a small place to start"
       },
       {
         "type": "story",
         "storyId": "prophet-yunus",
         "title": "Yunus — The Whale's Belly",
-        "why": "From the darkest place, one sentence reached the Throne"
+        "why": "From the darknesses he called, and Allah saved him (21:87-88)"
       }
     ]
   },
@@ -449,7 +449,7 @@
     "line": "When the heart will not sit down",
     "dua": {
       "arabic": "أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ",
-      "body": "Unquestionably, by the remembrance of Allah hearts are assured. The restlessness is not a defect — it is the heart asking for its food.",
+      "body": "Unquestionably, by the remembrance of Allah hearts are assured.",
       "source": "Qur'an 13:28"
     },
     "items": [
@@ -457,19 +457,19 @@
         "type": "story",
         "storyId": "dua-sleep",
         "title": "Before Sleep — Ayat al-Kursi",
-        "why": "A night ritual that settles the spinning mind"
+        "why": "A bedtime routine the Prophet ﷺ taught (Bukhari 2311)"
       },
       {
         "type": "story",
         "storyId": "mh-soul-solitude",
         "title": "Solitude Is a Room",
-        "why": "A quiet hour is part of the house of the deen, not an escape from it"
+        "why": "A quiet hour as part of the deen, not an escape from it"
       },
       {
         "type": "story",
         "storyId": "prophet-ibrahim",
         "title": "The Two Rivers of Ibrahim",
-        "why": "He reasoned his way to stillness before revelation came"
+        "why": "He searched honestly until he found the truth (6:76-79)"
       }
     ]
   },
@@ -479,7 +479,7 @@
     "line": "When you measure yourself and come up short",
     "dua": {
       "arabic": "وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ",
-      "body": "And whoever relies upon Allah - then He is sufficient for him. Your sufficiency was never in the mirror or the meeting.",
+      "body": "And whoever relies upon Allah, then He is sufficient for him.",
       "source": "Qur'an 65:3"
     },
     "items": [
@@ -487,19 +487,19 @@
         "type": "story",
         "storyId": "woman-maryam",
         "title": "Maryam — The Palm Tree",
-        "why": "Alone, questioned, un-defended by anyone — and the angels spoke for her"
+        "why": "Questioned by her people, she pointed to the baby, and he spoke (19:27-30)"
       },
       {
         "type": "story",
         "storyId": "prophet-musa",
-        "title": "Musa — The Stuttering Speaker",
-        "why": "He asked for his brother because he felt inadequate — Allah answered"
+        "title": "Musa — Asking for Help",
+        "why": "He asked Allah to ease his task and to give him his brother as support (20:25-32)"
       },
       {
         "type": "story",
         "storyId": "kh-anxiety",
         "title": "Anxiety and the Medicine of Ta'weel",
-        "why": "The sermon for the 3am ceiling"
+        "why": "A reflection for the 3am ceiling"
       }
     ]
   },
@@ -509,27 +509,27 @@
     "line": "When the absence has a shape and a weight",
     "dua": {
       "arabic": "الَّذِينَ إِذَا أَصَابَتْهُم مُّصِيبَةٌ قَالُوا إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ",
-      "body": "Who, when disaster strikes them, say, Indeed we belong to Allah, and indeed to Him we will return. Those are the ones upon whom are blessings from their Lord and mercy. And it is those who are the [rightly] guided.",
-      "source": "Qur'an 2:156-157"
+      "body": "Who, when disaster strikes them, say: Indeed we belong to Allah, and indeed to Him we will return. Those are the ones upon whom are blessings from their Lord and mercy. And when his son Ibrahim was dying, the Prophet ﷺ wept and said: the eyes shed tears and the heart is grieved, and we say only what pleases our Lord.",
+      "source": "Qur'an 2:156-157; Sahih al-Bukhari 1303"
     },
     "items": [
       {
         "type": "story",
         "storyId": "kh-innalillah",
         "title": "The Grammar of Loss",
-        "why": "The sentence that turns a hit into an address"
+        "why": "The words to say when loss strikes (2:156)"
       },
       {
         "type": "story",
         "storyId": "woman-umm-salama",
-        "title": "Umm Salama — Whose Question Became a Verse",
-        "why": "She said the dua — and her replacement was the Messenger ﷺ"
+        "title": "Umm Salama — The Dua and What Followed",
+        "why": "She said this dua after Abu Salama died (Muslim 918)"
       },
       {
         "type": "story",
         "storyId": "kh-yaqub",
         "title": "The Beautiful Patience",
-        "why": "Ya'qub held a stained shirt for years — and was right to hope"
+        "why": "Years of grief for Yusuf, and he never gave up hope in Allah (12:87)"
       }
     ]
   },
@@ -539,27 +539,27 @@
     "line": "When the door you prayed for closed",
     "dua": {
       "arabic": "وَعَسَىٰ أَن تَكْرَهُوا شَيْئًا وَهُوَ خَيْرٌ لَّكُمْ",
-      "body": "But perhaps you hate a thing and it is good for you; and perhaps you love a thing and it is bad for you. And Allah Knows, while you know not.",
+      "body": "But perhaps you hate a thing and it is good for you; and perhaps you love a thing and it is bad for you. And Allah knows, while you know not.",
       "source": "Qur'an 2:216"
     },
     "items": [
       {
         "type": "story",
-        "storyId": "seerah-13",
+        "storyId": "seerah-22",
         "title": "Hudaybiyyah — The Clear Conquest",
-        "why": "The treaty everyone hated opened all of Arabia"
+        "why": "A treaty that troubled the Companions — and Allah called it 'a clear conquest' (48:1)"
       },
       {
         "type": "story",
         "storyId": "prophet-yusuf",
         "title": "Yusuf — From the Well to the Throne",
-        "why": "The pit was a door; the prison was a corridor"
+        "why": "From the well and the prison to a place of trust, after years of waiting"
       },
       {
         "type": "story",
-        "storyId": "prophet-ibrahim",
-        "title": "The Two Rivers of Ibrahim",
-        "why": "The fire he was thrown into became coolness and safety"
+        "storyId": "kh-yaqub",
+        "title": "The Beautiful Patience",
+        "why": "Lost Yusuf, then Binyamin — and still 'despair not of relief from Allah' (12:87)"
       }
     ]
   },
@@ -569,27 +569,27 @@
     "line": "When the heart lifts and you want to act on it",
     "dua": {
       "arabic": "وَقُل رَّبِّ زِدْنِي عِلْمًا",
-      "body": "And say, My Lord, increase me in knowledge. Inspiration is a visit — knowledge is the house you build for it.",
+      "body": "And say: My Lord, increase me in knowledge.",
       "source": "Qur'an 20:114"
     },
     "items": [
       {
         "type": "story",
         "storyId": "prophet-musa",
-        "title": "Musa — The Seeker at the Junction",
-        "why": "He traveled to learn what he did not know"
+        "title": "Musa — The Call at the Fire",
+        "why": "He asked: 'My Lord, expand for me my breast and ease for me my task' (20:25-26)"
       },
       {
         "type": "story",
         "storyId": "newmuslim-01",
-        "title": "The First Step",
-        "why": "Where every journey in this deen begins"
+        "title": "Day 1: The Shahada — Your Door",
+        "why": "Where the journey in this deen begins"
       },
       {
         "type": "story",
         "storyId": "kh-taif",
-        "title": "Taif",
-        "why": "Praying for your enemies' grandchildren is the highest form of hope"
+        "title": "Taif — Praying for Your Enemies' Grandchildren",
+        "why": "Turning a painful day into hope for the future"
       }
     ]
   },
@@ -599,7 +599,7 @@
     "line": "When you have decided, and you need it to hold",
     "dua": {
       "arabic": "إِنَّ اللَّهَ مَعَ الصَّابِرِينَ",
-      "body": "Indeed, Allah is with the patient. Determination in this deen is not speed — it is staying, and staying is strength.",
+      "body": "O you who have believed, seek help through patience and prayer. Indeed, Allah is with the patient.",
       "source": "Qur'an 2:153"
     },
     "items": [
@@ -607,19 +607,19 @@
         "type": "story",
         "storyId": "tale-99",
         "title": "The Man Who Killed 99",
-        "why": "The road to paradise, measured in miles of intention"
+        "why": "He set out on the road to repent and was forgiven (Bukhari 3470)"
       },
       {
         "type": "story",
         "storyId": "comp-bilal",
         "title": "Bilal — One Word",
-        "why": "'Ahad, Ahad' — the determination of one repeated word outlived empires"
+        "why": "Under torture, he answered with one word: 'Ahad, Ahad' — One, One"
       },
       {
         "type": "story",
         "storyId": "prophet-nuh",
         "title": "Nuh — The Long Building",
-        "why": "He built the ship for decades before a drop of rain"
+        "why": "950 years among his people (29:14) and he kept building (11:38)"
       }
     ]
   },
@@ -628,58 +628,58 @@
     "feeling": "Content",
     "line": "When what you have is enough and you know it",
     "dua": {
-      "arabic": "قَالُوا الْحَمْدُ لِلَّهِ الَّذِي هَدَانَا لِهَٰذَا",
-      "body": "And they will say, Praise to Allah, who has guided us to this; and we would never have been guided if Allah had not guided us.",
-      "source": "Qur'an 7:43"
+      "arabic": "قَدْ أَفْلَحَ مَنْ أَسْلَمَ وَرُزِقَ كَفَافًا وَقَنَّعَهُ اللَّهُ بِمَا آتَاهُ",
+      "body": "The Prophet ﷺ said: Successful is the one who has submitted, has been given enough, and whom Allah has made content with what He gave him.",
+      "source": "Sahih Muslim 1054"
     },
     "items": [
       {
         "type": "story",
         "storyId": "kh-atom",
         "title": "The Weight of One Atom",
-        "why": "Contentment is the deposit that pays at the end"
+        "why": "Small good is not lost (99:7)"
       },
       {
         "type": "story",
         "storyId": "mh-money-birds",
         "title": "The Birds Leave Hungry",
-        "why": "Provision flows to the one who releases the outcome"
+        "why": "Provision is from Allah; trust and work"
       },
       {
         "type": "story",
         "storyId": "prophet-sulayman",
         "title": "Sulayman — The Kingdom",
-        "why": "The mightiest king prayed only to be grateful"
+        "why": "The mightiest king prayed to be enabled to be grateful (27:19)"
       }
     ]
   },
   {
     "id": "feel-heartbroken",
     "feeling": "Heartbroken",
-    "line": "When the ache has a name and it is not your own",
+    "line": "When the heart is broken and you are not sure it will mend",
     "dua": {
       "arabic": "وَإِذَا سَأَلَكَ عِبَادِي عَنِّي فَإِنِّي قَرِيبٌ",
-      "body": "And when My servants ask you, [O Muhammad], concerning Me - indeed I am near. I respond to the invocation of the supplicant when he calls upon Me.",
+      "body": "And when My servants ask you, [O Muhammad], concerning Me — indeed I am near. I respond to the invocation of the supplicant when he calls upon Me.",
       "source": "Qur'an 2:186"
     },
     "items": [
       {
         "type": "story",
         "storyId": "woman-asiya",
-        "title": "Asiya — A Home Built Wrong",
-        "why": "Heartbroken in Pharaoh's palace — and Allah built her a house in Paradise"
+        "title": "Asiya — A House Near Allah",
+        "why": "From inside Pharaoh's house she prayed: 'build for me near You a house in Paradise' (66:11)"
       },
       {
         "type": "story",
         "storyId": "kh-lonely",
         "title": "Loneliness in the Crowd",
-        "why": "Five hundred friends and no one to call — and the three doors back"
+        "why": "A crowded feed and no one to call — and the ways back to people"
       },
       {
         "type": "story",
         "storyId": "prophet-yunus",
         "title": "Yunus — The Whale's Belly",
-        "why": "Darker than your dark, and one sentence reached the Throne"
+        "why": "From the darknesses he called, and Allah saved him (21:87-88)"
       }
     ]
   },
@@ -689,7 +689,7 @@
     "line": "When the past plays on a loop and you can't edit it",
     "dua": {
       "arabic": "قُلْ يَا عِبَادِيَ الَّذِينَ أَسْرَفُوا عَلَىٰ أَنفُسِهِمْ لَا تَقْنَطُوا مِن رَّحْمَةِ اللَّهِ",
-      "body": "Say, O My servants who have transgressed against themselves [by sinning], do not despair of the mercy of Allah. Indeed, Allah forgives all sins.",
+      "body": "Say: O My servants who have transgressed against themselves [by sinning], do not despair of the mercy of Allah. Indeed, Allah forgives all sins. Indeed, it is He who is the Forgiving, the Merciful.",
       "source": "Qur'an 39:53"
     },
     "items": [
@@ -697,19 +697,19 @@
         "type": "story",
         "storyId": "prophet-adam",
         "title": "Adam — The First Repentance",
-        "why": "One honest sentence opened the door of mercy for every sinner after him"
+        "why": "He asked forgiveness and Allah accepted his repentance (2:37; 7:23)"
       },
       {
         "type": "story",
         "storyId": "tale-dog",
         "title": "The Prostitute's Thirst",
-        "why": "One bowl of water — and the ledger was closed by mercy"
+        "why": "Allah forgave her for giving water to a thirsty dog (Bukhari 3467)"
       },
       {
         "type": "story",
-        "storyId": "tale-barsisa",
-        "title": "The Story of Barsisa",
-        "why": "Regret avoided early is a mountain avoided; but even late repentance has a door"
+        "storyId": "tale-99",
+        "title": "The Man Who Killed 99",
+        "why": "Even after ninety-nine, repentance was accepted (Bukhari 3470)"
       }
     ]
   }
