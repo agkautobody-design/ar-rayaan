@@ -1,5 +1,6 @@
 import 'package:ar_rayaan/app/theme/widgets/whole_word_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 /// Round 8: the settings switch rows showed a wrapped subtitle cut to its
