@@ -325,10 +325,30 @@ abstract final class HadiFinder {
   static const Set<String> _cue = <String>{
     'where', 'find', 'open', 'show', 'take', 'go', 'access', 'use', 'change',
     'set', 'turn', 'make', 'increase', 'enlarge', 'listen', 'play', 'see',
-    'view', 'locate', 'reach', 'get', 'start',
+    'view', 'locate', 'reach', 'get', 'start', 'download', 'save',
   };
 
   static const List<_Pointer> _pointers = <_Pointer>[
+    _Pointer(
+      <String>['download', 'downloads', 'offline'],
+      'Saving the Qur’an, audio and guides for offline use is done on the '
+          'Downloads screen.',
+      <String>['/downloads'],
+      requires: <String>['download', 'downloads', 'offline'],
+      unless: <String>[
+        'haram', 'halal', 'permissible', 'allowed', 'ruling', 'sin',
+        'music', 'movie', 'film', 'song', 'torrent', 'hadi', 'why',
+      ],
+      bare: true,
+    ),
+    _Pointer(
+      <String>['streak', 'streaks'],
+      'A streak counts the days in a row you read, make dhikr or log a '
+          'prayer. It is gentle: a missed day is never shown as a failure. '
+          'Your streaks are on their own screen.',
+      <String>['/streaks'],
+      bare: true,
+    ),
     _Pointer(
       <String>['tasbeeh', 'tasbih', 'tasbeh', 'tasbi', 'counter', 'rosary'],
       'The Tasbeeh counter has its own screen in the app.',
@@ -391,8 +411,9 @@ abstract final class HadiFinder {
     final List<String> t = <String>[
       for (final String w in raw) stem(kHadiSpellings[w] ?? w),
     ];
-    if (!t.any(_cue.contains)) return null;
+    final bool cued = t.any(_cue.contains);
     for (final _Pointer p in _pointers) {
+      if (!cued && !p.bare) continue;
       final bool hit = t.any((String w) => p.aliases.any(
             (String a) => w == a || near(w, a, strict: true),
           ));
@@ -453,6 +474,7 @@ class _Pointer {
     this.routes, {
     this.requires = const <String>[],
     this.unless = const <String>[],
+    this.bare = false,
   });
   final List<String> aliases;
   final String line;
@@ -463,4 +485,7 @@ class _Pointer {
 
   /// When the question contains one of these, the shelf answers instead.
   final List<String> unless;
+
+  /// True when the alias alone is enough: no "where / how do I" cue needed.
+  final bool bare;
 }
