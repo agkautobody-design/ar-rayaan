@@ -38,6 +38,16 @@ jobs:
           python3 tool/hadith_check.py check 2>&1 | tee hadith.log
         continue-on-error: true
 
+      # Daily content gate (tool/check_daily_content.py): the daily story job
+      # twice committed entries that broke main (object `sources`, no audit
+      # row, a duplicate id, an unverified hadith number). Python only.
+      - name: Daily content check
+        id: daily
+        run: |
+          set -o pipefail
+          python3 tool/check_daily_content.py 2>&1 | tee daily.log
+        continue-on-error: true
+
       - uses: subosito/flutter-action@v2
         with:
           channel: stable
@@ -137,6 +147,7 @@ jobs:
             echo "| Step | Result |"
             echo "| --- | --- |"
             echo "| hadith citations | ${{ steps.hadith.outcome }} |"
+            echo "| daily content | ${{ steps.daily.outcome }} |"
             echo "| pub get | ${{ steps.pub.outcome }} |"
             echo "| analyze | ${{ steps.analyze.outcome }} |"
             echo "| test | ${{ steps.test.outcome }} |"
@@ -159,6 +170,13 @@ jobs:
             echo ""
             echo '```'
             head -n 80 hadith.log 2>/dev/null
+            echo '```'
+            echo "</details>"
+            echo ""
+            echo "<details><summary>daily content check</summary>"
+            echo ""
+            echo '```'
+            head -n 40 daily.log 2>/dev/null
             echo '```'
             echo "</details>"
             echo ""
@@ -204,7 +222,7 @@ jobs:
           gh pr comment "$PR" --body-file report.md
 
       - name: Fail if any step failed
-        if: steps.hadith.outcome != 'success' || steps.pub.outcome != 'success' || steps.analyze.outcome != 'success' || steps.test.outcome != 'success' || steps.build.outcome != 'success'
+        if: steps.hadith.outcome != 'success' || steps.daily.outcome != 'success' || steps.pub.outcome != 'success' || steps.analyze.outcome != 'success' || steps.test.outcome != 'success' || steps.build.outcome != 'success'
         run: exit 1
 
   # Native compile check: builds the Android debug APK so a change that

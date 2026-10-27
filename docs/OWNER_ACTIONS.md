@@ -94,3 +94,12 @@ Why: the 202 catalogue tracks only have YouTube search links. The in-app player 
 
 ## 15. Have the new Arabic, Bangla and Urdu labels checked by native speakers
 Why: the first-run language chooser now translates the tab names, Home titles and the first questions. Every word is a machine-style draft. The list and instructions are in `docs/content_needed/translation_review.md`. Send it to one native speaker per language and pass back the corrections. Until then the Language screen says they are first drafts.
+
+## 16. Make the daily content job run the content check before it commits (5 minutes, in the job's own settings)
+Why: the daily story job has twice pushed a broken entry straight to `main` (`mh-community-27` on 23 Oct: object `sources`, no audit row, a duplicate story; `mh-gratitude-28` on 27 Oct: the same faults). The job is not defined in this repository (there is no scheduled workflow here; its commits are authored by `agent <agent@example.com>`), so the repo cannot change what it does. The repo now (a) fails every pull request and every push to `main` that carries a broken story, with the entry named, and (b) holds the checker the job must call.
+Where it must go: in whatever runs the daily job (its prompt, script or scheduler), add this as a required step after it edits `assets/stories/modernhadith.json` and BEFORE `git commit`:
+```
+python3 tool/check_daily_content.py
+```
+If it exits non-zero (it prints the story id and the reason), the job must drop the new entry (`git checkout -- assets/stories assets/content_version.json`) and stop; it must not edit the checker or the audit file to make it pass. Better still, make the job open a pull request instead of pushing (item 1), so the PR check runs the same gate.
+Confirm: the next daily run either adds a story that passes the check, or adds nothing.
