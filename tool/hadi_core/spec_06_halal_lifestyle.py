@@ -70,7 +70,7 @@ E('halal-meat',
   x=[r'\b(?:near me|nearby|app|find)\b'],
   topic='halal meat',
   text="""
-Meat is halal when the animal is a permitted kind (cattle, sheep, goat, camel, chicken, deer, etc. - not pig, carnivores, or dead animals), and it is slaughtered properly: by a Muslim (or one of the People of the Book), with a sharp knife cutting the throat, saying "Bismillah, Allahu akbar" at the time, so that the blood flows. The Qur'an forbids {QR 5:3} dead animals, blood, pork and what is dedicated to other than Allah.
+Meat is halal when the animal is a permitted kind (cattle, sheep, goat, camel, chicken, deer, etc. - not pig, carnivores, or dead animals), and it is slaughtered properly: by a Muslim (or one of the People of the Book), with a sharp knife cutting the throat, saying "Bismillah, Allahu akbar" at the time, so that the blood flows. The Qur'an forbids dead animals, blood, pork and what is dedicated to other than Allah ({QR 5:3}).
 
 What about meat from non-Muslims? The Qur'an says {Q 5:5|the food of those who were given the Scripture is lawful for you}. The majority of scholars take this to mean the meat of Jews and Christians who slaughter in their religion's way is allowed. But many say today's industrial slaughter, which may not follow that, is not covered. So:
 - Safest: buy meat that is certified halal.

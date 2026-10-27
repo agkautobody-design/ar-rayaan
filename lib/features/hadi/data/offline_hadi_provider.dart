@@ -2276,8 +2276,8 @@ const List<_Entry> _knowledge = <_Entry>[
     <String>['dua for parents', 'my parents', 'parents', 'mother dua', 'father dua'],
     'The Qur\'an itself teaches the du\'a: "Rabbir hamhumaa kamaa '
     'rabbayaani saghira" - My Lord, have mercy on them as they '
-    'raised me when I was small (Al-Isra 24). Say it after every '
-    'prayer; it is among the most beloved of speech.',
+    'raised me when I was small (Al-Isra 24). You can say it at any '
+    'time, for parents who are alive and for those who have died.',
   ),
   _Entry(
     <String>['dua for the sick', 'someone sick', 'visiting the sick', 'ill dua', 'cure dua'],
