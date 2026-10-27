@@ -1,0 +1,174 @@
+{
+ "schema": 1,
+ "note": "Verified-phrase registry for the Arabic and Hifz courses (Academy v3). A lesson never contains Arabic of its own: it names a phrase here, or an ayah of assets/quran/quran.json as q:<surah>:<ayah>. `status: verified` means the Arabic was copied letter for letter from the cited primary-source text on the date below; it does NOT mean a scholar has reviewed it (see needsScholarReview). Rebuild or re-check with tool/academy_phrases_arabic_hfz.py.",
+ "checked": "2026-10-27",
+ "corpus": "github.com/fawazahmed0/hadith-api (branch 1, editions/ara-*.json); sunnah.com numbering; Muslim by Abd al-Baqi number",
+ "phrases": {
+  "greet.1": {
+   "arabic": "السَّلاَمُ عَلَيْكُمْ",
+   "status": "verified",
+   "translit": "As-salaamu ‘alaykum",
+   "meaning": "Peace be upon you.",
+   "words": [
+    {
+     "tr": "as-salaamu",
+     "en": "the peace"
+    },
+    {
+     "tr": "‘alaykum",
+     "en": "upon you"
+    }
+   ],
+   "sources": [
+    "Tirmidhi 2689 (graded sahih by al-Albani)",
+    "Bukhari 6227 (the greeting Allah taught Adam to give the angels)"
+   ],
+   "copiedFrom": "Tirmidhi 2689 (graded by al-Albani; fawazahmed0/hadith-api, ara-tirmidhi)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "greet.2": {
+   "arabic": "السَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ",
+   "status": "verified",
+   "translit": "As-salaamu ‘alaykum wa rahmatullaah",
+   "meaning": "Peace be upon you, and the mercy of Allah.",
+   "words": [
+    {
+     "tr": "as-salaamu",
+     "en": "the peace"
+    },
+    {
+     "tr": "‘alaykum",
+     "en": "upon you"
+    },
+    {
+     "tr": "wa-rahmatu",
+     "en": "and the mercy of"
+    },
+    {
+     "tr": "Allaah",
+     "en": "Allah"
+    }
+   ],
+   "sources": [
+    "Tirmidhi 2689 (graded sahih by al-Albani)"
+   ],
+   "copiedFrom": "Tirmidhi 2689 (graded by al-Albani; fawazahmed0/hadith-api, ara-tirmidhi)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "greet.3": {
+   "arabic": "السَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ",
+   "status": "verified",
+   "translit": "As-salaamu ‘alaykum wa rahmatullaahi wa barakaatuh",
+   "meaning": "Peace be upon you, and the mercy of Allah, and His blessings.",
+   "words": [
+    {
+     "tr": "as-salaamu",
+     "en": "the peace"
+    },
+    {
+     "tr": "‘alaykum",
+     "en": "upon you"
+    },
+    {
+     "tr": "wa-rahmatu",
+     "en": "and the mercy of"
+    },
+    {
+     "tr": "Allaahi",
+     "en": "Allah"
+    },
+    {
+     "tr": "wa-barakaatuhu",
+     "en": "and His blessings"
+    }
+   ],
+   "sources": [
+    "Tirmidhi 2689 (graded sahih by al-Albani)"
+   ],
+   "copiedFrom": "Tirmidhi 2689 (graded by al-Albani; fawazahmed0/hadith-api, ara-tirmidhi)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "greet.reply": {
+   "arabic": "وَعَلَيْكُمُ السَّلاَمُ",
+   "status": "verified",
+   "translit": "Wa ‘alaykumus-salaam",
+   "meaning": "And upon you be peace.",
+   "words": [
+    {
+     "tr": "wa-‘alaykum",
+     "en": "and upon you"
+    },
+    {
+     "tr": "as-salaamu",
+     "en": "the peace"
+    }
+   ],
+   "sources": [
+    "Muslim 2380 (al-Khidr answers Musa, in the hadith of Musa and al-Khidr)"
+   ],
+   "copiedFrom": "Muslim 2380.03 (fawazahmed0/hadith-api, ara-muslim)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "greet.reply.one": {
+   "arabic": "وَعَلَيْكَ السَّلاَمُ",
+   "status": "verified",
+   "translit": "Wa ‘alaykas-salaam",
+   "meaning": "And upon you (one person) be peace.",
+   "words": [
+    {
+     "tr": "wa-‘alayka",
+     "en": "and upon you (to one person)"
+    },
+    {
+     "tr": "as-salaamu",
+     "en": "the peace"
+    }
+   ],
+   "sources": [
+    "Bukhari 6251 (the Prophet ﷺ answers the man who greeted him)"
+   ],
+   "copiedFrom": "Bukhari 6251 (fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "isti3adha": {
+   "arabic": "أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ",
+   "status": "verified",
+   "translit": "A‘oodhu billaahi minash-shaytaanir-rajeem",
+   "meaning": "I seek refuge with Allah from Satan, the accursed.",
+   "words": [
+    {
+     "tr": "a‘oodhu",
+     "en": "I seek refuge"
+    },
+    {
+     "tr": "billaahi",
+     "en": "with Allah"
+    },
+    {
+     "tr": "mina",
+     "en": "from"
+    },
+    {
+     "tr": "ash-shaytaani",
+     "en": "Satan"
+    },
+    {
+     "tr": "ar-rajeem",
+     "en": "the accursed"
+    }
+   ],
+   "sources": [
+    "Bukhari 6115 (the Prophet ﷺ teaches the words to a man in anger)",
+    "Qur’an 16:98 (the command to seek refuge before reciting)"
+   ],
+   "copiedFrom": "Bukhari 6115 (fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  }
+ }
+}

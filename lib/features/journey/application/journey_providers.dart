@@ -34,9 +34,10 @@ class JourneyStats {
     this.daysThisWeek = 0,
   });
 
-  /// Composite 0..1 from [ringParts]: adhkar completion today (55%), a surah
-  /// opened (15%), a reflection saved (15%), a lesson finished (15%). Exactly
-  /// 0 when none of these has happened.
+  /// Composite 0..1 from [ringParts]: adhkar completion today (45%), a surah
+  /// opened (10%), a reflection saved (15%), a lesson finished (15%), ayat
+  /// written down as memorised (15%). Exactly 0 when none of these has
+  /// happened.
   final double progress;
 
   /// Repetitions completed today across all adhkar sets.
@@ -147,6 +148,7 @@ final FutureProvider<JourneyStats> journeyStatsProvider =
           openedSurah: readingStarted,
           reflections: reflections,
           lessonsDone: lessonsDone,
+          ayatMemorised: ayatMemorised,
         ),
       );
 

@@ -30,7 +30,7 @@ Lessons live in `assets/academy/lessons_v3/<course>.json` (one file per course, 
 | `match` | `prompt`, `pairs: [{left, right, why, back}]`, a face is `{text}`, `{ref}` or `{word}` (gates) |
 | `check` | `items` (gates). Item: `id`, `q`, `type` mcq/fill/scenario, `options` (`text`/`word`/`ref`; wrong ones carry `reteach`, `back`), `answer`, `explain`, `scenario`, `fill: {ref, blank, show: arabic|translit}`, `review` |
 | `recap` | `canDo` (3+), `next` |
-| `doit` | `title`, `body`, `route` (`/prayer` `/qibla` `/quran` `/quran/<1-114>` `/hadi` `/calendar` `/adhkar`), `button` |
+| `doit` | `title`, `body`, `route` (`/prayer` `/qibla` `/quran` `/quran/<1-114>` `/hadi` `/calendar` `/adhkar` `/academy/hifz`), `button` |
 
 Code: `lib/features/academy/domain/v3/` (pure Dart), screens in `presentation/lesson_v3_screen.dart` and `presentation/v3/`. Tests: `test/academy_v3_test.dart`.
 

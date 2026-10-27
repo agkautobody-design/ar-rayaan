@@ -1,0 +1,93 @@
+{
+ "bukhari:1902": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Ibn Abbas: Jibril met the Prophet every night of Ramadan; the Prophet recited the Qur'an to him",
+  "verdict": "ok"
+ },
+ "bukhari:4998": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Huraira: Jibril went over the Qur'an once a year, twice in the year he died",
+  "verdict": "ok"
+ },
+ "bukhari:5006": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Said al-Mu'alla: the Fatihah is the seven oft-repeated ayat and the great Qur'an",
+  "verdict": "ok"
+ },
+ "bukhari:5031": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Ibn Umar: the one who knows the Qur'an is like the owner of tied camels",
+  "verdict": "ok"
+ },
+ "bukhari:5032": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abdullah: do not say 'I forgot such-and-such ayah'; keep reciting, it escapes faster than camels",
+  "verdict": "ok"
+ },
+ "bukhari:5046": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Qatada asked Anas about the Prophet's recitation: prolongation; he recited the basmala showing the madd",
+  "verdict": "ok"
+ },
+ "bukhari:5049": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abdullah ibn Mas'ud: the Prophet asked him to recite to him ('I like to hear it from others'); not a half-date hadith",
+  "verdict": "ok"
+ },
+ "bukhari:6227": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Huraira: Adam is told to greet the angels and hear their reply; they answered with 'wa rahmatullah' added",
+  "verdict": "ok"
+ },
+ "bukhari:6231": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Huraira: the young greet the old, the passer-by the sitting, the small group the large",
+  "verdict": "ok"
+ },
+ "bukhari:6251": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Huraira: the man who prayed badly greeted the Prophet, who replied wa alaykas-salam and told him to pray again",
+  "verdict": "ok"
+ },
+ "muslim:2380": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Ubayy ibn Ka'b: Musa and al-Khidr; Musa greets, al-Khidr replies wa alaykumus-salam (source of the reply words in the phrase registry)",
+  "verdict": "ok"
+ },
+ "tirmidhi:2689": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Al-Albani (also graded hasan by Bashar Awad Maarouf; Zubair Ali Zai: isnad hasan)",
+  "note": "Imran ibn Husayn: the man says as-salamu alaykum, the Prophet says ten; with wa rahmatullah, twenty; with wa barakatuh, thirty",
+  "verdict": "ok"
+ },
+ "abudawud:5197": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Al-Albani",
+  "note": "Abu Umamah: those nearest to Allah are the first to give the greeting",
+  "verdict": "ok"
+ }
+}

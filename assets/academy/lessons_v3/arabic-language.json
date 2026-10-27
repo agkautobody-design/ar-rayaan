@@ -1,0 +1,4284 @@
+{
+ "schema": 3,
+ "course": "arabic-language",
+ "lessons": [
+  {
+   "id": "arabic.u1.l1",
+   "title": "The Greeting Is a Quranic Sentence",
+   "minutes": 15,
+   "intro": "Learn the greeting and its answer in Arabic, what the words mean, and where the same word is in the Qur’an.",
+   "steps": [
+    {
+     "id": "why",
+     "kind": "why",
+     "title": "Your first Arabic sentence",
+     "body": [
+      "You have probably said it or heard it many times: as-salamu alaykum. It is real Arabic, and it is also a sentence from the Qur’an. In this lesson you will learn what it means, how to answer it, and how to use it well.",
+      "You do not have to read Arabic script yet. Every phrase is shown in Arabic, then in letters you can sound out (transliteration), then in English. The Arabic is copied from the Qur’an and the hadith books. It is never typed in by us."
+     ]
+    },
+    {
+     "id": "greet",
+     "kind": "say",
+     "title": "The greeting",
+     "refs": [
+      "greet.1"
+     ],
+     "note": "Read it slowly: as-sa-laa-mu ‘a-lay-kum. It means “peace be upon you”. Below the Arabic you can see what each word means. Say it out loud once or twice.",
+     "label": "[Established]",
+     "source": "Tirmidhi 2689 (graded sahih by al-Albani); Bukhari 6227"
+    },
+    {
+     "id": "meaning",
+     "kind": "teach",
+     "title": "What “salam” means",
+     "label": "[Established]",
+     "source": "Qur’an 59:23",
+     "review": "The meaning of salam (peace, safety) and the idea that the greeting is a prayer for the other person are standard teaching, worded by the app author.",
+     "body": [
+      "Salam means peace: being safe, being free from harm. When you say as-salamu alaykum you are asking Allah to give the other person peace. It is a short prayer for them, not only a hello.",
+      "As-Salam, “The Peace”, is also one of the names of Allah (59:23). So when you greet someone, you use a word that belongs to the most beautiful names."
+     ],
+     "quran": "q:59:23"
+    },
+    {
+     "id": "q1324",
+     "kind": "say",
+     "title": "The same word in the Qur’an",
+     "refs": [
+      "q:13:24"
+     ],
+     "note": "In Paradise the angels greet the believers with these words. The first two words are the same as your greeting. The Qur’an says “salaamun” and not “as-salaamu”. You will see why in the lesson about “al-”.",
+     "words": {
+      "q:13:24": [
+       {
+        "tr": "salaamun",
+        "en": "peace"
+       },
+       {
+        "tr": "‘alaykum",
+        "en": "upon you"
+       },
+       {
+        "tr": "bimaa",
+        "en": "for what"
+       },
+       {
+        "tr": "sabartum",
+        "en": "you were patient"
+       },
+       {
+        "tr": "fani‘ma",
+        "en": "so excellent is"
+       },
+       {
+        "tr": "‘uqbaa",
+        "en": "the final end of"
+       },
+       {
+        "tr": "ad-daar",
+        "en": "the home"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 13:24"
+    },
+    {
+     "id": "q654",
+     "kind": "teach",
+     "title": "Allah told the Prophet ﷺ to say it",
+     "label": "[Established]",
+     "source": "Qur’an 6:54; 13:24; 16:32; 39:73; 10:10",
+     "body": [
+      "Allah told the Prophet ﷺ what to say when believers came to him: “salaamun ‘alaykum”, peace be upon you (6:54). Then Allah reminds them that He has written mercy upon Himself.",
+      "The angels say it to the people of Paradise (13:24, 16:32, 39:73), and the Qur’an says that the greeting of the people of Paradise is “peace” (10:10). When you greet, you use the language of the best company."
+     ],
+     "quran": "q:6:54"
+    },
+    {
+     "id": "adam",
+     "kind": "story",
+     "title": "The first greeting",
+     "label": "[Established]",
+     "source": "Bukhari 6227",
+     "body": [
+      "The Prophet ﷺ told us that Allah created Adam and said to him: go and greet that group of angels sitting there, and listen to what they answer, because that will be your greeting and the greeting of your children.",
+      "Adam said: as-salamu alaykum. The angels answered: as-salamu alayka wa rahmatullah. They added “and the mercy of Allah”. So the answer was better than the greeting (Bukhari 6227)."
+     ]
+    },
+    {
+     "id": "reply",
+     "kind": "say",
+     "title": "How to answer",
+     "refs": [
+      "greet.reply",
+      "greet.reply.one"
+     ],
+     "note": "“Wa” means “and”. You answer the greeting by giving it back: and upon you be peace. “‘Alaykum” is for two or more people, and “‘alayka” is for one person. The Prophet ﷺ said “wa ‘alayka as-salam” to a man who greeted him (Bukhari 6251).",
+     "label": "[Established]",
+     "source": "Muslim 2380; Bukhari 6251"
+    },
+    {
+     "id": "better",
+     "kind": "teach",
+     "title": "Answer with the same, or better",
+     "label": "[Established]",
+     "source": "Qur’an 4:86; Bukhari 6227",
+     "review": "Which wording is “the same” and which is “better” follows common teaching on 4:86. Scholars teach that replying is required and starting is recommended; a teacher can give the details for your school.",
+     "body": [
+      "Allah tells us how to answer: when you are greeted, greet back with something better, or at least give back the same (4:86).",
+      "So “wa alaykum as-salam” gives back the same. “Wa alaykum as-salam wa rahmatullah” is more. The angels in the story of Adam did exactly this."
+     ],
+     "quran": "q:4:86"
+    },
+    {
+     "id": "forms",
+     "kind": "say",
+     "title": "Three lengths of the greeting",
+     "refs": [
+      "greet.1",
+      "greet.2",
+      "greet.3"
+     ],
+     "note": "A man came to the Prophet ﷺ and said the short greeting. The Prophet ﷺ said: “Ten”. A second man added “wa rahmatullah”, and the Prophet ﷺ said: “Twenty”. A third added “wa barakatuh” (and His blessings), and the Prophet ﷺ said: “Thirty” (Tirmidhi 2689). Scholars explain the numbers as good deeds. Al-Albani graded this hadith sahih; Bashar Awad Maarouf graded it hasan.",
+     "label": "[Interpretive]",
+     "source": "Tirmidhi 2689 (graded sahih by al-Albani)",
+     "review": "The meaning of ten, twenty and thirty as good deeds is the usual explanation, not the words of the hadith. The grade is recorded by name in tool/hadith_verdicts."
+    },
+    {
+     "id": "howto",
+     "kind": "howto",
+     "title": "How to greet well",
+     "steps": [
+      {
+       "text": "Greet first when you meet someone.",
+       "detail": "The Prophet ﷺ said that the people nearest to Allah are those who are first to give the greeting (Abu Dawud 5197, graded sahih by al-Albani)."
+      },
+      {
+       "text": "Know who usually starts.",
+       "detail": "The younger person greets the older, the one walking greets the one sitting, and the small group greets the large group (Bukhari 6231)."
+      },
+      {
+       "text": "Greet people you know and people you do not know.",
+       "detail": "A man asked which part of Islam is best. The Prophet ﷺ said: to feed people, and to greet those you know and those you do not know (Bukhari 12)."
+      },
+      {
+       "text": "Say it clearly.",
+       "detail": "Say the words so the other person can hear them."
+      },
+      {
+       "text": "Answer when you are greeted.",
+       "detail": "Give back the same words, or more (4:86)."
+      }
+     ],
+     "intro": "The greeting is easy to say. These are the small habits around it.",
+     "mistakes": [
+      "Waiting for the other person to say it first, every time.",
+      "Answering in a way the other person cannot hear."
+     ],
+     "label": "[Established]",
+     "source": "Abu Dawud 5197 (graded sahih by al-Albani); Bukhari 6231; Bukhari 12; Qur’an 4:86",
+     "review": "“Say it clearly so it can be heard” is practical advice written by the app author, not a quoted text."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "From shortest to longest",
+     "prompt": "Put the three greetings in order, from the shortest to the longest.",
+     "explain": "Peace first, then peace and mercy, then peace, mercy and blessings.",
+     "items": [
+      {
+       "text": "As-salamu alaykum (peace be upon you)",
+       "why": "This is the shortest: peace only.",
+       "back": "forms"
+      },
+      {
+       "text": "As-salamu alaykum wa rahmatullah (and the mercy of Allah)",
+       "why": "It adds the mercy of Allah.",
+       "back": "forms"
+      },
+      {
+       "text": "As-salamu alaykum wa rahmatullahi wa barakatuh (and His blessings)",
+       "why": "It adds the blessings too, so it is the longest.",
+       "back": "forms"
+      }
+     ]
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the words",
+     "prompt": "Match each Arabic word to what it means.",
+     "pairs": [
+      {
+       "left": {
+        "word": "greet.1#0"
+       },
+       "right": {
+        "text": "the peace"
+       },
+       "why": "As-salaamu is “the peace”.",
+       "back": "greet"
+      },
+      {
+       "left": {
+        "word": "greet.1#1"
+       },
+       "right": {
+        "text": "upon you"
+       },
+       "why": "‘Alaykum is “upon you”.",
+       "back": "greet"
+      },
+      {
+       "left": {
+        "word": "greet.2#2"
+       },
+       "right": {
+        "text": "and the mercy of"
+       },
+       "why": "Wa-rahmatu is “and the mercy of”.",
+       "back": "forms"
+      },
+      {
+       "left": {
+        "word": "greet.reply#0"
+       },
+       "right": {
+        "text": "and upon you"
+       },
+       "why": "Wa-‘alaykum is “and upon you”: the start of the answer.",
+       "back": "reply"
+      },
+      {
+       "left": {
+        "word": "greet.3#4"
+       },
+       "right": {
+        "text": "and His blessings"
+       },
+       "why": "Wa-barakaatuhu is “and His blessings”.",
+       "back": "forms"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "g1",
+       "q": "What does as-salamu alaykum mean?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "Good morning",
+         "reteach": "No. It is not tied to a time of day. It means peace be upon you.",
+         "back": "greet"
+        },
+        {
+         "text": "Peace be upon you"
+        },
+        {
+         "text": "Welcome to my house",
+         "reteach": "No. It is said to anyone you meet, and it means peace be upon you.",
+         "back": "greet"
+        }
+       ],
+       "answer": 1,
+       "explain": "As-salamu alaykum means peace be upon you."
+      },
+      {
+       "id": "g2",
+       "q": "Which Arabic word in this ayah means “peace”?",
+       "type": "fill",
+       "options": [
+        {
+         "word": "q:13:24#2",
+         "reteach": "That word means “for what”. The word for peace is the first word.",
+         "back": "q1324"
+        },
+        {
+         "word": "q:13:24#0"
+        },
+        {
+         "word": "q:13:24#3",
+         "reteach": "That word means “you were patient”. The word for peace is the first word.",
+         "back": "q1324"
+        }
+       ],
+       "answer": 1,
+       "explain": "Salaamun, the first word, means peace.",
+       "fill": {
+        "ref": "q:13:24",
+        "blank": 0,
+        "show": "arabic"
+       }
+      },
+      {
+       "id": "g3",
+       "q": "You walk past a group of people who are sitting and talking. Who should start the greeting?",
+       "type": "scenario",
+       "options": [
+        {
+         "text": "You: the one who is passing by"
+        },
+        {
+         "text": "The people who are sitting",
+         "reteach": "No. The Prophet ﷺ said the one passing by greets the one sitting (Bukhari 6231).",
+         "back": "howto"
+        },
+        {
+         "text": "Nobody: you should wait to be greeted",
+         "reteach": "No. The people nearest to Allah are the ones who give the greeting first (Abu Dawud 5197, graded sahih by al-Albani).",
+         "back": "howto"
+        }
+       ],
+       "answer": 0,
+       "explain": "The one passing by greets the ones sitting (Bukhari 6231).",
+       "scenario": "You are walking along a street. A small group is sitting outside a shop."
+      },
+      {
+       "id": "g4",
+       "q": "What does this say?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "Peace be upon you",
+         "reteach": "That is the greeting. This one starts with “wa”, which means “and”: it is the answer.",
+         "back": "reply"
+        },
+        {
+         "text": "May Allah bless you",
+         "reteach": "No. It is the answer to the greeting: and upon you be peace.",
+         "back": "reply"
+        },
+        {
+         "text": "And upon you be peace"
+        }
+       ],
+       "answer": 2,
+       "explain": "Wa ‘alaykum as-salaam: and upon you be peace.",
+       "ref": "greet.reply"
+      },
+      {
+       "id": "g5",
+       "q": "What does Allah say about answering a greeting (4:86)?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "Answer with something better, or at least the same"
+        },
+        {
+         "text": "You may answer with a nod only",
+         "reteach": "No. 4:86 says to answer with something better, or at least give back the same.",
+         "back": "better"
+        },
+        {
+         "text": "You do not have to answer",
+         "reteach": "No. 4:86 tells us to answer.",
+         "back": "better"
+        }
+       ],
+       "answer": 0,
+       "explain": "4:86: greet back with better, or at least return it."
+      },
+      {
+       "id": "g6",
+       "q": "Someone says to you: “As-salamu alaykum wa rahmatullah”. What is a good answer?",
+       "type": "scenario",
+       "options": [
+        {
+         "text": "Say nothing, because you were not asked a question",
+         "reteach": "No. A greeting is answered (4:86).",
+         "back": "better"
+        },
+        {
+         "text": "Wa alaykum as-salam wa rahmatullah: give back at least the same"
+        },
+        {
+         "text": "Only say “hello”",
+         "reteach": "That is not the Quranic way. Give back the same words or more (4:86).",
+         "back": "better"
+        }
+       ],
+       "answer": 1,
+       "explain": "Give back at least what you were given (4:86).",
+       "scenario": "A neighbour smiles and says the longer greeting."
+      },
+      {
+       "id": "g7",
+       "q": "In the story of Adam, what did the angels add when they answered?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "And the mercy of Allah (wa rahmatullah)"
+        },
+        {
+         "text": "And His blessings (wa barakatuh)",
+         "reteach": "No. The angels said as-salamu alayka wa rahmatullah. “Wa barakatuh” comes in the longer form of the hadith of Tirmidhi.",
+         "back": "adam"
+        },
+        {
+         "text": "Nothing: they gave back the same words",
+         "reteach": "No. They added “wa rahmatullah” (Bukhari 6227).",
+         "back": "adam"
+        }
+       ],
+       "answer": 0,
+       "explain": "They said wa rahmatullah, so they answered with more (Bukhari 6227)."
+      },
+      {
+       "id": "g8",
+       "q": "Which of these greetings has peace, mercy and blessings?",
+       "type": "mcq",
+       "options": [
+        {
+         "ref": "greet.1",
+         "reteach": "This one has only peace.",
+         "back": "forms"
+        },
+        {
+         "ref": "greet.2",
+         "reteach": "This one has peace and mercy. It does not have the blessings.",
+         "back": "forms"
+        },
+        {
+         "ref": "greet.3"
+        }
+       ],
+       "answer": 2,
+       "explain": "The longest form has peace, mercy and blessings."
+      },
+      {
+       "id": "g9",
+       "q": "As-Salam is…",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "One of the names of Allah"
+        },
+        {
+         "text": "A kind of prayer",
+         "reteach": "No. As-Salam (The Peace) is one of the names of Allah (59:23).",
+         "back": "meaning"
+        },
+        {
+         "text": "A word that only means “hello”",
+         "reteach": "No. Salam means peace, and As-Salam is also a name of Allah (59:23).",
+         "back": "meaning"
+        }
+       ],
+       "answer": 0,
+       "explain": "As-Salam, The Peace, is one of the names of Allah (59:23)."
+      },
+      {
+       "id": "g10",
+       "q": "Who greets the believers with “salaamun ‘alaykum” in 13:24?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "The Prophet ﷺ, at the door of the mosque",
+         "reteach": "No. In 13:24 it is the angels who greet the believers in Paradise.",
+         "back": "q1324"
+        },
+        {
+         "text": "The angels, as the believers enter their home in Paradise"
+        },
+        {
+         "text": "Adam, when he met his children",
+         "reteach": "No. In 13:24 it is the angels who greet the believers.",
+         "back": "q1324"
+        }
+       ],
+       "answer": 1,
+       "explain": "The angels greet the believers in Paradise (13:24)."
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Say as-salamu alaykum, and its longer forms, in Arabic and know what each word means.",
+      "Answer with wa alaykum as-salam, and know why it is good to add more (4:86).",
+      "Know that the same word is in the Qur’an, said by the angels in Paradise.",
+      "Know the small habits of greeting: who starts, and saying it to people you know and do not know."
+     ],
+     "next": "Next: the family words you already own."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Find the word in the Qur’an",
+     "body": "Open Surat ar-Ra‘d and find ayah 24. Look for the word salaamun and the word ‘alaykum next to it.",
+     "route": "/quran/13",
+     "button": "Open Surat ar-Ra‘d"
+    }
+   ]
+  },
+  {
+   "id": "arabic.u1.l2",
+   "title": "Family Words You Already Own",
+   "minutes": 15,
+   "intro": "Learn the words for father, mother, son, daughter, brother and sister, see them in the Qur’an, and learn the du‘a for your parents.",
+   "steps": [
+    {
+     "id": "why",
+     "kind": "why",
+     "title": "Words you already know",
+     "body": [
+      "Abu Bakr. Umm Salamah. Ibn Umar. ‘A’ishah bint Abi Bakr. You have heard names like these all your life. In Arabic a name often tells you a family link: who someone’s father, mother, son or daughter is.",
+      "In this lesson you will learn six family words, find each one in the Qur’an, and learn a du‘a for your parents from the Qur’an. If you cannot read the letters yet, you can still do the lesson: every word is shown with its sound and its meaning. The Letters school will teach you the letters."
+     ]
+    },
+    {
+     "id": "words",
+     "kind": "teach",
+     "title": "Six family words",
+     "review": "Vocabulary meanings are standard Arabic, written by the app author.",
+     "body": [
+      "These six words are the base of many names and many verses:"
+     ],
+     "bullets": [
+      "ab: father. Abu Bakr means “father of Bakr”.",
+      "umm: mother. Umm Salamah means “mother of Salamah”.",
+      "ibn (or bin): son. Ibn Umar means “son of Umar”.",
+      "bint: daughter. ‘A’ishah bint Abi Bakr means “‘A’ishah, daughter of Abu Bakr”.",
+      "akh: brother.",
+      "ukht: sister."
+     ]
+    },
+    {
+     "id": "fatherson",
+     "kind": "say",
+     "title": "Father and son in the Qur’an",
+     "refs": [
+      "q:12:4",
+      "q:31:13"
+     ],
+     "note": "In 12:4 Yusuf speaks to his father, and in 31:13 Luqman speaks to his son. “Yaa” means “O”: it is how you call someone. Notice the father word in two shapes: li-abeehi (to his father) and abati (my father). It is the same word with different endings. In 12:11 you will also meet abaanaa, “our father”.",
+     "words": {
+      "q:12:4": [
+       {
+        "tr": "idh",
+        "en": "when"
+       },
+       {
+        "tr": "qaala",
+        "en": "said"
+       },
+       {
+        "tr": "Yoosufu",
+        "en": "Yusuf"
+       },
+       {
+        "tr": "li-abeehi",
+        "en": "to his father"
+       },
+       {
+        "tr": "yaa abati",
+        "en": "O my father"
+       },
+       {
+        "tr": "innee",
+        "en": "indeed I"
+       },
+       {
+        "tr": "ra’aytu",
+        "en": "I saw"
+       },
+       {
+        "tr": "ahada",
+        "en": "one (the first part of “eleven”)"
+       },
+       {
+        "tr": "‘ashara",
+        "en": "ten (the second part of “eleven”)"
+       },
+       {
+        "tr": "kawkaban",
+        "en": "a star"
+       },
+       {
+        "tr": "wash-shamsa",
+        "en": "and the sun"
+       },
+       {
+        "tr": "wal-qamara",
+        "en": "and the moon"
+       },
+       {
+        "tr": "ra’aytuhum",
+        "en": "I saw them"
+       },
+       {
+        "tr": "lee",
+        "en": "to me"
+       },
+       {
+        "tr": "saajideen",
+        "en": "bowing down"
+       }
+      ],
+      "q:31:13": [
+       {
+        "tr": "wa-idh",
+        "en": "and when"
+       },
+       {
+        "tr": "qaala",
+        "en": "said"
+       },
+       {
+        "tr": "Luqmaanu",
+        "en": "Luqman"
+       },
+       {
+        "tr": "li-ibnihi",
+        "en": "to his son"
+       },
+       {
+        "tr": "wa-huwa",
+        "en": "while he"
+       },
+       {
+        "tr": "ya‘izuhu",
+        "en": "was advising him"
+       },
+       {
+        "tr": "yaa bunayya",
+        "en": "O my dear son"
+       },
+       {
+        "tr": "laa",
+        "en": "do not"
+       },
+       {
+        "tr": "tushrik",
+        "en": "join partners"
+       },
+       {
+        "tr": "billaahi",
+        "en": "with Allah"
+       },
+       {
+        "tr": "inna",
+        "en": "indeed"
+       },
+       {
+        "tr": "ash-shirka",
+        "en": "joining partners with Allah"
+       },
+       {
+        "tr": "la-zulmun",
+        "en": "is surely a wrong"
+       },
+       {
+        "tr": "‘azeemun",
+        "en": "great"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 12:4; 31:13; 12:11"
+    },
+    {
+     "id": "mother",
+     "kind": "teach",
+     "title": "The mother in the Qur’an",
+     "label": "[Established]",
+     "source": "Qur’an 46:15; 28:7; 20:40",
+     "body": [
+      "Look for the word ummuhu in this ayah. It is “his mother”: umm (mother) with the ending -hu (his).",
+      "The same word is in 28:7, where Allah inspires the mother of Musa, and in 20:40, where Allah says to Musa that He gave him back to his mother (“ummika”, your mother). Allah first tells us to be good to our parents, and then gives the mother’s hardship as the reason."
+     ],
+     "quran": "q:46:15"
+    },
+    {
+     "id": "daughtersister",
+     "kind": "say",
+     "title": "Daughter and sister in the Qur’an",
+     "refs": [
+      "q:66:12",
+      "q:28:11"
+     ],
+     "note": "In 66:12 the word ibnata means “daughter of”: it is the girl’s form of ibn. In 28:11 Musa’s mother speaks to his sister. You can find the word for brother in 7:142, where Musa says “li-akheehi Haaroon”, to his brother Harun.",
+     "words": {
+      "q:66:12": [
+       {
+        "tr": "wa-Maryama",
+        "en": "and Maryam"
+       },
+       {
+        "tr": "ibnata",
+        "en": "daughter of"
+       },
+       {
+        "tr": "‘Imraana",
+        "en": "‘Imran"
+       },
+       {
+        "tr": "allatee",
+        "en": "who"
+       },
+       {
+        "tr": "ahsanat",
+        "en": "guarded"
+       },
+       {
+        "tr": "farjahaa",
+        "en": "her chastity"
+       },
+       {
+        "tr": "fa-nafakhnaa",
+        "en": "so We blew"
+       },
+       {
+        "tr": "feehi",
+        "en": "into it"
+       },
+       {
+        "tr": "min",
+        "en": "of"
+       },
+       {
+        "tr": "roohinaa",
+        "en": "Our spirit"
+       },
+       {
+        "tr": "wa-saddaqat",
+        "en": "and she believed"
+       },
+       {
+        "tr": "bi-kalimaati",
+        "en": "in the words of"
+       },
+       {
+        "tr": "rabbihaa",
+        "en": "her Lord"
+       },
+       {
+        "tr": "wa-kutubihi",
+        "en": "and His books"
+       },
+       {
+        "tr": "wa-kaanat",
+        "en": "and she was"
+       },
+       {
+        "tr": "mina",
+        "en": "of"
+       },
+       {
+        "tr": "al-qaansiteen",
+        "en": "the devoutly obedient"
+       }
+      ],
+      "q:28:11": [
+       {
+        "tr": "wa-qaalat",
+        "en": "and she said"
+       },
+       {
+        "tr": "li-ukhtihi",
+        "en": "to his sister"
+       },
+       {
+        "tr": "qussiyhi",
+        "en": "follow him"
+       },
+       {
+        "tr": "fa-basurat",
+        "en": "so she watched"
+       },
+       {
+        "tr": "bihi",
+        "en": "him"
+       },
+       {
+        "tr": "‘an",
+        "en": "from"
+       },
+       {
+        "tr": "junubin",
+        "en": "a distance"
+       },
+       {
+        "tr": "wa-hum",
+        "en": "while they"
+       },
+       {
+        "tr": "laa",
+        "en": "not"
+       },
+       {
+        "tr": "yash‘uroon",
+        "en": "were aware"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 66:12; 28:11; 7:142"
+    },
+    {
+     "id": "parents",
+     "kind": "why",
+     "title": "Your parents",
+     "label": "[Established]",
+     "source": "Qur’an 17:23; Bukhari 5971",
+     "body": [
+      "The Qur’an puts goodness to parents right after the worship of Allah. Allah has decreed that we worship Him alone, and that we are good to our parents (17:23). We are told to speak to them with a noble word and never to say even “uff” to them.",
+      "A man asked the Prophet ﷺ: who is most deserving of my good company? The Prophet ﷺ answered: your mother. The man asked again, and the Prophet ﷺ said: your mother. He asked a third time and heard: your mother. The fourth time the Prophet ﷺ said: your father (Bukhari 5971)."
+     ],
+     "quran": "q:17:23"
+    },
+    {
+     "id": "dua",
+     "kind": "say",
+     "title": "A du‘a for your parents",
+     "refs": [
+      "q:17:24"
+     ],
+     "note": "This is the du‘a Allah taught us for our parents. The part to say is “rabbi irhamhumaa kamaa rabbayaanee saghiran”: My Lord, have mercy on them both, as they raised me when I was small. You can say it for parents who are alive and for parents who have died.",
+     "words": {
+      "q:17:24": [
+       {
+        "tr": "wa-ikhfid",
+        "en": "and lower"
+       },
+       {
+        "tr": "lahumaa",
+        "en": "for them both"
+       },
+       {
+        "tr": "janaaha",
+        "en": "the wing of"
+       },
+       {
+        "tr": "adh-dhulli",
+        "en": "humility"
+       },
+       {
+        "tr": "mina",
+        "en": "out of"
+       },
+       {
+        "tr": "ar-rahmati",
+        "en": "mercy"
+       },
+       {
+        "tr": "wa-qul",
+        "en": "and say"
+       },
+       {
+        "tr": "rabbi",
+        "en": "my Lord"
+       },
+       {
+        "tr": "irhamhumaa",
+        "en": "have mercy on them both"
+       },
+       {
+        "tr": "kamaa",
+        "en": "as"
+       },
+       {
+        "tr": "rabbayaanee",
+        "en": "they raised me"
+       },
+       {
+        "tr": "saghiran",
+        "en": "small"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 17:24",
+     "review": "The note that the du‘a can be said for parents who are alive or who have died is common teaching, written by the app author."
+    },
+    {
+     "id": "listen",
+     "kind": "listen",
+     "title": "Listen and repeat",
+     "ref": "q:17:24",
+     "repeats": 2,
+     "note": "Listen to the ayah, then say the du‘a after the reciter. The reciter’s name is shown on the player."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "The answers of the Prophet ﷺ",
+     "prompt": "The man asked “who is next?” four times. Put the four answers of the Prophet ﷺ in the order he gave them.",
+     "explain": "Mother, mother, mother, then father (Bukhari 5971).",
+     "items": [
+      {
+       "text": "Your mother",
+       "why": "This was the first answer.",
+       "back": "parents"
+      },
+      {
+       "text": "Your mother (again)",
+       "why": "He said it a second time.",
+       "back": "parents"
+      },
+      {
+       "text": "Your mother (a third time)",
+       "why": "He said it a third time.",
+       "back": "parents"
+      },
+      {
+       "text": "Your father",
+       "why": "Only on the fourth time did he say: your father.",
+       "back": "parents"
+      }
+     ]
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the family word",
+     "prompt": "Match each Arabic word to its meaning.",
+     "pairs": [
+      {
+       "left": {
+        "word": "q:12:4#4"
+       },
+       "right": {
+        "text": "O my father"
+       },
+       "why": "Yaa abati: O my father.",
+       "back": "fatherson"
+      },
+      {
+       "left": {
+        "word": "q:31:13#6"
+       },
+       "right": {
+        "text": "O my dear son"
+       },
+       "why": "Yaa bunayya: O my dear son.",
+       "back": "fatherson"
+      },
+      {
+       "left": {
+        "word": "q:46:15#5"
+       },
+       "right": {
+        "text": "his mother"
+       },
+       "why": "Ummuhu: his mother.",
+       "back": "mother"
+      },
+      {
+       "left": {
+        "word": "q:66:12#1"
+       },
+       "right": {
+        "text": "daughter of"
+       },
+       "why": "Ibnata: daughter of.",
+       "back": "daughtersister"
+      },
+      {
+       "left": {
+        "word": "q:28:11#1"
+       },
+       "right": {
+        "text": "to his sister"
+       },
+       "why": "Li-ukhtihi: to his sister.",
+       "back": "daughtersister"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "f1",
+       "q": "What does “Abu Bakr” mean?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "Father of Bakr"
+        },
+        {
+         "text": "Son of Bakr",
+         "reteach": "No. “Ibn” is son. “Abu” is the form of “ab”, father.",
+         "back": "words"
+        },
+        {
+         "text": "Brother of Bakr",
+         "reteach": "No. “Akh” is brother. “Abu” is the form of “ab”, father.",
+         "back": "words"
+        }
+       ],
+       "answer": 0,
+       "explain": "Abu Bakr means “father of Bakr”."
+      },
+      {
+       "id": "f2",
+       "q": "“‘A’ishah bint Abi Bakr” means…",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "‘A’ishah, the mother of Abu Bakr",
+         "reteach": "No. “Bint” means daughter.",
+         "back": "words"
+        },
+        {
+         "text": "‘A’ishah, the sister of Abu Bakr",
+         "reteach": "No. “Bint” means daughter. Sister is “ukht”.",
+         "back": "words"
+        },
+        {
+         "text": "‘A’ishah, the daughter of Abu Bakr"
+        }
+       ],
+       "answer": 2,
+       "explain": "“Bint” is daughter, so this is ‘A’ishah, daughter of Abu Bakr."
+      },
+      {
+       "id": "f3",
+       "q": "Which Arabic word in this ayah means “to his father”?",
+       "type": "fill",
+       "options": [
+        {
+         "word": "q:12:4#3"
+        },
+        {
+         "word": "q:12:4#2",
+         "reteach": "That word is “Yusuf”, the name of the speaker. “To his father” is the fourth word.",
+         "back": "fatherson"
+        },
+        {
+         "word": "q:12:4#6",
+         "reteach": "That word means “I saw”. “To his father” is the fourth word.",
+         "back": "fatherson"
+        }
+       ],
+       "answer": 0,
+       "explain": "Li-abeehi: to his father.",
+       "fill": {
+        "ref": "q:12:4",
+        "blank": 3,
+        "show": "arabic"
+       }
+      },
+      {
+       "id": "f4",
+       "q": "In 31:13, Luqman says “yaa bunayya”. Who is he speaking to?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "His father",
+         "reteach": "No. In the ayah it says “li-ibnihi”, to his son.",
+         "back": "fatherson"
+        },
+        {
+         "text": "His son"
+        },
+        {
+         "text": "His brother",
+         "reteach": "No. In the ayah it says “li-ibnihi”, to his son.",
+         "back": "fatherson"
+        }
+       ],
+       "answer": 1,
+       "explain": "Luqman is advising his son (31:13)."
+      },
+      {
+       "id": "f5",
+       "q": "In 66:12, what does “ibnata ‘Imraan” mean?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "Daughter of ‘Imran"
+        },
+        {
+         "text": "Son of ‘Imran",
+         "reteach": "No. “Ibn” is son. The ending in “ibnata” makes it the girl’s form: daughter.",
+         "back": "daughtersister"
+        },
+        {
+         "text": "Mother of ‘Imran",
+         "reteach": "No. The mother is “umm”. “Ibnata” is “daughter of”.",
+         "back": "daughtersister"
+        }
+       ],
+       "answer": 0,
+       "explain": "Maryam is called “daughter of ‘Imran”."
+      },
+      {
+       "id": "f6",
+       "q": "The father word appears as “li-abeehi” (to his father) and as “yaa abati” (my father). What does that show?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "They are two different words that sound alike",
+         "reteach": "No. The root word is the same: “ab”. The ending changes with the job the word does in the sentence.",
+         "back": "fatherson"
+        },
+        {
+         "text": "One of them is a name, not a family word",
+         "reteach": "No. Both are the word for father.",
+         "back": "fatherson"
+        },
+        {
+         "text": "It is one word with different endings"
+        }
+       ],
+       "answer": 2,
+       "explain": "The word ab changes its ending (abu, abi, aba) but stays the same word."
+      },
+      {
+       "id": "f7",
+       "q": "A man asks the Prophet ﷺ who deserves his best company. The Prophet ﷺ answers three times with one word. What is it?",
+       "type": "scenario",
+       "options": [
+        {
+         "text": "Your mother"
+        },
+        {
+         "text": "Your father",
+         "reteach": "No. The father came the fourth time (Bukhari 5971).",
+         "back": "parents"
+        },
+        {
+         "text": "Your teacher",
+         "reteach": "No. The Prophet ﷺ named his mother three times, then his father.",
+         "back": "parents"
+        }
+       ],
+       "answer": 0,
+       "explain": "Mother, mother, mother, then father (Bukhari 5971).",
+       "scenario": "A man comes to the Prophet ﷺ and asks: who is most entitled to my good company?"
+      },
+      {
+       "id": "f8",
+       "q": "What do we ask Allah for in the du‘a of 17:24?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "To forgive us for the sins we did as children",
+         "reteach": "No. The du‘a asks for mercy for our parents.",
+         "back": "dua"
+        },
+        {
+         "text": "To have mercy on our parents, as they raised us when we were small"
+        },
+        {
+         "text": "To make our parents rich",
+         "reteach": "No. It asks for mercy for them, as they raised us small.",
+         "back": "dua"
+        }
+       ],
+       "answer": 1,
+       "explain": "My Lord, have mercy on them both, as they raised me when I was small (17:24).",
+       "ref": "q:17:24"
+      },
+      {
+       "id": "f9",
+       "q": "Which word in this ayah means “my Lord”?",
+       "type": "fill",
+       "options": [
+        {
+         "word": "q:17:24#3",
+         "reteach": "That word means “humility”. “My Lord” is the word just before “irhamhumaa”.",
+         "back": "dua"
+        },
+        {
+         "word": "q:17:24#7"
+        },
+        {
+         "word": "q:17:24#9",
+         "reteach": "That word means “as”. “My Lord” is the word just before “irhamhumaa”.",
+         "back": "dua"
+        }
+       ],
+       "answer": 1,
+       "explain": "Rabbi: my Lord.",
+       "fill": {
+        "ref": "q:17:24",
+        "blank": 7,
+        "show": "arabic"
+       }
+      },
+      {
+       "id": "f10",
+       "q": "After worship of Allah alone, what does 17:23 command?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "Goodness to parents"
+        },
+        {
+         "text": "Giving all you own as charity",
+         "reteach": "No. After worship of Allah alone, 17:23 commands goodness to parents.",
+         "back": "parents"
+        },
+        {
+         "text": "Travelling to learn Arabic",
+         "reteach": "No. After worship of Allah alone, 17:23 commands goodness to parents.",
+         "back": "parents"
+        }
+       ],
+       "answer": 0,
+       "explain": "17:23: worship Him alone, and good treatment of parents."
+      },
+      {
+       "id": "f11",
+       "lookback": "arabic.u1.l1#g1"
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Say and understand six family words: ab, umm, ibn, bint, akh and ukht.",
+      "Understand names like Abu Bakr, Umm Salamah and ‘A’ishah bint Abi Bakr.",
+      "Find the father, son, mother, daughter and sister in verses of the Qur’an.",
+      "Say the Qur’anic du‘a for your parents, and know what the Prophet ﷺ said about them."
+     ],
+     "next": "Next: the little word “al-”."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Find the du‘a in the Qur’an",
+     "body": "Open Surat al-Isra and find ayah 24. Say the du‘a for your parents after the reciter.",
+     "route": "/quran/17",
+     "button": "Open Surat al-Isra"
+    }
+   ]
+  },
+  {
+   "id": "arabic.u1.l3",
+   "title": "The Definite Article: Al-",
+   "minutes": 20,
+   "intro": "Learn what al- means, and how to know when its “l” is said and when it is silent.",
+   "steps": [
+    {
+     "id": "why",
+     "kind": "why",
+     "title": "Two small letters with a big job",
+     "body": [
+      "Open any page of the Qur’an and you will see the little word “al-” again and again: al-Fatihah, al-hamd, al-kitab, ar-Rahman. It means “the”. Once you can see it, a lot of the Arabic on the page becomes easier to read.",
+      "In this lesson you will learn what al- does, and the one thing that surprises every beginner: sometimes the “l” of al- is said, and sometimes it is not. You will learn how to tell which, just by looking."
+     ]
+    },
+    {
+     "id": "book",
+     "kind": "say",
+     "title": "A book and the book",
+     "refs": [
+      "q:6:155",
+      "q:2:2"
+     ],
+     "note": "Look at the two words for “book”. In 6:155 it is kitaabun: a book. In 2:2 it is al-kitaabu: the Book. The Qur’an is called “a book” in one place and “the Book” in the other.",
+     "words": {
+      "q:6:155": [
+       {
+        "tr": "wa-haadhaa",
+        "en": "and this"
+       },
+       {
+        "tr": "kitaabun",
+        "en": "a book"
+       },
+       {
+        "tr": "anzalnaahu",
+        "en": "We sent it down"
+       },
+       {
+        "tr": "mubaarakun",
+        "en": "blessed"
+       },
+       {
+        "tr": "fattabi‘oohu",
+        "en": "so follow it"
+       },
+       {
+        "tr": "wattaqoo",
+        "en": "and fear (Allah)"
+       },
+       {
+        "tr": "la‘allakum",
+        "en": "so that you may"
+       },
+       {
+        "tr": "turhamoon",
+        "en": "receive mercy"
+       }
+      ],
+      "q:2:2": [
+       {
+        "tr": "dhaalika",
+        "en": "that"
+       },
+       {
+        "tr": "al-kitaabu",
+        "en": "the Book"
+       },
+       {
+        "tr": "laa",
+        "en": "no"
+       },
+       {
+        "tr": "rayba",
+        "en": "doubt"
+       },
+       {
+        "tr": "feehi",
+        "en": "in it"
+       },
+       {
+        "tr": "hudan",
+        "en": "a guidance"
+       },
+       {
+        "tr": "lil-muttaqeen",
+        "en": "for those who are mindful of Allah"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 6:155; 2:2"
+    },
+    {
+     "id": "does",
+     "kind": "teach",
+     "title": "What al- does",
+     "label": "[Interpretive]",
+     "source": "Standard Arabic grammar; Qur’an 2:2",
+     "review": "Plain description of the definite article and of the indefinite ending (tanween), worded by the app author. Please confirm.",
+     "body": [
+      "Al- is “the”. It is written joined to the front of a word, and it makes the word definite: not any book, but the book.",
+      "Arabic has no word for “a”. A word with no al- is “a …”. Many such words end in -un, -in or -an, which is the sign that no al- is on it. When al- is added, that ending goes back to a simple -u, -i or -a."
+     ],
+     "bullets": [
+      "kitaabun: a book. Al-kitaabu: the book.",
+      "rahmatun: a mercy. Ar-rahmatu: the mercy.",
+      "In 2:2, “lil-muttaqeen” is li (for) + al (the) + muttaqeen (those mindful of Allah). When li meets al, the “a” disappears: li + al = lil."
+     ]
+    },
+    {
+     "id": "sunmoon",
+     "kind": "say",
+     "title": "The sun and the moon",
+     "refs": [
+      "q:55:5"
+     ],
+     "note": "Both “the sun” and “the moon” start with al-. Say them aloud: ash-shamsu, al-qamaru. Do you hear what is different? In “ash-shamsu” you cannot hear the “l” of al-. In “al-qamaru” you can.",
+     "words": {
+      "q:55:5": [
+       {
+        "tr": "ash-shamsu",
+        "en": "the sun"
+       },
+       {
+        "tr": "wal-qamaru",
+        "en": "and the moon"
+       },
+       {
+        "tr": "bi-husbaan",
+        "en": "by a precise calculation"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 55:5"
+    },
+    {
+     "id": "rule",
+     "kind": "teach",
+     "title": "Sun letters and moon letters",
+     "label": "[Interpretive]",
+     "source": "Tajweed teaching on the lam of the definite article, for the reading of Hafs from ‘Asim",
+     "review": "The rule of the lam of the definite article (lam shamsiyyah and lam qamariyyah) and the two lists of 14 letters are standard tajweed and grammar teaching, here for the reading of Hafs from ‘Asim, which is the text of this app. The letter names are written by the app author. Please confirm.",
+     "body": [
+      "The “l” of al- is said if the word begins with a moon letter, as in al-qamar. It is not said if the word begins with a sun letter. The first letter of the word is then doubled (held a little longer): ash-shams.",
+      "The names come from these two examples: shams (sun) begins with a sun letter, qamar (moon) begins with a moon letter. Arabic has 14 of each. You do not need to learn the lists by heart: you can tell from the way the Qur’an is written (next card)."
+     ],
+     "bullets": [
+      "Sun letters (the “l” is not said): taa, thaa, daal, dhaal, raa, zay, seen, sheen, saad, daad, taa (heavy), zaa (heavy), laam, noon.",
+      "Moon letters (the “l” is said): alif (hamza), baa, jeem, haa (deep in the throat), khaa, ‘ayn, ghayn, faa, qaaf, kaaf, meem, haa (a light breath), waaw, yaa."
+     ]
+    },
+    {
+     "id": "marks",
+     "kind": "teach",
+     "title": "How to tell by looking",
+     "label": "[Interpretive]",
+     "source": "Tajweed teaching on the lam of the definite article, for the reading of Hafs from ‘Asim",
+     "review": "The way the marks show the rule is true of the Madinah-style text used in this app. Please confirm.",
+     "body": [
+      "In the Qur’an the marks tell you. Look at the lam of al-.",
+      "If the lam has a small mark above it, like a tiny circle (a sukun), the “l” is said: moon letter. If the lam has no mark, and the next letter has a shaddah (a mark like a tiny letter “w”), the “l” is silent and the next letter is doubled: sun letter.",
+      "Compare the first word of 1:2, “al-hamdu”, and the first word of 1:3, “ar-Rahmaani”. The first has the small mark on its lam. The second has no mark on the lam and a shaddah on the next letter."
+     ]
+    },
+    {
+     "id": "fatiha",
+     "kind": "say",
+     "title": "Practice in Al-Fatihah",
+     "refs": [
+      "q:1:2",
+      "q:1:3",
+      "q:1:4"
+     ],
+     "note": "Under the Arabic you see how each ayah is said. Notice that “ar-Rahmaani” and “ad-Deeni” are written with al- but said without the “l”: raa and daal are sun letters. And look at “al-hamdu” and “al-‘aalameen”: the “l” is said.",
+     "words": {
+      "q:1:2": [
+       {
+        "tr": "al-hamdu",
+        "en": "all praise"
+       },
+       {
+        "tr": "lillaahi",
+        "en": "is for Allah"
+       },
+       {
+        "tr": "Rabbi",
+        "en": "Lord of"
+       },
+       {
+        "tr": "al-‘aalameen",
+        "en": "the worlds"
+       }
+      ],
+      "q:1:3": [
+       {
+        "tr": "ar-Rahmaani",
+        "en": "the Entirely Merciful"
+       },
+       {
+        "tr": "ar-Raheemi",
+        "en": "the Especially Merciful"
+       }
+      ],
+      "q:1:4": [
+       {
+        "tr": "Maaliki",
+        "en": "Master of"
+       },
+       {
+        "tr": "Yawmi",
+        "en": "the Day of"
+       },
+       {
+        "tr": "ad-Deeni",
+        "en": "the Recompense"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 1:2-4"
+    },
+    {
+     "id": "listen",
+     "kind": "listen",
+     "title": "Listen for the “l”",
+     "ref": "q:1:2-4",
+     "repeats": 2,
+     "note": "Listen to the three ayat. Can you hear the “l” in “al-hamdu” and “al-‘aalameen”, and not in “ar-Rahmaan” and “ad-Deen”? Say them after the reciter."
+    },
+    {
+     "id": "howto",
+     "kind": "howto",
+     "title": "How to read a word with al-",
+     "steps": [
+      {
+       "text": "Find the al- at the front of the word.",
+       "detail": "It is joined to the word. It is made of alif and lam."
+      },
+      {
+       "text": "Look at the lam.",
+       "detail": "Does it have a small mark, like a tiny circle (a sukun), above it?"
+      },
+      {
+       "text": "If yes, say the “l”.",
+       "detail": "Say it clearly: al-hamdu, al-kitaabu, al-qamaru."
+      },
+      {
+       "text": "If no, skip the “l” and double the next letter.",
+       "detail": "The next letter has a shaddah: hold it a little longer. Say ar-Rahmaan, ash-shams, ad-Deen, an-naas."
+      },
+      {
+       "text": "If another word comes just before, join them.",
+       "detail": "Then the “a” at the start of al- is not said. Rabbi + al-‘aalameen is said “Rabbil-‘aalameen”."
+      }
+     ],
+     "intro": "This is the whole method. It works for every word with al- in the Qur’an.",
+     "label": "[Interpretive]",
+     "source": "Tajweed teaching on the lam of the definite article, for the reading of Hafs from ‘Asim",
+     "review": "Method written by the app author from the standard rule. Please confirm, including the joining of the alif of al- with the word before it."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "Put the method in order",
+     "prompt": "Put the steps of reading a word with al- in the right order.",
+     "explain": "See the al-, look at the lam, then say or skip the “l”.",
+     "items": [
+      {
+       "text": "Find the al- at the front of the word",
+       "why": "You must first see the al-.",
+       "back": "howto"
+      },
+      {
+       "text": "Look at the lam for a small mark (a sukun)",
+       "why": "The mark on the lam tells you which kind of letter follows.",
+       "back": "howto"
+      },
+      {
+       "text": "If the lam has the mark, say the “l”",
+       "why": "A marked lam is a moon-letter word: the “l” is said.",
+       "back": "howto"
+      },
+      {
+       "text": "If it has no mark, skip the “l” and double the next letter",
+       "why": "An unmarked lam with a shaddah on the next letter is a sun-letter word.",
+       "back": "howto"
+      }
+     ]
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "How is it said?",
+     "prompt": "Match each Arabic word to how it is said.",
+     "pairs": [
+      {
+       "left": {
+        "word": "q:1:2#0"
+       },
+       "right": {
+        "text": "al-hamdu"
+       },
+       "why": "The lam has the small mark: the “l” is said.",
+       "back": "marks"
+      },
+      {
+       "left": {
+        "word": "q:1:3#0"
+       },
+       "right": {
+        "text": "ar-Rahmaani"
+       },
+       "why": "The lam has no mark and raa has a shaddah: the “l” is silent.",
+       "back": "marks"
+      },
+      {
+       "left": {
+        "word": "q:1:4#2"
+       },
+       "right": {
+        "text": "ad-Deeni"
+       },
+       "why": "The lam has no mark and daal has a shaddah: the “l” is silent.",
+       "back": "marks"
+      },
+      {
+       "left": {
+        "word": "q:55:5#0"
+       },
+       "right": {
+        "text": "ash-shamsu"
+       },
+       "why": "Sheen is a sun letter: the “l” is silent.",
+       "back": "sunmoon"
+      },
+      {
+       "left": {
+        "word": "q:55:5#1"
+       },
+       "right": {
+        "text": "wal-qamaru"
+       },
+       "why": "Wa means “and”. Qaaf is a moon letter, so the “l” is said.",
+       "back": "sunmoon"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "a1",
+       "q": "What does al- do to a word?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "It makes the word plural",
+         "reteach": "No. Al- means “the”.",
+         "back": "does"
+        },
+        {
+         "text": "It makes it definite: “the”"
+        },
+        {
+         "text": "It turns the word into a question",
+         "reteach": "No. Al- means “the”.",
+         "back": "does"
+        }
+       ],
+       "answer": 1,
+       "explain": "Al- is “the”."
+      },
+      {
+       "id": "a2",
+       "q": "In 6:155 the word is kitaabun, and in 2:2 it is al-kitaabu. What is the difference?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "Kitaabun is “a book”, and al-kitaabu is “the Book”"
+        },
+        {
+         "text": "They are two different words for different things",
+         "reteach": "No. It is one word. Al- makes it “the”.",
+         "back": "book"
+        },
+        {
+         "text": "There is no difference in meaning",
+         "reteach": "There is: with al- it is “the Book”, without it, “a book”.",
+         "back": "book"
+        }
+       ],
+       "answer": 0,
+       "explain": "Without al- it is “a book”; with al- it is “the Book”."
+      },
+      {
+       "id": "a3",
+       "q": "Which word in this ayah means “the Book”?",
+       "type": "fill",
+       "options": [
+        {
+         "word": "q:2:2#1"
+        },
+        {
+         "word": "q:2:2#5",
+         "reteach": "That word means “a guidance”. “The Book” is the second word, the one that starts with al-.",
+         "back": "book"
+        },
+        {
+         "word": "q:2:2#6",
+         "reteach": "That word means “for those who are mindful of Allah”. “The Book” is the second word.",
+         "back": "book"
+        }
+       ],
+       "answer": 0,
+       "explain": "Al-kitaabu: the Book.",
+       "fill": {
+        "ref": "q:2:2",
+        "blank": 1,
+        "show": "arabic"
+       }
+      },
+      {
+       "id": "a4",
+       "q": "How is “the sun” said: al + shams?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "al-shams",
+         "reteach": "Not quite. Sheen is a sun letter, so the “l” is not said and the sheen is doubled.",
+         "back": "rule"
+        },
+        {
+         "text": "as-shams",
+         "reteach": "Close, but it is ash-shams: the doubled letter is the sheen of shams.",
+         "back": "rule"
+        },
+        {
+         "text": "ash-shams"
+        }
+       ],
+       "answer": 2,
+       "explain": "Ash-shams: the “l” is not said before a sun letter."
+      },
+      {
+       "id": "a5",
+       "q": "How is “the moon”: al + qamar, said?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "al-qamar"
+        },
+        {
+         "text": "aq-qamar",
+         "reteach": "No. Qaaf is a moon letter, so the “l” is said.",
+         "back": "rule"
+        },
+        {
+         "text": "a-qamar",
+         "reteach": "No. Qaaf is a moon letter, so the “l” is said.",
+         "back": "rule"
+        }
+       ],
+       "answer": 0,
+       "explain": "Al-qamar: the “l” is said before a moon letter."
+      },
+      {
+       "id": "a6",
+       "q": "Which of these words has a lam that is said out loud (a moon-letter word)?",
+       "type": "mcq",
+       "options": [
+        {
+         "word": "q:1:3#0",
+         "reteach": "In this word the lam has no mark and the raa has a shaddah. The “l” is silent.",
+         "back": "marks"
+        },
+        {
+         "word": "q:1:2#0"
+        },
+        {
+         "word": "q:1:4#2",
+         "reteach": "In this word the lam has no mark and the daal has a shaddah. The “l” is silent.",
+         "back": "marks"
+        }
+       ],
+       "answer": 1,
+       "explain": "In “al-hamdu” the lam has the small mark, so the “l” is said."
+      },
+      {
+       "id": "a7",
+       "q": "You see a word that starts with al-. The lam has no mark, and the next letter has a shaddah. What do you do?",
+       "type": "scenario",
+       "options": [
+        {
+         "text": "Skip the “l” and double the next letter"
+        },
+        {
+         "text": "Say “al” clearly, then the next letter",
+         "reteach": "No. Without the mark on the lam, and with a shaddah on the next letter, the “l” is silent.",
+         "back": "marks"
+        },
+        {
+         "text": "Skip the whole al- and start with the next letter, not doubled",
+         "reteach": "Close. You skip the “l” but the next letter is doubled (that is what the shaddah shows).",
+         "back": "marks"
+        }
+       ],
+       "answer": 0,
+       "explain": "Sun letter: the “l” is silent and the next letter is doubled.",
+       "scenario": "You are reading a verse and find a word starting with al-."
+      },
+      {
+       "id": "a8",
+       "q": "Why is ayah 1:3 said “ar-Rahmaan” even though it is written with al-?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "Because Allah’s names are always said differently",
+         "reteach": "No. It is the same rule as for every word: raa is a sun letter.",
+         "back": "rule"
+        },
+        {
+         "text": "Raa is a sun letter, so the “l” of al- joins into it"
+        },
+        {
+         "text": "Because the lam has the small mark",
+         "reteach": "No. The lam has no mark here. The shaddah is on the raa.",
+         "back": "marks"
+        }
+       ],
+       "answer": 1,
+       "explain": "Ar-Rahmaan: raa is a sun letter.",
+       "ref": "q:1:3"
+      },
+      {
+       "id": "a9",
+       "q": "You say Rabbi + al-‘aalameen together. How is it said?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "Rabbil-‘aalameen: the “a” of al- is not said"
+        },
+        {
+         "text": "Rabbi al-‘aalameen, with “a” said clearly",
+         "reteach": "When you read on without stopping, the “a” of al- is not said.",
+         "back": "howto"
+        },
+        {
+         "text": "Rabbi-‘aalameen, with no “l”",
+         "reteach": "No. ‘Ayn is a moon letter, so the “l” is said: Rabbil-‘aalameen.",
+         "back": "howto"
+        }
+       ],
+       "answer": 0,
+       "explain": "Rabbil-‘aalameen: join the words and do not say the “a” of al-."
+      },
+      {
+       "id": "a10",
+       "q": "What does “lil-muttaqeen” in 2:2 contain?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "lee (my) + muttaqeen",
+         "reteach": "No. It is li (for) + al (the) + muttaqeen.",
+         "back": "does"
+        },
+        {
+         "text": "li (for) + al (the) + muttaqeen"
+        },
+        {
+         "text": "Only the word muttaqeen, with nothing added",
+         "reteach": "No. It begins with li and al-.",
+         "back": "does"
+        }
+       ],
+       "answer": 1,
+       "explain": "Lil-muttaqeen: for the ones mindful of Allah."
+      },
+      {
+       "id": "a11",
+       "lookback": "arabic.u1.l2#f6"
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Know that al- means “the”, and that a word without al- is “a …”.",
+      "Tell sun letters from moon letters by looking at the marks on the lam and the next letter.",
+      "Say ar-Rahmaan, ad-Deen, ash-shams and al-hamd, al-qamar correctly.",
+      "Join two words when you read on: Rabbil-‘aalameen."
+     ],
+     "next": "Next: Allah and Rabb, two words you say in every prayer."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "See the sun and the moon",
+     "body": "Open Surat ar-Rahman and read ayah 5. Find ash-shamsu and wal-qamaru, and look at the marks on the lam.",
+     "route": "/quran/55",
+     "button": "Open Surat ar-Rahman"
+    }
+   ]
+  },
+  {
+   "id": "arabic.u1.l4",
+   "title": "Allah Is the Name, Rabb Is the Word",
+   "minutes": 15,
+   "intro": "Learn the difference between the Name Allah and the word Rabb, and find Rabb with its endings in the Qur’an and in your prayer.",
+   "steps": [
+    {
+     "id": "why",
+     "kind": "why",
+     "title": "Two words in every prayer",
+     "body": [
+      "You say two words for God many times a day: Allah and Rabb. They are not the same kind of word. One is a Name. The other is a description: it tells you what He is to you.",
+      "In this lesson you will learn the difference, see Rabb with its small endings (my Lord, our Lord, your Lord), and find it in the prayer you already know."
+     ]
+    },
+    {
+     "id": "allah",
+     "kind": "teach",
+     "title": "Allah is the Name",
+     "label": "[Established]",
+     "source": "Qur’an 59:24; 7:180; Bukhari 2736",
+     "review": "The explanation of “knows them” as learn, understand and live by them, and the statement that the Name Allah has no plural, are standard teaching worded by the app author. Please confirm.",
+     "body": [
+      "Allah is the Name of the One God, the Creator of everything. Allah also has other names that describe Him: the Creator, the Entirely Merciful, the Peace, and more. Allah tells us that the best names belong to Him, and to call on Him by them (7:180).",
+      "The Prophet ﷺ said that Allah has ninety-nine names, and that whoever knows them will enter Paradise (Bukhari 2736). Scholars explain that this means to learn them, to understand them and to live by them.",
+      "The Arabic word ilah means “a god”, anything that is worshipped. It can be made plural. The Name Allah is only for the One God. That is why the shahada says “no ilah except Allah”."
+     ],
+     "quran": "q:59:24"
+    },
+    {
+     "id": "ikhlas",
+     "kind": "say",
+     "title": "The Name in Surat al-Ikhlas",
+     "refs": [
+      "q:112:1",
+      "q:112:2"
+     ],
+     "note": "Allah is the Name. “Ahad” (One) and “as-Samad” (the Eternal Refuge, the One everyone turns to) describe Him. In both ayat the Name comes first and then the description.",
+     "words": {
+      "q:112:1": [
+       {
+        "tr": "qul",
+        "en": "say"
+       },
+       {
+        "tr": "huwa",
+        "en": "He is"
+       },
+       {
+        "tr": "Allaahu",
+        "en": "Allah"
+       },
+       {
+        "tr": "ahad",
+        "en": "One"
+       }
+      ],
+      "q:112:2": [
+       {
+        "tr": "Allaahu",
+        "en": "Allah"
+       },
+       {
+        "tr": "as-samad",
+        "en": "the Eternal Refuge"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 112:1-2"
+    },
+    {
+     "id": "rabb",
+     "kind": "teach",
+     "title": "Rabb: the Lord",
+     "label": "[Interpretive]",
+     "source": "Tafsir Ibn Kathir on 1:2 (English abridged edition)",
+     "review": "The meaning of rabb is taken from the English edition of Tafsir Ibn Kathir on 1:2 as shown on quran.com. The statement that the Qur’an nearly always attaches something to rabb comes from a search of the bundled Qur’an text. Please confirm.",
+     "body": [
+      "Rabb is a description. It is usually translated “Lord”. Ibn Kathir explains in his tafsir of 1:2 that rabb is the owner who has full authority over what he owns. It is also the master, and the one who looks after and sets things right. All of these meanings are true of Allah.",
+      "Ibn Kathir adds that when this word is used on its own it is only for Allah. For others it needs a word attached, for example “the master of the house”.",
+      "In the Qur’an the word rabb nearly always comes with something attached. Either it is followed by the one it is Lord of (Lord of the worlds, Lord of mankind), or it has a small ending that says whose Lord: my Lord, our Lord, your Lord."
+     ]
+    },
+    {
+     "id": "joined",
+     "kind": "say",
+     "title": "Rabb with the one it is Lord of",
+     "refs": [
+      "q:1:2",
+      "q:113:1",
+      "q:114:1"
+     ],
+     "note": "Three times the word Rabbi is followed by the one He is Lord of: the worlds, the daybreak, mankind. The “bi” in bi-Rabbi means “with” or “in”.",
+     "words": {
+      "q:1:2": [
+       {
+        "tr": "al-hamdu",
+        "en": "all praise"
+       },
+       {
+        "tr": "lillaahi",
+        "en": "is for Allah"
+       },
+       {
+        "tr": "Rabbi",
+        "en": "Lord of"
+       },
+       {
+        "tr": "al-‘aalameen",
+        "en": "the worlds"
+       }
+      ],
+      "q:113:1": [
+       {
+        "tr": "qul",
+        "en": "say"
+       },
+       {
+        "tr": "a‘oodhu",
+        "en": "I seek refuge"
+       },
+       {
+        "tr": "bi-Rabbi",
+        "en": "with the Lord of"
+       },
+       {
+        "tr": "al-falaq",
+        "en": "the daybreak"
+       }
+      ],
+      "q:114:1": [
+       {
+        "tr": "qul",
+        "en": "say"
+       },
+       {
+        "tr": "a‘oodhu",
+        "en": "I seek refuge"
+       },
+       {
+        "tr": "bi-Rabbi",
+        "en": "with the Lord of"
+       },
+       {
+        "tr": "an-naas",
+        "en": "mankind"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 1:2; 113:1; 114:1"
+    },
+    {
+     "id": "endings",
+     "kind": "say",
+     "title": "Rabb with a small ending",
+     "refs": [
+      "between.rabbighfir",
+      "rise.rabbana",
+      "q:93:3"
+     ],
+     "note": "The ending tells you whose Lord He is. Rabbi is “my Lord”. Rabbanaa is “our Lord”. Rabbuka is “your Lord”. In 93:3 Allah speaks to the Prophet ﷺ and says that his Lord has not left him.",
+     "words": {
+      "q:93:3": [
+       {
+        "tr": "maa",
+        "en": "not"
+       },
+       {
+        "tr": "wadda‘aka",
+        "en": "has left you"
+       },
+       {
+        "tr": "Rabbuka",
+        "en": "your Lord"
+       },
+       {
+        "tr": "wa-maa",
+        "en": "and not"
+       },
+       {
+        "tr": "qalaa",
+        "en": "has hated you"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Abu Dawud 874 (graded sahih by al-Albani); Bukhari 689; Qur’an 93:3"
+    },
+    {
+     "id": "root",
+     "kind": "teach",
+     "title": "One root, one family",
+     "label": "[Interpretive]",
+     "source": "Qur’an 17:24; Tafsir Ibn Kathir on 1:2",
+     "review": "The link between rabb and the verb in 17:24 (to raise) is standard Arabic word-root teaching, worded by the app author. Please confirm.",
+     "body": [
+      "Rabb has relatives. In 17:24, the du‘a for parents, we say “kamaa rabbayaanee saghiran”: as they raised me when I was small. The word rabbayaanee (they raised me) has the same three root letters as rabb: r, b, b.",
+      "This helps you to remember the meaning. A rabb is the one who owns, looks after and brings up. Allah is our Rabb because He created us and takes care of us."
+     ],
+     "quran": "q:17:24"
+    },
+    {
+     "id": "prayer",
+     "kind": "howto",
+     "title": "Find Rabb in your prayer",
+     "steps": [
+      {
+       "text": "Standing, in Al-Fatihah",
+       "detail": "You say Al-hamdu lillaahi Rabbil-‘aalameen (1:2)."
+      },
+      {
+       "text": "Bowing",
+       "detail": "You say Subhaana Rabbiyal-‘Azeem: Glory be to my Lord, the Magnificent (Muslim 772)."
+      },
+      {
+       "text": "Standing up from bowing",
+       "detail": "You say Rabbanaa wa lakal-hamd: Our Lord, and to You belongs all praise (Bukhari 689)."
+      },
+      {
+       "text": "Prostrating",
+       "detail": "You say Subhaana Rabbiyal-A‘laa: Glory be to my Lord, the Most High (Muslim 772)."
+      },
+      {
+       "text": "Sitting between the two prostrations",
+       "detail": "You say Rabbigh-fir lee: My Lord, forgive me (Abu Dawud 874, graded sahih by al-Albani)."
+      }
+     ],
+     "intro": "Every part of the prayer has a Rabb in it. Here is where to find each one.",
+     "label": "[Established]",
+     "source": "Qur’an 1:2; Muslim 772; Bukhari 689; Abu Dawud 874 (graded sahih by al-Albani)",
+     "review": "These are the wordings the Prophet ﷺ is reported to have said. There are other authentic wordings, and the schools differ on who says what behind an imam. A teacher can give the details for your school."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "Rabb through one rak‘ah",
+     "prompt": "Put these phrases in the order you say them in one rak‘ah.",
+     "explain": "Standing, bowing, standing up, prostrating, sitting.",
+     "items": [
+      {
+       "text": "Al-hamdu lillaahi Rabbil-‘aalameen (standing, in Al-Fatihah)",
+       "why": "Al-Fatihah is said first, standing.",
+       "back": "prayer"
+      },
+      {
+       "text": "Subhaana Rabbiyal-‘Azeem (bowing)",
+       "why": "Next you bow.",
+       "back": "prayer"
+      },
+      {
+       "text": "Rabbanaa wa lakal-hamd (standing up from bowing)",
+       "why": "You stand up from bowing and say it.",
+       "back": "prayer"
+      },
+      {
+       "text": "Subhaana Rabbiyal-A‘laa (prostrating)",
+       "why": "Then you go down to prostrate.",
+       "back": "prayer"
+      },
+      {
+       "text": "Rabbigh-fir lee (sitting between the two prostrations)",
+       "why": "After the first prostration you sit, and say it.",
+       "back": "prayer"
+      }
+     ]
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the Arabic to the meaning",
+     "prompt": "Match each Arabic word to its meaning.",
+     "pairs": [
+      {
+       "left": {
+        "word": "rise.rabbana#0"
+       },
+       "right": {
+        "text": "our Lord"
+       },
+       "why": "Rabbanaa: our Lord.",
+       "back": "endings"
+      },
+      {
+       "left": {
+        "word": "sujud.tasbih#1"
+       },
+       "right": {
+        "text": "my Lord"
+       },
+       "why": "Rabbiya: my Lord.",
+       "back": "prayer"
+      },
+      {
+       "left": {
+        "word": "q:93:3#2"
+       },
+       "right": {
+        "text": "your Lord"
+       },
+       "why": "Rabbuka: your Lord.",
+       "back": "endings"
+      },
+      {
+       "left": {
+        "word": "q:1:2#2"
+       },
+       "right": {
+        "text": "Lord of"
+       },
+       "why": "Rabbi: Lord of.",
+       "back": "joined"
+      },
+      {
+       "left": {
+        "word": "q:17:24#10"
+       },
+       "right": {
+        "text": "they raised me"
+       },
+       "why": "Rabbayaanee: they raised me. It shares the root of rabb.",
+       "back": "root"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "r1",
+       "q": "What is “Allah”?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "A word that means “lord”",
+         "reteach": "No. “Lord” is the meaning of rabb. Allah is the Name.",
+         "back": "allah"
+        },
+        {
+         "text": "One of several gods Muslims worship",
+         "reteach": "No. Allah is the Name of the One God (112:1).",
+         "back": "allah"
+        },
+        {
+         "text": "The Name of the One God, the Creator of everything"
+        }
+       ],
+       "answer": 2,
+       "explain": "Allah is the Name of the One God."
+      },
+      {
+       "id": "r2",
+       "q": "A friend asks: “Is Rabb a different god from Allah?” What do you say?",
+       "type": "scenario",
+       "options": [
+        {
+         "text": "No. Allah is the Name, and Rabb (Lord) describes Him"
+        },
+        {
+         "text": "Yes, Rabb is the god of the earth",
+         "reteach": "No. There is only One God. Rabb is a description of Him.",
+         "back": "rabb"
+        },
+        {
+         "text": "Yes, but only in the prayer",
+         "reteach": "No. There is only One God. Rabb is a description of Him.",
+         "back": "rabb"
+        }
+       ],
+       "answer": 0,
+       "explain": "Allah is the Name and Rabb describes Him: the Lord who owns and looks after.",
+       "scenario": "You are talking to a friend who has heard “Allah” and “Rabb” and wonders if they are two different gods."
+      },
+      {
+       "id": "r3",
+       "q": "How many names does the Prophet ﷺ say Allah has (Bukhari 2736)?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "Ninety-nine"
+        },
+        {
+         "text": "Seven",
+         "reteach": "No. The hadith says ninety-nine names, one hundred minus one.",
+         "back": "allah"
+        },
+        {
+         "text": "Forty",
+         "reteach": "No. The hadith says ninety-nine names, one hundred minus one.",
+         "back": "allah"
+        }
+       ],
+       "answer": 0,
+       "explain": "Ninety-nine, one hundred minus one."
+      },
+      {
+       "id": "r4",
+       "q": "Which meaning best fits Rabb?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "The ruler who lives far away",
+         "reteach": "No. A rabb looks after what he owns and brings it up.",
+         "back": "rabb"
+        },
+        {
+         "text": "The Lord: the owner and master who looks after and sets things right"
+        },
+        {
+         "text": "A teacher who gives lessons only",
+         "reteach": "No. Rabb means owner and master, and also the one who looks after and brings up.",
+         "back": "rabb"
+        }
+       ],
+       "answer": 1,
+       "explain": "Rabb: the Lord who owns, looks after and sets things right."
+      },
+      {
+       "id": "r5",
+       "q": "Fill the gap: ____ lillaahi Rabbil-‘aalameen",
+       "type": "fill",
+       "options": [
+        {
+         "text": "Al-hamdu"
+        },
+        {
+         "text": "Iyyaaka",
+         "reteach": "No. That begins ayah 5. Ayah 2 begins Al-hamdu.",
+         "back": "joined"
+        },
+        {
+         "text": "Ihdinaa",
+         "reteach": "No. That begins ayah 6. Ayah 2 begins Al-hamdu.",
+         "back": "joined"
+        }
+       ],
+       "answer": 0,
+       "explain": "Al-hamdu lillaahi Rabbil-‘aalameen: all praise is for Allah, Lord of the worlds.",
+       "fill": {
+        "ref": "q:1:2",
+        "blank": 0,
+        "show": "translit"
+       }
+      },
+      {
+       "id": "r6",
+       "q": "Which word in 114:1 means “with the Lord of”?",
+       "type": "fill",
+       "options": [
+        {
+         "word": "q:114:1#1",
+         "reteach": "That word means “I seek refuge”. “With the Lord of” is the third word.",
+         "back": "joined"
+        },
+        {
+         "word": "q:114:1#2"
+        },
+        {
+         "word": "q:114:1#3",
+         "reteach": "That word means “mankind”. “With the Lord of” is the third word.",
+         "back": "joined"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bi-Rabbi: with the Lord of.",
+       "fill": {
+        "ref": "q:114:1",
+        "blank": 2,
+        "show": "arabic"
+       }
+      },
+      {
+       "id": "r7",
+       "q": "In “Subhaana Rabbiyal-A‘laa”, what does Rabbiya mean?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "My Lord"
+        },
+        {
+         "text": "Our Lord",
+         "reteach": "No. The ending -iya means “my”. “Our Lord” is Rabbanaa.",
+         "back": "endings"
+        },
+        {
+         "text": "Your Lord",
+         "reteach": "No. The ending -iya means “my”. “Your Lord” is Rabbuka.",
+         "back": "endings"
+        }
+       ],
+       "answer": 0,
+       "explain": "Rabbiya: my Lord."
+      },
+      {
+       "id": "r8",
+       "q": "Which phrase means “Glory be to my Lord, the Most High”?",
+       "type": "mcq",
+       "options": [
+        {
+         "ref": "ruku.tasbih",
+         "reteach": "This is said when bowing: Glory be to my Lord, the Magnificent.",
+         "back": "prayer"
+        },
+        {
+         "ref": "between.rabbighfir",
+         "reteach": "This is said between the two prostrations: My Lord, forgive me.",
+         "back": "prayer"
+        },
+        {
+         "ref": "sujud.tasbih"
+        }
+       ],
+       "answer": 2,
+       "explain": "Subhaana Rabbiyal-A‘laa is said in prostration."
+      },
+      {
+       "id": "r9",
+       "q": "Which word shares its root with rabb?",
+       "type": "mcq",
+       "options": [
+        {
+         "word": "q:17:24#5",
+         "reteach": "That word is ar-rahmati, the mercy. It has a different root.",
+         "back": "root"
+        },
+        {
+         "word": "q:17:24#10"
+        },
+        {
+         "word": "q:17:24#8",
+         "reteach": "That word is irhamhumaa, have mercy on them. It has a different root.",
+         "back": "root"
+        }
+       ],
+       "answer": 1,
+       "explain": "Rabbayaanee, they raised me, has the root r-b-b."
+      },
+      {
+       "id": "r10",
+       "q": "In the Qur’an, how does the word rabb nearly always appear?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "Alone, with nothing attached",
+         "reteach": "No. In the Qur’an it nearly always has something attached.",
+         "back": "rabb"
+        },
+        {
+         "text": "With something attached: the one He is Lord of, or an ending like my, our or your"
+        },
+        {
+         "text": "Only as part of the name Allah",
+         "reteach": "No. Rabb is a separate word, not part of the Name.",
+         "back": "allah"
+        }
+       ],
+       "answer": 1,
+       "explain": "Rabbi al-‘aalameen, Rabbanaa, Rabbuka: it nearly always has something attached."
+      },
+      {
+       "id": "r11",
+       "lookback": "arabic.u1.l3#a1"
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Say that Allah is the Name of the One God, and that Rabb is a description: the Lord.",
+      "Read Rabb with its endings: my Lord, our Lord, your Lord, and Lord of the worlds.",
+      "Find the Rabb phrases in your prayer, in the right order.",
+      "Know that rabb shares its root with the word for “raised” in the du‘a for parents."
+     ],
+     "next": "Next: Al-Fatihah, read as Arabic."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Find Rabb in the Qur’an",
+     "body": "Open Surat al-Falaq and read ayah 1. Find the word bi-Rabbi and the word that comes after it.",
+     "route": "/quran/113",
+     "button": "Open Surat al-Falaq"
+    }
+   ]
+  },
+  {
+   "id": "arabic.u2.l1",
+   "title": "Al-Fatiha, Word by Word",
+   "minutes": 14,
+   "intro": "Read all seven ayat of Al-Fatihah as Arabic, word by word, with the meaning of every word.",
+   "steps": [
+    {
+     "id": "why",
+     "kind": "why",
+     "title": "The Arabic you say every day",
+     "body": [
+      "You say Al-Fatihah in every rak‘ah of every prayer. You may know it by sound. In this lesson you will read it as Arabic: word by word, knowing what each word means.",
+      "The Prophet ﷺ said that whoever does not recite Al-Fatihah in his prayer, his prayer is invalid (Bukhari 756). It is the surah you will use more than any other."
+     ]
+    },
+    {
+     "id": "a1",
+     "kind": "say",
+     "title": "Ayat 1 and 2: the name, the praise",
+     "refs": [
+      "q:1:1",
+      "q:1:2"
+     ],
+     "note": "Ayah 1 uses three names for Allah: the Name, then two that describe His mercy. Ayah 2 begins “al-hamdu”: all praise. The li in lillaahi means “for” or “belongs to”.",
+     "words": {
+      "q:1:1": [
+       {
+        "tr": "bismi",
+        "en": "in the name of"
+       },
+       {
+        "tr": "Allaahi",
+        "en": "Allah"
+       },
+       {
+        "tr": "ar-Rahmaani",
+        "en": "the Entirely Merciful"
+       },
+       {
+        "tr": "ar-Raheemi",
+        "en": "the Especially Merciful"
+       }
+      ],
+      "q:1:2": [
+       {
+        "tr": "al-hamdu",
+        "en": "all praise"
+       },
+       {
+        "tr": "lillaahi",
+        "en": "is for Allah"
+       },
+       {
+        "tr": "Rabbi",
+        "en": "Lord of"
+       },
+       {
+        "tr": "al-‘aalameen",
+        "en": "the worlds"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 1:1-2"
+    },
+    {
+     "id": "a2",
+     "kind": "say",
+     "title": "Ayat 3 and 4: mercy and the Day",
+     "refs": [
+      "q:1:3",
+      "q:1:4"
+     ],
+     "note": "Ayah 3 repeats the two names of mercy. Ayah 4 says that Allah is the Master of the Day of Recompense, the Day when everyone is given what they did. The words are joined: Maaliki Yawmi (ad-)Deen, “Master of the Day of the Recompense”.",
+     "words": {
+      "q:1:3": [
+       {
+        "tr": "ar-Rahmaani",
+        "en": "the Entirely Merciful"
+       },
+       {
+        "tr": "ar-Raheemi",
+        "en": "the Especially Merciful"
+       }
+      ],
+      "q:1:4": [
+       {
+        "tr": "Maaliki",
+        "en": "Master of"
+       },
+       {
+        "tr": "Yawmi",
+        "en": "the Day of"
+       },
+       {
+        "tr": "ad-Deeni",
+        "en": "the Recompense"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 1:3-4"
+    },
+    {
+     "id": "a5",
+     "kind": "say",
+     "title": "Ayah 5: You alone",
+     "refs": [
+      "q:1:5"
+     ],
+     "note": "The word iyyaaka (You alone) comes first, before the verb na‘budu (we worship). Putting it first makes it mean “You alone”, and no one else. The na- at the start of na‘budu and nasta‘een means “we”.",
+     "words": {
+      "q:1:5": [
+       {
+        "tr": "iyyaaka",
+        "en": "You alone"
+       },
+       {
+        "tr": "na‘budu",
+        "en": "we worship"
+       },
+       {
+        "tr": "wa-iyyaaka",
+        "en": "and You alone"
+       },
+       {
+        "tr": "nasta‘een",
+        "en": "we ask for help"
+       }
+      ]
+     },
+     "label": "[Interpretive]",
+     "source": "Tafsir Ibn Kathir on 1:5 (English abridged edition)",
+     "review": "The point about word order giving the meaning “You alone” follows the tafsir of Ibn Kathir on 1:5. Please confirm the wording."
+    },
+    {
+     "id": "a67",
+     "kind": "say",
+     "title": "Ayat 6 and 7: the du‘a",
+     "refs": [
+      "q:1:6",
+      "q:1:7"
+     ],
+     "note": "From ayah 5 the surah turns from praise to asking. Ihdinaa is “guide us”: the -naa at the end is “us”. You ask for the straight path, the path of those Allah has favoured, not of those who earned anger or who are lost.",
+     "words": {
+      "q:1:6": [
+       {
+        "tr": "ihdinaa",
+        "en": "guide us"
+       },
+       {
+        "tr": "as-siraata",
+        "en": "to the path"
+       },
+       {
+        "tr": "al-mustaqeem",
+        "en": "the straight"
+       }
+      ],
+      "q:1:7": [
+       {
+        "tr": "siraata",
+        "en": "the path of"
+       },
+       {
+        "tr": "alladheena",
+        "en": "those who"
+       },
+       {
+        "tr": "an‘amta",
+        "en": "You have favoured"
+       },
+       {
+        "tr": "‘alayhim",
+        "en": "them"
+       },
+       {
+        "tr": "ghayri",
+        "en": "not"
+       },
+       {
+        "tr": "al-maghdoobi",
+        "en": "those who earned anger"
+       },
+       {
+        "tr": "‘alayhim",
+        "en": "upon them"
+       },
+       {
+        "tr": "wa-laa",
+        "en": "and not"
+       },
+       {
+        "tr": "ad-daaalleen",
+        "en": "those who are lost"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 1:6-7"
+    },
+    {
+     "id": "seven",
+     "kind": "teach",
+     "title": "The seven that are repeated",
+     "label": "[Established]",
+     "source": "Bukhari 5006; Qur’an 15:87",
+     "body": [
+      "The Prophet ﷺ called Al-Fatihah “the seven oft-repeated ayat and the great Qur’an that was given to me” (Bukhari 5006). It has seven ayat, and you repeat it in every rak‘ah.",
+      "Count them in the order you have just read: the name (1), the praise (2), the mercy (3), the Day (4), You alone (5), guide us (6), the path (7)."
+     ]
+    },
+    {
+     "id": "listen",
+     "kind": "listen",
+     "title": "Listen to the whole surah",
+     "ref": "q:1:1-7",
+     "repeats": 1,
+     "note": "Listen once. Follow each word with your eyes. When you know the word, you will hear where it starts and ends."
+    },
+    {
+     "id": "howto",
+     "kind": "howto",
+     "title": "How to read one ayah as Arabic",
+     "steps": [
+      {
+       "text": "Say the ayah out loud first.",
+       "detail": "Use the sound you know."
+      },
+      {
+       "text": "Find the first word.",
+       "detail": "Read it with its meaning, not only its sound."
+      },
+      {
+       "text": "Go word by word to the end.",
+       "detail": "Say the meaning of each word quietly as you go."
+      },
+      {
+       "text": "Say the whole ayah again.",
+       "detail": "Now say it with the meaning in your heart."
+      }
+     ],
+     "intro": "Do this for one ayah a day. After a week you will know the whole surah as Arabic.",
+     "label": "[Interpretive]",
+     "source": "Study method written by the app author",
+     "review": "A study method, not a ruling."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "Put the surah in order",
+     "prompt": "Put the ideas of Al-Fatihah in the order they come.",
+     "explain": "Name, praise, Day, You alone, guide us.",
+     "items": [
+      {
+       "text": "The name of Allah, the Merciful",
+       "why": "Ayah 1 begins with the name.",
+       "back": "a1"
+      },
+      {
+       "text": "All praise is for Allah, Lord of the worlds",
+       "why": "Ayah 2.",
+       "back": "a1"
+      },
+      {
+       "text": "Master of the Day of Recompense",
+       "why": "Ayah 4 comes after the repeated mercy of ayah 3.",
+       "back": "a2"
+      },
+      {
+       "text": "You alone we worship and ask for help",
+       "why": "Ayah 5.",
+       "back": "a5"
+      },
+      {
+       "text": "Guide us to the straight path",
+       "why": "Ayah 6, then the description of the path in 7.",
+       "back": "a67"
+      }
+     ]
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the Arabic to the meaning",
+     "prompt": "Match each Arabic word to its meaning.",
+     "pairs": [
+      {
+       "left": {
+        "word": "q:1:2#0"
+       },
+       "right": {
+        "text": "all praise"
+       },
+       "why": "Al-hamdu.",
+       "back": "a1"
+      },
+      {
+       "left": {
+        "word": "q:1:4#0"
+       },
+       "right": {
+        "text": "Master of"
+       },
+       "why": "Maaliki.",
+       "back": "a2"
+      },
+      {
+       "left": {
+        "word": "q:1:5#1"
+       },
+       "right": {
+        "text": "we worship"
+       },
+       "why": "Na‘budu.",
+       "back": "a5"
+      },
+      {
+       "left": {
+        "word": "q:1:6#0"
+       },
+       "right": {
+        "text": "guide us"
+       },
+       "why": "Ihdinaa.",
+       "back": "a67"
+      },
+      {
+       "left": {
+        "word": "q:1:6#2"
+       },
+       "right": {
+        "text": "the straight"
+       },
+       "why": "Al-mustaqeem.",
+       "back": "a67"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "b1",
+       "q": "Which ayah says “Master of the Day of Recompense”?",
+       "type": "mcq",
+       "options": [
+        {
+         "ref": "q:1:2",
+         "reteach": "Ayah 2 is the praise: Lord of the worlds.",
+         "back": "a1"
+        },
+        {
+         "ref": "q:1:4"
+        },
+        {
+         "ref": "q:1:6",
+         "reteach": "Ayah 6 is the du‘a: guide us.",
+         "back": "a67"
+        }
+       ],
+       "answer": 1,
+       "explain": "Ayah 4: Maaliki Yawmid-Deen."
+      },
+      {
+       "id": "b2",
+       "q": "What does “iyyaaka na‘budu” mean?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "We worship You and others",
+         "reteach": "No. Iyyaaka before the verb means “You alone”.",
+         "back": "a5"
+        },
+        {
+         "text": "You worship us",
+         "reteach": "No. The na- in na‘budu means “we”.",
+         "back": "a5"
+        },
+        {
+         "text": "You alone we worship"
+        }
+       ],
+       "answer": 2,
+       "explain": "Iyyaaka na‘budu: You alone we worship."
+      },
+      {
+       "id": "b3",
+       "q": "Which word means “the straight”?",
+       "type": "fill",
+       "options": [
+        {
+         "word": "q:1:6#0",
+         "reteach": "That word means “guide us”.",
+         "back": "a67"
+        },
+        {
+         "word": "q:1:6#2"
+        },
+        {
+         "word": "q:1:6#1",
+         "reteach": "That word means “the path”.",
+         "back": "a67"
+        }
+       ],
+       "answer": 1,
+       "explain": "Al-mustaqeem: the straight.",
+       "fill": {
+        "ref": "q:1:6",
+        "blank": 2,
+        "show": "arabic"
+       }
+      },
+      {
+       "id": "b4",
+       "q": "What does the -naa in “ihdinaa” mean?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "Us"
+        },
+        {
+         "text": "Me",
+         "reteach": "No. -naa is “us”.",
+         "back": "a67"
+        },
+        {
+         "text": "You",
+         "reteach": "No. -naa is “us”.",
+         "back": "a67"
+        }
+       ],
+       "answer": 0,
+       "explain": "Ihdinaa: guide us."
+      },
+      {
+       "id": "b5",
+       "q": "A friend says: “I know Al-Fatihah by sound, so I don’t need to know the meaning.” What do you say?",
+       "type": "scenario",
+       "options": [
+        {
+         "text": "Knowing the meaning makes the words in your prayer come alive, and it is easy to learn: just seven ayat"
+        },
+        {
+         "text": "You are right, the meaning cannot be learned",
+         "reteach": "No. Al-Fatihah is short and its words are simple.",
+         "back": "why"
+        },
+        {
+         "text": "Only scholars can know the meaning",
+         "reteach": "No. Every word here is simple and you have just read it.",
+         "back": "a1"
+        }
+       ],
+       "answer": 0,
+       "explain": "The meaning is within reach, one ayah a day.",
+       "scenario": "A friend says they have never needed to know what Al-Fatihah means."
+      },
+      {
+       "id": "b6",
+       "q": "How many ayat does Al-Fatihah have?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "Five",
+         "reteach": "No. Count them: name, praise, mercy, Day, You alone, guide us, the path.",
+         "back": "seven"
+        },
+        {
+         "text": "Seven"
+        },
+        {
+         "text": "Ten",
+         "reteach": "No. It is short: seven ayat.",
+         "back": "seven"
+        }
+       ],
+       "answer": 1,
+       "explain": "Seven."
+      },
+      {
+       "id": "b7",
+       "q": "Which word means “the worlds”?",
+       "type": "fill",
+       "options": [
+        {
+         "word": "q:1:2#0",
+         "reteach": "That word means “all praise”.",
+         "back": "a1"
+        },
+        {
+         "word": "q:1:2#1",
+         "reteach": "That word means “is for Allah”.",
+         "back": "a1"
+        },
+        {
+         "word": "q:1:2#3"
+        }
+       ],
+       "answer": 2,
+       "explain": "Al-‘aalameen: the worlds.",
+       "fill": {
+        "ref": "q:1:2",
+        "blank": 3,
+        "show": "arabic"
+       }
+      },
+      {
+       "id": "b8",
+       "q": "Which word means “not”?",
+       "type": "fill",
+       "options": [
+        {
+         "word": "q:1:7#4"
+        },
+        {
+         "word": "q:1:7#3",
+         "reteach": "That word means “them”.",
+         "back": "a67"
+        },
+        {
+         "word": "q:1:7#1",
+         "reteach": "That word means “those who”.",
+         "back": "a67"
+        }
+       ],
+       "answer": 0,
+       "explain": "Ghayri: not.",
+       "fill": {
+        "ref": "q:1:7",
+        "blank": 4,
+        "show": "arabic"
+       }
+      },
+      {
+       "id": "b9",
+       "q": "What did the Prophet ﷺ say about a prayer without Al-Fatihah (Bukhari 756)?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "That it is better prayed fast",
+         "reteach": "No. He said the prayer is invalid.",
+         "back": "why"
+        },
+        {
+         "text": "That it is only a recommendation",
+         "reteach": "No. He said the prayer is invalid.",
+         "back": "why"
+        },
+        {
+         "text": "That the prayer is invalid"
+        }
+       ],
+       "answer": 2,
+       "explain": "Without Al-Fatihah the prayer is invalid."
+      },
+      {
+       "id": "b10",
+       "q": "What do we ask for in ayat 6 and 7?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "Guidance to the straight path"
+        },
+        {
+         "text": "Wealth and a long life",
+         "reteach": "No. We ask for guidance.",
+         "back": "a67"
+        },
+        {
+         "text": "Forgiveness for others only",
+         "reteach": "No. We ask for guidance to the straight path.",
+         "back": "a67"
+        }
+       ],
+       "answer": 0,
+       "explain": "Guidance to the straight path."
+      },
+      {
+       "id": "b11",
+       "lookback": "arabic.u1.l4#r1"
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Read each ayah of Al-Fatihah word by word, with its meaning.",
+      "Explain that iyyaaka before the verb means “You alone”.",
+      "Say that the surah moves from praise (1 to 4) to asking (5 to 7).",
+      "Use the word-by-word method on one ayah a day."
+     ],
+     "next": "Next: The formula you say 17 times a day."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Read Al-Fatihah",
+     "body": "Open Surat al-Fatihah in the reader and tap each ayah to hear it.",
+     "route": "/quran/1",
+     "button": "Open Al-Fatihah"
+    }
+   ]
+  },
+  {
+   "id": "arabic.u2.l2",
+   "title": "The Formula You Say 17 Times a Day",
+   "minutes": 14,
+   "intro": "Understand “Iyyaaka na‘budu wa-iyyaaka nasta‘een” and the small pieces that make its verbs.",
+   "steps": [
+    {
+     "id": "why",
+     "kind": "why",
+     "title": "Five prayers, seventeen times",
+     "body": [
+      "The five daily prayers have 17 rak‘ahs in all: Fajr 2, Dhuhr 4, ‘Asr 4, Maghrib 3, ‘Isha 4. In each rak‘ah you say Al-Fatihah, so in the obligatory prayers you say ayah 5 seventeen times a day.",
+      "Ayah 5 is the middle of the surah: “Iyyaaka na‘budu wa-iyyaaka nasta‘een”. In this lesson you will learn how the little pieces of these two verbs work, and you will see the same pieces in other places in the Qur’an."
+     ]
+    },
+    {
+     "id": "a5",
+     "kind": "say",
+     "title": "The formula",
+     "refs": [
+      "q:1:5"
+     ],
+     "note": "Two promises: worship and asking for help. The first is what we do for Allah. The second is what we ask of Him.",
+     "words": {
+      "q:1:5": [
+       {
+        "tr": "iyyaaka",
+        "en": "You alone"
+       },
+       {
+        "tr": "na‘budu",
+        "en": "we worship"
+       },
+       {
+        "tr": "wa-iyyaaka",
+        "en": "and You alone"
+       },
+       {
+        "tr": "nasta‘een",
+        "en": "we ask for help"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 1:5"
+    },
+    {
+     "id": "alone",
+     "kind": "teach",
+     "title": "Why “alone”",
+     "label": "[Interpretive]",
+     "source": "Tafsir Ibn Kathir on 1:5 (English abridged edition)",
+     "review": "The link to the shahada is worded by the app author. Please confirm.",
+     "body": [
+      "Iyyaaka is “You”, but it is placed before the verb. Ibn Kathir explains that putting it first limits the meaning: worship and asking for help are for You alone, and no one else.",
+      "This is the same meaning as the shahada, in the form of a promise to Allah."
+     ]
+    },
+    {
+     "id": "we",
+     "kind": "teach",
+     "title": "The little piece na-",
+     "label": "[Interpretive]",
+     "source": "Standard Arabic grammar; Qur’an 1:5; 109:2",
+     "review": "A plain description of the present-tense prefixes (na- for we, a- for I), worded by the app author. Please confirm.",
+     "body": [
+      "The verb na‘budu begins with na-. That piece means “we”. So na‘budu is “we worship”, and nasta‘een is “we ask for help”.",
+      "When you pray behind an imam or alone, you still say “we”. You are one of the worshippers of Allah, not alone.",
+      "Now look at a different person. In Surat al-Kafirun, ayah 2, the Prophet ﷺ is told to say “laa a‘budu”: I do not worship. The piece a- means “I”. The root letters are the same three: ‘ayn, baa, daal. Only the front piece changes."
+     ]
+    },
+    {
+     "id": "i",
+     "kind": "say",
+     "title": "The same verb, with “I”",
+     "refs": [
+      "q:109:2"
+     ],
+     "note": "Look at the three verbs together. A‘budu is “I worship”. Na‘budu is “we worship”. Ta‘budoon is “you (all) worship”. The root is the same. The front piece tells you who.",
+     "words": {
+      "q:109:2": [
+       {
+        "tr": "laa",
+        "en": "not"
+       },
+       {
+        "tr": "a‘budu",
+        "en": "I worship"
+       },
+       {
+        "tr": "maa",
+        "en": "what"
+       },
+       {
+        "tr": "ta‘budoon",
+        "en": "you (all) worship"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 109:2; 1:5"
+    },
+    {
+     "id": "worship",
+     "kind": "say",
+     "title": "Why we worship",
+     "refs": [
+      "q:51:56"
+     ],
+     "note": "This ayah gives the purpose. The last word, li-ya‘budoon, has the same root as na‘budu. Worship is what we were created for, and every prayer you make says it.",
+     "words": {
+      "q:51:56": [
+       {
+        "tr": "wa-maa",
+        "en": "and not"
+       },
+       {
+        "tr": "khalaqtu",
+        "en": "I created"
+       },
+       {
+        "tr": "al-jinna",
+        "en": "the jinn"
+       },
+       {
+        "tr": "wal-insa",
+        "en": "and mankind"
+       },
+       {
+        "tr": "illaa",
+        "en": "except"
+       },
+       {
+        "tr": "li-ya‘budoon",
+        "en": "to worship Me"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 51:56"
+    },
+    {
+     "id": "naa",
+     "kind": "say",
+     "title": "The ending -naa",
+     "refs": [
+      "q:2:285"
+     ],
+     "note": "Find “sami‘naa wa-ata‘naa”: we hear and we obey. Here “we” comes at the end of the word, as -naa. Compare “rabbanaa”: our Lord. In both, -naa means “we” or “our”.",
+     "words": {
+      "q:2:285": [
+       {
+        "tr": "aamana",
+        "en": "believed"
+       },
+       {
+        "tr": "ar-rasoolu",
+        "en": "the Messenger"
+       },
+       {
+        "tr": "bimaa",
+        "en": "in what"
+       },
+       {
+        "tr": "unzila",
+        "en": "was sent down"
+       },
+       {
+        "tr": "ilayhi",
+        "en": "to him"
+       },
+       {
+        "tr": "min",
+        "en": "from"
+       },
+       {
+        "tr": "rabbihi",
+        "en": "his Lord"
+       },
+       {
+        "tr": "wal-mu’minoon",
+        "en": "and the believers"
+       },
+       {
+        "tr": "kullun",
+        "en": "each one"
+       },
+       {
+        "tr": "aamana",
+        "en": "believed"
+       },
+       {
+        "tr": "billaahi",
+        "en": "in Allah"
+       },
+       {
+        "tr": "wa-malaa’ikatihi",
+        "en": "and His angels"
+       },
+       {
+        "tr": "wa-kutubihi",
+        "en": "and His books"
+       },
+       {
+        "tr": "wa-rusulihi",
+        "en": "and His messengers"
+       },
+       {
+        "tr": "laa",
+        "en": "not"
+       },
+       {
+        "tr": "nufarriqu",
+        "en": "we make a difference"
+       },
+       {
+        "tr": "bayna",
+        "en": "between"
+       },
+       {
+        "tr": "ahadin",
+        "en": "any one"
+       },
+       {
+        "tr": "min",
+        "en": "of"
+       },
+       {
+        "tr": "rusulihi",
+        "en": "His messengers"
+       },
+       {
+        "tr": "wa-qaaloo",
+        "en": "and they said"
+       },
+       {
+        "tr": "sami‘naa",
+        "en": "we hear"
+       },
+       {
+        "tr": "wa-ata‘naa",
+        "en": "and we obey"
+       },
+       {
+        "tr": "ghufraanaka",
+        "en": "Your forgiveness"
+       },
+       {
+        "tr": "rabbanaa",
+        "en": "our Lord"
+       },
+       {
+        "tr": "wa-ilayka",
+        "en": "and to You"
+       },
+       {
+        "tr": "al-maseer",
+        "en": "is the final return"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 2:285"
+    },
+    {
+     "id": "howto",
+     "kind": "howto",
+     "title": "Say it with its meaning in prayer",
+     "steps": [
+      {
+       "text": "Stand and begin Al-Fatihah.",
+       "detail": "Say it slowly. You already know the words."
+      },
+      {
+       "text": "At ayah 5, slow down.",
+       "detail": "Think: I am telling Allah that I worship Him alone."
+      },
+      {
+       "text": "Say “iyyaaka na‘budu”.",
+       "detail": "Think: na- is “we”."
+      },
+      {
+       "text": "Say “wa-iyyaaka nasta‘een”.",
+       "detail": "Think: I am asking only Him for help."
+      },
+      {
+       "text": "Go on to “ihdinaa”.",
+       "detail": "The help I ask for first is guidance."
+      }
+     ],
+     "intro": "Seventeen times a day you have this chance.",
+     "label": "[Interpretive]",
+     "source": "Study method written by the app author",
+     "review": "A reflection method, not a ruling."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "Build the verb",
+     "prompt": "Put the pieces in the order they are said to make “we worship”.",
+     "explain": "na + ‘abd + u = na‘budu.",
+     "items": [
+      {
+       "text": "na-",
+       "why": "The front piece comes first. It says “we”.",
+       "back": "we"
+      },
+      {
+       "text": "‘a-b-d",
+       "why": "The root letters come next. They carry the meaning of worship.",
+       "back": "we"
+      },
+      {
+       "text": "-u",
+       "why": "The last short vowel ends the verb.",
+       "back": "we"
+      }
+     ]
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the verb to who does it",
+     "prompt": "Match each Arabic word to its meaning.",
+     "pairs": [
+      {
+       "left": {
+        "word": "q:1:5#1"
+       },
+       "right": {
+        "text": "we worship"
+       },
+       "why": "Na‘budu.",
+       "back": "we"
+      },
+      {
+       "left": {
+        "word": "q:1:5#3"
+       },
+       "right": {
+        "text": "we ask for help"
+       },
+       "why": "Nasta‘een.",
+       "back": "we"
+      },
+      {
+       "left": {
+        "word": "q:109:2#1"
+       },
+       "right": {
+        "text": "I worship"
+       },
+       "why": "A‘budu.",
+       "back": "i"
+      },
+      {
+       "left": {
+        "word": "q:109:2#3"
+       },
+       "right": {
+        "text": "you (all) worship"
+       },
+       "why": "Ta‘budoon.",
+       "back": "i"
+      },
+      {
+       "left": {
+        "word": "q:2:285#22"
+       },
+       "right": {
+        "text": "and we obey"
+       },
+       "why": "Wa-ata‘naa.",
+       "back": "naa"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "c1",
+       "q": "How many rak‘ahs are in the five obligatory prayers together?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "17"
+        },
+        {
+         "text": "15",
+         "reteach": "No. Add Fajr 2, Dhuhr 4, ‘Asr 4, Maghrib 3, ‘Isha 4.",
+         "back": "why"
+        },
+        {
+         "text": "20",
+         "reteach": "No. Add Fajr 2, Dhuhr 4, ‘Asr 4, Maghrib 3, ‘Isha 4.",
+         "back": "why"
+        }
+       ],
+       "answer": 0,
+       "explain": "2 + 4 + 4 + 3 + 4 = 17."
+      },
+      {
+       "id": "c2",
+       "q": "What does “iyyaaka na‘budu” mean?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "I worship You and others",
+         "reteach": "No. Iyyaaka comes first and means “You alone”.",
+         "back": "alone"
+        },
+        {
+         "text": "You worship us",
+         "reteach": "No. Na‘budu is “we worship”.",
+         "back": "we"
+        },
+        {
+         "text": "You alone we worship"
+        }
+       ],
+       "answer": 2,
+       "explain": "You alone we worship."
+      },
+      {
+       "id": "c3",
+       "q": "What does the piece na- mean at the start of na‘budu?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "We"
+        },
+        {
+         "text": "I",
+         "reteach": "No. “I” is a-, as in a‘budu.",
+         "back": "we"
+        },
+        {
+         "text": "You",
+         "reteach": "No. “You (all)” is ta-, as in ta‘budoon.",
+         "back": "i"
+        }
+       ],
+       "answer": 0,
+       "explain": "Na-: we."
+      },
+      {
+       "id": "c4",
+       "q": "Which word means “I worship”?",
+       "type": "fill",
+       "options": [
+        {
+         "word": "q:109:2#0",
+         "reteach": "That word means “not”.",
+         "back": "i"
+        },
+        {
+         "word": "q:109:2#1"
+        },
+        {
+         "word": "q:109:2#3",
+         "reteach": "That word means “you (all) worship”.",
+         "back": "i"
+        }
+       ],
+       "answer": 1,
+       "explain": "A‘budu: I worship.",
+       "fill": {
+        "ref": "q:109:2",
+        "blank": 1,
+        "show": "arabic"
+       }
+      },
+      {
+       "id": "c5",
+       "q": "Why does Ibn Kathir say iyyaaka is put before the verb?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "To make the surah shorter",
+         "reteach": "No. It limits the meaning to You alone.",
+         "back": "alone"
+        },
+        {
+         "text": "It limits the meaning: You alone"
+        },
+        {
+         "text": "Because Arabic always starts with “You”",
+         "reteach": "No. It is put first on purpose, to limit the meaning.",
+         "back": "alone"
+        }
+       ],
+       "answer": 1,
+       "explain": "Putting it first means “You alone”."
+      },
+      {
+       "id": "c6",
+       "q": "In sami‘naa wa-ata‘naa, what does -naa mean?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "You",
+         "reteach": "No. -naa is “we” or “us”.",
+         "back": "naa"
+        },
+        {
+         "text": "He",
+         "reteach": "No. -naa is “we” or “us”.",
+         "back": "naa"
+        },
+        {
+         "text": "We"
+        }
+       ],
+       "answer": 2,
+       "explain": "Sami‘naa: we hear. Ata‘naa: we obey."
+      },
+      {
+       "id": "c7",
+       "q": "A friend says: “I pray alone, so why do I say ‘we worship’?” What do you say?",
+       "type": "scenario",
+       "options": [
+        {
+         "text": "You are one of all the worshippers of Allah, so the Qur’an teaches you to say “we”"
+        },
+        {
+         "text": "It is a mistake, say “I” instead",
+         "reteach": "No. The words are taught to us as they are. Na‘budu means “we”.",
+         "back": "we"
+        },
+        {
+         "text": "Only an imam says it",
+         "reteach": "No. Every person says it in their prayer.",
+         "back": "we"
+        }
+       ],
+       "answer": 0,
+       "explain": "Na‘budu: we worship. You stand with all the believers.",
+       "scenario": "A friend prays alone and asks why Al-Fatihah says “we”."
+      },
+      {
+       "id": "c8",
+       "q": "Which ayah gives the reason we were created, with a word from the same root as na‘budu?",
+       "type": "mcq",
+       "options": [
+        {
+         "ref": "q:109:2",
+         "reteach": "This ayah is about not worshipping what others worship.",
+         "back": "i"
+        },
+        {
+         "ref": "q:51:56"
+        },
+        {
+         "ref": "q:2:285",
+         "reteach": "This ayah is about the believers: we hear and we obey.",
+         "back": "naa"
+        }
+       ],
+       "answer": 1,
+       "explain": "51:56: li-ya‘budoon, to worship Me."
+      },
+      {
+       "id": "c9",
+       "q": "What is the root of na‘budu?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "Kaaf - taa - baa",
+         "reteach": "No. That is the root of kitaab, book.",
+         "back": "we"
+        },
+        {
+         "text": "‘ayn - baa - daal"
+        },
+        {
+         "text": "Raa - baa - baa",
+         "reteach": "No. That is the root of rabb.",
+         "back": "we"
+        }
+       ],
+       "answer": 1,
+       "explain": "The root of na‘budu is ‘ayn, baa, daal."
+      },
+      {
+       "id": "c10",
+       "q": "Which word means “and we ask for help”?",
+       "type": "fill",
+       "options": [
+        {
+         "word": "q:1:5#3"
+        },
+        {
+         "word": "q:1:5#1",
+         "reteach": "That word means “we worship”. We ask for help is the last word.",
+         "back": "a5"
+        },
+        {
+         "word": "q:1:5#2",
+         "reteach": "That word means “and You alone”.",
+         "back": "a5"
+        }
+       ],
+       "answer": 0,
+       "explain": "Nasta‘een.",
+       "fill": {
+        "ref": "q:1:5",
+        "blank": 3,
+        "show": "arabic"
+       }
+      },
+      {
+       "id": "c11",
+       "lookback": "arabic.u2.l1#b2"
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Say that the five prayers have 17 rak‘ahs, and that ayah 5 is said in each.",
+      "Explain that iyyaaka comes first to mean “You alone”.",
+      "Read na- as “we” and a- as “I” in the verb to worship.",
+      "Say ayah 5 with its meaning in your next prayer."
+     ],
+     "next": "Next: Slow is the standard."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Find ayah 5",
+     "body": "Open Surat al-Fatihah and find ayah 5. Find the word na‘budu.",
+     "route": "/quran/1",
+     "button": "Open Al-Fatihah"
+    }
+   ]
+  },
+  {
+   "id": "arabic.u2.l3",
+   "title": "Slow Is the Standard",
+   "minutes": 14,
+   "intro": "Learn what tarteel means, how the Prophet ﷺ recited, and a simple routine for slow reading.",
+   "steps": [
+    {
+     "id": "why",
+     "kind": "why",
+     "title": "Why slow?",
+     "body": [
+      "Many people rush when they read Arabic. They want to finish. But Arabic that is read slowly stays with you, and Arabic that is rushed is forgotten.",
+      "The Qur’an itself tells us how to read it. In this lesson you will learn the word for it, tarteel, and a simple way to practise at a pace that is slow enough to be clear."
+     ]
+    },
+    {
+     "id": "rattil",
+     "kind": "say",
+     "title": "The command",
+     "refs": [
+      "q:73:4"
+     ],
+     "note": "Allah tells the Prophet ﷺ to recite “tarteelan”. The verb rattili and the noun tarteelan have the same root. The meaning is a slow, clear, measured recitation.",
+     "words": {
+      "q:73:4": [
+       {
+        "tr": "aw",
+        "en": "or"
+       },
+       {
+        "tr": "zid",
+        "en": "add"
+       },
+       {
+        "tr": "‘alayhi",
+        "en": "to it"
+       },
+       {
+        "tr": "wa-rattili",
+        "en": "and recite with measure"
+       },
+       {
+        "tr": "al-Qur’aana",
+        "en": "the Qur’an"
+       },
+       {
+        "tr": "tarteelan",
+        "en": "with a slow, clear recitation"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 73:4"
+    },
+    {
+     "id": "meaning",
+     "kind": "teach",
+     "title": "What tarteel means",
+     "label": "[Interpretive]",
+     "source": "Tafsir Ibn Kathir on 73:4 (English abridged edition); the saying of Ali as given in works on tajweed",
+     "review": "The saying of Ali on the meaning of tarteel is quoted widely in works on tajweed. We have not checked its chain here. Please confirm the wording and the source before it is relied on.",
+     "body": [
+      "Ibn Kathir explains the ayah as: recite it slowly, because that helps you to understand it and to think about it.",
+      "Ali ibn Abi Talib is reported to have said that tarteel is to give every letter its right (tajweed), and to know where to stop. So tarteel is two things together: clear letters, and a pace that lets you think."
+     ]
+    },
+    {
+     "id": "prophet",
+     "kind": "teach",
+     "title": "How the Prophet ﷺ read",
+     "label": "[Established]",
+     "source": "Bukhari 5046",
+     "body": [
+      "Qatada asked Anas ibn Malik how the Prophet ﷺ recited. Anas said that it was with prolongation, and he showed it by reciting “Bismillaah ir-Rahmaan ir-Raheem”, lengthening each part (Bukhari 5046).",
+      "This is the reading to follow: not fast, and each part given its time."
+     ]
+    },
+    {
+     "id": "spread",
+     "kind": "say",
+     "title": "A Qur’an sent in parts",
+     "refs": [
+      "q:17:106"
+     ],
+     "note": "Allah did not send the Qur’an all at once. It came in parts, so that it could be recited to people slowly, over time. We can learn the same way: a little, and well.",
+     "words": {
+      "q:17:106": [
+       {
+        "tr": "wa-qur’aanan",
+        "en": "and a Qur’an"
+       },
+       {
+        "tr": "faraqnaahu",
+        "en": "We divided it"
+       },
+       {
+        "tr": "li-taqra’ahu",
+        "en": "so that you may recite it"
+       },
+       {
+        "tr": "‘alaa",
+        "en": "to"
+       },
+       {
+        "tr": "an-naasi",
+        "en": "the people"
+       },
+       {
+        "tr": "‘alaa",
+        "en": "over"
+       },
+       {
+        "tr": "mukthin",
+        "en": "a long time"
+       },
+       {
+        "tr": "wa-nazzalnaahu",
+        "en": "and We sent it down"
+       },
+       {
+        "tr": "tanzeelan",
+        "en": "in stages"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 17:106"
+    },
+    {
+     "id": "easy",
+     "kind": "say",
+     "title": "Made easy",
+     "refs": [
+      "q:54:17"
+     ],
+     "note": "Allah says He made the Qur’an easy to remember. This is an invitation, and you do not need to be afraid of it. If you are reading slowly you are doing it right.",
+     "words": {
+      "q:54:17": [
+       {
+        "tr": "wa-laqad",
+        "en": "and indeed"
+       },
+       {
+        "tr": "yassarnaa",
+        "en": "We made easy"
+       },
+       {
+        "tr": "al-Qur’aana",
+        "en": "the Qur’an"
+       },
+       {
+        "tr": "lildh-dhikri",
+        "en": "for remembrance"
+       },
+       {
+        "tr": "fa-hal",
+        "en": "so is there"
+       },
+       {
+        "tr": "min",
+        "en": "any"
+       },
+       {
+        "tr": "muddakir",
+        "en": "who will remember"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 54:17"
+    },
+    {
+     "id": "struggle",
+     "kind": "teach",
+     "title": "If it is hard for you",
+     "label": "[Established]",
+     "source": "Bukhari 4937",
+     "body": [
+      "The Prophet ﷺ said that the one who recites the Qur’an and is skilled in it will be with the noble, righteous angels, and the one who recites it while it is hard for him, and struggles with it, will have two rewards (Bukhari 4937).",
+      "So do not be ashamed if it is slow. The struggle is also rewarded. Do not give up."
+     ]
+    },
+    {
+     "id": "listen",
+     "kind": "listen",
+     "title": "Listen to the pace",
+     "ref": "q:1:2-4",
+     "repeats": 1,
+     "note": "Listen to three ayat read slowly and clearly. Notice that every word has its own time, and there are small breaths between ayat."
+    },
+    {
+     "id": "howto",
+     "kind": "howto",
+     "title": "A slow-reading routine",
+     "steps": [
+      {
+       "text": "Choose one ayah.",
+       "detail": "Start with a short one you know, like 1:2."
+      },
+      {
+       "text": "Listen to it first.",
+       "detail": "Use the reciter in the reader. Listen once or twice."
+      },
+      {
+       "text": "Read it at half your normal speed.",
+       "detail": "Give each letter its time."
+      },
+      {
+       "text": "Look at each word as you say it.",
+       "detail": "Say the meaning quietly in your mind."
+      },
+      {
+       "text": "Stop at the end of the ayah.",
+       "detail": "Take a breath before the next one."
+      }
+     ],
+     "intro": "Do this for one ayah a day. You will find the pace comes by itself.",
+     "label": "[Interpretive]",
+     "source": "Study method written by the app author; Qur’an 73:4",
+     "review": "A study method, not a ruling."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "Put the routine in order",
+     "prompt": "Put these in the order of the routine.",
+     "explain": "Choose, listen, read slowly, stop.",
+     "items": [
+      {
+       "text": "Choose one short ayah",
+       "why": "First choose what you will read.",
+       "back": "howto"
+      },
+      {
+       "text": "Listen to the reciter",
+       "why": "Hear it before you say it.",
+       "back": "howto"
+      },
+      {
+       "text": "Read it slowly, word by word",
+       "why": "Then say it yourself, slowly.",
+       "back": "howto"
+      },
+      {
+       "text": "Stop and breathe at the end",
+       "why": "End with a rest.",
+       "back": "howto"
+      }
+     ]
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the Arabic to the meaning",
+     "prompt": "Match each Arabic word to its meaning.",
+     "pairs": [
+      {
+       "left": {
+        "word": "q:73:4#3"
+       },
+       "right": {
+        "text": "and recite with measure"
+       },
+       "why": "Wa-rattili.",
+       "back": "rattil"
+      },
+      {
+       "left": {
+        "word": "q:73:4#5"
+       },
+       "right": {
+        "text": "with a slow, clear recitation"
+       },
+       "why": "Tarteelan.",
+       "back": "rattil"
+      },
+      {
+       "left": {
+        "word": "q:17:106#7"
+       },
+       "right": {
+        "text": "and We sent it down"
+       },
+       "why": "Wa-nazzalnaahu.",
+       "back": "spread"
+      },
+      {
+       "left": {
+        "word": "q:54:17#1"
+       },
+       "right": {
+        "text": "We made easy"
+       },
+       "why": "Yassarnaa.",
+       "back": "easy"
+      },
+      {
+       "left": {
+        "word": "q:54:17#3"
+       },
+       "right": {
+        "text": "for remembrance"
+       },
+       "why": "Lildh-dhikri.",
+       "back": "easy"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "d1",
+       "q": "What does “tarteelan” in 73:4 mean?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "A very loud recitation",
+         "reteach": "No. It is about a slow, clear, measured pace.",
+         "back": "rattil"
+        },
+        {
+         "text": "A slow, clear, measured recitation"
+        },
+        {
+         "text": "A recitation in the heart only",
+         "reteach": "No. It is a slow, clear, measured recitation.",
+         "back": "rattil"
+        }
+       ],
+       "answer": 1,
+       "explain": "Slow, clear, measured."
+      },
+      {
+       "id": "d2",
+       "q": "Which word in 73:4 is the command to recite with measure?",
+       "type": "fill",
+       "options": [
+        {
+         "word": "q:73:4#1",
+         "reteach": "That word means “add”.",
+         "back": "rattil"
+        },
+        {
+         "word": "q:73:4#4",
+         "reteach": "That word means “the Qur’an”.",
+         "back": "rattil"
+        },
+        {
+         "word": "q:73:4#3"
+        }
+       ],
+       "answer": 2,
+       "explain": "Wa-rattili.",
+       "fill": {
+        "ref": "q:73:4",
+        "blank": 3,
+        "show": "arabic"
+       }
+      },
+      {
+       "id": "d3",
+       "q": "What is tarteel, in the words reported from Ali?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "Giving every letter its right and knowing where to stop"
+        },
+        {
+         "text": "Reciting as fast as you can",
+         "reteach": "No. It is the opposite: clear letters and a pace that lets you think.",
+         "back": "meaning"
+        },
+        {
+         "text": "Reciting only at night",
+         "reteach": "No. It is about how you recite, not when.",
+         "back": "meaning"
+        }
+       ],
+       "answer": 0,
+       "explain": "Clear letters, and knowing where to stop."
+      },
+      {
+       "id": "d4",
+       "q": "How did the Prophet ﷺ recite (Bukhari 5046)?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "Very quickly",
+         "reteach": "No. Anas said it was with prolongation.",
+         "back": "prophet"
+        },
+        {
+         "text": "With prolongation, each part given its time"
+        },
+        {
+         "text": "In a whisper only",
+         "reteach": "No. Anas said it was with prolongation.",
+         "back": "prophet"
+        }
+       ],
+       "answer": 1,
+       "explain": "With prolongation."
+      },
+      {
+       "id": "d5",
+       "q": "A friend says: “I read very slowly, and I am ashamed.” What do you say?",
+       "type": "scenario",
+       "options": [
+        {
+         "text": "Slow is the standard. The one who struggles also has a reward"
+        },
+        {
+         "text": "Read faster to catch up",
+         "reteach": "No. The Qur’an tells us to read with tarteel.",
+         "back": "rattil"
+        },
+        {
+         "text": "Stop reading until you are quick",
+         "reteach": "No. The one who struggles has two rewards (Bukhari 4937).",
+         "back": "struggle"
+        }
+       ],
+       "answer": 0,
+       "explain": "Slow is the standard, and the struggle is rewarded.",
+       "scenario": "A friend is learning to read Arabic. They are slow, and they feel ashamed."
+      },
+      {
+       "id": "d6",
+       "q": "How did Allah send down the Qur’an (17:106)?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "All at once",
+         "reteach": "No. The ayah says tanzeelan: in stages.",
+         "back": "spread"
+        },
+        {
+         "text": "Only in one night to one person",
+         "reteach": "No. The ayah says it was sent in parts for people to recite slowly.",
+         "back": "spread"
+        },
+        {
+         "text": "In stages, over time"
+        }
+       ],
+       "answer": 2,
+       "explain": "In stages."
+      },
+      {
+       "id": "d7",
+       "q": "Which word means “We made easy”?",
+       "type": "fill",
+       "options": [
+        {
+         "word": "q:54:17#0",
+         "reteach": "That word means “and indeed”.",
+         "back": "easy"
+        },
+        {
+         "word": "q:54:17#1"
+        },
+        {
+         "word": "q:54:17#4",
+         "reteach": "That word means “so is there”.",
+         "back": "easy"
+        }
+       ],
+       "answer": 1,
+       "explain": "Yassarnaa.",
+       "fill": {
+        "ref": "q:54:17",
+        "blank": 1,
+        "show": "arabic"
+       }
+      },
+      {
+       "id": "d8",
+       "q": "What is the first step of the slow-reading routine?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "Choose one short ayah"
+        },
+        {
+         "text": "Read the whole page",
+         "reteach": "No. Start small: one short ayah.",
+         "back": "howto"
+        },
+        {
+         "text": "Read at full speed",
+         "reteach": "No. The routine is slow.",
+         "back": "howto"
+        }
+       ],
+       "answer": 0,
+       "explain": "Choose one short ayah."
+      },
+      {
+       "id": "d9",
+       "q": "How many rewards does the one who struggles with the Qur’an receive (Bukhari 4937)?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "One",
+         "reteach": "No. The hadith says two.",
+         "back": "struggle"
+        },
+        {
+         "text": "None",
+         "reteach": "No. The hadith says two.",
+         "back": "struggle"
+        },
+        {
+         "text": "Two"
+        }
+       ],
+       "answer": 2,
+       "explain": "Two rewards."
+      },
+      {
+       "id": "d10",
+       "q": "Which pair share a root?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "rattili and Qur’aan",
+         "reteach": "No. They do not share a root.",
+         "back": "rattil"
+        },
+        {
+         "text": "rattili and tarteelan"
+        },
+        {
+         "text": "tarteelan and tanzeelan",
+         "reteach": "No. They have different roots.",
+         "back": "rattil"
+        }
+       ],
+       "answer": 1,
+       "explain": "Rattili and tarteelan both come from r-t-l."
+      },
+      {
+       "id": "d11",
+       "lookback": "arabic.u2.l2#c2"
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Explain that Allah commands recitation with tarteel: slow, clear, measured.",
+      "Say that the Prophet ﷺ recited with prolongation.",
+      "Know that the one who struggles has two rewards.",
+      "Use the slow-reading routine on one ayah a day."
+     ],
+     "next": "You have finished this course. Read your next ayah slowly."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Read one ayah slowly",
+     "body": "Open the reader and choose one short ayah. Listen once, then read it at half your normal speed.",
+     "route": "/quran/1",
+     "button": "Open the reader"
+    }
+   ]
+  }
+ ]
+}
