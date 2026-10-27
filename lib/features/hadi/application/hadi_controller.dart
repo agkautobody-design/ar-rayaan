@@ -532,9 +532,10 @@ class HadiController extends Notifier<HadiState> {
     final String trimmed = key.trim();
     SharedPreferences? prefs;
     try {
-      prefs = ref.read(sharedPreferencesProvider);
+      final SharedPreferences p = ref.read(sharedPreferencesProvider);
+      prefs = p;
       if (trimmed.isNotEmpty) {
-        await prefs.setString(_providerPref, detectProvider(trimmed));
+        await p.setString(_providerPref, detectProvider(trimmed));
       }
     } catch (_) {
       // The provider choice stays in memory only.
