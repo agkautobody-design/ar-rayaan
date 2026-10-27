@@ -311,7 +311,7 @@ class _HelpSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<HelpResource> near = HelpResources.forCountry(countryCode);
     final List<HelpResource> others = <HelpResource>[
-      for (final HelpResource r in HelpResources.all)
+      for (final HelpResource r in HelpResources.shown)
         if (!near.contains(r)) r,
     ];
     final bool knowsCountry = near.any(

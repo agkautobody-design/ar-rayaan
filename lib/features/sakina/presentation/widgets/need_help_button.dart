@@ -40,7 +40,7 @@ Future<void> showNeedHelpSheet(
 /// (for example "North America") does not name any of them.
 List<(String, String)> helpCountryChoices() {
   final Map<String, String> names = <String, String>{};
-  for (final HelpResource r in HelpResources.all) {
+  for (final HelpResource r in HelpResources.shown) {
     if (r.countries.length != 1) continue;
     final String cc = r.countries.first;
     final String? have = names[cc];

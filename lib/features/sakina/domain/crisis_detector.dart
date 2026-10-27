@@ -1712,7 +1712,7 @@ abstract final class CrisisResponses {
   static String regionNote(String? countryCode) {
     final String? cc = countryCode?.trim().toUpperCase();
     if (cc != null && cc.isNotEmpty) {
-      for (final HelpResource r in HelpResources.all) {
+      for (final HelpResource r in HelpResources.shown) {
         if (r.countries.length == 1 && r.countries.first == cc) {
           return 'The lines above are for ${r.region}, chosen from your '
               'device language setting, not your location. If you are '

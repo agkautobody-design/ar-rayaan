@@ -394,7 +394,7 @@ class HelpResource {
 /// months, so the list is re-read at least that often.
 abstract final class HelpResources {
   /// The day this list was last read against the operators' pages.
-  static const String checked = '2026-10-20';
+  static const String checked = '2026-10-27';
 
   static const Set<HelpKind> _suicide = <HelpKind>{
     HelpKind.suicide,
@@ -440,6 +440,8 @@ abstract final class HelpResources {
       dial: '911',
       countries: <String>['US'],
       kinds: _emergency,
+      verifiedOn: '2026-10-27',
+      source: 'https://www.911.gov/calling-911/',
     ),
     HelpResource(
       name: 'Emergency Services',
@@ -671,6 +673,8 @@ abstract final class HelpResources {
       dial: '112',
       countries: <String>['IE'],
       kinds: _emergency,
+      verifiedOn: '2026-10-27',
+      source: 'https://www.gov.ie/en/department-of-the-taoiseach/services/how-to-contact-emergency-services-in-ireland/',
     ),
 
     // ── Australia ────────────────────────────────────────────────────
@@ -763,15 +767,6 @@ abstract final class HelpResources {
       source: 'https://www.rescue.gov.pk/',
     ),
     HelpResource(
-      name: 'Police',
-      detail: 'If you or someone near you is in immediate danger.',
-      contact: '15',
-      region: 'Pakistan',
-      dial: '15',
-      countries: <String>['PK'],
-      kinds: _emergency,
-    ),
-    HelpResource(
       name: 'Tele-MANAS',
       detail: 'Government of India tele-mental-health service: a toll-free '
           'helpline, 24x7, tele-counselling in 20 Indian languages.',
@@ -815,6 +810,8 @@ abstract final class HelpResources {
       dial: '109',
       countries: <String>['BD'],
       kinds: _abuse,
+      verifiedOn: '2026-10-27',
+      source: 'https://bangladesh.gov.bd/pages/static-pages/69a55ba386514399668e4e89',
     ),
     HelpResource(
       name: 'Emergency Services',
@@ -824,6 +821,8 @@ abstract final class HelpResources {
       dial: '999',
       countries: <String>['BD'],
       kinds: _emergency,
+      verifiedOn: '2026-10-27',
+      source: 'https://bangladesh.gov.bd/pages/static-pages/69a55ba386514399668e4e89',
     ),
 
     // ── Gulf & Middle East ──────────────────────────────────────────
@@ -835,6 +834,8 @@ abstract final class HelpResources {
       dial: '999',
       countries: <String>['AE'],
       kinds: _emergency,
+      verifiedOn: '2026-10-27',
+      source: 'https://u.ae/en/information-and-services/justice-safety-and-the-law/Safety/handling-emergencies',
     ),
     HelpResource(
       name: 'Ministry of Health 937',
@@ -849,15 +850,6 @@ abstract final class HelpResources {
       verifiedOn: checked,
       source: 'https://www.moh.gov.sa/en/Ministry/MediaCenter/News/Pages/'
           'News-2020-10-15-001.aspx',
-    ),
-    HelpResource(
-      name: 'Emergency Services',
-      detail: 'Ambulance 997. Police 999.',
-      contact: '997 (ambulance) · 999 (police)',
-      region: 'Saudi Arabia',
-      dial: '997',
-      countries: <String>['SA'],
-      kinds: _emergency,
     ),
     HelpResource(
       name: 'National Mental Health Helpline',
@@ -882,24 +874,8 @@ abstract final class HelpResources {
       dial: '999',
       countries: <String>['QA'],
       kinds: _emergency,
-    ),
-    HelpResource(
-      name: 'Emergency Services',
-      detail: 'If you or someone near you is in immediate danger.',
-      contact: '112',
-      region: 'Kuwait',
-      dial: '112',
-      countries: <String>['KW'],
-      kinds: _emergency,
-    ),
-    HelpResource(
-      name: 'Emergency Services',
-      detail: 'Police 122. Ambulance 123.',
-      contact: '123 (ambulance) · 122 (police)',
-      region: 'Egypt',
-      dial: '123',
-      countries: <String>['EG'],
-      kinds: _emergency,
+      verifiedOn: '2026-10-27',
+      source: 'https://portal.moi.gov.qa/UNCCPCJDoha/English/Emergency_Services.html',
     ),
     HelpResource(
       name: 'ALO 183 Social Support Line',
@@ -916,15 +892,6 @@ abstract final class HelpResources {
       source: 'https://aile.gov.tr/bolu/haberler/'
           'bakan-selcuk-alo-183-whatsapp-ihbar-hatti-vatandaslarimizin-'
           'hizmetinde/',
-    ),
-    HelpResource(
-      name: 'Emergency Services',
-      detail: 'If you or someone near you is in immediate danger.',
-      contact: '112',
-      region: 'Türkiye',
-      dial: '112',
-      countries: <String>['TR'],
-      kinds: _emergency,
     ),
 
     // ── Southeast Asia ──────────────────────────────────────────────
@@ -960,6 +927,8 @@ abstract final class HelpResources {
       dial: '999',
       countries: <String>['MY'],
       kinds: _emergency,
+      verifiedOn: '2026-10-27',
+      source: 'https://www.malaysia.gov.my/en/categories/safety-and-community/public-safety/mers-999-emergency-line',
     ),
     HelpResource(
       name: 'Samaritans of Singapore (SOS)',
@@ -972,24 +941,6 @@ abstract final class HelpResources {
       kinds: _suicide,
       verifiedOn: checked,
       source: 'https://www.sos.org.sg/',
-    ),
-    HelpResource(
-      name: 'Emergency Services',
-      detail: 'Police 999. Ambulance 995.',
-      contact: '999 (police) · 995 (ambulance)',
-      region: 'Singapore',
-      dial: '995',
-      countries: <String>['SG'],
-      kinds: _emergency,
-    ),
-    HelpResource(
-      name: 'Emergency Services',
-      detail: 'If you or someone near you is in immediate danger.',
-      contact: '112',
-      region: 'Indonesia',
-      dial: '112',
-      countries: <String>['ID'],
-      kinds: _emergency,
     ),
 
     // ── Everywhere ──────────────────────────────────────────────────
@@ -1012,6 +963,78 @@ abstract final class HelpResources {
       verifiedOn: checked,
       source: 'https://findahelpline.com/',
     ),
+  ];
+
+  /// Lines that were in the list before 2026-10-20 and could NOT be
+  /// confirmed on the operator's own page. Kept here with the reason, not
+  /// deleted, and shown nowhere. Do not move a row back to [all] without a
+  /// `verifiedOn` and `source`.
+  static const List<HelpResource> unverified = <HelpResource>[
+    // Emergency numbers moved here on 2026-10-27: not confirmed on an operator
+    // or official page in assets/support/helplines.json, so not shown.
+    HelpResource(
+      name: 'Police',
+      detail: 'If you or someone near you is in immediate danger.',
+      contact: '15',
+      region: 'Pakistan',
+      dial: '15',
+      countries: <String>['PK'],
+      kinds: _emergency,
+    ),
+    HelpResource(
+      name: 'Emergency Services',
+      detail: 'Ambulance 997. Police 999.',
+      contact: '997 (ambulance) · 999 (police)',
+      region: 'Saudi Arabia',
+      dial: '997',
+      countries: <String>['SA'],
+      kinds: _emergency,
+    ),
+    HelpResource(
+      name: 'Emergency Services',
+      detail: 'If you or someone near you is in immediate danger.',
+      contact: '112',
+      region: 'Kuwait',
+      dial: '112',
+      countries: <String>['KW'],
+      kinds: _emergency,
+    ),
+    HelpResource(
+      name: 'Emergency Services',
+      detail: 'Police 122. Ambulance 123.',
+      contact: '123 (ambulance) · 122 (police)',
+      region: 'Egypt',
+      dial: '123',
+      countries: <String>['EG'],
+      kinds: _emergency,
+    ),
+    HelpResource(
+      name: 'Emergency Services',
+      detail: 'If you or someone near you is in immediate danger.',
+      contact: '112',
+      region: 'Türkiye',
+      dial: '112',
+      countries: <String>['TR'],
+      kinds: _emergency,
+    ),
+    HelpResource(
+      name: 'Emergency Services',
+      detail: 'Police 999. Ambulance 995.',
+      contact: '999 (police) · 995 (ambulance)',
+      region: 'Singapore',
+      dial: '995',
+      countries: <String>['SG'],
+      kinds: _emergency,
+    ),
+    HelpResource(
+      name: 'Emergency Services',
+      detail: 'If you or someone near you is in immediate danger.',
+      contact: '112',
+      region: 'Indonesia',
+      dial: '112',
+      countries: <String>['ID'],
+      kinds: _emergency,
+    ),
     HelpResource(
       name: 'Emergency Services',
       detail: 'If you or someone near you is in immediate danger. 112 '
@@ -1027,13 +1050,6 @@ abstract final class HelpResources {
         HelpKind.child,
       },
     ),
-  ];
-
-  /// Lines that were in the list before 2026-10-20 and could NOT be
-  /// confirmed on the operator's own page. Kept here with the reason, not
-  /// deleted, and shown nowhere. Do not move a row back to [all] without a
-  /// `verifiedOn` and `source`.
-  static const List<HelpResource> unverified = <HelpResource>[
     HelpResource(
       name: 'Umang Pakistan',
       // umang.com.pk was read on 2026-10-20: the page lists no phone number,
@@ -1064,6 +1080,24 @@ abstract final class HelpResources {
   /// [kinds] is given, only rows that serve one of those purposes. An
   /// unknown or missing country gets the worldwide rows alone — never a
   /// number that would only work somewhere else.
+  /// Verified rows read from assets/support/helplines.json at start-up (see
+  /// `HelplinesLoader`). Empty until loaded, and in tests. Only rows with a
+  /// verified-on date and a source are ever put here.
+  static List<HelpResource> extra = <HelpResource>[];
+
+  /// Every row that may be shown: the verified rows of [all] plus [extra]
+  /// whose number is not already listed.
+  static List<HelpResource> get shown {
+    String key(HelpResource r) =>
+        '${r.countries.join(',')}|${r.contact.replaceAll(RegExp(r'[^0-9A-Za-z]'), '')}';
+    final Set<String> have = <String>{for (final HelpResource r in all) key(r)};
+    return <HelpResource>[
+      ...all,
+      for (final HelpResource r in extra)
+        if (r.verified && have.add(key(r))) r,
+    ];
+  }
+
   static List<HelpResource> forCountry(
     String? countryCode, {
     Set<HelpKind>? kinds,
@@ -1072,11 +1106,11 @@ abstract final class HelpResources {
     bool wanted(HelpResource r) =>
         kinds == null || r.kinds.any(kinds.contains);
     final List<HelpResource> local = <HelpResource>[
-      for (final HelpResource r in all)
+      for (final HelpResource r in shown)
         if (cc != null && r.countries.contains(cc) && wanted(r)) r,
     ];
     final List<HelpResource> worldwide = <HelpResource>[
-      for (final HelpResource r in all)
+      for (final HelpResource r in shown)
         if (r.countries.isEmpty && wanted(r)) r,
     ];
     return <HelpResource>[...local, ...worldwide];
@@ -1084,6 +1118,6 @@ abstract final class HelpResources {
 
   /// Every country code that has at least one specific row.
   static Set<String> get coveredCountries => <String>{
-        for (final HelpResource r in all) ...r.countries,
+        for (final HelpResource r in shown) ...r.countries,
       };
 }

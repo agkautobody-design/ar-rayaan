@@ -18,6 +18,7 @@ library;
 
 import '../../sakina/domain/crisis_detector.dart';
 import '../../sakina/domain/sakina_content.dart';
+import '../../support/data/helplines_loader.dart';
 
 /// What the person is talking about.
 enum SupportTopic {
@@ -300,10 +301,17 @@ abstract final class SupportReplies {
   /// smoking get the worldwide directory only, because the country lines
   /// listed here are for alcohol and drugs.
   static String linesFor(SupportTopic topic, String? countryCode) {
-    final List<HelpResource> rows = HelpResources.forCountry(
-      countryCode,
-      kinds: const <HelpKind>{HelpKind.addiction},
-    );
+    final String? scope = switch (topic) {
+      SupportTopic.gambling => 'gambling',
+      SupportTopic.smoking => 'smoking',
+      _ => null,
+    };
+    final List<HelpResource> rows = scope != null
+        ? HelplinesLoader.forScope(scope, countryCode)
+        : HelpResources.forCountry(
+            countryCode,
+            kinds: const <HelpKind>{HelpKind.addiction},
+          );
     final bool substance = topic == SupportTopic.alcohol ||
         topic == SupportTopic.drugs ||
         topic == SupportTopic.general ||
@@ -313,7 +321,7 @@ abstract final class SupportReplies {
     for (final HelpResource r in rows) {
       if (n >= 3) break;
       if (!r.verified) continue;
-      if (!substance && r.countries.isNotEmpty) continue;
+      if (!substance && scope == null && r.countries.isNotEmpty) continue;
       b.writeln('• ${r.name} (${r.region}): ${r.contact}');
       n++;
     }
