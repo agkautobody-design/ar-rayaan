@@ -1,0 +1,151 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ar-rayaan.local/support/pack_schema.json",
+  "title": "Ar-Rayaan support / conversation / knowledge pack",
+  "description": "One file per pack under assets/support/packs/<pack>.json. The enums here are the single source of truth: tool/support/validate_packs.py reads them from this file. See docs/support/pack_format.md.",
+  "type": "object",
+  "required": ["schema", "pack", "packKind", "topic", "audience", "version", "reviewBy", "createdOn", "languages", "snippets"],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {"const": 1},
+    "pack": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$", "description": "Same as the file name without .json"},
+    "packKind": {"enum": ["support", "conversation", "knowledge"]},
+    "topic": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+    "description": {"type": "string", "maxLength": 400},
+    "audience": {"enum": ["hadi", "wasia", "both"]},
+    "ageBands": {"type": "array", "items": {"$ref": "#/$defs/ageBand"}, "uniqueItems": true},
+    "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "createdOn": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"},
+    "reviewBy": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$", "description": "The pack (and every snippet in it) is withdrawn after this date unless re-reviewed."},
+    "languages": {"type": "array", "items": {"enum": ["en", "ar", "ur", "bn"]}, "minItems": 1, "uniqueItems": true},
+    "rotation": {
+      "type": "object",
+      "description": "Conversation packs only. How the app must pick variants so the same sentence is never seen twice in a row.",
+      "required": ["strategy", "defaultMinGapTurns"],
+      "additionalProperties": false,
+      "properties": {
+        "strategy": {"const": "seeded-no-repeat"},
+        "defaultMinGapTurns": {"type": "integer", "minimum": 1, "maximum": 50}
+      }
+    },
+    "snippets": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/snippet"}}
+  },
+  "$defs": {
+    "ageBand": {"enum": ["adult", "5-8", "9-12", "13-17", "all"]},
+    "tone": {"enum": ["warm", "brief", "formal", "playful", "calm"]},
+    "stage": {"enum": ["open", "checkin", "listen", "reflect", "explore", "plan", "close", "crisis", "handoff", "question", "any"]},
+    "kind": {
+      "enum": [
+        "orient", "reflect", "ask", "explain", "plan-step", "safety", "islamic", "family", "referral", "checkin", "affirm", "summary",
+        "converse",
+        "fact", "howto", "misconception", "etiquette", "app-help", "lesson-fact", "faq"
+      ]
+    },
+    "move": {
+      "enum": [
+        "greet_morning", "greet_afternoon", "greet_evening", "greet_night", "greet_return_short", "greet_return_long", "greet_first_time",
+        "small_talk", "rapport", "how_are_you_reply", "how_are_you_ask",
+        "gratitude_receive", "gratitude_give", "humour",
+        "clarify", "follow_up", "tell_me_more", "transition", "summarise",
+        "handle_confusion", "handle_disagreement", "handle_frustration", "handle_youre_wrong", "apologise",
+        "dont_know", "scholar_handoff", "boundary_clinician", "boundary_fatwa", "boundary_only_friend", "boundary_ai",
+        "encourage", "celebrate", "goodbye",
+        "praise_specific", "wrong_answer_patience", "explain_level_1", "explain_level_2", "explain_level_3",
+        "quiz_offer", "quiz_next", "quiz_right", "quiz_wrong", "ask_me_anything", "story_prompt", "break_offer", "silly_fun",
+        "bedtime", "calm_down", "bored", "cant_do_it", "hate_this", "curiosity_islam", "grownup_handoff", "lesson_start", "lesson_end"
+      ]
+    },
+    "slot": {"enum": ["name", "word", "topic", "time_of_day", "days_away", "lesson", "letter", "total_days", "app_screen", "number"]},
+    "sourceType": {"enum": ["quran", "hadith", "clinical", "guideline", "study", "fiqh", "institution", "background", "app", "asset", "authored"]},
+    "source": {
+      "type": "object",
+      "required": ["type"],
+      "additionalProperties": false,
+      "properties": {
+        "type": {"$ref": "#/$defs/sourceType"},
+        "ref": {"type": "string", "description": "quran: '39:53' or '2:153-155' (must exist in assets/quran/quran.json). hadith: '<book>:<n>' with book in bukhari muslim abudawud tirmidhi nasai ibnmajah (must have an ok verdict in tool/hadith_verdicts). asset: '<asset path>#<id>'."},
+        "title": {"type": "string"},
+        "url": {"type": "string", "pattern": "^https://"},
+        "grade": {"type": "string", "description": "hadith only: as recorded in the verdict file"},
+        "grader": {"type": "string", "description": "hadith only. Sahihayn entries: 'two Sahihs'."},
+        "level": {"enum": ["primary", "institution", "scholar", "academic", "guideline", "news", "engineering"]},
+        "schools": {"type": "array", "items": {"enum": ["hanafi", "maliki", "shafii", "hanbali", "jafari", "other"]}},
+        "section": {"type": "string", "description": "Where it was found, e.g. 'RES_H1 2.1' or 'RES_H2 3.4'"},
+        "retrievedOn": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"},
+        "note": {"type": "string"}
+      }
+    },
+    "reviewer": {
+      "type": ["object", "null"],
+      "required": ["name", "role"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {"type": "string", "minLength": 2},
+        "role": {"type": "string", "minLength": 2},
+        "madhhab": {"type": "string"}
+      }
+    },
+    "snippet": {
+      "type": "object",
+      "required": [
+        "id", "kind", "stage", "text", "ageBand", "tags", "triggers", "doNotSay", "sources", "evidenceLevel", "risk",
+        "needsScholarReview", "needsClinicianReview", "needsNativeClinicianReview", "reviewedBy", "reviewedOn", "status"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {"type": "string", "pattern": "^[a-z][a-z0-9_]*\\.[a-z0-9-]+\\.[0-9]{3}$"},
+        "kind": {"$ref": "#/$defs/kind"},
+        "subtopic": {"type": "string", "pattern": "^[a-z][a-z0-9_-]*$"},
+        "audience": {"enum": ["hadi", "wasia", "both"]},
+        "stage": {"type": "array", "items": {"$ref": "#/$defs/stage"}, "minItems": 1, "uniqueItems": true},
+        "text": {
+          "type": "object",
+          "required": ["en"],
+          "additionalProperties": false,
+          "properties": {
+            "en": {"type": "string", "minLength": 2},
+            "ar": {"type": "string", "minLength": 2},
+            "ur": {"type": "string", "minLength": 2},
+            "bn": {"type": "string", "minLength": 2}
+          }
+        },
+        "ageBand": {"type": "array", "items": {"$ref": "#/$defs/ageBand"}, "minItems": 1, "uniqueItems": true},
+        "tone": {"$ref": "#/$defs/tone"},
+        "move": {"$ref": "#/$defs/move"},
+        "variantGroup": {"type": "string", "pattern": "^[a-z0-9_.-]+$", "description": "Snippets with the same variantGroup are interchangeable; the app picks one and never repeats a text within minGapTurns of the group."},
+        "minGapTurns": {"type": "integer", "minimum": 1, "maximum": 50},
+        "slots": {"type": "array", "items": {"$ref": "#/$defs/slot"}, "uniqueItems": true},
+        "tags": {"type": "array", "items": {"type": "string", "pattern": "^[a-z0-9][a-z0-9_-]*$"}, "uniqueItems": true},
+        "triggers": {"type": "array", "items": {"type": "string", "minLength": 2}, "description": "Lower-case words or short phrases that make the snippet a retrieval candidate. Retrieval hints only; they are never shown."},
+        "doNotSay": {"type": "array", "items": {"type": "string"}, "description": "Notes for authors and reviewers: what NOT to say around this snippet, and why. Never shown to users."},
+        "sources": {"type": "array", "items": {"$ref": "#/$defs/source"}},
+        "crossRef": {
+          "type": "array",
+          "description": "Existing app content this snippet points to instead of duplicating it.",
+          "items": {
+            "type": "object",
+            "required": ["asset", "id"],
+            "additionalProperties": false,
+            "properties": {
+              "asset": {"type": "string", "description": "Path under the repo root, e.g. assets/qa/qa_bank.json"},
+              "id": {"type": "string"}
+            }
+          }
+        },
+        "evidenceLevel": {"enum": ["A", "B", "C", "D", "X", "N"], "description": "A guideline/regulator/systematic review. B peer-reviewed study or reputable service guidance. C expert consensus or practice material (needs clinician). D tradition or scholarly opinion (Islamic frame). X unreviewed, cannot ship. N none needed (pure wording, no factual claim)."},
+        "risk": {"enum": ["low", "medium", "high"]},
+        "askPermission": {"type": "boolean"},
+        "neverParaphrase": {"type": "boolean", "description": "Fixed text. The app (and any model) must show it as written."},
+        "disputed": {"type": "boolean"},
+        "schoolsNamed": {"type": "array", "items": {"enum": ["hanafi", "maliki", "shafii", "hanbali", "jafari", "other"]}},
+        "needsScholarReview": {"type": "boolean"},
+        "needsClinicianReview": {"type": "boolean"},
+        "needsSafeguardingReview": {"type": "boolean"},
+        "needsNativeClinicianReview": {"type": "boolean"},
+        "reviewedBy": {"$ref": "#/$defs/reviewer"},
+        "reviewedOn": {"type": ["string", "null"], "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"},
+        "status": {"enum": ["draft", "clinician_approved", "scholar_approved", "shippable"]}
+      }
+    }
+  }
+}
