@@ -258,6 +258,20 @@ void main() {
         ProviderScope(
           overrides: <Override>[
             sharedPreferencesProvider.overrideWithValue(prefs),
+            // Daily texts given directly: the test bundle is not what is
+            // being checked here.
+            ramadanDaysProvider.overrideWith(
+              (Ref ref) async => <RamadanDay>[
+                for (int d = 1; d <= 30; d++)
+                  RamadanDay(
+                    day: d,
+                    theme: 'Theme $d',
+                    arabic: '',
+                    text: 'Text $d',
+                    source: 'Source $d',
+                  ),
+              ],
+            ),
           ],
           child: MaterialApp(theme: AppTheme.dark(), home: const RamadanScreen()),
         ),
