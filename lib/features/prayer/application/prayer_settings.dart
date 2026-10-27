@@ -173,22 +173,33 @@ class PrayerSettings {
     return HijriDate.fromGregorian(date).month == 9;
   }
 
-  /// The label shown under the times.
+  /// The label shown under the times: the method that was actually used
+  /// (also when it was chosen automatically), its angles, the Asr school,
+  /// and the high-latitude rule wherever one applies.
   String label(PrayerLocation location, {DateTime? date}) {
     final String key = resolvedMethod(location);
-    final String name = kPrayerMethods
-        .firstWhere((PrayerMethodOption m) => m.key == key,
-            orElse: () => kPrayerMethods[2])
-        .label;
+    final PrayerMethodOption option = kPrayerMethods.firstWhere(
+      (PrayerMethodOption m) => m.key == key,
+      orElse: () => kPrayerMethods[2],
+    );
+    final String name = option.label;
     final String asr = hanafiAsr ? 'Hanafi Asr' : 'Standard Asr';
     final String ramadan = ramadanIshaExtra(location, date)
-        ? ' · Isha +30 min (Ramadan)'
+        ? ' \u00b7 Isha +30 min (Ramadan)'
         : '';
-    final String offs = hasOffsets ? ' · your minute offsets' : '';
-    final String lat = highLatitude == 'auto'
-        ? ''
-        : ' · ${kHighLatitudeRules.firstWhere((HighLatitudeOption r) => r.key == highLatitude, orElse: () => kHighLatitudeRules.first).label.toLowerCase()} rule';
-    return '${method == 'auto' ? '$name (auto)' : name} · $asr$ramadan$offs$lat';
+    final String offs = hasOffsets ? ' \u00b7 your minute offsets' : '';
+    // Beyond 48 degrees the rule matters (summer twilight may never end), so
+    // say which one is in force even when it was picked automatically.
+    final bool showRule = highLatitude != 'auto' || location.latitude.abs() > 48;
+    final String ruleKey = highLatitude != 'auto'
+        ? highLatitude
+        : (location.latitude.abs() > 48
+              ? 'seventh_of_the_night'
+              : 'middle_of_the_night');
+    final String lat = showRule
+        ? ' \u00b7 ${kHighLatitudeRules.firstWhere((HighLatitudeOption r) => r.key == ruleKey).label.toLowerCase()} rule'
+        : '';
+    return '${method == 'auto' ? '$name (auto)' : name} \u00b7 ${option.detail} \u00b7 $asr$ramadan$offs$lat';
   }
 
   /// adhan parameters for [location]. Pass the civil [date] so date-dependent
@@ -253,6 +264,14 @@ class PrayerSettings {
 
 /// Regional default by coordinates — a coarse map of which convention most
 /// mosques follow. The user can always override it.
+///
+/// The boxes are tested in order, so a narrow region must come before the
+/// wide one that contains it. The Levant and Iraq are checked before the
+/// Arabian Peninsula and Iran (a single box for the Peninsula used to give
+/// Amman the Umm al-Qura convention and a single box for Iran gave Baghdad
+/// the Tehran one); neither has one official convention, so they get the
+/// Muslim World League default like the rest of the world without a clear
+/// local authority.
 String autoMethodFor(PrayerLocation l) {
   final double lat = l.latitude;
   final double lng = l.longitude;
@@ -260,17 +279,35 @@ String autoMethodFor(PrayerLocation l) {
       lat >= s && lat <= n && lng >= w && lng <= e;
 
   if (box(14, 72, -170, -50)) return 'north_america'; // US, Canada, Mexico
-  if (box(16, 32.5, 34.5, 56)) {
-    // Arabian Peninsula: specific Gulf conventions, else Umm al-Qura.
-    // Qatar's box lies inside the UAE box, so it must be tested first or
-    // Doha would resolve to Dubai.
-    if (box(24.4, 26.3, 50.7, 51.7)) return 'qatar';
-    if (box(22.5, 26.5, 51, 56.5)) return 'dubai';
-    if (box(28.5, 30.2, 46.5, 48.5)) return 'kuwait';
+  // Gulf conventions first. Qatar's box lies inside the UAE box, so it must
+  // be tested first or Doha would resolve to Dubai.
+  if (box(24.4, 26.3, 50.7, 51.7)) return 'qatar';
+  if (box(22.5, 26.5, 51, 56.5)) return 'dubai';
+  if (box(28.5, 30.2, 46.5, 48.5)) return 'kuwait';
+  // Turkey: the north and the south-west coast; not Syria or Iraq below it,
+  // and not Georgia or Armenia to the east.
+  if (box(37, 42.5, 26, 44.4) || box(36, 37, 26, 36.7)) return 'turkey';
+  // Jordan, Syria, Lebanon, Palestine and Israel.
+  if (box(29.4, 37.5, 34.2, 38)) return 'muslim_world_league';
+  // Iraq: everything north of the Saudi border (a line from about 29.1 N at
+  // Kuwait to 32 N in the west), plus the Basra corner.
+  if ((lng >= 38.9 && lng <= 46 && lat <= 37.4 &&
+          lat >= 29.1 + 0.3946 * (46.55 - lng)) ||
+      box(29.9, 31.3, 46, 48.5)) {
+    return 'muslim_world_league';
+  }
+  // Arabian Peninsula: Umm al-Qura. The Red Sea separates it from Egypt,
+  // Sudan and Eritrea, so the western edge follows the coast, and north of
+  // 24.9 N the eastern edge is the Gulf coast, so Iran's coast (Shiraz,
+  // Bushehr, Ahvaz, Jask) stays out.
+  if (box(12, 24.9, 38.8, 60) ||
+      box(24.9, 28.5, 38.8, 51) ||
+      box(28.5, 32.5, 38.8, 46.5) ||
+      box(21, 29.5, 35, 38.8)) {
     return 'umm_al_qura';
   }
-  if (box(36, 42.5, 26, 45)) return 'turkey';
-  if (box(25, 40, 44, 63)) return 'tehran'; // Iran
+  // Iran. The north-east corner (Turkmenistan) and Herat are not Iran.
+  if (box(25, 40, 44, 61.5) && !(lat > 37.6 && lng > 53.5)) return 'tehran';
   if (box(22, 32, 24.5, 37)) return 'egyptian'; // Egypt
   if (box(5, 37.5, 60, 92.5)) return 'karachi'; // Pakistan, India, Bangladesh
   if (box(-11, 7, 95, 141)) return 'singapore'; // Malaysia, Indonesia, Singapore
