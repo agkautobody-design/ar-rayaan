@@ -57,7 +57,7 @@ abstract final class ChessBoardArt {
   static const String folder = 'assets/games/chess/boards/';
 
   /// Files shipped in the app. Anything else is looked up in the asset list.
-  static const Set<String> shipped = <String>{
+  static final Set<String> shipped = <String>{
     '${folder}chess_board_royal.webp',
     '${folder}chess_board_green.webp',
     '${folder}chess_board_blue.webp',
