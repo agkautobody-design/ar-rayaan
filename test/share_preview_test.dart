@@ -1,11 +1,11 @@
-import 'dart:io';
-
+import 'package:ar_rayaan/app/core/child_mode.dart';
 import 'package:ar_rayaan/app/core/providers.dart';
 import 'package:ar_rayaan/app/theme/app_theme.dart';
 import 'package:ar_rayaan/features/elder/application/elder_mode.dart';
 import 'package:ar_rayaan/features/habits/presentation/quiet_done.dart';
 import 'package:ar_rayaan/features/quran/domain/quran_models.dart';
 import 'package:ar_rayaan/features/quran/presentation/ayah_actions_sheet.dart';
+import 'package:ar_rayaan/features/share/application/share_service.dart';
 import 'package:ar_rayaan/features/share/application/share_text.dart';
 import 'package:ar_rayaan/features/share/presentation/share_actions.dart';
 import 'package:flutter/material.dart';
@@ -71,35 +71,36 @@ Future<void> settle(WidgetTester tester) async {
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
+  Widget openButton(ShareDoc doc) => Scaffold(
+        body: Builder(
+          builder: (BuildContext c) => TextButton(
+            onPressed: () => showSharePreview(c, doc: doc),
+            child: const Text('open'),
+          ),
+        ),
+      );
+
   group('share texts', () {
-    test('invite: fixed link, no personal data, credit line', () {
-      final String t = inviteShareText();
+    test('invite: fixed link, no personal data, credit and download line', () {
+      final String t = ShareService.inviteText();
       expect(kInviteUrl, 'https://ar-rayaan.onrender.com');
       expect(t, contains(kInviteUrl));
-      expect(t.trimRight(), endsWith(kSharedFromLine));
+      expect(t, contains('Free to use, no account needed'));
+      expect(t.trimRight(), endsWith(kInviteUrl));
     });
 
-    test('milestone: "I completed ..." with the link and credit', () {
-      final String t = milestoneShareText('the lesson “Names of Allah”');
-      expect(t, contains('I completed the lesson “Names of Allah” on Ar-Rayaan.'));
-      expect(t, contains(kInviteUrl));
-      expect(t.trimRight(), endsWith(kSharedFromLine));
-    });
-
-    test('only study milestones can be shared: no count or gap line exists', () {
-      final String src = File(
-        'lib/features/share/application/share_text.dart',
-      ).readAsStringSync();
-      expect(src.contains('comeBack'), isFalse);
-      expect(src.contains(' days on Ar-Rayaan'), isFalse);
-    });
-
-    test('an ayah names its reference, Arabic source and translation', () {
-      const Ayah a = Ayah(number: 1, arabic: 'ٱلْحَمْدُ', english: 'Praise.');
-      final String t = ayahShareText('Al-Fatihah', 1, a);
+    test('an ayah shares its Arabic and reference, never the translation', () {
+      final ShareDoc d = ShareDoc.ayah(
+        surahName: 'Al-Fatihah',
+        surah: 1,
+        from: 1,
+        arabic: 'ٱلْحَمْدُ',
+      );
+      final String t = ShareService.build(d);
+      expect(t, contains('ٱلْحَمْدُ'));
       expect(t, contains('— Al-Fatihah 1:1'));
       expect(t, contains('Tanzil'));
-      expect(t, contains('Saheeh International'));
+      expect(t, isNot(contains('Saheeh')));
       expect(t, contains('Shared from Ar-Rayaan'));
     });
   });
@@ -109,24 +110,15 @@ void main() {
       tester,
     ) async {
       _clipboard(tester);
-      await pump(
-        tester,
-        Scaffold(
-          body: Builder(
-            builder: (BuildContext c) => TextButton(
-              onPressed: () => showSharePreview(c, text: 'hello world'),
-              child: const Text('open'),
-            ),
-          ),
-        ),
-      );
+      final ShareDoc doc = ShareDoc.invite();
+      await pump(tester, openButton(doc));
       await tester.tap(find.text('open'));
       await settle(tester);
       expect(
         tester
             .widget<SelectableText>(find.byKey(const Key('share-preview-text')))
             .data,
-        'hello world',
+        ShareService.build(doc),
       );
       expect(find.text(kSharePreviewNote), findsOneWidget);
       expect(_copied, isNull);
@@ -136,42 +128,72 @@ void main() {
       expect(_copied, isNull);
     });
 
-    testWidgets('without a share sheet the button copies and says so', (
+    testWidgets('Copy in the preview copies the exact text and says so', (
       tester,
     ) async {
       _clipboard(tester);
-      await pump(
-        tester,
-        Scaffold(
-          body: Builder(
-            builder: (BuildContext c) => TextButton(
-              onPressed: () => showSharePreview(c, text: 'hello world'),
-              child: const Text('open'),
-            ),
-          ),
-        ),
-      );
+      final ShareDoc doc = ShareDoc.invite();
+      await pump(tester, openButton(doc));
       await tester.tap(find.text('open'));
       await settle(tester);
-      expect(find.text('Copy to share'), findsOneWidget);
-      await tester.tap(find.byKey(const Key('share-preview-share')));
+      await tester.tap(find.byKey(const Key('share-preview-copy')));
       await settle(tester);
-      expect(_copied, 'hello world');
+      expect(_copied, ShareService.build(doc));
       expect(find.textContaining('Copied'), findsOneWidget);
     });
 
-    testWidgets('the card button has a tooltip and opens the preview', (
+    testWidgets('Share falls back to copying when the system sheet fails', (
+      tester,
+    ) async {
+      _clipboard(tester);
+      final Future<bool> Function(String, String?) saved =
+          ShareService.nativeShare;
+      ShareService.nativeShare = (String text, String? subject) async => false;
+      addTearDown(() => ShareService.nativeShare = saved);
+      final ShareDoc doc = ShareDoc.invite();
+      await pump(tester, openButton(doc));
+      await tester.tap(find.text('open'));
+      await settle(tester);
+      await tester.tap(find.byKey(const Key('share-preview-share')));
+      await settle(tester);
+      expect(_copied, ShareService.build(doc));
+      expect(find.textContaining('Copied'), findsOneWidget);
+    });
+
+    testWidgets('Share hands the exact text to the system sheet', (
+      tester,
+    ) async {
+      _clipboard(tester);
+      String? sent;
+      final Future<bool> Function(String, String?) saved =
+          ShareService.nativeShare;
+      ShareService.nativeShare = (String text, String? subject) async {
+        sent = text;
+        return true;
+      };
+      addTearDown(() => ShareService.nativeShare = saved);
+      final ShareDoc doc = ShareDoc.invite();
+      await pump(tester, openButton(doc));
+      await tester.tap(find.text('open'));
+      await settle(tester);
+      await tester.tap(find.byKey(const Key('share-preview-share')));
+      await settle(tester);
+      expect(sent, ShareService.build(doc));
+      expect(_copied, isNull);
+    });
+
+    testWidgets('the share button has a tooltip and opens the preview', (
       tester,
     ) async {
       await pump(
         tester,
-        const Scaffold(
+        Scaffold(
           body: Center(
-            child: ShareCardButton(text: 'x', subject: 'this dhikr'),
+            child: ShareButton(doc: ShareDoc.invite(), subject: 'this dhikr'),
           ),
         ),
       );
-      expect(find.byTooltip('Preview and share this dhikr'), findsOneWidget);
+      expect(find.byTooltip('Share this dhikr'), findsOneWidget);
       expect(
         tester.getSize(find.byKey(const Key('share-card'))).shortestSide,
         greaterThanOrEqualTo(48),
@@ -181,17 +203,42 @@ void main() {
       expect(find.byKey(const Key('share-preview-card')), findsOneWidget);
     });
 
+    testWidgets('Elder Mode makes the button 64dp', (tester) async {
+      await pump(
+        tester,
+        Scaffold(
+          body: Center(child: ShareButton(doc: ShareDoc.invite())),
+        ),
+        prefs: <String, Object>{ElderMode.pref: true},
+      );
+      expect(
+        tester.getSize(find.byKey(const Key('share-card'))).shortestSide,
+        greaterThanOrEqualTo(64),
+      );
+    });
+
+    testWidgets('child mode hides the share button', (tester) async {
+      kChildMode.value = true;
+      addTearDown(() => kChildMode.value = false);
+      await pump(
+        tester,
+        Scaffold(
+          body: Center(child: ShareButton(doc: ShareDoc.invite())),
+        ),
+      );
+      expect(find.byKey(const Key('share-card')), findsNothing);
+    });
+
     testWidgets('Elder Mode and 2.5x text keep buttons large, no overflow', (
       tester,
     ) async {
       await pump(
         tester,
-        Scaffold(
-          body: Builder(
-            builder: (BuildContext c) => TextButton(
-              onPressed: () => showSharePreview(c, text: 'a ' * 80),
-              child: const Text('open'),
-            ),
+        openButton(
+          ShareDoc.story(
+            title: 'T',
+            body: 'a ' * 80,
+            reviewKey: 'story.prophets.prophet-nuh',
           ),
         ),
         prefs: <String, Object>{ElderMode.pref: true},
@@ -229,29 +276,19 @@ void main() {
       final String shown = tester
           .widget<SelectableText>(find.byKey(const Key('share-preview-text')))
           .data!;
+      expect(shown, contains('ٱلرَّحْمَٰنِ'));
       expect(shown, contains('— Al-Fatihah 1:2'));
-      expect(shown, contains('Saheeh International'));
+      expect(shown, isNot(contains('Mercy.')));
+      expect(shown, isNot(contains('Saheeh')));
     });
 
-    testWidgets('a completion card offers Share only when given a line', (
+    testWidgets('a completion card has no share button, only Close', (
       tester,
     ) async {
       await pump(tester, const Scaffold(body: QuietDoneCard()));
       expect(find.byKey(const Key('quiet-done-share')), findsNothing);
-      await pump(
-        tester,
-        Scaffold(
-          body: QuietDoneCard(shareText: milestoneShareText('a course')),
-        ),
-      );
-      await tester.tap(find.byKey(const Key('quiet-done-share')));
-      await settle(tester);
-      expect(
-        tester
-            .widget<SelectableText>(find.byKey(const Key('share-preview-text')))
-            .data,
-        contains('I completed a course on Ar-Rayaan.'),
-      );
+      expect(find.byKey(const Key('quiet-done-close')), findsOneWidget);
+      expect(find.textContaining('Share'), findsNothing);
     });
   });
 }

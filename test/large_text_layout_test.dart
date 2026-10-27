@@ -11,10 +11,11 @@ import 'package:ar_rayaan/features/noor/application/noor_providers.dart';
 import 'package:ar_rayaan/features/noor/domain/noor_entry.dart';
 import 'package:ar_rayaan/features/noor/presentation/noor_screen.dart';
 import 'package:ar_rayaan/features/profile/presentation/profile_screen.dart';
+import 'package:ar_rayaan/features/quran/application/quran_providers.dart';
+import 'package:ar_rayaan/features/quran/domain/quran_models.dart';
 import 'package:ar_rayaan/features/stories/data/stories_repository.dart';
 import 'package:ar_rayaan/features/stories/domain/story.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -300,31 +301,51 @@ void main() {
       expect(tester.getSize(share).shortestSide, greaterThanOrEqualTo(48));
     });
 
-    testWidgets('copies the entry and shows a snackbar', (tester) async {
-      String? copied;
-      final TestDefaultBinaryMessenger messenger =
-          TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger;
-      messenger.setMockMethodCallHandler(SystemChannels.platform, (call) async {
-        if (call.method == 'Clipboard.setData') {
-          copied =
-              (call.arguments as Map<Object?, Object?>)['text'] as String?;
-        }
-        return null;
-      });
-      addTearDown(
-        () => messenger.setMockMethodCallHandler(SystemChannels.platform, null),
-      );
+    testWidgets('previews the Arabic and reference, not the translation', (
+      tester,
+    ) async {
+      // A small stand-in for the Qur'an registry: 13 surahs, the 13th with
+      // 28 ayahs, the last one being 13:28.
+      final List<Surah> registry = <Surah>[
+        for (int n = 1; n <= 13; n++)
+          Surah(
+            meta: SurahMeta(
+              number: n,
+              arabicName: 'x',
+              transliteration: n == 13 ? 'Ar-Ra\u2019d' : 'S$n',
+              englishMeaning: 'm',
+              revelationType: 'meccan',
+              ayahCount: n == 13 ? 28 : 1,
+            ),
+            ayahs: <Ayah>[
+              for (int a = 1; a <= (n == 13 ? 28 : 1); a++)
+                Ayah(
+                  number: a,
+                  arabic: n == 13 && a == 28 ? 'REGISTRY-ARABIC' : 'a$a',
+                  english: 'translation $n:$a',
+                ),
+            ],
+          ),
+      ];
       await pumpScreen(
         tester,
         const NoorScreen(),
-        overrides: [todayNoorProvider.overrideWith((ref) async => noor)],
+        overrides: [
+          todayNoorProvider.overrideWith((ref) async => noor),
+          quranAllProvider.overrideWith((ref) async => registry),
+        ],
       );
       await tester.ensureVisible(find.byKey(const Key('noor-share')));
       await tester.tap(find.byKey(const Key('noor-share')));
       await tester.pump();
-      await tester.pump(const Duration(milliseconds: 300));
-      expect(find.textContaining('Copied'), findsOneWidget);
-      expect(copied, contains('Verily, in the remembrance of Allah'));
+      await tester.pump(const Duration(milliseconds: 400));
+      final String shown = tester
+          .widget<SelectableText>(find.byKey(const Key('share-preview-text')))
+          .data!;
+      expect(shown, contains('REGISTRY-ARABIC'));
+      expect(shown, contains('Ar-Ra\u2019d 13:28'));
+      expect(shown, isNot(contains('Verily, in the remembrance of Allah')));
+      expect(shown, isNot(contains('translation 13:28')));
     });
   });
 }

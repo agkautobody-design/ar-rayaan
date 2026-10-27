@@ -12,6 +12,8 @@ import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/core/content/content_sync.dart';
 import '../../downloads/presentation/pack_save_row.dart';
+import '../../share/application/share_service.dart';
+import '../../share/presentation/share_actions.dart';
 import '../domain/guide_glossary.dart';
 
 /// One thing a person says or recites in a guide. The Arabic is copied by
@@ -300,6 +302,20 @@ class GuideScreen extends StatelessWidget {
           Text(guide.subtitle, style: AppText.bodyMuted),
           const SizedBox(height: 8),
           ScholarReviewNote(reviewKey: 'huda.guide.${guide.id}'),
+          Align(
+            alignment: AlignmentDirectional.centerEnd,
+            // The guide's own title, steps and sources, with the review label.
+            child: ShareButton(
+              doc: ShareDoc.guide(
+                title: guide.title,
+                subtitle: guide.subtitle,
+                steps: guide.steps,
+                sources: guide.sources,
+                reviewKey: 'huda.guide.${guide.id}',
+              ),
+              subject: 'this guide',
+            ),
+          ),
           ..._glossaryBlock(),
           if (guide.showPositions) ...[
             const SizedBox(height: 14),

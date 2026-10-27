@@ -343,9 +343,9 @@ void main() {
 
     test('copied ayah text carries the credit it is given', () {
       const Ayah a = Ayah(number: 1, arabic: 'ar', english: 'en');
-      expect(ayahShareText('Al-Fatihah', 1, a), contains('Saheeh'));
+      expect(ayahCopyText('Al-Fatihah', 1, a), contains('Saheeh'));
       expect(
-        ayahShareText('Al-Fatihah', 1, a, credit: 'Credit line.'),
+        ayahCopyText('Al-Fatihah', 1, a, credit: 'Credit line.'),
         endsWith('Credit line. Shared from Ar-Rayaan.'),
       );
     });

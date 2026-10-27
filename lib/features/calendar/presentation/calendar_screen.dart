@@ -6,6 +6,8 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../../share/application/share_service.dart';
+import '../../share/presentation/share_actions.dart';
 import '../application/hijri_settings.dart';
 import '../domain/hijri_date.dart';
 import '../domain/sunnah_fasting.dart';
@@ -1070,6 +1072,20 @@ void showObservanceSheet(
                     fontFamily: AppFonts.arabic,
                     color: AppColors.gold,
                   ),
+                ),
+                // The public occasion only: its name, date, how firmly it is
+                // established and its source. Never a personal reminder.
+                ShareButton(
+                  doc: ShareDoc.calendarOccasion(
+                    name: observance.nameEn,
+                    dateLine: '${date.format()} · $gregorian',
+                    basis: observance.basis.label,
+                    about: observance.about,
+                    source: observance.source,
+                    reviewKey:
+                        'calendar.observance.${observance.month}-${observance.day}',
+                  ),
+                  subject: observance.nameEn,
                 ),
               ],
             ),
