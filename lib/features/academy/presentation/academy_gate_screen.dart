@@ -8,6 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 /// The gate of Wasia Academy — entered the way Ar-Rayaan itself is entered:
 /// a threshold of light. Bismillah in calligraphy, the knowledge verse,
@@ -89,11 +90,14 @@ class _AcademyGateState extends State<AcademyGateScreen> {
         label: 'Wasia Academy, the school that carries her name. '
             'Are those who know equal to those who do not know? '
             'Qur\u2019an 39:9. '
-            '${_minElapsed ? 'Double tap to enter.' : 'Entering the school, one moment.'}',
+            '${_minElapsed ? 'Double tap or press Enter to enter.' : 'Entering the school, one moment.'}',
         excludeSemantics: true,
         onTap: _minElapsed ? () => _enter(context) : null,
-        child: GestureDetector(
+        // A FocusableTap, not a bare GestureDetector: the keyboard can reach
+        // it (Tab, then Enter or Space) and a ring shows where focus is.
+        child: FocusableTap(
         key: const Key('academy-gate'),
+        borderRadius: 0,
         onTap: () => _enter(context),
         child: Stack(
           fit: StackFit.expand,

@@ -10,6 +10,7 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../domain/daily_hadith.dart' show dayOfYear;
+import '../../../app/theme/widgets/focus_ring.dart';
 
 /// THE DAILY HADITH — the app's heartbeat. Every day the same hadith on
 /// every device (day-of-year over the living library, which the daily cron
@@ -111,20 +112,27 @@ class _DailyHadithBannerState extends State<DailyHadithBanner> {
                 label: _on
                     ? 'Turn off the daily hadith greeting'
                     : 'Turn on the daily hadith greeting',
-                child: GestureDetector(
+                child: FocusableTap(
                   onTap: _toggle,
-                  child: Icon(
-                    _on ? Icons.notifications_active_outlined : Icons.notifications_off_outlined,
-                    size: 15, color: AppColors.gold.withValues(alpha: 0.7)),
+                  child: SizedBox(
+                    width: 44,
+                    height: 44,
+                    child: Icon(
+                        _on ? Icons.notifications_active_outlined : Icons.notifications_off_outlined,
+                        size: 18, color: AppColors.gold.withValues(alpha: 0.7)),
+                  ),
                 ),
               ),
-              const SizedBox(width: 8),
               Semantics(
                 button: true,
                 label: 'Dismiss today\'s hadith',
-                child: GestureDetector(
+                child: FocusableTap(
                   onTap: _dismiss,
-                  child: Icon(Icons.close, size: 15, color: AppColors.sand.withValues(alpha: 0.6))),
+                  child: SizedBox(
+                    width: 44,
+                    height: 44,
+                    child: Icon(Icons.close, size: 18, color: AppColors.sand.withValues(alpha: 0.6)),
+                  )),
               ),
             ]),
             const SizedBox(height: 6),

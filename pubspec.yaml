@@ -105,3 +105,6 @@ flutter:
           weight: 700
         - asset: assets/fonts/Amiri-Italic.ttf
           style: italic
+    - family: NotoSansBengali
+      fonts:
+        - asset: assets/fonts/NotoSansBengali-Regular.ttf

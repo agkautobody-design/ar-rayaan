@@ -1,0 +1,59 @@
+import 'package:flutter/foundation.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'kids_mode.dart';
+
+/// Child mode: the whole app, on this device, is a children's app until a
+/// parent turns it off with the PIN.
+///
+/// While it is on: there is no bottom navigation, no Settings, no Ask Hadi,
+/// no marriage / family-life, finance, community or Qur'an reader screens.
+/// Only Kids Corner and what it opens (Arabic letters and the stories) are
+/// reachable; the router sends every other address to Kids Corner. It is saved
+/// on the device, so a reload does not end it.
+///
+/// A plain notifier rather than a provider so the router (its refresh
+/// listenable) and widgets outside a ProviderScope can listen to it.
+final ValueNotifier<bool> kChildMode = ValueNotifier<bool>(false);
+
+const String kChildModePref = 'ar.childMode.v1';
+
+/// Reads the saved state at start-up.
+void loadChildMode(SharedPreferences prefs) {
+  kChildMode.value = prefs.getBool(kChildModePref) ?? false;
+  if (kChildMode.value) kKidsMode.value = true;
+}
+
+/// Turns child mode on or off and saves it.
+Future<void> setChildMode(SharedPreferences prefs, bool on) async {
+  kChildMode.value = on;
+  kKidsMode.value = on;
+  await prefs.setBool(kChildModePref, on);
+}
+
+/// Where child mode sends everything that is not for children.
+const String kChildHome = '/kids';
+
+/// The addresses a child can reach: Kids Corner, the letters lessons and the
+/// stories school with its story reader.
+const List<String> kChildAllowed = <String>[
+  '/kids',
+  '/academy/letters',
+  '/academy/stories',
+  '/stories/read',
+];
+
+/// True when [path] is for children.
+bool childModeAllows(String path) {
+  for (final String p in kChildAllowed) {
+    if (path == p || path.startsWith('$p/')) return true;
+  }
+  return false;
+}
+
+/// The router redirect: null (stay) when child mode is off or [path] is
+/// allowed, otherwise Kids Corner.
+String? childModeRedirect(String path) {
+  if (!kChildMode.value) return null;
+  return childModeAllows(path) ? null : kChildHome;
+}

@@ -7,6 +7,10 @@ abstract final class AppFonts {
   static const String display = 'PlayfairDisplay';
   static const String body = 'Inter';
   static const String arabic = 'Amiri';
+
+  /// Bangla fallback (Noto Sans Bengali, SIL OFL 1.1; licence text in
+  /// assets/fonts/OFL-NotoSansBengali.txt).
+  static const String bengali = 'NotoSansBengali';
 }
 
 abstract final class AppText {

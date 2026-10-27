@@ -21,6 +21,7 @@ import '../../habits/application/return_loop.dart';
 import '../../legal/legal_routes.dart';
 import '../../quran/presentation/quran_offline_card.dart';
 import '../../quran/presentation/quran_translation_card.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 /// Settings — begins with the Sound toggle promised on the locked splash
 /// artwork ("Sound can be turned off in settings").
@@ -149,9 +150,11 @@ class SettingsScreen extends ConsumerWidget {
                                     style: AppText.body.copyWith(fontSize: 14),
                                   ),
                                   Text(
-                                    'Pick English, Arabic, Bangla or Urdu. '
-                                    'Menus and home titles change; lessons, '
-                                    'stories and answers stay English.',
+                                    'Choose your language. Menus and home '
+                                    'titles are translated for Arabic, '
+                                    'Bangla and Urdu; other languages are not '
+                                    'translated yet. Lessons, stories and '
+                                    'answers stay in English.',
                                     style: AppText.bodyMuted,
                                   ),
                                 ],
@@ -395,8 +398,13 @@ class SettingsScreen extends ConsumerWidget {
                             return SwitchRow(
                               icon: Icons.face_outlined,
                               title: 'Hādi remembers you',
-                              subtitle: 'Share your name so Hādi can greet you '
-                                  'personally. Stored on this device only.',
+                              subtitle: 'Lets Hādi greet you by the name on your '
+                                  'account when it answers through an AI '
+                                  'service you set up; the name is sent to that '
+                                  'service with your question. It needs a '
+                                  'signed-in account: as a guest there is no '
+                                  'name to share, so this changes nothing. '
+                                  'Off by default.',
                               value: memoryOn,
                               onChanged: prefs == null
                                   ? null
@@ -423,7 +431,7 @@ class SettingsScreen extends ConsumerWidget {
                         button: true,
                         label: 'Replay the introduction',
                         excludeSemantics: true,
-                        child: GestureDetector(
+                        child: FocusableTap(
                         onTap: () => context.go('${AppRoutes.onboarding}?replay=1'),
                         child: Padding(
                           padding: const EdgeInsets.only(left: 4, top: 15, bottom: 15),
@@ -441,7 +449,7 @@ class SettingsScreen extends ConsumerWidget {
                       Semantics(
                         button: true,
                         label: 'Open the Terms of Service',
-                        child: GestureDetector(
+                        child: FocusableTap(
                           onTap: () => context.open(LegalRoutes.terms),
                           child: Padding(
                             padding: const EdgeInsets.only(left: 4, top: 15, bottom: 15),
@@ -454,7 +462,7 @@ class SettingsScreen extends ConsumerWidget {
                       Semantics(
                         button: true,
                         label: 'Open the Privacy Policy',
-                        child: GestureDetector(
+                        child: FocusableTap(
                           onTap: () => context.open(LegalRoutes.privacy),
                           child: Padding(
                             padding: const EdgeInsets.only(left: 4, top: 15, bottom: 15),
@@ -467,7 +475,7 @@ class SettingsScreen extends ConsumerWidget {
                       Semantics(
                         button: true,
                         label: 'Delete my account and data',
-                        child: GestureDetector(
+                        child: FocusableTap(
                           onTap: () => context.open(LegalRoutes.deleteAccount),
                           child: Padding(
                             padding: const EdgeInsets.only(left: 4, top: 15, bottom: 15),

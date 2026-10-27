@@ -15,6 +15,7 @@ import '../../prayer/application/prayer_providers.dart';
 import '../../zakat/domain/zakat_calculation.dart';
 import '../../zakat/presentation/zakat_cards.dart';
 import '../domain/ramadan_season.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 class RamadanDay {
   final int day; final String theme, arabic, text, source;
@@ -242,10 +243,12 @@ class _RamadanState extends ConsumerState<RamadanScreen> {
                     // TABS
                     Row(children: [
                       for (final (_, t) in [('Worship', 0), ('Household', 1)].indexed)
-                        Expanded(child: GestureDetector(
+                        Expanded(child: FocusableTap(
                           onTap: () => setState(() => _tab = t.$2),
                           child: Container(
                             margin: const EdgeInsets.symmetric(horizontal: 3),
+                            constraints: const BoxConstraints(minHeight: 44),
+                            alignment: Alignment.center,
                             padding: const EdgeInsets.symmetric(vertical: 8),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20),
@@ -304,6 +307,148 @@ class _RamadanState extends ConsumerState<RamadanScreen> {
     ]),
   );
 
+  /// How a fasting day is named, for the screen reader and the symbol.
+  static String fastStateName(int state) => switch (state) {
+        1 => 'fasted',
+        2 => 'excused',
+        3 => 'make-up due',
+        _ => 'not marked',
+      };
+
+  /// One day of the fasting log: 44 px square, the state is spoken and drawn
+  /// as a symbol (never by colour alone), reachable and operable by keyboard.
+  Widget _fastCell(int d) {
+    final int st = _fast[d] ?? 0;
+    final IconData? mark = switch (st) {
+      1 => Icons.check,
+      2 => Icons.remove,
+      3 => Icons.replay,
+      _ => null,
+    };
+    return Semantics(
+      button: true,
+      label: 'Day $d, ${fastStateName(st)}',
+      hint: 'Tap to change',
+      excludeSemantics: true,
+      onTap: () => _cycleFast(d),
+      child: FocusableTap(
+        key: Key('fast-day-$d'),
+        borderRadius: 10,
+        onTap: () => _cycleFast(d),
+        child: Container(
+          width: 44, height: 44,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: st == 1 ? AppColors.gold.withValues(alpha: 0.35)
+                : st == 2 ? AppColors.sand.withValues(alpha: 0.25)
+                : st == 3 ? Colors.orange.withValues(alpha: 0.25)
+                : const Color(0x1405090F),
+            border: Border.all(color: AppColors.gold.withValues(alpha: 0.25)),
+          ),
+          child: Column(mainAxisSize: MainAxisSize.min, children: [
+            Text('$d', style: TextStyle(
+                fontSize: 12,
+                color: st == 3 ? Colors.orangeAccent : AppColors.sand)),
+            SizedBox(
+              height: 14,
+              child: mark == null
+                  ? null
+                  : Icon(mark, size: 12,
+                      color: st == 3 ? Colors.orangeAccent : AppColors.goldLight),
+            ),
+          ]),
+        ),
+      ),
+    );
+  }
+
+  void _cycleFast(int d) => setState(() {
+        _fast[d] = ((_fast[d] ?? 0) + 1) % 4;
+        unawaited(_saveFast());
+      });
+
+  /// One juz of the khatam tracker.
+  Widget _juzCell(int j) {
+    final bool done = _juz.contains(j);
+    void toggle() => setState(() {
+          done ? _juz.remove(j) : _juz.add(j);
+          unawaited(_saveJuz());
+        });
+    return Semantics(
+      button: true,
+      selected: done,
+      label: 'Juz $j, ${done ? 'completed' : 'not completed'}',
+      excludeSemantics: true,
+      onTap: toggle,
+      child: FocusableTap(
+        key: Key('juz-$j'),
+        borderRadius: 10,
+        onTap: toggle,
+        child: Container(
+          width: 44, height: 44,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: done ? AppColors.gold.withValues(alpha: 0.4) : const Color(0x1405090F),
+            border: Border.all(color: AppColors.gold.withValues(alpha: 0.25)),
+          ),
+          child: Column(mainAxisSize: MainAxisSize.min, children: [
+            Text('$j', style: TextStyle(fontSize: 12,
+                color: done ? AppColors.goldLight : AppColors.sand)),
+            SizedBox(
+              height: 14,
+              child: done
+                  ? const Icon(Icons.check, size: 12, color: AppColors.goldLight)
+                  : null,
+            ),
+          ]),
+        ),
+      ),
+    );
+  }
+
+  /// Asks before a saved entry is removed (it cannot be undone).
+  Future<bool> _confirmRemove(String what) async {
+    final bool? ok = await showDialog<bool>(
+      context: context,
+      builder: (BuildContext ctx) => AlertDialog(
+        backgroundColor: const Color(0xFF0A0F18),
+        title: Text('Remove this entry?', style: AppText.titleMedium),
+        content: Text(what, style: AppText.bodyMuted),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(false),
+            child: const Text('Keep it'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(true),
+            child: const Text('Remove'),
+          ),
+        ],
+      ),
+    );
+    return ok ?? false;
+  }
+
+  /// The small "remove" control on a saved line: 44 px, labelled.
+  Widget _removeButton(String label, Future<void> Function() onConfirmed) {
+    return Semantics(
+      button: true,
+      label: label,
+      excludeSemantics: true,
+      onTap: () => unawaited(onConfirmed()),
+      child: FocusableTap(
+        onTap: () => unawaited(onConfirmed()),
+        child: const SizedBox(
+          width: 44,
+          height: 44,
+          child: Icon(Icons.close, size: 18, color: AppColors.sand),
+        ),
+      ),
+    );
+  }
+
   // ---------------- WORSHIP LAYER ----------------
   Widget _worship() {
     final fasted = _fast.values.where((v) => v == 1).length;
@@ -314,53 +459,17 @@ class _RamadanState extends ConsumerState<RamadanScreen> {
           style: AppText.eyebrow),
       const SizedBox(height: 6),
       GlassCard(child: Wrap(spacing: 4, runSpacing: 4, children: [
-        for (var d = 1; d <= _season.length; d++)
-          GestureDetector(
-            onTap: () => setState(() {
-              _fast[d] = ((_fast[d] ?? 0) + 1) % 4;
-              unawaited(_saveFast());
-            }),
-            child: Container(
-              width: 34, height: 34,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                color: _fast[d] == 1 ? AppColors.gold.withValues(alpha: 0.35)
-                    : _fast[d] == 2 ? AppColors.sand.withValues(alpha: 0.25)
-                    : _fast[d] == 3 ? Colors.orange.withValues(alpha: 0.25)
-                    : const Color(0x1405090F),
-                border: Border.all(color: AppColors.gold.withValues(alpha: 0.25)),
-              ),
-              child: Text('$d', style: TextStyle(
-                  fontSize: 12,
-                  color: _fast[d] == 3 ? Colors.orangeAccent : AppColors.sand)),
-            ),
-          ),
+        for (var d = 1; d <= _season.length; d++) _fastCell(d),
       ])),
-      Text('tap cycles: none → fasted → excused → makeup-due · the Gentle Ledger — '
-          'missed fasts are debts to Allah, and He loves they be paid', style: AppText.bodyMuted.copyWith(fontSize: 12)),
+      Text('Tap a day to change it: not marked → fasted → excused → make-up due. '
+          'A fast missed for a valid reason is made up on other days '
+          '(Qur’an 2:184). Each day also shows its state as a symbol and in '
+          'words for a screen reader.', style: AppText.bodyMuted.copyWith(fontSize: 12)),
       const SizedBox(height: 12),
       Text('QUR’AN KHATAM · ${_juz.length}/30 ajza', style: AppText.eyebrow),
       const SizedBox(height: 6),
       GlassCard(child: Wrap(spacing: 4, runSpacing: 4, children: [
-        for (var j = 1; j <= 30; j++)
-          GestureDetector(
-            onTap: () => setState(() {
-              _juz.contains(j) ? _juz.remove(j) : _juz.add(j);
-              unawaited(_saveJuz());
-            }),
-            child: Container(
-              width: 34, height: 34,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                color: _juz.contains(j) ? AppColors.gold.withValues(alpha: 0.4) : const Color(0x1405090F),
-                border: Border.all(color: AppColors.gold.withValues(alpha: 0.25)),
-              ),
-              child: Text('$j', style: TextStyle(fontSize: 12,
-                  color: _juz.contains(j) ? AppColors.goldLight : AppColors.sand)),
-            ),
-          ),
+        for (var j = 1; j <= 30; j++) _juzCell(j),
       ])),
       const SizedBox(height: 12),
       Text('TARAWEEH NOTES', style: AppText.eyebrow),
@@ -433,12 +542,15 @@ class _RamadanState extends ConsumerState<RamadanScreen> {
               Expanded(child: Text(
                   [_fields(e)[1], _fields(e)[2]].where((s) => s.isNotEmpty).join(' · '),
                   style: AppText.bodyMuted.copyWith(fontSize: 12))),
-              GestureDetector(
-                  onTap: () {
-                    setState(() => _sadaqah.remove(e));
-                    unawaited(_saveSadaqah());
-                  },
-                  child: const Icon(Icons.close, size: 14, color: AppColors.sand)),
+              _removeButton('Remove this sadaqah entry', () async {
+                if (!await _confirmRemove(
+                    'This sadaqah entry will be removed from your list.')) {
+                  return;
+                }
+                if (!mounted) return;
+                setState(() => _sadaqah.remove(e));
+                unawaited(_saveSadaqah());
+              }),
             ])),
       ])),
       const SizedBox(height: 12),
@@ -460,11 +572,15 @@ class _RamadanState extends ConsumerState<RamadanScreen> {
           Padding(padding: const EdgeInsets.only(top: 4),
             child: Row(children: [
               Expanded(child: Text(t, style: AppText.body.copyWith(fontSize: 13))),
-              GestureDetector(onTap: () {
-                    setState(() => _table.remove(t));
-                    unawaited(_saveTable());
-                  },
-                  child: const Icon(Icons.close, size: 14, color: AppColors.sand)),
+              _removeButton('Remove from the iftar table', () async {
+                if (!await _confirmRemove(
+                    '“$t” will be removed from the iftar table.')) {
+                  return;
+                }
+                if (!mounted) return;
+                setState(() => _table.remove(t));
+                unawaited(_saveTable());
+              }),
             ])),
         if (_table.isEmpty)
           Text('The Prophet ﷺ said: whoever feeds a fasting person has a reward like theirs (Tirmidhi 807, sahih per Darussalam). Plan the table — the reward is booked by the intention.',

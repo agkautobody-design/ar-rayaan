@@ -11,6 +11,7 @@ import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/needs_internet_view.dart';
 import '../../../app/theme/widgets/not_found_view.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 class FinLesson {
   final String id, title, kicker, subtitle;
@@ -57,7 +58,7 @@ class RayaanStocksScreen extends ConsumerWidget {
                 const ScreenHeader(title: 'Rayaan Stocks', close: true),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(4, 0, 4, 10),
-                  child: GestureDetector(
+                  child: FocusableTap(
                     onTap: () => context.go('/finance/floor'),
                     child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),

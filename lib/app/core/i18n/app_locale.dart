@@ -64,7 +64,8 @@ class LocaleController extends StateNotifier<Locale> {
     final String c = l.languageCode;
     if (c == 'en') return 'Everything is in English';
     if (kUiLabelLanguages.contains(c)) {
-      return 'Menus, home tiles and the first questions are translated. '
+      return 'Menus, the Home screen words, the introduction and the first '
+          'questions are translated (not yet checked by a native speaker). '
           'Everything else is English';
     }
     if (L10n._strings.containsKey(c)) {

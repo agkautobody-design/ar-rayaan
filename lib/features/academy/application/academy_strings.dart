@@ -826,7 +826,7 @@ abstract final class AcademyStrings {
       'track.teen': 'Teen',
       'track.parent': 'Parent',
       'track.hint':
-          'Changes what this page shows. Every school stays open on every track.',
+          'Changes what this page shows. On the Child track, other tracks and the other schools open only after a grown-up answers a question.',
       'door.title': 'Where would you like to begin?',
       'door.new': 'I’m new to Islam',
       'door.newBody': 'A gentle first lesson, then one step at a time.',
@@ -844,7 +844,7 @@ abstract final class AcademyStrings {
       'child.today.review': 'to look at again',
       'child.more': 'More schools, with a grown-up',
       'child.moreBody':
-          'These schools are for older learners. Ask a grown-up to come with you.',
+          'These schools are for older learners. A grown-up answers a question to open them.',
       'parent.familyTitle': 'The Family Wing',
       'parent.familyBody':
           'See your children’s lessons and exams, set reminders, and control the AI setting.',
