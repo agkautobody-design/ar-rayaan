@@ -1,0 +1,4858 @@
+{
+ "schema": 3,
+ "course": "char",
+ "lessons": [
+  {
+   "id": "char.u1.l1",
+   "title": "Sincerity: the reason behind the deed",
+   "minutes": 18,
+   "intro": "Learn what the Qur’an and hadith teach about the reason behind a deed.",
+   "steps": [
+    {
+     "id": "why",
+     "kind": "why",
+     "title": "Why start with the reason",
+     "body": [
+      "Two people can do the same deed. One does it for Allah. The other does it to be seen. The deed looks the same from outside. Ikhlas (sincerity) is about the reason behind it.",
+      "This lesson teaches what Allah and His Messenger ﷺ said about the reason, in four short texts."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 1; Muslim 1905"
+    },
+    {
+     "id": "quran",
+     "kind": "teach",
+     "title": "What Allah commanded",
+     "body": [
+      "Allah says: “And they were not commanded except to worship Allah, [being] sincere to Him in religion, inclining to truth, and to establish prayer and to give zakah. And that is the correct religion” (98:5).",
+      "Sincerity is part of what we were commanded to do. It is not an extra."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 98:5",
+     "quran": "q:98:5"
+    },
+    {
+     "id": "niyyah",
+     "kind": "story",
+     "title": "The hadith of intentions",
+     "body": [
+      "Umar ibn al-Khattab said: “I heard the Messenger of Allah ﷺ say: «The reward of deeds depends upon the intentions, and every person will get the reward according to what he has intended. So whoever emigrated for worldly benefits or for a woman to marry, his emigration was for what he emigrated for»” (Bukhari 1).",
+      "Two men made the same journey. Their reward was not the same, because the reason was not the same."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 1"
+    },
+    {
+     "id": "three",
+     "kind": "story",
+     "title": "Three people judged first",
+     "body": [
+      "Abu Hurayrah reported that the Prophet ﷺ said that the first people judged on the Day of Judgment will be a man who died as a martyr, a man who learned and taught knowledge and recited the Qur’an, and a man whom Allah had made rich. Each will list the blessings he enjoyed, and each will say what he did with them (Muslim 1905).",
+      "To each Allah will say: you lied. The fighter fought so that it would be said he was brave. The scholar studied so that it would be said he was a scholar and a reciter. The rich man gave so that it would be said he was generous. And it was said. Orders are passed and each is dragged on his face into the Fire (Muslim 1905).",
+      "This hadith is serious. It teaches us to be afraid of showing off (riya), and to keep asking why we do what we do."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 1905"
+    },
+    {
+     "id": "shirk",
+     "kind": "teach",
+     "title": "What Allah says about deeds done for others",
+     "body": [
+      "The Prophet ﷺ reported that Allah the Most High said: “I am the One, Who does not stand in need of a partner. If anyone does anything in which he associates anyone else with Me, I shall abandon him with the one whom he associates with Allah” (Muslim 2985).",
+      "This is a hadith qudsi: the words are the Prophet’s ﷺ report of what Allah said."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 2985",
+     "review": "The line about hadith qudsi is a general description. Please confirm the wording of Muslim 2985 as quoted."
+    },
+    {
+     "id": "limits",
+     "kind": "teach",
+     "title": "What sincerity is not",
+     "body": [
+      "It does not mean no one can ever see your good deed. The hadith of the three speaks about a person who did a thing for the praise.",
+      "Nor does it mean you must be sure of your own sincerity. The scholars warn us to fear for it. We ask Allah to accept, and we keep checking our reasons."
+     ],
+     "label": "[Interpretive]",
+     "source": "Muslim 1905",
+     "review": "These two notes are the usual teaching of scholars and are drawn from Muslim 1905 and not stated in it. Please confirm."
+    },
+    {
+     "id": "check",
+     "kind": "teach",
+     "title": "A way to check the reason",
+     "body": [
+      "Before a deed, ask: why am I doing this? Is it for Allah? Would I still do it if no one knew?",
+      "After a deed, ask Allah to accept it, and do not tell it to people unless there is a good reason."
+     ],
+     "label": "[Reflection]",
+     "source": "Bukhari 1; Muslim 1905"
+    },
+    {
+     "id": "renew",
+     "kind": "howto",
+     "title": "Renewing your intention",
+     "steps": [
+      {
+       "text": "Pause before the deed.",
+       "detail": "Bukhari 1: the reward follows the intention."
+      },
+      {
+       "text": "Say in your heart: this is for Allah.",
+       "detail": "Qur’an 98:5."
+      },
+      {
+       "text": "Do the deed.",
+       "detail": "General guidance."
+      },
+      {
+       "text": "If a thought of praise comes, push it away and go on.",
+       "detail": "General guidance."
+      },
+      {
+       "text": "Ask Allah to accept it.",
+       "detail": "General guidance."
+      }
+     ],
+     "intro": "A short plan for any deed.",
+     "mistakes": [
+      "Waiting for a perfect heart before acting.",
+      "Stopping a good deed because you feel you are showing off."
+     ],
+     "source": "Bukhari 1; Qur’an 98:5",
+     "label": "[Interpretive]",
+     "review": "The steps are general guidance. The idea of not stopping a good deed for fear of riya is a common teaching of scholars; please confirm."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "The order of the three judged",
+     "prompt": "Put these in order from the hadith of the three.",
+     "items": [
+      {
+       "text": "The first man brought is a martyr",
+       "why": "He is first.",
+       "back": "three"
+      },
+      {
+       "text": "The second is a scholar and reciter",
+       "why": "He is second.",
+       "back": "three"
+      },
+      {
+       "text": "The third is a rich man who gave",
+       "why": "He is third.",
+       "back": "three"
+      }
+     ],
+     "explain": "Martyr, scholar, rich man."
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the line to its source",
+     "prompt": "Match each line to its source.",
+     "pairs": [
+      {
+       "left": {
+        "text": "The reward of deeds depends upon the intentions"
+       },
+       "right": {
+        "text": "Bukhari 1"
+       },
+       "why": "The hadith of intentions.",
+       "back": "niyyah"
+      },
+      {
+       "left": {
+        "text": "You fought that it might be said you were brave"
+       },
+       "right": {
+        "text": "Muslim 1905"
+       },
+       "why": "The hadith of the three.",
+       "back": "three"
+      },
+      {
+       "left": {
+        "text": "Sincere to Him in religion"
+       },
+       "right": {
+        "text": "Qur’an 98:5"
+       },
+       "why": "The verse.",
+       "back": "quran"
+      },
+      {
+       "left": {
+        "text": "I shall abandon him with the one he associates with Me"
+       },
+       "right": {
+        "text": "Muslim 2985"
+       },
+       "why": "The hadith qudsi.",
+       "back": "shirk"
+      }
+     ]
+    },
+    {
+     "id": "check2",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "i1",
+       "q": "What does Bukhari 1 say deeds depend on?",
+       "options": [
+        {
+         "text": "The intention"
+        },
+        {
+         "text": "The result",
+         "reteach": "Deeds depend on the intention.",
+         "back": "niyyah"
+        },
+        {
+         "text": "The place",
+         "reteach": "Deeds depend on the intention.",
+         "back": "niyyah"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 1.",
+       "type": "mcq"
+      },
+      {
+       "id": "i2",
+       "q": "What does 98:5 say people were commanded to be?",
+       "options": [
+        {
+         "text": "Rich",
+         "reteach": "It says sincere.",
+         "back": "quran"
+        },
+        {
+         "text": "Famous",
+         "reteach": "It says sincere.",
+         "back": "quran"
+        },
+        {
+         "text": "Sincere to Allah in religion"
+        }
+       ],
+       "answer": 2,
+       "explain": "Qur’an 98:5.",
+       "type": "mcq"
+      },
+      {
+       "id": "i3",
+       "q": "Why did the martyr in Muslim 1905 go to the Fire?",
+       "options": [
+        {
+         "text": "He fought so that people would call him brave"
+        },
+        {
+         "text": "He did not fight",
+         "reteach": "He fought, but for praise.",
+         "back": "three"
+        },
+        {
+         "text": "He was too young",
+         "reteach": "He fought, but for praise.",
+         "back": "three"
+        }
+       ],
+       "answer": 0,
+       "explain": "Muslim 1905.",
+       "type": "mcq"
+      },
+      {
+       "id": "i4",
+       "q": "What did the scholar want?",
+       "options": [
+        {
+         "text": "To be called a scholar and a reciter"
+        },
+        {
+         "text": "To teach for Allah",
+         "reteach": "He wanted the praise.",
+         "back": "three"
+        },
+        {
+         "text": "To be rich",
+         "reteach": "He wanted the praise.",
+         "back": "three"
+        }
+       ],
+       "answer": 0,
+       "explain": "Muslim 1905.",
+       "type": "mcq"
+      },
+      {
+       "id": "i5",
+       "q": "What did the rich man want?",
+       "options": [
+        {
+         "text": "To please Allah",
+         "reteach": "He wanted the praise.",
+         "back": "three"
+        },
+        {
+         "text": "To be called generous"
+        },
+        {
+         "text": "To save money",
+         "reteach": "He wanted the praise.",
+         "back": "three"
+        }
+       ],
+       "answer": 1,
+       "explain": "Muslim 1905.",
+       "type": "mcq"
+      },
+      {
+       "id": "i6",
+       "q": "What does Allah say in Muslim 2985 about a deed done for someone else too?",
+       "options": [
+        {
+         "text": "He leaves that person to the one he joined with Him"
+        },
+        {
+         "text": "He doubles it",
+         "reteach": "He abandons the doer.",
+         "back": "shirk"
+        },
+        {
+         "text": "He accepts half",
+         "reteach": "He abandons the doer.",
+         "back": "shirk"
+        }
+       ],
+       "answer": 0,
+       "explain": "Muslim 2985.",
+       "type": "mcq"
+      },
+      {
+       "id": "i7",
+       "q": "You feel a thought of praise while giving charity. What does the lesson suggest?",
+       "options": [
+        {
+         "text": "Push the thought away and carry on"
+        },
+        {
+         "text": "Stop giving",
+         "reteach": "Do not stop a good deed for this.",
+         "back": "limits"
+        },
+        {
+         "text": "Tell everyone",
+         "reteach": "Do not seek praise.",
+         "back": "limits"
+        }
+       ],
+       "answer": 0,
+       "explain": "Carry on.",
+       "type": "scenario",
+       "scenario": "You are giving charity and a thought comes: people will see this and think well of me."
+      },
+      {
+       "id": "i8",
+       "q": "Which is a question to ask before a deed?",
+       "options": [
+        {
+         "text": "Why am I doing this? Would I do it if no one knew?"
+        },
+        {
+         "text": "How many will see it?",
+         "reteach": "That is the wrong question.",
+         "back": "check"
+        },
+        {
+         "text": "How much will I get?",
+         "reteach": "That is the wrong question.",
+         "back": "check"
+        }
+       ],
+       "answer": 0,
+       "explain": "Check the reason.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Deeds depend on intentions.",
+      "Showing off can cancel a great deed.",
+      "Before a deed I renew my intention for Allah."
+     ],
+     "next": "Next: patience."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Do one deed quietly",
+     "body": "Choose one deed today and do it so that only Allah knows.",
+     "route": "/prayer",
+     "button": "Open prayer"
+    }
+   ]
+  },
+  {
+   "id": "char.u1.l2",
+   "title": "Patience: holding on with Allah",
+   "minutes": 18,
+   "intro": "Learn what the Qur’an and hadith say about patience and how to practise it.",
+   "steps": [
+    {
+     "id": "why",
+     "kind": "why",
+     "title": "Patience is active",
+     "body": [
+      "Sabr (patience) is often heard as “put up with it”. In the texts it is firmer: holding yourself back from what Allah dislikes, keeping on with what He loves, and staying with Him through a hard time.",
+      "This lesson takes the main texts on patience and a few ways to practise it."
+     ],
+     "label": "[Interpretive]",
+     "source": "Qur’an 2:153; Bukhari 1469",
+     "review": "The three-part description of sabr is the common teaching of scholars, and is not a quotation. Please confirm or reword."
+    },
+    {
+     "id": "seek",
+     "kind": "teach",
+     "title": "Help through patience",
+     "body": [
+      "Allah says: “And seek help through patience and prayer, and indeed, it is difficult except for the humbly submissive [to Allah]” (2:45).",
+      "Patience and prayer are the two tools. Neither is easy. Both are given to those who bow to Allah."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 2:45",
+     "quran": "q:2:45"
+    },
+    {
+     "id": "test",
+     "kind": "teach",
+     "title": "The test and the words",
+     "body": [
+      "Allah says: “And We will surely test you with something of fear and hunger and a loss of wealth and lives and fruits, but give good tidings to the patient, who, when disaster strikes them, say, «Indeed we belong to Allah, and indeed to Him we will return»” (2:155-156).",
+      "The test is promised. The good news is for those who are patient and turn to Allah."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 2:155-156",
+     "quran": "q:2:155-156"
+    },
+    {
+     "id": "istirja",
+     "kind": "say",
+     "title": "What the patient say",
+     "refs": [
+      "eol.calamity"
+     ],
+     "note": "The Prophet ﷺ taught these words for a calamity, as Umm Salama reported (Muslim 918). They are also the words of the verse above (2:156).",
+     "source": "Muslim 918; Qur’an 2:156",
+     "label": "[Established]"
+    },
+    {
+     "id": "yaqub",
+     "kind": "story",
+     "title": "Yaqub’s patience",
+     "body": [
+      "When Yaqub lost his son, he said: “I only complain of my suffering and my grief to Allah, and I know from Allah that which you do not know” (12:86). He told his sons to go and look for Yusuf and not to despair of relief from Allah (12:87).",
+      "He cried, and he kept his hope. Patience does not mean you do not feel. It means you take the feeling to Allah."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 12:86-87",
+     "quran": "q:12:86"
+    },
+    {
+     "id": "first",
+     "kind": "story",
+     "title": "The first stroke",
+     "body": [
+      "The Prophet ﷺ passed a woman crying at a grave. He told her to fear Allah and be patient. She did not know him and answered sharply. When she knew who it was, she came to his door and said she had not known him. He said that real patience is at the first stroke (Bukhari 1283)."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 1283"
+    },
+    {
+     "id": "grow",
+     "kind": "teach",
+     "title": "Patience can be built",
+     "body": [
+      "Abu Said al-Khudri reported that the Prophet ﷺ said: “Whoever remains patient, Allah will make him patient. Nobody can be given a blessing better and greater than patience” (Bukhari 1469).",
+      "So you do not have to wait until you are patient. You try, and Allah helps."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 1469"
+    },
+    {
+     "id": "good",
+     "kind": "teach",
+     "title": "Good in every case",
+     "body": [
+      "Suhayb reported that the Prophet ﷺ said: “Strange are the ways of a believer, for there is good in every affair of his. If he has an occasion to feel delight, he thanks Allah, and there is good for him in it. If he gets into trouble and endures it patiently, there is good for him in it” (Muslim 2999).",
+      "Thanks in ease and patience in hardship both bring good."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 2999"
+    },
+    {
+     "id": "practise",
+     "kind": "howto",
+     "title": "Practising patience",
+     "steps": [
+      {
+       "text": "Name the hard thing out loud to yourself.",
+       "detail": "General guidance."
+      },
+      {
+       "text": "Say the words of 2:156.",
+       "detail": "Qur’an 2:156."
+      },
+      {
+       "text": "Hold your tongue and your hands in the first moment.",
+       "detail": "Bukhari 1283."
+      },
+      {
+       "text": "Pray two rakahs and ask Allah for help.",
+       "detail": "Qur’an 2:45."
+      },
+      {
+       "text": "Keep doing what you must do that day.",
+       "detail": "General guidance."
+      },
+      {
+       "text": "Tell Allah your grief, as Yaqub did.",
+       "detail": "Qur’an 12:86."
+      }
+     ],
+     "intro": "A short plan for a hard day.",
+     "mistakes": [
+      "Pretending you feel nothing.",
+      "Complaining about Allah instead of to Him."
+     ],
+     "source": "Qur’an 2:45, 2:156, 12:86; Bukhari 1283",
+     "label": "[Interpretive]",
+     "review": "The steps combine texts with general guidance. Please confirm."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "The steps in a crisis",
+     "prompt": "Put these in order.",
+     "items": [
+      {
+       "text": "Hold your tongue in the first moment",
+       "why": "First stroke.",
+       "back": "first"
+      },
+      {
+       "text": "Say Inna lillahi wa inna ilayhi raji’un",
+       "why": "Then the words.",
+       "back": "istirja"
+      },
+      {
+       "text": "Pray and ask for help",
+       "why": "Then seek help.",
+       "back": "seek"
+      },
+      {
+       "text": "Keep to your duties",
+       "why": "Then carry on.",
+       "back": "practise"
+      }
+     ],
+     "explain": "Silence, words, prayer, carry on."
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the source",
+     "prompt": "Match each line to its source.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Seek help through patience and prayer"
+       },
+       "right": {
+        "text": "Qur’an 2:45"
+       },
+       "why": "The verse.",
+       "back": "seek"
+      },
+      {
+       "left": {
+        "text": "Real patience is at the first stroke"
+       },
+       "right": {
+        "text": "Bukhari 1283"
+       },
+       "why": "The woman at the grave.",
+       "back": "first"
+      },
+      {
+       "left": {
+        "text": "Whoever remains patient, Allah will make him patient"
+       },
+       "right": {
+        "text": "Bukhari 1469"
+       },
+       "why": "The hadith on growing patience.",
+       "back": "grow"
+      },
+      {
+       "left": {
+        "text": "I only complain of my suffering and my grief to Allah"
+       },
+       "right": {
+        "text": "Qur’an 12:86"
+       },
+       "why": "Yaqub.",
+       "back": "yaqub"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "p1",
+       "q": "What two things does 2:45 say to seek help through?",
+       "options": [
+        {
+         "text": "Money and work",
+         "reteach": "It says patience and prayer.",
+         "back": "seek"
+        },
+        {
+         "text": "Silence and travel",
+         "reteach": "It says patience and prayer.",
+         "back": "seek"
+        },
+        {
+         "text": "Patience and prayer"
+        }
+       ],
+       "answer": 2,
+       "explain": "Qur’an 2:45.",
+       "type": "mcq"
+      },
+      {
+       "id": "p2",
+       "q": "What do the patient say when a disaster strikes (2:156)?",
+       "options": [
+        {
+         "text": "Why me?",
+         "reteach": "They say the words of return.",
+         "back": "test"
+        },
+        {
+         "text": "Indeed we belong to Allah, and to Him we return"
+        },
+        {
+         "text": "Nothing",
+         "reteach": "They say the words of return.",
+         "back": "test"
+        }
+       ],
+       "answer": 1,
+       "explain": "Qur’an 2:156.",
+       "type": "mcq"
+      },
+      {
+       "id": "p3",
+       "q": "Where did Yaqub take his grief?",
+       "options": [
+        {
+         "text": "To the people",
+         "reteach": "He took it to Allah.",
+         "back": "yaqub"
+        },
+        {
+         "text": "To Allah"
+        },
+        {
+         "text": "To nobody",
+         "reteach": "He took it to Allah.",
+         "back": "yaqub"
+        }
+       ],
+       "answer": 1,
+       "explain": "Qur’an 12:86.",
+       "type": "mcq"
+      },
+      {
+       "id": "p4",
+       "q": "When is real patience, according to Bukhari 1283?",
+       "options": [
+        {
+         "text": "After a year",
+         "reteach": "It is at the first stroke.",
+         "back": "first"
+        },
+        {
+         "text": "At the first stroke"
+        },
+        {
+         "text": "After the funeral",
+         "reteach": "It is at the first stroke.",
+         "back": "first"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 1283.",
+       "type": "mcq"
+      },
+      {
+       "id": "p5",
+       "q": "What does Bukhari 1469 say about trying to be patient?",
+       "options": [
+        {
+         "text": "Patience is only born in some people",
+         "reteach": "Allah will make him patient.",
+         "back": "grow"
+        },
+        {
+         "text": "Allah will make him patient"
+        },
+        {
+         "text": "It is impossible to learn",
+         "reteach": "Allah will make him patient.",
+         "back": "grow"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 1469.",
+       "type": "mcq"
+      },
+      {
+       "id": "p6",
+       "q": "What does Muslim 2999 say a believer does in trouble?",
+       "options": [
+        {
+         "text": "Complains",
+         "reteach": "He endures patiently.",
+         "back": "good"
+        },
+        {
+         "text": "Endures it patiently, and there is good in it"
+        },
+        {
+         "text": "Gives up",
+         "reteach": "He endures patiently.",
+         "back": "good"
+        }
+       ],
+       "answer": 1,
+       "explain": "Muslim 2999.",
+       "type": "mcq"
+      },
+      {
+       "id": "p7",
+       "q": "Your exam result is bad and you are angry. What is the first step?",
+       "options": [
+        {
+         "text": "Say something sharp",
+         "reteach": "Patience is at the first stroke.",
+         "back": "first"
+        },
+        {
+         "text": "Post about it",
+         "reteach": "Patience is at the first stroke.",
+         "back": "first"
+        },
+        {
+         "text": "Hold your tongue and say the words of return"
+        }
+       ],
+       "answer": 2,
+       "explain": "Hold your tongue.",
+       "type": "scenario",
+       "scenario": "Your exam result arrives and it is much worse than you expected. You feel angry."
+      },
+      {
+       "id": "p8",
+       "q": "Does patience mean feeling nothing?",
+       "options": [
+        {
+         "text": "Yes",
+         "reteach": "Yaqub felt grief.",
+         "back": "yaqub"
+        },
+        {
+         "text": "No, Yaqub cried and still took his grief to Allah"
+        },
+        {
+         "text": "Only men feel nothing",
+         "reteach": "Yaqub felt grief.",
+         "back": "yaqub"
+        }
+       ],
+       "answer": 1,
+       "explain": "Qur’an 12:86.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Patience is active.",
+      "Seek help through patience and prayer.",
+      "Hold your tongue at the first stroke.",
+      "Take your grief to Allah."
+     ],
+     "next": "Next: gratitude."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Read the verses",
+     "body": "Read 2:153 to 2:157 in Surah Al-Baqarah.",
+     "route": "/quran/2",
+     "button": "Open the Qur’an"
+    }
+   ]
+  },
+  {
+   "id": "char.u1.l3",
+   "title": "Gratitude: the promise of increase",
+   "minutes": 18,
+   "intro": "Learn what the Qur’an and hadith say about gratitude and how to practise it.",
+   "steps": [
+    {
+     "id": "why",
+     "kind": "why",
+     "title": "Gratitude is more than a word",
+     "body": [
+      "Shukr (gratitude) has three parts: the heart knows the blessing is from Allah, the tongue says so, and the body uses the blessing in a way Allah likes.",
+      "This lesson takes the texts on gratitude, then gives you short practices."
+     ],
+     "label": "[Interpretive]",
+     "source": "Qur’an 14:7",
+     "review": "The three-part description of shukr is the common teaching of scholars and is not a quotation. Please confirm."
+    },
+    {
+     "id": "quran",
+     "kind": "teach",
+     "title": "What Allah promised",
+     "body": [
+      "Allah says: “And [remember] when your Lord proclaimed, «If you are grateful, I will surely increase you [in favor]; but if you deny, indeed, My punishment is severe»” (14:7).",
+      "The promise is increase for the grateful. The warning is for those who deny blessings."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 14:7",
+     "quran": "q:14:7"
+    },
+    {
+     "id": "feet",
+     "kind": "story",
+     "title": "The Prophet ﷺ in prayer",
+     "body": [
+      "Al-Mughirah reported that the Prophet ﷺ used to stand in prayer until his feet swelled. He was asked why he did this, and he said: “Should I not be a thankful slave?” (Bukhari 1130).",
+      "He did not pray for himself alone. He prayed as thanks. Even those who are forgiven give thanks."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 1130"
+    },
+    {
+     "id": "good",
+     "kind": "teach",
+     "title": "Gratitude in ease",
+     "body": [
+      "Suhayb reported that the Prophet ﷺ said that a believer, if he has an occasion to feel delight, thanks Allah, and there is good for him in it (Muslim 2999).",
+      "Ease is a test of gratitude, as hardship is a test of patience."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 2999"
+    },
+    {
+     "id": "look",
+     "kind": "teach",
+     "title": "Look at those below you",
+     "body": [
+      "Abu Hurayrah reported that the Prophet ﷺ said: “Look at those who stand at a lower level than you, and do not look at those who stand at a higher level than you, for that is better-suited that you do not disparage Allah’s favors” (Muslim 2963).",
+      "Comparing upward makes us feel poor. Looking at those with less keeps the blessing in view."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 2963"
+    },
+    {
+     "id": "rich",
+     "kind": "teach",
+     "title": "True wealth",
+     "body": [
+      "Abu Hurayrah reported that the Prophet ﷺ said: “Wealth is not in having many possessions, but rather true wealth is feeling sufficiency in the soul” (Bukhari 6446)."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 6446"
+    },
+    {
+     "id": "people",
+     "kind": "teach",
+     "title": "Thanking people",
+     "body": [
+      "Abu Hurayrah reported that the Prophet ﷺ said: “He who does not thank the people is not thankful to Allah” (Abu Dawud 4811, sahih per al-Albani and Zubair Ali Zai).",
+      "So gratitude to Allah includes saying thank you to those who helped you."
+     ],
+     "label": "[Established]",
+     "source": "Abu Dawud 4811, sahih per al-Albani and Zubair Ali Zai"
+    },
+    {
+     "id": "end",
+     "kind": "say",
+     "title": "Thanks after food",
+     "refs": [
+      "hlth.eat.end"
+     ],
+     "note": "These are the words the Prophet ﷺ said when his food was lifted (Bukhari 5458). It is one way to give thanks for something we receive every day.",
+     "source": "Bukhari 5458",
+     "label": "[Established]"
+    },
+    {
+     "id": "practise",
+     "kind": "howto",
+     "title": "Practising gratitude",
+     "steps": [
+      {
+       "text": "Name three blessings you did not earn.",
+       "detail": "General guidance."
+      },
+      {
+       "text": "Say alhamdulillah for each, out loud.",
+       "detail": "Bukhari 5458 for food."
+      },
+      {
+       "text": "Thank one person by name.",
+       "detail": "Abu Dawud 4811, sahih per al-Albani and Zubair Ali Zai."
+      },
+      {
+       "text": "Use one blessing in a way Allah likes (give, teach, serve).",
+       "detail": "General guidance."
+      },
+      {
+       "text": "Look at someone with less before you complain.",
+       "detail": "Muslim 2963."
+      }
+     ],
+     "intro": "A short plan for the evening.",
+     "mistakes": [
+      "Thanking Allah only when things go well.",
+      "Thanking Allah but not the people who helped."
+     ],
+     "source": "Muslim 2963; Bukhari 5458",
+     "label": "[Reflection]",
+     "review": "The steps combine texts and general guidance. Please confirm."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "The three parts of gratitude",
+     "prompt": "Put these in order.",
+     "items": [
+      {
+       "text": "The heart knows the blessing is from Allah",
+       "why": "First.",
+       "back": "why"
+      },
+      {
+       "text": "The tongue says alhamdulillah",
+       "why": "Then.",
+       "back": "why"
+      },
+      {
+       "text": "The body uses the blessing well",
+       "why": "Then.",
+       "back": "why"
+      }
+     ],
+     "explain": "Heart, tongue, body."
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the source",
+     "prompt": "Match each line to its source.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Should I not be a thankful slave?"
+       },
+       "right": {
+        "text": "Bukhari 1130"
+       },
+       "why": "The Prophet’s ﷺ prayer.",
+       "back": "feet"
+      },
+      {
+       "left": {
+        "text": "If you are grateful, I will surely increase you"
+       },
+       "right": {
+        "text": "Qur’an 14:7"
+       },
+       "why": "The verse.",
+       "back": "quran"
+      },
+      {
+       "left": {
+        "text": "True wealth is feeling sufficiency in the soul"
+       },
+       "right": {
+        "text": "Bukhari 6446"
+       },
+       "why": "Wealth of the soul.",
+       "back": "rich"
+      },
+      {
+       "left": {
+        "text": "Look at those who stand at a lower level than you"
+       },
+       "right": {
+        "text": "Muslim 2963"
+       },
+       "why": "About comparing.",
+       "back": "look"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "t1",
+       "q": "What does 14:7 promise the grateful?",
+       "options": [
+        {
+         "text": "Nothing",
+         "reteach": "It promises increase.",
+         "back": "quran"
+        },
+        {
+         "text": "More of Allah’s favour"
+        },
+        {
+         "text": "A short life",
+         "reteach": "It promises increase.",
+         "back": "quran"
+        }
+       ],
+       "answer": 1,
+       "explain": "Qur’an 14:7.",
+       "type": "mcq"
+      },
+      {
+       "id": "t2",
+       "q": "Why did the Prophet ﷺ pray until his feet swelled?",
+       "options": [
+        {
+         "text": "To show people",
+         "reteach": "He said: should I not be a thankful slave.",
+         "back": "feet"
+        },
+        {
+         "text": "Because he was ill",
+         "reteach": "He said: should I not be a thankful slave.",
+         "back": "feet"
+        },
+        {
+         "text": "To be a thankful slave"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 1130.",
+       "type": "mcq"
+      },
+      {
+       "id": "t3",
+       "q": "In Muslim 2963, who do you look at to keep from disparaging Allah’s favours?",
+       "options": [
+        {
+         "text": "Those above you",
+         "reteach": "Look at those below.",
+         "back": "look"
+        },
+        {
+         "text": "Those below you"
+        },
+        {
+         "text": "Nobody",
+         "reteach": "Look at those below.",
+         "back": "look"
+        }
+       ],
+       "answer": 1,
+       "explain": "Muslim 2963.",
+       "type": "mcq"
+      },
+      {
+       "id": "t4",
+       "q": "What is true wealth in Bukhari 6446?",
+       "options": [
+        {
+         "text": "Feeling sufficiency in the soul"
+        },
+        {
+         "text": "Having many possessions",
+         "reteach": "The hadith says sufficiency in the soul.",
+         "back": "rich"
+        },
+        {
+         "text": "A big house",
+         "reteach": "The hadith says sufficiency in the soul.",
+         "back": "rich"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 6446.",
+       "type": "mcq"
+      },
+      {
+       "id": "t5",
+       "q": "What does Abu Dawud 4811, sahih per al-Albani and Zubair Ali Zai, say about not thanking people?",
+       "options": [
+        {
+         "text": "He is not thankful to Allah"
+        },
+        {
+         "text": "It does not matter",
+         "reteach": "He is not thankful to Allah.",
+         "back": "people"
+        },
+        {
+         "text": "It is a sign of humility",
+         "reteach": "He is not thankful to Allah.",
+         "back": "people"
+        }
+       ],
+       "answer": 0,
+       "explain": "Abu Dawud 4811, sahih per al-Albani and Zubair Ali Zai.",
+       "type": "mcq"
+      },
+      {
+       "id": "t6",
+       "q": "What are the three parts of gratitude as scholars describe it?",
+       "options": [
+        {
+         "text": "Money, time, food",
+         "reteach": "It is heart, tongue and body.",
+         "back": "why"
+        },
+        {
+         "text": "Prayer, fast, hajj",
+         "reteach": "It is heart, tongue and body.",
+         "back": "why"
+        },
+        {
+         "text": "Heart, tongue and body"
+        }
+       ],
+       "answer": 2,
+       "explain": "General teaching.",
+       "type": "mcq"
+      },
+      {
+       "id": "t7",
+       "q": "A colleague covers your shift. What does the lesson ask?",
+       "options": [
+        {
+         "text": "Thank her by name, and thank Allah"
+        },
+        {
+         "text": "Say nothing",
+         "reteach": "Thank the person.",
+         "back": "people"
+        },
+        {
+         "text": "Only thank Allah",
+         "reteach": "Thank the person too.",
+         "back": "people"
+        }
+       ],
+       "answer": 0,
+       "explain": "Thank her.",
+       "type": "scenario",
+       "scenario": "A colleague covers your shift without being asked."
+      },
+      {
+       "id": "t8",
+       "q": "You feel poor after scrolling through photos of rich people. What helps?",
+       "options": [
+        {
+         "text": "Scroll more",
+         "reteach": "Look at those with less.",
+         "back": "look"
+        },
+        {
+         "text": "Look at those with less, and name what you have"
+        },
+        {
+         "text": "Buy something",
+         "reteach": "Look at those with less.",
+         "back": "look"
+        }
+       ],
+       "answer": 1,
+       "explain": "Look below.",
+       "type": "scenario",
+       "scenario": "You feel poor after scrolling through photos of rich people."
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Gratitude is heart, tongue and body.",
+      "Allah promises increase to the grateful.",
+      "I thank people as well as Allah."
+     ],
+     "next": "Next: truthfulness."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Three blessings",
+     "body": "Before sleep, name three blessings you did not earn and say alhamdulillah for each.",
+     "route": "/adhkar",
+     "button": "Open adhkar"
+    }
+   ]
+  },
+  {
+   "id": "char.u1.l4",
+   "title": "Truthfulness: the road and the story of Kab",
+   "minutes": 18,
+   "intro": "Learn what the Prophet ﷺ said about truth and lies, and the story of Kab ibn Malik.",
+   "steps": [
+    {
+     "id": "why",
+     "kind": "why",
+     "title": "Where the truth leads",
+     "body": [
+      "A small lie seems cheap. The Prophet ﷺ taught that speech shapes the person who speaks. This lesson takes his words and one true story of a man who chose the truth when a lie would have been easier."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 6094; Bukhari 4418"
+    },
+    {
+     "id": "road",
+     "kind": "teach",
+     "title": "The road of truth and the road of lies",
+     "body": [
+      "Abdullah ibn Masud reported that the Prophet ﷺ said: “Truthfulness leads to righteousness, and righteousness leads to Paradise. And a man keeps on telling the truth until he becomes a truthful person. Falsehood leads to wickedness, and wickedness leads to the Fire, and a man may keep on telling lies till he is written before Allah a liar” (Bukhari 6094).",
+      "Habits are built word by word. Both roads start with a small step."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 6094"
+    },
+    {
+     "id": "sign",
+     "kind": "teach",
+     "title": "A sign of hypocrisy",
+     "body": [
+      "Abu Hurayrah reported that the Prophet ﷺ said: “The signs of a hypocrite are three: whenever he speaks, he tells a lie; whenever he promises, he breaks it; if you trust him, he proves dishonest” (Bukhari 33).",
+      "The hadith names speech first. The three signs are about habit and not about one slip."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 33",
+     "review": "The note that these are signs of habit and not of one slip is the usual teaching of scholars. Please confirm."
+    },
+    {
+     "id": "quran",
+     "kind": "teach",
+     "title": "Be with the truthful",
+     "body": [
+      "Allah says: “O you who have believed, fear Allah and be with those who are true” (9:119).",
+      "The verse asks for two things: fear of Allah, and company with the truthful."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 9:119",
+     "quran": "q:9:119"
+    },
+    {
+     "id": "kab",
+     "kind": "story",
+     "title": "Kab ibn Malik stays behind",
+     "body": [
+      "Kab ibn Malik stayed behind from the expedition to Tabuk without an excuse. When the Prophet ﷺ returned, Kab said he thought up false excuses, and then he gave them up. He knew he could never come out of this by a false statement, so he decided firmly to speak the truth (Bukhari 4418).",
+      "He said to the Prophet ﷺ: “If I tell you a lie to seek your favour, Allah would surely make you angry with me soon. If I tell you the truth, though you will be angry, I hope for Allah’s forgiveness. By Allah, there was no excuse for me.” The Prophet ﷺ said: “As for this man, he has told the truth. So get up until Allah decides your case” (Bukhari 4418)."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 4418"
+    },
+    {
+     "id": "kab2",
+     "kind": "story",
+     "title": "The wait and the verse",
+     "body": [
+      "Kab and two others waited a long time for a decision. At the end, Allah revealed the verses that forgave the three (9:118), followed by the command to be with the truthful (9:119). Kab said that, after guiding him to Islam, Allah never gave him a greater blessing than his not lying to the Messenger of Allah ﷺ (Bukhari 4418).",
+      "The truth cost him a hard time. It also saved him."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 4418; Qur’an 9:118-119"
+    },
+    {
+     "id": "limits",
+     "kind": "teach",
+     "title": "What about hard cases?",
+     "body": [
+      "Some situations make people ask whether a lie is ever allowed, such as to protect a life or to make peace. Scholars discuss these cases using other texts, and the schools do not give the same answer in every detail.",
+      "This lesson does not rule on them. Ask a scholar of your school. For ordinary life the rule is plain: tell the truth."
+     ],
+     "label": "[Interpretive]",
+     "source": "Scholars of the four schools (not cited here)",
+     "review": "The note that the schools differ on hard cases is general. Please confirm or give the schools."
+    },
+    {
+     "id": "practise",
+     "kind": "howto",
+     "title": "Practising truthfulness",
+     "steps": [
+      {
+       "text": "Pick one small place where you shade the truth (excuses, “on my way”, “I read it”).",
+       "detail": "General guidance."
+      },
+      {
+       "text": "Stop and say the plain thing instead.",
+       "detail": "Bukhari 6094."
+      },
+      {
+       "text": "Keep your promises, or say early that you cannot.",
+       "detail": "Bukhari 33."
+      },
+      {
+       "text": "Return what is entrusted to you.",
+       "detail": "Bukhari 33."
+      },
+      {
+       "text": "Spend time with people who tell the truth.",
+       "detail": "Qur’an 9:119."
+      }
+     ],
+     "intro": "A short plan.",
+     "mistakes": [
+      "Exaggerating to be funny.",
+      "Saying “maybe” when you mean no."
+     ],
+     "source": "Bukhari 6094, 33; Qur’an 9:119",
+     "label": "[Interpretive]",
+     "review": "The steps combine texts with general guidance. Please confirm."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "Kab’s story in order",
+     "prompt": "Put the story in order.",
+     "items": [
+      {
+       "text": "Kab stays behind from Tabuk",
+       "why": "First.",
+       "back": "kab"
+      },
+      {
+       "text": "He thinks of excuses and gives them up",
+       "why": "Next.",
+       "back": "kab"
+      },
+      {
+       "text": "He tells the Prophet ﷺ the truth",
+       "why": "Then.",
+       "back": "kab"
+      },
+      {
+       "text": "He waits for Allah’s decision",
+       "why": "Then.",
+       "back": "kab2"
+      },
+      {
+       "text": "Allah forgives the three",
+       "why": "Last.",
+       "back": "kab2"
+      }
+     ],
+     "explain": "Stay, excuses, truth, wait, forgiven."
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the line to its source",
+     "prompt": "Match each line to its source.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Truthfulness leads to righteousness"
+       },
+       "right": {
+        "text": "Bukhari 6094"
+       },
+       "why": "The road of truth.",
+       "back": "road"
+      },
+      {
+       "left": {
+        "text": "Whenever he speaks, he tells a lie"
+       },
+       "right": {
+        "text": "Bukhari 33"
+       },
+       "why": "The signs of a hypocrite.",
+       "back": "sign"
+      },
+      {
+       "left": {
+        "text": "Fear Allah and be with those who are true"
+       },
+       "right": {
+        "text": "Qur’an 9:119"
+       },
+       "why": "The verse.",
+       "back": "quran"
+      },
+      {
+       "left": {
+        "text": "There was no excuse for me"
+       },
+       "right": {
+        "text": "Bukhari 4418"
+       },
+       "why": "Kab.",
+       "back": "kab"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "r1",
+       "q": "What does truthfulness lead to in Bukhari 6094?",
+       "options": [
+        {
+         "text": "Wealth",
+         "reteach": "It leads to righteousness.",
+         "back": "road"
+        },
+        {
+         "text": "Fame",
+         "reteach": "It leads to righteousness.",
+         "back": "road"
+        },
+        {
+         "text": "Righteousness, and righteousness to Paradise"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 6094.",
+       "type": "mcq"
+      },
+      {
+       "id": "r2",
+       "q": "What happens to a man who keeps on lying?",
+       "options": [
+        {
+         "text": "Nothing",
+         "reteach": "He is written a liar.",
+         "back": "road"
+        },
+        {
+         "text": "He is written before Allah as a liar"
+        },
+        {
+         "text": "He becomes clever",
+         "reteach": "He is written a liar.",
+         "back": "road"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 6094.",
+       "type": "mcq"
+      },
+      {
+       "id": "r3",
+       "q": "Which is the first sign of a hypocrite in Bukhari 33?",
+       "options": [
+        {
+         "text": "He prays little",
+         "reteach": "The first sign is lying.",
+         "back": "sign"
+        },
+        {
+         "text": "He is shy",
+         "reteach": "The first sign is lying.",
+         "back": "sign"
+        },
+        {
+         "text": "When he speaks, he lies"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 33.",
+       "type": "mcq"
+      },
+      {
+       "id": "r4",
+       "q": "What does 9:119 tell believers to do?",
+       "options": [
+        {
+         "text": "Avoid people",
+         "reteach": "It says be with the truthful.",
+         "back": "quran"
+        },
+        {
+         "text": "Judge people",
+         "reteach": "It says be with the truthful.",
+         "back": "quran"
+        },
+        {
+         "text": "Fear Allah and be with the truthful"
+        }
+       ],
+       "answer": 2,
+       "explain": "Qur’an 9:119.",
+       "type": "mcq"
+      },
+      {
+       "id": "r5",
+       "q": "What did Kab decide when the Prophet ﷺ returned?",
+       "options": [
+        {
+         "text": "To make an excuse",
+         "reteach": "He gave up excuses.",
+         "back": "kab"
+        },
+        {
+         "text": "To hide",
+         "reteach": "He told the truth.",
+         "back": "kab"
+        },
+        {
+         "text": "To tell the truth"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 4418.",
+       "type": "mcq"
+      },
+      {
+       "id": "r6",
+       "q": "What did Kab later say was his greatest blessing after Islam?",
+       "options": [
+        {
+         "text": "That he was rich",
+         "reteach": "He named the truth.",
+         "back": "kab2"
+        },
+        {
+         "text": "That he did not lie to the Messenger of Allah ﷺ"
+        },
+        {
+         "text": "That he was quick",
+         "reteach": "He named the truth.",
+         "back": "kab2"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 4418.",
+       "type": "mcq"
+      },
+      {
+       "id": "r7",
+       "q": "Your friend asks if you finished the work. You did not. What does the lesson suggest?",
+       "options": [
+        {
+         "text": "Say plainly that you did not, and say when you will"
+        },
+        {
+         "text": "Say you did",
+         "reteach": "That builds the habit of lying.",
+         "back": "practise"
+        },
+        {
+         "text": "Say you are busy",
+         "reteach": "Say the plain thing.",
+         "back": "practise"
+        }
+       ],
+       "answer": 0,
+       "explain": "Be plain.",
+       "type": "scenario",
+       "scenario": "Your friend asks if you finished the work you promised. You did not."
+      },
+      {
+       "id": "r8",
+       "q": "Can this lesson tell you if a lie is ever allowed to save a life?",
+       "options": [
+        {
+         "text": "No, ask a scholar of your school; the schools do not give the same answer in every detail"
+        },
+        {
+         "text": "Yes, always",
+         "reteach": "This lesson does not rule on it.",
+         "back": "limits"
+        },
+        {
+         "text": "Yes, never",
+         "reteach": "This lesson does not rule on it.",
+         "back": "limits"
+        }
+       ],
+       "answer": 0,
+       "explain": "Ask a scholar.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Truth leads to righteousness and Paradise.",
+      "Lying becomes a habit like truth does.",
+      "Kab told the truth and was saved by it."
+     ],
+     "next": "Next: anger."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Read the verse",
+     "body": "Open Surah At-Tawbah and read verses 117 to 119.",
+     "route": "/quran/9",
+     "button": "Open the Qur’an"
+    }
+   ]
+  },
+  {
+   "id": "char.u2.l1",
+   "title": "Anger: control and refuge",
+   "minutes": 18,
+   "intro": "Learn what the Prophet ﷺ said about anger, the words to say, and a short plan to cool down.",
+   "steps": [
+    {
+     "id": "why",
+     "kind": "why",
+     "title": "Anger is a fire",
+     "body": [
+      "Anger is a feeling every person has. The texts do not ask us to feel nothing. They ask us to control what we do with it.",
+      "This lesson gives you the words of the Prophet ﷺ, one phrase to say, and steps to cool down."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 6114, 6116"
+    },
+    {
+     "id": "strong",
+     "kind": "teach",
+     "title": "Who is strong",
+     "body": [
+      "Abu Hurayrah reported that the Messenger of Allah ﷺ said: “The strong is not the one who overcomes the people by his strength, but the strong is the one who controls himself while in anger” (Bukhari 6114)."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 6114"
+    },
+    {
+     "id": "advise",
+     "kind": "story",
+     "title": "Advise me",
+     "body": [
+      "A man said to the Prophet ﷺ: “Advise me.” The Prophet ﷺ said: “Do not become angry.” The man asked again and again, and each time the Prophet ﷺ said: “Do not become angry” (Bukhari 6116).",
+      "The man asked for advice, and this was the advice he was given, over and over."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 6116"
+    },
+    {
+     "id": "quran",
+     "kind": "teach",
+     "title": "What Allah loves",
+     "body": [
+      "Allah describes the doers of good as those “who spend [in the cause of Allah] during ease and hardship and who restrain anger and who pardon the people - and Allah loves the doers of good” (3:134)."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 3:134",
+     "quran": "q:3:134"
+    },
+    {
+     "id": "redface",
+     "kind": "story",
+     "title": "The man whose face turned red",
+     "body": [
+      "Sulayman ibn Surad said that he was sitting with the Prophet ﷺ when two men abused each other. The face of one turned red and his veins swelled. The Prophet ﷺ said: “I know a word, which if he says it, what he feels will go away. If he said: «I seek refuge with Allah from Satan», what he feels would go away” (Bukhari 3282).",
+      "The people told the man what the Prophet ﷺ had said. He answered: “Am I mad?” (Bukhari 3282). He refused, and we are not told he calmed down."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 3282"
+    },
+    {
+     "id": "refuge",
+     "kind": "say",
+     "title": "The words to say",
+     "refs": [
+      "char.refuge"
+     ],
+     "note": "These are the words the Prophet ﷺ said would take away the anger. Say them quietly, in your heart or aloud, as soon as you feel it rise.",
+     "source": "Bukhari 3282",
+     "label": "[Established]"
+    },
+    {
+     "id": "sit",
+     "kind": "teach",
+     "title": "Change your position",
+     "body": [
+      "Abu Dharr reported that the Messenger of Allah ﷺ said: “When one of you becomes angry while standing, he should sit down. If the anger leaves him, well and good; otherwise he should lie down” (Abu Dawud 4782, sahih per al-Albani and Zubair Ali Zai).",
+      "A small physical change can lower the heat."
+     ],
+     "label": "[Established]",
+     "source": "Abu Dawud 4782, sahih per al-Albani and Zubair Ali Zai"
+    },
+    {
+     "id": "limits",
+     "kind": "teach",
+     "title": "Is all anger wrong?",
+     "body": [
+      "The hadith does not ask us to stop feeling anger. It asks us to control ourselves in it. Anger for the sake of Allah, for example at injustice, is a different matter, and scholars discuss when it is right to act on it.",
+      "This lesson is about personal anger: at family, friends and colleagues."
+     ],
+     "label": "[Interpretive]",
+     "source": "Bukhari 6114",
+     "review": "The note on righteous anger is general teaching and not a quotation. Please confirm."
+    },
+    {
+     "id": "cool",
+     "kind": "howto",
+     "title": "When you feel it rise",
+     "steps": [
+      {
+       "text": "Stop speaking.",
+       "detail": "Bukhari 6116: do not become angry."
+      },
+      {
+       "text": "Say: I seek refuge with Allah from Satan.",
+       "detail": "Bukhari 3282."
+      },
+      {
+       "text": "If you are standing, sit down. If still angry, lie down.",
+       "detail": "Abu Dawud 4782, sahih per al-Albani and Zubair Ali Zai."
+      },
+      {
+       "text": "Make wudu if you can.",
+       "detail": "General guidance; it is often taught but the text is not cited here."
+      },
+      {
+       "text": "Come back to the matter when it has cooled.",
+       "detail": "General guidance."
+      }
+     ],
+     "intro": "A short plan.",
+     "mistakes": [
+      "Replying at once in writing.",
+      "Keeping it in and growing a grudge."
+     ],
+     "source": "Bukhari 3282, 6116; Abu Dawud (sahih)",
+     "label": "[Interpretive]",
+     "review": "The wudu step is a common teaching and is not cited. Please confirm or remove."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "The steps in order",
+     "prompt": "Put these in order.",
+     "items": [
+      {
+       "text": "Stop speaking",
+       "why": "First.",
+       "back": "advise"
+      },
+      {
+       "text": "Say the words of refuge",
+       "why": "Then.",
+       "back": "refuge"
+      },
+      {
+       "text": "Sit down, then lie down if needed",
+       "why": "Then.",
+       "back": "sit"
+      },
+      {
+       "text": "Return to the matter when calm",
+       "why": "Last.",
+       "back": "cool"
+      }
+     ],
+     "explain": "Stop, refuge, sit, return."
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the source",
+     "prompt": "Match each line to its source.",
+     "pairs": [
+      {
+       "left": {
+        "text": "The strong is the one who controls himself in anger"
+       },
+       "right": {
+        "text": "Bukhari 6114"
+       },
+       "why": "The strong one.",
+       "back": "strong"
+      },
+      {
+       "left": {
+        "text": "Do not become angry"
+       },
+       "right": {
+        "text": "Bukhari 6116"
+       },
+       "why": "The advice.",
+       "back": "advise"
+      },
+      {
+       "left": {
+        "ref": "char.refuge"
+       },
+       "right": {
+        "text": "The words to say"
+       },
+       "why": "The words of refuge.",
+       "back": "refuge"
+      },
+      {
+       "left": {
+        "text": "Those who restrain anger and pardon the people"
+       },
+       "right": {
+        "text": "Qur’an 3:134"
+       },
+       "why": "The verse.",
+       "back": "quran"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "a1",
+       "q": "Who is strong, according to Bukhari 6114?",
+       "options": [
+        {
+         "text": "The one who controls himself in anger"
+        },
+        {
+         "text": "The one who wins a fight",
+         "reteach": "It is the one who controls himself.",
+         "back": "strong"
+        },
+        {
+         "text": "The loudest speaker",
+         "reteach": "It is the one who controls himself.",
+         "back": "strong"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 6114.",
+       "type": "mcq"
+      },
+      {
+       "id": "a2",
+       "q": "What advice did the Prophet ﷺ give the man who asked three times?",
+       "options": [
+        {
+         "text": "Do not become angry"
+        },
+        {
+         "text": "Pray more",
+         "reteach": "He said: do not become angry.",
+         "back": "advise"
+        },
+        {
+         "text": "Give charity",
+         "reteach": "He said: do not become angry.",
+         "back": "advise"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 6116.",
+       "type": "mcq"
+      },
+      {
+       "id": "a3",
+       "q": "What does 3:134 say about those who restrain anger?",
+       "options": [
+        {
+         "text": "They are weak",
+         "reteach": "Allah loves them.",
+         "back": "quran"
+        },
+        {
+         "text": "They are punished",
+         "reteach": "Allah loves them.",
+         "back": "quran"
+        },
+        {
+         "text": "Allah loves the doers of good"
+        }
+       ],
+       "answer": 2,
+       "explain": "Qur’an 3:134.",
+       "type": "mcq"
+      },
+      {
+       "id": "a4",
+       "q": "What did the Prophet ﷺ say would take away the anger?",
+       "options": [
+        {
+         "text": "I seek refuge with Allah from Satan"
+        },
+        {
+         "text": "Praise be to Allah",
+         "reteach": "He said seek refuge.",
+         "back": "refuge"
+        },
+        {
+         "text": "Allah is great",
+         "reteach": "He said seek refuge.",
+         "back": "refuge"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 3282.",
+       "type": "mcq"
+      },
+      {
+       "id": "a5",
+       "q": "If you are angry while standing, what does Abu Dawud 4782, sahih per al-Albani and Zubair Ali Zai, say to do?",
+       "options": [
+        {
+         "text": "Walk away fast",
+         "reteach": "He said sit down.",
+         "back": "sit"
+        },
+        {
+         "text": "Sit down, and lie down if it stays"
+        },
+        {
+         "text": "Shout",
+         "reteach": "He said sit down.",
+         "back": "sit"
+        }
+       ],
+       "answer": 1,
+       "explain": "Abu Dawud 4782, sahih per al-Albani and Zubair Ali Zai.",
+       "type": "mcq"
+      },
+      {
+       "id": "a6",
+       "q": "A message from a colleague makes you furious. What is the first step?",
+       "options": [
+        {
+         "text": "Reply at once",
+         "reteach": "Do not become angry; stop first.",
+         "back": "cool"
+        },
+        {
+         "text": "Forward it",
+         "reteach": "Stop first.",
+         "back": "cool"
+        },
+        {
+         "text": "Stop and do not reply yet"
+        }
+       ],
+       "answer": 2,
+       "explain": "Stop first.",
+       "type": "scenario",
+       "scenario": "A message from a colleague makes you furious."
+      },
+      {
+       "id": "a7",
+       "q": "Does the lesson say you must never feel anger?",
+       "options": [
+        {
+         "text": "No, it asks you to control what you do with it"
+        },
+        {
+         "text": "Yes",
+         "reteach": "It asks for control.",
+         "back": "limits"
+        },
+        {
+         "text": "Only at home",
+         "reteach": "It asks for control.",
+         "back": "limits"
+        }
+       ],
+       "answer": 0,
+       "explain": "Control.",
+       "type": "mcq"
+      },
+      {
+       "id": "a8",
+       "q": "Which words are the words of refuge?",
+       "options": [
+        {
+         "text": "I seek refuge with Allah from Satan"
+        },
+        {
+         "text": "There is no god but Allah",
+         "reteach": "That is the testimony.",
+         "back": "refuge"
+        },
+        {
+         "text": "Glory be to Allah",
+         "reteach": "That is tasbih.",
+         "back": "refuge"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 3282.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Strength is self-control in anger.",
+      "Say the words of refuge.",
+      "Sit or lie down if you are standing."
+     ],
+     "next": "Next: envy."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Say it",
+     "body": "Next time you feel angry, say the words of refuge before you speak.",
+     "route": "/adhkar",
+     "button": "Open adhkar"
+    }
+   ]
+  },
+  {
+   "id": "char.u2.l2",
+   "title": "Envy: the second look",
+   "minutes": 18,
+   "intro": "Learn the difference between envy and ghibtah, and a cure taken from the texts.",
+   "steps": [
+    {
+     "id": "why",
+     "kind": "why",
+     "title": "The second look",
+     "body": [
+      "Envy (hasad) is wishing that a blessing leave another person. It is different from wishing you had the same good. The first is blamed in the texts. This lesson separates the two, and gives a cure."
+     ],
+     "label": "[Interpretive]",
+     "source": "Bukhari 73, 6064",
+     "review": "The definition of hasad as wishing a blessing leave another is the usual scholarly definition and is not a quotation. Please confirm."
+    },
+    {
+     "id": "quran",
+     "kind": "teach",
+     "title": "Do not wish for what Allah gave others",
+     "body": [
+      "Allah says: “And do not wish for that by which Allah has made some of you exceed others. For men is a share of what they have earned, and for women is a share of what they have earned. And ask Allah of his bounty” (4:32).",
+      "The way out is in the last words: ask Allah of His bounty."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 4:32",
+     "quran": "q:4:32"
+    },
+    {
+     "id": "refuge",
+     "kind": "teach",
+     "title": "Seeking refuge from the envier",
+     "body": [
+      "Allah teaches us to seek refuge “from the evil of an envier when he envies” (113:5).",
+      "So envy is a real harm, and Allah gives us a way to ask for protection from it."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 113:5",
+     "quran": "q:113:5"
+    },
+    {
+     "id": "ban",
+     "kind": "teach",
+     "title": "What the Prophet ﷺ forbade",
+     "body": [
+      "Abu Hurayrah reported that the Prophet ﷺ said: “Beware of suspicion, for suspicion is the worst of false tales. Do not look for others’ faults, do not spy, do not be jealous of one another, do not desert one another, and do not hate one another. O servants of Allah! Be brothers” (Bukhari 6064).",
+      "Envy is put next to spying, desertion and hatred, the things that break brotherhood."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 6064"
+    },
+    {
+     "id": "ghibta",
+     "kind": "teach",
+     "title": "The good kind: wanting the same",
+     "body": [
+      "Abdullah ibn Masud reported that the Prophet ﷺ said: “Do not wish to be like anyone except in two cases: a person to whom Allah has given wealth and he spends it righteously, and one to whom Allah has given wisdom and he acts according to it and teaches it to others” (Bukhari 73).",
+      "Wishing to do good as others do, without wishing them to lose it, is allowed. Scholars call it ghibtah."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 73",
+     "review": "The term ghibtah is the usual scholarly name for this and is not in the hadith. Please confirm."
+    },
+    {
+     "id": "dua",
+     "kind": "teach",
+     "title": "The cure: pray for them",
+     "body": [
+      "The cure for envy is to do the opposite: make dua for the person, by name. A believer is asked to love for his brother what he loves for himself. Anas reported that the Prophet ﷺ said: “None of you will have faith till he wishes for his brother what he likes for himself” (Bukhari 13).",
+      "Praying for good for them starts to move the heart."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 13"
+    },
+    {
+     "id": "weak",
+     "kind": "teach",
+     "title": "A report we do not rely on",
+     "body": [
+      "A widely quoted saying says that envy eats good deeds as fire eats wood. Its chain is graded weak, so we do not teach it as a hadith. The teaching on envy above does not depend on it."
+     ],
+     "label": "[Interpretive]",
+     "source": "Abu Dawud (weak report; not used)",
+     "review": "This refers to a weak report in Abu Dawud which the old course text cited with the grade weak. No number is cited here. Please confirm."
+    },
+    {
+     "id": "cure",
+     "kind": "howto",
+     "title": "When you feel envy",
+     "steps": [
+      {
+       "text": "Admit it to yourself, plainly.",
+       "detail": "General guidance."
+      },
+      {
+       "text": "Do not speak against the person.",
+       "detail": "Bukhari 6064."
+      },
+      {
+       "text": "Make dua for them by name.",
+       "detail": "Bukhari 13."
+      },
+      {
+       "text": "Ask Allah for your own good.",
+       "detail": "Qur’an 4:32."
+      },
+      {
+       "text": "Seek refuge from the harm of envy.",
+       "detail": "Qur’an 113:5."
+      },
+      {
+       "text": "Go and congratulate them.",
+       "detail": "General guidance."
+      }
+     ],
+     "intro": "A short plan.",
+     "mistakes": [
+      "Telling yourself you feel nothing.",
+      "Hinting against them to others."
+     ],
+     "source": "Bukhari 6064, 13; Qur’an 4:32, 113:5",
+     "label": "[Reflection]",
+     "review": "The steps combine texts and general guidance. Please confirm."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "The cure in order",
+     "prompt": "Put these in order.",
+     "items": [
+      {
+       "text": "Admit the feeling",
+       "why": "First.",
+       "back": "cure"
+      },
+      {
+       "text": "Stop any speech against them",
+       "why": "Then.",
+       "back": "ban"
+      },
+      {
+       "text": "Make dua for them",
+       "why": "Then.",
+       "back": "dua"
+      },
+      {
+       "text": "Congratulate them",
+       "why": "Last.",
+       "back": "cure"
+      }
+     ],
+     "explain": "Admit, stop speech, dua, congratulate."
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the source",
+     "prompt": "Match each line to its source.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Do not wish for that by which Allah has made some of you exceed others"
+       },
+       "right": {
+        "text": "Qur’an 4:32"
+       },
+       "why": "The verse.",
+       "back": "quran"
+      },
+      {
+       "left": {
+        "text": "From the evil of an envier when he envies"
+       },
+       "right": {
+        "text": "Qur’an 113:5"
+       },
+       "why": "The surah.",
+       "back": "refuge"
+      },
+      {
+       "left": {
+        "text": "Do not be jealous of one another"
+       },
+       "right": {
+        "text": "Bukhari 6064"
+       },
+       "why": "The hadith.",
+       "back": "ban"
+      },
+      {
+       "left": {
+        "text": "He wishes for his brother what he likes for himself"
+       },
+       "right": {
+        "text": "Bukhari 13"
+       },
+       "why": "The hadith.",
+       "back": "dua"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "e1",
+       "q": "What is envy, as scholars define it?",
+       "options": [
+        {
+         "text": "Wishing to have the same good",
+         "reteach": "That is ghibtah.",
+         "back": "ghibta"
+        },
+        {
+         "text": "Being proud",
+         "reteach": "That is arrogance.",
+         "back": "why"
+        },
+        {
+         "text": "Wishing a blessing would leave another person"
+        }
+       ],
+       "answer": 2,
+       "explain": "Scholars’ definition.",
+       "type": "mcq"
+      },
+      {
+       "id": "e2",
+       "q": "What does 4:32 tell us to do instead of wishing?",
+       "options": [
+        {
+         "text": "Ask Allah of His bounty"
+        },
+        {
+         "text": "Complain",
+         "reteach": "It says ask Allah.",
+         "back": "quran"
+        },
+        {
+         "text": "Take it",
+         "reteach": "It says ask Allah.",
+         "back": "quran"
+        }
+       ],
+       "answer": 0,
+       "explain": "Qur’an 4:32.",
+       "type": "mcq"
+      },
+      {
+       "id": "e3",
+       "q": "What does 113:5 teach us to seek refuge from?",
+       "options": [
+        {
+         "text": "The evil of an envier when he envies"
+        },
+        {
+         "text": "The evil of dreams",
+         "reteach": "It is the envier.",
+         "back": "refuge"
+        },
+        {
+         "text": "The evil of the night only",
+         "reteach": "It is the envier.",
+         "back": "refuge"
+        }
+       ],
+       "answer": 0,
+       "explain": "Qur’an 113:5.",
+       "type": "mcq"
+      },
+      {
+       "id": "e4",
+       "q": "In Bukhari 6064, what is envy listed next to?",
+       "options": [
+        {
+         "text": "Prayer and fasting",
+         "reteach": "It is with things that break brotherhood.",
+         "back": "ban"
+        },
+        {
+         "text": "Spying, desertion and hatred"
+        },
+        {
+         "text": "Trade and travel",
+         "reteach": "It is with things that break brotherhood.",
+         "back": "ban"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 6064.",
+       "type": "mcq"
+      },
+      {
+       "id": "e5",
+       "q": "In Bukhari 73, wishing to be like whom is allowed?",
+       "options": [
+        {
+         "text": "The richest man",
+         "reteach": "Only these two.",
+         "back": "ghibta"
+        },
+        {
+         "text": "The one who spends wealth righteously, and the one who acts on and teaches wisdom"
+        },
+        {
+         "text": "The strongest man",
+         "reteach": "Only these two.",
+         "back": "ghibta"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 73.",
+       "type": "mcq"
+      },
+      {
+       "id": "e6",
+       "q": "What is the cure the lesson gives?",
+       "options": [
+        {
+         "text": "Avoid them",
+         "reteach": "The cure is dua for them.",
+         "back": "dua"
+        },
+        {
+         "text": "Say nothing and hope",
+         "reteach": "The cure is dua for them.",
+         "back": "dua"
+        },
+        {
+         "text": "Make dua for the person by name"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 13.",
+       "type": "mcq"
+      },
+      {
+       "id": "e7",
+       "q": "A friend gets the job you wanted. What is the first step?",
+       "options": [
+        {
+         "text": "Tell others she was lucky",
+         "reteach": "Do not speak against her.",
+         "back": "cure"
+        },
+        {
+         "text": "Avoid her",
+         "reteach": "Do not desert her.",
+         "back": "ban"
+        },
+        {
+         "text": "Admit the feeling, and do not speak against her"
+        }
+       ],
+       "answer": 2,
+       "explain": "Admit it.",
+       "type": "scenario",
+       "scenario": "A friend gets the job you wanted."
+      },
+      {
+       "id": "e8",
+       "q": "Why do we not teach the saying that envy eats good deeds as fire eats wood?",
+       "options": [
+        {
+         "text": "Its chain is graded weak"
+        },
+        {
+         "text": "It is too harsh",
+         "reteach": "The reason is the grade.",
+         "back": "weak"
+        },
+        {
+         "text": "It is in the Qur’an",
+         "reteach": "It is graded weak.",
+         "back": "weak"
+        }
+       ],
+       "answer": 0,
+       "explain": "Weak grade.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Envy is wishing a blessing would leave another person.",
+      "Wishing to do the same good is allowed.",
+      "The cure is dua for them and asking Allah for your own."
+     ],
+     "next": "Next: arrogance."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Read the surah",
+     "body": "Open Surah Al-Falaq and read it.",
+     "route": "/quran/113",
+     "button": "Open the Qur’an"
+    }
+   ]
+  },
+  {
+   "id": "char.u2.l3",
+   "title": "Arrogance: the false height",
+   "minutes": 18,
+   "intro": "Learn what the Prophet ﷺ said pride is, the warnings, and how he showed humility.",
+   "steps": [
+    {
+     "id": "why",
+     "kind": "why",
+     "title": "The false height",
+     "body": [
+      "Arrogance (kibr) makes a person feel above others and above the truth. It was the first sin of Iblis. This lesson gives the definition the Prophet ﷺ gave, the warnings, and the humility he showed."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 91; Qur’an 7:12"
+    },
+    {
+     "id": "def",
+     "kind": "teach",
+     "title": "What arrogance is",
+     "body": [
+      "Abdullah ibn Masud reported that the Prophet ﷺ said: “He who has in his heart the weight of a mustard seed of pride shall not enter Paradise.” A man said: “A person loves that his dress should be fine and his shoes should be fine.” He said: “Allah is Graceful and He loves grace. Pride is disdaining the truth and contempt for the people” (Muslim 91).",
+      "So fine clothes are not pride. Pride is refusing the truth and looking down on people."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 91"
+    },
+    {
+     "id": "iblis",
+     "kind": "teach",
+     "title": "The first arrogance",
+     "body": [
+      "When Allah asked Iblis what prevented him from prostrating, he said: «I am better than him. You created me from fire and created him from clay» (7:12).",
+      "Allah said: “Descend from Paradise, for it is not for you to be arrogant therein” (7:13). Arrogance began with comparing: I am better than him."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 7:12-13",
+     "quran": "q:7:12-13"
+    },
+    {
+     "id": "walk",
+     "kind": "teach",
+     "title": "How the servants of the Merciful walk",
+     "body": [
+      "Allah says: “And the servants of the Most Merciful are those who walk upon the earth easily, and when the ignorant address them [harshly], they say [words of] peace” (25:63).",
+      "He also says: “And do not walk upon the earth exultantly. Indeed, you will never tear the earth [apart], and you will never reach the mountains in height” (17:37)."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 25:63; 17:37",
+     "quran": "q:25:63"
+    },
+    {
+     "id": "hell",
+     "kind": "teach",
+     "title": "A warning",
+     "body": [
+      "Haritha ibn Wahb reported that the Prophet ﷺ said: “May I tell you of the people of Paradise? Every weak and poor obscure person whom people look down upon, but whose oath Allah fulfils. And may I inform you of the people of the Fire? They are all the violent, arrogant and stubborn” (Bukhari 4918).",
+      "The people looked down on are the ones he named first."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 4918"
+    },
+    {
+     "id": "humble",
+     "kind": "story",
+     "title": "How he behaved",
+     "body": [
+      "Anas ibn Malik said: “Any of the female slaves of Madinah could take hold of the hand of the Messenger of Allah ﷺ and take him wherever she wished” (Bukhari 6072).",
+      "The leader of the community let anyone stop him and ask for help."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 6072"
+    },
+    {
+     "id": "signs",
+     "kind": "teach",
+     "title": "Where it hides",
+     "body": [
+      "Pride can hide in how we treat those who serve us, in refusing advice, and in not saying sorry. These are examples that scholars use from Muslim 91; they are not cited as sayings of the Prophet ﷺ."
+     ],
+     "label": "[Interpretive]",
+     "source": "Muslim 91",
+     "review": "The three places named are general illustrations and not quoted. Please confirm."
+    },
+    {
+     "id": "humble2",
+     "kind": "howto",
+     "title": "Practising humility",
+     "steps": [
+      {
+       "text": "Say sorry first when you are wrong.",
+       "detail": "General guidance."
+      },
+      {
+       "text": "Accept advice, even from someone younger.",
+       "detail": "Muslim 91: not disdaining the truth."
+      },
+      {
+       "text": "Do a small service that is below your rank.",
+       "detail": "Bukhari 6072."
+      },
+      {
+       "text": "Reply to a rude word with peace.",
+       "detail": "Qur’an 25:63."
+      },
+      {
+       "text": "Do one good deed that nobody sees.",
+       "detail": "General guidance."
+      }
+     ],
+     "intro": "A short plan.",
+     "mistakes": [
+      "Boasting about being humble.",
+      "Dressing badly to look humble."
+     ],
+     "source": "Muslim 91; Bukhari 6072; Qur’an 25:63",
+     "label": "[Interpretive]",
+     "review": "The steps combine texts and general guidance. Please confirm."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "The exchange in Muslim 91",
+     "prompt": "Put the exchange in order.",
+     "items": [
+      {
+       "text": "The Prophet ﷺ warns of a mustard seed of pride",
+       "why": "First.",
+       "back": "def"
+      },
+      {
+       "text": "A man asks about fine clothes and shoes",
+       "why": "Then.",
+       "back": "def"
+      },
+      {
+       "text": "The Prophet ﷺ defines pride",
+       "why": "Last.",
+       "back": "def"
+      }
+     ],
+     "explain": "Warning, question, definition."
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the source",
+     "prompt": "Match each line to its source.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Pride is disdaining the truth and contempt for the people"
+       },
+       "right": {
+        "text": "Muslim 91"
+       },
+       "why": "The definition.",
+       "back": "def"
+      },
+      {
+       "left": {
+        "text": "I am better than him"
+       },
+       "right": {
+        "text": "Qur’an 7:12"
+       },
+       "why": "Iblis.",
+       "back": "iblis"
+      },
+      {
+       "left": {
+        "text": "Servants of the Most Merciful walk upon the earth easily"
+       },
+       "right": {
+        "text": "Qur’an 25:63"
+       },
+       "why": "The verse.",
+       "back": "walk"
+      },
+      {
+       "left": {
+        "text": "A slave girl could take his hand"
+       },
+       "right": {
+        "text": "Bukhari 6072"
+       },
+       "why": "The Prophet’s ﷺ humility.",
+       "back": "humble"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "k1",
+       "q": "What is pride, according to Muslim 91?",
+       "options": [
+        {
+         "text": "Wearing fine clothes",
+         "reteach": "Fine clothes are not pride.",
+         "back": "def"
+        },
+        {
+         "text": "Disdaining the truth and contempt for people"
+        },
+        {
+         "text": "Being rich",
+         "reteach": "Pride is about truth and people.",
+         "back": "def"
+        }
+       ],
+       "answer": 1,
+       "explain": "Muslim 91.",
+       "type": "mcq"
+      },
+      {
+       "id": "k2",
+       "q": "Is loving fine clothes pride?",
+       "options": [
+        {
+         "text": "No, Allah is graceful and loves grace"
+        },
+        {
+         "text": "Yes, always",
+         "reteach": "The Prophet ﷺ said Allah loves grace.",
+         "back": "def"
+        },
+        {
+         "text": "Only for men",
+         "reteach": "The Prophet ﷺ said Allah loves grace.",
+         "back": "def"
+        }
+       ],
+       "answer": 0,
+       "explain": "Muslim 91.",
+       "type": "mcq"
+      },
+      {
+       "id": "k3",
+       "q": "What was Iblis’s reason for refusing to prostrate?",
+       "options": [
+        {
+         "text": "I am better than him; You created me from fire and him from clay"
+        },
+        {
+         "text": "He was tired",
+         "reteach": "He compared himself.",
+         "back": "iblis"
+        },
+        {
+         "text": "He did not know",
+         "reteach": "He compared himself.",
+         "back": "iblis"
+        }
+       ],
+       "answer": 0,
+       "explain": "Qur’an 7:12.",
+       "type": "mcq"
+      },
+      {
+       "id": "k4",
+       "q": "How do the servants of the Merciful walk, 25:63?",
+       "options": [
+        {
+         "text": "Easily, and answer the ignorant with peace"
+        },
+        {
+         "text": "With pride",
+         "reteach": "They walk easily.",
+         "back": "walk"
+        },
+        {
+         "text": "Quickly and loudly",
+         "reteach": "They walk easily.",
+         "back": "walk"
+        }
+       ],
+       "answer": 0,
+       "explain": "Qur’an 25:63.",
+       "type": "mcq"
+      },
+      {
+       "id": "k5",
+       "q": "Whom did the Prophet ﷺ name first among the people of Paradise (Bukhari 4918)?",
+       "options": [
+        {
+         "text": "The weak and poor whom people look down upon"
+        },
+        {
+         "text": "The rich",
+         "reteach": "He named the weak and poor.",
+         "back": "hell"
+        },
+        {
+         "text": "The famous",
+         "reteach": "He named the weak and poor.",
+         "back": "hell"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 4918.",
+       "type": "mcq"
+      },
+      {
+       "id": "k6",
+       "q": "What did Anas say about the Prophet ﷺ and the slave girls of Madinah?",
+       "options": [
+        {
+         "text": "They kept away from him",
+         "reteach": "They could take his hand.",
+         "back": "humble"
+        },
+        {
+         "text": "He avoided them",
+         "reteach": "They could take his hand.",
+         "back": "humble"
+        },
+        {
+         "text": "They could take his hand and lead him where they wished"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 6072.",
+       "type": "mcq"
+      },
+      {
+       "id": "k7",
+       "q": "A younger colleague corrects your mistake in front of others. What does the lesson suggest?",
+       "options": [
+        {
+         "text": "Accept the correction and thank her"
+        },
+        {
+         "text": "Argue to protect your name",
+         "reteach": "Do not disdain the truth.",
+         "back": "humble2"
+        },
+        {
+         "text": "Ignore her",
+         "reteach": "Do not disdain the truth.",
+         "back": "humble2"
+        }
+       ],
+       "answer": 0,
+       "explain": "Accept it.",
+       "type": "scenario",
+       "scenario": "A younger colleague corrects your mistake in front of others."
+      },
+      {
+       "id": "k8",
+       "q": "Are the three “hiding places” of pride sayings of the Prophet ﷺ?",
+       "options": [
+        {
+         "text": "Yes",
+         "reteach": "They are not quoted.",
+         "back": "signs"
+        },
+        {
+         "text": "Yes, from Bukhari",
+         "reteach": "They are not quoted.",
+         "back": "signs"
+        },
+        {
+         "text": "No, they are illustrations used by scholars"
+        }
+       ],
+       "answer": 2,
+       "explain": "Illustrations.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Pride is refusing the truth and looking down on people.",
+      "Iblis began with: I am better.",
+      "The Prophet ﷺ was humble with everyone."
+     ],
+     "next": "Next: despair."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Do a small service",
+     "body": "Do one small service today for someone you might think is beneath you, and do not mention it.",
+     "route": "/prayer",
+     "button": "Open prayer"
+    }
+   ]
+  },
+  {
+   "id": "char.u2.l4",
+   "title": "Despair: the door that is open",
+   "minutes": 18,
+   "intro": "Learn what the Qur’an and hadith say to the person who thinks it is too late.",
+   "steps": [
+    {
+     "id": "why",
+     "kind": "why",
+     "title": "The closed door that is not closed",
+     "body": [
+      "Despair says: it is too late for me. The Qur’an and the Prophet ﷺ answer this directly. This lesson gives Allah’s words, the hadith of the servant who sinned and came back, and what to do tonight."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 39:53; Muslim 2758"
+    },
+    {
+     "id": "quran",
+     "kind": "teach",
+     "title": "Allah calls the ones who sinned",
+     "body": [
+      "Allah says: “Say, «O My servants who have transgressed against themselves [by sinning], do not despair of the mercy of Allah. Indeed, Allah forgives all sins. Indeed, it is He who is the Forgiving, the Merciful»” (39:53).",
+      "The call is to servants who have sinned. It does not say “do not sin”. It says: do not give up on mercy."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 39:53",
+     "quran": "q:39:53"
+    },
+    {
+     "id": "yaqub",
+     "kind": "teach",
+     "title": "Who despairs?",
+     "body": [
+      "Yaqub told his sons: “O my sons, go and find out about Joseph and his brother and despair not of relief from Allah. Indeed, no one despairs of relief from Allah except the disbelieving people” (12:87).",
+      "Ibrahim, when told of good news in old age, said: “And who despairs of the mercy of his Lord except for those astray?” (15:56)."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 12:87; 15:56",
+     "quran": "q:12:87"
+    },
+    {
+     "id": "servant",
+     "kind": "story",
+     "title": "The servant who sinned again and again",
+     "body": [
+      "The Prophet ﷺ reported that his Lord said: a servant sinned and said: “O Allah, forgive me my sin.” Allah said: “My servant has sinned and then realised that he has a Lord who forgives sins and takes to account for them.” He sinned again and said the same, and Allah said the same. Then Allah said: “O servant, do what you like. I have granted you forgiveness” (Muslim 2758).",
+      "The scholars explain the last words as meaning that as long as the servant keeps coming back in repentance, Allah keeps forgiving. They do not mean that sin is allowed."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 2758",
+     "review": "The scholarly explanation of “do what you like” is given in general terms and is not cited to a named scholar. Please confirm and name the source."
+    },
+    {
+     "id": "think",
+     "kind": "teach",
+     "title": "As My servant thinks of Me",
+     "body": [
+      "Abu Hurayrah reported that the Prophet ﷺ said that Allah, the Exalted and Glorious, stated: “I am near to the thought of My servant as he thinks about Me, and I am with him as he remembers Me” (Muslim 2675).",
+      "Think well of Allah, as you ask Him."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 2675"
+    },
+    {
+     "id": "sins",
+     "kind": "teach",
+     "title": "Allah loves those who return",
+     "body": [
+      "The Prophet ﷺ said: “By Him in Whose Hand is my life, if you were not to commit sin, Allah would sweep you out of existence and replace you by people who would commit sin and seek forgiveness from Allah, and He would pardon them” (Muslim 2749).",
+      "This does not tell us to sin. It tells us that the need to turn back to Allah is part of being human, and that He loves that return."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 2749",
+     "review": "The sentence that it does not tell us to sin is an explanation and not a quotation. Please confirm."
+    },
+    {
+     "id": "two",
+     "kind": "teach",
+     "title": "Two sides, not one",
+     "body": [
+      "Hope without fear can lead to carelessness. Fear without hope leads to despair. The scholars of Islam ask us to hold both.",
+      "This lesson is about the second: do not fall into despair."
+     ],
+     "label": "[Interpretive]",
+     "source": "Qur’an 39:53",
+     "review": "The teaching on hope and fear is the common teaching of scholars. Please confirm."
+    },
+    {
+     "id": "return",
+     "kind": "howto",
+     "title": "Coming back tonight",
+     "steps": [
+      {
+       "text": "Stop the sin if it is ongoing.",
+       "detail": "General guidance on tawbah."
+      },
+      {
+       "text": "Say plainly to Allah what you did.",
+       "detail": "Muslim 2758."
+      },
+      {
+       "text": "Ask: O Allah, forgive me.",
+       "detail": "Muslim 2758."
+      },
+      {
+       "text": "Think well of Allah.",
+       "detail": "Muslim 2675."
+      },
+      {
+       "text": "Do a good deed after it.",
+       "detail": "General guidance."
+      },
+      {
+       "text": "If you have wronged a person, put it right with them.",
+       "detail": "General guidance."
+      }
+     ],
+     "intro": "A short plan.",
+     "mistakes": [
+      "Saying it is too late.",
+      "Waiting until you feel perfect."
+     ],
+     "source": "Muslim 2758, 2675",
+     "label": "[Interpretive]",
+     "review": "The steps combine texts and general guidance on tawbah. Please confirm."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "The servant in Muslim 2758",
+     "prompt": "Put the story in order.",
+     "items": [
+      {
+       "text": "The servant sins and asks forgiveness",
+       "why": "First.",
+       "back": "servant"
+      },
+      {
+       "text": "He sins again and asks again",
+       "why": "Then.",
+       "back": "servant"
+      },
+      {
+       "text": "Allah says: I have granted you forgiveness",
+       "why": "Last.",
+       "back": "servant"
+      }
+     ],
+     "explain": "Sin, ask, sin, ask, forgiven."
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the source",
+     "prompt": "Match each line to its source.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Do not despair of the mercy of Allah"
+       },
+       "right": {
+        "text": "Qur’an 39:53"
+       },
+       "why": "The verse.",
+       "back": "quran"
+      },
+      {
+       "left": {
+        "text": "No one despairs of relief from Allah except the disbelieving people"
+       },
+       "right": {
+        "text": "Qur’an 12:87"
+       },
+       "why": "Yaqub.",
+       "back": "yaqub"
+      },
+      {
+       "left": {
+        "text": "I am near to the thought of My servant as he thinks of Me"
+       },
+       "right": {
+        "text": "Muslim 2675"
+       },
+       "why": "The hadith qudsi.",
+       "back": "think"
+      },
+      {
+       "left": {
+        "text": "My servant knows he has a Lord who forgives"
+       },
+       "right": {
+        "text": "Muslim 2758"
+       },
+       "why": "The servant.",
+       "back": "servant"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "d1",
+       "q": "What does 39:53 say?",
+       "options": [
+        {
+         "text": "Sin is never forgiven",
+         "reteach": "It says Allah forgives all sins.",
+         "back": "quran"
+        },
+        {
+         "text": "Only small sins are forgiven",
+         "reteach": "It says all sins.",
+         "back": "quran"
+        },
+        {
+         "text": "Do not despair of Allah’s mercy; Allah forgives all sins"
+        }
+       ],
+       "answer": 2,
+       "explain": "Qur’an 39:53.",
+       "type": "mcq"
+      },
+      {
+       "id": "d2",
+       "q": "Who despairs of relief from Allah, according to 12:87?",
+       "options": [
+        {
+         "text": "Only the disbelieving people"
+        },
+        {
+         "text": "Every sinner",
+         "reteach": "It is the disbelieving.",
+         "back": "yaqub"
+        },
+        {
+         "text": "The weak",
+         "reteach": "It is the disbelieving.",
+         "back": "yaqub"
+        }
+       ],
+       "answer": 0,
+       "explain": "Qur’an 12:87.",
+       "type": "mcq"
+      },
+      {
+       "id": "d3",
+       "q": "In Muslim 2758, what did Allah say each time the servant sinned and asked?",
+       "options": [
+        {
+         "text": "Do not return",
+         "reteach": "Allah forgave him.",
+         "back": "servant"
+        },
+        {
+         "text": "You are finished",
+         "reteach": "Allah forgave him.",
+         "back": "servant"
+        },
+        {
+         "text": "My servant knows he has a Lord who forgives"
+        }
+       ],
+       "answer": 2,
+       "explain": "Muslim 2758.",
+       "type": "mcq"
+      },
+      {
+       "id": "d4",
+       "q": "What does “do what you like” in Muslim 2758 mean, as scholars explain?",
+       "options": [
+        {
+         "text": "Sin is allowed",
+         "reteach": "It does not allow sin.",
+         "back": "servant"
+        },
+        {
+         "text": "There is no need to repent",
+         "reteach": "It is about returning.",
+         "back": "servant"
+        },
+        {
+         "text": "As long as he returns in repentance, Allah keeps forgiving; it does not allow sin"
+        }
+       ],
+       "answer": 2,
+       "explain": "Scholars’ explanation.",
+       "type": "mcq"
+      },
+      {
+       "id": "d5",
+       "q": "What does Muslim 2675 say about how Allah is to His servant?",
+       "options": [
+        {
+         "text": "Near to the thought the servant has of Him"
+        },
+        {
+         "text": "Far from him",
+         "reteach": "He is near to his thought of Him.",
+         "back": "think"
+        },
+        {
+         "text": "Angry always",
+         "reteach": "He is near to his thought of Him.",
+         "back": "think"
+        }
+       ],
+       "answer": 0,
+       "explain": "Muslim 2675.",
+       "type": "mcq"
+      },
+      {
+       "id": "d6",
+       "q": "What two things should be held together?",
+       "options": [
+        {
+         "text": "Money and time",
+         "reteach": "It is hope and fear.",
+         "back": "two"
+        },
+        {
+         "text": "Hope and fear"
+        },
+        {
+         "text": "Food and sleep",
+         "reteach": "It is hope and fear.",
+         "back": "two"
+        }
+       ],
+       "answer": 1,
+       "explain": "Teaching.",
+       "type": "mcq"
+      },
+      {
+       "id": "d7",
+       "q": "It is late at night. You fell into the same sin again. What does the lesson say?",
+       "options": [
+        {
+         "text": "It is too late",
+         "reteach": "The texts say do not despair.",
+         "back": "return"
+        },
+        {
+         "text": "Ask Allah to forgive, stop the sin, and think well of Him"
+        },
+        {
+         "text": "Wait until you are stronger",
+         "reteach": "Return tonight.",
+         "back": "return"
+        }
+       ],
+       "answer": 1,
+       "explain": "Return.",
+       "type": "scenario",
+       "scenario": "It is late at night. You fell into the same sin again and feel it is too late."
+      },
+      {
+       "id": "d8",
+       "q": "Does Muslim 2749 tell us to sin?",
+       "options": [
+        {
+         "text": "No, it says the need to return to Allah is part of being human"
+        },
+        {
+         "text": "Yes",
+         "reteach": "It does not tell us to sin.",
+         "back": "sins"
+        },
+        {
+         "text": "Only a little",
+         "reteach": "It does not tell us to sin.",
+         "back": "sins"
+        }
+       ],
+       "answer": 0,
+       "explain": "Not an instruction.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Do not despair of Allah’s mercy.",
+      "Allah forgives the one who returns again and again.",
+      "Think well of Allah and come back."
+     ],
+     "next": "Next: the tongue."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Read the verse",
+     "body": "Open Surah Az-Zumar and read verse 53.",
+     "route": "/quran/39",
+     "button": "Open the Qur’an"
+    }
+   ]
+  },
+  {
+   "id": "char.u3.l1",
+   "title": "The tongue: your daily ledger",
+   "minutes": 18,
+   "intro": "Learn what the Prophet ﷺ said about speech, and a filter to use before you speak.",
+   "steps": [
+    {
+     "id": "why",
+     "kind": "why",
+     "title": "The small muscle",
+     "body": [
+      "The tongue is small, and the Prophet ﷺ spoke of it more than of almost any other part of the body. This lesson takes four of his sayings and two verses, and gives a daily check."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 6018, 6474, 6478; Muslim 2589"
+    },
+    {
+     "id": "good",
+     "kind": "teach",
+     "title": "Speak good or be silent",
+     "body": [
+      "Abu Hurayrah reported that the Messenger of Allah ﷺ said: “Whoever believes in Allah and the Last Day should not harm his neighbour. Whoever believes in Allah and the Last Day should honour his guest. Whoever believes in Allah and the Last Day should talk what is good or keep quiet” (Bukhari 6018).",
+      "Silence is allowed. Harm is not."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 6018"
+    },
+    {
+     "id": "guarantee",
+     "kind": "teach",
+     "title": "The guarantee",
+     "body": [
+      "Sahl ibn Sad reported that the Prophet ﷺ said: “Whoever can guarantee what is between his two jaw-bones and what is between his two legs, I guarantee Paradise for him” (Bukhari 6474).",
+      "The tongue and the private parts are the two things named."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 6474"
+    },
+    {
+     "id": "word",
+     "kind": "teach",
+     "title": "A word you do not think about",
+     "body": [
+      "Abu Hurayrah reported that the Prophet ﷺ said: “A slave may utter a word which pleases Allah without giving it much importance, and because of that Allah will raise him to degrees. A slave may utter a word which displeases Allah without thinking of its gravity, and because of that he will be thrown into the Fire” (Bukhari 6478).",
+      "One careless word can go either way. Both words were spoken without much thought, so we should think."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 6478"
+    },
+    {
+     "id": "ghiba",
+     "kind": "story",
+     "title": "What backbiting is",
+     "body": [
+      "The Prophet ﷺ asked: “Do you know what backbiting is?” The Companions said Allah and His Messenger know best. He said: “Your talking about your brother in a manner which he does not like.” It was said: “What if that failing is in my brother?” He said: “If that failing is found in him, you have backbitten him. If it is not in him, it is slander” (Muslim 2589).",
+      "So the test is not whether it is true. The test is whether he would dislike it."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 2589"
+    },
+    {
+     "id": "quran",
+     "kind": "teach",
+     "title": "What Allah says",
+     "body": [
+      "Allah says: “O you who have believed, avoid much [negative] assumption. Indeed, some assumption is sin. And do not spy or backbite each other. Would one of you like to eat the flesh of his brother when dead? You would detest it” (49:12).",
+      "In the verse before it, Allah forbids ridiculing others and calling each other by offensive nicknames (49:11)."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 49:11-12",
+     "quran": "q:49:12"
+    },
+    {
+     "id": "limits",
+     "kind": "teach",
+     "title": "Are there exceptions?",
+     "body": [
+      "Scholars list a few cases where speaking of a person’s fault is allowed, such as to seek justice from a judge, to warn someone of a real harm, or to ask a scholar for a ruling. The schools agree on the principle and differ on some details.",
+      "This lesson does not list them in full. If you think your case is one of them, ask a scholar of your school."
+     ],
+     "label": "[Interpretive]",
+     "source": "Scholars of the four schools (not cited here)",
+     "review": "The note on exceptions is a general summary of scholarly teaching and is not cited to a text. Please confirm or add the reference."
+    },
+    {
+     "id": "filter",
+     "kind": "howto",
+     "title": "A filter before you speak",
+     "steps": [
+      {
+       "text": "Is it true?",
+       "detail": "General guidance; Muslim 2589 shows that true is not enough."
+      },
+      {
+       "text": "Would he dislike it if he heard it?",
+       "detail": "Muslim 2589."
+      },
+      {
+       "text": "Is it good, or can I be silent?",
+       "detail": "Bukhari 6018."
+      },
+      {
+       "text": "Would I say it if he stood here?",
+       "detail": "General guidance."
+      },
+      {
+       "text": "If I have already said it, I ask Allah to forgive me and put it right.",
+       "detail": "General guidance."
+      }
+     ],
+     "intro": "A short plan.",
+     "mistakes": [
+      "Saying “I’m only telling the truth”.",
+      "Joining in because others do."
+     ],
+     "source": "Muslim 2589; Bukhari 6018",
+     "label": "[Interpretive]",
+     "review": "The steps combine texts and general guidance. Please confirm."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "Muslim 2589 in order",
+     "prompt": "Put the exchange in order.",
+     "items": [
+      {
+       "text": "The Prophet ﷺ asks what backbiting is",
+       "why": "First.",
+       "back": "ghiba"
+      },
+      {
+       "text": "He defines it as saying what your brother dislikes",
+       "why": "Then.",
+       "back": "ghiba"
+      },
+      {
+       "text": "A man asks about a true failing",
+       "why": "Then.",
+       "back": "ghiba"
+      },
+      {
+       "text": "He says it is backbiting if true, and slander if not",
+       "why": "Last.",
+       "back": "ghiba"
+      }
+     ],
+     "explain": "Ask, define, question, answer."
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the source",
+     "prompt": "Match each line to its source.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Talk what is good or keep quiet"
+       },
+       "right": {
+        "text": "Bukhari 6018"
+       },
+       "why": "The hadith.",
+       "back": "good"
+      },
+      {
+       "left": {
+        "text": "Whoever can guarantee what is between his jaws"
+       },
+       "right": {
+        "text": "Bukhari 6474"
+       },
+       "why": "The guarantee.",
+       "back": "guarantee"
+      },
+      {
+       "left": {
+        "text": "A word which pleases Allah without much importance"
+       },
+       "right": {
+        "text": "Bukhari 6478"
+       },
+       "why": "The careless word.",
+       "back": "word"
+      },
+      {
+       "left": {
+        "text": "Your talking about your brother in a way he dislikes"
+       },
+       "right": {
+        "text": "Muslim 2589"
+       },
+       "why": "Backbiting.",
+       "back": "ghiba"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "o1",
+       "q": "What does Bukhari 6018 say to do with speech?",
+       "options": [
+        {
+         "text": "Say what is funny",
+         "reteach": "Good or quiet.",
+         "back": "good"
+        },
+        {
+         "text": "Say what is good or keep quiet"
+        },
+        {
+         "text": "Say what is true",
+         "reteach": "Good or quiet.",
+         "back": "good"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 6018.",
+       "type": "mcq"
+      },
+      {
+       "id": "o2",
+       "q": "What does the Prophet ﷺ guarantee in Bukhari 6474?",
+       "options": [
+        {
+         "text": "Wealth",
+         "reteach": "He guarantees Paradise.",
+         "back": "guarantee"
+        },
+        {
+         "text": "Paradise, for whoever guarantees his tongue and private parts"
+        },
+        {
+         "text": "Long life",
+         "reteach": "He guarantees Paradise.",
+         "back": "guarantee"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 6474.",
+       "type": "mcq"
+      },
+      {
+       "id": "o3",
+       "q": "What can one careless word do in Bukhari 6478?",
+       "options": [
+        {
+         "text": "Raise a person in rank or throw him in the Fire"
+        },
+        {
+         "text": "Nothing",
+         "reteach": "It can go either way.",
+         "back": "word"
+        },
+        {
+         "text": "Only embarrass him",
+         "reteach": "It can go either way.",
+         "back": "word"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 6478.",
+       "type": "mcq"
+      },
+      {
+       "id": "o4",
+       "q": "What is backbiting, according to Muslim 2589?",
+       "options": [
+        {
+         "text": "Telling a lie about him",
+         "reteach": "That is slander.",
+         "back": "ghiba"
+        },
+        {
+         "text": "Talking about your brother in a way he dislikes"
+        },
+        {
+         "text": "Telling him to his face",
+         "reteach": "It is behind his back.",
+         "back": "ghiba"
+        }
+       ],
+       "answer": 1,
+       "explain": "Muslim 2589.",
+       "type": "mcq"
+      },
+      {
+       "id": "o5",
+       "q": "If the failing is true, what is it?",
+       "options": [
+        {
+         "text": "Backbiting"
+        },
+        {
+         "text": "Slander",
+         "reteach": "Slander is when it is not in him.",
+         "back": "ghiba"
+        },
+        {
+         "text": "Advice",
+         "reteach": "It is backbiting.",
+         "back": "ghiba"
+        }
+       ],
+       "answer": 0,
+       "explain": "Muslim 2589.",
+       "type": "mcq"
+      },
+      {
+       "id": "o6",
+       "q": "What image does 49:12 use for backbiting?",
+       "options": [
+        {
+         "text": "Spilling water",
+         "reteach": "It is the dead brother’s flesh.",
+         "back": "quran"
+        },
+        {
+         "text": "Eating the flesh of one’s dead brother"
+        },
+        {
+         "text": "Breaking glass",
+         "reteach": "It is the dead brother’s flesh.",
+         "back": "quran"
+        }
+       ],
+       "answer": 1,
+       "explain": "Qur’an 49:12.",
+       "type": "mcq"
+      },
+      {
+       "id": "o7",
+       "q": "At a family meal, a cousin starts to speak against a neighbour. What does the lesson suggest?",
+       "options": [
+        {
+         "text": "Add a true detail",
+         "reteach": "True is not enough.",
+         "back": "filter"
+        },
+        {
+         "text": "Change the subject or stay silent, and do not join in"
+        },
+        {
+         "text": "Laugh along",
+         "reteach": "Do not join in.",
+         "back": "filter"
+        }
+       ],
+       "answer": 1,
+       "explain": "Do not join in.",
+       "type": "scenario",
+       "scenario": "At a family meal, a cousin starts to speak against a neighbour."
+      },
+      {
+       "id": "o8",
+       "q": "Does this lesson list every exception to backbiting?",
+       "options": [
+        {
+         "text": "Yes",
+         "reteach": "It does not list them.",
+         "back": "limits"
+        },
+        {
+         "text": "No, ask a scholar of your school"
+        },
+        {
+         "text": "There are none",
+         "reteach": "Scholars list some.",
+         "back": "limits"
+        }
+       ],
+       "answer": 1,
+       "explain": "Ask.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Speak good or be silent.",
+      "Backbiting is saying what he would dislike, true or not.",
+      "A careless word can raise or lower a person."
+     ],
+     "next": "Next: forgiveness."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Read the verse",
+     "body": "Open Surah Al-Hujurat and read verses 10 to 12.",
+     "route": "/quran/49",
+     "button": "Open the Qur’an"
+    }
+   ]
+  },
+  {
+   "id": "char.u3.l2",
+   "title": "Forgiveness: releasing the debt",
+   "minutes": 18,
+   "intro": "Learn what the Qur’an and hadith teach about pardon, and the story of Abu Bakr and Mistah.",
+   "steps": [
+    {
+     "id": "why",
+     "kind": "why",
+     "title": "Letting someone go free",
+     "body": [
+      "When someone wrongs you, you hold a debt in your heart. Forgiveness is releasing that debt. The texts show it is not weakness, and that it is not the same as pretending nothing happened."
+     ],
+     "label": "[Interpretive]",
+     "source": "Qur’an 42:40; Muslim 2588",
+     "review": "The framing of forgiveness as releasing a debt is a teaching image and not a quotation. Please confirm."
+    },
+    {
+     "id": "justice",
+     "kind": "teach",
+     "title": "Justice is allowed; pardon is better",
+     "body": [
+      "Allah says: “And the retribution for an evil act is an evil one like it, but whoever pardons and makes reconciliation - his reward is [due] from Allah. Indeed, He does not like wrongdoers” (42:40).",
+      "You may seek a fair answer to a wrong. Pardon with reconciliation has a reward from Allah himself."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 42:40",
+     "quran": "q:42:40"
+    },
+    {
+     "id": "goodness",
+     "kind": "teach",
+     "title": "Those Allah loves",
+     "body": [
+      "Allah describes the doers of good as those “who spend during ease and hardship and who restrain anger and who pardon the people - and Allah loves the doers of good” (3:134)."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 3:134",
+     "quran": "q:3:134"
+    },
+    {
+     "id": "honour",
+     "kind": "teach",
+     "title": "Forgiving raises you",
+     "body": [
+      "Abu Hurayrah reported that the Messenger of Allah ﷺ said: “Charity does not decrease wealth, no one forgives another except that Allah increases his honour, and no one humbles himself for the sake of Allah except that Allah raises his status” (Muslim 2588)."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 2588"
+    },
+    {
+     "id": "mistah",
+     "kind": "story",
+     "title": "Abu Bakr and Mistah",
+     "body": [
+      "In the slander against Aisha, Mistah ibn Uthathah, a poor relative whom Abu Bakr supported, was among those who spread it (Bukhari 4141). Abu Bakr swore he would stop helping him.",
+      "Then Allah revealed: “And let not those of virtue among you and wealth swear not to give [aid] to their relatives and the needy and the emigrants for the cause of Allah, and let them pardon and overlook. Would you not like that Allah should forgive you? And Allah is Forgiving and Merciful” (24:22).",
+      "Abu Bakr said: “Yes, by Allah, I would like that Allah forgive me.” He went on giving Mistah what he used to give (Bukhari 4141)."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 24:22; Bukhari 4141",
+     "quran": "q:24:22"
+    },
+    {
+     "id": "tie",
+     "kind": "teach",
+     "title": "Keeping ties with those who cut you",
+     "body": [
+      "Abdullah ibn Amr reported that the Prophet ﷺ said: “The one who keeps ties is not the one who repays the good done to him by relatives, but the one who keeps good relations with relatives who have cut the tie with him” (Bukhari 5991)."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 5991"
+    },
+    {
+     "id": "limits",
+     "kind": "teach",
+     "title": "What forgiveness is not",
+     "body": [
+      "It is not saying the wrong was right. It is not staying in danger. It does not cancel a legal right where a judge or a victim has a right in law, and scholars discuss these cases. If you are being abused, forgiveness in the heart does not mean you must stay.",
+      "For a real case, ask a scholar of your school."
+     ],
+     "label": "[Interpretive]",
+     "source": "Qur’an 42:40",
+     "review": "These limits are general teaching and are not cited to a named text. Please confirm."
+    },
+    {
+     "id": "release",
+     "kind": "howto",
+     "title": "Releasing a debt",
+     "steps": [
+      {
+       "text": "Name what was done to you.",
+       "detail": "General guidance."
+      },
+      {
+       "text": "Decide whether you seek your right or pardon, as 42:40 allows both.",
+       "detail": "Qur’an 42:40."
+      },
+      {
+       "text": "If you choose to pardon, say it to Allah.",
+       "detail": "Qur’an 24:22."
+      },
+      {
+       "text": "Make a dua for them.",
+       "detail": "General guidance."
+      },
+      {
+       "text": "If it is safe, do them a small kindness.",
+       "detail": "Bukhari 5991; Bukhari 4141."
+      }
+     ],
+     "intro": "A short plan.",
+     "mistakes": [
+      "Saying you forgive and then bringing it up again.",
+      "Staying near someone who is harming you."
+     ],
+     "source": "Qur’an 42:40, 24:22; Bukhari 5991",
+     "label": "[Interpretive]",
+     "review": "The steps combine texts and general guidance. Please confirm."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "Abu Bakr and Mistah in order",
+     "prompt": "Put the story in order.",
+     "items": [
+      {
+       "text": "Mistah spreads the slander",
+       "why": "First.",
+       "back": "mistah"
+      },
+      {
+       "text": "Abu Bakr swears to stop helping him",
+       "why": "Then.",
+       "back": "mistah"
+      },
+      {
+       "text": "Allah reveals 24:22",
+       "why": "Then.",
+       "back": "mistah"
+      },
+      {
+       "text": "Abu Bakr resumes his support",
+       "why": "Last.",
+       "back": "mistah"
+      }
+     ],
+     "explain": "Slander, oath, verse, support resumed."
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the source",
+     "prompt": "Match each line to its source.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Whoever pardons and makes reconciliation, his reward is from Allah"
+       },
+       "right": {
+        "text": "Qur’an 42:40"
+       },
+       "why": "The verse.",
+       "back": "justice"
+      },
+      {
+       "left": {
+        "text": "No one forgives another except that Allah increases his honour"
+       },
+       "right": {
+        "text": "Muslim 2588"
+       },
+       "why": "The hadith.",
+       "back": "honour"
+      },
+      {
+       "left": {
+        "text": "Would you not like that Allah should forgive you?"
+       },
+       "right": {
+        "text": "Qur’an 24:22"
+       },
+       "why": "The verse.",
+       "back": "mistah"
+      },
+      {
+       "left": {
+        "text": "The one who keeps ties with relatives who have cut him"
+       },
+       "right": {
+        "text": "Bukhari 5991"
+       },
+       "why": "The hadith.",
+       "back": "tie"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "f1",
+       "q": "What does 42:40 allow?",
+       "options": [
+        {
+         "text": "A fair answer to a wrong, and pardon is better"
+        },
+        {
+         "text": "Only revenge",
+         "reteach": "Pardon has a reward.",
+         "back": "justice"
+        },
+        {
+         "text": "Only pardon",
+         "reteach": "A like answer is allowed.",
+         "back": "justice"
+        }
+       ],
+       "answer": 0,
+       "explain": "Qur’an 42:40.",
+       "type": "mcq"
+      },
+      {
+       "id": "f2",
+       "q": "What does Muslim 2588 say forgiveness does?",
+       "options": [
+        {
+         "text": "Lowers his standing",
+         "reteach": "Allah increases his honour.",
+         "back": "honour"
+        },
+        {
+         "text": "Nothing",
+         "reteach": "Allah increases his honour.",
+         "back": "honour"
+        },
+        {
+         "text": "Allah increases the forgiver’s honour"
+        }
+       ],
+       "answer": 2,
+       "explain": "Muslim 2588.",
+       "type": "mcq"
+      },
+      {
+       "id": "f3",
+       "q": "Who was Mistah?",
+       "options": [
+        {
+         "text": "A judge",
+         "reteach": "He was a poor relative.",
+         "back": "mistah"
+        },
+        {
+         "text": "A poor relative of Abu Bakr who took part in spreading the slander"
+        },
+        {
+         "text": "A Persian king",
+         "reteach": "He was a poor relative.",
+         "back": "mistah"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 4141.",
+       "type": "mcq"
+      },
+      {
+       "id": "f4",
+       "q": "What did Abu Bakr say when 24:22 was revealed?",
+       "options": [
+        {
+         "text": "I will not forgive",
+         "reteach": "He forgave.",
+         "back": "mistah"
+        },
+        {
+         "text": "Yes, by Allah, I would like that Allah forgive me"
+        },
+        {
+         "text": "I need time",
+         "reteach": "He forgave.",
+         "back": "mistah"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 4141.",
+       "type": "mcq"
+      },
+      {
+       "id": "f5",
+       "q": "What does Bukhari 5991 call the one who keeps ties?",
+       "options": [
+        {
+         "text": "The one who repays good with good",
+         "reteach": "That is not what it says.",
+         "back": "tie"
+        },
+        {
+         "text": "The one who keeps ties with relatives who cut him"
+        },
+        {
+         "text": "The one who keeps away",
+         "reteach": "That is not what it says.",
+         "back": "tie"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 5991.",
+       "type": "mcq"
+      },
+      {
+       "id": "f6",
+       "q": "Does forgiveness mean you must stay near someone who abuses you?",
+       "options": [
+        {
+         "text": "Yes",
+         "reteach": "You do not have to stay in danger.",
+         "back": "limits"
+        },
+        {
+         "text": "No"
+        },
+        {
+         "text": "Only if a relative",
+         "reteach": "You do not have to stay in danger.",
+         "back": "limits"
+        }
+       ],
+       "answer": 1,
+       "explain": "Limits.",
+       "type": "mcq"
+      },
+      {
+       "id": "f7",
+       "q": "A cousin spread a rumour about you. You decide to pardon. What next?",
+       "options": [
+        {
+         "text": "Tell everyone you forgave",
+         "reteach": "Say it to Allah.",
+         "back": "release"
+        },
+        {
+         "text": "Wait for an apology",
+         "reteach": "Pardon does not wait.",
+         "back": "release"
+        },
+        {
+         "text": "Say it to Allah, make dua for them, and do a small kindness if it is safe"
+        }
+       ],
+       "answer": 2,
+       "explain": "Release.",
+       "type": "scenario",
+       "scenario": "A cousin spread a rumour about you, and you decide to pardon."
+      },
+      {
+       "id": "f8",
+       "q": "Is pardon the same as saying the wrong was right?",
+       "options": [
+        {
+         "text": "Yes",
+         "reteach": "It is not.",
+         "back": "limits"
+        },
+        {
+         "text": "Only for small wrongs",
+         "reteach": "It is not.",
+         "back": "limits"
+        },
+        {
+         "text": "No"
+        }
+       ],
+       "answer": 2,
+       "explain": "Limits.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Justice is allowed; pardon is better.",
+      "Abu Bakr forgave Mistah and resumed support.",
+      "Forgiveness is not staying in harm."
+     ],
+     "next": "Next: kindness."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Read the verse",
+     "body": "Open Surah An-Nur and read verse 22.",
+     "route": "/quran/24",
+     "button": "Open the Qur’an"
+    }
+   ]
+  },
+  {
+   "id": "char.u3.l3",
+   "title": "Kindness: the Prophet at home",
+   "minutes": 18,
+   "intro": "Learn how the Prophet ﷺ was kind at home and in the mosque, and what Allah says of gentleness.",
+   "steps": [
+    {
+     "id": "why",
+     "kind": "why",
+     "title": "Kindness at home and outside",
+     "body": [
+      "Rifq (gentleness, kindness) is a way of doing things: softly, with ease. The Prophet ﷺ was kind in his house, in the mosque and in public. This lesson gives three scenes and two sayings."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 676; Bukhari 6025; Muslim 2593"
+    },
+    {
+     "id": "home",
+     "kind": "story",
+     "title": "What he did at home",
+     "body": [
+      "Al-Aswad asked Aisha: “What did the Prophet ﷺ use to do in his house?” She replied: “He used to keep himself busy serving his family, and when it was the time for prayer he would go for it” (Bukhari 676).",
+      "The man everyone looked to for guidance spent his time at home helping."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 676"
+    },
+    {
+     "id": "bedouin",
+     "kind": "story",
+     "title": "The man in the mosque",
+     "body": [
+      "A bedouin urinated in the mosque and the people ran to beat him. The Prophet ﷺ said: “Do not interrupt his urination.” Then he asked for water and had it poured over the place (Bukhari 6025).",
+      "In another narration he said: “You have been sent to make things easy, and not to make them difficult” (Bukhari 220)."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 6025, 220"
+    },
+    {
+     "id": "love",
+     "kind": "teach",
+     "title": "Allah loves kindness",
+     "body": [
+      "Aisha reported that the Messenger of Allah ﷺ said: “Aisha, verily Allah is kind and He loves kindness, and He confers upon kindness what He does not confer upon severity, nor upon anything besides it” (Muslim 2593).",
+      "Jarir reported that he said: “He who is deprived of tender feelings is in fact deprived of good” (Muslim 2592)."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 2593, 2592"
+    },
+    {
+     "id": "quran",
+     "kind": "teach",
+     "title": "What Allah said to the Prophet ﷺ",
+     "body": [
+      "Allah says: “So by mercy from Allah, [O Muhammad], you were lenient with them. And if you had been rude [in speech] and harsh in heart, they would have disbanded from about you” (3:159).",
+      "Harshness drives people away. Gentleness brings them near."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 3:159",
+     "quran": "q:3:159"
+    },
+    {
+     "id": "repel",
+     "kind": "teach",
+     "title": "Repel evil with better",
+     "body": [
+      "Allah says: “And not equal are the good deed and the bad. Repel [evil] by that [deed] which is better; and thereupon the one whom between you and him is enmity [will become] as though he was a devoted friend” (41:34).",
+      "The next verse says that none is granted this except those who are patient (41:35)."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 41:34-35",
+     "quran": "q:41:34-35"
+    },
+    {
+     "id": "limits",
+     "kind": "teach",
+     "title": "Kind does not mean weak",
+     "body": [
+      "Gentleness does not mean saying yes to everything, or letting wrong go on. The Prophet ﷺ stopped the people from beating the man, and he also had the place cleaned. Both were done.",
+      "The scholars teach that kindness and firmness belong together; this lesson focuses on kindness."
+     ],
+     "label": "[Interpretive]",
+     "source": "Bukhari 6025",
+     "review": "The sentence on scholars teaching kindness and firmness together is a general summary. Please confirm or cite."
+    },
+    {
+     "id": "serve",
+     "kind": "howto",
+     "title": "A day of small kindnesses",
+     "steps": [
+      {
+       "text": "Do one job at home before you are asked.",
+       "detail": "Bukhari 676."
+      },
+      {
+       "text": "When someone gets it wrong, correct them gently and help fix it.",
+       "detail": "Bukhari 6025."
+      },
+      {
+       "text": "Answer a harsh word with a soft one.",
+       "detail": "Qur’an 41:34."
+      },
+      {
+       "text": "Make things easy for others.",
+       "detail": "Bukhari 220."
+      },
+      {
+       "text": "End the day by thanking one person.",
+       "detail": "General guidance."
+      }
+     ],
+     "intro": "A short plan.",
+     "mistakes": [
+      "Being kind to guests and harsh at home.",
+      "Mistaking silence for kindness."
+     ],
+     "source": "Bukhari 676, 6025, 220; Qur’an 41:34",
+     "label": "[Interpretive]",
+     "review": "The steps combine texts and general guidance. Please confirm."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "The mosque scene in order",
+     "prompt": "Put the scene in order.",
+     "items": [
+      {
+       "text": "A bedouin urinates in the mosque",
+       "why": "First.",
+       "back": "bedouin"
+      },
+      {
+       "text": "The people run to beat him",
+       "why": "Then.",
+       "back": "bedouin"
+      },
+      {
+       "text": "The Prophet ﷺ tells them to leave him",
+       "why": "Then.",
+       "back": "bedouin"
+      },
+      {
+       "text": "Water is poured over the place",
+       "why": "Last.",
+       "back": "bedouin"
+      }
+     ],
+     "explain": "Act, anger, stop, clean."
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the source",
+     "prompt": "Match each line to its source.",
+     "pairs": [
+      {
+       "left": {
+        "text": "He used to keep himself busy serving his family"
+       },
+       "right": {
+        "text": "Bukhari 676"
+       },
+       "why": "Aisha.",
+       "back": "home"
+      },
+      {
+       "left": {
+        "text": "Do not interrupt his urination"
+       },
+       "right": {
+        "text": "Bukhari 6025"
+       },
+       "why": "The mosque.",
+       "back": "bedouin"
+      },
+      {
+       "left": {
+        "text": "Allah is kind and loves kindness"
+       },
+       "right": {
+        "text": "Muslim 2593"
+       },
+       "why": "The hadith.",
+       "back": "love"
+      },
+      {
+       "left": {
+        "text": "Repel evil by that which is better"
+       },
+       "right": {
+        "text": "Qur’an 41:34"
+       },
+       "why": "The verse.",
+       "back": "repel"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "c1",
+       "q": "What did the Prophet ﷺ do at home, according to Aisha?",
+       "options": [
+        {
+         "text": "Rested all day",
+         "reteach": "He served his family.",
+         "back": "home"
+        },
+        {
+         "text": "Served his family, and went to prayer when it was time"
+        },
+        {
+         "text": "Taught all day",
+         "reteach": "He served his family.",
+         "back": "home"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 676.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2",
+       "q": "What did he say when people ran to beat the bedouin?",
+       "options": [
+        {
+         "text": "Beat him",
+         "reteach": "He said leave him.",
+         "back": "bedouin"
+        },
+        {
+         "text": "Take him out",
+         "reteach": "He said leave him.",
+         "back": "bedouin"
+        },
+        {
+         "text": "Do not interrupt him"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 6025.",
+       "type": "mcq"
+      },
+      {
+       "id": "c3",
+       "q": "What did he do after the man finished?",
+       "options": [
+        {
+         "text": "Had water poured over the place"
+        },
+        {
+         "text": "Closed the mosque",
+         "reteach": "He had water poured.",
+         "back": "bedouin"
+        },
+        {
+         "text": "Said nothing",
+         "reteach": "He had water poured.",
+         "back": "bedouin"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 6025.",
+       "type": "mcq"
+      },
+      {
+       "id": "c4",
+       "q": "What does Muslim 2593 say Allah loves?",
+       "options": [
+        {
+         "text": "Severity",
+         "reteach": "He loves kindness.",
+         "back": "love"
+        },
+        {
+         "text": "Silence",
+         "reteach": "He loves kindness.",
+         "back": "love"
+        },
+        {
+         "text": "Kindness"
+        }
+       ],
+       "answer": 2,
+       "explain": "Muslim 2593.",
+       "type": "mcq"
+      },
+      {
+       "id": "c5",
+       "q": "What does 3:159 say would have happened if the Prophet ﷺ had been harsh?",
+       "options": [
+        {
+         "text": "They would have obeyed more",
+         "reteach": "They would have left.",
+         "back": "quran"
+        },
+        {
+         "text": "People would have disbanded from around him"
+        },
+        {
+         "text": "Nothing",
+         "reteach": "They would have left.",
+         "back": "quran"
+        }
+       ],
+       "answer": 1,
+       "explain": "Qur’an 3:159.",
+       "type": "mcq"
+      },
+      {
+       "id": "c6",
+       "q": "What does 41:34 tell us to do about enmity?",
+       "options": [
+        {
+         "text": "Repel evil by what is better"
+        },
+        {
+         "text": "Repay it the same",
+         "reteach": "Repel by what is better.",
+         "back": "repel"
+        },
+        {
+         "text": "Avoid the person",
+         "reteach": "Repel by what is better.",
+         "back": "repel"
+        }
+       ],
+       "answer": 0,
+       "explain": "Qur’an 41:34.",
+       "type": "mcq"
+      },
+      {
+       "id": "c7",
+       "q": "Your sibling snaps at you over nothing. What does the lesson suggest?",
+       "options": [
+        {
+         "text": "Snap back",
+         "reteach": "Repel with better.",
+         "back": "serve"
+        },
+        {
+         "text": "Say nothing for a week",
+         "reteach": "Be kind.",
+         "back": "serve"
+        },
+        {
+         "text": "Answer softly, and help if there is something to fix"
+        }
+       ],
+       "answer": 2,
+       "explain": "Answer softly.",
+       "type": "scenario",
+       "scenario": "Your sibling snaps at you over nothing at breakfast."
+      },
+      {
+       "id": "c8",
+       "q": "Does kindness mean allowing wrong?",
+       "options": [
+        {
+         "text": "Yes",
+         "reteach": "Kindness and firmness go together.",
+         "back": "limits"
+        },
+        {
+         "text": "Only at home",
+         "reteach": "Kindness and firmness go together.",
+         "back": "limits"
+        },
+        {
+         "text": "No, the Prophet ﷺ both stopped the beating and cleaned the place"
+        }
+       ],
+       "answer": 2,
+       "explain": "Limits.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "The Prophet ﷺ served his family at home.",
+      "He answered a man’s wrong with patience and a clean-up.",
+      "Allah loves kindness."
+     ],
+     "next": "Next: brotherhood."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Serve at home",
+     "body": "Do one job at home today before you are asked.",
+     "route": "/prayer",
+     "button": "Open prayer"
+    }
+   ]
+  },
+  {
+   "id": "char.u3.l4",
+   "title": "Brotherhood: the whole body",
+   "minutes": 18,
+   "intro": "Learn what the Prophet ﷺ taught about the bond between believers.",
+   "steps": [
+    {
+     "id": "why",
+     "kind": "why",
+     "title": "One body",
+     "body": [
+      "The believers are not a crowd of separate people. The Prophet ﷺ compared them to one body. This lesson gives that picture, what a brother or sister owes, and what makes it real."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 6011; Muslim 2586"
+    },
+    {
+     "id": "body",
+     "kind": "teach",
+     "title": "The body",
+     "body": [
+      "Al-Numan ibn Bashir reported that the Messenger of Allah ﷺ said: “You see the believers in their mercy among themselves, their love among themselves and their kindness, like one body: if any part of the body is not well, the whole body shares the sleeplessness and fever with it” (Bukhari 6011).",
+      "In Muslim 2586 the same picture is given in the words: “when any limb of it aches, the whole body aches, because of sleeplessness and fever”."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 6011; Muslim 2586"
+    },
+    {
+     "id": "quran",
+     "kind": "teach",
+     "title": "The verse",
+     "body": [
+      "Allah says: “The believers are but brothers, so make settlement between your brothers. And fear Allah that you may receive mercy” (49:10)."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 49:10",
+     "quran": "q:49:10"
+    },
+    {
+     "id": "rights",
+     "kind": "teach",
+     "title": "What a brother owes",
+     "body": [
+      "Abdullah ibn Umar reported that the Messenger of Allah ﷺ said: “A Muslim is the brother of another Muslim, so he should not oppress him, nor hand him over to an oppressor. Whoever fulfilled the needs of his brother, Allah will fulfil his needs. Whoever brought his brother out of a discomfort, Allah will bring him out of the discomforts of the Day of Resurrection. Whoever screened a Muslim, Allah will screen him on the Day of Resurrection” (Bukhari 2442)."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 2442"
+    },
+    {
+     "id": "love",
+     "kind": "teach",
+     "title": "Love for your brother what you love for yourself",
+     "body": [
+      "Anas reported that the Prophet ﷺ said: “None of you will have faith till he wishes for his brother what he likes for himself” (Bukhari 13)."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 13"
+    },
+    {
+     "id": "heart",
+     "kind": "teach",
+     "title": "What breaks it",
+     "body": [
+      "Abu Hurayrah reported that the Prophet ﷺ said: “Do not nurse grudges, do not nurse aversion or enmity, and be fellow-brothers and servants of Allah. A Muslim is the brother of a Muslim. He neither oppresses him, nor humiliates him, nor looks down upon him. Piety is here” and he pointed to his chest three times (Muslim 2564).",
+      "The same hadith says: “Allah does not look to your bodies nor to your faces, but He looks to your hearts” (Muslim 2564)."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 2564"
+    },
+    {
+     "id": "limits",
+     "kind": "teach",
+     "title": "Who is a brother here?",
+     "body": [
+      "The texts above speak of the brotherhood of believers. The Qur’an and Sunnah also command justice and kindness to people who are not Muslim (for example, 60:8). This lesson is about the bond between believers."
+     ],
+     "label": "[Interpretive]",
+     "source": "Qur’an 60:8",
+     "review": "The reference to 60:8 is as a pointer only and not quoted here. Please confirm."
+    },
+    {
+     "id": "check",
+     "kind": "howto",
+     "title": "Checking on a brother or sister",
+     "steps": [
+      {
+       "text": "Think of one person you have not spoken to this month.",
+       "detail": "General guidance."
+      },
+      {
+       "text": "Send a message or call.",
+       "detail": "General guidance."
+      },
+      {
+       "text": "Ask what they need, and do it if you can.",
+       "detail": "Bukhari 2442."
+      },
+      {
+       "text": "Cover a fault of theirs instead of telling others.",
+       "detail": "Bukhari 2442."
+      },
+      {
+       "text": "Make dua for them.",
+       "detail": "General guidance."
+      }
+     ],
+     "intro": "A short plan.",
+     "mistakes": [
+      "Waiting for them to call first.",
+      "Offering help you do not mean."
+     ],
+     "source": "Bukhari 2442",
+     "label": "[Interpretive]",
+     "review": "The steps combine texts and general guidance. Please confirm."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "The brotherhood hadith in order",
+     "prompt": "Put these in order.",
+     "items": [
+      {
+       "text": "Do not oppress him",
+       "why": "First.",
+       "back": "rights"
+      },
+      {
+       "text": "Fulfil his needs",
+       "why": "Then.",
+       "back": "rights"
+      },
+      {
+       "text": "Relieve him of a discomfort",
+       "why": "Then.",
+       "back": "rights"
+      },
+      {
+       "text": "Screen his fault",
+       "why": "Last.",
+       "back": "rights"
+      }
+     ],
+     "explain": "Do not oppress, fulfil, relieve, screen."
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the source",
+     "prompt": "Match each line to its source.",
+     "pairs": [
+      {
+       "left": {
+        "text": "The believers are like one body"
+       },
+       "right": {
+        "text": "Bukhari 6011"
+       },
+       "why": "The hadith.",
+       "back": "body"
+      },
+      {
+       "left": {
+        "text": "The believers are but brothers"
+       },
+       "right": {
+        "text": "Qur’an 49:10"
+       },
+       "why": "The verse.",
+       "back": "quran"
+      },
+      {
+       "left": {
+        "text": "None of you has faith until he wishes for his brother what he likes for himself"
+       },
+       "right": {
+        "text": "Bukhari 13"
+       },
+       "why": "The hadith.",
+       "back": "love"
+      },
+      {
+       "left": {
+        "text": "Do not nurse grudges"
+       },
+       "right": {
+        "text": "Muslim 2564"
+       },
+       "why": "The hadith.",
+       "back": "heart"
+      }
+     ]
+    },
+    {
+     "id": "check2",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "b1",
+       "q": "What picture does Bukhari 6011 give of the believers?",
+       "options": [
+        {
+         "text": "A wall",
+         "reteach": "It is one body.",
+         "back": "body"
+        },
+        {
+         "text": "A ship",
+         "reteach": "It is one body.",
+         "back": "body"
+        },
+        {
+         "text": "One body"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 6011.",
+       "type": "mcq"
+      },
+      {
+       "id": "b2",
+       "q": "What happens to the body when one part aches?",
+       "options": [
+        {
+         "text": "Nothing",
+         "reteach": "The whole body is affected.",
+         "back": "body"
+        },
+        {
+         "text": "The whole body shares the sleeplessness and fever"
+        },
+        {
+         "text": "Only that part",
+         "reteach": "The whole body is affected.",
+         "back": "body"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 6011.",
+       "type": "mcq"
+      },
+      {
+       "id": "b3",
+       "q": "What does 49:10 tell us to do between brothers?",
+       "options": [
+        {
+         "text": "Compete",
+         "reteach": "It says make settlement.",
+         "back": "quran"
+        },
+        {
+         "text": "Keep away",
+         "reteach": "It says make settlement.",
+         "back": "quran"
+        },
+        {
+         "text": "Make settlement"
+        }
+       ],
+       "answer": 2,
+       "explain": "Qur’an 49:10.",
+       "type": "mcq"
+      },
+      {
+       "id": "b4",
+       "q": "What does Bukhari 2442 promise for whoever fulfils a brother’s need?",
+       "options": [
+        {
+         "text": "Wealth",
+         "reteach": "Allah fulfils his needs.",
+         "back": "rights"
+        },
+        {
+         "text": "Allah will fulfil his need"
+        },
+        {
+         "text": "Nothing",
+         "reteach": "Allah fulfils his needs.",
+         "back": "rights"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 2442.",
+       "type": "mcq"
+      },
+      {
+       "id": "b5",
+       "q": "What does Bukhari 13 say about faith?",
+       "options": [
+        {
+         "text": "None has faith till he wishes for his brother what he likes for himself"
+        },
+        {
+         "text": "Faith is a feeling only",
+         "reteach": "It links faith to wishing good.",
+         "back": "love"
+        },
+        {
+         "text": "It has nothing to do with brothers",
+         "reteach": "It links faith to wishing good.",
+         "back": "love"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 13.",
+       "type": "mcq"
+      },
+      {
+       "id": "b6",
+       "q": "In Muslim 2564, where does the Prophet ﷺ say piety is?",
+       "options": [
+        {
+         "text": "Here, and he pointed to his chest"
+        },
+        {
+         "text": "In the clothes",
+         "reteach": "He pointed to his chest.",
+         "back": "heart"
+        },
+        {
+         "text": "In the tongue only",
+         "reteach": "He pointed to his chest.",
+         "back": "heart"
+        }
+       ],
+       "answer": 0,
+       "explain": "Muslim 2564.",
+       "type": "mcq"
+      },
+      {
+       "id": "b7",
+       "q": "You have not spoken to a cousin for months. What does the lesson ask?",
+       "options": [
+        {
+         "text": "Wait for him",
+         "reteach": "Do not wait.",
+         "back": "check"
+        },
+        {
+         "text": "Send a message today and ask what he needs"
+        },
+        {
+         "text": "Ignore it",
+         "reteach": "Do not wait.",
+         "back": "check"
+        }
+       ],
+       "answer": 1,
+       "explain": "Reach out.",
+       "type": "scenario",
+       "scenario": "You have not spoken to a cousin for months."
+      },
+      {
+       "id": "b8",
+       "q": "Is this lesson’s brotherhood the only duty we owe people?",
+       "options": [
+        {
+         "text": "Yes",
+         "reteach": "There are other duties.",
+         "back": "limits"
+        },
+        {
+         "text": "No, we also owe justice and kindness to others (60:8)"
+        },
+        {
+         "text": "Only to relatives",
+         "reteach": "There are other duties.",
+         "back": "limits"
+        }
+       ],
+       "answer": 1,
+       "explain": "Limits.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "The believers are like one body.",
+      "A brother does not oppress, helps, and screens.",
+      "Wishing for him what I like for myself is part of faith."
+     ],
+     "next": "This is the end of the Character course."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Reach out",
+     "body": "Message one brother or sister you have not spoken to this month.",
+     "route": "/calendar",
+     "button": "Open calendar"
+    }
+   ]
+  }
+ ]
+}

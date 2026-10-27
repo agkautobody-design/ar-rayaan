@@ -1,0 +1,4030 @@
+{
+ "schema": 3,
+ "course": "hlth",
+ "lessons": [
+  {
+   "id": "hlth.u1.l1",
+   "title": "Eat of the good things",
+   "minutes": 18,
+   "intro": "Learn what lawful and good food means, the manners of eating from the sunnah, and the words before and after a meal.",
+   "steps": [
+    {
+     "id": "trust",
+     "kind": "why",
+     "title": "Food is a blessing and a test",
+     "body": [
+      "Allah says: “O you who have believed, eat from the good things which We have provided for you and be grateful to Allah if it is [indeed] Him that you worship” (2:172). Eating well and being thankful are linked.",
+      "So food is not just fuel. Each meal is a small chance to remember who gave it. This lesson teaches what “good” means in the Qur’an, how the Prophet ﷺ taught eating, and the words to say before and after."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 2:172",
+     "quran": "q:2:172"
+    },
+    {
+     "id": "halal",
+     "kind": "teach",
+     "title": "Lawful and good",
+     "body": [
+      "The Qur’an asks for two things together: lawful (halal) and good (tayyib). “O mankind, eat from whatever is on earth [that is] lawful and good and do not follow the footsteps of Satan” (2:168). Lawful means Allah has allowed it. Good means it is clean and does you good.",
+      "Allah also says: “eat of what Allah has provided for you [which is] lawful and good” (5:88). The verse just before it (5:87) tells believers not to forbid the good things Allah has made lawful. So Islam does not ask us to starve or to refuse good food. It asks us to eat what is allowed, and to eat it well.",
+      "If you are unsure whether a food is halal, ask or leave it. The details of halal food are in the food guides in this app."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 2:168; 5:87-88",
+     "quran": "q:2:168"
+    },
+    {
+     "id": "boy",
+     "kind": "story",
+     "title": "A boy, a dish and three rules",
+     "body": [
+      "Umar ibn Abi Salamah was a boy in the Prophet’s ﷺ care. His hand used to wander all over the dish while he ate. The Prophet ﷺ said to him: “O boy! Mention the name of Allah, eat with your right hand, and eat from what is nearest to you.” Umar said that he kept to those rules ever after (Bukhari 5376).",
+      "The Prophet ﷺ did not shout at him. He taught three small things with kindness, and a child remembered them for life."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 5376"
+    },
+    {
+     "id": "begin",
+     "kind": "say",
+     "title": "If you forget at the start",
+     "refs": [
+      "hlth.eat.begin"
+     ],
+     "note": "The Prophet ﷺ said: when one of you eats, he should mention Allah’s name. If he forgets at the beginning, he should say these words (Abu Dawud 3767, sahih per al-Albani). The usual way to mention Allah’s name is to say Bismillah.",
+     "source": "Abu Dawud 3767 (sahih per al-Albani); Bukhari 5376",
+     "label": "[Established]",
+     "review": "The Arabic is copied from the hadith cited. Saying Bismillah as the usual wording is the common practice of scholars. Please confirm."
+    },
+    {
+     "id": "end",
+     "kind": "say",
+     "title": "When you finish",
+     "refs": [
+      "hlth.eat.end"
+     ],
+     "note": "Abu Umamah said that when the table was lifted, the Prophet ﷺ used to say these words (Bukhari 5458). The Prophet ﷺ also said that Allah is pleased with a servant who says Alhamdulillah when he eats a morsel and when he drinks (Muslim 2734).",
+     "source": "Bukhari 5458; Muslim 2734",
+     "label": "[Established]",
+     "review": "The English meaning of the words makfiyy, muwadda’ and mustaghna is explained differently by scholars. The meaning given here is the common one. Please confirm."
+    },
+    {
+     "id": "meal",
+     "kind": "howto",
+     "title": "A meal, step by step",
+     "steps": [
+      {
+       "text": "Sit and take what you need. Say Bismillah.",
+       "detail": "If you forget, say Bismillahi awwalahu wa akhirahu when you remember."
+      },
+      {
+       "text": "Eat with your right hand.",
+       "detail": "Bukhari 5376."
+      },
+      {
+       "text": "Eat from the part of the dish nearest you.",
+       "detail": "This is for a shared dish. Bukhari 5376."
+      },
+      {
+       "text": "Eat without wasting, and stop before you are over-full.",
+       "detail": "See the next lesson on the third of the stomach."
+      },
+      {
+       "text": "Say Alhamdulillah when you finish.",
+       "detail": "Or say the longer words you learned."
+      },
+      {
+       "text": "Share. Invite a guest or a neighbour when you can.",
+       "detail": "Food shared brings blessing."
+      }
+     ],
+     "intro": "These are small habits. Do them one at a time until they are easy.",
+     "mistakes": [
+      "Eating in a rush with no word of thanks.",
+      "Wasting food.",
+      "Reaching across a shared dish."
+     ],
+     "source": "Bukhari 5376; Abu Dawud 3767 (sahih per al-Albani)",
+     "label": "[Established]",
+     "review": "The last step (share) is general encouragement and not taken from one hadith. Please confirm or remove."
+    },
+    {
+     "id": "waste",
+     "kind": "teach",
+     "title": "Do not waste",
+     "body": [
+      "Allah says: “O children of Adam, take your adornment at every masjid, and eat and drink, but be not excessive. Indeed, He likes not those who commit excess” (7:31).",
+      "The verse allows eating and drinking, and forbids excess. It is the root of everything the next lesson says about moderation."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 7:31",
+     "quran": "q:7:31"
+    },
+    {
+     "id": "care",
+     "kind": "teach",
+     "title": "Your own diet and your doctor",
+     "body": [
+      "This lesson gives the general guidance of the Qur’an and sunnah. It is not medical advice. If you have a condition such as diabetes, an allergy or a heart problem, follow your doctor’s plan on what you may eat.",
+      "Allah does not charge a soul beyond its capacity (2:286). If your doctor gives you a diet, following it is not against the sunnah. It is taking care of the trust of your body."
+     ],
+     "label": "[Interpretive]",
+     "source": "Qur’an 2:286",
+     "review": "Health guidance: this step only refers the reader to the doctor and does not give medical advice. Please confirm the wording."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "A meal in order",
+     "prompt": "Put the meal in order.",
+     "items": [
+      {
+       "text": "Say Bismillah",
+       "why": "Begin with the name of Allah.",
+       "back": "meal"
+      },
+      {
+       "text": "Eat with the right hand, from what is near you",
+       "why": "Eat in the way the Prophet ﷺ taught.",
+       "back": "boy"
+      },
+      {
+       "text": "Stop before you are over-full",
+       "why": "Do not be excessive.",
+       "back": "waste"
+      },
+      {
+       "text": "Say Alhamdulillah",
+       "why": "End with thanks.",
+       "back": "end"
+      }
+     ],
+     "explain": "Begin with Allah’s name, eat with good manners, stop before excess, and end with thanks."
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the words to the moment",
+     "prompt": "Match each line to when you say it.",
+     "pairs": [
+      {
+       "left": {
+        "ref": "hlth.eat.begin"
+       },
+       "right": {
+        "text": "If you forgot to say Bismillah at the start"
+       },
+       "why": "These words are for when you forgot.",
+       "back": "begin"
+      },
+      {
+       "left": {
+        "ref": "hlth.eat.end"
+       },
+       "right": {
+        "text": "When the meal is finished"
+       },
+       "why": "These words are said at the end.",
+       "back": "end"
+      },
+      {
+       "left": {
+        "text": "Bismillah"
+       },
+       "right": {
+        "text": "When you begin to eat"
+       },
+       "why": "Bismillah is said at the start.",
+       "back": "begin"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "f1",
+       "q": "What two things does the Qur’an ask of our food?",
+       "options": [
+        {
+         "text": "Lawful and good"
+        },
+        {
+         "text": "Cheap and quick",
+         "reteach": "The Qur’an says lawful and good (2:168).",
+         "back": "halal"
+        },
+        {
+         "text": "Plenty and rich",
+         "reteach": "The Qur’an says lawful and good (2:168).",
+         "back": "halal"
+        }
+       ],
+       "answer": 0,
+       "explain": "Halal and tayyib (2:168).",
+       "type": "mcq"
+      },
+      {
+       "id": "f2",
+       "q": "What three things did the Prophet ﷺ teach the boy Umar?",
+       "options": [
+        {
+         "text": "Eat quickly, eat a lot, eat alone",
+         "reteach": "He taught three good manners.",
+         "back": "boy"
+        },
+        {
+         "text": "Eat standing, eat with the left, eat from the middle",
+         "reteach": "He taught the opposite.",
+         "back": "boy"
+        },
+        {
+         "text": "Mention Allah’s name, eat with the right hand, eat from what is near you"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 5376.",
+       "type": "mcq"
+      },
+      {
+       "id": "f3",
+       "q": "You started eating and then remembered you did not say Bismillah. What do you do?",
+       "options": [
+        {
+         "text": "Stop eating the meal",
+         "reteach": "No. Say the words and carry on.",
+         "back": "begin"
+        },
+        {
+         "text": "Say Bismillahi awwalahu wa akhirahu"
+        },
+        {
+         "text": "Nothing, it is too late",
+         "reteach": "The Prophet ﷺ taught words for this case.",
+         "back": "begin"
+        }
+       ],
+       "answer": 1,
+       "explain": "The words the Prophet ﷺ taught for when you forget.",
+       "type": "scenario",
+       "scenario": "You are half way through your lunch and realise you did not say Bismillah."
+      },
+      {
+       "id": "f4",
+       "q": "Fill in the blank: Bismil-laahi ____ wa aakhirahu.",
+       "options": [
+        {
+         "text": "Rabbahu",
+         "reteach": "Rabbahu means its Lord. The words say awwalahu: its beginning.",
+         "back": "begin"
+        },
+        {
+         "text": "awwalahu"
+        },
+        {
+         "text": "yawmahu",
+         "reteach": "Yawmahu means its day. The words say awwalahu: its beginning.",
+         "back": "begin"
+        }
+       ],
+       "answer": 1,
+       "explain": "At its beginning and at its end.",
+       "type": "fill",
+       "fill": {
+        "ref": "hlth.eat.begin",
+        "blank": 1,
+        "show": "translit"
+       }
+      },
+      {
+       "id": "f5",
+       "q": "What did the Prophet ﷺ say when the table was lifted?",
+       "options": [
+        {
+         "text": "There is no god but Allah",
+         "reteach": "He said words of praise for the food.",
+         "back": "end"
+        },
+        {
+         "text": "Praise to Allah, much praise, good and blessed"
+        },
+        {
+         "text": "Allah is the greatest",
+         "reteach": "He said words of praise for the food.",
+         "back": "end"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 5458.",
+       "type": "mcq"
+      },
+      {
+       "id": "f6",
+       "q": "With which verse does Allah forbid excess in eating and drinking?",
+       "options": [
+        {
+         "text": "2:255, the verse of the throne",
+         "reteach": "That verse is not about food.",
+         "back": "waste"
+        },
+        {
+         "text": "7:31, eat and drink but do not be excessive"
+        },
+        {
+         "text": "112:1",
+         "reteach": "That is the surah of sincerity.",
+         "back": "waste"
+        }
+       ],
+       "answer": 1,
+       "explain": "Qur’an 7:31.",
+       "type": "mcq"
+      },
+      {
+       "id": "f7",
+       "q": "A friend with diabetes says: eating less sugar goes against the sunnah of enjoying good food. What do you tell her?",
+       "options": [
+        {
+         "text": "She is right, ignore the doctor",
+         "reteach": "No. Follow your doctor’s advice.",
+         "back": "care"
+        },
+        {
+         "text": "The sunnah forbids sugar",
+         "reteach": "No. The sunnah does not forbid sugar. Follow your doctor’s plan.",
+         "back": "care"
+        },
+        {
+         "text": "Follow your doctor; taking care of your body is part of the trust"
+        }
+       ],
+       "answer": 2,
+       "explain": "Follow the doctor’s plan.",
+       "type": "scenario",
+       "scenario": "A friend with diabetes thinks eating less sugar goes against the sunnah."
+      },
+      {
+       "id": "f8",
+       "q": "Which of these is right?",
+       "options": [
+        {
+         "text": "Reach across the dish to the best piece",
+         "reteach": "The Prophet ﷺ taught to eat from what is near.",
+         "back": "meal"
+        },
+        {
+         "text": "Use the left hand",
+         "reteach": "The Prophet ﷺ taught the right hand.",
+         "back": "meal"
+        },
+        {
+         "text": "Eat from what is nearest in a shared dish"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 5376.",
+       "type": "mcq"
+      },
+      {
+       "id": "f9",
+       "q": "What does Allah say about forbidding the good things He made lawful?",
+       "options": [
+        {
+         "text": "Do not forbid them"
+        },
+        {
+         "text": "Forbid everything enjoyable",
+         "reteach": "The Qur’an says do not forbid the good things.",
+         "back": "halal"
+        },
+        {
+         "text": "Forbid half",
+         "reteach": "The Qur’an says do not forbid the good things (5:87).",
+         "back": "halal"
+        }
+       ],
+       "answer": 0,
+       "explain": "Qur’an 5:87.",
+       "type": "mcq"
+      },
+      {
+       "id": "f10",
+       "q": "When does Allah show He is pleased with a servant, according to Muslim 2734?",
+       "options": [
+        {
+         "text": "When he skips meals",
+         "reteach": "The hadith is about praising Allah when you eat and drink.",
+         "back": "end"
+        },
+        {
+         "text": "When he says Alhamdulillah after a morsel and after a drink"
+        },
+        {
+         "text": "When he eats a lot",
+         "reteach": "The hadith is about praising Allah.",
+         "back": "end"
+        }
+       ],
+       "answer": 1,
+       "explain": "Muslim 2734.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "I eat what is lawful and good.",
+      "I say Bismillah, eat with my right hand and eat from what is near me.",
+      "I say Alhamdulillah when I finish.",
+      "I follow my doctor’s advice about my own diet."
+     ],
+     "next": "Next: the third of the stomach."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "At your next meal",
+     "body": "At your next meal, say Bismillah, eat with your right hand, and say Alhamdulillah at the end.",
+     "route": "/adhkar",
+     "button": "Open adhkar"
+    }
+   ]
+  },
+  {
+   "id": "hlth.u1.l2",
+   "title": "The third of the stomach",
+   "minutes": 15,
+   "intro": "Learn the Prophet’s ﷺ rule of thirds, what “one intestine” means, and how to eat in moderation.",
+   "steps": [
+    {
+     "id": "worst",
+     "kind": "why",
+     "title": "The worst vessel",
+     "body": [
+      "The Prophet ﷺ said: “The human being does not fill any container worse than his stomach. It is enough for the son of Adam to eat a few mouthfuls that keep his back straight. But if he must fill it, then a third for his food, a third for his drink and a third for his breath” (Tirmidhi 2380, sahih per al-Albani and Zubair Ali Zai; also Ibn Majah 3349, sahih per al-Albani).",
+      "He does not say that eating is bad. He says that filling the stomach is the thing to avoid, and he gives a simple rule."
+     ],
+     "label": "[Established]",
+     "source": "Tirmidhi 2380 (sahih per al-Albani and Zubair Ali Zai); Ibn Majah 3349 (sahih per al-Albani)"
+    },
+    {
+     "id": "thirds",
+     "kind": "teach",
+     "title": "The rule of thirds",
+     "body": [
+      "First, eat only what keeps you going: a few mouthfuls to keep your back straight. This is the ideal.",
+      "If you eat more, leave your stomach in thirds: one third food, one third drink, one third air (breath). In practice, this means stopping before you feel stuffed, with room left to breathe and to drink.",
+      "The Prophet ﷺ gave a rule that is easy to remember and to follow. It is guidance, not a measuring tool."
+     ],
+     "label": "[Established]",
+     "source": "Tirmidhi 2380 (sahih per al-Albani and Zubair Ali Zai)"
+    },
+    {
+     "id": "intestine",
+     "kind": "teach",
+     "title": "One intestine, or seven",
+     "body": [
+      "The Prophet ﷺ said that the believer eats in one intestine and the unbeliever in seven (Bukhari 5393; Muslim 2060).",
+      "Ibn Umar once heard this and then refused to let a man who ate a great deal come into his house, as the report of Bukhari 5393 tells it. Scholars explain the hadith in more than one way. A common view is that it describes the believer’s moderation, and that the believer remembers Allah when he eats and stops sooner.",
+      "It is not a hadith to use against people or to judge anyone by how much they eat."
+     ],
+     "label": "[Interpretive]",
+     "source": "Bukhari 5393; Muslim 2060",
+     "review": "The hadith is quoted from the corpus. The explanation (a description of the believer’s moderation) is one common view among scholars, and not the only one. Please confirm."
+    },
+    {
+     "id": "verse",
+     "kind": "teach",
+     "title": "The Qur’an on excess",
+     "body": [
+      "Allah says: “eat and drink, but be not excessive. Indeed, He likes not those who commit excess” (7:31). The hadith of the thirds explains this verse in daily life.",
+      "The Qur’an also warns against the opposite mistake: forbidding what Allah made lawful (5:87). So the middle way is to eat what is good, and to stop before excess."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 7:31; 5:87",
+     "quran": "q:7:31"
+    },
+    {
+     "id": "practice",
+     "kind": "howto",
+     "title": "How to eat in thirds",
+     "steps": [
+      {
+       "text": "Start with a small amount on the plate.",
+       "detail": "You can always take more."
+      },
+      {
+       "text": "Eat slowly. Put the food down between mouthfuls.",
+       "detail": "This is a common habit that helps you notice when you are full."
+      },
+      {
+       "text": "Stop when you are no longer hungry, before you are full.",
+       "detail": "This is the meaning of leaving a third for breath."
+      },
+      {
+       "text": "Drink water with the meal, or after.",
+       "detail": "This is the third for drink."
+      },
+      {
+       "text": "Leave the table with room to spare.",
+       "detail": "The aim is to be light for worship and work."
+      }
+     ],
+     "intro": "The rule is simple. The habit takes practice.",
+     "mistakes": [
+      "Eating until you cannot move.",
+      "Eating while distracted, so you do not notice you are full.",
+      "Taking more than you will finish."
+     ],
+     "source": "Tirmidhi 2380 (sahih per al-Albani and Zubair Ali Zai)",
+     "label": "[Interpretive]",
+     "review": "The practical tips (small plate, eat slowly) are common-sense suggestions. They are not stated in the hadith. Please confirm they may stay."
+    },
+    {
+     "id": "ramadan",
+     "kind": "teach",
+     "title": "A note on fasting and feasting",
+     "body": [
+      "In Ramadan you fast from dawn to sunset, and it is easy to eat far more at night than in other months. The verse says to eat and drink and not be excessive (7:31), and that does not stop in Ramadan.",
+      "So the same rule applies at iftar and suhoor: eat what is good, and stop before you are over-full."
+     ],
+     "label": "[Interpretive]",
+     "source": "Qur’an 7:31",
+     "quran": "q:7:31",
+     "review": "Applying the rule of thirds to Ramadan meals is an application, not a direct hadith. Please confirm."
+    },
+    {
+     "id": "doctor",
+     "kind": "teach",
+     "title": "When your doctor says otherwise",
+     "body": [
+      "Some people need to eat more than others, for example a growing child, a pregnant woman, someone recovering from illness or someone whose doctor has given them a plan. The rule of thirds is for a healthy adult who is tempted to over-eat.",
+      "This is not medical advice. If you are unwell, underweight or on a diet from your doctor, follow your doctor."
+     ],
+     "label": "[Interpretive]",
+     "source": "Qur’an 2:286",
+     "review": "Health guidance: only refers to the doctor. Please confirm the wording."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "The thirds in order",
+     "prompt": "Put these in order, from the ideal to the limit.",
+     "items": [
+      {
+       "text": "A few mouthfuls to keep the back straight",
+       "why": "This is the ideal.",
+       "back": "worst"
+      },
+      {
+       "text": "If you eat more: one third food",
+       "why": "If you must fill it, a third for food.",
+       "back": "thirds"
+      },
+      {
+       "text": "One third drink",
+       "why": "A third for drink.",
+       "back": "thirds"
+      },
+      {
+       "text": "One third breath",
+       "why": "A third left empty for breath.",
+       "back": "thirds"
+      }
+     ],
+     "explain": "First the few mouthfuls, then, if you must, thirds of food, drink and breath."
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the part to the share",
+     "prompt": "Match each share of the stomach to what it is for.",
+     "pairs": [
+      {
+       "left": {
+        "text": "One third"
+       },
+       "right": {
+        "text": "Food"
+       },
+       "why": "A third is for food.",
+       "back": "thirds"
+      },
+      {
+       "left": {
+        "text": "Another third"
+       },
+       "right": {
+        "text": "Drink"
+       },
+       "why": "A third is for drink.",
+       "back": "thirds"
+      },
+      {
+       "left": {
+        "text": "The last third"
+       },
+       "right": {
+        "text": "Breath"
+       },
+       "why": "A third is left for breath.",
+       "back": "thirds"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "s1",
+       "q": "What did the Prophet ﷺ call the worst container a person fills?",
+       "options": [
+        {
+         "text": "His pocket",
+         "reteach": "He said the stomach.",
+         "back": "worst"
+        },
+        {
+         "text": "His house",
+         "reteach": "He said the stomach.",
+         "back": "worst"
+        },
+        {
+         "text": "His stomach"
+        }
+       ],
+       "answer": 2,
+       "explain": "The stomach is the worst container.",
+       "type": "mcq"
+      },
+      {
+       "id": "s2",
+       "q": "What is enough for the son of Adam?",
+       "options": [
+        {
+         "text": "A full table",
+         "reteach": "A few mouthfuls is enough.",
+         "back": "worst"
+        },
+        {
+         "text": "A few mouthfuls to keep his back straight"
+        },
+        {
+         "text": "Two meals a day",
+         "reteach": "The hadith says a few mouthfuls to keep the back straight.",
+         "back": "worst"
+        }
+       ],
+       "answer": 1,
+       "explain": "A few mouthfuls.",
+       "type": "mcq"
+      },
+      {
+       "id": "s3",
+       "q": "If a person must fill the stomach, how should he divide it?",
+       "options": [
+        {
+         "text": "Half food, half drink",
+         "reteach": "There are three parts, and one is for breath.",
+         "back": "thirds"
+        },
+        {
+         "text": "A third for food, a third for drink, a third for breath"
+        },
+        {
+         "text": "Two thirds food, one third drink",
+         "reteach": "There are three equal parts, and one is for breath.",
+         "back": "thirds"
+        }
+       ],
+       "answer": 1,
+       "explain": "Thirds.",
+       "type": "mcq"
+      },
+      {
+       "id": "s4",
+       "q": "After a feast, a man is so full he cannot pray comfortably. What was the lesson?",
+       "options": [
+        {
+         "text": "Stop before you are full and leave a third for breath"
+        },
+        {
+         "text": "Eat more to feel better",
+         "reteach": "The hadith says to stop before excess.",
+         "back": "thirds"
+        },
+        {
+         "text": "Skip prayer",
+         "reteach": "No. Eat less so you can pray with ease.",
+         "back": "thirds"
+        }
+       ],
+       "answer": 0,
+       "explain": "Stop before you are full.",
+       "type": "scenario",
+       "scenario": "After a big dinner a man is so full he cannot pray comfortably."
+      },
+      {
+       "id": "s5",
+       "q": "Which verse forbids excess in eating and drinking?",
+       "options": [
+        {
+         "text": "2:255",
+         "reteach": "That is the verse of the throne.",
+         "back": "verse"
+        },
+        {
+         "text": "1:1",
+         "reteach": "That is the opening of the Fatihah.",
+         "back": "verse"
+        },
+        {
+         "text": "7:31"
+        }
+       ],
+       "answer": 2,
+       "explain": "Qur’an 7:31.",
+       "type": "mcq"
+      },
+      {
+       "id": "s6",
+       "q": "A friend says the hadith of one intestine means you are a bad Muslim if you eat a lot. What is a better answer?",
+       "options": [
+        {
+         "text": "She is right",
+         "reteach": "Scholars explain it as moderation. We do not judge people by it.",
+         "back": "intestine"
+        },
+        {
+         "text": "The hadith is fake",
+         "reteach": "It is in Bukhari and Muslim.",
+         "back": "intestine"
+        },
+        {
+         "text": "It describes moderation, and is not for judging people"
+        }
+       ],
+       "answer": 2,
+       "explain": "We do not judge people by how much they eat.",
+       "type": "scenario",
+       "scenario": "A friend says that a person who eats a lot is a bad Muslim because of the hadith of one intestine."
+      },
+      {
+       "id": "s7",
+       "q": "Does the rule of thirds apply to a sick child who needs to eat more?",
+       "options": [
+        {
+         "text": "Yes, always",
+         "reteach": "The rule is for a healthy adult tempted to over-eat. Follow the doctor.",
+         "back": "doctor"
+        },
+        {
+         "text": "Only at night",
+         "reteach": "The rule is not about the time.",
+         "back": "doctor"
+        },
+        {
+         "text": "No. Follow the doctor"
+        }
+       ],
+       "answer": 2,
+       "explain": "Follow the doctor.",
+       "type": "mcq"
+      },
+      {
+       "id": "s8",
+       "q": "Does Ramadan change the rule of thirds?",
+       "options": [
+        {
+         "text": "Yes, you may eat as much as you like",
+         "reteach": "The rule still applies.",
+         "back": "ramadan"
+        },
+        {
+         "text": "Yes, you must eat less than half",
+         "reteach": "The rule is thirds.",
+         "back": "ramadan"
+        },
+        {
+         "text": "No. It still applies at iftar"
+        }
+       ],
+       "answer": 2,
+       "explain": "The thirds apply at iftar too.",
+       "type": "mcq"
+      },
+      {
+       "id": "s9",
+       "q": "Which is a good habit for eating in thirds?",
+       "options": [
+        {
+         "text": "Eat fast so you finish",
+         "reteach": "Slowly helps you notice when you are full.",
+         "back": "practice"
+        },
+        {
+         "text": "Eat slowly and stop before you are full"
+        },
+        {
+         "text": "Eat until the plate is clean",
+         "reteach": "Stop before you are full.",
+         "back": "practice"
+        }
+       ],
+       "answer": 1,
+       "explain": "Slowly, and stop before full.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "A few mouthfuls are enough. If I eat more, I use thirds: food, drink, breath.",
+      "I stop before I am full.",
+      "I do not judge others by how much they eat.",
+      "I follow my doctor if I am unwell."
+     ],
+     "next": "Next: sleep."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "At your next meal",
+     "body": "At your next meal, stop when you are no longer hungry, before you are full. Notice how it feels.",
+     "route": "/adhkar",
+     "button": "Open adhkar"
+    }
+   ]
+  },
+  {
+   "id": "hlth.u1.l3",
+   "title": "Sleep: a right of your body",
+   "minutes": 18,
+   "intro": "Learn how the Prophet ﷺ went to sleep, the words he said, and why sleep is part of a balanced life.",
+   "steps": [
+    {
+     "id": "right",
+     "kind": "why",
+     "title": "Your body has a right over you",
+     "body": [
+      "Abdullah ibn Amr used to pray all night and fast every day. The Prophet ﷺ warned him that his eyesight and strength would suffer, and said: “your body has a right over you, and your family has a right over you.” He told him to fast some days and not others, and to pray part of the night and then sleep (Bukhari 1153).",
+      "So sleep is not laziness. It is something your body is owed. A person who sleeps well can pray, work and be kind the next day. This lesson teaches how the Prophet ﷺ went to sleep and what he said."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 1153"
+    },
+    {
+     "id": "prepare",
+     "kind": "teach",
+     "title": "Getting ready for bed",
+     "body": [
+      "The Prophet ﷺ told Al-Bara ibn Azib: “When you come to your bed, make wudu as you do for prayer, then lie on your right side, and say...” and then he taught him the words in the next step. He added: make these the last words you say (Bukhari 6311).",
+      "He also said: when you go to bed, shake out your bed with the inside of your waist sheet, because you do not know what has come onto it after you left (Bukhari 6320). And he said to put out the lights, close the doors, tie the mouths of the water skins and cover the food and drink (Bukhari 6296).",
+      "These are small acts of care for yourself and your home."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 6311, 6320, 6296"
+    },
+    {
+     "id": "aslamtu",
+     "kind": "say",
+     "title": "The words before sleep",
+     "refs": [
+      "hlth.sleep.aslamtu"
+     ],
+     "note": "The Prophet ﷺ taught this to Al-Bara. He said that if you die that night, you die on the fitrah, and to make these the last words you say. When Al-Bara repeated it back he said “your messenger” in place of “your prophet”, and the Prophet ﷺ corrected him (Bukhari 6311). Learn the words exactly.",
+     "source": "Bukhari 6311",
+     "label": "[Established]",
+     "review": "The Arabic is copied from Bukhari 6311. The English is an explanation of the words. Please confirm."
+    },
+    {
+     "id": "night",
+     "kind": "say",
+     "title": "When you lie down",
+     "refs": [
+      "hlth.sleep"
+     ],
+     "note": "This is the dua from Abu Huraira’s report: “In Your name, my Lord, I lay down my side, and by You I raise it. If You keep my soul, have mercy on it...” (Bukhari 6320). Sleep is a small death, and every waking is a return. You can say this dua, the one in the last step, or both.",
+     "source": "Bukhari 6320",
+     "label": "[Established]"
+    },
+    {
+     "id": "bismika",
+     "kind": "say",
+     "title": "The shortest words",
+     "refs": [
+      "hlth.sleep.bismika"
+     ],
+     "note": "Hudhayfah said that when the Prophet ﷺ went to bed he would say these words (Bukhari 6312). If you are tired and can only say one thing, say this.",
+     "source": "Bukhari 6312",
+     "label": "[Established]"
+    },
+    {
+     "id": "kursi",
+     "kind": "listen",
+     "title": "Ayat al-Kursi",
+     "ref": "q:2:255",
+     "repeats": 2,
+     "note": "Abu Huraira caught a thief three nights in a row. The third time, the thief said: when you go to bed, recite Ayat al-Kursi to the end, and Allah will appoint a guard over you, and no devil will come near you till morning. The Prophet ﷺ said: “He spoke the truth, although he is an absolute liar. It was Satan” (Bukhari 2311)."
+    },
+    {
+     "id": "baqarah",
+     "kind": "teach",
+     "title": "The last two verses of al-Baqarah",
+     "body": [
+      "The Prophet ﷺ said that whoever recites the last two verses of Surat al-Baqarah at night, they will be sufficient for him (Bukhari 5009).",
+      "Scholars explain “sufficient” in more than one way: for example, that they protect him that night, or that they are enough in place of the night prayer. The hadith does not say which. Ask your imam, and recite them if you can."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 5009",
+     "quran": "q:2:285",
+     "review": "The two common explanations of the word “sufficient” are given as differing views. Please confirm."
+    },
+    {
+     "id": "wake",
+     "kind": "say",
+     "title": "On waking",
+     "refs": [
+      "hlth.sleep.wake"
+     ],
+     "note": "Hudhayfah said that when the Prophet ﷺ woke he would say these words (Bukhari 6312). They thank Allah who gave us life after the little death of sleep, and remind us of the rising.",
+     "source": "Bukhari 6312",
+     "label": "[Established]"
+    },
+    {
+     "id": "routine",
+     "kind": "howto",
+     "title": "A simple bedtime routine",
+     "steps": [
+      {
+       "text": "Put out lights, close doors, cover food and drink.",
+       "detail": "Bukhari 6296."
+      },
+      {
+       "text": "Make wudu.",
+       "detail": "Bukhari 6311."
+      },
+      {
+       "text": "Shake out your bed.",
+       "detail": "Bukhari 6320."
+      },
+      {
+       "text": "Lie on your right side.",
+       "detail": "Bukhari 6311."
+      },
+      {
+       "text": "Say Ayat al-Kursi, the last two verses of al-Baqarah and the dua.",
+       "detail": "Bukhari 2311, 5009, 6311, 6320."
+      },
+      {
+       "text": "Let the dua be your last words.",
+       "detail": "Bukhari 6311."
+      }
+     ],
+     "intro": "This is the sunnah order. Do as much as you can, and add more as it becomes easy.",
+     "mistakes": [
+      "Scrolling on a phone until you fall asleep, then forgetting the dua.",
+      "Skipping the dua because you are tired. Say the shortest one."
+     ],
+     "source": "Bukhari 6296, 6311, 6320, 2311, 5009",
+     "label": "[Established]",
+     "review": "The suggestion to avoid screens is common sense and not a hadith. Please confirm it may stay."
+    },
+    {
+     "id": "limits",
+     "kind": "teach",
+     "title": "Sleep, but do not oversleep the prayer",
+     "body": [
+      "Sleep is a right, and prayer is a duty. Do not let one cancel the other. Set an alarm for Fajr and ask someone at home to wake you.",
+      "If you sleep through a prayer or forget it, pray it as soon as you remember. That is the ruling in the prayer guide."
+     ],
+     "label": "[Interpretive]",
+     "source": "Bukhari 1153",
+     "review": "The ruling to pray a missed prayer when remembered is described in the prayer guide in this app. Please confirm it is consistent."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "Bedtime in order",
+     "prompt": "Put the bedtime routine in order.",
+     "items": [
+      {
+       "text": "Close doors and put out lights",
+       "why": "Make the room safe first.",
+       "back": "prepare"
+      },
+      {
+       "text": "Make wudu",
+       "why": "Wudu comes before lying down.",
+       "back": "prepare"
+      },
+      {
+       "text": "Lie on your right side",
+       "why": "Then lie on your right side.",
+       "back": "prepare"
+      },
+      {
+       "text": "Say the dua as your last words",
+       "why": "Make the dua the last thing you say.",
+       "back": "aslamtu"
+      }
+     ],
+     "explain": "Make the room safe, make wudu, lie on your right side, and end with the dua."
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the words to the moment",
+     "prompt": "Match each line to its moment.",
+     "pairs": [
+      {
+       "left": {
+        "ref": "hlth.sleep.bismika"
+       },
+       "right": {
+        "text": "The shortest words at bedtime"
+       },
+       "why": "These are the words in Hudhayfah’s report.",
+       "back": "bismika"
+      },
+      {
+       "left": {
+        "ref": "hlth.sleep.2"
+       },
+       "right": {
+        "text": "If You keep my soul, have mercy on it"
+       },
+       "why": "This is the second part of the dua of Abu Huraira.",
+       "back": "night"
+      },
+      {
+       "left": {
+        "ref": "hlth.sleep.wake"
+       },
+       "right": {
+        "text": "When you get up"
+       },
+       "why": "These are the words on waking.",
+       "back": "wake"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "z1",
+       "q": "What did the Prophet ﷺ tell Abdullah ibn Amr about his body?",
+       "options": [
+        {
+         "text": "Your body has a right over you"
+        },
+        {
+         "text": "Ignore it for Allah",
+         "reteach": "He said your body has a right over you.",
+         "back": "right"
+        },
+        {
+         "text": "Pray all night every night",
+         "reteach": "He told him to sleep as well.",
+         "back": "right"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 1153.",
+       "type": "mcq"
+      },
+      {
+       "id": "z2",
+       "q": "A man prays all night and is tired all day. What do you tell him?",
+       "options": [
+        {
+         "text": "Your body has a right too. Sleep and pray in balance"
+        },
+        {
+         "text": "Pray even more",
+         "reteach": "The Prophet ﷺ told Abdullah to sleep as well.",
+         "back": "right"
+        },
+        {
+         "text": "Stop praying at night",
+         "reteach": "No. Balance, do not stop.",
+         "back": "right"
+        }
+       ],
+       "answer": 0,
+       "explain": "Balance.",
+       "type": "scenario",
+       "scenario": "A man prays most of the night, then is tired and short-tempered all day."
+      },
+      {
+       "id": "z3",
+       "q": "Which side did the Prophet ﷺ teach to lie on?",
+       "options": [
+        {
+         "text": "The right side"
+        },
+        {
+         "text": "The left side",
+         "reteach": "He said the right side (Bukhari 6311).",
+         "back": "prepare"
+        },
+        {
+         "text": "The back",
+         "reteach": "He said the right side (Bukhari 6311).",
+         "back": "prepare"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 6311.",
+       "type": "mcq"
+      },
+      {
+       "id": "z4",
+       "q": "What should you do before lying down, according to Bukhari 6311?",
+       "options": [
+        {
+         "text": "Eat a meal",
+         "reteach": "He said to make wudu.",
+         "back": "prepare"
+        },
+        {
+         "text": "Pray two rak’ahs",
+         "reteach": "He said to make wudu.",
+         "back": "prepare"
+        },
+        {
+         "text": "Make wudu as for prayer"
+        }
+       ],
+       "answer": 2,
+       "explain": "Make wudu.",
+       "type": "mcq"
+      },
+      {
+       "id": "z5",
+       "q": "What does Ayat al-Kursi do at night, according to the report in Bukhari 2311?",
+       "options": [
+        {
+         "text": "A guard from Allah stays with you and no devil comes near till morning"
+        },
+        {
+         "text": "It cancels the night prayer",
+         "reteach": "The report says a guard from Allah stays with you.",
+         "back": "kursi"
+        },
+        {
+         "text": "It lets you sleep late",
+         "reteach": "The report says a guard stays with you.",
+         "back": "kursi"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 2311.",
+       "type": "mcq"
+      },
+      {
+       "id": "z6",
+       "q": "Fill in the blank: Bismika amootu wa ____.",
+       "options": [
+        {
+         "text": "ahyaa"
+        },
+        {
+         "text": "amootu",
+         "reteach": "Amootu means I die. The words say ahyaa: I live.",
+         "back": "bismika"
+        },
+        {
+         "text": "arfa’uhu",
+         "reteach": "Arfa’uhu means I raise it. The words say ahyaa: I live.",
+         "back": "bismika"
+        }
+       ],
+       "answer": 0,
+       "explain": "In Your name I die and I live.",
+       "type": "fill",
+       "fill": {
+        "ref": "hlth.sleep.bismika",
+        "blank": 3,
+        "show": "translit"
+       }
+      },
+      {
+       "id": "z7",
+       "q": "What do you say when you wake up?",
+       "options": [
+        {
+         "text": "Allah is the greatest",
+         "reteach": "The words on waking praise Allah for the life He gave back.",
+         "back": "wake"
+        },
+        {
+         "text": "Praise be to Allah who gave us life after He made us die"
+        },
+        {
+         "text": "There is no god but Allah",
+         "reteach": "The words on waking praise Allah for the life He gave back.",
+         "back": "wake"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 6312.",
+       "type": "mcq"
+      },
+      {
+       "id": "z8",
+       "q": "Why did the Prophet ﷺ say to shake out your bed?",
+       "options": [
+        {
+         "text": "To make it softer",
+         "reteach": "The hadith gives the reason: you do not know what came onto it.",
+         "back": "prepare"
+        },
+        {
+         "text": "Because you do not know what came onto it after you left"
+        },
+        {
+         "text": "To wake yourself up",
+         "reteach": "The hadith gives the reason: you do not know what came onto it.",
+         "back": "prepare"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 6320.",
+       "type": "mcq"
+      },
+      {
+       "id": "z9",
+       "q": "You are very tired and you can only say one thing before sleep. What is the shortest sunnah dua?",
+       "options": [
+        {
+         "text": "Subhanallah",
+         "reteach": "That is another dhikr. The shortest sleep dua is Bismika amootu wa ahyaa.",
+         "back": "bismika"
+        },
+        {
+         "text": "Bismika amootu wa ahyaa"
+        },
+        {
+         "text": "Nothing, it does not count",
+         "reteach": "Even the shortest words are the sunnah.",
+         "back": "bismika"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 6312.",
+       "type": "scenario",
+       "scenario": "You are exhausted and about to fall asleep."
+      },
+      {
+       "id": "z10",
+       "q": "You overslept and missed Fajr. What do you do?",
+       "options": [
+        {
+         "text": "Skip it",
+         "reteach": "A missed prayer is made up when you remember.",
+         "back": "limits"
+        },
+        {
+         "text": "Pray it as soon as you wake or remember"
+        },
+        {
+         "text": "Wait for the next prayer time",
+         "reteach": "Pray it as soon as you remember.",
+         "back": "limits"
+        }
+       ],
+       "answer": 1,
+       "explain": "Pray it when you remember.",
+       "type": "scenario",
+       "scenario": "You woke up after sunrise."
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Sleep is a right of my body, and I keep a balance with worship.",
+      "I make wudu, lie on my right side and end with the dua.",
+      "I know the shortest words: Bismika amootu wa ahyaa.",
+      "I say the words on waking."
+     ],
+     "next": "Next: moderation in all things."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Tonight",
+     "body": "Tonight, make wudu, lie on your right side and say Bismika amootu wa ahyaa as your last words.",
+     "route": "/adhkar",
+     "button": "Open adhkar"
+    }
+   ]
+  },
+  {
+   "id": "hlth.u1.l4",
+   "title": "Moderation in all things",
+   "minutes": 15,
+   "intro": "Learn what the Prophet ﷺ taught about ease, small steady deeds and giving each part of life its right.",
+   "steps": [
+    {
+     "id": "easy",
+     "kind": "why",
+     "title": "The religion is ease",
+     "body": [
+      "The Prophet ﷺ said: “Religion is very easy, and whoever overburdens himself in his religion will not be able to continue in that way. So do not be extremists, but try to be near to perfection, and receive the good tidings that you will be rewarded; and gain strength by worshipping in the morning, the afternoon and the last hours of the night” (Bukhari 39).",
+      "The aim is not to do less than you can. It is to do what you can keep doing."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 39"
+    },
+    {
+     "id": "ease",
+     "kind": "teach",
+     "title": "What Allah intends",
+     "body": [
+      "In the verse on fasting, Allah says: “Allah intends for you ease and does not intend for you hardship” (2:185). And: “Allah does not charge a soul except [with that within] its capacity” (2:286).",
+      "Ease does not mean the rules are optional. The prayers and the fast are duties. Ease means that Allah gives a way when something is truly hard: sitting to pray when you cannot stand, breaking the fast when ill, shortening the prayer on a journey."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 2:185; 2:286",
+     "quran": "q:2:185"
+    },
+    {
+     "id": "three",
+     "kind": "story",
+     "title": "Three men and the Prophet’s ﷺ worship",
+     "body": [
+      "Three men came to the homes of the Prophet’s ﷺ wives to ask about his worship. When they were told, they felt it was little, and said: “Where are we compared to the Prophet ﷺ, whose past and future sins have been forgiven?” One said he would pray all night for ever. One said he would fast every day and never break the fast. One said he would keep away from women and never marry.",
+      "The Prophet ﷺ came and said: “Are you the ones who said such and such? By Allah, I am more submissive to Allah and more afraid of Him than you. Yet I fast and I break my fast, I sleep, and I also marry women. Whoever does not follow my sunnah is not from me” (Bukhari 5063).",
+      "He did not tell them to worship less. He told them to worship in the way he did, which includes rest and a normal life."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 5063"
+    },
+    {
+     "id": "steady",
+     "kind": "teach",
+     "title": "Small and regular",
+     "body": [
+      "Aisha reported that the Prophet ﷺ said: “Do good deeds properly, sincerely and moderately, and know that your deeds will not make you enter Paradise, and that the most beloved deed to Allah is the most regular and constant, even if it is little” (Bukhari 6464).",
+      "A short prayer or a page of Qur’an every day is better than a great effort once and then nothing."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 6464"
+    },
+    {
+     "id": "blessings",
+     "kind": "teach",
+     "title": "Two blessings many people lose",
+     "body": [
+      "Ibn Abbas reported that the Prophet ﷺ said: “There are two blessings that many people lose out on: health and free time” (Bukhari 6412).",
+      "So health is a blessing to use, and free time is a blessing to use well. Looking after your health is not wasted time. It is looking after a blessing from Allah."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 6412"
+    },
+    {
+     "id": "limit",
+     "kind": "teach",
+     "title": "Moderation is not an excuse",
+     "body": [
+      "Moderation never means skipping what is obligatory. A person cannot say “religion is ease” and then miss the prayer. The ease is inside the rules, and not a way around them.",
+      "If you are unsure whether you are being easy on yourself or neglecting a duty, ask a teacher you trust."
+     ],
+     "label": "[Interpretive]",
+     "source": "Bukhari 39",
+     "review": "This is the standard explanation of the hadith. Please confirm."
+    },
+    {
+     "id": "day",
+     "kind": "howto",
+     "title": "A balanced day",
+     "steps": [
+      {
+       "text": "Pray the five prayers on time.",
+       "detail": "These are the base."
+      },
+      {
+       "text": "Keep a small daily habit, such as a page of Qur’an or some dhikr.",
+       "detail": "Bukhari 6464."
+      },
+      {
+       "text": "Work or study with honesty.",
+       "detail": "Your work is part of your life."
+      },
+      {
+       "text": "Eat in moderation and move your body.",
+       "detail": "See the lesson on the third of the stomach."
+      },
+      {
+       "text": "Sleep enough.",
+       "detail": "See the lesson on sleep."
+      },
+      {
+       "text": "Make time for family and friends.",
+       "detail": "Your family has a right over you (Bukhari 1153)."
+      }
+     ],
+     "intro": "A balanced day gives each part its right.",
+     "mistakes": [
+      "Giving up all rest for worship.",
+      "Skipping worship for work.",
+      "Starting too big and then quitting."
+     ],
+     "source": "Bukhari 6464, 1153",
+     "label": "[Established]"
+    },
+    {
+     "id": "extremes",
+     "kind": "contrast",
+     "title": "Two mistakes",
+     "rows": [
+      {
+       "name": "Too hard",
+       "text": "Making a plan you cannot keep: no sleep, no rest, fasting every day. You burn out and may stop altogether."
+      },
+      {
+       "name": "Too easy",
+       "text": "Making excuses to avoid even the duties. You drift and the duties become hard."
+      },
+      {
+       "name": "The middle",
+       "text": "Keep the duties, add a small habit, rest, and grow slowly."
+      }
+     ],
+     "intro": "The Prophet ﷺ warned against both.",
+     "agree": "The Prophet ﷺ taught the middle way in Bukhari 39 and Bukhari 5063.",
+     "closing": "Ask yourself: can I keep this for a year?",
+     "source": "Bukhari 39, 5063",
+     "review": "The two mistakes are a summary of the teaching of the hadith. Please confirm.",
+     "label": "[Interpretive]"
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "Starting a new habit",
+     "prompt": "Put these in the wise order.",
+     "items": [
+      {
+       "text": "Choose one small deed",
+       "why": "Start small.",
+       "back": "steady"
+      },
+      {
+       "text": "Do it every day for a week",
+       "why": "Be regular.",
+       "back": "steady"
+      },
+      {
+       "text": "Rest when you need to",
+       "why": "Your body has a right too.",
+       "back": "blessings"
+      },
+      {
+       "text": "Add a little more when it is easy",
+       "why": "Grow slowly.",
+       "back": "easy"
+      }
+     ],
+     "explain": "Start small, be regular, rest, and grow slowly."
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the report to its lesson",
+     "prompt": "Match each report to its lesson.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Bukhari 39"
+       },
+       "right": {
+        "text": "The religion is easy; do not be extremist"
+       },
+       "why": "Bukhari 39 is the hadith of ease.",
+       "back": "easy"
+      },
+      {
+       "left": {
+        "text": "Bukhari 5063"
+       },
+       "right": {
+        "text": "Three men who wanted to worship without rest"
+       },
+       "why": "This is the story of the three men.",
+       "back": "three"
+      },
+      {
+       "left": {
+        "text": "Bukhari 6464"
+       },
+       "right": {
+        "text": "The most beloved deed is the regular one"
+       },
+       "why": "This is the hadith on regular deeds.",
+       "back": "steady"
+      },
+      {
+       "left": {
+        "text": "Bukhari 6412"
+       },
+       "right": {
+        "text": "Health and free time are blessings"
+       },
+       "why": "This is the hadith on the two blessings.",
+       "back": "blessings"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "m1",
+       "q": "What did the Prophet ﷺ say about the religion?",
+       "options": [
+        {
+         "text": "It is hard and only for the strong",
+         "reteach": "He said it is easy.",
+         "back": "easy"
+        },
+        {
+         "text": "It is for the weekend",
+         "reteach": "He said it is easy, and to be steady.",
+         "back": "easy"
+        },
+        {
+         "text": "It is easy, and do not be extremists"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 39.",
+       "type": "mcq"
+      },
+      {
+       "id": "m2",
+       "q": "What did the three men want to do?",
+       "options": [
+        {
+         "text": "Pray all night, fast every day and never marry"
+        },
+        {
+         "text": "Travel and trade",
+         "reteach": "They wanted extreme worship.",
+         "back": "three"
+        },
+        {
+         "text": "Eat less",
+         "reteach": "They wanted extreme worship.",
+         "back": "three"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 5063.",
+       "type": "mcq"
+      },
+      {
+       "id": "m3",
+       "q": "What did the Prophet ﷺ say about himself?",
+       "options": [
+        {
+         "text": "He never slept",
+         "reteach": "He slept.",
+         "back": "three"
+        },
+        {
+         "text": "He fasted and broke the fast, slept, and married"
+        },
+        {
+         "text": "He fasted every day",
+         "reteach": "He fasted and broke the fast.",
+         "back": "three"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 5063.",
+       "type": "mcq"
+      },
+      {
+       "id": "m4",
+       "q": "Which deed is most beloved to Allah?",
+       "options": [
+        {
+         "text": "The biggest one",
+         "reteach": "The regular one is most beloved.",
+         "back": "steady"
+        },
+        {
+         "text": "The one done once",
+         "reteach": "The regular one is most beloved.",
+         "back": "steady"
+        },
+        {
+         "text": "The regular one, even if small"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 6464.",
+       "type": "mcq"
+      },
+      {
+       "id": "m5",
+       "q": "A student decides to read three juz of Qur’an every day, but quits after a week. What does the hadith suggest?",
+       "options": [
+        {
+         "text": "Try an even larger amount",
+         "reteach": "The regular deed is most beloved.",
+         "back": "steady"
+        },
+        {
+         "text": "Give up on the Qur’an",
+         "reteach": "Start with a small amount and keep it.",
+         "back": "steady"
+        },
+        {
+         "text": "A smaller amount he can keep up"
+        }
+       ],
+       "answer": 2,
+       "explain": "Small and regular.",
+       "type": "scenario",
+       "scenario": "A student decides to read three juz of Qur’an every day and quits after a week."
+      },
+      {
+       "id": "m6",
+       "q": "What are the two blessings many people lose?",
+       "options": [
+        {
+         "text": "Wealth and fame",
+         "reteach": "It is health and free time.",
+         "back": "blessings"
+        },
+        {
+         "text": "Health and free time"
+        },
+        {
+         "text": "Youth and wealth",
+         "reteach": "It is health and free time.",
+         "back": "blessings"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 6412.",
+       "type": "mcq"
+      },
+      {
+       "id": "m7",
+       "q": "A man says “religion is ease” so he skips the Fajr prayer. What do you tell him?",
+       "options": [
+        {
+         "text": "Ease is inside the rules; Fajr is a duty"
+        },
+        {
+         "text": "He is right",
+         "reteach": "Ease never cancels a duty.",
+         "back": "limit"
+        },
+        {
+         "text": "He should skip all prayers",
+         "reteach": "No. Ease is not a way around the duties.",
+         "back": "limit"
+        }
+       ],
+       "answer": 0,
+       "explain": "Ease is inside the rules.",
+       "type": "scenario",
+       "scenario": "A man says religion is ease, so he sleeps through Fajr."
+      },
+      {
+       "id": "m8",
+       "q": "Which verse says that Allah intends ease and not hardship?",
+       "options": [
+        {
+         "text": "2:185"
+        },
+        {
+         "text": "112:1",
+         "reteach": "That is the surah of sincerity.",
+         "back": "ease"
+        },
+        {
+         "text": "1:1",
+         "reteach": "That is the Fatihah.",
+         "back": "ease"
+        }
+       ],
+       "answer": 0,
+       "explain": "Qur’an 2:185.",
+       "type": "mcq"
+      },
+      {
+       "id": "m9",
+       "q": "Which of these is a balanced plan?",
+       "options": [
+        {
+         "text": "All night prayer and no sleep",
+         "reteach": "The body has a right too.",
+         "back": "day"
+        },
+        {
+         "text": "The five prayers, a small daily habit, rest and family time"
+        },
+        {
+         "text": "Work only",
+         "reteach": "Prayer and family have a right too.",
+         "back": "day"
+        }
+       ],
+       "answer": 1,
+       "explain": "A balanced day.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "The religion is ease, and ease is inside the rules.",
+      "I choose small deeds that I can keep.",
+      "I treat health and free time as blessings.",
+      "I give each part of my day its right."
+     ],
+     "next": "Next: the Prophet’s ﷺ own ruqyah."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Pick one small habit",
+     "body": "Choose one small daily deed you can keep for a month, and do it today.",
+     "route": "/quran",
+     "button": "Open the Qur’an"
+    }
+   ]
+  },
+  {
+   "id": "hlth.u2.l1",
+   "title": "The Prophet’s own ruqyah",
+   "minutes": 20,
+   "intro": "Learn the ruqyah of the Prophet ﷺ: the dua for pain, the dua for the sick, the surahs of refuge and what makes a ruqyah correct.",
+   "steps": [
+    {
+     "id": "healing",
+     "kind": "why",
+     "title": "The Qur’an as healing",
+     "body": [
+      "Allah says: “And We send down of the Qur’an that which is healing and mercy for the believers” (17:82). And: “O mankind, there has to come to you instruction from your Lord and healing for what is in the breasts and guidance and mercy for the believers” (10:57).",
+      "Ruqyah (ruqya) is reciting the Qur’an and the duas of the Prophet ﷺ over yourself or another person, asking Allah for healing and protection. It is a sunnah. It comes with trust that the cure is from Allah."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 17:82; 10:57",
+     "quran": "q:17:82"
+    },
+    {
+     "id": "uthman",
+     "kind": "story",
+     "title": "Uthman and the pain in his body",
+     "body": [
+      "Uthman ibn Abi al-As complained to the Prophet ﷺ of a pain he had felt in his body ever since he became Muslim. The Prophet ﷺ said to him: put your hand on the place where you feel pain in your body, say Bismillah three times, and say seven times the words in the next step (Muslim 2202).",
+      "The cure he gave was simple: a hand, the name of Allah, and a dua. No special place, no special person."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 2202"
+    },
+    {
+     "id": "pain",
+     "kind": "say",
+     "title": "The words for pain",
+     "refs": [
+      "hlth.ruqyah.pain"
+     ],
+     "note": "Say Bismillah three times with your hand on the place of the pain, then say this seven times (Muslim 2202). It means: I seek refuge with Allah and with His power from the evil of what I find and what I fear.",
+     "source": "Muslim 2202",
+     "label": "[Established]"
+    },
+    {
+     "id": "shifa",
+     "kind": "say",
+     "title": "The dua the Prophet ﷺ made for the sick",
+     "refs": [
+      "hlth.shifa"
+     ],
+     "note": "Aisha said that when the Prophet ﷺ visited a sick person, or one was brought to him, he would say these words (Bukhari 5675). You can say them for anyone who is ill, and for yourself.",
+     "source": "Bukhari 5675",
+     "label": "[Established]"
+    },
+    {
+     "id": "muawwidhat",
+     "kind": "teach",
+     "title": "The two surahs of refuge",
+     "body": [
+      "Aisha said that whenever the Prophet ﷺ fell ill, he would recite the two surahs of refuge (al-Falaq and an-Nas), blow lightly over himself and wipe his hands over his body. In his last illness she did this for him, as he used to do (Bukhari 4439).",
+      "The surahs begin: “I seek refuge in the Lord of daybreak” (113:1) and “I seek refuge in the Lord of mankind” (114:1)."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 4439; Qur’an 113:1; 114:1",
+     "quran": "q:113:1"
+    },
+    {
+     "id": "falaq",
+     "kind": "listen",
+     "title": "Hear the first ayah of al-Falaq",
+     "ref": "q:113:1",
+     "repeats": 2
+    },
+    {
+     "id": "fatiha",
+     "kind": "story",
+     "title": "The Fatihah as ruqyah",
+     "body": [
+      "Some Companions stayed with a tribe who would not host them. The tribe’s chief was bitten by a snake or stung by a scorpion, and they asked if the Companions had a ruqyah. One of them recited Surat al-Fatihah over him and the chief was cured. The Companions would not accept the flock of sheep they were offered until they asked the Prophet ﷺ.",
+      "He smiled and said: “How did you know that it is a ruqyah? Take it, and give me a share with you” (Bukhari 5736).",
+      "It shows that the Fatihah can be recited as ruqyah, and that taking payment for it was allowed in that case."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 5736",
+     "review": "The ruling on taking payment for ruqyah differs among the schools, and this step does not give it. Please add the school positions if they are to be included."
+    },
+    {
+     "id": "rules",
+     "kind": "teach",
+     "title": "What makes a ruqyah correct",
+     "body": [
+      "Auf ibn Malik said they used to do incantations in the days before Islam and asked the Prophet ﷺ about them. He said: show me your incantations, and there is no harm in an incantation that does not contain shirk (Muslim 2200).",
+      "So a ruqyah is correct when it uses the Qur’an and the duas of the Prophet ﷺ, or other words that are clear and contain no shirk. It must not call on anyone but Allah, and not use words you do not understand. And it must be done with the belief that Allah alone heals.",
+      "Ruqyah is not a way to harm someone or to look for the unseen."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 2200",
+     "review": "Muslim 2200 gives only the rule of no shirk. The conditions that the words be understood and that Allah alone heals are the usual conditions listed by scholars. Please confirm."
+    },
+    {
+     "id": "doctor",
+     "kind": "teach",
+     "title": "Ruqyah and the doctor",
+     "body": [
+      "Ruqyah does not replace the doctor. If you are in pain, see a doctor, and use the ruqyah too. The next lessons show the Prophet ﷺ told us to seek treatment.",
+      "This is not medical advice. If symptoms are serious or last, please go to a doctor."
+     ],
+     "label": "[Interpretive]",
+     "source": "Qur’an 26:80",
+     "review": "Health guidance: only refers to the doctor. Please confirm."
+    },
+    {
+     "id": "self",
+     "kind": "howto",
+     "title": "A ruqyah for yourself",
+     "steps": [
+      {
+       "text": "Make wudu if you can, and sit calmly.",
+       "detail": "This is an adab, and is not stated as a condition."
+      },
+      {
+       "text": "Put your hand on the place of pain and say Bismillah three times.",
+       "detail": "Muslim 2202."
+      },
+      {
+       "text": "Say the dua of Muslim 2202 seven times.",
+       "detail": "Muslim 2202."
+      },
+      {
+       "text": "Recite al-Fatihah, then al-Ikhlas, al-Falaq and an-Nas.",
+       "detail": "Bukhari 4439, 5736."
+      },
+      {
+       "text": "Blow lightly into your hands and wipe over your body.",
+       "detail": "Bukhari 4439."
+      },
+      {
+       "text": "Ask Allah for healing with the dua of the Prophet ﷺ.",
+       "detail": "Bukhari 5675."
+      }
+     ],
+     "intro": "A short routine, once or twice a day.",
+     "mistakes": [
+      "Using amulets or words you do not understand.",
+      "Thinking the reciter heals, not Allah.",
+      "Stopping medical treatment."
+     ],
+     "source": "Muslim 2202; Bukhari 4439, 5675, 5736",
+     "label": "[Established]",
+     "review": "The advice to make wudu is an adab and not stated in the hadith. Please confirm that it may stay."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "The ruqyah of pain in order",
+     "prompt": "Put the steps in order.",
+     "items": [
+      {
+       "text": "Put your hand on the place of pain",
+       "why": "Start by placing your hand.",
+       "back": "uthman"
+      },
+      {
+       "text": "Say Bismillah three times",
+       "why": "Then Bismillah, three times.",
+       "back": "uthman"
+      },
+      {
+       "text": "Say the dua seven times",
+       "why": "Then the dua, seven times.",
+       "back": "pain"
+      },
+      {
+       "text": "See a doctor if the pain continues",
+       "why": "Ruqyah does not replace the doctor.",
+       "back": "doctor"
+      }
+     ],
+     "explain": "Hand, Bismillah three times, the dua seven times, and a doctor if it continues."
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the words to the situation",
+     "prompt": "Match each line to when it is used.",
+     "pairs": [
+      {
+       "left": {
+        "ref": "hlth.ruqyah.pain"
+       },
+       "right": {
+        "text": "For pain in your body"
+       },
+       "why": "This is the dua of Muslim 2202.",
+       "back": "pain"
+      },
+      {
+       "left": {
+        "ref": "hlth.shifa"
+       },
+       "right": {
+        "text": "When visiting someone who is ill"
+       },
+       "why": "This is the Prophet’s ﷺ dua for the sick.",
+       "back": "shifa"
+      },
+      {
+       "left": {
+        "text": "al-Falaq and an-Nas"
+       },
+       "right": {
+        "text": "Recited and blown over yourself"
+       },
+       "why": "These are the two surahs of refuge.",
+       "back": "muawwidhat"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "r1",
+       "q": "What did the Prophet ﷺ tell Uthman to do for his pain?",
+       "options": [
+        {
+         "text": "Pray two rak’ahs",
+         "reteach": "He told him to place his hand and say the words.",
+         "back": "uthman"
+        },
+        {
+         "text": "Drink water",
+         "reteach": "He told him to place his hand and say the words.",
+         "back": "uthman"
+        },
+        {
+         "text": "Place his hand on the pain, say Bismillah three times and the dua seven times"
+        }
+       ],
+       "answer": 2,
+       "explain": "Muslim 2202.",
+       "type": "mcq"
+      },
+      {
+       "id": "r2",
+       "q": "How many times is the dua said?",
+       "options": [
+        {
+         "text": "Three",
+         "reteach": "Bismillah is said three times. The dua is said seven.",
+         "back": "pain"
+        },
+        {
+         "text": "Seven"
+        },
+        {
+         "text": "Ten",
+         "reteach": "It is seven.",
+         "back": "pain"
+        }
+       ],
+       "answer": 1,
+       "explain": "Muslim 2202.",
+       "type": "mcq"
+      },
+      {
+       "id": "r3",
+       "q": "Fill in the blank: A’oodhu billaahi wa ____ min sharri maa ajidu wa uhaadhir.",
+       "options": [
+        {
+         "text": "rahmatihi",
+         "reteach": "Rahmatihi means His mercy. The words say qudratihi: His power.",
+         "back": "pain"
+        },
+        {
+         "text": "Rabbihi",
+         "reteach": "Rabbihi means his Lord. The words say qudratihi: His power.",
+         "back": "pain"
+        },
+        {
+         "text": "qudratihi"
+        }
+       ],
+       "answer": 2,
+       "explain": "I seek refuge with Allah and with His power.",
+       "type": "fill",
+       "fill": {
+        "ref": "hlth.ruqyah.pain",
+        "blank": 3,
+        "show": "translit"
+       }
+      },
+      {
+       "id": "r4",
+       "q": "What did the Prophet ﷺ say when visiting the sick?",
+       "options": [
+        {
+         "text": "Allah is the greatest",
+         "reteach": "He said the dua for healing.",
+         "back": "shifa"
+        },
+        {
+         "text": "Say Ameen",
+         "reteach": "He made a dua for the sick.",
+         "back": "shifa"
+        },
+        {
+         "text": "Take away the harm, Lord of the people; heal, You are the Healer"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 5675.",
+       "type": "mcq"
+      },
+      {
+       "id": "r5",
+       "q": "When the Prophet ﷺ fell ill, what did he recite over himself?",
+       "options": [
+        {
+         "text": "Surat al-Baqarah only",
+         "reteach": "He recited the two surahs of refuge.",
+         "back": "muawwidhat"
+        },
+        {
+         "text": "Nothing",
+         "reteach": "He recited and blew.",
+         "back": "muawwidhat"
+        },
+        {
+         "text": "The two surahs of refuge, then he blew and wiped his body"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 4439.",
+       "type": "mcq"
+      },
+      {
+       "id": "r6",
+       "q": "Which surah did the Companion recite over the chief who was bitten?",
+       "options": [
+        {
+         "text": "Al-Ikhlas",
+         "reteach": "It was al-Fatihah.",
+         "back": "fatiha"
+        },
+        {
+         "text": "Al-Fatihah"
+        },
+        {
+         "text": "Ya-Sin",
+         "reteach": "It was al-Fatihah.",
+         "back": "fatiha"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 5736.",
+       "type": "mcq"
+      },
+      {
+       "id": "r7",
+       "q": "A man offers you a charm with words you do not understand to cure your child. What do you say?",
+       "options": [
+        {
+         "text": "No. A ruqyah must contain no shirk and be words I understand"
+        },
+        {
+         "text": "Yes, if it works",
+         "reteach": "The Prophet ﷺ allowed incantations that do not contain shirk (Muslim 2200).",
+         "back": "rules"
+        },
+        {
+         "text": "Yes, but pay him double",
+         "reteach": "Do not use words you do not understand.",
+         "back": "rules"
+        }
+       ],
+       "answer": 0,
+       "explain": "Muslim 2200.",
+       "type": "scenario",
+       "scenario": "A man offers you a charm with words you do not understand to cure your child."
+      },
+      {
+       "id": "r8",
+       "q": "Your back pain has lasted for three weeks, and you say ruqyah every day. What else should you do?",
+       "options": [
+        {
+         "text": "See a doctor"
+        },
+        {
+         "text": "Nothing else",
+         "reteach": "Ruqyah does not replace the doctor.",
+         "back": "doctor"
+        },
+        {
+         "text": "Stop the ruqyah",
+         "reteach": "Keep the ruqyah and see a doctor.",
+         "back": "doctor"
+        }
+       ],
+       "answer": 0,
+       "explain": "See a doctor too.",
+       "type": "scenario",
+       "scenario": "Your back pain has lasted three weeks and you recite ruqyah every day."
+      },
+      {
+       "id": "r9",
+       "q": "Who heals, when we recite ruqyah?",
+       "options": [
+        {
+         "text": "The reciter",
+         "reteach": "Allah alone heals.",
+         "back": "healing"
+        },
+        {
+         "text": "Allah alone"
+        },
+        {
+         "text": "The words by themselves",
+         "reteach": "Allah alone heals.",
+         "back": "healing"
+        }
+       ],
+       "answer": 1,
+       "explain": "Allah alone heals.",
+       "type": "mcq"
+      },
+      {
+       "id": "r10",
+       "q": "Which verse says the Qur’an is healing and mercy for the believers?",
+       "options": [
+        {
+         "text": "2:255",
+         "reteach": "That is the verse of the throne.",
+         "back": "healing"
+        },
+        {
+         "text": "112:1",
+         "reteach": "That is al-Ikhlas.",
+         "back": "healing"
+        },
+        {
+         "text": "17:82"
+        }
+       ],
+       "answer": 2,
+       "explain": "Qur’an 17:82.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Ruqyah is reciting the Qur’an and the duas of the Prophet ﷺ, trusting that Allah heals.",
+      "I know the dua for pain and the dua for the sick.",
+      "I know it must have no shirk and no words I do not understand.",
+      "I see a doctor as well."
+     ],
+     "next": "Next: the evil eye."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Learn the surahs of refuge",
+     "body": "Open al-Falaq and read it with the translation. Then read an-Nas.",
+     "route": "/quran/113",
+     "button": "Open al-Falaq"
+    }
+   ]
+  },
+  {
+   "id": "hlth.u2.l2",
+   "title": "The evil eye: real, and curable",
+   "minutes": 18,
+   "intro": "Learn what the Prophet ﷺ taught about the evil eye, how to protect yourself and your family, and what to do if it happens.",
+   "steps": [
+    {
+     "id": "real",
+     "kind": "why",
+     "title": "The evil eye is real",
+     "body": [
+      "The Prophet ﷺ said: “The effect of the evil eye is real” (Bukhari 5740). In Muslim 2188, Ibn Abbas reported that he said it is real, and that if anything could race ahead of the divine decree, it would be the evil eye.",
+      "Allah also tells us to seek refuge from “the evil of an envier when he envies” (113:5). The eye is linked to envy, or to a look of admiration that does not mention Allah.",
+      "We believe it is real. We do not fear it, and we do not see it behind every misfortune."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 5740; Muslim 2188; Qur’an 113:5",
+     "quran": "q:113:5"
+    },
+    {
+     "id": "sahl",
+     "kind": "story",
+     "title": "Sahl ibn Hunayf",
+     "body": [
+      "Amir ibn Rabi’ah passed by Sahl ibn Hunayf while he was bathing, and said: “I have never seen skin like this.” Sahl fell to the ground at once. He was brought to the Prophet ﷺ, who asked: “Whom do you accuse?” They said: Amir ibn Rabi’ah.",
+      "The Prophet ﷺ said: “Why would any of you kill his brother? If one of you sees something that he likes in his brother, let him pray for blessing for him.” Then he called for water, told Amir to make wudu, and had the water poured over Sahl (Ibn Majah 3509, sahih per al-Albani and Zubair Ali Zai).",
+      "Notice that Amir did not mean harm. The eye can come from admiration with no ill will."
+     ],
+     "label": "[Established]",
+     "source": "Ibn Majah 3509 (sahih per al-Albani and Zubair Ali Zai)"
+    },
+    {
+     "id": "admire",
+     "kind": "teach",
+     "title": "When you admire something",
+     "body": [
+      "The Prophet ﷺ taught to pray for blessing for what you admire, and to say what Allah wills. Allah teaches in a story: “Why did you, when you entered your garden, not say, ‘What Allah willed [has occurred]; there is no power except in Allah’?” (18:39).",
+      "So when you admire a child, a house or a person, say: ma sha Allah, la quwwata illa billah, and ask Allah to bless it. This keeps the admiration from turning into harm."
+     ],
+     "label": "[Established]",
+     "source": "Ibn Majah 3509 (sahih per al-Albani and Zubair Ali Zai); Qur’an 18:39",
+     "quran": "q:18:39",
+     "review": "The phrase “ma sha Allah, la quwwata illa billah” is taken from 18:39 and is the usual thing to say. It is not given as the Prophet’s ﷺ own wording in the hadith of Sahl. Please confirm."
+    },
+    {
+     "id": "refuge",
+     "kind": "say",
+     "title": "The refuge for children",
+     "refs": [
+      "hlth.eye.refuge"
+     ],
+     "note": "Ibn Abbas said that the Prophet ﷺ used to seek Allah’s refuge for Al-Hasan and Al-Husayn with these words, and said that their forefather Ibrahim used to seek refuge with them for Ismail and Ishaq (Bukhari 3371). Parents can say them over their children.",
+     "source": "Bukhari 3371",
+     "label": "[Established]"
+    },
+    {
+     "id": "wash",
+     "kind": "teach",
+     "title": "The cure",
+     "body": [
+      "In the story above, the Prophet ﷺ had Amir make wudu and then had the water poured over Sahl. In Muslim 2188 he also said: “if you are asked to wash, then wash.” So if someone was affected by your look and asks you to wash, you should do it.",
+      "Scholars describe exactly how the washing is done in more than one way. If this ever happens to you, ask a scholar to guide you on the steps.",
+      "Along with this, the cures from the last lesson apply: ruqyah, the surahs of refuge and the dua for the sick."
+     ],
+     "label": "[Established]",
+     "source": "Ibn Majah 3509 (sahih per al-Albani and Zubair Ali Zai); Muslim 2188",
+     "review": "The details of how the washing is done differ among scholars and have not been given. Please confirm that sending the learner to a scholar is acceptable."
+    },
+    {
+     "id": "careful",
+     "kind": "teach",
+     "title": "Do not accuse, and do not panic",
+     "body": [
+      "The Prophet ﷺ asked who they accused, but did not punish Amir. He said that a brother should not “kill” his brother by his look. He taught a cure and a manner, not a hunt for the guilty.",
+      "So do not accuse a person of casting the evil eye without proof. And do not blame every illness or bad day on the eye. Most illness has a medical cause and needs a doctor."
+     ],
+     "label": "[Interpretive]",
+     "source": "Ibn Majah 3509 (sahih per al-Albani and Zubair Ali Zai)",
+     "review": "This is an explanation of the hadith rather than a direct text. Please confirm."
+    },
+    {
+     "id": "protect",
+     "kind": "howto",
+     "title": "Protecting yourself and your family",
+     "steps": [
+      {
+       "text": "Say Bismillah and the morning and evening adhkar.",
+       "detail": "See the adhkar in this app."
+      },
+      {
+       "text": "Say the refuge dua over your children.",
+       "detail": "Bukhari 3371."
+      },
+      {
+       "text": "When you admire something, say ma sha Allah, la quwwata illa billah, and pray for blessing.",
+       "detail": "Qur’an 18:39; the story of Sahl above."
+      },
+      {
+       "text": "Do not show off blessings in a way that may stir envy.",
+       "detail": "General care. Many scholars advise it."
+      },
+      {
+       "text": "Recite the two surahs of refuge.",
+       "detail": "Qur’an 113 and 114."
+      },
+      {
+       "text": "If someone is ill, see a doctor too.",
+       "detail": "See the next lesson."
+      }
+     ],
+     "intro": "Simple habits keep you steady.",
+     "mistakes": [
+      "Accusing people.",
+      "Wearing charms or amulets.",
+      "Fearing the eye more than Allah."
+     ],
+     "source": "Bukhari 3371; Ibn Majah 3509 (sahih per al-Albani and Zubair Ali Zai); Qur’an 18:39",
+     "label": "[Interpretive]",
+     "review": "The advice not to show off blessings is common guidance and is not sourced to a text here. Please confirm."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "When you admire something",
+     "prompt": "Put these in order.",
+     "items": [
+      {
+       "text": "You see something you like",
+       "why": "It begins with seeing.",
+       "back": "admire"
+      },
+      {
+       "text": "Say ma sha Allah, la quwwata illa billah",
+       "why": "Then say what Allah wills.",
+       "back": "admire"
+      },
+      {
+       "text": "Pray for blessing for it",
+       "why": "Then pray for blessing.",
+       "back": "sahl"
+      },
+      {
+       "text": "Do not envy",
+       "why": "Do not let envy grow.",
+       "back": "real"
+      }
+     ],
+     "explain": "See, say what Allah wills, pray for blessing, and let go of envy."
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the report to the lesson",
+     "prompt": "Match each report to its lesson.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Bukhari 5740"
+       },
+       "right": {
+        "text": "The effect of the evil eye is real"
+       },
+       "why": "This hadith says the eye is real.",
+       "back": "real"
+      },
+      {
+       "left": {
+        "text": "The story of Sahl"
+       },
+       "right": {
+        "text": "Sahl and Amir ibn Rabi’ah"
+       },
+       "why": "This is the story of Sahl.",
+       "back": "sahl"
+      },
+      {
+       "left": {
+        "ref": "hlth.eye.refuge"
+       },
+       "right": {
+        "text": "Refuge for Hasan and Husayn"
+       },
+       "why": "This is the refuge for children.",
+       "back": "refuge"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "e1",
+       "q": "What did the Prophet ﷺ say about the evil eye?",
+       "options": [
+        {
+         "text": "It is a myth",
+         "reteach": "He said it is real (Bukhari 5740).",
+         "back": "real"
+        },
+        {
+         "text": "It is only in the mind",
+         "reteach": "He said it is real.",
+         "back": "real"
+        },
+        {
+         "text": "It is real"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 5740.",
+       "type": "mcq"
+      },
+      {
+       "id": "e2",
+       "q": "What did he tell Amir to say when he sees something he likes?",
+       "options": [
+        {
+         "text": "Pray for blessing for it"
+        },
+        {
+         "text": "Say nothing",
+         "reteach": "He said to pray for blessing.",
+         "back": "sahl"
+        },
+        {
+         "text": "Say that it is bad",
+         "reteach": "He said to pray for blessing.",
+         "back": "sahl"
+        }
+       ],
+       "answer": 0,
+       "explain": "The Prophet ﷺ said to pray for blessing.",
+       "type": "mcq"
+      },
+      {
+       "id": "e3",
+       "q": "What is the usual thing to say when you admire something?",
+       "options": [
+        {
+         "text": "Ma sha Allah, la quwwata illa billah"
+        },
+        {
+         "text": "Allahu akbar",
+         "reteach": "The usual words come from 18:39.",
+         "back": "admire"
+        },
+        {
+         "text": "Subhanallah only",
+         "reteach": "The usual words come from 18:39.",
+         "back": "admire"
+        }
+       ],
+       "answer": 0,
+       "explain": "Qur’an 18:39.",
+       "type": "mcq"
+      },
+      {
+       "id": "e4",
+       "q": "Fill in the blank: A’oodhu bi-kalimaatil-laahit-taammati min kulli ____.",
+       "options": [
+        {
+         "text": "malakin",
+         "reteach": "Malakin means angel. The words say shaytaanin: devil.",
+         "back": "refuge"
+        },
+        {
+         "text": "shaytaanin"
+        },
+        {
+         "text": "nabiyyin",
+         "reteach": "Nabiyyin means prophet. The words say shaytaanin: devil.",
+         "back": "refuge"
+        }
+       ],
+       "answer": 1,
+       "explain": "From every devil.",
+       "type": "fill",
+       "fill": {
+        "ref": "hlth.eye.refuge",
+        "blank": 4,
+        "show": "translit"
+       }
+      },
+      {
+       "id": "e5",
+       "q": "Whom did the Prophet ﷺ seek refuge for with these words?",
+       "options": [
+        {
+         "text": "The Companions",
+         "reteach": "He sought refuge for his grandsons.",
+         "back": "refuge"
+        },
+        {
+         "text": "Al-Hasan and Al-Husayn"
+        },
+        {
+         "text": "The poor",
+         "reteach": "He sought refuge for his grandsons.",
+         "back": "refuge"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 3371.",
+       "type": "mcq"
+      },
+      {
+       "id": "e6",
+       "q": "A neighbour’s baby is sick. She says: it must be Aunt Huda’s eye, she praised him. What do you say?",
+       "options": [
+        {
+         "text": "Yes, tell Aunt Huda off",
+         "reteach": "Do not accuse without proof.",
+         "back": "careful"
+        },
+        {
+         "text": "The eye does not exist",
+         "reteach": "The eye is real, but not every sickness is the eye. Take care.",
+         "back": "careful"
+        },
+        {
+         "text": "Do not accuse her; seek a doctor and make the ruqyah"
+        }
+       ],
+       "answer": 2,
+       "explain": "No accusing, and see a doctor.",
+       "type": "scenario",
+       "scenario": "A neighbour’s baby is sick. She says it must be Aunt Huda’s eye because she praised him."
+      },
+      {
+       "id": "e7",
+       "q": "What does Muslim 2188 say about washing?",
+       "options": [
+        {
+         "text": "Never wash",
+         "reteach": "He said if asked to wash, wash.",
+         "back": "wash"
+        },
+        {
+         "text": "Wash with soap only",
+         "reteach": "He said if asked to wash, wash.",
+         "back": "wash"
+        },
+        {
+         "text": "If you are asked to wash, wash"
+        }
+       ],
+       "answer": 2,
+       "explain": "Muslim 2188.",
+       "type": "mcq"
+      },
+      {
+       "id": "e8",
+       "q": "Who is the evil eye linked to in 113:5?",
+       "options": [
+        {
+         "text": "The envier when he envies"
+        },
+        {
+         "text": "The traveller",
+         "reteach": "The verse says the envier when he envies.",
+         "back": "real"
+        },
+        {
+         "text": "The sleeper",
+         "reteach": "The verse says the envier when he envies.",
+         "back": "real"
+        }
+       ],
+       "answer": 0,
+       "explain": "Qur’an 113:5.",
+       "type": "mcq"
+      },
+      {
+       "id": "e9",
+       "q": "Which of these should you avoid?",
+       "options": [
+        {
+         "text": "Saying the surahs of refuge",
+         "reteach": "That is good.",
+         "back": "protect"
+        },
+        {
+         "text": "Saying ma sha Allah",
+         "reteach": "That is good.",
+         "back": "protect"
+        },
+        {
+         "text": "Wearing a charm to protect against the eye"
+        }
+       ],
+       "answer": 2,
+       "explain": "Use the Qur’an and the Prophet’s ﷺ duas, not charms with unknown words (Muslim 2200).",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "The evil eye is real, but I do not fear it or blame it for everything.",
+      "I say ma sha Allah, la quwwata illa billah, and pray for blessing when I admire something.",
+      "I can say the refuge over my children.",
+      "I do not accuse people, and I see a doctor for illness."
+     ],
+     "next": "Next: medicine and faith."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Say it for your family",
+     "body": "Say the refuge dua over your children or a family member tonight. Say it once, slowly.",
+     "route": "/adhkar",
+     "button": "Open adhkar"
+    }
+   ]
+  },
+  {
+   "id": "hlth.u2.l3",
+   "title": "Medicine and faith together",
+   "minutes": 18,
+   "intro": "Learn that the Prophet ﷺ told us to seek treatment, how trust in Allah and medicine go together, and what to say to the sick.",
+   "steps": [
+    {
+     "id": "cure",
+     "kind": "why",
+     "title": "Every disease has a treatment",
+     "body": [
+      "The Prophet ﷺ said: “There is no disease that Allah has created, except that He also created its treatment” (Bukhari 5678). In Muslim 2204, Jabir reported that he said there is a remedy for every illness, and when the right remedy is applied to the disease, it is cured by the permission of Allah.",
+      "So we do not choose between faith and medicine. Allah made the illness, Allah made the cure, and Allah heals through it."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 5678; Muslim 2204"
+    },
+    {
+     "id": "seek",
+     "kind": "teach",
+     "title": "Seek treatment",
+     "body": [
+      "Some Bedouins asked the Prophet ﷺ: “Messenger of Allah, shall we seek treatment?” He said: “Yes, servants of Allah, seek treatment. Allah has not made a disease without making a cure for it, except one disease.” They asked what it was and he said: “Old age” (Tirmidhi 2038, sahih per al-Albani and Zubair Ali Zai; Abu Dawud 3855, sahih per al-Albani).",
+      "So going to the doctor and taking the medicine is part of the sunnah. It is not a lack of trust in Allah."
+     ],
+     "label": "[Established]",
+     "source": "Tirmidhi 2038 (sahih per al-Albani and Zubair Ali Zai); Abu Dawud 3855 (sahih per al-Albani)"
+    },
+    {
+     "id": "camel",
+     "kind": "teach",
+     "title": "Tie the camel, then trust",
+     "body": [
+      "A man asked the Prophet ﷺ: “Shall I tie my camel and trust in Allah, or leave it loose and trust in Allah?” He said: “Tie it, and trust in Allah” (Tirmidhi 2517, hasan per al-Albani and Zubair Ali Zai).",
+      "Trust in Allah (tawakkul) is not doing nothing. You do what you can, and then you rely on Allah for the result. Medicine is part of what you do."
+     ],
+     "label": "[Established]",
+     "source": "Tirmidhi 2517 (hasan per al-Albani and Zubair Ali Zai)"
+    },
+    {
+     "id": "healer",
+     "kind": "teach",
+     "title": "It is He who cures me",
+     "body": [
+      "The prophet Ibrahim said: “And when I am ill, it is He who cures me” (26:80). He said “when I am ill”, and “He cures”. The doctor and the medicine are the means, and the cure is from Allah.",
+      "This is why Muslims say Alhamdulillah when they recover, and thank the doctor too."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 26:80",
+     "quran": "q:26:80"
+    },
+    {
+     "id": "baas",
+     "kind": "say",
+     "title": "What to say to the sick",
+     "refs": [
+      "hlth.baas"
+     ],
+     "note": "When the Prophet ﷺ visited a sick person, he used to say these words. Once he said them to a bedouin who answered back that it was a fever that would send him to the grave. The Prophet ﷺ said, “Then so be it” (Bukhari 3616). It is a lesson to speak good words to the sick.",
+     "source": "Bukhari 3616",
+     "label": "[Established]",
+     "review": "The Arabic is copied from Bukhari 3616. The English meaning “a cleansing” is the usual explanation of tahur. Please confirm."
+    },
+    {
+     "id": "shifa",
+     "kind": "say",
+     "title": "The dua for healing",
+     "refs": [
+      "hlth.shifa"
+     ],
+     "note": "You met this dua in the ruqyah lesson. Say it for someone who is ill, and for yourself (Bukhari 5675).",
+     "source": "Bukhari 5675",
+     "label": "[Established]"
+    },
+    {
+     "id": "plague",
+     "kind": "teach",
+     "title": "Protecting others",
+     "body": [
+      "The Prophet ﷺ said: “If you hear of an outbreak of plague in a land, do not enter it. If it breaks out in a place while you are in it, do not leave that place” (Bukhari 5728).",
+      "Scholars use this hadith as a basis for protecting people from contagious disease. Today, doctors and health authorities give guidance for each outbreak. Follow their advice on staying home, hygiene and vaccination as it applies to you."
+     ],
+     "label": "[Interpretive]",
+     "source": "Bukhari 5728",
+     "review": "Applying the hadith to today’s public health guidance is the usual understanding of scholars. Please confirm and check the wording about vaccination."
+    },
+    {
+     "id": "both",
+     "kind": "contrast",
+     "title": "Three ways to respond to illness",
+     "rows": [
+      {
+       "name": "Dua only",
+       "text": "Making dua and ruqyah, and ignoring the doctor. This leaves out what the Prophet ﷺ told us to do."
+      },
+      {
+       "name": "Medicine only",
+       "text": "Seeing the doctor and taking the medicine, but not asking Allah. This forgets who heals."
+      },
+      {
+       "name": "Both",
+       "text": "Make dua and ruqyah, see the doctor and take the medicine, and trust Allah for the result. This is the sunnah."
+      }
+     ],
+     "intro": "There is no conflict between them.",
+     "agree": "The Prophet ﷺ both made dua for the sick and told us to seek treatment.",
+     "closing": "Do both.",
+     "source": "Bukhari 5675, 5678; Tirmidhi 2038 (sahih per al-Albani and Zubair Ali Zai)",
+     "review": "This table is a summary of the teaching of the hadith above. It is not a table of the positions of the schools. Please confirm.",
+     "label": "[Interpretive]"
+    },
+    {
+     "id": "ill",
+     "kind": "howto",
+     "title": "When you or someone you love is ill",
+     "steps": [
+      {
+       "text": "Say Bismillah and make the dua for healing.",
+       "detail": "Bukhari 5675."
+      },
+      {
+       "text": "See a doctor, and take the treatment you are given.",
+       "detail": "Seek treatment."
+      },
+      {
+       "text": "Recite the ruqyah as well.",
+       "detail": "See the last lesson."
+      },
+      {
+       "text": "Be patient, and thank Allah for what He has given.",
+       "detail": "Qur’an 26:80."
+      },
+      {
+       "text": "Visit the sick and speak good words.",
+       "detail": "Bukhari 3616."
+      },
+      {
+       "text": "Protect others if the illness spreads.",
+       "detail": "Bukhari 5728."
+      }
+     ],
+     "intro": "A calm and complete response.",
+     "mistakes": [
+      "Delaying the doctor because of a wrong idea of trust.",
+      "Saying only bad words by the bed.",
+      "Stopping medicine because you feel better, without asking."
+     ],
+     "source": "Bukhari 5675, 3616, 5728; Tirmidhi 2038 (sahih per al-Albani and Zubair Ali Zai)",
+     "label": "[Established]"
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "Responding to illness",
+     "prompt": "Put these in order.",
+     "items": [
+      {
+       "text": "Say Bismillah and make dua",
+       "why": "Turn to Allah first.",
+       "back": "healer"
+      },
+      {
+       "text": "See a doctor",
+       "why": "Seek treatment.",
+       "back": "seek"
+      },
+      {
+       "text": "Take the treatment",
+       "why": "Follow the advice.",
+       "back": "seek"
+      },
+      {
+       "text": "Thank Allah when you recover",
+       "why": "End with thanks.",
+       "back": "healer"
+      }
+     ],
+     "explain": "Dua, doctor, treatment, thanks."
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the report to the lesson",
+     "prompt": "Match each report to its lesson.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Bukhari 5678"
+       },
+       "right": {
+        "text": "Every disease has a treatment"
+       },
+       "why": "This hadith says every disease has a treatment.",
+       "back": "cure"
+      },
+      {
+       "left": {
+        "text": "The man and his camel"
+       },
+       "right": {
+        "text": "Tie the camel and trust Allah"
+       },
+       "why": "This is the hadith of the camel.",
+       "back": "camel"
+      },
+      {
+       "left": {
+        "text": "Bukhari 5728"
+       },
+       "right": {
+        "text": "Do not enter or leave a land with plague"
+       },
+       "why": "This is the hadith on plague.",
+       "back": "plague"
+      },
+      {
+       "left": {
+        "ref": "hlth.baas"
+       },
+       "right": {
+        "text": "What to say when visiting the sick"
+       },
+       "why": "These are the words for visiting the sick.",
+       "back": "baas"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "c1",
+       "q": "What did the Prophet ﷺ say about every disease?",
+       "options": [
+        {
+         "text": "Some have no treatment",
+         "reteach": "He said Allah created a treatment for it (Bukhari 5678). The one disease he excepted was old age.",
+         "back": "cure"
+        },
+        {
+         "text": "Allah created a treatment for it"
+        },
+        {
+         "text": "Treatment is forbidden",
+         "reteach": "He told us to seek treatment.",
+         "back": "seek"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 5678.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2",
+       "q": "A man says: I trust Allah, so I will not see a doctor for my chest pain. What do you tell him?",
+       "options": [
+        {
+         "text": "He is right",
+         "reteach": "The Prophet ﷺ told us to seek treatment.",
+         "back": "seek"
+        },
+        {
+         "text": "Use only amulets",
+         "reteach": "Seek treatment from a doctor.",
+         "back": "seek"
+        },
+        {
+         "text": "Trust in Allah includes taking the means, like the doctor"
+        }
+       ],
+       "answer": 2,
+       "explain": "Tie the camel, then trust.",
+       "type": "scenario",
+       "scenario": "A man has chest pain and says he trusts Allah so he will not see a doctor."
+      },
+      {
+       "id": "c3",
+       "q": "What was the Prophet’s ﷺ answer to the man who asked about the camel?",
+       "options": [
+        {
+         "text": "Tie it, and trust in Allah"
+        },
+        {
+         "text": "Leave it loose and trust Allah",
+         "reteach": "He said to tie it and trust.",
+         "back": "camel"
+        },
+        {
+         "text": "Sell the camel",
+         "reteach": "He said to tie it and trust.",
+         "back": "camel"
+        }
+       ],
+       "answer": 0,
+       "explain": "Tie it and trust.",
+       "type": "mcq"
+      },
+      {
+       "id": "c4",
+       "q": "What is the one disease for which the Prophet ﷺ said there is no cure?",
+       "options": [
+        {
+         "text": "Fever",
+         "reteach": "He excepted old age.",
+         "back": "seek"
+        },
+        {
+         "text": "Poverty",
+         "reteach": "He excepted old age.",
+         "back": "seek"
+        },
+        {
+         "text": "Old age"
+        }
+       ],
+       "answer": 2,
+       "explain": "Old age is the one exception.",
+       "type": "mcq"
+      },
+      {
+       "id": "c5",
+       "q": "Fill in the blank: Laa ba’sa ____ in shaa’al-laah.",
+       "options": [
+        {
+         "text": "Rabbun",
+         "reteach": "Rabbun means a lord. The words say tahoorun: a cleansing.",
+         "back": "baas"
+        },
+        {
+         "text": "tahoorun"
+        },
+        {
+         "text": "nafsun",
+         "reteach": "Nafsun means a soul. The words say tahoorun: a cleansing.",
+         "back": "baas"
+        }
+       ],
+       "answer": 1,
+       "explain": "No harm: it is a cleansing, if Allah wills.",
+       "type": "fill",
+       "fill": {
+        "ref": "hlth.baas",
+        "blank": 2,
+        "show": "translit"
+       }
+      },
+      {
+       "id": "c6",
+       "q": "What should you say to a sick person you visit?",
+       "options": [
+        {
+         "text": "Good words, such as “no harm, a cleansing, if Allah wills”"
+        },
+        {
+         "text": "That it is probably the end",
+         "reteach": "The Prophet ﷺ said good words to the sick.",
+         "back": "baas"
+        },
+        {
+         "text": "Nothing at all",
+         "reteach": "He spoke good words.",
+         "back": "baas"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 3616.",
+       "type": "mcq"
+      },
+      {
+       "id": "c7",
+       "q": "A new disease breaks out in the next city. What does the hadith of the plague suggest?",
+       "options": [
+        {
+         "text": "Travel there to show trust",
+         "reteach": "He said not to enter.",
+         "back": "plague"
+        },
+        {
+         "text": "Ignore the news",
+         "reteach": "Follow the health advice.",
+         "back": "plague"
+        },
+        {
+         "text": "Do not travel into it, and follow the health advice"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 5728.",
+       "type": "scenario",
+       "scenario": "A new disease is spreading in the next city."
+      },
+      {
+       "id": "c8",
+       "q": "Who cures, according to Ibrahim in 26:80?",
+       "options": [
+        {
+         "text": "The doctor",
+         "reteach": "The doctor is a means. Allah cures.",
+         "back": "healer"
+        },
+        {
+         "text": "The medicine",
+         "reteach": "The medicine is a means. Allah cures.",
+         "back": "healer"
+        },
+        {
+         "text": "Allah"
+        }
+       ],
+       "answer": 2,
+       "explain": "Qur’an 26:80.",
+       "type": "mcq"
+      },
+      {
+       "id": "c9",
+       "q": "Which response to illness is the sunnah?",
+       "options": [
+        {
+         "text": "Dua and ruqyah, and also the doctor and medicine"
+        },
+        {
+         "text": "Dua only",
+         "reteach": "The Prophet ﷺ also told us to seek treatment.",
+         "back": "both"
+        },
+        {
+         "text": "Medicine only",
+         "reteach": "The Prophet ﷺ also made dua.",
+         "back": "both"
+        }
+       ],
+       "answer": 0,
+       "explain": "Do both.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Allah made every illness, and made a treatment for it.",
+      "I make dua and also see a doctor.",
+      "I speak good words to the sick.",
+      "I follow health advice that protects others."
+     ],
+     "next": "Next: the heart."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Visit someone",
+     "body": "Think of someone who is ill. Call or visit them and say a good word, and make the dua for healing.",
+     "route": "/adhkar",
+     "button": "Open adhkar"
+    }
+   ]
+  },
+  {
+   "id": "hlth.u3.l1",
+   "title": "The sound heart",
+   "minutes": 18,
+   "intro": "Learn why the sound heart is what counts, the hadith of the piece of flesh, and a dua and a daily check for a steady heart.",
+   "steps": [
+    {
+     "id": "day",
+     "kind": "why",
+     "title": "The only thing that will help",
+     "body": [
+      "Allah describes a day when “there will not benefit [anyone] wealth or children, but only one who comes to Allah with a sound heart” (26:88-89).",
+      "The lessons so far were about the body: food, sleep, medicine. This lesson is about the part that matters most on that day: the heart."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 26:88-89",
+     "quran": "q:26:89"
+    },
+    {
+     "id": "flesh",
+     "kind": "teach",
+     "title": "The piece of flesh",
+     "body": [
+      "An-Nu’man ibn Bashir heard the Prophet ﷺ say: “Beware! There is a piece of flesh in the body. If it is good, the whole body is good. If it is spoilt, the whole body is spoilt. And that is the heart” (Bukhari 52).",
+      "In the Qur’an and the hadith, “the heart” is where a person believes, intends, loves and fears. A healthy heart shows in a person’s deeds, and a sick heart shows in them too."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 52"
+    },
+    {
+     "id": "looks",
+     "kind": "teach",
+     "title": "What Allah looks at",
+     "body": [
+      "The Prophet ﷺ said: “Allah does not look at your faces and your wealth, but He looks at your hearts and your deeds” (Muslim 2564).",
+      "This does not mean looks and health do not matter. It means they are not what we are judged by."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 2564"
+    },
+    {
+     "id": "purify",
+     "kind": "teach",
+     "title": "The one who purifies it",
+     "body": [
+      "Allah swears by the soul and then says: “He has succeeded who purifies it, And he has failed who instills it [with corruption]” (91:9-10). And: “He has certainly succeeded who purifies himself and mentions the name of his Lord and prays” (87:14-15).",
+      "Purifying the heart (tazkiyah) is therefore a lifelong task, and the Qur’an links it to remembering Allah and to prayer."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 91:9-10; 87:14-15",
+     "quran": "q:91:9"
+    },
+    {
+     "id": "turner",
+     "kind": "say",
+     "title": "A dua for a steady heart",
+     "refs": [
+      "hlth.heart.dua"
+     ],
+     "note": "Abdullah ibn Amr heard the Prophet ﷺ say: “The hearts of all the children of Adam are between two fingers of the Merciful, like one heart. He turns it wherever He wills.” Then the Prophet ﷺ said these words (Muslim 2655).",
+     "source": "Muslim 2655",
+     "label": "[Established]",
+     "review": "The Arabic is copied from Muslim 2655. The words “two fingers of the Merciful” are quoted from the hadith. We do not give them a meaning. Please confirm how the hadith should be explained to a beginner."
+    },
+    {
+     "id": "verse",
+     "kind": "teach",
+     "title": "A dua from the Qur’an",
+     "body": [
+      "The believers in the Qur’an say: “Our Lord, let not our hearts deviate after You have guided us and grant us from Yourself mercy. Indeed, You are the Bestower” (3:8).",
+      "This is a verse you can make your own dua. It asks for what the hadith above asks for: a heart that stays steady."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 3:8",
+     "quran": "q:3:8"
+    },
+    {
+     "id": "sick",
+     "kind": "teach",
+     "title": "Signs that the heart needs care",
+     "body": [
+      "Allah says of the hypocrites, “In their hearts is disease” (2:10). Scholars take this as a warning that a heart can be sick. Later lessons in this Academy cover the main diseases: showing off, envy, pride, despair and anger.",
+      "A person can tell when the heart is unwell: prayer feels heavy, the Qur’an means nothing, and sins feel small. These are not tests of faith that anyone else can mark. They are signs for you to turn back to Allah."
+     ],
+     "label": "[Interpretive]",
+     "source": "Qur’an 2:10",
+     "review": "The signs listed are common teaching and are not a hadith. Please confirm."
+    },
+    {
+     "id": "help",
+     "kind": "teach",
+     "title": "If your heart is heavy",
+     "body": [
+      "A heavy heart is not always a spiritual problem. If you are sad, anxious or numb for weeks, talk to a doctor or someone you trust, as well as turning to Allah. Seeking help is not a lack of faith.",
+      "If you are in danger or thinking of harming yourself, use the Need help now button in this app."
+     ],
+     "label": "[Interpretive]",
+     "source": "Qur’an 26:80",
+     "review": "Safety wording. Please confirm."
+    },
+    {
+     "id": "nightly",
+     "kind": "howto",
+     "title": "A daily check of the heart",
+     "steps": [
+      {
+       "text": "Before you sleep, sit for a minute.",
+       "detail": "Make this part of your night routine."
+      },
+      {
+       "text": "Ask: what did I do today for Allah?",
+       "detail": "Name one thing, however small."
+      },
+      {
+       "text": "Ask: what did I do wrong?",
+       "detail": "Name it and ask forgiveness."
+      },
+      {
+       "text": "Ask: whom did I hurt?",
+       "detail": "Plan to put it right tomorrow."
+      },
+      {
+       "text": "Make the dua for a steady heart.",
+       "detail": "Muslim 2655."
+      },
+      {
+       "text": "Sleep with a clean heart toward others.",
+       "detail": "Forgive those who wronged you, if you can."
+      }
+     ],
+     "intro": "A minute a day.",
+     "mistakes": [
+      "Only counting faults, and forgetting that Allah is merciful.",
+      "Doing it once and never again."
+     ],
+     "source": "Muslim 2655",
+     "label": "[Interpretive]",
+     "review": "This routine is a practical method used by scholars of the heart. It is not a hadith. Please confirm."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "The daily check",
+     "prompt": "Put the daily check in order.",
+     "items": [
+      {
+       "text": "Sit for a minute",
+       "why": "Begin quietly.",
+       "back": "nightly"
+      },
+      {
+       "text": "Name something good",
+       "why": "Start with the good.",
+       "back": "nightly"
+      },
+      {
+       "text": "Name something wrong and ask forgiveness",
+       "why": "Then the fault.",
+       "back": "nightly"
+      },
+      {
+       "text": "Make the dua for a steady heart",
+       "why": "End with the dua.",
+       "back": "turner"
+      }
+     ],
+     "explain": "Quiet, good, fault, dua."
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the words to the source",
+     "prompt": "Match each saying to its source.",
+     "pairs": [
+      {
+       "left": {
+        "ref": "hlth.heart.dua"
+       },
+       "right": {
+        "text": "The dua after “the hearts are between two fingers”"
+       },
+       "why": "This is the dua in Muslim 2655.",
+       "back": "turner"
+      },
+      {
+       "left": {
+        "text": "Muslim 2564"
+       },
+       "right": {
+        "text": "Allah looks at your hearts and your deeds"
+       },
+       "why": "This is Muslim 2564.",
+       "back": "looks"
+      },
+      {
+       "left": {
+        "text": "Bukhari 52"
+       },
+       "right": {
+        "text": "A piece of flesh in the body"
+       },
+       "why": "This is the hadith of the piece of flesh.",
+       "back": "flesh"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "h1",
+       "q": "What will benefit a person on the Day, according to 26:88-89?",
+       "options": [
+        {
+         "text": "Wealth and children",
+         "reteach": "The verse says they will not benefit.",
+         "back": "day"
+        },
+        {
+         "text": "A long life",
+         "reteach": "The verse says a sound heart.",
+         "back": "day"
+        },
+        {
+         "text": "Coming to Allah with a sound heart"
+        }
+       ],
+       "answer": 2,
+       "explain": "Qur’an 26:88-89.",
+       "type": "mcq"
+      },
+      {
+       "id": "h2",
+       "q": "Which part of the body did the Prophet ﷺ say, if it is good, the whole body is good?",
+       "options": [
+        {
+         "text": "The tongue",
+         "reteach": "He said the heart.",
+         "back": "flesh"
+        },
+        {
+         "text": "The hands",
+         "reteach": "He said the heart.",
+         "back": "flesh"
+        },
+        {
+         "text": "The heart"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 52.",
+       "type": "mcq"
+      },
+      {
+       "id": "h3",
+       "q": "What does Allah look at, according to Muslim 2564?",
+       "options": [
+        {
+         "text": "Your faces and your wealth",
+         "reteach": "The hadith says He does not look at those.",
+         "back": "looks"
+        },
+        {
+         "text": "Your hearts and your deeds"
+        },
+        {
+         "text": "Your homes",
+         "reteach": "The hadith says hearts and deeds.",
+         "back": "looks"
+        }
+       ],
+       "answer": 1,
+       "explain": "Muslim 2564.",
+       "type": "mcq"
+      },
+      {
+       "id": "h4",
+       "q": "A friend says: Allah does not look at faces, so I don’t need to care for my health. What do you tell her?",
+       "options": [
+        {
+         "text": "The hadith says what we are judged by; health is still a blessing to look after"
+        },
+        {
+         "text": "She is right",
+         "reteach": "The hadith does not say health does not matter.",
+         "back": "looks"
+        },
+        {
+         "text": "Health is all that matters",
+         "reteach": "The hadith says Allah looks at hearts and deeds.",
+         "back": "looks"
+        }
+       ],
+       "answer": 0,
+       "explain": "Health is a blessing, and the heart is what counts.",
+       "type": "scenario",
+       "scenario": "A friend says Allah does not look at faces, so she does not need to look after her health."
+      },
+      {
+       "id": "h5",
+       "q": "Who has succeeded, according to 91:9?",
+       "options": [
+        {
+         "text": "The one who is richest",
+         "reteach": "The verse says the one who purifies it.",
+         "back": "purify"
+        },
+        {
+         "text": "The one who is strongest",
+         "reteach": "The verse says the one who purifies it.",
+         "back": "purify"
+        },
+        {
+         "text": "The one who purifies the soul"
+        }
+       ],
+       "answer": 2,
+       "explain": "Qur’an 91:9.",
+       "type": "mcq"
+      },
+      {
+       "id": "h6",
+       "q": "Fill in the blank: Allaahumma musarrifal-quloobi sarrif ____ ‘alaa taa’atik.",
+       "options": [
+        {
+         "text": "ayyaamanaa",
+         "reteach": "Ayyaamanaa means our days. The dua says quloobanaa: our hearts.",
+         "back": "turner"
+        },
+        {
+         "text": "a’maalanaa",
+         "reteach": "A’maalanaa means our deeds. The dua says quloobanaa: our hearts.",
+         "back": "turner"
+        },
+        {
+         "text": "quloobanaa"
+        }
+       ],
+       "answer": 2,
+       "explain": "Turn our hearts to obey You.",
+       "type": "fill",
+       "fill": {
+        "ref": "hlth.heart.dua",
+        "blank": 3,
+        "show": "translit"
+       }
+      },
+      {
+       "id": "h7",
+       "q": "What is the dua in 3:8?",
+       "options": [
+        {
+         "text": "Our Lord, give us wealth",
+         "reteach": "The dua asks for a steady heart.",
+         "back": "verse"
+        },
+        {
+         "text": "Our Lord, let not our hearts deviate after You have guided us"
+        },
+        {
+         "text": "Our Lord, make us strong",
+         "reteach": "The dua asks for a steady heart.",
+         "back": "verse"
+        }
+       ],
+       "answer": 1,
+       "explain": "Qur’an 3:8.",
+       "type": "mcq"
+      },
+      {
+       "id": "h8",
+       "q": "You have felt very low for three weeks and cannot eat or sleep. What should you do?",
+       "options": [
+        {
+         "text": "Keep it to yourself",
+         "reteach": "Please do not carry it alone.",
+         "back": "help"
+        },
+        {
+         "text": "Only pray more",
+         "reteach": "Prayer helps, and so does seeking help.",
+         "back": "help"
+        },
+        {
+         "text": "Turn to Allah, and also talk to a doctor or someone you trust"
+        }
+       ],
+       "answer": 2,
+       "explain": "Seek help as well.",
+       "type": "scenario",
+       "scenario": "You have felt very low for three weeks and cannot eat or sleep."
+      },
+      {
+       "id": "h9",
+       "q": "What is the first question of the daily check?",
+       "options": [
+        {
+         "text": "What did others do wrong?",
+         "reteach": "Start with yourself.",
+         "back": "nightly"
+        },
+        {
+         "text": "What did I do today for Allah?"
+        },
+        {
+         "text": "What did I earn?",
+         "reteach": "Start with what you did for Allah.",
+         "back": "nightly"
+        }
+       ],
+       "answer": 1,
+       "explain": "Start with the good.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "A sound heart is what helps on the Day.",
+      "The heart is the piece of flesh that makes the body good or bad.",
+      "I ask Allah for a steady heart with the dua of Muslim 2655.",
+      "I check my heart each night, and I ask for help when it is heavy."
+     ],
+     "next": "Next: dhikr, the food of the heart."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Tonight",
+     "body": "Tonight, take one minute for the daily check of the heart and say the dua for a steady heart.",
+     "route": "/adhkar",
+     "button": "Open adhkar"
+    }
+   ]
+  },
+  {
+   "id": "hlth.u3.l2",
+   "title": "Dhikr: food for the heart",
+   "minutes": 18,
+   "intro": "Learn why remembering Allah gives the heart rest, two light words of dhikr and how to keep a small daily habit.",
+   "steps": [
+    {
+     "id": "rest",
+     "kind": "why",
+     "title": "Hearts find rest",
+     "body": [
+      "Allah says of the believers: “those who have believed and whose hearts are assured by the remembrance of Allah. Unquestionably, by the remembrance of Allah hearts are assured” (13:28).",
+      "Dhikr is remembering Allah: with the tongue, saying words of praise; with the heart, being aware of Him; and with the limbs, obeying Him. This lesson is about the words of dhikr."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 13:28",
+     "quran": "q:13:28"
+    },
+    {
+     "id": "hear",
+     "kind": "listen",
+     "title": "Hear the ayah",
+     "ref": "q:13:28",
+     "repeats": 2
+    },
+    {
+     "id": "remember",
+     "kind": "teach",
+     "title": "I will remember you",
+     "body": [
+      "Allah says: “So remember Me; I will remember you. And be grateful to Me and do not deny Me” (2:152).",
+      "In a hadith qudsi, Allah says: “I am with My servant when he remembers Me. If he remembers Me in himself, I remember him in Myself. If he remembers Me in a gathering, I remember him in a better gathering” (Bukhari 7405; Muslim 2675)."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 2:152; Bukhari 7405; Muslim 2675",
+     "quran": "q:2:152"
+    },
+    {
+     "id": "alive",
+     "kind": "teach",
+     "title": "The living and the dead",
+     "body": [
+      "Abu Musa reported that the Prophet ﷺ said: “The example of the one who remembers his Lord and the one who does not is like the living and the dead” (Bukhari 6407).",
+      "A heart without dhikr does not stop all at once. It becomes numb. Dhikr is its food."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 6407"
+    },
+    {
+     "id": "light",
+     "kind": "say",
+     "title": "Two light words",
+     "refs": [
+      "hlth.dhikr"
+     ],
+     "note": "The Prophet ﷺ said: “Two words that are light on the tongue, heavy in the balance and dear to the Merciful: Subhan Allah al-Azim, Subhan Allah wa bihamdihi” (Bukhari 6406). They take a few seconds to say.",
+     "source": "Bukhari 6406",
+     "label": "[Established]"
+    },
+    {
+     "id": "forgiven",
+     "kind": "teach",
+     "title": "The reward of tasbih",
+     "body": [
+      "The Prophet ﷺ said: “Whoever says Subhan Allah wa bihamdihi one hundred times a day, his sins are forgiven, even if they are like the foam of the sea” (Bukhari 6405).",
+      "Dhikr is a sunnah and a mercy. It does not replace the prayer or repentance, and does not give permission to sin."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 6405",
+     "review": "The note that dhikr does not replace the obligatory acts is the standard understanding of the scholars of hadith. Please confirm."
+    },
+    {
+     "id": "always",
+     "kind": "teach",
+     "title": "In every state",
+     "body": [
+      "Allah describes people of understanding as people who “remember Allah while standing or sitting or [lying] on their sides and give thought to the creation of the heavens and the earth” (3:191).",
+      "Dhikr does not need a special place. You can do it walking, sitting in a bus, cooking or lying in bed. That is why it is the food of the heart: you can eat it all day."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 3:191",
+     "quran": "q:3:191"
+    },
+    {
+     "id": "steady",
+     "kind": "teach",
+     "title": "Small and regular",
+     "body": [
+      "The most beloved deed to Allah is the most regular, even if it is little (Bukhari 6464). Choose a small amount of dhikr you can keep every day. Even a hundred times of Subhan Allah wa bihamdihi takes only a few minutes.",
+      "Many people find it easier to attach dhikr to something they already do: after prayer, on the way to work, or before sleep."
+     ],
+     "label": "[Interpretive]",
+     "source": "Bukhari 6464",
+     "review": "The advice to attach dhikr to existing habits is practical guidance and not a hadith. Please confirm."
+    },
+    {
+     "id": "routine",
+     "kind": "howto",
+     "title": "A small daily dhikr",
+     "steps": [
+      {
+       "text": "After each prayer, say Astaghfirullah and then Subhan Allah.",
+       "detail": "Choose an amount you can keep."
+      },
+      {
+       "text": "In the morning, say Subhan Allah wa bihamdihi.",
+       "detail": "A hundred times is the hadith’s number (Bukhari 6405)."
+      },
+      {
+       "text": "When you walk or wait, say it quietly.",
+       "detail": "Qur’an 3:191."
+      },
+      {
+       "text": "Before sleep, say the night dua.",
+       "detail": "Bukhari 6320."
+      },
+      {
+       "text": "Keep it for a month before you add more.",
+       "detail": "Bukhari 6464."
+      }
+     ],
+     "intro": "Start small.",
+     "mistakes": [
+      "Counting for show.",
+      "Saying it with no attention at all.",
+      "Quitting because you missed a day."
+     ],
+     "source": "Bukhari 6405, 6320, 6464; Qur’an 3:191",
+     "label": "[Interpretive]",
+     "review": "The first step (Astaghfirullah after prayer) is a common practice and not taken from the hadith cited here. Please confirm or replace it."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "Building the habit",
+     "prompt": "Put these in order.",
+     "items": [
+      {
+       "text": "Choose one small dhikr",
+       "why": "Start with one.",
+       "back": "routine"
+      },
+      {
+       "text": "Tie it to something you already do",
+       "why": "Attach it to a habit.",
+       "back": "steady"
+      },
+      {
+       "text": "Keep it for a month",
+       "why": "Be regular.",
+       "back": "routine"
+      },
+      {
+       "text": "Add a little more",
+       "why": "Grow slowly.",
+       "back": "steady"
+      }
+     ],
+     "explain": "Choose one, attach it, be regular, grow slowly."
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the saying to its source",
+     "prompt": "Match each saying to its source.",
+     "pairs": [
+      {
+       "left": {
+        "ref": "hlth.dhikr"
+       },
+       "right": {
+        "text": "Two light words, heavy in the balance"
+       },
+       "why": "This is the hadith of Bukhari 6406.",
+       "back": "light"
+      },
+      {
+       "left": {
+        "text": "Qur’an 13:28"
+       },
+       "right": {
+        "text": "Hearts find rest in remembering Allah"
+       },
+       "why": "This is 13:28.",
+       "back": "rest"
+      },
+      {
+       "left": {
+        "text": "Bukhari 6407"
+       },
+       "right": {
+        "text": "The living and the dead"
+       },
+       "why": "This is the hadith of the living and the dead.",
+       "back": "alive"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "d1",
+       "q": "What brings rest to the hearts, according to 13:28?",
+       "options": [
+        {
+         "text": "Wealth",
+         "reteach": "The verse says remembering Allah.",
+         "back": "rest"
+        },
+        {
+         "text": "Sleep",
+         "reteach": "The verse says remembering Allah.",
+         "back": "rest"
+        },
+        {
+         "text": "Remembering Allah"
+        }
+       ],
+       "answer": 2,
+       "explain": "Qur’an 13:28.",
+       "type": "mcq"
+      },
+      {
+       "id": "d2",
+       "q": "What does Allah say in 2:152?",
+       "options": [
+        {
+         "text": "Remember Me; I will remember you"
+        },
+        {
+         "text": "Fear Me and do not remember Me",
+         "reteach": "The verse says remember Me; I will remember you.",
+         "back": "remember"
+        },
+        {
+         "text": "Be generous",
+         "reteach": "The verse says remember Me; I will remember you.",
+         "back": "remember"
+        }
+       ],
+       "answer": 0,
+       "explain": "Qur’an 2:152.",
+       "type": "mcq"
+      },
+      {
+       "id": "d3",
+       "q": "The Prophet ﷺ compared the one who remembers his Lord to what?",
+       "options": [
+        {
+         "text": "The rich, compared to the poor",
+         "reteach": "He said the living compared to the dead.",
+         "back": "alive"
+        },
+        {
+         "text": "The wise, compared to the foolish",
+         "reteach": "He said the living compared to the dead.",
+         "back": "alive"
+        },
+        {
+         "text": "The living, compared to the dead"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 6407.",
+       "type": "mcq"
+      },
+      {
+       "id": "d4",
+       "q": "Which two words are light on the tongue and heavy in the balance?",
+       "options": [
+        {
+         "text": "Bismillah, Alhamdulillah",
+         "reteach": "The hadith names Subhan Allah al-Azim and Subhan Allah wa bihamdihi.",
+         "back": "light"
+        },
+        {
+         "text": "Allahu akbar, La ilaha illa Allah",
+         "reteach": "The hadith names Subhan Allah al-Azim and Subhan Allah wa bihamdihi.",
+         "back": "light"
+        },
+        {
+         "text": "Subhan Allah al-Azim, Subhan Allah wa bihamdihi"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 6406.",
+       "type": "mcq"
+      },
+      {
+       "id": "d5",
+       "q": "Fill in the blank: Subhaanal-laahi wa ____.",
+       "options": [
+        {
+         "text": "bihamdih"
+        },
+        {
+         "text": "bi’izzatih",
+         "reteach": "Bi’izzatih means by His might. The words say bihamdih: with His praise.",
+         "back": "light"
+        },
+        {
+         "text": "bi-qudratih",
+         "reteach": "Bi-qudratih means by His power. The words say bihamdih: with His praise.",
+         "back": "light"
+        }
+       ],
+       "answer": 0,
+       "explain": "Glory be to Allah and praise be to Him.",
+       "type": "fill",
+       "fill": {
+        "ref": "hlth.dhikr",
+        "blank": 3,
+        "show": "translit"
+       }
+      },
+      {
+       "id": "d6",
+       "q": "A man says: I say Subhan Allah wa bihamdihi a hundred times a day, so I can skip the prayer. What do you tell him?",
+       "options": [
+        {
+         "text": "He is right",
+         "reteach": "Dhikr does not replace the duties.",
+         "back": "forgiven"
+        },
+        {
+         "text": "Dhikr does not replace the prayer"
+        },
+        {
+         "text": "Dhikr is forbidden",
+         "reteach": "Dhikr is a sunnah and a mercy, but it does not replace the prayer.",
+         "back": "forgiven"
+        }
+       ],
+       "answer": 1,
+       "explain": "Dhikr is added to the duties.",
+       "type": "scenario",
+       "scenario": "A man says that because he says Subhan Allah wa bihamdihi a hundred times a day, he can skip the prayer."
+      },
+      {
+       "id": "d7",
+       "q": "Where can you do dhikr?",
+       "options": [
+        {
+         "text": "Only in the mosque",
+         "reteach": "3:191 says standing, sitting or lying.",
+         "back": "always"
+        },
+        {
+         "text": "In every state: standing, sitting or lying down"
+        },
+        {
+         "text": "Only in the morning",
+         "reteach": "3:191 says in every state.",
+         "back": "always"
+        }
+       ],
+       "answer": 1,
+       "explain": "Qur’an 3:191.",
+       "type": "mcq"
+      },
+      {
+       "id": "d8",
+       "q": "How many times is Subhan Allah wa bihamdihi said in the hadith about forgiveness of sins?",
+       "options": [
+        {
+         "text": "One hundred times a day"
+        },
+        {
+         "text": "Ten times",
+         "reteach": "The hadith says one hundred.",
+         "back": "forgiven"
+        },
+        {
+         "text": "Once",
+         "reteach": "The hadith says one hundred.",
+         "back": "forgiven"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 6405.",
+       "type": "mcq"
+      },
+      {
+       "id": "d9",
+       "q": "What is the best way to start a dhikr habit?",
+       "options": [
+        {
+         "text": "Start with a thousand a day",
+         "reteach": "Small and regular is better.",
+         "back": "steady"
+        },
+        {
+         "text": "Choose a small amount you can keep"
+        },
+        {
+         "text": "Wait until you have time",
+         "reteach": "Start small now.",
+         "back": "steady"
+        }
+       ],
+       "answer": 1,
+       "explain": "Small and regular.",
+       "type": "mcq"
+      },
+      {
+       "id": "d10",
+       "q": "What happens to a heart without dhikr, in this lesson?",
+       "options": [
+        {
+         "text": "It grows numb"
+        },
+        {
+         "text": "It stops at once",
+         "reteach": "It does not stop at once, it becomes numb.",
+         "back": "alive"
+        },
+        {
+         "text": "Nothing changes",
+         "reteach": "It grows numb.",
+         "back": "alive"
+        }
+       ],
+       "answer": 0,
+       "explain": "The heart without dhikr grows numb.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Remembering Allah gives rest to the heart.",
+      "I know two light words: Subhan Allah al-Azim, Subhan Allah wa bihamdihi.",
+      "Dhikr is added to the duties and does not replace them.",
+      "I keep a small, regular dhikr."
+     ],
+     "next": "You have finished this course."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Start now",
+     "body": "Say Subhan Allah wa bihamdihi ten times now, slowly. Then choose when you will say it tomorrow.",
+     "route": "/adhkar",
+     "button": "Open adhkar"
+    }
+   ]
+  }
+ ]
+}

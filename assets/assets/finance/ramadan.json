@@ -1,215 +1,275 @@
 {
- "note": "Duas sourced; daily companion data. Ramadan's dates come from the app's own Umm al-Qura calendar, not from this file; confirm by local moon sighting.",
+ "note": "Duas sourced; daily companion data. Ramadan's dates come from the app's own Umm al-Qura calendar, not from this file; confirm by local moon sighting. Arabic of hadith duas was checked against the hadith-api text and Qur'an duas against the bundled Qur'an; every transliteration is a learning aid flagged for scholar review.",
  "days": [
   {
    "day": 1,
    "theme": "Opening the month",
    "arabic": "اللَّهُمَّ أَهِلَّهُ عَلَيْنَا بِالْيُمْنِ وَالْإِيمَانِ وَالسَّلَامَةِ وَالْإِسْلَامِ رَبِّي وَرَبُّكَ اللَّهُ",
    "text": "O Allah, bring it over us with blessing and faith, and security and Islam. My Lord and your Lord is Allah (said on sighting the new moon).",
-   "source": "Jami` at-Tirmidhi 3451 — graded da'if by Darussalam; al-Tirmidhi called it hasan gharib"
+   "source": "Jami` at-Tirmidhi 3451 — da'if per Zubair Ali Zai; sahih per al-Albani; al-Tirmidhi called it hasan gharib",
+   "translit": "Allahumma ahillahu 'alayna bil-yumni wal-iman, was-salamati wal-islam, rabbi wa rabbukallah.",
+   "translitSource": "Author's letter-by-letter rendering of the Arabic; a learning aid, for scholar review"
   },
   {
    "day": 2,
    "theme": "The fast's gate",
    "arabic": "وَبِصَوْمِ غَدٍ نَّوَيْتُ مِنْ شَهْرِ رَمَضَانَ",
    "text": "I intend the fast of tomorrow from the month of Ramadan.",
-   "source": "Customary wording, not a narrated text — the intention (niyyah) is made in the heart. The ruling that the fast needs an intention before dawn: Sunan Abi Dawud 2454 (sahih per al-Albani)"
+   "source": "Customary wording, not a narrated text — the intention (niyyah) is made in the heart. The ruling that the fast needs an intention before dawn: Sunan Abi Dawud 2454 (sahih per al-Albani)",
+   "translit": "Wa bi-sawmi ghadin nawaytu min shahri Ramadan.",
+   "translitSource": "Author's letter-by-letter rendering of the Arabic; a learning aid, for scholar review"
   },
   {
    "day": 3,
-   "theme": "At suhoor",
+   "theme": "At suhoor (the Prophet's words)",
    "arabic": "تَسَحَّرُوا فَإِنَّ فِي السَّحُورِ بَرَكَةً",
    "text": "Eat suhoor, for in suhoor there is blessing.",
-   "source": "Sahih al-Bukhari 1923"
+   "source": "Sahih al-Bukhari 1923",
+   "translit": "Tasahharu fa inna fis-suhuri barakah.",
+   "translitSource": "Author's letter-by-letter rendering of the Arabic; a learning aid, for scholar review"
   },
   {
    "day": 4,
    "theme": "Breaking fast",
    "arabic": "ذَهَبَ الظَّمَأُ وَابْتَلَّتِ الْعُرُوقُ وَثَبَتَ الْأَجْرُ إِنْ شَاءَ اللَّهُ",
    "text": "The thirst is gone, the veins are moistened, the reward is confirmed, if Allah wills.",
-   "source": "Sunan Abi Dawud 2357 — hasan per al-Albani"
+   "source": "Sunan Abi Dawud 2357 — hasan per al-Albani",
+   "translit": "Dhahabaz-zama'u wabtallatil-'uruqu wa thabatal-ajru in sha'allah.",
+   "translitSource": "Author's letter-by-letter rendering of the Arabic; a learning aid, for scholar review"
   },
   {
    "day": 5,
    "theme": "For the ummah",
    "arabic": "اللَّهُمَّ أَعِنَّا عَلَى صِيَامِهِ وَقِيَامِهِ",
    "text": "O Allah, help us fast it and stand in prayer through it.",
-   "source": "General supplication (not a hadith) — permissible in your own words"
+   "source": "General supplication (not a hadith) — permissible in your own words",
+   "translit": "Allahumma a'inna 'ala siyamihi wa qiyamih.",
+   "translitSource": "Author's letter-by-letter rendering of the Arabic; a learning aid, for scholar review"
   },
   {
    "day": 6,
-   "theme": "Laylat al-Qadr's door",
-   "arabic": "اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي",
-   "text": "O Allah, You are Pardoning and love to pardon — pardon me.",
-   "source": "Sunan at-Tirmidhi 3513, daif per Darussalam; sahih per al-Albani"
+   "theme": "Good in this world and the next",
+   "arabic": "رَبَّنَآ ءَاتِنَا فِي ٱلدُّنۡيَا حَسَنَةٗ وَفِي ٱلۡأٓخِرَةِ حَسَنَةٗ وَقِنَا عَذَابَ ٱلنَّارِ",
+   "text": "Our Lord, give us in this world [that which is] good and in the Hereafter [that which is] good and protect us from the punishment of the Fire.",
+   "source": "Qur'an 2:201 · the Prophet's most frequent supplication: Sahih al-Bukhari 6389",
+   "translit": "Rabbana atina fid-dunya hasanatan wa fil-akhirati hasanatan wa qina 'adhaban-nar.",
+   "translitSource": "Author's letter-by-letter rendering of the Arabic; a learning aid, for scholar review"
   },
   {
    "day": 7,
    "theme": "For parents",
    "arabic": "رَبِّ ارْحَمْهُمَا كَمَا رَبَّيَانِي صَغِيرًا",
    "text": "My Lord, have mercy upon them as they brought me up [when I was] small.",
-   "source": "Qur'an 17:24"
+   "source": "Qur'an 17:24",
+   "translit": "Rabbir-hamhuma kama rabbayani saghira.",
+   "translitSource": "Author's letter-by-letter rendering of the Arabic; a learning aid, for scholar review"
   },
   {
    "day": 8,
    "theme": "Generosity",
-   "arabic": "اللَّهُمَّ إِنِّي أَسْأَلُكَ فِعْلَ الْخَيْرَاتِ",
-   "text": "O Allah, I ask You to enable good deeds, leave evil, and love the poor.",
-   "source": "Jami` at-Tirmidhi 3235 — hasan sahih per al-Tirmidhi"
+   "arabic": "اللَّهُمَّ إِنِّي أَسْأَلُكَ فِعْلَ الْخَيْرَاتِ وَتَرْكَ الْمُنْكَرَاتِ وَحُبَّ الْمَسَاكِينِ",
+   "text": "O Allah, I ask You to enable me to do good deeds, to leave evil deeds, and to love the poor.",
+   "source": "Jami` at-Tirmidhi 3235 — hasan sahih per al-Tirmidhi; sahih per al-Albani",
+   "translit": "Allahumma inni as'aluka fi'lal-khayrat, wa tarkal-munkarat, wa hubbal-masakin.",
+   "translitSource": "Author's letter-by-letter rendering of the Arabic; a learning aid, for scholar review"
   },
   {
    "day": 9,
    "theme": "The Quran's month",
    "arabic": "اللَّهُمَّ اجْعَلِ الْقُرْآنَ رَبِيعَ قُلُوبِنَا",
    "text": "O Allah, make the Qur'an the spring of our hearts.",
-   "source": "General supplication — reported in Musnad Ahmad; check the grade with a scholar before relying on this wording"
+   "source": "General supplication — reported in Musnad Ahmad; check the grade with a scholar before relying on this wording",
+   "translit": "Allahummaj'alil-qur'ana rabi'a qulubina.",
+   "translitSource": "Author's letter-by-letter rendering of the Arabic; a learning aid, for scholar review"
   },
   {
    "day": 10,
    "theme": "First ten done",
    "arabic": "اللَّهُمَّ أَعِنِّي عَلَى ذِكْرِكَ وَشُكْرِكَ",
    "text": "O Allah, help me remember You, thank You, and worship You well.",
-   "source": "Sunan Abi Dawud 1522, sahih per al-Albani"
+   "source": "Sunan Abi Dawud 1522, sahih per al-Albani",
+   "translit": "Allahumma a'inni 'ala dhikrika wa shukrika wa husni 'ibadatik.",
+   "translitSource": "Author's letter-by-letter rendering of the Arabic; a learning aid, for scholar review"
   },
   {
    "day": 11,
    "theme": "Forgiveness flood",
    "arabic": "أَسْتَغْفِرُ اللَّهَ الَّذِي لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ وَأَتُوبُ إِلَيْهِ",
    "text": "I seek the forgiveness of Allah, besides whom none has the right to be worshipped — the Ever-Living, the Sustainer — and I repent to Him.",
-   "source": "Sunan Abi Dawud 1517 — sahih per al-Albani"
+   "source": "Sunan Abi Dawud 1517 — sahih per al-Albani",
+   "translit": "Astaghfirullahal-ladhi la ilaha illa huwal-hayyul-qayyumu wa atubu ilayh.",
+   "translitSource": "Author's letter-by-letter rendering of the Arabic; a learning aid, for scholar review"
   },
   {
    "day": 12,
    "theme": "For the sick",
-   "arabic": "أَذْهِبِ الْبَاسَ رَبَّ النَّاسِ اشْفِ أَنْتَ الشَّافِي",
-   "text": "Remove the harm, O Lord of mankind; heal — You are the Healer.",
-   "source": "Sahih al-Bukhari 5675"
+   "arabic": "أَذْهِبِ الْبَاسَ رَبَّ النَّاسِ وَاشْفِ أَنْتَ الشَّافِي",
+   "text": "Remove the harm, O Lord of mankind, and heal — You are the Healer.",
+   "source": "Sahih al-Bukhari 5675",
+   "translit": "Adh-hibil-ba's, rabban-nas, washfi anta ash-shafi.",
+   "translitSource": "Author's letter-by-letter rendering of the Arabic; a learning aid, for scholar review"
   },
   {
    "day": 13,
    "theme": "Patience",
    "arabic": "رَبَّنَا أَفْرِغْ عَلَيْنَا صَبْرًا",
    "text": "Our Lord, pour upon us patience.",
-   "source": "Qur'an 2:250"
+   "source": "Qur'an 2:250",
+   "translit": "Rabbana afrigh 'alayna sabra.",
+   "translitSource": "Author's letter-by-letter rendering of the Arabic; a learning aid, for scholar review"
   },
   {
    "day": 14,
    "theme": "Mid-month review",
    "arabic": "حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ",
    "text": "Sufficient for us is Allah, and [He is] the best Disposer of affairs.",
-   "source": "Qur'an 3:173"
+   "source": "Qur'an 3:173",
+   "translit": "Hasbunallahu wa ni'mal-wakil.",
+   "translitSource": "Author's letter-by-letter rendering of the Arabic; a learning aid, for scholar review"
   },
   {
    "day": 15,
-   "theme": "The guest's barakah",
+   "theme": "The guest's barakah (said to a host)",
    "arabic": "أَفْطَرَ عِنْدَكُمُ الصَّائِمُونَ وَأَكَلَ طَعَامَكُمُ الْأَبْرَارُ",
    "text": "May the fasting break their fast with you, and the righteous eat your food, and the angels pray for you.",
-   "source": "Sunan Abi Dawud 3854, sahih per al-Albani"
+   "source": "Sunan Abi Dawud 3854, sahih per al-Albani",
+   "translit": "Aftara 'indakumus-sa'imun, wa akala ta'amakumul-abrar, wa sallat 'alaykumul-mala'ikah.",
+   "translitSource": "Author's letter-by-letter rendering of the Arabic; a learning aid, for scholar review"
   },
   {
    "day": 16,
    "theme": "For the children",
    "arabic": "أُعِيذُكُمَا بِكَلِمَاتِ اللَّهِ التَّامَّةِ",
    "text": "I seek protection for you in the perfect words of Allah.",
-   "source": "Sahih al-Bukhari 3371"
+   "source": "Jami` at-Tirmidhi 2060, hasan sahih per al-Tirmidhi and sahih per al-Albani; Sunan Abi Dawud 4737, sahih per al-Albani (Sahih al-Bukhari 3371 has the same words in the first person, 'A`udhu')",
+   "translit": "U'idhukuma bikalimatillahit-tammah.",
+   "translitSource": "Author's letter-by-letter rendering of the Arabic; a learning aid, for scholar review"
   },
   {
    "day": 17,
    "theme": "Quran completion",
    "arabic": "اللَّهُمَّ ارْحَمْنِي بِالْقُرْآنِ",
    "text": "O Allah, have mercy on me through the Qur'an.",
-   "source": "General supplication (not a hadith) — permissible in your own words"
+   "source": "General supplication (not a hadith) — permissible in your own words",
+   "translit": "Allahummarhamni bil-qur'an.",
+   "translitSource": "Author's letter-by-letter rendering of the Arabic; a learning aid, for scholar review"
   },
   {
    "day": 18,
    "theme": "Soft heart",
    "arabic": "يَا مُقَلِّبَ الْقُلُوبِ ثَبِّتْ قَلْبِي عَلَى دِينِكَ",
    "text": "O Turner of hearts, keep my heart firm upon Your religion.",
-   "source": "Sunan at-Tirmidhi 3522, hasan per Darussalam"
+   "source": "Sunan at-Tirmidhi 3522, hasan per Darussalam",
+   "translit": "Ya muqallibal-qulub, thabbit qalbi 'ala dinik.",
+   "translitSource": "Author's letter-by-letter rendering of the Arabic; a learning aid, for scholar review"
   },
   {
    "day": 19,
    "theme": "The last ten's entry",
    "arabic": "اللَّهُمَّ أَعِنَّا عَلَى الْعِتْقِ فِي رَمَضَانَ",
    "text": "O Allah, help us to attain freedom from the Fire in this Ramadan.",
-   "source": "General supplication (not a hadith) — permissible in your own words"
+   "source": "General supplication (not a hadith) — permissible in your own words",
+   "translit": "Allahumma a'inna 'alal-'itqi fi Ramadan.",
+   "translitSource": "Author's letter-by-letter rendering of the Arabic; a learning aid, for scholar review"
   },
   {
    "day": 20,
    "theme": "Itikaf intention",
    "arabic": "نَوَيْتُ الِاعْتِكَافَ لِلَّهِ",
    "text": "I intend the spiritual retreat for Allah.",
-   "source": "Customary wording, not a narrated text — the intention is made in the heart"
+   "source": "Customary wording, not a narrated text — the intention is made in the heart",
+   "translit": "Nawaytul-i'tikafa lillah.",
+   "translitSource": "Author's letter-by-letter rendering of the Arabic; a learning aid, for scholar review"
   },
   {
    "day": 21,
-   "theme": "Odd nights",
+   "theme": "Odd nights: the dua of Laylat al-Qadr",
    "arabic": "اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي",
    "text": "O Allah, You are Pardoning and love to pardon — pardon me.",
-   "source": "Sunan at-Tirmidhi 3513, daif per Darussalam; sahih per al-Albani"
+   "source": "Sunan Ibn Majah 3850 — da'if per Zubair Ali Zai; sahih per al-Albani. Jami` at-Tirmidhi 3513 has the same with 'Karim' (Generous) after 'afuwwun' — da'if per Zubair Ali Zai; hasan sahih per al-Tirmidhi",
+   "translit": "Allahumma innaka 'afuwwun tuhibbul-'afwa fa'fu 'anni.",
+   "translitSource": "Author's letter-by-letter rendering of the Arabic; a learning aid, for scholar review"
   },
   {
    "day": 22,
-   "theme": "For the departed",
-   "arabic": "وَلِلْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ",
-   "text": "and the believing men and believing women.",
-   "source": "Qur'an 71:28 (Nuh's prayer, final clause)"
+   "theme": "For yourself, your parents and the believers",
+   "arabic": "رَّبِّ ٱغۡفِرۡ لِي وَلِوَٰلِدَيَّ وَلِمَن دَخَلَ بَيۡتِيَ مُؤۡمِنٗا وَلِلۡمُؤۡمِنِينَ وَٱلۡمُؤۡمِنَٰتِ",
+   "text": "My Lord, forgive me and my parents and whoever enters my house a believer and the believing men and believing women.",
+   "source": "Qur'an 71:28 (Nuh's prayer, without its last clause)",
+   "translit": "Rabbigh-fir li wa liwalidayya wa liman dakhala baytiya mu'minan wa lil-mu'minina wal-mu'minat.",
+   "translitSource": "Author's letter-by-letter rendering of the Arabic; a learning aid, for scholar review"
   },
   {
    "day": 23,
    "theme": "Contentment",
    "arabic": "رَضِيتُ بِاللَّهِ رَبًّا وَبِالْإِسْلَامِ دِينًا وَبِمُحَمَّدٍ رَسُولًا",
    "text": "I am pleased with Allah as Lord, with Islam as religion, and with Muhammad ﷺ as Messenger.",
-   "source": "Sunan Abi Dawud 1529 — sahih per al-Albani"
+   "source": "Sunan Abi Dawud 1529 — sahih per al-Albani",
+   "translit": "Raditu billahi rabba, wa bil-islami dina, wa bi-muhammadin rasula.",
+   "translitSource": "Author's letter-by-letter rendering of the Arabic; a learning aid, for scholar review"
   },
   {
    "day": 24,
    "theme": "Strength to finish",
    "arabic": "لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ",
    "text": "There is no might nor power except with Allah.",
-   "source": "Sahih al-Bukhari 6384"
+   "source": "Sahih al-Bukhari 6384",
+   "translit": "La hawla wa la quwwata illa billah.",
+   "translitSource": "Author's letter-by-letter rendering of the Arabic; a learning aid, for scholar review"
   },
   {
    "day": 25,
    "theme": "Eyes' coolness",
    "arabic": "رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ",
    "text": "Our Lord, grant us from among our wives and offspring comfort to our eyes.",
-   "source": "Qur'an 25:74"
+   "source": "Qur'an 25:74",
+   "translit": "Rabbana hab lana min azwajina wa dhurriyyatina qurrata a'yun.",
+   "translitSource": "Author's letter-by-letter rendering of the Arabic; a learning aid, for scholar review"
   },
   {
    "day": 26,
    "theme": "For the ummah's relief",
    "arabic": "اللَّهُمَّ اكْشِفِ الْبَلَاءَ عَنِ الْمُسْلِمِينَ",
    "text": "O Allah, lift the trials from the Muslims everywhere.",
-   "source": "General supplication (not a hadith) — permissible in your own words"
+   "source": "General supplication (not a hadith) — permissible in your own words",
+   "translit": "Allahummakshifil-bala'a 'anil-muslimin.",
+   "translitSource": "Author's letter-by-letter rendering of the Arabic; a learning aid, for scholar review"
   },
   {
    "day": 27,
-   "theme": "The grand night",
-   "arabic": "اللَّهُمَّ إِنَّا نَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ",
-   "text": "O Allah, we ask You pardon and well-being in this world and the next.",
-   "source": "Sunan Ibn Majah 3871, sahih per Darussalam"
+   "theme": "The grand night: pardon and well-being",
+   "arabic": "اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي الدُّنْيَا وَالآخِرَةِ",
+   "text": "O Allah, I ask You for pardon and well-being in this world and the Hereafter.",
+   "source": "Sunan Ibn Majah 3871 — sahih per al-Albani (the Prophet ﷺ never left it morning or evening)",
+   "translit": "Allahumma inni as'alukal-'afwa wal-'afiyata fid-dunya wal-akhirah.",
+   "translitSource": "Author's letter-by-letter rendering of the Arabic; a learning aid, for scholar review"
   },
   {
    "day": 28,
    "theme": "Zakat al-fitr intention",
    "arabic": "نَوَيْتُ أَنْ أُخْرِجَ زَكَاةَ الْفِطْرِ عَنِّي وَعَمَّنْ أَعُولُ",
    "text": "I intend to give zakat al-fitr for myself and my dependents.",
-   "source": "Customary wording, not a narrated text — the intention is made in the heart"
+   "source": "Customary wording, not a narrated text — the intention is made in the heart",
+   "translit": "Nawaytu an ukhrija zakatal-fitri 'anni wa 'amman a'ul.",
+   "translitSource": "Author's letter-by-letter rendering of the Arabic; a learning aid, for scholar review"
   },
   {
    "day": 29,
    "theme": "Farewell to the month",
    "arabic": "اللَّهُمَّ لَا تَجْعَلْهُ آخِرَ الْعَهْدِ مِنْ صِيَامِنَا",
    "text": "O Allah, do not let this be the last of our Ramadans — accept it from us.",
-   "source": "General supplication (not a hadith) — permissible in your own words"
+   "source": "General supplication (not a hadith) — permissible in your own words",
+   "translit": "Allahumma la taj'alhu akhiral-'ahdi min siyamina.",
+   "translitSource": "Author's letter-by-letter rendering of the Arabic; a learning aid, for scholar review"
   },
   {
    "day": 30,
    "theme": "Eid and return",
    "arabic": "تَقَبَّلَ اللَّهُ مِنَّا وَمِنْكُمْ",
    "text": "May Allah accept from us and from you.",
-   "source": "Eid greeting of the Companions — reported by Jubayr ibn Nufayr; chain graded hasan by Ibn Hajar (Fath al-Bari)"
+   "source": "Eid greeting of the Companions — reported by Jubayr ibn Nufayr; chain graded hasan by Ibn Hajar (Fath al-Bari)",
+   "translit": "Taqabbalallahu minna wa minkum.",
+   "translitSource": "Author's letter-by-letter rendering of the Arabic; a learning aid, for scholar review"
   }
  ]
 }
