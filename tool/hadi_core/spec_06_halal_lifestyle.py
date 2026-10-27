@@ -24,6 +24,7 @@ Questions people often have:
 - Cooking with alcohol: avoid it; if it is a recipe that keeps the alcohol in the dish, the dish is forbidden. Many scholars do not allow cooking it away either.
 - Hand sanitiser and perfume containing alcohol: used on the outside, most contemporary scholars allow them, since the ruling is on drinking and the alcohol is not for intoxication. Some prefer alcohol-free.
 - Non-alcoholic ("0.0%") drinks that taste like beer or wine: scholars differ. Some allow them if truly under about 0.5% and not intoxicating; others dislike them because of the name and imitation. A cautious person avoids them.
+- Vinegar, including vinegar that began as wine and has fully turned to vinegar: most scholars allow it, though some dislike making it from wine on purpose. The Prophet ﷺ said the best of condiments is vinegar ({H muslim:2051|A'isha reported the Prophet said the best of condiments is vinegar}).
 - Tiny traces from natural fermentation in food (a ripe fruit, bread, or vinegar) are not what is meant.
 - Medicine: if there is no alternative, medicine containing alcohol is allowed by necessity; ask your doctor for a non-alcoholic form.
 
@@ -51,7 +52,7 @@ E('gelatin',
      r'\bhidden (?:haram|ingredients?)\b', r'\bfood (?:additives?|e numbers?|ingredients?)\b', r'\be ?[0-9]{3}\b.*\b(?:halal|haram)\b', r'\bhow (?:do|to) (?:i )?check (?:if )?(?:food|a product|ingredients?) (?:is )?halal\b', r'\bis this halal\b'],
   topic='gelatin',
   text="""
-Gelatin is made from animal skin and bones, usually pork or beef. So:
+Gelatin is made from animal skin and bones, usually pork or beef. Pork is forbidden ({QR 2:173}), so:
 - Pork gelatin is haram.
 - Gelatin from beef or fish is halal if the cattle were slaughtered in the Islamic way (for beef) or it is from fish.
 - Gelatin when the source is not stated: scholars differ. Some (including several fiqh councils) hold that the bones and skin undergo a complete chemical change (istihalah) and so the final product is pure and lawful; others say pork remains pork, so it is not allowed. Because of this real difference, the careful course is to avoid gelatin of unknown source and to choose products marked halal, fish gelatin, pectin or agar.
@@ -65,7 +66,7 @@ For medicines and vaccines, many scholars allow them even if gelatin of uncertai
 E('halal-meat',
   m=[r'\bhalal meat\b', r'\bzabiha\b', r'\bzabihah\b', r'\bdhabiha\b', r'\bslaughter\w*\b', r'\bstunn\w*\b', r'\bkosher\b', r'\bsupermarket meat\b', r'\bmeat from (?:a )?(?:non muslim|christian|jewish|supermarket|restaurant)\b',
      r'\bnon muslim\b.*\b(?:meat|food|slaughter)\b', r'\b(?:meat|food)\b.*\b(?:people of the book|ahl al kitab|christians?|jews?)\b', r'\bbismillah\b.*\b(?:eat|meat|slaughter)\b', r'\bhalal (?:food|restaurant|restaurants|certification|certified)\b',
-     r'\beat(?:ing)? (?:at|in) (?:a )?(?:non muslim|restaurant|mcdonalds|kfc|fast food)\b', r'\bwhat makes (?:meat|food) halal\b', r'\bis (?:kfc|mcdonalds|subway|fast food) halal\b', r'\bchicken\b.*\bhalal\b'],
+     r'\beat(?:ing)? (?:at|in) (?:a )?(?:non muslim|restaurant|mcdonalds|kfc|fast food)\b', r'\bwhat makes (?:meat|food) halal\b', r'\bhow (?:do|can|to) (?:i|we|you) (?:know|tell|check|find out) (?:if |whether )?(?:the )?(?:meat|food|chicken|beef|this|it) (?:is )?halal\b', r'\bhow to know (?:if )?(?:meat|food) is halal\b', r'\bis (?:kfc|mcdonalds|subway|fast food) halal\b', r'\bchicken\b.*\bhalal\b'],
   x=[r'\b(?:near me|nearby|app|find)\b'],
   topic='halal meat',
   text="""
@@ -98,22 +99,41 @@ Practical points:
 """,
   review='Removal of old tattoos, piercings for men, and medical tattoos are standard fiqh positions; not text-checked here.')
 
-E('dogs-pets',
-  m=[r'\bdogs?\b', r'\bpuppy\b', r'\bpuppies\b', r'\bpets?\b', r'\bkeep(?:ing)? (?:a )?(?:cat|cats|bird|birds|fish|rabbit|animals?)\b', r'\bcats?\b.*\b(?:islam|muslims?|allowed|keep|halal|haram)\b',
-     r'\bguide dogs?\b', r'\bservice dogs?\b', r'\bhunting dogs?\b', r'\banimals?\b.*\b(?:rights|treat\w*|cruel\w*|kind\w*)\b', r'\bcruelty to animals\b', r'\btreat\w* animals\b'],
-  x=[r'\b(?:najis|najasa|impure)\b', r'\b(?:game|story|stories)\b'],
+E('dogs',
+  m=[r'\bdogs?\b', r'\bpuppy\b', r'\bpuppies\b', r'\bguide dogs?\b', r'\bservice dogs?\b', r'\bhunting dogs?\b', r'\bsniffer\b'],
+  x=[r'\b(?:najis|najasa|impure)\b', r'\b(?:game|story|stories)\b', r'\bcats?\b'],
   topic='pets',
   text="""
-Cats: yes, keep them. The Prophet ﷺ said of the cat that it is not unclean (see the impurity answer), and he warned that a woman entered the Fire because of a cat she tied up and neither fed nor let go ({H bukhari:3318|The Prophet said a woman entered the Fire because of a cat she had tied, neither feeding it nor letting it eat from the earth}). Caring for any animal is rewarded; being cruel to one is a sin.
-
 Dogs: scholars differ on keeping and touching them.
-- Keeping a dog as a house pet is discouraged: the Prophet ﷺ said that whoever keeps a dog that is neither a watch dog nor a hunting dog loses two qirat of his good deeds every day ({H bukhari:5480|The Prophet said whoever keeps a dog that is neither a watch dog nor a hunting dog will lose two qirat of his good deeds daily}). Keeping a dog for hunting, herding or guarding is allowed (and most scholars add a guide or service dog for a person who needs it).
+- Keeping a dog as a house pet is discouraged: the Prophet ﷺ said that whoever keeps a dog that is neither a watch dog nor a hunting dog loses two qirat of his good deeds every day ({H bukhari:5480|The Prophet said whoever keeps a dog that is neither a watch dog nor a hunting dog will get a daily deduction of two qirat from his good deeds}). Keeping a dog for hunting, herding or guarding is allowed, and most scholars add a guide or service dog for a person who needs it.
 - Touching a dog or its saliva: the Shafi'i and Hanbali schools treat the saliva as impure and require washing seven times; the Maliki school treats the dog as pure; see the impurity answer. Dry contact is not a problem in any school.
-- Angels: the Prophet ﷺ said the angels of mercy do not enter a house where there is a dog or a picture of a living creature ({H bukhari:3225|Abu Talha heard the Prophet say angels of mercy do not enter a house in which there is a dog or a picture of a living creature}). Scholars explain this variously.
+- The angels: the Prophet ﷺ said the angels of mercy do not enter a house where there is a dog or a picture of a living creature ({H bukhari:3225|Abu Talha heard the Prophet say angels of mercy do not enter a house in which there is a dog or a picture of a living creature}). Scholars explain this in different ways.
 
-Other pets (birds, fish, rabbits, etc.) are allowed if you feed them, give them space and do not harm them. Do not keep a bird in a cage so small it cannot live well.
+Whatever you decide, be kind to dogs: cruelty to any animal is a sin, and feeding or giving water to a thirsty one is rewarded.
 """,
-  review='Dogs: the angels hadith is explained variously by scholars, and a guide dog for the blind is a standard fiqh allowance; not text-checked here.')
+  review='Dogs: the angels hadith is explained variously by scholars; a guide dog for the blind is a standard fiqh allowance; not text-checked here.')
+
+E('pets-animals',
+  m=[r'\bpets?\b', r'\bcats?\b', r'\bkitten\w*\b', r'\bkeep(?:ing)? (?:a )?(?:bird|birds|fish|rabbit|animals?|hamster|parrot|turtle|horse)\b', r'\banimals?\b.*\b(?:rights|treat\w*|cruel\w*|kind\w*)\b', r'\bcruelty to animals\b', r'\btreat\w* animals\b', r'\banimal rights\b'],
+  x=[r'\b(?:game|story|stories)\b', r'\b(?:najis|najasa|impure)\b', r'\b(?:sacrifice|qurbani|udhiyah|aqiqah)\b', r'\bdogs?\b'],
+  topic='pets',
+  text="""
+Cats: yes, you may keep them. The Prophet ﷺ said of the cat that it is not unclean ({H abudawud:75|Abu Qatadah let a cat drink from his wudu water and said the Prophet said it is not unclean, it is one of those that go round among you}). He also warned that a woman entered the Fire because of a cat she had tied up and neither fed nor let go ({H bukhari:3318|The Prophet said a woman entered the Fire because of a cat which she had tied, neither giving it food nor setting it free to eat from the vermin of the earth}). So caring for any animal is rewarded, and cruelty to one is a sin.
+
+Other pets (birds, fish, rabbits and so on) are allowed if you feed them, give them room and do not harm them. Do not keep a bird in a cage so small that it cannot live well. For dogs, ask me about dogs.
+""",
+  review='Pets: the allowance for other pets is the general view; not text-checked here.')
+
+E('gold-silk-men',
+  m=[r'\bgold\b.*\b(?:men|man|male|males|boys?|husband|him)\b', r'\b(?:men|man|male|males|boys?)\b.*\bgold\b', r'\bsilk\b.*\b(?:men|man|male|males)\b', r'\b(?:men|man|male|males)\b.*\bsilk\b', r'\bgold (?:ring|chain|watch|necklace|jewel\w*)\b', r'\bsilver ring\b', r'\bwear(?:ing)? (?:gold|silk|platinum|diamonds?|jewel\w*)\b', r'\bplatinum\b'],
+  x=[r'\b(?:zakat|nisab|sell|buy|invest|price|crypto)\b', r'\bgold standard\b'],
+  topic='gold',
+  text="""
+For men, wearing gold and pure silk is forbidden; for women both are allowed. The Prophet ﷺ said: {H tirmidhi:1720|Abu Musa reported the Messenger of Allah said wearing silk and gold has been made unlawful for the males of my Ummah and lawful for its females}. He once pulled a gold ring from a man's hand and threw it away ({H muslim:2090|Ibn Abbas reported the Messenger of Allah saw a man wearing a gold signet ring, pulled it off and threw it away, saying one of you wishes for a live coal from Hell and puts it on his hand}).
+
+Silver is allowed for men, and a silver ring was worn by the Prophet ﷺ ({H bukhari:5865|Abdullah reported the Prophet wore a gold ring, then threw it away when people copied him and wore a silver ring instead}). Other metals such as platinum or steel, and silk mixed with other cloth, are allowed by most scholars; ask a scholar if you are unsure. A gold tooth filling or a gold nose or surgery fixture for medical need is allowed.
+""",
+  review='Platinum, mixed silk, medical gold are standard views and described as such; not text-checked here.')
 
 E('hair-dye',
   m=[r'\bdy(?:e|ing) (?:my |the )?hair\b', r'\bhair dye\b', r'\bhair colou?r\w*\b', r'\bcolou?r(?:ing)? (?:my |the )?hair\b', r'\bblack dye\b', r'\bgrey hair\b', r'\bgray hair\b', r'\bwhite hair\b',
@@ -128,6 +148,8 @@ Hair colour:
 Hair extensions: attaching other people's hair is forbidden in the hadith in {H bukhari:5937|The Prophet said Allah has cursed the lady who lengthens hair artificially or has it lengthened, and the one who tattoos or gets tattooed}; most scholars apply it to real human hair, and some extend it to anything attached that looks like your own. Wigs: scholars differ.
 
 Cutting hair: allowed for men and women, with modesty. A woman may trim her hair; she should not cut it to imitate men.
+
+Body hair: removing pubic and underarm hair, clipping the nails and trimming the moustache are part of the fitrah, the natural practices ({H muslim:258|Anas reported a time limit was prescribed for clipping the moustache, cutting the nails, plucking the hair under the armpits and shaving the pubes, that it should not be neglected for more than forty nights}). Removing hair elsewhere, such as legs or arms, is not forbidden for a woman; men should not imitate women in ways that are specific to them. Shaving the whole head is allowed for a man, and is part of the rites of Hajj and Umrah.
 """,
   review='Dye colours, extensions and wigs are contested; the positions are standard fiqh teaching, not text-checked here.')
 
@@ -179,7 +201,7 @@ Nasheeds with only the human voice, or with a duff, are accepted by nearly all s
   review='Music: two positions described neutrally; flagged for scholar review.')
 
 E('beard',
-  m=[r'beards?', r'shav\w* (?:my )?(?:face|beard)\b', r'trim\w* (?:my )?beard\b', r'moustache\b', r'mustache\b', r'clean shaven\b'],
+  m=[r'\bbeards?\b', r'\bshav\w* (?:my )?(?:face|beard)\b', r'\btrim\w* (?:my )?beard\b', r'\bmoustache\b', r'\bmustache\b', r'\bclean shaven\b', r'\bshaving\b', r'\bshave\b'],
   topic='beard',
   text="""
 The Prophet ﷺ said: trim the moustache and let the beard grow ({H bukhari:5892|Ibn Umar reported the Prophet said to differ from the polytheists, let the beard grow and trim the moustache}).
@@ -194,8 +216,8 @@ If you cannot grow a full beard, or you are in a job that insists on shaving, as
   review='Beard: school positions described in general terms; not text-checked here.')
 
 E('hijab',
-  m=[r'hijab', r'niqab', r'burqa', r'headscarf', r'head scarf', r'veil\w*', r'cover(?:ing)? (?:my |her |the )?hair', r'why (?:do )?(?:muslim )?(?:women|girls) (?:wear|cover)', r'modest(?:y)? dress', r'awrah', r'what (?:should|must) (?:a )?(?:woman|women|man|men) (?:wear|cover)', r'dress code'],
-  x=[r'(?:game|story)'],
+  m=[r'\bhijab\b', r'\bniqab\b', r'\bburqa\b', r'\bheadscarf\b', r'\bhead scarf\b', r'\bveil\w*\b', r'\bcover(?:ing)? (?:my |her |the )?hair\b', r'\bwhy (?:do )?(?:muslim )?(?:women|girls) (?:wear|cover)\b', r'\bmodest(?:y)? dress\b', r'\bawrah\b', r'\bwhat (?:should|must) (?:a )?(?:woman|women|man|men) (?:wear|cover)\b', r'\bdress code\b'],
+  x=[r'\b(?:game|story)\b'],
   topic='hijab',
   text="""
 Allah tells believing women: {Q 24:31|And tell the believing women to reduce [some] of their vision and guard their private parts and not expose their adornment except that which [necessarily] appears thereof and to wrap [a portion of] their headcovers over their chests}. And in {QR 33:59} He tells the Prophet to say to his wives, daughters and the believing women to bring down over themselves some of their outer garments.
@@ -207,8 +229,8 @@ Hijab is more than cloth: it is also modesty in behaviour, for men and women ali
   review='Face covering view differences; standard fiqh; flagged for scholar review.')
 
 E('smoking-vaping',
-  m=[r'smok\w*', r'cigarettes?', r'tobacco', r'vap(?:e|ing|es)', r'shisha', r'hookah', r'cannabis', r'marijuana', r'weed', r'drugs?', r'cocaine', r'khat', r'nicotine'],
-  x=[r'(?:fasting|fast).*(?:break|breaks|invalid\w*)'],
+  m=[r'\bsmok\w*\b', r'\bcigarettes?\b', r'\btobacco\b', r'\bvap(?:e|ing|es)\b', r'\bshisha\b', r'\bhookah\b', r'\bcannabis\b', r'\bmarijuana\b', r'\bweed\b', r'\bdrugs?\b', r'\bcocaine\b', r'\bkhat\b', r'\bnicotine\b'],
+  x=[r'\b(?:fasting|fast)\b.*\b(?:break|breaks|invalid\w*)\b'],
   topic='smoking',
   text="""
 Smoking and vaping: most scholars today say they are forbidden, because they harm the body and Allah says {Q 2:195|do not throw [yourselves] with your [own] hands into destruction} and {Q 7:157|makes lawful for them the good things and prohibits for them the evil}. Some older scholars called it only disliked, before the harm was known. Shisha and hookah are treated the same.
@@ -220,8 +242,8 @@ If you are trying to quit, that is a good intention and Allah rewards the effort
   review='Smoking: majority position with older minority noted; not text-checked here.')
 
 E('superstition-astrology',
-  m=[r'astrolog\w*', r'horoscopes?', r'zodiac', r'fortune ?tell\w*', r'palm ?read\w*', r'tarot', r'superstiti\w*', r'friday (?:the )?13(?:th)?', r'bad luck', r'evil eye', r'black cat', r'lucky (?:number|charm)s?', r'magic', r'sihr', r'witchcraft', r'amulet\w*', r'taweez', r'talisman\w*', r'jinn possess\w*'],
-  x=[r'(?:game|story)'],
+  m=[r'\bastrolog\w*\b', r'\bhoroscopes?\b', r'\bzodiac\b', r'\bfortune ?tell\w*\b', r'\bpalm ?read\w*\b', r'\btarot\b', r'\bsuperstiti\w*\b', r'\bfriday (?:the )?13(?:th)?\b', r'\bbad luck\b', r'\bevil eye\b', r'\bblack cat\b', r'\blucky (?:number|charm)s?\b', r'\bmagic\b', r'\bsihr\b', r'\bwitchcraft\b', r'\bamulet\w*\b', r'\btaweez\b', r'\btalisman\w*\b', r'\bjinn possess\w*\b'],
+  x=[r'\b(?:game|story)\b'],
   topic='superstition',
   text="""
 Islam rejects fortune-telling, astrology, horoscopes and omens of bad luck. Only Allah knows the unseen: {Q 27:65|None in the heavens and earth knows the unseen except Allah}. The Prophet ﷺ also said that whoever goes to a fortune-teller and asks him about anything, his prayer will not be accepted for forty nights ({H muslim:2230|Some of the wives of the Prophet reported the Prophet said whoever goes to a diviner and asks him about anything, his prayer will not be accepted for forty nights}). Believing in the diviner is worse.
