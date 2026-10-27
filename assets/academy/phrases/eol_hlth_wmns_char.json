@@ -1206,6 +1206,64 @@
    "copiedFrom": "Bukhari 6406 (fawazahmed0/hadith-api, ara-bukhari)",
    "needsScholarReview": true,
    "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "wmns.tasbih": {
+   "arabic": "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ عَدَدَ خَلْقِهِ وَرِضَا نَفْسِهِ وَزِنَةَ عَرْشِهِ وَمِدَادَ كَلِمَاتِهِ",
+   "status": "verified",
+   "translit": "Subhaanal-laahi wa bihamdihi 'adada khalqihi wa ridaa nafsihi wa zinata 'arshihi wa midaada kalimaatih",
+   "meaning": "Glory be to Allah and praise be to Him, by the number of His creation, by the pleasure of Himself, by the weight of His Throne, and by the ink of His words.",
+   "words": [
+    {
+     "tr": "subhaana",
+     "en": "glory be to"
+    },
+    {
+     "tr": "Allaahi",
+     "en": "Allah"
+    },
+    {
+     "tr": "wa-bihamdihi",
+     "en": "and with His praise"
+    },
+    {
+     "tr": "'adada",
+     "en": "the number of"
+    },
+    {
+     "tr": "khalqihi",
+     "en": "His creation"
+    },
+    {
+     "tr": "wa-ridaa",
+     "en": "and the pleasure of"
+    },
+    {
+     "tr": "nafsihi",
+     "en": "Himself"
+    },
+    {
+     "tr": "wa-zinata",
+     "en": "and the weight of"
+    },
+    {
+     "tr": "'arshihi",
+     "en": "His Throne"
+    },
+    {
+     "tr": "wa-midaada",
+     "en": "and the ink of"
+    },
+    {
+     "tr": "kalimaatihi",
+     "en": "His words"
+    }
+   ],
+   "sources": [
+    "Muslim 2726"
+   ],
+   "copiedFrom": "Muslim 2726 (fawazahmed0/hadith-api, ara-muslim)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
   }
  }
 }

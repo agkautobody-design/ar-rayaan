@@ -249,6 +249,12 @@ P('hlth.dhikr', 'bukhari', '6406', 32, 37, "Subhaanal-laahil-'azeem. Subhaanal-l
   W(('subhaana', 'glory be to'), ('Allaahi', 'Allah'), ("al-'azeem", 'the Magnificent'), ('subhaana', 'glory be to'),
     ('Allaahi', 'Allah'), ('wa-bihamdihi', 'and with His praise')))
 
+P('wmns.tasbih', 'muslim', '2726', 86, 96, "Subhaanal-laahi wa bihamdihi 'adada khalqihi wa ridaa nafsihi wa zinata 'arshihi wa midaada kalimaatih",
+  'Glory be to Allah and praise be to Him, by the number of His creation, by the pleasure of Himself, by the weight of His Throne, and by the ink of His words.',
+  W(('subhaana', 'glory be to'), ('Allaahi', 'Allah'), ('wa-bihamdihi', 'and with His praise'), ("'adada", 'the number of'),
+    ('khalqihi', 'His creation'), ('wa-ridaa', 'and the pleasure of'), ('nafsihi', 'Himself'), ('wa-zinata', 'and the weight of'),
+    ("'arshihi", 'His Throne'), ('wa-midaada', 'and the ink of'), ('kalimaatihi', 'His words')))
+
 
 def spec_by_id():
     return {s['id']: s for s in SPEC}
