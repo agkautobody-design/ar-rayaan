@@ -5,14 +5,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:qr_flutter/qr_flutter.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../../../app/core/providers.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/screen_header.dart';
-import '../application/share_text.dart';
+import '../../quran/application/quran_providers.dart';
+import '../../quran/domain/quran_models.dart';
+import '../application/share_service.dart';
 import 'share_actions.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
 
@@ -37,7 +38,6 @@ class ShareScreen extends StatefulWidget {
 class _ShareState extends State<ShareScreen> {
   List<ShareCard>? _cards;
   int _i = 0;
-  bool _copied = false;
 
   @override
   void initState() {
@@ -52,10 +52,30 @@ class _ShareState extends State<ShareScreen> {
         .map((e) => ShareCard.fromJson(e as Map<String, dynamic>)).toList());
   }
 
-  String get _message {
-    final c = _cards![_i];
-    final ar = c.arabic.isNotEmpty ? '${c.arabic}\n\n' : '';
-    return '$ar\"${c.text}\"\n— ${c.ref}\n\nShared from Ar-Rayaan (ar-rayaan.onrender.com)';
+  static final RegExp _quranRef = RegExp(r'^Qur.an (\d+):(\d+)(?:-(\d+))?$');
+
+  /// The share for [c]. A Qur'an card is shared as its Arabic from the
+  /// Qur'an registry plus its reference (no translation); the card's own
+  /// Arabic is not used. A hadith card keeps its English, source and the
+  /// review label. Null while the registry loads or if the reference is
+  /// not a real ayah.
+  ShareDoc? _docFor(ShareCard c, AsyncValue<List<Surah>> registry) {
+    if (c.kind == 'Hadith') {
+      return ShareDoc.hadith(
+        english: '\u201c${c.text}\u201d',
+        source: c.ref,
+        reviewKey: 'noor.card',
+      );
+    }
+    final RegExpMatch? m = _quranRef.firstMatch(c.ref);
+    final List<Surah>? all = registry.valueOrNull;
+    if (m == null || all == null) return null;
+    return ShareService.ayahFromRegistry(
+      all,
+      int.parse(m.group(1)!),
+      int.parse(m.group(2)!),
+      m.group(3) == null ? null : int.parse(m.group(3)!),
+    );
   }
 
   @override
@@ -121,8 +141,7 @@ class _ShareState extends State<ShareScreen> {
                       key: const Key('invite-friend'),
                       onPressed: () => showSharePreview(
                         context,
-                        text: inviteShareText(),
-                        title: 'Ar-Rayaan',
+                        doc: ShareDoc.invite(),
                         subject: 'this invitation',
                       ),
                       icon: const Icon(Icons.ios_share, size: 18),
@@ -168,7 +187,7 @@ class _ShareState extends State<ShareScreen> {
                     excludeSemantics: true,
                     child: FocusableTap(
                       behavior: HitTestBehavior.opaque,
-                      onTap: () => setState(() { _i = i; _copied = false; }),
+                      onTap: () => setState(() { _i = i; }),
                       // Padding makes the touch area 48 high; the dot stays small.
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
@@ -185,28 +204,29 @@ class _ShareState extends State<ShareScreen> {
                   ),
               ]),
               const SizedBox(height: 18),
-              Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-                ElevatedButton.icon(
-                  onPressed: () => launchUrl(
-                      Uri.parse('https://wa.me/?text=${Uri.encodeComponent(_message)}'),
-                      mode: LaunchMode.externalApplication),
-                  icon: const Icon(Icons.send_outlined, size: 16),
-                  label: const Text('WhatsApp'),
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.gold,
-                      foregroundColor: const Color(0xFF0A0F18)),
-                ),
-                TextButton.icon(
-                  onPressed: () async {
-                    final bool ok = await copyWithFeedback(context, _message);
-                    if (ok && mounted) setState(() => _copied = true);
+              Center(
+                child: Consumer(
+                  builder: (BuildContext context, WidgetRef ref, Widget? _) {
+                    final ShareDoc? doc =
+                        _docFor(c, ref.watch(quranAllProvider));
+                    return ConstrainedBox(
+                      constraints: const BoxConstraints(minHeight: 48),
+                      child: FilledButton.icon(
+                        key: const Key('verse-card-share'),
+                        onPressed: doc == null
+                            ? null
+                            : () => showSharePreview(
+                                  context,
+                                  doc: doc,
+                                  subject: 'this card',
+                                ),
+                        icon: const Icon(Icons.ios_share, size: 18),
+                        label: const Text('Share this card'),
+                      ),
+                    );
                   },
-                  icon: Icon(_copied ? Icons.check : Icons.copy, size: 15,
-                      color: AppColors.goldLight),
-                  label: Text(_copied ? 'Copied' : 'Copy',
-                      style: const TextStyle(color: AppColors.goldLight, fontSize: 13)),
                 ),
-              ]),
+              ),
               const SizedBox(height: 8),
               Center(child: Text('Swipe the dots \u00b7 send one to someone tonight',
                   style: AppText.bodyMuted.copyWith(fontSize: 12))),

@@ -1,45 +1,19 @@
-/// Pure text builders for sharing and copying content that already exists
-/// in the app. Nothing here writes new content: it only joins the text, the
-/// source line and the app credit.
+/// The fixed lines that end everything shared out of the app. Nothing here
+/// builds a share: every share is built by `ShareService` from a `ShareDoc`
+/// of public content, and ends with [shareFooter].
 library;
 
-/// Credit line appended to everything copied or shared out of the app.
+/// Credit line that ends everything copied or shared out of the app.
 const String kSharedFromLine = 'Shared from Ar-Rayaan';
 
-/// Joins the non-empty parts with a blank line: title, Arabic, [body], the
-/// source line (`— source`) and the credit line.
-String composeShareText({
-  String? title,
-  String? arabic,
-  required String body,
-  String? source,
-}) {
-  final List<String> blocks = <String>[
-    if (title != null && title.trim().isNotEmpty) title.trim(),
-    if (arabic != null && arabic.trim().isNotEmpty) arabic.trim(),
-    if (body.trim().isNotEmpty) body.trim(),
-    if (source != null && source.trim().isNotEmpty) '— ${source.trim()}',
-    kSharedFromLine,
-  ];
-  return blocks.join('\n\n');
-}
-
-/// The public address of the app, for invitations. Fixed on purpose: a
-/// shared link never carries anything about the person who sent it.
+/// The one address a share points to: the free web app. This is the single
+/// place to change when store links exist. Fixed on purpose: a shared link
+/// never carries a query, a referral code or anything about the sender.
 const String kInviteUrl = 'https://ar-rayaan.onrender.com';
 
-/// The invitation text: what the app has, and the link. Nothing personal.
-String inviteShareText() => composeShareText(
-  body:
-      'Ar-Rayaan: Qur’an, adhkar, prayer times and Islamic learning in one '
-      'place. You are welcome to try it:\n$kInviteUrl',
-);
+/// Says what the link is. Honest today: the app is free and works without an
+/// account. Do not turn this into a call to create an account.
+const String kShareDownloadLine = 'Free to use, no account needed';
 
-/// A milestone line, "I completed ...", with the app credit and the link.
-/// [what] is a short phrase such as `the lesson “Names of Allah”`. Only study
-/// milestones are shared (a lesson, a course, a Hifz section), never acts of
-/// worship, counts or gaps. It must be built from what the person did, never
-/// from their notes or prayer log.
-String milestoneShareText(String what) => composeShareText(
-  body: 'I completed $what on Ar-Rayaan.\n$kInviteUrl',
-);
+/// The last block of every share: the credit, the download line, the link.
+String shareFooter() => '$kSharedFromLine\n$kShareDownloadLine\n$kInviteUrl';
