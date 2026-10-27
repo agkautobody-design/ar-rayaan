@@ -94,7 +94,11 @@ class WholeWordText extends StatelessWidget {
           style: used,
           textAlign: textAlign,
           maxLines: maxLines,
-          overflow: overflow,
+          // No line limit means the whole text shows, wrapped. An ellipsis
+          // here made the web (CanvasKit) renderer cut a wrapped subtitle to
+          // its first line ("Gentle streaks for Qur'an reading, ..."), in
+          // every switch row. The ellipsis only makes sense with a limit.
+          overflow: maxLines == null ? TextOverflow.clip : overflow,
         );
       },
     );
