@@ -65,6 +65,7 @@ flutter:
     - assets/games/ludo/
     - assets/games/chess/pieces/
     - assets/games/chess/squares/
+    - assets/games/chess/boards/
     - assets/games/art/
     - assets/feelings/
     - assets/majlis/

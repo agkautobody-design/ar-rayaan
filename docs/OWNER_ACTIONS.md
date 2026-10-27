@@ -30,12 +30,8 @@ Why: tables are never deleted by the app, so the `game_rooms` collection would o
 2. Collection group: `game_rooms`. Timestamp field: `expireAt`. Create.
 3. Confirm: the policy shows as Serving. Every table now carries `expireAt` (6 hours after creation; the rules cap it at 12). The in-app privacy text says tables are deleted when someone leaves and expire on their own, so this policy is what makes that sentence true for tables abandoned without leaving.
 
-## 2c. Ludo art: files to export for a pixel-perfect board (optional)
-The Ludo board in the app is cut from your in-game mockup by `tool/crop_ludo_board.py` (see its docstring; it writes `assets/games/ludo/`). It is clean on the track and in the yard sockets, but the yards have a soft fill where baked pawns were removed and three of the four pawn colours are recoloured copies of the green one. For perfection, export these from your design tool and drop them in `assets/games/ludo/` (same names; no code change):
-1. `board.png` at 2x: the empty board with the frame, no pawns, no dice, no avatars, sockets visible in every yard.
-2. One pawn sprite per colour, transparent PNG, same size, standing pose: `pawn_red`, `pawn_blue`, `pawn_yellow`, `pawn_green`.
-3. Six dice faces, transparent PNG: `dice_1` to `dice_6` (the app draws faces 1 to 6 in code today; only the idle dice is cut from your render).
-Calibration of the board cells lives in `lib/features/games/data/ludo_board_art.dart`; if the new board is a different size, tell Claude and it is re-fitted.
+## 2c. Chess and Ludo art: done (26 Oct 2026)
+The approved chess pieces, five marble and wood boards with their highlight tiles, and the Ludo board, pawns and dice are in the app (see `docs/product/games_art_pipeline.md`). Nothing is awaited. Optional: if you ever re-export at a higher resolution (boards 2048 x 2048, tiles 256 x 256), send the files; the grey board's "last move" tile (the delivered one was opaque) is drawn in code as a soft silver-gold tint, and Royal marble has no tiles, so it uses a gold glow. Check on a real phone: pieces centred on squares, pawn numbers readable on Ludo, the dice picture.
 
 ## 3. Request a Sunnah.com API key (10 minutes)
 Why: web-page checks of hadith are rate-limited (HTTP 429). A key lets the checker verify reliably.

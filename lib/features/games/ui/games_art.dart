@@ -92,7 +92,7 @@ abstract final class GamesArt {
           await AssetManifest.loadFromAssetBundle(rootBundle);
       _known = manifest
           .listAssets()
-          .where((String p) => p.startsWith(folder))
+          .where((String p) => p.startsWith('assets/games/'))
           .toSet();
     } on Object {
       _known = <String>{};
@@ -101,6 +101,10 @@ abstract final class GamesArt {
 
   /// True or false once the asset list is known, null before that.
   static bool? has(ArtSlot slot) => _known?.contains(slot.path);
+
+  /// Same for any bundled path under `assets/games/` (chess boards and their
+  /// highlight tiles use it to find files that are dropped in later).
+  static bool? hasAsset(String path) => _known?.contains(path);
 
   /// Tests only: pretend exactly these asset paths are bundled.
   @visibleForTesting

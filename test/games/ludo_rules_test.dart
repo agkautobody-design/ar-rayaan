@@ -5,12 +5,14 @@ List<List<int>> _board(int players) => LudoRules.newTokens(players);
 
 void main() {
   group('Ludo geometry', () {
-    test('every colour travels the same distance and finishes at 49', () {
+    test('every colour travels the same distance and finishes at 56', () {
       for (int c = 0; c < 4; c++) {
         expect(
           LudoRules.trackLen[c] + LudoRules.columnLen[c],
           LudoRules.finished,
         );
+        expect(LudoRules.trackLen[c], 51);
+        expect(LudoRules.columnLen[c], 5);
       }
     });
 
@@ -20,12 +22,14 @@ void main() {
       expect(LudoRules.seatColours(4), <int>[0, 1, 2, 3]);
     });
 
-    test('safe cells include every start and entry cell', () {
+    test('the loop has 52 squares and 8 safe ones: 4 starts and 4 stars', () {
+      expect(LudoRules.loopLen, 52);
+      expect(LudoRules.safeCells.length, 8);
       for (final int c in LudoRules.startCell) {
         expect(LudoRules.isSafe(c), isTrue);
       }
       for (final int c in LudoRules.entryCell) {
-        expect(LudoRules.isSafe(c), isTrue);
+        expect(LudoRules.isSafe(c), isFalse, reason: 'entry squares are plain');
       }
     });
 
@@ -68,12 +72,12 @@ void main() {
 
     test('finish needs the exact count', () {
       final List<List<int>> t = _board(2);
-      t[0][0] = 47;
-      expect(LudoRules.validMoves(t, 0, 3), isNot(contains(0)));
-      expect(LudoRules.validMoves(t, 0, 2), contains(0));
+      t[0][0] = 53;
+      expect(LudoRules.validMoves(t, 0, 4), isNot(contains(0)));
+      expect(LudoRules.validMoves(t, 0, 3), contains(0));
       expect(LudoRules.validMoves(t, 0, 1), contains(0));
       final LudoMoveResult r =
-          LudoRules.applyMove(t, LudoRules.seatColours(2), 0, 0, 2);
+          LudoRules.applyMove(t, LudoRules.seatColours(2), 0, 0, 3);
       expect(r.reachedHome, isTrue);
       expect(t[0][0], LudoRules.finished);
     });
@@ -157,7 +161,7 @@ void main() {
     test('four pawns home wins and no extra turn is granted', () {
       final List<int> seats = LudoRules.seatColours(2);
       final List<List<int>> t = _board(2);
-      t[0] = <int>[49, 49, 49, 43];
+      t[0] = <int>[56, 56, 56, 50];
       final LudoMoveResult r = LudoRules.applyMove(t, seats, 0, 3, 6);
       expect(r.won, isTrue);
       expect(r.extraTurn, isFalse);

@@ -6,14 +6,17 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../app/core/providers.dart';
 
-/// The four board looks of the owner's design.
-enum ChessBoardTheme { classic, green, blue, grey }
+/// The board looks of the owner's design. Royal marble (black and cream) is
+/// the default; green and blue are marble pictures too; classic wood and grey
+/// still use the older textured squares until their pictures arrive.
+enum ChessBoardTheme { royal, green, blue, grey, classic }
 
 extension ChessBoardThemeInfo on ChessBoardTheme {
   String get label => switch (this) {
+        ChessBoardTheme.royal => 'Royal marble',
         ChessBoardTheme.classic => 'Classic wood',
-        ChessBoardTheme.green => 'Green',
-        ChessBoardTheme.blue => 'Blue',
+        ChessBoardTheme.green => 'Green marble',
+        ChessBoardTheme.blue => 'Blue marble',
         ChessBoardTheme.grey => 'Grey and black',
       };
 }
@@ -44,7 +47,7 @@ abstract final class ChessKeys {
 /// device only. Sound is off until the player turns it on.
 class ChessSettings {
   const ChessSettings({
-    this.theme = ChessBoardTheme.classic,
+    this.theme = ChessBoardTheme.royal,
     this.pieces = ChessPieceStyle.classic,
     this.sound = false,
     this.showLegalMoves = true,
@@ -151,7 +154,7 @@ class ChessSettingsController extends Notifier<ChessSettings> {
     final SharedPreferences? p = _prefs();
     if (p == null) return const ChessSettings();
     try {
-      ChessBoardTheme theme = ChessBoardTheme.classic;
+      ChessBoardTheme theme = ChessBoardTheme.royal;
       for (final ChessBoardTheme t in ChessBoardTheme.values) {
         if (t.name == p.getString(ChessKeys.theme)) theme = t;
       }
