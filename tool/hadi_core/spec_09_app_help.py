@@ -96,7 +96,7 @@ E('privacy-free-ads',
   m=[r'\bis (?:my )?(?:data|privacy|information|chat|chats|conversation|conversations|messages?) (?:private|safe|secure|stored|shared|sold|saved|recorded|tracked|kept)\b', r'\b(?:privacy|privacy policy|terms of service|terms and conditions)\b', r'\bdo you (?:track|store|save|record|sell|share|collect|log) (?:my |our )?(?:data|chats?|conversations?|messages?|questions?|location)\b', r'\bwho (?:sees|reads|can see|can read) (?:my )?(?:chats?|questions?|messages?|data|conversations?)\b',
      r'\bdoes (?:the )?app (?:have|show|contain|run) (?:ads|adverts|advertising|advertisements)\b', r'\bany ads\b', r'\badvert\w*\b', r'\bis (?:the )?app (?:free|paid|premium|subscription)\b', r'\bis (?:this|it) (?:free|paid)\b', r'\bhow much (?:does|do|is) (?:the )?(?:app|it) cost\b', r'\b(?:subscription|premium|pro version|in app purchase|paywall|pricing|price of the app)\b', r'\bwho (?:owns|runs|made|built|funds) (?:the |this )?app\b', r'\bwho is behind (?:the )?app\b',
      r'\bdelete (?:my )?(?:account|data|history|chats?|conversation|conversations)\b', r'\bclear (?:my )?(?:chat|history|conversations?|data)\b', r'\bdo i need (?:an? )?(?:account|login|sign ?up|api key)\b', r'\bsign in\b', r'\bapi key\b', r'\bis (?:it|hadi) online\b', r'\bdoes hadi (?:need|use|work) (?:the )?(?:internet|online|api|ai)\b', r'\bis (?:hadi|this) (?:an? )?(?:offline|online)\b'],
-  x=[r'\b(?:data of|big data|quran data)\b'],
+  x=[r'\b(?:who (?:runs|owns|funds|pays for|is behind|made|built|created)|owner of|funded|funds it|funding|company behind)\b', r'\b(?:data of|big data|quran data)\b'],
   topic='privacy',
   text="""
 What I can tell you, from the app's own Privacy policy screen:

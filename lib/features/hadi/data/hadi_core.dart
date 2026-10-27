@@ -73,7 +73,7 @@ abstract final class HadiCore {
   /// normalised question (apostrophes are already gone: "rak'ah" is
   /// "rakah", "qur'an" is "quran").
   static const Map<String, String> _alias = <String, String>{
-    'wudhu': 'wudu', 'wuzu': 'wudu', 'wudoo': 'wudu', 'wuzoo': 'wudu',
+    'wudhu': 'wudu', 'wuduu': 'wudu', 'wazu': 'wudu', 'wuzu': 'wudu', 'wudoo': 'wudu', 'wuzoo': 'wudu',
     'wudu': 'wudu', 'ablution': 'wudu', 'ablutions': 'wudu',
     'salat': 'prayer', 'salah': 'prayer', 'salaah': 'prayer',
     'salaat': 'prayer', 'namaz': 'prayer', 'namaaz': 'prayer',

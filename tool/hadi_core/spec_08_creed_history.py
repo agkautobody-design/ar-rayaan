@@ -15,7 +15,7 @@ Iman (faith) has six articles. The angel Jibreel once asked the Prophet ﷺ abou
 
 The Qur'an lists the first five in {QR 2:285} and {QR 4:136}. The five pillars of Islam are separate: the shahada, prayer, zakat, fasting in Ramadan and Hajj ({H bukhari:8|Ibn Umar reported the Prophet said Islam is based on five: to testify that none has the right to be worshipped but Allah and Muhammad is Allah's Messenger, to offer prayer, to pay zakat, to perform Hajj, and to fast in Ramadan}).
 """,
-  go=['/academy/aqeedah'],
+  go=['/huda/guide?id=huda-what-is-islam', '/new-muslim'],
   review='None beyond the cited texts; the one-line gloss of qadar is a standard summary.')
 
 E('become-muslim',

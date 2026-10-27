@@ -185,7 +185,7 @@ E('suhoor-iftar',
      r'\bwhen (?:do|should|can) (?:i|we) (?:break|start|stop|end) (?:the |my )?(?:fast|fasting)\b', r'\bfasting (?:times?|hours)\b', r'\bwhen does (?:the )?fast (?:start|begin|end)\b',
      r'\b(?:pre ?dawn|dawn) meal\b', r'\bwhen to stop eating\b', r'\bdua (?:for|at|when) (?:breaking|iftar|opening)\b', r'\bopen(?:ing)? (?:my |the )?fast\b',
      r'\bintention (?:for|of) (?:the )?(?:fast|fasting)\b', r'\bniyyah (?:for|of) (?:the )?(?:fast|fasting|ramadan)\b', r'\bniyyat\b'],
-  x=[r'\b(?:game|story|recipe|recipes|app|reminder|alarm)\b'],
+  x=[r'\b(?:game|story|recipe|recipes|app|reminder|alarm|schedule|plan|timetable)\b'],
   topic='iftar',
   text="""
 Suhoor (the pre-dawn meal) and iftar (the meal that ends the fast) are both sunnah.

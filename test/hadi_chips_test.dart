@@ -72,7 +72,7 @@ void main() {
       for (final HadiExchange e in kProposedHadiExchanges) {
         final String a = await offline(e.question);
         for (final String route in HadiTokens.routesOf(a)) {
-          expect(kHadiNavWhitelist.contains(route), isTrue, reason: route);
+          expect(HadiTokens.isAllowed(route), isTrue, reason: route);
         }
       }
       expect(HadiTokens.routesOf(await offline('Take me to the Stories')),

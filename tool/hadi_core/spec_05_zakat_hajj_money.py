@@ -138,6 +138,23 @@ The difference in ruling: Hajj is a pillar of Islam. Umrah is obligatory once fo
   go=['/huda/guide?id=huda-umrah', '/academy/hajj-umrah-pack'],
   review='The ruling on Umrah per school and the details of trimming are standard fiqh teaching, not text-checked here.')
 
+E('credit-card',
+  m=[r'\bcredit cards?\b', r'\bcharge cards?\b'],
+  x=[r'\b(?:debt|nisab|zakat)\b'],
+  topic='credit cards',
+  text="""
+A credit card is a loan tool, so the answer depends on how it is used, not on the plastic. The problem is interest (riba): {Q 2:275|Allah has permitted trade and has forbidden interest}, and the Prophet ﷺ cursed everyone involved in it ({H muslim:1598|Jabir said the Prophet cursed the accepter of interest, its payer, the one who records it and the two witnesses, and said they are all equal}).
+
+- Carrying a balance that is charged interest is riba, and it is not allowed.
+- Paying the full balance before any interest is charged: many contemporary scholars allow having and using the card on that basis, as long as you are sure you can pay in time and you do not take on interest or late charges you could avoid.
+- Some scholars are stricter and say not to take a conventional card at all, because the agreement you sign states interest on late payment.
+- Safer options: a debit card, a charge card that must be paid in full each month, or a card from an Islamic provider where one exists.
+
+Which view to follow in your own case is for a qualified scholar. The Tayyib Finance section of this app lists halal options.
+""",
+  go=['/finance'],
+  review='The two scholarly positions (allowed when paid in full; avoid the conventional card) are standard contemporary teaching, not text-checked here.')
+
 E('riba-interest',
   m=[r'\briba\b', r'\binterest\b.*\b(?:haram|halal|islam|allowed|permissible|forbidden|prohibited|sin|bank|loan|mortgage|savings|account|credit)\b', r'\b(?:haram|halal|islam|allowed|permissible|forbidden|prohibited|sin)\b.*\binterest\b',
      r'\busury\b', r'\bbank interest\b', r'\binterest (?:on|from|in) (?:my )?(?:savings|bank|account|loan|deposit)\b', r'\bwhat to do with (?:bank )?interest\b', r'\bsavings account\b',
@@ -145,7 +162,7 @@ E('riba-interest',
   x=[r'\b(?:mortgage|house loan|home loan)\b'],
   topic='riba',
   text="""
-Yes. Riba (interest, usury) is forbidden in Islam. Allah says: {Q 2:275|Allah has permitted trade and has forbidden interest}, and {Q 2:278-279|fear Allah and give up what remains [due to you] of interest, if you should be believers}. The Prophet ﷺ cursed the one who takes interest, the one who pays it, the one who records it, and the two witnesses ({H muslim:1598|Jabir said the Prophet cursed the accepter of interest, its payer, the one who records it and the two witnesses, and said they are all equal}).
+Riba (interest, usury) is forbidden in Islam. Allah says: {Q 2:275|Allah has permitted trade and has forbidden interest}, and {Q 2:278-279|fear Allah and give up what remains [due to you] of interest, if you should be believers}. The Prophet ﷺ cursed the one who takes interest, the one who pays it, the one who records it, and the two witnesses ({H muslim:1598|Jabir said the Prophet cursed the accepter of interest, its payer, the one who records it and the two witnesses, and said they are all equal}).
 
 What this covers: interest on loans and credit cards, interest on savings accounts and fixed deposits, and any agreement where a loan carries an extra amount stated in advance. Paying a late fee that grows with time is interest too.
 

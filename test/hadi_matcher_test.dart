@@ -124,10 +124,13 @@ void main() {
   });
 
   group('offline matcher: rulings are not guessed', () {
-    test('"is a credit card halal" does not return a generic halal answer',
+    test('"is a credit card halal" is answered by how it is used, not yes or no',
         () async {
       final String a = await ask('is a credit card halal');
-      expect(a, OfflineHadiProvider.rulingDecline);
+      expect(a, contains('interest'));
+      expect(a, contains('qualified scholar'));
+      expect(a.startsWith('Yes'), isFalse);
+      expect(a.startsWith('No'), isFalse);
     });
 
     test('a ruling-shaped question that matches gets the scholar note',

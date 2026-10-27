@@ -1545,7 +1545,7 @@
 ],
 "expect": [
 {
-"core": "privacy-free-ads",
+"core": "",
 "refusal": false
 }
 ]

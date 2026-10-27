@@ -4,7 +4,7 @@
 E('janazah-prayer',
   m=[r'\bjanazah\b', r'\bfuneral\b', r'\bprayer (?:for|over) (?:the |a )?(?:dead|deceased)\b',
      r'\b(?:dead|deceased) (?:body|person|muslim)\b.*\bprayer\b'],
-  x=[r'\b(?:wash\w*|bath\w*|bury\w*|burial|shroud\w*|kafan|coffin|grave\w*|cemeter\w*|condolence\w*|console\w*|mourn\w*|grief|grieving|cry\w*|wail\w*|hurt\w*|attend\w*|women|woman|ladies|late)\b',
+  x=[r'\b(?:plans?|insurance|costs?|prices?|funds?|savings?|loans?|debts?|expenses?|prepaid|company|director|donat\w*|collect\w*|wash\w*|bath\w*|bury\w*|burial|shroud\w*|kafan|coffin|grave\w*|cemeter\w*|condolence\w*|console\w*|mourn\w*|grief|grieving|cry\w*|wail\w*|hurt\w*|attend\w*|women|woman|ladies|late)\b',
      r'\b(?:story|stories|game|chess|app|screen|ludo)\b'],
   topic='janazah',
   text="""
