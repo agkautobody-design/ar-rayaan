@@ -63,7 +63,11 @@ bool childModeAllows(String path) {
     final int? n = int.tryParse(bare.substring('/quran/'.length));
     return n != null && kChildSurahs.contains(n);
   }
+  // The Games hub is exact: its other tables (Ludo, chess, online rooms) are not
+  // for a child on their own.
+  if (path == '/games') return true;
   for (final String p in kChildAllowed) {
+    if (p == '/games') continue;
     if (path == p || path.startsWith('$p/')) return true;
   }
   return false;

@@ -299,11 +299,11 @@ void main() {
         await AppHarness.go(tester, anchor(), p);
         expect(AppHarness.location(tester, anchor()), '/kids', reason: p);
       }
-      // No bottom navigation, no Settings gear, no Ask Hadi pill, no Games.
+      // No bottom navigation, no Settings gear, no Ask Hadi pill.
       expect(find.text('Faith'), findsNothing);
       expect(find.byTooltip('Settings'), findsNothing);
       expect(find.text('Ask Hādi'), findsNothing);
-      expect(find.text('Games'), findsNothing);
+      expect(find.text('Games'), findsOneWidget);
       expect(find.text('Arabic letters'), findsOneWidget);
       expect(find.text('Stories school'), findsOneWidget);
       expect(find.byKey(const Key('kids-child-mode')), findsNothing);
@@ -356,7 +356,7 @@ void main() {
       expect(kChildMode.value, isTrue);
       expect(h.prefs.getBool('ar.childMode.v1'), isTrue);
       expect(ParentPin(h.prefs).isSet, isTrue);
-      expect(find.text('Games'), findsNothing);
+      expect(find.text('Games'), findsOneWidget);
       expect(find.text('Faith'), findsNothing);
       expect(find.byKey(const Key('kids-child-mode')), findsNothing);
     });
