@@ -84,7 +84,7 @@ void main() {
       await AppHarness.settle(tester);
 
       expect(find.text('Guest'), findsOneWidget);
-      expect(find.text('Sign in to save your journey'), findsOneWidget);
+      expect(find.text('Sign in if you wish. Your progress stays on this device.'), findsOneWidget);
     });
 
     testWidgets('a restored session shows the name on the profile card', (
@@ -108,7 +108,7 @@ void main() {
           .map((Text t) => t.data ?? '')
           .join(' | ');
       expect(find.text('Ahmed'), findsWidgets, reason: onScreen);
-      expect(find.text('Sign in to save your journey'), findsNothing,
+      expect(find.text('Sign in if you wish. Your progress stays on this device.'), findsNothing,
           reason: onScreen);
       expect(find.text('Guest'), findsNothing, reason: onScreen);
     });

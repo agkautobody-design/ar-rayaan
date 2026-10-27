@@ -128,12 +128,12 @@
   "note": "iftar dua (thirst gone, veins moistened), Ibn Umar"
  },
  "abudawud:2380": {
-  "verdict": "wrong",
-  "correct": "none",
-  "grade": "",
-  "grader": "",
-  "checked": "2026-10-20",
-  "note": "page is about vomiting while fasting, not kohl; kohl claim dropped"
+  "verdict": "ok",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "al-Albani (Zubair Ali Zai: da'if)",
+  "checked": "2026-10-27",
+  "note": "the page is about vomiting while fasting, not kohl; the Fasting guide cites it for vomiting (no atonement for a sudden attack, atonement if intentional)"
  },
  "abudawud:2449": {
   "verdict": "ok",

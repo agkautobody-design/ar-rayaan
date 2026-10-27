@@ -8,6 +8,7 @@ import '../../../app/core/i18n/app_locale.dart';
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 import '../../../app/theme/widgets/whole_word_text.dart';
 import '../../elder/application/elder_mode.dart';
 
@@ -101,7 +102,7 @@ class _OnboardingState extends ConsumerState<OnboardingScreen> {
     _Need('new', Icons.door_front_door_outlined, 'New to Islam or just curious',
         'A gentle 30-day road, one step at a time. Everyone is welcome'),
     _Need('community', Icons.people_outline, 'A community',
-        'Finding your masjid and your people'),
+        'Finding a masjid near you and its Friday time'),
   ];
 
   /// [skipped]: the person tapped Skip. Their goal is still remembered, but
@@ -190,7 +191,7 @@ class _OnboardingState extends ConsumerState<OnboardingScreen> {
       body: SafeArea(
         child: Column(children: [
           Align(
-            alignment: Alignment.centerRight,
+            alignment: AlignmentDirectional.centerEnd,
             // A real button: 48dp high, readable 16sp words.
             child: TextButton(
               onPressed: () => _finish(skipped: true),
@@ -199,7 +200,7 @@ class _OnboardingState extends ConsumerState<OnboardingScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 20),
               ),
               child: Text(
-                'Skip',
+                l10n.ui('ui.skip'),
                 style: AppText.body.copyWith(
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
@@ -275,22 +276,20 @@ class _OnboardingState extends ConsumerState<OnboardingScreen> {
                   child: const Icon(Icons.mosque_outlined, size: 36, color: AppColors.goldLight),
                 ),
                 const SizedBox(height: 20),
-                Text('AS-SALAAMU ALAIKUM', style: AppText.eyebrow),
+                Text(l10n.ui('onb.hello'), style: AppText.eyebrow),
                 const SizedBox(height: 8),
-                const Text('Welcome to Ar-Rayaan', textAlign: TextAlign.center,
-                    key: Key('onboarding-welcome-title'),
-                    style: TextStyle(fontFamily: 'PlayfairDisplay', fontSize: 28, color: AppColors.goldLight)),
+                Text(l10n.ui('onb.title'), textAlign: TextAlign.center,
+                    key: const Key('onboarding-welcome-title'),
+                    style: const TextStyle(fontFamily: 'PlayfairDisplay', fontSize: 28, color: AppColors.goldLight)),
                 const SizedBox(height: 14),
                 Text(
-                  'Prayer times, the Qur\u2019an, stories, a school for your '
-                  'children, and Hādi, a guide you can ask in plain words. '
-                  'You do not need to be Muslim to look around.',
+                  l10n.ui('onb.body'),
                   textAlign: TextAlign.center,
                   style: AppText.bodyMuted.copyWith(fontSize: 14, height: 1.6),
                 ),
                 const SizedBox(height: 18),
                 Text(
-                  OnboardingScreen.welcomeTrustLine,
+                  l10n.english(OnboardingScreen.welcomeTrustLine),
                   key: const Key('onboarding-trust-line'),
                   textAlign: TextAlign.center,
                   style: AppText.body.copyWith(
@@ -301,7 +300,7 @@ class _OnboardingState extends ConsumerState<OnboardingScreen> {
                 _languageChooser(l10n),
                 if (_bigOrNarrow(context)) ...[
                   const SizedBox(height: 18),
-                  _elderOffer(),
+                  _elderOffer(l10n),
                 ],
               ],
             ),
@@ -313,10 +312,10 @@ class _OnboardingState extends ConsumerState<OnboardingScreen> {
 
   /// "Easier to read?" - one big tap for Elder Mode (big words, big buttons,
   /// a simple home). It can be switched off again in Settings.
-  Widget _elderOffer() {
+  Widget _elderOffer(L10n l10n) {
     return Semantics(
       button: true,
-      label: 'Easier to read. Turn on Elder Mode: big words and a simple home.',
+      label: '${l10n.ui('onb.elder1')}. ${l10n.ui('onb.elder2')}',
       excludeSemantics: true,
       child: InkWell(
         key: const Key('onboarding-elder-offer'),
@@ -335,15 +334,14 @@ class _OnboardingState extends ConsumerState<OnboardingScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               WholeWordText(
-                'Easier to read? Turn on Elder Mode',
+                l10n.ui('onb.elder1'),
                 style: AppText.body.copyWith(
                     fontSize: 15, fontWeight: FontWeight.w700,
                     color: AppColors.goldLight),
               ),
               const SizedBox(height: 4),
               WholeWordText(
-                'Big words, big buttons and a simple home. '
-                'You can turn it off in Settings.',
+                l10n.ui('onb.elder2'),
                 style: AppText.bodyMuted.copyWith(fontSize: 13),
               ),
             ],
@@ -413,8 +411,7 @@ class _OnboardingState extends ConsumerState<OnboardingScreen> {
         ),
         const SizedBox(height: 8),
         Text(
-          'Menus and titles change. Lessons, stories and answers stay in '
-          'English for now.',
+          l10n.ui('onb.langNote'),
           textAlign: TextAlign.center,
           style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.4),
         ),
@@ -435,7 +432,7 @@ class _OnboardingState extends ConsumerState<OnboardingScreen> {
                 Text(l10n.ui('onb.question').toUpperCase(),
                     textAlign: TextAlign.center, style: AppText.eyebrow),
                 const SizedBox(height: 8),
-                Text('Choose one \u2014 it only sets your first door.',
+                Text(l10n.ui('onb.choose'),
                     textAlign: TextAlign.center,
                     style: AppText.bodyMuted.copyWith(fontSize: 13)),
                 const SizedBox(height: 18),
@@ -479,7 +476,16 @@ class _OnboardingState extends ConsumerState<OnboardingScreen> {
 
   Widget _needCard(_Need n, L10n l10n) {
     final bool selected = _need == n.key;
-    return GestureDetector(
+    // A real button for a screen reader (with its chosen state spoken) and
+    // for the keyboard (Tab, Enter or Space, with a visible ring).
+    return Semantics(
+      button: true,
+      selected: selected,
+      inMutuallyExclusiveGroup: true,
+      label: '${l10n.english(n.title)}. ${l10n.english(n.blurb)}',
+      excludeSemantics: true,
+      onTap: () => setState(() => _need = n.key),
+      child: FocusableTap(
       onTap: () => setState(() => _need = n.key),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 180),
@@ -504,9 +510,10 @@ class _OnboardingState extends ConsumerState<OnboardingScreen> {
                   fontSize: 12.5, fontWeight: FontWeight.w600,
                   color: selected ? AppColors.goldLight : null)),
           const SizedBox(height: 4),
-          WholeWordText(n.blurb, textAlign: TextAlign.center,
+          WholeWordText(l10n.english(n.blurb), textAlign: TextAlign.center,
               style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.4)),
         ]),
+      ),
       ),
     );
   }

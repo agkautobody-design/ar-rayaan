@@ -38,8 +38,8 @@ class _LegalLink extends StatelessWidget {
       onPressed: onTap,
       style: TextButton.styleFrom(
         padding: const EdgeInsets.symmetric(horizontal: 4),
-        minimumSize: const Size(0, 28),
-        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        minimumSize: const Size(44, 44),
+        tapTargetSize: MaterialTapTargetSize.padded,
       ),
       child: Text(
         label,
@@ -85,7 +85,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
 
     return AuthScaffold(
       title: 'Create Account',
-      subtitle: 'Begin your journey with Ar-Rayaan',
+      subtitle: 'Create your Ar-Rayaan account',
       children: [
         Form(
           key: _formKey,
@@ -134,6 +134,16 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
             fontSize: 12,
           ),
         ),
+        const SizedBox(height: 8),
+        Text(
+          key: const Key('signup-age-note'),
+          'For people aged 13 or over. Your progress and bookmarks stay on '
+          'this device; the account does not back them up.',
+          style: AppText.caption.copyWith(
+            color: Colors.white.withValues(alpha: 0.45),
+            fontSize: 12,
+          ),
+        ),
         const SizedBox(height: 16),
         if (error != null) ...[
           Container(
@@ -168,8 +178,8 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
               onPressed: () => context.go(AppRoutes.login),
               style: TextButton.styleFrom(
                 padding: const EdgeInsets.symmetric(horizontal: 6),
-                minimumSize: Size.zero,
-                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                minimumSize: const Size(44, 44),
+                tapTargetSize: MaterialTapTargetSize.padded,
               ),
               child: Text(
                 'Sign in',

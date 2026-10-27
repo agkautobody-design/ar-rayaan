@@ -8,6 +8,7 @@ import '../../menu/presentation/menu_screen.dart' show isAcademyRoute;
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 /// Home, page two - the quick-access hall. Everything dear, one tap away.
 class HomeQuickScreen extends ConsumerWidget {
@@ -80,7 +81,7 @@ class _QuickTile extends StatelessWidget {
       label: '$title. $subtitle',
       excludeSemantics: true,
       onTap: () => context.open(route),
-      child: GestureDetector(
+      child: FocusableTap(
       onTap: () => context.open(route),
       child: Container(
         height: 118 * textScale,
