@@ -16,6 +16,7 @@ void main() {
       'Where do I download the Qur’an for offline reading?',
       'how can I read the quran offline',
       'download surah yasin',
+      "Where do I download the Qur'an for offline reading in this app?",
     ]) {
       final String? a = HadiFinder.pointerReply(q);
       expect(a, isNotNull, reason: q);

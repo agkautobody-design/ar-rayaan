@@ -407,7 +407,7 @@ abstract final class HadiFinder {
   /// mentions a word is not a request to move.
   static String? pointerReply(String question) {
     final List<String> raw = _norm(question).split(' ');
-    if (raw.length > 12 || raw.isEmpty || raw.first.isEmpty) return null;
+    if (raw.length > 14 || raw.isEmpty || raw.first.isEmpty) return null;
     final List<String> t = <String>[
       for (final String w in raw) stem(kHadiSpellings[w] ?? w),
     ];
