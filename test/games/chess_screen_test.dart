@@ -215,9 +215,10 @@ void main() {
       'Auto-queen promotion',
       'Confirm resign',
       'Auto Save Games',
+      'Royal marble',
       'Classic wood',
-      'Green',
-      'Blue',
+      'Green marble',
+      'Blue marble',
       'Grey and black',
     ]) {
       testWidgets('the settings sheet shows the row "$t"', (tester) async {

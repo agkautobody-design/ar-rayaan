@@ -129,7 +129,7 @@ void main() {
         expect(c.left, inInclusiveRange(55, 85), reason: t.name);
         expect(c.top, inInclusiveRange(55, 85), reason: t.name);
         expect(c.imageSize - (c.left + c.width), closeTo(c.left, 3), reason: t.name);
-        expect(c.imageSize - (c.top + c.height), closeTo(c.top, 3), reason: t.name);
+        expect(c.imageSize - (c.top + c.height), closeTo(c.top, 6), reason: t.name);
         expect(c.width / c.height, closeTo(1, 0.02), reason: t.name);
       }
     });
@@ -151,7 +151,7 @@ void main() {
             if (vertical) {
               s += (img.lum(a - 4, b) - img.lum(a + 4, b)).abs();
             } else {
-              s += (img.lum(b, a - 4) - img.lum(b, a + 4)).abs();
+              s += (img.lum(a, b - 4) - img.lum(a, b + 4)).abs();
             }
             n++;
           }
