@@ -376,10 +376,26 @@ typedef GuideSteps = ({
   String? madhhabNote,
 });
 
+const Map<String, String> _fullLabels = <String, String>{
+  'Recite the opening supplication':
+      'Recite the opening supplication, then Surah al-Fatihah',
+  'Sujud — prostrate on seven limbs':
+      'Sujud — prostrate on seven limbs: forehead (with nose), two hands, '
+          'two knees, two feet',
+  'In the final sitting: the tashahhud':
+      'Final sitting: the tashahhud, blessings on the Prophet ﷺ, then the '
+          'salaam to the right and left',
+};
+
 /// A short card label for a guide step: the words before the first dash,
 /// semicolon or bracket, cut at a word if it is still long.
 String stepLabel(String step) {
   String s = step.trim();
+  // Steps whose words before the first dash or bracket would drop part of
+  // the act (Fatihah, the seven limbs, the salaam) keep a fuller label.
+  for (final MapEntry<String, String> e in _fullLabels.entries) {
+    if (s.startsWith(e.key)) return e.value;
+  }
   for (final String sep in <String>[' — ', ' – ', '; ', ' (']) {
     final int at = s.indexOf(sep);
     if (at > 12) s = s.substring(0, at);

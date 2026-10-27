@@ -43,6 +43,14 @@ abstract final class LearningLoader {
   static Future<List<Map<String, dynamic>>> _forty() async =>
       _maps(await _json('assets/hadith/nawawi40.json'));
 
+  /// The hand-checked list of the Prophet's ﷺ own words the Hadith Knowledge
+  /// game asks about (`assets/games/hadith_quiz.json`).
+  static Future<List<Map<String, dynamic>>> _hadithBank() async {
+    final Map<String, dynamic> d = (await _json('assets/games/hadith_quiz.json'))
+        as Map<String, dynamic>;
+    return _maps(d['items']);
+  }
+
   static Future<List<ArabicNameRow>> _names() async => <ArabicNameRow>[
         for (final Map<String, dynamic> n
             in _maps(await _json('assets/games/names99.json')))
@@ -92,10 +100,10 @@ abstract final class LearningLoader {
       seerahPool(await _seerahBank(), await _seerahStories()).length;
 
   static Future<List<QuizQuestion>> hadithQuiz(Random rnd, int count) async =>
-      buildHadithQuiz(await _forty(), rnd, count: count);
+      buildHadithQuiz(await _forty(), await _hadithBank(), rnd, count: count);
 
   static Future<int> hadithCount() async =>
-      hadithQuestionCount(await _forty());
+      hadithQuestionCount(await _forty(), await _hadithBank());
 
   static Future<List<QuizQuestion>> arabicWordsQuiz(
     Random rnd,
