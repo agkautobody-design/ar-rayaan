@@ -230,7 +230,7 @@ void main() {
         for (final String band in <String>['5-8', '9-12', '13-17']) {
           final String r = ChildDistress.reply(k, band);
           expect(r.toLowerCase().contains('beyond what i can teach'), isFalse);
-          expect(r.toLowerCase().contains('your letters'), isFalse);
+          expect(r.toLowerCase().contains('grown-up'), isTrue, reason: '$k $band');
         }
       }
     });

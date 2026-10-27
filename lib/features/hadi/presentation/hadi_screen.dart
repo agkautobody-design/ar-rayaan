@@ -836,10 +836,14 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                 ),
               ),
             ),
-            // Always within reach when the person switched it on in Settings,
-            // from the first message: nobody should have to start a hard
-            // conversation to find the way out.
-            if (ref.watch(supportSettingsProvider).quickExit)
+            // Within reach whenever the person switched it on in Settings,
+            // from their first message on (not only after a support reply):
+            // nobody should have to say something hard to find the way out.
+            // Before they have typed anything there is nothing to hide, and
+            // the room is kept for the chat on a small or zoomed screen.
+            if (ref.watch(supportSettingsProvider).quickExit &&
+                hadi.messages.any((HadiMessage m) =>
+                    !m.fromHadi || m.support != null || m.crisis != null))
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
                 child: QuickExitButton(),

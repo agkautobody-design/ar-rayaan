@@ -10,6 +10,7 @@ import 'package:ar_rayaan/features/academy/domain/children_privacy.dart';
 import 'package:ar_rayaan/features/academy/presentation/academy_family.dart';
 import 'package:ar_rayaan/features/academy/presentation/widgets/parent_gate.dart';
 import 'package:ar_rayaan/features/hadi/application/hadi_provider.dart';
+import 'package:ar_rayaan/features/sakina/domain/crisis_detector.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
