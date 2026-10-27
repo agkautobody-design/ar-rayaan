@@ -5,6 +5,7 @@
 /// tradition. [Pending scholar review — labels shown on screen.]
 library;
 
+import '../../../app/core/scholar_review.dart';
 import 'package:flutter/material.dart';
 
 import '../../../app/theme/app_colors.dart';
@@ -113,6 +114,10 @@ class TajweedCardsScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       const ScreenHeader(title: 'Tajweed — Learned Gently'),
+                      const ScholarReviewNote(
+                        reviewKey: 'school.tajweed-cards',
+                        padding: EdgeInsets.only(bottom: 8),
+                      ),
                       Text(
                         'Every mistake has a name. Major errors (Lahn Jali) change meaning — they matter most. Minor ones (Lahn Khafi) are slips to smooth, not sins to fear. An app can hear dropped words; only a human teacher can hear your makhraj — pair these cards with a live teacher. [Content pending scholar review.]',
                         style: AppText.bodyMuted.copyWith(height: 1.5),

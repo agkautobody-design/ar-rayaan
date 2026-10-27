@@ -13,7 +13,7 @@ import 'word_deck.dart';
 /// The named source shown as the provenance of every merged meaning. A card
 /// without a named source never shows its meaning (see [WordCard.hasMeaning]).
 const String kWordGlossSource =
-    'Ar-Rayaan word glosses v1 (written for this app, not yet scholar-reviewed)';
+    'Ar-Rayaan word glosses v1 (written for this app, scholar review needed)';
 
 /// One meaning (and, for content words, the root) for a deck card.
 class WordGloss {

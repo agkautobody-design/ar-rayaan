@@ -13,7 +13,7 @@ import 'package:flutter_test/flutter_test.dart';
 ///  * hadith are from the six books, each with grade AND grader, a verdict
 ///    of "ok" on file, and our own summary (no Arabic, no long text);
 ///  * every scholarly item names a work we actually read;
-///  * "Not yet scholar-reviewed" is the only review wording allowed;
+///  * "Scholar review needed" is the only review wording allowed;
 ///  * earlier accounts carry the three-class rule and a stated basis.
 void main() {
   Map<String, dynamic> readMap(String path) =>
@@ -82,7 +82,7 @@ void main() {
 
   test('the fixed badge and banner wording never drift', () {
     expect(kEarlierBadge, 'Not from the Qur’an');
-    expect(kReviewBanner, 'Not yet scholar-reviewed');
+    expect(kReviewBanner, 'Scholar review needed');
     expect(kDisputedLabel, 'Disputed in the sources');
     expect(kHadithBooks.keys.toSet(), <String>{
       'bukhari', 'muslim', 'abudawud', 'tirmidhi', 'nasai', 'ibnmajah',
@@ -134,14 +134,14 @@ void main() {
     }
   });
 
-  test('every subject parses and says it is not yet scholar-reviewed', () {
+  test('every subject parses and says it is scholar review needed', () {
     for (final Map<String, dynamic> s in subjects) {
       final StoryLayers l = load(s);
       expect(l.isEmpty, isFalse);
       expect(l.kind == 'prophet' || l.kind == 'unseen', isTrue);
       final Map<String, dynamic> raw =
           readMap('assets/stories/layers/${s['id']}.json');
-      expect(raw['reviewStatus'], 'Not yet scholar-reviewed');
+      expect(raw['reviewStatus'], 'Scholar review needed');
     }
   });
 
@@ -264,9 +264,8 @@ void main() {
     expect(EarlierClass.contradicted.label.contains('not told'), isTrue);
   });
 
-  test('"scholar-reviewed" appears only as "Not yet scholar-reviewed"', () {
-    final RegExp bad = RegExp(r'(?<!not yet )scholar[- ]reviewed',
-        caseSensitive: false);
+  test('"scholar-reviewed" appears only as "Scholar review needed"', () {
+    final RegExp bad = RegExp(r'scholar[- ]reviewed', caseSensitive: false);
     final List<String> hits = <String>[];
     for (final String dir in <String>[
       'assets/stories/layers',
@@ -328,7 +327,7 @@ void main() {
     expect(s['stories'], contains('tale-dhul-qarnayn'));
     expect(s['earlier'], isTrue);
     final Map<String, dynamic> l = readMap('assets/stories/layers/dhul-qarnayn.json');
-    expect(l['reviewStatus'], 'Not yet scholar-reviewed');
+    expect(l['reviewStatus'], 'Scholar review needed');
     final List<dynamic> q = l['quran'] as List<dynamic>;
     expect((q.first as Map<String, dynamic>)['from'], 83);
     expect((q.last as Map<String, dynamic>)['to'], 98);

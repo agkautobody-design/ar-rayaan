@@ -66,10 +66,10 @@ void main() {
 
     // Honest review status in the footer, never a bare claim.
     await tester.scrollUntilVisible(
-      find.textContaining('NOT YET SCHOLAR-REVIEWED'),
+      find.textContaining('SCHOLAR REVIEW NEEDED'),
       200,
       scrollable: find.byType(Scrollable).first,
     );
-    expect(find.textContaining('NOT YET SCHOLAR-REVIEWED'), findsOneWidget);
+    expect(find.textContaining('SCHOLAR REVIEW NEEDED'), findsOneWidget);
   });
 }

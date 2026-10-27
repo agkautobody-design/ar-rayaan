@@ -17,7 +17,7 @@ I can help with:
 - The basics of belief, the Prophet's life, the companions and Islamic history.
 - Du'as, and where to find things in the app: Qur'an, Prayer Times, Qibla, Games, the Academy and more.
 
-Who has reviewed this: no one yet. The app's own words are "Not yet scholar-reviewed. No named scholar has reviewed this app yet. We check every citation we can, we say so when we cannot, and we will name a reviewer here only once one has agreed to be named."
+Who has reviewed this: no one yet. The app's own words are "Scholar review needed. No named scholar has reviewed this app yet. We check every citation we can, we say so when we cannot, and we will name a reviewer here only once one has agreed to be named."
 
 Where the schools of law differ, I say so and do not pick one for you. For a ruling on your own case (a divorce, an inheritance, a debt), I will not guess: a qualified scholar who can ask you questions must answer. I can be wrong, so please treat my answers as a study aid and check the source. If I do not know something, I say so.
 

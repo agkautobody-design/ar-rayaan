@@ -50,7 +50,7 @@ String storyLabelMeaning(String label) {
     case kLabelReflection:
       return 'A reflection written for this app. It adds no new fact about the past.';
     case kLabelSeerah:
-      return 'Comes from the biographies of the Prophet. The passage was read in the named book for this audit, but a biography records reports, not revelation. Not yet scholar-reviewed.';
+      return 'Comes from the biographies of the Prophet. The passage was read in the named book for this audit, but a biography records reports, not revelation. Scholar review needed.';
     case kLabelSeerahUnchecked:
       return 'UNVERIFIED. Comes from the biographies of the Prophet. The book it comes from was not opened to check it. Treat the details as reports, not as established facts.';
     case kLabelHadithUnchecked:

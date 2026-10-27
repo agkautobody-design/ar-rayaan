@@ -1,3 +1,4 @@
+import '../../../app/core/scholar_review.dart';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -60,6 +61,10 @@ class PrayerTimesScreen extends ConsumerWidget {
         child: Column(
           children: [
             const ScreenHeader(title: 'Prayer Times'),
+            const ScholarReviewNote(
+              reviewKey: 'prayer',
+              padding: const EdgeInsets.only(bottom: 8),
+            ),
             Expanded(
               child: !locationSet
                   ? const _SetLocationPrompt()

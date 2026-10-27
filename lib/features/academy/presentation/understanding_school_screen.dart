@@ -4,6 +4,7 @@
 /// understanding itself: gentle, sourced, Loop-shaped.
 library;
 
+import '../../../app/core/scholar_review.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -123,6 +124,10 @@ class UnderstandingSchoolScreen extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
             children: <Widget>[
               const ScreenHeader(title: 'Understanding the Qur\'an', close: true),
+              const ScholarReviewNote(
+                reviewKey: 'school.understanding',
+                padding: EdgeInsets.only(bottom: 8),
+              ),
               Text('مدرسة الفهم', style: AppText.arabic.copyWith(fontSize: 28, color: AppColors.gold)),
               const SizedBox(height: 6),
               Text(

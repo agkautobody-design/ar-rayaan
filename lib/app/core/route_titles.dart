@@ -69,6 +69,7 @@ abstract final class RouteTitles {
     '/my-log': 'My log',
     '/sources': 'Sources',
     '/sources/policy': 'Content Policy',
+    '/sources/review': 'What Still Needs Review',
     '/sakina': 'Sakina',
     '/sakina/steady': 'Steady Yourself',
     '/sakina/mood': 'How Are You Today',

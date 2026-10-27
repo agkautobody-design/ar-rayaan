@@ -1,3 +1,4 @@
+import '../../../app/core/scholar_review.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -67,6 +68,11 @@ class DailyHadithHero extends ConsumerWidget {
               fontSize: 12,
               color: AppColors.gold.withValues(alpha: 0.9),
             ),
+          ),
+          const SizedBox(height: 6),
+          const ScholarReviewNote(
+            reviewKey: 'hadith.daily',
+            padding: EdgeInsets.zero,
           ),
           const SizedBox(height: 8),
           Row(

@@ -4,6 +4,7 @@
 /// never morbid, always hope-forward.
 library;
 
+import '../../../app/core/scholar_review.dart';
 import 'package:flutter/material.dart';
 
 import '../../../app/theme/app_colors.dart';
@@ -38,12 +39,12 @@ const List<_EolUnit> kEndOfLifeUnits = <_EolUnit>[
       ),
       _EolLesson(
         title: 'The Will — Writing It Is a Sunna',
-        body: 'The Prophet \ufdfa said: it is not right for a Muslim who has something to bequeath to sleep two nights without having his will written (Bukhari 2738). Two nights. The will is not for the dying; it is for the living who will grieve you.\n\nTwo limits apply. First, no more than a third: Sa\u2019d ibn Abi Waqqas asked to leave half and was told it was too much; of one third the Prophet \ufdfa said, \u2018One-third, yet even one-third is too much\u2019 (Bukhari 2744). Second, no bequest to an heir: \u2018Allah has given everyone who has a right his due, so no bequest may be made to an heir\u2019 (Abu Dawud 2870, hasan sahih per al-Albani; Tirmidhi 2120, sahih per al-Albani). The heirs\u2019 shares are fixed by Allah in Surah an-Nisa\u2019, and the will is for people who are not heirs, for debts and for charity.\n\nThe schools: the one-third limit is held in all four schools. The majority hold that a bequest to an heir is not valid unless the other heirs agree after the death. Not yet scholar-reviewed: ask a scholar of your school before you write it.',
+        body: 'The Prophet \ufdfa said: it is not right for a Muslim who has something to bequeath to sleep two nights without having his will written (Bukhari 2738). Two nights. The will is not for the dying; it is for the living who will grieve you.\n\nTwo limits apply. First, no more than a third: Sa\u2019d ibn Abi Waqqas asked to leave half and was told it was too much; of one third the Prophet \ufdfa said, \u2018One-third, yet even one-third is too much\u2019 (Bukhari 2744). Second, no bequest to an heir: \u2018Allah has given everyone who has a right his due, so no bequest may be made to an heir\u2019 (Abu Dawud 2870, hasan sahih per al-Albani; Tirmidhi 2120, sahih per al-Albani). The heirs\u2019 shares are fixed by Allah in Surah an-Nisa\u2019, and the will is for people who are not heirs, for debts and for charity.\n\nThe schools: the one-third limit is held in all four schools. The majority hold that a bequest to an heir is not valid unless the other heirs agree after the death. Scholar review needed: ask a scholar of your school before you write it.',
         practice: 'Draft your will this month — even a page: debts, guardianship, the small bequests. Templates exist; the intention is the act.',
       ),
       _EolLesson(
         title: 'The Estate — Fair Before the End',
-        body: 'Allah commands you concerning your children: the male receives the share of two females (4:11). That is one rule among several. The shares depend on who survives you (spouse, parents, children, siblings) and are set in Surah an-Nisa\u2019 (4:11, 4:12 and 4:176), so they are Allah\u2019s math, not the family\u2019s negotiation. Debts and the will (up to one third, and not for an heir) are settled before the shares are divided. Working it out for a real family is a scholar\u2019s task: not yet scholar-reviewed here.',
+        body: 'Allah commands you concerning your children: the male receives the share of two females (4:11). That is one rule among several. The shares depend on who survives you (spouse, parents, children, siblings) and are set in Surah an-Nisa\u2019 (4:11, 4:12 and 4:176), so they are Allah\u2019s math, not the family\u2019s negotiation. Debts and the will (up to one third, and not for an heir) are settled before the shares are divided. Working it out for a real family is a scholar\u2019s task: scholar review needed here.',
         practice: 'Learn the inheritance shares of your own household this month — ask a scholar, write it down.',
       ),
       _EolLesson(
@@ -104,6 +105,10 @@ class EndOfLifeSchoolScreen extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
             children: <Widget>[
               const ScreenHeader(title: 'End of Life', close: true),
+              const ScholarReviewNote(
+                reviewKey: 'school.end-of-life',
+                padding: EdgeInsets.only(bottom: 8),
+              ),
               Text('آخر العمر',
                   style: AppText.arabic.copyWith(fontSize: 28, color: AppColors.gold)),
               const SizedBox(height: 6),

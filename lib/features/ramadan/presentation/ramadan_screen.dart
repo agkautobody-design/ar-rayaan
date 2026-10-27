@@ -1,3 +1,4 @@
+import '../../../app/core/scholar_review.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'dart:ui' as ui show TextDirection;
@@ -175,6 +176,10 @@ class _RamadanState extends ConsumerState<RamadanScreen> {
           constraints: const BoxConstraints(maxWidth: 780),
           child: Column(children: [
             const ScreenHeader(title: 'Ramadan Mode', close: true),
+            const ScholarReviewNote(
+              reviewKey: 'dua.ramadan',
+              padding: const EdgeInsets.only(bottom: 8),
+            ),
             Expanded(child: days.when(
               loading: () => const Center(child: CircularProgressIndicator(color: AppColors.gold)),
               error: (e, _) => Center(child: Text('Could not load Ramadan.', style: AppText.bodyMuted)),

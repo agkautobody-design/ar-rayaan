@@ -1,3 +1,4 @@
+import '../../../app/core/scholar_review.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -91,6 +92,10 @@ class StoriesScreen extends ConsumerWidget {
           // cards) are built lazily, only while they are near the viewport.
           final List<Widget> head = <Widget>[
             const ScreenHeader(title: 'Stories', close: true),
+            const ScholarReviewNote(
+              reviewKey: 'story',
+              padding: const EdgeInsets.only(bottom: 8),
+            ),
             if (all.isEmpty)
               Padding(
                 padding: const EdgeInsets.all(24),

@@ -197,7 +197,7 @@ void main() {
       expect(find.text('How to play'), findsOneWidget);
       expect(find.text('Ways to play'), findsOneWidget);
       expect(find.text('Where the content comes from'), findsOneWidget);
-      expect(find.textContaining('Not yet scholar-reviewed'), findsOneWidget);
+      expect(find.textContaining('Scholar review needed'), findsOneWidget);
       expect(find.text('Play'), findsOneWidget);
       expect(find.textContaining('Hints are free'), findsOneWidget);
     });

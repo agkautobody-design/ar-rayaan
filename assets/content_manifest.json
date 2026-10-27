@@ -26,9 +26,9 @@
    "version": 4
   },
   "guides/guides.json": {
-   "bytes": 242146,
-   "sha256": "65da1cc63ee33a1d7ff0831ce576e8e1cfb1e47f6972134e5e6a93af4c079111",
-   "version": 14
+   "bytes": 242137,
+   "sha256": "3d86cd4c889e4379a8522592836b163a691a99aa1e38e0f23342996ad9fa0586",
+   "version": 15
   },
   "share/cards.json": {
    "bytes": 2808,
@@ -36,9 +36,9 @@
    "version": 3
   },
   "stories/companions.json": {
-   "bytes": 48390,
-   "sha256": "069cffda8766986b092e519dd048d8609f0a3fdb42e8dd00d0aa50306e4cdbd0",
-   "version": 8
+   "bytes": 48387,
+   "sha256": "af1b9af340d617b7d5b583be0695834459b03b99ce5092f26c31d5d4a4a77ff7",
+   "version": 9
   },
   "stories/dailyduas.json": {
    "bytes": 58499,
@@ -61,9 +61,9 @@
    "version": 16
   },
   "stories/newmuslim.json": {
-   "bytes": 59095,
-   "sha256": "bc04d982663fa6c182baa40beae44a0814189c735242b9dadaf6e9bd7ee66da7",
-   "version": 5
+   "bytes": 59023,
+   "sha256": "fa4d96edfc204756368e7bbcad367b0d4cad1b46ea16a1fee8c143ec7b2c0fe9",
+   "version": 6
   },
   "stories/prophets.json": {
    "bytes": 90422,
@@ -81,14 +81,14 @@
    "version": 6
   },
   "stories/tales.json": {
-   "bytes": 25328,
-   "sha256": "592d5450a5dbe5cddd935d848915cea5d2111d7a3d24db9369f54a57f31cf184",
-   "version": 7
+   "bytes": 25319,
+   "sha256": "d537d84485f083abc2b94dd982b73462471dbcca6522a6248d3ac33e1fe36d24",
+   "version": 8
   },
   "stories/women.json": {
-   "bytes": 45244,
-   "sha256": "7541f75926170e9df7925b31568b4bd0aaee58d04039f81fcd9e061ec4b98303",
-   "version": 8
+   "bytes": 45229,
+   "sha256": "16b8c4cdd515f2ccdd8101d942f25ddf41e8b20d060e56e9f81500c9c32bd9fe",
+   "version": 9
   }
  },
  "schema": 1

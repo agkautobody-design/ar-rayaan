@@ -210,7 +210,7 @@ class MenuScreen extends ConsumerWidget {
                   // Says only what is true today: sources are shown, and no
                   // named scholar has reviewed the app yet.
                   Text(
-                    'SOURCES SHOWN \u00b7 NOT YET SCHOLAR-REVIEWED',
+                    'SOURCES SHOWN \u00b7 SCHOLAR REVIEW NEEDED',
                     style: AppText.eyebrow,
                     textAlign: TextAlign.center,
                   ),

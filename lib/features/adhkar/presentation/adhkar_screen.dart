@@ -1,3 +1,4 @@
+import '../../../app/core/scholar_review.dart';
 import 'dart:async' show unawaited;
 
 import 'package:flutter/material.dart';
@@ -51,6 +52,10 @@ class _AdhkarScreenState extends ConsumerState<AdhkarScreen> {
         child: Column(
           children: [
             const ScreenHeader(title: 'Dhikr & Du\'a'),
+            const ScholarReviewNote(
+              reviewKey: 'dua.adhkar',
+              padding: const EdgeInsets.only(bottom: 8),
+            ),
             Expanded(
               child: sets.when(
                 loading: () => const Center(

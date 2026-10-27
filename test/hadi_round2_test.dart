@@ -221,7 +221,7 @@ void main() {
     test('tahajjud links its guide, says it is not yet reviewed, no count',
         () async {
       final String a = await ask('how do I pray tahajjud');
-      expect(a, contains('not yet scholar-reviewed'));
+      expect(a, contains('scholar review needed'));
       expect(a, contains('I will not give you a rak’ah count'));
       expect(a, contains('[GO:/huda/guide?id=huda-tahajjud]'));
       expect(a, contains('[GO:/prayer]'));
@@ -302,7 +302,7 @@ void main() {
       ]) {
         final String a = await ask(q);
         expect(OfflineHadiProvider.isDecline(a), isFalse, reason: q);
-        expect(a, contains('Not yet scholar-reviewed'));
+        expect(a, contains('Scholar review needed'));
         expect(a, contains('[GO:/sources]'));
         expect(a.contains('Perhaps you meant'), isFalse);
       }

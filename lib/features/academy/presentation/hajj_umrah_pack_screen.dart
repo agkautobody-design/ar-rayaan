@@ -3,6 +3,7 @@
 /// it; the pack is the road map, the guides are the detailed maps.
 library;
 
+import '../../../app/core/scholar_review.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -118,6 +119,10 @@ class HajjUmrahPackScreen extends ConsumerWidget {
               padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
               children: <Widget>[
                 const ScreenHeader(title: 'Hajj & Umrah', close: true),
+                const ScholarReviewNote(
+                  reviewKey: 'school.hajj-umrah',
+                  padding: EdgeInsets.only(bottom: 8),
+                ),
                 Text('الحج والعمرة',
                     style: AppText.arabic.copyWith(
                         fontSize: 28, color: AppColors.gold)),

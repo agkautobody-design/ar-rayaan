@@ -1,3 +1,4 @@
+import '../../../app/core/scholar_review.dart';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -98,6 +99,10 @@ class _WordDeckScreenState extends ConsumerState<WordDeckScreen> {
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
             children: [
               const ScreenHeader(title: 'Qur\u2019anic Arabic', close: true),
+              const ScholarReviewNote(
+                reviewKey: 'gloss',
+                padding: const EdgeInsets.only(bottom: 8),
+              ),
               Text('العَرَبِيَّةُ القُرْآنِيَّة',
                   textDirection: TextDirection.rtl,
                   textAlign: TextAlign.center,

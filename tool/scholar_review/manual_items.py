@@ -1,0 +1,220 @@
+"""Items that exist in the audit and fix reports (or in owner decisions) and
+have no single data record to mine. Each carries the report that raised it.
+Nothing here changes any religious content.
+"""
+import re
+
+from rg import ARABIC, CLIN, FIQH, HADITH, LAWYER, NATIVE, RIGHTS, WOMEN
+
+
+def add_all(R):
+    def add(id, area, where, file, key, what, why, rev, src, pr='normal', also=(), sub='', surf=''):
+        R.add(id=id, area=area, subarea=sub, where_app=where, file=file, key=key, what=what, why=why,
+              reviewer=rev, also=also, source=src, priority=pr, label_surface=surf)
+
+    # ------------------------------------------------ Qur'an text and licences
+    add('quran.saheeh-licence', 'quran-text', "Qur'an reader > English translation; Our Sources; share and copy",
+        'assets/quran/translations/en.*.json; docs/content_needed/CLEAR_QURAN_PACK.md', 'Saheeh International licence',
+        "Whether the bundled Saheeh International English text may be distributed, copied and shared inside the app.",
+        'FIX_QURAN_HADITH_REPORT: licence UNCONFIRMED (Tanzil terms: translations non-commercial, permission from the translator or publisher needed). '
+        'No permission statement in the repo. This is a rights question, not a scholar question.',
+        RIGHTS, ['FIX_QURAN_HADITH_REPORT (Saheeh licence unconfirmed)', 'docs/OWNER_ACTIONS.md item 5'], 'high', sub='licence',
+        surf='Sources screen and translation credit')
+    add('quran.clear-quran-pack', 'quran-text', "Qur'an reader > default English translation",
+        'docs/content_needed/CLEAR_QURAN_PACK.md', 'The Clear Quran pack',
+        "The publisher's written authorisation for The Clear Quran (distribution, offline use, sharing, credit line), and the text file itself, which is not in the repo.",
+        'The app is built to use The Clear Quran by default but ships the interim translation until the file and the authorisation exist.',
+        RIGHTS, ['docs/content_needed/CLEAR_QURAN_PACK.md', 'docs/OWNER_ACTIONS.md item 5'], 'high', sub='licence')
+    add('quran.foundation-terms', 'quran-text', "Qur'an reader; translations fetched online",
+        'docs/OWNER_ACTIONS.md', 'Quran Foundation terms (11 Oct 2026)',
+        'Quran Foundation terms forbid bundling their content: confirm which translations may be bundled or fetched.',
+        'OWNER_ACTIONS item 5 offers three options (ask permission, switch to Pickthall 1930, accept risk).',
+        RIGHTS, ['docs/OWNER_ACTIONS.md item 5'], 'normal', sub='licence')
+    add('quran.translit-59', 'quran-text', "Qur'an reader > transliteration, and search",
+        'assets/quran (transliteration)', 'transliteration 59 of 6,236 ayahs',
+        "The transliteration that exists covers only 59 of 6,236 ayahs; its source licence and accuracy.",
+        'FIX_QURAN_HADITH_REPORT: no verified, properly licensed source; needs a written licence or a CC0/CC-BY dataset, then a check by an Arabic specialist.',
+        RIGHTS, ['FIX_QURAN_HADITH_REPORT (transliteration 59/6236)'], 'high', also=[ARABIC], sub='transliteration')
+    add('quran.translit-accuracy', 'quran-text', "Qur'an reader > transliteration; lesson say-steps",
+        'assets/academy/phrases/*.json; assets/adhkar/adhkar.json; assets/finance/ramadan.json', 'all transliterations',
+        'Every transliteration in the app (131 phrases, adhkar, Ramadan duas, daily duas) is the author\'s own learning aid.',
+        'FIX_WORSHIP_REPORT and phrases files: "all transliterations and meanings are learning aids"; docs/content_needed/dua_transliteration.md lists the gaps.',
+        ARABIC, ['FIX_WORSHIP_REPORT', 'docs/content_needed/dua_transliteration.md'], 'high', sub='transliteration')
+    add('quran.arabic-diacritics', 'quran-text', "Qur'an reader (Arabic text)",
+        'assets/quran/quran.json', 'diacritics against the reference Uthmani text',
+        'Arabic diacritics were compared with a reference Uthmani text; differences were reported in the pass and no text was changed.',
+        'FIX_QURAN_HADITH_REPORT: consonantal skeleton matched; diacritic differences exist and are unreviewed.',
+        ARABIC, ['FIX_QURAN_HADITH_REPORT (diacritics vs Uthmani)'], 'high', sub='arabic-text')
+    add('quran.riwaya', 'quran-text', "Qur'an reader; recitation audio",
+        'assets/quran; lib/features/quran', 'riwaya (Hafs) and mushaf layout',
+        'Confirm the text edition (Hafs an Asim, Madinah mushaf pagination of 604 pages) and any claim about it.',
+        'Qira\'at are a specialist matter; no qira\'at specialist has reviewed the choice.',
+        ARABIC, ['Reviewer list: Arabic / tajweed / qira\'at'], 'normal', sub='arabic-text')
+    add('quran.word-meanings-source', 'quran-text', "Academy word deck (hidden)",
+        'docs/OWNER_ACTIONS.md', 'Quranic word meanings and roots',
+        'The 300-word deck is hidden because no licence-checked source of meanings and roots is in place.',
+        'OWNER_ACTIONS item 7: the sources found carry GPL or unstated data terms.',
+        RIGHTS, ['docs/OWNER_ACTIONS.md item 7'], 'normal', also=[ARABIC], sub='licence')
+    add('quran.tafsir-absent', 'quran-text', "Story 'Go deeper' scholarly cards; Hadi",
+        'assets/stories/layers', 'tafsir, tajweed and word-by-word data absent',
+        'No licensed tafsir, tajweed or word-by-word dataset is bundled; the scholarly cards quote single classical works.',
+        'FIX_QURAN_HADITH_REPORT: absent, no licensed source. Page numbers for tafsir quotations were not available (FACT_S1).',
+        HADITH, ['FIX_QURAN_HADITH_REPORT', 'FACT_S1_prophets'], 'low', sub='tafsir')
+
+    # ------------------------------------------------ hadith grades and sources
+    add('hadith.grade-mismatches', 'hadith', 'Stories, Academy, Games, Hadi: hadith grade labels',
+        'assets/stories; assets/academy; assets/games; lib/features/hadi', 'Tirmidhi 3513, 3404; Ibn Majah 1565, 4080, 3663',
+        'Grade labels in stories, academy, games and Hadi that differed from the corpus (examples: Tirmidhi 3513, 3404; Ibn Majah 1565, 4080, 3663).',
+        'FIX_QURAN_HADITH_REPORT "Out of scope": mismatches listed for owners; C_knowledge audit. Graders differ on several of these.',
+        HADITH, ['FIX_QURAN_HADITH_REPORT', 'C_knowledge audit'], 'high', sub='grades')
+    for key, what, why, src in [
+        ('tirmidhi-3513', 'Tirmidhi 3513 (du\'a for Laylat al-Qadr)', 'Graders disagree: Zubair Ali Za\'i da\'if; al-Albani sahih.', 'FIX_HADI_REPORT; FIX_QURAN_HADITH_REPORT'),
+        ('tirmidhi-3153', 'Tirmidhi 3153 (Gog and Magog, Dhul-Qarnayn)', 'Shakir sahih, al-Albani sahih, Bashar hasan, Zubair Ali Za\'i da\'if; shown as "graders differ".', 'FACT_S1_prophets'),
+        ('ibnmajah-4080', 'Ibn Majah 4080 (Gog and Magog)', 'al-Albani sahih; Zubair Ali Za\'i da\'if; shown as "graders differ".', 'FACT_S1_prophets'),
+        ('tirmidhi-2317', 'Tirmidhi 2317 (leaving what does not concern you)', 'al-Albani sahih; Darussalam da\'if; An-Nawawi hasan. Also Nawawi #12 and the Daily Hadith rebuild.', 'FIX_QURAN_HADITH_REPORT; FACT_S4'),
+        ('tirmidhi-2416', 'Tirmidhi 2416 (feet on the Day)', 'Darussalam da\'if; al-Albani hasan. Page says hold as a reminder.', 'FACT_S4 (mh-youth-feet)'),
+        ('abudawud-2380', 'Abu Dawud 2380 (vomiting and the fast)', 'Darussalam da\'if; al-Albani sahih.', 'FACT_S4 (Q&A 1)'),
+        ('abudawud-3641', 'Abu Dawud 3641 (the scholars are the heirs of the prophets)', 'al-Albani sahih; Zubair and Shu\'ayb al-Arna\'ut da\'if. The page said "seekers", the hadith says "the scholars".', 'FACT_S4 (New Muslim day 27)'),
+        ('tirmidhi-3431', 'Tirmidhi 3431 (dua on seeing someone afflicted)', 'al-Albani hasan; Zubair da\'if; the text said only "daif per Darussalam".', 'FACT_S4 (dua-seeing-afflicted)'),
+        ('ibnmajah-1753', 'Ibn Majah 1753 (dua of the fasting person)', 'al-Albani da\'if; Zubair hasan.', 'FACT_S4 (dua-iftar-full)'),
+        ('ibnmajah-224', 'Ibn Majah 224 ("seek knowledge even in China" neighbour)', 'Grade "very weak per Darussalam" unverified; the app must not imply the China wording is authentic.', 'E_games_hadi audit #83; FIX_HADI_REPORT'),
+        ('ibnmajah-4252', 'Ibn Majah 4252 (tawbah)', 'hasan per Darussalam; sahih per al-Albani.', 'FACT_S4 (Q&A 12)'),
+        ('tirmidhi-3892', 'Tirmidhi 3892 (Safiyya taunted)', 'Weak per Shakir, al-Albani and Zubair Ali Za\'i: named as not used.', 'S2_eol_hlth_wmns_char'),
+        ('abudawud-2214', 'Abu Dawud 2214 (Khawlah report)', 'Graders differ; named as not used.', 'S2_eol_hlth_wmns_char'),
+        ('muslim-2759', 'Muslim 2759 (mh-reflection-023)', 'Not found in the corpus: the story owner must verify or mark unverified.', 'FIX_QURAN_HADITH_REPORT'),
+        ('muslim-2693', 'Muslim 2693 (an adhkar source)', 'Not in the corpus.', 'FIX_WORSHIP_REPORT'),
+        ('nasai-kubra-ayat-kursi', 'Ayat al-Kursi after prayer: Nasa\'i Kubra number', 'The number could not be confirmed.', 'FIX_WORSHIP_REPORT'),
+        ('tirmidhi-1071', 'Munkar and Nakir wording (Tirmidhi 1071)', 'Wording dropped as unverified from Games.', 'FIX_GAMES_REPORT'),
+        ('tirmidhi-3604-muslim-2709', 'Evening refuge in Allah\'s perfect words (Tirmidhi 3604 vs Muslim 2709)', 'The evening-scorpion report is Muslim 2709; Tirmidhi 3604 is a different hadith in the corpus.', 'FACT_S4 (dua-morning-master)'),
+    ]:
+        add('hadith.grade.' + key, 'hadith', 'Where %s is cited' % what.split(' (')[0], 'various', key, what, why, HADITH, src, 'high', sub='grades')
+    add('hadith.removed-daily', 'hadith', 'Home > Daily Hadith (history)', 'lib/features/hadith/domain/daily_hadith.dart', 'removed rotation entries',
+        'Entries removed from the Daily Hadith rotation: weak Tirmidhi 2317, 2499; Abu Dawud 5090; an unverified Tabarani; a numberless al-Hakim; Muslim 2559 (text unverifiable).',
+        'FIX_QURAN_HADITH_REPORT: a scholar should confirm they stay out (or return with a named grader).',
+        HADITH, ['FIX_QURAN_HADITH_REPORT'], 'normal', sub='daily')
+    add('hadith.verification-corpus', 'hadith', 'Every hadith card and Hadi source card', 'assets/noor/hadi_corpus.json; tool/hadith_check.py',
+        'verification source',
+        'Hadith were verified against the fawazahmed0 corpus (sunnah.com-derived), not against sunnah.com itself, which was unreachable.',
+        'FIX_QURAN_HADITH_REPORT; OWNER_ACTIONS item 3 (sunnah.com API key not yet issued). Grader names (Darussalam, al-Albani, Zubair Ali Za\'i) come from that corpus.',
+        HADITH, ['FIX_QURAN_HADITH_REPORT', 'docs/OWNER_ACTIONS.md item 3'], 'high', sub='verification')
+    for fam in ['newmuslim', 'women', 'signs', 'seerah', 'modernhadith', 'ghayb', 'khutbahs', 'dailyduas', 'companions', 'qa', 'guides', 'adhkar', 'layers']:
+        add('hadith.editor-notes.' + fam, 'hadith', 'Source lines in %s' % fam, 'assets (%s)' % fam, 'editor notes',
+            'Source lines in the %s data that carried editor notes such as "number not re-checked" or "number to be verified".' % fam,
+            'C_knowledge audit and FIX_QURAN_HADITH_REPORT list this family as carrying (or having carried) editor notes. Each cited number needs a scholar or a hadith specialist to confirm it.',
+            HADITH, ['C_knowledge audit (editor notes leaked)', 'FIX_QURAN_HADITH_REPORT'], 'normal', sub='editor-notes')
+
+    # ------------------------------------------------ dua / dhikr
+    for key, what, why, src in [
+        ('eid-takbir', 'Eid greeting and takbir: no Arabic shown', 'Left out as unverified.', 'FIX_WORSHIP_REPORT'),
+        ('translit-gaps', 'Adhkar morning 15 and evening 15 duas lack transliteration; 12 daily duas lack transliteration', 'Gaps listed rather than filled with unreviewed text.', 'FIX_WORSHIP_REPORT; B_worship audit'),
+        ('small-sitting', '"Small sitting" label for the sitting between sajdahs', 'The label has no source (Ibn Majah 897 is sahih per al-Albani for the dua).', 'FACT_S4 (dua-between-sajdah)'),
+        ('names-duas-log', 'Names of Allah and dua verification log', 'docs/content_needed/VERIFICATION_LOG_NAMES_DUAS.md records what was and was not verified.', 'VERIFICATION_LOG_NAMES_DUAS'),
+        ('hisn-source', 'Hisn al-Muslim gates: authorship and numbering', 'The app\'s Hisn screens present gates in the app author\'s order with source lines; no named scholar confirmed the grading of each dua.', 'Academy Hisn screen'),
+        ('fatiha-linked', 'Prayer guide recitations (takbir, Fatihah, tashahhud, salawat) in Arabic with transliteration', 'R9_T1: absent from the guide at the time; a scholar should confirm wording when added.', 'R9_T1_children'),
+    ]:
+        add('dua.' + key, 'dua-dhikr', 'Dhikr / Dua screens', 'assets/adhkar; assets/stories/dailyduas.json', key, what, why, HADITH, src, 'normal', also=[ARABIC], sub='dua')
+    add('dua.dhikr-session', 'dua-dhikr', 'Dhikr session screen (counts, targets)', 'lib/features/academy/presentation/dhikr_session_screen.dart', 'counts and targets',
+        'Counts and targets (33/33/34, 100, 10) offered in the dhikr session.', 'Counts come from sourced reports; the screen is not reviewed by a named scholar.',
+        HADITH, ['Surface list (dhikr screens)'], 'normal', sub='dhikr')
+
+    # ------------------------------------------------ arabic / tajweed / hifz
+    for key, what, why, src in [
+        ('tarteel-definition', 'Ali\'s definition of tarteel', 'Quoted from works on tajweed; chain not checked.', 'S2_arabic_hfz'),
+        ('tajweed-jali-khafi', 'Jali / Khafi labels for ikhfa and ghunnah on tajweed cards', 'The app\'s own claim (unverified); marked pending scholar review.', 'A_academy audit D24'),
+        ('sun-moon-letters', 'Sun and moon letters (lesson arabic.u1.l3 and cards)', 'Letter grouping and the assimilation rule are taught from general knowledge.', 'Arabic course'),
+        ('hifz-method', 'The Hifz method: lanes, daily plan, revision cycle, choosing a teacher', 'Method content is the author\'s own; a hafiz teacher should review it.', 'S2_arabic_hfz'),
+        ('colored-examples', 'Tajweed cards: examples and the promise of colour', 'colorKey unused though the header promised colour examples (A_academy D24).', 'A_academy audit'),
+        ('arabic-script-lessons', 'Arabic letter-shape and sound teaching', 'Letter names and sounds are taught from general knowledge; a tajweed specialist should confirm makhraj descriptions.', 'Arabic course'),
+    ]:
+        add('arabic.' + key, 'arabic-tajweed', 'Academy > Arabic / Hifz / Tajweed', 'assets/academy/lessons_v3; lib/features/academy/presentation/tajweed_cards_screen.dart', key, what, why,
+            ARABIC, src, 'high' if key in ('tarteel-definition', 'tajweed-jali-khafi', 'hifz-method') else 'normal', also=[HADITH], sub='method')
+
+    # ------------------------------------------------ will, estate, janazah
+    add('eol.janazah', 'academy-schools', 'End of Life > janazah lessons and phrases', 'assets/academy/lessons_v3/eol.json; assets/academy/phrases/eol_hlth_wmns_char.json',
+        'janazah lessons',
+        'Janazah teaching: washing, shrouding, the four takbirs, the dua, burial, women attending, condolence; the rulings differ by school.',
+        'S2_eol_hlth_wmns_char: janazah prayer details by school (Hadi janazah answers also flagged in FIX_HADI_REPORT).',
+        FIQH, ['S2_eol_hlth_wmns_char', 'FIX_HADI_REPORT'], 'high', also=[WOMEN], sub='janazah')
+    add('eol.will-estate', 'money', 'End of Life > will and estate lessons', 'assets/academy/lessons_v3/eol.json; lib/features/academy/presentation/end_of_life_school_screen.dart',
+        'will and estate (bequest limits, shares)',
+        'The will and estate lessons (Bukhari 2738, 4:11), shares and guardianship.',
+        'A_academy: "Teach heirs/shares properly or defer to scholar"; R9_T2: thin and over-absolute.',
+        FIQH, ['A_academy audit (eol.u1.l3)', 'R9_T2_parent_wasia'], 'high', also=[LAWYER], sub='will-estate')
+
+    # ------------------------------------------------ lessons: audit-specific
+    add('lesson.wmns.asiya-house', 'academy-lessons', 'Academy > Women > Asiya lesson', 'assets/academy/lessons_v3/wmns.json', 'wmns.u1.l2',
+        '"Allah showed her her house" is not in 66:11 (she asks for a house; the showing is hadith/tafsir).', 'A_academy audit: unverified.',
+        HADITH, ['A_academy audit (wmns.u1.l2)'], 'normal', also=[WOMEN], sub='wmns')
+    add('lesson.wmns.aisha-narration', 'academy-lessons', 'Academy > Women > Aisha lesson', 'assets/academy/lessons_v3/wmns.json', 'wmns.u2.l1',
+        'Aisha/Urwa narration was unsourced in the audit.', 'A_academy audit: cite.', HADITH, ['A_academy audit (wmns.u2.l1)'], 'normal', also=[WOMEN], sub='wmns')
+    add('lesson.wasia-claim', 'academy-lessons', 'Wasia (lesson helper)', 'lib/features/academy', 'scope and refusals',
+        'Wasia answers only from the words of the lesson and refuses rulings; the claim "he said, as a teacher made easy" was uncited in one lesson.',
+        'R9_T2_parent_wasia.', HADITH, ['R9_T2_parent_wasia'], 'low', sub='wasia')
+    add('lesson.path-established', 'academy-lessons', 'The Path (new Muslim) > Established tag', 'assets/academy/lessons_v3/the-path.json', '[Established] on thin lessons',
+        '[Established] on a thin lesson implies completeness; a card says "pray as you have seen" with no school stated.', 'R9_T3_new_muslim.',
+        FIQH, ['R9_T3_new_muslim'], 'normal', also=[HADITH], sub='the-path')
+
+    # ------------------------------------------------ Hadi / Sakina routing
+    add('hadi.routing', 'hadi', 'Hadi chat > choosing which answer to show', 'lib/features/hadi/data/hadi_routing.dart', 'routing rules',
+        'Which question gets which answer (for example prepaid funeral plan, combining prayers answer leading with shortening, ibuprofen while fasting).',
+        'FIX_HADI_REPORT and E_games_hadi list wrong-topic answers in a confident frame; the routing is the app\'s own.',
+        HADITH, ['FIX_HADI_REPORT (known gaps)', 'E_games_hadi audit'], 'normal', also=[FIQH], sub='routing')
+    add('hadi.explain', 'hadi', 'Hadi > "Hadi checked this reply" and how-it-works text', 'lib/features/hadi/data/hadi_explain.dart', 'explain text',
+        'The wording that says what Hadi checked and what a scholar has not.', 'Honesty copy; the "checked" claim must stay accurate.',
+        HADITH, ['E_games_hadi audit'], 'normal', sub='explain')
+    add('hadi.ai-tier', 'hadi', 'Hadi optional AI tier (own key)', 'lib/features/hadi', 'AI-generated answers',
+        'Any answer generated by an AI model with the user\'s own key is not from the built-in library and carries no review.',
+        'R9_T1 / R9_T4: "optionally your own AI key"; the Qur\'an is never produced from memory.', HADITH, ['R9_T4_everyday_skeptic'], 'high', sub='ai')
+
+    # ------------------------------------------------ legal
+    for key, where, file, what, why in [
+        ('terms', 'You > Settings > Terms of Use', 'lib/features/legal/presentation/legal_screens.dart', 'The Terms of Use text.', 'OWNER_ACTIONS item 6: draft; lawyer review and the contact address are pending.'),
+        ('privacy', 'You > Settings > Privacy Policy', 'lib/features/legal/presentation/legal_screens.dart', 'The Privacy Policy text.', 'OWNER_ACTIONS item 6: draft; "Contact address: not published yet".'),
+        ('children-privacy', 'Family Wing; Kids Corner', 'lib/features/academy/domain/children_privacy.dart', 'The children\'s privacy section (COPPA and PIPEDA wording).', 'OWNER_ACTIONS items 6 and 17(d): the privacy text still needs a lawyer\'s review for COPPA/PIPEDA wording.'),
+        ('parent-pin', 'Family Wing > parent PIN and child mode', 'lib/features/family', 'Parent PIN (salted hash on device), five wrong tries lock for five minutes, child mode.', 'OWNER_ACTIONS item 17: caveats (PIN can be set by a child first; no recovery; Games left out of child mode).'),
+        ('contact-address', 'Terms and Privacy screens', 'lib/features/legal/presentation/legal_screens.dart', 'kLegalContactPending: no real contact address exists.', 'OWNER_ACTIONS items 6 and 18: stores require a reachable privacy contact.'),
+        ('community-rules', 'Majlis / community rules', 'lib/features/community; lib/features/majlis', 'Community rules, reporting and moderation wording.', 'Not reviewed by a lawyer; needed before public launch.'),
+        ('data-sync', 'Sign-in, sync, notes, Firestore rules', 'firestore.rules; lib/features/auth', 'Data collection and deletion promises on the privacy screens.', 'OWNER_ACTIONS item 2: rules reviewed by reading, not executed.'),
+        ('religious-disclaimer', 'Sources > How we handle religious content; "not a mufti"', 'lib/features/sources/presentation/content_policy_screen.dart', 'The disclaimers about rulings and scholars.', 'Needs a lawyer to confirm the disclaimers are enough for store review.'),
+        ('rights-streaks-ads', 'What is free; ads and paid plan wording', 'lib/features/sources/presentation', 'Free and paid plan wording; ads.', 'R9_T2 / R9_T4 noted a "paid plan planned" line; confirm with a lawyer before billing.'),
+    ]:
+        add('legal.' + key, 'legal', where, file, key, what, why, LAWYER, ['docs/OWNER_ACTIONS.md items 2, 6, 17, 18'], 'high', sub='legal')
+
+    # ------------------------------------------------ nasheeds and audio
+    add('nasheed.catalogue', 'nasheeds', 'Nasheeds / Player > verified catalogue (200 entries)', 'assets/academy/player_catalog_verified.json',
+        'family-friendly judgement for 200 entries',
+        'The "family-friendly" label for 200 verified nasheeds is a judgement from artist and title, not a scholar\'s review.',
+        'NASHEED_VERIFICATION_LOG: instrument use was NOT checked for entries marked unknown; target of 600 not reached.',
+        FIQH, ['docs/content_needed/NASHEED_VERIFICATION_LOG.md'], 'high', also=[HADITH], sub='catalogue')
+    add('nasheed.music-view', 'nasheeds', 'Nasheeds > audio style (vocals / duff / music / unknown)', 'tool/nasheed_verified/verified.tsv', 'audio style',
+        'Whether a user who avoids instruments is served correctly by the vocals-only / duff / music / unknown classes. Scholars differ on music (the Q&A bank says so).',
+        'The app has no vocals-only guarantee; classes come from the uploader\'s own titles.', FIQH, ['NASHEED_VERIFICATION_LOG', 'FACT_S4 (Q&A music)'], 'high', sub='catalogue')
+    add('nasheed.channels', 'nasheeds', 'Nasheeds > official channel claims', 'docs/content_needed/NASHEED_VERIFICATION_LOG.md', 'channel officialness',
+        'Officialness of the uploading channels (labels, artist channels) for entries beyond Awakening Music.',
+        'Not independently corroborated beyond the artist/label name; the owner is asked to spot-check.', RIGHTS, ['NASHEED_VERIFICATION_LOG'], 'normal', sub='rights')
+    add('nasheed.lyrics', 'nasheeds', 'Nasheed lyrics and titles', 'assets/academy/player_catalog_verified.json', 'lyrics content',
+        'Whether the lyrics of the listed nasheeds contain anything contrary to aqidah; titles were checked, lyrics were not heard.',
+        'Only title, channel and embeddability were fetched.', HADITH, ['NASHEED_VERIFICATION_LOG'], 'normal', sub='catalogue')
+    add('nasheed.audio-stubs', 'nasheeds', 'Recitation and Listen buttons', 'assets/audio', 'audio sources',
+        'Recitation and Listen audio: which reciters are offered and the audio files themselves (stub or silent files were found in test).',
+        'R9_T1: Listen, recitation and speaker buttons UNVERIFIED; OWNER_ACTIONS audio CORS note.', ARABIC, ['R9_T1_children', 'docs/audio_cors.md'], 'normal', also=[RIGHTS], sub='audio')
+
+    # ------------------------------------------------ prayer: extra
+    add('prayer.method-defaults', 'prayer-calendar', 'Prayer Times > default method on first run', 'lib/features/prayer/application/prayer_settings.dart', 'autoMethodFor',
+        'The method chosen automatically for a user who has not picked one.', 'FIX_WORSHIP_REPORT: verified maths, not the choice.', FIQH, ['FIX_WORSHIP_REPORT'], 'high', sub='method')
+    add('prayer.approx-times-label', 'prayer-calendar', 'Prayer Times > "approximate, confirm locally"', 'lib/features/prayer', 'approximate label',
+        'The wording that says times are approximate and to confirm with the local mosque.', 'R9_T4 praised it; wording is the app\'s.', FIQH, ['R9_T4_everyday_skeptic'], 'low', sub='method')
+
+    # ------------------------------------------------ Sakina extras
+    add('sakina.help-unverified', 'sakina', 'Need help now > "Not re-checked recently" help lines', 'lib/features/sakina/domain/sakina_content.dart', 'HelpResources unverified',
+        'Help lines marked unverified or not re-checked, and US-centric coverage outside the US.', 'B_worship audit; FACT_S4 re-verification dated 2026-10-20.',
+        CLIN, ['B_worship audit', 'FACT_S4'], 'high', also=[NATIVE], sub='help-lines')
+    add('sakina.child-loss-grief', 'sakina', 'Hadi / Sakina > grief and child loss replies', 'lib/features/hadi/data/offline_hadi_provider.dart', 'grief replies',
+        'Replies for bereavement, miscarriage and child loss.', 'Sensitive copy with no clinician or scholar review.', CLIN, ['E_games_hadi audit'], 'high', also=[HADITH], sub='grief')
+    add('health.ruqya-medicine', 'sakina', 'Health school; Hadi on fasting and medicine; ruqya', 'assets/academy/lessons_v3/hlth.json', 'health claims',
+        'Health teaching (Prophetic medicine, dhikr and mental health, fasting and medicine, ibuprofen while fasting).', 'S2_eol_hlth_wmns_char: health content needs a clinician; Hadi refuses ibuprofen question with no doctor line (E_games_hadi #79).',
+        CLIN, ['S2_eol_hlth_wmns_char', 'E_games_hadi audit #79'], 'high', also=[HADITH], sub='health')
+
+    # ------------------------------------------------ languages
+    add('lang.elder-rtl', 'languages', 'Arabic and Urdu UI direction and font', 'lib/app', 'RTL layout, fonts',
+        'Right-to-left layout and fonts for Arabic and Urdu; Bangla glyphs rendered as empty boxes in headless test.', 'R9_T4 D5, R9_T6_elder_languages: unverified on a real device.', NATIVE, ['R9_T6_elder_languages', 'R9_T4_everyday_skeptic'], 'normal', sub='layout')

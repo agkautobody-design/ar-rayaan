@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../app/core/providers.dart';
+import '../../../app/core/scholar_review.dart';
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
@@ -57,6 +58,12 @@ class _ToolScaffold extends StatelessWidget {
               child: ListView(
                 padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
                 children: <Widget>[
+                  const ScholarReviewNote(
+                    reviewKey: 'sakina.wellbeing-tools',
+                    detail:
+                        'A clinician has not reviewed this tool. It does not replace one.',
+                    padding: EdgeInsets.only(bottom: 10),
+                  ),
                   ...children,
                   const SizedBox(height: 16),
                   const Center(child: NeedHelpNowButton()),

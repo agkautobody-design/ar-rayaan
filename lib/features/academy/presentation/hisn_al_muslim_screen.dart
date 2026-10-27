@@ -4,6 +4,7 @@
 /// in the full reader; this screen is the fortress gate.
 library;
 
+import '../../../app/core/scholar_review.dart';
 import '../../stories/domain/story.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -89,6 +90,10 @@ class HisnAlMuslimScreen extends ConsumerWidget {
                 padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
                 children: <Widget>[
                   const ScreenHeader(title: 'Hisn al-Muslim', close: true),
+                  const ScholarReviewNote(
+                    reviewKey: 'school.hisn',
+                    padding: EdgeInsets.only(bottom: 8),
+                  ),
                   Text('حصن المسلم',
                       style: AppText.arabic.copyWith(
                           fontSize: 28, color: AppColors.gold)),

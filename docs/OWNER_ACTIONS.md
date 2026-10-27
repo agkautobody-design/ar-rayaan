@@ -39,12 +39,13 @@ Why: web-page checks of hadith are rate-limited (HTTP 429). A key lets the check
 2. When the key arrives, send it to Claude in chat. It goes into the checker only (never into the app or the repo; it will live as a GitHub Actions secret).
 
 ## 4. Name the reviewers (the biggest trust item)
-Until a person is named, every page says "Not yet scholar-reviewed". That is the honest state. Needed:
+Until a person is named, every page says "Scholar review needed". That is the honest state. Needed:
 - A named scholar for hadith, stories, prophets, rulings and the "Disputed in the sources" items. A woman scholar for the Women's school.
 - A clinician for Sakina (safety plan, crisis wording).
 - Native speakers for non-English crisis phrases.
 What they review is listed in `docs/story_audit.md` (278 chapters) and the layers files under `assets/stories/layers/`. Open questions waiting for a scholar: which son was sacrificed; Ibrahim's heaven (Bukhari 349 vs 3207); the Musa/Khidr identity; the forbidden tree; whether Dhul-Kifl was a prophet; who Dhul-Qarnayn was; istiwa; how long the Fire lasts; the Mahdi and Isa's prayer leader; zihar; the ruling on neglecting prayer; the Abu Talib link to Ali.
 When someone agrees to be named, tell Claude; the label changes only then.
+Everything that needs a reviewer is listed in `docs/SCHOLAR_REVIEW_REGISTER.md` (machine copy: `tool/scholar_review/register.json`, rebuilt by `python3 tool/scholar_review/build_register.py`), grouped by area and by reviewer type. Settings > Sources > "What still needs review" shows the counts. A label goes away only when a named reviewer's name and date are added to `kScholarSignoffs` in `lib/app/core/scholar_review.dart`.
 
 ## 5. Decide the English translation licence
 Saheeh International is bundled with no permission statement in the repo. The Clear Quran is now the app's default English translation by design, but its text is not in the repo: supply the file and the publisher's written authorisation as described in docs/content_needed/CLEAR_QURAN_PACK.md and run one import command. Quran Foundation terms (updated 11 Oct 2026) forbid bundling their content. Options: (a) ask the rights holder for written permission, (b) switch the bundled English to Pickthall (1930, public domain) and fetch modern translations from the Quran Foundation API, (c) accept the risk. The code has a switch ready. Tell Claude which.

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../app/core/scholar_review.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
@@ -16,7 +17,7 @@ class ContentPolicyScreen extends StatelessWidget {
   const ContentPolicyScreen({super.key});
 
   /// The honest review status, shown on this page and reusable elsewhere.
-  static const String reviewStatus = 'Not yet scholar-reviewed';
+  static const String reviewStatus = kScholarReviewNeeded;
 
   /// Fixed badge text for anything from before the Qur’an era or from the
   /// People of the Book.

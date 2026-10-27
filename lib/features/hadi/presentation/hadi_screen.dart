@@ -1,3 +1,4 @@
+import '../../../app/core/scholar_review.dart';
 import 'dart:async';
 
 import '../../../app/core/tight_layout.dart';
@@ -1355,6 +1356,11 @@ class _Bubble extends ConsumerWidget {
                           ),
                         ),
                         for (final Passage p in passages) _PassageCard(passage: p),
+                        const ScholarReviewNote(
+                          key: Key('hadi-review-note'),
+                          reviewKey: 'hadi',
+                          padding: EdgeInsets.only(top: 8),
+                        ),
                         if (message.notes.isNotEmpty)
                           HadiNotesPanel(notes: message.notes),
                         if (message.crisis != null)
