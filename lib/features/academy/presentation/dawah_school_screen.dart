@@ -42,7 +42,7 @@ const List<_DawUnit> kDawahUnits = <_DawUnit>[
       ),
       _DawLesson(
         title: 'The Taif Standard',
-        body: 'When the people of Taif stoned him until his shoes filled with blood, the angel of the mountains came and offered to crush the city. The Prophet \ufdfa said: no — perhaps Allah will bring forth from them those who will worship Him alone (Bukhari 3231). The caller\u2019s job is to deliver, not to destroy.',
+        body: 'On the hardest day he had known, after he was turned away at Taif, the Angel of the Mountains offered to let two mountains fall on those who had rejected him. The Prophet \ufdfa said: no, he hoped Allah would bring from them children who would worship Allah alone (Bukhari 3231). The seerah sources add that he was driven out and stoned there; that detail is not in the hadith. The caller\u2019s job is to deliver, not to destroy.',
         practice: 'When someone mocks your faith this week, respond with the Taif standard — no counter-mockery, no argument. Deliver the mercy, release the result.',
       ),
       _DawLesson(
