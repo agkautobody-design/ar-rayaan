@@ -46,14 +46,14 @@
    "version": 7
   },
   "stories/ghayb.json": {
-   "bytes": 84523,
-   "sha256": "da66d7714fb0aad69c500905362544af4cf2ad97e960dedd4d749d9db1dec387",
-   "version": 5
+   "bytes": 96022,
+   "sha256": "408c34a7eb9e95d1b37b4bdf5718c127cb7ef832adf7b15743949e9776eba24d",
+   "version": 6
   },
   "stories/khutbahs.json": {
-   "bytes": 53868,
-   "sha256": "645392f3cff2179347cfdb29533efe81b970c428e02f71abc5c451ef431da65e",
-   "version": 8
+   "bytes": 65384,
+   "sha256": "f1b92f1d0c603ef474f05cbc5690444fe5f0cdecdab253265bb1a883337ff3cd",
+   "version": 9
   },
   "stories/modernhadith.json": {
    "bytes": 54788,
@@ -76,14 +76,14 @@
    "version": 6
   },
   "stories/signs.json": {
-   "bytes": 20623,
-   "sha256": "76da60a97f55e0559d47500cd11f72706dc54efc350447973d0a2099a0e0fdfa",
-   "version": 5
+   "bytes": 21442,
+   "sha256": "a5780422bff8932a0cdf83543ca7e6202d18bd30a8287ba44c56702b16a85184",
+   "version": 6
   },
   "stories/tales.json": {
-   "bytes": 24708,
-   "sha256": "0e2f2f5379ebb5dbec20dd2929d3069b2610ad5575514c6f126742972e577412",
-   "version": 6
+   "bytes": 25328,
+   "sha256": "592d5450a5dbe5cddd935d848915cea5d2111d7a3d24db9369f54a57f31cf184",
+   "version": 7
   },
   "stories/women.json": {
    "bytes": 44342,

@@ -315,7 +315,7 @@ const List<TextPackSpec> kTextPackSpecs = <TextPackSpec>[
     subtitle:
         'The prophets’ family tree, guided paths, trivia, the 99 '
         'Names and the question bank',
-    estimatedBytes: 130000,
+    estimatedBytes: 260000,
     entries: <String>[
       'assets/family/tree.json',
       'assets/feelings/feelings.json',
