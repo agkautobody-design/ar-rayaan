@@ -17,7 +17,7 @@ import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../hadith/application/hadith_providers.dart';
 import '../../hadith/domain/hadith_models.dart';
-import '../../share/application/share_text.dart';
+import '../../share/application/share_service.dart';
 import '../../share/presentation/share_actions.dart';
 
 /// The teaching layer for the Forty: one entry per hadith in sequence.
@@ -333,7 +333,7 @@ const List<_HadithLesson> kHadithLessons = <_HadithLesson>[
 /// One Hadith School lesson as plain text: its title, the Arabic when the
 /// lesson teaches one of the Forty, the meaning, the "carry it" line, the
 /// source and the app credit. Nothing is added to what the lesson says.
-String _lessonShareText(_HadithLesson l, List<Hadith>? collection) {
+ShareDoc _lessonShareDoc(_HadithLesson l, List<Hadith>? collection) {
   final int? n = l.nawawi;
   String? arabic;
   if (n != null && collection != null) {
@@ -341,10 +341,11 @@ String _lessonShareText(_HadithLesson l, List<Hadith>? collection) {
       if (h.number == n) arabic = h.arabic;
     }
   }
-  return composeShareText(
+  return ShareDoc.lesson(
     title: l.title,
     arabic: arabic,
     body: '${l.meaning}\n\nCarry it: ${l.character}',
+    reviewKey: 'school.hadith-school',
     source: n != null
         ? 'The Forty Hadith of Imam an-Nawawi, no. $n'
         : (l.source ??
@@ -456,12 +457,11 @@ class HadithSchoolScreen extends ConsumerWidget {
                         ),
                         Align(
                           alignment: Alignment.centerRight,
-                          child: ShareCopyButtons(
-                            text: _lessonShareText(
+                          child: ShareButton(
+                            doc: _lessonShareDoc(
                               kHadithLessons[i],
                               hadiths.valueOrNull,
                             ),
-                            title: kHadithLessons[i].title,
                             subject: 'this lesson',
                           ),
                         ),

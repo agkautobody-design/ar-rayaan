@@ -13,7 +13,7 @@ import '../../../app/theme/widgets/speak_button.dart';
 import '../../../app/theme/widgets/whole_word_text.dart';
 import '../../habits/application/return_loop.dart';
 import '../../habits/presentation/quiet_done.dart';
-import '../../share/application/share_text.dart';
+import '../../share/application/share_service.dart';
 import '../../share/presentation/share_actions.dart';
 import '../application/adhkar_providers.dart';
 import '../domain/adhkar_models.dart';
@@ -404,14 +404,14 @@ class _DhikrCard extends ConsumerWidget {
                   SpeakButton(text: dhikr.translation!, size: 24),
                   // Only a dhikr that carries its source can be shared.
                   if (dhikr.source != null)
-                    ShareCardButton(
-                      text: composeShareText(
+                    ShareButton(
+                      doc: ShareDoc.dhikr(
                         title: set.titleEn,
                         arabic: dhikr.arabic,
-                        body: dhikr.translation!,
+                        translation: dhikr.translation!,
                         source: dhikr.source,
+                        reviewKey: 'dua.adhkar',
                       ),
-                      title: set.titleEn,
                       subject: 'this dhikr',
                     ),
                 ],

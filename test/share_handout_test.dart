@@ -5,6 +5,7 @@ import 'package:ar_rayaan/features/hadi/grounding/passage.dart';
 import 'package:ar_rayaan/features/hadi/presentation/hadi_screen.dart';
 import 'package:ar_rayaan/features/hadith/domain/hadith_models.dart';
 import 'package:ar_rayaan/features/hadith/presentation/hadith_screen.dart';
+import 'package:ar_rayaan/features/share/application/share_service.dart';
 import 'package:ar_rayaan/features/share/application/share_text.dart';
 import 'package:ar_rayaan/features/share/domain/handout.dart';
 import 'package:ar_rayaan/features/share/presentation/handout_screen.dart';
@@ -13,6 +14,7 @@ import 'package:ar_rayaan/features/stories/domain/story.dart';
 import 'package:ar_rayaan/features/stories/presentation/story_reader_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 const Story _story = Story(
@@ -59,33 +61,21 @@ Future<void> _pump(WidgetTester tester, Widget child) => tester.pumpWidget(
     );
 
 void main() {
-  group('composeShareText', () {
-    test('carries the source line and the credit', () {
-      final String t = composeShareText(
-        title: 'Hadith 1',
-        arabic: 'عربي',
-        body: 'Actions are by intentions.',
-        source: 'Bukhari & Muslim',
-      );
-      expect(t, contains('Actions are by intentions.'));
-      expect(t, contains('— Bukhari & Muslim'));
-      expect(t.trimRight(), endsWith('Shared from Ar-Rayaan'));
-    });
+  group('copy feedback', () {
+    Widget copyButton(String text) => Builder(
+          builder: (BuildContext context) => IconButton(
+            key: const Key('test-copy'),
+            tooltip: 'Copy',
+            icon: const Icon(Icons.copy),
+            onPressed: () => copyWithFeedback(context, text),
+          ),
+        );
 
-    test('skips empty parts', () {
-      final String t = composeShareText(body: 'x');
-      expect(t, 'x\n\nShared from Ar-Rayaan');
-    });
-  });
-
-  group('copy and share feedback', () {
     testWidgets('copy puts the text on the clipboard and says Copied',
         (tester) async {
       _install(tester);
-      await _pump(tester, const ShareCopyButtons(text: 'hello'));
-      final Finder copy = find.byKey(const Key('share-copy'));
-      expect(tester.getSize(copy).shortestSide, greaterThanOrEqualTo(48));
-      await tester.tap(copy);
+      await _pump(tester, copyButton('hello'));
+      await tester.tap(find.byKey(const Key('test-copy')));
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 300));
       expect(_copied, 'hello');
@@ -95,20 +85,36 @@ void main() {
     testWidgets('a blocked clipboard still gets a visible message',
         (tester) async {
       _install(tester, blocked: true);
-      await _pump(tester, const ShareCopyButtons(text: 'hello'));
-      await tester.tap(find.byKey(const Key('share-copy')));
+      await _pump(tester, copyButton('hello'));
+      await tester.tap(find.byKey(const Key('test-copy')));
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 300));
       expect(find.textContaining('Could not copy'), findsOneWidget);
     });
+  });
 
-    testWidgets('the copy button has a tooltip', (tester) async {
-      _install(tester);
-      await _pump(
-        tester,
-        const ShareCopyButtons(text: 'x', subject: 'this hadith'),
+  group('the share button', () {
+    testWidgets('has a tooltip naming what is shared and is 48dp',
+        (tester) async {
+      await tester.pumpWidget(
+        ProviderScope(
+          child: MaterialApp(
+            home: Scaffold(
+              body: Center(
+                child: ShareButton(
+                  doc: ShareDoc.invite(),
+                  subject: 'this hadith',
+                ),
+              ),
+            ),
+          ),
+        ),
       );
-      expect(find.byTooltip('Copy this hadith'), findsOneWidget);
+      expect(find.byTooltip('Share this hadith'), findsOneWidget);
+      expect(
+        tester.getSize(find.byKey(const Key('share-card'))).shortestSide,
+        greaterThanOrEqualTo(48),
+      );
     });
   });
 
@@ -119,6 +125,8 @@ void main() {
       expect(t, contains('لَا تَحْزَنْ'));
       expect(t, contains("Qur'an 9:40; Sahih al-Bukhari 3653"));
       expect(t, contains('Shared from Ar-Rayaan'));
+      expect(t, contains('Scholar review needed'));
+      expect(t.trimRight(), endsWith(kInviteUrl));
     });
 
     test('an unverified story says so in what it shares', () {

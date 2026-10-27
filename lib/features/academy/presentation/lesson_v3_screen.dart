@@ -18,6 +18,7 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
+import '../../share/application/share_service.dart';
 import '../../share/presentation/share_actions.dart';
 import '../application/academy_providers.dart';
 import '../application/academy_strings.dart';
@@ -187,6 +188,18 @@ class _LessonV3ScreenState extends ConsumerState<LessonV3Screen> {
   void _pass(String stepId) {
     if (_passed.contains(stepId)) return;
     setState(() => _passed.add(stepId));
+  }
+
+  /// What the lesson teaches, as text. Never that anyone finished it.
+  ShareDoc _shareDoc() {
+    String text = lessonPlainText(_lesson, _r);
+    final String lead = '${_lesson.title}. ';
+    if (text.startsWith(lead)) text = text.substring(lead.length);
+    return ShareDoc.lesson(
+      title: _lesson.title,
+      body: text,
+      reviewKey: 'lesson.${_lesson.id}',
+    );
   }
 
   LessonGrounding get _grounding => LessonGrounding(
@@ -432,9 +445,8 @@ class _LessonV3ScreenState extends ConsumerState<LessonV3Screen> {
                             ),
                           ),
                         ),
-                        ShareCopyButtons(
-                          text: lessonPlainText(_lesson, _r),
-                          title: _lesson.title,
+                        ShareButton(
+                          doc: _shareDoc(),
                           subject: 'this lesson',
                         ),
                       ],
