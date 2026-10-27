@@ -131,6 +131,7 @@ abstract final class RouteTitles {
 
   /// Paths with an id: matched by prefix, most specific first.
   static const List<(String, String)> _prefixes = <(String, String)>[
+    ('/support/', 'Support'),
     ('/quran/madinah/', 'Qur’an Page View'),
     ('/quran/', 'Qur’an'),
     ('/finance/rayaan/', 'Rayaan Lesson'),
