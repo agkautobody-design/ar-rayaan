@@ -34,6 +34,16 @@ void main() {
     }
   });
 
+  test('"download for offline in this app" is not a why-is-Hadi-offline question',
+      () {
+    expect(
+      HadiFinder.asksWhyOffline(
+          "Where do I download the Qur'an for offline reading in this app?"),
+      isFalse,
+    );
+    expect(HadiFinder.asksWhyOffline('why is hadi offline'), isTrue);
+  });
+
   test('both screens are whitelisted for Hadi buttons', () {
     expect(HadiTokens.isAllowed('/streaks'), isTrue);
     expect(HadiTokens.isAllowed('/downloads'), isTrue);
