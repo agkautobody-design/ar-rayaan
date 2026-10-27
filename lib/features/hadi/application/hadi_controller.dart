@@ -18,6 +18,7 @@ import '../../../app/core/subscription/subscription_service.dart';
 import '../../sakina/application/sakina_providers.dart';
 import '../../sakina/domain/crisis_detector.dart';
 import '../data/groq_hadi_provider.dart';
+import '../data/hadi_core.dart';
 import '../data/hadi_explain.dart';
 import '../data/hadi_finder.dart';
 import '../data/hadi_routing.dart';
@@ -874,7 +875,10 @@ class HadiController extends Notifier<HadiState> {
         crisis == null && OfflineHadiProvider.griefReply(q) != null;
 
     // Rulings about one person's own case are never answered by a model.
-    final RulingClass ruling = (crisis == null && !grief)
+    // A few built-in answers are general and safe to give even though the
+    // question reads like a ruling about one person ("Is it okay to hit my
+    // wife?"): those are answered, not handed over.
+    final RulingClass ruling = (crisis == null && !grief && !HadiCore.claims(q))
         ? RulingGate.classify(q)
         : RulingClass.none;
     if (ruling == RulingClass.personal) {
@@ -980,7 +984,9 @@ class HadiController extends Notifier<HadiState> {
           shelf = await const OfflineHadiProvider().ask(q, history);
         } catch (_) {}
         final bool refusal = HadiRouting.isRefusal(shelf);
-        final bool pointer = !refusal && shelf.contains('[GO:');
+        final bool pointer = !refusal &&
+            shelf.contains('[GO:') &&
+            !HadiCore.isCoreAnswer(shelf);
         if ((refusal || pointer) &&
             !isNavigationLike(q) &&
             !LocalKnowledge.looksLikeLookup(q)) {
@@ -1165,7 +1171,11 @@ class HadiController extends Notifier<HadiState> {
       sources = AnswerVerifier.citedIds(
         clean,
         corpus,
-        limit: HadiExplain.isComposed(clean) ? 2 : 5,
+        limit: HadiExplain.isComposed(clean)
+            ? 2
+            : HadiCore.isCoreAnswer(clean)
+                ? 6
+                : 5,
       );      // Said once per conversation, plainly: with no key, every answer here
       // comes from the app's built-in checked library and nothing else.
       if (!grief &&
