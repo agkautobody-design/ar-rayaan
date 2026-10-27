@@ -20,6 +20,9 @@ void main() {
     'huda-nawafil', 'huda-witr', 'huda-sujud-sahw', 'huda-prayer-times',
     'huda-congregation', 'huda-travel-prayer', 'huda-janazah-wash',
     'huda-janazah-prayer', 'huda-janazah-burial', 'huda-mosque',
+    'huda-fasting', 'huda-taraweeh', 'huda-istikhara', 'huda-halal-food',
+    'huda-nikah', 'huda-baby', 'huda-oaths', 'huda-zakat', 'huda-quran-daily',
+    'huda-children-deen',
   ];
 
   test('rewritten and new worship guides exist with a note on the schools', () {
@@ -64,5 +67,28 @@ void main() {
         expect(t.trim().length, greaterThan(20), reason: '${g['id']}: $t');
       }
     }
+  });
+
+  test('wording that had no source is gone', () {
+    final String all = guides
+        .map((Map<String, dynamic> g) =>
+            (g['steps'] as List<dynamic>).join('\n') +
+            ((g['madhhabNote'] as String?) ?? ''))
+        .join('\n');
+    for (final String bad in <String>[
+      'cracked vessel',
+      'Umar established twenty',
+      'takes seven minutes',
+      'Baihaqi',
+      'Tabarani',
+      'Daraqutni',
+    ]) {
+      expect(all.contains(bad), isFalse, reason: bad);
+    }
+  });
+
+  test('the new guide ids are registered for Hadi', () {
+    expect(byId.containsKey('huda-halal-food'), isTrue);
+    expect(guides.length, 61);
   });
 }

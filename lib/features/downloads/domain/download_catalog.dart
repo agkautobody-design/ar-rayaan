@@ -251,7 +251,7 @@ const List<TextPackSpec> kTextPackSpecs = <TextPackSpec>[
     id: 'text-guides',
     title: 'Huda worship guides',
     subtitle: 'Step-by-step guides',
-    estimatedBytes: 80000,
+    estimatedBytes: 200000,
     entries: <String>['assets/guides/guides.json'],
   ),
   TextPackSpec(
