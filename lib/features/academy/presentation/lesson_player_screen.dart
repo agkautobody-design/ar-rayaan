@@ -817,6 +817,24 @@ class _CheckItem extends StatelessWidget {
   }
 }
 
+/// Opens the "Ask Wasia" sheet for [lesson] (shared by the v3 lesson player).
+Future<void> showLessonWasiaSheet(
+  BuildContext context,
+  WidgetRef ref,
+  LessonGrounding lesson,
+) async {
+  ref.read(wasiaControllerProvider.notifier).openLesson(lesson.id);
+  await showModalBottomSheet<void>(
+    context: context,
+    isScrollControlled: true,
+    backgroundColor: Colors.transparent,
+    builder: (BuildContext ctx) => Padding(
+      padding: EdgeInsets.only(bottom: MediaQuery.viewInsetsOf(ctx).bottom),
+      child: _LessonWasiaSheet(lesson: lesson),
+    ),
+  );
+}
+
 /// Ask Wasia about THIS lesson. She answers from the lesson's own words (and,
 /// where a parent has allowed the AI service for children, from the AI with
 /// the lesson as the only ground, every reply checked first).

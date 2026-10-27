@@ -1,0 +1,135 @@
+{
+ "bukhari:135": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Huraira: the prayer of one who has passed hadath is not accepted until wudu; hadath explained as passing wind",
+  "verdict": "ok"
+ },
+ "bukhari:165": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Huraira: perfect the wudu; save the heels from the Fire",
+  "verdict": "ok"
+ },
+ "bukhari:350": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Aisha: prayer was first enjoined as two rak'ahs, left so on journey, increased for the resident",
+  "verdict": "ok"
+ },
+ "bukhari:689": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Anas: the Prophet fell from a horse and prayed sitting; the imam's sami'a-llahu liman hamidah and rabbana wa lakal-hamd",
+  "verdict": "ok"
+ },
+ "bukhari:757": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Huraira: the man who prayed badly; go back and pray; stillness in each position",
+  "verdict": "ok"
+ },
+ "bukhari:780": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Huraira: say Amin when the imam says it",
+  "verdict": "ok"
+ },
+ "bukhari:1117": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Imran ibn Husayn: pray standing, else sitting, else on your side",
+  "verdict": "ok"
+ },
+ "muslim:121": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Amr ibn al-As: Islam wipes out what came before it",
+  "verdict": "ok"
+ },
+ "muslim:243": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Umar/Jabir: a man left a nail's breadth dry; the Prophet told him to go back and make wudu well",
+  "verdict": "ok"
+ },
+ "muslim:403": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Ibn Abbas: the Prophet taught the tashahhud as he taught a surah",
+  "verdict": "ok"
+ },
+ "muslim:406": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Ka'b ibn Ujra: how to send blessings on the Prophet (salawat)",
+  "verdict": "ok"
+ },
+ "muslim:612": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abdullah ibn Amr: the times of the five prayers",
+  "verdict": "ok"
+ },
+ "abudawud:61": {
+  "checked": "2026-10-27",
+  "grade": "Hasan Sahih",
+  "grader": "Al-Albani",
+  "note": "Ali: the key to prayer is purification, its beginning is takbir, its end is taslim",
+  "verdict": "ok"
+ },
+ "abudawud:101": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Al-Albani",
+  "note": "Abu Huraira: no prayer without wudu, and no wudu without mentioning the name of Allah",
+  "verdict": "ok"
+ },
+ "abudawud:355": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Al-Albani",
+  "note": "Qays ibn Asim: told to wash with water and lote leaves when entering Islam",
+  "verdict": "ok"
+ },
+ "abudawud:832": {
+  "checked": "2026-10-27",
+  "grade": "Hasan",
+  "grader": "Al-Albani",
+  "note": "Abdullah ibn Abi Awfa: a man who could not learn the Qur'an is taught five phrases of dhikr",
+  "verdict": "ok"
+ },
+ "abudawud:874": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Al-Albani",
+  "note": "Hudhayfah: the night prayer; between the two prostrations rabbi ighfir li",
+  "verdict": "ok"
+ },
+ "abudawud:996": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Al-Albani",
+  "note": "Ibn Mas'ud: the Prophet gave the salam to his right and left",
+  "verdict": "ok"
+ },
+ "nasai:78": {
+  "checked": "2026-10-27",
+  "grade": "Sahih Isnaad",
+  "grader": "Al-Albani",
+  "note": "Anas: the Companions looked for water for wudu; the Prophet said to make wudu with the name of Allah",
+  "verdict": "ok"
+ }
+}

@@ -1,0 +1,2167 @@
+{
+ "schema": 3,
+ "course": "the-path",
+ "lessons": [
+  {
+   "id": "path.u0.l1",
+   "title": "Welcome, and the shahada",
+   "minutes": 15,
+   "intro": "Learn the sentence that begins Islam: how to say it, what it means, and what comes next.",
+   "steps": [
+    {
+     "id": "welcome",
+     "kind": "teach",
+     "title": "You are welcome here",
+     "body": [
+      "Whatever brought you here, you are welcome. You do not need to know anything yet.",
+      "In this lesson you will learn the one sentence Muslims say to enter Islam: how it sounds, how it is written in Arabic, what each word means, and how it is said. It takes about fifteen minutes.",
+      "There are no timers here. If an answer is wrong, you will be shown why, and you can try again."
+     ]
+    },
+    {
+     "id": "hadi",
+     "kind": "teach",
+     "title": "Meet Hādi, your guide",
+     "body": [
+      "Hādi is the guide inside Ar-Rayaan. You can ask anything, at any time: how to pray, what a word means, what Islam teaches about a hard moment.",
+      "Every answer shows its source on the screen, so you can see where it comes from and check it. If Hādi is not sure, Hādi says so."
+     ]
+    },
+    {
+     "id": "pillars",
+     "kind": "teach",
+     "title": "The first of five",
+     "label": "[Established]",
+     "source": "Bukhari 8; Muslim 379; Muslim 403",
+     "body": [
+      "The Prophet Muhammad ﷺ said that Islam is built on five pillars (Bukhari 8). The first is the shahada, the sentence you are about to learn. The other four are the prayer, charity (zakat), the pilgrimage to Makkah (Hajj), and fasting in Ramadan.",
+      "You will hear the shahada again every day: in the call to prayer (Muslim 379), and in every prayer, where it is part of the words said while sitting (Muslim 403). You do not have to do all five pillars today. The shahada comes first, and the rest are learned step by step."
+     ]
+    },
+    {
+     "id": "shahada",
+     "kind": "say",
+     "title": "The shahada",
+     "refs": [
+      "shahada.full"
+     ],
+     "label": "[Established]",
+     "source": "Muslim 403 (these are the words)",
+     "note": "Read it slowly, one half at a time. The first half is about Allah. The second half is about the Prophet ﷺ. Say it out loud if you can. There is no hurry."
+    },
+    {
+     "id": "half1",
+     "kind": "teach",
+     "title": "Half one: only Allah is worthy of worship",
+     "label": "[Interpretive]",
+     "source": "Bukhari 1395",
+     "review": "Explanation of the meaning of la ilaha illa Allah (the word ilah). Standard, but worded by the app author.",
+     "body": [
+      "La ilaha illa Allah means: there is no god but Allah. In Arabic, an ilah is whatever people worship, love above all, or depend on. The sentence first takes away (\"no god\") and then affirms (\"except Allah\").",
+      "So you are saying: nothing and no one is worthy of my worship and my deepest trust except Allah alone. The Prophet ﷺ taught the same when he told Mu’adh to invite people to testify that none has the right to be worshipped but Allah (Bukhari 1395)."
+     ]
+    },
+    {
+     "id": "half2",
+     "kind": "teach",
+     "title": "Half two: Muhammad ﷺ is the Messenger of Allah",
+     "label": "[Interpretive]",
+     "source": "Qur’an 34:28",
+     "review": "Explanation of what believing in the Messenger means (trust, obey, avoid, worship as taught). Standard, but worded by the app author.",
+     "body": [
+      "A rasool is a messenger: someone sent with a message. You are saying that Allah sent Muhammad ﷺ to all people, with the Qur’an (34:28).",
+      "Believing this means you trust what he told us, do what he commanded, stay away from what he forbade, and worship Allah only in the ways he taught. That is why the next lessons teach you how he made wudu and how he prayed.",
+      "He is the servant and messenger of Allah. Muslims love and honor him, but only Allah is worshipped."
+     ]
+    },
+    {
+     "id": "hear",
+     "kind": "listen",
+     "title": "Hear it in the Qur’an",
+     "ref": "q:47:19",
+     "repeats": 2,
+     "note": "The Qur’an says the first half too, in this ayah. Listen to how it is recited. Then say the first half aloud in the pause."
+    },
+    {
+     "id": "howto",
+     "kind": "howto",
+     "title": "How and when it is said",
+     "label": "[Interpretive]",
+     "source": "Abu Dawud 355 (graded sahih by al-Albani)",
+     "review": "Practical guidance on how a person enters Islam: no witness or ceremony required (general scholarly view); ghusl required or recommended (schools differ).",
+     "intro": "There is no ceremony, and you do not need anyone’s permission. This is the simple way.",
+     "steps": [
+      {
+       "text": "Know what you are saying.",
+       "detail": "That is what the last cards were for. Say it only when you mean it."
+      },
+      {
+       "text": "Say it aloud, in Arabic, once.",
+       "detail": "Say it as well as you can and keep practising. A beginner’s accent is not a problem. You can say it with a Muslim friend or imam, or say it with this lesson."
+      },
+      {
+       "text": "Mean it in your heart.",
+       "detail": "Islam is entered by sincere belief together with the words."
+      },
+      {
+       "text": "Say it alone, or in front of a Muslim.",
+       "detail": "Many people say it at a mosque or with a friend, and Muslims will be glad to welcome you. Scholars generally do not require a witness or a ceremony."
+      },
+      {
+       "text": "Wash, and put on clean clothes, if you can.",
+       "detail": "The Prophet ﷺ told a man who came to him to enter Islam to take a bath (Abu Dawud 355, graded sahih by al-Albani). Scholars differ on whether this bath is required or only recommended. All agree it is good."
+      }
+     ],
+     "mistakes": [
+      "Waiting until you feel ready or good enough. You do not have to fix anything first.",
+      "Thinking you must learn all of Arabic, or the whole prayer, before you begin. The prayer is learned after.",
+      "Saying it as a joke or just to repeat it. It is a promise, so say it when you mean it."
+     ]
+    },
+    {
+     "id": "mercy",
+     "kind": "why",
+     "title": "Never despair",
+     "label": "[Established]",
+     "source": "Qur’an 39:53; Muslim 121",
+     "quran": "q:39:53",
+     "body": [
+      "If you are thinking about things you did in the past, hear this ayah. Allah speaks to people who have wronged themselves, and tells them not to lose hope.",
+      "The Prophet ﷺ taught that Islam wipes out what came before it (Muslim 121). A new Muslim begins with a clean page."
+     ]
+    },
+    {
+     "id": "next",
+     "kind": "teach",
+     "title": "What comes next",
+     "label": "[Established]",
+     "source": "Bukhari 1395; Bukhari 39",
+     "body": [
+      "After the testimony of faith, the Prophet ﷺ taught that the next duty is the five daily prayers (Bukhari 1395). On this Path you will go there one lesson at a time: first wudu, then your first prayer, then Al-Fatihah.",
+      "You do not need to do everything at once. The Prophet ﷺ said that the religion is easy, and that whoever makes it too hard for himself will not be able to keep it up (Bukhari 39). Do what you can, sincerely, and keep going."
+     ]
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "Put them in order",
+     "prompt": "Put these steps in the order a new Muslim usually follows them.",
+     "items": [
+      {
+       "text": "Learn what the shahada means",
+       "why": "You say it only when you understand it and mean it.",
+       "back": "half1"
+      },
+      {
+       "text": "Say the shahada aloud",
+       "why": "Saying it is what enters a person into Islam. Everything else follows it.",
+       "back": "howto"
+      },
+      {
+       "text": "Learn how to wash for prayer (wudu)",
+       "why": "Prayer needs wudu first, so wudu is learned before the prayer.",
+       "back": "next"
+      },
+      {
+       "text": "Learn to pray, one step at a time",
+       "why": "The prayer comes after the testimony of faith. You learn it step by step, not all at once.",
+       "back": "next"
+      }
+     ],
+     "explain": "The shahada comes first. Then you learn to wash, then to pray. The Prophet ﷺ told Mu’adh to start with the testimony of faith and only then teach the prayer (Bukhari 1395)."
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the words",
+     "prompt": "Match each Arabic line or word to its meaning. Tap one on the left, then its meaning on the right.",
+     "pairs": [
+      {
+       "left": {
+        "ref": "shahada.tawhid"
+       },
+       "right": {
+        "text": "There is no god but Allah"
+       },
+       "why": "This first half is about Allah: no god, except Allah.",
+       "back": "shahada"
+      },
+      {
+       "left": {
+        "ref": "shahada.risala"
+       },
+       "right": {
+        "text": "Muhammad is the Messenger of Allah"
+       },
+       "why": "This second half is about the Prophet ﷺ: Muhammad, the messenger of Allah.",
+       "back": "shahada"
+      },
+      {
+       "left": {
+        "word": "shahada.tawhid#0"
+       },
+       "right": {
+        "text": "I bear witness"
+       },
+       "why": "Ash-hadu means I bear witness: I declare that what I say is true.",
+       "back": "shahada"
+      },
+      {
+       "left": {
+        "word": "shahada.risala#3"
+       },
+       "right": {
+        "text": "messenger of"
+       },
+       "why": "Rasoolu means messenger of. It comes just before the word Allah.",
+       "back": "half2"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1",
+       "q": "What does ash-hadu mean?",
+       "options": [
+        {
+         "text": "I bear witness"
+        },
+        {
+         "text": "I will pray",
+         "reteach": "Not quite. The word for praying is different. Ash-hadu means I bear witness, which is why the shahada starts with it.",
+         "back": "shahada"
+        },
+        {
+         "text": "I give thanks",
+         "reteach": "Not quite. Ash-hadu means I bear witness: you are declaring that what follows is true.",
+         "back": "shahada"
+        }
+       ],
+       "answer": 0,
+       "explain": "Ash-hadu means I bear witness. The shahada is a witness you give.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2",
+       "q": "Which pillar of Islam is the shahada?",
+       "options": [
+        {
+         "text": "The fifth",
+         "reteach": "No. The fifth is the pilgrimage to Makkah (Hajj). The shahada is where Islam begins.",
+         "back": "pillars"
+        },
+        {
+         "text": "The second",
+         "reteach": "No. The second is the prayer. The shahada comes before it.",
+         "back": "pillars"
+        },
+        {
+         "text": "The first"
+        }
+       ],
+       "answer": 2,
+       "explain": "The shahada is the first pillar of Islam (Bukhari 8).",
+       "type": "mcq"
+      },
+      {
+       "id": "c3",
+       "q": "Which Arabic word in the first half means god?",
+       "options": [
+        {
+         "word": "shahada.tawhid#0",
+         "reteach": "That word is ash-hadu, I bear witness. The word for god is ilaha.",
+         "back": "shahada"
+        },
+        {
+         "word": "shahada.tawhid#3"
+        },
+        {
+         "word": "shahada.tawhid#5",
+         "reteach": "That word is Allah, the One we worship. Ilaha is the word for god, the word that is taken away in the first half.",
+         "back": "half1"
+        }
+       ],
+       "answer": 1,
+       "explain": "Ilaha means god. The first half says: no ilaha, except Allah.",
+       "type": "fill",
+       "fill": {
+        "ref": "shahada.tawhid",
+        "blank": 3,
+        "show": "arabic"
+       }
+      },
+      {
+       "id": "c4",
+       "q": "Which word completes the second half?",
+       "options": [
+        {
+         "text": "ilaaha",
+         "reteach": "Ilaaha means god. It is in the first half. The second half ends with the word for messenger.",
+         "back": "half2"
+        },
+        {
+         "text": "akbar",
+         "reteach": "Akbar means greatest. It is in the takbir you will meet in the prayer. The second half ends with the word for messenger.",
+         "back": "half2"
+        },
+        {
+         "text": "rasoolul-laah"
+        }
+       ],
+       "answer": 2,
+       "explain": "Wa ash-hadu anna Muhammadan rasoolul-laah: and I bear witness that Muhammad is the Messenger of Allah.",
+       "type": "fill",
+       "fill": {
+        "ref": "shahada.risala",
+        "blank": 4,
+        "show": "translit"
+       }
+      },
+      {
+       "id": "c5",
+       "q": "What would you tell your friend?",
+       "options": [
+        {
+         "text": "Good plan. Learn everything first, then say it.",
+         "reteach": "Not quite. The Prophet ﷺ told Mu’adh to begin with the testimony of faith, and only then to teach the prayer (Bukhari 1395).",
+         "back": "next"
+        },
+        {
+         "text": "The shahada comes first. Prayer is learned afterward, one step at a time."
+        },
+        {
+         "text": "You need a scholar’s permission before you can say it.",
+         "reteach": "There is no permission to wait for. Scholars generally do not require a witness or a ceremony. Sincere belief and the words are what count.",
+         "back": "howto"
+        }
+       ],
+       "answer": 1,
+       "explain": "The shahada is the doorway. The prayer is learned after you enter (Bukhari 1395).",
+       "type": "scenario",
+       "scenario": "A friend tells you: I want to become Muslim, but I will say the shahada only after I have learned to pray perfectly."
+      },
+      {
+       "id": "c6",
+       "q": "Where else will you hear the shahada every day?",
+       "options": [
+        {
+         "text": "In the call to prayer and in every prayer"
+        },
+        {
+         "text": "Only at weddings",
+         "reteach": "No. It is said at every call to prayer (Muslim 379) and in every prayer (Muslim 403), not only at special events.",
+         "back": "pillars"
+        },
+        {
+         "text": "Only during Ramadan",
+         "reteach": "No. It is said every day of the year, in the call to prayer and in the prayer itself.",
+         "back": "pillars"
+        }
+       ],
+       "answer": 0,
+       "explain": "It is in the call to prayer (Muslim 379) and in the words said while sitting in every prayer (Muslim 403).",
+       "type": "mcq"
+      },
+      {
+       "id": "c7",
+       "q": "What does the ayah we read (39:53) say to someone who has done wrong?",
+       "options": [
+        {
+         "text": "It is too late for you.",
+         "reteach": "No. The ayah says the opposite: do not despair of the mercy of Allah.",
+         "back": "mercy"
+        },
+        {
+         "text": "You must fix everything before Allah will listen.",
+         "reteach": "No. The ayah says Allah forgives all sins. You do not have to fix everything first.",
+         "back": "mercy"
+        },
+        {
+         "text": "Do not despair of Allah’s mercy. Allah forgives all sins."
+        }
+       ],
+       "answer": 2,
+       "explain": "Allah tells those who have wronged themselves not to lose hope: He forgives all sins (39:53).",
+       "type": "mcq"
+      },
+      {
+       "id": "c8",
+       "q": "Which line is the second half of the shahada, the half about the Prophet ﷺ?",
+       "options": [
+        {
+         "ref": "shahada.tawhid",
+         "reteach": "That line is the first half, about Allah. The second half ends with the word for messenger.",
+         "back": "shahada"
+        },
+        {
+         "ref": "shahada.risala"
+        }
+       ],
+       "answer": 1,
+       "explain": "The second half begins wa ash-hadu anna Muhammadan and ends rasoolul-laah.",
+       "type": "mcq"
+      }
+     ],
+     "title": "Check what you have learned"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Read the shahada in Arabic and say it aloud, word by word.",
+      "Say in your own words what each half means.",
+      "Say how and when it is said, and where you will hear it again.",
+      "Know what comes next on the Path: wudu, then your first prayer."
+     ],
+     "next": "Next: Wudu, step by step."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Say hello to Hādi",
+     "body": "Ask Hādi something you have been wondering about. Every answer shows where it comes from.",
+     "route": "/hadi",
+     "button": "Open Hādi"
+    }
+   ]
+  },
+  {
+   "id": "path.u1.l1",
+   "title": "Wudu, step by step",
+   "minutes": 20,
+   "intro": "Learn how to wash for prayer, in order, what to say, and what breaks it.",
+   "steps": [
+    {
+     "id": "why",
+     "kind": "why",
+     "title": "Why we wash before prayer",
+     "label": "[Established]",
+     "source": "Qur’an 5:6; Bukhari 135; Muslim 223",
+     "quran": "q:5:6",
+     "body": [
+      "Before you stand in front of Allah in prayer, you wash. This washing is called wudu. The Qur’an gives the command in this ayah.",
+      "The Prophet ﷺ said that the prayer of a person who has broken their wudu is not accepted until they make wudu again (Bukhari 135). He also said that cleanliness is half of faith (Muslim 223).",
+      "Wudu is also a calm moment before you pray. Allah asks for a clean body, and a ready heart."
+     ]
+    },
+    {
+     "id": "bismillah",
+     "kind": "say",
+     "title": "Begin with the name of Allah",
+     "refs": [
+      "wudu.bismillah"
+     ],
+     "label": "[Established]",
+     "source": "Abu Dawud 101 (graded sahih by al-Albani); Nasa’i 78 (sahih isnad per al-Albani)",
+     "note": "Say this quietly before your hands touch the water. If you forget at the start, say it when you remember. The schools differ on how strongly it is required, and you will see that in the table below."
+    },
+    {
+     "id": "steps",
+     "kind": "howto",
+     "title": "Wudu, step by step",
+     "label": "[Established]",
+     "source": "Bukhari 159 (how the Prophet ﷺ made wudu, as told by Uthman); Qur’an 5:6",
+     "review": "The limits of the face, wiping the ears, and the “to the elbows/ankles includes the elbows/ankles” wording follow the common teaching of the schools. Please confirm.",
+     "intro": "This is how the Prophet ﷺ made wudu, as Uthman described it. Clean water, a few minutes, no hurry.",
+     "steps": [
+      {
+       "text": "Intend in your heart to make wudu for prayer.",
+       "detail": "No words are needed. The intention is in your heart."
+      },
+      {
+       "text": "Say Bismillah."
+      },
+      {
+       "text": "Wash both hands up to the wrists.",
+       "count": "3 times"
+      },
+      {
+       "text": "Rinse your mouth.",
+       "count": "3 times",
+       "detail": "Take water in the right hand, swirl it in your mouth, and spit it out."
+      },
+      {
+       "text": "Sniff water into your nose, then blow it out.",
+       "count": "3 times"
+      },
+      {
+       "text": "Wash your whole face.",
+       "count": "3 times",
+       "detail": "From where the hair starts on your forehead down to the chin, and from ear to ear."
+      },
+      {
+       "text": "Wash your arms, right then left, up to and including the elbows.",
+       "count": "3 times each"
+      },
+      {
+       "text": "Wipe your head once with wet hands.",
+       "count": "once",
+       "detail": "Wet hands go from the front of the head to the back, then back to the front. Wipe the ears with wet fingers."
+      },
+      {
+       "text": "Wash your feet, right then left, up to and including the ankles.",
+       "count": "3 times each",
+       "detail": "Rub between the toes, and make sure the heels get water."
+      },
+      {
+       "text": "Say the dua after wudu.",
+       "detail": "You will learn it a few cards from now."
+      }
+     ],
+     "mistakes": [
+      "Leaving the heels dry. The Prophet ﷺ warned: save your heels from the fire (Bukhari 165).",
+      "Stopping before the elbows or the ankles. The ayah says to the elbows and to the ankles.",
+      "Hurrying. A thin dry patch means the wudu is not complete (Muslim 243, read on).",
+      "Wasting water. Use what you need."
+     ]
+    },
+    {
+     "id": "ayah",
+     "kind": "teach",
+     "title": "The four parts the Qur’an names",
+     "label": "[Established]",
+     "source": "Qur’an 5:6",
+     "quran": "q:5:6",
+     "body": [
+      "This ayah names four parts of wudu: wash the face, wash the arms to the elbows, wipe the head, and wash the feet to the ankles.",
+      "Everything else in the steps (hands, mouth, nose, saying Bismillah, doing each three times) is what the Prophet ﷺ did, and is done in his way."
+     ]
+    },
+    {
+     "id": "dua",
+     "kind": "say",
+     "title": "After wudu",
+     "refs": [
+      "wudu.dua"
+     ],
+     "label": "[Established]",
+     "source": "Muslim 234",
+     "note": "Say it when you finish. It is the shahada you learned in Lesson 1."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "Put the steps in order",
+     "prompt": "Put these parts of wudu in the order the Prophet ﷺ did them.",
+     "items": [
+      {
+       "text": "Wash the hands",
+       "why": "The hands come first. You use them for everything that follows.",
+       "back": "steps"
+      },
+      {
+       "text": "Rinse the mouth and nose",
+       "why": "Mouth and nose come right after the hands, before the face.",
+       "back": "steps"
+      },
+      {
+       "text": "Wash the face",
+       "why": "The face comes after the mouth and nose.",
+       "back": "steps"
+      },
+      {
+       "text": "Wash the arms to the elbows",
+       "why": "Arms come after the face, right then left.",
+       "back": "steps"
+      },
+      {
+       "text": "Wipe the head",
+       "why": "The head is wiped after the arms, and before the feet.",
+       "back": "steps"
+      },
+      {
+       "text": "Wash the feet to the ankles",
+       "why": "The feet come last.",
+       "back": "steps"
+      }
+     ],
+     "explain": "Hands, mouth and nose, face, arms, head, feet. The schools differ on whether keeping this order is required or recommended (see the table below)."
+    },
+    {
+     "id": "madhab",
+     "kind": "contrast",
+     "title": "Where the schools differ",
+     "label": "[Interpretive]",
+     "source": "The four Sunni schools; see Qur’an 5:6 and Bukhari 159",
+     "review": "Each row states the commonly taught position of each school on a wudu question. Needs a scholar to confirm the wording of every row.",
+     "intro": "All four schools agree on the four parts in the ayah. They differ on some details. If you follow a school, follow your school. If not, you can follow what is shown here and ask your imam.",
+     "rows": [
+      {
+       "name": "Intention in the heart",
+       "text": "Hanafi: recommended, but the wudu is valid without it. Maliki, Shafi’i and Hanbali: required."
+      },
+      {
+       "name": "Keeping the order",
+       "text": "Hanafi and Maliki: recommended. Shafi’i and Hanbali: required."
+      },
+      {
+       "name": "How much of the head",
+       "text": "Hanafi: about a quarter. Maliki and Hanbali: the whole head. Shafi’i: some part of it."
+      },
+      {
+       "name": "Saying Bismillah",
+       "text": "Hanbali: required, but dropped if forgotten. Hanafi, Maliki and Shafi’i: recommended."
+      },
+      {
+       "name": "Bleeding or vomiting a lot",
+       "text": "Hanafi and Hanbali: breaks wudu. Maliki and Shafi’i: does not break it."
+      },
+      {
+       "name": "Touching a woman who is not a close relative",
+       "text": "Shafi’i: breaks wudu. Maliki and Hanbali: breaks it only if with desire. Hanafi: does not break it."
+      }
+     ],
+     "closing": "These are differences between scholars who all take their rules from the Qur’an and the Sunnah. None of them is a mistake to correct in another Muslim."
+    },
+    {
+     "id": "breaks",
+     "kind": "teach",
+     "title": "What breaks wudu",
+     "label": "[Interpretive]",
+     "source": "Bukhari 135 (wind); the rest is the general teaching of the schools",
+     "review": "List of what breaks wudu and the statement that doubt does not break it. Standard, but worded by the app author.",
+     "body": [
+      "Your wudu stays until something breaks it. Most scholars agree on these:",
+      "Anything that comes out of the front or back passage: urine, stool, or wind (Bukhari 135). Deep sleep, and loss of the senses such as fainting. Scholars differ on light sleep while sitting.",
+      "Things the schools differ on include bleeding or vomiting a lot, and touching a woman. The table above shows some of them.",
+      "Doubt does not break wudu. If you are not sure whether it broke, you stay in wudu."
+     ],
+     "bullets": [
+      "Urine, stool or wind",
+      "Deep sleep, or fainting",
+      "Differences: see the table above"
+     ]
+    },
+    {
+     "id": "story",
+     "kind": "story",
+     "title": "The dry spot",
+     "label": "[Established]",
+     "source": "Muslim 243",
+     "body": [
+      "A man made wudu and left a spot the size of a fingernail dry. The Prophet ﷺ saw it and said to him: go back and make your wudu well. The man went back, made it well, and then prayed (Muslim 243).",
+      "The lesson is kind and clear. A missed part is easy to fix. You go back, wash it, and carry on. No one is shamed for it."
+     ]
+    },
+    {
+     "id": "wisdom",
+     "kind": "why",
+     "title": "What wudu does for you",
+     "label": "[Established]",
+     "source": "Muslim 244; Bukhari 159",
+     "body": [
+      "The Prophet ﷺ said that when a believer washes the face, the sins looked at with the eyes leave with the water. The same is said for the hands and feet (Muslim 244).",
+      "He also said that whoever makes wudu as he did, and prays two rak’ahs without letting the mind wander, will have their past sins forgiven (Bukhari 159)."
+     ]
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the part to what you do",
+     "prompt": "Match each part of the body to what you do for it in wudu.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Face"
+       },
+       "right": {
+        "text": "Wash, 3 times"
+       },
+       "why": "The face is washed three times, from the hairline to the chin and ear to ear.",
+       "back": "steps"
+      },
+      {
+       "left": {
+        "text": "Arms"
+       },
+       "right": {
+        "text": "Wash up to and including the elbows"
+       },
+       "why": "The ayah says to the elbows, and the arms are washed three times each, right then left.",
+       "back": "ayah"
+      },
+      {
+       "left": {
+        "text": "Head"
+       },
+       "right": {
+        "text": "Wipe once with wet hands"
+       },
+       "why": "The head is wiped, not washed, and only once.",
+       "back": "steps"
+      },
+      {
+       "left": {
+        "text": "Feet"
+       },
+       "right": {
+        "text": "Wash up to the ankles, including the heels"
+       },
+       "why": "The feet are washed to the ankles. The Prophet ﷺ warned about dry heels.",
+       "back": "steps"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "items": [
+      {
+       "id": "w1",
+       "q": "How many times do you wash the face?",
+       "options": [
+        {
+         "text": "Once",
+         "reteach": "Not quite. The Prophet ﷺ washed the face three times (Bukhari 159).",
+         "back": "steps"
+        },
+        {
+         "text": "As many times as you like",
+         "reteach": "Not quite. Three is the practice of the Prophet ﷺ. Doing more is wasteful.",
+         "back": "steps"
+        },
+        {
+         "text": "Three times"
+        }
+       ],
+       "answer": 2,
+       "explain": "The face is washed three times, as in Bukhari 159.",
+       "type": "mcq"
+      },
+      {
+       "id": "w2",
+       "q": "Which part is wiped, not washed?",
+       "options": [
+        {
+         "text": "The feet",
+         "reteach": "No. The feet are washed to the ankles.",
+         "back": "ayah"
+        },
+        {
+         "text": "The arms",
+         "reteach": "No. The arms are washed to the elbows.",
+         "back": "ayah"
+        },
+        {
+         "text": "The face",
+         "reteach": "No. The face is washed three times.",
+         "back": "steps"
+        },
+        {
+         "text": "The head"
+        }
+       ],
+       "answer": 3,
+       "explain": "The head is wiped once with wet hands.",
+       "type": "mcq"
+      },
+      {
+       "id": "w3",
+       "q": "What should you say first?",
+       "options": [
+        {
+         "text": "Allahu akbar",
+         "reteach": "That is the takbir, which starts the prayer. Wudu starts with Bismillah.",
+         "back": "bismillah"
+        },
+        {
+         "text": "Bismillah"
+        },
+        {
+         "text": "Nothing, wudu is silent",
+         "reteach": "Not quite. You begin with the name of Allah (Abu Dawud 101, graded sahih by al-Albani).",
+         "back": "bismillah"
+        }
+       ],
+       "answer": 1,
+       "explain": "You begin wudu by saying Bismillah, in the name of Allah.",
+       "type": "mcq"
+      },
+      {
+       "id": "w4",
+       "q": "Which word means “in the name of Allah”? Fill the gap.",
+       "options": [
+        {
+         "text": "Bismil-laah"
+        },
+        {
+         "text": "Subhaanal-laah",
+         "reteach": "That is “Glory be to Allah”. The first word of wudu is Bismil-laah.",
+         "back": "bismillah"
+        },
+        {
+         "text": "Alhamdulillaah",
+         "reteach": "That means “praise be to Allah”. Bismil-laah means “in the name of Allah”.",
+         "back": "bismillah"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bismil-laah means in the name of Allah.",
+       "type": "fill",
+       "fill": {
+        "ref": "wudu.bismillah",
+        "blank": 0,
+        "show": "translit"
+       }
+      },
+      {
+       "id": "w5",
+       "q": "After wudu, which line do you say?",
+       "options": [
+        {
+         "ref": "takbir",
+         "reteach": "That is the takbir, said when starting the prayer. After wudu, you say the shahada with “alone, no partner”.",
+         "back": "dua"
+        },
+        {
+         "ref": "wudu.dua"
+        },
+        {
+         "ref": "ruku.tasbih",
+         "reteach": "That is what you say when bowing in prayer. After wudu, you say the shahada.",
+         "back": "dua"
+        }
+       ],
+       "answer": 1,
+       "explain": "After wudu you say the shahada.",
+       "type": "mcq"
+      },
+      {
+       "id": "w6",
+       "q": "Which of these breaks your wudu?",
+       "options": [
+        {
+         "text": "Eating food",
+         "reteach": "No. Eating does not break wudu.",
+         "back": "breaks"
+        },
+        {
+         "text": "Doubting whether you broke it",
+         "reteach": "No. Doubt does not break wudu. You stay in wudu.",
+         "back": "breaks"
+        },
+        {
+         "text": "Passing wind"
+        },
+        {
+         "text": "Speaking",
+         "reteach": "No. Speaking does not break wudu.",
+         "back": "breaks"
+        }
+       ],
+       "answer": 2,
+       "explain": "Wind, urine and stool break wudu (Bukhari 135).",
+       "type": "mcq"
+      },
+      {
+       "id": "w7",
+       "q": "What do you do?",
+       "options": [
+        {
+         "text": "Pray anyway. It was only a small part.",
+         "reteach": "Not quite. A missed part leaves the wudu incomplete. The Prophet ﷺ told the man with the dry spot to go back and make it well (Muslim 243).",
+         "back": "story"
+        },
+        {
+         "text": "Go back, wash that arm, and then pray"
+        },
+        {
+         "text": "Do all of wudu again and skip the prayer.",
+         "reteach": "No need to skip the prayer. Just fix the wudu, then pray.",
+         "back": "story"
+        }
+       ],
+       "answer": 1,
+       "explain": "Go back and fix it, as in Muslim 243. If your school requires the order, also wash the parts after it again.",
+       "type": "scenario",
+       "scenario": "You are at work. You made wudu quickly, then realise that you skipped your left arm."
+      },
+      {
+       "id": "w8",
+       "q": "You made wudu and are now not sure whether you broke it. What do you do?",
+       "options": [
+        {
+         "text": "Start over from the beginning",
+         "reteach": "Not needed. Doubt alone does not break wudu.",
+         "back": "breaks"
+        },
+        {
+         "text": "Stay in wudu and pray"
+        },
+        {
+         "text": "Skip the prayer",
+         "reteach": "No. You stay in wudu and can pray.",
+         "back": "breaks"
+        }
+       ],
+       "answer": 1,
+       "explain": "Doubt does not break wudu. You stay in wudu.",
+       "type": "scenario",
+       "scenario": "You made wudu earlier and are not sure whether you broke it."
+      },
+      {
+       "id": "w9",
+       "q": "On which question do Hanafi and Shafi’i differ?",
+       "options": [
+        {
+         "text": "Whether the face is washed",
+         "reteach": "No. All schools wash the face. That is in the ayah.",
+         "back": "madhab"
+        },
+        {
+         "text": "Whether wudu is needed before prayer",
+         "reteach": "No. All schools agree wudu is needed for prayer.",
+         "back": "why"
+        },
+        {
+         "text": "Whether the order of wudu is required"
+        }
+       ],
+       "answer": 2,
+       "explain": "Hanafi: the order is recommended. Shafi’i: required.",
+       "type": "mcq"
+      },
+      {
+       "id": "w10",
+       "q": "What did the Prophet ﷺ say to the man who left a dry spot?",
+       "options": [
+        {
+         "text": "Your prayer is lost forever",
+         "reteach": "No. He told the man to go back and fix it, which is easy to do.",
+         "back": "story"
+        },
+        {
+         "text": "Go back and make your wudu well"
+        },
+        {
+         "text": "It does not matter",
+         "reteach": "Not quite. He said to go back and make the wudu well.",
+         "back": "story"
+        }
+       ],
+       "answer": 1,
+       "explain": "He told him to go back and make his wudu well (Muslim 243).",
+       "type": "mcq"
+      },
+      {
+       "id": "w11",
+       "lookback": "path.u0.l1#c2"
+      }
+     ],
+     "title": "Check what you have learned"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Make wudu in the right order, with counts.",
+      "Say Bismillah at the start and the dua at the end.",
+      "Know what breaks wudu and what does not.",
+      "Know where the four schools differ, and that they are all differences, not mistakes."
+     ],
+     "next": "Next: Your first prayer."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Find the next prayer time",
+     "body": "See when the next prayer begins. Make wudu a little before.",
+     "route": "/prayer",
+     "button": "Open prayer times"
+    }
+   ]
+  },
+  {
+   "id": "path.u2.l1",
+   "title": "Your first prayer",
+   "minutes": 25,
+   "intro": "Learn the five prayers and how to pray one rak’ah: what to say and do in each position.",
+   "steps": [
+    {
+     "id": "times",
+     "kind": "teach",
+     "title": "Five prayers a day",
+     "label": "[Established]",
+     "source": "Qur’an 4:103; Bukhari 350; Muslim 612; Bukhari 597",
+     "quran": "q:4:103",
+     "body": [
+      "Muslims pray five times a day, at set times. The ayah says that prayer is prescribed for the believers at fixed times.",
+      "Each prayer is made of units called rak’ahs. A rak’ah is one round of standing, bowing and prostrating. The five prayers are Fajr (2 rak’ahs), Dhuhr (4), Asr (4), Maghrib (3) and Isha (4).",
+      "The Prophet ﷺ set out when each prayer begins and ends (Muslim 612). Dhuhr lasts from midday until Asr begins. Your prayer-times page in the app works out these times for your place.",
+      "If you forget a prayer or sleep through it, the Prophet ﷺ said to pray it when you remember it (Bukhari 597)."
+     ],
+     "bullets": [
+      "Fajr: 2 rak’ahs",
+      "Dhuhr: 4 rak’ahs",
+      "Asr: 4 rak’ahs",
+      "Maghrib: 3 rak’ahs",
+      "Isha: 4 rak’ahs"
+     ],
+     "review": "The rak’ah counts are the consensus of all four schools. Bukhari 350 shows prayer was first two rak’ahs, then increased for the resident. Please confirm the wording."
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the prayer to its rak’ahs",
+     "prompt": "Match each prayer to how many rak’ahs it has and when it comes.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Fajr"
+       },
+       "right": {
+        "text": "2 rak’ahs, at dawn"
+       },
+       "why": "Fajr is the dawn prayer and it is two rak’ahs.",
+       "back": "times"
+      },
+      {
+       "left": {
+        "text": "Dhuhr"
+       },
+       "right": {
+        "text": "4 rak’ahs, just after midday"
+       },
+       "why": "Dhuhr is the noon prayer. It begins when the sun is at its highest, and it is four rak’ahs.",
+       "back": "times"
+      },
+      {
+       "left": {
+        "text": "Asr"
+       },
+       "right": {
+        "text": "4 rak’ahs, in the afternoon"
+       },
+       "why": "Asr is the afternoon prayer, and it is four rak’ahs.",
+       "back": "times"
+      },
+      {
+       "left": {
+        "text": "Maghrib"
+       },
+       "right": {
+        "text": "3 rak’ahs, just after sunset"
+       },
+       "why": "Maghrib is the sunset prayer. It is the only one of the five with three rak’ahs.",
+       "back": "times"
+      },
+      {
+       "left": {
+        "text": "Isha"
+       },
+       "right": {
+        "text": "4 rak’ahs, once night has set in"
+       },
+       "why": "Isha is the night prayer, and it is four rak’ahs.",
+       "back": "times"
+      }
+     ]
+    },
+    {
+     "id": "before",
+     "kind": "howto",
+     "title": "Before you start",
+     "label": "[Established]",
+     "source": "Qur’an 2:144; Bukhari 335; Bukhari 757",
+     "intro": "A few things to have ready. None of them is hard.",
+     "steps": [
+      {
+       "text": "Be in wudu.",
+       "detail": "You learned this in the last lesson."
+      },
+      {
+       "text": "Wear clean clothes that cover you modestly."
+      },
+      {
+       "text": "Find a clean place.",
+       "detail": "The Prophet ﷺ said that the earth has been made a place of prayer for him and for his followers, so anywhere clean will do (Bukhari 335). A prayer mat helps, but is not needed."
+      },
+      {
+       "text": "Face the qibla, the direction of the Kaaba in Makkah.",
+       "detail": "The Qur’an tells us to turn our faces to the Sacred Mosque (2:144). Use the qibla page in this app to find it."
+      },
+      {
+       "text": "Be sure the time has come.",
+       "detail": "Check the prayer times. Do not pray before the time starts."
+      },
+      {
+       "text": "Intend in your heart which prayer you are praying.",
+       "detail": "No words are needed."
+      }
+     ],
+     "review": "Practical preparations for prayer. Please confirm that nothing here is out of line with the four schools."
+    },
+    {
+     "id": "takbir",
+     "kind": "say",
+     "title": "Start: stand and say Allahu akbar",
+     "refs": [
+      "takbir"
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 757; Abu Dawud 61 (graded hasan sahih by al-Albani)",
+     "note": "Stand upright, facing the qibla, feet a little apart, looking at the place where your forehead will go. Raise your hands to your shoulders or ears and say the takbir. Then fold your hands (see the table for how the schools do this). Now recite Al-Fatihah, which is the next lesson."
+    },
+    {
+     "id": "bow",
+     "kind": "say",
+     "title": "Bow, then stand up",
+     "refs": [
+      "ruku.tasbih",
+      "rise"
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 757 (bow until at ease); Muslim 772; Bukhari 689",
+     "note": "Say Allahu akbar and bow. Put your hands on your knees, keep your back flat, and your head level with your back. Say the first line (usually 3 times). Then rise, saying the second line, and stand up straight and still. Then say the third line."
+    },
+    {
+     "id": "prostrate",
+     "kind": "say",
+     "title": "Prostrate, sit, prostrate again",
+     "refs": [
+      "sujud.tasbih",
+      "between.rabbighfir"
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 812 (seven parts); Muslim 772; Abu Dawud 874 (graded sahih by al-Albani)",
+     "note": "Say Allahu akbar and go down. Seven parts touch the ground: forehead with the nose, both hands, both knees, and the toes of both feet (Bukhari 812). Say the first line (usually 3 times). Sit up with calm and say the second line. Then go down once more and say the first line again."
+    },
+    {
+     "id": "sitting",
+     "kind": "say",
+     "title": "The sitting: greetings, blessings, peace",
+     "refs": [
+      "tashahhud",
+      "salawat",
+      "salam"
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 831; Bukhari 3370; Abu Dawud 996 (graded sahih by al-Albani)",
+     "note": "In a prayer with three or four rak’ahs, you sit after the second rak’ah and say only the tashahhud, then stand for the rest. At the very end of the prayer you say all three: the tashahhud, then the blessing on the Prophet ﷺ, then the salam. Say the salam turning your head to the right, then to the left."
+    },
+    {
+     "id": "flow",
+     "kind": "howto",
+     "title": "One rak’ah, start to finish",
+     "label": "[Established]",
+     "source": "Bukhari 757; Bukhari 631; Bukhari 1117",
+     "intro": "The Prophet ﷺ said: pray as you have seen me pray (Bukhari 631). This is one rak’ah. Every prayer is made of these.",
+     "steps": [
+      {
+       "text": "Stand. In the first rak’ah, say the takbir.",
+       "detail": "If you cannot stand, pray sitting. If you cannot sit, pray lying on your side (Bukhari 1117)."
+      },
+      {
+       "text": "Fold your hands and recite Al-Fatihah.",
+       "detail": "In the first two rak’ahs you also recite a short surah. In the last rak’ahs of a three- or four-rak’ah prayer, only Al-Fatihah is read."
+      },
+      {
+       "text": "Bow, and be still.",
+       "count": "3 times"
+      },
+      {
+       "text": "Stand up straight, and be still."
+      },
+      {
+       "text": "Prostrate, and be still.",
+       "count": "3 times"
+      },
+      {
+       "text": "Sit up, and be still. Say “My Lord, forgive me.”"
+      },
+      {
+       "text": "Prostrate a second time.",
+       "count": "3 times"
+      },
+      {
+       "text": "Stand for the next rak’ah, or sit for the tashahhud if this was the last."
+      }
+     ],
+     "mistakes": [
+      "Rushing. The Prophet ﷺ told a man to pray again because he did not stay still in each position (Bukhari 757).",
+      "Looking around or moving a lot.",
+      "Skipping the stillness between positions."
+     ],
+     "review": "The counts of 3 for bowing and prostration are the usual sunnah. The sitting between the two prostrations and the short surah after Al-Fatihah follow common teaching. Please confirm."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "Put one rak’ah in order",
+     "prompt": "Put these parts of one rak’ah in order.",
+     "items": [
+      {
+       "text": "Stand and recite",
+       "why": "You begin standing. You recite Al-Fatihah.",
+       "back": "flow"
+      },
+      {
+       "text": "Bow",
+       "why": "You bow after the recitation.",
+       "back": "bow"
+      },
+      {
+       "text": "Stand up straight",
+       "why": "After the bow you stand up straight again.",
+       "back": "bow"
+      },
+      {
+       "text": "Prostrate",
+       "why": "After standing up straight, you go down in prostration.",
+       "back": "prostrate"
+      },
+      {
+       "text": "Sit up",
+       "why": "You sit up between the two prostrations.",
+       "back": "prostrate"
+      },
+      {
+       "text": "Prostrate again",
+       "why": "The second prostration comes after the short sitting. Then the rak’ah is done.",
+       "back": "prostrate"
+      }
+     ],
+     "explain": "Stand and recite, bow, stand up, prostrate, sit, prostrate again. That is the order the Prophet ﷺ taught (Bukhari 757)."
+    },
+    {
+     "id": "madhab",
+     "kind": "contrast",
+     "title": "Where the schools differ",
+     "label": "[Interpretive]",
+     "source": "The four Sunni schools",
+     "review": "Each row states the commonly taught position of each school. Needs a scholar to confirm the wording of every row.",
+     "intro": "All four schools agree on the shape of the prayer. They differ on small details.",
+     "rows": [
+      {
+       "name": "Where the hands go",
+       "text": "Hanafi and Hanbali: below the navel. Shafi’i: above the navel, below the chest. Maliki: usually left by the sides, but folding the hands is also allowed."
+      },
+      {
+       "name": "Raising the hands",
+       "text": "Hanafi and Maliki: at the first takbir. Shafi’i and Hanbali: also when going into the bow and when standing up from it."
+      },
+      {
+       "name": "Blessing on the Prophet ﷺ in the last sitting",
+       "text": "Shafi’i and Hanbali: required. Hanafi and Maliki: recommended."
+      },
+      {
+       "name": "Al-Fatihah",
+       "text": "Maliki, Shafi’i and Hanbali: a required part of every rak’ah. Hanafi: required (wajib), and the prayer is repeated if it is left out on purpose."
+      }
+     ],
+     "closing": "If you follow a school, follow it. If you do not yet, do what you can and ask your imam."
+    },
+    {
+     "id": "first",
+     "kind": "say",
+     "title": "If you do not know Al-Fatihah yet",
+     "refs": [
+      "dhikr.beginner"
+     ],
+     "label": "[Established]",
+     "source": "Abu Dawud 832 (graded hasan by al-Albani)",
+     "note": "A man came to the Prophet ﷺ and said he could not yet learn any of the Qur’an. The Prophet ﷺ told him to say these words. So in your first prayers, say them where you would recite, and learn Al-Fatihah next. Pray the prayers anyway. Do not wait until you know everything."
+    },
+    {
+     "id": "story",
+     "kind": "story",
+     "title": "Pray again, for you have not prayed",
+     "label": "[Established]",
+     "source": "Bukhari 757",
+     "body": [
+      "A man prayed in the mosque and greeted the Prophet ﷺ. The Prophet ﷺ said: go back and pray, for you have not prayed. The man prayed again the same way. This happened three times.",
+      "Then the man said he could not do better and asked to be taught. The Prophet ﷺ taught him to say the takbir, recite, bow until at ease, stand up straight, prostrate until at ease, sit until at ease, and to do the same in the whole prayer.",
+      "The lesson: it is not only the words. Stillness in each position is part of the prayer."
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "items": [
+      {
+       "id": "p1",
+       "q": "How many rak’ahs does Maghrib have?",
+       "options": [
+        {
+         "text": "Two",
+         "reteach": "Two is Fajr. Maghrib has three.",
+         "back": "times"
+        },
+        {
+         "text": "Three"
+        },
+        {
+         "text": "Four",
+         "reteach": "Four is for Dhuhr, Asr and Isha. Maghrib has three.",
+         "back": "times"
+        }
+       ],
+       "answer": 1,
+       "explain": "Maghrib has three rak’ahs.",
+       "type": "mcq"
+      },
+      {
+       "id": "p2",
+       "q": "Which prayer has two rak’ahs?",
+       "options": [
+        {
+         "text": "Dhuhr",
+         "reteach": "Dhuhr has four rak’ahs.",
+         "back": "times"
+        },
+        {
+         "text": "Asr",
+         "reteach": "Asr has four rak’ahs.",
+         "back": "times"
+        },
+        {
+         "text": "Isha",
+         "reteach": "Isha has four rak’ahs.",
+         "back": "times"
+        },
+        {
+         "text": "Fajr"
+        }
+       ],
+       "answer": 3,
+       "explain": "Fajr has two rak’ahs.",
+       "type": "mcq"
+      },
+      {
+       "id": "p3",
+       "q": "What do you say as you begin the prayer?",
+       "options": [
+        {
+         "ref": "takbir"
+        },
+        {
+         "ref": "ruku.tasbih",
+         "reteach": "That is what you say when bowing.",
+         "back": "bow"
+        },
+        {
+         "ref": "between.rabbighfir",
+         "reteach": "That is what you say when sitting between the two prostrations.",
+         "back": "prostrate"
+        }
+       ],
+       "answer": 0,
+       "explain": "You begin with the takbir: Allahu akbar.",
+       "type": "mcq"
+      },
+      {
+       "id": "p4",
+       "q": "What do you say when sitting between the two prostrations?",
+       "options": [
+        {
+         "ref": "sujud.tasbih",
+         "reteach": "That is what you say in prostration.",
+         "back": "prostrate"
+        },
+        {
+         "ref": "takbir",
+         "reteach": "That is the takbir, said when changing position.",
+         "back": "takbir"
+        },
+        {
+         "ref": "between.rabbighfir"
+        }
+       ],
+       "answer": 2,
+       "explain": "You say: My Lord, forgive me.",
+       "type": "mcq"
+      },
+      {
+       "id": "p5",
+       "q": "How many parts of the body touch the ground in prostration?",
+       "options": [
+        {
+         "text": "Three",
+         "reteach": "Not three. It is seven: forehead with nose, two hands, two knees, two feet.",
+         "back": "prostrate"
+        },
+        {
+         "text": "Two",
+         "reteach": "Not two. It is seven (Bukhari 812).",
+         "back": "prostrate"
+        },
+        {
+         "text": "Seven"
+        }
+       ],
+       "answer": 2,
+       "explain": "Seven parts: forehead with nose, both hands, both knees, toes of both feet (Bukhari 812).",
+       "type": "mcq"
+      },
+      {
+       "id": "p6",
+       "q": "In the bow, where do your hands go?",
+       "options": [
+        {
+         "text": "On the ground in front of you",
+         "reteach": "That is the prostration. In the bow, your hands go on your knees.",
+         "back": "bow"
+        },
+        {
+         "text": "On your knees"
+        },
+        {
+         "text": "Folded on your chest",
+         "reteach": "That is while standing. In the bow, your hands go on your knees.",
+         "back": "bow"
+        }
+       ],
+       "answer": 1,
+       "explain": "In the bow, your hands are on your knees and your back is flat.",
+       "type": "mcq"
+      },
+      {
+       "id": "p7",
+       "q": "What would you do?",
+       "options": [
+        {
+         "text": "Wait until you are home, since you cannot pray at work",
+         "reteach": "Not quite. The earth is a place of prayer, so any clean place will do (Bukhari 335).",
+         "back": "before"
+        },
+        {
+         "text": "Skip it. You will make it up on the weekend.",
+         "reteach": "No. Dhuhr has its time, and it lasts until Asr begins (Muslim 612).",
+         "back": "times"
+        },
+        {
+         "text": "Make wudu and pray at its time, in any clean place"
+        }
+       ],
+       "answer": 2,
+       "explain": "Dhuhr lasts from midday until Asr begins (Muslim 612). Any clean place is fine (Bukhari 335).",
+       "type": "scenario",
+       "scenario": "You are at work. Dhuhr has come in, and you have a meeting in an hour."
+      },
+      {
+       "id": "p8",
+       "q": "What do you do?",
+       "options": [
+        {
+         "text": "Skip it, it is gone",
+         "reteach": "No. The Prophet ﷺ said to pray it when you remember (Bukhari 597).",
+         "back": "times"
+        },
+        {
+         "text": "Pray it when you remember"
+        },
+        {
+         "text": "Wait for the same prayer tomorrow",
+         "reteach": "No. Pray it when you remember (Bukhari 597).",
+         "back": "times"
+        }
+       ],
+       "answer": 1,
+       "explain": "The Prophet ﷺ said: whoever forgets a prayer should pray it when he remembers it (Bukhari 597).",
+       "type": "scenario",
+       "scenario": "You overslept and woke after sunrise. You missed Fajr."
+      },
+      {
+       "id": "p9",
+       "q": "You are new, and do not know any surah yet. What can you say instead?",
+       "options": [
+        {
+         "ref": "takbir",
+         "reteach": "That is the takbir. It starts the prayer but does not take the place of the recitation.",
+         "back": "first"
+        },
+        {
+         "ref": "salam",
+         "reteach": "That is the salam at the very end. It does not take the place of the recitation.",
+         "back": "first"
+        },
+        {
+         "ref": "dhikr.beginner"
+        }
+       ],
+       "answer": 2,
+       "explain": "The Prophet ﷺ told the man to say these five phrases (Abu Dawud 832, graded hasan by al-Albani).",
+       "type": "mcq"
+      },
+      {
+       "id": "p10",
+       "q": "The man in the story was told to pray again. Why?",
+       "options": [
+        {
+         "text": "He said the wrong words",
+         "reteach": "No. He was told to be still in each position.",
+         "back": "story"
+        },
+        {
+         "text": "He prayed too long",
+         "reteach": "No. He prayed too quickly.",
+         "back": "story"
+        },
+        {
+         "text": "He did not stay still in each position"
+        }
+       ],
+       "answer": 2,
+       "explain": "He was rushing. The Prophet ﷺ taught him to stay at ease in each position (Bukhari 757).",
+       "type": "mcq"
+      },
+      {
+       "id": "p11",
+       "q": "You cannot stand because of illness. What do you do?",
+       "options": [
+        {
+         "text": "Do not pray until you are well",
+         "reteach": "No. The Prophet ﷺ said pray standing, and if you cannot, sitting, and if you cannot, lying on your side (Bukhari 1117).",
+         "back": "flow"
+        },
+        {
+         "text": "Pray sitting"
+        },
+        {
+         "text": "Pray, but only the last rak’ah",
+         "reteach": "No. You pray the whole prayer, in the position you can.",
+         "back": "flow"
+        }
+       ],
+       "answer": 1,
+       "explain": "Pray standing if you can, sitting if you cannot, lying on your side if you cannot sit (Bukhari 1117).",
+       "type": "scenario",
+       "scenario": "You are unwell and cannot stand for the length of the prayer."
+      },
+      {
+       "id": "p12",
+       "lookback": "path.u1.l1#w3"
+      }
+     ],
+     "title": "Check what you have learned"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Name the five prayers and how many rak’ahs each has.",
+      "Say what to do before you start, and which way to face.",
+      "Say what you say and do in each position, and stay still in it.",
+      "Know what to say if you do not know Al-Fatihah yet, and where the schools differ."
+     ],
+     "next": "Next: Al-Fatihah, word by word."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Find the qibla",
+     "body": "Find the direction you will face in prayer.",
+     "route": "/qibla",
+     "button": "Open the qibla"
+    }
+   ]
+  },
+  {
+   "id": "path.u3.l1",
+   "title": "Al-Fatihah, word by word",
+   "minutes": 25,
+   "intro": "Learn the seven ayat that open every prayer: how they sound, what each word means, and what you are saying.",
+   "steps": [
+    {
+     "id": "why",
+     "kind": "why",
+     "title": "The Opening",
+     "label": "[Established]",
+     "source": "Bukhari 756; Muslim 395",
+     "body": [
+      "Al-Fatihah means “The Opening”. It has seven ayat, and you say it in every rak’ah of every prayer. The Prophet ﷺ said that there is no prayer for the one who does not recite it (Bukhari 756).",
+      "The Prophet ﷺ also told us that Allah said: “I have divided the prayer between Me and My servant into two halves, and My servant will have what he asks.” When you say “All praise is for Allah, Lord of the worlds”, Allah says: My servant has praised Me. As you go through the surah, Allah answers each part (Muslim 395).",
+      "It is short, and you will say it over and over. Learn it slowly, one ayah at a time."
+     ]
+    },
+    {
+     "id": "a12",
+     "kind": "say",
+     "title": "Ayat 1 and 2",
+     "refs": [
+      "q:1:1",
+      "q:1:2"
+     ],
+     "words": {
+      "q:1:1": [
+       {
+        "tr": "Bismi",
+        "en": "in the name of"
+       },
+       {
+        "tr": "Allaahi",
+        "en": "Allah"
+       },
+       {
+        "tr": "ar-Rahmaani",
+        "en": "the Entirely Merciful"
+       },
+       {
+        "tr": "ar-Raheemi",
+        "en": "the Especially Merciful"
+       }
+      ],
+      "q:1:2": [
+       {
+        "tr": "Al-hamdu",
+        "en": "all praise"
+       },
+       {
+        "tr": "lillaahi",
+        "en": "is for Allah"
+       },
+       {
+        "tr": "Rabbi",
+        "en": "Lord of"
+       },
+       {
+        "tr": "al-‘aalameen",
+        "en": "the worlds"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 1:1-2",
+     "note": "Read slowly, one word at a time. The meaning of each word is shown under it. “Rahmaan” and “Raheem” both come from the word for mercy."
+    },
+    {
+     "id": "a34",
+     "kind": "say",
+     "title": "Ayat 3 and 4",
+     "refs": [
+      "q:1:3",
+      "q:1:4"
+     ],
+     "words": {
+      "q:1:3": [
+       {
+        "tr": "ar-Rahmaani",
+        "en": "the Entirely Merciful"
+       },
+       {
+        "tr": "ar-Raheemi",
+        "en": "the Especially Merciful"
+       }
+      ],
+      "q:1:4": [
+       {
+        "tr": "Maaliki",
+        "en": "Master of"
+       },
+       {
+        "tr": "Yawmi",
+        "en": "the Day of"
+       },
+       {
+        "tr": "ad-Deen",
+        "en": "the Recompense"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 1:3-4",
+     "note": "The Day of Recompense is the Day of Judgement, when people are given what they did. Allah is the only Master of that Day."
+    },
+    {
+     "id": "l1",
+     "kind": "listen",
+     "title": "Listen and repeat, ayat 1 to 4",
+     "ref": "q:1:1-4",
+     "repeats": 2,
+     "note": "Listen to each ayah, then say it aloud in the pause. The reciter’s name is shown on the player."
+    },
+    {
+     "id": "a5",
+     "kind": "say",
+     "title": "Ayah 5: the promise",
+     "refs": [
+      "q:1:5"
+     ],
+     "words": {
+      "q:1:5": [
+       {
+        "tr": "Iyyaaka",
+        "en": "You alone"
+       },
+       {
+        "tr": "na‘budu",
+        "en": "we worship"
+       },
+       {
+        "tr": "wa iyyaaka",
+        "en": "and You alone"
+       },
+       {
+        "tr": "nasta‘een",
+        "en": "we ask for help"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 1:5",
+     "note": "This is the middle of the surah. The first half is praise of Allah. The second half is what we ask. “Iyyaaka” comes first in the sentence to mean “You alone”."
+    },
+    {
+     "id": "a67",
+     "kind": "say",
+     "title": "Ayat 6 and 7: the du’a",
+     "refs": [
+      "q:1:6",
+      "q:1:7"
+     ],
+     "words": {
+      "q:1:6": [
+       {
+        "tr": "Ihdinaa",
+        "en": "guide us"
+       },
+       {
+        "tr": "as-siraata",
+        "en": "to the path"
+       },
+       {
+        "tr": "al-mustaqeem",
+        "en": "the straight"
+       }
+      ],
+      "q:1:7": [
+       {
+        "tr": "Siraata",
+        "en": "the path of"
+       },
+       {
+        "tr": "allazeena",
+        "en": "those whom"
+       },
+       {
+        "tr": "an‘amta",
+        "en": "You have favored"
+       },
+       {
+        "tr": "‘alayhim",
+        "en": "upon them"
+       },
+       {
+        "tr": "ghayri",
+        "en": "not (the path of)"
+       },
+       {
+        "tr": "al-maghdoobi",
+        "en": "those who earned anger"
+       },
+       {
+        "tr": "‘alayhim",
+        "en": "upon them"
+       },
+       {
+        "tr": "wa laa",
+        "en": "and not"
+       },
+       {
+        "tr": "ad-daaalleen",
+        "en": "those who are astray"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 1:6-7",
+     "note": "We ask Allah to guide us on the straight path: the path of those He has blessed. Ayah 7 has nine words, so go slowly."
+    },
+    {
+     "id": "l2",
+     "kind": "listen",
+     "title": "Listen and repeat, ayat 5 to 7",
+     "ref": "q:1:5-7",
+     "repeats": 2,
+     "note": "Listen to each ayah, then say it aloud in the pause."
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the ayah to its meaning",
+     "prompt": "Match each ayah with what it says.",
+     "pairs": [
+      {
+       "left": {
+        "ref": "q:1:2"
+       },
+       "right": {
+        "text": "All praise is for Allah"
+       },
+       "why": "Ayah 2 starts with Al-hamdu: all praise.",
+       "back": "a12"
+      },
+      {
+       "left": {
+        "ref": "q:1:4"
+       },
+       "right": {
+        "text": "Master of the Day of Judgement"
+       },
+       "why": "Ayah 4 says Maaliki Yawmid-Deen: Master of the Day of Recompense.",
+       "back": "a34"
+      },
+      {
+       "left": {
+        "ref": "q:1:5"
+       },
+       "right": {
+        "text": "You alone we worship, and You alone we ask for help"
+       },
+       "why": "Ayah 5 has Iyyaaka na‘budu: You alone we worship.",
+       "back": "a5"
+      },
+      {
+       "left": {
+        "ref": "q:1:6"
+       },
+       "right": {
+        "text": "Guide us to the straight path"
+       },
+       "why": "Ayah 6 has Ihdinas-siraatal-mustaqeem: guide us to the straight path.",
+       "back": "a67"
+      }
+     ]
+    },
+    {
+     "id": "amin",
+     "kind": "say",
+     "title": "Then say Ameen",
+     "refs": [
+      "amin"
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 780",
+     "note": "After you finish Al-Fatihah in prayer, you say Ameen. It is a short du’a that means “O Allah, answer”. The Prophet ﷺ said: when the imam says Ameen, say Ameen (Bukhari 780)."
+    },
+    {
+     "id": "madhab",
+     "kind": "contrast",
+     "title": "Where the schools differ",
+     "label": "[Interpretive]",
+     "source": "The four Sunni schools",
+     "review": "Each row states the commonly taught position of each school on Al-Fatihah in prayer. Needs a scholar to confirm each row.",
+     "intro": "All four schools recite Al-Fatihah in the prayer. They differ on two things.",
+     "rows": [
+      {
+       "name": "Is Bismillah an ayah of Al-Fatihah?",
+       "text": "Shafi’i: yes, and it is recited. Hanafi: recite it quietly at the start but it is not counted as an ayah of the surah. Maliki: it is not recited in the obligatory prayers. Hanbali: it is recited quietly, and it is an ayah of the Qur’an but not of Al-Fatihah."
+      },
+      {
+       "name": "Reciting behind an imam",
+       "text": "Shafi’i: recite Al-Fatihah. Hanafi: do not recite, listen. Maliki and Hanbali: do not recite when you hear the imam, but recite in silent prayers."
+      }
+     ],
+     "closing": "Your teacher will show you the way of your school."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "Put the ideas in order",
+     "prompt": "Al-Fatihah moves from praise, to a promise, to a du’a. Put these ideas in the order they come.",
+     "items": [
+      {
+       "text": "In the name of Allah, the Entirely Merciful, the Especially Merciful",
+       "why": "It opens with the name of Allah and His mercy.",
+       "back": "a12"
+      },
+      {
+       "text": "All praise is for Allah, Lord of the worlds",
+       "why": "After the name, we praise Allah.",
+       "back": "a12"
+      },
+      {
+       "text": "Master of the Day of Judgement",
+       "why": "We remember that Allah is the Master of the Day of Judgement.",
+       "back": "a34"
+      },
+      {
+       "text": "You alone we worship, and You alone we ask for help",
+       "why": "After praise, we make the promise: worship Him alone.",
+       "back": "a5"
+      },
+      {
+       "text": "Guide us to the straight path",
+       "why": "After the promise, we ask for guidance.",
+       "back": "a67"
+      }
+     ],
+     "explain": "Name and mercy, praise, the Day of Judgement, the promise, then the du’a for guidance."
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "items": [
+      {
+       "id": "f1",
+       "q": "How many ayat does Al-Fatihah have?",
+       "options": [
+        {
+         "text": "Seven"
+        },
+        {
+         "text": "Five",
+         "reteach": "Not five. Al-Fatihah has seven ayat.",
+         "back": "why"
+        },
+        {
+         "text": "Ten",
+         "reteach": "Not ten. Al-Fatihah has seven ayat.",
+         "back": "why"
+        }
+       ],
+       "answer": 0,
+       "explain": "Al-Fatihah has seven ayat.",
+       "type": "mcq"
+      },
+      {
+       "id": "f2",
+       "q": "Which word in ayah 2 means “the worlds”? Fill the gap.",
+       "options": [
+        {
+         "word": "q:1:2#0",
+         "reteach": "That word means “all praise”. “The worlds” is the last word.",
+         "back": "a12"
+        },
+        {
+         "word": "q:1:2#3"
+        },
+        {
+         "word": "q:1:2#2",
+         "reteach": "That word means “Lord of”. “The worlds” is the last word.",
+         "back": "a12"
+        }
+       ],
+       "answer": 1,
+       "explain": "Al-‘aalameen means the worlds.",
+       "type": "fill",
+       "fill": {
+        "ref": "q:1:2",
+        "blank": 3,
+        "show": "arabic"
+       }
+      },
+      {
+       "id": "f3",
+       "q": "Fill the gap: Maaliki ___",
+       "options": [
+        {
+         "text": "Rabbil-‘aalameen",
+         "reteach": "No. That is in ayah 2. Ayah 4 ends with Yawmid-Deen, the Day of Recompense.",
+         "back": "a34"
+        },
+        {
+         "text": "Ar-Raheem",
+         "reteach": "No. That is in ayah 3. Ayah 4 ends with Yawmid-Deen.",
+         "back": "a34"
+        },
+        {
+         "text": "Yawmid-Deen"
+        }
+       ],
+       "answer": 2,
+       "explain": "Maaliki Yawmid-Deen: Master of the Day of Recompense.",
+       "type": "fill",
+       "fill": {
+        "ref": "q:1:4",
+        "blank": 1,
+        "show": "translit"
+       }
+      },
+      {
+       "id": "f4",
+       "q": "What does “Iyyaaka na‘budu” mean?",
+       "options": [
+        {
+         "text": "You alone we worship"
+        },
+        {
+         "text": "We praise You",
+         "reteach": "No. That is closer to ayah 2. “Na‘budu” means we worship.",
+         "back": "a5"
+        },
+        {
+         "text": "Guide us",
+         "reteach": "No. That is ayah 6. “Na‘budu” means we worship.",
+         "back": "a5"
+        }
+       ],
+       "answer": 0,
+       "explain": "Iyyaaka na‘budu means You alone we worship.",
+       "type": "mcq"
+      },
+      {
+       "id": "f5",
+       "q": "What does ayah 6 ask for?",
+       "options": [
+        {
+         "text": "Forgiveness",
+         "reteach": "No. Ayah 6 asks for guidance.",
+         "back": "a67"
+        },
+        {
+         "text": "Guidance to the straight path"
+        },
+        {
+         "text": "Wealth",
+         "reteach": "No. Ayah 6 asks for guidance to the straight path.",
+         "back": "a67"
+        },
+        {
+         "text": "Praise",
+         "reteach": "No. Praise is in ayah 2. Ayah 6 asks for guidance.",
+         "back": "a12"
+        }
+       ],
+       "answer": 1,
+       "explain": "Ihdinas-siraatal-mustaqeem: guide us to the straight path.",
+       "type": "mcq"
+      },
+      {
+       "id": "f6",
+       "q": "Which ayah is the one that starts with “Al-hamdu”?",
+       "options": [
+        {
+         "ref": "q:1:1",
+         "reteach": "That is ayah 1. It begins with Bismi.",
+         "back": "a12"
+        },
+        {
+         "ref": "q:1:6",
+         "reteach": "That is ayah 6. It begins with Ihdinaa.",
+         "back": "a67"
+        },
+        {
+         "ref": "q:1:2"
+        }
+       ],
+       "answer": 2,
+       "explain": "Ayah 2 begins with Al-hamdu: all praise.",
+       "type": "mcq"
+      },
+      {
+       "id": "f7",
+       "q": "What do you say after finishing Al-Fatihah in the prayer?",
+       "options": [
+        {
+         "ref": "amin"
+        },
+        {
+         "ref": "takbir",
+         "reteach": "That is the takbir. After Al-Fatihah you say Ameen.",
+         "back": "amin"
+        },
+        {
+         "ref": "salam",
+         "reteach": "That is the salam, said at the very end of the prayer.",
+         "back": "amin"
+        }
+       ],
+       "answer": 0,
+       "explain": "You say Ameen.",
+       "type": "mcq"
+      },
+      {
+       "id": "f8",
+       "q": "The imam says “Ameen”. What do you do?",
+       "options": [
+        {
+         "text": "Stay silent",
+         "reteach": "Not quite. The Prophet ﷺ said: when the imam says Ameen, say Ameen (Bukhari 780).",
+         "back": "amin"
+        },
+        {
+         "text": "Say Ameen with him"
+        },
+        {
+         "text": "Say Al-Fatihah again",
+         "reteach": "No need. Say Ameen with the imam.",
+         "back": "amin"
+        }
+       ],
+       "answer": 1,
+       "explain": "The Prophet ﷺ said to say Ameen when the imam does (Bukhari 780).",
+       "type": "scenario",
+       "scenario": "You are praying behind an imam. He finishes Al-Fatihah and says Ameen."
+      },
+      {
+       "id": "f9",
+       "q": "Why should you learn Al-Fatihah first?",
+       "options": [
+        {
+         "text": "You say it in every rak’ah"
+        },
+        {
+         "text": "It is the longest surah",
+         "reteach": "No. It is a short surah. You learn it first because you say it in every rak’ah.",
+         "back": "why"
+        },
+        {
+         "text": "It is only for Fajr",
+         "reteach": "No. You say it in every rak’ah of every prayer.",
+         "back": "why"
+        }
+       ],
+       "answer": 0,
+       "explain": "It is recited in every rak’ah (Bukhari 756).",
+       "type": "mcq"
+      },
+      {
+       "id": "f10",
+       "q": "In the hadith, what does Allah say when you say “All praise is for Allah, Lord of the worlds”?",
+       "options": [
+        {
+         "text": "My servant has asked Me",
+         "reteach": "No. That comes later, with the du’a for guidance. For the praise, Allah says: My servant has praised Me.",
+         "back": "why"
+        },
+        {
+         "text": "My servant has obeyed Me",
+         "reteach": "No. For the praise, Allah says: My servant has praised Me (Muslim 395).",
+         "back": "why"
+        },
+        {
+         "text": "My servant has praised Me"
+        }
+       ],
+       "answer": 2,
+       "explain": "Allah says: My servant has praised Me (Muslim 395).",
+       "type": "mcq"
+      },
+      {
+       "id": "f11",
+       "lookback": "path.u2.l1#p1"
+      }
+     ],
+     "title": "Check what you have learned"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Read all seven ayat of Al-Fatihah, word by word.",
+      "Say what each ayah means.",
+      "Say Ameen at the right place.",
+      "Know where the schools differ on Bismillah and on reciting behind an imam."
+     ],
+     "next": "Next on the Path: more surahs for your prayer."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Read Al-Fatihah in the Qur’an",
+     "body": "Open Al-Fatihah in the Qur’an reader and read it with the translation.",
+     "route": "/quran/1",
+     "button": "Open Al-Fatihah"
+    }
+   ]
+  }
+ ]
+}
