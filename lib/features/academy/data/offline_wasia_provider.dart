@@ -87,22 +87,23 @@ class OfflineWasiaProvider implements HadiProvider {
   /// today.
   static const String trustedAdult =
       'Thank you for telling me. When something feels scary, sad or wrong, '
-      'the best thing is to tell a grown-up you trust today: a parent, a '
-      'teacher, or another adult in your family. You are not in trouble for '
-      'feeling this way, and you are not alone. When you feel ready, I am '
-      'here for your letters.';
+      'the best thing is to tell a grown-up you trust today: a parent if it '
+      'feels safe, a teacher, a school counsellor, or a child helpline. You '
+      'choose who. You are not in trouble for feeling this way, and you are '
+      'not alone. When you feel ready, I am here for your letters.';
 
   /// For a child asking about a sad family member.
   static const String familyFeelings =
       'It sounds like you care about them very much. The kindest thing is to '
-      'ask them gently if they are all right, or to tell another grown-up you '
-      'trust that you are worried. You can also make du’a for them. I am here '
+      'ask them gently if they are all right, or to tell a grown-up you '
+      'trust (a teacher or a school counsellor, for example) that you are '
+      'worried. You can also make du’a for them. I am here '
       'when you want to go back to your letters.';
 
   /// For a child asking where people go after death.
   static const String bigQuestion =
       'That is a big question, and a good one. Allah is the One who judges, '
-      'and He is fair and merciful. A parent or a teacher you trust can talk '
+      'and He is fair and merciful. A grown-up you trust, like a teacher, can talk '
       'about it with you much better than I can, so please ask them. I am '
       'here for your letters whenever you like.';
 

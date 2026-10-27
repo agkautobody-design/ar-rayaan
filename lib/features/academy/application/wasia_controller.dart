@@ -3,7 +3,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../app/core/subscription/subscription_service.dart';
 import '../../hadi/application/hadi_provider.dart';
+import '../../hadi/data/api_key_vault.dart';
 import '../../sakina/domain/crisis_detector.dart';
+import '../../sakina/domain/crisis_latch.dart';
 import '../../hadi/grounding/ruling_gate.dart';
 import '../../hadi/data/groq_hadi_provider.dart';
 import '../data/offline_wasia_provider.dart';
@@ -19,15 +21,17 @@ const String kWasiaChildLlmPref = 'ar.wasia.child_llm';
 /// runs before ANY answer (shelf or live AI), nothing the person wrote is
 /// sent anywhere, and it never invents a phone number.
 String wasiaCrisisReply(WasiaPersona persona) {
+  // No pointer to the Sakina section: child mode closes it. The help lines
+  // are shown under this message by the thread itself.
   const String help =
       'If you or someone else is in danger right now, call your country\u2019s '
-      'emergency number. The Sakina section in the app lists help lines for '
-      'your country, and H\u0101di can talk with you gently.';
+      'emergency number. The help lines are listed just below this message.';
   if (persona == WasiaPersona.student) {
     return 'Thank you for telling me \u2014 I am so glad you did. This is '
-        'something a grown-up you trust needs to know about today: a parent, '
-        'a teacher, or another adult in your family. Please tell them '
-        'now. You are not in trouble, and you are not alone. $help';
+        'something ${CrisisResponses.trustedAdultForChild} needs to know '
+        'about today. You choose who to tell. I cannot call or tell anyone '
+        'for you, so please do it now. You are not in trouble, and you are '
+        'not alone. $help';
   }
   return 'I am so sorry you are carrying this, and I am glad you wrote it '
       'down. This needs a real person, not a lesson. Please reach out to '
@@ -117,7 +121,9 @@ const String kWasiaSystemPrompt =
     'teaches everything else.\n'
     '10. Never ask for, repeat or use a child\u2019s name, age, school, '
     'address or any personal detail. If a child says they are hurt, scared '
-    'or unsafe, tell them to speak to a trusted adult today.';
+    'or unsafe, tell them to speak to a trusted adult today (a parent if it '
+    'is safe, a teacher, a school counsellor, or a child helpline) and let '
+    'them choose who. Never say you will tell anyone.';
 
 /// Wasia's conversation: every box feeds one thread, so she remembers
 /// follow-ups ("what about the second letter?") across the whole session.
@@ -163,8 +169,6 @@ class WasiaController extends StateNotifier<WasiaState> {
   /// Test seam: builds the live provider. Null = the real one.
   final HadiProvider Function(String name, String key)? _providerFor;
 
-  static const String _keyPref = 'ar.hadi.apikey';
-
   /// Whether a parent has allowed a child's questions to reach an AI service.
   static Future<bool> childLlmAllowed() async {
     try {
@@ -182,7 +186,7 @@ class WasiaController extends StateNotifier<WasiaState> {
 
   Future<String?> _key() async {
     final prefs = await SharedPreferences.getInstance();
-    final k = prefs.getString(_keyPref);
+    final k = ApiKeyVault.read(prefs);
     if (k != null && k.trim().isNotEmpty) return k.trim();
     // Subscription fallback, same rules as Hādi: managed key, one quota
     // per question. Quota spent or inactive → her own shelf below.
@@ -190,6 +194,11 @@ class WasiaController extends StateNotifier<WasiaState> {
     if (sub.isEntitled && sub.consumeQuestion()) return sub.managedKey;
     return null;
   }
+
+  /// Kept in memory only: set once a crisis card has been shown, so the next
+  /// short replies ("ok", "tonight") get a safety check instead of a lesson.
+  CrisisKind? _latch;
+  int _latchChecks = 0;
 
   /// Whose voice the current thread was started in. A thread never mixes
   /// voices: the persona prompt is sent once, with the first message, so a
@@ -211,6 +220,8 @@ class WasiaController extends StateNotifier<WasiaState> {
 
   /// Start a fresh conversation with Wasia.
   void clear() {
+    _latch = null;
+    _latchChecks = 0;
     _threadPersona = null;
     _threadLesson = null;
     state = const WasiaState();
@@ -252,6 +263,8 @@ class WasiaController extends StateNotifier<WasiaState> {
     // Safety net first: before the shelf, before any AI, nothing is sent.
     final CrisisKind? crisis = CrisisDetector.detect(q);
     if (crisis != null) {
+      _latch = crisis == CrisisKind.extremism ? null : crisis;
+      _latchChecks = 0;
       final String reply = wasiaCrisisReply(persona);
       state = state.copy(
         clearNotice: true,
@@ -263,6 +276,35 @@ class WasiaController extends StateNotifier<WasiaState> {
         ],
       );
       return reply;
+    }
+    final CrisisKind? latched = _latch;
+    if (latched != null) {
+      final bool safe = CrisisLatch.saysSafe(q);
+      if (safe || CrisisLatch.isAmbiguous(q)) {
+        final String reply = safe
+            ? CrisisLatch.relief
+            : CrisisLatch.checkFor(latched, _latchChecks,
+                child: persona == WasiaPersona.student);
+        if (safe) {
+          _latch = null;
+          _latchChecks = 0;
+        } else {
+          _latchChecks++;
+        }
+        state = state.copy(
+          clearNotice: true,
+          messages: <HadiMessage>[
+            ...state.messages,
+            HadiMessage(fromHadi: false, text: q, sensitive: true),
+            HadiMessage(
+                fromHadi: true,
+                text: reply,
+                crisis: safe ? null : latched,
+                sensitive: true),
+          ],
+        );
+        return reply;
+      }
     }
     // Keyless: Wasia teaches from her OWN curated shelf — the Academy
     // curriculum (letters, units, exams, parent FAQ). She never borrows
@@ -310,7 +352,11 @@ class WasiaController extends StateNotifier<WasiaState> {
 
     // What was said before this question. The question itself is sent once,
     // as the new message, never also inside the history.
-    final List<HadiMessage> before = state.messages;
+    // Sensitive turns (a crisis card and the words that led to it) are never
+    // part of what a model is sent.
+    final List<HadiMessage> before = state.messages
+        .where((HadiMessage m) => !m.sensitive)
+        .toList(growable: false);
     state = state.copy(
       isLoading: true,
       clearNotice: true,

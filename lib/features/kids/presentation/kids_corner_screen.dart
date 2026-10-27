@@ -15,6 +15,8 @@ import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../academy/application/academy_providers.dart';
 import '../../academy/presentation/widgets/parent_gate.dart';
+import '../../sakina/domain/crisis_detector.dart';
+import '../../sakina/presentation/widgets/need_help_button.dart';
 
 /// One door of the children's corner.
 class KidsDoor {
@@ -241,6 +243,20 @@ class _KidsCornerScreenState extends ConsumerState<KidsCornerScreen> {
                   ),
                 ),
               ),
+            // Always there: a child who is scared or hurt can find real help
+            // lines here without Sakina, which child mode closes.
+            const Padding(
+              padding: EdgeInsets.only(bottom: 14),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: NeedHelpNowButton(
+                  key: Key('kids-need-help'),
+                  kind: CrisisKind.childSafety,
+                  label: 'Need to talk to someone?',
+                  showSakinaLink: false,
+                ),
+              ),
+            ),
             if (!childMode) _childModeCard(),
           ],
         ),

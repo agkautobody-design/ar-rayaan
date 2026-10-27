@@ -17,6 +17,7 @@ class HadiMessage {
     this.routes = const <String>[],
     this.ephemeral = false,
     this.retryQuestion,
+    this.support,
   });
 
   final bool fromHadi;
@@ -53,6 +54,12 @@ class HadiMessage {
   /// Set when the live engine could not be reached: the question to send
   /// again if the person taps "Try the live answer again".
   final String? retryQuestion;
+
+  /// Set (to the topic name) on a reply to a person talking about drinking,
+  /// drugs, gambling, pornography, smoking or someone close who is
+  /// struggling. Such a message is never saved, never sent to a live model
+  /// and never offered for a Report.
+  final String? support;
 }
 
 abstract interface class HadiProvider {

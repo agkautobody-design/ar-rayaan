@@ -218,3 +218,38 @@ def add_all(R):
     # ------------------------------------------------ languages
     add('lang.elder-rtl', 'languages', 'Arabic and Urdu UI direction and font', 'lib/app', 'RTL layout, fonts',
         'Right-to-left layout and fonts for Arabic and Urdu; Bangla glyphs rendered as empty boxes in headless test.', 'R9_T4 D5, R9_T6_elder_languages: unverified on a real device.', NATIVE, ['R9_T6_elder_languages', 'R9_T4_everyday_skeptic'], 'normal', sub='layout')
+
+    # ------------------------------------------------ support module (Phase 1)
+    add('support.hadi-replies', 'sakina', 'Hadi > a reply to someone who talks about drinking, drugs, gambling, pornography, smoking or a relapse',
+        'lib/features/hadi/grounding/support_signal.dart', 'SupportReplies (bodies, safetyNote, verdictNote, appNote)',
+        'Listening replies (three per topic), the safety note about not stopping heavy use suddenly, and the word lists that decide a person from a question.',
+        'RES_H3: a ruling card is the wrong answer to someone in relapse. Written for coverage; no clinician has read them. Shown with both "Scholar review needed" and "Clinician review needed" until signed.',
+        CLIN, ['RES_H3_hadi_companion_design', 'RES_H1_recovery_evidence'], 'high', also=[FIQH, NATIVE], sub='support',
+        surf='Under every support reply in Hadi')
+    add('support.crisis-substance', 'sakina', 'Hadi / Wasia > medical emergency card (overdose, withdrawal danger, mixing, drunk driving)',
+        'lib/features/sakina/domain/crisis_detector.dart', 'CrisisKind.substanceEmergency (phrases, card text, latch checks)',
+        'The new addiction and medical-emergency crisis category: English phrases, the card (emergency number first, no dose, no taper) and the follow-up checks after the card.',
+        'RES_H3 R5: no addiction or overdose category existed. Withdrawal from alcohol and sedatives can be fatal, so the wording must be read by a clinician.',
+        CLIN, ['RES_H3_hadi_companion_design'], 'high', sub='crisis',
+        surf='The crisis card')
+    add('support.crisis-substance-lang', 'languages', 'Crisis phrases for the medical-emergency category in Arabic, Urdu (script and Roman) and Bangla',
+        'lib/features/sakina/domain/crisis_detector.dart', '_substance (non-English phrases)',
+        'Short phrase lists for overdose, seizure and not breathing in Arabic, Urdu and Bangla.',
+        'Written for coverage, not read by a native-speaker clinician. English has the full list; other languages are thin and the app must say so.',
+        NATIVE, ['RES_H3_hadi_companion_design'], 'high', also=[CLIN], sub='crisis-phrases')
+    add('support.latch-checks', 'sakina', 'Hadi / Wasia > the safety check after a crisis card ("ok", "tonight")',
+        'lib/features/sakina/domain/crisis_latch.dart', 'CrisisLatch (checkFor, relief, ambiguous words)',
+        'The plain questions asked when a short reply follows a crisis card, and the sentence said when the person says they are safe.',
+        'RES_H3 D1: follow-ups with no trigger word were treated as normal. The wording and the list of ambiguous words need a clinician.',
+        CLIN, ['RES_H3_hadi_companion_design'], 'high', sub='crisis')
+    add('support.wasia-child', 'sakina', 'Wasia and Kids > what a child is told when something is wrong',
+        'lib/features/academy/application/wasia_controller.dart', 'wasiaCrisisReply; OfflineWasiaProvider.trustedAdult; MinorSignal; CrisisResponses.trustedAdultChoices',
+        'Replies now say "a trusted adult (a parent if it feels safe, a teacher, a school counsellor, or a child helpline)", that the child chooses, and that the app cannot call anyone.',
+        'RES_H3 R1, D5, D6: "tell a parent" can point a child at the person hurting them. A child-protection specialist and a clinician should read the wording by age band.',
+        CLIN, ['RES_H3_hadi_companion_design', 'R9_T1_children'], 'high', also=[LAWYER], sub='children',
+        surf='Wasia thread, Kids Corner help button')
+    add('support.privacy-storage', 'sakina', 'Hadi > nothing about a conversation is saved; the API key leaves plain text; Report never uploads support text',
+        'lib/features/hadi/data/api_key_vault.dart; lib/features/hadi/data/hadi_report_service.dart', 'ApiKeyVault; HadiReportPolicy',
+        'The conversation is memory-only. The key is kept in the secure store on a phone and memory-only in a browser. Report drops text from crisis, support and minor exchanges.',
+        'RES_H3 D3, D4, D10: health disclosures were stored in plain text and could be uploaded by the Report button.',
+        LAWYER, ['RES_H3_hadi_companion_design'], 'high', sub='privacy')

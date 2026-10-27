@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:ar_rayaan/app/core/providers.dart';
 import 'package:ar_rayaan/features/hadi/application/hadi_controller.dart';
 import 'package:ar_rayaan/features/hadi/application/hadi_provider.dart';
+import 'package:ar_rayaan/features/hadi/data/api_key_vault.dart';
 import 'package:ar_rayaan/features/hadi/data/groq_hadi_provider.dart';
 import 'package:ar_rayaan/features/hadi/data/offline_hadi_provider.dart';
 import 'package:ar_rayaan/features/hadi/grounding/corpus.dart';
@@ -113,10 +114,10 @@ void main() {
       expect(shown.contains('[GO:'), isFalse);
       final HadiMessage m = c.read(hadiControllerProvider).messages.last;
       expect(m.routes, <String>['/quran', '/sakina']);
+      // The thread is no longer written to the device at all.
       final String saved =
           c.read(sharedPreferencesProvider).getString('ar.hadi.thread') ?? '';
-      expect(saved.contains('[GO:'), isFalse);
-      expect(saved, contains('/sakina'), reason: 'the buttons survive a restart');
+      expect(saved, isEmpty);
     });
 
     test('a distress reply from the shelf carries both comfort buttons',
@@ -153,6 +154,7 @@ void main() {
         () async {
       final ProviderContainer c = await container();
       final HadiController ctrl = c.read(hadiControllerProvider.notifier);
+      addTearDown(ApiKeyVault.debugReset);
       await ctrl.saveApiKey('gsk_test');
       final String a = await ctrl.ask(
         'Tell me about quantum entanglement',
@@ -175,11 +177,10 @@ void main() {
     });
   });
 
-  group('returning to a saved conversation', () {
+  group('no thread is kept on the device', () {
     String thread(List<Map<String, Object>> messages) => json.encode(messages);
 
-    test('the welcome line does not echo the last question and is not saved',
-        () async {
+    test('an old saved thread is removed and never shown again', () async {
       final ProviderContainer c = await container(<String, Object>{
         'ar.hadi.thread': thread(<Map<String, Object>>[
           <String, Object>{'fromHadi': true, 'text': 'Salam.'},
@@ -187,51 +188,28 @@ void main() {
             'fromHadi': false,
             'text': 'I feel so ashamed of what I did last night',
           },
-          <String, Object>{'fromHadi': true, 'text': 'Allah is merciful.'},
         ]),
       });
       final HadiState s = c.read(hadiControllerProvider);
-      final HadiMessage last = s.messages.last;
-      expect(last.ephemeral, isTrue);
-      expect(last.text.contains('ashamed'), isFalse);
-      expect(last.text, startsWith('Welcome back'));
+      expect(
+        s.messages.any((HadiMessage m) => m.text.contains('ashamed')),
+        isFalse,
+      );
+      expect(
+        c.read(sharedPreferencesProvider).getString('ar.hadi.thread'),
+        isNull,
+      );
+    });
 
+    test('asking does not write the conversation to preferences', () async {
+      final ProviderContainer c = await container();
       await c
           .read(hadiControllerProvider.notifier)
           .ask('What is zakat?', provider: const OfflineHadiProvider());
-      final String saved =
-          c.read(sharedPreferencesProvider).getString('ar.hadi.thread') ?? '';
-      expect(saved.contains('Welcome back'), isFalse);
-      expect(saved, contains('What is zakat?'));
-    });
-
-    test('old saved "Welcome back" lines are dropped when the thread loads',
-        () async {
-      final ProviderContainer c = await container(<String, Object>{
-        'ar.hadi.thread': thread(<Map<String, Object>>[
-          <String, Object>{'fromHadi': true, 'text': 'Salam.'},
-          <String, Object>{'fromHadi': false, 'text': 'What is zakat?'},
-          <String, Object>{
-            'fromHadi': true,
-            'text': 'Welcome back. Last time we spoke about "What is zakat?". '
-                'How is it going?',
-          },
-          <String, Object>{
-            'fromHadi': true,
-            'text': 'Welcome back. Last time we spoke about "x". Fine.',
-          },
-        ]),
-      });
-      final List<String> texts = c
-          .read(hadiControllerProvider)
-          .messages
-          .map((HadiMessage m) => m.text)
-          .toList();
       expect(
-        texts.where((String t) => t.startsWith('Welcome back')).length,
-        1,
+        c.read(sharedPreferencesProvider).getString('ar.hadi.thread'),
+        isNull,
       );
-      expect(texts.any((String t) => t.contains('Last time')), isFalse);
     });
   });
 }

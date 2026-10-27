@@ -5,6 +5,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../sakina/domain/crisis_detector.dart';
+import '../grounding/minor_signal.dart';
+import '../grounding/support_signal.dart';
+
 /// Why a person is reporting a Hādi answer.
 enum HadiReportReason {
   wrongQuote('wrong_quote', 'A quote or reference looks wrong'),
@@ -16,6 +20,19 @@ enum HadiReportReason {
   const HadiReportReason(this.code, this.label);
   final String code;
   final String label;
+}
+
+/// What may leave the device in a report. Text from a crisis exchange, from a
+/// person talking about drinking, drugs, gambling, pornography, smoking or
+/// someone close who is struggling, or from someone under 18 is health or
+/// safety information: it is never uploaded and never queued, whatever the
+/// person ticks. A report about such an exchange can still be made in words
+/// of the person's own, outside the app.
+abstract final class HadiReportPolicy {
+  static bool mayInclude(String text) =>
+      CrisisDetector.detect(text) == null &&
+      SupportSignal.classify(text) == null &&
+      !MinorSignal.isMinor(text);
 }
 
 /// What goes into a report. No user id. The question is included only when
@@ -41,7 +58,9 @@ class HadiReport {
   Map<String, Object> toMap() => <String, Object>{
         'reason': reason.code,
         'answer': _cap(answer, 1200),
-        if (question != null && question!.trim().isNotEmpty)
+        if (question != null &&
+            question!.trim().isNotEmpty &&
+            HadiReportPolicy.mayInclude(question!))
           'question': _cap(question!.trim(), 500),
         'sources': sources.take(5).toList(),
         'live': live,
@@ -95,6 +114,8 @@ class HadiReportService {
   /// Returns true when the report reached Firestore, false when it was kept
   /// on the device (it is sent later by [flush]).
   Future<bool> submit(HadiReport r) async {
+    // Support and crisis text never leaves the device, not even in a queue.
+    if (!HadiReportPolicy.mayInclude(r.answer)) return false;
     try {
       await _send(r.toMap());
       return true;
@@ -123,11 +144,16 @@ class HadiReportService {
     final List<Map<String, dynamic>> left = <Map<String, dynamic>>[];
     int sent = 0;
     for (final Map<String, dynamic> e in pending) {
+      final String answer = (e['answer'] ?? '').toString();
+      final String? question = e['question']?.toString();
+      // A report queued by an older version may hold text that must not go.
+      if (!HadiReportPolicy.mayInclude(answer)) continue;
       try {
         await _send(<String, Object?>{
           'reason': e['reason'],
           'answer': e['answer'],
-          if (e['question'] != null) 'question': e['question'],
+          if (question != null && HadiReportPolicy.mayInclude(question))
+            'question': e['question'],
           'sources': e['sources'] ?? <dynamic>[],
           'live': e['live'] ?? false,
         });

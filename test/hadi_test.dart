@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:ar_rayaan/app/core/providers.dart';
 import 'package:ar_rayaan/features/hadi/application/hadi_controller.dart';
 import 'package:ar_rayaan/features/hadi/application/hadi_provider.dart';
+import 'package:ar_rayaan/features/hadi/data/api_key_vault.dart';
 import 'package:ar_rayaan/features/hadi/data/groq_hadi_provider.dart';
 import 'package:ar_rayaan/features/hadi/data/offline_hadi_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -182,9 +183,12 @@ void main() {
       );
       addTearDown(c.dispose);
       expect(c.read(hadiControllerProvider).live, isFalse);
+      addTearDown(ApiKeyVault.debugReset);
       await c.read(hadiControllerProvider.notifier).saveApiKey(' gsk_abc ');
       expect(c.read(hadiControllerProvider).live, isTrue);
-      expect(prefs.getString('ar.hadi.apikey'), 'gsk_abc');
+      expect(ApiKeyVault.read(prefs), 'gsk_abc');
+      // Never left in plain text.
+      expect(prefs.getString('ar.hadi.apikey'), isNull);
       await c.read(hadiControllerProvider.notifier).saveApiKey('');
       expect(c.read(hadiControllerProvider).live, isFalse);
     });
@@ -253,13 +257,18 @@ void main() {
       final String saved = prefs.getString('ar.hadi.thread') ?? '';
       expect(saved.contains('kill myself'), isFalse);
       expect(saved.contains('39:53'), isFalse);
+      expect(saved, isEmpty, reason: 'nothing is written at all now');
     });
 
-    test('after a crisis, later questions do not send it upstream', () async {
+    test('after a crisis, no model is called until the person says they are safe',
+        () async {
       final ProviderContainer c = await container();
       final _CountingProvider live = _CountingProvider();
       final HadiController ctrl = c.read(hadiControllerProvider.notifier);
       await ctrl.ask('I want to kill myself', provider: live);
+      await ctrl.ask('What is witr?', provider: live);
+      expect(live.calls, 0, reason: 'latched: on-device only');
+      await ctrl.ask('I am safe now', provider: live);
       await ctrl.ask('What is witr?', provider: live);
       expect(live.calls, 1);
       for (final HadiMessage m in live.histories.single) {
@@ -306,6 +315,12 @@ void main() {
       final String saved = prefs.getString('ar.hadi.thread') ?? '';
       expect(saved.contains('[GO:'), isFalse);
       expect(saved.contains('[DO:'), isFalse);
+      final String shownTexts = c
+          .read(hadiControllerProvider)
+          .messages
+          .map((HadiMessage m) => m.text)
+          .join('\n');
+      expect(shownTexts.contains('[GO:'), isFalse);
       final HadiMessage m = c.read(hadiControllerProvider).messages.last;
       expect(m.routes, <String>['/quran']);
       expect(HadiTokens.labelFor(m.routes.single), 'Open the Qur’an');

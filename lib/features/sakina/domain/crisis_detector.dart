@@ -47,6 +47,15 @@ enum CrisisKind {
   /// First-person intent to join or serve a violent group, or to hurt people
   /// for their religion.
   extremism,
+
+  /// A medical emergency linked to alcohol, drugs or medicine: someone who
+  /// has taken too much, is hard to wake or not breathing, has a seizure or
+  /// sees things after stopping, mixed pills with alcohol, is about to drive
+  /// drunk, or asks for a dose or a plan to stop heavy use alone. The reply
+  /// is emergency-number-first and never carries a dose, a taper or a
+  /// withdrawal plan. (A first-person overdose in order to die is still
+  /// [selfHarm], which is checked first.)
+  substanceEmergency,
 }
 
 /// One phrase to look for, with optional guards against known false alarms.
@@ -1010,6 +1019,163 @@ abstract final class CrisisDetector {
     const _Pat('اريد ان انضم الى داعش'),
   ];
 
+  // ── Alcohol, drugs and medicine: medical emergencies ─────────────────
+  //
+  // CLINICIAN REVIEW NEEDED. English first, then Arabic, Urdu (script and
+  // Roman) and Bangla. Every non-English phrase below was written for
+  // coverage and has NOT been read by a native-speaker clinician: they are
+  // listed in docs/SCHOLAR_REVIEW_REGISTER.md and must be reviewed before the
+  // app claims support in that language. The first-person overdose phrases
+  // live in [_selfHarm] and win over this list.
+
+  /// Somebody else has overdosed: the person is a bystander, so this is
+  /// checked BEFORE [_selfHarm] (which would read "overdosed" as their own).
+  static final List<_Pat> _substanceBystander = <_Pat>[
+    const _Pat('my friend overdosed'),
+    const _Pat('my friend has overdosed'),
+    const _Pat('my friend is overdosing'),
+    const _Pat('my brother overdosed'),
+    const _Pat('my sister overdosed'),
+    const _Pat('my son overdosed'),
+    const _Pat('my daughter overdosed'),
+    const _Pat('my husband overdosed'),
+    const _Pat('my wife overdosed'),
+    const _Pat('my dad overdosed'),
+    const _Pat('my father overdosed'),
+    const _Pat('my mum overdosed'),
+    const _Pat('my mom overdosed'),
+    const _Pat('my mother overdosed'),
+    const _Pat('my cousin overdosed'),
+    const _Pat('someone overdosed'),
+    const _Pat('somebody overdosed'),
+    const _Pat('he overdosed'),
+    const _Pat('she overdosed'),
+    const _Pat('they overdosed'),
+    const _Pat('he is overdosing'),
+    const _Pat('she is overdosing'),
+    const _Pat('hes overdosing'),
+    const _Pat('shes overdosing'),
+  ];
+
+  static final List<_Pat> _substance = <_Pat>[
+    // Withdrawal danger
+    const _Pat('withdrawal seizure'),
+    const _Pat('withdrawal seizures'),
+    const _Pat('delirium tremens'),
+    const _Pat('having a seizure'),
+    const _Pat('had a seizure'),
+    const _Pat('seeing things that arent there'),
+    const _Pat('seeing things that are not there'),
+    const _Pat('saw things that werent there'),
+    const _Pat('saw things that were not there'),
+    const _Pat('hearing things that arent there'),
+    const _Pat('hearing things that are not there'),
+    const _Pat('shaking since i stopped drinking'),
+    const _Pat('shaking since i stopped'),
+    const _Pat('shakes since i stopped drinking'),
+    const _Pat('seizure since i stopped drinking'),
+    const _Pat('hallucinating since i stopped drinking'),
+    const _Pat('stopped drinking and now im shaking'),
+    const _Pat('stopped drinking and now i am shaking'),
+    const _Pat('stopped drinking and im shaking'),
+    const _Pat('stopped drinking and i am shaking'),
+    // Stopping heavy use alone, or asking for a plan or a dose
+    const _Pat('stop drinking by myself'),
+    const _Pat('stop drinking on my own'),
+    const _Pat('quit drinking cold turkey'),
+    const _Pat('stopped drinking cold turkey'),
+    const _Pat('stopped drinking suddenly'),
+    const _Pat('quit drinking suddenly'),
+    const _Pat('plan to stop by myself'),
+    const _Pat('plan to stop on my own'),
+    const _Pat('detox at home'),
+    const _Pat('detox myself'),
+    const _Pat('detox by myself'),
+    const _Pat('home detox'),
+    const _Pat('stopped valium suddenly'),
+    const _Pat('stopped xanax suddenly'),
+    const _Pat('stopped benzos suddenly'),
+    const _Pat('stopped diazepam suddenly'),
+    const _Pat('quit xanax cold turkey'),
+    const _Pat('quit valium cold turkey'),
+    const _Pat('how many valium can i take'),
+    const _Pat('how many xanax can i take'),
+    const _Pat('how many diazepam can i take'),
+    const _Pat('safe amount of heroin'),
+    const _Pat('safe dose of heroin'),
+    const _Pat('safe amount of fentanyl'),
+    const _Pat('safe dose of fentanyl'),
+    // Mixing
+    const _Pat('mixed pills and alcohol'),
+    const _Pat('mixed pills with alcohol'),
+    const _Pat('mixed alcohol and pills'),
+    const _Pat('mixing pills and alcohol'),
+    const _Pat('mixed xanax and alcohol'),
+    const _Pat('mixed valium and alcohol'),
+    const _Pat('mixed opioids and alcohol'),
+    const _Pat('drank and took pills'),
+    // Someone cannot be woken or is not breathing
+    const _Pat(
+      'wont wake up',
+      notFollowedBy: <String>[
+        'for',
+        'early',
+        'before',
+        'without',
+        'on time',
+        'at',
+        'in',
+        'to',
+      ],
+    ),
+    const _Pat('cant wake him'),
+    const _Pat('cant wake her'),
+    const _Pat('cant wake them'),
+    const _Pat('cant wake my'),
+    const _Pat('not breathing'),
+    const _Pat('stopped breathing'),
+    const _Pat('lips are blue'),
+    const _Pat('lips turning blue'),
+    const _Pat('face turning blue'),
+    const _Pat('passed out and wont'),
+    // Intoxicated and about to drive, or someone dangerously high
+    const _Pat('driving home drunk'),
+    const _Pat('im driving home drunk'),
+    const _Pat('drank and now im driving'),
+    const _Pat('drunk and driving home'),
+    const _Pat('im drunk and driving'),
+    const _Pat('im about to drive drunk'),
+    const _Pat('son is high right now'),
+    const _Pat('daughter is high right now'),
+    const _Pat('husband is high right now'),
+    const _Pat('brother is high right now'),
+    const _Pat('friend is high right now'),
+    const _Pat('is drunk and wont'),
+    // Arabic (clinician and native-speaker review needed)
+    const _Pat('جرعة زائدة'),
+    const _Pat('جرعه زائده'),
+    const _Pat('نوبة صرع'),
+    const _Pat('نوبه صرع'),
+    const _Pat('لا يتنفس'),
+    const _Pat('لا تتنفس'),
+    const _Pat('توقف عن التنفس'),
+    // Urdu, script and Roman (clinician and native-speaker review needed)
+    const _Pat('اوور ڈوز'),
+    const _Pat('اوورڈوز'),
+    const _Pat('دورہ پڑ رہا ہے'),
+    const _Pat('سانس نہیں لے رہا'),
+    const _Pat('سانس نہیں لے رہی'),
+    const _Pat('overdose ho gaya'),
+    const _Pat('overdose ho gayi'),
+    const _Pat('sans nahi le raha'),
+    const _Pat('sans nahi le rahi'),
+    // Bangla (clinician and native-speaker review needed)
+    const _Pat('ওভারডোজ'),
+    const _Pat('খিঁচুনি'),
+    const _Pat('খিচুনি'),
+    const _Pat('শ্বাস নিচ্ছে না'),
+  ];
+
   /// Pattern lists normalised the plain way (what [detect] always tried).
   static final _Lists _plain = _Lists(normalize);
 
@@ -1326,6 +1492,12 @@ abstract final class CrisisDetector {
     final List<String> tokens = norm.split(' ');
     final String padded = ' $norm ';
 
+    // Somebody else's overdose is an emergency for the person with them,
+    // not a disclosure of their own, so it is read before the self-harm list.
+    if (_anyMatch(tokens, lists.bystander, near)) {
+      return CrisisKind.substanceEmergency;
+    }
+
     if (_anyMatch(tokens, lists.selfHarm, near)) return CrisisKind.selfHarm;
 
     if (_anyMatch(tokens, lists.concept, near)) {
@@ -1347,6 +1519,9 @@ abstract final class CrisisDetector {
       return question ? CrisisKind.suicideQuestion : CrisisKind.selfHarm;
     }
 
+    if (_anyMatch(tokens, lists.substance, near)) {
+      return CrisisKind.substanceEmergency;
+    }
     if (_anyMatch(tokens, lists.child, near)) return CrisisKind.childSafety;
     if (_anyMatch(tokens, lists.abuse, near)) return CrisisKind.abuse;
     if (_anyMatch(tokens, lists.eating, near)) return CrisisKind.eatingDisorder;
@@ -1420,6 +1595,10 @@ class _Lists {
         eating = CrisisDetector._normalizeAll(CrisisDetector._eating, norm),
         extremism =
             CrisisDetector._normalizeAll(CrisisDetector._extremism, norm),
+        substance =
+            CrisisDetector._normalizeAll(CrisisDetector._substance, norm),
+        bystander = CrisisDetector._normalizeAll(
+            CrisisDetector._substanceBystander, norm),
         question = <String>[
           for (final String m in CrisisDetector._questionMarkers) norm(m),
         ],
@@ -1433,6 +1612,8 @@ class _Lists {
       child,
       eating,
       extremism,
+      substance,
+      bystander,
     ];
     for (final List<_Pat> list in all) {
       for (final _Pat p in list) {
@@ -1455,6 +1636,8 @@ class _Lists {
   final List<_Pat> child;
   final List<_Pat> eating;
   final List<_Pat> extremism;
+  final List<_Pat> substance;
+  final List<_Pat> bystander;
   final List<String> question;
   final List<String> personal;
 
@@ -1500,8 +1683,26 @@ abstract final class CrisisResponses {
         };
       case CrisisKind.extremism:
         return const <HelpKind>{HelpKind.emergency};
+      case CrisisKind.substanceEmergency:
+        return const <HelpKind>{
+          HelpKind.emergency,
+          HelpKind.addiction,
+          HelpKind.suicide,
+        };
     }
   }
+
+  /// Who a child is pointed to. Never "tell a parent" alone: the parent may
+  /// be the person who is hurting the child. A parent comes first only when it
+  /// is safe, and a child helpline is always on the list.
+  static const String trustedAdultChoices =
+      'a trusted adult: a parent if it feels safe, a teacher, a school '
+      'counsellor, or a child helpline';
+
+  /// The same, in a child's words.
+  static const String trustedAdultForChild =
+      'a grown-up you trust. That can be a parent if it feels safe, a '
+      'teacher, a school counsellor, or a child helpline you can call or text';
 
   /// A plain line saying which country the lines above are for, and how to
   /// change it. The country comes from the device language setting, never
@@ -1530,7 +1731,16 @@ abstract final class CrisisResponses {
     CrisisKind kind,
     String? countryCode,
   ) {
-    return HelpResources.forCountry(countryCode, kinds: kindsFor(kind));
+    final List<HelpResource> rows =
+        HelpResources.forCountry(countryCode, kinds: kindsFor(kind));
+    if (kind != CrisisKind.substanceEmergency) return rows;
+    // A medical emergency starts with the emergency number.
+    return <HelpResource>[
+      for (final HelpResource r in rows)
+        if (r.kinds.contains(HelpKind.emergency)) r,
+      for (final HelpResource r in rows)
+        if (!r.kinds.contains(HelpKind.emergency)) r,
+    ];
   }
 
   static String _lines(List<HelpResource> rows, {int max = 5}) {
@@ -1604,15 +1814,16 @@ abstract final class CrisisResponses {
             'in a way that feels wrong is doing something wrong. It is not '
             'your fault and you are not in trouble.\n\n'
             'Please do three things: stop answering them (keep the '
-            'messages, they can help), tell a parent or another adult you '
-            'trust today, and if you are in danger right now call your '
-            'local emergency number.\n\n'
+            'messages, they can help), tell $trustedAdultChoices today, and '
+            'if you are in danger right now call your local emergency '
+            'number.\n\n'
             '$lines\n\n'
             'These lines are for young people. If it feels too hard to say '
-            'it at home, a teacher, an imam you trust, or one of these '
-            'lines can help you find the words. I am an app, not a person, '
-            'so the people behind these lines matter more than anything I '
-            'can say.';
+            'it at home, you do not have to start there: a teacher, a school '
+            'counsellor, an imam you trust, or one of these lines can help '
+            'you find the words. You choose who to tell. I am an app, not a '
+            'person, I cannot call anyone for you, and the people behind '
+            'these lines matter more than anything I can say.';
       case CrisisKind.eatingDisorder:
         return 'Thank you for telling me. Starving, purging or punishing '
             'your body with food is a real struggle, not a failure of '
@@ -1627,6 +1838,24 @@ abstract final class CrisisResponses {
             'If you feel faint, have chest pain, or have thoughts of '
             'ending your life, call your local emergency number now. I am '
             'an app, not a doctor.';
+      case CrisisKind.substanceEmergency:
+        return 'This could be a medical emergency, so the first step is a '
+            'person with training, not me.\n\n'
+            'If someone has taken too much of something, is hard to wake, '
+            'is breathing slowly or not at all, is having a seizure, is '
+            'very confused, or you are seeing things that are not there '
+            'after stopping alcohol or a medicine: call your local '
+            'emergency number now. Stay with the person if you are with '
+            'someone, and ask someone nearby to stay with you. Do not '
+            'drive, and do not take more of anything.\n\n'
+            'If you have been drinking or taking something heavily, or for a '
+            'long time, please do not stop suddenly on your own: that can be '
+            'dangerous. A doctor can help you stop safely.\n\n'
+            '$lines\n\n'
+            'If you took this to hurt yourself, or you are thinking of '
+            'ending your life, say so here or call the line for your country '
+            'now. You are not in trouble. I am an app, not a doctor, and I '
+            'cannot call anyone for you.';
       case CrisisKind.extremism:
         return 'I cannot help with that, and I will not. I am also not '
             'going to lecture you. If something is pulling you toward '
@@ -1654,13 +1883,16 @@ abstract final class CrisisResponses {
         return 'If you are in danger, please call your local emergency '
             'number. The help lines above are still there for you.';
       case CrisisKind.childSafety:
-        return 'If someone is hurting or pressuring you, tell a trusted '
-            'adult today. The lines above are for young people.';
+        return 'If someone is hurting or pressuring you, tell $trustedAdultForChild. '
+            'The lines above are for young people.';
       case CrisisKind.eatingDisorder:
         return 'A doctor can help with this. The lines above are still '
             'there for you.';
       case CrisisKind.extremism:
         return 'If anyone is in danger, call your local emergency number.';
+      case CrisisKind.substanceEmergency:
+        return 'If anyone is hard to wake, not breathing well, or having a '
+            'seizure, call your local emergency number now.';
       case CrisisKind.selfHarm:
       case CrisisKind.suicideQuestion:
         return 'If any part of this is about you, the help lines above are '
@@ -1680,8 +1912,8 @@ abstract final class CrisisResponses {
             'conversation on your device.';
       case CrisisKind.childSafety:
         return 'You did the right thing by telling someone. Please also '
-            'tell a parent or another adult you trust today, and keep the '
-            'messages. The lines above are for young people.';
+            'tell $trustedAdultForChild, and keep the messages. The lines '
+            'above are for young people, and you choose who you tell.';
       case CrisisKind.eatingDisorder:
         return 'I hear you. This is worth telling a doctor, and the lines '
             'above can help you find support. You do not have to fix it '
@@ -1690,6 +1922,11 @@ abstract final class CrisisResponses {
         return 'I will not help with that. Please talk to a person you '
             'trust, such as a local imam, before you do anything. If anyone '
             'is in danger, call your local emergency number.';
+      case CrisisKind.substanceEmergency:
+        return 'I am here. If anyone is hard to wake, not breathing well, '
+            'having a seizure, or very confused, call your local emergency '
+            'number now and stay with them. The lines above can help with '
+            'what comes next.';
       case CrisisKind.selfHarm:
       case CrisisKind.suicideQuestion:
         return reminderFor(kind);

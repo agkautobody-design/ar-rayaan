@@ -12,7 +12,7 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 
 ## Totals
 
-**3720 items.** High priority: 1095. Normal: 2368. Low: 257.
+**3742 items.** High priority: 1117. Normal: 2368. Low: 257.
 
 ### By area
 
@@ -33,28 +33,28 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 | Stories: modern hadith | 61 | 11 |
 | Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas | 153 | 23 |
 | New Muslim 30-day path | 30 | 13 |
-| Sakina rooms, feelings, safety copy, health | 37 | 13 |
+| Sakina rooms, feelings, safety copy, health | 42 | 18 |
 | Zakat, will and estate, halal finance | 18 | 18 |
 | Prayer times, qibla, Hijri calendar, observances | 41 | 37 |
 | Qur'an text, translation, transliteration, licences | 9 | 5 |
 | Games and quizzes with religious content | 13 | 9 |
-| UI labels and crisis phrases in Arabic, Bangla, Urdu | 177 | 73 |
+| UI labels and crisis phrases in Arabic, Bangla, Urdu | 194 | 90 |
 | Privacy, terms, children's privacy, community rules | 9 | 9 |
 | Noor, share cards, Home daily cards | 43 | 0 |
 | Nasheeds and audio | 5 | 2 |
-| **Total** | **3720** | **1095** |
+| **Total** | **3742** | **1117** |
 
 ### By reviewer type
 
 | Reviewer | Items as lead reviewer | Items where also needed |
 |---|---:|---:|
-| Hadith / aqidah scholar | 2221 | 932 |
-| Fiqh scholar (per madhab) | 544 | 226 |
+| Hadith / aqidah scholar | 2220 | 933 |
+| Fiqh scholar (per madhab) | 545 | 227 |
 | Women's scholar | 151 | 73 |
 | Arabic / tajweed / qira'at specialist | 523 | 195 |
-| Clinician (Sakina and health content) | 89 | 165 |
-| Native speaker (ar / bn / ur) | 177 | 2 |
-| Privacy lawyer | 9 | 4 |
+| Clinician (Sakina and health content) | 93 | 182 |
+| Native speaker (ar / bn / ur) | 194 | 3 |
+| Privacy lawyer | 10 | 5 |
 | Rights holder / licensing (not a scholar) | 6 | 1 |
 
 Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each school (Hanafi, Maliki, Shafi'i, Hanbali) wherever the item states a school position.
@@ -70,7 +70,7 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 | Arabic, tajweed, Hifz and Qur'an recitation teaching |  |  |  | 88 |  |  |  |  |
 | Huda guides and their madhhab notes | 16 | 92 |  |  |  |  |  |  |
 | Q&A bank rulings | 3 | 13 |  |  |  |  |  |  |
-| Hadi built-in answers | 304 | 158 |  |  |  |  |  |  |
+| Hadi built-in answers | 303 | 159 |  |  |  |  |  |  |
 | Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus | 562 |  |  |  |  |  |  |  |
 | Stories: prophets, layers and earlier accounts | 256 |  |  |  |  |  |  |  |
 | Stories: seerah, companions, women | 118 |  | 46 |  |  |  |  |  |
@@ -78,25 +78,25 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 | Stories: modern hadith | 61 |  |  |  |  |  |  |  |
 | Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas | 153 |  |  |  |  |  |  |  |
 | New Muslim 30-day path |  | 30 |  |  |  |  |  |  |
-| Sakina rooms, feelings, safety copy, health |  |  |  |  | 37 |  |  |  |
+| Sakina rooms, feelings, safety copy, health |  |  |  |  | 41 |  | 1 |  |
 | Zakat, will and estate, halal finance |  | 18 |  |  |  |  |  |  |
 | Prayer times, qibla, Hijri calendar, observances | 10 | 31 |  |  |  |  |  |  |
 | Qur'an text, translation, transliteration, licences | 1 |  |  | 3 |  |  |  | 5 |
 | Games and quizzes with religious content | 13 |  |  |  |  |  |  |  |
-| UI labels and crisis phrases in Arabic, Bangla, Urdu |  |  |  |  |  | 177 |  |  |
+| UI labels and crisis phrases in Arabic, Bangla, Urdu |  |  |  |  |  | 194 |  |  |
 | Privacy, terms, children's privacy, community rules |  |  |  |  |  |  | 9 |  |
 | Noor, share cards, Home daily cards | 43 |  |  |  |  |  |  |  |
 | Nasheeds and audio | 1 | 2 |  | 1 |  |  |  | 1 |
 
 ## By reviewer type: what each one is asked to look at
 
-### Hadith / aqidah scholar (2221 lead, 932 also)
+### Hadith / aqidah scholar (2220 lead, 933 also)
 
 - Academy v3 lessons and steps: 199 items (100 high). Ids start with `lesson.aqid`, `lesson.char`, `lesson.daw`, `lesson.path`, `lesson.und`, `lesson.wasia-claim`.
 - Academy schools, Path lessons and static course screens: 299 items (0 high). Ids start with `lesson-v1.path`, `school.aqeedah`, `school.character`, `school.dawah`, `school.hadith-school`, `school.history`.
 - Huda guides and their madhhab notes: 16 items (3 high). Ids start with `huda.guide`.
 - Q&A bank rulings: 3 items (0 high). Ids start with `qa.07`, `qa.14`, `qa.16`.
-- Hadi built-in answers: 304 items (8 high). Ids start with `hadi.ai-tier`, `hadi.core`, `hadi.explain`, `hadi.routing`, `hadi.shelf`.
+- Hadi built-in answers: 303 items (8 high). Ids start with `hadi.ai-tier`, `hadi.core`, `hadi.explain`, `hadi.routing`, `hadi.shelf`.
 - Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus: 562 items (108 high). Ids start with `hadith.corpus-quran`, `hadith.corpus`, `hadith.daily`, `hadith.editor-notes`, `hadith.grade-mismatches`, `hadith.grade`.
 - Stories: prophets, layers and earlier accounts: 256 items (51 high). Ids start with `earlier.adam`, `earlier.dawud`, `earlier.dhul-qarnayn`, `earlier.ibrahim`, `earlier.isa`, `earlier.lut`.
 - Stories: seerah, companions, women: 118 items (99 high). Ids start with `story.companions`, `story.seerah`.
@@ -109,13 +109,13 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 - Noor, share cards, Home daily cards: 43 items (0 high). Ids start with `noor.app-toc`, `noor.card`, `noor.entry`.
 - Nasheeds and audio: 1 items (0 high). Ids start with `nasheed.lyrics`.
 
-### Fiqh scholar (per madhab) (544 lead, 226 also)
+### Fiqh scholar (per madhab) (545 lead, 227 also)
 
 - Academy v3 lessons and steps: 139 items (68 high). Ids start with `lesson.aqid`, `lesson.eol`, `lesson.fam`, `lesson.hlth`, `lesson.path-established`, `lesson.path`.
 - Academy schools, Path lessons and static course screens: 61 items (1 high). Ids start with `eol.janazah`, `school.end-of-life`, `school.family-life`, `school.hajj-umrah`, `school.ramadan-mode`, `school.transactions`.
 - Huda guides and their madhhab notes: 92 items (91 high). Ids start with `huda.guide`, `huda.madhhab`.
 - Q&A bank rulings: 13 items (6 high). Ids start with `qa.01`, `qa.02`, `qa.03`, `qa.04`, `qa.05`, `qa.06`.
-- Hadi built-in answers: 158 items (12 high). Ids start with `hadi.core`, `hadi.shelf`.
+- Hadi built-in answers: 159 items (12 high). Ids start with `hadi.core`, `hadi.shelf`.
 - New Muslim 30-day path: 30 items (13 high). Ids start with `new-muslim.newmuslim-01`, `new-muslim.newmuslim-02`, `new-muslim.newmuslim-03`, `new-muslim.newmuslim-04`, `new-muslim.newmuslim-05`, `new-muslim.newmuslim-06`.
 - Zakat, will and estate, halal finance: 18 items (18 high). Ids start with `eol.will-estate`, `money.finance`, `money.will`, `money.zakat`.
 - Prayer times, qibla, Hijri calendar, observances: 31 items (27 high). Ids start with `calendar.hijri-method`, `calendar.sunnah-fasting`, `prayer.adhan-alerts`, `prayer.approx-times-label`, `prayer.asr-school`, `prayer.auto-region`.
@@ -135,18 +135,19 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 - Qur'an text, translation, transliteration, licences: 3 items (2 high). Ids start with `quran.arabic-diacritics`, `quran.riwaya`, `quran.translit-accuracy`.
 - Nasheeds and audio: 1 items (0 high). Ids start with `nasheed.audio-stubs`.
 
-### Clinician (Sakina and health content) (89 lead, 165 also)
+### Clinician (Sakina and health content) (93 lead, 182 also)
 
 - Academy v3 lessons and steps: 39 items (30 high). Ids start with `lesson.hlth`.
 - Academy schools, Path lessons and static course screens: 13 items (0 high). Ids start with `school.health`.
-- Sakina rooms, feelings, safety copy, health: 37 items (13 high). Ids start with `health.ruqya-medicine`, `sakina.child-loss-grief`, `sakina.comfort-deck`, `sakina.feeling`, `sakina.hadi-distress`, `sakina.help-lines`.
+- Sakina rooms, feelings, safety copy, health: 41 items (17 high). Ids start with `health.ruqya-medicine`, `sakina.child-loss-grief`, `sakina.comfort-deck`, `sakina.feeling`, `sakina.hadi-distress`, `sakina.help-lines`.
 
-### Native speaker (ar / bn / ur) (177 lead, 2 also)
+### Native speaker (ar / bn / ur) (194 lead, 3 also)
 
-- UI labels and crisis phrases in Arabic, Bangla, Urdu: 177 items (73 high). Ids start with `lang.app-locale`, `lang.arb`, `lang.crisis`, `lang.elder-rtl`, `lang.label`.
+- UI labels and crisis phrases in Arabic, Bangla, Urdu: 194 items (90 high). Ids start with `lang.app-locale`, `lang.arb`, `lang.crisis`, `lang.elder-rtl`, `lang.label`, `support.crisis-substance-lang`.
 
-### Privacy lawyer (9 lead, 4 also)
+### Privacy lawyer (10 lead, 5 also)
 
+- Sakina rooms, feelings, safety copy, health: 1 items (1 high). Ids start with `support.privacy-storage`.
 - Privacy, terms, children's privacy, community rules: 9 items (9 high). Ids start with `legal.children-privacy`, `legal.community-rules`, `legal.contact-address`, `legal.data-sync`, `legal.parent-pin`, `legal.privacy`.
 
 ### Rights holder / licensing (not a scholar) (6 lead, 1 also)
@@ -1831,7 +1832,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `hadi.core.jihad-peace` | Hadi chat > built-in answer "jihad-peace" | Built-in answer "jihad-peace": Islam's teaching is to protect life and to be just to everyone. The Qur'an says that killing an innocent person is like killing all of mankind: "whoever kills a soul un… | Fighting only for defence is stated per the cited verses; the classical fiqh of jihad includes further discussion that is not summarised here. Flagged for scholar review. | Hadith / aqidah scholar + Fiqh scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.other-religions` | Hadi chat > built-in answer "other-religions" | Built-in answer "other-religions": I answer from Islam, so I can tell you what Muslims believe, and I will not mock or attack anyone's faith. Muslims believe that Allah sent messengers to every peopl… | Statements on Christian belief are limited to what the Qur'an says and what Muslims therefore believe; the final judgment on individuals is left to Allah. Flagged for scholar review. / Named in FIX_HADI_REPORT "Scholar review needed": other religions. | Hadith / aqidah scholar + Fiqh scholar | high | hadi_core_data.dart reviewNote (kept for the review list); FIX_HADI_REPORT (scholar review needed: other religions); FIX_HADI_REPORT |
 | `hadi.core.hadi-about` | Hadi chat > built-in answer "hadi-about" | Built-in answer "hadi-about": I am Hadi, the guide inside this app. I am not a scholar, a sheikh or a mufti, and I cannot issue a fatwa. I answer from a built-in library of the Qur'an and the Sunnah,… | Statements about scope and limits only. | Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
-| `hadi.core.streaks-points` | Hadi chat > built-in answer "streaks-points" | Built-in answer "streaks-points": Streaks are optional and are off until you turn them on. The switch is called "Keep my streaks": you find it in Settings under "Coming back", and on the Streaks scre… | Checked against the Streaks and Settings screens by test/hadi_eval/app_help_facts_test.dart. | Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
+| `hadi.core.tracking-points` | Hadi chat > built-in answer "tracking-points" | Built-in answer "tracking-points": Ar-Rayaan does not count days in a row, and nothing in it starts over when you take a break. If you like, you can keep a private log: the switch is called "Keep a p… | Checked against the My log and Settings screens by test/hadi_eval/app_help_facts_test.dart. | Fiqh scholar + Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.language-help` | Hadi chat > built-in answer "language-help" | Built-in answer "language-help": You change the language on the Language & Voice screen: open the menu and choose "Language & Voice" (or Settings, then the language row). The app offers English, Urdu… | Checked against the Language & Voice screen by test/hadi_eval/app_help_facts_test.dart. | Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.downloads-offline` | Hadi chat > built-in answer "downloads-offline" | Built-in answer "downloads-offline": Most of the app works without the internet. The Qur'an text, the stories, the guides and the duas are already inside the app. What you can download is recitation… | Checked against the Downloads screen by test/hadi_eval/app_help_facts_test.dart. | Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
 | `hadi.core.kids-help` | Hadi chat > built-in answer "kids-help" | Built-in answer "kids-help": The For Children section has three doors: the Arabic letters (learn them one at a time), Games (play and learn), and the Stories school (stories with a lesson to talk abo… | Checked against kChildrenPrivacyBody and the For Children screen by test/hadi_eval/app_help_facts_test.dart. | Hadith / aqidah scholar | normal | hadi_core_data.dart reviewNote (kept for the review list) |
@@ -3643,7 +3644,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 
 ### Sakina rooms, feelings, safety copy, health
 
-37 items, 13 high priority. Area key `sakina`.
+42 items, 18 high priority. Area key `sakina`.
 
 | Id | Where in the app | What to review | Why flagged | Reviewer | Pri | Source |
 |---|---|---|---|---|---|---|
@@ -3684,6 +3685,11 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `sakina.help-unverified` | Need help now > "Not re-checked recently" help lines | Help lines marked unverified or not re-checked, and US-centric coverage outside the US. | B_worship audit; FACT_S4 re-verification dated 2026-10-20. | Clinician + Native speaker | high | B_worship audit; FACT_S4 |
 | `sakina.child-loss-grief` | Hadi / Sakina > grief and child loss replies | Replies for bereavement, miscarriage and child loss. | Sensitive copy with no clinician or scholar review. | Clinician + Hadith / aqidah scholar | high | E_games_hadi audit |
 | `health.ruqya-medicine` | Health school; Hadi on fasting and medicine; ruqya | Health teaching (Prophetic medicine, dhikr and mental health, fasting and medicine, ibuprofen while fasting). | S2_eol_hlth_wmns_char: health content needs a clinician; Hadi refuses ibuprofen question with no doctor line (E_games_hadi #79). | Clinician + Hadith / aqidah scholar | high | S2_eol_hlth_wmns_char; E_games_hadi audit #79 |
+| `support.hadi-replies` | Hadi > a reply to someone who talks about drinking, drugs, gambling, pornography, smoking or a relapse | Listening replies (three per topic), the safety note about not stopping heavy use suddenly, and the word lists that decide a person from a question. | RES_H3: a ruling card is the wrong answer to someone in relapse. Written for coverage; no clinician has read them. Shown with both "Scholar review needed" and "Clinician review needed" until signed. | Clinician + Fiqh scholar, Native speaker | high | RES_H3_hadi_companion_design; RES_H1_recovery_evidence |
+| `support.crisis-substance` | Hadi / Wasia > medical emergency card (overdose, withdrawal danger, mixing, drunk driving) | The new addiction and medical-emergency crisis category: English phrases, the card (emergency number first, no dose, no taper) and the follow-up checks after the card. | RES_H3 R5: no addiction or overdose category existed. Withdrawal from alcohol and sedatives can be fatal, so the wording must be read by a clinician. | Clinician | high | RES_H3_hadi_companion_design |
+| `support.latch-checks` | Hadi / Wasia > the safety check after a crisis card ("ok", "tonight") | The plain questions asked when a short reply follows a crisis card, and the sentence said when the person says they are safe. | RES_H3 D1: follow-ups with no trigger word were treated as normal. The wording and the list of ambiguous words need a clinician. | Clinician | high | RES_H3_hadi_companion_design |
+| `support.wasia-child` | Wasia and Kids > what a child is told when something is wrong | Replies now say "a trusted adult (a parent if it feels safe, a teacher, a school counsellor, or a child helpline)", that the child chooses, and that the app cannot call anyone. | RES_H3 R1, D5, D6: "tell a parent" can point a child at the person hurting them. A child-protection specialist and a clinician should read the wording by age band. | Clinician + Privacy lawyer | high | RES_H3_hadi_companion_design; R9_T1_children |
+| `support.privacy-storage` | Hadi > nothing about a conversation is saved; the API key leaves plain text; Report never uploads support text | The conversation is memory-only. The key is kept in the secure store on a phone and memory-only in a browser. Report drops text from crisis, support and minor exchanges. | RES_H3 D3, D4, D10: health disclosures were stored in plain text and could be uploaded by the Report button. | Privacy lawyer | high | RES_H3_hadi_companion_design |
 
 ### Zakat, will and estate, halal finance
 
@@ -3802,7 +3808,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 
 ### UI labels and crisis phrases in Arabic, Bangla, Urdu
 
-177 items, 73 high priority. Area key `languages`.
+194 items, 90 high priority. Area key `languages`.
 
 | Id | Where in the app | What to review | Why flagged | Reviewer | Pri | Source |
 |---|---|---|---|---|---|---|
@@ -3979,10 +3985,27 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `lang.crisis.068` | Hadi / Sakina crisis detector (fires the help-line card) | Crisis phrase in Arabic/Urdu script: "انضم الى داعش" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms? | Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases. | Native speaker + Clinician | high | docs/OWNER_ACTIONS.md item 4; crisis_detector.dart |
 | `lang.crisis.069` | Hadi / Sakina crisis detector (fires the help-line card) | Crisis phrase in Arabic/Urdu script: "اريد الانضمام الى داعش" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms? | Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases. | Native speaker + Clinician | high | docs/OWNER_ACTIONS.md item 4; crisis_detector.dart |
 | `lang.crisis.070` | Hadi / Sakina crisis detector (fires the help-line card) | Crisis phrase in Arabic/Urdu script: "اريد ان انضم الى داعش" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms? | Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases. | Native speaker + Clinician | high | docs/OWNER_ACTIONS.md item 4; crisis_detector.dart |
+| `lang.crisis.071` | Hadi / Sakina crisis detector (fires the help-line card) | Crisis phrase in Arabic/Urdu script: "جرعة زائدة" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms? | Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases. | Native speaker + Clinician | high | docs/OWNER_ACTIONS.md item 4; crisis_detector.dart |
+| `lang.crisis.072` | Hadi / Sakina crisis detector (fires the help-line card) | Crisis phrase in Arabic/Urdu script: "جرعه زائده" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms? | Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases. | Native speaker + Clinician | high | docs/OWNER_ACTIONS.md item 4; crisis_detector.dart |
+| `lang.crisis.073` | Hadi / Sakina crisis detector (fires the help-line card) | Crisis phrase in Arabic/Urdu script: "نوبة صرع" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms? | Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases. | Native speaker + Clinician | high | docs/OWNER_ACTIONS.md item 4; crisis_detector.dart |
+| `lang.crisis.074` | Hadi / Sakina crisis detector (fires the help-line card) | Crisis phrase in Arabic/Urdu script: "نوبه صرع" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms? | Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases. | Native speaker + Clinician | high | docs/OWNER_ACTIONS.md item 4; crisis_detector.dart |
+| `lang.crisis.075` | Hadi / Sakina crisis detector (fires the help-line card) | Crisis phrase in Arabic/Urdu script: "لا يتنفس" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms? | Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases. | Native speaker + Clinician | high | docs/OWNER_ACTIONS.md item 4; crisis_detector.dart |
+| `lang.crisis.076` | Hadi / Sakina crisis detector (fires the help-line card) | Crisis phrase in Arabic/Urdu script: "لا تتنفس" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms? | Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases. | Native speaker + Clinician | high | docs/OWNER_ACTIONS.md item 4; crisis_detector.dart |
+| `lang.crisis.077` | Hadi / Sakina crisis detector (fires the help-line card) | Crisis phrase in Arabic/Urdu script: "توقف عن التنفس" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms? | Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases. | Native speaker + Clinician | high | docs/OWNER_ACTIONS.md item 4; crisis_detector.dart |
+| `lang.crisis.078` | Hadi / Sakina crisis detector (fires the help-line card) | Crisis phrase in Arabic/Urdu script: "اوور ڈوز" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms? | Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases. | Native speaker + Clinician | high | docs/OWNER_ACTIONS.md item 4; crisis_detector.dart |
+| `lang.crisis.079` | Hadi / Sakina crisis detector (fires the help-line card) | Crisis phrase in Arabic/Urdu script: "اوورڈوز" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms? | Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases. | Native speaker + Clinician | high | docs/OWNER_ACTIONS.md item 4; crisis_detector.dart |
+| `lang.crisis.080` | Hadi / Sakina crisis detector (fires the help-line card) | Crisis phrase in Arabic/Urdu script: "دورہ پڑ رہا ہے" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms? | Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases. | Native speaker + Clinician | high | docs/OWNER_ACTIONS.md item 4; crisis_detector.dart |
+| `lang.crisis.081` | Hadi / Sakina crisis detector (fires the help-line card) | Crisis phrase in Arabic/Urdu script: "سانس نہیں لے رہا" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms? | Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases. | Native speaker + Clinician | high | docs/OWNER_ACTIONS.md item 4; crisis_detector.dart |
+| `lang.crisis.082` | Hadi / Sakina crisis detector (fires the help-line card) | Crisis phrase in Arabic/Urdu script: "سانس نہیں لے رہی" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms? | Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases. | Native speaker + Clinician | high | docs/OWNER_ACTIONS.md item 4; crisis_detector.dart |
+| `lang.crisis.083` | Hadi / Sakina crisis detector (fires the help-line card) | Crisis phrase in Bengali script: "ওভারডোজ" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms? | Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases. | Native speaker + Clinician | high | docs/OWNER_ACTIONS.md item 4; crisis_detector.dart |
+| `lang.crisis.084` | Hadi / Sakina crisis detector (fires the help-line card) | Crisis phrase in Bengali script: "খিঁচুনি" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms? | Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases. | Native speaker + Clinician | high | docs/OWNER_ACTIONS.md item 4; crisis_detector.dart |
+| `lang.crisis.085` | Hadi / Sakina crisis detector (fires the help-line card) | Crisis phrase in Bengali script: "খিচুনি" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms? | Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases. | Native speaker + Clinician | high | docs/OWNER_ACTIONS.md item 4; crisis_detector.dart |
+| `lang.crisis.086` | Hadi / Sakina crisis detector (fires the help-line card) | Crisis phrase in Bengali script: "শ্বাস নিচ্ছে না" (normalised form, no vowel marks): is it natural, does it catch what a speaker would write, and does it avoid common idioms? | Crisis phrases in ar/ur/bn were written without a native speaker; a missed crisis costs far more than a needless card (crisis_detector.dart design rules). OWNER_ACTIONS item 4: native speakers for non-English crisis phrases. | Native speaker + Clinician | high | docs/OWNER_ACTIONS.md item 4; crisis_detector.dart |
 | `lang.crisis.roman-urdu` | Crisis detector and reply cards | Roman-Urdu and Roman-Bangla crisis phrases (for example "marna chahta hoon", "jaan de dunga") | OWNER_ACTIONS item 4: native speakers for non-English crisis phrases; replies are English-only. | Native speaker + Clinician | high | docs/OWNER_ACTIONS.md item 4 |
 | `lang.crisis.abuse-child-ed-extremism` | Crisis detector and reply cards | Non-English phrases for abuse, child safety, eating disorders and extremism in the detector, and the fixed replies | OWNER_ACTIONS item 4: native speakers for non-English crisis phrases; replies are English-only. | Native speaker + Clinician | high | docs/OWNER_ACTIONS.md item 4 |
 | `lang.crisis.replies` | Crisis detector and reply cards | The fixed replies shown after a crisis match and the country help-line chooser, in English only today | OWNER_ACTIONS item 4: native speakers for non-English crisis phrases; replies are English-only. | Native speaker + Clinician | high | docs/OWNER_ACTIONS.md item 4 |
 | `lang.elder-rtl` | Arabic and Urdu UI direction and font | Right-to-left layout and fonts for Arabic and Urdu; Bangla glyphs rendered as empty boxes in headless test. | R9_T4 D5, R9_T6_elder_languages: unverified on a real device. | Native speaker | normal | R9_T6_elder_languages; R9_T4_everyday_skeptic |
+| `support.crisis-substance-lang` | Crisis phrases for the medical-emergency category in Arabic, Urdu (script and Roman) and Bangla | Short phrase lists for overdose, seizure and not breathing in Arabic, Urdu and Bangla. | Written for coverage, not read by a native-speaker clinician. English has the full list; other languages are thin and the app must say so. | Native speaker + Clinician | high | RES_H3_hadi_companion_design |
 
 ### Privacy, terms, children's privacy, community rules
 

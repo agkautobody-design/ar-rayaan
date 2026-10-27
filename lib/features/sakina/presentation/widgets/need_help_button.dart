@@ -17,6 +17,7 @@ Future<void> showNeedHelpSheet(
   BuildContext context, {
   CrisisKind kind = CrisisKind.selfHarm,
   String? intro,
+  bool showSakinaLink = true,
 }) {
   return showModalBottomSheet<void>(
     context: context,
@@ -25,7 +26,11 @@ Future<void> showNeedHelpSheet(
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
     ),
-    builder: (BuildContext ctx) => _NeedHelpSheet(kind: kind, intro: intro),
+    builder: (BuildContext ctx) => _NeedHelpSheet(
+          kind: kind,
+          intro: intro,
+          showSakinaLink: showSakinaLink,
+        ),
   );
 }
 
@@ -48,10 +53,17 @@ List<(String, String)> helpCountryChoices() {
 }
 
 class _NeedHelpSheet extends ConsumerStatefulWidget {
-  const _NeedHelpSheet({required this.kind, this.intro});
+  const _NeedHelpSheet({
+    required this.kind,
+    this.intro,
+    this.showSakinaLink = true,
+  });
 
   final CrisisKind kind;
   final String? intro;
+
+  /// False inside Kids / child mode, where the Sakina section is closed.
+  final bool showSakinaLink;
 
   @override
   ConsumerState<_NeedHelpSheet> createState() => _NeedHelpSheetState();
@@ -157,16 +169,17 @@ class _NeedHelpSheetState extends ConsumerState<_NeedHelpSheet> {
               ),
               const SizedBox(height: 8),
             ],
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-                context.push(AppRoutes.sakina);
-              },
-              child: Text(
-                'More help lines, every country (Sakina)',
-                style: AppText.caption.copyWith(color: AppColors.gold),
+            if (widget.showSakinaLink)
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                  context.push(AppRoutes.sakina);
+                },
+                child: Text(
+                  'More help lines, every country (Sakina)',
+                  style: AppText.caption.copyWith(color: AppColors.gold),
+                ),
               ),
-            ),
           ],
         ),
       ),
@@ -181,11 +194,13 @@ class NeedHelpNowButton extends StatelessWidget {
     this.large = false,
     this.kind = CrisisKind.selfHarm,
     this.label = 'Need help now',
+    this.showSakinaLink = true,
   });
 
   final bool large;
   final CrisisKind kind;
   final String label;
+  final bool showSakinaLink;
 
   @override
   Widget build(BuildContext context) {
@@ -197,7 +212,11 @@ class NeedHelpNowButton extends StatelessWidget {
       label: label,
       child: InkWell(
         borderRadius: BorderRadius.circular(999),
-        onTap: () => showNeedHelpSheet(context, kind: kind),
+        onTap: () => showNeedHelpSheet(
+          context,
+          kind: kind,
+          showSakinaLink: showSakinaLink,
+        ),
         child: Container(
           constraints: BoxConstraints(minHeight: h, minWidth: 48),
           padding: EdgeInsets.symmetric(horizontal: large ? 24 : 14),
