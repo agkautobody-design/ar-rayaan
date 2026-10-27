@@ -14,7 +14,7 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
-import '../../share/application/share_text.dart';
+import '../../share/application/share_service.dart';
 import '../../share/presentation/share_actions.dart';
 
 class _DuaLesson {
@@ -264,15 +264,15 @@ class DuaSchoolScreen extends StatelessWidget {
                                 .copyWith(color: AppColors.gold)),
                         Align(
                           alignment: Alignment.centerRight,
-                          child: ShareCopyButtons(
-                            text: composeShareText(
+                          child: ShareButton(
+                            doc: ShareDoc.dua(
                               title: l.title,
                               arabic: l.arabic,
-                              body: '${l.meaning}\n\nWhen: ${l.when}',
-                              source: '${l.source} (content pending scholar '
-                                  'review)',
+                              meaning: l.meaning,
+                              when: l.when,
+                              source: l.source,
+                              reviewKey: 'school.dua',
                             ),
-                            title: l.title,
                             subject: 'this dua',
                           ),
                         ),

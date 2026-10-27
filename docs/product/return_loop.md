@@ -70,13 +70,19 @@ depends on a run. An empty ring reads as "start whenever you like".
 - When the person is new or has just come back, one warm line is added (the
   lines above). Never a count.
 - Once per set or surah per day; the first lesson once ever.
-- No Share button on the adhkar or Qur'an cards.
+- No Share button on the completion cards.
 
 ## Sharing
 
-PENDING OWNER DECISION. Only study milestones are shared (a finished lesson or
-course; a Hifz section if one is added). Worship acts, counts and gaps are
-never offered for sharing. Every share still goes through the preview sheet.
+Owner ruling, 27 Oct 2026: only PUBLIC CONTENT is shared, never anything about
+the person. Progress milestones ("I completed ...", a finished lesson, course,
+Hifz section or Path day, game results, counts, streaks) are never shared, not
+through the share sheet, a link or the clipboard. The "Share this lesson"
+button, the quiet-done Share slot and the milestone template were removed.
+What can be shared is listed in `ShareKind` (`lib/features/share/application/
+share_service.dart`); every share goes through the preview sheet and ends with
+the fixed download line and link. Progress for an authorised parent or teacher
+is a separate, future track and does not use the share code.
 
 ## How to turn it off in code
 

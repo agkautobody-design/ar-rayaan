@@ -1,9 +1,12 @@
-/// Copy and share actions with visible feedback, used wherever the app lets
-/// a person take content out of it (a hadith, a story, a lesson, an answer).
+/// Copy feedback, the share preview sheet and the one [ShareButton].
 ///
-/// Every action says what happened: a "Copied" snackbar, the browser's share
-/// sheet, or an honest message when the browser blocks the clipboard.
+/// A share can only be made from a `ShareDoc` of public content (see
+/// `share_service.dart`); this file has no way to send an arbitrary string.
+/// Every action says what happened: a "Copied" snackbar, the system share
+/// sheet, or an honest message when the clipboard is blocked.
 library;
+
+import 'dart:async' show unawaited;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show Clipboard, ClipboardData;
@@ -11,15 +14,15 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
+import '../../../app/core/child_mode.dart';
 import '../../elder/application/elder_mode.dart';
-import '../application/web_share.dart';
+import '../application/share_service.dart';
 
 /// Shown after a successful copy.
-const String kCopiedMessage = 'Copied. Paste it into any message.';
+const String kCopiedMessage = kShareCopiedMessage;
 
 /// Shown when the browser or device refused the clipboard.
-const String kCopyBlockedMessage =
-    'Could not copy automatically. Select the text and copy it by hand.';
+const String kCopyBlockedMessage = kShareCopyBlockedMessage;
 
 void _say(ScaffoldMessengerState? messenger, String message) {
   if (messenger == null) return;
@@ -46,90 +49,17 @@ Future<bool> copyWithFeedback(
   return true;
 }
 
-/// Opens the browser's share sheet when there is one, otherwise copies.
-/// The share call is started before any await so the browser still counts it
-/// as coming from the tap.
-Future<void> shareWithFeedback(
-  BuildContext context,
-  String text, {
-  String? title,
-}) async {
-  final ScaffoldMessengerState? messenger = ScaffoldMessenger.maybeOf(context);
-  if (webShareSupported) {
-    final bool shown = await webShare(text, title: title);
-    if (shown) return;
-  }
-  try {
-    await Clipboard.setData(ClipboardData(text: text));
-  } catch (_) {
-    _say(messenger, kCopyBlockedMessage);
-    return;
-  }
-  _say(messenger, kCopiedMessage);
-}
-
-/// A Copy button, plus a Share button where the browser has a share sheet.
-/// Both are 48dp and carry tooltips.
-class ShareCopyButtons extends StatelessWidget {
-  const ShareCopyButtons({
-    super.key,
-    required this.text,
-    this.title,
-    this.subject = 'this',
-    this.color = AppColors.gold,
-  });
-
-  /// The full text to copy or share (build it with `composeShareText`).
-  final String text;
-  final String? title;
-
-  /// Short noun for tooltips, for example "hadith" or "story".
-  final String subject;
-  final Color color;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        IconButton(
-          key: const Key('share-copy'),
-          tooltip: 'Copy $subject',
-          constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
-          icon: Icon(Icons.copy_outlined, color: color, size: 20),
-          onPressed: () => copyWithFeedback(context, text),
-        ),
-        if (webShareSupported)
-          IconButton(
-            key: const Key('share-share'),
-            tooltip: 'Share $subject',
-            constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
-            icon: Icon(Icons.share_outlined, color: color, size: 20),
-            onPressed: () => showSharePreview(
-              context,
-              text: text,
-              title: title,
-              subject: subject,
-            ),
-          ),
-      ],
-    );
-  }
-}
-
 /// Shown on the preview, so the person knows what is and is not sent.
 const String kSharePreviewNote =
     'This is exactly what will be sent. Nothing is posted for you, and none '
-    'of your notes, prayer log or reading history is included.';
+    'of your notes, prayer log or reading history is included. We receive '
+    'nothing about who you send it to.';
 
-/// Shows [text] exactly as it will be shared, with Copy and Share buttons.
-/// Nothing leaves the app until the person taps one of them. Where the
-/// browser has a share sheet, Share opens it; everywhere else the same
-/// button copies the text and says so.
+/// Shows the share for [doc] exactly as it will be sent, with Share and Copy
+/// buttons. Nothing leaves the app until the person taps one of them.
 Future<void> showSharePreview(
   BuildContext context, {
-  required String text,
-  String? title,
+  required ShareDoc doc,
   String subject = 'this',
 }) {
   return showModalBottomSheet<void>(
@@ -138,26 +68,22 @@ Future<void> showSharePreview(
     showDragHandle: true,
     backgroundColor: AppColors.navy,
     builder: (BuildContext sheet) =>
-        SharePreviewSheet(text: text, title: title, subject: subject),
+        SharePreviewSheet(doc: doc, subject: subject),
   );
 }
 
 class SharePreviewSheet extends ConsumerWidget {
-  const SharePreviewSheet({
-    super.key,
-    required this.text,
-    this.title,
-    this.subject = 'this',
-  });
+  const SharePreviewSheet({super.key, required this.doc, this.subject = 'this'});
 
-  final String text;
-  final String? title;
+  final ShareDoc doc;
   final String subject;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final bool elder = ref.watch(elderModeProvider);
     final double minTap = elder ? 64 : 48;
+    final String text = ShareService.build(doc);
+    final bool sheet = ShareService.hasShareSheet;
     return SafeArea(
       child: ConstrainedBox(
         constraints: BoxConstraints(
@@ -205,23 +131,37 @@ class SharePreviewSheet extends ConsumerWidget {
                     // Start the share first (the browser wants it straight
                     // from the tap), then close the preview.
                     final NavigatorState nav = Navigator.of(context);
-                    final Future<void> done = shareWithFeedback(
-                      context,
-                      text,
-                      title: title,
-                    );
+                    final Future<void> done = ShareService.send(context, doc);
                     nav.pop();
                     await done;
                   },
-                  icon: Icon(
-                    webShareSupported ? Icons.share_outlined : Icons.copy,
-                  ),
+                  icon: Icon(sheet ? Icons.ios_share : Icons.copy),
                   label: Text(
-                    webShareSupported ? 'Share' : 'Copy to share',
+                    sheet ? 'Share' : 'Copy to share',
                     style: TextStyle(fontSize: elder ? 20 : null),
                   ),
                 ),
               ),
+              if (sheet) ...<Widget>[
+                const SizedBox(height: 8),
+                ConstrainedBox(
+                  constraints: BoxConstraints(minHeight: minTap),
+                  child: OutlinedButton.icon(
+                    key: const Key('share-preview-copy'),
+                    onPressed: () async {
+                      final NavigatorState nav = Navigator.of(context);
+                      final Future<bool> done = copyWithFeedback(context, text);
+                      nav.pop();
+                      await done;
+                    },
+                    icon: const Icon(Icons.copy_outlined),
+                    label: Text(
+                      'Copy',
+                      style: TextStyle(fontSize: elder ? 20 : null),
+                    ),
+                  ),
+                ),
+              ],
               const SizedBox(height: 8),
               ConstrainedBox(
                 constraints: BoxConstraints(minHeight: minTap),
@@ -242,35 +182,41 @@ class SharePreviewSheet extends ConsumerWidget {
   }
 }
 
-/// A 48dp "Preview and share" icon button, shown on every platform: where
-/// there is no share sheet, the preview's button copies instead.
-class ShareCardButton extends StatelessWidget {
-  const ShareCardButton({
+/// The one share button. A 48dp (64dp in Elder Mode) icon button with a
+/// tooltip that names what is shared; it opens the preview, and nothing is
+/// sent until the person confirms there. It is not shown in child mode.
+class ShareButton extends ConsumerWidget {
+  const ShareButton({
     super.key,
-    required this.text,
-    this.title,
+    required this.doc,
     this.subject = 'this',
     this.color = AppColors.gold,
   });
 
-  final String text;
-  final String? title;
+  final ShareDoc doc;
+
+  /// Short noun for the tooltip, for example "hadith" or "story".
   final String subject;
   final Color color;
 
   @override
-  Widget build(BuildContext context) {
-    return IconButton(
-      key: const Key('share-card'),
-      tooltip: 'Preview and share $subject',
-      constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
-      icon: Icon(Icons.ios_share, color: color, size: 20),
-      onPressed: () => showSharePreview(
-        context,
-        text: text,
-        title: title,
-        subject: subject,
-      ),
+  Widget build(BuildContext context, WidgetRef ref) {
+    final bool elder = ref.watch(elderModeProvider);
+    final double side = elder ? 64 : 48;
+    return ValueListenableBuilder<bool>(
+      valueListenable: kChildMode,
+      builder: (BuildContext context, bool childMode, Widget? _) {
+        if (childMode) return const SizedBox.shrink();
+        return IconButton(
+          key: const Key('share-card'),
+          tooltip: 'Share $subject',
+          constraints: BoxConstraints(minWidth: side, minHeight: side),
+          icon: Icon(Icons.ios_share, color: color, size: elder ? 26 : 20),
+          onPressed: () => unawaited(
+            showSharePreview(context, doc: doc, subject: subject),
+          ),
+        );
+      },
     );
   }
 }

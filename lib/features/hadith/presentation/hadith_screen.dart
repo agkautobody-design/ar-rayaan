@@ -11,7 +11,7 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/theme/widgets/speak_button.dart';
-import '../../share/application/share_text.dart';
+import '../../share/application/share_service.dart';
 import '../../share/presentation/share_actions.dart';
 import '../application/hadith_marks_controller.dart';
 import '../application/hadith_providers.dart';
@@ -261,11 +261,17 @@ class _HadithScreenState extends ConsumerState<HadithScreen> {
 
 /// One of the Forty Hadith as plain text: Arabic, English, its source line
 /// (with grade and grader where it has one) and the app credit.
-String hadithShareText(Hadith hadith) => composeShareText(
+String hadithShareText(Hadith hadith) =>
+    ShareService.build(hadithShareDoc(hadith));
+
+/// The share for one of the Forty Hadith: Arabic, English, source (with
+/// grade where it has one) and the "Scholar review needed" label.
+ShareDoc hadithShareDoc(Hadith hadith) => ShareDoc.hadith(
       title: 'Hadith ${hadith.number}, The Forty Hadith of Imam an-Nawawi',
       arabic: hadith.arabic,
-      body: hadith.english,
+      english: hadith.english,
       source: hadith.sourceLine ?? 'The Forty Hadith of Imam an-Nawawi',
+      reviewKey: 'hadith.nawawi.${hadith.number.toString().padLeft(2, '0')}',
     );
 
 class _HadithBlock extends ConsumerWidget {
@@ -401,9 +407,8 @@ class _HadithBlock extends ConsumerWidget {
                     size: 22,
                   ),
                 ),
-                ShareCopyButtons(
-                  text: hadithShareText(hadith),
-                  title: 'Hadith ${hadith.number}',
+                ShareButton(
+                  doc: hadithShareDoc(hadith),
                   subject: 'hadith ${hadith.number}',
                 ),
                 SpeakButton(

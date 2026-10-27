@@ -21,7 +21,7 @@ import '../domain/course_manifest.dart';
 import '../domain/lesson_grounding.dart';
 import '../domain/lesson_provenance.dart';
 import '../domain/next_lesson.dart';
-import '../../share/application/share_text.dart';
+import '../../share/application/share_service.dart';
 import '../../share/domain/handout.dart';
 import '../../share/presentation/handout_screen.dart';
 import '../../share/presentation/share_actions.dart';
@@ -146,21 +146,6 @@ class _LessonPlayerScreenState
                       textAlign: TextAlign.center,
                     ),
                   ],
-                  const SizedBox(height: 8),
-                  TextButton.icon(
-                    key: const Key('lesson-share'),
-                    onPressed: () => unawaited(
-                      showSharePreview(
-                        context,
-                        text: milestoneShareText(
-                          'the lesson “${AcademyStrings.get(_lesson.titleKey)}”',
-                        ),
-                        subject: 'this lesson',
-                      ),
-                    ),
-                    icon: const Icon(Icons.ios_share, size: 18),
-                    label: const Text('Share this lesson'),
-                  ),
                   const SizedBox(height: 8),
                   if (next != null) ...<Widget>[
                     FilledButton(
@@ -469,9 +454,8 @@ class _LessonPlayerScreenState
                             ),
                           ),
                         ),
-                        ShareCopyButtons(
-                          text: lessonHandout(_lesson).toPlainText(),
-                          title: AcademyStrings.get(_lesson.titleKey),
+                        ShareButton(
+                          doc: lessonShareDoc(_lesson),
                           subject: 'this lesson',
                         ),
                         IconButton(
@@ -549,6 +533,7 @@ HandoutData lessonHandout(AcademyLesson lesson) {
       extractSources(RecallChecks.fullTextOf(lesson));
   return HandoutData(
     title: AcademyStrings.get(lesson.titleKey),
+    reviewKey: 'lesson-v1.${lesson.id}',
     notice: '${prov?.label ?? kNotYetReviewedLabel}. ${prov?.origin ?? ''}'
         .trim(),
     sections: <HandoutSection>[
@@ -569,6 +554,35 @@ HandoutData lessonHandout(AcademyLesson lesson) {
       for (final AcademyStep st in lesson.steps)
         if (st.kind == AcademyStepKind.try_) tryPromptFor(st),
     ],
+  );
+}
+
+/// What a lesson TEACHES, for sharing: its own text, sources and questions,
+/// from the same content as the handout. It never says that anyone did,
+/// finished or is studying the lesson.
+ShareDoc lessonShareDoc(AcademyLesson lesson) {
+  final HandoutData h = lessonHandout(lesson);
+  final List<String> blocks = <String>[];
+  for (final HandoutSection s in h.sections) {
+    final String text = <String>[
+      if (s.heading.trim().isNotEmpty) s.heading.trim(),
+      if (s.body.trim().isNotEmpty) s.body.trim(),
+    ].join('\n');
+    if (text.isNotEmpty) blocks.add(text);
+  }
+  if (h.questions.isNotEmpty) {
+    final StringBuffer q = StringBuffer('To talk about');
+    for (int i = 0; i < h.questions.length; i++) {
+      q.write('\n${i + 1}. ${h.questions[i].trim()}');
+    }
+    blocks.add(q.toString());
+  }
+  return ShareDoc.lesson(
+    title: h.title,
+    body: blocks.join('\n\n'),
+    source: h.sources.isEmpty ? null : h.sources.join('; '),
+    note: h.notice,
+    reviewKey: 'lesson-v1.${lesson.id}',
   );
 }
 
