@@ -1,0 +1,1001 @@
+{
+ "schema": 1,
+ "pack": "app_help",
+ "packKind": "knowledge",
+ "topic": "app_help",
+ "description": "How to use every part of Ar-Rayaan, written from the menu, bottom bar and module registry. Status words (live, gated, coming soon) follow the registry.",
+ "audience": "both",
+ "ageBands": ["all"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en"],
+ "snippets": [
+  {
+   "id": "app_help.nav.001",
+   "kind": "app-help",
+   "stage": ["question"],
+   "text": {
+    "en": "The bar at the bottom has five places: Home, Faith, Family, Hadi and You. Home is your starting page, Faith holds worship and learning, Family is for family life, Hadi is the guide you can ask anything, and You is your own page."
+   },
+   "ageBand": ["all"],
+   "tags": ["app-help", "navigation"],
+   "triggers": ["bottom bar", "navigation", "where is", "how do i navigate", "tabs"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "app", "title": "lib/app/theme/widgets/app_bottom_nav.dart (bottom bar: Home, Faith, Family, Hadi, You)"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "app_help.nav.002",
+   "kind": "app-help",
+   "stage": ["question"],
+   "text": {
+    "en": "The Menu lists everything in four groups: Faith and Worship, Healing and Guidance, Family and Community, and Tools and Resources. Settings, Your Journey and Share Ar-Rayaan sit at the bottom of the Menu."
+   },
+   "ageBand": ["all"],
+   "tags": ["app-help", "navigation", "menu"],
+   "triggers": ["menu", "where is everything", "all features", "what can this app do"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "app", "title": "lib/features/menu/presentation/menu_screen.dart (menu sections and entries)"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "app_help.search.001",
+   "kind": "app-help",
+   "stage": ["question"],
+   "text": {
+    "en": "To find something fast, use Search. Type a word, a topic or a question and it looks across the content in the app."
+   },
+   "ageBand": ["all"],
+   "tags": ["app-help", "search"],
+   "triggers": ["search", "find something", "looking for"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "app", "title": "assets/system/module_registry.json (module names and live/gated/unbuilt status)"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "app_help.hadi.001",
+   "kind": "app-help",
+   "stage": ["question"],
+   "text": {
+    "en": "Hadi is the guide inside the app. You can ask about worship, the Qur'an, daily life or how to use a screen. Hadi is an app, not a scholar or a doctor, and for rulings on your own situation it will point you to a qualified scholar."
+   },
+   "ageBand": ["all"],
+   "tags": ["app-help", "hadi"],
+   "triggers": ["what is hadi", "who is hadi", "ask hadi", "chatbot"],
+   "doNotSay": ["Say plainly that Hadi is an app; never imply it can give a personal fatwa or medical advice."],
+   "sources": [
+    {"type": "app", "title": "assets/system/module_registry.json (module names and live/gated/unbuilt status)"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "app_help.wasia.001",
+   "kind": "app-help",
+   "stage": ["question"],
+   "text": {
+    "en": "Wasia is the teacher in the Academy. She guides lessons, quizzes and questions, with a gentler voice for children. Like Hadi, Wasia is an app and hands bigger questions to a teacher."
+   },
+   "ageBand": ["all"],
+   "tags": ["app-help", "wasia", "academy"],
+   "triggers": ["what is wasia", "who is wasia", "academy teacher"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "app", "title": "assets/system/module_registry.json (module names and live/gated/unbuilt status)"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "app_help.prayer.001",
+   "kind": "app-help",
+   "stage": ["question"],
+   "text": {
+    "en": "Prayer Times shows the five daily prayers for where you are, with a choice of calculation methods. The Islamic Calendar shows the Hijri date and special days."
+   },
+   "ageBand": ["all"],
+   "tags": ["app-help", "prayer-times", "calendar"],
+   "triggers": ["prayer times", "adhan", "when is fajr", "hijri date", "calendar"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "app", "title": "lib/features/menu/presentation/menu_screen.dart (menu sections and entries)"},
+    {"type": "app", "title": "assets/system/module_registry.json (module names and live/gated/unbuilt status)"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "app_help.qibla.001",
+   "kind": "app-help",
+   "stage": ["question"],
+   "text": {
+    "en": "The Qibla Finder points toward the Kaaba from where you stand. Keep the phone flat and away from metal so the compass can settle."
+   },
+   "ageBand": ["all"],
+   "tags": ["app-help", "qibla"],
+   "triggers": ["qibla", "direction of prayer", "which way to pray"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "app", "title": "lib/features/menu/presentation/menu_screen.dart (menu sections and entries)"},
+    {"type": "app", "title": "assets/system/module_registry.json (module names and live/gated/unbuilt status)"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "app_help.quran.001",
+   "kind": "app-help",
+   "stage": ["question"],
+   "text": {
+    "en": "The Qur'an reader lets you read, bookmark and keep notes. You can save bookmarks into collections so that you can return to the verses that matter to you."
+   },
+   "ageBand": ["all"],
+   "tags": ["app-help", "quran"],
+   "triggers": ["quran", "read quran", "bookmark", "quran notes"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "app", "title": "lib/features/menu/presentation/menu_screen.dart (menu sections and entries)"},
+    {"type": "app", "title": "assets/system/module_registry.json (module names and live/gated/unbuilt status)"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "app_help.hadith.001",
+   "kind": "app-help",
+   "stage": ["question"],
+   "text": {
+    "en": "Hadith holds the Forty Hadith of Imam an-Nawawi and a daily hadith. Each hadith shows its source and grade where one is on file, and the app labels anything that still needs scholar review."
+   },
+   "ageBand": ["all"],
+   "tags": ["app-help", "hadith"],
+   "triggers": ["hadith", "daily hadith", "forty hadith", "nawawi"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "app", "title": "lib/features/menu/presentation/menu_screen.dart (menu sections and entries)"},
+    {"type": "app", "title": "assets/system/module_registry.json (module names and live/gated/unbuilt status)"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "app_help.dua.001",
+   "kind": "app-help",
+   "stage": ["question"],
+   "text": {
+    "en": "Dhikr and Du'a holds supplications for morning and evening and other moments of the day, including the Hisn al-Muslim collection. A tasbeeh counter is there for keeping count."
+   },
+   "ageBand": ["all"],
+   "tags": ["app-help", "dua", "dhikr"],
+   "triggers": ["dua", "dhikr", "adhkar", "tasbeeh", "morning evening"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "app", "title": "lib/features/menu/presentation/menu_screen.dart (menu sections and entries)"},
+    {"type": "app", "title": "assets/system/module_registry.json (module names and live/gated/unbuilt status)"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "app_help.zakat.001",
+   "kind": "app-help",
+   "stage": ["question"],
+   "text": {
+    "en": "The Zakat Calculator helps you work out what you may owe. It is a tool, not a ruling. The Huda guide on zakat explains how it works, and a scholar can answer questions about your own wealth."
+   },
+   "ageBand": ["all"],
+   "tags": ["app-help", "zakat"],
+   "triggers": ["zakat calculator", "calculate zakat", "how much zakat"],
+   "doNotSay": ["Never state a nisab figure or a ruling from memory; send to the calculator and the guide."],
+   "sources": [
+    {"type": "app", "title": "lib/features/menu/presentation/menu_screen.dart (menu sections and entries)"},
+    {"type": "app", "title": "assets/system/module_registry.json (module names and live/gated/unbuilt status)"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "app_help.huda.001",
+   "kind": "app-help",
+   "stage": ["question"],
+   "text": {
+    "en": "Huda is the library of worship guides. It covers prayer, wudu, fasting, zakat, hajj, funerals and everyday manners, with notes on where the four schools differ."
+   },
+   "ageBand": ["all"],
+   "tags": ["app-help", "huda", "guides"],
+   "triggers": ["huda", "guides", "how to guides", "worship guide"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "app", "title": "assets/system/module_registry.json (module names and live/gated/unbuilt status)"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "app_help.academy.001",
+   "kind": "app-help",
+   "stage": ["question"],
+   "text": {
+    "en": "Islamic Courses is the Wasia Academy. It has structured courses with lessons, quizzes and exams. Pick a course and read one step at a time."
+   },
+   "ageBand": ["all"],
+   "tags": ["app-help", "academy"],
+   "triggers": ["academy", "courses", "lessons", "islamic courses", "learn islam"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "app", "title": "lib/features/menu/presentation/menu_screen.dart (menu sections and entries)"},
+    {"type": "app", "title": "assets/system/module_registry.json (module names and live/gated/unbuilt status)"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "app_help.new-muslim.001",
+   "kind": "app-help",
+   "stage": ["question"],
+   "text": {
+    "en": "The New Muslim path is a gentle thirty-day journey for people who are new to Islam or returning to it. It starts with the basics and goes at your pace, with no test and no pressure."
+   },
+   "ageBand": ["all"],
+   "tags": ["app-help", "new-muslim"],
+   "triggers": ["new muslim", "revert", "convert", "just became muslim", "thirty day"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "app", "title": "assets/system/module_registry.json (module names and live/gated/unbuilt status)"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "app_help.sakina.001",
+   "kind": "app-help",
+   "stage": ["question"],
+   "text": {
+    "en": "Sakina is the Healing for the Heart area. It offers calming tools, comfort cards, a mood check-in and a safety plan. It is not a clinic, and if you are in danger it shows help lines for your country."
+   },
+   "ageBand": ["all"],
+   "tags": ["app-help", "sakina"],
+   "triggers": ["sakina", "healing", "anxiety help", "feeling low", "calm"],
+   "doNotSay": ["Never present Sakina as treatment; if risk is present, go to the support pack and helplines.json."],
+   "sources": [
+    {"type": "app", "title": "lib/features/menu/presentation/menu_screen.dart (menu sections and entries)"},
+    {"type": "app", "title": "assets/system/module_registry.json (module names and live/gated/unbuilt status)"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "app_help.feelings.001",
+   "kind": "app-help",
+   "stage": ["question"],
+   "text": {
+    "en": "For Your Heart helps you find a verse, a dua and a story that match what you feel right now. Pick a feeling and it opens a few things to read."
+   },
+   "ageBand": ["all"],
+   "tags": ["app-help", "feelings"],
+   "triggers": ["feelings", "for your heart", "i feel sad", "comfort"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "app", "title": "assets/system/module_registry.json (module names and live/gated/unbuilt status)"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "app_help.help.001",
+   "kind": "app-help",
+   "stage": ["question"],
+   "text": {
+    "en": "Need help now opens a list of help lines for your country. It is there for emergencies and hard moments, and it is available from the Sakina area."
+   },
+   "ageBand": ["all"],
+   "tags": ["app-help", "help-lines", "safety"],
+   "triggers": ["need help now", "help lines", "helpline", "crisis", "emergency"],
+   "doNotSay": ["Never type a number here; join with helplines.json by country."],
+   "sources": [
+    {"type": "app", "title": "assets/system/module_registry.json (module names and live/gated/unbuilt status)"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "app_help.stories.001",
+   "kind": "app-help",
+   "stage": ["question"],
+   "text": {
+    "en": "Stories is the Library. It has collections on the prophets, the seerah, the companions, women of faith and more. Each story names its sources, and some carry a note when scholar review is still needed."
+   },
+   "ageBand": ["all"],
+   "tags": ["app-help", "stories", "library"],
+   "triggers": ["stories", "library", "prophet stories", "seerah"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "app", "title": "lib/features/menu/presentation/menu_screen.dart (menu sections and entries)"},
+    {"type": "app", "title": "assets/system/module_registry.json (module names and live/gated/unbuilt status)"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "app_help.tree.001",
+   "kind": "app-help",
+   "stage": ["question"],
+   "text": {
+    "en": "The Messengers' Tree shows how the prophets are connected, as a family tree you can explore."
+   },
+   "ageBand": ["all"],
+   "tags": ["app-help", "family-tree"],
+   "triggers": ["family tree", "messengers tree", "prophets tree"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "app", "title": "assets/system/module_registry.json (module names and live/gated/unbuilt status)"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "app_help.khutbah.001",
+   "kind": "app-help",
+   "stage": ["question"],
+   "text": {
+    "en": "Khutbahs holds Friday sermons you can read or reuse for reflection. They are teaching texts and carry the same source labels as the rest of the app."
+   },
+   "ageBand": ["all"],
+   "tags": ["app-help", "khutbahs"],
+   "triggers": ["khutbah", "friday sermon", "jumuah"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "app", "title": "assets/system/module_registry.json (module names and live/gated/unbuilt status)"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "app_help.noor.001",
+   "kind": "app-help",
+   "stage": ["question"],
+   "text": {
+    "en": "Noor is a short piece of daily wisdom. Open it each day for a small reminder, and share it as a card if you wish."
+   },
+   "ageBand": ["all"],
+   "tags": ["app-help", "noor"],
+   "triggers": ["noor", "daily wisdom", "daily reminder"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "app", "title": "assets/system/module_registry.json (module names and live/gated/unbuilt status)"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "app_help.share.001",
+   "kind": "app-help",
+   "stage": ["question"],
+   "text": {
+    "en": "Verse cards let you turn a verse into a picture and share it. Use Share Ar-Rayaan in the Menu to invite a friend with a link or a QR code."
+   },
+   "ageBand": ["all"],
+   "tags": ["app-help", "share"],
+   "triggers": ["verse card", "share a verse", "share app", "invite a friend", "qr code"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "app", "title": "lib/features/menu/presentation/menu_screen.dart (menu sections and entries)"},
+    {"type": "app", "title": "assets/system/module_registry.json (module names and live/gated/unbuilt status)"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "app_help.player.001",
+   "kind": "app-help",
+   "stage": ["question"],
+   "text": {
+    "en": "The Player plays the adhan, naats and nasheeds. The Downloads page shows what is saved on your device."
+   },
+   "ageBand": ["all"],
+   "tags": ["app-help", "player", "audio"],
+   "triggers": ["adhan audio", "nasheed", "naat", "player", "audio"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "app", "title": "lib/features/menu/presentation/menu_screen.dart (menu sections and entries)"},
+    {"type": "app", "title": "assets/system/module_registry.json (module names and live/gated/unbuilt status)"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "app_help.downloads.001",
+   "kind": "app-help",
+   "stage": ["question"],
+   "text": {
+    "en": "Downloads shows what you have saved to use without a connection."
+   },
+   "ageBand": ["all"],
+   "tags": ["app-help", "downloads", "offline"],
+   "triggers": ["download", "offline", "storage", "no internet", "save for later"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "app", "title": "lib/features/menu/presentation/menu_screen.dart (menu sections and entries)"},
+    {"type": "app", "title": "assets/system/module_registry.json (module names and live/gated/unbuilt status)"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "app_help.notes.001",
+   "kind": "app-help",
+   "stage": ["question"],
+   "text": {
+    "en": "Notes and Bookmarks keeps your own notes and the places you saved. They are stored on your device."
+   },
+   "ageBand": ["all"],
+   "tags": ["app-help", "notes"],
+   "triggers": ["notes", "bookmarks", "my notes", "saved"],
+   "doNotSay": ["Do not claim notes are encrypted or backed up unless the app says so."],
+   "sources": [
+    {"type": "app", "title": "lib/features/menu/presentation/menu_screen.dart (menu sections and entries)"},
+    {"type": "app", "title": "assets/system/module_registry.json (module names and live/gated/unbuilt status)"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "app_help.log.001",
+   "kind": "app-help",
+   "stage": ["question"],
+   "text": {
+    "en": "My log adds up the days and prayers you write down. It has no streaks, nothing resets when a day is empty, and an empty day is just empty space on the calendar."
+   },
+   "ageBand": ["all"],
+   "tags": ["app-help", "tracking"],
+   "triggers": ["my log", "tracking", "habit", "prayer log"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "app", "title": "lib/features/menu/presentation/menu_screen.dart (menu sections and entries)"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "app_help.games.001",
+   "kind": "app-help",
+   "stage": ["question"],
+   "text": {
+    "en": "Games has Shatranj, Ludo, trivia, the 99 Names, Lineage, Ayah and Hijrah. They are for learning and fun, and the games with religious content carry the same review labels as the lessons."
+   },
+   "ageBand": ["all"],
+   "tags": ["app-help", "games"],
+   "triggers": ["games", "play", "shatranj", "ludo", "trivia", "99 names"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "app", "title": "assets/system/module_registry.json (module names and live/gated/unbuilt status)"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "app_help.finance.001",
+   "kind": "app-help",
+   "stage": ["question"],
+   "text": {
+    "en": "Tayyib Finance covers zakat, sadaqah and halal investing basics, and Rayaan Stocks teaches halal financial learning. They teach; they do not give personal financial advice."
+   },
+   "ageBand": ["all"],
+   "tags": ["app-help", "finance"],
+   "triggers": ["finance", "sadaqah", "halal stocks", "invest", "rayaan stocks"],
+   "doNotSay": ["Never give investment advice or say a stock is halal for the person."],
+   "sources": [
+    {"type": "app", "title": "assets/system/module_registry.json (module names and live/gated/unbuilt status)"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "app_help.masjid.001",
+   "kind": "app-help",
+   "stage": ["question"],
+   "text": {
+    "en": "The Masjid Finder helps you find mosques, and Tayyib Food helps you find halal food."
+   },
+   "ageBand": ["all"],
+   "tags": ["app-help", "masjid", "food"],
+   "triggers": ["masjid finder", "mosque near me", "halal food", "nearby"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "app", "title": "assets/system/module_registry.json (module names and live/gated/unbuilt status)"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "app_help.ramadan.001",
+   "kind": "app-help",
+   "stage": ["question"],
+   "text": {
+    "en": "Ramadan Mode counts down to Ramadan, then shows a theme and a dua for each day. Set your location in Prayer Times to see suhoor and iftar countdowns. It also has a fasting-day tracker and a Qur'an juz tracker."
+   },
+   "ageBand": ["all"],
+   "tags": ["app-help", "ramadan"],
+   "triggers": ["ramadan", "ramadan mode", "suhoor time", "iftar time"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "app", "title": "assets/system/module_registry.json (module names and live/gated/unbuilt status)"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "app_help.hajj.001",
+   "kind": "app-help",
+   "stage": ["question"],
+   "text": {
+    "en": "Hajj and Umrah guides walk you through the rites step by step, from ihram to the day of Arafah. They sit inside Huda."
+   },
+   "ageBand": ["all"],
+   "tags": ["app-help", "hajj", "umrah"],
+   "triggers": ["hajj guide", "umrah guide", "ihram", "arafah"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "app", "title": "assets/system/module_registry.json (module names and live/gated/unbuilt status)"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "app_help.elder.001",
+   "kind": "app-help",
+   "stage": ["question"],
+   "text": {
+    "en": "Elder Mode makes the app simpler for older users. With it on, the Home tab opens a simple home with three big doors. Elder Care has resources for looking after older family members."
+   },
+   "ageBand": ["all"],
+   "tags": ["app-help", "elder"],
+   "triggers": ["elder mode", "older person", "simple mode", "big buttons", "grandparent"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "app", "title": "lib/app/theme/widgets/app_bottom_nav.dart (bottom bar: Home, Faith, Family, Hadi, You)"},
+    {"type": "app", "title": "lib/features/menu/presentation/menu_screen.dart (menu sections and entries)"},
+    {"type": "app", "title": "assets/system/module_registry.json (module names and live/gated/unbuilt status)"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "app_help.family.001",
+   "kind": "app-help",
+   "stage": ["question"],
+   "text": {
+    "en": "The Family Wing is for parents. Add your children, follow their lessons and ask Wasia. It sits behind a parent check, and a child's progress is stored on the device. It is not parenting advice."
+   },
+   "ageBand": ["all"],
+   "tags": ["app-help", "family-wing", "kids"],
+   "triggers": ["family wing", "add child", "parent", "kids", "children progress"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "app", "title": "lib/features/menu/presentation/menu_screen.dart (menu sections and entries)"},
+    {"type": "app", "title": "assets/system/module_registry.json (module names and live/gated/unbuilt status)"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "app_help.family.002",
+   "kind": "app-help",
+   "stage": ["question"],
+   "text": {
+    "en": "Marriage and Family Life opens the Family Life school in the Academy, starting with marriage. It is teaching material, not counselling."
+   },
+   "ageBand": ["all"],
+   "tags": ["app-help", "family-life"],
+   "triggers": ["marriage", "family life", "nikah course"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "app", "title": "lib/features/menu/presentation/menu_screen.dart (menu sections and entries)"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "app_help.community.001",
+   "kind": "app-help",
+   "stage": ["question"],
+   "text": {
+    "en": "Community is the courtyard forum. It is not open yet, because it waits for moderation and review. When it opens it will carry clear rules for what can be posted."
+   },
+   "ageBand": ["all"],
+   "tags": ["app-help", "community"],
+   "triggers": ["community", "forum", "majlis", "courtyard"],
+   "doNotSay": ["Say honestly that it is not open yet; never promise a date."],
+   "sources": [
+    {"type": "app", "title": "assets/system/module_registry.json (module names and live/gated/unbuilt status)"},
+    {"type": "app", "title": "lib/features/menu/presentation/menu_screen.dart (menu sections and entries)"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "app_help.settings.001",
+   "kind": "app-help",
+   "stage": ["question"],
+   "text": {
+    "en": "Language and Voice in Settings lets you change the app language and the voice. Text size is there too, in case you want bigger words."
+   },
+   "ageBand": ["all"],
+   "tags": ["app-help", "settings", "language"],
+   "triggers": ["language", "change language", "text size", "bigger text", "arabic", "urdu", "bangla", "voice"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "app", "title": "lib/features/menu/presentation/menu_screen.dart (menu sections and entries)"},
+    {"type": "app", "title": "assets/system/module_registry.json (module names and live/gated/unbuilt status)"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "app_help.account.001",
+   "kind": "app-help",
+   "stage": ["question"],
+   "text": {
+    "en": "You can sign up or sign in with an email, verify it, and reset your password if you forget it. Log out is in the Menu, and the app asks you to confirm so that you do not log out by accident."
+   },
+   "ageBand": ["all"],
+   "tags": ["app-help", "account"],
+   "triggers": ["sign in", "log in", "log out", "account", "sign up"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "app", "title": "lib/features/menu/presentation/menu_screen.dart (menu sections and entries)"},
+    {"type": "app", "title": "assets/system/module_registry.json (module names and live/gated/unbuilt status)"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "app_help.review.001",
+   "kind": "app-help",
+   "stage": ["question"],
+   "text": {
+    "en": "Some screens say Scholar review needed. It means a named scholar has not yet reviewed that item. The content is shown with its sources, and the label goes away only when a named reviewer signs off."
+   },
+   "ageBand": ["all"],
+   "tags": ["app-help", "review", "trust"],
+   "triggers": ["scholar review needed", "what does the label mean", "reviewed", "is this verified"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "app", "title": "assets/system/module_registry.json (module names and live/gated/unbuilt status)"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "app_help.status.001",
+   "kind": "app-help",
+   "stage": ["question"],
+   "text": {
+    "en": "A tile marked Coming soon is not built yet. The app does not open features that are still being reviewed or built, and the true status of each feature is kept in one list."
+   },
+   "ageBand": ["all"],
+   "tags": ["app-help", "status"],
+   "triggers": ["coming soon", "not available", "greyed out", "locked"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "app", "title": "lib/features/menu/presentation/menu_screen.dart (menu sections and entries)"},
+    {"type": "app", "title": "assets/system/module_registry.json (module names and live/gated/unbuilt status)"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "app_help.policy.001",
+   "kind": "app-help",
+   "stage": ["question"],
+   "text": {
+    "en": "The page on how we handle religious content explains how sources, grades and reviews work in Ar-Rayaan, and why something is labelled the way it is."
+   },
+   "ageBand": ["all"],
+   "tags": ["app-help", "policy", "trust"],
+   "triggers": ["content policy", "how do you check", "sources policy", "who wrote this"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "app", "title": "assets/system/module_registry.json (module names and live/gated/unbuilt status)"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "app_help.quick.001",
+   "kind": "app-help",
+   "stage": ["question"],
+   "text": {
+    "en": "Quick Access is a second home page with shortcuts to the things you use most."
+   },
+   "ageBand": ["all"],
+   "tags": ["app-help", "quick-access"],
+   "triggers": ["quick access", "shortcuts", "second home"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "app", "title": "assets/system/module_registry.json (module names and live/gated/unbuilt status)"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "app_help.daily.001",
+   "kind": "app-help",
+   "stage": ["question"],
+   "text": {
+    "en": "Daily Duas and the Hadiths for Our Times collections bring short, practical teachings to everyday situations. Open them from the Library or Search."
+   },
+   "ageBand": ["all"],
+   "tags": ["app-help", "daily-duas"],
+   "triggers": ["daily duas", "modern hadith", "hadiths for our times"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "app", "title": "assets/system/module_registry.json (module names and live/gated/unbuilt status)"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}

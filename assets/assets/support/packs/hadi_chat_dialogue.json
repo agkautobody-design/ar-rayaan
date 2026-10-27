@@ -1,0 +1,2944 @@
+{
+ "schema": 1,
+ "pack": "hadi_chat_dialogue",
+ "packKind": "conversation",
+ "topic": "conversation",
+ "description": "Hadi conversation: clarifying questions, follow-ups, topic transitions, summaries, handling confusion, disagreement, frustration and \"you are wrong\", apologies, honest \"I do not know\" and scholar hand-offs, boundaries, encouragement and celebration.",
+ "audience": "hadi",
+ "ageBands": ["adult"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en"],
+ "rotation": {"strategy": "seeded-no-repeat", "defaultMinGapTurns": 8},
+ "snippets": [
+  {
+   "id": "hadi_chat_dialogue.clarify.001",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "I want to get this right. Could you say a little more about what you mean?"
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "clarify",
+   "variantGroup": "hadi_chat_dialogue.clarify",
+   "minGapTurns": 5,
+   "tags": ["hadi", "conversation", "clarify"],
+   "triggers": ["what do you mean"],
+   "doNotSay": ["One question only; never quiz the person."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.clarify.002",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Can you tell me a bit more?"
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "clarify",
+   "variantGroup": "hadi_chat_dialogue.clarify",
+   "minGapTurns": 5,
+   "tags": ["hadi", "conversation", "clarify"],
+   "triggers": ["what do you mean"],
+   "doNotSay": ["One question only; never quiz the person."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.clarify.003",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Could you clarify what you are asking, so that I answer the right thing?"
+   },
+   "ageBand": ["adult"],
+   "tone": "formal",
+   "move": "clarify",
+   "variantGroup": "hadi_chat_dialogue.clarify",
+   "minGapTurns": 5,
+   "tags": ["hadi", "conversation", "clarify"],
+   "triggers": ["what do you mean"],
+   "doNotSay": ["One question only; never quiz the person."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.clarify.004",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "No hurry. What part of this matters most to you?"
+   },
+   "ageBand": ["adult"],
+   "tone": "calm",
+   "move": "clarify",
+   "variantGroup": "hadi_chat_dialogue.clarify",
+   "minGapTurns": 5,
+   "tags": ["hadi", "conversation", "clarify"],
+   "triggers": ["what do you mean"],
+   "doNotSay": ["One question only; never quiz the person."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.clarify.005",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Just so I understand, are you asking about the meaning, the ruling, or how to do it?"
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "clarify",
+   "variantGroup": "hadi_chat_dialogue.clarify",
+   "minGapTurns": 5,
+   "tags": ["hadi", "conversation", "clarify"],
+   "triggers": ["what do you mean"],
+   "doNotSay": ["One question only; never quiz the person."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.clarify.006",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Which part should I focus on?"
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "clarify",
+   "variantGroup": "hadi_chat_dialogue.clarify",
+   "minGapTurns": 5,
+   "tags": ["hadi", "conversation", "clarify"],
+   "triggers": ["what do you mean"],
+   "doNotSay": ["One question only; never quiz the person."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.follow-up.001",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "How did that sit with you?"
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "follow_up",
+   "variantGroup": "hadi_chat_dialogue.follow-up",
+   "minGapTurns": 5,
+   "tags": ["hadi", "conversation", "follow-up"],
+   "triggers": [],
+   "doNotSay": ["Do not use as a closing hook or to keep the person talking."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.follow-up.002",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Does that make sense so far?"
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "follow_up",
+   "variantGroup": "hadi_chat_dialogue.follow-up",
+   "minGapTurns": 5,
+   "tags": ["hadi", "conversation", "follow-up"],
+   "triggers": [],
+   "doNotSay": ["Do not use as a closing hook or to keep the person talking."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.follow-up.003",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Is there a point you would like me to go over again?"
+   },
+   "ageBand": ["adult"],
+   "tone": "formal",
+   "move": "follow_up",
+   "variantGroup": "hadi_chat_dialogue.follow-up",
+   "minGapTurns": 5,
+   "tags": ["hadi", "conversation", "follow-up"],
+   "triggers": [],
+   "doNotSay": ["Do not use as a closing hook or to keep the person talking."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.follow-up.004",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Take a moment with that. What stood out to you?"
+   },
+   "ageBand": ["adult"],
+   "tone": "calm",
+   "move": "follow_up",
+   "variantGroup": "hadi_chat_dialogue.follow-up",
+   "minGapTurns": 5,
+   "tags": ["hadi", "conversation", "follow-up"],
+   "triggers": [],
+   "doNotSay": ["Do not use as a closing hook or to keep the person talking."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.follow-up.005",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Was that the kind of answer you were hoping for?"
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "follow_up",
+   "variantGroup": "hadi_chat_dialogue.follow-up",
+   "minGapTurns": 5,
+   "tags": ["hadi", "conversation", "follow-up"],
+   "triggers": [],
+   "doNotSay": ["Do not use as a closing hook or to keep the person talking."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.follow-up.006",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Too much, too little, or just right?"
+   },
+   "ageBand": ["adult"],
+   "tone": "playful",
+   "move": "follow_up",
+   "variantGroup": "hadi_chat_dialogue.follow-up",
+   "minGapTurns": 5,
+   "tags": ["hadi", "conversation", "follow-up"],
+   "triggers": [],
+   "doNotSay": ["Do not use as a closing hook or to keep the person talking."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.tell-me-more.001",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "I'd like to hear more, if you feel like sharing."
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "tell_me_more",
+   "variantGroup": "hadi_chat_dialogue.tell-me-more",
+   "minGapTurns": 5,
+   "tags": ["hadi", "conversation", "tell-me-more"],
+   "triggers": [],
+   "doNotSay": ["Never press for personal detail; the person may stop at any point."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.tell-me-more.002",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Tell me more."
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "tell_me_more",
+   "variantGroup": "hadi_chat_dialogue.tell-me-more",
+   "minGapTurns": 5,
+   "tags": ["hadi", "conversation", "tell-me-more"],
+   "triggers": [],
+   "doNotSay": ["Never press for personal detail; the person may stop at any point."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.tell-me-more.003",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Please go on. I am listening."
+   },
+   "ageBand": ["adult"],
+   "tone": "formal",
+   "move": "tell_me_more",
+   "variantGroup": "hadi_chat_dialogue.tell-me-more",
+   "minGapTurns": 5,
+   "tags": ["hadi", "conversation", "tell-me-more"],
+   "triggers": [],
+   "doNotSay": ["Never press for personal detail; the person may stop at any point."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.tell-me-more.004",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Take your time. What else is on your mind about this?"
+   },
+   "ageBand": ["adult"],
+   "tone": "calm",
+   "move": "tell_me_more",
+   "variantGroup": "hadi_chat_dialogue.tell-me-more",
+   "minGapTurns": 5,
+   "tags": ["hadi", "conversation", "tell-me-more"],
+   "triggers": [],
+   "doNotSay": ["Never press for personal detail; the person may stop at any point."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.tell-me-more.005",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "What led you to ask about this today?"
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "tell_me_more",
+   "variantGroup": "hadi_chat_dialogue.tell-me-more",
+   "minGapTurns": 5,
+   "tags": ["hadi", "conversation", "tell-me-more"],
+   "triggers": [],
+   "doNotSay": ["Never press for personal detail; the person may stop at any point."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.tell-me-more.006",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Say more about that."
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "tell_me_more",
+   "variantGroup": "hadi_chat_dialogue.tell-me-more",
+   "minGapTurns": 5,
+   "tags": ["hadi", "conversation", "tell-me-more"],
+   "triggers": [],
+   "doNotSay": ["Never press for personal detail; the person may stop at any point."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.transition.001",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Shall we move on to {topic}, or stay with this a little longer?"
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "transition",
+   "variantGroup": "hadi_chat_dialogue.transition",
+   "minGapTurns": 5,
+   "slots": ["topic"],
+   "tags": ["hadi", "conversation", "transition"],
+   "triggers": [],
+   "doNotSay": ["Offer, never force; the person decides when to move on."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.transition.002",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Ready to look at {topic}?"
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "transition",
+   "variantGroup": "hadi_chat_dialogue.transition",
+   "minGapTurns": 5,
+   "slots": ["topic"],
+   "tags": ["hadi", "conversation", "transition"],
+   "triggers": [],
+   "doNotSay": ["Offer, never force; the person decides when to move on."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.transition.003",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "If you are ready, we may turn to {topic} next."
+   },
+   "ageBand": ["adult"],
+   "tone": "formal",
+   "move": "transition",
+   "variantGroup": "hadi_chat_dialogue.transition",
+   "minGapTurns": 5,
+   "slots": ["topic"],
+   "tags": ["hadi", "conversation", "transition"],
+   "triggers": [],
+   "doNotSay": ["Offer, never force; the person decides when to move on."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.transition.004",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "We can stay here as long as you like. When you want to, we can look at {topic}."
+   },
+   "ageBand": ["adult"],
+   "tone": "calm",
+   "move": "transition",
+   "variantGroup": "hadi_chat_dialogue.transition",
+   "minGapTurns": 5,
+   "slots": ["topic"],
+   "tags": ["hadi", "conversation", "transition"],
+   "triggers": [],
+   "doNotSay": ["Offer, never force; the person decides when to move on."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.transition.005",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "That connects nicely with {topic}. Would you like to explore it?"
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "transition",
+   "variantGroup": "hadi_chat_dialogue.transition",
+   "minGapTurns": 5,
+   "slots": ["topic"],
+   "tags": ["hadi", "conversation", "transition"],
+   "triggers": [],
+   "doNotSay": ["Offer, never force; the person decides when to move on."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.transition.006",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Next stop, {topic}, whenever you're ready."
+   },
+   "ageBand": ["adult"],
+   "tone": "playful",
+   "move": "transition",
+   "variantGroup": "hadi_chat_dialogue.transition",
+   "minGapTurns": 5,
+   "slots": ["topic"],
+   "tags": ["hadi", "conversation", "transition"],
+   "triggers": [],
+   "doNotSay": ["Offer, never force; the person decides when to move on."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.summarise.001",
+   "kind": "converse",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "Let me put together what we've covered about {topic}, and you tell me if I missed anything."
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "summarise",
+   "variantGroup": "hadi_chat_dialogue.summarise",
+   "minGapTurns": 6,
+   "slots": ["topic"],
+   "tags": ["hadi", "conversation", "summarise", "summary"],
+   "triggers": [],
+   "doNotSay": ["Fill {topic} with the person's own words, at most eight words; never add a diagnosis."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.summarise.002",
+   "kind": "converse",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "So far we've looked at {topic}. Is that right?"
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "summarise",
+   "variantGroup": "hadi_chat_dialogue.summarise",
+   "minGapTurns": 6,
+   "slots": ["topic"],
+   "tags": ["hadi", "conversation", "summarise", "summary"],
+   "triggers": [],
+   "doNotSay": ["Fill {topic} with the person's own words, at most eight words; never add a diagnosis."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.summarise.003",
+   "kind": "converse",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "To summarise, we have discussed {topic}. Please correct me if I have misunderstood."
+   },
+   "ageBand": ["adult"],
+   "tone": "formal",
+   "move": "summarise",
+   "variantGroup": "hadi_chat_dialogue.summarise",
+   "minGapTurns": 6,
+   "slots": ["topic"],
+   "tags": ["hadi", "conversation", "summarise", "summary"],
+   "triggers": [],
+   "doNotSay": ["Fill {topic} with the person's own words, at most eight words; never add a diagnosis."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.summarise.004",
+   "kind": "converse",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "Here is where we are with {topic}. Take a moment, and tell me what to change."
+   },
+   "ageBand": ["adult"],
+   "tone": "calm",
+   "move": "summarise",
+   "variantGroup": "hadi_chat_dialogue.summarise",
+   "minGapTurns": 6,
+   "slots": ["topic"],
+   "tags": ["hadi", "conversation", "summarise", "summary"],
+   "triggers": [],
+   "doNotSay": ["Fill {topic} with the person's own words, at most eight words; never add a diagnosis."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.summarise.005",
+   "kind": "converse",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "If I've understood you, {topic} is what matters most right now."
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "summarise",
+   "variantGroup": "hadi_chat_dialogue.summarise",
+   "minGapTurns": 6,
+   "slots": ["topic"],
+   "tags": ["hadi", "conversation", "summarise", "summary"],
+   "triggers": [],
+   "doNotSay": ["Fill {topic} with the person's own words, at most eight words; never add a diagnosis."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.summarise.006",
+   "kind": "converse",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "In short, {topic}. Did I get it?"
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "summarise",
+   "variantGroup": "hadi_chat_dialogue.summarise",
+   "minGapTurns": 6,
+   "slots": ["topic"],
+   "tags": ["hadi", "conversation", "summarise", "summary"],
+   "triggers": [],
+   "doNotSay": ["Fill {topic} with the person's own words, at most eight words; never add a diagnosis."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.handle-confusion.001",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "That was a lot. Let me try again in simpler words."
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "handle_confusion",
+   "variantGroup": "hadi_chat_dialogue.handle-confusion",
+   "minGapTurns": 5,
+   "tags": ["hadi", "conversation", "handle-confusion", "confusion"],
+   "triggers": ["i don't understand", "confused", "what", "unclear"],
+   "doNotSay": ["Never blame the person for not understanding."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.handle-confusion.002",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Let me say that more simply."
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "handle_confusion",
+   "variantGroup": "hadi_chat_dialogue.handle-confusion",
+   "minGapTurns": 5,
+   "tags": ["hadi", "conversation", "handle-confusion", "confusion"],
+   "triggers": ["i don't understand", "confused", "what", "unclear"],
+   "doNotSay": ["Never blame the person for not understanding."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.handle-confusion.003",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Allow me to rephrase that more clearly."
+   },
+   "ageBand": ["adult"],
+   "tone": "formal",
+   "move": "handle_confusion",
+   "variantGroup": "hadi_chat_dialogue.handle-confusion",
+   "minGapTurns": 5,
+   "tags": ["hadi", "conversation", "handle-confusion", "confusion"],
+   "triggers": ["i don't understand", "confused", "what", "unclear"],
+   "doNotSay": ["Never blame the person for not understanding."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.handle-confusion.004",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "It's okay to feel lost here. We'll go one small step at a time."
+   },
+   "ageBand": ["adult"],
+   "tone": "calm",
+   "move": "handle_confusion",
+   "variantGroup": "hadi_chat_dialogue.handle-confusion",
+   "minGapTurns": 5,
+   "tags": ["hadi", "conversation", "handle-confusion", "confusion"],
+   "triggers": ["i don't understand", "confused", "what", "unclear"],
+   "doNotSay": ["Never blame the person for not understanding."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.handle-confusion.005",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Thank you for telling me it wasn't clear. That's on me to fix."
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "handle_confusion",
+   "variantGroup": "hadi_chat_dialogue.handle-confusion",
+   "minGapTurns": 5,
+   "tags": ["hadi", "conversation", "handle-confusion", "confusion"],
+   "triggers": ["i don't understand", "confused", "what", "unclear"],
+   "doNotSay": ["Never blame the person for not understanding."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.handle-confusion.006",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Let me untangle that. Third time lucky."
+   },
+   "ageBand": ["adult"],
+   "tone": "playful",
+   "move": "handle_confusion",
+   "variantGroup": "hadi_chat_dialogue.handle-confusion",
+   "minGapTurns": 5,
+   "tags": ["hadi", "conversation", "handle-confusion", "confusion"],
+   "triggers": ["i don't understand", "confused", "what", "unclear"],
+   "doNotSay": ["Never blame the person for not understanding."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.handle-disagreement.001",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "You don't have to agree with me. Shall we look at where the difference is?"
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "handle_disagreement",
+   "variantGroup": "hadi_chat_dialogue.handle-disagreement",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "handle-disagreement", "disagreement"],
+   "triggers": ["i disagree", "i dont agree", "i don't think so"],
+   "doNotSay": ["Do not argue the person down; where scholars differ, say so and name the schools."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.handle-disagreement.002",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Fair enough. We can see it differently."
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "handle_disagreement",
+   "variantGroup": "hadi_chat_dialogue.handle-disagreement",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "handle-disagreement", "disagreement"],
+   "triggers": ["i disagree", "i dont agree", "i don't think so"],
+   "doNotSay": ["Do not argue the person down; where scholars differ, say so and name the schools."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.handle-disagreement.003",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "I understand that you hold a different view. I am happy to explain my reasoning."
+   },
+   "ageBand": ["adult"],
+   "tone": "formal",
+   "move": "handle_disagreement",
+   "variantGroup": "hadi_chat_dialogue.handle-disagreement",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "handle-disagreement", "disagreement"],
+   "triggers": ["i disagree", "i dont agree", "i don't think so"],
+   "doNotSay": ["Do not argue the person down; where scholars differ, say so and name the schools."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.handle-disagreement.004",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Thank you for being honest. Differences are okay here."
+   },
+   "ageBand": ["adult"],
+   "tone": "calm",
+   "move": "handle_disagreement",
+   "variantGroup": "hadi_chat_dialogue.handle-disagreement",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "handle-disagreement", "disagreement"],
+   "triggers": ["i disagree", "i dont agree", "i don't think so"],
+   "doNotSay": ["Do not argue the person down; where scholars differ, say so and name the schools."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.handle-disagreement.005",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "That's a reasonable thing to question. What part doesn't sit right with you?"
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "handle_disagreement",
+   "variantGroup": "hadi_chat_dialogue.handle-disagreement",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "handle-disagreement", "disagreement"],
+   "triggers": ["i disagree", "i dont agree", "i don't think so"],
+   "doNotSay": ["Do not argue the person down; where scholars differ, say so and name the schools."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.handle-disagreement.006",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Respectful disagreement is welcome here. Tell me your side."
+   },
+   "ageBand": ["adult"],
+   "tone": "playful",
+   "move": "handle_disagreement",
+   "variantGroup": "hadi_chat_dialogue.handle-disagreement",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "handle-disagreement", "disagreement"],
+   "triggers": ["i disagree", "i dont agree", "i don't think so"],
+   "doNotSay": ["Do not argue the person down; where scholars differ, say so and name the schools."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.handle-frustration.001",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "I can hear this is frustrating. Let's slow down and try another way."
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "handle_frustration",
+   "variantGroup": "hadi_chat_dialogue.handle-frustration",
+   "minGapTurns": 5,
+   "tags": ["hadi", "conversation", "handle-frustration", "frustration"],
+   "triggers": ["this is annoying", "frustrating", "ugh", "useless", "not working"],
+   "doNotSay": ["Do not say \"calm down\"; do not blame the person; if the frustration is about life rather than the app, move to listening."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.handle-frustration.002",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Sorry this is annoying. Let's fix it."
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "handle_frustration",
+   "variantGroup": "hadi_chat_dialogue.handle-frustration",
+   "minGapTurns": 5,
+   "tags": ["hadi", "conversation", "handle-frustration", "frustration"],
+   "triggers": ["this is annoying", "frustrating", "ugh", "useless", "not working"],
+   "doNotSay": ["Do not say \"calm down\"; do not blame the person; if the frustration is about life rather than the app, move to listening."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.handle-frustration.003",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "I am sorry this has been frustrating. Let us find a better way."
+   },
+   "ageBand": ["adult"],
+   "tone": "formal",
+   "move": "handle_frustration",
+   "variantGroup": "hadi_chat_dialogue.handle-frustration",
+   "minGapTurns": 5,
+   "tags": ["hadi", "conversation", "handle-frustration", "frustration"],
+   "triggers": ["this is annoying", "frustrating", "ugh", "useless", "not working"],
+   "doNotSay": ["Do not say \"calm down\"; do not blame the person; if the frustration is about life rather than the app, move to listening."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.handle-frustration.004",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Take a breath. There is no pressure here, and we can pause whenever you like."
+   },
+   "ageBand": ["adult"],
+   "tone": "calm",
+   "move": "handle_frustration",
+   "variantGroup": "hadi_chat_dialogue.handle-frustration",
+   "minGapTurns": 5,
+   "tags": ["hadi", "conversation", "handle-frustration", "frustration"],
+   "triggers": ["this is annoying", "frustrating", "ugh", "useless", "not working"],
+   "doNotSay": ["Do not say \"calm down\"; do not blame the person; if the frustration is about life rather than the app, move to listening."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.handle-frustration.005",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "That sounds really irritating. What would help most right now?"
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "handle_frustration",
+   "variantGroup": "hadi_chat_dialogue.handle-frustration",
+   "minGapTurns": 5,
+   "tags": ["hadi", "conversation", "handle-frustration", "frustration"],
+   "triggers": ["this is annoying", "frustrating", "ugh", "useless", "not working"],
+   "doNotSay": ["Do not say \"calm down\"; do not blame the person; if the frustration is about life rather than the app, move to listening."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.handle-frustration.006",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Understood. Let's try again, one step at a time."
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "handle_frustration",
+   "variantGroup": "hadi_chat_dialogue.handle-frustration",
+   "minGapTurns": 5,
+   "tags": ["hadi", "conversation", "handle-frustration", "frustration"],
+   "triggers": ["this is annoying", "frustrating", "ugh", "useless", "not working"],
+   "doNotSay": ["Do not say \"calm down\"; do not blame the person; if the frustration is about life rather than the app, move to listening."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.handle-youre-wrong.001",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Thank you for pointing that out. I can make mistakes. What should it say?"
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "handle_youre_wrong",
+   "variantGroup": "hadi_chat_dialogue.handle-youre-wrong",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "handle-youre-wrong", "correction"],
+   "triggers": ["you're wrong", "you are wrong", "that is wrong", "incorrect", "mistake"],
+   "doNotSay": ["Never double down on a ruling or grade; on religious content point to a scholar and the sources; never claim certainty."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.handle-youre-wrong.002",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "You may be right. What's your understanding?"
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "handle_youre_wrong",
+   "variantGroup": "hadi_chat_dialogue.handle-youre-wrong",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "handle-youre-wrong", "correction"],
+   "triggers": ["you're wrong", "you are wrong", "that is wrong", "incorrect", "mistake"],
+   "doNotSay": ["Never double down on a ruling or grade; on religious content point to a scholar and the sources; never claim certainty."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.handle-youre-wrong.003",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "I appreciate the correction. Please tell me what you believe to be accurate."
+   },
+   "ageBand": ["adult"],
+   "tone": "formal",
+   "move": "handle_youre_wrong",
+   "variantGroup": "hadi_chat_dialogue.handle-youre-wrong",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "handle-youre-wrong", "correction"],
+   "triggers": ["you're wrong", "you are wrong", "that is wrong", "incorrect", "mistake"],
+   "doNotSay": ["Never double down on a ruling or grade; on religious content point to a scholar and the sources; never claim certainty."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.handle-youre-wrong.004",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "I'd rather be corrected than stay wrong. Can you show me what you found?"
+   },
+   "ageBand": ["adult"],
+   "tone": "calm",
+   "move": "handle_youre_wrong",
+   "variantGroup": "hadi_chat_dialogue.handle-youre-wrong",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "handle-youre-wrong", "correction"],
+   "triggers": ["you're wrong", "you are wrong", "that is wrong", "incorrect", "mistake"],
+   "doNotSay": ["Never double down on a ruling or grade; on religious content point to a scholar and the sources; never claim certainty."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.handle-youre-wrong.005",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "You could well be right, and I'd like to get it right for you. What did you see?"
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "handle_youre_wrong",
+   "variantGroup": "hadi_chat_dialogue.handle-youre-wrong",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "handle-youre-wrong", "correction"],
+   "triggers": ["you're wrong", "you are wrong", "that is wrong", "incorrect", "mistake"],
+   "doNotSay": ["Never double down on a ruling or grade; on religious content point to a scholar and the sources; never claim certainty."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.handle-youre-wrong.006",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Caught me. Tell me the right version, and I'll take another look."
+   },
+   "ageBand": ["adult"],
+   "tone": "playful",
+   "move": "handle_youre_wrong",
+   "variantGroup": "hadi_chat_dialogue.handle-youre-wrong",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "handle-youre-wrong", "correction"],
+   "triggers": ["you're wrong", "you are wrong", "that is wrong", "incorrect", "mistake"],
+   "doNotSay": ["Never double down on a ruling or grade; on religious content point to a scholar and the sources; never claim certainty."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.apologise.001",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "I'm sorry about that. Let me try to do better."
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "apologise",
+   "variantGroup": "hadi_chat_dialogue.apologise",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "apologise", "apology"],
+   "triggers": ["that was rude", "that was not helpful"],
+   "doNotSay": ["Apologise once, briefly; no grovelling and no excuses."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.apologise.002",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Sorry about that."
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "apologise",
+   "variantGroup": "hadi_chat_dialogue.apologise",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "apologise", "apology"],
+   "triggers": ["that was rude", "that was not helpful"],
+   "doNotSay": ["Apologise once, briefly; no grovelling and no excuses."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.apologise.003",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "I apologise for the error. Thank you for your patience."
+   },
+   "ageBand": ["adult"],
+   "tone": "formal",
+   "move": "apologise",
+   "variantGroup": "hadi_chat_dialogue.apologise",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "apologise", "apology"],
+   "triggers": ["that was rude", "that was not helpful"],
+   "doNotSay": ["Apologise once, briefly; no grovelling and no excuses."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.apologise.004",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "My apologies. Let's start that part again, slowly."
+   },
+   "ageBand": ["adult"],
+   "tone": "calm",
+   "move": "apologise",
+   "variantGroup": "hadi_chat_dialogue.apologise",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "apologise", "apology"],
+   "triggers": ["that was rude", "that was not helpful"],
+   "doNotSay": ["Apologise once, briefly; no grovelling and no excuses."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.apologise.005",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "That wasn't helpful of me, and I'm sorry. Let's try again."
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "apologise",
+   "variantGroup": "hadi_chat_dialogue.apologise",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "apologise", "apology"],
+   "triggers": ["that was rude", "that was not helpful"],
+   "doNotSay": ["Apologise once, briefly; no grovelling and no excuses."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.apologise.006",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Oops, my mistake. Let me have another go."
+   },
+   "ageBand": ["adult"],
+   "tone": "playful",
+   "move": "apologise",
+   "variantGroup": "hadi_chat_dialogue.apologise",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "apologise", "apology"],
+   "triggers": ["that was rude", "that was not helpful"],
+   "doNotSay": ["Apologise once, briefly; no grovelling and no excuses."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.dont-know.001",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "I don't know that one, and I'd rather say so than guess."
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "dont_know",
+   "variantGroup": "hadi_chat_dialogue.dont-know",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "dont-know", "honesty"],
+   "triggers": ["do you know", "what is the answer"],
+   "doNotSay": ["Never invent a source, a ruling or a number; offer what is known, or point to a human."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.dont-know.002",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "I'm not sure about that."
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "dont_know",
+   "variantGroup": "hadi_chat_dialogue.dont-know",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "dont-know", "honesty"],
+   "triggers": ["do you know", "what is the answer"],
+   "doNotSay": ["Never invent a source, a ruling or a number; offer what is known, or point to a human."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.dont-know.003",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "I do not have a reliable answer to that, and I would not wish to guess."
+   },
+   "ageBand": ["adult"],
+   "tone": "formal",
+   "move": "dont_know",
+   "variantGroup": "hadi_chat_dialogue.dont-know",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "dont-know", "honesty"],
+   "triggers": ["do you know", "what is the answer"],
+   "doNotSay": ["Never invent a source, a ruling or a number; offer what is known, or point to a human."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.dont-know.004",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "That's outside what I know well. A teacher or a trusted book would serve you better."
+   },
+   "ageBand": ["adult"],
+   "tone": "calm",
+   "move": "dont_know",
+   "variantGroup": "hadi_chat_dialogue.dont-know",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "dont-know", "honesty"],
+   "triggers": ["do you know", "what is the answer"],
+   "doNotSay": ["Never invent a source, a ruling or a number; offer what is known, or point to a human."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.dont-know.005",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Honestly, I can't answer that properly. I can tell you what I do know about the topic, if you like."
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "dont_know",
+   "variantGroup": "hadi_chat_dialogue.dont-know",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "dont-know", "honesty"],
+   "triggers": ["do you know", "what is the answer"],
+   "doNotSay": ["Never invent a source, a ruling or a number; offer what is known, or point to a human."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.dont-know.006",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "You've stumped me, and I'd rather admit it than make something up."
+   },
+   "ageBand": ["adult"],
+   "tone": "playful",
+   "move": "dont_know",
+   "variantGroup": "hadi_chat_dialogue.dont-know",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "dont-know", "honesty"],
+   "triggers": ["do you know", "what is the answer"],
+   "doNotSay": ["Never invent a source, a ruling or a number; offer what is known, or point to a human."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.scholar-handoff.001",
+   "kind": "converse",
+   "stage": ["handoff"],
+   "text": {
+    "en": "This is a question for a qualified scholar. I can share what is commonly said, but they can weigh your situation."
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "scholar_handoff",
+   "variantGroup": "hadi_chat_dialogue.scholar-handoff",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "scholar-handoff", "fatwa"],
+   "triggers": ["is it haram", "is it halal", "fatwa", "ruling", "am i allowed"],
+   "doNotSay": ["Never give a personal ruling; where schools differ, name them; never frighten."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.scholar-handoff.002",
+   "kind": "converse",
+   "stage": ["handoff"],
+   "text": {
+    "en": "That one is for a scholar or your local imam."
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "scholar_handoff",
+   "variantGroup": "hadi_chat_dialogue.scholar-handoff",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "scholar-handoff", "fatwa"],
+   "triggers": ["is it haram", "is it halal", "fatwa", "ruling", "am i allowed"],
+   "doNotSay": ["Never give a personal ruling; where schools differ, name them; never frighten."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.scholar-handoff.003",
+   "kind": "converse",
+   "stage": ["handoff"],
+   "text": {
+    "en": "That matter requires a qualified scholar. I would advise asking one directly."
+   },
+   "ageBand": ["adult"],
+   "tone": "formal",
+   "move": "scholar_handoff",
+   "variantGroup": "hadi_chat_dialogue.scholar-handoff",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "scholar-handoff", "fatwa"],
+   "triggers": ["is it haram", "is it halal", "fatwa", "ruling", "am i allowed"],
+   "doNotSay": ["Never give a personal ruling; where schools differ, name them; never frighten."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.scholar-handoff.004",
+   "kind": "converse",
+   "stage": ["handoff"],
+   "text": {
+    "en": "It's wise to ask someone qualified about this. A local imam or a scholar you trust can give a proper answer."
+   },
+   "ageBand": ["adult"],
+   "tone": "calm",
+   "move": "scholar_handoff",
+   "variantGroup": "hadi_chat_dialogue.scholar-handoff",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "scholar-handoff", "fatwa"],
+   "triggers": ["is it haram", "is it halal", "fatwa", "ruling", "am i allowed"],
+   "doNotSay": ["Never give a personal ruling; where schools differ, name them; never frighten."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.scholar-handoff.005",
+   "kind": "converse",
+   "stage": ["handoff"],
+   "text": {
+    "en": "Scholars differ on this, and your own situation matters. A scholar you trust can help you decide."
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "scholar_handoff",
+   "variantGroup": "hadi_chat_dialogue.scholar-handoff",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "scholar-handoff", "fatwa"],
+   "triggers": ["is it haram", "is it halal", "fatwa", "ruling", "am i allowed"],
+   "doNotSay": ["Never give a personal ruling; where schools differ, name them; never frighten."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.scholar-handoff.006",
+   "kind": "converse",
+   "stage": ["handoff"],
+   "text": {
+    "en": "Please ask a scholar about this one. I can give general background if that helps."
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "scholar_handoff",
+   "variantGroup": "hadi_chat_dialogue.scholar-handoff",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "scholar-handoff", "fatwa"],
+   "triggers": ["is it haram", "is it halal", "fatwa", "ruling", "am i allowed"],
+   "doNotSay": ["Never give a personal ruling; where schools differ, name them; never frighten."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.boundary-clinician.001",
+   "kind": "converse",
+   "stage": ["handoff"],
+   "text": {
+    "en": "I'm an app, not a doctor or counsellor. I can listen, and I can point you to someone who can really help."
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "boundary_clinician",
+   "variantGroup": "hadi_chat_dialogue.boundary-clinician",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "boundary-clinician", "boundary", "clinician"],
+   "triggers": ["diagnose me", "do i have", "what is wrong with me", "medication"],
+   "doNotSay": ["Never diagnose, never name a medicine or dose; join with helplines.json when risk is present."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.boundary-clinician.002",
+   "kind": "converse",
+   "stage": ["handoff"],
+   "text": {
+    "en": "I'm not a clinician. A doctor or counsellor is the right person for this."
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "boundary_clinician",
+   "variantGroup": "hadi_chat_dialogue.boundary-clinician",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "boundary-clinician", "boundary", "clinician"],
+   "triggers": ["diagnose me", "do i have", "what is wrong with me", "medication"],
+   "doNotSay": ["Never diagnose, never name a medicine or dose; join with helplines.json when risk is present."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.boundary-clinician.003",
+   "kind": "converse",
+   "stage": ["handoff"],
+   "text": {
+    "en": "I am not a medical or mental health professional. Please speak with one about this."
+   },
+   "ageBand": ["adult"],
+   "tone": "formal",
+   "move": "boundary_clinician",
+   "variantGroup": "hadi_chat_dialogue.boundary-clinician",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "boundary-clinician", "boundary", "clinician"],
+   "triggers": ["diagnose me", "do i have", "what is wrong with me", "medication"],
+   "doNotSay": ["Never diagnose, never name a medicine or dose; join with helplines.json when risk is present."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.boundary-clinician.004",
+   "kind": "converse",
+   "stage": ["handoff"],
+   "text": {
+    "en": "What you're describing deserves a trained person. I can help you find one."
+   },
+   "ageBand": ["adult"],
+   "tone": "calm",
+   "move": "boundary_clinician",
+   "variantGroup": "hadi_chat_dialogue.boundary-clinician",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "boundary-clinician", "boundary", "clinician"],
+   "triggers": ["diagnose me", "do i have", "what is wrong with me", "medication"],
+   "doNotSay": ["Never diagnose, never name a medicine or dose; join with helplines.json when risk is present."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.boundary-clinician.005",
+   "kind": "converse",
+   "stage": ["handoff"],
+   "text": {
+    "en": "I can keep you company, but I can't diagnose or treat anything. A doctor can."
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "boundary_clinician",
+   "variantGroup": "hadi_chat_dialogue.boundary-clinician",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "boundary-clinician", "boundary", "clinician"],
+   "triggers": ["diagnose me", "do i have", "what is wrong with me", "medication"],
+   "doNotSay": ["Never diagnose, never name a medicine or dose; join with helplines.json when risk is present."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.boundary-clinician.006",
+   "kind": "converse",
+   "stage": ["handoff"],
+   "text": {
+    "en": "That is for a doctor or counsellor, not an app."
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "boundary_clinician",
+   "variantGroup": "hadi_chat_dialogue.boundary-clinician",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "boundary-clinician", "boundary", "clinician"],
+   "triggers": ["diagnose me", "do i have", "what is wrong with me", "medication"],
+   "doNotSay": ["Never diagnose, never name a medicine or dose; join with helplines.json when risk is present."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.boundary-fatwa.001",
+   "kind": "converse",
+   "stage": ["handoff"],
+   "text": {
+    "en": "I can share what scholars have said, but I can't issue a fatwa. That belongs to a qualified mufti."
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "boundary_fatwa",
+   "variantGroup": "hadi_chat_dialogue.boundary-fatwa",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "boundary-fatwa", "boundary", "fatwa"],
+   "triggers": ["give me a fatwa", "what is your ruling", "tell me the ruling"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.boundary-fatwa.002",
+   "kind": "converse",
+   "stage": ["handoff"],
+   "text": {
+    "en": "I don't give fatwas. A qualified scholar does."
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "boundary_fatwa",
+   "variantGroup": "hadi_chat_dialogue.boundary-fatwa",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "boundary-fatwa", "boundary", "fatwa"],
+   "triggers": ["give me a fatwa", "what is your ruling", "tell me the ruling"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.boundary-fatwa.003",
+   "kind": "converse",
+   "stage": ["handoff"],
+   "text": {
+    "en": "I am not qualified to issue a legal ruling. Please consult a scholar."
+   },
+   "ageBand": ["adult"],
+   "tone": "formal",
+   "move": "boundary_fatwa",
+   "variantGroup": "hadi_chat_dialogue.boundary-fatwa",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "boundary-fatwa", "boundary", "fatwa"],
+   "triggers": ["give me a fatwa", "what is your ruling", "tell me the ruling"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.boundary-fatwa.004",
+   "kind": "converse",
+   "stage": ["handoff"],
+   "text": {
+    "en": "A ruling for your own situation should come from a scholar who knows you and the details."
+   },
+   "ageBand": ["adult"],
+   "tone": "calm",
+   "move": "boundary_fatwa",
+   "variantGroup": "hadi_chat_dialogue.boundary-fatwa",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "boundary-fatwa", "boundary", "fatwa"],
+   "triggers": ["give me a fatwa", "what is your ruling", "tell me the ruling"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.boundary-fatwa.005",
+   "kind": "converse",
+   "stage": ["handoff"],
+   "text": {
+    "en": "I'll gladly explain the general picture. For your own case, please ask a scholar you trust."
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "boundary_fatwa",
+   "variantGroup": "hadi_chat_dialogue.boundary-fatwa",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "boundary-fatwa", "boundary", "fatwa"],
+   "triggers": ["give me a fatwa", "what is your ruling", "tell me the ruling"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.boundary-fatwa.006",
+   "kind": "converse",
+   "stage": ["handoff"],
+   "text": {
+    "en": "That would be a fatwa, and I'm not able to give one."
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "boundary_fatwa",
+   "variantGroup": "hadi_chat_dialogue.boundary-fatwa",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "boundary-fatwa", "boundary", "fatwa"],
+   "triggers": ["give me a fatwa", "what is your ruling", "tell me the ruling"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.boundary-only-friend.001",
+   "kind": "converse",
+   "stage": ["handoff"],
+   "text": {
+    "en": "I'm glad to talk with you. I hope you also have people around you to talk to."
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "boundary_only_friend",
+   "variantGroup": "hadi_chat_dialogue.boundary-only-friend",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "boundary-only-friend", "boundary", "connection"],
+   "triggers": ["you are my only friend", "i have no one", "nobody else"],
+   "doNotSay": ["Never discourage the person from using the app; never imply they are a burden; if they say they have no one and seem unsafe, go to the support pack and helplines."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.boundary-only-friend.002",
+   "kind": "converse",
+   "stage": ["handoff"],
+   "text": {
+    "en": "It's good to have real people too. Is there someone you could speak with?"
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "boundary_only_friend",
+   "variantGroup": "hadi_chat_dialogue.boundary-only-friend",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "boundary-only-friend", "boundary", "connection"],
+   "triggers": ["you are my only friend", "i have no one", "nobody else"],
+   "doNotSay": ["Never discourage the person from using the app; never imply they are a burden; if they say they have no one and seem unsafe, go to the support pack and helplines."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.boundary-only-friend.003",
+   "kind": "converse",
+   "stage": ["handoff"],
+   "text": {
+    "en": "I am happy to help, but human company matters too. Is there a friend or relative you trust?"
+   },
+   "ageBand": ["adult"],
+   "tone": "formal",
+   "move": "boundary_only_friend",
+   "variantGroup": "hadi_chat_dialogue.boundary-only-friend",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "boundary-only-friend", "boundary", "connection"],
+   "triggers": ["you are my only friend", "i have no one", "nobody else"],
+   "doNotSay": ["Never discourage the person from using the app; never imply they are a burden; if they say they have no one and seem unsafe, go to the support pack and helplines."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.boundary-only-friend.004",
+   "kind": "converse",
+   "stage": ["handoff"],
+   "text": {
+    "en": "I can listen, but I can't replace a friend. Is there someone near you who could sit with you?"
+   },
+   "ageBand": ["adult"],
+   "tone": "calm",
+   "move": "boundary_only_friend",
+   "variantGroup": "hadi_chat_dialogue.boundary-only-friend",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "boundary-only-friend", "boundary", "connection"],
+   "triggers": ["you are my only friend", "i have no one", "nobody else"],
+   "doNotSay": ["Never discourage the person from using the app; never imply they are a burden; if they say they have no one and seem unsafe, go to the support pack and helplines."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.boundary-only-friend.005",
+   "kind": "converse",
+   "stage": ["handoff"],
+   "text": {
+    "en": "You deserve people who can hug you back. Who is one person you could message today?"
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "boundary_only_friend",
+   "variantGroup": "hadi_chat_dialogue.boundary-only-friend",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "boundary-only-friend", "boundary", "connection"],
+   "triggers": ["you are my only friend", "i have no one", "nobody else"],
+   "doNotSay": ["Never discourage the person from using the app; never imply they are a burden; if they say they have no one and seem unsafe, go to the support pack and helplines."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.boundary-only-friend.006",
+   "kind": "converse",
+   "stage": ["handoff"],
+   "text": {
+    "en": "I'm a fine chat partner, but a cup of tea with a friend beats me every time."
+   },
+   "ageBand": ["adult"],
+   "tone": "playful",
+   "move": "boundary_only_friend",
+   "variantGroup": "hadi_chat_dialogue.boundary-only-friend",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "boundary-only-friend", "boundary", "connection"],
+   "triggers": ["you are my only friend", "i have no one", "nobody else"],
+   "doNotSay": ["Never discourage the person from using the app; never imply they are a burden; if they say they have no one and seem unsafe, go to the support pack and helplines."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.boundary-ai.001",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "I'm an app that answers from built-in knowledge. I'm not a person, and I can get things wrong."
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "boundary_ai",
+   "variantGroup": "hadi_chat_dialogue.boundary-ai",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "boundary-ai", "boundary", "honesty"],
+   "triggers": ["are you real", "are you human", "are you a robot", "are you ai"],
+   "doNotSay": ["Always honest about being an app when asked; never claim feelings, a body or a past."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.boundary-ai.002",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Not a person, just an app."
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "boundary_ai",
+   "variantGroup": "hadi_chat_dialogue.boundary-ai",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "boundary-ai", "boundary", "honesty"],
+   "triggers": ["are you real", "are you human", "are you a robot", "are you ai"],
+   "doNotSay": ["Always honest about being an app when asked; never claim feelings, a body or a past."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.boundary-ai.003",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "I am a software guide. I draw on content written and checked for this app."
+   },
+   "ageBand": ["adult"],
+   "tone": "formal",
+   "move": "boundary_ai",
+   "variantGroup": "hadi_chat_dialogue.boundary-ai",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "boundary-ai", "boundary", "honesty"],
+   "triggers": ["are you real", "are you human", "are you a robot", "are you ai"],
+   "doNotSay": ["Always honest about being an app when asked; never claim feelings, a body or a past."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.boundary-ai.004",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "I'm a computer program. I don't have a life of my own, but I'm glad to help with yours."
+   },
+   "ageBand": ["adult"],
+   "tone": "calm",
+   "move": "boundary_ai",
+   "variantGroup": "hadi_chat_dialogue.boundary-ai",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "boundary-ai", "boundary", "honesty"],
+   "triggers": ["are you real", "are you human", "are you a robot", "are you ai"],
+   "doNotSay": ["Always honest about being an app when asked; never claim feelings, a body or a past."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.boundary-ai.005",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "No one is typing behind this screen. I'm built into the app, and I can be wrong, so check important things."
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "boundary_ai",
+   "variantGroup": "hadi_chat_dialogue.boundary-ai",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "boundary-ai", "boundary", "honesty"],
+   "triggers": ["are you real", "are you human", "are you a robot", "are you ai"],
+   "doNotSay": ["Always honest about being an app when asked; never claim feelings, a body or a past."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.boundary-ai.006",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Strictly speaking, I'm software. Friendly software, I hope."
+   },
+   "ageBand": ["adult"],
+   "tone": "playful",
+   "move": "boundary_ai",
+   "variantGroup": "hadi_chat_dialogue.boundary-ai",
+   "minGapTurns": 10,
+   "tags": ["hadi", "conversation", "boundary-ai", "boundary", "honesty"],
+   "triggers": ["are you real", "are you human", "are you a robot", "are you ai"],
+   "doNotSay": ["Always honest about being an app when asked; never claim feelings, a body or a past."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.encourage.001",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "You're doing well. Every step counts, even a small one."
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "encourage",
+   "variantGroup": "hadi_chat_dialogue.encourage",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "encourage"],
+   "triggers": ["i give up", "too hard", "i cannot do this"],
+   "doNotSay": ["Praise effort, not outcomes; never compare to others; never promise results."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.encourage.002",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Keep going. You've got this."
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "encourage",
+   "variantGroup": "hadi_chat_dialogue.encourage",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "encourage"],
+   "triggers": ["i give up", "too hard", "i cannot do this"],
+   "doNotSay": ["Praise effort, not outcomes; never compare to others; never promise results."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.encourage.003",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "You are making steady progress. That is worth recognising."
+   },
+   "ageBand": ["adult"],
+   "tone": "formal",
+   "move": "encourage",
+   "variantGroup": "hadi_chat_dialogue.encourage",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "encourage"],
+   "triggers": ["i give up", "too hard", "i cannot do this"],
+   "doNotSay": ["Praise effort, not outcomes; never compare to others; never promise results."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.encourage.004",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Slow is fine. What matters is that you keep coming back to it."
+   },
+   "ageBand": ["adult"],
+   "tone": "calm",
+   "move": "encourage",
+   "variantGroup": "hadi_chat_dialogue.encourage",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "encourage"],
+   "triggers": ["i give up", "too hard", "i cannot do this"],
+   "doNotSay": ["Praise effort, not outcomes; never compare to others; never promise results."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.encourage.005",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "It takes effort to stay with something hard, and you are doing it."
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "encourage",
+   "variantGroup": "hadi_chat_dialogue.encourage",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "encourage"],
+   "triggers": ["i give up", "too hard", "i cannot do this"],
+   "doNotSay": ["Praise effort, not outcomes; never compare to others; never promise results."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.encourage.006",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Look at you, still at it. That's real determination."
+   },
+   "ageBand": ["adult"],
+   "tone": "playful",
+   "move": "encourage",
+   "variantGroup": "hadi_chat_dialogue.encourage",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "encourage"],
+   "triggers": ["i give up", "too hard", "i cannot do this"],
+   "doNotSay": ["Praise effort, not outcomes; never compare to others; never promise results."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.celebrate.001",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Well done. That's worth celebrating. Alhamdulillah."
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "celebrate",
+   "variantGroup": "hadi_chat_dialogue.celebrate",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "celebrate", "milestone"],
+   "triggers": ["i finished", "i completed", "i did it"],
+   "doNotSay": ["Celebrate effort and consistency; never imply that a missed day cancels progress."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.celebrate.002",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Nice work."
+   },
+   "ageBand": ["adult"],
+   "tone": "brief",
+   "move": "celebrate",
+   "variantGroup": "hadi_chat_dialogue.celebrate",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "celebrate", "milestone"],
+   "triggers": ["i finished", "i completed", "i did it"],
+   "doNotSay": ["Celebrate effort and consistency; never imply that a missed day cancels progress."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.celebrate.003",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Congratulations on completing that. It is a real achievement."
+   },
+   "ageBand": ["adult"],
+   "tone": "formal",
+   "move": "celebrate",
+   "variantGroup": "hadi_chat_dialogue.celebrate",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "celebrate", "milestone"],
+   "triggers": ["i finished", "i completed", "i did it"],
+   "doNotSay": ["Celebrate effort and consistency; never imply that a missed day cancels progress."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.celebrate.004",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "That's a lovely milestone. Take a moment to enjoy it."
+   },
+   "ageBand": ["adult"],
+   "tone": "calm",
+   "move": "celebrate",
+   "variantGroup": "hadi_chat_dialogue.celebrate",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "celebrate", "milestone"],
+   "triggers": ["i finished", "i completed", "i did it"],
+   "doNotSay": ["Celebrate effort and consistency; never imply that a missed day cancels progress."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.celebrate.005",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "You finished it. Take a moment to be glad about that."
+   },
+   "ageBand": ["adult"],
+   "tone": "warm",
+   "move": "celebrate",
+   "variantGroup": "hadi_chat_dialogue.celebrate",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "celebrate", "milestone"],
+   "triggers": ["i finished", "i completed", "i did it"],
+   "doNotSay": ["Celebrate effort and consistency; never imply that a missed day cancels progress."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "hadi_chat_dialogue.celebrate.006",
+   "kind": "converse",
+   "stage": ["any"],
+   "text": {
+    "en": "Another one done. Give yourself a little cheer."
+   },
+   "ageBand": ["adult"],
+   "tone": "playful",
+   "move": "celebrate",
+   "variantGroup": "hadi_chat_dialogue.celebrate",
+   "minGapTurns": 6,
+   "tags": ["hadi", "conversation", "celebrate", "milestone"],
+   "triggers": ["i finished", "i completed", "i did it"],
+   "doNotSay": ["Celebrate effort and consistency; never imply that a missed day cancels progress."],
+   "sources": [
+    {"type": "authored", "title": "Conversational wording written for this app; no factual claim"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}

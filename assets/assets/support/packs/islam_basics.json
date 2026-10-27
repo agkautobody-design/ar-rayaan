@@ -1,0 +1,382 @@
+{
+ "schema": 1,
+ "pack": "islam_basics",
+ "packKind": "knowledge",
+ "topic": "islam_basics",
+ "description": "Beginner Islam: what Islam means, the pillars of Islam and faith, the prophets, angels, the unseen and the decree, all taken from the guides and Academy lessons in the app.",
+ "audience": "both",
+ "ageBands": ["all"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en"],
+ "snippets": [
+  {
+   "id": "islam_basics.fact.001",
+   "kind": "fact",
+   "stage": ["question"],
+   "text": {
+    "en": "Islam means submission to Allah. In one line put together from the sources, Islam is submission to Allah alone, worshipping Him and following the guidance He sent through His messengers, the last of whom is Muhammad. This is a working summary, not a scholar's definition."
+   },
+   "ageBand": ["all"],
+   "tags": ["basics", "aqidah", "definition"],
+   "triggers": ["what is islam", "meaning of islam", "what does muslim mean", "define islam"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-what-is-islam"},
+    {"type": "quran", "ref": "3:19", "section": "Qur'an text"},
+    {"type": "quran", "ref": "3:83", "section": "Qur'an text"},
+    {"type": "quran", "ref": "3:84", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-what-is-islam"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "islam_basics.fact.002",
+   "kind": "fact",
+   "stage": ["question"],
+   "text": {
+    "en": "The five pillars of Islam are the testimony that none deserves worship but Allah and that Muhammad is His Messenger, the prayer, zakat, the pilgrimage, and fasting Ramadan. Ibn Umar reported the Prophet said Islam is built on these five."
+   },
+   "ageBand": ["all"],
+   "tags": ["basics", "aqidah", "pillars"],
+   "triggers": ["five pillars", "pillars of islam", "what are the pillars"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-what-is-islam"},
+    {"type": "hadith", "ref": "bukhari:8", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "hadith", "ref": "muslim:16", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-what-is-islam"}, {"asset": "assets/qa/qa_bank.json", "id": "questions[12]"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "islam_basics.fact.003",
+   "kind": "fact",
+   "stage": ["question"],
+   "text": {
+    "en": "Islam, iman and ihsan come from the hadith of Jibril. Islam is the pillars, iman is belief in Allah, His angels, His books, His messengers, the Last Day and the divine decree, and ihsan is worshipping Allah as though you see Him."
+   },
+   "ageBand": ["all"],
+   "tags": ["basics", "aqidah", "iman", "ihsan"],
+   "triggers": ["pillars of faith", "six pillars of iman", "what is iman", "what is ihsan", "hadith of jibril"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/guides/guides.json#huda-what-is-islam"},
+    {"type": "hadith", "ref": "muslim:8", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/guides/guides.json", "id": "huda-what-is-islam"}, {"asset": "assets/academy/lessons_v3/aqid.json", "id": "aqid.u2.l2"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "islam_basics.fact.004",
+   "kind": "fact",
+   "stage": ["question"],
+   "text": {
+    "en": "Islam is not a new religion started by Muhammad. The Qur'an says the religion with Allah is Islam and that Ibrahim was a Muslim, one who submits to Allah. The core message of every prophet is the same: worship Allah alone. The detailed laws can differ between communities."
+   },
+   "ageBand": ["all"],
+   "tags": ["basics", "aqidah", "prophets", "continuity"],
+   "triggers": ["is islam a new religion", "islam before muhammad", "same message of prophets"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/aqid.json#aqid.u2.l1"},
+    {"type": "quran", "ref": "3:19", "section": "Qur'an text"},
+    {"type": "quran", "ref": "3:67", "section": "Qur'an text"},
+    {"type": "quran", "ref": "5:48", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/aqid.json", "id": "aqid.u2.l1"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "islam_basics.fact.005",
+   "kind": "fact",
+   "stage": ["question"],
+   "text": {
+    "en": "The main line of messengers named in the Qur'an runs through Adam, Nuh, Ibrahim, Musa and Isa, and ends with Muhammad, the last of the prophets. Muslims believe in all of them and make no difference between them."
+   },
+   "ageBand": ["all"],
+   "tags": ["basics", "aqidah", "prophets"],
+   "triggers": ["who are the prophets", "last prophet", "prophets in islam"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/aqid.json#aqid.u2.l1"},
+    {"type": "quran", "ref": "3:33", "section": "Qur'an text"},
+    {"type": "quran", "ref": "33:40", "section": "Qur'an text"},
+    {"type": "quran", "ref": "2:136", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/aqid.json", "id": "aqid.u2.l1"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "islam_basics.fact.006",
+   "kind": "fact",
+   "stage": ["question"],
+   "text": {
+    "en": "Belief in the unseen is the first quality the Qur'an gives to the mindful. The unseen is whatever our senses cannot reach: Allah, the angels, the Last Day. The keys of the unseen are with Allah alone."
+   },
+   "ageBand": ["all"],
+   "tags": ["basics", "aqidah", "unseen", "iman"],
+   "triggers": ["belief in the unseen", "what is ghayb", "unseen"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/aqid.json#aqid.u2.l2"},
+    {"type": "quran", "ref": "2:3", "section": "Qur'an text"},
+    {"type": "quran", "ref": "6:59", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/aqid.json", "id": "aqid.u2.l2"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "islam_basics.fact.007",
+   "kind": "fact",
+   "stage": ["question"],
+   "text": {
+    "en": "The angels are creatures of Allah. The Qur'an says they do what they are commanded, and that two angels record what a person does. Believing in them is part of faith."
+   },
+   "ageBand": ["all"],
+   "tags": ["basics", "aqidah", "angels"],
+   "triggers": ["what are angels", "angels in islam", "recording angels"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/aqid.json#aqid.u2.l2"},
+    {"type": "quran", "ref": "66:6", "section": "Qur'an text"},
+    {"type": "quran", "ref": "82:10-12", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/aqid.json", "id": "aqid.u2.l2"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "islam_basics.fact.008",
+   "kind": "fact",
+   "stage": ["question"],
+   "text": {
+    "en": "Qadar is the divine decree. The Qur'an says Allah created everything with a measure, and also that people choose: whoever wills may take a way to his Lord. Muslims hold both together, that Allah knows and decreed all things and that people are responsible for their choices."
+   },
+   "ageBand": ["all"],
+   "tags": ["basics", "aqidah", "qadar"],
+   "triggers": ["what is qadar", "predestination", "free will", "fate in islam"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/aqid.json#aqid.u2.l2"},
+    {"type": "quran", "ref": "54:49", "section": "Qur'an text"},
+    {"type": "quran", "ref": "57:22", "section": "Qur'an text"},
+    {"type": "quran", "ref": "76:29", "section": "Qur'an text"},
+    {"type": "quran", "ref": "76:30", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/aqid.json", "id": "aqid.u2.l2"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "islam_basics.fact.009",
+   "kind": "fact",
+   "stage": ["question"],
+   "text": {
+    "en": "Tawhid is the oneness of Allah. Surah Al-Ikhlas states it in four verses: He is Allah, One; Allah, the Eternal; He neither begets nor is begotten; and nothing is comparable to Him."
+   },
+   "ageBand": ["all"],
+   "tags": ["basics", "aqidah", "tawhid"],
+   "triggers": ["what is tawhid", "oneness of god", "who is allah", "surah ikhlas"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/aqid.json#aqid.u3.l3"},
+    {"type": "quran", "ref": "112:1-4", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/aqid.json", "id": "aqid.u3.l3"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "islam_basics.fact.010",
+   "kind": "fact",
+   "stage": ["question"],
+   "text": {
+    "en": "Allah's mercy overcomes His anger, and He has the most beautiful names, by which He is known. Knowing that He is merciful gives hope, knowing He is just makes us give people their rights, and knowing He sees us makes us act the same in private and in public."
+   },
+   "ageBand": ["all"],
+   "tags": ["basics", "aqidah", "names", "creed"],
+   "triggers": ["names of allah", "is allah merciful", "creed in short"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/aqid.json#aqid.u3.l3"},
+    {"type": "quran", "ref": "7:180", "section": "Qur'an text"},
+    {"type": "quran", "ref": "21:47", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/aqid.json", "id": "aqid.u3.l3"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "islam_basics.fact.011",
+   "kind": "fact",
+   "stage": ["question"],
+   "text": {
+    "en": "Muslims pray five times a day: Fajr, Dhuhr, Asr, Maghrib and Isha. Fajr is two units, Dhuhr and Asr and Isha are four each, and Maghrib is three. The Prophet set out when each begins and ends."
+   },
+   "ageBand": ["all"],
+   "tags": ["basics", "aqidah", "prayer"],
+   "triggers": ["how many prayers", "five daily prayers", "prayer times names", "how many rakahs"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/the-path.json#path.u2.l1"},
+    {"type": "quran", "ref": "4:103", "section": "Qur'an text"},
+    {"type": "hadith", "ref": "muslim:612", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/the-path.json", "id": "path.u2.l1"}, {"asset": "assets/guides/guides.json", "id": "huda-prayer"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "islam_basics.fact.012",
+   "kind": "fact",
+   "stage": ["question"],
+   "text": {
+    "en": "The first prayer of the day, Fajr, and the others are fixed by time, so a prayer can be prayed wherever the time is due. The Prophet said the earth has been made a place of prayer, so a Muslim may pray at work, at school or while travelling."
+   },
+   "ageBand": ["all"],
+   "tags": ["basics", "aqidah", "prayer", "work"],
+   "triggers": ["pray at work", "pray at school", "where can i pray"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/qa/qa_bank.json#questions[9]"},
+    {"type": "hadith", "ref": "bukhari:335", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "hadith", "ref": "muslim:521", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/qa/qa_bank.json", "id": "questions[9]"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "islam_basics.fact.013",
+   "kind": "fact",
+   "stage": ["question"],
+   "text": {
+    "en": "Al-Fatihah has seven verses and is said in every unit of every prayer. The Prophet said there is no prayer for one who does not recite it, and that Allah answers each part of it when the servant says it."
+   },
+   "ageBand": ["all"],
+   "tags": ["basics", "aqidah", "fatihah"],
+   "triggers": ["what is fatihah", "surah fatiha", "opening of quran"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/the-path.json#path.u3.l1"},
+    {"type": "hadith", "ref": "bukhari:756", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"},
+    {"type": "hadith", "ref": "muslim:395", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 knowledge"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/the-path.json", "id": "path.u3.l1"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "islam_basics.fact.014",
+   "kind": "fact",
+   "stage": ["question"],
+   "text": {
+    "en": "A revelation, not a book first. The Qur'an was revealed to the Prophet and then preserved. Muslims believe it is guarded word by word, and the Q&A bank notes that listening with attention is part of how it is honoured."
+   },
+   "ageBand": ["all"],
+   "tags": ["basics", "aqidah", "quran"],
+   "triggers": ["what is the quran", "how was quran revealed", "listen to quran"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "asset", "ref": "assets/academy/lessons_v3/und.json#und.u1.l1"},
+    {"type": "asset", "ref": "assets/qa/qa_bank.json#questions[7]"},
+    {"type": "quran", "ref": "7:204", "section": "Qur'an text"}
+   ],
+   "crossRef": [{"asset": "assets/academy/lessons_v3/und.json", "id": "und.u1.l1"}, {"asset": "assets/qa/qa_bank.json", "id": "questions[7]"}],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}
