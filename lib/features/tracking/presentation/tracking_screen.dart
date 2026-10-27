@@ -268,7 +268,7 @@ class _Summary extends ConsumerWidget {
             key: const Key('log-headline'),
             style: AppText.titleMedium.copyWith(fontSize: elder ? 26 : null),
           ),
-          if (e.text != null && week > 0) ...<Widget>[
+          if (e.text != null) ...<Widget>[
             const SizedBox(height: 6),
             Text(
               totalSentence(t, LogPeriod.week, week),
