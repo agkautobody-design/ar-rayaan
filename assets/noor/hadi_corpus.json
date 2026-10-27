@@ -8521,6 +8521,180 @@
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
    "verifiedOn": "2026-10-27"
+  },
+  {
+   "id": "h:bukhari-1990",
+   "collection": "Sahih al-Bukhari",
+   "number": "1990",
+   "english": "Umar said the Prophet forbade fasting on the day you break your fast and the day you eat the meat of your sacrifices",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "umar",
+    "forbade",
+    "fasting",
+    "break",
+    "fast",
+    "meat",
+    "sacrifices"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:1990",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-27"
+  },
+  {
+   "id": "h:bukhari-2856",
+   "collection": "Sahih al-Bukhari",
+   "number": "2856",
+   "english": "Mu'adh reported the Prophet said Allah's right on His servants is that they worship Him alone and associate nothing with Him, and the servants' right on Allah is that He does not punish the one who associates nothing with Him",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "mu'adh",
+    "reported",
+    "allah's",
+    "right",
+    "servants",
+    "worship",
+    "alone",
+    "associate"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:2856",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-27"
+  },
+  {
+   "id": "h:bukhari-5087",
+   "collection": "Sahih al-Bukhari",
+   "number": "5087",
+   "english": "Sahl ibn Sa'd reported a woman offered herself in marriage, and a man who owned little was told to look for something even an iron ring, and was married to her for the Qur'an he knew",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "sahl",
+    "sa'd",
+    "reported",
+    "woman",
+    "offered",
+    "herself",
+    "marriage",
+    "owned"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:5087",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-27"
+  },
+  {
+   "id": "h:bukhari-5545",
+   "collection": "Sahih al-Bukhari",
+   "number": "5545",
+   "english": "Al-Bara reported the Prophet said on the day of Eid al-Adha that the first thing we do is pray and then return to slaughter, and whoever slaughtered before the prayer, it is only meat given to his family",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "bara",
+    "reported",
+    "adha",
+    "first",
+    "thing",
+    "pray",
+    "return",
+    "slaughter"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:5545",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-27"
+  },
+  {
+   "id": "h:bukhari-880",
+   "collection": "Sahih al-Bukhari",
+   "number": "880",
+   "english": "Abu Said reported the Prophet said the Friday bath is compulsory for every adult male Muslim, with cleaning the teeth with siwak and using perfume if available",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "reported",
+    "friday",
+    "bath",
+    "compulsory",
+    "every",
+    "adult",
+    "male",
+    "muslim"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:880",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-27"
+  },
+  {
+   "id": "h:bukhari-881",
+   "collection": "Sahih al-Bukhari",
+   "number": "881",
+   "english": "Abu Hurayrah reported the Prophet said whoever bathes on Friday like the bath of janabah and goes early to the prayer, it is as if he offered a camel in sacrifice, and the reward lessens for each later hour",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "hurayrah",
+    "reported",
+    "whoever",
+    "bathes",
+    "friday",
+    "like",
+    "bath",
+    "janabah"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:881",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-27"
+  },
+  {
+   "id": "h:muslim-854",
+   "collection": "Sahih Muslim",
+   "number": "854",
+   "english": "Abu Hurayrah reported the Prophet said the best day on which the sun has risen is Friday, on which Adam was created",
+   "grade": "In Sahih Muslim",
+   "grader": "Included in Sahih Muslim; the collection gives no separate grade",
+   "topics": [
+    "hurayrah",
+    "reported",
+    "best",
+    "risen",
+    "friday",
+    "adam",
+    "created"
+   ],
+   "verifiedAt": "https://sunnah.com/muslim:854",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-27"
+  },
+  {
+   "id": "h:tirmidhi-3513",
+   "collection": "Jamiʿ at-Tirmidhi",
+   "number": "3513",
+   "english": "Aisha asked the Prophet what to say if she knew the Night of Al-Qadr, and he taught her to say O Allah, You are Pardoning, You love pardon, so pardon me",
+   "grade": "Da'if",
+   "grader": "Darussalam",
+   "topics": [
+    "aisha",
+    "asked",
+    "knew",
+    "night",
+    "qadr",
+    "taught",
+    "pardoning",
+    "love"
+   ],
+   "verifiedAt": "https://sunnah.com/tirmidhi:3513",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-27"
   }
  ]
 }

@@ -222,7 +222,7 @@ A woman needs her husband's agreement for a voluntary fast when he is at home (t
   review='The Monday/Thursday and white-day fasts, forbidden days, and the husband\'s consent are standard teaching; only the Shawwal and Arafah/Ashura hadith are cited here.')
 
 E('ramadan-basics',
-  m=[r'\bwhat is ramadan\b', r'\bwhy (?:do|are) (?:muslims?|we) (?:fast|fasting)\b', r'\bwhy fast\b', r'\bpurpose of (?:the )?(?:fast|fasting|ramadan)\b', r'\bwhy is ramadan\b',
+  m=[r'\bwhat is ramadan\b', r'^(?:about )?ramadan$', r'^explain ramadan$', r'^ramadan (?:explained|basics|meaning)$', r'\bwhy (?:do|are) (?:muslims?|we) (?:fast|fasting)\b', r'\bwhy fast\b', r'\bpurpose of (?:the )?(?:fast|fasting|ramadan)\b', r'\bwhy is ramadan\b',
      r'\bwhat is (?:the )?(?:fast|fasting)\b', r'\bhow (?:do|to|does) (?:i |we |you )?(?:fast|start fasting|keep a fast|observe)\b', r'\brules of (?:the )?(?:fast|fasting|ramadan)\b',
      r'\bfasting (?:rules|basics|for beginners|explained)\b', r'\bwhat (?:is|are) the (?:rules|conditions|pillars) of (?:the )?(?:fast|fasting|ramadan)\b',
      r'\bwhat is sawm\b', r'\bwhat does (?:ramadan|fasting) mean\b', r'\bwhat is laylat(?:ul)? ?(?:al)? ?qadr\b', r'\bwhat should i do in ramadan\b', r'\bwhat (?:to do|do muslims do) in ramadan\b'],

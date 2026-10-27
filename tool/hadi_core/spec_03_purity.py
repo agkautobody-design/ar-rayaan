@@ -67,7 +67,7 @@ E('wudu-howto',
   m=[r'\bhow (?:to|do (?:i|we|you)|can i|should i|is) (?:make|perform|do|take|done|made|performed|taken)\b.*\bwudu\b',
      r'\bsteps? (?:of|for|to|in) (?:making |doing |performing )?wudu\b', r'\bwudu steps?\b', r'\bmethod of wudu\b',
      r'\bwudu (?:step by step|for beginners|procedure|method|how)\b', r'\bwhat is wudu\b', r'\blearn wudu\b',
-     r'\bteach me wudu\b', r'\bhow to wash for prayer\b', r'\bperform (?:the )?wudu\b', r'^wudu$', r'\bhow to do ablution\b'],
+     r'\bteach me wudu\b', r'\bhow to wash for prayer\b', r'\bperform (?:the )?wudu\b', r'^wudu$', r'\bhow to do ablution\b', r'\b(?:wuzu|wudu|wudhu|wuzoo|wazu|wudoo) (?:kaise|ka tarika|karne ka tarika|karte)\b', r'\bhow (?:to|do i|do you) (?:do |make |perform )?(?:wuzu|wudhu|wazu|wudoo|ablution)\b', r'\bablution\b'],
   x=[r'\b(?:break|breaks|invalidat\w*|nullif\w*|fard|obligatory|sleep|socks?|khuff|nail ?polish|no water|tayammum)\b'],
   topic='wudu',
   text="""
