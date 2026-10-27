@@ -12,7 +12,7 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 
 ## Totals
 
-**5392 items.** High priority: 1236. Normal: 3454. Low: 702.
+**5395 items.** High priority: 1239. Normal: 3454. Low: 702.
 
 ### By area
 
@@ -33,7 +33,7 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 | Stories: modern hadith | 61 | 11 |
 | Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas | 153 | 23 |
 | New Muslim 30-day path | 30 | 13 |
-| Sakina rooms, feelings, safety copy, health | 50 | 26 |
+| Sakina rooms, feelings, safety copy, health | 53 | 29 |
 | Zakat, will and estate, halal finance | 18 | 18 |
 | Prayer times, qibla, Hijri calendar, observances | 41 | 37 |
 | Qur'an text, translation, transliteration, licences | 9 | 5 |
@@ -43,19 +43,19 @@ Priority: **high** = a ruling, grade, school position, safety or rights question
 | Noor, share cards, Home daily cards | 43 | 0 |
 | Nasheeds and audio | 5 | 2 |
 | Hadi and Wasia support, conversation and knowledge packs (assets/support/packs) | 1642 | 111 |
-| **Total** | **5392** | **1236** |
+| **Total** | **5395** | **1239** |
 
 ### By reviewer type
 
 | Reviewer | Items as lead reviewer | Items where also needed |
 |---|---:|---:|
 | Hadith / aqidah scholar | 2434 | 1006 |
-| Fiqh scholar (per madhab) | 587 | 233 |
+| Fiqh scholar (per madhab) | 587 | 234 |
 | Women's scholar | 151 | 93 |
 | Arabic / tajweed / qira'at specialist | 523 | 195 |
-| Clinician (Sakina and health content) | 1000 | 218 |
-| Native speaker (ar / bn / ur) | 229 | 5 |
-| Privacy lawyer | 13 | 8 |
+| Clinician (Sakina and health content) | 1003 | 218 |
+| Native speaker (ar / bn / ur) | 229 | 6 |
+| Privacy lawyer | 13 | 11 |
 | Rights holder / licensing (not a scholar) | 6 | 1 |
 | App owner (product wording and voice, not a scholar) | 449 | 0 |
 
@@ -80,7 +80,7 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 | Stories: modern hadith | 61 |  |  |  |  |  |  |  |  |
 | Dua, dhikr, Hisn, adhkar, Ramadan duas, daily duas | 153 |  |  |  |  |  |  |  |  |
 | New Muslim 30-day path |  | 30 |  |  |  |  |  |  |  |
-| Sakina rooms, feelings, safety copy, health |  |  |  |  | 46 |  | 4 |  |  |
+| Sakina rooms, feelings, safety copy, health |  |  |  |  | 49 |  | 4 |  |  |
 | Zakat, will and estate, halal finance |  | 18 |  |  |  |  |  |  |  |
 | Prayer times, qibla, Hijri calendar, observances | 10 | 31 |  |  |  |  |  |  |  |
 | Qur'an text, translation, transliteration, licences | 1 |  |  | 3 |  |  |  | 5 |  |
@@ -113,7 +113,7 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 - Nasheeds and audio: 1 items (0 high). Ids start with `nasheed.lyrics`.
 - Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 214 items (0 high). Ids start with `support.academy_lessons`, `support.alcohol`, `support.child_abuse`, `support.cravings_toolkit`, `support.domestic_abuse`, `support.drugs`.
 
-### Fiqh scholar (per madhab) (587 lead, 233 also)
+### Fiqh scholar (per madhab) (587 lead, 234 also)
 
 - Academy v3 lessons and steps: 139 items (68 high). Ids start with `lesson.aqid`, `lesson.eol`, `lesson.fam`, `lesson.hlth`, `lesson.path-established`, `lesson.path`.
 - Academy schools, Path lessons and static course screens: 61 items (1 high). Ids start with `eol.janazah`, `school.end-of-life`, `school.family-life`, `school.hajj-umrah`, `school.ramadan-mode`, `school.transactions`.
@@ -140,19 +140,19 @@ Madhab scope: items whose reviewer is a fiqh scholar need a reviewer for each sc
 - Qur'an text, translation, transliteration, licences: 3 items (2 high). Ids start with `quran.arabic-diacritics`, `quran.riwaya`, `quran.translit-accuracy`.
 - Nasheeds and audio: 1 items (0 high). Ids start with `nasheed.audio-stubs`.
 
-### Clinician (Sakina and health content) (1000 lead, 218 also)
+### Clinician (Sakina and health content) (1003 lead, 218 also)
 
 - Academy v3 lessons and steps: 39 items (30 high). Ids start with `lesson.hlth`.
 - Academy schools, Path lessons and static course screens: 13 items (0 high). Ids start with `school.health`.
-- Sakina rooms, feelings, safety copy, health: 46 items (22 high). Ids start with `health.ruqya-medicine`, `sakina.child-loss-grief`, `sakina.comfort-deck`, `sakina.feeling`, `sakina.hadi-distress`, `sakina.help-lines`.
+- Sakina rooms, feelings, safety copy, health: 49 items (25 high). Ids start with `health.ruqya-medicine`, `sakina.child-loss-grief`, `sakina.comfort-deck`, `sakina.feeling`, `sakina.hadi-distress`, `sakina.help-lines`.
 - Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 902 items (76 high). Ids start with `support.academy_lessons`, `support.alcohol`, `support.checkin`, `support.child_abuse`, `support.cravings_toolkit`, `support.domestic_abuse`.
 
-### Native speaker (ar / bn / ur) (229 lead, 5 also)
+### Native speaker (ar / bn / ur) (229 lead, 6 also)
 
 - UI labels and crisis phrases in Arabic, Bangla, Urdu: 194 items (90 high). Ids start with `lang.app-locale`, `lang.arb`, `lang.crisis`, `lang.elder-rtl`, `lang.label`, `support.crisis-substance-lang`.
 - Hadi and Wasia support, conversation and knowledge packs (assets/support/packs): 35 items (35 high). Ids start with `support.alcohol`, `support.checkin`, `support.child_abuse`, `support.domestic_abuse`, `support.drugs`, `support.gambling`.
 
-### Privacy lawyer (13 lead, 8 also)
+### Privacy lawyer (13 lead, 11 also)
 
 - Sakina rooms, feelings, safety copy, health: 4 items (4 high). Ids start with `support.children-age-band`, `support.memory`, `support.online-consent`, `support.privacy-storage`.
 - Privacy, terms, children's privacy, community rules: 9 items (9 high). Ids start with `legal.children-privacy`, `legal.community-rules`, `legal.contact-address`, `legal.data-sync`, `legal.parent-pin`, `legal.privacy`.
@@ -3655,7 +3655,7 @@ Listed in short form (same reason and sources for the whole family; full text in
 
 ### Sakina rooms, feelings, safety copy, health
 
-50 items, 26 high priority. Area key `sakina`.
+53 items, 29 high priority. Area key `sakina`.
 
 | Id | Where in the app | What to review | Why flagged | Reviewer | Pri | Source |
 |---|---|---|---|---|---|---|
@@ -3709,6 +3709,9 @@ Listed in short form (same reason and sources for the whole family; full text in
 | `support.student-routing` | Wasia > learning worry, bullying, anxiety, teen exposure, disclosure | Which messages go to the student_problems pack. A learning difficulty is referred, never diagnosed. Bullying, exposure and family strain add a trusted-adult line. | English word lists only; written for coverage. | Clinician + Privacy lawyer, Native speaker | high | RES_H3_hadi_companion_design; R9_T1_children |
 | `support.children-age-band` | Parent controls > age band per child; children privacy version 5 | The parent sets 5-8, 9-12 or 13-17; Wasia keeps no emotional profile; the parent never sees chats or safety events. | A lawyer should confirm this against children's privacy law in the markets served. | Privacy lawyer | high | docs/content_needed/children_privacy_age_band.md |
 | `support.helplines` | Help lines shown in the app | Only lines with a verified-on date and an https source are shown. Unconfirmed emergency rows are hidden. | Numbers change. Each needs re-checking on its date. | Clinician | high | docs/support/pack_format.md |
+| `support.child-distress` | Wasia > what a child is told when they say they are unhappy, scared, hurt, or ask for a secret to be kept | Fixed listening replies for school unhappiness, fear at home, general fear and "promise you will keep it secret", with trusted-adult choices and the child helpline button. | Round 10 T2: a bullying sentence got "beyond what I can teach". Written for coverage in English; no clinician or child-protection specialist has read them. | Clinician + Privacy lawyer, Native speaker | high | R10_T2 |
+| `support.parent-listening` | Family Wing > How to listen to a child who is hurting | Signs, how to open the conversation, what to say, what not to say, what to do next, harm at home, and one line from the faith. | Round 10 T2: no content told a parent how to listen to a bullied child. A clinician and a child-protection specialist should read it; a scholar should read the faith line. | Clinician + Fiqh scholar, Privacy lawyer | high | R10_T2 |
+| `support.wasia-checkin` | Wasia > the gentle check-in for a child | Age-banded wording; once per interval per child; only the last-asked day and the off flag are stored on the device; the answer is not stored and no parent screen reads it. | Round 10 T2: the check-in never appeared in Wasia. Wording needs a clinician; storage needs a lawyer (children privacy version 6). | Clinician + Privacy lawyer | high | R10_T2 |
 
 ### Zakat, will and estate, halal finance
 

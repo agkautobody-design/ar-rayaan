@@ -21,6 +21,7 @@ import '../domain/academy_reminders.dart';
 import '../domain/children_privacy.dart';
 import '../domain/letters_meta.dart';
 import 'widgets/active_child_banner.dart';
+import 'widgets/age_band_chooser.dart';
 import 'widgets/parent_gate.dart';
 import 'widgets/wasia_thread.dart';
 import 'wasia_lessons.dart';
@@ -42,6 +43,7 @@ class FamilyScreen extends ConsumerWidget {
     if (!context.mounted) return;
     final name = TextEditingController();
     String? problem;
+    String band = FamilyService.defaultAgeBand;
     final ok = await showDialog<bool>(
       context: context,
       builder: (ctx) => StatefulBuilder(
@@ -75,6 +77,23 @@ class FamilyScreen extends ConsumerWidget {
                 'A nickname is enough. It stays on this device only.',
                 style: AppText.caption,
               ),
+              const SizedBox(height: 12),
+              Text('Wasia\u2019s words', style: AppText.eyebrow.copyWith(fontSize: 11)),
+              const SizedBox(height: 4),
+              Wrap(spacing: 8, children: <Widget>[
+                for (final String b in FamilyService.ageBands)
+                  ChoiceChip(
+                    key: Key('add-child-band-$b'),
+                    label: Text(b),
+                    selected: band == b,
+                    onSelected: (_) => setInner(() => band = b),
+                  ),
+              ]),
+              Text(
+                'Pick the band that fits. It is not an age. It only chooses the '
+                'words Wasia uses, and you can change it later.',
+                style: AppText.caption.copyWith(fontSize: 11),
+              ),
             ],
           ),
           actions: [
@@ -98,7 +117,8 @@ class FamilyScreen extends ConsumerWidget {
       ),
     );
     if (ok == true && name.text.trim().isNotEmpty) {
-      await fam.addChild(name.text);
+      final String newId = await fam.addChild(name.text);
+      await fam.setAgeBand(newId, band);
       ref.invalidate(childrenProvider);
     }
   }
@@ -188,6 +208,27 @@ class FamilyScreen extends ConsumerWidget {
                 icon: const Icon(Icons.child_care_outlined, size: 20),
                 label: const Text('Add child'),
               ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 14),
+            child: GlassCard(
+              key: const Key('family-listening-card'),
+              onTap: () => context.push(AppRoutes.parentListening),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+              child: Row(children: <Widget>[
+                const Icon(Icons.favorite_border, color: AppColors.goldLight),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
+                    Text('How to listen to a child who is hurting',
+                        style: AppText.titleMedium.copyWith(fontSize: 15)),
+                    const SizedBox(height: 2),
+                    Text('Bullying, school worries or something at home: what to say, what not to say, and when to get help.',
+                        style: AppText.bodyMuted.copyWith(fontSize: 12)),
+                  ]),
+                ),
+              ]),
             ),
           ),
           children.when(
@@ -311,6 +352,7 @@ class _ChildCard extends ConsumerWidget {
               childId: child['id'] as String,
               childName: name,
             ),
+            AgeBandChooser(childId: child['id'] as String, childName: name),
             _ParentWasiaBox(childName: name),
           ],
         ),
@@ -370,7 +412,7 @@ class _ParentWasiaBoxState extends ConsumerState<_ParentWasiaBox> {
 
   @override
   Widget build(BuildContext context) {
-    final busy = ref.watch(wasiaControllerProvider).isLoading;
+    final busy = ref.watch(wasiaParentControllerProvider).isLoading;
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       // Wasia is never told which child: the box is for general guidance, so
       // its label does not name the child either.
@@ -407,13 +449,13 @@ class _ParentWasiaBoxState extends ConsumerState<_ParentWasiaBox> {
                     if (q.isEmpty) return;
                     final bool verified =
                         ref.read(parentGateProvider.notifier).isOpen();
-                    await ref.read(wasiaControllerProvider.notifier).ask(q,
+                    await ref.read(wasiaParentControllerProvider.notifier).ask(q,
                         persona: WasiaPersona.parent,
                         parentVerified: verified);
                     // Keep the words when Wasia could not answer, so a retry
                     // is one tap; otherwise start the next question clean.
                     if (!mounted) return;
-                    if (ref.read(wasiaControllerProvider).notice == null) {
+                    if (ref.read(wasiaParentControllerProvider).notice == null) {
                       _input.clear();
                     }
                   },
@@ -421,7 +463,16 @@ class _ParentWasiaBoxState extends ConsumerState<_ParentWasiaBox> {
         ),
       ]),
       const SizedBox(height: 8),
-      const WasiaThread(),
+      const WasiaThread(parent: true),
+      const SizedBox(height: 4),
+      TextButton.icon(
+        key: const Key('parent-listening-link'),
+        style: TextButton.styleFrom(minimumSize: const Size(48, 48)),
+        onPressed: () => context.push(AppRoutes.parentListening),
+        icon: const Icon(Icons.favorite_border, size: 18, color: AppColors.goldLight),
+        label: Text('How to listen to a child who is hurting',
+            style: AppText.body.copyWith(fontSize: 13, color: AppColors.goldLight)),
+      ),
     ]);
   }
 }
@@ -637,7 +688,7 @@ class FamilyLockedView extends ConsumerWidget {
                 const SizedBox(height: 8),
                 Text(
                   'This area holds your children\u2019s profiles and progress. '
-                  'Please answer a quick question to continue.',
+                  'Please enter your parent PIN to continue.',
                   style: AppText.bodyMuted.copyWith(height: 1.5),
                 ),
                 const SizedBox(height: 10),

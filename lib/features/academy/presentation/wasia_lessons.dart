@@ -549,11 +549,7 @@ class _LessonRunnerState extends ConsumerState<LessonRunnerScreen> {
                       children: [
                         Text('ASK WASIA', style: AppText.eyebrow),
                         const SizedBox(height: 6),
-                        Text(
-                          'Anything about this lesson — ask your teacher. '
-                          '(Uses the AI connection set up for H\u0101di; your child\u2019s name is never sent.)',
-                          style: AppText.bodyMuted.copyWith(fontSize: 12),
-                        ),
+                        const _WasiaAiCaption(),
                         const _WasiaBox(),
                       ],
                     ),
@@ -563,6 +559,40 @@ class _LessonRunnerState extends ConsumerState<LessonRunnerScreen> {
           );
         },
       ),
+    );
+  }
+}
+
+/// What the Ask Wasia box says about the AI, true to the parent's switch: off
+/// means Wasia answers only from her lesson shelf, on this device.
+class _WasiaAiCaption extends StatefulWidget {
+  const _WasiaAiCaption();
+
+  @override
+  State<_WasiaAiCaption> createState() => _WasiaAiCaptionState();
+}
+
+class _WasiaAiCaptionState extends State<_WasiaAiCaption> {
+  bool _on = false;
+
+  @override
+  void initState() {
+    super.initState();
+    WasiaController.childLlmAllowed().then((bool v) {
+      if (mounted) setState(() => _on = v);
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      _on
+          ? 'Anything about this lesson \u2014 ask your teacher. (A parent has '
+              'allowed the AI connection for this; your name is never sent.)'
+          : 'Anything about this lesson \u2014 ask your teacher. Wasia answers '
+              'from her own lessons on this device. No AI is used.',
+      key: const Key('wasia-ai-caption'),
+      style: AppText.bodyMuted.copyWith(fontSize: 12),
     );
   }
 }

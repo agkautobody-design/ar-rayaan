@@ -71,6 +71,7 @@ import '../features/calendar/presentation/calendar_screen.dart';
 import '../features/hadith/presentation/hadith_screen.dart';
 import '../features/qibla/presentation/qibla_screen.dart';
 import '../features/sakina/presentation/sakina_screen.dart';
+import '../features/support/presentation/parent_listening_screen.dart';
 import '../features/support/presentation/support_pathway_screens.dart';
 import '../features/support/presentation/support_wellbeing_screen.dart';
 import '../features/sakina/presentation/wellbeing_tools.dart';
@@ -229,6 +230,7 @@ abstract final class AppRoutes {
   static const String sakina = '/sakina';
   static const String support = '/support';
   static const String supportSettings = '/settings/support';
+  static const String parentListening = '/support/listening-to-your-child';
   static const String sakinaSteady = '/sakina/steady';
   static const String sakinaMood = '/sakina/mood';
   static const String sakinaSafety = '/sakina/safety';
@@ -275,6 +277,7 @@ String parentRouteOf(String path) {
   if (p.startsWith('${AppRoutes.huda}/')) return AppRoutes.huda;
   if (p.startsWith('${AppRoutes.feelings}/')) return AppRoutes.feelings;
   if (p.startsWith('${AppRoutes.sakina}/')) return AppRoutes.sakina;
+  if (p == AppRoutes.parentListening) return AppRoutes.family;
   if (p.startsWith('${AppRoutes.support}/')) return AppRoutes.support;
   if (p == AppRoutes.supportSettings) return AppRoutes.settings;
   if (p.startsWith('${AppRoutes.games}/')) return AppRoutes.games;
@@ -884,6 +887,10 @@ GoRouter buildRouter({String initialLocation = '/'}) {
       GoRoute(
         path: AppRoutes.support,
         pageBuilder: (c, s) => _fade(const SupportHubScreen(), pill: false),
+      ),
+      GoRoute(
+        path: AppRoutes.parentListening,
+        pageBuilder: (c, s) => _fade(const ParentListeningScreen(), pill: false),
       ),
       GoRoute(
         path: '${AppRoutes.support}/:id',

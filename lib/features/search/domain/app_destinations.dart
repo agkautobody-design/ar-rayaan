@@ -36,6 +36,28 @@ class AppDestination {
 
 const List<AppDestination> kAppDestinations = <AppDestination>[
   AppDestination(
+    id: 'parent-listening',
+    title: 'Listening to a child who is hurting',
+    subtitle: 'For parents: bullying, school worries, what to say and when to get help',
+    route: '/support/listening-to-your-child',
+    keywords: <String>[
+      'bullying', 'bullied', 'my child is being bullied', 'struggling child',
+      'talk to my child', 'how to talk to my child', 'child is scared',
+      'child does not want to go to school', 'school refusal', 'listening to my child',
+      'child is sad', 'child is hurting', 'parenting', 'child anxiety',
+    ],
+  ),
+  AppDestination(
+    id: 'support-hub',
+    title: 'Support',
+    subtitle: 'When something is hard: alcohol, drugs, abuse, school and more',
+    route: '/support',
+    keywords: <String>[
+      'support', 'help', 'addiction', 'abuse', 'domestic abuse', 'quiet war',
+      'struggling', 'i need help', 'helpline',
+    ],
+  ),
+  AppDestination(
     id: 'qibla',
     title: 'Qibla Finder',
     subtitle: 'Find the direction of the Ka‘ba',

@@ -15,6 +15,7 @@ import '../../onboarding/presentation/onboarding_screen.dart';
 import '../domain/next_step.dart';
 import '../../stories/presentation/new_muslim_path_screen.dart' show NewMuslimPathScreen;
 import '../../academy/application/academy_providers.dart';
+import '../../academy/application/family_service.dart';
 import '../../menu/presentation/menu_screen.dart' show isAcademyRoute;
 import '../../elder/application/elder_mode.dart';
 import '../../hadi/presentation/hadi_ask_bar.dart';
@@ -624,9 +625,13 @@ NextStep _nextStepFor(
   final int lessonsDone = need == 'learn' && academyOn
       ? ref.watch(lessonsDoneProvider)
       : 0;
+  final int kids = need == 'children' && academyOn
+      ? (ref.watch(childrenProvider).valueOrNull?.length ?? 0)
+      : 0;
   return resolveNextStep(
     need: need,
     academyOn: academyOn,
+    childrenAdded: kids,
     nextPrayer: nextPrayer,
     adhkarLeft: adhkarLeft,
     quranResume: quranResume,

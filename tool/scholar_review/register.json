@@ -1,7 +1,7 @@
 {
  "generated_by": "tool/scholar_review/build_register.py",
  "note": "Every item has status \"open\". A status changes only when a named scholar signs off (lib/app/core/scholar_review.dart). No reviewer has been named yet.",
- "total": 5392,
+ "total": 5395,
  "totals_by_area": {
   "academy-lessons": {
    "title": "Academy v3 lessons and steps",
@@ -80,8 +80,8 @@
   },
   "sakina": {
    "title": "Sakina rooms, feelings, safety copy, health",
-   "items": 50,
-   "high_priority": 26
+   "items": 53,
+   "high_priority": 29
   },
   "money": {
    "title": "Zakat, will and estate, halal finance",
@@ -134,14 +134,14 @@
   "Fiqh scholar (per madhab)": 587,
   "Women's scholar": 151,
   "Arabic / tajweed / qira'at specialist": 523,
-  "Clinician (Sakina and health content)": 1000,
+  "Clinician (Sakina and health content)": 1003,
   "Native speaker (ar / bn / ur)": 229,
   "Privacy lawyer": 13,
   "Rights holder / licensing (not a scholar)": 6,
   "App owner (product wording and voice, not a scholar)": 449
  },
  "totals_by_priority": {
-  "high": 1236,
+  "high": 1239,
   "normal": 3454,
   "low": 702
  },
@@ -80521,6 +80521,76 @@
    "priority": "high",
    "source_of_flag": [
     "docs/support/pack_format.md"
+   ],
+   "label_surface": "",
+   "status": "open"
+  },
+  {
+   "id": "support.child-distress",
+   "area": "sakina",
+   "subarea": "children",
+   "where_in_app": "Wasia > what a child is told when they say they are unhappy, scared, hurt, or ask for a secret to be kept",
+   "file": "lib/features/support/domain/child_distress.dart",
+   "key": "ChildDistress (word lists, replies by age band 5-8, 9-12, 13-17)",
+   "what_to_review": "Fixed listening replies for school unhappiness, fear at home, general fear and \"promise you will keep it secret\", with trusted-adult choices and the child helpline button.",
+   "why_flagged": "Round 10 T2: a bullying sentence got \"beyond what I can teach\". Written for coverage in English; no clinician or child-protection specialist has read them.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [
+    "Privacy lawyer",
+    "Native speaker (ar / bn / ur)"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "R10_T2"
+   ],
+   "label_surface": "Wasia thread and Kids Corner",
+   "status": "open"
+  },
+  {
+   "id": "support.parent-listening",
+   "area": "sakina",
+   "subarea": "children",
+   "where_in_app": "Family Wing > How to listen to a child who is hurting",
+   "file": "lib/features/support/presentation/parent_listening_screen.dart",
+   "key": "kParentListeningSections",
+   "what_to_review": "Signs, how to open the conversation, what to say, what not to say, what to do next, harm at home, and one line from the faith.",
+   "why_flagged": "Round 10 T2: no content told a parent how to listen to a bullied child. A clinician and a child-protection specialist should read it; a scholar should read the faith line.",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [
+    "Fiqh scholar (per madhab)",
+    "Privacy lawyer"
+   ],
+   "madhabs": [
+    "Hanafi",
+    "Maliki",
+    "Shafi'i",
+    "Hanbali"
+   ],
+   "priority": "high",
+   "source_of_flag": [
+    "R10_T2"
+   ],
+   "label_surface": "Family Wing and search",
+   "status": "open"
+  },
+  {
+   "id": "support.wasia-checkin",
+   "area": "sakina",
+   "subarea": "children",
+   "where_in_app": "Wasia > the gentle check-in for a child",
+   "file": "lib/features/academy/application/wasia_checkin.dart",
+   "key": "WasiaCheckinNotifier; kWasiaCheckinFallback",
+   "what_to_review": "Age-banded wording; once per interval per child; only the last-asked day and the off flag are stored on the device; the answer is not stored and no parent screen reads it.",
+   "why_flagged": "Round 10 T2: the check-in never appeared in Wasia. Wording needs a clinician; storage needs a lawyer (children privacy version 6).",
+   "reviewer_type": "Clinician (Sakina and health content)",
+   "also_reviewers": [
+    "Privacy lawyer"
+   ],
+   "madhabs": [],
+   "priority": "high",
+   "source_of_flag": [
+    "R10_T2"
    ],
    "label_surface": "",
    "status": "open"

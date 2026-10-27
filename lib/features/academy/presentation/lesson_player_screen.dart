@@ -26,6 +26,7 @@ import '../../share/domain/handout.dart';
 import '../../share/presentation/handout_screen.dart';
 import '../../share/presentation/share_actions.dart';
 import 'widgets/glossary_text.dart';
+import 'widgets/wasia_checkin_card.dart';
 import 'widgets/wasia_thread.dart';
 
 /// The teach/check/reflect lesson player. One idea per step, exact-step
@@ -948,6 +949,7 @@ class _LessonWasiaSheetState extends ConsumerState<_LessonWasiaSheet> {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
+              const WasiaCheckinCard(),
               Text('ASK WASIA', style: AppText.eyebrow),
               const SizedBox(height: 4),
               Text(widget.lesson.title, style: AppText.titleMedium),

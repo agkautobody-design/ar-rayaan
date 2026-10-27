@@ -7,6 +7,17 @@ abstract final class ChildAgeBand {
   static const List<String> bands = <String>['5-8', '9-12', '13-17'];
   static const String fallback = '9-12';
 
+  /// The id of the active child, or null. Used only to keep one child's
+  /// conversation away from another's.
+  static Future<String?> activeId() async {
+    try {
+      final SharedPreferences p = await SharedPreferences.getInstance();
+      return p.getString('ar.family.active');
+    } catch (_) {
+      return null;
+    }
+  }
+
   static Future<String> active() async {
     try {
       final SharedPreferences p = await SharedPreferences.getInstance();

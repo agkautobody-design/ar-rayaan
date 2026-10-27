@@ -58,6 +58,7 @@ class _PrivacyShieldState extends ConsumerState<PrivacyShield> with WidgetsBindi
     try {
       ref.read(hadiControllerProvider.notifier).clearThread();
       ref.read(wasiaControllerProvider.notifier).clear();
+      ref.read(wasiaParentControllerProvider.notifier).clear();
     } catch (_) {}
     try {
       widget.router.go(AppRoutes.home);

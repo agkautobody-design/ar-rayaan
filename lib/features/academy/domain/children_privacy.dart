@@ -9,7 +9,7 @@
 library;
 
 /// Bump when the text changes in a way a parent must agree to again.
-const int kChildrenPrivacyVersion = 5;
+const int kChildrenPrivacyVersion = 6;
 
 const String kChildrenPrivacyTitle = 'Children and the Family Wing';
 
@@ -30,7 +30,7 @@ const List<String> kChildrenPrivacyBullets = <String>[
 const String kChildrenPrivacyBody = '''
 Ar-Rayaan is a general-audience app. It is not directed to children under 13 (or the age of digital consent where you live), and we do not knowingly collect personal information from a child. The Family Wing lets a parent or guardian set up learning profiles for the children in their care; the parent is the person who uses the app and who gives consent.
 
-What a profile holds. For each child a parent adds, the app keeps on the device: a first name or nickname chosen by the parent (limited to 30 characters), an age band chosen by the parent (5-8, 9-12 or 13-17; it only decides which words Wasia uses and is never sent anywhere), the date the profile was created, and the child’s progress in the School of Letters (lessons finished, exam scores, mastery marks). We do not ask for or store a child’s exact age, date of birth, photo, voice, email address, phone number or location. Wasia keeps no record of what a child says or how a child feels, and the parent dashboard never shows a child’s conversations or any safety message.
+What a profile holds. For each child a parent adds, the app keeps on the device: a first name or nickname chosen by the parent (limited to 30 characters), an age band chosen by the parent (5-8, 9-12 or 13-17; it only decides which words Wasia uses and is never sent anywhere), the date the profile was created, and the child’s progress in the School of Letters (lessons finished, exam scores, mastery marks). We do not ask for or store a child’s exact age, date of birth, photo, voice, email address, phone number or location. Wasia sometimes asks a child how they are. The app keeps only the day it last asked and whether the child chose not to be asked again, on the device; the child’s answer is not kept. Wasia keeps no record of what a child says or how a child feels, a child’s conversation is a separate one from every other child’s and from the parent’s, and the parent dashboard never shows a child’s conversations or any safety message.
 
 Where it is kept. Child profiles and progress are stored only on the device, in the app’s local storage. They are not sent to our servers or to any third party. A child’s name is never included in any request to an AI service or to Firebase. Cloud sync of family data is switched off; if we ever offer it, it will be optional, will need a parent’s separate consent first, and will never include a child’s name.
 

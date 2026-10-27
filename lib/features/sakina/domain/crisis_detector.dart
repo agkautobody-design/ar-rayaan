@@ -1733,6 +1733,15 @@ abstract final class CrisisResponses {
   ) {
     final List<HelpResource> rows =
         HelpResources.forCountry(countryCode, kinds: kindsFor(kind));
+    if (kind == CrisisKind.childSafety) {
+      // A child sees the child lines first.
+      return <HelpResource>[
+        for (final HelpResource r in rows)
+          if (r.kinds.contains(HelpKind.child)) r,
+        for (final HelpResource r in rows)
+          if (!r.kinds.contains(HelpKind.child)) r,
+      ];
+    }
     if (kind != CrisisKind.substanceEmergency) return rows;
     // A medical emergency starts with the emergency number.
     return <HelpResource>[
