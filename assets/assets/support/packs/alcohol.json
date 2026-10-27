@@ -1,0 +1,1024 @@
+{
+ "schema": 1,
+ "pack": "alcohol",
+ "packKind": "support",
+ "topic": "alcohol",
+ "description": "Alcohol: listening, orientation, safe-stopping cautions and hand-over. Motivational-interviewing style; never a clinician, never a fatwa.",
+ "audience": "hadi",
+ "ageBands": ["adult"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en", "ar", "ur", "bn"],
+ "snippets": [
+  {
+   "id": "alcohol.orient.001",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "I'm an app, not a doctor or a counsellor. I can listen, help you think things through, and point you to people who can help. What brings you here today?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "opening", "honesty"],
+   "triggers": [],
+   "doNotSay": ["Must say it is an app on first use."],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.orient.002",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "This is a private, no-judgement space. I can't diagnose anything or tell you what to do about drinking, but I can listen and help you find the right human help. Where would you like to start?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "opening", "honesty"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.orient.003",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "Some people come here to talk about drinking, some just to ask a question. Either is fine. Which is closer to where you are?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "opening", "door"],
+   "triggers": [],
+   "doNotSay": ["One-time door question between question mode and support mode."],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.reflect.001",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like drinking has become a bigger part of your life than you'd like."
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "concern"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.reflect.002",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "Part of you wants things to change, and part of you isn't sure how."
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "ambivalence"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.reflect.003",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like evenings are the hardest part."
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "evening", "craving"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.reflect.004",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "You're worried about what this is doing to the people close to you."
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "family", "guilt"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.reflect.005",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "Drinking helps you switch off, and it also costs you something. Both are true."
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "ambivalence", "coping"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.reflect.006",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds exhausting to carry this on your own."
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "isolation"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.reflect.007",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "You came back tonight even though part of you didn't want to. That says something about what matters to you."
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "effort"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.ask.001",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What would you like to be different about drinking, if anything?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "goal", "change-talk"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.ask.002",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "When do you notice the pull to drink most?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "trigger"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.ask.003",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What has helped, even a little, on the days you drank less?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "strengths"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.ask.004",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What worries you most about changing, and what worries you about staying as things are?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "ambivalence"],
+   "triggers": [],
+   "doNotSay": ["Two-sided; do not push either side."],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.ask.005",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "If things were better in a year, what would be different in your day?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "goal", "hope"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.ask.006",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Who in your life, if anyone, would you feel comfortable talking to about this?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "support"],
+   "triggers": [],
+   "doNotSay": ["Never push disclosure to family or community."],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.ask.007",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Would it be all right if I asked a couple of questions about how your body copes when you go without a drink?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "withdrawal-screen"],
+   "triggers": ["every day", "daily", "shakes"],
+   "doNotSay": ["Next step is the safety card if any yes; never give a taper or a number of drinks."],
+   "sources": [
+    {"type": "guideline", "title": "NIAAA Rethinking Drinking: cutting down or quitting", "url": "https://rethinkingdrinking.niaaa.nih.gov/thinking-about-change/cut-down-or-quit", "section": "RES_H1 2.1", "retrievedOn": "2026-10-27"},
+    {"type": "background", "section": "RES_H1 2.1", "note": "Triage wording: ask plainly about daily drinking and past shakes, seizures or seeing things."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "medium",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.ask.008",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Do you drink every day or most days, and have you ever had shaking, seizures, or seen or heard things that weren't there when you went without?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "withdrawal-screen"],
+   "triggers": ["drink every day", "drink daily"],
+   "doNotSay": ["If yes to heavy daily drinking or any past complication: show alcohol.safety.001. One linked question."],
+   "sources": [
+    {"type": "guideline", "title": "NIAAA Rethinking Drinking: cutting down or quitting", "url": "https://rethinkingdrinking.niaaa.nih.gov/thinking-about-change/cut-down-or-quit", "section": "RES_H1 2.1", "retrievedOn": "2026-10-27"},
+    {"type": "guideline", "title": "NIAAA: Treatment for alcohol problems, finding and getting help", "url": "https://www.niaaa.nih.gov/publications/brochures-and-fact-sheets/treatment-alcohol-problems-finding-and-getting-help", "section": "RES_H1 3.3", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.affirm.001",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "Talking about this takes courage."
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "effort"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.affirm.002",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "Asking about it at all is a real step."
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "effort"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.affirm.003",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "You've been honest with yourself tonight, and that matters."
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "effort", "honesty"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.explain.001",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Many people who have had trouble with drinking improve, and ups and downs in the first year are common. A setback doesn't mean it isn't working."
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "hope", "relapse"],
+   "triggers": ["will i ever", "is there hope", "can i recover"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "NIAAA Core Resource on Alcohol: alcohol use disorder, risk, diagnosis and recovery", "url": "https://www.niaaa.nih.gov/health-professionals-communities/core-resource-on-alcohol/alcohol-use-disorder-risk-diagnosis-recovery", "section": "RES_H1 2.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.explain.002",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Doctors can prescribe medicines that make stopping safer, and others that help with cravings. Some are not habit-forming. I can't advise on any of them, but a doctor can talk them through with you."
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "treatment", "medication"],
+   "triggers": ["medication for drinking", "naltrexone", "acamprosate", "disulfiram", "antabuse"],
+   "doNotSay": ["Never name a dose, brand schedule or recommend a medicine."],
+   "sources": [
+    {"type": "guideline", "title": "NIAAA: Treatment for alcohol problems, finding and getting help", "url": "https://www.niaaa.nih.gov/publications/brochures-and-fact-sheets/treatment-alcohol-problems-finding-and-getting-help", "section": "RES_H1 3.3", "retrievedOn": "2026-10-27"},
+    {"type": "guideline", "title": "NIAAA Core Resource on Alcohol: alcohol use disorder, risk, diagnosis and recovery", "url": "https://www.niaaa.nih.gov/health-professionals-communities/core-resource-on-alcohol/alcohol-use-disorder-risk-diagnosis-recovery", "section": "RES_H1 2.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "medium",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.explain.003",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Support groups help a lot of people. There are different kinds, so it's fine to try more than one before you find one that fits you."
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "peer-support"],
+   "triggers": ["aa", "alcoholics anonymous", "support group", "smart recovery"],
+   "doNotSay": ["Do not push 12-step wording; some find \"higher power\" language a clash and some find it fits. Offer, do not prescribe."],
+   "sources": [
+    {"type": "guideline", "title": "NIAAA Core Resource on Alcohol: alcohol use disorder, risk, diagnosis and recovery", "url": "https://www.niaaa.nih.gov/health-professionals-communities/core-resource-on-alcohol/alcohol-use-disorder-risk-diagnosis-recovery", "section": "RES_H1 2.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.explain.004",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Treatment works best when low mood, anxiety or past hurt are looked at too, not only the drinking. A doctor or counsellor can help with both together."
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "co-occurring", "treatment"],
+   "triggers": ["anxiety and drinking", "depressed and drinking"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "NIAAA Core Resource on Alcohol: alcohol use disorder, risk, diagnosis and recovery", "url": "https://www.niaaa.nih.gov/health-professionals-communities/core-resource-on-alcohol/alcohol-use-disorder-risk-diagnosis-recovery", "section": "RES_H1 2.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.explain.005",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Getting through the first days without alcohol is one part of recovery, not the whole of it. Support afterwards is what helps it last."
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "treatment", "detox"],
+   "triggers": [],
+   "doNotSay": ["Do not describe detox as a cure."],
+   "sources": [
+    {"type": "guideline", "title": "NIAAA Core Resource on Alcohol: alcohol use disorder, risk, diagnosis and recovery", "url": "https://www.niaaa.nih.gov/health-professionals-communities/core-resource-on-alcohol/alcohol-use-disorder-risk-diagnosis-recovery", "section": "RES_H1 2.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.explain.006",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Drinking can make sleep, mood and worry worse over time, even when it feels like it helps at night. If sleep is a struggle, a doctor can help without sleeping pills being the only answer."
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "sleep"],
+   "triggers": ["cannot sleep", "can't sleep", "sleep without drinking"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 3.8", "note": "Insomnia is a relapse risk; flag persistent insomnia to a doctor; do not recommend sleeping pills. Clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.plan-step.001",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step if you want one: this week, write down just the times you most want a drink. No judging, only the times."
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "trigger-log"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 3.8", "note": "Trigger log, delay and routines are standard CBT / relapse-prevention content; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.plan-step.002",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: choose one fifteen-minute thing to do when the urge comes, like a walk, a shower, wudu, or a call. Want to pick it now, so it's ready?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "delay", "urge"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 3.8", "note": "Trigger log, delay and routines are standard CBT / relapse-prevention content; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.plan-step.003",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: book a visit with a doctor and say, \"I want to talk about my drinking.\" I can help you work out the words if you like."
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "doctor", "script"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.plan-step.004",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: if there is alcohol at home and you want it gone, you could ask someone you trust to take it away, or pour it out when you feel steady. Only if that feels right for you."
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "environment"],
+   "triggers": [],
+   "doNotSay": ["Not for someone who drinks heavily every day: they should not stop suddenly. Check withdrawal screen first."],
+   "sources": [
+    {"type": "background", "section": "RES_H1 3.8", "note": "Trigger log, delay and routines are standard CBT / relapse-prevention content; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "medium",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.safety.001",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "If you drink most days, please don't stop suddenly on your own, because that can be dangerous. Talk to a doctor first so stopping can be made safer. If you ever get a seizure, shaking you can't control, confusion, or see or hear things that aren't there, call your emergency number now."
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "withdrawal", "emergency"],
+   "triggers": ["withdrawal", "shaking", "seizure", "dt", "delirium", "stopped drinking and", "quit drinking cold"],
+   "doNotSay": ["Never \"detox at home is fine\", \"just a few days and it passes\", or a drinks-per-day reduction."],
+   "sources": [
+    {"type": "guideline", "title": "NIAAA Rethinking Drinking: cutting down or quitting", "url": "https://rethinkingdrinking.niaaa.nih.gov/thinking-about-change/cut-down-or-quit", "section": "RES_H1 2.1", "retrievedOn": "2026-10-27"},
+    {"type": "guideline", "title": "NIAAA: Treatment for alcohol problems, finding and getting help", "url": "https://www.niaaa.nih.gov/publications/brochures-and-fact-sheets/treatment-alcohol-problems-finding-and-getting-help", "section": "RES_H1 3.3", "retrievedOn": "2026-10-27"},
+    {"type": "guideline", "title": "NICE CG100: Alcohol-use disorders, diagnosis and management of physical complications", "url": "https://www.nice.org.uk/guidance/cg100/chapter/1-Guidance", "section": "RES_H1 2.1", "retrievedOn": "2026-10-27"},
+    {"type": "background", "section": "RES_H1 2.1", "note": "The list of emergency signs (seizure, confusion, hallucinations, severe shaking, chest pain, vomiting that will not stop) is the research brief's own wording; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.safety.002",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "If you have stopped drinking and now have shaking, sweating, a racing heart or feel confused, that needs medical help today. If it is severe, or you have a seizure, chest pain or can't keep anything down, call your emergency number now."
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "withdrawal", "emergency"],
+   "triggers": ["shaking since", "i stopped drinking", "sweating", "racing heart"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "NIAAA Rethinking Drinking: cutting down or quitting", "url": "https://rethinkingdrinking.niaaa.nih.gov/thinking-about-change/cut-down-or-quit", "section": "RES_H1 2.1", "retrievedOn": "2026-10-27"},
+    {"type": "guideline", "title": "NIAAA: Treatment for alcohol problems, finding and getting help", "url": "https://www.niaaa.nih.gov/publications/brochures-and-fact-sheets/treatment-alcohol-problems-finding-and-getting-help", "section": "RES_H1 3.3", "retrievedOn": "2026-10-27"},
+    {"type": "background", "section": "RES_H1 2.1", "note": "Emergency list wording is the brief's; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.referral.001",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "A doctor is the right person for this. You could say: \"I've been drinking heavily and I'd like help stopping safely.\" You don't have to give more detail than you want to."
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "doctor", "script"],
+   "triggers": ["see a doctor", "what do i tell my doctor"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "NIAAA Rethinking Drinking: cutting down or quitting", "url": "https://rethinkingdrinking.niaaa.nih.gov/thinking-about-change/cut-down-or-quit", "section": "RES_H1 2.1", "retrievedOn": "2026-10-27"},
+    {"type": "guideline", "title": "NIAAA: Treatment for alcohol problems, finding and getting help", "url": "https://www.niaaa.nih.gov/publications/brochures-and-fact-sheets/treatment-alcohol-problems-finding-and-getting-help", "section": "RES_H1 3.3", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.referral.002",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "There are free, confidential services that help people with drinking. The help lines for your country are listed below, and I can show them again whenever you like.",
+    "ar": "هناك خدمات مجانية وسرية تساعد من يعانون من مشكلة الشرب. خطوط المساعدة في بلدك مدرجة أدناه، ويمكنني عرضها مرة أخرى متى شئت.",
+    "ur": "شراب کے مسئلے میں مدد کے لیے مفت اور رازدارانہ خدمات موجود ہیں۔ آپ کے ملک کی ہیلپ لائنیں نیچے درج ہیں، اور انہیں جب چاہیں دوبارہ دکھایا جا سکتا ہے۔",
+    "bn": "মদ্যপানের সমস্যায় সাহায্যের জন্য বিনামূল্যে ও গোপনীয় সেবা আছে। আপনার দেশের হেল্পলাইনগুলো নিচে দেওয়া আছে, আর আপনি চাইলে আমি আবার দেখাতে পারি।"
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "helpline"],
+   "triggers": ["helpline", "who can i call"],
+   "doNotSay": ["Join with helplines.json scope addiction; never type a number."],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": true,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.referral.003",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "If you'd like to speak to someone who understands both your faith and this struggle, some Muslim counsellors and helplines take calls like this. The list below shows what exists in your country."
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "muslim-counsellor"],
+   "triggers": ["muslim counsellor", "islamic counselling"],
+   "doNotSay": ["Only list services marked verified in helplines.json."],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.islamic.001",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Many people of faith struggle with this. Asking for help is not a sign that your faith is lacking. The Qur'an speaks to people who feel they have gone too far and tells them not to despair of Allah's mercy."
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "mercy", "shame"],
+   "triggers": ["allah will not forgive", "too late for me", "gone too far"],
+   "doNotSay": ["No \"weak iman\"; no first-reply haram lecture."],
+   "sources": [
+    {"type": "quran", "ref": "39:53", "section": "RES_H2 2.1"},
+    {"type": "quran", "ref": "4:28", "section": "RES_H2 2.1"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.islamic.002",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet encouraged people to seek treatment, saying that Allah did not make an illness without making a cure for it. Seeing a doctor for this is in keeping with that."
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "treatment", "doctor"],
+   "triggers": ["is it okay to see a doctor", "is therapy haram", "tawakkul"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "tirmidhi:2038", "grade": "Sahih (Ahmad Muhammad Shakir); Sahih (Al-Albani); Hasan Sahih (Bashar Awad Maarouf); Isnaad Sahih (Zubair Ali Zai)", "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus", "section": "RES_H2 2.5"},
+    {"type": "hadith", "ref": "bukhari:5678", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 2.5"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.islamic.003",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Tying your camel and trusting Allah go together. Making a plan, seeing a doctor and asking people for support are part of relying on Allah, not a lack of it."
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "tawakkul", "action"],
+   "triggers": ["just trust allah", "leave it to allah"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "tirmidhi:2517", "grade": "hasan", "grader": "Darussalam", "section": "RES_H2 2.5"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.islamic.004",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Qur'an spoke about alcohol in stages, over time. That is one reason scholars say to be patient and gradual with people who are finding their way. You don't have to fix everything at once."
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "gradual"],
+   "triggers": ["why is alcohol haram", "staged"],
+   "doNotSay": ["Not a licence to \"go slowly\" with a known ruling, and never a medical taper; keep as encouragement only. Scholar to confirm framing."],
+   "sources": [
+    {"type": "quran", "ref": "2:219", "section": "RES_H2 3.1"},
+    {"type": "quran", "ref": "4:43", "section": "RES_H2 3.1"},
+    {"type": "quran", "ref": "5:90-91", "section": "RES_H2 3.1"},
+    {"type": "hadith", "ref": "bukhari:4993", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 3.1"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.islamic.005",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "When someone spoke with contempt about a man who kept being brought before the Prophet for drinking, the Prophet told them not to, because the man loves Allah and His Messenger. Mercy, not contempt, is the Prophetic way with a person who keeps struggling."
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "mercy", "relapse", "shame"],
+   "triggers": ["i keep going back", "i am disgusting"],
+   "doNotSay": ["Use only after the person has spoken of repeated relapse; do not quote the wording of the curse."],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:6780", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 3.2"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.islamic.006",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "You do not have to announce a private struggle to anyone. Scholars say that telling a trusted professional or scholar who can help is allowed to the extent needed, and that you can ask for help without giving details."
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "sitr", "privacy"],
+   "triggers": ["should i tell", "who should i tell", "do i have to confess"],
+   "doNotSay": ["Never \"you must tell your family or imam\"."],
+   "sources": [
+    {"type": "fiqh", "title": "Islamweb fatwa 393796 and Darul Ifta Birmingham fatwa 08109", "level": "institution", "section": "RES_H2 2.4", "retrievedOn": "2026-10-27"},
+    {"type": "hadith", "ref": "bukhari:6069", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 2.4"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.family.001",
+   "kind": "family",
+   "stage": ["explore"],
+   "text": {
+    "en": "If someone you love drinks heavily, you didn't cause it and you can't control it. You can look after yourself, say how you feel calmly, and find support for families. Would you like some ideas?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["alcohol", "family-of"],
+   "triggers": ["my husband drinks", "my father drinks", "my brother drinks"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "NIAAA Core Resource on Alcohol: alcohol use disorder, risk, diagnosis and recovery", "url": "https://www.niaaa.nih.gov/health-professionals-communities/core-resource-on-alcohol/alcohol-use-disorder-risk-diagnosis-recovery", "section": "RES_H1 2.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "alcohol.summary.001",
+   "kind": "summary",
+   "stage": ["close"],
+   "text": {
+    "en": "Let me say back what I've heard: {topic} is weighing on you, you'd like something to be different, and the next step is yours to choose."
+   },
+   "ageBand": ["adult"],
+   "slots": ["topic"],
+   "tags": ["alcohol", "summary"],
+   "triggers": [],
+   "doNotSay": ["Fill {topic} with the person's own words, at most 8 words."],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}

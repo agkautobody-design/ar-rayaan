@@ -1,0 +1,1019 @@
+{
+ "schema": 1,
+ "pack": "child_abuse",
+ "packKind": "support",
+ "topic": "child_abuse",
+ "description": "Child abuse and neglect: for adults worried about a child, and short, safe lines for children and teens. Report-first, never investigate, never promise secrecy.",
+ "audience": "both",
+ "ageBands": ["adult", "9-12", "13-17"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en", "ar", "ur", "bn"],
+ "snippets": [
+  {
+   "id": "child_abuse.orient.001",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "I'm an app, not a child-protection worker. I can listen, help you think, and show you who to contact. Is this about a child you are worried about, or about something that happened to you as a child?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["child-abuse", "opening", "honesty"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: child maltreatment", "url": "https://www.who.int/news-room/fact-sheets/detail/child-maltreatment", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "child_abuse.orient.002",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "Thank you for caring enough to ask. You don't need proof to be worried. What have you noticed?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["child-abuse", "opening", "concern"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: child maltreatment", "url": "https://www.who.int/news-room/fact-sheets/detail/child-maltreatment", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "child_abuse.orient.003",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "Whichever it is, you can tell me as much or as little as you like. I'll listen first. Where shall we begin?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["child-abuse", "opening"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: child maltreatment", "url": "https://www.who.int/news-room/fact-sheets/detail/child-maltreatment", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "child_abuse.reflect.001",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like something has been worrying you about this child."
+   },
+   "ageBand": ["adult"],
+   "tags": ["child-abuse", "concern"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: child maltreatment", "url": "https://www.who.int/news-room/fact-sheets/detail/child-maltreatment", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "child_abuse.reflect.002",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "You're afraid of getting it wrong, and afraid of doing nothing."
+   },
+   "ageBand": ["adult"],
+   "tags": ["child-abuse", "ambivalence"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: child maltreatment", "url": "https://www.who.int/news-room/fact-sheets/detail/child-maltreatment", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "child_abuse.reflect.003",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like a lot to carry."
+   },
+   "ageBand": ["adult"],
+   "tags": ["child-abuse", "burden"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: child maltreatment", "url": "https://www.who.int/news-room/fact-sheets/detail/child-maltreatment", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "child_abuse.reflect.004",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "You noticed something, and you are taking it seriously."
+   },
+   "ageBand": ["adult"],
+   "tags": ["child-abuse", "validation"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: child maltreatment", "url": "https://www.who.int/news-room/fact-sheets/detail/child-maltreatment", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "child_abuse.reflect.005",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like what happened to you has stayed with you for a long time."
+   },
+   "ageBand": ["adult"],
+   "tags": ["child-abuse", "survivor"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: child maltreatment", "url": "https://www.who.int/news-room/fact-sheets/detail/child-maltreatment", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "child_abuse.reflect.006",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "You may have wondered if it was your fault. It was not."
+   },
+   "ageBand": ["adult"],
+   "tags": ["child-abuse", "survivor", "not-your-fault"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: child maltreatment", "url": "https://www.who.int/news-room/fact-sheets/detail/child-maltreatment", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "child_abuse.ask.001",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Is the child safe at this moment?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["child-abuse", "safety-check"],
+   "triggers": [],
+   "doNotSay": ["If no, go to the safety card."],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Do not interrogate a child, do not promise secrecy, write down what the child said and report to the child-protection service: standard safeguarding practice (brief); safeguarding review required."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "child_abuse.ask.002",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What have you seen or heard that worries you?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["child-abuse", "listen"],
+   "triggers": [],
+   "doNotSay": ["Do not push for details; do not ask for the child's name."],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Do not interrogate a child, do not promise secrecy, write down what the child said and report to the child-protection service: standard safeguarding practice (brief); safeguarding review required."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "child_abuse.ask.003",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Has the child said anything to you, or have you only noticed things?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["child-abuse", "disclosure"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Do not interrogate a child, do not promise secrecy, write down what the child said and report to the child-protection service: standard safeguarding practice (brief); safeguarding review required."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "child_abuse.ask.004",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Who is the child with most of the time, and who else could you ask for help?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["child-abuse", "support"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Do not interrogate a child, do not promise secrecy, write down what the child said and report to the child-protection service: standard safeguarding practice (brief); safeguarding review required."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "child_abuse.ask.005",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Is this about something that happened to you when you were younger, and would you like to talk about that?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["child-abuse", "survivor"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: child maltreatment", "url": "https://www.who.int/news-room/fact-sheets/detail/child-maltreatment", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "child_abuse.affirm.001",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "Being willing to act for a child is a good thing."
+   },
+   "ageBand": ["adult"],
+   "tags": ["child-abuse", "effort"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: child maltreatment", "url": "https://www.who.int/news-room/fact-sheets/detail/child-maltreatment", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "child_abuse.affirm.002",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "You don't have to be sure. Raising a concern is enough."
+   },
+   "ageBand": ["adult"],
+   "tags": ["child-abuse", "effort", "permission"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Do not interrogate a child, do not promise secrecy, write down what the child said and report to the child-protection service: standard safeguarding practice (brief); safeguarding review required."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "child_abuse.explain.001",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "You don't have to be certain to ask for advice. Child-protection services can listen to a worry and decide what to do next. That is their job, not yours."
+   },
+   "ageBand": ["adult"],
+   "tags": ["child-abuse", "reporting"],
+   "triggers": ["not sure", "what if i am wrong"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: child maltreatment", "url": "https://www.who.int/news-room/fact-sheets/detail/child-maltreatment", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"},
+    {"type": "background", "section": "RES_H1 10.1", "note": "Do not interrogate a child, do not promise secrecy, write down what the child said and report to the child-protection service: standard safeguarding practice (brief); safeguarding review required."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "child_abuse.explain.002",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "If a child tells you something, stay calm, listen, tell them you believe them and that it isn't their fault, and don't promise that you will tell no one. Then pass it to the child-protection service."
+   },
+   "ageBand": ["adult"],
+   "tags": ["child-abuse", "disclosure", "response"],
+   "triggers": ["she told me", "he told me", "child told me"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Do not interrogate a child, do not promise secrecy, write down what the child said and report to the child-protection service: standard safeguarding practice (brief); safeguarding review required."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "child_abuse.explain.003",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Abuse and neglect can be physical, emotional, sexual, or not meeting a child's basic needs. Signs vary, and no single sign proves anything."
+   },
+   "ageBand": ["adult"],
+   "tags": ["child-abuse", "definition"],
+   "triggers": ["signs of abuse", "what counts"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: child maltreatment", "url": "https://www.who.int/news-room/fact-sheets/detail/child-maltreatment", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "child_abuse.explain.004",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Children are more likely to be harmed by someone they know. That is one reason it can feel so hard to say something, and one reason it matters."
+   },
+   "ageBand": ["adult"],
+   "tags": ["child-abuse", "known-person"],
+   "triggers": ["family member", "relative", "teacher", "imam"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: child maltreatment", "url": "https://www.who.int/news-room/fact-sheets/detail/child-maltreatment", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "child_abuse.explain.005",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "What happened to you as a child was not your fault, whatever you did or didn't do. Many survivors find that talking to a trained counsellor helps, at their own pace."
+   },
+   "ageBand": ["adult"],
+   "tags": ["child-abuse", "survivor", "treatment"],
+   "triggers": ["when i was a child", "abused as a child"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: child maltreatment", "url": "https://www.who.int/news-room/fact-sheets/detail/child-maltreatment", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"},
+    {"type": "background", "section": "RES_H1 6", "note": "Survivor support: counsellor at own pace (brief); clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "child_abuse.plan-step.001",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: write down, only for yourself, what you saw or heard, with dates if you can. Don't question the child. This helps the person you tell."
+   },
+   "ageBand": ["adult"],
+   "tags": ["child-abuse", "record"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Do not interrogate a child, do not promise secrecy, write down what the child said and report to the child-protection service: standard safeguarding practice (brief); safeguarding review required."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "child_abuse.plan-step.002",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: contact the child-protection line for your country and describe your worry. They will tell you what happens next. I can show you the lines."
+   },
+   "ageBand": ["adult"],
+   "tags": ["child-abuse", "report"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: child maltreatment", "url": "https://www.who.int/news-room/fact-sheets/detail/child-maltreatment", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"},
+    {"type": "institution", "title": "Childhelp National Child Abuse Hotline (operator page)", "url": "https://childhelphotline.org/", "section": "RES_H1 10.8", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "child_abuse.safety.001",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "If a child is in danger right now, call your emergency number. Don't confront the person who may be harming them, and keep the child out of harm's way if you can do so safely."
+   },
+   "ageBand": ["adult"],
+   "tags": ["child-abuse", "emergency"],
+   "triggers": ["right now", "he is hurting", "she is being hurt"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: child maltreatment", "url": "https://www.who.int/news-room/fact-sheets/detail/child-maltreatment", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "child_abuse.safety.002",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "If a child tells you about abuse, you can't promise to tell no one, because you need to get them help. You can say: \"I believe you, it's not your fault, and I'm going to get help for you.\""
+   },
+   "ageBand": ["adult"],
+   "tags": ["child-abuse", "disclosure", "secrecy"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Do not interrogate a child, do not promise secrecy, write down what the child said and report to the child-protection service: standard safeguarding practice (brief); safeguarding review required."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "child_abuse.referral.001",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "A child-protection or children's helpline can advise on a worry and take a report. The lines for your country are listed below.",
+    "ar": "يمكن لخط حماية الطفل أو خط مساعدة الأطفال أن يقدّم المشورة بشأن قلق ما ويتلقى بلاغًا. خطوط بلدك مدرجة أدناه.",
+    "ur": "بچوں کے تحفظ یا بچوں کی ہیلپ لائن کسی تشویش پر مشورہ دے سکتی ہے اور رپورٹ درج کر سکتی ہے۔ آپ کے ملک کی لائنیں نیچے درج ہیں۔",
+    "bn": "শিশু সুরক্ষা বা শিশু হেল্পলাইন কোনো উদ্বেগ নিয়ে পরামর্শ দিতে এবং অভিযোগ নিতে পারে। আপনার দেশের লাইনগুলো নিচে দেওয়া আছে।"
+   },
+   "ageBand": ["adult"],
+   "tags": ["child-abuse", "helpline"],
+   "triggers": ["helpline", "who do i call"],
+   "doNotSay": ["Join with helplines.json scope child; separate from adult lines."],
+   "sources": [
+    {"type": "institution", "title": "Childhelp National Child Abuse Hotline (operator page)", "url": "https://childhelphotline.org/", "section": "RES_H1 10.8", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": true,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "child_abuse.referral.002",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "If it happened to you, a specialist counsellor can help in confidence. A helpline can also direct you."
+   },
+   "ageBand": ["adult"],
+   "tags": ["child-abuse", "survivor", "counsellor"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: child maltreatment", "url": "https://www.who.int/news-room/fact-sheets/detail/child-maltreatment", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "child_abuse.reflect.007",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "That sounds really hard. I'm glad you told me."
+   },
+   "ageBand": ["9-12"],
+   "tags": ["child-abuse", "child", "validation"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: child maltreatment", "url": "https://www.who.int/news-room/fact-sheets/detail/child-maltreatment", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"},
+    {"type": "background", "section": "RES_H1 10.1", "note": "Do not interrogate a child, do not promise secrecy, write down what the child said and report to the child-protection service: standard safeguarding practice (brief); safeguarding review required."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "child_abuse.reflect.008",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like something is making you feel scared or sad."
+   },
+   "ageBand": ["9-12"],
+   "tags": ["child-abuse", "child"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: child maltreatment", "url": "https://www.who.int/news-room/fact-sheets/detail/child-maltreatment", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"},
+    {"type": "background", "section": "RES_H1 10.1", "note": "Do not interrogate a child, do not promise secrecy, write down what the child said and report to the child-protection service: standard safeguarding practice (brief); safeguarding review required."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "child_abuse.safety.003",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "It is not your fault. You are not in trouble. Please tell a grown-up you trust, like a teacher, a doctor or a relative. You can also call a children's helpline. It is free."
+   },
+   "ageBand": ["9-12"],
+   "tags": ["child-abuse", "child", "safety"],
+   "triggers": ["someone hurts me", "it hurts", "he touches me"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: child maltreatment", "url": "https://www.who.int/news-room/fact-sheets/detail/child-maltreatment", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"},
+    {"type": "background", "section": "RES_H1 10.1", "note": "Do not interrogate a child, do not promise secrecy, write down what the child said and report to the child-protection service: standard safeguarding practice (brief); safeguarding review required."},
+    {"type": "institution", "title": "Childhelp National Child Abuse Hotline (operator page)", "url": "https://childhelphotline.org/", "section": "RES_H1 10.8", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "child_abuse.safety.004",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "If you are in danger right now, call your emergency number. Go somewhere safe if you can. It is okay to ask for help."
+   },
+   "ageBand": ["9-12"],
+   "tags": ["child-abuse", "child", "emergency"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: child maltreatment", "url": "https://www.who.int/news-room/fact-sheets/detail/child-maltreatment", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"},
+    {"type": "background", "section": "RES_H1 10.1", "note": "Do not interrogate a child, do not promise secrecy, write down what the child said and report to the child-protection service: standard safeguarding practice (brief); safeguarding review required."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "child_abuse.safety.005",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "It is not your fault, whatever has happened. You can talk to a teacher, school nurse, doctor or a trusted adult. A children's helpline is free and private. I can show you the number."
+   },
+   "ageBand": ["13-17"],
+   "tags": ["child-abuse", "child", "safety"],
+   "triggers": ["someone is hurting me", "being abused"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: child maltreatment", "url": "https://www.who.int/news-room/fact-sheets/detail/child-maltreatment", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"},
+    {"type": "background", "section": "RES_H1 10.1", "note": "Do not interrogate a child, do not promise secrecy, write down what the child said and report to the child-protection service: standard safeguarding practice (brief); safeguarding review required."},
+    {"type": "institution", "title": "Childhelp National Child Abuse Hotline (operator page)", "url": "https://childhelphotline.org/", "section": "RES_H1 10.8", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "child_abuse.referral.003",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "A children's helpline is free and you do not have to give your name. They will listen and help you work out what to do."
+   },
+   "ageBand": ["9-12", "13-17"],
+   "tags": ["child-abuse", "child", "helpline"],
+   "triggers": [],
+   "doNotSay": ["Join with helplines.json scope child."],
+   "sources": [
+    {"type": "institution", "title": "Childhelp National Child Abuse Hotline (operator page)", "url": "https://childhelphotline.org/", "section": "RES_H1 10.8", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "C",
+   "risk": "medium",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "child_abuse.islamic.001",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet taught that every one of you is a guardian and will be asked about those in your care. Protecting a child is a duty, not a betrayal."
+   },
+   "ageBand": ["adult"],
+   "tags": ["child-abuse", "guardian", "duty"],
+   "triggers": ["should i say something", "it is a family matter"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:893", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 5.3"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "child_abuse.islamic.002",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet said that whoever has no mercy for our young is not one of us. Gentleness with children is part of the faith."
+   },
+   "ageBand": ["adult"],
+   "tags": ["child-abuse", "mercy", "children"],
+   "triggers": ["discipline", "i hit my child"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "tirmidhi:1919", "grade": "hasan", "grader": "Darussalam", "section": "RES_H2 5.3"},
+    {"type": "hadith", "ref": "abudawud:4943", "grade": "Sahih", "grader": "Al-Albani", "section": "RES_H2 5.3"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "child_abuse.islamic.003",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Protecting a child from harm comes before protecting a name or a family's reputation. The Prophet taught that Allah has forbidden oppression."
+   },
+   "ageBand": ["adult"],
+   "tags": ["child-abuse", "oppression", "honour"],
+   "triggers": ["reputation", "shame on the family", "family honour"],
+   "doNotSay": ["Never \"keep it within the family\"."],
+   "sources": [
+    {"type": "hadith", "ref": "muslim:2577", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 5.1"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "child_abuse.islamic.004",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "You do not have to carry guilt for what was done to you. The Qur'an tells those who feel burdened not to despair of Allah's mercy."
+   },
+   "ageBand": ["adult"],
+   "tags": ["child-abuse", "survivor", "mercy"],
+   "triggers": ["i feel dirty", "i feel guilty about what happened"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "39:53", "section": "RES_H2 2.1"},
+    {"type": "quran", "ref": "4:28", "section": "RES_H2 2.1"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "child_abuse.islamic.005",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Scholars differ on discipline of children, and I can't give a ruling. Hitting a child is harmful, and a scholar who understands child protection can advise you."
+   },
+   "ageBand": ["adult"],
+   "tags": ["child-abuse", "discipline", "fiqh", "scholar-handoff"],
+   "triggers": ["can i hit my child", "is it allowed to smack"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "fiqh", "title": "Scholars differ on discipline; no source opened for this brief", "level": "institution", "section": "RES_H2 5.3", "retrievedOn": "2026-10-27"},
+    {"type": "guideline", "title": "WHO fact sheet: child maltreatment", "url": "https://www.who.int/news-room/fact-sheets/detail/child-maltreatment", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "disputed": true,
+   "schoolsNamed": ["hanafi", "maliki", "shafii", "hanbali"],
+   "needsScholarReview": true,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "child_abuse.family.001",
+   "kind": "family",
+   "stage": ["explore"],
+   "text": {
+    "en": "If a child in your family has been harmed, believe them, keep them safe, and get specialist advice. Looking after their healing comes first."
+   },
+   "ageBand": ["adult"],
+   "tags": ["child-abuse", "family-of"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: child maltreatment", "url": "https://www.who.int/news-room/fact-sheets/detail/child-maltreatment", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"},
+    {"type": "background", "section": "RES_H1 10.1", "note": "Do not interrogate a child, do not promise secrecy, write down what the child said and report to the child-protection service: standard safeguarding practice (brief); safeguarding review required."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "child_abuse.summary.001",
+   "kind": "summary",
+   "stage": ["close"],
+   "text": {
+    "en": "What I've heard: you're worried about a child, {topic} is part of it, and you want to know who to call. The next step is to speak to a child-protection service."
+   },
+   "ageBand": ["adult"],
+   "slots": ["topic"],
+   "tags": ["child-abuse", "summary"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Do not interrogate a child, do not promise secrecy, write down what the child said and report to the child-protection service: standard safeguarding practice (brief); safeguarding review required."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}

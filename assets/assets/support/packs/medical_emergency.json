@@ -1,0 +1,941 @@
+{
+ "schema": 1,
+ "pack": "medical_emergency",
+ "packKind": "support",
+ "topic": "medical",
+ "description": "Red flags and what to do now: overdose, withdrawal, poisoning, injury, self-harm, chest pain. Call emergency services first. Never a dose, regimen or home treatment.",
+ "audience": "both",
+ "ageBands": ["adult", "13-17"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en", "ar", "ur", "bn"],
+ "snippets": [
+  {
+   "id": "medical_emergency.overdose.001",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "If someone can't be woken, is breathing very slowly or not at all, or has blue or grey lips, call your emergency number now. Say it may be an overdose. Stay with them.",
+    "ar": "إذا لم يستجب شخص للإيقاظ، أو كان تنفسه بطيئًا جدًا أو متوقفًا، أو كانت شفتاه زرقاوين أو رماديتين، فاتصل برقم الطوارئ الآن. قل إن الأمر قد يكون جرعة زائدة. ابقَ معه.",
+    "ur": "اگر کوئی شخص جگانے پر نہ جاگے، اس کی سانس بہت دھیمی ہو یا رک گئی ہو، یا اس کے ہونٹ نیلے یا سرمئی ہوں، تو ابھی ایمرجنسی نمبر پر کال کریں۔ بتائیں کہ یہ زیادہ مقدار لینے کا معاملہ ہو سکتا ہے۔ اس کے ساتھ رہیں۔",
+    "bn": "কেউ জাগানোর পরও না জাগলে, খুব ধীরে শ্বাস নিলে বা শ্বাস না নিলে, কিংবা তার ঠোঁট নীল বা ধূসর হয়ে গেলে এখনই আপনার জরুরি নম্বরে ফোন করুন। বলুন, এটি অতিরিক্ত মাত্রার ঘটনা হতে পারে। তার সঙ্গে থাকুন।"
+   },
+   "ageBand": ["adult"],
+   "tags": ["emergency", "overdose", "opioids"],
+   "triggers": ["not breathing", "won't wake up", "blue lips", "overdose"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: opioid overdose", "url": "https://www.who.int/news-room/fact-sheets/detail/opioid-overdose", "section": "RES_H1 2.4", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": true,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "medical_emergency.overdose.002",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "While you wait for help: try to wake them by shouting and shaking. If they don't wake, and you know how, lay them on their side with the top knee bent so their airway stays clear. Follow what the call-taker tells you.",
+    "ar": "أثناء انتظار المساعدة: حاول إيقاظه بالنداء بصوت عالٍ وهزّه. إذا لم يستيقظ وكنت تعرف الطريقة، فاضجعه على جانبه مع ثني الركبة العليا ليبقى مجرى الهواء مفتوحًا. اتبع ما يقوله لك موظف الاتصال.",
+    "ur": "مدد کے انتظار میں: اسے آواز دے کر اور ہلا کر جگانے کی کوشش کریں۔ اگر وہ نہ جاگے اور آپ کو طریقہ آتا ہو تو اسے کروٹ پر لٹائیں اور اوپر والا گھٹنا موڑ دیں تاکہ سانس کی نالی کھلی رہے۔ کال لینے والے کی ہدایات پر عمل کریں۔",
+    "bn": "সাহায্য আসার অপেক্ষায়: চিৎকার করে ডেকে ও ঝাঁকিয়ে তাকে জাগানোর চেষ্টা করুন। না জাগলে এবং আপনি পদ্ধতিটি জানলে তাকে কাত করে শুইয়ে ওপরের হাঁটু ভাঁজ করে দিন, যাতে শ্বাসনালি খোলা থাকে। ফোন গ্রহণকারী যা বলেন তা অনুসরণ করুন।"
+   },
+   "ageBand": ["adult"],
+   "tags": ["emergency", "overdose", "recovery-position"],
+   "triggers": ["what do i do while waiting"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: opioid overdose", "url": "https://www.who.int/news-room/fact-sheets/detail/opioid-overdose", "section": "RES_H1 2.4", "retrievedOn": "2026-10-27"},
+    {"type": "background", "section": "RES_H1 2.4", "note": "Standard first-aid wording (recovery position, stay with the person, do not leave them alone, do not induce vomiting): no source opened; the brief says to call emergency services; clinician to confirm every line."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": true,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "medical_emergency.naloxone.001",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "Naloxone is a medicine that can reverse an opioid overdose. In many places it is available without a prescription or through drug services, and the World Health Organization recommends that it be available to people likely to witness an overdose. Ask a pharmacist or drug service if you can get it where you live."
+   },
+   "ageBand": ["adult"],
+   "tags": ["emergency", "naloxone", "opioids"],
+   "triggers": ["naloxone", "narcan"],
+   "doNotSay": ["Where legal only; never a dose; never say it replaces calling for help."],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: opioid overdose", "url": "https://www.who.int/news-room/fact-sheets/detail/opioid-overdose", "section": "RES_H1 2.4", "retrievedOn": "2026-10-27"},
+    {"type": "guideline", "title": "WHO update on opioid dependence treatment and overdose prevention, 2 April 2026", "url": "https://www.who.int/news/item/02-04-2026-who-updates-guidelines-on-opioid-dependence-treatment-and-overdose-prevention", "section": "RES_H1 3.3", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "medium",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "medical_emergency.naloxone.002",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "If naloxone is available and you have been trained to use it, use it as taught and still call your emergency number. Its effect can wear off before the opioid does, so the person needs to be watched and checked by a doctor."
+   },
+   "ageBand": ["adult"],
+   "tags": ["emergency", "naloxone", "opioids"],
+   "triggers": ["i have narcan", "i have naloxone"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: opioid overdose", "url": "https://www.who.int/news-room/fact-sheets/detail/opioid-overdose", "section": "RES_H1 2.4", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "medical_emergency.alcohol.001",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "Don't leave someone alone who has taken a lot of alcohol or drugs and is very sleepy, vomiting, or confused. Stay with them, keep them on their side, and call your emergency number if they can't be woken.",
+    "ar": "لا تترك وحده شخصًا تناول كمية كبيرة من الكحول أو المخدرات وأصبح شديد النعاس أو يتقيأ أو مرتبكًا. ابقَ معه، وضعه على جانبه، واتصل برقم الطوارئ إذا لم يستيقظ.",
+    "ur": "جس نے بہت زیادہ شراب یا نشہ لیا ہو اور بہت غنودگی میں ہو، قے کر رہا ہو یا الجھن میں ہو، اسے اکیلا نہ چھوڑیں۔ اس کے پاس رہیں، اسے کروٹ پر رکھیں، اور اگر وہ نہ جاگے تو ایمرجنسی نمبر پر کال کریں۔",
+    "bn": "যে ব্যক্তি অনেক বেশি মদ বা মাদক নিয়েছে এবং খুব ঝিমুচ্ছে, বমি করছে বা বিভ্রান্ত, তাকে একা ফেলে যাবেন না। তার কাছে থাকুন, তাকে কাত করে শুইয়ে রাখুন, আর জাগানো না গেলে জরুরি নম্বরে ফোন করুন।"
+   },
+   "ageBand": ["adult"],
+   "tags": ["emergency", "alcohol-poisoning", "drugs", "recovery-position"],
+   "triggers": ["passed out", "drank too much", "vomiting and drowsy"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 2.4", "note": "Standard first-aid wording (recovery position, stay with the person, do not leave them alone, do not induce vomiting): no source opened; the brief says to call emergency services; clinician to confirm every line."},
+    {"type": "background", "section": "RES_H1 2.1", "note": "Alcohol poisoning red flags: unresponsive, vomiting while drowsy, slow breathing; standard teaching; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": true,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "medical_emergency.myths.001",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "Please don't try to make someone vomit, give them coffee, or put them in a cold shower. These do not help and can cause harm. Call your emergency number and follow their advice."
+   },
+   "ageBand": ["adult"],
+   "tags": ["emergency", "myths", "first-aid"],
+   "triggers": ["should i make him sick", "give coffee"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 2.4", "note": "Standard first-aid wording (recovery position, stay with the person, do not leave them alone, do not induce vomiting): no source opened; the brief says to call emergency services; clinician to confirm every line."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "medical_emergency.withdrawal.001",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "Alcohol withdrawal can be dangerous. A seizure, shaking you can't control, confusion, or seeing or hearing things that aren't there are emergencies. Call your emergency number now.",
+    "ar": "قد يكون انسحاب الكحول من الجسم خطيرًا. النوبة التشنجية، أو الرعشة التي لا يمكنك السيطرة عليها، أو الارتباك، أو رؤية أو سماع أشياء غير موجودة، كلها حالات طارئة. اتصل برقم الطوارئ الآن.",
+    "ur": "شراب چھوڑنے کے بعد کی کیفیت خطرناک ہو سکتی ہے۔ دورہ، بے قابو کپکپی، الجھن، یا ایسی چیزیں دیکھنا یا سننا جو موجود نہیں، یہ سب ہنگامی حالات ہیں۔ ابھی ایمرجنسی نمبر پر کال کریں۔",
+    "bn": "মদ ছাড়ার পর শরীরে যে প্রতিক্রিয়া হয় তা বিপজ্জনক হতে পারে। খিঁচুনি, নিয়ন্ত্রণহীন কাঁপুনি, বিভ্রান্তি, কিংবা যা নেই তা দেখা বা শোনা জরুরি অবস্থা। এখনই জরুরি নম্বরে ফোন করুন।"
+   },
+   "ageBand": ["adult"],
+   "tags": ["emergency", "alcohol", "withdrawal"],
+   "triggers": ["seizure", "delirium", "shaking", "seeing things"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "NIAAA Rethinking Drinking: cutting down or quitting", "url": "https://rethinkingdrinking.niaaa.nih.gov/thinking-about-change/cut-down-or-quit", "section": "RES_H1 2.1", "retrievedOn": "2026-10-27"},
+    {"type": "guideline", "title": "NICE CG100: Alcohol-use disorders, diagnosis and management of physical complications", "url": "https://www.nice.org.uk/guidance/cg100/chapter/1-Guidance", "section": "RES_H1 2.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": true,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "medical_emergency.withdrawal.002",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "Stopping sleeping or anxiety tablets suddenly can cause seizures. If someone has had a fit, is very confused, or is seeing things after stopping them, call your emergency number now.",
+    "ar": "قد يؤدي التوقف المفاجئ عن أقراص النوم أو القلق إلى نوبات تشنجية. إذا أصيب شخص بنوبة، أو كان شديد الارتباك، أو يرى أشياء بعد التوقف عنها، فاتصل برقم الطوارئ الآن.",
+    "ur": "نیند یا بے چینی کی گولیاں اچانک بند کرنے سے دورے پڑ سکتے ہیں۔ اگر کسی کو دورہ پڑا ہو، وہ بہت الجھا ہوا ہو، یا انہیں بند کرنے کے بعد چیزیں دکھائی دے رہی ہوں تو ابھی ایمرجنسی نمبر پر کال کریں۔",
+    "bn": "ঘুমের বা উদ্বেগের ওষুধ হঠাৎ বন্ধ করলে খিঁচুনি হতে পারে। ওষুধ বন্ধ করার পর কারও খিঁচুনি হলে, সে খুব বিভ্রান্ত হলে বা অবাস্তব কিছু দেখলে এখনই জরুরি নম্বরে ফোন করুন।"
+   },
+   "ageBand": ["adult"],
+   "tags": ["emergency", "benzodiazepines", "withdrawal"],
+   "triggers": ["stopped my tablets", "stopped xanax", "fit", "convulsion"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "study", "title": "Horowitz et al. 2026, benzodiazepine dependence and withdrawal, Psychological Medicine", "url": "https://www.cambridge.org/core/product/C172F9ABC3E2E32D7FB133132A4F8012/core-reader", "section": "RES_H1 2.2", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "B",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": true,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "medical_emergency.withdrawal.003",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "GHB, GBL and 1,4-BD withdrawal can start within hours and become life-threatening, with confusion, agitation, seeing things and seizures. If someone using these regularly has any of those signs, call your emergency number now."
+   },
+   "ageBand": ["adult"],
+   "tags": ["emergency", "ghb", "withdrawal"],
+   "triggers": ["ghb", "gbl", "tremor", "agitated"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "Austin Health toxicology guideline: GHB withdrawal (July 2023)", "url": "https://austin.org.au/Assets/Files/GHB%20Withdrawal.July%202023[1].pdf", "section": "RES_H1 2.3", "retrievedOn": "2026-10-27"},
+    {"type": "study", "title": "Neu et al. 2023, GHB/GBL withdrawal inpatient series", "url": "https://ascpjournal.BioMedCentral.com/counter/pdf/10.1186/s13722-023-00414-w.pdf", "section": "RES_H1 2.3", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "medical_emergency.withdrawal.004",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "Opioid withdrawal is miserable but is rarely life-threatening on its own. If someone has severe vomiting and cannot keep fluids down, or is very faint or confused, get medical help today."
+   },
+   "ageBand": ["adult"],
+   "tags": ["emergency", "opioids", "withdrawal"],
+   "triggers": ["dope sick", "opioid withdrawal"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 2.4", "note": "Opioid withdrawal severity: standard teaching; clinician to confirm."},
+    {"type": "guideline", "title": "WHO update on opioid dependence treatment and overdose prevention, 2 April 2026", "url": "https://www.who.int/news/item/02-04-2026-who-updates-guidelines-on-opioid-dependence-treatment-and-overdose-prevention", "section": "RES_H1 3.3", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "medical_emergency.stimulants.001",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "Stimulants such as cocaine, amphetamine and captagon can cause chest pain, a very fast heartbeat, a very high temperature, seizures, or severe confusion. If any of these happen, call your emergency number now and cool the person down while you wait."
+   },
+   "ageBand": ["adult"],
+   "tags": ["emergency", "stimulants", "overdose"],
+   "triggers": ["chest pain", "overheating", "fit", "racing heart", "cocaine", "meth"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 2.4", "note": "Stimulant overdose red flags (chest pain, very high temperature, seizure, severe agitation): standard teaching; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "medical_emergency.general.001",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "Chest pain, trouble breathing, a fit, fainting, sudden weakness on one side, or heavy bleeding are emergencies. Call your emergency number now. Don't drive yourself.",
+    "ar": "ألم الصدر، أو صعوبة التنفس، أو النوبة التشنجية، أو الإغماء، أو الضعف المفاجئ في أحد جانبي الجسم، أو النزيف الشديد، كلها حالات طارئة. اتصل برقم الطوارئ الآن. لا تقد السيارة بنفسك.",
+    "ur": "سینے میں درد، سانس لینے میں دشواری، دورہ، بے ہوشی، جسم کے ایک طرف اچانک کمزوری، یا شدید خون بہنا، یہ سب ہنگامی حالات ہیں۔ ابھی ایمرجنسی نمبر پر کال کریں۔ خود گاڑی نہ چلائیں۔",
+    "bn": "বুকে ব্যথা, শ্বাসকষ্ট, খিঁচুনি, অজ্ঞান হয়ে যাওয়া, শরীরের এক পাশে হঠাৎ দুর্বলতা বা প্রচণ্ড রক্তপাত জরুরি অবস্থা। এখনই জরুরি নম্বরে ফোন করুন। নিজে গাড়ি চালাবেন না।"
+   },
+   "ageBand": ["adult"],
+   "tags": ["emergency", "red-flags", "general"],
+   "triggers": ["chest pain", "can't breathe", "fainting", "bleeding"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 2.4", "note": "Standard first-aid wording (recovery position, stay with the person, do not leave them alone, do not induce vomiting): no source opened; the brief says to call emergency services; clinician to confirm every line."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": true,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "medical_emergency.poison.001",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "If you or someone has taken pills, drunk something harmful, or swallowed a chemical, call your emergency number or the poison centre now. Say what and roughly when. Don't wait for symptoms.",
+    "ar": "إذا تناولت أنت أو شخص آخر أقراصًا، أو شربت شيئًا ضارًا، أو ابتلعت مادة كيميائية، فاتصل برقم الطوارئ أو بمركز السموم الآن. قل ما الذي حدث ومتى تقريبًا. لا تنتظر ظهور الأعراض.",
+    "ur": "اگر آپ نے یا کسی اور نے گولیاں کھا لی ہوں، کوئی نقصان دہ چیز پی لی ہو، یا کوئی کیمیکل نگل لیا ہو تو ابھی ایمرجنسی نمبر یا زہر کے مرکز کو کال کریں۔ بتائیں کیا اور تقریباً کب لیا۔ علامات کا انتظار نہ کریں۔",
+    "bn": "আপনি বা অন্য কেউ ট্যাবলেট খেলে, ক্ষতিকর কিছু পান করলে বা রাসায়নিক গিলে ফেললে এখনই জরুরি নম্বরে বা বিষ নিয়ন্ত্রণ কেন্দ্রে ফোন করুন। কী এবং মোটামুটি কখন তা জানান। উপসর্গের জন্য অপেক্ষা করবেন না।"
+   },
+   "ageBand": ["adult"],
+   "tags": ["emergency", "poison", "ingestion"],
+   "triggers": ["swallowed", "took pills", "drank bleach"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"},
+    {"type": "background", "section": "RES_H1 2.4", "note": "Standard first-aid wording (recovery position, stay with the person, do not leave them alone, do not induce vomiting): no source opened; the brief says to call emergency services; clinician to confirm every line."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": true,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "medical_emergency.selfharm.001",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "If you have hurt yourself and are bleeding, press firmly on the wound with a clean cloth and call your emergency number. You deserve care, not judgement.",
+    "ar": "إذا آذيت نفسك وكنت تنزف، فاضغط بقوة على الجرح بقطعة قماش نظيفة واتصل برقم الطوارئ. أنت تستحق الرعاية لا الحكم عليك.",
+    "ur": "اگر آپ نے خود کو زخمی کیا ہے اور خون بہہ رہا ہے تو صاف کپڑے سے زخم کو مضبوطی سے دبائیں اور ایمرجنسی نمبر پر کال کریں۔ آپ دیکھ بھال کے مستحق ہیں، فیصلے کے نہیں۔",
+    "bn": "আপনি নিজেকে আঘাত করে রক্তপাত হলে একটি পরিষ্কার কাপড় দিয়ে ক্ষতস্থানে জোরে চেপে ধরুন এবং জরুরি নম্বরে ফোন করুন। আপনি যত্ন পাওয়ার যোগ্য, বিচারের নয়।"
+   },
+   "ageBand": ["adult"],
+   "tags": ["emergency", "self-harm", "injury"],
+   "triggers": ["i cut myself", "bleeding", "cut too deep"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"},
+    {"type": "background", "section": "RES_H1 2.4", "note": "Standard first-aid wording (recovery position, stay with the person, do not leave them alone, do not induce vomiting): no source opened; the brief says to call emergency services; clinician to confirm every line."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": true,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "medical_emergency.suicide.001",
+   "kind": "safety",
+   "stage": ["crisis"],
+   "text": {
+    "en": "If you are thinking about ending your life, call your emergency number or a crisis line now. If you can, don't be alone, and keep away from anything you could use to hurt yourself.",
+    "ar": "إذا كنت تفكر في إنهاء حياتك، فاتصل برقم الطوارئ أو بخط الأزمات الآن. إن استطعت فلا تبقَ وحدك، وابتعد عن أي شيء قد تؤذي به نفسك.",
+    "ur": "اگر آپ اپنی زندگی ختم کرنے کے بارے میں سوچ رہے ہیں تو ابھی ایمرجنسی نمبر یا بحران کی ہیلپ لائن پر کال کریں۔ ہو سکے تو اکیلے نہ رہیں، اور ایسی ہر چیز سے دور رہیں جس سے آپ خود کو نقصان پہنچا سکتے ہوں۔",
+    "bn": "আপনি যদি নিজের জীবন শেষ করার কথা ভাবেন, এখনই জরুরি নম্বরে বা সংকটকালীন হেল্পলাইনে ফোন করুন। পারলে একা থাকবেন না, আর নিজেকে আঘাত করতে পারেন এমন সবকিছু থেকে দূরে থাকুন।"
+   },
+   "ageBand": ["adult"],
+   "tags": ["emergency", "suicide", "crisis"],
+   "triggers": ["kill myself", "end my life", "suicide"],
+   "doNotSay": ["Join with helplines.json scope suicide."],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: suicide", "url": "https://www.who.int/news-room/fact-sheets/detail/suicide", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"},
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": true,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "medical_emergency.violence.001",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "If someone has been seriously hurt by another person, or is in immediate danger, call your emergency number. Get yourself somewhere safe first, if you can.",
+    "ar": "إذا تعرّض شخص لإصابة خطيرة على يد شخص آخر، أو كان في خطر مباشر، فاتصل برقم الطوارئ. انتقل إلى مكان آمن أولًا إن استطعت.",
+    "ur": "اگر کسی کو دوسرے شخص نے شدید زخمی کیا ہو، یا وہ فوری خطرے میں ہو تو ایمرجنسی نمبر پر کال کریں۔ اگر ہو سکے تو پہلے خود کسی محفوظ جگہ پہنچ جائیں۔",
+    "bn": "কেউ অন্য কারও হাতে গুরুতর আহত হলে বা তাৎক্ষণিক বিপদে থাকলে জরুরি নম্বরে ফোন করুন। পারলে আগে নিজে নিরাপদ জায়গায় যান।"
+   },
+   "ageBand": ["adult"],
+   "tags": ["emergency", "violence", "abuse"],
+   "triggers": ["he is beating", "attacked", "stabbed"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: violence against women", "url": "https://www.who.int/news-room/fact-sheets/detail/violence-against-women", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": true,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "medical_emergency.violence.002",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "If someone has choked or strangled you, even if you feel fine afterwards, get medical care today. Hidden injuries can be serious.",
+    "ar": "إذا خنقك أحد أو ضغط على رقبتك، فاحصل على رعاية طبية اليوم حتى لو شعرت بعدها أنك بخير. فقد تكون الإصابات الخفية خطيرة.",
+    "ur": "اگر کسی نے آپ کا گلا دبایا ہو تو بعد میں ٹھیک محسوس کرنے کے باوجود آج ہی طبی مدد لیں۔ اندرونی چوٹیں سنگین ہو سکتی ہیں۔",
+    "bn": "কেউ আপনার গলা চেপে ধরলে পরে ভালো লাগলেও আজই চিকিৎসা নিন। ভেতরের আঘাত গুরুতর হতে পারে।"
+   },
+   "ageBand": ["adult"],
+   "tags": ["emergency", "strangulation", "abuse"],
+   "triggers": ["choked me", "strangled"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 6", "note": "Strangulation can cause delayed internal injury; standard domestic-abuse and emergency-medicine teaching; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": true,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "medical_emergency.child.001",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "If a child has swallowed something, taken someone's medicine, or is hard to wake, call your emergency number now.",
+    "ar": "إذا ابتلع طفل شيئًا، أو تناول دواء شخص آخر، أو كان من الصعب إيقاظه، فاتصل برقم الطوارئ الآن.",
+    "ur": "اگر کسی بچے نے کوئی چیز نگل لی ہو، کسی اور کی دوا کھا لی ہو، یا اسے جگانا مشکل ہو تو ابھی ایمرجنسی نمبر پر کال کریں۔",
+    "bn": "কোনো শিশু কিছু গিলে ফেললে, অন্য কারও ওষুধ খেলে বা তাকে জাগানো কঠিন হলে এখনই জরুরি নম্বরে ফোন করুন।"
+   },
+   "ageBand": ["adult"],
+   "tags": ["emergency", "child", "poison"],
+   "triggers": ["my child took", "the baby swallowed"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 2.4", "note": "Standard first-aid wording (recovery position, stay with the person, do not leave them alone, do not induce vomiting): no source opened; the brief says to call emergency services; clinician to confirm every line."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": true,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "medical_emergency.triage.001",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Is the person breathing normally and can you wake them?",
+    "ar": "هل يتنفس الشخص بشكل طبيعي وهل تستطيع إيقاظه؟",
+    "ur": "کیا وہ شخص عام طور پر سانس لے رہا ہے اور کیا آپ اسے جگا سکتے ہیں؟",
+    "bn": "ব্যক্তিটি কি স্বাভাবিকভাবে শ্বাস নিচ্ছে এবং আপনি কি তাকে জাগাতে পারছেন?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["emergency", "triage"],
+   "triggers": [],
+   "doNotSay": ["One question only. If no, show the first overdose card immediately."],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: opioid overdose", "url": "https://www.who.int/news-room/fact-sheets/detail/opioid-overdose", "section": "RES_H1 2.4", "retrievedOn": "2026-10-27"},
+    {"type": "background", "section": "RES_H1 2.4", "note": "Standard first-aid wording (recovery position, stay with the person, do not leave them alone, do not induce vomiting): no source opened; the brief says to call emergency services; clinician to confirm every line."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "askPermission": true,
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": true,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "medical_emergency.triage.002",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Have you called your emergency number yet?",
+    "ar": "هل اتصلت برقم الطوارئ بعد؟",
+    "ur": "کیا آپ نے ابھی تک ایمرجنسی نمبر پر کال کی ہے؟",
+    "bn": "আপনি কি এখনও জরুরি নম্বরে ফোন করেছেন?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["emergency", "triage"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 2.4", "note": "Standard first-aid wording (recovery position, stay with the person, do not leave them alone, do not induce vomiting): no source opened; the brief says to call emergency services; clinician to confirm every line."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "askPermission": true,
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": true,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "medical_emergency.triage.003",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Are you safe where you are right now?",
+    "ar": "هل أنت في أمان حيث أنت الآن؟",
+    "ur": "کیا آپ اس وقت جہاں ہیں وہاں محفوظ ہیں؟",
+    "bn": "আপনি এখন যেখানে আছেন সেখানে কি নিরাপদ?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["emergency", "triage", "safety"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 2.4", "note": "Standard first-aid wording (recovery position, stay with the person, do not leave them alone, do not induce vomiting): no source opened; the brief says to call emergency services; clinician to confirm every line."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "askPermission": true,
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": true,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "medical_emergency.orient.001",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "I'm an app, not an emergency service, and I can't see what's happening. If this is an emergency, call your emergency number first. I'll stay with you.",
+    "ar": "أنا تطبيق ولست خدمة طوارئ، ولا أستطيع رؤية ما يحدث. إذا كانت هذه حالة طارئة فاتصل برقم الطوارئ أولًا. سأبقى معك.",
+    "ur": "میں ایک ایپ ہوں، ایمرجنسی سروس نہیں، اور مجھے نظر نہیں آتا کہ کیا ہو رہا ہے۔ اگر یہ ہنگامی صورت ہے تو پہلے ایمرجنسی نمبر پر کال کریں۔ میں آپ کے ساتھ ہوں۔",
+    "bn": "আমি একটি অ্যাপ, জরুরি সেবা নই, আর কী ঘটছে তা আমি দেখতে পাই না। এটি জরুরি অবস্থা হলে আগে জরুরি নম্বরে ফোন করুন। আমি আপনার সঙ্গে আছি।"
+   },
+   "ageBand": ["adult"],
+   "tags": ["emergency", "honesty", "opening"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 2.4", "note": "Standard first-aid wording (recovery position, stay with the person, do not leave them alone, do not induce vomiting): no source opened; the brief says to call emergency services; clinician to confirm every line."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": true,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "medical_emergency.orient.002",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "Tell me what's happening in a few words. If someone isn't breathing or can't be woken, call now.",
+    "ar": "أخبرني بما يحدث في كلمات قليلة. إذا كان شخص لا يتنفس أو لا يمكن إيقاظه، فاتصل الآن.",
+    "ur": "چند الفاظ میں بتائیں کہ کیا ہو رہا ہے۔ اگر کوئی سانس نہیں لے رہا یا جاگ نہیں رہا تو ابھی کال کریں۔",
+    "bn": "কয়েকটি কথায় বলুন কী ঘটছে। কেউ শ্বাস না নিলে বা জাগানো না গেলে এখনই ফোন করুন।"
+   },
+   "ageBand": ["adult"],
+   "tags": ["emergency", "opening"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 2.4", "note": "Standard first-aid wording (recovery position, stay with the person, do not leave them alone, do not induce vomiting): no source opened; the brief says to call emergency services; clinician to confirm every line."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": true,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "medical_emergency.fear.001",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Calling for help for an overdose is the right thing to do. In many places there are protections for people who call, and you can ask the call-taker about it. Saving a life matters more than any worry about getting in trouble."
+   },
+   "ageBand": ["adult"],
+   "tags": ["emergency", "fear-of-calling", "legal"],
+   "triggers": ["will i get in trouble", "afraid to call", "police"],
+   "doNotSay": ["Needs local legal review; do not promise a protection."],
+   "sources": [
+    {"type": "background", "section": "RES_H1 7.7", "note": "Good Samaritan protections vary by country; local legal review needed before stating any protection."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "askPermission": true,
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "medical_emergency.calling.001",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "You can call without giving a name. Say where you are, what happened and what you can see. Stay on the line until they tell you to hang up."
+   },
+   "ageBand": ["adult"],
+   "tags": ["emergency", "calling", "script"],
+   "triggers": ["what do i say", "how do i call"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 2.4", "note": "Standard first-aid wording (recovery position, stay with the person, do not leave them alone, do not induce vomiting): no source opened; the brief says to call emergency services; clinician to confirm every line."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "askPermission": true,
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "medical_emergency.spiking.001",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "If you are worried a drink or medicine may have been given to you without your knowledge, get to a safe place and ask for medical help. Tell the staff you are worried."
+   },
+   "ageBand": ["adult"],
+   "tags": ["emergency", "spiking"],
+   "triggers": ["spiked", "drugged my drink"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 6", "note": "Drink spiking: seek medical help; standard teaching; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "askPermission": true,
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "medical_emergency.next.001",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "Right now: call your emergency number, then come back and tell me what they said. I'm here.",
+    "ar": "الآن: اتصل برقم الطوارئ، ثم عد وأخبرني بما قالوه. أنا هنا.",
+    "ur": "ابھی: ایمرجنسی نمبر پر کال کریں، پھر واپس آ کر بتائیں کہ انہوں نے کیا کہا۔ میں یہاں ہوں۔",
+    "bn": "এখনই: জরুরি নম্বরে ফোন করুন, তারপর ফিরে এসে বলুন তারা কী বলল। আমি এখানে আছি।"
+   },
+   "ageBand": ["adult"],
+   "tags": ["emergency", "next-step"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 2.4", "note": "Standard first-aid wording (recovery position, stay with the person, do not leave them alone, do not induce vomiting): no source opened; the brief says to call emergency services; clinician to confirm every line."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "askPermission": true,
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": true,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "medical_emergency.next.002",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "Right now: stay with the person, keep checking their breathing, and don't give them anything to eat or drink.",
+    "ar": "الآن: ابقَ مع الشخص، وتحقق من تنفسه باستمرار، ولا تعطه أي طعام أو شراب.",
+    "ur": "ابھی: اس شخص کے ساتھ رہیں، اس کی سانس بار بار دیکھتے رہیں، اور اسے کھانے پینے کو کچھ نہ دیں۔",
+    "bn": "এখনই: ব্যক্তিটির সঙ্গে থাকুন, তার শ্বাস বারবার দেখুন, এবং তাকে খাওয়ার বা পান করার কিছু দেবেন না।"
+   },
+   "ageBand": ["adult"],
+   "tags": ["emergency", "next-step", "stay"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 2.4", "note": "Standard first-aid wording (recovery position, stay with the person, do not leave them alone, do not induce vomiting): no source opened; the brief says to call emergency services; clinician to confirm every line."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "askPermission": true,
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": true,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "medical_emergency.numbers.001",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "The numbers for emergency services and poison centres in your country are listed below. If yours isn't there, use the local emergency number you know.",
+    "ar": "أرقام خدمات الطوارئ ومراكز السموم في بلدك مدرجة أدناه. وإن لم يكن بلدك فيها، فاستخدم رقم الطوارئ المحلي الذي تعرفه.",
+    "ur": "آپ کے ملک میں ایمرجنسی سروسز اور زہر کے مراکز کے نمبر نیچے درج ہیں۔ اگر آپ کا ملک اس میں نہیں ہے تو وہ مقامی ایمرجنسی نمبر استعمال کریں جو آپ جانتے ہیں۔",
+    "bn": "আপনার দেশের জরুরি সেবা ও বিষ নিয়ন্ত্রণ কেন্দ্রের নম্বর নিচে দেওয়া আছে। আপনার দেশ তালিকায় না থাকলে আপনার জানা স্থানীয় জরুরি নম্বর ব্যবহার করুন।"
+   },
+   "ageBand": ["adult"],
+   "tags": ["emergency", "emergency-numbers"],
+   "triggers": ["emergency number", "what number"],
+   "doNotSay": ["Join with helplines.json scope emergency; never type a number; honest if unlisted."],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": true,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "medical_emergency.followup.001",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "After an emergency, see a doctor, even if you feel better. Many problems show up later.",
+    "ar": "بعد حالة طارئة، راجع طبيبًا حتى لو شعرت بتحسن. فكثير من المشكلات تظهر لاحقًا.",
+    "ur": "ہنگامی صورت کے بعد، بہتر محسوس کرنے پر بھی ڈاکٹر کو دکھائیں۔ بہت سے مسائل بعد میں سامنے آتے ہیں۔",
+    "bn": "জরুরি অবস্থার পর ভালো লাগলেও ডাক্তার দেখান। অনেক সমস্যা পরে প্রকাশ পায়।"
+   },
+   "ageBand": ["adult"],
+   "tags": ["emergency", "follow-up", "doctor"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 2.4", "note": "Standard first-aid wording (recovery position, stay with the person, do not leave them alone, do not induce vomiting): no source opened; the brief says to call emergency services; clinician to confirm every line."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": true,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "medical_emergency.priority.001",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Qur'an says that whoever saves a life, it is as if they saved all of humanity. Calling for help now is the right thing to do before anything else, including prayer."
+   },
+   "ageBand": ["adult"],
+   "tags": ["emergency", "saving-life"],
+   "triggers": ["i should pray first", "it is not allowed to call"],
+   "doNotSay": ["No ruling about prayer timing is given; scholar to confirm framing."],
+   "sources": [
+    {"type": "quran", "ref": "5:32", "section": "RES_H2 6.1"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "neverParaphrase": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "medical_emergency.treatment.001",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet encouraged seeking treatment, saying Allah has not made an illness without a cure. Getting urgent medical help is in keeping with that."
+   },
+   "ageBand": ["adult"],
+   "tags": ["emergency", "treatment"],
+   "triggers": ["is it tawakkul", "should i leave it to allah"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "ibnmajah:3438", "grade": "Sahih", "grader": "al-Albani", "section": "RES_H2 2.5"},
+    {"type": "hadith", "ref": "ibnmajah:3436", "grade": "Sahih", "grader": "al-Albani", "section": "RES_H2 2.5"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "neverParaphrase": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "medical_emergency.fiqh.001",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Scholars differ on some questions about medicines and treatment in an emergency, and I can't give a ruling. In an emergency, get help first. A scholar can answer the question afterwards."
+   },
+   "ageBand": ["adult"],
+   "tags": ["emergency", "darura", "fiqh", "scholar-handoff"],
+   "triggers": ["is naloxone halal", "is the medicine haram"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "fiqh", "title": "Scholars differ on necessity (darura) and medicines; Dar al-Ifta al-Misriyyah fatwa 5983 (1979) and the darura conditions in Azahar et al., KATHA 2024", "level": "institution", "section": "RES_H2 3.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "neverParaphrase": true,
+   "disputed": true,
+   "schoolsNamed": ["hanafi", "maliki", "shafii", "hanbali"],
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "medical_emergency.bystander.001",
+   "kind": "family",
+   "stage": ["explore"],
+   "text": {
+    "en": "If you are with someone who may be in danger, stay calm, speak to them, and call your emergency number. You do not need to be sure it is an emergency."
+   },
+   "ageBand": ["adult"],
+   "tags": ["emergency", "bystander"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 2.4", "note": "Standard first-aid wording (recovery position, stay with the person, do not leave them alone, do not induce vomiting): no source opened; the brief says to call emergency services; clinician to confirm every line."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "askPermission": true,
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "medical_emergency.summary.001",
+   "kind": "summary",
+   "stage": ["close"],
+   "text": {
+    "en": "Right now the most important thing is your emergency number. When it's over, I'm here to talk through what happened."
+   },
+   "ageBand": ["adult"],
+   "tags": ["emergency", "summary"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 2.4", "note": "Standard first-aid wording (recovery position, stay with the person, do not leave them alone, do not induce vomiting): no source opened; the brief says to call emergency services; clinician to confirm every line."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}

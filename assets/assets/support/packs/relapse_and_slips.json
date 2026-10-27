@@ -1,0 +1,924 @@
+{
+ "schema": 1,
+ "pack": "relapse_and_slips",
+ "packKind": "support",
+ "topic": "relapse",
+ "description": "After a slip or relapse, any substance or behaviour: no shaming, learn from it, return to the plan, and keep safety front of mind.",
+ "audience": "hadi",
+ "ageBands": ["adult"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en"],
+ "snippets": [
+  {
+   "id": "relapse_and_slips.orient.001",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "Thank you for telling me. A slip doesn't undo what you've done so far. What happened?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["relapse", "opening", "no-shame"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "relapse_and_slips.orient.002",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "I'm glad you came back, even after this. You can tell me as much as you like."
+   },
+   "ageBand": ["adult"],
+   "tags": ["relapse", "opening", "no-shame"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "relapse_and_slips.orient.003",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "Slips happen, and they are not the end. Where are you right now?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["relapse", "opening"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "relapse_and_slips.reflect.001",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "You feel you've let yourself and others down."
+   },
+   "ageBand": ["adult"],
+   "tags": ["relapse", "shame"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "relapse_and_slips.reflect.002",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you were doing well, and this hit hard."
+   },
+   "ageBand": ["adult"],
+   "tags": ["relapse", "setback"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "relapse_and_slips.reflect.003",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "You're disappointed, and you're also here, still trying."
+   },
+   "ageBand": ["adult"],
+   "tags": ["relapse", "effort"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "relapse_and_slips.reflect.004",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you're afraid it all starts again."
+   },
+   "ageBand": ["adult"],
+   "tags": ["relapse", "fear"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "relapse_and_slips.reflect.005",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "You want to hide it, and part of you wants to talk."
+   },
+   "ageBand": ["adult"],
+   "tags": ["relapse", "secrecy"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "relapse_and_slips.reflect.006",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like it came on suddenly."
+   },
+   "ageBand": ["adult"],
+   "tags": ["relapse", "trigger"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "relapse_and_slips.reflect.007",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "You were stressed, and it was the thing you knew."
+   },
+   "ageBand": ["adult"],
+   "tags": ["relapse", "coping"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "relapse_and_slips.reflect.008",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "You're angry with yourself."
+   },
+   "ageBand": ["adult"],
+   "tags": ["relapse", "self-criticism"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "relapse_and_slips.ask.001",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What was going on just before it happened?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["relapse", "trigger"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "relapse_and_slips.ask.002",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What did you do right, even in the middle of it?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["relapse", "strengths"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "relapse_and_slips.ask.003",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Are you safe at this moment?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["relapse", "safety-check"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "high",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "relapse_and_slips.ask.004",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What do you need most right now?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["relapse", "needs"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "relapse_and_slips.ask.005",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What would you want to do differently if the same moment came again?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["relapse", "learning"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "relapse_and_slips.ask.006",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Who could you tell, if you chose to?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["relapse", "support"],
+   "triggers": [],
+   "doNotSay": ["Never push disclosure."],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "relapse_and_slips.affirm.001",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "Coming back and telling me takes honesty."
+   },
+   "ageBand": ["adult"],
+   "tags": ["relapse", "effort"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "relapse_and_slips.affirm.002",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "The days you went without still happened. They count."
+   },
+   "ageBand": ["adult"],
+   "tags": ["relapse", "progress"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "relapse_and_slips.affirm.003",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "You didn't give up on yourself. That matters."
+   },
+   "ageBand": ["adult"],
+   "tags": ["relapse", "effort"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "relapse_and_slips.explain.001",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Slips are common on the road away from alcohol, drugs, gambling and other habits. They don't mean treatment has failed. They show what to plan for next time."
+   },
+   "ageBand": ["adult"],
+   "tags": ["relapse", "normal", "learning"],
+   "triggers": ["i failed", "back to square one", "i ruined it"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "NIAAA Core Resource on Alcohol: alcohol use disorder, risk, diagnosis and recovery", "url": "https://www.niaaa.nih.gov/health-professionals-communities/core-resource-on-alcohol/alcohol-use-disorder-risk-diagnosis-recovery", "section": "RES_H1 2.1", "retrievedOn": "2026-10-27"},
+    {"type": "background", "section": "RES_H1 3.8", "note": "Relapse is common and a slip is information for the plan: standard relapse-prevention teaching; the NIAAA Core Resource describes relapse as common; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "relapse_and_slips.explain.002",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "The first day after a slip is often the most important. Getting back to your plan, and getting support, tends to matter more than the slip itself."
+   },
+   "ageBand": ["adult"],
+   "tags": ["relapse", "recovery", "plan"],
+   "triggers": ["what now", "what do i do now"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 3.8", "note": "Relapse is common and a slip is information for the plan: standard relapse-prevention teaching; the NIAAA Core Resource describes relapse as common; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "relapse_and_slips.explain.003",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "If you used drugs after a long break, your body may not cope with what it used to. Please speak to a doctor or a drug service before using again, and don't use alone."
+   },
+   "ageBand": ["adult"],
+   "tags": ["relapse", "tolerance", "overdose-risk"],
+   "triggers": ["used again after", "after rehab", "after prison", "after a long time"],
+   "doNotSay": ["Warning only; no amounts, routes or combinations."],
+   "sources": [
+    {"type": "background", "section": "RES_H1 2.4", "note": "After time off, tolerance falls and the same amount can be dangerous (opioids; standard teaching); clinician to confirm."},
+    {"type": "guideline", "title": "WHO fact sheet: opioid overdose", "url": "https://www.who.int/news-room/fact-sheets/detail/opioid-overdose", "section": "RES_H1 2.4", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "relapse_and_slips.explain.004",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "If you have been drinking heavily every day and you want to stop again, please see a doctor first, because stopping suddenly can be dangerous."
+   },
+   "ageBand": ["adult"],
+   "tags": ["relapse", "alcohol", "withdrawal"],
+   "triggers": ["drinking again", "back on it"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "NIAAA Rethinking Drinking: cutting down or quitting", "url": "https://rethinkingdrinking.niaaa.nih.gov/thinking-about-change/cut-down-or-quit", "section": "RES_H1 2.1", "retrievedOn": "2026-10-27"},
+    {"type": "guideline", "title": "NICE CG100: Alcohol-use disorders, diagnosis and management of physical complications", "url": "https://www.nice.org.uk/guidance/cg100/chapter/1-Guidance", "section": "RES_H1 2.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "relapse_and_slips.explain.005",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "A relapse can feel like proof that you can't change. It's not. Many people who go on to do well had several slips on the way."
+   },
+   "ageBand": ["adult"],
+   "tags": ["relapse", "hope"],
+   "triggers": ["can't change", "always do this"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "NIAAA Core Resource on Alcohol: alcohol use disorder, risk, diagnosis and recovery", "url": "https://www.niaaa.nih.gov/health-professionals-communities/core-resource-on-alcohol/alcohol-use-disorder-risk-diagnosis-recovery", "section": "RES_H1 2.1", "retrievedOn": "2026-10-27"},
+    {"type": "background", "section": "RES_H1 3.8", "note": "Relapse is common and a slip is information for the plan: standard relapse-prevention teaching; the NIAAA Core Resource describes relapse as common; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "relapse_and_slips.plan-step.001",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: write down what led up to this, just the facts, no blaming. It will help the next plan."
+   },
+   "ageBand": ["adult"],
+   "tags": ["relapse", "trigger-log"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 3.8", "note": "Relapse is common and a slip is information for the plan: standard relapse-prevention teaching; the NIAAA Core Resource describes relapse as common; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "relapse_and_slips.plan-step.002",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: tell one person today. It could be a counsellor, a peer or a friend. Shall we think about who and what to say?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["relapse", "support", "script"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 3.8", "note": "Relapse is common and a slip is information for the plan: standard relapse-prevention teaching; the NIAAA Core Resource describes relapse as common; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "relapse_and_slips.plan-step.003",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: change one thing in the next hour that makes using harder, like leaving a place or putting distance between you and it."
+   },
+   "ageBand": ["adult"],
+   "tags": ["relapse", "environment"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 3.8", "note": "Relapse is common and a slip is information for the plan: standard relapse-prevention teaching; the NIAAA Core Resource describes relapse as common; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "relapse_and_slips.plan-step.004",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: book a visit with your doctor or counsellor this week, to restart your plan."
+   },
+   "ageBand": ["adult"],
+   "tags": ["relapse", "appointment"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 3.8", "note": "Relapse is common and a slip is information for the plan: standard relapse-prevention teaching; the NIAAA Core Resource describes relapse as common; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "relapse_and_slips.safety.001",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "If you have used drugs or taken pills and feel very unwell, can't be woken, or are struggling to breathe, call your emergency number now."
+   },
+   "ageBand": ["adult"],
+   "tags": ["relapse", "overdose", "emergency"],
+   "triggers": ["i overdosed", "took too much"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: opioid overdose", "url": "https://www.who.int/news-room/fact-sheets/detail/opioid-overdose", "section": "RES_H1 2.4", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "relapse_and_slips.safety.002",
+   "kind": "safety",
+   "stage": ["crisis"],
+   "text": {
+    "en": "If shame or despair after a slip is making you think about ending your life, please contact your emergency number or a crisis line now. A slip is not the end."
+   },
+   "ageBand": ["adult"],
+   "tags": ["relapse", "suicide", "crisis"],
+   "triggers": ["kill myself", "end it", "what is the point"],
+   "doNotSay": ["Join with helplines.json scope suicide."],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: suicide", "url": "https://www.who.int/news-room/fact-sheets/detail/suicide", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"},
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "relapse_and_slips.referral.001",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "Your counsellor or doctor will want to hear about the slip, and they won't judge it. If you don't have one, a drug or alcohol service can help you restart."
+   },
+   "ageBand": ["adult"],
+   "tags": ["relapse", "counsellor", "doctor"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 3.8", "note": "Relapse is common and a slip is information for the plan: standard relapse-prevention teaching; the NIAAA Core Resource describes relapse as common; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "relapse_and_slips.referral.002",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "A peer support group can help the first days after a slip. They have all been there. I can show what exists in your country."
+   },
+   "ageBand": ["adult"],
+   "tags": ["relapse", "peer-support"],
+   "triggers": [],
+   "doNotSay": ["Only verified services."],
+   "sources": [
+    {"type": "guideline", "title": "NIAAA Core Resource on Alcohol: alcohol use disorder, risk, diagnosis and recovery", "url": "https://www.niaaa.nih.gov/health-professionals-communities/core-resource-on-alcohol/alcohol-use-disorder-risk-diagnosis-recovery", "section": "RES_H1 2.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "relapse_and_slips.islamic.001",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet taught that Allah is more pleased with the repentance of a servant than a man who finds his lost camel in the desert. Coming back after a slip is what He loves."
+   },
+   "ageBand": ["adult"],
+   "tags": ["relapse", "tawbah", "mercy"],
+   "triggers": ["again", "repented and fell"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:6308", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 1.1"},
+    {"type": "hadith", "ref": "muslim:2744", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 1.1"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "relapse_and_slips.islamic.002",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "A man was brought before the Prophet again and again for drinking, and when a man spoke harshly of him the Prophet said not to, for he loves Allah and His Messenger. Mercy is how the Prophet treated repeated slips."
+   },
+   "ageBand": ["adult"],
+   "tags": ["relapse", "mercy"],
+   "triggers": ["i keep going back", "again and again"],
+   "doNotSay": ["Only after repeated relapse is mentioned."],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:6780", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 3.2"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "relapse_and_slips.islamic.003",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet said that Allah accepts repentance, and taught that good deeds wipe out bad ones. You can follow a slip with a good deed."
+   },
+   "ageBand": ["adult"],
+   "tags": ["relapse", "tawbah", "good-deeds"],
+   "triggers": ["what can i do to make up", "how do i make it right"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "tirmidhi:1987", "grade": "hasan", "grader": "Darussalam", "section": "RES_H2 1.2"},
+    {"type": "hadith", "ref": "muslim:2763", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 1.2"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "relapse_and_slips.islamic.004",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet told us about a man who had killed many people, who asked if he could repent, and was told to move to a place of righteous people. Changing your surroundings is part of a fresh start."
+   },
+   "ageBand": ["adult"],
+   "tags": ["relapse", "environment", "tawbah"],
+   "triggers": ["same friends", "same place"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:3470", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 1.1"},
+    {"type": "hadith", "ref": "muslim:2766", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 1.1"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "relapse_and_slips.islamic.005",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Scholars differ on some questions after a slip, such as whether prayers must be repeated, and I can't give a ruling. A scholar can advise you, and it is fine to ask without sharing details."
+   },
+   "ageBand": ["adult"],
+   "tags": ["relapse", "prayer", "fiqh", "scholar-handoff"],
+   "triggers": ["do i repeat my prayers", "are my prayers valid", "ruling"],
+   "doNotSay": ["Never quote the \"forty days\" report."],
+   "sources": [
+    {"type": "fiqh", "title": "Scholars differ on prayer and purity questions after intoxication; no source opened for this brief", "level": "institution", "section": "RES_H2 3.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "disputed": true,
+   "schoolsNamed": ["hanafi", "maliki", "shafii", "hanbali"],
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "relapse_and_slips.family.001",
+   "kind": "family",
+   "stage": ["explore"],
+   "text": {
+    "en": "If someone you love has slipped, try to stay calm, tell them you still care, and ask what would help. Shouting rarely helps, and they may already feel ashamed."
+   },
+   "ageBand": ["adult"],
+   "tags": ["relapse", "family-of"],
+   "triggers": ["he relapsed", "she is using again"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "NIAAA Core Resource on Alcohol: alcohol use disorder, risk, diagnosis and recovery", "url": "https://www.niaaa.nih.gov/health-professionals-communities/core-resource-on-alcohol/alcohol-use-disorder-risk-diagnosis-recovery", "section": "RES_H1 2.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "relapse_and_slips.summary.001",
+   "kind": "summary",
+   "stage": ["close"],
+   "text": {
+    "en": "What I've heard: you slipped, {topic} was part of it, and you want to get back on track. A slip is one moment, and the next step is yours."
+   },
+   "ageBand": ["adult"],
+   "slots": ["topic"],
+   "tags": ["relapse", "summary"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}
