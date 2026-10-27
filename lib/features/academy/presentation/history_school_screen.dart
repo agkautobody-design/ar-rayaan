@@ -7,6 +7,7 @@ library;
 
 import 'package:flutter/material.dart';
 
+import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
@@ -50,8 +51,8 @@ const List<_HistEra> kHistoryEras = <_HistEra>[
         storyId: 'comp-umar',
       ),
       _HistChapter(
-        title: 'The Milk and the Account',
-        note: 'Umar\u2019s son traded milk; Umar asked why it was not watered. The answer — \'if it is watered, the account is false\' — became the era\u2019s definition of public honesty.',
+        title: 'The Pot of Milk',
+        note: 'A report (Muwatta Malik, through Zayd ibn Aslam) that Umar made himself vomit milk he learned came from the zakat camels. A report, not an eyewitness chain; not yet scholar-reviewed.',
         storyId: 'tale-umar-milk',
       ),
       _HistChapter(
@@ -82,13 +83,13 @@ const List<_HistEra> kHistoryEras = <_HistEra>[
         storyId: 'tale-jurayj',
       ),
       _HistChapter(
-        title: 'Barsisa — The Monk\u2019s Descent',
-        note: 'The scholar whose one unguarded step became many — the generation\u2019s warning about the nafs.',
+        title: 'Barsisa — A Tale We Cannot Verify',
+        note: 'A monk\u2019s tale some commentaries tell about 59:16. The app does not retell it; it gives the Qur\u2019an\u2019s parable of Shaytan instead.',
         storyId: 'tale-barsisa',
       ),
       _HistChapter(
-        title: 'Khalid — The Letter of Honor',
-        note: 'How a commander\u2019s letter guarded the lives of the defeated — war ethics written in practice.',
+        title: 'Khalid — Words on His Deathbed',
+        note: 'The words reported on Khalid ibn al-Walid\u2019s deathbed (Ibn al-Athir, Usd al-Ghaba; a seerah report, not from the six books, not yet scholar-reviewed).',
         storyId: 'tale-khalid-letter',
       ),
       _HistChapter(
@@ -160,11 +161,24 @@ class HistorySchoolScreen extends StatelessWidget {
                     padding: const EdgeInsets.only(bottom: 8),
                     child: GlassCard(
                       blur: false,
+                      // A chapter that has a story in the library opens it.
+                      onTap: ch.storyId == null
+                          ? null
+                          : () => context.open(
+                                '${AppRoutes.storyReader}?id=${Uri.encodeQueryComponent(ch.storyId!)}',
+                              ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Text(ch.title, style: AppText.body.copyWith(
-                              fontWeight: FontWeight.w600, fontSize: 13.5)),
+                          Row(children: <Widget>[
+                            Expanded(
+                              child: Text(ch.title, style: AppText.body.copyWith(
+                                  fontWeight: FontWeight.w600, fontSize: 13.5)),
+                            ),
+                            if (ch.storyId != null)
+                              const Icon(Icons.chevron_right,
+                                  size: 18, color: AppColors.gold),
+                          ]),
                           const SizedBox(height: 4),
                           Text(ch.note, style: AppText.bodyMuted.copyWith(
                               fontSize: 12, height: 1.5)),

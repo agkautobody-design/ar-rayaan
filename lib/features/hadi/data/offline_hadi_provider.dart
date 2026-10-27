@@ -2921,16 +2921,16 @@ const List<_Entry> _knowledge = <_Entry>[
   _Entry(
     <String>['muhammad', 'life of the prophet', 'the prophet\'s story', 'seerah summary', 'final prophet'],
     'Muhammad ibn Abdullah, the Seal of the Prophets (Al-Ahzab 40), '
-    'was born in Makkah in the Year of the Elephant, orphaned '
-    'young, known as As-Sadiq Al-Amin - the Truthful, the '
-    'Trustworthy - long before revelation. At forty, in the cave '
-    'of Hira, Jibreel brought him: "Iqra" - Read. He endured '
-    'thirteen years of Makkan persecution, walked to Madinah when '
-    'the assassination plot was laid, and in ten years there built '
-    'a community that changed history - forgiving the city that '
-    'stoned him at its conquest: "Go, you are free." He passed at '
-    'sixty-three with his armor pledged for wheat - leaving no '
-    'gold and a religion that now carries two billion hearts.',
+    'was born in Makkah, and the seerah sources (Ibn Ishaq, Ibn Hisham) '
+    'say he was orphaned young and known among his people as As-Sadiq '
+    'Al-Amin - the Truthful, the Trustworthy - before revelation. '
+    'Ibn Abbas reported that revelation began when he was forty, that he '
+    'stayed in Makkah thirteen years, was ordered to migrate, lived in '
+    'Madinah ten years and died at sixty-three (Bukhari 3902). The '
+    'seerah sources add the cave of Hira, the plot against his life, and '
+    'that at the conquest of Makkah he forgave Quraysh. Aisha said he '
+    'died while his iron armor was pledged to a Jew for thirty sa\' of '
+    'barley (Bukhari 2916).',
   ),
   _Entry(
     <String>['order of prophets', 'list of prophets', '25 prophets', 'how many prophets', 'prophets mentioned'],

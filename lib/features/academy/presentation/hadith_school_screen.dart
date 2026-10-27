@@ -57,7 +57,7 @@ const List<_HadithLesson> kHadithLessons = <_HadithLesson>[
   _HadithLesson(
     title: 'Lesson 2 — The Core of the Matter',
     meaning:
-        'Islam is built on five: the testimony that none is worthy of worship but Allah and Muhammad is His Messenger, establishing prayer, giving zakat, fasting Ramadan, and Hajj to the House for whoever can make the way. The Prophet \ufdfa said this to Jibril when he came as a man to teach the companions — the questions were for you.',
+        'Islam is built on five: the testimony that none is worthy of worship but Allah and Muhammad is His Messenger, establishing prayer, giving zakat, fasting Ramadan, and Hajj to the House for whoever can make the way. Ibn Umar reported the Prophet \ufdfa saying it (Bukhari 8). In the hadith of Jibril (Lesson 3) the same five are given as what Islam is.',
     character: 'Hold the five pillars daily; they are the frame of everything else.',
     nawawi: 3,
   ),
@@ -71,8 +71,9 @@ const List<_HadithLesson> kHadithLessons = <_HadithLesson>[
   _HadithLesson(
     title: 'Lesson 4 — Your Time of Life',
     meaning:
-        'The Prophet \ufdfa said: you are in the evening of one day and the morning of the next — your health before your sickness, your wealth before your poverty, your life before your death, and your free time before your busyness. Five before five, none of which return once gone.',
-    character: 'Name one of the five-before-five you still hold; spend it today.',
+        'A saying attributed to the Prophet ﷺ tells us to take advantage of five before five: youth before old age, health before sickness, wealth before poverty, free time before busyness, and life before death. It is reported in some collections (for example al-Hakim’s Mustadrak, which is not one of the six books); its wording and grade were not checked for this app, so it is taught here as a reminder and not as a ruling.',
+    character: 'Name one of the five you still hold; spend it well today.',
+    source: 'Reported in al-Hakim’s Mustadrak; not checked here (not yet scholar-reviewed)',
   ),
   _HadithLesson(
     title: 'Lesson 5 — The Allowed and the Forbidden Are Clear',
@@ -103,11 +104,11 @@ const List<_HadithLesson> kHadithLessons = <_HadithLesson>[
     nawawi: 35,
   ),
   _HadithLesson(
-    title: 'Lesson 9 — Avoid What Is Doubtful',
+    title: 'Lesson 9 — Religion Is Easy',
     meaning:
-        'The halal is clear and the haram is clear, and between them are doubtful matters unknown to many. Whoever guards the doubtful has protected his religion and his honor. And in the body is a morsel — if it is sound the whole body is sound, and if it is corrupt the whole body is corrupt. Indeed it is the heart. The stomach\'s halal is the heart\'s halal — they rise and fall together.',
-    character: 'Run one purchase through the doubt test this week — if it feels gray, choose the side that lets you sleep.',
-    nawawi: 6,
+        'The Prophet ﷺ said: religion is very easy, and whoever overburdens himself in his religion will not be able to continue. So do not be extreme: be near to perfection, take the good news, and gain strength by worship in the mornings, the afternoons and the last hours of the night. Ease is not laziness; it is what lets a person keep going.',
+    character: 'Cut one practice down to what you can keep every day this week, and keep it.',
+    source: 'Bukhari 39',
   ),
   _HadithLesson(
     title: 'Lesson 10 — Leave What Does Not Concern You',
@@ -138,11 +139,11 @@ const List<_HadithLesson> kHadithLessons = <_HadithLesson>[
     nawawi: 15,
   ),
   _HadithLesson(
-    title: 'Lesson 14 — The Sanctity of the Muslim',
+    title: 'Lesson 14 — The Deed Most Loved',
     meaning:
-        'Allah has made sacred the blood, wealth, and honor of every Muslim to every other Muslim. To backbite a Muslim is to eat his flesh (49:12) — and the hadith extends the sanctity to the one who is absent: mention your brother as you would have him mention you.',
-    character: 'Guard one Muslim\'s absence this week — correct the story, change the subject, or stay silent.',
-    nawawi: 35,
+        'Aisha reported that the Prophet ﷺ said: do good deeds properly, sincerely and moderately, and know that your deeds alone will not make you enter Paradise; and that the most beloved deed to Allah is the most regular and constant, even if it is little. A small deed done every day outweighs a great deed done once.',
+    character: 'Pick one small act and do it every day this week, however small.',
+    source: 'Bukhari 6464',
   ),
   _HadithLesson(
     title: 'Lesson 15 — The Signs of the Hypocrite',
@@ -166,17 +167,18 @@ const List<_HadithLesson> kHadithLessons = <_HadithLesson>[
     source: 'Tirmidhi 2344, hasan per Darussalam',
   ),
   _HadithLesson(
-    title: 'Lesson 18 — The Religion Is Sincere Counsel',
+    title: 'Lesson 18 — The Strong One',
     meaning:
-        'The religion is sincere counsel — to Allah, His Book, His Messenger, the leaders of the Muslims, and their common people. Counsel to Allah is to oppose rivals to Him; counsel to the leaders is to correct them honestly, not flatter them; counsel to the common people is the everyday kindness.',
-    character: 'Give one sincere counsel this week — to a leader gently, to a friend honestly, to a stranger kindly.',
-    nawawi: 7,
+        'Abu Huraira reported that the Prophet ﷺ said: the strong is not the one who overcomes the people by his strength, but the strong is the one who controls himself while in anger. Strength here is the pause before the reply.',
+    character: 'Next time you are angry, say nothing for one breath, then answer.',
+    source: 'Bukhari 6114',
   ),
   _HadithLesson(
-    title: 'Lesson 19 — The Muslim Is Safe',
+    title: 'Lesson 19 — Kindness in All Matters',
     meaning:
-        'The Muslim is the one from whose tongue and hand the Muslims are safe. And the emigrant is the one who emigrates from what Allah has forbidden. Safety is not the absence of power — it is the decision, made daily, not to use it.',
-    character: 'Audit one relationship: do they feel safe from your tongue and hand? Repair the one that does not.',
+        'Aisha reported that when some people greeted the Prophet ﷺ with a curse and she answered them back angrily, he said: O Aisha, Allah is kind and lenient and likes that one should be kind and lenient in all matters. Kindness is not weakness; it is the way Allah is described to us, and the way we are asked to deal with people.',
+    character: 'Answer one hard message this week more gently than you wanted to.',
+    source: 'Bukhari 6927',
   ),
   _HadithLesson(
     title: 'Lesson 20 — The Lawful and the Unlawful',
@@ -221,11 +223,11 @@ const List<_HadithLesson> kHadithLessons = <_HadithLesson>[
     source: 'Qur\'an 2:177 (a verse, not a hadith)',
   ),
   _HadithLesson(
-    title: 'Lesson 26 — The Obligation of Brotherly Love',
+    title: 'Lesson 26 — The Nearest Place',
     meaning:
-        'None of you truly believes until he loves for his brother what he loves for himself — the same hadith as lesson 11, here read as a matter for the whole ummah. Unity is not a slogan; it is a daily practice of wanting good for the one next to you.',
-    character: 'Make one dua today for a brother or sister you have never met — by description, not by name.',
-    nawawi: 13,
+        'Abu Huraira reported that the Prophet ﷺ said: the nearest a servant comes to his Lord is when he is prostrating himself, so make supplication in it. Prayer is not only a duty to finish; the prostration is a place to ask.',
+    character: 'In your next prayer, stay in sujud a moment longer and ask for one thing.',
+    source: 'Muslim 482',
   ),
   _HadithLesson(
     title: 'Lesson 27 — The Law of Brotherhood',
