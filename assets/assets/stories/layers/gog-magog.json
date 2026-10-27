@@ -60,8 +60,8 @@
    "book": "tirmidhi",
    "number": "3153",
    "narrator": "Abu Hurairah",
-   "grade": "Hasan gharib; also Sahih",
-   "grader": "al-Tirmidhi (hasan gharib) and Darussalam (sahih), as shown on sunnah.com",
+   "grade": "Hasan gharib; graders differ",
+   "grader": "al-Tirmidhi (hasan gharib); al-Albani and Ahmad Shakir (sahih); Darussalam (da’if)",
    "summary": "Abu Hurairah reported that Gog and Magog dig through the barrier every day; each day their leader tells them to return and finish tomorrow, until Allah permits their release, when the leader adds “if Allah wills”.",
    "verified": "2026-10-20",
    "note": "Attributed to the Prophet ﷺ by this chain; see the disagreement below on whether that attribution holds."
@@ -70,8 +70,8 @@
    "book": "ibnmajah",
    "number": "4080",
    "narrator": "Abu Hurairah",
-   "grade": "Sahih",
-   "grader": "Darussalam (as shown on sunnah.com)",
+   "grade": "Sahih per al-Albani; graders differ",
+   "grader": "al-Albani (sahih); Darussalam (da’if)",
    "summary": "The same digging report from Abu Hurairah in Ibn Majah, adding that Allah finally destroys them with a worm in the back of their necks.",
    "verified": "2026-10-20"
   }
@@ -132,9 +132,9 @@
    "question": "Is the digging report sound?",
    "views": [
     {
-     "who": "Al-Tirmidhi; Darussalam",
-     "work": "Jami’ at-Tirmidhi 3153, graded by al-Tirmidhi and Darussalam, as shown on sunnah.com",
-     "view": "Tirmidhi calls it hasan gharib; Darussalam grades it Sahih."
+     "who": "Al-Tirmidhi; al-Albani; Ahmad Shakir; Darussalam",
+     "work": "Jami’ at-Tirmidhi 3153, graded by al-Albani and Darussalam among others",
+     "view": "Al-Tirmidhi calls it hasan gharib; al-Albani and Ahmad Shakir grade it Sahih; Darussalam grades it Da’if."
     },
     {
      "who": "Ibn Kathir, as reported by Ma’ariful Qur’an",

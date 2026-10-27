@@ -663,6 +663,279 @@
    ],
    "evidence": "nothing but his white mule, his weapons, and a piece of land",
    "why": "He left no money, no slaves, and nothing but his white mule, his weapons, and a piece of land he had given in charity."
+  },
+  {
+   "id": "sq-52",
+   "story": "seerah-10",
+   "prompt": "Who sent Umar to his sister’s house first, on his way to kill the Prophet ﷺ?",
+   "answer": "Nu’aym ibn Abdullah",
+   "wrong": [
+    "Khabbab",
+    "Mus’ab ibn Umayr",
+    "Abu Bakr"
+   ],
+   "evidence": "Nu'aym ibn Abdullah, who was secretly Muslim, sent him to his own house first",
+   "why": "Nu’aym, who was secretly Muslim, told Umar to look at his own family first."
+  },
+  {
+   "id": "sq-53",
+   "story": "seerah-10",
+   "prompt": "In the Prophet’s ﷺ prayer, Islam was to be strengthened by Umar or by whom?",
+   "answer": "Abu al-Hakam ibn Hisham",
+   "wrong": [
+    "Khalid ibn al-Walid",
+    "Amr ibn al-As",
+    "Abu Sufyan"
+   ],
+   "evidence": "Islam be strengthened by Abu al-Hakam ibn Hisham or by Umar ibn al-Khattab",
+   "why": "Khabbab told Umar of this prayer."
+  },
+  {
+   "id": "sq-54",
+   "story": "seerah-10",
+   "prompt": "Near which hill was the house where Umar went to find the Prophet ﷺ?",
+   "answer": "Safa",
+   "wrong": [
+    "Marwa",
+    "Hira",
+    "Thawr"
+   ],
+   "evidence": "the Prophet was in a house by Safa",
+   "why": "Umar took his sword and went to that house and knocked at the door."
+  },
+  {
+   "id": "sq-55",
+   "story": "seerah-15",
+   "prompt": "In the Charter of Madinah, to whom is any dispute referred?",
+   "answer": "Allah and Muhammad ﷺ",
+   "wrong": [
+    "A council of elders",
+    "The oldest clan chief",
+    "Quraysh"
+   ],
+   "evidence": "any dispute is to be referred to Allah and to Muhammad",
+   "why": "The document also confirmed the Jews of Madinah in their religion and property."
+  },
+  {
+   "id": "sq-56",
+   "story": "seerah-15",
+   "prompt": "Which learned rabbi of Madinah embraced Islam when the Prophet ﷺ arrived?",
+   "answer": "Abdullah ibn Salam",
+   "wrong": [
+    "Salman the Persian",
+    "Waraqa ibn Nawfal",
+    "Nu’aym ibn Abdullah"
+   ],
+   "evidence": "Abdullah ibn Salam, a learned Jewish rabbi of Madinah, embraced Islam",
+   "why": "This is Ibn Ishaq's account, from members of his family."
+  },
+  {
+   "id": "sq-57",
+   "story": "seerah-17",
+   "prompt": "How many men did a scout report for Quraysh at Badr?",
+   "answer": "Between nine hundred and a thousand",
+   "wrong": [
+    "About three hundred",
+    "About four thousand",
+    "Exactly ten thousand"
+   ],
+   "evidence": "between nine hundred and a thousand",
+   "why": "The Muslims were a little over three hundred and ten."
+  },
+  {
+   "id": "sq-58",
+   "story": "seerah-17",
+   "prompt": "Whom did the Prophet ﷺ prod in the belly while straightening the ranks at Badr?",
+   "answer": "Sawad ibn Ghaziyya",
+   "wrong": [
+    "Abu Bakr",
+    "Hamza",
+    "Bilal"
+   ],
+   "evidence": "he prodded Sawad ibn Ghaziyya in the belly",
+   "why": "Sawad asked to take his retaliation, which the Prophet ﷺ allowed."
+  },
+  {
+   "id": "sq-59",
+   "story": "seerah-17",
+   "prompt": "Who told the Prophet ﷺ that was enough pleading, for Allah would fulfil what He promised?",
+   "answer": "Abu Bakr",
+   "wrong": [
+    "Umar",
+    "Ali",
+    "Hamza"
+   ],
+   "evidence": "Abu Bakr told him that was enough pleading",
+   "why": "This was in the shelter built for him on the morning of Badr."
+  },
+  {
+   "id": "sq-60",
+   "story": "seerah-17",
+   "prompt": "How many angels does the story say the Qur’an mentions in 3:123-127?",
+   "answer": "Three thousand",
+   "wrong": [
+    "Three hundred",
+    "Thirty",
+    "Three million"
+   ],
+   "evidence": "Three thousand angels",
+   "why": "The Qur'an says this was to reassure hearts, and that victory is only from Allah."
+  },
+  {
+   "id": "sq-61",
+   "story": "seerah-18",
+   "prompt": "What did the Prophet ﷺ tell his companions about the prisoners of Badr?",
+   "answer": "Treat the prisoners well",
+   "wrong": [
+    "Ransom them at once",
+    "Send them away",
+    "Keep them in chains"
+   ],
+   "evidence": "Treat the prisoners well",
+   "why": "Abu Aziz said his captors gave him the bread."
+  },
+  {
+   "id": "sq-62",
+   "story": "seerah-22",
+   "prompt": "Which man of Quraysh demanded the clause returning those who came over, in Bukhari 2731?",
+   "answer": "Suhayl",
+   "wrong": [
+    "Abu Sufyan",
+    "Ikrimah",
+    "Safwan"
+   ],
+   "evidence": "the same clause that Suhayl demanded",
+   "why": "The story notes the clause applied even if the man had embraced Islam."
+  },
+  {
+   "id": "sq-63",
+   "story": "seerah-22",
+   "prompt": "Which Companion could not bear the terms at Hudaybiyyah?",
+   "answer": "Umar ibn al-Khattab",
+   "wrong": [
+    "Abu Bakr",
+    "Uthman",
+    "Ali"
+   ],
+   "evidence": "Umar ibn al-Khattab could not bear it",
+   "why": "In Ibn Hisham he asks why humiliation should be accepted in the religion."
+  },
+  {
+   "id": "sq-64",
+   "story": "seerah-22",
+   "prompt": "How did the Prophet ﷺ answer Umar at Hudaybiyyah, in Ibn Hisham’s account?",
+   "answer": "I am the servant of Allah and His Messenger; I will not disobey His command",
+   "wrong": [
+    "We will fight them next year",
+    "Quraysh will pay us for it",
+    "Ask Abu Bakr"
+   ],
+   "evidence": "I am the servant of Allah and His Messenger; I will not disobey His command",
+   "why": "He added that Allah would not let him be lost."
+  },
+  {
+   "id": "sq-65",
+   "story": "seerah-22",
+   "prompt": "Which sura was revealed on the journey of Hudaybiyyah, according to Bukhari 4177?",
+   "answer": "Al-Fath",
+   "wrong": [
+    "An-Nasr",
+    "Al-Fil",
+    "Al-Kawthar"
+   ],
+   "evidence": "the sura of Al-Fath",
+   "why": "The Qur'an calls it a clear conquest (48:1)."
+  },
+  {
+   "id": "sq-66",
+   "story": "seerah-25",
+   "prompt": "Under whom did Hawazin come to Hunayn?",
+   "answer": "Malik ibn Awf",
+   "wrong": [
+    "Abu Sufyan",
+    "Suhayl ibn Amr",
+    "Khalid ibn al-Walid"
+   ],
+   "evidence": "under Malik ibn Awf",
+   "why": "They brought their property, women and children with them to Awtas."
+  },
+  {
+   "id": "sq-67",
+   "story": "seerah-25",
+   "prompt": "Where did the Prophet ﷺ gather the Ansar after Hunayn?",
+   "answer": "In a leather tent",
+   "wrong": [
+    "In the mosque",
+    "In a valley",
+    "In Abu Ayyub’s house"
+   ],
+   "evidence": "He gathered them in a leather tent",
+   "why": "He asked whether they were not pleased with the Messenger of Allah."
+  },
+  {
+   "id": "sq-68",
+   "story": "seerah-25",
+   "prompt": "What did the Prophet ﷺ ask the Ansar to set against sheep and camels?",
+   "answer": "Returning with the Messenger of Allah",
+   "wrong": [
+    "A share of the date palms",
+    "Returning to Makkah",
+    "A house in Ta’if"
+   ],
+   "evidence": "while you return with the Messenger of Allah",
+   "why": "The Ansar had been dissatisfied about the spoils."
+  },
+  {
+   "id": "sq-69",
+   "story": "seerah-29",
+   "prompt": "What did the Prophet ﷺ give as a pledge when he bought grain on credit?",
+   "answer": "His iron armour",
+   "wrong": [
+    "His white mule",
+    "His sword",
+    "A date garden"
+   ],
+   "evidence": "given his iron armour as a pledge",
+   "why": "He bought it from a Jew, in Bukhari 2068."
+  },
+  {
+   "id": "sq-70",
+   "story": "seerah-29",
+   "prompt": "What did the Prophet ﷺ say about whatever he left behind?",
+   "answer": "It is sadaqa",
+   "wrong": [
+    "It is for his wives",
+    "It is for the Ansar",
+    "It is for his heirs"
+   ],
+   "evidence": "whatever we leave is sadaqa",
+   "why": "Abu Bakr cited those words to Fatima."
+  },
+  {
+   "id": "sq-71",
+   "story": "seerah-31",
+   "prompt": "What did Khadijah say to the Prophet ﷺ after the first revelation?",
+   "answer": "Allah will never disgrace you",
+   "wrong": [
+    "Return to the cave",
+    "Tell no one",
+    "You must leave Makkah"
+   ],
+   "evidence": "Allah will never disgrace you",
+   "why": "She added that he keeps kinship and carries the weak."
+  },
+  {
+   "id": "sq-72",
+   "story": "seerah-31",
+   "prompt": "In 96:1-5, by what has Allah taught man?",
+   "answer": "The pen",
+   "wrong": [
+    "The sword",
+    "The tongue",
+    "The stars"
+   ],
+   "evidence": "Who taught by the pen",
+   "why": "The command begins with Recite in the name of your Lord who created."
   }
  ]
 }
