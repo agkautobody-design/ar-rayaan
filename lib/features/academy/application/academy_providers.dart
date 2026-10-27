@@ -229,11 +229,12 @@ void appendReviewLog(SharedPreferences prefs, ReviewLogEntry entry) {
 }
 
 /// Learning track — one door per learner, same schools behind each.
-/// 'child' (avatar-led, play-heavy) · 'teen'/'adult' (why-first, direct) ·
+/// 'child' (avatar-led, play-heavy) · 'teen' and 'adult' (why-first, direct;
+/// 'adult' is where a grown-up starts) ·
 /// 'parent' (teaching notes + Family Wing). Switchable anytime; stored
 /// per device.
 class AcademyTrackNotifier extends StateNotifier<String> {
-  AcademyTrackNotifier(this._ref) : super('teen') {
+  AcademyTrackNotifier(this._ref) : super('adult') {
     _load();
   }
 
@@ -244,14 +245,19 @@ class AcademyTrackNotifier extends StateNotifier<String> {
     try {
       final prefs = _ref.read(sharedPreferencesProvider);
       final String? t = prefs.getString(_pref);
-      if (t != null && (t == 'child' || t == 'teen' || t == 'parent')) {
+      if (t != null && (t == 'child' || t == 'teen' || t == 'adult' || t == 'parent')) {
         state = t;
       }
     } catch (_) {}
   }
 
   Future<void> set(String track) async {
-    if (track != 'child' && track != 'teen' && track != 'parent') return;
+    if (track != 'child' &&
+        track != 'teen' &&
+        track != 'adult' &&
+        track != 'parent') {
+      return;
+    }
     state = track;
     try {
       final prefs = _ref.read(sharedPreferencesProvider);

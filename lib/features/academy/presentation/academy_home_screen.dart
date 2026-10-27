@@ -679,7 +679,7 @@ class _LibraryRow extends StatelessWidget {
 class _TrackSwitcher extends ConsumerWidget {
   const _TrackSwitcher();
 
-  static const List<String> _tracks = <String>['child', 'teen', 'parent'];
+  static const List<String> _tracks = <String>['child', 'teen', 'adult', 'parent'];
 
   /// Switching TO the Child track is free; switching away from it is for a
   /// grown-up, so it asks the parent check first.

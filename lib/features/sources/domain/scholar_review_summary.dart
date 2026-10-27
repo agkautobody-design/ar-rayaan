@@ -22,10 +22,10 @@ class ScholarReviewerCount {
 }
 
 /// Total items in the register. All are open until a named reviewer signs off.
-const int kScholarReviewTotal = 5395;
+const int kScholarReviewTotal = 5429;
 
 /// Items marked high priority.
-const int kScholarReviewHighPriority = 1239;
+const int kScholarReviewHighPriority = 1243;
 
 const List<ScholarReviewArea> kScholarReviewAreas = <ScholarReviewArea>[
     ScholarReviewArea('academy-lessons', 'Academy v3 lessons and steps', 457, 240),
@@ -35,8 +35,8 @@ const List<ScholarReviewArea> kScholarReviewAreas = <ScholarReviewArea>[
     ScholarReviewArea('arabic-tajweed', 'Arabic, tajweed, Hifz and Qur\'an recitation teaching', 88, 42),
     ScholarReviewArea('huda', 'Huda guides and their madhhab notes', 108, 94),
     ScholarReviewArea('qa', 'Q&A bank rulings', 16, 6),
-    ScholarReviewArea('hadi', 'Hadi built-in answers', 462, 20),
-    ScholarReviewArea('hadith', 'Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus', 562, 108),
+    ScholarReviewArea('hadi', 'Hadi built-in answers', 483, 20),
+    ScholarReviewArea('hadith', 'Hadith: Forty Nawawi, Daily Hadith, grades, Hadi grounding corpus', 575, 112),
     ScholarReviewArea('stories-prophets', 'Stories: prophets, layers and earlier accounts', 256, 51),
     ScholarReviewArea('stories-seerah', 'Stories: seerah, companions, women', 164, 128),
     ScholarReviewArea('stories-unseen', 'Stories: the unseen, signs, tales, khutbahs', 182, 61),
@@ -56,8 +56,8 @@ const List<ScholarReviewArea> kScholarReviewAreas = <ScholarReviewArea>[
 ];
 
 const List<ScholarReviewerCount> kScholarReviewers = <ScholarReviewerCount>[
-    ScholarReviewerCount('Hadith / aqidah scholar', 2434),
-    ScholarReviewerCount('Fiqh scholar (per madhab)', 587),
+    ScholarReviewerCount('Hadith / aqidah scholar', 2447),
+    ScholarReviewerCount('Fiqh scholar (per madhab)', 608),
     ScholarReviewerCount('Women\'s scholar', 151),
     ScholarReviewerCount('Arabic / tajweed / qira\'at specialist', 523),
     ScholarReviewerCount('Clinician (Sakina and health content)', 1003),

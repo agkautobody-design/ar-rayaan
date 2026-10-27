@@ -22,6 +22,7 @@ import '../../sakina/domain/crisis_latch.dart';
 import '../data/api_key_vault.dart';
 import '../data/groq_hadi_provider.dart';
 import '../data/hadi_core.dart';
+import '../data/hadi_game_ask.dart';
 import '../data/hadi_explain.dart';
 import '../data/hadi_finder.dart';
 import '../data/hadi_routing.dart';
@@ -1135,11 +1136,15 @@ class HadiController extends Notifier<HadiState> {
     // A person talking about drinking, drugs, gambling, pornography, smoking
     // or a relapse is answered as a person, on the device: never with a
     // ruling card, never by a live model, never saved, never reportable.
+    // A question sent by "Ask Hadi about this" in a game is the game's own
+    // text (a quiz about the Prophet's battles may say "killed"), never a
+    // person talking about their life: it skips the support and ruling paths.
+    final bool gameAsk = HadiGameAsk.isGameAsk(q);
     SupportTopic? support =
-        crisis == null ? SupportSignal.classify(q) : null;
+        (crisis == null && !gameAsk) ? SupportSignal.classify(q) : null;
     // A conversation already about this subject goes on: "yes", "what can I
     // do", "thanks" carry no topic word of their own.
-    if (support == null && crisis == null && _continuesSupport(q)) {
+    if (support == null && crisis == null && !gameAsk && _continuesSupport(q)) {
       support = _lastSupportTopic;
     }
     if (support != null) _lastSupportTopic = support;
@@ -1256,8 +1261,9 @@ class HadiController extends Notifier<HadiState> {
     // A few built-in answers are general and safe to give even though the
     // question reads like a ruling about one person ("Is it okay to hit my
     // wife?"): those are answered, not handed over.
-    final RulingClass rawRuling =
-        (crisis == null && !grief) ? RulingGate.classify(q) : RulingClass.none;
+    final RulingClass rawRuling = (crisis == null && !grief && !gameAsk)
+        ? RulingGate.classify(q)
+        : RulingClass.none;
     final RulingClass ruling =
         (rawRuling == RulingClass.personal && HadiCore.claims(q))
             ? RulingClass.none
@@ -1367,7 +1373,8 @@ class HadiController extends Notifier<HadiState> {
         final bool refusal = HadiRouting.isRefusal(shelf);
         final bool pointer = !refusal &&
             shelf.contains('[GO:') &&
-            !HadiCore.isCoreAnswer(shelf);
+            !HadiCore.isCoreAnswer(shelf) &&
+            !HadiRouting.isFixed(shelf);
         if ((refusal || pointer) &&
             !isNavigationLike(q) &&
             !LocalKnowledge.looksLikeLookup(q)) {
@@ -1405,7 +1412,20 @@ class HadiController extends Notifier<HadiState> {
         p is OfflineHadiProvider &&
         ruling != RulingClass.personal &&
         !OfflineHadiProvider.asksMedical(q)) {
-      final String? move = ConversationMoves.moveFor(q, DateTime.now());
+      // A built-in answer or a fixed reply from the library (the wudu steps,
+      // "is the app free?", a faith doubt) is the right answer: the broad
+      // packs below only fill what the library leaves empty. Without this a
+      // pack that merely shares a word ("wash", "help", "app") would win.
+      String libraryFirst = '';
+      try {
+        libraryFirst = await const OfflineHadiProvider().ask(q, history);
+      } catch (_) {}
+      final bool libraryOwns = HadiCore.isCoreAnswer(libraryFirst) ||
+          (HadiRouting.isFixed(libraryFirst) &&
+              !HadiRouting.isRefusal(libraryFirst)) ||
+          libraryFirst.contains('That is outside what I do');
+      final String? move =
+          libraryOwns ? null : ConversationMoves.moveFor(q, DateTime.now());
       if (move != null) {
         _supportSession.rotator.nextTurn();
         final SupportSnippet? line = ConversationMoves.pick(
@@ -1431,11 +1451,13 @@ class HadiController extends Notifier<HadiState> {
           return text;
         }
       }
-      final KnowledgeAnswer? ka = KnowledgeAnswerer.answer(
-        q,
-        SupportPackRepository.packs,
-        allowDraft: SupportPackRepository.allowDraft,
-      );
+      final KnowledgeAnswer? ka = libraryOwns
+          ? null
+          : KnowledgeAnswerer.answer(
+              q,
+              SupportPackRepository.packs,
+              allowDraft: SupportPackRepository.allowDraft,
+            );
       if (ka != null) {
         String text = ka.text;
         if (ruling == RulingClass.general) {

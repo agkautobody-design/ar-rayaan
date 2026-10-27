@@ -5,6 +5,7 @@ import 'hadi_core.dart';
 import 'hadi_decline.dart';
 import 'hadi_explain.dart';
 import 'hadi_finder.dart';
+import 'hadi_game_ask.dart';
 import 'hadi_game_help.dart';
 import 'hadi_routing.dart';
 
@@ -1046,6 +1047,11 @@ class OfflineHadiProvider implements HadiProvider {
 
     // A person who says someone they love has died is answered with care,
     // before the shelf is read.
+    // "Ask Hadi about this" in a game: the game's own text, answered from
+    // the game's own fields.
+    final String? gameAsk = HadiGameAsk.answer(question);
+    if (gameAsk != null) return gameAsk;
+
     final String? grief = griefReply(question);
     if (grief != null) return grief;
 

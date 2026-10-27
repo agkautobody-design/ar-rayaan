@@ -17,6 +17,7 @@ import '../engine/game_registry.dart';
 import '../engine/order_engine.dart';
 import '../ui/games_art.dart';
 import '../ui/games_theme.dart';
+import '../../hadi/data/hadi_game_ask.dart';
 import '../ui/learning_widgets.dart';
 import 'game_results_screen.dart';
 
@@ -369,14 +370,11 @@ class _OrderPlayState extends ConsumerState<OrderPlayScreen> {
     );
   }
 
-  String _askText(OrderRound r) {
-    final String order = r.items.map((OrderItem i) => i.label).join(', then ');
-    return clip(
-      'I just played an ordering game. The right order was: $order. '
-      'Can you explain why, and what the source says?',
-      480,
-    );
-  }
+  String _askText(OrderRound r) => HadiGameAsk.order(
+        items: <String>[for (final OrderItem i in r.items) i.label],
+        explanation: r.explanation,
+        citation: r.citation,
+      );
 }
 
 class _OrderCard extends StatelessWidget {

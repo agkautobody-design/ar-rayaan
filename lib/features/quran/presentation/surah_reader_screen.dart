@@ -805,6 +805,9 @@ class _AyahBlock extends ConsumerWidget {
     final bool saved = mark?.bookmarked ?? false;
     final bool hasNote = mark?.note.isNotEmpty ?? false;
     final bool elder = ref.watch(elderModeProvider);
+    // "Hide text / test me" covers the transliteration and the translation
+    // too, until the ayah is tapped open.
+    final bool covered = ayahIsCovered(ref, surahNumber, ayah.number);
     // The translation and transliteration follow the A- / A+ choice, so one
     // control makes everything on the page bigger, not only the Arabic.
     final double follow = (arabicSize / ArabicSizeController.defaultSize)
@@ -853,7 +856,9 @@ class _AyahBlock extends ConsumerWidget {
                 ),
               ),
               ),
-              if (_usable(tr)) ...[
+              if (covered)
+                const SizedBox(height: 8)
+              else if (_usable(tr)) ...[
                 const SizedBox(height: 4),
                 Text(
                   tr!,
@@ -868,6 +873,7 @@ class _AyahBlock extends ConsumerWidget {
               ] else
                 const SizedBox(height: 8),
               // Urdu and Arabic packs read right to left.
+              if (!covered)
               Directionality(
                 textDirection: ref.watch(translationRtlProvider)
                     ? TextDirection.rtl

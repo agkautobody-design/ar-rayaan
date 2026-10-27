@@ -976,14 +976,8 @@ class _LudoState extends State<LudoScreen> {
           ),
         ),
       const SizedBox(height: 8),
-      LudoBoardView(
-        seats: seats,
-        tokens: tok,
-        movableSeat: turn,
-        movable: movable,
-        onTapToken: _move,
-      ),
-      const SizedBox(height: 12),
+      // The die, Roll and the pawn buttons sit above the board, so on a
+      // phone they are on the first screen and not below the fold.
       _diceRow(),
       const SizedBox(height: 12),
       Center(
@@ -1009,6 +1003,14 @@ class _LudoState extends State<LudoScreen> {
           textAlign: TextAlign.center,
           style: AppText.bodyMuted.copyWith(fontSize: 12),
         ),
+      const SizedBox(height: 12),
+      LudoBoardView(
+        seats: seats,
+        tokens: tok,
+        movableSeat: turn,
+        movable: movable,
+        onTapToken: _move,
+      ),
     ];
   }
 }

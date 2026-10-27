@@ -37,10 +37,13 @@ class _MemoryState extends ConsumerState<MemoryGameScreen> {
   Timer? _timer;
   GameResult? _result;
   Name99? _lastMatch;
+  final ScrollController _scroll = ScrollController();
+  final GlobalKey _matchKey = GlobalKey();
 
   @override
   void dispose() {
     _timer?.cancel();
+    _scroll.dispose();
     super.dispose();
   }
 
@@ -63,6 +66,20 @@ class _MemoryState extends ConsumerState<MemoryGameScreen> {
         if (e.n == n) found = e;
       }
       _lastMatch = found;
+      // The meaning and where the Name is found sit below the grid: on a
+      // phone they would be off the screen, so bring them into view.
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        final BuildContext? c = _matchKey.currentContext;
+        if (c != null && c.mounted) {
+          unawaited(
+            Scrollable.ensureVisible(
+              c,
+              duration: const Duration(milliseconds: 250),
+              alignment: 1,
+            ),
+          );
+        }
+      });
     } else if (out == FlipOutcome.mismatch) {
       _timer?.cancel();
       _timer = Timer(const Duration(milliseconds: 1600), _clear);
@@ -156,6 +173,7 @@ class _MemoryState extends ConsumerState<MemoryGameScreen> {
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: ListView(
+        controller: _scroll,
         padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
         children: <Widget>[
           const ScreenHeader(
@@ -204,6 +222,7 @@ class _MemoryState extends ConsumerState<MemoryGameScreen> {
           if (_lastMatch != null && !g.awaitingClear) ...<Widget>[
             const SizedBox(height: 14),
             GamePanel(
+              key: _matchKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[

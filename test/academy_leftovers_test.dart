@@ -175,7 +175,7 @@ void main() {
 
     test('doors set the matching track; returning leaves it', () {
       expect(AcademyDoor.myChild.track, 'child');
-      expect(AcademyDoor.newToIslam.track, 'teen');
+      expect(AcademyDoor.newToIslam.track, 'adult');
       expect(AcademyDoor.returning.track, isNull);
       expect(AcademyDoor.returning.route, isNull);
       expect(AcademyDoor.myChild.route, '/academy/letters');
@@ -193,6 +193,7 @@ void main() {
       expect(TrackLayout.of('child').foldSchools, isTrue);
       expect(TrackLayout.of('parent').familyCard, isTrue);
       expect(TrackLayout.of('teen').lettersFirst, isFalse);
+      expect(TrackLayout.of('adult').lettersFirst, isFalse);
     });
 
     test('first unfinished letter lesson', () {

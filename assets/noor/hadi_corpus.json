@@ -8695,6 +8695,283 @@
    "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
    "textKind": "summary",
    "verifiedOn": "2026-10-27"
+  },
+  {
+   "id": "h:abudawud-30",
+   "collection": "Sunan Abu Dawud",
+   "number": "30",
+   "english": "Aisha reported that when the Prophet came out of the toilet he said: Ghufranaka, Your forgiveness",
+   "grade": "Sahih",
+   "grader": "al-Albani",
+   "topics": [
+    "aisha",
+    "reported",
+    "came",
+    "toilet",
+    "ghufranaka",
+    "forgiveness"
+   ],
+   "verifiedAt": "https://sunnah.com/abudawud:30",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-27"
+  },
+  {
+   "id": "h:abudawud-874",
+   "collection": "Sunan Abu Dawud",
+   "number": "874",
+   "english": "Hudhayfah described the Prophet's night prayer: between the two prostrations he said, My Lord, forgive me, My Lord, forgive me",
+   "grade": "Sahih",
+   "grader": "Darussalam",
+   "topics": [
+    "hudhayfah",
+    "described",
+    "prophet's",
+    "night",
+    "prayer",
+    "between",
+    "prostrations",
+    "lord"
+   ],
+   "verifiedAt": "https://sunnah.com/abudawud:874",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-27"
+  },
+  {
+   "id": "h:bukhari-142",
+   "collection": "Sahih al-Bukhari",
+   "number": "142",
+   "english": "Anas reported that whenever the Prophet went into the toilet he said: O Allah, I seek refuge with You from the male and female evil spirits",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "anas",
+    "reported",
+    "whenever",
+    "went",
+    "into",
+    "toilet",
+    "seek",
+    "refuge"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:142",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-27"
+  },
+  {
+   "id": "h:bukhari-201",
+   "collection": "Sahih al-Bukhari",
+   "number": "201",
+   "english": "Anas reported that the Prophet used to perform ablution with one mudd of water",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "anas",
+    "reported",
+    "used",
+    "perform",
+    "ablution",
+    "mudd",
+    "water"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:201",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-27"
+  },
+  {
+   "id": "h:bukhari-3017",
+   "collection": "Sahih al-Bukhari",
+   "number": "3017",
+   "english": "Ibn Abbas reported that the Prophet said if somebody discards his religion, kill him",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "abbas",
+    "reported",
+    "somebody",
+    "discards",
+    "religion",
+    "kill"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:3017",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-27"
+  },
+  {
+   "id": "h:bukhari-6878",
+   "collection": "Sahih al-Bukhari",
+   "number": "6878",
+   "english": "Abdullah reported the Prophet said the blood of a Muslim who confesses that none has the right to be worshipped but Allah cannot be shed except in three cases: a life for a life, a married person who commits illegal sexual intercourse, and the one who leaves Islam and separates from the community",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "abdullah",
+    "reported",
+    "blood",
+    "muslim",
+    "confesses",
+    "none",
+    "right",
+    "worshipped"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:6878",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-27"
+  },
+  {
+   "id": "h:bukhari-7211",
+   "collection": "Sahih al-Bukhari",
+   "number": "7211",
+   "english": "Jabir reported that a bedouin pledged himself to Islam, then asked the Prophet three times to cancel his pledge, was refused, and left Madinah",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "jabir",
+    "reported",
+    "bedouin",
+    "pledged",
+    "himself",
+    "islam",
+    "asked",
+    "three"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:7211",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-27"
+  },
+  {
+   "id": "h:bukhari-7214",
+   "collection": "Sahih al-Bukhari",
+   "number": "7214",
+   "english": "Aisha reported that the Prophet used to take the pledge from women by words only, and his hand did not touch any woman's hand except the one his right hand possessed",
+   "grade": "In Sahih al-Bukhari",
+   "grader": "Included in Sahih al-Bukhari; the collection gives no separate grade",
+   "topics": [
+    "aisha",
+    "reported",
+    "used",
+    "take",
+    "pledge",
+    "women",
+    "words",
+    "only"
+   ],
+   "verifiedAt": "https://sunnah.com/bukhari:7214",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-27"
+  },
+  {
+   "id": "h:ibnmajah-1978",
+   "collection": "Sunan Ibn Majah",
+   "number": "1978",
+   "english": "Abdullah ibn Amr reported the Prophet said the best of you are those who are best to their womenfolk",
+   "grade": "Sahih",
+   "grader": "Darussalam",
+   "topics": [
+    "abdullah",
+    "reported",
+    "best",
+    "those",
+    "womenfolk"
+   ],
+   "verifiedAt": "https://sunnah.com/ibnmajah:1978",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-27"
+  },
+  {
+   "id": "h:muslim-132",
+   "collection": "Sahih Muslim",
+   "number": "132",
+   "english": "some Companions told the Prophet they found in their minds thoughts too grave to speak of, and he said that this is the clear faith",
+   "grade": "In Sahih Muslim",
+   "grader": "Included in Sahih Muslim; the collection gives no separate grade",
+   "topics": [
+    "some",
+    "companions",
+    "told",
+    "found",
+    "minds",
+    "thoughts",
+    "grave",
+    "speak"
+   ],
+   "verifiedAt": "https://sunnah.com/muslim:132",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-27"
+  },
+  {
+   "id": "h:muslim-1866",
+   "collection": "Sahih Muslim",
+   "number": "1866",
+   "english": "Aisha reported that when believing women migrated to Madinah they were tested by the verse of allegiance, and whoever agreed to it, the Messenger said to her: I have accepted your pledge, by words only",
+   "grade": "In Sahih Muslim",
+   "grader": "Included in Sahih Muslim; the collection gives no separate grade",
+   "topics": [
+    "aisha",
+    "reported",
+    "believing",
+    "women",
+    "migrated",
+    "madinah",
+    "tested",
+    "verse"
+   ],
+   "verifiedAt": "https://sunnah.com/muslim:1866",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-27"
+  },
+  {
+   "id": "h:muslim-241",
+   "collection": "Sahih Muslim",
+   "number": "241",
+   "english": "Abdullah ibn Amr reported that some people performed ablution hurriedly on a journey and their heels were dry, and the Prophet said woe to dry heels, because of Hell-fire, and told them to make their ablution thorough",
+   "grade": "In Sahih Muslim",
+   "grader": "Included in Sahih Muslim; the collection gives no separate grade",
+   "topics": [
+    "abdullah",
+    "reported",
+    "some",
+    "people",
+    "performed",
+    "ablution",
+    "hurriedly",
+    "journey"
+   ],
+   "verifiedAt": "https://sunnah.com/muslim:241",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-27"
+  },
+  {
+   "id": "h:tirmidhi-2378",
+   "collection": "Jamiʿ at-Tirmidhi",
+   "number": "2378",
+   "english": "Abu Hurairah reported the Prophet said a man is upon the religion of his friend, so let one of you look at whom he befriends",
+   "grade": "Hasan",
+   "grader": "al-Albani",
+   "topics": [
+    "hurairah",
+    "reported",
+    "upon",
+    "religion",
+    "friend",
+    "look",
+    "befriends"
+   ],
+   "verifiedAt": "https://sunnah.com/tirmidhi:2378",
+   "checkedAgainst": "fawazahmed0/hadith-api (GitHub), English edition",
+   "textKind": "summary",
+   "verifiedOn": "2026-10-27"
   }
  ]
 }
