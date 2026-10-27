@@ -1373,7 +1373,7 @@ class _Bubble extends ConsumerWidget {
                                 alignment: AlignmentDirectional.centerStart,
                               ),
                               child: Text(
-                                'Optional: connect your own AI',
+                                'Optional: use your own AI account for more answers',
                                 style: AppText.caption.copyWith(
                                   color: AppColors.textFaint,
                                   fontSize: 12,
