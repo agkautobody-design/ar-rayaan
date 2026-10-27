@@ -314,6 +314,37 @@ class DownloadsController extends Notifier<DownloadsState> {
     _kick();
   }
 
+  /// Queues every text pack that is not saved yet (no audio): one tap for
+  /// "read it all offline". Does nothing when the text is part of the app or
+  /// all of it is already saved.
+  void downloadAllText() {
+    if (ref.read(downloadTextBundledProvider)) return;
+    final List<String> queue = <String>[...state.queue];
+    for (final TextPackSpec s in kTextPackSpecs) {
+      if (!state.textStored.contains(s.id) && !queue.contains(s.id)) {
+        queue.add(s.id);
+      }
+    }
+    if (queue.length == state.queue.length) return;
+    state = state.copyWith(
+      queue: queue,
+      failed: <String, String>{},
+      paused: false,
+      clearBanner: true,
+    );
+    _kick();
+  }
+
+  /// Size of the text packs not saved yet, in bytes (estimate).
+  int allTextEstimate() {
+    if (ref.read(downloadTextBundledProvider)) return 0;
+    int total = 0;
+    for (final TextPackSpec s in kTextPackSpecs) {
+      if (!state.textStored.contains(s.id)) total += s.estimatedBytes;
+    }
+    return total;
+  }
+
   /// What "Download everything" would still fetch, in bytes (estimate).
   int everythingEstimate() {
     int total = 0;

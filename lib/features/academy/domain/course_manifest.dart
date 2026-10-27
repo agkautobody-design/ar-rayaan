@@ -12,6 +12,7 @@ import 'assessment_engine.dart';
 const Map<String, String> kEmbedRoutes = <String, String>{
   'prayer.times': '/prayer',
   'zakat.guided': '/zakat',
+  'zakat.recipients': '/huda/guide?id=huda-zakat',
   'quran.reader': '/quran',
   'adhkar.morning': '/adhkar?set=morning',
   'hadith.daily': '/hadith',
@@ -207,7 +208,7 @@ final List<AcademyCourse> kAcademyCourses = <AcademyCourse>[
             titleKey: 'path.u4.l2.title',
             steps: <AcademyStep>[
               const AcademyStep(kind: AcademyStepKind.text, titleKey: 'path.u4.l2.s1.title', bodyKey: 'path.u4.l2.s1.body'),
-              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'path.u4.l2.s2.title', bodyKey: 'path.u4.l2.s2.body', route: '/zakat'),
+              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'path.u4.l2.s2.title', bodyKey: 'path.u4.l2.s2.body', route: '/huda/guide?id=huda-zakat'),
               const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'path.u4.l2.s3.title', bodyKey: 'path.u4.l2.s3.body'),
             ],
           ),
@@ -218,7 +219,7 @@ final List<AcademyCourse> kAcademyCourses = <AcademyCourse>[
             titleKey: 'path.u4.l3.title',
             steps: <AcademyStep>[
               const AcademyStep(kind: AcademyStepKind.text, titleKey: 'path.u4.l3.s1.title', bodyKey: 'path.u4.l3.s1.body'),
-              const AcademyStep(kind: AcademyStepKind.embed, ref: 'zakat.guided', titleKey: 'path.u4.l3.s2.title', bodyKey: 'path.u4.l3.s2.body'),
+              const AcademyStep(kind: AcademyStepKind.embed, ref: 'zakat.recipients', titleKey: 'path.u4.l3.s2.title', bodyKey: 'path.u4.l3.s2.body'),
               const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'path.u4.l3.s3.title', bodyKey: 'path.u4.l3.s3.body'),
             ],
           ),
@@ -268,7 +269,7 @@ final List<AcademyCourse> kAcademyCourses = <AcademyCourse>[
             titleKey: 'path.u5.l2.title',
             steps: <AcademyStep>[
               const AcademyStep(kind: AcademyStepKind.text, titleKey: 'path.u5.l2.s1.title', bodyKey: 'path.u5.l2.s1.body'),
-              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'path.u5.l2.s2.title', bodyKey: 'path.u5.l2.s2.body', route: '/huda'),
+              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'path.u5.l2.s2.title', bodyKey: 'path.u5.l2.s2.body', route: '/huda/guide?id=huda-fasting'),
               const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'path.u5.l2.s3.title', bodyKey: 'path.u5.l2.s3.body'),
             ],
           ),
@@ -328,7 +329,7 @@ final List<AcademyCourse> kAcademyCourses = <AcademyCourse>[
             titleKey: 'path.u6.l2.title',
             steps: <AcademyStep>[
               const AcademyStep(kind: AcademyStepKind.text, titleKey: 'path.u6.l2.s1.title', bodyKey: 'path.u6.l2.s1.body'),
-              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'path.u6.l2.s2.title', bodyKey: 'path.u6.l2.s2.body', route: '/academy/hajj-umrah-pack'),
+              const AcademyStep(kind: AcademyStepKind.action, titleKey: 'path.u6.l2.s2.title', bodyKey: 'path.u6.l2.s2.body', route: '/huda/guide?id=huda-hajj-overview'),
               const AcademyStep(kind: AcademyStepKind.try_, titleKey: 'path.u6.l2.s3.title', bodyKey: 'path.u6.l2.s3.body'),
             ],
           ),

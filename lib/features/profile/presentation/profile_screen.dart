@@ -42,7 +42,7 @@ class ProfileScreen extends ConsumerWidget {
     final String name = signedIn ? profile.displayName : 'Guest';
     final String subtitle = signedIn
         ? 'Account and settings'
-        : 'Sign in to save your journey';
+        : 'Sign in if you wish. Your progress stays on this device.';
 
     return ScenicScaffold.pattern(
       body: SafeArea(

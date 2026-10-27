@@ -63,12 +63,18 @@ class WordCard {
   /// True when a named source backs the meaning and root.
   bool get hasSource => glossSource?.trim().isNotEmpty ?? false;
 
-  WordCard copyWith({ReviewCard? review}) => WordCard(
+  WordCard copyWith({
+    ReviewCard? review,
+    String? gloss,
+    String? root,
+    String? glossSource,
+  }) =>
+      WordCard(
         key: key,
         arabic: arabic,
-        gloss: gloss,
-        root: root,
-        glossSource: glossSource,
+        gloss: gloss ?? this.gloss,
+        root: root ?? this.root,
+        glossSource: glossSource ?? this.glossSource,
         occurrences: occurrences,
         frequencyRank: frequencyRank,
         sourceAyah: sourceAyah,

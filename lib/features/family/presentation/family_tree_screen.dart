@@ -5,10 +5,12 @@ import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
+import '../../../app/theme/widgets/needs_internet_view.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../stories/data/stories_repository.dart';
 import '../../stories/domain/story.dart';
 import '../data/family_tree_provider.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 class FamilyTreeScreen extends ConsumerStatefulWidget {
   const FamilyTreeScreen({super.key, this.initiallyExpanded = const <String>{}});
@@ -43,8 +45,27 @@ class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
         loading: () => const Center(
           child: CircularProgressIndicator(color: AppColors.gold),
         ),
-        error: (e, _) => Center(
-          child: Text('Could not load the tree.', style: AppText.bodyMuted),
+        // Never a bare line with no way out: the header's Close, the reason
+        // (needs the internet unless the pack is saved), and Try again.
+        error: (e, _) => SafeArea(
+          child: Column(
+            key: const Key('family-tree-error'),
+            children: <Widget>[
+              const Padding(
+                padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+                child: ScreenHeader(title: 'Family Trees', close: true),
+              ),
+              Expanded(
+                child: NeedsInternetView(
+                  what: 'The family trees',
+                  hint: 'To have them ready without a connection, save '
+                      '\u201cFamily tree, feelings, games and Q&A\u201d in '
+                      'Settings > Downloads while you are online.',
+                  onRetry: () => ref.invalidate(familyTreeProvider),
+                ),
+              ),
+            ],
+          ),
         ),
         data: (data) {
           final rows = <Widget>[];
@@ -228,7 +249,15 @@ class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
                   return Row(
                 children: [
                   if (hasKids)
-                    GestureDetector(
+                    Semantics(
+                      button: true,
+                      expanded: isOpen,
+                      label: '${isOpen ? 'Hide' : 'Show'} the children of ${node.name}',
+                      excludeSemantics: true,
+                      onTap: () => setState(() {
+                        isOpen ? _expanded.remove(id) : _expanded.add(id);
+                      }),
+                      child: FocusableTap(
                       onTap: () => setState(() {
                         isOpen ? _expanded.remove(id) : _expanded.add(id);
                       }),
@@ -243,6 +272,7 @@ class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
                           color: AppColors.gold,
                         ),
                       ),
+                    ),
                     )
                   else
                     const SizedBox(width: 48),
@@ -280,7 +310,7 @@ class _FamilyTreeScreenState extends ConsumerState<FamilyTreeScreen> {
                         Text(
                           node.era +
                               (hasKids
-                                  ? ' \u00b7 ${node.children.where((c) => data.byId.containsKey(c)).length} children'
+                                  ? ' \u00b7 ${_childCount(node.children.where((c) => data.byId.containsKey(c)).length)}'
                                   : ''),
                           style: AppText.bodyMuted.copyWith(fontSize: 12),
                         ),
@@ -532,3 +562,6 @@ Set<String> reachableFrom(FamilyTreeData data, String rootId) {
   }
   return seen;
 }
+
+/// "1 child" / "2 children".
+String _childCount(int n) => n == 1 ? '1 child' : '$n children';

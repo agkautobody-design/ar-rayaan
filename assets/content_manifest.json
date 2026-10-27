@@ -6,9 +6,9 @@
    "version": 4
   },
   "feelings/feelings.json": {
-   "bytes": 28414,
-   "sha256": "03be0fd60a5c1e0b703df257a6622935df84f2a4002288e0252afe92b7bcd956",
-   "version": 6
+   "bytes": 28416,
+   "sha256": "6a8b3623dc5a6996b7f6fa00de9bf14a7f23ad1c708318390721aff7ddb205ab",
+   "version": 7
   },
   "finance/paper_market.json": {
    "bytes": 3108,
@@ -26,9 +26,9 @@
    "version": 4
   },
   "guides/guides.json": {
-   "bytes": 158750,
-   "sha256": "333687bcababf14d50878807ca0f36b076decd5588f04c776bb4100b2cf4fecd",
-   "version": 10
+   "bytes": 241858,
+   "sha256": "7b76899dbbaa505536e8582d79b0e22ecf25ac9b8e658b2aac62a798157094b4",
+   "version": 12
   },
   "share/cards.json": {
    "bytes": 2808,
@@ -41,9 +41,9 @@
    "version": 8
   },
   "stories/dailyduas.json": {
-   "bytes": 56717,
-   "sha256": "990ef05616431a4b36b9d79aba6115bb17321bd158ff9bbec9d8f050084b91d7",
-   "version": 7
+   "bytes": 55367,
+   "sha256": "ac5d1035bbd589141f819d36366cc57a264cb29dc2ca417a623204b89c6ccec4",
+   "version": 8
   },
   "stories/ghayb.json": {
    "bytes": 96022,
@@ -51,9 +51,9 @@
    "version": 6
   },
   "stories/khutbahs.json": {
-   "bytes": 65384,
-   "sha256": "f1b92f1d0c603ef474f05cbc5690444fe5f0cdecdab253265bb1a883337ff3cd",
-   "version": 9
+   "bytes": 65394,
+   "sha256": "7c714ab36baa2559519160b91151db5611b4821b07f2d221ab293b8e28be30ef",
+   "version": 10
   },
   "stories/modernhadith.json": {
    "bytes": 54788,
@@ -61,9 +61,9 @@
    "version": 16
   },
   "stories/newmuslim.json": {
-   "bytes": 37931,
-   "sha256": "1bf2f1b4b0509d98dc4c16f1420c424a1ed5df1c0ce18481f04c0bf210e17d5d",
-   "version": 4
+   "bytes": 59095,
+   "sha256": "bc04d982663fa6c182baa40beae44a0814189c735242b9dadaf6e9bd7ee66da7",
+   "version": 5
   },
   "stories/prophets.json": {
    "bytes": 90422,

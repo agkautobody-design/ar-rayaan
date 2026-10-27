@@ -10,6 +10,7 @@ import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/router.dart';
 import '../data/stories_repository.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 /// The New Muslim 30-Day Path — the same thirty lessons that live in the
 /// Stories library, walked here as a guided road: one gentle step a day,
@@ -152,7 +153,7 @@ class _PathState extends ConsumerState<NewMuslimPathScreen> {
                         style: AppText.bodyMuted.copyWith(height: 1.5),
                       ),
                       const SizedBox(height: 10),
-                      GestureDetector(
+                      FocusableTap(
                         onTap: () => context.go(AppRoutes.hadi),
                         child: Text('Open Ask Hādi →',
                             style: AppText.bodyMuted.copyWith(

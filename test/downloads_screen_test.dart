@@ -85,6 +85,10 @@ void main() {
     expect(find.text('Download everything'), findsWidgets);
     expect(find.text('Wi-Fi only'), findsOneWidget);
     expect(find.textContaining('already inside this app'), findsOneWidget);
+    await t.scrollUntilVisible(
+      find.byKey(const Key('downloads-nasheed-note')),
+      500,
+    );
     expect(find.byKey(const Key('downloads-nasheed-note')), findsOneWidget);
     expect(find.textContaining('Inside the app'), findsWidgets);
     expect(find.byKey(const Key('downloads-estimate')), findsOneWidget);

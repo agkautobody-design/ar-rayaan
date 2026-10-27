@@ -243,7 +243,8 @@ void main() {
       final HifzState s = const HifzState().addRange(1, 1, 99);
       expect(s.totalMemorised, 0);
       expect(HifzState.decode('{not json').totalMemorised, 0);
-      expect(HifzState.decode(null).targetSurah, 18);
+      expect(HifzState.decode(null).targetSurah, 114);
+      expect(HifzState.decode(null).juzAmma, isTrue);
     });
   });
 

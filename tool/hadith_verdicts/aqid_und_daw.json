@@ -1,0 +1,282 @@
+{
+ "abudawud:1394": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Al-Albani (sahih); Muhammad Muhyi al-Din Abdul Hamid (sahih); Shuaib al-Arnaut (sahih); Zubair Ali Zai (isnaad sahih), as shown on sunnah.com",
+  "note": "Abdullah ibn Amr: whoever recites the Qur'an in less than three days does not understand it",
+  "verdict": "ok"
+ },
+ "abudawud:1464": {
+  "checked": "2026-10-27",
+  "grade": "Hasan Sahih",
+  "grader": "Al-Albani (hasan sahih); Muhammad Muhyi al-Din Abdul Hamid (hasan sahih); Shuaib al-Arnaut (sahih lighairihi); Zubair Ali Zai (isnaad hasan), as shown on sunnah.com",
+  "note": "Abdullah ibn Amr: the companion of the Qur'an is told to recite and ascend, reciting carefully",
+  "verdict": "ok"
+ },
+ "abudawud:1468": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Al-Albani (sahih); Muhammad Muhyi al-Din Abdul Hamid (sahih); Zubair Ali Zai (sahih), as shown on sunnah.com",
+  "note": "Beautify the Qur'an with your voices",
+  "verdict": "ok"
+ },
+ "bukhari:100": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abdullah ibn Amr: knowledge is taken away by the death of scholars; ignorant leaders then give rulings",
+  "verdict": "ok"
+ },
+ "bukhari:122": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Ubayy ibn Ka'b: Musa asked who is most learned; Allah corrected him and sent him to the servant at the meeting of the seas",
+  "verdict": "ok"
+ },
+ "bukhari:1360": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Al-Musayyib: the Prophet asked his dying uncle to say the shahada; he refused; the ayah of not seeking forgiveness for polytheists was revealed",
+  "verdict": "ok"
+ },
+ "bukhari:220": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Huraira: the Bedouin who urinated in the mosque; water poured; you were sent to make things easy",
+  "verdict": "ok"
+ },
+ "bukhari:26": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Huraira: the best deed is belief in Allah and His Messenger, then jihad, then accepted Hajj",
+  "verdict": "ok"
+ },
+ "bukhari:2937": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Huraira: Tufayl ad-Dausi; the Prophet prays for the guidance of Daus",
+  "verdict": "ok"
+ },
+ "bukhari:4663": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Bakr in the cave: what do you think of two, the third of whom is Allah",
+  "verdict": "ok"
+ },
+ "bukhari:4854": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Jubayr ibn Mut'im heard Surat at-Tur in the Maghrib prayer; his heart almost flew",
+  "verdict": "ok"
+ },
+ "bukhari:4998": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Huraira: Jibril reviewed the Qur'an with the Prophet each year, twice in the year he died",
+  "verdict": "ok"
+ },
+ "bukhari:5045": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Anas on the Prophet's recitation: he prolonged the sounds",
+  "verdict": "ok"
+ },
+ "bukhari:5054": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abdullah ibn Amr: finish the Qur'an in a month, then seven days, not less",
+  "verdict": "ok"
+ },
+ "bukhari:5752": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Ibn Abbas: nations shown to the Prophet; some prophets with one man or none; 70,000 enter Paradise without account",
+  "verdict": "ok"
+ },
+ "bukhari:5999": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Umar: the captive woman who nursed her child; will she throw her child in the fire",
+  "verdict": "ok"
+ },
+ "bukhari:6000": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Huraira: Allah divided mercy into one hundred parts, sent one to earth",
+  "verdict": "ok"
+ },
+ "bukhari:6024": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Aisha: the Jews who said as-samu alaykum; Allah loves gentleness in all matters",
+  "verdict": "ok"
+ },
+ "bukhari:6126": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Aisha: the Prophet chose the easier of two matters unless it was a sin",
+  "verdict": "ok"
+ },
+ "bukhari:6308": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Ibn Mas'ud: the believer sees sins like a mountain; Allah is more pleased with repentance than the man who finds his lost mount",
+  "verdict": "ok"
+ },
+ "bukhari:7": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Ibn Abbas: Abu Sufyan before Heraclius; the letter to Heraclius with 3:64",
+  "verdict": "ok"
+ },
+ "bukhari:7375": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Aisha: the commander who ended his recitation with Al-Ikhlas; Allah loves him",
+  "verdict": "ok"
+ },
+ "bukhari:7404": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Huraira: Allah wrote that His mercy overcomes His anger",
+  "verdict": "ok"
+ },
+ "muslim:179": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Musa: Allah does not sleep; He lowers the scale and lifts it",
+  "verdict": "ok"
+ },
+ "muslim:2365": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Huraira: the prophets are of different mothers but one religion",
+  "verdict": "ok"
+ },
+ "muslim:24": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Al-Musayyib: Abu Talib's last words; the Prophet asked him to say the shahada; the ayah that you do not guide whom you love",
+  "verdict": "ok"
+ },
+ "muslim:2524": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Huraira: the Prophet prays for the guidance of Daus",
+  "verdict": "ok"
+ },
+ "muslim:2577": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Dharr: hadith qudsi, I have forbidden injustice for Myself and made it forbidden between you",
+  "verdict": "ok"
+ },
+ "muslim:2581": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Huraira: the bankrupt of my community",
+  "verdict": "ok"
+ },
+ "muslim:2582": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Huraira: rights will be restored on the Day of Resurrection, even the hornless sheep from the horned",
+  "verdict": "ok"
+ },
+ "muslim:2674": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Huraira: whoever calls to guidance has a reward like those who follow it",
+  "verdict": "ok"
+ },
+ "muslim:2677": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Huraira: Allah has ninety-nine names; whoever counts them enters Paradise",
+  "verdict": "ok"
+ },
+ "muslim:2744": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Al-Harith ibn Suwayd: Allah is more pleased with the repentance of His servant than the man who finds his lost mount",
+  "verdict": "ok"
+ },
+ "muslim:2751": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Huraira: Allah's mercy overcomes His anger",
+  "verdict": "ok"
+ },
+ "muslim:2752": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Abu Huraira: Allah made mercy in one hundred parts",
+  "verdict": "ok"
+ },
+ "muslim:2754": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Salman: Allah has one hundred parts of mercy",
+  "verdict": "ok"
+ },
+ "muslim:810": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Ubayy ibn Ka'b: the greatest ayah in the Book of Allah",
+  "verdict": "ok"
+ },
+ "muslim:813": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Aisha: the commander who ended his recitation with Al-Ikhlas",
+  "verdict": "ok"
+ },
+ "tirmidhi:2949": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Ahmad Muhammad Shakir (sahih); Al-Albani (sahih); Bashar Awad Maarouf (hasan sahih); Zubair Ali Zai (isnaad sahih), as shown on sunnah.com",
+  "note": "Abdullah ibn Amr: whoever recites the Qur'an in less than three days does not understand it",
+  "verdict": "ok"
+ },
+ "tirmidhi:3507": {
+  "checked": "2026-10-27",
+  "grade": "Daif",
+  "grader": "Ahmad Muhammad Shakir (daif); Al-Albani (daif); Zubair Ali Zai (daif), as shown on sunnah.com",
+  "note": "The Tirmidhi list of ninety-nine names; cited only to say it is graded weak",
+  "verdict": "ok"
+ }
+}

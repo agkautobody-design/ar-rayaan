@@ -251,7 +251,7 @@ const List<TextPackSpec> kTextPackSpecs = <TextPackSpec>[
     id: 'text-guides',
     title: 'Huda worship guides',
     subtitle: 'Step-by-step guides',
-    estimatedBytes: 80000,
+    estimatedBytes: 240000,
     entries: <String>['assets/guides/guides.json'],
   ),
   TextPackSpec(
@@ -332,6 +332,21 @@ TextPackSpec? textPackById(String id) {
   }
   return null;
 }
+
+/// What works with no connection and what does not, in plain words. Shown at
+/// the top of the Downloads screen so nobody has to find out by trying.
+const String kOfflineStatusNote =
+    'Already part of the app, no download needed: the Academy lessons and '
+    'Arabic letters, Hadi\u2019s built-in library of sourced answers, prayer '
+    'times and Qibla (worked out on the device from a location you share or '
+    'a city you pick), and the adhan and rain sound.\n\n'
+    'Works offline only once saved here: the Qur\u2019an text, the text '
+    'packs below and recitation you downloaded. In a browser the saved copy '
+    'is kept for this site only.\n\n'
+    'Needs a connection: recitation you have not downloaded, nasheeds, '
+    'online game tables, the community, the masjid finder, and any answer '
+    'from an AI service. In a browser the app itself also needs a '
+    'connection to open.';
 
 /// Why nasheeds have no download button. Shown on the Downloads screen and
 /// on the player.

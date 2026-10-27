@@ -41,13 +41,15 @@ class _DuaLesson {
 
 const List<_DuaLesson> kDuaLessons = <_DuaLesson>[
   _DuaLesson(
-    title: 'Ayat al-Kursi — after Fajr, protection',
+    title: 'Ayat al-Kursi — protection at night',
     arabic:
-        'اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ',
+        'ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلۡحَيُّ ٱلۡقَيُّومُۚ لَا تَأۡخُذُهُۥ سِنَةٞ وَلَا نَوۡمٞۚ لَّهُۥ مَا فِي ٱلسَّمَٰوَٰتِ وَمَا فِي ٱلۡأَرۡضِۗ مَن ذَا ٱلَّذِي يَشۡفَعُ عِندَهُۥٓ إِلَّا بِإِذۡنِهِۦۚ يَعۡلَمُ مَا بَيۡنَ أَيۡدِيهِمۡ وَمَا خَلۡفَهُمۡۖ وَلَا يُحِيطُونَ بِشَيۡءٖ مِّنۡ عِلۡمِهِۦٓ إِلَّا بِمَا شَآءَۚ وَسِعَ كُرۡسِيُّهُ ٱلسَّمَٰوَٰتِ وَٱلۡأَرۡضَۖ وَلَا يَـُٔودُهُۥ حِفۡظُهُمَاۚ وَهُوَ ٱلۡعَلِيُّ ٱلۡعَظِيمُ',
     meaning:
-        'Allah — there is no god but He, the Ever-Living, the Sustainer. Neither drowsiness nor sleep overtakes Him… (2:255) — the Prophet ﷺ said nothing prevents him who recites it from entering Paradise but death (Nasai).',
-    when: 'After each obligatory prayer, and morning/evening.',
-    source: 'Qur’an 2:255 · reported in an-Nasa’i (ungraded here; number not verified)',
+        'Allah — there is no god but He, the Ever-Living, the Sustainer of all existence. Neither drowsiness nor sleep overtakes Him… (2:255). In the story of Abu Huraira and the thief, he was told that whoever recites it on going to bed has a guardian from Allah over him, and Satan will not come near him until morning (Bukhari 2311).',
+    when: 'On going to bed.',
+    source: 'Qur’an 2:255 · Sahih al-Bukhari 2311',
+    translit: 'Allaahu laa \'ilaaha \'illaa Huwal-Hayyul-Qayyoom. Laa ta\'khudhuhu sinatunw-wa laa nawm. Lahu maa fis-samaawaati wa maa fil-\'ard. Man dhal-ladhee yashfa\'u \'indahoo \'illaa bi\'idhnih. Ya\'lamu maa bayna \'aydeehim wa maa khalfahum, wa laa yuheetoona bishay\'im-min \'ilmihee \'illaa bimaa shaa\'. Wasi\'a kursiyyuhus-samaawaati wal-\'ard, wa laa ya\'ooduhoo hifzuhumaa, wa Huwal-\'Aliyyul-\'Azeem',
+    translitSource: 'Qur’an 2:255 (the Qur’an transliteration already approved in this app)',
   ),
   _DuaLesson(
     title: 'Sayyid al-Istighfar — the master of seeking forgiveness',
@@ -82,14 +84,14 @@ const List<_DuaLesson> kDuaLessons = <_DuaLesson>[
   _DuaLesson(
     title: 'The Three Quls — the evening shield',
     arabic:
-        'قُلْ هُوَ اللَّهُ أَحَدٌ ۝ قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ ۝ قُلْ أَعُوذُ بِرَبِّ النَّاسِ',
+        'قُلۡ هُوَ ٱللَّهُ أَحَدٌ ٱللَّهُ ٱلصَّمَدُ لَمۡ يَلِدۡ وَلَمۡ يُولَدۡ وَلَمۡ يَكُن لَّهُۥ كُفُوًا أَحَدُۢ ۝ قُلۡ أَعُوذُ بِرَبِّ ٱلۡفَلَقِ مِن شَرِّ مَا خَلَقَ وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ وَمِن شَرِّ ٱلنَّفَّـٰثَٰتِ فِي ٱلۡعُقَدِ وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ ۝ قُلۡ أَعُوذُ بِرَبِّ ٱلنَّاسِ مَلِكِ ٱلنَّاسِ إِلَٰهِ ٱلنَّاسِ مِن شَرِّ ٱلۡوَسۡوَاسِ ٱلۡخَنَّاسِ ٱلَّذِي يُوَسۡوِسُ فِي صُدُورِ ٱلنَّاسِ مِنَ ٱلۡجِنَّةِ وَٱلنَّاسِ',
     meaning:
-        'Say: He is Allah, One… Say: I seek refuge in the Lord of daybreak… Say: I seek refuge in the Lord of mankind (112–114). The Prophet ﷺ taught them morning and evening three times — they suffice the servant against everything.',
+        'Say: He is Allah, One… Say: I seek refuge in the Lord of daybreak… Say: I seek refuge in the Lord of mankind (112–114). The Prophet ﷺ told a Companion to say them three times in the morning and evening, and that they would serve him for every purpose (Abu Dawud 5082, hasan per al-Albani).',
     when: 'Morning and evening, three times each.',
     source: 'Abu Dawud 5082, hasan per al-Albani; Tirmidhi 3575, hasan per Darussalam',
     translit:
-        "Qul huwal-laahu 'ahad. Qul 'a'oozu birabbil-falaq. Qul 'a'oozu birabbin-naas.",
-    translitSource: 'Qur’an 112:1, 113:1, 114:1 (the Qur’an transliteration already approved in this app)',
+        'Qul huwal-laahu \'ahad. Allaahus-samad. Lam yalid wa lam yoolad. Wa lam yakul-lahoo kufuwan \'ahad. Qul \'a\'oozu birabbil-falaq. Min sharri maa khalaq. Wa min sharri ghaasiqin \'izaa waqab. Wa min sharrin-naffaasaati fil-\'uqad. Wa min sharri haasidin \'izaa hasad. Qul \'a\'oozu birabbin-naas. Malikin-naas. \'Ilaahin-naas. Min sharril-waswaasil-khannaas. Allazee yuwaswisu fee sudoorin-naas. Minal-jinnati wan-naas.',
+    translitSource: 'Qur’an 112:1-4, 113:1-5, 114:1-6 (the Qur’an transliteration already approved in this app)',
   ),
   _DuaLesson(
     title: 'Leaving the home — the morning departure',
@@ -167,7 +169,7 @@ const List<_DuaLesson> kDuaLessons = <_DuaLesson>[
     arabic:
         'لَا إِلَٰهَ إِلَّا اللَّهُ الْعَظِيمُ الْحَلِيمُ، لَا إِلَٰهَ إِلَّا اللَّهُ رَبُّ الْعَرْشِ الْعَظِيمِ',
     meaning:
-        'There is no god but Allah, the Magnificent, the Forbearing; there is no god but Allah, Lord of the Mighty Throne (Bukhari 6346). The Prophet ﷺ taught it to the distressed as a prayer Allah does not refuse.',
+        'There is no god but Allah, the Magnificent, the Forbearing; there is no god but Allah, Lord of the Mighty Throne (Bukhari 6346). Ibn Abbas reported that the Prophet ﷺ used to say words like these at a time of distress.',
     when: 'In any hardship, anxiety, or tightness of the chest.',
     source: 'Sahih al-Bukhari 6346',
     translit:
@@ -181,18 +183,6 @@ const List<_DuaLesson> kDuaLessons = <_DuaLesson>[
         'Allah is sufficient for us, and He is the best Disposer of affairs (3:173) — the words of the believers in 3:173 when they were warned that people had gathered against them. Spoken, the chest loosens.',
     when: 'When facing what you cannot control.',
     source: "Qur'an 3:173",
-  ),
-  _DuaLesson(
-    title: 'The master of forgiveness — morning anchor',
-    arabic:
-        'اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَٰهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ',
-    meaning:
-        'O Allah, You are my Lord; there is no god but You. You created me and I am Your servant… (Bukhari 6306). Whoever says it with conviction in the morning or evening and dies that day or night enters Paradise.',
-    when: 'Morning and evening.',
-    source: 'Sahih al-Bukhari 6306',
-    translit:
-        'Allāhumma anta Rabbī lā ilāha illā ant, khalaqtanī wa anā `abduk.',
-    translitSource: 'Hisn 79 (sunnah.com/hisn:79), lines 1-2',
   ),
 ];
 

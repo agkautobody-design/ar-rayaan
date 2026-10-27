@@ -6,6 +6,7 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 class LanguageSettingsScreen extends ConsumerWidget {
   const LanguageSettingsScreen({super.key});
@@ -35,7 +36,7 @@ class LanguageSettingsScreen extends ConsumerWidget {
                     Semantics(
                       button: true,
                       selected: locale == e.key,
-                      child: GestureDetector(
+                      child: FocusableTap(
                         onTap: () =>
                             ref.read(localeProvider.notifier).setLocale(e.key),
                         child: Container(

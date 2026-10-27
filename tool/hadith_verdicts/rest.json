@@ -128,12 +128,12 @@
   "note": "iftar dua (thirst gone, veins moistened), Ibn Umar"
  },
  "abudawud:2380": {
-  "verdict": "wrong",
-  "correct": "none",
-  "grade": "",
-  "grader": "",
-  "checked": "2026-10-20",
-  "note": "page is about vomiting while fasting, not kohl; kohl claim dropped"
+  "verdict": "ok",
+  "correct": "",
+  "grade": "sahih",
+  "grader": "al-Albani (Zubair Ali Zai: da'if)",
+  "checked": "2026-10-27",
+  "note": "the page is about vomiting while fasting, not kohl; the Fasting guide cites it for vomiting (no atonement for a sudden attack, atonement if intentional)"
  },
  "abudawud:2449": {
   "verdict": "ok",
@@ -2522,10 +2522,10 @@
  "ibnmajah:925": {
   "verdict": "ok",
   "correct": "",
-  "grade": "sahih",
-  "grader": "Darussalam",
-  "checked": "2026-10-20",
-  "note": "dua after Fajr: beneficial knowledge, good provision, accepted deeds"
+  "grade": "Daif (Zubair Ali Zai); Sahih (Al-Albani, Muhammad Fouad Abd al-Baqi)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus",
+  "checked": "2026-10-27",
+  "note": "Umm Salamah: dua after the morning salam (beneficial knowledge, goodly provision, accepted deeds). Graders differ"
  },
  "muslim:101": {
   "verdict": "ok",
@@ -4154,10 +4154,10 @@
  "tirmidhi:3431": {
   "verdict": "ok",
   "correct": "",
-  "grade": "daif",
-  "grader": "Darussalam",
-  "checked": "2026-10-20",
-  "note": "dua on seeing someone afflicted; weak per Darussalam"
+  "grade": "Daif (Zubair Ali Zai); Hasan (Al-Albani, Ahmad Muhammad Shakir)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus",
+  "checked": "2026-10-27",
+  "note": "Umar; praise on seeing someone afflicted. Graders differ"
  },
  "tirmidhi:3433": {
   "verdict": "wrong",
@@ -4202,10 +4202,10 @@
  "tirmidhi:3513": {
   "verdict": "ok",
   "correct": "",
-  "grade": "sahih",
-  "grader": "Darussalam",
-  "checked": "2026-10-20",
-  "note": "Laylat al-Qadr dua of pardon, Aisha"
+  "grade": "Daif (Zubair Ali Zai); Sahih (Al-Albani, Ahmad Muhammad Shakir); Hasan Sahih (Bashar Awad Maarouf)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus",
+  "checked": "2026-10-27",
+  "note": "Aisha: what to say if she knows Laylat al-Qadr (Allahumma innaka afuwwun). Graders differ"
  },
  "tirmidhi:3518": {
   "verdict": "wrong",
@@ -4282,10 +4282,10 @@
  "tirmidhi:3895": {
   "verdict": "ok",
   "correct": "",
-  "grade": "sahih",
-  "grader": "Darussalam",
-  "checked": "2026-10-20",
-  "note": "best to family; best to wives"
+  "grade": "Hasan (Zubair Ali Zai); Sahih (Al-Albani, Ahmad Muhammad Shakir); Hasan Sahih (Bashar Awad Maarouf)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus",
+  "checked": "2026-10-27",
+  "note": "Aisha: the best of you are the best to their families. Graders differ in degree (hasan vs sahih)"
  },
  "tirmidhi:428": {
   "verdict": "ok",

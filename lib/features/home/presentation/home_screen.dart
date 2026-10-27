@@ -18,6 +18,8 @@ import '../../academy/application/academy_providers.dart';
 import '../../menu/presentation/menu_screen.dart' show isAcademyRoute;
 import '../../elder/application/elder_mode.dart';
 import '../../hadi/presentation/hadi_ask_bar.dart';
+import '../../noor/application/noor_providers.dart';
+import '../../noor/domain/noor_entry.dart';
 import '../../hadith/presentation/daily_hadith_banner.dart';
 import '../../streaks/presentation/streaks_card.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
@@ -47,12 +49,30 @@ class HomeScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final L10n l10n = ref.watch(l10nProvider);
+    String ui(String key) => l10n.ui(key);
+    // "Today for You" is today's NOOR (a different bundled text each day,
+    // the same one the NOOR screen shows). Until it loads, or if it cannot,
+    // the card shows one fixed verse instead of nothing.
+    final NoorEntry? noor = ref.watch(todayNoorProvider).valueOrNull;
+    final String todayArabic = noor?.arabic ?? 'وَاذْكُر رَّبَّكَ إِذَا نَسِيتَ';
+    final String todayEnglish =
+        noor?.english ?? 'And remember your Lord when you forget.';
+    final String todaySource =
+        noor?.source.toUpperCase() ?? 'QUR\u2019AN 18:24';
+    // A prayer name in the person's language (the six names are translated;
+    // anything else stays as it is).
+    String prayerName(String name) {
+      final String key = 'prayer.${name.toLowerCase()}';
+      return L10n.words.containsKey(key) ? l10n.w(key) : name;
+    }
+
     // --- Live tile subtitles -------------------------------------------------
     // Times are shown only for a location the person set (never a stand-in).
     final bool locationSet = ref.watch(prayerLocationProvider).isSet;
     String? nextPrayerLabel;
     final String prayerSub = !locationSet
-        ? 'Set your location'
+        ? ui('sub.setLocation')
         : ref
               .watch(prayerTimesProvider)
               .when(
@@ -60,14 +80,14 @@ class HomeScreen extends ConsumerWidget {
                   final (String name, DateTime time) =
                       t.nextPrayer(DateTime.now());
                   nextPrayerLabel = '$name at ${DateFormat.jm().format(time)}';
-                  return '$name · ${DateFormat.jm().format(time)}';
+                  return '${prayerName(name)} · ${DateFormat.jm().format(time)}';
                 },
-                loading: () => 'Loading times…',
-                error: (_, _) => 'Times unavailable',
+                loading: () => ui('sub.loadingTimes'),
+                error: (_, _) => ui('sub.timesUnavailable'),
               );
 
     final ReadingPosition? pos = ref.watch(readingPositionProvider);
-    String quranSub = 'Begin Reading · Al-Fatihah';
+    String quranSub = ui('sub.beginReading');
     String? quranResume;
     if (pos != null) {
       final List<SurahMeta>? index = ref.watch(quranIndexProvider).valueOrNull;
@@ -75,8 +95,8 @@ class HomeScreen extends ConsumerWidget {
           ?.where((s) => s.number == pos.surah)
           .firstOrNull;
       quranSub = meta == null
-          ? 'Continue Reading'
-          : 'Continue · ${meta.transliteration} ${pos.surah}:${pos.ayah}';
+          ? ui('sub.continueReading')
+          : '${ui('ui.continue')} · ${meta.transliteration} ${pos.surah}:${pos.ayah}';
       if (meta != null) {
         quranResume = '${meta.transliteration} ${pos.surah}:${pos.ayah}';
       }
@@ -87,8 +107,11 @@ class HomeScreen extends ConsumerWidget {
       quranSub,
       offlineReady: ref.watch(quranOfflineReadyProvider).valueOrNull,
     );
+    if (quranSub == kQuranNeedsInternetNote) {
+      quranSub = ui('sub.needsInternet');
+    }
 
-    String dhikrSub = 'Morning Adhkar';
+    String dhikrSub = ui('sub.morningAdhkar');
     int? adhkarLeft;
     final List<AdhkarSet>? sets = ref.watch(adhkarSetsProvider).valueOrNull;
     if (sets != null && sets.isNotEmpty) {
@@ -98,7 +121,9 @@ class HomeScreen extends ConsumerWidget {
           .read(adhkarProgressProvider.notifier)
           .completedInSet(morning);
       adhkarLeft = morning.totalRepetitions - done;
-      dhikrSub = 'Morning Adhkar · $adhkarLeft remaining';
+      dhikrSub = l10n.locale.languageCode == 'en'
+          ? '${ui('sub.morningAdhkar')} · $adhkarLeft ${ui('home.remaining')}'
+          : '${ui('sub.morningAdhkar')} · ${ui('home.remaining')} $adhkarLeft';
     }
 
     final List<(IconData, String, String, String?)> tiles = [
@@ -188,7 +213,7 @@ class HomeScreen extends ConsumerWidget {
     );
 
     final Widget quick = _SemanticTap(
-                label: 'Quick Access. Academy, naats, games, elder care, therapy, duas.',
+                label: '${ui('home.quick')}. ${ui('home.quickSub')}',
                 onTap: () => context.go('/home/quick'),
                 child: Container(
                   margin: const EdgeInsets.fromLTRB(4, 0, 4, 10),
@@ -204,9 +229,9 @@ class HomeScreen extends ConsumerWidget {
                     Expanded(child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Quick Access', style: AppText.body.copyWith(
+                        Text(ui('home.quick'), style: AppText.body.copyWith(
                             fontWeight: FontWeight.w700, fontSize: 13.5, color: AppColors.goldLight)),
-                        Text('Academy \u00b7 Naats \u00b7 Games \u00b7 Elder Care \u00b7 Therapy \u00b7 Duas',
+                        Text(ui('home.quickSub'),
                             style: AppText.bodyMuted.copyWith(fontSize: 12)),
                       ],
                     )),
@@ -273,7 +298,7 @@ class HomeScreen extends ConsumerWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                'As-Salaamu Alaikum,',
+                                ui('home.greeting'),
                                 style: AppText.bodyMuted.copyWith(fontSize: 12),
                               ),
                               Text(
@@ -286,7 +311,7 @@ class HomeScreen extends ConsumerWidget {
                               ),
                               const SizedBox(height: 2),
                               GoldText(
-                                'Welcome Home',
+                                ui('home.welcome'),
                                 style: AppText.displayMedium.copyWith(
                                   fontSize: 32,
                                 ),
@@ -294,7 +319,7 @@ class HomeScreen extends ConsumerWidget {
                               if (textScale <= 1.3) ...[
                                 const SizedBox(height: 8),
                                 Text(
-                                  'May Allah make this a source of\nbarakah in your day!',
+                                  ui('home.blessing'),
                                   style: AppText.bodyMuted.copyWith(
                                     fontSize: 12,
                                     height: 1.5,
@@ -307,8 +332,10 @@ class HomeScreen extends ConsumerWidget {
                       ),
                       SizedBox(height: compact ? 8 : 16),
               _SemanticTap(
-                label: 'Elder Mode. Opens the large-text home for an elder.',
+                label: '${ui('home.elder')}. ${ui('home.elderSub')}',
                 onTap: () async {
+                  // It stays on across launches, so ask first.
+                  if (!await _confirmElderMode(context)) return;
                   await ref.read(elderModeProvider.notifier).set(true);
                   if (context.mounted) context.go(ElderMode.homeRoute);
                 },
@@ -334,15 +361,15 @@ class HomeScreen extends ConsumerWidget {
                         FittedBox(
                           fit: BoxFit.scaleDown,
                           alignment: AlignmentDirectional.centerStart,
-                          child: Text('ELDER MODE', maxLines: 1, softWrap: false,
+                          child: Text(ui('home.elder'), maxLines: 1, softWrap: false,
                               style: AppText.body.copyWith(
                                   fontWeight: FontWeight.w800, fontSize: 15,
                                   color: AppColors.goldLight, letterSpacing: 1.2)),
                         ),
                         Text(
                             compact
-                                ? 'Big words. Three doors. Nothing else.'
-                                : 'One tap \u2014 the app opens here for them every time. Big words. Three doors. Nothing else.',
+                                ? ui('home.elderSub')
+                                : ui('home.elderSubLong'),
                             style: AppText.bodyMuted.copyWith(fontSize: 12)),
                       ],
                     )),
@@ -352,7 +379,11 @@ class HomeScreen extends ConsumerWidget {
                 ),
               ),
               if (!compact) quick,
-              _NextStepCard(step: step, compact: compact),
+              _NextStepCard(
+                step: step,
+                compact: compact,
+                label: ui('home.nextStep'),
+              ),
               GridView.count(
                         // Adaptive: phones keep three tiles; wide screens
                         // gain columns so nothing stretches into emptiness.
@@ -382,9 +413,9 @@ class HomeScreen extends ConsumerWidget {
                           for (final (_, title, sub, route) in shownTiles)
                             _PictureTile(
                               image: _tileImage(title),
-                              title: ref.watch(l10nProvider).english(title),
-                              subtitle: sub,
-                              badge: _badgeFor(ref, route),
+                              title: l10n.english(title),
+                              subtitle: l10n.english(sub),
+                              badge: _badgeFor(ref, route, l10n),
                               onTap: () =>
                                   context.go(route ?? AppRoutes.explore),
                             ),
@@ -397,25 +428,25 @@ class HomeScreen extends ConsumerWidget {
                         runSpacing: 4,
                         crossAxisAlignment: WrapCrossAlignment.center,
                         children: [
-                          Text('Also:', style: AppText.bodyMuted),
+                          Text(ui('home.also'), style: AppText.bodyMuted),
                           _AlsoLink(
-                            label: 'Nasheeds',
+                            label: ui('home.nasheeds'),
                             onTap: () => context.open(AppRoutes.player),
                           ),
                           _AlsoLink(
-                            label: 'For children',
+                            label: ui('home.forChildren'),
                             onTap: () => context.open(AppRoutes.kids),
                           ),
                           _AlsoLink(
-                            label: 'Mosques & halal food',
+                            label: ui('home.mosques'),
                             onTap: () => context.open('/masajid'),
                           ),
                           _AlsoLink(
-                            label: 'Qibla',
+                            label: ui('ui.qibla'),
                             onTap: () => context.open(AppRoutes.qibla),
                           ),
                           _AlsoLink(
-                            label: '99 Names of Allah',
+                            label: ui('home.names99'),
                             onTap: () => context.open(AppRoutes.names99),
                           ),
                         ],
@@ -439,7 +470,7 @@ class HomeScreen extends ConsumerWidget {
                                 ),
                                 const SizedBox(width: 6),
                                 Text(
-                                  'Today for You',
+                                  ui('home.today'),
                                   style: AppText.body.copyWith(
                                     fontSize: 12,
                                     fontWeight: FontWeight.w600,
@@ -447,11 +478,11 @@ class HomeScreen extends ConsumerWidget {
                                 ),
                                 const Spacer(),
                                 _SemanticTap(
-                                  label: 'View all of Today for You',
+                                  label: '${ui('home.viewAll')}: ${ui('home.today')}',
                                   minHeight: 48,
                                   onTap: () => context.go(AppRoutes.noor),
                                   child: Text(
-                                    'View All',
+                                    ui('home.viewAll'),
                                     style: AppText.bodyMuted.copyWith(
                                       fontSize: 12,
                                       color: AppColors.gold,
@@ -471,7 +502,7 @@ class HomeScreen extends ConsumerWidget {
                                       Directionality(
                                         textDirection: TextDirection.rtl,
                                         child: Text(
-                                          'وَاذْكُر رَّبَّكَ إِذَا نَسِيتَ',
+                                          todayArabic,
                                           style: AppText.arabicLarge.copyWith(
                                             fontSize: 20,
                                             height: 1.6,
@@ -480,7 +511,7 @@ class HomeScreen extends ConsumerWidget {
                                       ),
                                       const SizedBox(height: 8),
                                       Text(
-                                        'And remember your Lord when you forget.',
+                                        todayEnglish,
                                         style: AppText.bodyMuted.copyWith(
                                           fontSize: 12,
                                           fontStyle: FontStyle.italic,
@@ -489,7 +520,7 @@ class HomeScreen extends ConsumerWidget {
                                       ),
                                       const SizedBox(height: 4),
                                       Text(
-                                        'QUR’AN 18:24',
+                                        todaySource,
                                         style: AppText.eyebrow.copyWith(
                                           fontSize: 12,
                                           letterSpacing: compact ? 0.5 : 2,
@@ -536,6 +567,36 @@ class HomeScreen extends ConsumerWidget {
   }
 }
 
+/// "Turn on Elder Mode?" - true to go ahead. Elder Mode is remembered, so a
+/// stray tap on Home must not switch it on for good.
+Future<bool> _confirmElderMode(BuildContext context) async {
+  final bool? ok = await showDialog<bool>(
+    context: context,
+    builder: (BuildContext ctx) => AlertDialog(
+      backgroundColor: const Color(0xFF0A0F18),
+      title: Text('Turn on Elder Mode?', style: AppText.titleMedium),
+      content: Text(
+        'The app will open on a simple home with big words and three doors '
+        'every time, until you turn Elder Mode off (on that home, or in '
+        'Settings).',
+        style: AppText.bodyMuted,
+      ),
+      actions: <Widget>[
+        TextButton(
+          onPressed: () => Navigator.of(ctx).pop(false),
+          child: const Text('Not now'),
+        ),
+        TextButton(
+          key: const Key('elder-confirm'),
+          onPressed: () => Navigator.of(ctx).pop(true),
+          child: const Text('Turn on'),
+        ),
+      ],
+    ),
+  );
+  return ok ?? false;
+}
+
 /// Reads the stored goal and progress, then asks the pure rules which card
 /// to show. Everything comes from providers and preferences the app already
 /// has; a failure to read falls back to the Qur'an card.
@@ -576,10 +637,17 @@ NextStep _nextStepFor(
 
 /// The single "Your next step" card under the greeting.
 class _NextStepCard extends StatelessWidget {
-  const _NextStepCard({required this.step, required this.compact});
+  const _NextStepCard({
+    required this.step,
+    required this.compact,
+    required this.label,
+  });
 
   final NextStep step;
   final bool compact;
+
+  /// The small heading above the card ("YOUR NEXT STEP", translated).
+  final String label;
 
   @override
   Widget build(BuildContext context) {
@@ -597,7 +665,7 @@ class _NextStepCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _SemanticTap(
-              label: 'Your next step. ${step.headline}. ${step.detail}',
+              label: '$label. ${step.headline}. ${step.detail}',
               minHeight: 48,
               onTap: () => context.open(step.route),
               child: Padding(
@@ -608,7 +676,7 @@ class _NextStepCard extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('YOUR NEXT STEP', style: AppText.eyebrow),
+                          Text(label, style: AppText.eyebrow),
                           const SizedBox(height: 2),
                           Text(
                             step.headline,
@@ -677,7 +745,10 @@ class _Header extends StatelessWidget {
     );
     // Home is the root of the Home tab: there is nothing to go back to
     // unless something was pushed over it.
-    final bool canGoBack = context.canPop();
+    // After the introduction there is nothing real under Home: its Back
+    // arrow only popped to the introduction, which bounced straight back.
+    final bool canGoBack =
+        context.canPop() && !OnboardingScreen.completedThisSession;
 
     if (stacked) {
       return Column(
@@ -870,7 +941,7 @@ String _tileImage(String t) {
 
 /// Badge text for a tile's module, straight from the registry. Null when
 /// live, unmapped, or still loading — a tile is never badged on a guess.
-String? _badgeFor(WidgetRef ref, String? route) {
+String? _badgeFor(WidgetRef ref, String? route, L10n l10n) {
   if (route == null) return null;
   final String? moduleId = _tileModule[route];
   if (moduleId == null) return null;
@@ -879,7 +950,7 @@ String? _badgeFor(WidgetRef ref, String? route) {
       .watch(moduleRegistryProvider)
       .whenData((ModuleStatusService s) => status = s.statusOf(moduleId));
   if (status == 'live') return null;
-  return 'Soon';
+  return l10n.ui('home.soon');
 }
 
 /// Which registry module each home tile answers to. Tiles without an

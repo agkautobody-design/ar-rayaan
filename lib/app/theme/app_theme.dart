@@ -31,12 +31,19 @@ abstract final class AppTheme {
       useMaterial3: true,
       brightness: Brightness.dark,
       colorScheme: scheme,
+      // Standard density and padded tap targets on every platform. Without
+      // this a desktop browser gets the compact density and buttons shrink
+      // to 32 px, below the 44 px a finger or a pointer needs.
+      visualDensity: VisualDensity.standard,
+      materialTapTargetSize: MaterialTapTargetSize.padded,
       scaffoldBackgroundColor: AppColors.night,
       textTheme: AppText.textTheme(),
       fontFamily: AppFonts.body,
       // Inter has no U+FDFA (the salawat ligature); Amiri does. Without this
       // the Prophet's honorific can render as an empty box on the web.
-      fontFamilyFallback: const <String>[AppFonts.arabic],
+      // Noto Sans Bengali (SIL OFL, bundled) covers the Bangla UI so it never
+      // depends on a font download from Google at run time.
+      fontFamilyFallback: const <String>[AppFonts.arabic, AppFonts.bengali],
       // InkSparkle's fragment shader isn't bundled in the widget-test
       // environment (taps throw FragmentProgram asset errors there), so
       // tests fall back to InkRipple; production keeps the sparkle.
