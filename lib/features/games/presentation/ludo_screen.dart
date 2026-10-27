@@ -15,8 +15,9 @@ import '../ui/games_theme.dart';
 import 'ludo_board_view.dart';
 import 'online_lobby.dart';
 
-/// LUDO. The board is the owner's picture (`assets/games/ludo/board.webp`),
-/// the rules are in `data/ludo_rules.dart` (46-cell loop, exact finish, six to
+/// LUDO. The board is the owner's picture (`assets/games/ludo/board.webp`, the
+/// standard 15 x 15 board), the rules are in `data/ludo_rules.dart` (52-square
+/// loop, 5-square home columns, exact finish, six to
 /// leave the yard, extra roll on a six, safe squares, captures).
 ///
 /// Local play takes 2 to 4 seats on one device: people share the phone and
@@ -1212,15 +1213,58 @@ class _SmallAction extends StatelessWidget {
 }
 
 /// The die on its glowing ring. Before the first roll it shows the owner's
-/// dice picture; after, the face that was rolled.
-class LudoDiceStage extends StatelessWidget {
+/// rolling-die picture; when a number arrives it shows that picture for a
+/// moment (a short tumble), then the face that was rolled. The game state is
+/// already updated when the tumble starts: it is only a picture.
+class LudoDiceStage extends StatefulWidget {
   const LudoDiceStage({required this.value, this.size = 104, super.key});
 
   final int value;
   final double size;
 
   @override
+  State<LudoDiceStage> createState() => _LudoDiceStageState();
+}
+
+class _LudoDiceStageState extends State<LudoDiceStage> {
+  Timer? _tumble;
+  bool _tumbling = false;
+
+  @override
+  void didUpdateWidget(LudoDiceStage old) {
+    super.didUpdateWidget(old);
+    if (widget.value != 0 && widget.value != old.value) {
+      _tumble?.cancel();
+      _tumbling = true;
+      _tumble = Timer(const Duration(milliseconds: 380), () {
+        if (mounted) setState(() => _tumbling = false);
+      });
+    } else if (widget.value == 0) {
+      _tumble?.cancel();
+      _tumbling = false;
+    }
+  }
+
+  @override
+  void dispose() {
+    _tumble?.cancel();
+    super.dispose();
+  }
+
+  Widget _picture(String path, {required Widget fallback}) => Image.asset(
+        path,
+        width: widget.size * 0.78,
+        height: widget.size * 0.78,
+        fit: BoxFit.contain,
+        gaplessPlayback: true,
+        filterQuality: FilterQuality.medium,
+        errorBuilder: (BuildContext ctx, Object e, StackTrace? st) => fallback,
+      );
+
+  @override
   Widget build(BuildContext context) {
+    final int value = widget.value;
+    final double size = widget.size;
     return Semantics(
       label: value == 0 ? 'Die, not rolled yet' : 'Die showing $value',
       child: ExcludeSemantics(
@@ -1245,17 +1289,15 @@ class LudoDiceStage extends StatelessWidget {
               ),
             ],
           ),
-          child: value == 0
-              ? Image.asset(
-                  LudoBoardArt.dice,
-                  width: size * 0.7,
-                  height: size * 0.7,
-                  fit: BoxFit.contain,
-                  gaplessPlayback: true,
-                  errorBuilder: (BuildContext ctx, Object e, StackTrace? st) =>
-                      DiceFace(value: 0, size: size * 0.6),
+          child: value == 0 || _tumbling
+              ? _picture(
+                  LudoBoardArt.dieRolling,
+                  fallback: DiceFace(value: value, size: size * 0.6),
                 )
-              : DiceFace(value: value, size: size * 0.6),
+              : _picture(
+                  LudoBoardArt.dieFace(value),
+                  fallback: DiceFace(value: value, size: size * 0.6),
+                ),
         ),
       ),
     );

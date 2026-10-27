@@ -20,13 +20,14 @@ const List<Color> kLudoColours = <Color>[
 /// apart by hue alone.
 const List<String> kLudoShapeNames = <String>[
   'circle',
-  'square',
-  'triangle',
   'diamond',
+  'triangle',
+  'square',
 ];
 
-/// Draws the shape of [colour] (0 red circle, 1 blue square, 2 yellow
-/// triangle, 3 green diamond) filling its box.
+/// Draws the shape of [colour] (0 red circle, 1 blue diamond, 2 yellow
+/// triangle, 3 green square) filling its box. These are the shapes on the
+/// top disc of the pawn pictures.
 class LudoShapePainter extends CustomPainter {
   const LudoShapePainter({required this.colour, required this.color});
 
@@ -43,7 +44,13 @@ class LudoShapePainter extends CustomPainter {
     if (colour == 0) {
       canvas.drawCircle(Offset(w / 2, h / 2), math.min(w, h) / 2, p);
     } else if (colour == 1) {
-      canvas.drawRect(Rect.fromLTWH(w * 0.12, h * 0.12, w * 0.76, h * 0.76), p);
+      final Path path = Path()
+        ..moveTo(w / 2, 0)
+        ..lineTo(w, h / 2)
+        ..lineTo(w / 2, h)
+        ..lineTo(0, h / 2)
+        ..close();
+      canvas.drawPath(path, p);
     } else if (colour == 2) {
       final Path path = Path()
         ..moveTo(w / 2, h * 0.04)
@@ -52,13 +59,7 @@ class LudoShapePainter extends CustomPainter {
         ..close();
       canvas.drawPath(path, p);
     } else {
-      final Path path = Path()
-        ..moveTo(w / 2, 0)
-        ..lineTo(w, h / 2)
-        ..lineTo(w / 2, h)
-        ..lineTo(0, h / 2)
-        ..close();
-      canvas.drawPath(path, p);
+      canvas.drawRect(Rect.fromLTWH(w * 0.12, h * 0.12, w * 0.76, h * 0.76), p);
     }
   }
 
@@ -94,47 +95,6 @@ class LudoShapeMark extends StatelessWidget {
   }
 }
 
-/// Gold star on the four start squares (the art has stars on the arm ends).
-class _StartMarksPainter extends CustomPainter {
-  const _StartMarksPainter(this.k);
-
-  final double k;
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    for (int c = 0; c < 4; c++) {
-      final LudoPt pt = LudoBoardArt.loop[LudoRules.startCell[c]];
-      final double s = LudoBoardArt.pawnScaleAt(pt.y);
-      final Offset centre = Offset(pt.x * k, pt.y * k);
-      final double r = 11 * s * k;
-      final Paint ring = Paint()
-        ..color = kLudoColours[c]
-        ..style = PaintingStyle.stroke
-        ..strokeWidth = math.max(1.6, 2.4 * k);
-      canvas.drawCircle(centre, r * 1.45, ring);
-      final Path star = Path();
-      for (int i = 0; i < 10; i++) {
-        final double a = -math.pi / 2 + i * math.pi / 5;
-        final double rr = i.isEven ? r : r * 0.45;
-        final Offset o = Offset(
-          centre.dx + math.cos(a) * rr,
-          centre.dy + math.sin(a) * rr,
-        );
-        if (i == 0) {
-          star.moveTo(o.dx, o.dy);
-        } else {
-          star.lineTo(o.dx, o.dy);
-        }
-      }
-      star.close();
-      canvas.drawPath(star, Paint()..color = const Color(0xFFB8860B));
-    }
-  }
-
-  @override
-  bool shouldRepaint(_StartMarksPainter old) => old.k != k;
-}
-
 class _PawnSpec {
   _PawnSpec({
     required this.seat,
@@ -158,7 +118,9 @@ class _PawnSpec {
 /// The owner's board picture with the pawns laid on it.
 ///
 /// [tokens] is indexed by seat; [seats] gives each seat's colour. Pawns in
-/// [movable] (tokens of [movableSeat]) glow and can be tapped.
+/// [movable] (tokens of [movableSeat]) glow and can be tapped. The board is
+/// square; every position comes from [LudoBoardArt] (cell units of the
+/// measured 15 x 15 grid).
 class LudoBoardView extends StatelessWidget {
   const LudoBoardView({
     required this.seats,
@@ -202,7 +164,7 @@ class LudoBoardView extends StatelessWidget {
           scale = LudoBoardArt.homeScale;
           homeRank++;
         } else {
-          scale = LudoBoardArt.pawnScaleAt(pt.y);
+          scale = 1.0;
         }
         out.add(
           _PawnSpec(
@@ -245,10 +207,11 @@ class LudoBoardView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: LudoBoardArt.imageWidth / LudoBoardArt.imageHeight,
+      aspectRatio: 1,
       child: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints c) {
-          final double k = c.maxWidth / LudoBoardArt.imageWidth;
+          final double k = c.maxWidth / LudoBoardArt.imageSize;
+          final double cell = LudoBoardArt.cell * k;
           final List<_PawnSpec> specs = _specs();
           // Fan out pawns that share a square.
           final Map<String, List<_PawnSpec>> shared =
@@ -262,8 +225,12 @@ class LudoBoardView extends StatelessWidget {
           }
           final List<Widget> rings = <Widget>[];
           final List<Widget> pawns = <Widget>[];
+          // Pawns lower on the board are drawn last, so they overlap the ones
+          // behind them; movable pawns are on top of all.
           final List<_PawnSpec> order = <_PawnSpec>[
-            ...specs.where((_PawnSpec s) => !s.movable),
+            ...(specs.where((_PawnSpec s) => !s.movable).toList()
+              ..sort((_PawnSpec a, _PawnSpec b) =>
+                  a.point.y.compareTo(b.point.y))),
             ...specs.where((_PawnSpec s) => s.movable),
           ];
           for (final _PawnSpec s in order) {
@@ -272,29 +239,28 @@ class LudoBoardView extends StatelessWidget {
             final List<_PawnSpec>? group = shared['${s.point.x},${s.point.y}'];
             if (group != null && group.length > 1) {
               final int i = group.indexOf(s);
-              dx = (i - (group.length - 1) / 2) * 13;
-              scale *= 0.88;
+              dx = (i - (group.length - 1) / 2) * 0.34 * LudoBoardArt.cell;
+              scale *= LudoBoardArt.sharedScale;
             }
-            final double cx = s.point.x + dx;
-            final double cy = s.point.y;
-            final double w = LudoBoardArt.spriteWidth * scale * k;
-            final double h = LudoBoardArt.spriteHeight * scale * k;
-            final double left =
-                (cx - LudoBoardArt.spriteAnchor.x * scale) * k;
-            final double top =
-                (cy - LudoBoardArt.spriteAnchor.y * scale) * k;
+            final double cx = (s.point.x + dx) * k;
+            final double cy = s.point.y * k;
+            final double side = LudoBoardArt.spriteCells * cell * scale;
+            final double left = cx - LudoBoardArt.spriteBaseX * side;
+            final double top = cy +
+                LudoBoardArt.baseDrop * cell -
+                LudoBoardArt.spriteBaseY * side;
             if (s.movable) {
-              final double r = LudoBoardArt.cellRadiusAt(cy) * 1.2 * k;
+              final double r = cell * 0.62;
               rings.add(
                 Positioned(
-                  left: cx * k - r,
-                  top: cy * k - r * 0.8,
+                  left: cx - r,
+                  top: cy - r,
                   width: r * 2,
-                  height: r * 1.6,
+                  height: r * 2,
                   child: IgnorePointer(
                     child: DecoratedBox(
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.elliptical(r, r * 0.8)),
+                        shape: BoxShape.circle,
                         border: Border.all(color: AppColors.goldLight, width: 2),
                         boxShadow: const <BoxShadow>[
                           BoxShadow(color: Color(0xCCFFD367), blurRadius: 10),
@@ -306,15 +272,14 @@ class LudoBoardView extends StatelessWidget {
               );
             }
             final double lift = s.movable ? -3 * k : 0;
-            final double mark = math.max(w * 0.24, 7);
-            final double font = math.max(w * 0.30, 8);
+            final double font = math.max(side * 0.2, 9);
             final String name = LudoRules.colourNames[s.colour];
             pawns.add(
               Positioned(
                 left: left,
                 top: top + lift,
-                width: w,
-                height: h,
+                width: side,
+                height: side,
                 child: Semantics(
                   button: s.movable,
                   label: '$name pawn ${s.token + 1}, ${s.where}',
@@ -335,6 +300,7 @@ class LudoBoardView extends StatelessWidget {
                             LudoBoardArt.pawnFiles[s.colour],
                             fit: BoxFit.contain,
                             gaplessPlayback: true,
+                            filterQuality: FilterQuality.medium,
                             errorBuilder: (
                               BuildContext ctx,
                               Object e,
@@ -348,21 +314,13 @@ class LudoBoardView extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Positioned(
-                          left: (w - mark) / 2,
-                          top: h * 0.20,
-                          width: mark,
-                          height: mark,
-                          child: LudoShapeMark(
-                            colour: s.colour,
-                            size: mark,
-                            color: const Color(0xCCFFFFFF),
-                          ),
-                        ),
+                        // The number, drawn in code on the ball under the
+                        // shape disc (the shape itself is in the picture).
                         Positioned(
                           left: 0,
                           right: 0,
-                          top: h * 0.46,
+                          top: side * LudoBoardArt.numberY[s.colour] -
+                              font * 0.5,
                           child: Center(
                             child: Text(
                               '${s.token + 1}',
@@ -373,7 +331,8 @@ class LudoBoardView extends StatelessWidget {
                                 fontWeight: FontWeight.w800,
                                 color: Colors.white,
                                 shadows: const <Shadow>[
-                                  Shadow(color: Colors.black87, blurRadius: 2),
+                                  Shadow(color: Colors.black, blurRadius: 2),
+                                  Shadow(color: Colors.black87, blurRadius: 4),
                                 ],
                               ),
                             ),
@@ -395,9 +354,11 @@ class LudoBoardView extends StatelessWidget {
                 Positioned.fill(
                   child: Image.asset(
                     LudoBoardArt.board,
+                    key: const ValueKey<String>('ludo-board-art'),
                     fit: BoxFit.fill,
                     gaplessPlayback: true,
                     excludeFromSemantics: true,
+                    filterQuality: FilterQuality.medium,
                     errorBuilder: (
                       BuildContext ctx,
                       Object e,
@@ -409,11 +370,6 @@ class LudoBoardView extends StatelessWidget {
                         borderRadius: BorderRadius.all(Radius.circular(12)),
                       ),
                     ),
-                  ),
-                ),
-                Positioned.fill(
-                  child: IgnorePointer(
-                    child: CustomPaint(painter: _StartMarksPainter(k)),
                   ),
                 ),
                 ...rings,

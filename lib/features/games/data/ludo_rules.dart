@@ -1,18 +1,24 @@
 /// Pure Ludo rules that need no widgets, so they can be unit tested.
 ///
-/// The board is the owner's art (see `ludo_board_art.dart`): a 46-cell loop
-/// with four home columns. Colours sit at fixed places, clockwise from the
-/// top left: red (0), blue (1), yellow (2), green (3). A "seat" is a player's
-/// place in the game (0 .. players-1); each seat plays one colour.
+/// The board is the owner's standard 15 x 15 Ludo board (see
+/// `ludo_board_art.dart` for where each square is on the picture): a shared
+/// loop of 52 squares and, per colour, a home column of 5 squares leading to
+/// the centre. Colours sit at fixed places, clockwise from the top left:
+/// red (0), blue (1), yellow (2), green (3). A "seat" is a player's place in
+/// the game (0 .. players-1); each seat plays one colour. Two players sit
+/// opposite each other (red and yellow).
+///
+/// Loop squares are numbered 0..51 clockwise, starting at the top of the top
+/// arm (col 8, row 0). Each colour's start square is 13 squares after the
+/// previous colour's.
 ///
 /// Token state, per colour-independent progress `p`:
 ///  * -1 ............ in the yard
-///  * 0 .. track-1 .. on the shared loop, counted from the colour's own start
-///  * track .. 48 ... in the colour's home column
-///  * 49 ............ home (finished)
-/// Every colour travels exactly 49 steps from its start square to home (the
-/// board art has a one-cell-longer red column and a one-cell-longer red
-/// detour, which [trackLen] and [startCell] absorb), so no colour is faster.
+///  * 0 .. 50 ........ on the shared loop, counted from the colour's own start
+///    (51 squares: the square just behind the start is never walked)
+///  * 51 .. 55 ....... in the colour's home column (5 squares)
+///  * 56 ............ home (finished)
+/// Every colour travels exactly the same distance.
 ///
 /// HOUSE RULES implemented (shown on the How to Play screen, see [howToPlay]):
 ///  * A six brings a token out of the yard onto your start square.
@@ -20,9 +26,8 @@
 ///  * Landing on a lone opponent token sends it back to its yard, unless it
 ///    stands on a safe square. Capturing does not give an extra roll.
 ///  * Two or more tokens of one colour on one square protect each other.
-///  * Safe squares: the four start squares, the four ends of the arms and the
-///    top arrow square. Tokens may share a safe square and never capture
-///    there.
+///  * Safe squares: the four start squares and the four gold stars. Tokens may
+///    share a safe square and never capture there.
 ///  * Exact finish: a token needs the exact number to reach home; a larger
 ///    roll cannot move it.
 ///  * You must move if any token can move. First to bring all four home wins;
@@ -34,10 +39,10 @@ abstract final class LudoRules {
   static const int inBase = -1;
 
   /// Progress of a token that is home.
-  static const int finished = 49;
+  static const int finished = 56;
 
   /// Cells on the shared loop.
-  static const int loopLen = 46;
+  static const int loopLen = 52;
 
   /// Colour order = seat order of a full table, clockwise from top left.
   static const List<String> colourNames = <String>[
@@ -47,20 +52,22 @@ abstract final class LudoRules {
     'Green',
   ];
 
-  /// Loop cell where each colour's tokens enter the track (colour-indexed).
-  static const List<int> startCell = <int>[3, 36, 14, 25];
+  /// Loop square where each colour's tokens enter the track (colour-indexed):
+  /// red (8,1), blue (13,8), yellow (6,13), green (1,6).
+  static const List<int> startCell = <int>[1, 14, 27, 40];
 
-  /// Loop cell after which a colour turns into its home column.
-  static const List<int> entryCell = <int>[0, 34, 12, 23];
+  /// Loop square after which a colour turns into its home column.
+  static const List<int> entryCell = <int>[51, 12, 25, 38];
 
-  /// Cells a colour walks on the shared loop (start .. entry, inclusive).
-  static const List<int> trackLen = <int>[44, 45, 45, 45];
+  /// Squares a colour walks on the shared loop (start .. entry, inclusive).
+  static const List<int> trackLen = <int>[51, 51, 51, 51];
 
-  /// Cells in each colour's home column (the art has 5 for red, 4 otherwise).
-  static const List<int> columnLen = <int>[5, 4, 4, 4];
+  /// Squares in each colour's home column.
+  static const List<int> columnLen = <int>[5, 5, 5, 5];
 
-  /// Safe loop cells: starts, arm ends and the top arrow square.
-  static const Set<int> safeCells = <int>{0, 3, 12, 14, 23, 25, 34, 36, 39};
+  /// Safe loop squares: the four starts and the four gold stars
+  /// ((6,2), (12,6), (8,12), (2,8) on the board).
+  static const Set<int> safeCells = <int>{1, 9, 14, 22, 27, 35, 40, 48};
 
   /// The colours that play at a table of [players] (2 to 4): opposite corners
   /// first, so two players face each other.
@@ -81,7 +88,7 @@ abstract final class LudoRules {
     'Move one pawn the number rolled. If any pawn can move, you must move.',
     'Land on a lone opponent pawn to send it back to its yard. Capturing does '
         'not give an extra roll.',
-    'Safe squares (the gold stars, the arm ends and the arrow) cannot be '
+    'Safe squares (the four start squares and the gold stars) cannot be '
         'captured on. Two of your pawns on one square also protect each other.',
     'To reach home a pawn needs the exact number. A bigger roll cannot move it.',
     'First to bring all four pawns home wins. Two to four players; computer '

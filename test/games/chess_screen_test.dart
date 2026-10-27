@@ -89,32 +89,34 @@ void main() {
         expect(f.existsSync(), isTrue, reason: path);
         bytes += f.lengthSync();
       }
-      expect(ChessAssets.all().length, 12 + 4 * 2 * 3);
-      expect(bytes, lessThan(1500 * 1024), reason: 'assets stay under 1.5 MB');
+      // 12 pieces, 3 themes of fallback squares, 5 board pictures, 11 tiles.
+      expect(ChessAssets.all().length, 12 + 3 * 2 * 3 + 5 + 11);
+      expect(bytes, lessThan(2200 * 1024), reason: 'assets stay under 2.2 MB');
     });
 
     test('the asset folders are declared in pubspec.yaml', () {
       final String yaml = File('pubspec.yaml').readAsStringSync();
       expect(yaml.contains('assets/games/chess/pieces/'), isTrue);
       expect(yaml.contains('assets/games/chess/squares/'), isTrue);
+      expect(yaml.contains('assets/games/chess/boards/'), isTrue);
     });
 
-    test('the pieces are real transparent sprites', () {
+    test('the pieces are real transparent sprites (WebP with alpha)', () {
       for (final String path in ChessAssets.all().where(
         (String p) => p.contains('/pieces/'),
       )) {
         final List<int> b = File(path).readAsBytesSync();
-        // PNG signature, then colour type 6 (RGBA) at byte 25.
-        expect(b.sublist(1, 4), <int>[0x50, 0x4E, 0x47], reason: path);
-        expect(b[25], 6, reason: '$path must have an alpha channel');
+        expect(String.fromCharCodes(b.sublist(0, 4)), 'RIFF', reason: path);
+        expect(String.fromCharCodes(b.sublist(8, 16)), 'WEBPVP8X', reason: path);
+        expect(b[20] & 0x10, 0x10, reason: '$path must have an alpha channel');
       }
     });
 
     test('asset names follow the piece and the theme', () {
-      expect(ChessAssets.piece(kKnight), 'assets/games/chess/pieces/wn.png');
+      expect(ChessAssets.piece(kKnight), 'assets/games/chess/pieces/wn.webp');
       expect(
         ChessAssets.piece(kQueen | kBlackBit),
-        'assets/games/chess/pieces/bq.png',
+        'assets/games/chess/pieces/bq.webp',
       );
       expect(
         ChessAssets.square(ChessBoardTheme.blue, light: false, v: 2),
@@ -139,7 +141,7 @@ void main() {
       expect(s.autoQueen, isFalse);
       expect(s.confirmResign, isTrue);
       expect(s.autoSave, isTrue);
-      expect(s.theme, ChessBoardTheme.classic);
+      expect(s.theme, ChessBoardTheme.royal);
       expect(s.pieces, ChessPieceStyle.classic);
     });
 
@@ -236,11 +238,11 @@ void main() {
       await leave(tester);
     });
 
-    testWidgets('choosing the Green board saves the theme', (tester) async {
+    testWidgets('choosing the Green marble board saves the theme', (tester) async {
       final ProviderContainer c = await openSheet(tester);
-      await tester.ensureVisible(find.text('Green'));
+      await tester.ensureVisible(find.text('Green marble'));
       await tester.pump();
-      await tester.tap(find.text('Green'));
+      await tester.tap(find.text('Green marble'));
       await tester.pump();
       expect(c.read(chessSettingsProvider).theme, ChessBoardTheme.green);
       await leave(tester);

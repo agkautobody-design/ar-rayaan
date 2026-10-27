@@ -91,10 +91,25 @@ These three look right but are not clean. Replace them with a clean export when 
 | Community stub | `skylineBand` strip, `cornerOrnament` |
 | Games settings | No design; the screen is drawn in code on the shared theme |
 | Learning games (Seerah Timeline, Prophets in Order, Wudu and Salah steps, Word Search, Word Scramble) | the board slots above, with a plain themed panel as fallback; Seerah Challenge, Hadith Knowledge and Arabic Words use their `game*` pictures |
-| Chess and Ludo boards, Lineage, Ayah and Hijrah screens | Not touched (other branches own them). Only their hub tile pictures are new. |
+| Chess and Ludo | Final art from `tool/process_game_art.py`; see the section below. Lineage, Ayah and Hijrah screens are not touched here. |
 
 ## Content notes for the owner
 
 * `gameNames99` shows the gold Allah calligraphy medallion from his 99 Names tile. If he does not want the Name on a tappable game tile, swap that one slot.
 * `gameStories` and `gameLineage` use his Prophets and Islamic History tiles; none shows a figure. `gameMemory` is his Islamic Memory card art, used for Names Memory.
 * The designs also show star ratings, "Online" dots and points. None of that was brought in; the app's no-ratings, no-points rules still apply.
+
+## Chess and Ludo art (final, 26 Oct 2026)
+
+Nothing is awaited. All of it comes from the owner-approved files through `tool/process_game_art.py` (`docs/product/games_art_pipeline.md`).
+
+| Item | Files | Status |
+|---|---|---|
+| Chess pieces (12) | `assets/games/chess/pieces/{w,b}{p,n,b,r,q,k}.webp`, 512 x 512 | final |
+| Chess boards: Royal marble (default), Green marble, Blue marble, Grey, Classic wood | `assets/games/chess/boards/chess_board_<theme>.webp`, 1254 x 1254 | final |
+| Highlight tiles | `chess_board_<theme>_highlight_{selected,legal_move,last_move}.png`, 256 x 256, for green, blue, classic and (selected, legal move) grey | final |
+| Royal marble tiles | none: gold glow drawn in code | optional export |
+| Grey last-move tile | none: the delivered one was opaque and fringed; a soft silver-gold tint is drawn in code | optional export (256 x 256, translucent) |
+| Ludo board, pawns, dice 1 to 6, rolling die | `assets/games/ludo/` | final |
+
+Optional only: higher-resolution re-exports (boards 2048 x 2048). Boards are shipped at 1254 px, enough for a phone at 3x.

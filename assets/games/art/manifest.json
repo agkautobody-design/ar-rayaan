@@ -23,7 +23,7 @@
       "file": "assets/games/art/skylineBand.webp",
       "kind": "exact",
       "source": "985cb0f6-image.png",
-      "sourceScreen": "Qur’an Knowledge waiting room",
+      "sourceScreen": "Qur\u2019an Knowledge waiting room",
       "box": [
         0,
         262,
@@ -149,7 +149,7 @@
       "file": "assets/games/art/gameQuranKnowledge.webp",
       "kind": "exact",
       "source": "c86399a6-image.png",
-      "sourceScreen": "Game Setup, Qur’an Knowledge",
+      "sourceScreen": "Game Setup, Qur\u2019an Knowledge",
       "box": [
         94,
         384,
@@ -161,13 +161,13 @@
         172
       ],
       "transparent": false,
-      "note": "Open Qur’an on a rehal with a lantern."
+      "note": "Open Qur\u2019an on a rehal with a lantern."
     },
     "heroQuranKnowledge": {
       "file": "assets/games/art/heroQuranKnowledge.webp",
       "kind": "exact",
       "source": "8197268e-image.png",
-      "sourceScreen": "Qur’an Knowledge details",
+      "sourceScreen": "Qur\u2019an Knowledge details",
       "box": [
         72,
         168,
@@ -179,7 +179,7 @@
         347
       ],
       "transparent": false,
-      "note": "Wide hero: Qur’an, mosque at sunset, lanterns."
+      "note": "Wide hero: Qur\u2019an, mosque at sunset, lanterns."
     },
     "gameStories": {
       "file": "assets/games/art/gameStories.webp",
@@ -287,7 +287,7 @@
         144
       ],
       "transparent": false,
-      "note": "Open Qur’an with mosque behind."
+      "note": "Open Qur\u2019an with mosque behind."
     },
     "gameChess": {
       "file": "assets/games/art/gameChess.webp",
@@ -455,7 +455,7 @@
       "file": "assets/games/art/goldDivider.png",
       "kind": "patched",
       "source": "985cb0f6-image.png",
-      "sourceScreen": "Qur’an Knowledge waiting room",
+      "sourceScreen": "Qur\u2019an Knowledge waiting room",
       "box": [
         205,
         1237,
@@ -516,5 +516,160 @@
       "note": "Schematic Hajj map (hidden game, not used yet)."
     }
   },
-  "totalBytes": 519286
+  "totalBytes": 519286,
+  "boards": {
+    "chess_royal": {
+      "image": [
+        1254,
+        1254
+      ],
+      "left": 69.9,
+      "top": 64.8,
+      "width": 1112.9,
+      "height": 1121.0,
+      "fit_residual_px": 0.92
+    },
+    "chess_green": {
+      "image": [
+        1254,
+        1254
+      ],
+      "left": 69.9,
+      "top": 64.8,
+      "width": 1112.7,
+      "height": 1120.9,
+      "fit_residual_px": 0.86
+    },
+    "chess_blue": {
+      "image": [
+        1254,
+        1254
+      ],
+      "left": 69.9,
+      "top": 64.7,
+      "width": 1112.6,
+      "height": 1120.9,
+      "fit_residual_px": 0.88
+    },
+    "chess_grey": {
+      "image": [
+        1254,
+        1254
+      ],
+      "left": 69.8,
+      "top": 64.1,
+      "width": 1112.4,
+      "height": 1121.2,
+      "fit_residual_px": 1.12
+    },
+    "chess_classic": {
+      "image": [
+        1254,
+        1254
+      ],
+      "left": 69.8,
+      "top": 64.1,
+      "width": 1113.0,
+      "height": 1120.6,
+      "fit_residual_px": 1.19
+    },
+    "ludo": {
+      "image": [
+        1254,
+        1254
+      ],
+      "left": 76.83,
+      "top": 76.69,
+      "cell": 73.56,
+      "fit_residual_px": 2.22,
+      "yard_sockets": {
+        "red": [
+          [
+            2.2,
+            2.35
+          ],
+          [
+            4.2,
+            2.35
+          ],
+          [
+            2.2,
+            4.14
+          ],
+          [
+            4.2,
+            4.14
+          ]
+        ],
+        "blue": [
+          [
+            10.9,
+            2.35
+          ],
+          [
+            12.83,
+            2.34
+          ],
+          [
+            10.89,
+            4.13
+          ],
+          [
+            12.83,
+            4.13
+          ]
+        ],
+        "yellow": [
+          [
+            10.89,
+            10.94
+          ],
+          [
+            12.83,
+            10.9
+          ],
+          [
+            10.91,
+            12.68
+          ],
+          [
+            12.82,
+            12.68
+          ]
+        ],
+        "green": [
+          [
+            2.18,
+            10.91
+          ],
+          [
+            4.2,
+            10.9
+          ],
+          [
+            2.18,
+            12.7
+          ],
+          [
+            4.2,
+            12.7
+          ]
+        ]
+      }
+    }
+  },
+  "games_board_art": {
+    "note": "Chess boards, pieces, highlight tiles and the Ludo board, pawns and dice come from tool/process_game_art.py (owner-approved art, 26 Oct 2026). Nothing is awaited. Optional: higher-resolution re-exports (boards 2048 x 2048, tiles 256 x 256 already met).",
+    "awaited": [],
+    "code_drawn": [
+      "chess_board_royal highlights (gold glow)",
+      "chess_board_grey last-move tint (the delivered tile was opaque and fringed)"
+    ],
+    "files": {
+      "chess_pieces": "assets/games/chess/pieces/{w,b}{p,n,b,r,q,k}.webp 512x512",
+      "chess_boards": "assets/games/chess/boards/chess_board_{royal,green,blue,grey,classic}.webp 1254x1254 (mirrored left-right: a8 light)",
+      "chess_tiles": "assets/games/chess/boards/chess_board_{green,blue,classic}_highlight_{selected,legal_move,last_move}.png and chess_board_grey_highlight_{selected,legal_move}.png 256x256",
+      "ludo": "assets/games/ludo/{board,pawn_red,pawn_blue,pawn_yellow,pawn_green,die_1..die_6,die_rolling}.webp"
+    }
+  }
 }

@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 """Cut the chess board art out of the owner's design screens.
 
+SUPERSEDED (26 Oct 2026): the Chess and Ludo art now comes from the owner-approved
+final files via tool/process_game_art.py. Running this script would overwrite that art
+with the old mockup crops; keep it only as history.
+
+
 Reproducible: run from the repo root with the two design screenshots
 
     python3 tool/crop_game_boards.py GAME_SCREEN.png SETUP_SCREEN.png

@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 """Cuts the Ludo board art out of the owner's in-game mockup.
 
+SUPERSEDED (26 Oct 2026): the Chess and Ludo art now comes from the owner-approved
+final files via tool/process_game_art.py. Running this script would overwrite that art
+with the old mockup crops; keep it only as history.
+
+
 Reproducible: same input file, same outputs.
 
     python3 tool/crop_ludo_board.py --src /path/to/ludo_in_game_mockup.png

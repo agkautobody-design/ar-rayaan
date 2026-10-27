@@ -5,6 +5,7 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/switch_row.dart';
 import '../ui/games_theme.dart';
+import 'chess_board_art.dart';
 import 'chess_board_view.dart';
 import 'chess_settings.dart';
 
@@ -158,6 +159,7 @@ class _ThemeSwatch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final (Color light, Color dark) = chessThemeColors(theme);
+    final String? picture = ChessBoardArt.board(theme);
     Widget tile(bool isLight) => Expanded(
           child: Image.asset(
             ChessAssets.square(theme, light: isLight),
@@ -194,20 +196,42 @@ class _ThemeSwatch extends StatelessWidget {
                 borderRadius: BorderRadius.circular(6),
                 child: SizedBox.square(
                   dimension: 64,
-                  child: Column(
-                    children: <Widget>[
-                      Expanded(
-                        child: Row(
-                          children: <Widget>[tile(true), tile(false)],
+                  child: picture != null
+                      // The middle 2 x 2 squares of the board picture.
+                      ? FittedBox(
+                          fit: BoxFit.cover,
+                          clipBehavior: Clip.hardEdge,
+                          child: ClipRect(
+                            child: Align(
+                              widthFactor: 0.25,
+                              heightFactor: 0.25,
+                              child: Image.asset(
+                                picture,
+                                width: 256,
+                                height: 256,
+                                excludeFromSemantics: true,
+                                filterQuality: FilterQuality.medium,
+                                errorBuilder: (BuildContext c, Object e,
+                                        StackTrace? st) =>
+                                    ColoredBox(color: dark),
+                              ),
+                            ),
+                          ),
+                        )
+                      : Column(
+                          children: <Widget>[
+                            Expanded(
+                              child: Row(
+                                children: <Widget>[tile(true), tile(false)],
+                              ),
+                            ),
+                            Expanded(
+                              child: Row(
+                                children: <Widget>[tile(false), tile(true)],
+                              ),
+                            ),
+                          ],
                         ),
-                      ),
-                      Expanded(
-                        child: Row(
-                          children: <Widget>[tile(false), tile(true)],
-                        ),
-                      ),
-                    ],
-                  ),
                 ),
               ),
               const SizedBox(height: 4),
