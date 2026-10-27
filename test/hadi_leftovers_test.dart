@@ -191,10 +191,11 @@ void main() {
       expect(m.sources.contains('q:2:183-185'), isFalse);
       final Passage p = corpus.resolve('q:2:183')!;
       expect(p.arabic, isNotEmpty);
-      // Saved with the thread, so the card is there after a restart.
-      final String saved =
-          c.read(sharedPreferencesProvider).getString('ar.hadi.thread') ?? '';
-      expect(saved, contains('q:2:183'));
+      // The card is on the message in memory; nothing is saved to disk.
+      expect(
+        c.read(sharedPreferencesProvider).getString('ar.hadi.thread'),
+        isNull,
+      );
     });
 
     test('a library hadith in a shelf answer gets a card with its grade',

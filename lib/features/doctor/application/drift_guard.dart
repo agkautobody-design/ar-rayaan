@@ -4,6 +4,8 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../hadi/data/api_key_vault.dart';
+
 /// THE WATCHDOG. Scans the app's vitals on launch (and on demand), records
 /// a baseline, and flags drift: anything that changed for the worse since
 /// the last good scan. The Doctor menu shows an amber light while drift
@@ -53,8 +55,7 @@ class DriftGuard {
     final prefs = await SharedPreferences.getInstance();
 
     // 1. AI key presence (Hadi/Wasia/Doctor share it)
-    final keyPresent =
-        (prefs.getString('ar.hadi.apikey') ?? '').trim().isNotEmpty;
+    final keyPresent = (ApiKeyVault.read(prefs) ?? '').trim().isNotEmpty;
     checks++;
 
     // 2. Core packs load

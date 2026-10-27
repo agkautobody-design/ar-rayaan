@@ -73,6 +73,40 @@ ScholarSignoff? scholarSignoffFor(
   }
 }
 
+/// The clinician's label. Same rule as the scholar's: it goes away only when
+/// a NAMED clinician and a DATE are recorded in [kClinicianSignoffs]. Every
+/// support screen, support-pack snippet and Hadi support reply carries both
+/// labels until then. Never invent a reviewer.
+const String kClinicianReviewNeeded = 'Clinician review needed';
+
+/// One sentence of context for [kClinicianReviewNeeded].
+const String kClinicianReviewNeededDetail =
+    'No named clinician has reviewed this yet. It is support and '
+    'information, not medical or mental-health care.';
+
+/// Sign-offs by register id for support content. Empty today: no clinician
+/// has been named. `test/scholar_review_test.dart` checks every entry.
+const Map<String, ScholarSignoff> kClinicianSignoffs =
+    <String, ScholarSignoff>{};
+
+/// "Clinician review needed", or the clinician's sign-off for [key] (or a
+/// parent key).
+String clinicianReviewText(
+  String key, {
+  Map<String, ScholarSignoff> ledger = kClinicianSignoffs,
+}) {
+  final ScholarSignoff? s = scholarSignoffFor(key, ledger: ledger);
+  return s == null ? kClinicianReviewNeeded : s.label;
+}
+
+/// The review labels a support reply or screen shows: the scholar's and the
+/// clinician's, each either "needed" or the sign-off. Keys are register ids.
+List<String> supportReviewLabels(String scholarKey, String clinicianKey) =>
+    <String>[
+      scholarReviewText(scholarKey),
+      clinicianReviewText(clinicianKey),
+    ];
+
 /// The words to print for [key]: "Scholar review needed", or the sign-off.
 /// A data record that carries [reviewedBy] and [reviewedOn] wins.
 String scholarReviewText(

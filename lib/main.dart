@@ -12,6 +12,7 @@ import 'app/core/providers.dart';
 import 'app/core/storage/safe_prefs.dart';
 import 'features/auth/application/auth_providers.dart';
 import 'features/doctor/application/drift_guard.dart';
+import 'features/hadi/data/api_key_vault.dart';
 import 'features/hadi/data/hadi_report_service.dart';
 import 'features/onboarding/presentation/onboarding_screen.dart';
 import 'features/prayer/presentation/worship_boot.dart';
@@ -46,6 +47,8 @@ Future<void> _start() async {
   final SharedPreferences prefs = await SafePrefs.open();
   // A device handed to a child stays in child mode across reloads.
   loadChildMode(prefs);
+  // The person's own AI key: moved out of plain text into the secure store.
+  await ApiKeyVault.load(prefs);
 
   // Doctor Tier 1: every feature registers its vitals at boot.
   FeatureProbes.registerAll();

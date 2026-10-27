@@ -458,14 +458,18 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                   ),
                   const _PrivacyNote(
                     title: 'Where your key is kept',
-                    body: 'On this device, in plain text. Use a key you can '
-                        'revoke.',
+                    body: 'On a phone, in the phone\u2019s secure store. In a '
+                        'web browser it is kept for this visit only, and '
+                        'you paste it again next time. It is never saved in '
+                        'plain text. Use a key you can revoke.',
                   ),
                   const _PrivacyNote(
                     title: 'What never leaves your device',
-                    body: 'Messages about suicide, self-harm, abuse or '
-                        'anyone\u2019s safety are answered here on your '
-                        'device and are never sent.',
+                    body: 'Messages about suicide, self-harm, abuse, '
+                        'anyone\u2019s safety, or about drinking, drugs, '
+                        'gambling, pornography, smoking or a relapse are '
+                        'answered here on your device. They are never sent, '
+                        'never saved, and cannot be reported.',
                   ),
                   const _PrivacyNote(
                     title: 'How live answers are checked',
@@ -850,9 +854,16 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                               !hadi.typing
                           ? () => _send(hadi.messages[i].retryQuestion)
                           : null,
+                      // No Report on a crisis or support exchange, or on
+                      // a reply to text that is one: that text stays on the
+                      // device (see HadiReportPolicy).
                       onReport: hadi.messages[i].fromHadi &&
                               i > 0 &&
-                              !hadi.messages[i].sensitive
+                              !hadi.messages[i].sensitive &&
+                              hadi.messages[i].support == null &&
+                              hadi.messages[i].crisis == null &&
+                              HadiReportPolicy.mayInclude(
+                                  hadi.messages[i - 1].text)
                           ? () => _openReportSheet(
                                 hadi.messages[i],
                                 !hadi.messages[i - 1].fromHadi &&

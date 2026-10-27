@@ -7,6 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../app/core/content/content_sync.dart';
 import '../../../app/core/providers.dart';
+import '../../../app/core/scholar_review.dart';
 import '../../profile/application/profile_providers.dart';
 import '../../stories/application/saved_stories_controller.dart';
 import '../../stories/data/stories_repository.dart';
@@ -17,6 +18,8 @@ import '../../../app/core/packages/usage_meter.dart';
 import '../../../app/core/subscription/subscription_service.dart';
 import '../../sakina/application/sakina_providers.dart';
 import '../../sakina/domain/crisis_detector.dart';
+import '../../sakina/domain/crisis_latch.dart';
+import '../data/api_key_vault.dart';
 import '../data/groq_hadi_provider.dart';
 import '../data/hadi_core.dart';
 import '../data/hadi_explain.dart';
@@ -32,6 +35,7 @@ import '../grounding/madhhab.dart';
 import '../grounding/minor_signal.dart';
 import '../grounding/passage.dart';
 import '../grounding/ruling_gate.dart';
+import '../grounding/support_signal.dart';
 import 'hadi_bookmark.dart';
 import 'hadi_stats.dart';
 import 'local_knowledge_provider.dart';
@@ -411,8 +415,11 @@ class HadiController extends Notifier<HadiState> {
         'your Bookmarks. Please try again in a moment.';
   }
 
-  static const String _keyPref = 'ar.hadi.apikey';
   static const String _providerPref = 'ar.hadi.provider';
+
+  /// The old saved thread. Nothing is saved any more (a conversation about
+  /// drinking, money or fear must not sit on a shared phone); this name is
+  /// kept only to remove what an older version left behind.
   static const String _threadPref = 'ar.hadi.thread';
   static const String _memoryPref = 'ar.hadi.memory';
   static const String _seedPref = 'ar.hadi.seed';
@@ -429,41 +436,10 @@ class HadiController extends Notifier<HadiState> {
     ];
     try {
       final SharedPreferences prefs = ref.watch(sharedPreferencesProvider);
-      final String? raw = prefs.getString(_threadPref);
-      if (raw != null && raw.isNotEmpty) {
-        final List<dynamic> decoded = json.decode(raw) as List<dynamic>;
-        final List<HadiMessage> restored = <HadiMessage>[
-          for (final dynamic e in decoded)
-            if (!_isWelcomeBack((e as Map)['text'] as String))
-              HadiMessage(
-                fromHadi: e['fromHadi'] as bool,
-                text: e['text'] as String,
-                sources: <String>[
-                  for (final dynamic x in (e['sources'] as List<dynamic>? ??
-                      const <dynamic>[]))
-                    x as String,
-                ],
-                routes: <String>[
-                  for (final dynamic x in (e['routes'] as List<dynamic>? ??
-                      const <dynamic>[]))
-                    x as String,
-                ],
-              ),
-        ];
-        if (restored.length > 1) {
-          // A short line for this visit only: it never repeats what the
-          // person said last time, and it is not saved.
-          messages = <HadiMessage>[
-            ...restored,
-            const HadiMessage(
-              fromHadi: true,
-              text: 'Welcome back. Where shall we continue?',
-              ephemeral: true,
-            ),
-          ];
-        } else if (restored.isNotEmpty) {
-          messages = restored;
-        }
+      // Older versions saved the last 20 messages in plain text. Remove
+      // them: this conversation lives in memory for this visit only.
+      if (prefs.containsKey(_threadPref)) {
+        prefs.remove(_threadPref); // fire-and-forget: sync build() cannot await
       }
       // Feelings bridge: a feeling sent from For Your Heart arrives here.
       // Consume exactly once, then let Hadi answer it like any question.
@@ -476,45 +452,16 @@ class HadiController extends Notifier<HadiState> {
     return HadiState(messages: messages, live: _apiKey != null, madhhab: madhhab);
   }
 
-  /// Older versions saved their "Welcome back" line into the thread; drop it
-  /// when the thread is read so it does not pile up.
-  static bool _isWelcomeBack(String text) => text.startsWith('Welcome back.');
-
-  void _persistThread(List<HadiMessage> messages) {
-    try {
-      final SharedPreferences prefs = ref.read(sharedPreferencesProvider);
-      // Anything said during a crisis exchange stays on screen for this
-      // visit only; it is never written to the device thread.
-      final List<HadiMessage> savable = <HadiMessage>[
-        for (final HadiMessage m in messages)
-          if (!m.sensitive && !m.ephemeral) m,
-      ];
-      final List<HadiMessage> tail = savable.length > 20
-          ? savable.sublist(savable.length - 20)
-          : savable;
-      prefs.setString(
-        _threadPref,
-        json.encode(<Map<String, dynamic>>[
-          for (final HadiMessage m in tail)
-            <String, dynamic>{
-              'fromHadi': m.fromHadi,
-              'text': m.text,
-              if (m.sources.isNotEmpty) 'sources': m.sources,
-              if (m.routes.isNotEmpty) 'routes': m.routes,
-            },
-        ]),
-      );
-    } catch (_) {}
-  }
-
-  /// Fresh conversation: wipe the persisted thread and start over.
+  /// Fresh conversation: forget everything said so far and start over.
   Future<void> clearThread() async {
     try {
       final SharedPreferences prefs = ref.read(sharedPreferencesProvider);
       await prefs.remove(_threadPref);
     } catch (_) {}
-    // A fresh conversation starts with no age on record.
+    // A fresh conversation starts with no age on record and no crisis latch.
     _minorSession = false;
+    _latch = null;
+    _latchChecks = 0;
     state = HadiState(
       messages: const <HadiMessage>[
         HadiMessage(fromHadi: true, text: kHadiGreeting),
@@ -529,7 +476,7 @@ class HadiController extends Notifier<HadiState> {
   String? get _apiKey {
     try {
       final SharedPreferences prefs = ref.read(sharedPreferencesProvider);
-      final String? k = prefs.getString(_keyPref);
+      final String? k = ApiKeyVault.read(prefs);
       if (k != null && k.trim().isNotEmpty) return k.trim();
       return ref.read(subscriptionServiceProvider.notifier).managedKey;
     } catch (_) {
@@ -542,7 +489,7 @@ class HadiController extends Notifier<HadiState> {
   bool get _usingManagedKey {
     try {
       final SharedPreferences prefs = ref.read(sharedPreferencesProvider);
-      final String? k = prefs.getString(_keyPref);
+      final String? k = ApiKeyVault.read(prefs);
       return (k == null || k.trim().isEmpty);
     } catch (_) {
       return false;
@@ -582,17 +529,21 @@ class HadiController extends Notifier<HadiState> {
   }
 
   Future<void> saveApiKey(String key) async {
+    final String trimmed = key.trim();
+    SharedPreferences? prefs;
     try {
-      final SharedPreferences prefs = ref.read(sharedPreferencesProvider);
-      final String trimmed = key.trim();
+      final SharedPreferences p = ref.read(sharedPreferencesProvider);
+      prefs = p;
       if (trimmed.isNotEmpty) {
-        await prefs.setString(_providerPref, detectProvider(trimmed));
+        await p.setString(_providerPref, detectProvider(trimmed));
       }
-      if (trimmed.isEmpty) {
-        await prefs.remove(_keyPref);
-      } else {
-        await prefs.setString(_keyPref, trimmed);
-      }
+    } catch (_) {
+      // The provider choice stays in memory only.
+    }
+    try {
+      // The key goes to the secure store (a phone) or to memory for this
+      // visit (a browser), never to plain text.
+      await ApiKeyVault.save(trimmed, prefs);
     } catch (_) {
       // In-memory only.
     }
@@ -627,6 +578,19 @@ class HadiController extends Notifier<HadiState> {
     }
     return false;
   }
+
+  /// The kind of the last crisis card shown in this conversation, or null.
+  ///
+  /// Once a crisis card has been shown the conversation is "latched" until
+  /// the person says they are safe, or starts a fresh conversation. While it
+  /// is latched: no live model is ever called (the on-device shelf answers),
+  /// and a short ambiguous reply ("ok", "tonight", "later") is NOT treated as
+  /// an ordinary message. It gets a plain check ("are you safe right now?").
+  /// Memory only: never saved.
+  CrisisKind? _latch;
+
+  /// How many check-ins this latch has produced (picks the wording).
+  int _latchChecks = 0;
 
   /// Short, different replies for when a person keeps talking about wanting
   /// to die. Never a question the offline shelf could not follow up.
@@ -671,6 +635,7 @@ class HadiController extends Notifier<HadiState> {
       case CrisisKind.childSafety:
       case CrisisKind.eatingDisorder:
       case CrisisKind.extremism:
+      case CrisisKind.substanceEmergency:
         return CrisisResponses.followUpFor(kind);
     }
   }
@@ -727,7 +692,6 @@ class HadiController extends Notifier<HadiState> {
       messages: <HadiMessage>[...state.messages, m],
       typing: false,
     );
-    _persistThread(state.messages);
   }
 
   /// Set once a person says they are under 18. Memory only, this visit.
@@ -845,11 +809,59 @@ class HadiController extends Notifier<HadiState> {
           ],
           typing: false,
         );
-        _persistThread(state.messages);
+        // From here the conversation is latched (see [_latch]).
+        if (crisis != CrisisKind.extremism) _latch = crisis;
         await _stat(HadiAnswerKind.safety);
         return fixed;
       }
     }
+
+    // Latched: a very short reply that could mean anything ("ok", "tonight",
+    // "later") is not an ordinary message. Ask plainly whether the person is
+    // safe. Saying so ends the latch. Nothing here is saved or sent.
+    final CrisisKind? latched = _latch;
+    if (crisis == null && latched != null) {
+      if (CrisisLatch.saysSafe(q)) {
+        _latch = null;
+        _latchChecks = 0;
+        const String relief = CrisisLatch.relief;
+        state = state.copy(
+          messages: <HadiMessage>[
+            ...state.messages,
+            HadiMessage(fromHadi: false, text: q, sensitive: true),
+            const HadiMessage(fromHadi: true, text: relief, sensitive: true),
+          ],
+          typing: false,
+        );
+        await _stat(HadiAnswerKind.safety);
+        return relief;
+      }
+      if (CrisisLatch.isAmbiguous(q)) {
+        final String check = CrisisLatch.checkFor(latched, _latchChecks);
+        _latchChecks++;
+        state = state.copy(
+          messages: <HadiMessage>[
+            ...state.messages,
+            HadiMessage(fromHadi: false, text: q, sensitive: true),
+            HadiMessage(
+              fromHadi: true,
+              text: check,
+              crisis: latched,
+              sensitive: true,
+            ),
+          ],
+          typing: false,
+        );
+        await _stat(HadiAnswerKind.safety);
+        return check;
+      }
+    }
+
+    // A person talking about drinking, drugs, gambling, pornography, smoking
+    // or a relapse is answered as a person, on the device: never with a
+    // ruling card, never by a live model, never saved, never reportable.
+    final SupportTopic? support =
+        crisis == null ? SupportSignal.classify(q) : null;
 
     // Hādi is for adults. Someone who says they are under 18 gets a short
     // fixed reply and the children's lines; no live model is called.
@@ -858,7 +870,9 @@ class HadiController extends Notifier<HadiState> {
           .where((HadiMessage m) =>
               m.fromHadi && m.crisis == CrisisKind.childSafety && m.sensitive)
           .length;
-      final String reply = MinorSignal.replyFor(prior);
+      final String reply = support != null
+          ? SupportReplies.buildForMinor(prior: prior)
+          : MinorSignal.replyFor(prior);
       state = state.copy(
         messages: <HadiMessage>[
           ...state.messages,
@@ -872,7 +886,35 @@ class HadiController extends Notifier<HadiState> {
         ],
         typing: false,
       );
-      _persistThread(state.messages);
+      await _stat(HadiAnswerKind.safety);
+      return reply;
+    }
+
+    if (support != null) {
+      final int prior = state.messages
+          .where((HadiMessage m) => m.fromHadi && m.support != null)
+          .length;
+      final String reply = SupportReplies.build(
+        topic: support,
+        prior: prior,
+        countryCode: ref.read(deviceCountryProvider),
+        verdict: SupportSignal.asksVerdict(q),
+      );
+      state = state.copy(
+        messages: <HadiMessage>[
+          ...state.messages,
+          HadiMessage(fromHadi: false, text: q, sensitive: true),
+          HadiMessage(
+            fromHadi: true,
+            text: reply,
+            sensitive: true,
+            support: support.name,
+            notes: supportReviewLabels('support.hadi-replies',
+                'support.hadi-replies'),
+          ),
+        ],
+        typing: false,
+      );
       await _stat(HadiAnswerKind.safety);
       return reply;
     }
@@ -952,7 +994,7 @@ class HadiController extends Notifier<HadiState> {
       typing: true,
     );
     // An abuse follow-up stays on the device: the on-device shelf answers.
-    final bool onDeviceOnly = crisis != null || grief;
+    final bool onDeviceOnly = crisis != null || grief || _latch != null;
     HadiProvider p = onDeviceOnly
         ? const OfflineHadiProvider()
         : (provider ?? resolveProvider(_apiKey));
@@ -1022,7 +1064,6 @@ class HadiController extends Notifier<HadiState> {
               ],
               typing: false,
             );
-            _persistThread(state.messages);
             await _stat(HadiAnswerKind.local);
             return text;
           }
@@ -1257,7 +1298,6 @@ class HadiController extends Notifier<HadiState> {
       ],
       typing: false,
     );
-    _persistThread(state.messages);
     final HadiProvider finalProvider = p;
     await _stat(
       crisis != null || grief

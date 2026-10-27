@@ -235,16 +235,17 @@ abstract final class MinorSignal {
       'imam you trust. For children, Wasia in the Academy teaches '
       'step by step, and she is made for you.\n\n'
       'If anything is worrying you, or someone is making you feel unsafe, '
-      'please tell a grown-up you trust today. The help lines below are for '
-      'young people.';
+      'please tell a trusted adult today (a parent if it feels safe, a '
+      'teacher, a school counsellor, or a child helpline). You choose who. '
+      'The help lines below are for young people.';
 
   static const List<String> followUps = <String>[
     'I am glad you are here. A parent or teacher is the best person to '
         'ask about this. Wasia in the Academy is there for your learning, '
         'and the lines below are free if you ever need to talk.',
     'That is a good thing to ask someone you trust, like a parent or your '
-        'teacher at the masjid. If you feel unsafe or upset, tell a grown-up '
-        'today. The lines below are for young people.',
+        'teacher at the masjid. If you feel unsafe or upset, tell a trusted adult '
+        'today (you choose who). The lines below are for young people.',
   ];
 
   static String replyFor(int priorMinorReplies) => priorMinorReplies <= 0

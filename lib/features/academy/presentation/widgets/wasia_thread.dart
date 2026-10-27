@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../app/theme/app_colors.dart';
 import '../../../../app/theme/app_typography.dart';
 import '../../../../app/theme/widgets/speak_button.dart';
+import '../../../sakina/presentation/widgets/need_help_button.dart';
 import '../../application/wasia_controller.dart';
 
 /// The shared Wasia conversation thread — every chat box renders the same
@@ -61,6 +62,22 @@ class WasiaThread extends ConsumerWidget {
                 : Text(m.text,
                     style: AppText.bodyMuted
                         .copyWith(fontSize: 13, height: 1.4)),
+          ),
+        ),
+      if (s.messages.isNotEmpty &&
+          s.messages.last.fromHadi &&
+          s.messages.last.crisis != null)
+        Padding(
+          padding: const EdgeInsets.only(bottom: 8),
+          child: Align(
+            alignment: Alignment.centerLeft,
+            // Help lines inside Wasia itself: Sakina is closed to a child.
+            child: NeedHelpNowButton(
+              key: const Key('wasia-help-lines'),
+              kind: s.messages.last.crisis!,
+              label: 'Show help lines',
+              showSakinaLink: false,
+            ),
           ),
         ),
       if (s.notice != null)
