@@ -8,6 +8,7 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../adhkar/presentation/adhkar_screen.dart'
     show AdhkarChoice, kAdhkarDuaChoices;
+import '../../hadith/presentation/hadith_marks_link_card.dart';
 import '../../quran/presentation/quran_marks_link_card.dart';
 import '../../stories/application/saved_stories_controller.dart';
 import '../../stories/data/stories_repository.dart';
@@ -62,6 +63,9 @@ class SavedStoriesSheet extends ConsumerWidget {
             const SizedBox(height: 10),
             // Qur'an ayah bookmarks are kept by the reader; open them here.
             const QuranMarksLinkCard(),
+            const SizedBox(height: 10),
+            // The same for the Forty Hadith.
+            const HadithMarksLinkCard(),
             const SizedBox(height: 10),
             if (mine.isEmpty)
               Text(

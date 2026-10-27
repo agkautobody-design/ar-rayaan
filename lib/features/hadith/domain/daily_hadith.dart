@@ -12,6 +12,9 @@ library;
 
 import 'hadith_models.dart';
 
+/// The grades under which a report may be served as the Daily Hadith.
+const Set<String> kAuthenticGrades = <String>{'sahih', 'hasan', 'hasan sahih'};
+
 /// A short daily hadith.
 ///
 /// [source] is the collection and number (or the named text). Reports from
@@ -36,6 +39,21 @@ class DailyHadith {
 
   /// Who gave [grade], e.g. `al-Albani`, `at-Tirmidhi`.
   final String? grader;
+
+  /// True when this report may be served as the Daily Hadith: it is in
+  /// Sahih al-Bukhari or Sahih Muslim (no separate grade needed), or it
+  /// carries a sahih / hasan grade AND the grader who gave it. A weak, an
+  /// unverified or an ungraded report outside the two Sahihs is never
+  /// authentic here. (The data is also checked, grader by grader, against the
+  /// hadith-api corpus; a report that any listed grader calls weak is left out
+  /// of the rotation.)
+  bool get isAuthentic {
+    if (!hadithSourceNeedsGrade(source)) return true;
+    final String? g = grade?.trim().toLowerCase();
+    final String? by = grader?.trim();
+    if (g == null || by == null || by.isEmpty) return false;
+    return kAuthenticGrades.contains(g);
+  }
 
   /// The grade with its grader, or null when there is none.
   HadithGrade? get gradeInfo {
@@ -127,20 +145,20 @@ abstract final class DailyHadiths {
     DailyHadith(text: 'Fear Allah wherever you are, follow a bad deed with a good one and it will erase it, and treat people with good character.', narrator: 'Abu Dharr & Mu’adh (RA)', source: 'Jamiʿ at-Tirmidhi 1987', grade: 'hasan', grader: 'Darussalam'),
     DailyHadith(text: 'Allah does not look at your appearances or your wealth, but He looks at your hearts and your deeds.', narrator: 'Abu Hurayrah (RA)', source: 'Sahih Muslim 2564'),
     DailyHadith(text: 'Leave that which makes you doubt for that which does not make you doubt.', narrator: 'al-Hasan ibn Ali (RA)', source: 'Jamiʿ at-Tirmidhi 2518', grade: 'sahih', grader: 'Darussalam'),
-    DailyHadith(text: 'Part of a person’s good Islam is leaving what does not concern him.', narrator: 'Abu Hurayrah (RA)', source: 'Jamiʿ at-Tirmidhi 2317', grade: 'daif', grader: 'Darussalam'),
-    DailyHadith(text: 'Do not envy one another, do not hate one another, do not turn away from one another — and be, O servants of Allah, brothers.', narrator: 'Anas ibn Malik (RA)', source: 'Sahih Muslim 2559 — excerpt'),
+    DailyHadith(text: 'The strong believer is better and more beloved to Allah than the weak believer, and there is good in each.', narrator: 'Abu Hurayrah (RA)', source: 'Sahih Muslim 2664 — excerpt'),
+    DailyHadith(text: 'Do not hate one another, do not envy one another, do not turn away from one another — and be, O servants of Allah, brothers.', narrator: 'Anas ibn Malik (RA)', source: 'Sahih al-Bukhari 6065 — excerpt'),
     DailyHadith(text: 'A Muslim is the brother of a Muslim: he does not wrong him, nor forsake him, nor despise him.', narrator: 'Abu Hurayrah (RA)', source: 'Sahih Muslim 2564'),
     DailyHadith(text: 'Whoever relieves a believer’s distress, Allah will relieve his distress on the Day of Resurrection.', narrator: 'Abu Hurayrah (RA)', source: 'Sahih Muslim 2699 — excerpt'),
     DailyHadith(text: 'Be in this world as if you were a stranger or a traveler.', narrator: 'Abdullah ibn Umar (RA)', source: 'Sahih al-Bukhari 6416'),
     DailyHadith(text: 'If you were to rely upon Allah with true reliance, He would provide for you as He provides for the birds.', narrator: 'Umar ibn al-Khattab (RA)', source: 'Jamiʿ at-Tirmidhi 2344', grade: 'hasan', grader: 'Darussalam'),
-    DailyHadith(text: 'Take advantage of five before five: your youth before your old age, your health before your sickness, your wealth before your poverty, your free time before your busyness, and your life before your death.', narrator: 'Abdullah ibn Abbas (RA)', source: 'al-Mustadrak (al-Hakim)', grade: 'sahih', grader: 'al-Hakim'),
-    DailyHadith(text: 'The best among you are those who are best to their families, and I am the best of you to my family.', narrator: 'Aisha (RA)', source: 'Jamiʿ at-Tirmidhi 3895', grade: 'sahih', grader: 'Darussalam'),
+    DailyHadith(text: 'Truthfulness leads to righteousness, and righteousness leads to Paradise.', narrator: 'Abdullah ibn Mas‘ud (RA)', source: 'Sahih al-Bukhari 6094 — excerpt'),
+    DailyHadith(text: 'The best among you are those who are best to their families, and I am the best of you to my family.', narrator: 'Aisha (RA)', source: 'Jamiʿ at-Tirmidhi 3895', grade: 'hasan', grader: 'Darussalam'),
     DailyHadith(text: 'He is not of us who does not show mercy to our young and honor our elderly.', narrator: 'Anas ibn Malik (RA)', source: 'Jamiʿ at-Tirmidhi 1919', grade: 'hasan', grader: 'Darussalam'),
     DailyHadith(text: 'The Merciful are shown mercy by the Most Merciful; be merciful to those on earth and the One above the heavens will be merciful to you.', narrator: 'Abdullah ibn Amr (RA)', source: 'Sunan Abi Dawud 4941', grade: 'sahih', grader: 'al-Albani'),
     DailyHadith(text: 'Whoever does not thank people has not thanked Allah.', narrator: 'Abu Hurayrah (RA)', source: 'Sunan Abi Dawud 4811', grade: 'sahih', grader: 'al-Albani'),
     DailyHadith(text: 'Two blessings many people lose: health and free time.', narrator: 'Abdullah ibn Abbas (RA)', source: 'Sahih al-Bukhari 6412'),
     DailyHadith(text: 'Richness is not having many possessions; richness is contentment of the soul.', narrator: 'Abu Hurayrah (RA)', source: 'Sahih al-Bukhari 6446'),
-    DailyHadith(text: 'The most beloved people to Allah are those most beneficial to people.', narrator: 'Ibn Umar (RA)', source: 'al-Mu’jam al-Awsat (at-Tabarani)', grade: 'not yet verified', grader: 'Ar-Rayaan review pending'),
+    DailyHadith(text: 'Convey from me, even if it is only one verse.', narrator: 'Abdullah ibn Amr (RA)', source: 'Sahih al-Bukhari 3461 — excerpt'),
     DailyHadith(text: 'Allah makes the way to Paradise easy for whoever travels a path seeking knowledge.', narrator: 'Abu Hurayrah (RA)', source: 'Sahih Muslim 2699 — excerpt'),
     DailyHadith(text: 'When a man dies, his deeds end except three: ongoing charity, beneficial knowledge, or a righteous child who prays for him.', narrator: 'Abu Hurayrah (RA)', source: 'Sahih Muslim 1631'),
     DailyHadith(text: 'The religion is sincerity — to Allah, to His Book, to His Messenger, and to the leaders of the Muslims and their common folk.', narrator: 'Tamim ad-Dari (RA)', source: 'Sahih Muslim 55'),
@@ -156,14 +174,14 @@ abstract final class DailyHadiths {
     DailyHadith(text: 'There is a gate in Paradise called Ar-Rayyan through which those who fasted will enter, and none will enter through it except them.', narrator: 'Sahl ibn Sa’d (RA)', source: 'Sahih al-Bukhari 1896'),
     DailyHadith(text: 'Allah accepts the repentance of His servant so long as the death-rattle has not reached his throat.', narrator: 'Abdullah ibn Umar (RA)', source: 'Jamiʿ at-Tirmidhi 3537', grade: 'hasan', grader: 'Darussalam'),
     DailyHadith(text: 'By the One in Whose hand is my soul, if you did not sin, Allah would replace you with people who would sin and seek forgiveness — and He would forgive them.', narrator: 'Abu Hurayrah (RA)', source: 'Sahih Muslim 2749'),
-    DailyHadith(text: 'Every son of Adam sins, and the best of those who sin are those who repent.', narrator: 'Anas ibn Malik (RA)', source: 'Jamiʿ at-Tirmidhi 2499', grade: 'daif', grader: 'Darussalam'),
+    DailyHadith(text: 'Whoever fulfils the need of his brother, Allah will fulfil his need.', narrator: 'Abdullah ibn Umar (RA)', source: 'Sahih al-Bukhari 2442 — excerpt'),
     DailyHadith(text: 'Allah is happier with the repentance of His servant than one of you who finds his lost camel in the desert.', narrator: 'Anas ibn Malik (RA)', source: 'Sahih Muslim 2747 — excerpt'),
     DailyHadith(text: 'None of you should die except thinking well of Allah.', narrator: 'Jabir ibn Abdullah (RA)', source: 'Sahih Muslim 2877'),
     DailyHadith(text: 'Amazing is the affair of the believer — all of it is good for him: gratitude in ease, patience in hardship.', narrator: 'Suhayb ar-Rumi (RA)', source: 'Sahih Muslim 2999 — excerpt'),
     DailyHadith(text: 'No fatigue, illness, worry or grief touches a Muslim, even the prick of a thorn, but that Allah expiates some of his sins by it.', narrator: 'Abu Hurayrah (RA)', source: 'Sahih al-Bukhari 5641 — excerpt'),
     DailyHadith(text: 'To Allah belongs what He took and what He gave, and everything with Him has an appointed term — so be patient and seek reward.', narrator: 'Usamah ibn Zayd (RA)', source: 'Sahih al-Bukhari 1284 — excerpt'),
     DailyHadith(text: 'Supplication is worship itself.', narrator: 'an-Nu’man ibn Bashir (RA)', source: 'Jamiʿ at-Tirmidhi 2969', grade: 'sahih', grader: 'Darussalam'),
-    DailyHadith(text: 'The dua of the distressed: O Allah, Your mercy I hope for — do not leave me to myself even for the blink of an eye.', narrator: 'Abu Bakrah (RA)', source: 'Sunan Abi Dawud 5090', grade: 'hasan', grader: 'al-Albani'),
+    DailyHadith(text: 'Whoever loves to have his provision increased and his life prolonged, let him keep good relations with his kin.', narrator: 'Anas ibn Malik (RA)', source: 'Sahih al-Bukhari 5986 — excerpt'),
   ];
 
   /// Today's hadith — deterministic by day-of-year, so every user on Earth
@@ -194,7 +212,7 @@ abstract final class MoodMap {
     ]),
     Feeling(id: 'anxious', label: 'Anxious', emoji: '🌊', responses: <FeelingResponse>[
       FeelingResponse(kind: 'Quran', text: 'Unquestionably, by the remembrance of Allah hearts are assured.', source: 'Quran 13:28'),
-      FeelingResponse(kind: 'Dua', text: 'O Allah, Your mercy I hope for; do not leave me to myself even for the blink of an eye, and set right all my affairs. There is no god but You.', source: 'Sunan Abi Dawud 5090', grade: 'hasan', grader: 'al-Albani'),
+      FeelingResponse(kind: 'Dua', text: 'O Allah, I seek refuge in You from worry and grief, from incapacity and laziness, from cowardice and miserliness, from being heavily in debt and from being overpowered by men.', source: 'Sahih al-Bukhari 6369'),
       FeelingResponse(kind: 'Hadith', text: 'If you were to rely upon Allah with true reliance, He would provide for you as He provides for the birds: they leave hungry in the morning and return full.', source: 'Jamiʿ at-Tirmidhi 2344', grade: 'hasan', grader: 'Darussalam'),
     ]),
     Feeling(id: 'sad', label: 'Sad', emoji: '🌧️', responses: <FeelingResponse>[
@@ -205,7 +223,7 @@ abstract final class MoodMap {
     Feeling(id: 'angry', label: 'Angry', emoji: '🔥', responses: <FeelingResponse>[
       FeelingResponse(kind: 'Hadith', text: 'The strong is not the one who wrestles; the strong is the one who controls himself when angry.', source: 'Sahih al-Bukhari 6114'),
       FeelingResponse(kind: 'Hadith', text: 'When one of you becomes angry, let him say: A’udhu billahi minash-shaytanir-rajim.', source: 'Sahih al-Bukhari 6115 — meaning'),
-      FeelingResponse(kind: 'Hadith', text: 'Anger comes from Shaytan, and Shaytan was created from fire — and fire is extinguished with water. So when one of you becomes angry, let him make wudu.', source: 'Sunan Abi Dawud 4784', grade: 'daif', grader: 'al-Albani'),
+      FeelingResponse(kind: 'Hadith', text: 'A man asked the Prophet ﷺ for advice, and he said: Do not become angry. The man asked again and again, and each time the Prophet ﷺ said: Do not become angry.', source: 'Sahih al-Bukhari 6116 — meaning'),
     ]),
     Feeling(id: 'lonely', label: 'Lonely', emoji: '🌙', responses: <FeelingResponse>[
       FeelingResponse(kind: 'Quran', text: 'And He is with you wherever you are.', source: 'Quran 57:4 — excerpt'),
@@ -229,7 +247,7 @@ abstract final class MoodMap {
     ]),
     Feeling(id: 'sin', label: 'Struggling with sin', emoji: '🌱', responses: <FeelingResponse>[
       FeelingResponse(kind: 'Quran', text: 'Say, O My servants who have transgressed against themselves [by sinning], do not despair of the mercy of Allah. Indeed, Allah forgives all sins.', source: 'Quran 39:53 — excerpt'),
-      FeelingResponse(kind: 'Hadith', text: 'Every son of Adam sins, and the best of those who sin are those who repent.', source: 'Jamiʿ at-Tirmidhi 2499', grade: 'daif', grader: 'Darussalam'),
+      FeelingResponse(kind: 'Hadith', text: 'By the One in Whose hand is my soul, if you did not sin, Allah would replace you with people who would sin and seek forgiveness — and He would forgive them.', source: 'Sahih Muslim 2749'),
       FeelingResponse(kind: 'Hadith', text: 'A man killed ninety-nine souls, then sought repentance — and Allah forgave him. No one stands between you and repentance but despair.', source: 'Sahih Muslim 2766 — the hundred-souls hadith, excerpt'),
     ]),
   ];
