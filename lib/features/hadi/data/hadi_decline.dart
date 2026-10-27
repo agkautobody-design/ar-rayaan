@@ -29,6 +29,7 @@ enum _Kind {
   creative,
   knowledge,
   tech,
+  everyday,
 }
 
 abstract final class HadiDecline {
@@ -91,6 +92,14 @@ abstract final class HadiDecline {
         r'\b(?:wifi password|fix my (?:phone|laptop|computer|wifi|printer)|'
         r'install (?:windows|linux)|python code|javascript code|html code|'
         r'excel formula|iphone vs android)\b'),
+    _Kind.everyday: RegExp(
+        r'\bwhat should i (?:have|eat|wear|buy|watch|get|do) (?:for|today|'
+        r'tonight|this weekend)\b|\bbest (?:laptop|phone|car|tv|camera|'
+        r'headphones|brand|gym|diet)\b|\bplan (?:my|a|the|our) (?:weekend|'
+        r'holiday|trip|vacation|day|week|wedding)\b|\bmake friends\b|'
+        r'\btime management\b|\bproductivity\b|\bhow (?:do i|to) make '
+        r'(?:coffee|tea|a smoothie|money online)\b|\bworkout (?:plan|routine)\b|'
+        r'\bdiet plan\b|\blose weight\b|\bjob interview\b|\bwrite a cv\b'),
   };
 
   static const Map<_Kind, List<String>> _replies = <_Kind, List<String>>{
@@ -182,6 +191,13 @@ abstract final class HadiDecline {
           'I answer about Islam: worship, the Qur’an and the Sunnah, halal '
           'and haram, family, belief and history, and where things are in '
           'this app.',
+    ],
+    _Kind.everyday: <String>[
+      'That is outside what I do: everyday advice, shopping and planning are '
+          'not on my shelf, and I would only be offering my own opinion. What '
+          'I can give you is what Islam says about the matter, such as '
+          'manners, honesty, family, halal and haram, and how to use your '
+          'time well. Ask me in those terms and I will answer with sources.',
     ],
     _Kind.tech: <String>[
       'That is outside what I do: I cannot help with phones, computers or '

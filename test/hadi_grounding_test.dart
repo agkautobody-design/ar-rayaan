@@ -59,7 +59,8 @@ void main() {
     test('Tirmidhi 2499 (weak) and unread pages are not in the corpus', () {
       expect(corpus.hadithByRef('Tirmidhi', '2499'), isNull);
       expect(corpus.hadithByRef('Muslim', '132'), isNull);
-      expect(corpus.hadithByRef('Bukhari', '5999'), isNull);
+      // Bukhari 5999 (the mother and her child) is now a checked card.
+      expect(corpus.hadithByRef('Bukhari', '5999'), isNotNull);
     });
 
     test('Qur\'an text is the bundled text, with ranges and limits', () {

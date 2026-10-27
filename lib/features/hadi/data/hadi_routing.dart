@@ -45,7 +45,7 @@ abstract final class HadiRouting {
 
   static const String selfDescriptionReply =
       'Here is what I do, and what I will not do.\n\n'
-      'I can: answer from the Qur’an and the six books (Sihah Sitta) with '
+      'I can: answer from the Qur’an and the authentic hadith books with '
       'the source printed under the answer; show you where things are in '
       'this app and take you there; point you to a guide, a story or a '
       'du’a that fits; and stay with you when something is heavy.\n\n'

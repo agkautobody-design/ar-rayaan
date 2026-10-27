@@ -239,7 +239,7 @@ class HadiCorpus {
         s = s.substring(prefix.length);
       }
     }
-    if (s.startsWith('abudaw')) return 'abudawud';
+    if (s.startsWith('abudaw') || s.startsWith('abidaw')) return 'abudawud';
     if (s.startsWith('nasa')) return 'nasai';
     return s;
   }

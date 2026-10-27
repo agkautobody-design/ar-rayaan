@@ -4,7 +4,7 @@ E('pillars-iman',
   m=[r'\bpillars? of (?:iman|imaan|faith|belief)\b', r'\b(?:six|6) (?:pillars|articles) of (?:iman|imaan|faith|belief)\b', r'\barticles of (?:faith|belief|iman)\b', r'\bwhat (?:do|does) (?:muslims?|islam) believe\b', r'\bwhat is iman\b', r'\bwhat is (?:imaan|faith)$', r'\bbasic beliefs? (?:of|in) islam\b', r'\bbeliefs? of (?:muslims?|islam)\b', r'\bwhat must (?:a )?muslim believe\b'],
   topic='iman',
   text="""
-Iman (faith) has six articles. When the angel Jibreel asked the Prophet ﷺ about iman, he answered: {H muslim:8|The Prophet said that iman is to affirm your faith in Allah, in His angels, in His Books, in His Messengers, in the Day of Judgment, and to affirm your faith in the divine decree about good and evil}.
+Iman (faith) has six articles. The angel Jibreel once asked the Prophet ﷺ about iman. {HS muslim:8|The Prophet said that iman is to affirm your faith in Allah, in His angels, in His Books, in His Messengers, in the Day of Judgment, and to affirm your faith in the divine decree about good and evil}.
 
 1. Allah: that He is One, with no partner ({QR 112:1}).
 2. His angels.
@@ -32,8 +32,8 @@ Ash-hadu an la ilaha illa Allah, wa ash-hadu anna Muhammadan rasulu Allah.
 You can say it alone, to Allah, at any time; no priest, certificate or special place is needed. Many people say it before a witness or at a mosque so that the community knows and can help, and that is a good thing to do, but it is not what makes you a Muslim. This is the first of the five pillars ({H bukhari:8|Ibn Umar reported the Prophet said Islam is based on five: to testify that none has the right to be worshipped but Allah and Muhammad is Allah's Messenger, to offer prayer, to pay zakat, to perform Hajj, and to fast in Ramadan}).
 
 Good to know:
-- Your earlier sins are forgiven. The Prophet ﷺ said: {H muslim:121|Amr ibn al-As reported the Prophet asked him, Are you not aware that Islam wipes out all the previous misdeeds?}.
-- Taking a bath on accepting Islam is recommended: {H abudawud:355|Qays ibn Asim came to the Prophet intending to embrace Islam, and the Prophet commanded him to take a bath with water boiled with the leaves of the lote tree}.
+- Your earlier sins are forgiven. {HS muslim:121|Amr ibn al-As reported the Prophet asked him, Are you not aware that Islam wipes out all the previous misdeeds?}.
+- Taking a bath on accepting Islam is recommended: {HS abudawud:355|Qays ibn Asim came to the Prophet intending to embrace Islam, and the Prophet commanded him to take a bath with water boiled with the leaves of the lote tree}.
 - Learn step by step: first to pray (see the How to Pray guide), then fasting, and the rest as you can. Nobody expects you to know everything at once. Allah says {Q 22:78|has not placed upon you in the religion any difficulty}.
 
 The New Muslim path in this app walks you through the basics. If you want to talk with someone, a nearby masjid will welcome you.
@@ -48,7 +48,7 @@ E('bismillah-meaning',
   text="""
 Bismillah is short for "Bismillahi r-Rahmani r-Rahim": "In the name of Allah, the Entirely Merciful, the Especially Merciful" ({QR 1:1}). It is the first verse of the Qur'an's opening chapter, and it begins every surah except Surah At-Tawbah.
 
-Muslims say it to begin an action in Allah's name: eating, drinking, entering the home, starting wudu, studying, travelling. The Prophet ﷺ told a boy: {H bukhari:5376|Umar ibn Abi Salama said the Prophet told him to mention the name of Allah, eat with his right hand and eat from what is nearest to him}. Saying "Bismillah" reminds you that you do it with Allah's help and for what He allows.
+Muslims say it to begin an action in Allah's name: eating, drinking, entering the home, starting wudu, studying, travelling. Teach children to begin with Allah's name. {HS bukhari:5376|Umar ibn Abi Salama said the Prophet told him to mention the name of Allah, eat with his right hand and eat from what is nearest to him}. Saying "Bismillah" reminds you that you do it with Allah's help and for what He allows.
 
 At the end, "Alhamdulillah" (all praise is due to Allah) is said to thank Him.
 """,
@@ -98,7 +98,7 @@ E('companions-sahabah',
   m=[r'\bcompanions? of the prophet\b', r'\bthe prophet s companions\b', r'\bsahabah?\b', r'\bsahabi\b', r'\bprophet s companions\b', r'\bwho (?:are|were) the (?:companions|sahabah)\b', r'\btell me about the (?:prophet s )?companions\b', r'\bthe ten promised paradise\b', r'\basharah mubashshar\w*\b', r'\bten companions\b'],
   topic='companions',
   text="""
-A companion (sahabi) is a person who met the Prophet ﷺ, believed in him, and died as a Muslim. They learned Islam from him directly and passed it to us, and they are the best generation. Allah says: {Q 9:100|And the first forerunners [in the faith] among the Muhajireen and the Ansar and those who followed them with good conduct - Allah is pleased with them and they are pleased with Him}. The Prophet ﷺ said: {H bukhari:3651|Abdullah reported the Prophet said the best people are those living in my generation, and then those who will follow them, and then those who will follow the latter}.
+A companion (sahabi) is a person who met the Prophet ﷺ, believed in him, and died as a Muslim. They learned Islam from him directly and passed it to us, and they are the best generation. Allah says: {Q 9:100|And the first forerunners [in the faith] among the Muhajireen and the Ansar and those who followed them with good conduct - Allah is pleased with them and they are pleased with Him}. {HS bukhari:3651|Abdullah reported the Prophet said the best people are those living in my generation, and then those who will follow them, and then those who will follow the latter}.
 
 Among them: the four Rightly Guided Caliphs (Abu Bakr, Umar, Uthman, Ali); the ten given glad tidings of Paradise ({H tirmidhi:3747|Abdur-Rahman ibn Awf narrated the Prophet said Abu Bakr is in Paradise, Umar is in Paradise, Uthman is in Paradise, Ali is in Paradise, Talhah, az-Zubayr, Abdur-Rahman ibn Awf, Sa'd ibn Abi Waqqas, Sa'id ibn Zayd and Abu Ubaidah ibn al-Jarrah are in Paradise}); the Prophet's wives and daughters; and many Muhajirun and Ansar. Their stories are in the Stories section of this app.
 """,
@@ -111,7 +111,7 @@ E('badr',
   text="""
 Badr was the first major battle between the Muslims of Madinah and the Quraysh of Makkah, fought in Ramadan in the year 2 AH. The Muslims were few and poorly armed, the Makkan army about three times as many, and Allah gave the believers victory: {Q 3:123|And already had Allah given you victory at [the battle of] Badr while you were few in number}.
 
-On the numbers, Umar reported: {H muslim:1763|Umar reported that on the day of Badr the Prophet cast a glance at the polytheists, who were one thousand, while his own companions were three hundred and nineteen, then turned towards the qiblah and made du'a to his Lord}. Al-Bara said that the Badr fighters were about three hundred and ten and some, like the companions of Talut ({H bukhari:3959|Al-Bara said they used to say that the warriors of Badr were over three hundred and ten, as many as the companions of Saul who crossed the river with him}). Allah reminded them that He sent help with the angels ({QR 8:9}) and that victory is only from Him ({QR 3:126}).
+On the numbers, {HS muslim:1763|Umar reported that on the day of Badr the Prophet cast a glance at the polytheists, who were one thousand, while his own companions were three hundred and nineteen, then turned towards the qiblah and made du'a to his Lord}. Al-Bara said that the Badr fighters were about three hundred and ten and some, like the companions of Talut ({H bukhari:3959|Al-Bara said they used to say that the warriors of Badr were over three hundred and ten, as many as the companions of Saul who crossed the river with him}). Allah reminded them that He sent help with the angels ({QR 8:9}) and that victory is only from Him ({QR 3:126}).
 
 The Qur'an calls it the day of the Furqan (the Criterion), when truth was separated from falsehood. Those who fought at Badr are honoured among the companions.
 """,
@@ -122,7 +122,7 @@ E('karbala',
   x=[r'\b(?:fast|fasting|musa|moses|pharaoh)\b'],
   topic='karbala',
   text="""
-Karbala is a place in Iraq where Husayn ibn Ali, the grandson of the Prophet ﷺ, was killed on 10 Muharram in the year 61 AH (680 CE), together with members of his family and companions, by the forces of the Umayyad caliph Yazid. Husayn and his brother Hasan are loved by Muslims of every school: {H tirmidhi:3768|Abu Sa'id narrated the Messenger of Allah said Al-Hasan and Al-Husayn are the chiefs of the youths of Paradise}.
+Karbala is a place in Iraq where Husayn ibn Ali, the grandson of the Prophet ﷺ, was killed on 10 Muharram in the year 61 AH (680 CE), together with members of his family and companions, by the forces of the Umayyad caliph Yazid. Husayn and his brother Hasan are loved by Muslims of every school: {HS tirmidhi:3768|Abu Sa'id narrated the Messenger of Allah said Al-Hasan and Al-Husayn are the chiefs of the youths of Paradise}.
 
 Muslims of all backgrounds regard the killing of the Prophet's grandson as a great tragedy and a grave wrong. They differ in how it is remembered and in what it means politically; Shia communities mourn it publicly in Muharram, while Sunni communities generally remember it without formal mourning rites. This app does not take sides in those differences; for details, ask a scholar of the tradition you follow.
 
@@ -141,6 +141,7 @@ The main historical difference is over who was entitled to lead the community af
 
 I cannot say which group is "better", and this app does not rank Muslims. Allah tells believers to hold together and not divide: {Q 3:103|And hold firmly to the rope of Allah all together and do not become divided}, and {Q 49:10|The believers are but brothers, so make settlement between your brothers}. For questions of belief and practice, ask a scholar of the tradition you follow.
 """,
+  go=['/sources/policy'],
   review='The Sunni/Shia description is a neutral, minimal account; flagged for scholar review by both traditions if possible.')
 
 E('surah-asr',
@@ -176,10 +177,10 @@ E('prophet-biography',
   text="""
 Muhammad ﷺ is the last Messenger of Allah ({Q 33:40|Muhammad is not the father of [any] one of your men, but [he is] the Messenger of Allah and last of the prophets}). In outline:
 - He was born in Makkah, around 570 CE, in the tribe of Quraysh; he was orphaned young and was known among his people as the truthful and trustworthy (as-Sadiq al-Amin).
-- At the age of forty he began to receive the revelation. {H bukhari:3902|Ibn Abbas said the Prophet started receiving the Divine Inspiration at the age of forty, stayed in Makkah for thirteen years, was ordered to migrate, lived as an emigrant for ten years and died at sixty-three}. It began in the cave of Hira, with the first words of Surah Al-Alaq ({QR 96:1}): "Recite in the name of your Lord who created". Bukhari describes the beginning in {H bukhari:3|Aisha said the revelation began with true dreams, then he loved seclusion and used to worship in the cave of Hira, and returned to Khadijah}.
+- At the age of forty he began to receive the revelation. {HS bukhari:3902|Ibn Abbas said the Prophet started receiving the Divine Inspiration at the age of forty, stayed in Makkah for thirteen years, was ordered to migrate, lived as an emigrant for ten years and died at sixty-three}. It began in the cave of Hira, with the first words of Surah Al-Alaq ({QR 96:1}): "Recite in the name of your Lord who created". Bukhari describes the beginning in {H bukhari:3|Aisha said the revelation began with true dreams, then he loved seclusion and used to worship in the cave of Hira, and returned to Khadijah}.
 - In Makkah he invited people to worship Allah alone, and many suffered for it. After the hardship at Ta'if, when the people there did not respond, the angel of the mountains offered to crush them and he refused, hoping that Allah would bring from them people who worship Him alone ({H bukhari:3231|Aisha asked the Prophet about the hardest day and he said it was the day at Aqaba when he went to Ibn Abd Yalil and he did not respond, and the angel of the mountains offered to let two mountains fall on them, and he said no, hoping Allah would bring from them those who worship Allah alone}).
 - He migrated to Madinah (the Hijrah), built the first community there, and returned to Makkah in the conquest, a few years before his death.
-- He died in Madinah at the age of sixty-three ({H muslim:2348|Anas reported the Messenger of Allah died when he was sixty-three years old, and so did Abu Bakr and Umar}). He left no wealth: {H bukhari:2916|Aisha said the Prophet died while his iron armor was mortgaged to a Jew for thirty sa of barley}.
+- He died in Madinah at the age of sixty-three ({H muslim:2348|Anas reported the Messenger of Allah died when he was sixty-three years old, and so did Abu Bakr and Umar}). He left no wealth: {HS bukhari:2916|Aisha said the Prophet died while his iron armor was mortgaged to a Jew for thirty sa of barley}.
 
 Allah describes him as {Q 68:4|of a great moral character} and as {Q 21:107|a mercy to the worlds}. The Seerah section of the Academy has his life in detail. His image is never drawn in Islam, out of respect.
 """,
@@ -202,7 +203,7 @@ Reading it, understanding it, and acting on it are all rewarded. You can read an
 
 E('hadith-what',
   m=[r'\bwhat is (?:a |the )?hadith\b', r'\bwhat are hadiths?\b', r'\bwhat are ahadith\b', r'\bwhat is (?:the )?sunnah\b', r'\bwhat is sunnah\b', r'\bhadith (?:grades?|grading|classification|authenticity)\b', r'\bsahih (?:vs|versus|and|or) (?:hasan|daif|weak)\b', r'\bwhat is (?:a )?(?:sahih|hasan|daif|da if|weak|fabricated|mawdu) hadith\b', r'\bwhat does sahih mean\b', r'\bhow (?:do|can) (?:i|we) know (?:if )?(?:a )?hadith is (?:authentic|sahih|real)\b', r'\bsix books of hadith\b', r'\bsihah sitta\b', r'\bkutub al sittah\b', r'\bmajor hadith collections\b', r'\bhadith collections?\b'],
-  x=[r'\b(?:game|games|quiz|trivia|play)\b'],
+  x=[r'\b(?:game|games|quiz|trivia|play)\b', r'\bhadith (?:number|no|num)\b', r'\bchina\b'],
   topic='hadith',
   text="""
 A hadith is a report of what the Prophet ﷺ said, did, or approved. Together these reports are his sunnah, the second source of Islamic teaching after the Qur'an. Each report has a text and a chain of narrators (isnad) back to the Prophet ﷺ.
@@ -226,7 +227,7 @@ The Qur'an is the word of Allah, revealed in Arabic words and preserved letter b
 
 The Qur'an itself says to follow the Messenger: {Q 59:7|And whatever the Messenger has given you - take; and what he has forbidden you - refrain from}, {Q 4:80|He who obeys the Messenger has obeyed Allah}, and that he is there to explain it: {Q 16:44|And We revealed to you the message that you may make clear to the people what was sent down to them}. The details of prayer, zakat and Hajj, for example, are known mainly through his practice.
 
-The Prophet ﷺ also warned against dropping this: {H abudawud:4604|Al-Miqdam ibn Ma'dikarib narrated the Prophet said I have been given the Qur'an and something like it, yet the time is coming when a man replete on his couch will say keep to the Qur'an, what you find in it permissible treat as permissible, and what you find prohibited treat as prohibited}.
+The Prophet ﷺ also warned against dropping this: {HS abudawud:4604|Al-Miqdam ibn Ma'dikarib narrated the Prophet said I have been given the Qur'an and something like it, yet the time is coming when a man replete on his couch will say keep to the Qur'an, what you find in it permissible treat as permissible, and what you find prohibited treat as prohibited}.
 
 Because hadiths vary in strength, always check the grade; a weak or invented report is not evidence. Use the source card in this app.
 """,
@@ -268,7 +269,7 @@ E('angels-jibreel',
   x=[r'\b(?:game|story|stories|angel investor)\b'],
   topic='angels',
   text="""
-Angels are creatures of Allah, made from light, who obey Him and do what they are told: {Q 66:6|angels, harsh and severe; they do not disobey Allah in what He commands them but do what they are commanded}. The Prophet ﷺ said: {H muslim:2996|A'isha reported the Prophet said the angels were created from light, the jinn from the spark of fire, and Adam from what has been described to you}. They are not male or female, and not partners with Allah.
+Angels are creatures of Allah, made from light, who obey Him and do what they are told: {Q 66:6|angels, harsh and severe; they do not disobey Allah in what He commands them but do what they are commanded}. {HS muslim:2996|A'isha reported the Prophet said the angels were created from light, the jinn from the spark of fire, and Adam from what has been described to you}. They are not male or female, and not partners with Allah.
 
 Jibreel (Gabriel) is the angel of revelation who brought the Qur'an to the Prophet ﷺ: {Q 2:97|Whoever is an enemy to Gabriel - it is [none but] he who has brought the Qur'an down upon your heart}. He also came in the form of a man to teach the Companions their religion, asking about Islam, iman and ihsan ({H muslim:8|The Prophet said that iman is to affirm your faith in Allah, in His angels, in His Books, in His Messengers, in the Day of Judgment, and to affirm your faith in the divine decree about good and evil}). Mikail (Michael) is named in {QR 2:98}.
 
@@ -297,7 +298,7 @@ E('mahdi',
   m=[r'\bmahdi\b', r'\bal mahdi\b', r'\bimam mahdi\b', r'\bthe expected one\b', r'\bwho is the mahdi\b', r'\bwill the mahdi come\b'],
   topic='mahdi',
   text="""
-The Mahdi ("the guided one") is a man from the Prophet's family who, according to reports, will appear near the end of time and fill the earth with justice. The reports are in Abu Dawud: {H abudawud:4283|Ali ibn Abi Talib narrated the Prophet said if only one day of this time remained, Allah would raise up a man from my family who would fill this earth with justice as it has been filled with oppression}.
+The Mahdi ("the guided one") is a man from the Prophet's family who, according to reports, will appear near the end of time and fill the earth with justice. The reports are in Abu Dawud: {HS abudawud:4283|Ali ibn Abi Talib narrated the Prophet said if only one day of this time remained, Allah would raise up a man from my family who would fill this earth with justice as it has been filled with oppression}.
 
 Please note:
 - The reports come with different details (name, signs, timing). Scholars differ on how strong they are, and some doubt them. Sunni and Shia traditions also describe him differently.
@@ -307,26 +308,43 @@ Please note:
   review='Mahdi reports: the contested strength is stated without a ruling; flagged for scholar review.')
 
 E('china-knowledge',
-  m=[r'\bseek knowledge (?:even )?(?:as far as|even in|even unto|to) china\b', r'\bknowledge (?:even )?(?:in|as far as|to) china\b', r'\bchina\b.*\b(?:knowledge|hadith)\b', r'\b(?:knowledge|hadith)\b.*\bchina\b', r'\bseek(?:ing)? knowledge\b.*\b(?:hadith|authentic|sahih|obligatory|duty)\b', r'\bis seeking knowledge (?:obligatory|a duty|an obligation|fard|compulsory)\b', r'^seeking knowledge$', r'\bislam and (?:education|knowledge)\b', r'\bimportance of (?:knowledge|education)\b'],
+  m=[r'\bseek knowledge (?:even )?(?:as far as|even in|even unto|to) china\b', r'\bknowledge (?:even )?(?:in|as far as|to) china\b', r'\bchina\b.*\b(?:knowledge|hadith)\b', r'\b(?:knowledge|hadith)\b.*\bchina\b', r'\bseek(?:ing)? knowledge\b.*\b(?:hadith|authentic|sahih)\b'],
+  x=[r'\bhadith (?:number|no|num)\b'],
   topic='knowledge',
   text="""
-No: "Seek knowledge even in China" is not an authentic hadith. It is not found in Bukhari, Muslim or the other major collections, and hadith scholars treat it as weak or invented, so it should not be attributed to the Prophet ﷺ. It is often quoted for the real point that knowledge is worth travelling for.
+The saying "Seek knowledge even in China" is not an authentic hadith. It is not found in Bukhari, Muslim or the other major collections, and hadith scholars treat it as weak or invented, so it should not be attributed to the Prophet ﷺ. It is often quoted for the real point that knowledge is worth travelling for.
 
-What is established is that Islam values knowledge highly. Allah says: {Q 39:9|Are those who know equal to those who do not know}, and told the Prophet ﷺ to ask {Q 20:114|My Lord, increase me in knowledge}. A related saying in Ibn Majah, "Seeking knowledge is a duty upon every Muslim", is widely quoted: {HW ibnmajah:224|Anas ibn Malik narrated the Prophet said seeking knowledge is a duty upon every Muslim}. It is graded weak by hadith scholars, so it is not used as evidence, though scholars agree on the point that learning the religion one needs (how to pray, fast and live) is a duty.
+What is established is that Islam values knowledge highly. Allah says: {Q 39:9|Are those who know equal to those who do not know}, and told the Prophet ﷺ to ask {Q 20:114|My Lord, increase me in knowledge}. {HS muslim:2699|Abu Hurayrah reported the Prophet said whoever treads a path seeking knowledge, Allah makes the way to Paradise easy for him}.
 
 The Seeking Knowledge guide in this app has authentic texts on the subject.
 """,
   go=['/huda/guide?id=huda-knowledge'],
-  review='The statement that the China saying is weak/invented is the near-unanimous view of hadith scholars but is not text-checked here (it is not in the hadith corpus used). The Ibn Majah report is cited as weak with its grader.')
+  review='The statement that the China saying is weak/invented is the near-unanimous view of hadith scholars but is not text-checked here (it is not in the hadith corpus used).')
+
+E('knowledge-importance',
+  m=[r'\bis seeking knowledge (?:obligatory|a duty|an obligation|fard|compulsory)\b', r'\bseeking knowledge (?:is|an?) (?:obligatory|duty|obligation|fard)\b', r'\bislam and (?:education|knowledge|science)\b', r'\bimportance of (?:knowledge|education|learning)\b', r'\bwhat does islam say about (?:knowledge|education|learning|studying|science)\b', r'^seeking knowledge$', r'\bis (?:education|studying|learning) important in islam\b', r'\bvalue of (?:knowledge|education)\b'],
+  x=[r'\bchina\b', r'\bhadith (?:number|no|num)\b', r'\bgames?\b'],
+  topic='knowledge',
+  text="""
+Islam places great value on knowledge. The first word revealed to the Prophet ﷺ was {Q 96:1|Recite in the name of your Lord who created}. Allah says: {Q 39:9|Are those who know equal to those who do not know}, and told the Prophet ﷺ to ask {Q 20:114|My Lord, increase me in knowledge}. He also says that {Q 58:11|Allah will raise those who have believed among you and those who were given knowledge, by degrees}.
+
+{HS muslim:2699|Abu Hurayrah reported the Prophet said whoever treads a path seeking knowledge, Allah makes the way to Paradise easy for him}.
+
+Is it a duty? Scholars agree that learning what you need in order to practise your religion (how to pray, fast, deal honestly and live) is a duty on every Muslim; deeper study is a duty on the community as a whole. A saying often quoted for this, "Seeking knowledge is a duty upon every Muslim", is {HW ibnmajah:224|Anas ibn Malik narrated the Prophet said seeking knowledge is a duty upon every Muslim}. It is graded weak, so it is not used as evidence, though the meaning is agreed.
+
+The Seeking Knowledge guide in this app has more.
+""",
+  go=['/huda/guide?id=huda-knowledge'],
+  review='Fard ayn / fard kifayah description of knowledge follows the classical summary, not text-checked here. Ibn Majah 224 is cited as weak with its grader.')
 
 E('allah-loves-me',
   m=[r'\bdoes allah (?:love|care about|hear|see|know|forgive|remember|accept) me\b', r'\bwill allah (?:love|forgive|accept|hear|help|punish|ever forgive) me\b', r'\bis allah (?:angry|upset|mad|disappointed|punishing|testing) (?:with|at) me\b', r'\bis allah (?:punishing|testing) me\b', r'\bdoes allah hate me\b', r'\ballah (?:hates|abandoned|forgot|left|ignores|ignored) me\b', r'\bwill allah ever forgive\b', r'\bdoes allah forgive (?:all|every|big|major|everything)\b', r'\bis there hope for me\b', r'\bi feel (?:far|distant) from allah\b', r'\bi feel allah (?:doesn t|does not|isn t) \w+\b', r'\bcan allah forgive\b', r'\bi (?:committed|did) (?:a )?(?:big|major|terrible|huge|bad) sin\b', r'\bi m a (?:bad|terrible|sinful) muslim\b'],
   gate=True,
   topic='mercy',
   text="""
-Yes. Allah is far more loving and merciful than we imagine, and He wants you to come back to Him.
+Allah is far more loving and merciful than we imagine, and He wants you to come back to Him. In a hard time He comforted His Prophet ﷺ: {Q 93:3|Your Lord has not taken leave of you}, and His mercy is open to every servant who turns to Him.
 
-He describes Himself as {Q 85:14|the Forgiving, the Affectionate}, and says {Q 7:156|My mercy encompasses all things}. The Prophet ﷺ once saw a mother who found her child among the captives and held him to her chest, and asked his companions if they thought she would throw her child in the fire. They said no, and he said: {H bukhari:5999|The Prophet said Allah is more merciful to His slaves than this lady is to her son}.
+He describes Himself as {Q 85:14|the Forgiving, the Affectionate}, and says {Q 7:156|My mercy encompasses all things}. The Prophet ﷺ once saw a mother who found her child among the captives and held him to her chest, and asked his companions if they thought she would throw her child in the fire. They said no. {HS bukhari:5999|The Prophet said Allah is more merciful to His slaves than this lady is to her son}.
 
 If you have sinned, even greatly, the door is open: {Q 39:53|do not despair of the mercy of Allah}. Repentance (tawbah) is to stop the sin, feel regret, ask Allah to forgive you, resolve not to return, and, if you wronged a person, put the wrong right. Allah loves this: {Q 2:222|Indeed, Allah loves those who are constantly repentant and loves those who purify themselves}. Start by praying, making du'a in your own words, and doing a small good deed today. If you are feeling lost, hopeless or in pain, please also talk with someone you trust.
 """,

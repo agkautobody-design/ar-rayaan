@@ -31,8 +31,7 @@ void main() {
       for (final String q in everyday) {
         final String a = await const OfflineHadiProvider()
             .ask(q, const <HadiMessage>[]);
-        expect(a, OfflineHadiProvider.decline, reason: q);
-        expect(a, contains('I only cover Islam'), reason: q);
+        expect(OfflineHadiProvider.isDecline(a), isTrue, reason: q);
         expect(a.contains('API'), isFalse, reason: q);
         expect(a.toLowerCase().contains('key'), isFalse, reason: q);
         expect(a.contains('settings'), isFalse, reason: q);
@@ -45,7 +44,7 @@ void main() {
       for (final String q in everyday) {
         final String a = await const OfflineHadiProvider(hasKey: true)
             .ask(q, const <HadiMessage>[]);
-        expect(a, OfflineHadiProvider.decline, reason: q);
+        expect(OfflineHadiProvider.isDecline(a), isTrue, reason: q);
       }
     });
 

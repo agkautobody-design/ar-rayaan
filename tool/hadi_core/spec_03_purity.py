@@ -136,7 +136,7 @@ When it is required:
 - After an emission of semen, awake or in a dream. A woman who has a wet dream does ghusl if she sees a discharge ({H bukhari:282|Umm Sulaim asked if a woman needs a bath after a wet dream, and the Prophet said yes, if she notices a discharge}). If you wake up and see no wetness, ghusl is not required.
 - When menstruation ends, and when postnatal bleeding (nifas) ends.
 
-How to do it (the Prophet's way): {H bukhari:248|Aisha described the Prophet's bath after janabah: he washed his hands, made wudu as for prayer, ran wet fingers through the roots of his hair, poured three handfuls of water on his head, and then poured water over the rest of his body}.
+How to do it (the Prophet's way): {HS bukhari:248|Aisha described the Prophet's bath after janabah: he washed his hands, made wudu as for prayer, ran wet fingers through the roots of his hair, poured three handfuls of water on his head, and then poured water over the rest of his body}.
 1. Intend in your heart and say "Bismillah".
 2. Wash your hands and private parts, and remove any impurity from the body.
 3. Make wudu as for prayer.

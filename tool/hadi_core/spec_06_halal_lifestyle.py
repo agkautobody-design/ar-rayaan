@@ -129,7 +129,7 @@ E('gold-silk-men',
   x=[r'\b(?:zakat|nisab|sell|buy|invest|price|crypto)\b', r'\bgold standard\b'],
   topic='gold',
   text="""
-For men, wearing gold and pure silk is forbidden; for women both are allowed. The Prophet ﷺ said: {H tirmidhi:1720|Abu Musa reported the Messenger of Allah said wearing silk and gold has been made unlawful for the males of my Ummah and lawful for its females}. He once pulled a gold ring from a man's hand and threw it away ({H muslim:2090|Ibn Abbas reported the Messenger of Allah saw a man wearing a gold signet ring, pulled it off and threw it away, saying one of you wishes for a live coal from Hell and puts it on his hand}).
+For men, wearing gold and pure silk is forbidden; for women both are allowed. {HS tirmidhi:1720|Abu Musa reported the Messenger of Allah said wearing silk and gold has been made unlawful for the males of my Ummah and lawful for its females}. He once pulled a gold ring from a man's hand and threw it away ({H muslim:2090|Ibn Abbas reported the Messenger of Allah saw a man wearing a gold signet ring, pulled it off and threw it away, saying one of you wishes for a live coal from Hell and puts it on his hand}).
 
 Silver is allowed for men, and a silver ring was worn by the Prophet ﷺ ({H bukhari:5865|Abdullah reported the Prophet wore a gold ring, then threw it away when people copied him and wore a silver ring instead}). Other metals such as platinum or steel, and silk mixed with other cloth, are allowed by most scholars; ask a scholar if you are unsure. A gold tooth filling or a gold nose or surgery fixture for medical need is allowed.
 """,
@@ -196,7 +196,7 @@ Scholars have two positions on music, and both rest on evidence:
 
 Both agree that the duff and singing are allowed at weddings and Eid. The Prophet ﷺ defended the girls singing in A'ishah's house, saying there is an Eid for every people ({H bukhari:952|Aisha said Abu Bakr protested at two girls singing in her house, and the Prophet said leave them, for there is an Eid for every people and this is our Eid}).
 
-Nasheeds with only the human voice, or with a duff, are accepted by nearly all scholars if the words are clean. Songs about love affairs, drink or immorality are discouraged by both views. This is a real difference, so follow the scholar you trust and avoid anything that distracts you from prayer and the Qur'an.
+Nasheeds with only the human voice, or with a duff, are accepted by nearly all scholars if the words are clean. Songs about love affairs, drink or immorality are discouraged by both views. This is a real difference, so follow the scholar you trust and avoid anything that distracts you from prayer and the Qur'an. For your own situation, ask a qualified scholar.
 """,
   review='Music: two positions described neutrally; flagged for scholar review.')
 

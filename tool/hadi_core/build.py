@@ -149,7 +149,7 @@ def fixpat(p):
     # closing "in Islam" before matching, so a pattern that needs them is
     # made to take them or not.
     p = re.sub(r"^((?:\\b|\^|\(\?:)?)(can you|could you|tell me about|tell me|do you know|explain) ",
-               lambda m: m.group(1) + '(?:' + m.group(2) + ' )?', p)
+               lambda m: ('^' if m.group(1) == '\\b' else m.group(1)) + '(?:' + m.group(2) + ' )?', p)
     return p
 
 
@@ -160,7 +160,7 @@ def E(id, m, text, x=(), go=(), src=None, topic='', gate=True, why='', review=''
                         src=src, topic=topic, gate=gate, why=why.strip(), review=review))
 
 
-MACRO = re.compile(r'\{(QR|Q|H|HW|AR)\s+([^}|]+?)(?:\|([^}]*))?\}')
+MACRO = re.compile(r'\{(QR|Q|HS|H|HW|AR)\s+([^}|]+?)(?:\|([^}]*))?\}')
 
 
 def expand(entry):
@@ -194,6 +194,7 @@ def expand(entry):
         if kind == 'AR':
             return arabic(entry, ref, arg)
         weak_ok = kind == 'HW'
+        inline = kind == 'HS'
         # hadith
         mm = re.match(r'^(\w+):(\d+)$', ref)
         if not mm or mm.group(1) not in BOOKS:
@@ -214,7 +215,7 @@ def expand(entry):
         _, _, disp, graded = BOOKS[book]
         if not graded:
             cites.append((disp, str(num), ''))
-            return f'{disp} {num}'
+            return f'{arg} ({disp} {num})' if inline else f'{disp} {num}'
         g = grade_of(book, hs)
         if not g:
             CTX.errors.append(f"{entry['id']}: {key} has no grade in the corpus")
@@ -225,6 +226,8 @@ def expand(entry):
         if weak_ok and g[0] not in ("da'if", "mawdu'"):
             CTX.errors.append(f"{entry['id']}: {key} is graded {g[0]}, not weak; use {{H ...}}")
         cites.append((disp, str(num), f', {g[0]} per {g[1]}'))
+        if inline:
+            return f'{arg} ({disp} {num}, {g[0]} per {g[1]})'
         return f'{disp} {num}, {g[0]} per {g[1]}'
 
     out = MACRO.sub(rep, text)

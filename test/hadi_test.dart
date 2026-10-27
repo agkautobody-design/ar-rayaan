@@ -34,15 +34,15 @@ void main() {
         () async {
       final String a = await const OfflineHadiProvider().ask(
           'Tell me about quantum entanglement', const <HadiMessage>[]);
-      expect(a, contains('would rather not guess'));
-      expect(a, contains('Saqib Iqbal'));
+      expect(a, contains('rather not guess'));
+      expect(a, contains('scholar'));
     });
 
     test('a question about something else says what Hadi covers', () async {
       final String a = await const OfflineHadiProvider()
           .ask('Who will win the football match?', const <HadiMessage>[]);
-      expect(a, OfflineHadiProvider.offTopicReply);
-      expect(a, contains('only cover Islam'));
+      expect(OfflineHadiProvider.isDecline(a), isTrue);
+      expect(a, contains('That is outside what I do'));
     });
   });
 
