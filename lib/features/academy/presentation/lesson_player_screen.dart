@@ -332,9 +332,12 @@ class _LessonPlayerScreenState
             const <AssessmentItem>[])
         : const <AssessmentItem>[];
     final bool failed = isCheck && _checkSubmitted && _result?.passed != true;
-    final bool ready = !isCheck || _checkSubmitted || _allAnswered(items);
+    // A check with no questions cannot be answered, so it must not trap the
+    // learner: it behaves like a plain step.
+    final bool ready =
+        !isCheck || _checkSubmitted || items.isEmpty || _allAnswered(items);
     final String label;
-    if (!isCheck) {
+    if (!isCheck || items.isEmpty) {
       label = AcademyStrings.get('common.next');
     } else if (!_checkSubmitted) {
       label = AcademyStrings.get('check.continue');
@@ -374,7 +377,7 @@ class _LessonPlayerScreenState
               onPressed: !ready
                   ? null
                   : () {
-                      if (isCheck && !_checkSubmitted) {
+                      if (isCheck && !_checkSubmitted && items.isNotEmpty) {
                         _submitCheck(items);
                         return;
                       }
