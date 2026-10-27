@@ -6,9 +6,9 @@
    "version": 4
   },
   "feelings/feelings.json": {
-   "bytes": 26496,
-   "sha256": "ee4a8a32a13bce1bf5fba825f7b753a5df3ab59768d0b2f764512d15b9982bbd",
-   "version": 5
+   "bytes": 28414,
+   "sha256": "03be0fd60a5c1e0b703df257a6622935df84f2a4002288e0252afe92b7bcd956",
+   "version": 6
   },
   "finance/paper_market.json": {
    "bytes": 3108,
@@ -31,9 +31,9 @@
    "version": 10
   },
   "share/cards.json": {
-   "bytes": 2639,
-   "sha256": "f6eb3a284024dd1303a83da230f5bb9350294d281847e7b665582aa1bdcd6f8d",
-   "version": 2
+   "bytes": 2808,
+   "sha256": "058f33655fbb30b589a4d38f273cbc8ba01598f6d80562f057d2a19cfc02313c",
+   "version": 3
   },
   "stories/companions.json": {
    "bytes": 48390,
@@ -56,9 +56,9 @@
    "version": 9
   },
   "stories/modernhadith.json": {
-   "bytes": 51732,
-   "sha256": "1218f61cefc376e2e2987887c0591ef879369c2f1e2c18ec43067955aaa65b70",
-   "version": 15
+   "bytes": 54788,
+   "sha256": "672996881a5046efeefce2ea2780dad9d61e120718b329f8888f19e0adf6f46b",
+   "version": 16
   },
   "stories/newmuslim.json": {
    "bytes": 37931,

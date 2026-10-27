@@ -1,66 +1,86 @@
 {
  "schema": "ar.qa_bank.v1",
- "note": "Curated Q&A — 12 sourced questions for Hadi to reference and users to browse. Sources follow the established-sources law.",
+ "note": "Curated Q&A, 16 questions for Hadi to reference and users to browse. Qur'an and hadith references were checked against the texts; where a ruling depends on a scholar or a school, the answer says so and the source line marks it as summarised. Not yet reviewed by a named scholar.",
  "questions": [
   {
    "q": "What breaks the fast during Ramadan?",
-   "a": "Eating, drinking, and marital relations from dawn to sunset break the fast. Vomiting intentionally, and anything reaching the stomach through a normal route. The sick, the traveler, the pregnant, the nursing, and the menstruating are excused (2:184-185) — they make up the days later, and the one who cannot fast feeds the poor (fidya).",
-   "s": "Qur'an 2:184-185"
+   "a": "Eating, drinking and sexual relations break the fast between dawn and sunset (2:187). Eating or drinking by mistake does not break it: the person completes the fast (Bukhari 1933; Muslim 1155). Most scholars also hold that deliberately making yourself vomit breaks the fast, while an involuntary bout does not (Abu Dawud 2380: daif per Darussalam; sahih per al-Albani). Excused from fasting, and making the days up later: the sick and the traveller (2:184); the Prophet ﷺ also said that Allah lifted fasting from the pregnant and the nursing woman (Tirmidhi 715: hasan per Darussalam; hasan sahih per al-Albani); and a menstruating woman does not fast and makes the days up (Muslim 335). Those who are unable to fast and cannot expect to be able later, such as the very old or the chronically ill, feed a poor person for each day (2:184). The schools differ on whether a pregnant or nursing woman owes this feeding as well as the make-up days, so ask a scholar of your school.",
+   "s": "Qur'an 2:184, 2:187; Bukhari 1933; Muslim 1155, 335; Abu Dawud 2380 (daif per Darussalam; sahih per al-Albani); Tirmidhi 715 (hasan per Darussalam; hasan sahih per al-Albani)"
   },
   {
    "q": "What is the ruling on music?",
-   "a": "The four schools differ on instruments; the majority restrict them outside specific contexts (celebration), while some permit listening with discernment. What all agree on: the content must be clean, and the heart's attention to worship must not be stolen. When in doubt, follow your school or consult a local scholar.",
-   "s": "Madhhab differences"
+   "a": "Scholars differ, and this answer does not settle it. The majority of classical scholars across the four schools held that musical instruments are not permitted, while allowing the hand-drum (daff) on occasions such as weddings and Eid. Some scholars, past and present, permit instruments and singing when the words and the setting are clean. The texts behind the discussion: a hadith in Bukhari about people who will treat 'the use of musical instruments' as lawful (Bukhari 5590), whose chain Ibn Hazm disputed; and the Eid day when two girls sang near the Prophet ﷺ and he told Abu Bakr to 'leave them, for these are the days of Eid' (Muslim 892; Bukhari 952). What all agree on: the words must be clean, and nothing may keep you from prayer or from your duties. When in doubt, follow the view of your school or ask a local scholar.",
+   "s": "Bukhari 5590, 952; Muslim 892. The scholarly positions are summarised and were not checked against the books."
   },
   {
    "q": "How do I make up missed prayers?",
-   "a": "The Prophet ﷺ said: whoever sleeps through a prayer or forgets it, let them pray it when they remember — that is its time (Bukhari 597). The qada (make-up) is prayed in order after the current prayer. If years of prayers were missed from negligence, sincere tawba and resolving not to repeat it is the door (39:53), and scholars guide on the make-up volume.",
-   "s": "Bukhari 597; Qur'an 39:53"
+   "a": "The Prophet ﷺ said: whoever forgets a prayer, or sleeps through it, should pray it when he remembers it; there is no expiation for it except that (Bukhari 597; Muslim 684). So a prayer missed through sleep or forgetting is prayed as soon as you remember it. With several missed prayers, the Hanafi, Maliki and Hanbali schools require them to be prayed in order and the Shafi'i school recommends it. For prayers left for a long time through negligence, scholars differ: most say they must still be made up, as best you can estimate the number, together with sincere tawbah (39:53); a minority, including Ibn Hazm and Ibn Taymiyya, held that such prayers cannot be made up and that tawbah and more voluntary prayer are the way. Because this concerns you personally, ask a scholar of your school how to work out the number. The Huda guide 'Making Up Missed Prayers' gives the steps.",
+   "s": "Bukhari 597; Muslim 684; Qur'an 39:53. The scholarly positions are summarised and were not checked against the books."
   },
   {
    "q": "Is a mortgage haram?",
-   "a": "The mainstream ruling: conventional mortgages involve riba and are prohibited (2:275-279). The minority dissent (necessity for housing in the West) exists but is contested. Alternatives: Islamic financing (ijara, murabaha), rent-to-own, or delaying purchase while building tawakkul. Consult a scholar who knows modern finance before committing.",
-   "s": "Qur'an 2:275-279; contested minority"
+   "a": "Interest (riba) is forbidden in the Qur'an (2:275-279), and the Prophet ﷺ cursed the one who takes it, the one who pays it, the one who records it and the two witnesses (Muslim 1598). The mainstream position of scholars and fiqh councils is that a conventional interest-bearing mortgage falls under this ruling and is not permitted. A minority view allows one for a first home in a non-Muslim country when there is real need and no alternative; it is contested, and most scholars reject it. Ways to avoid interest: Islamic home finance products (ask a scholar to check the contract itself, since structures differ), buying with savings, or renting longer while you save. Ask a scholar who knows modern finance before you sign anything.",
+   "s": "Qur'an 2:275-279; Muslim 1598. The scholarly positions are summarised and were not checked against the books."
   },
   {
    "q": "How should a woman pray during menstruation?",
-   "a": "She does not pray and does not make up the missed prayers (Bukhari 304). When the bleeding stops, she performs ghusl and resumes prayer immediately. The period is not a sin — it is a created state with its own fiqh, and the Prophet ﷺ called it 'what Allah has written upon the daughters of Adam.'",
-   "s": "Bukhari 304"
+   "a": "A woman does not pray while she is menstruating, and she does not make up the prayers she missed (Bukhari 304; Muslim 335, where Aisha says that the women were ordered to make up the fasts but not the prayers). She also does not fast during the period, and makes those days up later. When the bleeding stops she washes (ghusl) and resumes praying (Bukhari 306). The Prophet ﷺ said of the period: 'This is a thing which Allah has ordained for the daughters of Adam' (Bukhari 294). Scholars agree on these points. They differ on details such as how the days are counted and the rules for irregular bleeding, so ask a scholar of your school about your own case.",
+   "s": "Bukhari 294, 304, 306; Muslim 335"
   },
   {
    "q": "What is the difference between Sunnah and Nafl?",
-   "a": "Sunnah: what the Prophet ﷺ did regularly and encouraged — rawatib (the 12 regular units), witr, duha. Nafl: voluntary acts beyond the sunnah — extra night prayer, extra fasting. Both are non-obligatory; both bring you closer. The sunnah has a pattern; nafl is your own devotion.",
-   "s": "Usul distinction"
+   "a": "Both are voluntary, not obligatory, and both bring you closer to Allah. 'Sunnah' usually means a practice the Prophet ﷺ kept up regularly: the regular prayers before and after the obligatory ones (the rawatib; he spoke of twelve units a day in Muslim 728) and the Witr. 'Nafl' means voluntary worship beyond that, such as extra night prayer or extra fasting, done as your own devotion. The terms are used a little differently between the schools: for example the Hanafis treat Witr as wajib, a stronger category than sunnah. Ask a scholar of your school how a particular prayer is classified.",
+   "s": "Muslim 728. The terms vary between the schools."
   },
   {
    "q": "How do I deal with waswas (whispers)?",
-   "a": "The Prophet ﷺ said: that is a whisper from Shaytan — let him seek refuge and spit lightly to his left, and it will leave him (Muslim 2203). Do not argue with the whisper; do not perform extra acts to satisfy it. Waswas that creates certainty is acted on; waswas that creates doubt is ignored and moved past.",
-   "s": "Muslim 2203"
+   "a": "Whispers and doubts are a trial, not a sign that your faith is gone. The Prophet ﷺ said: 'Allah has forgiven my followers the evil thoughts that occur to their minds, as long as such thoughts are not put into action or uttered' (Bukhari 5269; Muslim 127). When the whisper takes the form of a doubting question such as 'who created Allah?', he said to seek refuge in Allah and give up such thoughts (Bukhari 3276; Muslim 134). For whispers that confuse a person in prayer, he told Uthman ibn Abi al-As to seek refuge with Allah from that devil and spit dryly three times to his left (Muslim 2203). In purity and prayer, doubt does not cancel certainty: a person who only imagines a sound or smell should not leave the prayer unless he hears or smells it (Bukhari 137; Muslim 361). Do not argue with the whisper and do not repeat acts to satisfy it. If it takes over your days, with repeated washing, checking or a fear that will not leave, speak to a doctor or counsellor as well as a scholar. Needing both is not a failure of faith.",
+   "s": "Bukhari 5269, 3276, 137; Muslim 127, 134, 2203, 361"
   },
   {
    "q": "Can I listen to Quran while doing other things?",
-   "a": "Listening with attention is worship; listening as background while the heart is elsewhere is not harmful but not the same reward. The companions would stop their work to listen when the Quran was recited (46:29 — the jinn listened). If you can give half your attention, listen; if not, wait for a moment you can.",
-   "s": "Qur'an 46:29"
+   "a": "The Qur'an asks for attention when it is recited: 'when the Qur'an is recited, then listen to it and pay attention that you may receive mercy' (7:204). The jinn who heard the Prophet ﷺ recite said to one another 'Listen quietly' (46:29). So listening with your full attention is what the verse describes, and it is worth setting aside time for. Having recitation playing quietly while you work is not forbidden, and many people use it to keep the Qur'an present in their day; it is simply not the same as giving it your attention. Keep it out of places where you could not treat it with respect.",
+   "s": "Qur'an 7:204, 46:29"
   },
   {
    "q": "What should I do if I have committed a major sin?",
-   "a": "Say: O My servants who have transgressed against themselves, do not despair of the mercy of Allah. Indeed, Allah forgives all sins (39:53). The door: stop the sin now, regret it, resolve not to return, and if the sin involved another person's right, return it or seek their pardon. Then move forward — the new page is real.",
-   "s": "Qur'an 39:53"
+   "a": "Allah says: 'Say, O My servants who have transgressed against themselves [by sinning], do not despair of the mercy of Allah. Indeed, Allah forgives all sins. Indeed, it is He who is the Forgiving, the Merciful' (39:53). The door stays open until the soul reaches the throat (Tirmidhi 3537: hasan per Darussalam and al-Albani). The way back: stop the sin now, regret it ('regret is repentance', Ibn Majah 4252: hasan per Darussalam; sahih per al-Albani), resolve not to return, and if the sin involved another person's right, return it or ask their forgiveness before the Day when there will be no money to settle with (Bukhari 2449). Then move forward; the new page is real. If guilt feels crushing rather than hopeful, or you are thinking of harming yourself, please talk to someone you trust today; the Need help now button in Sakina lists lines for your country.",
+   "s": "Qur'an 39:53; Tirmidhi 3537 (hasan per Darussalam; hasan per al-Albani); Ibn Majah 4252 (hasan per Darussalam; sahih per al-Albani); Bukhari 2449"
   },
   {
    "q": "Is it permissible to pray at work or school?",
-   "a": "Yes, and the obligation stands. The Prophet ﷺ prayed in the market, in the desert, on the ship. If the prayer time will pass, pray where you are — a clean corner, a meeting room floor. Islam does not require a masjid; it requires the prayer. Speak to your employer or teacher respectfully; most accommodate when asked with adab.",
-   "s": "General fiqh"
+   "a": "Yes, and the obligation stands. The Prophet ﷺ said that the earth has been made a place of prayer for him and his followers, 'therefore anyone of my followers can pray wherever the time of a prayer is due' (Bukhari 335; Muslim 521). Prayer has fixed times (4:103), so if the time will pass, pray where you are: a clean corner, a quiet room, a prayer space if there is one. The place must be clean. The schools differ on details such as the exact times and on joining prayers when work or study make it hard, so ask a scholar of your school about your situation. Speak to your employer or teacher early and respectfully; many places can allow a short break for prayer when asked.",
+   "s": "Bukhari 335; Muslim 521; Qur'an 4:103"
   },
   {
    "q": "How do I know if my dua is accepted?",
-   "a": "Every dua is accepted in one of three ways: granted, stored for the Hereafter, or evil averted in its place (reported; number not verified). The acceptance may not look like the answer — it may look like the door that closed. Keep making dua; the one who persists is the one who is answered.",
-   "s": "Reported in the Musnad of Ahmad; number not verified"
+   "a": "The Prophet ﷺ said: 'There is not a Muslim upon the earth who calls upon Allah with any supplication, except that Allah grants it to him, or turns away from him an evil like it, as long as he does not supplicate for something sinful or the severing of family ties' (Tirmidhi 3573: hasan per Darussalam; hasan sahih per al-Albani). He also said that the supplication of any of you is answered if he does not become impatient and say, 'I made dua but it was not answered' (Bukhari 6340). So an answer can come as the thing you asked for, or as protection from something you did not see coming, and it may not look like what you wanted. Keep asking and do not give up.",
+   "s": "Tirmidhi 3573 (hasan per Darussalam; hasan sahih per al-Albani); Bukhari 6340"
   },
   {
    "q": "What are the conditions of Tawbah?",
-   "a": "Four conditions the scholars agree on: (1) stop the sin, (2) regret it sincerely, (3) resolve never to return, and (4) if it involved another's right, restore it or seek their pardon. Tawbah without the resolve is not tawba; tawba with the resolve is the door the Merciful opened for every sinner.",
-   "s": "Ijma' of the four schools"
+   "a": "The scholars summarise repentance in four conditions: (1) stop the sin, (2) regret it sincerely, (3) resolve not to return to it, and (4) if it involved another person's right, return it or ask their pardon. The Qur'an and hadith ground these: Allah describes those who 'do not persist in what they have done while they know' (3:135) and calls believers to 'sincere repentance' (66:8); the Prophet ﷺ said 'regret is repentance' (Ibn Majah 4252: hasan per Darussalam; sahih per al-Albani); and for a wrong done to a person he said to ask their forgiveness before the Day when there will be no money to settle with (Bukhari 2449). Allah accepts repentance until the soul reaches the throat (Tirmidhi 3537: hasan per Darussalam and al-Albani). If you fall again, begin again; the fall does not shut the door.",
+   "s": "Qur'an 3:135, 66:8; Ibn Majah 4252 (hasan per Darussalam; sahih per al-Albani); Bukhari 2449; Tirmidhi 3537 (hasan per Darussalam and al-Albani). The four-condition summary is the scholars' (for example al-Nawawi in Riyad as-Salihin) and was not checked against that book."
+  },
+  {
+   "q": "What are the pillars of Islam and of faith?",
+   "a": "The Prophet ﷺ said that Islam is built on five: the testimony that none has the right to be worshipped but Allah and that Muhammad is His Messenger, establishing the prayer, paying zakat, the pilgrimage to the House, and fasting in Ramadan (Bukhari 8; Muslim 16). Hajj is owed by those who are able to make the journey (3:97). In the hadith of Jibril he also described faith (iman) as believing in Allah, His angels, His books, His messengers, the Last Day, and the divine decree of good and evil; and ihsan as worshipping Allah as if you see Him, for even if you do not see Him, He sees you (Muslim 8).",
+   "s": "Bukhari 8; Muslim 16, 8; Qur'an 3:97"
+  },
+  {
+   "q": "What should I do when I am angry?",
+   "a": "When a man asked the Prophet ﷺ for advice, he said only 'Do not become angry', and repeated it (Bukhari 6116). He said the strong person is the one who controls himself in anger (Bukhari 6114; Muslim 2609), and the Qur'an praises those who 'restrain anger and who pardon the people' (3:134). Practical steps from the sunnah: say 'I seek refuge with Allah from Satan' (Bukhari 3282); if you are standing, sit, and if that does not help, lie down (Abu Dawud 4782: sahih per Darussalam and al-Albani). A report in Abu Dawud 4784 adds wudu ('fire is put out with water'); it is daif per al-Albani, so treat it as a suggestion rather than a confirmed sunnah. If you are afraid you might hurt someone, or someone is hurting you, step away and get help; the Need help now button in Sakina lists lines for your country.",
+   "s": "Bukhari 6116, 6114, 3282; Muslim 2609; Qur'an 3:134; Abu Dawud 4782 (sahih per Darussalam; sahih per al-Albani); Abu Dawud 4784 (daif per al-Albani)"
+  },
+  {
+   "q": "How should I treat my parents if they are not Muslim, or we disagree about religion?",
+   "a": "Kindness to them stays. Allah says that if they strive to make you associate others with Him, do not obey them in that, 'but accompany them in [this] world with appropriate kindness' (31:15). Asma bint Abi Bakr asked the Prophet ﷺ whether she should keep good ties with her mother, who had come to her while still a polytheist, and he said yes (Bukhari 5978). The limit is a command to disobey Allah; everything else, such as visits, help, respectful speech and gentle invitation, stays. If a parent harms you, your safety still matters: ask a trusted scholar or counsellor how to keep ties without putting yourself in danger.",
+   "s": "Qur'an 31:15; Bukhari 5978"
+  },
+  {
+   "q": "Is it wrong to cry when someone dies?",
+   "a": "No. When the Prophet's ﷺ son Ibrahim was dying, his eyes shed tears, and when Abdur-Rahman ibn Awf said 'even you?', he answered: 'O Ibn Awf, this is mercy.' Then he wept more and said: 'The eyes are shedding tears and the heart is grieved, and we will not say except what pleases our Lord' (Bukhari 1303). What the sunnah forbids is protest against Allah's decree, such as striking the cheeks and tearing the clothes (Bukhari 1294). Allah says that upon the patient, who say 'Indeed we belong to Allah, and indeed to Him we will return', are blessings from their Lord and mercy (2:155-157). Grief has no deadline. If it becomes too heavy to carry, or you are thinking of ending your life, please talk to a doctor, a counsellor or someone you trust today; the Need help now button in Sakina lists lines for your country.",
+   "s": "Bukhari 1303, 1294; Qur'an 2:155-157"
   }
  ]
 }
