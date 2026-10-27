@@ -444,6 +444,12 @@ abstract final class HadiFinder {
   static bool asksWhyOffline(String question) {
     final String n = _norm(question);
     if (n.split(' ').length > 12) return false;
+    // "download the Qur'an for offline reading in this app" is about saving
+    // content, not about Hadi being offline.
+    if (RegExp(r'\b(?:download|downloads|downloading|save|saving)\b')
+        .hasMatch(n)) {
+      return false;
+    }
     final bool aboutHadi = RegExp(r'\b(?:hadi|you|u|this)\b').hasMatch(n);
     return aboutHadi &&
         RegExp(r'\b(?:offline|off\s*line|not\s+connected|no\s+internet|'
