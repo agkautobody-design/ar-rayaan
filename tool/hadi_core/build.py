@@ -145,6 +145,11 @@ def fixpat(p):
     p = _SPLIT.sub(lambda m: m.group(1), p)
     for a, b in _FIXED:
         p = p.replace(a, b)
+    # The app also drops a polite opening ("can you", "tell me about") and a
+    # closing "in Islam" before matching, so a pattern that needs them is
+    # made to take them or not.
+    p = re.sub(r"^((?:\\b|\^|\(\?:)?)(can you|could you|tell me about|tell me|do you know|explain) ",
+               lambda m: m.group(1) + '(?:' + m.group(2) + ' )?', p)
     return p
 
 

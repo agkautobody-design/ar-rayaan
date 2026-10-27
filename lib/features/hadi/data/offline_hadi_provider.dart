@@ -2,8 +2,10 @@ import '../../sakina/domain/crisis_detector.dart';
 import '../application/hadi_provider.dart';
 import '../grounding/ruling_gate.dart';
 import 'hadi_core.dart';
+import 'hadi_decline.dart';
 import 'hadi_explain.dart';
 import 'hadi_finder.dart';
+import 'hadi_game_help.dart';
 import 'hadi_routing.dart';
 
 /// Curated knowledge for offline use — always available, no key, no
@@ -66,7 +68,9 @@ class OfflineHadiProvider implements HadiProvider {
   /// True when [answer] is a real shelf answer and not one of the fixed
   /// replies (declines, redirects, comfort replies, navigation).
   static bool _isShelfAnswer(String answer) {
-    if (HadiRouting.isFixed(answer) || HadiExplain.isFixed(answer)) {
+    if (HadiRouting.isFixed(answer) ||
+        HadiExplain.isFixed(answer) ||
+        HadiDecline.isDecline(answer)) {
       return false;
     }
     // "contains", not "equals": the controller may put a line in front of a
@@ -1069,6 +1073,8 @@ class OfflineHadiProvider implements HadiProvider {
     // nearest-sounding one from the shelf below.
     final CoreHit? core = HadiCore.answer(asked, history);
     if (core != null) return core.text;
+    final String? gameHelp = HadiGameHelp.answer(asked);
+    if (gameHelp != null) return gameHelp;
 
     // Replies that say what Hādi can do, or send the person to content the
     // app already has, before the shelf is searched.
@@ -1576,9 +1582,15 @@ class OfflineHadiProvider implements HadiProvider {
     if (_distress.hasMatch(n) && !_thirdPartyQuestion(n)) {
       return distressReplies[pick % distressReplies.length];
     }
-    if (_offTopic.hasMatch(n)) return offTopicReply;
+    final String? outside = HadiDecline.outOfScope(
+      question,
+      round: HadiRouting.refusalsInARow(history),
+      islamic: _islamicWord.hasMatch(n),
+    );
+    if (outside != null) return outside;
+    if (_offTopic.hasMatch(n)) return HadiDecline.general();
     return HadiRouting.variantFor(question, history, ruling: false) ??
-        declineFor(hasKey);
+        HadiDecline.unknown(question);
   }
 
   /// The "Open …" buttons to put under a plain refusal (the first one, whose

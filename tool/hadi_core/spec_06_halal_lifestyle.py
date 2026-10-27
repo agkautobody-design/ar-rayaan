@@ -254,3 +254,23 @@ The evil eye is also real, and the cure is the Qur'anic protections and du'a, no
 """,
   go=['/adhkar'],
   review='Superstition: hadith on diviners cited; Adhkar route assumed in whitelist.')
+
+E('games-ruling',
+  m=[r'\b(?:chess|ludo|backgammon|nardshir|nardashir|dice|dominoes?|playing cards?|card games?|poker|board games?|video games?|gaming|gamers?|playstation|xbox|pubg|fortnite|minecraft|roblox|esports|e sports|monopoly|carrom)\b.*\b(?:haram|halal|allowed|permissible|permitted|forbidden|ruling|sin|sinful|islamic|islam|muslims?|makruh)\b',
+     r'\b(?:haram|halal|allowed|permissible|permitted|forbidden|ruling|sin|sinful|makruh)\b.*\b(?:chess|ludo|backgammon|dice|dominoes?|playing cards?|card games?|poker|board games?|video games?|gaming|playstation|xbox|pubg|fortnite|minecraft|roblox|esports|monopoly|carrom)\b',
+     r'\b(?:can|may|should|do) (?:muslims?|i|we) (?:play|playing) (?:chess|ludo|backgammon|cards|games|video games|dice|board games|football|sports)\b',
+     r'\bis (?:playing|it (?:haram|halal|ok|okay|allowed) to play) (?:chess|ludo|backgammon|cards|games|video games|dice|board games)\b'],
+  x=[r'\b(?:how (?:do|to) (?:i )?play|rules|where is|in this app|in the app)\b'],
+  topic='games ruling',
+  text="""
+Scholars have different views here, and it depends on the game.
+
+- Gambling: any game played for money or a stake is gambling and forbidden ({QR 5:90}, and see the answer on gambling). That includes card games with stakes, and loot boxes or paid chances in video games that work like a lottery.
+- Backgammon and dice games: the Prophet ﷺ condemned backgammon in strong words ({H muslim:2260|Buraida reported the Messenger of Allah said he who played Nardashir, a game similar to backgammon, is like one who dyed his hand with the flesh and blood of swine}). Many classical scholars apply this to games decided by dice, such as Ludo; others say the report is about backgammon and gambling and does not cover every dice game. Scholars differ on this.
+- Chess: the schools differed. The Shafi'i school held it to be disliked rather than forbidden; the Hanafi, Maliki and Hanbali schools held it to be forbidden or strongly disliked, especially when it takes the place of prayer or is played for stakes. Many scholars today allow it as a mental exercise when there is no betting, it does not make you miss prayers or your duties, and it is not played to excess. Please follow the scholar you trust.
+- Video games and other games: the game itself is generally allowed when its content is lawful (no immodesty, no gambling, no mockery of religion), and when it does not take you from prayer, family and work. Allah says that Satan wants to turn people from the remembrance of Allah and from prayer through intoxicants and gambling ({QR 5:91}), so watch the time you spend.
+
+In this app, the games are made to teach and have no betting, coins, ratings or purchases.
+""",
+  go=['/games'],
+  review='Games rulings: chess is described with the usual classical school split; dice games and video games are described as differences; flagged for scholar review.')
