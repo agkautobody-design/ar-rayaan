@@ -20,6 +20,13 @@
   "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
   "verdict": "ok"
  },
+ "abudawud:1149": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Al-Albani",
+  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
+  "verdict": "ok"
+ },
  "abudawud:121": {
   "checked": "2026-10-27",
   "grade": "Sahih",
@@ -48,6 +55,27 @@
   "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
   "verdict": "ok"
  },
+ "abudawud:1609": {
+  "checked": "2026-10-27",
+  "grade": "Hasan",
+  "grader": "Al-Albani",
+  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
+  "verdict": "ok"
+ },
+ "abudawud:1814": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Al-Albani",
+  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
+  "verdict": "ok"
+ },
+ "abudawud:1892": {
+  "checked": "2026-10-27",
+  "grade": "Hasan",
+  "grader": "Al-Albani",
+  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
+  "verdict": "ok"
+ },
  "abudawud:207": {
   "checked": "2026-10-27",
   "grade": "Sahih",
@@ -56,6 +84,20 @@
   "verdict": "ok"
  },
  "abudawud:214": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Al-Albani",
+  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
+  "verdict": "ok"
+ },
+ "abudawud:2810": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Al-Albani",
+  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
+  "verdict": "ok"
+ },
+ "abudawud:2815": {
   "checked": "2026-10-27",
   "grade": "Sahih",
   "grader": "Al-Albani",
@@ -125,27 +167,6 @@
   "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
   "verdict": "ok"
  },
- "abudawud:832": {
-  "checked": "2026-10-27",
-  "grade": "Hasan",
-  "grader": "Al-Albani",
-  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
-  "verdict": "ok"
- },
- "abudawud:874": {
-  "checked": "2026-10-27",
-  "grade": "Sahih",
-  "grader": "Al-Albani",
-  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
-  "verdict": "ok"
- },
- "abudawud:996": {
-  "checked": "2026-10-27",
-  "grade": "Sahih",
-  "grader": "Al-Albani",
-  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
-  "verdict": "ok"
- },
  "bukhari:1080": {
   "checked": "2026-10-27",
   "grade": "Sahih",
@@ -168,13 +189,6 @@
   "verdict": "ok"
  },
  "bukhari:1111": {
-  "checked": "2026-10-27",
-  "grade": "Sahih",
-  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
-  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
-  "verdict": "ok"
- },
- "bukhari:1117": {
   "checked": "2026-10-27",
   "grade": "Sahih",
   "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
@@ -258,13 +272,6 @@
   "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
   "verdict": "ok"
  },
- "bukhari:135": {
-  "checked": "2026-10-27",
-  "grade": "Sahih",
-  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
-  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
-  "verdict": "ok"
- },
  "bukhari:137": {
   "checked": "2026-10-27",
   "grade": "Sahih",
@@ -272,7 +279,70 @@
   "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
   "verdict": "ok"
  },
- "bukhari:1542": {
+ "bukhari:1509": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
+  "verdict": "ok"
+ },
+ "bukhari:1510": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
+  "verdict": "ok"
+ },
+ "bukhari:1549": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
+  "verdict": "ok"
+ },
+ "bukhari:1562": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
+  "verdict": "ok"
+ },
+ "bukhari:1647": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
+  "verdict": "ok"
+ },
+ "bukhari:1718": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
+  "verdict": "ok"
+ },
+ "bukhari:1746": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
+  "verdict": "ok"
+ },
+ "bukhari:1814": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
+  "verdict": "ok"
+ },
+ "bukhari:1862": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
+  "verdict": "ok"
+ },
+ "bukhari:1990": {
   "checked": "2026-10-27",
   "grade": "Sahih",
   "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
@@ -377,6 +447,20 @@
   "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
   "verdict": "ok"
  },
+ "bukhari:5545": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
+  "verdict": "ok"
+ },
+ "bukhari:5549": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
+  "verdict": "ok"
+ },
  "bukhari:586": {
   "checked": "2026-10-27",
   "grade": "Sahih",
@@ -412,13 +496,6 @@
   "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
   "verdict": "ok"
  },
- "bukhari:689": {
-  "checked": "2026-10-27",
-  "grade": "Sahih",
-  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
-  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
-  "verdict": "ok"
- },
  "bukhari:723": {
   "checked": "2026-10-27",
   "grade": "Sahih",
@@ -440,13 +517,6 @@
   "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
   "verdict": "ok"
  },
- "bukhari:757": {
-  "checked": "2026-10-27",
-  "grade": "Sahih",
-  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
-  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
-  "verdict": "ok"
- },
  "bukhari:772": {
   "checked": "2026-10-27",
   "grade": "Sahih",
@@ -462,13 +532,6 @@
   "verdict": "ok"
  },
  "bukhari:776": {
-  "checked": "2026-10-27",
-  "grade": "Sahih",
-  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
-  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
-  "verdict": "ok"
- },
- "bukhari:780": {
   "checked": "2026-10-27",
   "grade": "Sahih",
   "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
@@ -510,6 +573,48 @@
   "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
   "verdict": "ok"
  },
+ "bukhari:956": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
+  "verdict": "ok"
+ },
+ "bukhari:960": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
+  "verdict": "ok"
+ },
+ "bukhari:968": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
+  "verdict": "ok"
+ },
+ "bukhari:969": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
+  "verdict": "ok"
+ },
+ "bukhari:971": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
+  "verdict": "ok"
+ },
+ "bukhari:974": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
+  "verdict": "ok"
+ },
  "ibnmajah:1064": {
   "checked": "2026-10-27",
   "grade": "Sahih",
@@ -531,10 +636,52 @@
   "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
   "verdict": "ok"
  },
+ "ibnmajah:1827": {
+  "checked": "2026-10-27",
+  "grade": "Hasan",
+  "grader": "Al-Albani",
+  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
+  "verdict": "ok"
+ },
  "ibnmajah:888": {
   "checked": "2026-10-27",
   "grade": "Sahih",
   "grader": "Al-Albani",
+  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
+  "verdict": "ok"
+ },
+ "muslim:1318": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Muslim (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
+  "verdict": "ok"
+ },
+ "muslim:1327": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Muslim (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
+  "verdict": "ok"
+ },
+ "muslim:1955": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Muslim (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
+  "verdict": "ok"
+ },
+ "muslim:1963": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Muslim (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
+  "verdict": "ok"
+ },
+ "muslim:1977": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Muslim (compiler's criteria; sunnah.com shows no separate grade)",
   "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
   "verdict": "ok"
  },
@@ -609,13 +756,6 @@
   "verdict": "ok"
  },
  "muslim:582": {
-  "checked": "2026-10-27",
-  "grade": "Sahih",
-  "grader": "Sahih al-Muslim (compiler's criteria; sunnah.com shows no separate grade)",
-  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
-  "verdict": "ok"
- },
- "muslim:612": {
   "checked": "2026-10-27",
   "grade": "Sahih",
   "grader": "Sahih al-Muslim (compiler's criteria; sunnah.com shows no separate grade)",
@@ -706,6 +846,27 @@
   "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
   "verdict": "ok"
  },
+ "muslim:885": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Muslim (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
+  "verdict": "ok"
+ },
+ "muslim:886": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Muslim (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
+  "verdict": "ok"
+ },
+ "muslim:891": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Muslim (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
+  "verdict": "ok"
+ },
  "muslim:948": {
   "checked": "2026-10-27",
   "grade": "Sahih",
@@ -741,7 +902,21 @@
   "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
   "verdict": "ok"
  },
+ "muslim:984": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Muslim (compiler's criteria; sunnah.com shows no separate grade)",
+  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
+  "verdict": "ok"
+ },
  "nasai:2318": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "Al-Albani",
+  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
+  "verdict": "ok"
+ },
+ "nasai:4371": {
   "checked": "2026-10-27",
   "grade": "Sahih",
   "grader": "Al-Albani",
@@ -793,6 +968,13 @@
  "tirmidhi:149": {
   "checked": "2026-10-27",
   "grade": "Hasan Sahih",
+  "grader": "Al-Albani",
+  "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
+  "verdict": "ok"
+ },
+ "tirmidhi:1505": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
   "grader": "Al-Albani",
   "note": "Number and wording read against the full hadith text in the hadith corpus (worship guides audit)",
   "verdict": "ok"

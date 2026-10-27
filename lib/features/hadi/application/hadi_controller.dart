@@ -173,6 +173,15 @@ const Map<String, String> kHadiGuideNames = <String, String>{
   'huda-sadaqah': 'the Giving Beyond the Obligation guide',
   'huda-quran-daily': 'the A Daily Portion of Qur\'an guide',
   'huda-children-deen': 'the Teaching Your Children the Deen guide',
+  'huda-masah': 'the Wiping Over Socks guide',
+  'huda-menstruation': 'the Menstruation and Post-Natal Bleeding guide',
+  'huda-sujud-sahw': 'the Forgetting in Prayer guide',
+  'huda-prayer-times': 'the Five Prayer Times guide',
+  'huda-congregation': 'the Praying in Congregation guide',
+  'huda-travel-prayer': 'the Travel, Sick and Fear Prayer guide',
+  'huda-eid': 'the Eid guide',
+  'huda-udhiyah': 'the Udhiyah guide',
+  'huda-zakat-fitr': 'the Zakat al-Fitr guide',
 };
 
 /// Reads the [GO:] / [DO:] tokens a reply may carry. Pure, so it is tested

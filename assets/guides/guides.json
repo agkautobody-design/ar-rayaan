@@ -92,6 +92,63 @@
   }
  },
  {
+  "id": "huda-sujud-sahw",
+  "collection": "huda",
+  "category": "Worship",
+  "title": "Forgetting in Prayer — Sujud as-Sahw",
+  "subtitle": "The two prostrations that repair a mistake in the prayer",
+  "steps": [
+   "What it is: two extra prostrations made when you forget something in the prayer. The Prophet ﷺ said: I am a human being like you and forget as you forget; so when I forget, remind me (Bukhari 401; Muslim 572).",
+   "You forgot the first sitting (the first tashahhud) and stood up: do not go back; finish the prayer, and before the salam say Allahu Akbar and make two prostrations sitting. This is what the Prophet ﷺ did when he stood after two rak'ahs without sitting (Bukhari 1224).",
+   "You are in doubt about the number of rak'ahs: the Prophet ﷺ said, cast away the doubt and build on what you are sure of, then make two prostrations before the salam (Muslim 571). In another report he said, aim at what is correct, complete the prayer, then make the two prostrations (Bukhari 401; Muslim 572). The schools differ on which applies; see the note.",
+   "You added a rak'ah: the Prophet ﷺ once prayed five rak'ahs of Dhuhr; when told, he made two prostrations (Bukhari 1226; Bukhari 401 and Muslim 572 describe the same).",
+   "You finished the prayer early by mistake: the Prophet ﷺ gave the salam after two rak'ahs of a four-rak'ah prayer; when Dhul-Yadayn reminded him, he completed the prayer, gave the salam, then said the takbir and made two prostrations, and again a takbir as he rose (Muslim 573).",
+   "How: say Allahu Akbar and prostrate as in a normal prostration, rise with a takbir, prostrate again and rise (Muslim 573); then give the salam, or the tashahhud and the salam, according to your school.",
+   "If you left a pillar (a ruku' or a sujud, or al-Fatihah), the two prostrations do not replace it: the rak'ah is not counted and you must do it. The schools agree on this."
+  ],
+  "sources": [
+   "Sahih al-Bukhari 401, 1224, 1226",
+   "Sahih Muslim 571, 572, 573",
+   "The differences between the schools stated in the madhhab note are the standard positions of each school; they have not yet been reviewed by a named scholar."
+  ],
+  "madhhabNote": "Ruling: Hanafi — obligatory (wajib) when an obligatory part of the prayer is forgotten or delayed. Maliki and Shafi'i — a sunnah. Hanbali — obligatory when the reason is a forgotten obligatory act, an addition, or a doubt.\nBefore or after the salam: Hanafi — always after the salam. Shafi'i — always before it. Maliki — before the salam when something was left out, after it when something was added. Hanbali — before the salam where the Prophet ﷺ did so (first tashahhud forgotten; doubt resolved by certainty), after it where he did so (early salam; adding; acting on a firm belief).\nDoubt about the number of rak'ahs: Hanafi, Maliki and Hanbali — act on what you think most likely; if neither seems likelier, build on the smaller number. Shafi'i — build on the smaller number.\nThe narrations differ on whether the Prophet ﷺ prostrated before the salam (Bukhari 1224; Muslim 571) or after it (Bukhari 1226; Muslim 573), which is why the schools differ.\nFollow one school's fiqh for your own practice, or ask a teacher of your school.",
+  "goDeeper": {
+   "why": "The prayer is a human act and humans forget; the two prostrations are the remedy the Prophet ﷺ prescribed.",
+   "evidence": "Bukhari 401 and Muslim 571-573 contain every case above.",
+   "commonMistakes": "Going back after fully standing from the first sitting; making the prostrations for a skipped pillar; making them twice."
+  }
+ },
+ {
+  "id": "huda-travel-prayer",
+  "collection": "huda",
+  "category": "Worship",
+  "title": "Praying When Travelling, Sick or in Fear",
+  "subtitle": "Shortening, combining, and praying seated or on a vehicle",
+  "steps": [
+   "Shortening: Allah says: 'And when you travel throughout the land, there is no blame upon you for shortening the prayer' (Qur'an 4:101). Yaala ibn Umayyah asked Umar why the people shorten when they are safe; Umar had asked the Prophet ﷺ, who said it is a charity which Allah has given you, so accept His charity (Muslim 686).",
+   "Which prayers: only the four-rak'ah prayers (Dhuhr, Asr, Isha) are shortened to two. Fajr and Maghrib are not shortened. The Prophet ﷺ prayed two rak'ahs when travelling, as did Abu Bakr and Umar (Muslim 694; Ibn Majah 1064, sahih per al-Albani and Zubair Ali Zai).",
+   "How long: the Prophet ﷺ once stayed nineteen days and shortened the prayer (Bukhari 1080); and he stayed twenty days at Tabuk shortening it (Abu Dawud 1235, sahih per al-Albani; Zubair Ali Zai graded it da'if). The schools differ on the limit of the stay and on the distance; see the note.",
+   "Combining: Ibn Abbas reported that the Prophet ﷺ combined Dhuhr with Asr and Maghrib with Isha without fear or travel (Muslim 705); scholars differ on what this meaning allows. Anas said that when the Prophet ﷺ set off before noon he delayed Dhuhr to the time of Asr and combined them, and if the sun passed its peak before he set off he prayed Dhuhr and then rode (Bukhari 1111). The schools differ on this; see the note.",
+   "On a mount: the Prophet ﷺ prayed the voluntary prayers on his mount facing whatever direction it took, and prayed witr on it, but not the obligatory prayer; for the obligatory prayer he dismounted and faced the qiblah (Bukhari 1098, 1099). In a car, train or plane, pray the obligatory prayer at its time: on the ground facing the qiblah if you can, otherwise as you are, as far as you are able.",
+   "Illness: the Prophet ﷺ told Imran ibn Husayn, who had piles: pray standing; if you cannot, sitting; if you cannot, on your side (Bukhari 1117).",
+   "Fear: Allah says: 'And if you fear an enemy, then pray on foot or riding' (Qur'an 2:239)."
+  ],
+  "sources": [
+   "Qur'an 2:239; 4:101",
+   "Sahih al-Bukhari 1080, 1098, 1099, 1111, 1117",
+   "Sahih Muslim 686, 694, 705",
+   "Sunan Abi Dawud 1235 (sahih per al-Albani; Zubair Ali Zai: da'if)",
+   "Sunan Ibn Majah 1064 (sahih per al-Albani and Zubair Ali Zai)",
+   "The differences between the schools stated in the madhhab note are the standard positions of each school; they have not yet been reviewed by a named scholar."
+  ],
+  "madhhabNote": "Distance: Hanafi — about 77 km (three days' travel). Maliki, Shafi'i and Hanbali — about 80-83 km (sixteen farsakhs).\nShortening: Hanafi — obligatory. Maliki — a strongly recommended sunnah. Shafi'i and Hanbali — a permission; shortening is better.\nHow long a stay: Hanafi — intending to stay fifteen days or more makes you a resident. Maliki and Shafi'i — intending to stay four full days. Hanbali — intending to stay more than four days (more than twenty prayers).\nCombining while travelling: Maliki, Shafi'i and Hanbali — permitted. Hanafi — only at Arafah and Muzdalifah in Hajj.\nFollow one school's fiqh for your own practice, or ask a teacher of your school.",
+  "goDeeper": {
+   "why": "Travel, illness and fear do not release you from the prayer; they change its form.",
+   "evidence": "Muslim 686 gives the charity; Bukhari 1117 gives the stages when ill.",
+   "commonMistakes": "Praying Maghrib as two; combining without a reason; waiting to arrive when a prayer's time is passing."
+  }
+ },
+ {
   "id": "huda-wudu",
   "collection": "huda",
   "category": "Worship",
@@ -298,6 +355,72 @@
    "why": "Jumu'ah gathers the Muslims of a place every week to hear the reminder and pray together.",
    "evidence": "The hadith numbers above were read against the hadith text; the Qur'an verses are quoted from the Saheeh International translation bundled in the app.",
    "commonMistakes": "Talking during the khutbah; stepping over people's necks; arriving after the khutbah and believing the Friday prayer is valid; forgetting that the traveller and the woman may pray Dhuhr."
+  }
+ },
+ {
+  "id": "huda-eid",
+  "collection": "huda",
+  "category": "Worship",
+  "title": "Eid — The Prayer and Its Etiquette",
+  "subtitle": "Eid al-Fitr and Eid al-Adha: how the day goes",
+  "steps": [
+   "The two Eids are the Muslims' days of celebration. Fasting on either day is forbidden: Umar said the Prophet ﷺ forbade fasting on the day you break your fast and the day you eat from your sacrifices (Bukhari 1990). The days of Tashriq (11th-13th Dhul-Hijjah) are days of eating and drinking (Muslim 1141).",
+   "Wash, wear your best clothes and go to the prayer ground (musalla). On Eid al-Fitr the Prophet ﷺ did not go out until he had eaten some dates, an odd number (Bukhari 953). On Eid al-Adha the schools say to delay eating until after the prayer, so that the first food is from the sacrifice.",
+   "The prayer is two rak'ahs, with no adhan and no iqamah, and the khutbah comes after the prayer (Muslim 885, 886; Bukhari 960; Ibn Majah 1064, sahih per al-Albani and Zubair Ali Zai).",
+   "The takbirs: Aisha reported that the Prophet ﷺ would say the takbir seven times in the first rak'ah and five times in the second on the day of Fitr and the day of Adha (Abu Dawud 1149, sahih per al-Albani, hasan per Zubair Ali Zai). The schools differ on the number; see the note.",
+   "What he recited: Surah Qaf in one rak'ah and Surah al-Qamar (54) in the other (Muslim 891).",
+   "The khutbah follows; the people sit and listen (Bukhari 956). The Prophet ﷺ went to the women afterwards and exhorted them (Muslim 885).",
+   "Everyone comes out, including women: Umm Atiyyah said they were ordered to bring out the girls in seclusion and the menstruating women, who stay behind the men and say the takbir and make dua, and the menstruating women keep away from the prayer place (Bukhari 971, 974).",
+   "The takbir of Eid: Allah says: 'to complete the period and to glorify Allah for that to which He has guided you' (Qur'an 2:185), and for Adha, 'remember Allah during [specific] numbered days' (Qur'an 2:203). The wording most Muslims use is Allahu akbar, Allahu akbar, la ilaha illallah, wallahu akbar, Allahu akbar wa lillahil-hamd; the Prophet ﷺ is not reported with a single fixed wording in the reports read for this guide, and the Arabic is not added here until it has been checked against a source.",
+   "The greeting 'Taqabbal Allahu minna wa minkum' (may Allah accept it from us and from you) is reported from the Companions; this app has not checked the number or the chain of that report, so treat it as a custom, not a command.",
+   "Zakat al-Fitr must be paid before the prayer (see the Zakat al-Fitr guide). Eid al-Adha: the sacrifice follows the prayer (see the Udhiyah guide)."
+  ],
+  "sources": [
+   "Qur'an 2:185; 2:203",
+   "Sahih al-Bukhari 953, 956, 960, 971, 974, 1990",
+   "Sahih Muslim 885, 886, 891, 1141",
+   "Sunan Abi Dawud 1149 (sahih per al-Albani; Zubair Ali Zai: hasan)",
+   "Sunan Ibn Majah 1064 (sahih per al-Albani and Zubair Ali Zai)",
+   "The differences between the schools stated in the madhhab note are the standard positions of each school; they have not yet been reviewed by a named scholar."
+  ],
+  "madhhabNote": "Ruling of the Eid prayer: Hanafi — wajib. Hanbali — a collective obligation (fard kifayah). Shafi'i and Maliki — an emphasised sunnah.\nExtra takbirs: Hanafi — three extra takbirs in each rak'ah (before the recitation in the first, after it in the second). Maliki and Hanbali — six in the first rak'ah and five in the second, besides the opening takbir and the takbir of rising. Shafi'i — seven in the first and five in the second, besides those.\nWomen and the Eid prayer: Hanafi — no longer encouraged to attend (the later Hanafi position); the other schools — they are encouraged to attend (Bukhari 971).\nThe prayer ground: Maliki, Shafi'i and Hanbali — it may be prayed in the mosque; the sunnah is the open prayer ground.\nFollow one school's fiqh for your own practice, or ask a teacher of your school.",
+  "goDeeper": {
+   "why": "Eid is gratitude made visible: fasting ends, the community prays together in the open, and everyone eats.",
+   "evidence": "The numbers for the prayer and the takbirs are from Muslim, Bukhari and Abu Dawud as listed.",
+   "commonMistakes": "Fasting on Eid; missing the zakat al-Fitr deadline; treating the greeting as obligatory; praying a sunnah before the Eid prayer at the prayer ground."
+  }
+ },
+ {
+  "id": "huda-udhiyah",
+  "collection": "huda",
+  "category": "Worship",
+  "title": "Udhiyah — The Eid al-Adha Sacrifice",
+  "subtitle": "Who offers it, which animals, when, and how it is shared",
+  "steps": [
+   "What it is: the sacrifice of an animal (sheep, goat, cow or camel) on Eid al-Adha in the name of Allah. Allah says: 'So pray to your Lord and sacrifice [to Him alone]' (Qur'an 108:2). 'Their meat will not reach Allah, nor will their blood, but what reaches Him is piety from you' (Qur'an 22:37).",
+   "When: after the Eid prayer. The Prophet ﷺ said: the first thing we do on this day is pray, then return and slaughter; whoever does this has followed our sunnah, and whoever slaughtered before the prayer, it is only meat he gave to his family (Bukhari 5545, 968). Whoever slaughtered before the prayer must slaughter again (Bukhari 5549). The schools differ on how many days; see the note.",
+   "The animal's age: the Prophet ﷺ said: sacrifice only a grown animal (musinnah), unless that is difficult for you, then a ram of less than a year but over six months (Muslim 1963).",
+   "The animal's condition: it is not permissible to sacrifice an animal with a clearly bad eye, one clearly lame, one clearly sick, or one so emaciated that it has no marrow (Nasa'i 4371, sahih per al-Albani, hasan per Zubair Ali Zai).",
+   "Before slaughtering: whoever intends to sacrifice should not cut his hair or nails after the month of Dhul-Hijjah begins until he has sacrificed (Muslim 1977).",
+   "How to slaughter: Shaddad ibn Aws reported that the Prophet ﷺ said: Allah has prescribed excellence in everything; so when you kill, kill well, and when you slaughter, slaughter well; let one of you sharpen his knife and let the animal die comfortably (Muslim 1955; Abu Dawud 2815, sahih per al-Albani and Zubair Ali Zai). Say Bismillah, Allahu akbar (Abu Dawud 2810, sahih per al-Albani; Zubair Ali Zai graded it da'if).",
+   "Shares: a camel or a cow for seven people (Muslim 1318). Allah says to eat from the sacrifice and feed the needy and the beggar (Qur'an 22:36).",
+   "The meat: eat from it, give to relatives and neighbours, and give to the poor. The Prophet ﷺ once forbade keeping the meat beyond three days, then allowed keeping it as long as you like (Muslim 1977). The skin is not sold: the Prophet ﷺ ordered Ali to give the meat, skins and coverings of his sacrificial animals in charity (Bukhari 1718).",
+   "One animal for a household: Abu Ayyub said that in the time of the Prophet ﷺ a man would sacrifice a sheep for himself and his family; they ate from it and fed others (Tirmidhi 1505, sahih per al-Albani, isnad hasan per Zubair Ali Zai)."
+  ],
+  "sources": [
+   "Qur'an 22:36-37; 108:2",
+   "Sahih al-Bukhari 968, 1718, 5545, 5549",
+   "Sahih Muslim 1318, 1955, 1963, 1977",
+   "Sunan Abi Dawud 2810 (sahih per al-Albani; da'if per Zubair Ali Zai), 2815 (sahih per al-Albani)",
+   "Sunan an-Nasa'i 4371 (sahih per al-Albani)",
+   "Jami' al-Tirmidhi 1505 (sahih per al-Albani)",
+   "The differences between the schools stated in the madhhab note are the standard positions of each school; they have not yet been reviewed by a named scholar."
+  ],
+  "madhhabNote": "Ruling: Hanafi — obligatory (wajib) on a resident who owns the nisab. Maliki, Shafi'i and Hanbali — a strongly emphasised sunnah.\nDays: Hanafi, Maliki and Hanbali — the day of Eid and the next two days. Shafi'i — the day of Eid and all three days of Tashriq (until sunset on the 13th).\nAge: camel five years; cow two years (Maliki: three); goat one year (Shafi'i: two); sheep one year (Hanbali: six months; the Hanafi school accepts a six-month sheep that looks a year old).\nShares: a cow or camel may be shared by up to seven people in the four schools. A sheep or goat is one person's sacrifice; the Maliki school accepts it for the household he supports (Tirmidhi 1505, sahih per al-Albani).\nCutting hair and nails after the new moon of Dhul-Hijjah by one who intends to sacrifice: Hanbali — forbidden. Shafi'i and Maliki — disliked. Hanafi — permitted.\nSelling the skin or paying the butcher from the meat: not permitted in any school.\nFollow one school's fiqh for your own practice, or ask a teacher of your school.",
+  "goDeeper": {
+   "why": "Udhiyah recalls Ibrahim's obedience; what reaches Allah is the piety of the one who sacrifices.",
+   "evidence": "Bukhari 5545 and Muslim 1963 are the sources for the timing and the age; the Nasa'i report in the sources gives the defects.",
+   "commonMistakes": "Slaughtering before the Eid prayer; selling any part; sharpening the knife in front of the animal; cutting the hair in the first days of Dhul-Hijjah by someone who intends to sacrifice."
   }
  },
  {
@@ -607,37 +730,56 @@
   "collection": "huda",
   "category": "Hajj & Umrah",
   "title": "Hajj — The Fifth Pillar",
-  "subtitle": "Who must go, when, and what it requires",
+  "subtitle": "Who must go, when, the three ways of performing it, and what it requires",
   "steps": [
-   "The obligation: 'And [due] to Allah from the people is a pilgrimage to the House - for whoever is able to find thereto a way' (3:97) — ability means provision, health, route safety, and the family's maintenance during absence.",
-   "The condition of islam: Hajj of a non-Muslim is not accepted; the Qur'an likens the deeds of those who disbelieve to a mirage (24:39).",
-   "Once in a lifetime — the Prophet ﷺ was asked if the newly performed Hajj was for every year: 'no; the Hajj is once; what exceeds that is voluntary' (Muslim 1337).",
-   "The timing: Hajj is in specific days of Dhul-Hijjah (2:197) — the 8th to the 13th; Umrah can be performed at any time of year.",
-   "Before departure: settle debts, write a will, seek forgiveness, leave the family's provision — Umar kept the emigrants' deposits in trust; a pilgrim's household is a trust too.",
-   "The reward: 'from one Umrah to another is expiation for what is between them, and the accepted Hajj has no reward but Paradise' (Bukhari 1773); and whoever performs Hajj without obscenity or sin returns as on the day his mother bore him (Bukhari 1521)."
+   "The obligation: 'And [due] to Allah from the people is a pilgrimage to the House — for whoever is able to find thereto a way' (Qur'an 3:97). Ability means the means to go and return, health, a safe road, and provision for the family left behind.",
+   "Once in a lifetime: the Prophet ﷺ said Allah has made Hajj obligatory; a man asked whether it was every year; he kept silent, then said: if I said yes it would become obligatory and you would not be able to do it (Muslim 1337).",
+   "The time: 'Hajj is [during] well-known months' (Qur'an 2:197): Shawwal, Dhul-Qa'dah and the first ten days of Dhul-Hijjah. The rites themselves are on the 8th to 13th of Dhul-Hijjah. Umrah may be performed at any time of the year.",
+   "A woman: the Prophet ﷺ said a woman should not travel except with a mahram (Bukhari 1862). The schools differ on whether Hajj requires one; see the note.",
+   "The three ways: on the Farewell Pilgrimage some of the Companions entered ihram for Umrah only, some for Hajj and Umrah together, and some for Hajj only (Bukhari 1562). Tamattu': Umrah first, leave ihram, then Hajj on the 8th. Qiran: Hajj and Umrah together in one ihram. Ifrad: Hajj only. The Prophet ﷺ was told to enter ihram for Hajj and Umrah together and had sacrificial animals with him (Bukhari 1534; Muslim 1218).",
+   "The sacrifice (hady): 'whoever performs 'umrah [during the Hajj months] followed by Hajj [offers] what can be obtained with ease of sacrificial animals. And whoever cannot find [or afford such an animal] - then a fast of three days during Hajj and of seven when you have returned' (Qur'an 2:196). It is owed by the one who performs tamattu' or qiran.",
+   "Before departure: settle debts and return what is owed, write a will, seek forgiveness from people you have wronged, and leave provision for the family. Take halal provision: 'the best provision is fear of Allah' (Qur'an 2:197).",
+   "The reward: the Prophet ﷺ said an accepted Hajj has no reward but Paradise (Bukhari 1773), and whoever performs Hajj and does not have relations or commit sin returns as on the day his mother bore him (Bukhari 1521)."
   ],
   "sources": [
-   "Qur'an 3:97; Sahih al-Bukhari 1521; Sahih Muslim 1337"
-  ]
+   "Qur'an 2:196; 2:197; 3:97",
+   "Sahih al-Bukhari 1521, 1534, 1562, 1773, 1862",
+   "Sahih Muslim 1218, 1337",
+   "The differences between the schools stated in the madhhab note are the standard positions of each school; they have not yet been reviewed by a named scholar."
+  ],
+  "madhhabNote": "Pillars of Hajj: Hanafi — standing at Arafah and the tawaf of Ifadah (ihram is a condition; sa'i is wajib). Maliki and Hanbali — ihram, standing at Arafah, tawaf of Ifadah and sa'i. Shafi'i — ihram, standing at Arafah, tawaf, sa'i, shaving or shortening, and the order of the rites.\nThe best of the three ways: Hanafi — qiran. Maliki and Shafi'i — ifrad. Hanbali — tamattu'.\nA woman and a mahram: Hanafi and Hanbali — a mahram (or her husband) is required for the journey. Maliki and Shafi'i — a group of trustworthy women, or a safe road, is enough.\nUmrah: Shafi'i and Hanbali — obligatory once. Hanafi and Maliki — a confirmed sunnah.\nFollow one school's fiqh for your own practice, or ask a teacher of your school.",
+  "goDeeper": {
+   "why": "Hajj gathers the Muslims of the world at the House in the footsteps of Ibrahim.",
+   "evidence": "Every rite below has its own guide; this one covers who must go and how.",
+   "commonMistakes": "Delaying Hajj without a reason; travelling without settling debts; not knowing which way (tamattu', qiran, ifrad) the group is performing."
+  }
  },
  {
   "id": "huda-ihram",
   "collection": "huda",
   "category": "Hajj & Umrah",
   "title": "Ihram — Entering the Sacred State",
-  "subtitle": "Two cloths, two rak'ahs, one talbiyah",
+  "subtitle": "The cloths, the intention, the talbiyah",
   "steps": [
-   "Perfume the body before the niyyah, not after — Aisha perfumed the Prophet ﷺ when he entered ihram (Bukhari 1539). A ghusl before ihram is also commonly recommended; ask a scholar of your school.",
-   "Men: two seamless white cloths; no fitted garments, no head covering — 'the muhrim wears no turban, no hooded cloak, no trousers...' (Bukhari 134). Women wear ordinary modest dress; no face veil, no gloves (Bukhari 1838).",
-   "Pray at the miqat (at Wadi al-Aqiq the Prophet ﷺ was told: 'pray in this blessed valley', Bukhari 1534), then state the niyyah: Labbaika Allahumma Hajjan (or 'Umratan) — and the umrah niyyah suffices until the Hajj days.",
-   "The talbiyah, raised aloud by men: Labbaika Allahu labbaik, labbaika la sharika laka labbaik... — the Prophet ﷺ said: Jibril instructed me to keep raising it (Muslim 1184).",
-   "What ihram forbids: sewn garments (men), head covering (men), face cover and gloves (women), cutting hair or nails, perfume, hunting, marriage contracts — 'the muhrim may not marry, nor be married' (Muslim 1409).",
-   "Violations are expiated by fidyah — fasting three days, feeding six poor people, or sacrificing a sheep (2:196); the schools detail which applies to which violation."
+   "Prepare: bathe, trim, and perfume the body before the intention. Aisha said she used to perfume the Prophet ﷺ when he wanted to enter ihram (Bukhari 1539).",
+   "Men wear two unsewn cloths, an izar and a rida. The Prophet ﷺ said the muhrim does not wear a shirt, a turban, trousers, a hooded cloak, or anything scented with saffron or wars; if he has no sandals he may wear leather socks cut below the ankles (Bukhari 134, 1838). Women wear ordinary modest clothing and uncover the face and hands in ihram (Bukhari 1838).",
+   "Pray, then state the intention at the miqat: 'Labbayka Hajjan' (or 'Umratan, or both). In the valley of al-Aqiq at Dhul-Hulayfah the Prophet ﷺ said that a messenger had come to him from his Lord that night, asking him to pray in that blessed valley and to enter ihram for Hajj and Umrah together (Bukhari 1534).",
+   "The talbiyah: 'Labbayka Allahumma labbayk, labbayka la sharika laka labbayk, innal-hamda wan-ni'mata laka wal-mulk, la sharika lak' (Bukhari 1549; Muslim 1184). Men raise their voices with it: the Prophet ﷺ said Jibril came and commanded him to tell his Companions to raise their voices with the talbiyah (Abu Dawud 1814, sahih per al-Albani and Zubair Ali Zai).",
+   "Say it often: after prayers, on climbing and descending, and on meeting others. It continues until you begin the stoning of Jamrat al-Aqabah on the 10th (for Hajj), or until you begin tawaf (for Umrah).",
+   "Stay in the state of ihram until the rites are done: see the Rites and Prohibitions guide."
   ],
   "sources": [
-   "Qur'an 2:196; Sahih al-Bukhari 134, 1539; Sahih Muslim 1184, 1409"
+   "Sahih al-Bukhari 134, 1534, 1539, 1549, 1838",
+   "Sahih Muslim 1184",
+   "Sunan Abi Dawud 1814 (sahih per al-Albani and Zubair Ali Zai)",
+   "The differences between the schools stated in the madhhab note are the standard positions of each school; they have not yet been reviewed by a named scholar."
   ],
-  "madhhabNote": "Which violations require which expiation differs by school and cause (perfume vs shaving vs intimacy) — this is exactly the case for a Hajj seminar or a trusted fiqh manual, not a quick card."
+  "madhhabNote": "Ihram and the intention: ihram is a condition (Hanafi) or a pillar (Maliki, Shafi'i, Hanbali). The intention may be said aloud with the talbiyah.\nThe talbiyah: Hanafi — required once (wajib) to enter ihram, or its equivalent (a dhikr or driving the hady). Maliki, Shafi'i, Hanbali — a sunnah.\nFace covering for women: the four schools hold that a woman does not wear a niqab in ihram but may let her cloth hang down over her face if men are near; gloves are not worn.\nCrossing the miqat without ihram: Hanafi, Maliki, Shafi'i, Hanbali — return to the miqat or pay a sacrifice (dam).\nFollow one school's fiqh for your own practice, or ask a teacher of your school.",
+  "goDeeper": {
+   "why": "Ihram strips away rank: every pilgrim stands before Allah in the same cloth.",
+   "evidence": "The garments and the talbiyah are from Bukhari and Muslim.",
+   "commonMistakes": "Perfuming the cloths after the intention; wearing sewn garments; forgetting to say the talbiyah."
+  }
  },
  {
   "id": "huda-tawaf",
@@ -646,16 +788,27 @@
   "title": "Tawaf & Sa'i",
   "subtitle": "Seven circuits and seven lengths — the rites Hajar taught us",
   "steps": [
-   "Enter al-Masjid al-Haram with the right foot and the dua; approach the Black Stone — kiss it if you can (Umar kissed it, saying he did so only because he had seen the Prophet ﷺ do it: Bukhari 1597), or point to it from where you stand, as the Prophet ﷺ pointed to the corner from his mount (Bukhari 1612).",
-   "Tawaf: seven circuits beginning and ending at the Stone, the Kaaba on your LEFT — counterclockwise; the first three rounds are ramal (brisk, chest out) for men in the arrival tawaf (ramal: Bukhari 1602).",
-   "Between circuits, at the Yemeni corner and the Stone: Rabbana atina fid-dunya hasanah... (reported in Sunan Abi Dawud, Book of the Rites of Hajj; number and grade not yet verified in this app); two rak'ahs of tawaf behind the Maqam after completion (2:125).",
-   "Then sa'i: between Safa and Marwah seven lengths (Safa→Marwah = one), remembering Hajar's search — 'then she descended... and hurried as a person hurries in distress' (Bukhari 3364).",
-   "Men jog between the two green markers, the stretch where Hajar hurried; the Prophet's own sa'i is described in Jabir's account of his Hajj (Muslim 1218).",
-   "Completion of Umrah: the men shave (the Prophet ﷺ prayed for those who shave and then for those who shorten, Bukhari 1727) or shorten; women do not shave; clipping is what is required of them (Abu Dawud 1984, sahih li ghayrihi per al-Albani)."
+   "Enter al-Masjid al-Haram with the right foot and the entering du'a (see the Mosque guide). Approach the Black Stone: kiss it if you can (Umar said he kissed it only because he had seen the Prophet ﷺ do so: Bukhari 1597), or point to it, as the Prophet ﷺ pointed to the Corner from his mount (Bukhari 1612).",
+   "Tawaf: seven circuits beginning and ending at the Stone, the Ka'bah on your left. Men walk briskly (ramal) in the first three circuits of the arrival tawaf and walk normally in the last four (Bukhari 1602; Muslim 1218).",
+   "Between the Yemeni Corner and the Black Stone the Prophet ﷺ used to say: 'Our Lord, give us in this world [that which is] good and in the Hereafter [that which is] good and protect us from the punishment of the Fire' (Qur'an 2:201), in the report Abu Dawud 1892, hasan per al-Albani and Zubair Ali Zai.",
+   "After the tawaf pray two rak'ahs behind the Station of Ibrahim (Qur'an 2:125). The Prophet ﷺ recited Surah al-Ikhlas and Surah al-Kafirun in them (Muslim 1218).",
+   "Sa'i: go out to Safa. The Prophet ﷺ recited 'Indeed, as-Safa and al-Marwah are among the symbols of Allah' (Qur'an 2:158), saying he began with what Allah began with. He climbed Safa until he saw the House, faced it and said the takbir, tahlil and praise (Muslim 1218).",
+   "Walk to Marwah (one length), then back (two), seven lengths in all, ending at Marwah. Men run between the two green markers (Muslim 1218). This recalls Hajar's search for water for Ismail (Bukhari 3364).",
+   "Completion of Umrah: men shave the head or shorten the hair. The Prophet ﷺ made dua three times for those who shave and the third time for those who shorten (Bukhari 1727). For women shaving is not required, only clipping (Abu Dawud 1984, sahih per al-Albani; Zubair Ali Zai: hasan)."
   ],
   "sources": [
-   "Qur'an 2:125-158; Sahih al-Bukhari 1602, 3364; Sahih Muslim 1218"
-  ]
+   "Qur'an 2:125; 2:158; 2:201",
+   "Sahih al-Bukhari 1597, 1602, 1612, 1727, 3364",
+   "Sahih Muslim 1218",
+   "Sunan Abi Dawud 1892 (hasan per al-Albani), 1984 (sahih per al-Albani)",
+   "The differences between the schools stated in the madhhab note are the standard positions of each school; they have not yet been reviewed by a named scholar."
+  ],
+  "madhhabNote": "Wudu for tawaf: Hanafi — wajib; Maliki, Shafi'i, Hanbali — a condition (Maliki and Shafi'i and the relied-upon Hanbali view). A woman in menstruation does not perform tawaf (Bukhari 294 in the Menstruation guide).\nNumber of circuits: seven in the four schools. If four are done, the Hanafi school counts the tawaf as done and a sacrifice completes the rest; the others require all seven.\nSa'i: Hanafi — wajib (a sacrifice if left). Maliki, Shafi'i and Hanbali — a pillar of Hajj and Umrah.\nThe two rak'ahs after tawaf: Hanafi — wajib. Others — a sunnah.\nShaving or shortening: Hanafi, Maliki, Hanbali — wajib. Shafi'i — a pillar.\nFollow one school's fiqh for your own practice, or ask a teacher of your school.",
+  "goDeeper": {
+   "why": "Tawaf circles the House of Allah; sa'i walks again the walk of a mother who trusted Him.",
+   "evidence": "Each rite above carries its own source; the Jabir hadith (Muslim 1218) is the main account of the Prophet's own Hajj.",
+   "commonMistakes": "Starting the tawaf before the Stone's line; shortening the sa'i; forgetting the two rak'ahs; pushing through the crowd."
+  }
  },
  {
   "id": "huda-arafat",
@@ -664,16 +817,26 @@
   "title": "The Day of Arafah",
   "subtitle": "The day the religion was perfected",
   "steps": [
-   "Stand at Arafat — the Prophet ﷺ said: the Hajj is Arafat; and whoever reaches Jam' (Muzdalifah) at night before Fajr has caught the Hajj (Tirmidhi 889, sahih per Darussalam).",
-   "The timing: presence within the boundaries from noon until sunset; departure after sunset is sunnah (most scholars).",
-   "The dua of the day: the Prophet ﷺ said the best dua is the dua of Arafah — La ilaha illa Allah wahdahu la sharika lah, lahul-mulku wa lahul-hamdu wa huwa 'ala kulli shay'in qadir (Tirmidhi 3585 — daʿif per Darussalam; al-Tirmidhi called it hasan gharib, so take it as encouragement).",
-   "The forgiveness: 'there is no day on which Allah frees more people from the Fire than the day of Arafah' (Muslim 1348).",
-   "For the non-pilgrim: fasting Arafah expiates the year before and the year after — for those not on Hajj (Muslim 1162).",
-   "The perfection: on this day, at Arafat, the verse descended: 'This day I have perfected for you your religion and completed My favor upon you' (5:3)."
+   "Stand at Arafah: the Prophet ﷺ ordered a caller to proclaim that the Hajj is Arafah and that whoever reaches Jam' (Muzdalifah) at night before Fajr has caught the Hajj (Tirmidhi 889, sahih per al-Albani and Zubair Ali Zai).",
+   "The Prophet ﷺ stayed at Arafah until the sun set and the yellow light faded, then left for Muzdalifah (Muslim 1218). Departure after sunset is the sunnah.",
+   "The best of the day: 'There is no day on which Allah frees more servants from the Fire than the Day of Arafah' (Muslim 1348).",
+   "The verse: 'This day I have perfected for you your religion and completed My favor upon you and have approved for you Islam as religion' (Qur'an 5:3).",
+   "The sunnah of a pilgrim is not to fast on this day. Umm al-Fadl sent a bowl of milk to the Prophet ﷺ on his camel on the day of Arafah and he drank it while people watched (Bukhari 1661).",
+   "A dua often mentioned for this day, 'La ilaha illallah wahdahu la sharika lah...' as 'the best of dua', is reported in Tirmidhi 3585, whose grade is disputed (Zubair Ali Zai: da'if); because it is disputed, say it as a dhikr and do not present it as a settled hadith. Make your own dua too."
   ],
   "sources": [
-   "Qur'an 5:3; Sahih Muslim 1162, 1348; Sunan al-Tirmidhi 889 (sahih per Darussalam), 3585 (daʿif per Darussalam)"
-  ]
+   "Qur'an 5:3",
+   "Sahih al-Bukhari 1661",
+   "Sahih Muslim 1218, 1348",
+   "Jami' al-Tirmidhi 889 (sahih per al-Albani and Zubair Ali Zai), 3585 (hasan per al-Albani; da'if per Zubair Ali Zai)",
+   "The differences between the schools stated in the madhhab note are the standard positions of each school; they have not yet been reviewed by a named scholar."
+  ],
+  "madhhabNote": "The time of the standing: see the Hajj walkthrough guide for the schools' differences.\nFasting for the pilgrim: Hanafi and Maliki — not recommended; Shafi'i and Hanbali — recommended not to fast (so that he is strong for dua).\nFollow one school's fiqh for your own practice, or ask a teacher of your school.",
+  "goDeeper": {
+   "why": "Arafah is the heart of Hajj: no rite can be completed without it.",
+   "evidence": "The Tirmidhi report in the sources and Muslim 1218 give the standing and its time.",
+   "commonMistakes": "Leaving before sunset; resting in the shade of the borders outside Arafah; wasting the hours in conversation."
+  }
  },
  {
   "id": "huda-fasting",
@@ -1020,19 +1183,28 @@
   "title": "Hajj — Step-by-Step Walkthrough",
   "subtitle": "The full journey, day by day, from ihram to the farewell tawaf",
   "steps": [
-   "Enter ihram at the miqat (or before it for air travelers): ghusl, the two white cloths, the niyyah and talbiyah — Labbaika Allahumma Hajjan.",
-   "Day 1 (8 Dhul-Hijjah, Yawm at-Tarwiyah): enter ihram for Hajj if not already; proceed to Mina and pray Dhuhr, Asr, Maghrib, Isha and Fajr there, shortened but not combined.",
-   "Day 2 (9 Dhul-Hijjah, Arafah): stand at Arafat from noon until sunset — the essence of Hajj. Combine Dhuhr and Asr at Zuhr time, shortened. Pray, make dua, remember; no fasting for the pilgrim.",
-   "After sunset, leave for Muzdalifah without praying Maghrib at Arafat: pray Maghrib and Isha combined at Isha time; spend the night (or part of it, especially for the weak and women).",
-   "Day 3 (10 Dhul-Hijjah, Yawm an-Nahr): stone Jamrat al-Aqabah with seven pebbles; sacrifice; shave or shorten the hair (taqsir/halq) — the first release from ihram; then the tawaf al-ifadah and sa'i of Hajj, completing the release.",
-   "The days of Tashreeq (11-13): stone the three jamarat daily after noon, seven each — or leave after two days, the concession for those who hasten (2:203).",
-   "Farewell: before departing Makkah, the tawaf al-wada' — one final circuit. The menstruating woman is excused from it (Bukhari 1755)."
+   "Enter ihram at the miqat with the intention for Hajj (and Umrah, if you are doing tamattu' or qiran). The Prophet ﷺ entered at Dhul-Hulayfah (Muslim 1218).",
+   "The 8th of Dhul-Hijjah (Tarwiyah): go to Mina in ihram. The Prophet ﷺ prayed Dhuhr, Asr, Maghrib, Isha and Fajr there and stayed until the sun rose (Muslim 1218).",
+   "The 9th (Arafah): go to Arafah. The Prophet ﷺ stayed at Namirah until the sun passed the meridian, gave the sermon in the valley, then prayed Dhuhr and Asr together with one adhan and two iqamahs (Muslim 1218). Stand, face the qiblah, and make dua until sunset. 'The Hajj is Arafah' (Tirmidhi 889, sahih per al-Albani and Zubair Ali Zai). Do not leave before sunset (Muslim 1218).",
+   "After sunset go to Muzdalifah without praying Maghrib on the way. The Prophet ﷺ prayed Maghrib and Isha together there with one adhan and two iqamahs, slept until dawn, prayed Fajr, then stood at al-Mash'ar al-Haram making dua until it was very light, and left before sunrise (Muslim 1218). Collect pebbles.",
+   "The 10th (Nahr): stone Jamrat al-Aqabah with seven pebbles, saying Allahu akbar with each (Muslim 1218). Then the sacrifice (hady) for tamattu' and qiran. Then shave or shorten (Bukhari 1727). This is the first release: all prohibitions end except relations.",
+   "Go to Makkah for the tawaf of Ifadah and, if you have not yet done it (tamattu' and, in some schools, ifrad and qiran), the sa'i of Hajj. After it all prohibitions end.",
+   "The 11th, 12th (and 13th) — the days of Tashriq: stay at Mina and stone the three jamarat after the sun passes the meridian, seven pebbles each (Bukhari 1746). Whoever hastens may leave after two days; 'and whoever delays, there is no sin upon him' (Qur'an 2:203; Tirmidhi 889, sahih per al-Albani).",
+   "Farewell: before leaving Makkah, make the farewell tawaf as your last act. The people were ordered to make the last thing the tawaf, except the menstruating women, who were excused (Bukhari 1755; Muslim 1327)."
   ],
   "sources": [
    "Qur'an 2:196-203; 3:97",
-   "Sahih al-Bukhari 1513-1560; Sahih Muslim 1218, 1297"
+   "Sahih al-Bukhari 1727, 1746, 1755",
+   "Sahih Muslim 1218, 1327",
+   "Jami' al-Tirmidhi 889 (sahih per al-Albani and Zubair Ali Zai)",
+   "The differences between the schools stated in the madhhab note are the standard positions of each school; they have not yet been reviewed by a named scholar."
   ],
-  "madhhabNote": "Stoning order details, Muzdalifah stay length, and combining prayers differ in detail between schools — follow your group's mutawwif (guide) or your school's fiqh."
+  "madhhabNote": "Standing at Arafah: Hanafi, Shafi'i, Hanbali (the relied-upon view) — from the sun's passing the meridian; Maliki — the pillar is standing in the night of Arafah; the day standing until sunset is wajib. Hanbali — from dawn of the 9th is valid, though the Sunnah is after the meridian.\nStay at Muzdalifah: Hanafi — wajib to stand after Fajr; Maliki — enough to stop and pray there; Shafi'i and Hanbali — a wajib (stay after midnight; the weak and women may leave after midnight).\nStoning: Hanafi, Maliki, Shafi'i, Hanbali — wajib on the 10th through the 12th (or 13th). The time on the 11th-12th: after the meridian in the four schools (Hanafi: a concession before the meridian on the 13th).\nMina nights: Hanafi — a sunnah; the other three — wajib.\nFarewell tawaf: Hanafi, Shafi'i, Hanbali — wajib; Maliki — a sunnah.\nFollow one school's fiqh for your own practice, or ask a teacher of your school.",
+  "goDeeper": {
+   "why": "Follow your group's guide (mutawwif) for times and crowds; these are the Prophet's own rites.",
+   "evidence": "Muslim 1218 is Jabir's account of the whole Farewell Pilgrimage.",
+   "commonMistakes": "Leaving Arafah before sunset; praying Maghrib on the road; stoning before the meridian on the days of Tashriq; leaving Makkah without the farewell tawaf."
+  }
  },
  {
   "id": "huda-umrah",
@@ -1041,58 +1213,82 @@
   "title": "Umrah — In a Day",
   "subtitle": "The smaller pilgrimage, complete from ihram to release",
   "steps": [
-   "Enter ihram at the miqat: ghusl, the cloths, niyyah for Umrah, talbiyah — Labbaika Allahumma Umrah.",
-   "Arrive al-Masjid al-Haram with the talbiyah still on your tongue; begin tawaf at the Black Stone (kiss, touch, or point with takbir), seven circuits, the Kaaba on your left, ramal (brisk) in the first three if others are present.",
-   "Pray two rak'ahs of tawaf behind the Maqam Ibrahim if possible; drink Zamzam.",
-   "Sa'i: Safa to Marwah seven lengths, remembering Hajar's run; men jog between the green lights.",
-   "Exit ihram: shave (preferred) or shorten the hair — the Umrah is complete. Men shorten from all sides; women cut a fingertip's length only.",
-   "No raml in sa'i after the first tawaf; no visit to the rawdah is required but is beloved if time allows."
+   "Enter ihram at the miqat: bathe, put on the two cloths, pray, and say 'Labbayka Umratan' and the talbiyah (see the Ihram guide).",
+   "Go to al-Masjid al-Haram with the talbiyah on your tongue. Stop it when you begin the tawaf.",
+   "Tawaf: seven circuits from the Black Stone, the Ka'bah on your left; men walk briskly in the first three (Bukhari 1602; Muslim 1218).",
+   "Two rak'ahs behind the Station of Ibrahim if possible (Qur'an 2:125; Bukhari 1647). Then drink Zamzam.",
+   "Sa'i: seven lengths from Safa to Marwah, men running between the green markers (Muslim 1218; Qur'an 2:158).",
+   "Release: men shave the head or shorten the hair; women clip a little from the ends (Bukhari 1727; Abu Dawud 1984, sahih per al-Albani). The Umrah is complete.",
+   "During an Umrah before the Hajj season (tamattu'), you leave ihram and wear ordinary clothes until the Hajj ihram on the 8th (Bukhari 1562)."
   ],
   "sources": [
-   "Qur'an 2:196",
-   "Sahih al-Bukhari 1597; Sahih Muslim 1218"
+   "Qur'an 2:125; 2:158",
+   "Sahih al-Bukhari 1562, 1602, 1647, 1727",
+   "Sahih Muslim 1218",
+   "Sunan Abi Dawud 1984 (sahih per al-Albani)",
+   "The differences between the schools stated in the madhhab note are the standard positions of each school; they have not yet been reviewed by a named scholar."
   ],
-  "madhhabNote": "Women do not ramal and do not shave; touching the Black Stone is sunnah, never an obligation — the crowd's safety comes first."
+  "madhhabNote": "Ruling: Shafi'i and Hanbali — obligatory once in a lifetime. Hanafi and Maliki — a confirmed sunnah.\nPillars: Maliki, Shafi'i and Hanbali — ihram, tawaf and sa'i (Shafi'i adds shaving or shortening). Hanafi — tawaf (four circuits); ihram is a condition; sa'i is wajib.\nWomen: ramal and shaving are for men only.\nFollow one school's fiqh for your own practice, or ask a teacher of your school.",
+  "goDeeper": {
+   "why": "Umrah is a small pilgrimage: ihram, tawaf, sa'i, release, in a few hours.",
+   "evidence": "Bukhari 1647 describes the Prophet's tawaf, prayer and sa'i in order.",
+   "commonMistakes": "Leaving ihram before the sa'i is complete; shaving without ihram status; skipping the talbiyah."
+  }
  },
  {
   "id": "huda-arafat-day",
   "collection": "huda",
   "category": "Hajj & Umrah",
   "title": "Arafah — Observing the Day at Home",
-  "subtitle": "The 9th of Dhul-Hijjah for the pilgrim and the one far away",
+  "subtitle": "The 9th of Dhul-Hijjah for the one who is not on Hajj",
   "steps": [
-   "For the pilgrim: stand within the boundary of Arafat from noon to sunset — standing even a moment within it completes the pillar; combine Dhuhr and Asr at Zuhr time, two by two.",
-   "Fill the hours with dua — the best is the taught one: La ilaha illa Allah wahdahu la sharika lah, lahul-mulku wa lahul-hamdu wa huwa 'ala kulli shay'in qadir (Tirmidhi 3585, weak per Darussalam).",
-   "Do not fast on Arafah if you are the pilgrim standing there — the Prophet ﷺ was seen drinking milk at Arafah while the people watched (Bukhari 1661).",
-   "For everyone else: FAST this day — it expiates the year before and the year after (Muslim 1162); say the takbir and the shahada abundantly.",
-   "After sunset, depart for Muzdalifah — but not before the sun sets; the impatient crowds cannot move the sun.",
-   "The one who misses the standing at Arafah entirely has missed that Hajj ('Hajj is Arafah'); what he then owes is a ruling of the schools — ask a scholar. So the boundary signs matter; follow the guides."
+   "These days are the best of the year: the Prophet ﷺ said no good deeds done on other days are better than those done in these ten days (Bukhari 969).",
+   "Fast the day of Arafah if you are not on Hajj: the Prophet ﷺ said it expiates the previous year and the coming year (Muslim 1162).",
+   "Do the opposite of what the pilgrim does: fasting is for the one who is at home (Bukhari 1661 shows that the Prophet ﷺ did not fast on Arafah during Hajj).",
+   "Remember Allah in the numbered days: 'And remember Allah during [specific] numbered days' (Qur'an 2:203). Say the takbir, tahlil and tahmid often.",
+   "Make dua: the forgiveness of this day is wide: 'There is no day on which Allah frees more servants from the Fire than the Day of Arafah' (Muslim 1348).",
+   "Eid al-Adha follows on the 10th: see the Eid guide."
   ],
   "sources": [
-   "Qur'an 2:198-199",
-   "Sahih Muslim 1162, 1348; Sunan at-Tirmidhi 3585, weak per Darussalam"
+   "Qur'an 2:203",
+   "Sahih al-Bukhari 969, 1661",
+   "Sahih Muslim 1162, 1348",
+   "The differences between the schools stated in the madhhab note are the standard positions of each school; they have not yet been reviewed by a named scholar."
   ],
-  "madhhabNote": "Saying 'standing' means presence within Arafat's bounds, not a specific posture or location upon the mountain — the day is mercy, not ordeal."
+  "madhhabNote": "Fasting Arafah for a non-pilgrim: recommended in the four schools. The Hanafi school mentions that the fast should not make one weak for dua.\nThe first ten days: fasting the first nine days is recommended (a sunnah) in all schools; the fast of the tenth is forbidden.\nFollow one school's fiqh for your own practice, or ask a teacher of your school.",
+  "goDeeper": {
+   "why": "Arafah is a day for everyone, not only pilgrims: fast, remember Allah and ask forgiveness.",
+   "evidence": "Muslim 1162 and Bukhari 969 are the sources of the fast and the ten days.",
+   "commonMistakes": "Fasting on the 10th; skipping the dua; treating the day as an ordinary day."
+  }
  },
  {
   "id": "huda-ihram-rites",
   "collection": "huda",
   "category": "Hajj & Umrah",
   "title": "Ihram — Rites and Prohibitions",
-  "subtitle": "The wardrobe, the words, and the boundaries before the House",
+  "subtitle": "What the muhrim must avoid and what to pay if he fails",
   "steps": [
-   "Ghusl (full wash), then perfume on the BODY before the niyyah — never on the cloths after (Bukhari 1539).",
-   "Men: two seamless white cloths, no fitted garment, no head cover. Women: ordinary modest dress; no face veil, no gloves (Bukhari 1838).",
-   "Pray two rak'ahs at the miqat, then declare: Labbaika Allahumma Hajjan (or Umrah); raise the talbiyah aloud: Labbaika Allahumma labbaik...",
-   "What ihram forbids: sewn garments (men), head cover (men), face cover and gloves (women), cutting hair or nails, perfume, hunting, marriage contracts — 'the muhrim may not marry, nor be married' (Muslim 1409).",
-   "Violations carry fidyah — fasting three days, feeding six poor persons, or sacrificing a sheep (2:196); the schools assign which expiation to which violation — ask your guide.",
-   "The talbiyah continues until the stoning of Jamrat al-Aqabah on the 10th — let your tongue not fall silent while your heart is present."
+   "Forbidden in ihram for men: the sewn garments listed above, covering the head. For women: face veil and gloves. For both: perfume, cutting hair or nails, hunting and killing game, a marriage contract, sexual relations (Bukhari 134, 1838; Muslim 1409; Qur'an 2:197).",
+   "Marriage: 'A muhrim must neither marry himself nor arrange the marriage of another' (Muslim 1409).",
+   "Game: 'do not kill game while you are in the state of ihram' (Qur'an 5:95).",
+   "Intimacy: 'no sexual relations and no disobedience and no disputing during Hajj' (Qur'an 2:197).",
+   "Fidyah for shaving the head from necessity: the Prophet ﷺ told Ka'b ibn Ujrah, whose lice were troubling him, to shave and then fast three days, feed six poor people, or sacrifice a sheep (Bukhari 1814; Qur'an 2:196).",
+   "A violation by mistake or forgetfulness: the schools differ on whether anything is owed; see the note.",
+   "A pilgrim who dies in ihram: wash him with water and sidr, shroud him in his two cloths, and do not perfume him or cover his head; he will be resurrected saying the talbiyah (Bukhari 1265)."
   ],
   "sources": [
-   "Qur'an 2:196; 5:95-96",
-   "Sahih al-Bukhari 134, 1534-1542; Sahih Muslim 1184, 1409"
+   "Qur'an 2:196; 2:197; 5:95",
+   "Sahih al-Bukhari 134, 1265, 1814, 1838",
+   "Sahih Muslim 1409",
+   "The differences between the schools stated in the madhhab note are the standard positions of each school; they have not yet been reviewed by a named scholar."
   ],
-  "madhhabNote": "Which violations require which expiation (perfume vs shaving vs intimacy) differs by school and cause — this is precisely the case for a Hajj seminar or a trusted manual."
+  "madhhabNote": "Cutting hair or nails by necessity: the fidyah in Qur'an 2:196 (three days' fast, six poor people fed, or a sheep) applies in all four schools. Cutting without necessity: Hanafi — a sheep; others — the same options.\nIntercourse before the standing at Arafah: invalidates the Hajj in the four schools; the pilgrim completes it, repeats it the next year and pays a sacrifice. After the standing but before the first release: Hanafi — a camel or cow; Maliki — invalidates; Shafi'i and Hanbali — a camel or cow, the Hajj stays valid.\nPerfume and covering the head: Hanafi — a sacrifice if it lasts a day or more, charity if less. Maliki, Shafi'i, Hanbali — the three-way fidyah.\nForgetfulness: Hanafi and Maliki — the penalty applies except in a few cases. Shafi'i and Hanbali — no sin and no fidyah for forgetfulness or ignorance in most prohibitions.\nHunting: the penalty of Qur'an 5:95 in the four schools; the Hanafi school requires the value of the animal.\nFollow one school's fiqh for your own practice, or ask a teacher of your school.",
+  "goDeeper": {
+   "why": "The prohibitions train the pilgrim to put restraint on what is otherwise lawful.",
+   "evidence": "Qur'an 2:196, 2:197 and 5:95 are the foundation; the hadith above give examples.",
+   "commonMistakes": "Treating the fidyah as optional for anything; killing an insect from irritation without asking; wearing scented soap."
+  }
  },
  {
   "id": "huda-zakat",
@@ -1114,6 +1310,34 @@
    "Qur'an 70:24-25"
   ],
   "madhhabNote": "The four schools agree on the obligation, the 2.5% rate on monetary wealth, and the hawl (lunar year). They differ on details — which nisab standard to apply, which assets count, and business-goods valuation. When your situation is complex (retirement accounts, business inventory, debts owed to you), ask a scholar who knows modern finance."
+ },
+ {
+  "id": "huda-zakat-fitr",
+  "collection": "huda",
+  "category": "Worship",
+  "title": "Zakat al-Fitr — The Fast-Breaking Charity",
+  "subtitle": "Who pays it, how much, when, and to whom",
+  "steps": [
+   "What it is: a charity due at the end of Ramadan. Ibn Abbas said the Prophet ﷺ prescribed it as a purification for the fasting person from idle talk and obscenity, and as food for the poor (Abu Dawud 1609, hasan per al-Albani and Zubair Ali Zai; Ibn Majah 1827, hasan per al-Albani, isnad hasan per Zubair Ali Zai).",
+   "Who pays: every Muslim, slave or free, male or female, young or old (Bukhari 1503; Muslim 984). The head of the household pays for those he supports.",
+   "How much: one sa' of dates or one sa' of barley (Bukhari 1503). Abu Sa'id said they gave one sa' of food: barley, raisins, cottage cheese or dates (Bukhari 1510). A sa' is a measure of volume; its weight depends on the food. Bukhari's note gives about 3 kg; take the figure from your mosque or scholar.",
+   "When: before the Eid prayer. The Prophet ﷺ ordered it paid before the people went out to the prayer (Bukhari 1503, 1509). Whoever pays it before the prayer, it is an accepted zakat; whoever pays it after, it is ordinary charity (Abu Dawud 1609, hasan per al-Albani).",
+   "To whom: to the poor (Abu Dawud 1609, hasan per al-Albani). The schools differ on whether other categories of zakat recipients may receive it; see the note.",
+   "Food or money: the Prophet ﷺ fixed foods; the schools differ on whether the value may be paid instead; see the note."
+  ],
+  "sources": [
+   "Sahih al-Bukhari 1503, 1509, 1510",
+   "Sahih Muslim 984",
+   "Sunan Abi Dawud 1609 (hasan per al-Albani)",
+   "Sunan Ibn Majah 1827 (hasan per al-Albani)",
+   "The differences between the schools stated in the madhhab note are the standard positions of each school; they have not yet been reviewed by a named scholar."
+  ],
+  "madhhabNote": "Cash or food: Hanafi — the value in money may be paid (and is often better for the poor). Maliki and Shafi'i — food only, from the local staple. Hanbali — food (the relied-upon view); some Hanbali scholars permit the value when there is a need.\nThe sa': Hanafi — about 3.8 kg (the Iraqi sa'). Maliki, Shafi'i and Hanbali — about 2.0-3.0 kg (the Hijazi sa', depending on the food). Use the figure announced by your local scholars.\nTiming: the days at the end of Ramadan, up to the Eid prayer; the schools allow paying in advance for different periods (Hanafi: any time; Maliki and Hanbali: one or two days before; Shafi'i: from the start of Ramadan).\nWho must pay: every Muslim who owns more than their food for the day and night of Eid (Hanafi: the nisab).\nFollow one school's fiqh for your own practice, or ask a teacher of your school.",
+  "goDeeper": {
+   "why": "It closes the fast: it cleans what went wrong in Ramadan and feeds the poor for Eid.",
+   "evidence": "Bukhari 1503 gives the measure and the deadline; the Abu Dawud report in the sources gives the purpose.",
+   "commonMistakes": "Paying after the Eid prayer and thinking it counts as zakat al-Fitr; forgetting a child or a dependent; paying cash where your school requires food."
+  }
  },
  {
   "id": "huda-sadaqah",
@@ -1246,62 +1470,5 @@
    "Wikipedia, “Madhhab” (a general reference, not a fiqh text)"
   ],
   "madhhabNote": "This is one worked example, not a table of the four schools. A full reviewed comparison, with each school’s evidence and book, still needs a named scholar, and until then the app does not state any other school position."
- },
- {
-  "id": "huda-sujud-sahw",
-  "collection": "huda",
-  "category": "Worship",
-  "title": "Forgetting in Prayer — Sujud as-Sahw",
-  "subtitle": "The two prostrations that repair a mistake in the prayer",
-  "steps": [
-   "What it is: two extra prostrations made when you forget something in the prayer. The Prophet ﷺ said: I am a human being like you and forget as you forget; so when I forget, remind me (Bukhari 401; Muslim 572).",
-   "You forgot the first sitting (the first tashahhud) and stood up: do not go back; finish the prayer, and before the salam say Allahu Akbar and make two prostrations sitting. This is what the Prophet ﷺ did when he stood after two rak'ahs without sitting (Bukhari 1224).",
-   "You are in doubt about the number of rak'ahs: the Prophet ﷺ said, cast away the doubt and build on what you are sure of, then make two prostrations before the salam (Muslim 571). In another report he said, aim at what is correct, complete the prayer, then make the two prostrations (Bukhari 401; Muslim 572). The schools differ on which applies; see the note.",
-   "You added a rak'ah: the Prophet ﷺ once prayed five rak'ahs of Dhuhr; when told, he made two prostrations (Bukhari 1226; Bukhari 401 and Muslim 572 describe the same).",
-   "You finished the prayer early by mistake: the Prophet ﷺ gave the salam after two rak'ahs of a four-rak'ah prayer; when Dhul-Yadayn reminded him, he completed the prayer, gave the salam, then said the takbir and made two prostrations, and again a takbir as he rose (Muslim 573).",
-   "How: say Allahu Akbar and prostrate as in a normal prostration, rise with a takbir, prostrate again and rise (Muslim 573); then give the salam, or the tashahhud and the salam, according to your school.",
-   "If you left a pillar (a ruku' or a sujud, or al-Fatihah), the two prostrations do not replace it: the rak'ah is not counted and you must do it. The schools agree on this."
-  ],
-  "sources": [
-   "Sahih al-Bukhari 401, 1224, 1226",
-   "Sahih Muslim 571, 572, 573",
-   "The differences between the schools stated in the madhhab note are the standard positions of each school; they have not yet been reviewed by a named scholar."
-  ],
-  "madhhabNote": "Ruling: Hanafi — obligatory (wajib) when an obligatory part of the prayer is forgotten or delayed. Maliki and Shafi'i — a sunnah. Hanbali — obligatory when the reason is a forgotten obligatory act, an addition, or a doubt.\nBefore or after the salam: Hanafi — always after the salam. Shafi'i — always before it. Maliki — before the salam when something was left out, after it when something was added. Hanbali — before the salam where the Prophet ﷺ did so (first tashahhud forgotten; doubt resolved by certainty), after it where he did so (early salam; adding; acting on a firm belief).\nDoubt about the number of rak'ahs: Hanafi, Maliki and Hanbali — act on what you think most likely; if neither seems likelier, build on the smaller number. Shafi'i — build on the smaller number.\nThe narrations differ on whether the Prophet ﷺ prostrated before the salam (Bukhari 1224; Muslim 571) or after it (Bukhari 1226; Muslim 573), which is why the schools differ.\nFollow one school's fiqh for your own practice, or ask a teacher of your school.",
-  "goDeeper": {
-   "why": "The prayer is a human act and humans forget; the two prostrations are the remedy the Prophet ﷺ prescribed.",
-   "evidence": "Bukhari 401 and Muslim 571-573 contain every case above.",
-   "commonMistakes": "Going back after fully standing from the first sitting; making the prostrations for a skipped pillar; making them twice."
-  }
- },
- {
-  "id": "huda-travel-prayer",
-  "collection": "huda",
-  "category": "Worship",
-  "title": "Praying When Travelling, Sick or in Fear",
-  "subtitle": "Shortening, combining, and praying seated or on a vehicle",
-  "steps": [
-   "Shortening: Allah says: 'And when you travel throughout the land, there is no blame upon you for shortening the prayer' (Qur'an 4:101). Yaala ibn Umayyah asked Umar why the people shorten when they are safe; Umar had asked the Prophet ﷺ, who said it is a charity which Allah has given you, so accept His charity (Muslim 686).",
-   "Which prayers: only the four-rak'ah prayers (Dhuhr, Asr, Isha) are shortened to two. Fajr and Maghrib are not shortened. The Prophet ﷺ prayed two rak'ahs when travelling, as did Abu Bakr and Umar (Muslim 694; Ibn Majah 1064, sahih per al-Albani and Zubair Ali Zai).",
-   "How long: the Prophet ﷺ once stayed nineteen days and shortened the prayer (Bukhari 1080); and he stayed twenty days at Tabuk shortening it (Abu Dawud 1235, sahih per al-Albani; Zubair Ali Zai graded it da'if). The schools differ on the limit of the stay and on the distance; see the note.",
-   "Combining: Ibn Abbas reported that the Prophet ﷺ combined Dhuhr with Asr and Maghrib with Isha without fear or travel (Muslim 705); scholars differ on what this meaning allows. Anas said that when the Prophet ﷺ set off before noon he delayed Dhuhr to the time of Asr and combined them, and if the sun passed its peak before he set off he prayed Dhuhr and then rode (Bukhari 1111). The schools differ on this; see the note.",
-   "On a mount: the Prophet ﷺ prayed the voluntary prayers on his mount facing whatever direction it took, and prayed witr on it, but not the obligatory prayer; for the obligatory prayer he dismounted and faced the qiblah (Bukhari 1098, 1099). In a car, train or plane, pray the obligatory prayer at its time: on the ground facing the qiblah if you can, otherwise as you are, as far as you are able.",
-   "Illness: the Prophet ﷺ told Imran ibn Husayn, who had piles: pray standing; if you cannot, sitting; if you cannot, on your side (Bukhari 1117).",
-   "Fear: Allah says: 'And if you fear an enemy, then pray on foot or riding' (Qur'an 2:239)."
-  ],
-  "sources": [
-   "Qur'an 2:239; 4:101",
-   "Sahih al-Bukhari 1080, 1098, 1099, 1111, 1117",
-   "Sahih Muslim 686, 694, 705",
-   "Sunan Abi Dawud 1235 (sahih per al-Albani; Zubair Ali Zai: da'if)",
-   "Sunan Ibn Majah 1064 (sahih per al-Albani and Zubair Ali Zai)",
-   "The differences between the schools stated in the madhhab note are the standard positions of each school; they have not yet been reviewed by a named scholar."
-  ],
-  "madhhabNote": "Distance: Hanafi — about 77 km (three days' travel). Maliki, Shafi'i and Hanbali — about 80-83 km (sixteen farsakhs).\nShortening: Hanafi — obligatory. Maliki — a strongly recommended sunnah. Shafi'i and Hanbali — a permission; shortening is better.\nHow long a stay: Hanafi — intending to stay fifteen days or more makes you a resident. Maliki and Shafi'i — intending to stay four full days. Hanbali — intending to stay more than four days (more than twenty prayers).\nCombining while travelling: Maliki, Shafi'i and Hanbali — permitted. Hanafi — only at Arafah and Muzdalifah in Hajj.\nFollow one school's fiqh for your own practice, or ask a teacher of your school.",
-  "goDeeper": {
-   "why": "Travel, illness and fear do not release you from the prayer; they change its form.",
-   "evidence": "Muslim 686 gives the charity; Bukhari 1117 gives the stages when ill.",
-   "commonMistakes": "Praying Maghrib as two; combining without a reason; waiting to arrive when a prayer's time is passing."
-  }
  }
 ]
