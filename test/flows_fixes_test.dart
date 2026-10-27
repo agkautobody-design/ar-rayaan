@@ -324,7 +324,14 @@ void main() {
         (WidgetTester tester) async {
       final SemanticsHandle h = await pump(tester);
       final Finder cell = find.byKey(const Key('juz-5'));
-      await tester.scrollUntilVisible(cell, 300);
+      await tester.scrollUntilVisible(
+        cell,
+        300,
+        scrollable: find.descendant(
+          of: find.byType(ListView).first,
+          matching: find.byType(Scrollable),
+        ).first,
+      );
       expect(tester.getSize(cell), const Size(44, 44));
       expect(find.bySemanticsLabel('Juz 5, not completed'), findsOneWidget);
       await tester.tap(cell);
@@ -378,7 +385,14 @@ void main() {
         (WidgetTester tester) async {
       final SemanticsHandle h = await pump(tester);
       expect(find.textContaining('debts to Allah'), findsNothing);
-      await tester.scrollUntilVisible(find.textContaining('2:184'), 300);
+      await tester.scrollUntilVisible(
+        find.textContaining('2:184'),
+        300,
+        scrollable: find.descendant(
+          of: find.byType(ListView).first,
+          matching: find.byType(Scrollable),
+        ).first,
+      );
       expect(find.textContaining('Qur’an 2:184'), findsOneWidget);
       h.dispose();
     });
