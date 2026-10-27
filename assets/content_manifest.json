@@ -36,9 +36,9 @@
    "version": 2
   },
   "stories/companions.json": {
-   "bytes": 46966,
-   "sha256": "ef56cbfe273fbdd0b52017c003dc981b277baad0f64474a964e870bc2a85664e",
-   "version": 7
+   "bytes": 48390,
+   "sha256": "069cffda8766986b092e519dd048d8609f0a3fdb42e8dd00d0aa50306e4cdbd0",
+   "version": 8
   },
   "stories/dailyduas.json": {
    "bytes": 56717,
@@ -56,9 +56,9 @@
    "version": 8
   },
   "stories/modernhadith.json": {
-   "bytes": 51733,
-   "sha256": "3481787bc34a2758df3a7803710e77f319abe3ab3650bab586149bbfb2550e91",
-   "version": 13
+   "bytes": 51732,
+   "sha256": "1218f61cefc376e2e2987887c0591ef879369c2f1e2c18ec43067955aaa65b70",
+   "version": 15
   },
   "stories/newmuslim.json": {
    "bytes": 37931,
@@ -71,9 +71,9 @@
    "version": 4
   },
   "stories/seerah.json": {
-   "bytes": 66202,
-   "sha256": "1e5b8b783da34589bb924c693a32442a80b96f24bd80b5bb885ef6e78aa0c021",
-   "version": 6
+   "bytes": 83086,
+   "sha256": "0fcb41e8483f77caf0e94f304c56f035e75af72539cca8c6a0c6e57fd029f428",
+   "version": 7
   },
   "stories/signs.json": {
    "bytes": 20623,
@@ -86,9 +86,9 @@
    "version": 6
   },
   "stories/women.json": {
-   "bytes": 44342,
-   "sha256": "7f52fd2e504c85b7f9e9131653a3314022608aaa518a46bdb2cf464ac42d2b7b",
-   "version": 7
+   "bytes": 45244,
+   "sha256": "7541f75926170e9df7925b31568b4bd0aaee58d04039f81fcd9e061ec4b98303",
+   "version": 8
   }
  },
  "schema": 1

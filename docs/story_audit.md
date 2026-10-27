@@ -327,3 +327,13 @@ Chapters audited: 278, in 200 stories.
 
 Source opened: Ibn Hisham, al-Sira al-Nabawiyya, ed. Mustafa al-Saqqa, Ibrahim al-Abyari and Abd al-Hafiz al-Shalabi (al-Halabi, Cairo, 2nd ed. 1955), on shamela.ws (book 23833), pages as printed (vol. 1 p. N = shamela sequence N+23; vol. 2 p. N = sequence N+737). Each row above marked "Label: Seerah report. Read:" states the volume and pages read and what was and was not on them. Hadith cited in those chapters were re-read on sunnah.com (verdicts in tool/hadith_verdicts/t2.json). A claim not found on the pages read was removed or moved to a closing sentence that says it was not checked. Chapters not listed here keep "Seerah report (source not checked)": no text of the named book was opened for them. Ibn Hisham's text is Ibn Ishaq's biography as edited by Ibn Hisham; it is a report, not revelation, and nothing here has been scholar-reviewed.
 
+
+## Correctness pass: seerah, companions, women (2026-10-27)
+
+Every claim in these three packs was re-checked against the bundled Qur'an, the hadith corpus (number, grade and grader) and, for seerah detail, Ibn Hisham (ed. al-Saqqa et al.) and Ibn Sa'd (ed. Ihsan Abbas). Claims that could not be verified were removed or labelled as reports without a chain; editor-note and footnote text was removed from user-facing chapters.
+
+| pack | id | chapter | class | note |
+|---|---|---|---|---|
+| seerah | seerah-04 | 1 | M | Label: Seerah report. Read: Ibn Hisham vol. 1 pp. 235-236 (the month of Ramadan, Hira), with Bukhari 3 and 3851 for the revelation and his age. |
+| seerah | seerah-19 | 1 | M | Label: Seerah report. Read: Ibn Hisham vol. 2 pp. 66, 77-79 (Uhud: the cavalry, the archers, the wounds), with Bukhari 4043 and 5722. |
+| seerah | seerah-27 | 1 | M | Label: Seerah report. Read: Ibn Hisham vol. 2 pp. 602-605 (the sermon at Arafat), with Muslim 1218; Bukhari 67 is the separate sermon at Mina on the Day of Sacrifice. |

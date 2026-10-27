@@ -1,0 +1,86 @@
+{
+ "bukhari:1122": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-27",
+  "note": "Ibn Umar's dream and the fire; 'what a good man Abdullah would be if he prayed at night'"
+ },
+ "bukhari:2664": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-27",
+  "note": "Ibn Umar presented at fourteen before Uhud, accepted at fifteen at the Trench"
+ },
+ "bukhari:2778": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-27",
+  "note": "Uthman at the siege: Rumah well, Tabuk army, the Hudaybiyyah pledge"
+ },
+ "bukhari:3851": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-27",
+  "note": "Ibn Abbas: inspired at forty, thirteen years in Makkah, then Madinah"
+ },
+ "bukhari:4153": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-27",
+  "note": "Hudaybiyyah numbers: 1400 (Jabir), 1500 in other report"
+ },
+ "bukhari:4281": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-27",
+  "note": "Abdullah ibn Mughaffal: the Prophet reciting Surat al-Fath on the day of the conquest"
+ },
+ "bukhari:4287": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-27",
+  "note": "360 idols around the Kaaba; 'Truth has come and falsehood has vanished'"
+ },
+ "bukhari:4462": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-27",
+  "note": "Anas: Fatima in the Prophet's last illness and after burial"
+ },
+ "bukhari:5722": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-27",
+  "note": "Sahl ibn Sa'd: Uhud wound, Ali with water and Fatima washing the blood"
+ },
+ "bukhari:7015": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "Sahih al-Bukhari / Sahih Muslim (no separate grading)",
+  "checked": "2026-10-27",
+  "note": "Ibn Umar's dream of silk cloth in Paradise, told through Hafsa"
+ },
+ "abudawud:2219": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "al-Albani (Darussalam)",
+  "checked": "2026-10-27",
+  "note": "Khawla bint Tha'laba, wife of Aws ibn as-Samit; zihar and the expiation"
+ },
+ "ibnmajah:2063": {
+  "verdict": "ok",
+  "grade": "sahih",
+  "grader": "al-Albani (Darussalam)",
+  "checked": "2026-10-27",
+  "note": "Aisha hears Khawla's complaint about zihar; Qur'an 58:1 revealed"
+ }
+}
