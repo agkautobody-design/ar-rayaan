@@ -67,6 +67,8 @@ void main() {
     final String witr =
         (byId['huda-witr']!['steps'] as List<dynamic>).join('\n');
     expect(witr, contains('(Bukhari 998)'));
-    expect(witr.contains('Bukhari 990'), isFalse);
+    // Bukhari 990 (one rak'ah of witr if the dawn is feared) is also cited
+    // correctly in the rewritten guide.
+    expect(witr, contains('Bukhari 990'));
   });
 }

@@ -10,6 +10,7 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../zakat/domain/zakat_calculation.dart';
+import '../domain/halal_screen.dart';
 
 /// TAYYIB FINANCE - the wealth wing. Purification, giving, and earning.
 /// Zakat links to the live engine; the stock screener teaches the AAOIFI
@@ -89,27 +90,24 @@ class _TayyibState extends State<TayyibFinanceScreen> {
     }
   }
 
+  final _deposits = TextEditingController();
+
   void _screen() {
     double p(String s) => ZakatCalculation.parseAmount(s);
-    final haram = p(_haram.text), debt = p(_debt.text), mcap = p(_mcap.text),
-        interest = p(_interest.text), revenue = p(_revenue.text);
-    final out = <String>[];
-    if (revenue > 0 && haram / revenue > 0.05) {
-      out.add('Business activity: haram revenue ${(haram / revenue * 100).round()}% exceeds the 5% ceiling');
-    } else if (revenue > 0) {
-      out.add('Business activity: within the 5% tolerance (${(haram / revenue * 100).round()}%) - purify that portion by giving it away');
+    final ScreenResult r = HalalScreen.run(
+      haramRevenue: p(_haram.text),
+      totalRevenue: p(_revenue.text),
+      interestBearingDebt: p(_debt.text),
+      marketCap: p(_mcap.text),
+      interestIncome: p(_interest.text),
+      interestBearingDeposits: p(_deposits.text),
+    );
+    final List<String> out = <String>[...r.messages];
+    if (r.lines.isEmpty) {
+      out.add('Enter the company\u2019s figures to run the screens.');
+    } else {
+      out.add(HalalScreen.verdictText(r));
     }
-    if (mcap > 0 && debt / mcap > 0.30) {
-      out.add('Leverage: debt is ${(debt / mcap * 100).round()}% of market cap - above the ~30% screen');
-    } else if (mcap > 0) {
-      out.add('Leverage: ${(debt / mcap * 100).round()}% of market cap - passes the screen');
-    }
-    if (revenue > 0 && interest / revenue > 0.05) {
-      out.add('Interest income: ${(interest / revenue * 100).round()}% of revenue - above the 5% screen');
-    } else if (revenue > 0) {
-      out.add('Interest income: ${(interest / revenue * 100).round()}% - within tolerance, purify it');
-    }
-    if (out.isEmpty) out.add('Enter the company\u2019s figures to run the three screens.');
     setState(() => _verdict = out);
   }
 
@@ -163,14 +161,15 @@ class _TayyibState extends State<TayyibFinanceScreen> {
                 child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                   Text('HALAL STOCK SCREENER', style: AppText.eyebrow),
                   const SizedBox(height: 4),
-                  Text('The three screens widely used (AAOIFI-style): business activity under 5% haram revenue; debt under ~30% of market cap; interest income under 5% of revenue. Anything in the tolerated margin is purified \u2014 given away.',
+                  Text('The screens widely used (AAOIFI-style): haram business income at most 5% of revenue; interest-bearing debt at most 30% of market cap; interest-bearing deposits and securities at most 30% of market cap; interest income at most 5% of revenue. Anything in the tolerated margin is purified \u2014 given away.',
                       style: AppText.bodyMuted.copyWith(height: 1.55, fontSize: 12)),
                   const SizedBox(height: 10),
                   for (final f in [
                     ('Haram revenue (annual, \$)', _haram),
                     ('Total revenue (annual, \$)', _revenue),
-                    ('Total debt (\$)', _debt),
+                    ('Interest-bearing debt (\$)', _debt),
                     ('Market cap (\$)', _mcap),
+                    ('Interest-bearing deposits and securities (\$, optional)', _deposits),
                     ('Interest income (\$)', _interest),
                   ])
                     Padding(
