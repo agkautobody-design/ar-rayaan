@@ -31,6 +31,8 @@ import '../application/prayer_settings.dart';
 import '../data/aladhan_prayer_repository.dart';
 import '../data/city_directory.dart';
 import '../domain/prayer_times.dart';
+import '../../../app/theme/widgets/named_route.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 /// Prayer Times — calculated on the device (adhan math), in the clock of
 /// the chosen city. New screen designed within the locked system — pending
@@ -338,7 +340,7 @@ class _ScheduleState extends ConsumerState<_Schedule> {
               ),
               // New in town? The Jumu'ah time is the mosque's own, so point
               // to the masjid finder instead of leaving the row a guess.
-              InkWell(
+              FocusRing(borderRadius: 12, child: InkWell(
                 key: const Key('prayer-find-masjid'),
                 onTap: () => context.open('/masajid'),
                 child: Padding(
@@ -365,7 +367,7 @@ class _ScheduleState extends ConsumerState<_Schedule> {
                     ],
                   ),
                 ),
-              ),
+              )),
             ],
           ),
         ),
@@ -724,7 +726,7 @@ class _CitySheetState extends State<CitySheet> {
                 style: AppText.bodyMuted.copyWith(fontSize: 12),
               ),
               const SizedBox(height: 12),
-              TextField(
+              Semantics(label: 'Type a city or country', child: TextField(
                 key: const Key('city-search'),
                 onChanged: (String v) => setState(() => _query = v),
                 textInputAction: TextInputAction.search,
@@ -734,7 +736,7 @@ class _CitySheetState extends State<CitySheet> {
                   hintText: 'Type a city or country',
                   isDense: true,
                 ),
-              ),
+              )),
               const SizedBox(height: 8),
               if (shown.isEmpty)
                 Padding(
@@ -775,7 +777,10 @@ Future<void> _pickCity(BuildContext context, WidgetRef ref) async {
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
     ),
-    builder: (BuildContext ctx) => const CitySheet(),
+    builder: (BuildContext ctx) => const NamedRoute(
+      label: 'Choose your city',
+      child: CitySheet(),
+    ),
   );
   if (chosen != null) {
     await ref
@@ -1058,7 +1063,7 @@ class JumuahRow extends ConsumerWidget {
         color: time == null ? AppColors.gold : AppColors.sand,
       ),
     );
-    return InkWell(
+    return FocusRing(borderRadius: 12, child: InkWell(
       onTap: () => _pickJumuahTime(context, ref),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 13),
@@ -1134,7 +1139,7 @@ class JumuahRow extends ConsumerWidget {
           ],
         ),
       ),
-    );
+    ));
   }
 }
 
@@ -1508,7 +1513,7 @@ class _IqamahCardState extends ConsumerState<_IqamahCard> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          InkWell(
+          FocusRing(borderRadius: 12, child: InkWell(
             onTap: () => setState(() => _open = !_open),
             child: Row(
               children: [
@@ -1524,7 +1529,7 @@ class _IqamahCardState extends ConsumerState<_IqamahCard> {
                 ),
               ],
             ),
-          ),
+          )),
           if (!_open)
             Padding(
               padding: const EdgeInsets.only(top: 6),

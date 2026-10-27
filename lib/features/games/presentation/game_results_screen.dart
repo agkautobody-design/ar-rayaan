@@ -60,6 +60,15 @@ class ResultSummaryView extends StatelessWidget {
           textAlign: TextAlign.center,
           style: AppText.bodyMuted,
         ),
+        const SizedBox(height: 6),
+        // A zero is met kindly: the game is for learning, not for a mark.
+        Text(
+          RegExp(r'^0\b').hasMatch(result.summary)
+              ? 'Every try teaches something. Have another go whenever you like.'
+              : 'Well done for finishing. Play again whenever you like.',
+          textAlign: TextAlign.center,
+          style: AppText.body,
+        ),
         const GoldDivider(),
         if (together) ...<Widget>[
           const SizedBox(height: 6),

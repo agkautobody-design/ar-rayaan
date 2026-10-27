@@ -21,7 +21,9 @@ const List<String> kQuranOfflineAssets = <String>[
 /// Shown under "needs an internet connection" when the text cannot load.
 const String kQuranOfflineHint =
     'Open the Qur\u2019an once while online (or use Settings > Save '
-    'Qur\u2019an for offline) and it will work without internet.';
+    'Qur\u2019an for offline). The app and the saved text then reopen '
+    'without internet, as long as this browser keeps this site\u2019s data '
+    '(private windows do not).';
 
 /// What a save ended as.
 enum QuranSaveResult {
@@ -134,7 +136,8 @@ String quranOfflineMessage(
       return 'Saving the Qur’an to this device… keep this page open.';
     case QuranSavePhase.saved:
       return 'Saved. The Qur’an text now opens in this browser with no '
-          'internet. $audio If you clear this site’s data, save it again.';
+          'internet, also after you close the tab or reopen the app. '
+          '$audio If you clear this site’s data, save it again.';
     case QuranSavePhase.notKept:
       return 'The Qur’an loaded, but this browser would not keep a copy '
           '(private windows and blocked site data often do this). It will '
@@ -149,6 +152,8 @@ String quranOfflineMessage(
           ? 'Saved on this device. The Qur’an text opens in this browser '
                 'with no internet. $audio'
           : 'To read with no internet, save the Qur’an to this browser '
-                'first (about 2 MB, text only). $audio';
+                'first (about 2 MB, text only). The app reopens offline once '
+                'it has been opened online, as long as this browser keeps '
+                'this site’s data (private windows do not). $audio';
   }
 }

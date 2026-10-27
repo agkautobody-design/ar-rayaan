@@ -13,6 +13,7 @@ import '../../habits/application/return_loop.dart';
 import '../../tracking/application/tracking_providers.dart';
 import '../application/tasbeeh_providers.dart';
 import '../domain/tasbeeh_counter.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 /// A plain counter. The whole lower half of the screen is one big tap area.
 /// On Android it can also count with the volume buttons while the screen is
@@ -75,6 +76,7 @@ class _TasbeehScreenState extends ConsumerState<TasbeehScreen>
     final bool? yes = await showDialog<bool>(
       context: context,
       builder: (BuildContext c) => AlertDialog(
+        semanticLabel: 'Reset the counter?',
         title: const Text('Reset the counter?'),
         content: const Text(
           'The count and the rounds go back to zero. Your target stays.',
@@ -285,7 +287,7 @@ class _TapPad extends StatelessWidget {
             side: BorderSide(color: AppColors.gold.withValues(alpha: 0.5)),
           ),
           clipBehavior: Clip.antiAlias,
-          child: InkWell(
+          child: FocusRing(borderRadius: 12, child: InkWell(
             key: const ValueKey<String>('tasbeeh-tap-pad'),
             onTap: onTap,
             child: SizedBox.expand(
@@ -316,7 +318,7 @@ class _TapPad extends StatelessWidget {
                 ),
               ),
             ),
-          ),
+          )),
         ),
       ),
     );
@@ -358,6 +360,7 @@ class _CustomTargetDialogState extends State<_CustomTargetDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      semanticLabel: 'Custom target',
       title: const Text('Custom target'),
       content: TextField(
         controller: _c,

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../app/core/child_mode.dart';
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
@@ -275,6 +276,10 @@ class _StoryReaderScreenState extends ConsumerState<StoryReaderScreen> {
             if (arabicIsElided(current.arabic!))
               _ElidedArabicNote(sources: story.sources),
           ],
+          if (story.collection == 'dailyduas') ...<Widget>[
+            Text('WHAT IT MEANS', style: AppText.eyebrow),
+            const SizedBox(height: 6),
+          ],
           Text(
             current.body,
             style: TextStyle(
@@ -343,10 +348,17 @@ class _StoryReaderScreenState extends ConsumerState<StoryReaderScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('SIT TOGETHER', style: AppText.eyebrow),
+                Text(
+                  story.collection == 'dailyduas'
+                      ? 'SAY IT TOGETHER'
+                      : 'SIT TOGETHER',
+                  style: AppText.eyebrow,
+                ),
                 const SizedBox(height: 8),
                 Text(
-                  story.familyQuestion,
+                  story.collection == 'dailyduas'
+                      ? 'Say the dua together, a few words at a time. Then talk about when we say it.'
+                      : story.familyQuestion,
                   style: const TextStyle(
                     fontSize: 15.5,
                     height: 1.6,
@@ -357,8 +369,12 @@ class _StoryReaderScreenState extends ConsumerState<StoryReaderScreen> {
               ],
             ),
           ),
-          const SizedBox(height: 12),
-          _AskHadiAboutStory(story: story, chapter: current),
+          // No free-text box on a dua (it is not a story to ask about), and none
+          // in child mode (a child has no open question box).
+          if (story.collection != 'dailyduas' && !kChildMode.value) ...<Widget>[
+            const SizedBox(height: 12),
+            _AskHadiAboutStory(story: story, chapter: current),
+          ],
         ],
       ),
     );
@@ -474,12 +490,12 @@ class _AskHadiAboutStoryState extends ConsumerState<_AskHadiAboutStory> {
           const SizedBox(height: 8),
           Row(children: [
             Expanded(
-              child: TextField(
+              child: Semantics(label: 'What does this story teach about patience?', child: TextField(
                 controller: _input,
                 style: AppText.body.copyWith(fontSize: 13),
                 decoration: const InputDecoration(
                     hintText: 'What does this story teach about patience?'),
-              ),
+              )),
             ),
             const SizedBox(width: 8),
             CircleAvatar(

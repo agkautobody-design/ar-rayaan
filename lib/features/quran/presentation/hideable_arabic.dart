@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../application/test_me_provider.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 /// Shows [child] (the Arabic of one ayah) as it is, or, while "Hide text /
 /// test me" is on, a quiet box that shows the ayah when tapped.
@@ -35,7 +36,7 @@ class HideableArabic extends ConsumerWidget {
       excludeSemantics: true,
       label: 'Ayah $ayah is hidden. Tap to show it.',
       onTap: reveal,
-      child: InkWell(
+      child: FocusRing(borderRadius: 12, child: InkWell(
         key: Key('hidden-ayah-$ayah'),
         onTap: reveal,
         borderRadius: BorderRadius.circular(12),
@@ -53,7 +54,7 @@ class HideableArabic extends ConsumerWidget {
             textAlign: TextAlign.center,
           ),
         ),
-      ),
+      )),
     );
   }
 }

@@ -315,3 +315,27 @@ def add_all(R):
         'Age-banded wording; once per interval per child; only the last-asked day and the off flag are stored on the device; the answer is not stored and no parent screen reads it.',
         'Round 10 T2: the check-in never appeared in Wasia. Wording needs a clinician; storage needs a lawyer (children privacy version 6).',
         CLIN, ['R10_T2'], 'high', also=[LAWYER], sub='children')
+
+    # ------------------------------------------------ fix pass C (child mode, privacy, elder)
+    add('kids.child-mode-surahs', 'quran-text', 'Child mode > the short surahs a child can open',
+        'lib/app/core/child_mode.dart', 'kChildSurahs',
+        'Surahs 1, 103, 105-110 and 112-114 open in locked child mode; other surahs send the child back to Kids Corner.',
+        'Round 10: child mode blocked every surah and dua. The set is a first choice made by the developer; a teacher of children should confirm it.',
+        FIQH, ['R10_T2'], 'normal', sub='children',
+        surf='Kids Corner in child mode')
+    add('kids.child-mode-stories', 'stories-prophets', 'Child mode > the stories shown in Stories school',
+        'lib/features/academy/presentation/stories_school_screen.dart', 'kChildStoryIds',
+        'Seven gentle stories (Adam, Nuh, Yunus, Ayyub, Sulayman, the Sleepers of the Cave, the Two Gardens) show in child mode, with no adult theme text.',
+        'The chosen set and the one-line description are the developer\'s; a teacher of children and a scholar should confirm them.',
+        FIQH, ['R10_T2'], 'normal', sub='children',
+        surf='Stories school in child mode')
+    add('legal.firebase-startup', 'legal', 'Privacy Policy > Google services at start-up',
+        'lib/features/legal/presentation/legal_screens.dart', 'kPrivacySections',
+        'The policy now says the Firebase software starts at launch when the build is connected, and lists what Firebase is used for.',
+        'Written from reading the code; a lawyer should confirm the wording.',
+        LAWYER, ['R10_T4'], 'high', sub='legal')
+    add('i18n.elder-doors', 'languages', 'Home > Elder Mode card wording in Arabic, Bangla and Urdu',
+        'lib/app/core/i18n/ui_labels.dart', 'home.elderSub',
+        '"A few simple doors" replaces "three doors" in all four languages.',
+        'The Arabic, Bangla and Urdu lines were written without a native speaker. Native-speaker review needed.',
+        NATIVE, ['R10_T6'], 'normal', sub='languages')

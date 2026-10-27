@@ -48,6 +48,7 @@ class _ElderCareState extends ConsumerState<ElderCareScreen> {
     final bool? ok = await showDialog<bool>(
       context: context,
       builder: (BuildContext ctx) => AlertDialog(
+        semanticLabel: 'Start the count again?',
         title: const Text('Start the count again?'),
         content: const Text('The count will go back to 0.'),
         actions: <Widget>[

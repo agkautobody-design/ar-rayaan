@@ -19,6 +19,46 @@ import 'v3_widgets.dart';
 
 TextStyle _body() => AppText.body.copyWith(height: 1.55, fontSize: 15);
 
+/// Moves keyboard focus to [node] after the next frame. A button that has just
+/// been used often turns off or leaves the list, and focus would then drop to
+/// the top of the page ("Copy this lesson"), so every check puts it somewhere
+/// useful on purpose.
+void _focusLater(State<StatefulWidget> state, FocusNode? node) {
+  WidgetsBinding.instance.addPostFrameCallback((_) {
+    if (!state.mounted || node == null) return;
+    if (node.canRequestFocus && node.context != null) node.requestFocus();
+  });
+}
+
+/// The result of a check, spoken as soon as it appears (a polite live region)
+/// and a place focus can be sent to. [spoken] is the whole sentence read out;
+/// the visible [child] is hidden from the reader so it is not said twice.
+class _Result extends StatelessWidget {
+  const _Result({
+    required this.node,
+    required this.spoken,
+    required this.child,
+  });
+
+  final FocusNode node;
+  final String spoken;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return Focus(
+      focusNode: node,
+      skipTraversal: true,
+      child: Semantics(
+        liveRegion: true,
+        container: true,
+        label: spoken,
+        child: ExcludeSemantics(child: child),
+      ),
+    );
+  }
+}
+
 /// A face of a match or an option: plain text, or Arabic.
 class FaceText extends StatelessWidget {
   const FaceText({super.key, this.text, this.arabic});
@@ -76,16 +116,48 @@ class _CheckViewState extends State<CheckView> {
   CheckStepState? _again;
   bool _passedSent = false;
 
+  final Map<int, FocusNode> _optionNodes = <int, FocusNode>{};
+  final FocusNode _nextNode = FocusNode(debugLabel: 'v3-next-question');
+  final FocusNode _resultNode = FocusNode(debugLabel: 'v3-check-result');
+
   CheckStepState get _s => _again ?? widget.state;
+
+  FocusNode _optionNode(int i) =>
+      _optionNodes.putIfAbsent(i, () => FocusNode(debugLabel: 'v3-option-$i'));
+
+  @override
+  void dispose() {
+    for (final FocusNode n in _optionNodes.values) {
+      n.dispose();
+    }
+    _nextNode.dispose();
+    _resultNode.dispose();
+    super.dispose();
+  }
 
   void _pick(int i) {
     setState(() => _s.pick(i));
     _afterChange();
+    final CheckStepState s = _s;
+    if (s.itemSettled) {
+      // Right (or shown): on to the Next button, or the result on the last.
+      _focusLater(this, s.isLastItem ? _resultNode : _nextNode);
+    } else {
+      // Wrong: stay in the options, on the first one still open; the live
+      // region says what to look at again.
+      for (int k = 0; k < s.item.options.length; k++) {
+        if (!s.tried.contains(k)) {
+          _focusLater(this, _optionNode(k));
+          break;
+        }
+      }
+    }
   }
 
   void _next() {
     setState(() => _s.advance());
     _afterChange();
+    _focusLater(this, _optionNode(0));
   }
 
   void _afterChange() {
@@ -182,6 +254,7 @@ class _CheckViewState extends State<CheckView> {
                   padding: const EdgeInsets.only(bottom: 8),
                   child: OutlinedButton(
                     key: Key('v3-option-$i'),
+                    focusNode: _optionNode(i),
                     style: _choiceStyle(
                       good: settled && i == it.answer,
                       dim: s.tried.contains(i) || (settled && i != it.answer),
@@ -196,11 +269,22 @@ class _CheckViewState extends State<CheckView> {
                 ),
               if (s.reteach != null && !settled) ...<Widget>[
                 const SizedBox(height: 4),
-                Text(t('v3.notQuite'),
-                    style: _body().copyWith(
-                        fontWeight: FontWeight.w600, color: AppColors.gold)),
-                const SizedBox(height: 4),
-                Text(s.reteach!, key: const Key('v3-reteach'), style: _body()),
+                _Result(
+                  node: _resultNode,
+                  spoken: '${t('v3.notQuite')} ${s.reteach!}',
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: <Widget>[
+                      Text(t('v3.notQuite'),
+                          style: _body().copyWith(
+                              fontWeight: FontWeight.w600,
+                              color: AppColors.gold)),
+                      const SizedBox(height: 4),
+                      Text(s.reteach!,
+                          key: const Key('v3-reteach'), style: _body()),
+                    ],
+                  ),
+                ),
                 if (s.back != null)
                   Align(
                     alignment: AlignmentDirectional.centerStart,
@@ -215,17 +299,30 @@ class _CheckViewState extends State<CheckView> {
               ],
               if (settled) ...<Widget>[
                 const SizedBox(height: 4),
-                Text(
-                  s.itemRevealed ? t('v3.answerIs') : t('v3.right'),
-                  style: _body().copyWith(
-                      fontWeight: FontWeight.w600, color: AppColors.gold),
+                _Result(
+                  node: _resultNode,
+                  spoken: '${s.itemRevealed ? t('v3.answerIs') : t('v3.right')} '
+                      '${it.explain}'
+                      '${s.itemRevealed ? ' ${t('v3.comesBack')}' : ''}',
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: <Widget>[
+                      Text(
+                        s.itemRevealed ? t('v3.answerIs') : t('v3.right'),
+                        style: _body().copyWith(
+                            fontWeight: FontWeight.w600,
+                            color: AppColors.gold),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(it.explain,
+                          key: const Key('v3-explain'), style: _body()),
+                      if (s.itemRevealed) ...<Widget>[
+                        const SizedBox(height: 4),
+                        Text(t('v3.comesBack'), style: AppText.caption),
+                      ],
+                    ],
+                  ),
                 ),
-                const SizedBox(height: 4),
-                Text(it.explain, key: const Key('v3-explain'), style: _body()),
-                if (s.itemRevealed) ...<Widget>[
-                  const SizedBox(height: 4),
-                  Text(t('v3.comesBack'), style: AppText.caption),
-                ],
               ],
             ],
           ),
@@ -235,6 +332,7 @@ class _CheckViewState extends State<CheckView> {
             padding: const EdgeInsets.only(top: 12),
             child: FilledButton(
               key: const Key('v3-next-question'),
+              focusNode: _nextNode,
               style: FilledButton.styleFrom(minimumSize: const Size(0, 48)),
               onPressed: _next,
               child: Text(t('v3.nextQuestion')),
@@ -273,9 +371,38 @@ class ArrangeView extends StatefulWidget {
 class _ArrangeViewState extends State<ArrangeView> {
   ArrangeState get _s => widget.state;
 
+  final Map<int, FocusNode> _poolNodes = <int, FocusNode>{};
+  final FocusNode _checkNode = FocusNode(debugLabel: 'v3-check-order');
+  final FocusNode _resultNode = FocusNode(debugLabel: 'v3-arrange-result');
+
+  FocusNode _poolNode(int i) =>
+      _poolNodes.putIfAbsent(i, () => FocusNode(debugLabel: 'v3-pool-$i'));
+
+  @override
+  void dispose() {
+    for (final FocusNode n in _poolNodes.values) {
+      n.dispose();
+    }
+    _checkNode.dispose();
+    _resultNode.dispose();
+    super.dispose();
+  }
+
+  /// After a step moves between the lists, focus goes to the first step still
+  /// to place, or to Check once every step is placed.
+  void _focusNextAction() {
+    final List<int> left = _s.remaining;
+    _focusLater(this, left.isEmpty ? _checkNode : _poolNode(left.first));
+  }
+
   void _check() {
     setState(() => _s.check());
-    if (_s.settled) widget.onPassed();
+    if (_s.settled) {
+      widget.onPassed();
+      _focusLater(this, _resultNode);
+    } else {
+      _focusNextAction();
+    }
   }
 
   @override
@@ -307,14 +434,23 @@ class _ArrangeViewState extends State<ArrangeView> {
                 style: _choiceStyle(good: settled),
                 onPressed: settled
                     ? null
-                    : () => setState(() => _s.takeBackFrom(pos)),
-                child: Row(
-                  children: <Widget>[
-                    Text('${pos + 1}.  ', style: AppText.label),
-                    Expanded(
-                      child: Text(step.items[_s.placed[pos]].text, style: _body()),
-                    ),
-                  ],
+                    : () {
+                        setState(() => _s.takeBackFrom(pos));
+                        _focusNextAction();
+                      },
+                child: Semantics(
+                  label: 'Place ${pos + 1}: ${step.items[_s.placed[pos]].text}'
+                      '${settled ? '' : '. Press to take it back.'}',
+                  excludeSemantics: true,
+                  child: Row(
+                    children: <Widget>[
+                      Text('${pos + 1}.  ', style: AppText.label),
+                      Expanded(
+                        child: Text(step.items[_s.placed[pos]].text,
+                            style: _body()),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -327,8 +463,12 @@ class _ArrangeViewState extends State<ArrangeView> {
                 padding: const EdgeInsets.only(bottom: 8),
                 child: OutlinedButton(
                   key: Key('v3-pool-$i'),
+                  focusNode: _poolNode(i),
                   style: _choiceStyle(),
-                  onPressed: () => setState(() => _s.place(i)),
+                  onPressed: () {
+                    setState(() => _s.place(i));
+                    _focusNextAction();
+                  },
                   child: Text(step.items[i].text, style: _body()),
                 ),
               ),
@@ -336,16 +476,27 @@ class _ArrangeViewState extends State<ArrangeView> {
           if (!settled)
             FilledButton(
               key: const Key('v3-check-order'),
+              focusNode: _checkNode,
               style: FilledButton.styleFrom(minimumSize: const Size(0, 48)),
               onPressed: _s.complete ? _check : null,
               child: Text(t('v3.checkOrder')),
             ),
           if (fb != null && fb.reteach != null && !settled) ...<Widget>[
             const SizedBox(height: 10),
-            Text(t('v3.notQuite'),
-                style: _body().copyWith(
-                    fontWeight: FontWeight.w600, color: AppColors.gold)),
-            Text(fb.reteach!, key: const Key('v3-reteach'), style: _body()),
+            _Result(
+              node: _resultNode,
+              spoken: '${t('v3.notQuite')} ${fb.reteach!}',
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  Text(t('v3.notQuite'),
+                      style: _body().copyWith(
+                          fontWeight: FontWeight.w600, color: AppColors.gold)),
+                  Text(fb.reteach!,
+                      key: const Key('v3-reteach'), style: _body()),
+                ],
+              ),
+            ),
             if (fb.back != null)
               Align(
                 alignment: AlignmentDirectional.centerStart,
@@ -360,12 +511,23 @@ class _ArrangeViewState extends State<ArrangeView> {
           ],
           if (settled) ...<Widget>[
             const SizedBox(height: 10),
-            Text(
-              _s.revealed ? t('v3.answerIs') : t('v3.right'),
-              style: _body().copyWith(
-                  fontWeight: FontWeight.w600, color: AppColors.gold),
+            _Result(
+              node: _resultNode,
+              spoken: '${_s.revealed ? t('v3.answerIs') : t('v3.right')} '
+                  '${step.explain}',
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  Text(
+                    _s.revealed ? t('v3.answerIs') : t('v3.right'),
+                    style: _body().copyWith(
+                        fontWeight: FontWeight.w600, color: AppColors.gold),
+                  ),
+                  Text(step.explain,
+                      key: const Key('v3-explain'), style: _body()),
+                ],
+              ),
             ),
-            Text(step.explain, key: const Key('v3-explain'), style: _body()),
           ],
         ],
       ),
@@ -399,6 +561,30 @@ class _MatchViewState extends State<MatchView> {
   MatchFeedback? _fb;
   MatchState get _s => widget.state;
 
+  final Map<int, FocusNode> _leftNodes = <int, FocusNode>{};
+  final Map<int, FocusNode> _rightNodes = <int, FocusNode>{};
+  final FocusNode _resultNode = FocusNode(debugLabel: 'v3-match-result');
+
+  FocusNode _leftNode(int i) =>
+      _leftNodes.putIfAbsent(i, () => FocusNode(debugLabel: 'v3-left-$i'));
+  FocusNode _rightNode(int i) =>
+      _rightNodes.putIfAbsent(i, () => FocusNode(debugLabel: 'v3-right-$i'));
+
+  @override
+  void dispose() {
+    for (final FocusNode n in _leftNodes.values) {
+      n.dispose();
+    }
+    for (final FocusNode n in _rightNodes.values) {
+      n.dispose();
+    }
+    _resultNode.dispose();
+    super.dispose();
+  }
+
+  /// The words of a face, for a screen reader (the Arabic when it is Arabic).
+  String _plain(Face f) => f.text ?? _arabicOf(f) ?? '';
+
   String? _arabicOf(Face f) {
     if (f.ref != null) return widget.resolver.resolve(f.ref!)?.arabicJoined;
     if (f.word != null) return widget.resolver.wordArabic(f.word!);
@@ -410,7 +596,19 @@ class _MatchViewState extends State<MatchView> {
   void _tapRight(int pair) {
     final MatchFeedback? r = _s.tapRight(pair);
     setState(() => _fb = r);
-    if (_s.allSettled) widget.onPassed();
+    if (_s.allSettled) {
+      widget.onPassed();
+      _focusLater(this, _resultNode);
+      return;
+    }
+    // A joined pair turns its buttons off; keep focus in the list, on the
+    // next left word still to match.
+    for (int i = 0; i < _s.step.pairs.length; i++) {
+      if (!_s.done.contains(i)) {
+        _focusLater(this, _leftNode(i));
+        break;
+      }
+    }
   }
 
   @override
@@ -432,25 +630,46 @@ class _MatchViewState extends State<MatchView> {
               padding: const EdgeInsets.only(bottom: 8),
               child: OutlinedButton(
                 key: Key('v3-left-$i'),
+                focusNode: _leftNode(i),
                 style: _choiceStyle(
                   good: _s.selectedLeft == i,
                   dim: _s.done.contains(i),
                 ),
                 onPressed: _s.done.contains(i)
                     ? null
-                    : () => setState(() {
+                    : () {
+                        setState(() {
                           _s.selectLeft(i);
                           _fb = null;
-                        }),
-                child: Row(
-                  children: <Widget>[
-                    if (_s.done.contains(i))
-                      const Padding(
-                        padding: EdgeInsets.only(right: 8),
-                        child: Icon(Icons.check, size: 18, color: AppColors.gold),
-                      ),
-                    Expanded(child: _face(step.pairs[i].left)),
-                  ],
+                        });
+                        // Next stop: the faces to match it with.
+                        for (final int p in _s.rightOrder) {
+                          if (!_s.done.contains(p)) {
+                            _focusLater(this, _rightNode(p));
+                            break;
+                          }
+                        }
+                      },
+                // The tick is not enough for a screen reader: say it.
+                child: Semantics(
+                  label: _s.done.contains(i)
+                      ? '${_plain(step.pairs[i].left)}, matched with '
+                          '${_plain(step.pairs[i].right)}'
+                      : (_s.selectedLeft == i
+                          ? '${_plain(step.pairs[i].left)}, chosen'
+                          : _plain(step.pairs[i].left)),
+                  excludeSemantics: true,
+                  child: Row(
+                    children: <Widget>[
+                      if (_s.done.contains(i))
+                        const Padding(
+                          padding: EdgeInsets.only(right: 8),
+                          child:
+                              Icon(Icons.check, size: 18, color: AppColors.gold),
+                        ),
+                      Expanded(child: _face(step.pairs[i].left)),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -465,16 +684,48 @@ class _MatchViewState extends State<MatchView> {
               padding: const EdgeInsets.only(bottom: 8),
               child: OutlinedButton(
                 key: Key('v3-right-$p'),
+                focusNode: _rightNode(p),
                 style: _choiceStyle(dim: _s.done.contains(p)),
                 onPressed: _s.done.contains(p) || _s.selectedLeft == null
                     ? null
                     : () => _tapRight(p),
-                child: _face(step.pairs[p].right),
+                child: Semantics(
+                  label: _s.done.contains(p)
+                      ? '${_plain(step.pairs[p].right)}, matched with '
+                          '${_plain(step.pairs[p].left)}'
+                      : _plain(step.pairs[p].right),
+                  excludeSemantics: true,
+                  child: _face(step.pairs[p].right),
+                ),
               ),
             ),
+          if (fb != null && fb.correct && !_s.allSettled) ...<Widget>[
+            const SizedBox(height: 6),
+            Semantics(
+              liveRegion: true,
+              container: true,
+              label: t('v3.right'),
+              child: ExcludeSemantics(
+                child: Text(
+                  t('v3.right'),
+                  key: const Key('v3-match-right'),
+                  style: _body().copyWith(
+                      fontWeight: FontWeight.w600, color: AppColors.gold),
+                ),
+              ),
+            ),
+          ],
           if (fb != null && fb.reteach != null) ...<Widget>[
             const SizedBox(height: 6),
-            Text(fb.reteach!, key: const Key('v3-reteach'), style: _body()),
+            Semantics(
+              liveRegion: true,
+              container: true,
+              label: fb.reteach!,
+              child: ExcludeSemantics(
+                child: Text(fb.reteach!,
+                    key: const Key('v3-reteach'), style: _body()),
+              ),
+            ),
             if (fb.back != null && !_s.allSettled)
               Align(
                 alignment: AlignmentDirectional.centerStart,
@@ -489,9 +740,13 @@ class _MatchViewState extends State<MatchView> {
           ],
           if (_s.allSettled) ...<Widget>[
             const SizedBox(height: 8),
-            Text(t('v3.matchedAll'),
-                style: _body().copyWith(
-                    fontWeight: FontWeight.w600, color: AppColors.gold)),
+            _Result(
+              node: _resultNode,
+              spoken: t('v3.matchedAll'),
+              child: Text(t('v3.matchedAll'),
+                  style: _body().copyWith(
+                      fontWeight: FontWeight.w600, color: AppColors.gold)),
+            ),
           ],
         ],
       ),

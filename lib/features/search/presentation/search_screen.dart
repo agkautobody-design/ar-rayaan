@@ -440,7 +440,7 @@ class _SearchState extends ConsumerState<SearchScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: KeyedSubtree(
                 key: ValueKey<int>(_fieldGen),
-                child: TextField(
+                child: Semantics(label: 'Search the Qur\'an and every shelf — or type 2:255', child: TextField(
                 key: const Key('search-field'),
                 controller: _controller,
                 focusNode: _focus,
@@ -465,7 +465,7 @@ class _SearchState extends ConsumerState<SearchScreen> {
                   LengthLimitingTextInputFormatter(kMaxSearchQueryChars),
                 ],
                 onChanged: _onTyped,
-                ),
+                )),
                 ),
               ),
               const SizedBox(height: 14),

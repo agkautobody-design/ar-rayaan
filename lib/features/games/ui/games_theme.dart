@@ -384,7 +384,7 @@ class GameChip extends StatelessWidget {
         borderRadius: 999,
         child: Material(
           type: MaterialType.transparency,
-          child: InkWell(
+          child: FocusRing(borderRadius: 999, child: InkWell(
             onTap: onTap,
             borderRadius: BorderRadius.circular(999),
             child: ConstrainedBox(
@@ -436,7 +436,7 @@ class GameChip extends StatelessWidget {
                 ),
               ),
             ),
-          ),
+          )),
         ),
       ),
     );
@@ -508,14 +508,14 @@ class GamePanel extends StatelessWidget {
       borderRadius: GamesTheme.radius,
       child: Material(
         type: MaterialType.transparency,
-        child: InkWell(
+        child: FocusRing(borderRadius: 12, child: InkWell(
           onTap: onTap,
           borderRadius: radius,
           child: ConstrainedBox(
             constraints: const BoxConstraints(minHeight: GamesTheme.minTap),
             child: box,
           ),
-        ),
+        )),
       ),
     );
     return Semantics(
@@ -555,7 +555,7 @@ class PlayButton extends StatelessWidget {
         borderRadius: 999,
         child: Material(
           type: MaterialType.transparency,
-          child: InkWell(
+          child: FocusRing(borderRadius: 999, child: InkWell(
             onTap: onPressed,
             borderRadius: BorderRadius.circular(999),
             child: Container(
@@ -598,7 +598,7 @@ class PlayButton extends StatelessWidget {
                 ],
               ),
             ),
-          ),
+          )),
         ),
       ),
     );
@@ -630,7 +630,7 @@ class OutlineAction extends StatelessWidget {
         borderRadius: 999,
         child: Material(
           type: MaterialType.transparency,
-          child: InkWell(
+          child: FocusRing(borderRadius: 999, child: InkWell(
             onTap: onPressed,
             borderRadius: BorderRadius.circular(999),
             child: Container(
@@ -664,7 +664,7 @@ class OutlineAction extends StatelessWidget {
                 ],
               ),
             ),
-          ),
+          )),
         ),
       ),
     );

@@ -70,7 +70,7 @@ class _MeetupsScreenState extends ConsumerState<MeetupsScreen> {
                     ],
                   ),
                   if (!_mine) ...<Widget>[
-                    TextField(
+                    Semantics(label: 'City (optional)', child: TextField(
                       controller: _city,
                       textInputAction: TextInputAction.search,
                       onSubmitted: (String v) =>
@@ -84,7 +84,7 @@ class _MeetupsScreenState extends ConsumerState<MeetupsScreen> {
                               setState(() => _cityFilter = _city.text.trim()),
                         ),
                       ),
-                    ),
+                    )),
                     const SizedBox(height: 6),
                     Wrap(
                       spacing: 8,
@@ -568,6 +568,7 @@ class _RsvpDialogState extends State<_RsvpDialog> {
   Widget build(BuildContext context) {
     final Meetup m = widget.meetup;
     return AlertDialog(
+      semanticLabel: 'Sign up',
       title: const Text('Sign up'),
       content: SingleChildScrollView(
         child: Column(
@@ -643,6 +644,7 @@ class _CancelDialogState extends State<_CancelDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      semanticLabel: 'Cancel this meet-up?',
       title: const Text('Cancel this meet-up?'),
       content: SingleChildScrollView(
         child: Column(
@@ -828,18 +830,18 @@ class _MeetupCreateScreenState extends ConsumerState<MeetupCreateScreen> {
               ),
             ),
             const SizedBox(height: 12),
-            TextField(
+            Semantics(label: 'Title', child: TextField(
               controller: _title,
               maxLength: 120,
               decoration: const InputDecoration(hintText: 'Title'),
-            ),
-            TextField(
+            )),
+            Semantics(label: 'What is it?', child: TextField(
               controller: _description,
               minLines: 2,
               maxLines: 5,
               maxLength: 2000,
               decoration: const InputDecoration(hintText: 'What is it?'),
-            ),
+            )),
             const SizedBox(height: 8),
             Text('Where', style: AppText.label),
             DropdownButton<MeetupVenueKind>(
@@ -856,33 +858,33 @@ class _MeetupCreateScreenState extends ConsumerState<MeetupCreateScreen> {
               onChanged: (MeetupVenueKind? v) =>
                   setState(() => _kind = v ?? _kind),
             ),
-            TextField(
+            Semantics(label: 'Name of the place (not a home)', child: TextField(
               controller: _venue,
               maxLength: 120,
               decoration: const InputDecoration(
                 hintText: 'Name of the place (not a home)',
               ),
-            ),
-            TextField(
+            )),
+            Semantics(label: 'Street address of that public place (optional)', child: TextField(
               controller: _address,
               maxLength: 200,
               decoration: const InputDecoration(
                 hintText: 'Street address of that public place (optional)',
               ),
-            ),
-            TextField(
+            )),
+            Semantics(label: 'City', child: TextField(
               controller: _city,
               maxLength: 80,
               decoration: const InputDecoration(hintText: 'City'),
-            ),
-            TextField(
+            )),
+            Semantics(label: 'Country code, for example GB', child: TextField(
               controller: _country,
               maxLength: 2,
               textCapitalization: TextCapitalization.characters,
               decoration: const InputDecoration(
                 hintText: 'Country code, for example GB',
               ),
-            ),
+            )),
             if (_kind == MeetupVenueKind.cafe)
               CheckboxListTile(
                 value: _halal,
@@ -934,20 +936,20 @@ class _MeetupCreateScreenState extends ConsumerState<MeetupCreateScreen> {
                   style: AppText.bodyMuted.copyWith(fontSize: 12),
                 ),
               ),
-            TextField(
+            Semantics(label: 'Places available (optional)', child: TextField(
               controller: _capacity,
               keyboardType: TextInputType.number,
               decoration: const InputDecoration(
                 hintText: 'Places available (optional)',
               ),
-            ),
-            TextField(
+            )),
+            Semantics(label: 'Access notes, for example step-free (optional)', child: TextField(
               controller: _access,
               maxLength: 300,
               decoration: const InputDecoration(
                 hintText: 'Access notes, for example step-free (optional)',
               ),
-            ),
+            )),
             const SizedBox(height: 8),
             Text('Repeats', style: AppText.label),
             Wrap(

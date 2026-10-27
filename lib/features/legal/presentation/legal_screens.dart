@@ -59,6 +59,16 @@ const List<LegalSection> kTermsSections = <LegalSection>[
         'needs an account.',
   ),
   LegalSection(
+    'Google services at start-up',
+    'When this version of the app is connected to our Firebase project '
+        '(Google), the Firebase software starts every time the app opens, '
+        'before you sign in or send anything. We do not send your reading, '
+        'progress or messages at that point, but Google can see your IP '
+        'address if the software contacts its servers. Firebase is used for '
+        'accounts, Hadi answer reports, online game tables (only when a '
+        'grown-up switches them on) and, once it opens, the Majlis.',
+  ),
+  LegalSection(
     'Your account',
     'You are responsible for what you do with your account and for keeping '
         'your password private. You can delete your account at any time '
@@ -384,7 +394,7 @@ class _DeleteAccountScreenState extends ConsumerState<DeleteAccountScreen> {
                   ),
                   const SizedBox(height: 16),
                   if (user.usesPassword)
-                    TextField(
+                    Semantics(label: 'Enter your password to confirm', child: TextField(
                       key: const Key('delete-password'),
                       controller: _password,
                       obscureText: true,
@@ -392,7 +402,7 @@ class _DeleteAccountScreenState extends ConsumerState<DeleteAccountScreen> {
                       decoration: const InputDecoration(
                         hintText: 'Enter your password to confirm',
                       ),
-                    )
+                    ))
                   else
                     Text(
                       'You signed in with Google or Apple, so you will be '

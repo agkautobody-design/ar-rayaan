@@ -23,6 +23,7 @@ import 'widgets/course_browser.dart';
 import 'widgets/parent_gate.dart';
 import 'widgets/path_ux_widgets.dart';
 import 'widgets/wasia_checkin_card.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 /// Al-Wasia Academy of Sacred Knowledge — home (Wave 1).
 /// Locked look: Playfair header · continue hero · The Path card ·
@@ -721,7 +722,7 @@ class _TrackSwitcher extends ConsumerWidget {
                           '${AcademyStrings.get('track.$t')}',
                       excludeSemantics: true,
                       onTap: () => unawaited(_choose(context, ref, current, t)),
-                      child: InkWell(
+                      child: FocusRing(borderRadius: 22, child: InkWell(
                         key: Key('track-$t'),
                         borderRadius: BorderRadius.circular(22),
                         onTap: () =>
@@ -750,7 +751,7 @@ class _TrackSwitcher extends ConsumerWidget {
                             ),
                           ),
                         ),
-                      ),
+                      )),
                     ),
                   ),
               ],

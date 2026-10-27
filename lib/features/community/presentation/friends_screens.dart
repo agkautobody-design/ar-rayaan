@@ -66,13 +66,13 @@ class _FriendsScreenState extends ConsumerState<FriendsScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Expanded(
-                    child: TextField(
+                    child: Semantics(label: 'A friend’s exact handle', child: TextField(
                       controller: _handle,
                       decoration: const InputDecoration(
                         hintText: 'A friend’s exact handle',
                       ),
                       onSubmitted: (String _) => _ask(),
-                    ),
+                    )),
                   ),
                   const SizedBox(width: 8),
                   GoldButton(
@@ -377,11 +377,11 @@ class _InviteScreenState extends ConsumerState<InviteScreen> {
             const SizedBox(height: 24),
             Text('Have a code?', style: AppText.titleMedium),
             const SizedBox(height: 8),
-            TextField(
+            Semantics(label: 'Enter the code', child: TextField(
               controller: _code,
               textCapitalization: TextCapitalization.characters,
               decoration: const InputDecoration(hintText: 'Enter the code'),
-            ),
+            )),
             const SizedBox(height: 8),
             OutlinedButton(onPressed: _check, child: const Text('Check it')),
             if (_preview != null) ...<Widget>[

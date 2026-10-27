@@ -17,6 +17,7 @@ import '../domain/zakat_calculation.dart';
 import '../domain/zakat_engine.dart';
 import '../domain/zakat_history.dart';
 import 'zakat_cards.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 /// Guided Zakat Calculator — enter everything (cash, gold by karat, jewelry,
 /// stocks, retirement, crypto, business, mortgage) and Ar-Rayaan computes
@@ -426,7 +427,7 @@ class _ZakatScreenState extends ConsumerState<ZakatScreen> {
                   'you set.'),
           Padding(
             padding: const EdgeInsets.only(bottom: 10),
-            child: TextField(
+            child: Semantics(label: 'Your currency (optional label, e.g. CAD)', child: TextField(
               key: const Key('currency-label'),
               controller: _c['currency'],
               style: AppText.body,
@@ -435,7 +436,7 @@ class _ZakatScreenState extends ConsumerState<ZakatScreen> {
                 hintText: 'Your currency (optional label, e.g. CAD)',
                 counterText: '',
               ),
-            ),
+            )),
           ),
           const SizedBox(height: 4),
         ],
@@ -564,7 +565,7 @@ class _ZakatScreenState extends ConsumerState<ZakatScreen> {
       {bool expand = true}) {
     final Widget chip = Material(
       type: MaterialType.transparency,
-      child: InkWell(
+      child: FocusRing(borderRadius: 12, child: InkWell(
         onTap: onTap,
         borderRadius: BorderRadius.circular(12),
         child: Container(
@@ -591,7 +592,7 @@ class _ZakatScreenState extends ConsumerState<ZakatScreen> {
             ),
           ),
         ),
-      ),
+      )),
     );
     return expand ? Expanded(child: chip) : chip;
   }

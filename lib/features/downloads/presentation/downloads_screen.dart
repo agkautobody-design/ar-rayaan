@@ -208,9 +208,13 @@ class _DownloadsScreenState extends ConsumerState<DownloadsScreen> {
                 child: Text(
                   _web
                       ? 'In a browser, downloads are kept in this browser’s '
-                            'storage. The app itself still needs internet to '
-                            'open, so saved recitation and text help when the '
-                            'connection is weak or drops. The Android app keeps '
+                            'storage. Once you have opened the app online, '
+                            'this browser also keeps a copy of the app itself, '
+                            'so it can reopen with no internet (not in a '
+                            'private window, and not after you clear this '
+                            'site’s data). Saved recitation and text then '
+                            'work too; anything you have not opened or saved '
+                            'still needs a connection. The Android app keeps '
                             'everything on the phone and opens with no '
                             'internet.'
                       : 'The Qur’an text, stories, guides and duas are '

@@ -17,6 +17,7 @@ import '../domain/encouragement.dart';
 import '../domain/tracking_math.dart';
 import 'gentle_nudge.dart';
 import 'tracking_card.dart' show totalSentence;
+import '../../../app/theme/widgets/focus_ring.dart';
 
 /// My log: plain totals (this week, this month, all time), the last day
 /// something was logged, and a calendar of the days the person logged. Kept
@@ -201,7 +202,7 @@ class _TrackPicker extends StatelessWidget {
             label: t.label,
             excludeSemantics: true,
             onTap: () => onPick(t),
-            child: InkWell(
+            child: FocusRing(borderRadius: 24, child: InkWell(
               key: Key('log-track-${t.name}'),
               borderRadius: BorderRadius.circular(24),
               onTap: () => onPick(t),
@@ -233,7 +234,7 @@ class _TrackPicker extends StatelessWidget {
                   ),
                 ),
               ),
-            ),
+            )),
           ),
       ],
     );

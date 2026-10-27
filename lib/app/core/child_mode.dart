@@ -7,8 +7,10 @@ import 'kids_mode.dart';
 /// parent turns it off with the PIN.
 ///
 /// While it is on: there is no bottom navigation, no Settings, no Ask Hadi,
-/// no marriage / family-life, finance, community or Qur'an reader screens.
-/// Only Kids Corner and what it opens (Arabic letters and the stories) are
+/// no marriage / family-life, finance or community screens, and no Qur'an
+/// screen except the short surahs in [kChildSurahs].
+/// Only Kids Corner and what it opens (Arabic letters, the stories, a short
+/// list of surahs and duas, and a few offline games) are
 /// reachable; the router sends every other address to Kids Corner. It is saved
 /// on the device, so a reload does not end it.
 ///
@@ -41,10 +43,26 @@ const List<String> kChildAllowed = <String>[
   '/academy/letters',
   '/academy/stories',
   '/stories/read',
+  // Games with no chat and no online play.
+  '/games',
+  '/games/memory',
+  '/games/ayah',
+  '/games/g',
 ];
+
+/// The short surahs a child can open and listen to in child mode. Each is a
+/// short, well-known surah children learn first; the long ones and the ones
+/// that name people in a warning (for example Al-Masad) are left for a grown-up.
+/// Reviewed in the scholar register (child-mode surah set).
+const List<int> kChildSurahs = <int>[1, 103, 105, 106, 107, 108, 109, 110, 112, 113, 114];
 
 /// True when [path] is for children.
 bool childModeAllows(String path) {
+  final String bare = path.split('?').first;
+  if (bare.startsWith('/quran/')) {
+    final int? n = int.tryParse(bare.substring('/quran/'.length));
+    return n != null && kChildSurahs.contains(n);
+  }
   for (final String p in kChildAllowed) {
     if (path == p || path.startsWith('$p/')) return true;
   }

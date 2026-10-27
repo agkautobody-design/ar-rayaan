@@ -484,7 +484,7 @@ class _Composer extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: <Widget>[
               Expanded(
-                child: TextField(
+                child: Semantics(label: 'Write a reply (your own opinion)', child: TextField(
                   controller: controller,
                   minLines: 1,
                   maxLines: 5,
@@ -493,7 +493,7 @@ class _Composer extends StatelessWidget {
                     hintText: 'Write a reply (your own opinion)',
                     counterText: '',
                   ),
-                ),
+                )),
               ),
               IconButton(
                 tooltip: 'Send reply',
@@ -799,12 +799,12 @@ class _ForumComposeScreenState extends ConsumerState<ForumComposeScreen> {
               ),
             const OpinionNotice(),
             const SizedBox(height: 12),
-            TextField(
+            Semantics(label: 'Title', child: TextField(
               controller: _title,
               maxLength: 140,
               decoration: const InputDecoration(hintText: 'Title'),
-            ),
-            TextField(
+            )),
+            Semantics(label: 'Write your post. No photos, links, phone numbers or addresses.', child: TextField(
               controller: _body,
               minLines: 5,
               maxLines: 12,
@@ -814,7 +814,7 @@ class _ForumComposeScreenState extends ConsumerState<ForumComposeScreen> {
                     'Write here. No photos, links, phone numbers or '
                     'addresses.',
               ),
-            ),
+            )),
             if (_error != null) ...<Widget>[
               const SizedBox(height: 8),
               Text(

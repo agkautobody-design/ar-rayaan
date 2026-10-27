@@ -211,21 +211,21 @@ class _NoteEditorState extends State<_NoteEditor> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            TextField(
+            Semantics(label: 'Title (optional)', child: TextField(
               key: const Key('note-title-field'),
               controller: _title,
               style: AppText.body,
               decoration: const InputDecoration(hintText: 'Title (optional)'),
-            ),
+            )),
             const SizedBox(height: 8),
-            TextField(
+            Semantics(label: 'Your note…', child: TextField(
               key: const Key('note-body-field'),
               controller: _body,
               style: AppText.body,
               minLines: 3,
               maxLines: 8,
               decoration: const InputDecoration(hintText: 'Your note…'),
-            ),
+            )),
           ],
         ),
       ),

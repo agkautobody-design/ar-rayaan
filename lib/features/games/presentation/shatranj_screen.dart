@@ -22,6 +22,7 @@ import '../data/games_store.dart';
 import '../data/room_moves.dart';
 import '../ui/games_theme.dart';
 import 'online_lobby.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 /// SHATRANJ. A complete game of chess: every rule (castling, en passant,
 /// promotion to the piece you choose, check, checkmate, stalemate, threefold
@@ -1539,7 +1540,7 @@ class _RoundAction extends StatelessWidget {
           children: <Widget>[
             Material(
               type: MaterialType.transparency,
-              child: InkWell(
+              child: FocusRing(borderRadius: 12, child: InkWell(
                 onTap: onTap,
                 customBorder: const CircleBorder(),
                 child: Container(
@@ -1561,7 +1562,7 @@ class _RoundAction extends StatelessWidget {
                         : AppColors.goldLight.withValues(alpha: 0.35),
                   ),
                 ),
-              ),
+              )),
             ),
             const SizedBox(height: 4),
             Text(
@@ -1598,7 +1599,7 @@ class _PromoChoice extends StatelessWidget {
       label: label,
       excludeSemantics: true,
       onTap: onTap,
-      child: InkWell(
+      child: FocusRing(borderRadius: 14, child: InkWell(
         onTap: onTap,
         borderRadius: BorderRadius.circular(14),
         child: Container(
@@ -1617,7 +1618,7 @@ class _PromoChoice extends StatelessWidget {
             ],
           ),
         ),
-      ),
+      )),
     );
   }
 }

@@ -35,6 +35,10 @@ class _AcademyGateState extends State<AcademyGateScreen> {
   bool _minElapsed = false;
   bool _started = false;
 
+  /// Enter or a tap that came before the pause ended: the school opens as
+  /// soon as it does, instead of the key press being lost.
+  bool _enterWhenReady = false;
+
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
@@ -57,7 +61,9 @@ class _AcademyGateState extends State<AcademyGateScreen> {
     } catch (_) {}
     if (!mounted) return;
     _dwell = Timer(seen ? kGateReturningDwell : kGateFirstDwell, () {
-      if (mounted) setState(() => _minElapsed = true);
+      if (!mounted) return;
+      setState(() => _minElapsed = true);
+      if (_enterWhenReady) _enter(context);
     });
   }
 
@@ -75,7 +81,10 @@ class _AcademyGateState extends State<AcademyGateScreen> {
   }
 
   void _enter(BuildContext context) {
-    if (!_minElapsed) return;
+    if (!_minElapsed) {
+      _enterWhenReady = true;
+      return;
+    }
     _remember();
     context.go(AppRoutes.academy);
   }
@@ -97,6 +106,7 @@ class _AcademyGateState extends State<AcademyGateScreen> {
         // it (Tab, then Enter or Space) and a ring shows where focus is.
         child: FocusableTap(
         key: const Key('academy-gate'),
+        autofocus: true,
         borderRadius: 0,
         onTap: () => _enter(context),
         child: Stack(
@@ -203,7 +213,9 @@ class _AcademyGateState extends State<AcademyGateScreen> {
                     ),
                     const Spacer(flex: 3),
                     Text(
-                      _minElapsed ? 'TAP TO ENTER' : 'ENTERING THE SCHOOL\u2026',
+                      _minElapsed
+                          ? 'TAP OR PRESS ENTER TO ENTER'
+                          : 'ENTERING THE SCHOOL\u2026',
                       style: AppText.eyebrow.copyWith(
                         color: AppColors.goldLight,
                       ),

@@ -317,7 +317,7 @@ class _OnboardingState extends ConsumerState<OnboardingScreen> {
       button: true,
       label: '${l10n.ui('onb.elder1')}. ${l10n.ui('onb.elder2')}',
       excludeSemantics: true,
-      child: InkWell(
+      child: FocusRing(borderRadius: 14, child: InkWell(
         key: const Key('onboarding-elder-offer'),
         onTap: _useElderMode,
         borderRadius: BorderRadius.circular(14),
@@ -347,7 +347,7 @@ class _OnboardingState extends ConsumerState<OnboardingScreen> {
             ],
           ),
         ),
-      ),
+      )),
     );
   }
 
@@ -379,7 +379,7 @@ class _OnboardingState extends ConsumerState<OnboardingScreen> {
                 selected: current.languageCode == loc.languageCode,
                 label: names[loc.languageCode],
                 excludeSemantics: true,
-                child: InkWell(
+                child: FocusRing(borderRadius: 22, child: InkWell(
                   borderRadius: BorderRadius.circular(22),
                   onTap: () =>
                       ref.read(localeProvider.notifier).setLocale(loc),
@@ -405,7 +405,7 @@ class _OnboardingState extends ConsumerState<OnboardingScreen> {
                                 ? AppColors.goldLight
                                 : null)),
                   ),
-                ),
+                )),
               ),
           ],
         ),

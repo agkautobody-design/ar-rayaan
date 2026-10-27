@@ -11,6 +11,7 @@ import '../../quran/domain/quran_models.dart';
 import '../../quran/domain/quran_texts.dart';
 import '../data/story_layers_repository.dart';
 import '../domain/story_layers.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 /// "Go deeper": the layers beneath a story, each kind kept apart and
 /// labelled. Renders nothing when the story has no layers file, so every
@@ -203,7 +204,7 @@ class _LayerBlockState extends State<_LayerBlock> {
               button: true,
               expanded: _open,
               label: widget.title,
-              child: InkWell(
+              child: FocusRing(borderRadius: 14, child: InkWell(
                 borderRadius: BorderRadius.circular(14),
                 onTap: () => setState(() => _open = !_open),
                 child: ConstrainedBox(
@@ -242,7 +243,7 @@ class _LayerBlockState extends State<_LayerBlock> {
                     ),
                   ),
                 ),
-              ),
+              )),
             ),
             if (_open)
               Padding(

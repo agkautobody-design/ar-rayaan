@@ -8,6 +8,7 @@ import '../../../../app/theme/widgets/glass_card.dart';
 import '../../application/academy_providers.dart';
 import '../../application/academy_strings.dart';
 import '../../domain/academy_models.dart';
+import '../../../../app/theme/widgets/focus_ring.dart';
 
 /// Every manifest lesson, by course and unit, each one tappable. Before this
 /// existed, lessons beyond the first were reachable only by finishing the
@@ -63,7 +64,7 @@ class CourseBrowser extends ConsumerWidget {
                           ),
                         ),
                         for (final AcademyLesson l in u.lessons)
-                          InkWell(
+                          FocusRing(borderRadius: 12, child: InkWell(
                             onTap: () => context.go(
                               '/academy/lesson/${l.courseId}/${l.unitId}/${l.id}',
                             ),
@@ -93,7 +94,7 @@ class CourseBrowser extends ConsumerWidget {
                                 ],
                               ),
                             ),
-                          ),
+                          )),
                       ],
                   ],
                 ),

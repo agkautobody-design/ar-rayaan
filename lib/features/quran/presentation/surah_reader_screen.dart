@@ -41,6 +41,8 @@ import '../domain/quran_texts.dart';
 import '../domain/surah_search.dart';
 import 'ayah_actions_sheet.dart';
 import 'hideable_arabic.dart';
+import '../../../app/core/retry_when_online.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 /// How solid the panel behind the ayat is (1 = no pattern shows through).
 const double kReadingPanelAlpha = 0.9;
@@ -90,6 +92,9 @@ final transliterationProvider = FutureProvider<Map<String, String>>((
     final m = (json.decode(raw) as Map)['map'] as Map;
     return m.map((k, v) => MapEntry(k as String, v as String));
   } catch (_) {
+    // Offline: show the surah without transliteration now, and fetch it
+    // again as soon as the connection is back (not only after a reload).
+    refreshWhenBackOnline(ref);
     return const {};
   }
 });
@@ -187,6 +192,8 @@ class _SurahReaderScreenState extends ConsumerState<SurahReaderScreen> {
                       ref.invalidate(quranAllProvider);
                       ref.invalidate(quranIndexProvider);
                       ref.invalidate(surahProvider(widget.number));
+                      ref.invalidate(transliterationProvider);
+                      ref.invalidate(quranTextsProvider);
                     },
                   ),
                   data: (Surah s) => _Reader(surah: s, initialAyah: _startAyah),
@@ -645,9 +652,10 @@ class _JumpToAyahDialogState extends State<_JumpToAyahDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      semanticLabel: 'Jump to ayah',
       backgroundColor: const Color(0xFF0A0F18),
       title: Text('Jump to ayah', style: AppText.titleMedium),
-      content: TextField(
+      content: Semantics(label: 'Ayah 1 to ${widget.ayahCount}', child: TextField(
         controller: _controller,
         autofocus: true,
         keyboardType: TextInputType.number,
@@ -661,7 +669,7 @@ class _JumpToAyahDialogState extends State<_JumpToAyahDialog> {
           if (_error != null) setState(() => _error = null);
         },
         onSubmitted: (_) => _submit(),
-      ),
+      )),
       actions: <Widget>[
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
@@ -741,7 +749,7 @@ class _ReaderFooterState extends ConsumerState<_ReaderFooter> {
           Semantics(
             link: true,
             label: 'Arabic text and translation source: Tanzil.net',
-            child: InkWell(
+            child: FocusRing(borderRadius: 12, child: InkWell(
               onTap: () => _open(texts.arabic.url),
               child: ConstrainedBox(
                 constraints: const BoxConstraints(minHeight: 48),
@@ -755,7 +763,7 @@ class _ReaderFooterState extends ConsumerState<_ReaderFooter> {
                   ),
                 ),
               ),
-            ),
+            )),
           ),
         ],
       ),
@@ -813,7 +821,7 @@ class _AyahBlock extends ConsumerWidget {
     return Semantics(
       container: true,
       label: 'Surah $surahName, ayah ${ayah.number}',
-      child: InkWell(
+      child: FocusRing(borderRadius: 12, child: InkWell(
         onTap: onTap,
         borderRadius: BorderRadius.circular(12),
         child: Container(
@@ -1015,7 +1023,7 @@ class _AyahBlock extends ConsumerWidget {
             ],
           ),
         ),
-      ),
+      )),
     );
   }
 }

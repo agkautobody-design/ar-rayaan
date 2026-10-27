@@ -161,6 +161,7 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
     final bool? ok = await showDialog<bool>(
       context: context,
       builder: (BuildContext ctx) => AlertDialog(
+        semanticLabel: 'Delete “${p.name}”?',
         backgroundColor: AppColors.navy,
         title: Text('Delete “${p.name}”?', style: AppText.titleMedium),
         content: Text(
@@ -190,6 +191,7 @@ class _PlaylistsScreenState extends ConsumerState<PlaylistsScreen> {
       context: context,
       builder: (BuildContext ctx) => StatefulBuilder(
         builder: (BuildContext ctx, StateSetter set) => AlertDialog(
+          semanticLabel: 'Add a link',
           backgroundColor: AppColors.navy,
           title: Text('Add a link', style: AppText.titleMedium),
           content: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[

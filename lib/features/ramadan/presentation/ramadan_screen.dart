@@ -450,6 +450,7 @@ class _RamadanState extends ConsumerState<RamadanScreen> {
     final bool? ok = await showDialog<bool>(
       context: context,
       builder: (BuildContext ctx) => AlertDialog(
+        semanticLabel: 'Remove this entry?',
         backgroundColor: const Color(0xFF0A0F18),
         title: Text('Remove this entry?', style: AppText.titleMedium),
         content: Text(what, style: AppText.bodyMuted),
@@ -511,14 +512,14 @@ class _RamadanState extends ConsumerState<RamadanScreen> {
       const SizedBox(height: 12),
       Text('TARAWEEH NOTES', style: AppText.eyebrow),
       const SizedBox(height: 6),
-      GlassCard(child: TextField(
+      GlassCard(child: Semantics(label: 'Which surahs tonight · the imam’s recitation · a verse that stopped you…', child: TextField(
         key: const Key('taraweeh-notes'),
         maxLines: 4, style: AppText.body,
         controller: _taraweehCtrl,
         onChanged: _onTaraweehChanged,
         decoration: const InputDecoration(
             hintText: 'Which surahs tonight · the imam’s recitation · a verse that stopped you…'),
-      )),
+      ))),
     ]);
   }
 
@@ -553,14 +554,14 @@ class _RamadanState extends ConsumerState<RamadanScreen> {
       const SizedBox(height: 6),
       GlassCard(child: Column(children: [
         Row(children: [
-          Expanded(child: TextField(controller: _sadaqahCtrl,
+          Expanded(child: Semantics(label: 'Amount', child: TextField(controller: _sadaqahCtrl,
               keyboardType: const TextInputType.numberWithOptions(decimal: true),
               style: AppText.body,
-              decoration: const InputDecoration(hintText: 'Amount'))),
+              decoration: const InputDecoration(hintText: 'Amount')))),
           const SizedBox(width: 8),
-          Expanded(flex: 2, child: TextField(controller: _noteCtrl,
+          Expanded(flex: 2, child: Semantics(label: 'For whom / what cause', child: TextField(controller: _noteCtrl,
               style: AppText.body,
-              decoration: const InputDecoration(hintText: 'For whom / what cause'))),
+              decoration: const InputDecoration(hintText: 'For whom / what cause')))),
         ]),
         const SizedBox(height: 8),
         SizedBox(width: double.infinity,
@@ -595,8 +596,8 @@ class _RamadanState extends ConsumerState<RamadanScreen> {
       const SizedBox(height: 6),
       GlassCard(child: Column(children: [
         Row(children: [
-          Expanded(child: TextField(controller: _tableCtrl, style: AppText.body,
-              decoration: const InputDecoration(hintText: 'A guest, a dish, a date to remember…'))),
+          Expanded(child: Semantics(label: 'A guest, a dish, a date to remember…', child: TextField(controller: _tableCtrl, style: AppText.body,
+              decoration: const InputDecoration(hintText: 'A guest, a dish, a date to remember…')))),
           IconButton(tooltip: 'Add to the iftar table', icon: const Icon(Icons.add, color: AppColors.gold),
               onPressed: () {
                 if (_tableCtrl.text.trim().isEmpty) return;

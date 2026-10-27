@@ -10,6 +10,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../app/core/content_loader.dart';
 import '../application/translation_providers.dart';
 import 'translation_pack.dart';
+import '../../../app/core/retry_when_online.dart';
 
 /// The interim translation's credit, as shown in footers and when sharing.
 /// It is labelled interim because the rights holder's permission for this
@@ -139,7 +140,8 @@ final FutureProvider<QuranTexts> quranTextsProvider =
     final String raw = await ContentLoader.loadString('assets/quran/texts.json');
     base = QuranTexts.fromJson(jsonDecode(raw) as Map<String, dynamic>);
   } catch (_) {
-    // Built-in copy.
+    // Built-in copy for now; fetched again once the connection is back.
+    refreshWhenBackOnline(ref);
   }
   try {
     return base.forActive(await ref.watch(activeTranslationProvider.future));

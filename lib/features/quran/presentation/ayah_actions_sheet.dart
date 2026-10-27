@@ -10,6 +10,7 @@ import '../application/quran_marks_controller.dart';
 import '../domain/quran_marks.dart';
 import '../domain/quran_models.dart';
 import '../domain/quran_texts.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 /// The text copied for one ayah: Arabic, the translation, the reference and
 /// where both texts come from. Nothing is reworded.
@@ -195,7 +196,7 @@ class _Action extends StatelessWidget {
       label: label,
       excludeSemantics: true,
       onTap: onTap,
-      child: InkWell(
+      child: FocusRing(borderRadius: 12, child: InkWell(
         onTap: onTap,
         child: ConstrainedBox(
           constraints: const BoxConstraints(minHeight: 48),
@@ -207,7 +208,7 @@ class _Action extends StatelessWidget {
             ],
           ),
         ),
-      ),
+      )),
     );
   }
 }

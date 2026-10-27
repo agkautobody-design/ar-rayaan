@@ -5,6 +5,7 @@ import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../application/habits_providers.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 /// "The Gentle Ledger" — Qada make-up counter + fasting log, shown on
 /// My Journey. Tone per constitution: ledgers of return, never scoreboards.
@@ -126,7 +127,7 @@ class HabitsCard extends ConsumerWidget {
                         height: 1.4,
                       ),
                     ),
-                    InkWell(
+                    FocusRing(borderRadius: 12, child: InkWell(
                       onTap: () {
                         final DateTime n = DateTime.now();
                         fasting.toggleDate(DateTime(n.year, n.month, n.day - 1));
@@ -143,11 +144,11 @@ class HabitsCard extends ConsumerWidget {
                           ),
                         ),
                       ),
-                    ),
+                    )),
                   ],
                 ),
               ),
-              InkWell(
+              FocusRing(borderRadius: 18, child: InkWell(
                 borderRadius: BorderRadius.circular(18),
                 onTap: fasting.toggleToday,
                 child: AnimatedContainer(
@@ -175,7 +176,7 @@ class HabitsCard extends ConsumerWidget {
                     ),
                   ),
                 ),
-              ),
+              )),
             ],
           ),
         ),
@@ -192,7 +193,7 @@ class _StepperButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return FocusRing(borderRadius: 12, child: InkWell(
       customBorder: const CircleBorder(),
       onTap: onTap,
       child: Container(
@@ -204,7 +205,7 @@ class _StepperButton extends StatelessWidget {
         ),
         child: Icon(icon, size: 14, color: AppColors.gold),
       ),
-    );
+    ));
   }
 }
 

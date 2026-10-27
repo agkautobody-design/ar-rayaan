@@ -78,20 +78,20 @@ class _JoinPanelState extends ConsumerState<JoinPanel> {
           style: AppText.bodyMuted,
         ),
         const SizedBox(height: 16),
-        TextField(
+        Semantics(label: 'Your e-mail', child: TextField(
           controller: _email,
           enabled: !_codeSent,
           keyboardType: TextInputType.emailAddress,
           autofillHints: const <String>[AutofillHints.email],
           decoration: const InputDecoration(hintText: 'Your e-mail'),
-        ),
+        )),
         if (_codeSent) ...<Widget>[
           const SizedBox(height: 12),
-          TextField(
+          Semantics(label: 'The 6-digit code', child: TextField(
             controller: _code,
             keyboardType: TextInputType.number,
             decoration: const InputDecoration(hintText: 'The 6-digit code'),
-          ),
+          )),
           CheckboxListTile(
             value: _adult,
             onChanged: (bool? v) => setState(() => _adult = v ?? false),
@@ -177,18 +177,18 @@ class _ProfilePanelState extends ConsumerState<ProfilePanel> {
           style: AppText.bodyMuted,
         ),
         const SizedBox(height: 16),
-        TextField(
+        Semantics(label: 'Display name', child: TextField(
           controller: _name,
           maxLength: 30,
           decoration: const InputDecoration(hintText: 'Display name'),
-        ),
-        TextField(
+        )),
+        Semantics(label: 'Handle for friends to find you (optional)', child: TextField(
           controller: _handle,
           maxLength: 20,
           decoration: const InputDecoration(
             hintText: 'Handle for friends to find you (optional)',
           ),
-        ),
+        )),
         const SizedBox(height: 8),
         RadioGroup<ProfileVisibility>(
           groupValue: _visibility,

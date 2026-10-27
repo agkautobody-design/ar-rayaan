@@ -17,6 +17,7 @@ class ReflectionsScreen extends ConsumerWidget {
     return showDialog<void>(
       context: context,
       builder: (BuildContext ctx) => AlertDialog(
+        semanticLabel: 'Your reflection',
         title: const Text('Your reflection'),
         content: SingleChildScrollView(child: SelectableText(text)),
         actions: <Widget>[

@@ -15,6 +15,7 @@ import '../domain/user_profile.dart';
 import '../../journey/presentation/saved_stories_sheet.dart';
 import '../../haramain/application/journey_stamp_provider.dart';
 import '../../haramain/domain/journey_stamp.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 /// Screen 10 · Profile — user card (live session data) + profile shortcuts.
 /// Visuals are LOCKED; only the card's text is data-driven.
@@ -118,7 +119,7 @@ class ProfileScreen extends ConsumerWidget {
                             ),
                           Material(
                             type: MaterialType.transparency,
-                            child: InkWell(
+                            child: FocusRing(borderRadius: 12, child: InkWell(
                               onTap: _items[i].$3 == null
                                   ? null
                                   : _items[i].$3 == _bookmarks
@@ -165,7 +166,7 @@ class ProfileScreen extends ConsumerWidget {
                                   },
                                 ),
                               ),
-                            ),
+                            )),
                           ),
                         ],
                       ],
@@ -301,6 +302,7 @@ class _RecordJourneyDialogState extends ConsumerState<_RecordJourneyDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      semanticLabel: 'Record a journey',
       backgroundColor: AppColors.navy,
       title: Text('Record a journey', style: AppText.titleMedium),
       content: Column(

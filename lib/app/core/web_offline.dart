@@ -3,12 +3,13 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 /// Honest wording about offline use.
 ///
 /// The Android and iPhone apps carry their libraries on the device. The web
-/// app does NOT: its service worker is deliberately a self-removing stub (a
-/// caching worker can keep serving an old copy after a new deploy), so every
-/// content file is fetched when it is first opened and needs an internet
-/// connection then; `ContentLoader` keeps a copy in the browser's cache
-/// afterwards (the app itself still needs a connection to start). Copy that
-/// talks about offline use goes through here so a web visitor is never told
+/// app does NOT: every content file is fetched when it is first opened and
+/// needs an internet connection then; `ContentLoader` keeps a copy in the
+/// browser's cache afterwards. Since `web/ar_sw.js` (a network-first offline
+/// shell) the app itself also reopens with no internet once it has been
+/// opened online in that browser, unless the browser blocks site storage
+/// (private windows) or the person clears this site's data. Copy that talks
+/// about offline use goes through here so a web visitor is never told
 /// something that is false.
 abstract final class WebOffline {
   /// True when running in a browser (override in tests).
@@ -24,8 +25,10 @@ abstract final class WebOffline {
   static String? libraryNote({bool? web}) => (web ?? isWeb)
       ? 'On the web these libraries are fetched from the site the first '
           'time you open them, so they need an internet connection then; '
-          'after that your browser usually keeps a copy. The '
-          'Android and iPhone apps keep them on the device and work offline.'
+          'after that your browser keeps a copy and the app reopens without '
+          'internet (not in a private window, and not after you clear this '
+          'site\u2019s data). The Android and iPhone apps keep them on the '
+          'device and work offline.'
       : null;
 
   /// Message for a screen whose content could not be fetched.

@@ -8,6 +8,7 @@ import '../application/translation_providers.dart';
 import '../data/translation_pack_loader.dart';
 import '../domain/quran_texts.dart';
 import '../domain/translation_pack.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 /// Settings > Qur'an translation: which translation the reader shows, its
 /// credit and licence reference, and an honest note while the default (The
@@ -106,7 +107,7 @@ class _Row extends StatelessWidget {
       button: true,
       selected: selected,
       label: '$title. $subtitle',
-      child: InkWell(
+      child: FocusRing(borderRadius: 12, child: InkWell(
         onTap: onTap,
         child: ConstrainedBox(
           constraints: const BoxConstraints(minHeight: 48),
@@ -133,7 +134,7 @@ class _Row extends StatelessWidget {
             ],
           ),
         ),
-      ),
+      )),
     );
   }
 }

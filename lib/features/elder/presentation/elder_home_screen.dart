@@ -11,7 +11,7 @@ import '../../../app/theme/widgets/whole_word_text.dart';
 import '../../sakina/presentation/widgets/need_help_button.dart';
 import '../application/elder_mode.dart';
 
-/// ELDER MODE - the whole home, simplified. Giant words, three doors,
+/// ELDER MODE - the whole home, simplified. Giant words, a few simple doors,
 /// nothing else. Once a family turns this on, the app opens here every time
 /// until it is turned off. The young set it up; the old simply use it.
 class ElderHomeScreen extends ConsumerStatefulWidget {
@@ -103,6 +103,9 @@ class _ElderHomeState extends ConsumerState<ElderHomeScreen> {
               ('Daily Duas', 'Prayers for morning and evening', Icons.wb_twilight, AppRoutes.adhkar),
               ('For Your Heart', 'How do you feel today?', Icons.favorite_border, AppRoutes.feelings),
               ('Comfort (Sakina)', 'Rest here a while', Icons.self_improvement, AppRoutes.sakina),
+              ('Qibla', 'Which way to pray', Icons.explore_outlined, AppRoutes.qibla),
+              ('Learning', 'Lessons, one small step at a time', Icons.school_outlined, AppRoutes.academy),
+              ('Games', 'Gentle games to play together', Icons.sports_esports_outlined, AppRoutes.games),
             ])
               Padding(
                 padding: const EdgeInsets.only(bottom: 12),

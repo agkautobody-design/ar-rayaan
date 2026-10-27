@@ -32,6 +32,7 @@ class OnlineLobby extends StatefulWidget {
       await showDialog<void>(
         context: context,
         builder: (BuildContext ctx) => AlertDialog(
+          semanticLabel: 'Online tables are off',
           backgroundColor: const Color(0xFF0A0F18),
           title: Text('Online tables are off', style: AppText.titleMedium),
           content: Text(verdict.message, style: AppText.bodyMuted),
@@ -189,12 +190,12 @@ class _OnlineLobbyState extends State<OnlineLobby> {
           const SizedBox(height: 14),
           Row(children: [
             Expanded(
-              child: TextField(
+              child: Semantics(label: 'Enter a code (e.g. K7Q2MX)', child: TextField(
                 controller: _joinCtrl,
                 textCapitalization: TextCapitalization.characters,
                 style: AppText.body,
                 decoration: const InputDecoration(hintText: 'Enter a code (e.g. K7Q2MX)'),
-              ),
+              )),
             ),
             const SizedBox(width: 10),
             ElevatedButton(

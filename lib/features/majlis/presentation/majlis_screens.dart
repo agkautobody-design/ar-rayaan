@@ -277,7 +277,7 @@ class _ThreadScreenState extends ConsumerState<ThreadScreen> {
               child: Row(
                 children: [
                   Expanded(
-                    child: TextField(
+                    child: Semantics(label: 'Reply with kindness (public, shown with your name)\u2026', child: TextField(
                       controller: _input,
                       style: AppText.body,
                       minLines: 1,
@@ -286,7 +286,7 @@ class _ThreadScreenState extends ConsumerState<ThreadScreen> {
                         hintText: 'Reply with kindness (public, shown with your name)\u2026',
                         hintStyle: AppText.bodyMuted,
                       ),
-                    ),
+                    )),
                   ),
                   const SizedBox(width: 10),
                   CircleAvatar(
@@ -385,28 +385,28 @@ class _NewThreadScreenState extends ConsumerState<NewThreadScreen> {
           GlassCard(
             child: Column(
               children: [
-                TextField(
+                Semantics(label: 'Display name (shown publicly with your posts)', child: TextField(
                   controller: _name,
                   style: AppText.body,
                   decoration: const InputDecoration(
                     hintText: 'Display name (shown publicly with your posts)',
                   ),
-                ),
+                )),
                 const SizedBox(height: 10),
-                TextField(
+                Semantics(label: 'Thread title', child: TextField(
                   controller: _title,
                   style: AppText.body,
                   decoration: const InputDecoration(hintText: 'Thread title'),
-                ),
+                )),
                 const SizedBox(height: 10),
-                TextField(
+                Semantics(label: 'Your opening post\u2026', child: TextField(
                   controller: _body,
                   style: AppText.body,
                   maxLines: 6,
                   decoration: const InputDecoration(
                     hintText: 'Your opening post\u2026',
                   ),
-                ),
+                )),
                 const SizedBox(height: 14),
                 SizedBox(
                   width: double.infinity,

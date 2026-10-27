@@ -16,6 +16,12 @@ import 'focus_ring.dart';
 /// the prayer times and Qibla (calculated on the device), the Academy lessons
 /// and Hadi's built-in library are part of the app; the Qur'an and the other
 /// saved items work only if they were saved in Settings > Downloads.
+/// What the notice says (also its spoken text).
+const String kOfflineBannerText =
+    'You are offline. Prayer times, Qibla, the Academy lessons, Hadi\u2019s '
+    'built-in library and anything you saved in Settings > Downloads still '
+    'work.';
+
 class OfflineBanner extends StatefulWidget {
   const OfflineBanner({required this.child, this.probe, this.changes, super.key});
 
@@ -67,10 +73,7 @@ class _OfflineBannerState extends State<OfflineBanner> {
         if (show)
           Material(
             color: const Color(0xFF1B2A3A),
-            child: Semantics(
-              liveRegion: true,
-              container: true,
-              child: Padding(
+            child: Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(14, 4, 4, 4),
                 child: Row(
                   key: const Key('offline-banner'),
@@ -81,12 +84,20 @@ class _OfflineBannerState extends State<OfflineBanner> {
                       color: AppColors.goldLight,
                     ),
                     const SizedBox(width: 10),
+                    // A live region with its own label: a container with only
+                    // a flag and text children said nothing to a screen reader.
                     Expanded(
-                      child: Text(
-                        'You are offline. Prayer times, Qibla, the Academy '
-                        'lessons, Hadi\u2019s built-in library and anything '
-                        'you saved in Settings > Downloads still work.',
-                        style: AppText.caption.copyWith(height: 1.35),
+                      child: Semantics(
+                        key: const Key('offline-banner-message'),
+                        liveRegion: true,
+                        container: true,
+                        label: kOfflineBannerText,
+                        child: ExcludeSemantics(
+                          child: Text(
+                            kOfflineBannerText,
+                            style: AppText.caption.copyWith(height: 1.35),
+                          ),
+                        ),
                       ),
                     ),
                     // No Tooltip here: this sits above the Navigator, so
@@ -110,7 +121,6 @@ class _OfflineBannerState extends State<OfflineBanner> {
                   ],
                 ),
               ),
-            ),
           ),
         // Keyed so the app underneath is never rebuilt from scratch when the
         // notice appears or goes.

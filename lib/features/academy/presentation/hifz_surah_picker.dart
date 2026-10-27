@@ -104,7 +104,7 @@ class _SurahSheetState extends State<_SurahSheet> {
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
-              child: TextField(
+              child: Semantics(label: 'Find a surah: name or number', child: TextField(
                 key: const Key('hifz-surah-search'),
                 autofocus: false,
                 style: AppText.body,
@@ -113,7 +113,7 @@ class _SurahSheetState extends State<_SurahSheet> {
                   prefixIcon: Icon(Icons.search, color: AppColors.gold),
                 ),
                 onChanged: (String v) => setState(() => _query = v),
-              ),
+              )),
             ),
             Expanded(
               child: shown.isEmpty

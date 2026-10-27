@@ -25,6 +25,7 @@ import '../domain/quran_models.dart';
 import '../domain/surah_search.dart';
 import '../../../app/theme/widgets/whole_word_text.dart';
 import 'quran_offline_card.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 /// Qur'an index — all 114 surahs + Continue Reading banner.
 /// New screen designed within the locked system — pending Founder approval.
@@ -100,6 +101,7 @@ class _QuranScreenState extends ConsumerState<QuranScreen> {
                     ref.invalidate(quranRepositoryProvider);
                     ref.invalidate(quranAllProvider);
                     ref.invalidate(quranIndexProvider);
+                    ref.invalidate(quranTextsProvider);
                   },
                 ),
                 data: (List<SurahMeta> surahs) {
@@ -146,10 +148,12 @@ class _QuranScreenState extends ConsumerState<QuranScreen> {
                         _ContinueBanner(position: position, surahs: surahs),
                         const SizedBox(height: 16),
                       ],
+                      // One control, one name: the card is already a button,
+                      // so its label is given to it (a Semantics around it
+                      // made a second, duplicate Tab stop).
                       Semantics(
-                        button: true,
-                        label: 'My bookmarks, collections and notes',
                         child: GlassCard(
+                          semanticsLabel: 'My bookmarks, collections and notes',
                           onTap: () => context.push(AppRoutes.quranBookmarks),
                           padding: const EdgeInsets.symmetric(
                             horizontal: 16,
@@ -182,9 +186,8 @@ class _QuranScreenState extends ConsumerState<QuranScreen> {
                       ),
                       const SizedBox(height: 10),
                       Semantics(
-                        button: true,
-                        label: 'Memorise: Hifz planner and review',
                         child: GlassCard(
+                          semanticsLabel: 'Memorise: Hifz planner and review',
                           key: const Key('quran-memorise'),
                           onTap: () => context.open('/academy/hifz'),
                           padding: const EdgeInsets.symmetric(
@@ -233,7 +236,7 @@ class _QuranScreenState extends ConsumerState<QuranScreen> {
                   return ListView(
                     padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
                     children: [
-                      TextField(
+                      Semantics(label: 'Find a surah: name, meaning or number', child: TextField(
                         style: AppText.body,
                         textInputAction: TextInputAction.search,
                         decoration: InputDecoration(
@@ -258,7 +261,7 @@ class _QuranScreenState extends ConsumerState<QuranScreen> {
                         ),
                         controller: _controller,
                         onChanged: (String v) => setState(() => _query = v),
-                      ),
+                      )),
                       if (_textPending && WebOffline.isWeb && !searching) ...[
                         const SizedBox(height: 12),
                         const QuranTextLoadingNote(),
@@ -323,7 +326,7 @@ class _TextCredit extends ConsumerWidget {
     return Semantics(
       link: true,
       label: 'Arabic text and translation source: Tanzil.net',
-      child: InkWell(
+      child: FocusRing(borderRadius: 12, child: InkWell(
         onTap: () async {
           try {
             await launchUrl(
@@ -344,7 +347,7 @@ class _TextCredit extends ConsumerWidget {
             ),
           ),
         ),
-      ),
+      )),
     );
   }
 }
@@ -417,7 +420,7 @@ class _SurahRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       type: MaterialType.transparency,
-      child: InkWell(
+      child: FocusRing(borderRadius: 12, child: InkWell(
         onTap: () => context.open(AppRoutes.surah(meta.number)),
         child: ConstrainedBox(
           constraints: const BoxConstraints(minHeight: 56),
@@ -492,7 +495,7 @@ class _SurahRow extends StatelessWidget {
             ),
           ),
         ),
-      ),
+      )),
     );
   }
 }
