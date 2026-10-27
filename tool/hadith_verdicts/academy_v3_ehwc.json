@@ -1,0 +1,583 @@
+{
+ "abudawud:2870": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Hurayrah: Allah has appointed for everyone who has a right what is due to him, and no bequest must be made to an heir",
+  "grade": "Hasan Sahih (Al-Albani); Hasan Sahih (Muhammad Muhyi Al-Din Abdul Hamid); Hasan (Shuaib Al Arnaut); Sahih (Zubair Ali Zai)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
+ },
+ "abudawud:2891": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Jabir: wife of Thabit/Sa'd ibn al-Rabi' and her two daughters; uncle took inheritance; surah an-Nisa verse revealed; two-thirds to the daughters (summary of the report)",
+  "grade": "Hasan (Al-Albani); Hasan (Muhammad Muhyi Al-Din Abdul Hamid); Hasan Sahih (Shuaib Al Arnaut); Daif (Zubair Ali Zai)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
+ },
+ "abudawud:3116": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Mu'adh bin Jabal: if anyone's last words are there is no god but Allah he will enter Paradise",
+  "grade": "Sahih (Al-Albani); Sahih (Muhammad Muhyi Al-Din Abdul Hamid); Hasan (Shuaib Al Arnaut); Isnaad Hasan (Zubair Ali Zai)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
+ },
+ "abudawud:3121": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Ma'qil ibn Yasar: recite Surah Ya-Sin over your dying men (graded da'if by all graders listed)",
+  "grade": "Daif (Al-Albani); Daif (Muhammad Muhyi Al-Din Abdul Hamid); Daif (Shuaib Al Arnaut); Daif (Zubair Ali Zai)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
+ },
+ "abudawud:3180": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "al-Mughirah bin Shubah: rider behind the bier, walkers near it; prayer should be offered over an abortion (miscarried child) and forgiveness and mercy asked for its parents",
+  "grade": "Sahih (Al-Albani); Sahih (Muhammad Muhyi Al-Din Abdul Hamid); Isnaad Sahih (Zubair Ali Zai)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
+ },
+ "abudawud:3201": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Hurayrah: the Prophet's dua over a dead person: forgive our living and dead, present and absent, young and old, male and female ...",
+  "grade": "Sahih (Al-Albani); Sahih (Muhammad Muhyi Al-Din Abdul Hamid); Hasan Sahih (Shuaib Al Arnaut); Isnaad Hasan (Zubair Ali Zai)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
+ },
+ "abudawud:3213": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Ibn Umar: when he put the dead in the grave he said Bismillah wa ala sunnati rasulillah",
+  "grade": "Sahih (Al-Albani); Sahih (Muhammad Muhyi Al-Din Abdul Hamid); Sahih (Zubair Ali Zai)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
+ },
+ "abudawud:3221": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Uthman: when the Prophet finished burying the dead he stood at his grave and said ask forgiveness for your brother and ask steadfastness for him, for he is now being questioned",
+  "grade": "Sahih (Al-Albani); Sahih (Muhammad Muhyi Al-Din Abdul Hamid); Hasan (Shuaib Al Arnaut); Isnaad Hasan (Zubair Ali Zai)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
+ },
+ "bukhari:1240": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: the rights of a Muslim on the Muslims are five: return the salam, visit the sick, follow the funeral procession, accept an invitation, reply to one who sneezes",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:1245": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: the Prophet informed of the death of an-Najashi the day he died, went to the musalla, people stood in rows, he said four takbirs",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:1249": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Said: a woman whose three children die, they screen her from the Fire; two? even two; Abu Huraira added below puberty",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:1280": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Zainab bint Abi Salama: Umm Habiba, on the third day, perfumed herself and said not lawful to mourn more than three days except for a husband, four months and ten days",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:1283": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Anas: the Prophet told a weeping woman at a grave to fear Allah and be patient; she did not recognise him; he said patience is at the first stroke of a calamity",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:1284": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Usama bin Zaid: the Prophet's message to his daughter: whatever Allah takes is His, whatever He gives is His, everything with Him has an appointed term; be patient",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:1294": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abdullah: he who slaps his cheeks, tears his clothes and follows the ways of the Days of Ignorance is not one of us",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:1303": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Anas: Ibrahim dying, the Prophet's eyes shed tears; Abd al-Rahman bin Awf asked; he said this is mercy; eyes shed tears, heart grieved, we say only what pleases our Lord, we are grieved by your separation O Ibrahim",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:1315": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: hurry with the dead body, for if righteous you forward it to good; otherwise you put an evil down from your necks",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:1325": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: whoever attends the funeral until the prayer gets one qirat, whoever accompanies it until burial two qirats, like two huge mountains",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:1331": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Samura bin Jundab: prayed behind the Prophet over a woman who died in childbirth; he stood by the middle of the coffin",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:1335": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Talha bin Abdullah: prayed behind Ibn Abbas, he recited al-Fatiha and said it is the sunnah of the Prophet",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:1338": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Anas: when a man is laid in his grave and companions leave, two angels ask what did you say about this man Muhammad; he says servant and messenger of Allah; shown his place in Hell replaced with Paradise",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:1372": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Aisha: a Jewess mentioned punishment in the grave; the Prophet said yes, there is punishment in the grave; afterwards he sought refuge from it in every prayer",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:1374": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Anas: same report as 1338, with the believer shown both places; the hypocrite says I do not know",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:1379": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abdullah bin Umar: when one of you dies he is shown his place morning and evening, Paradise or Hell, until Allah resurrects him",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:1419": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: the best charity is when you are healthy, tight-fisted, hoping for wealth; do not delay it until death approaches",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:2320": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Anas: no Muslim plants a tree or sows seed and a bird, person or animal eats from it but it is a charitable gift for him",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:2449": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: whoever has wronged another in his honour or anything should seek forgiveness before the Day when there is no money; good deeds taken from him",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:2737": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Ibn Umar: Umar's land in Khaybar; the Prophet said hold the land and give its fruit in charity; endowed on conditions: not sold, given or inherited",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:2738": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Ibn Umar: not right for a Muslim who has something to will to stay two nights without his will written",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:2742": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Sa'd ibn Abi Waqqas: may I will all, half? No; one third? yes, one third is much; better to leave heirs well-off than poor; he had one daughter",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:3370": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Ka'b bin Ujrah: how to send blessings on the Prophet: O Allah send Your mercy on Muhammad and the family of Muhammad as You sent on Ibrahim and his family",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:4437": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Aisha: in his last illness the Prophet looked up and said O Allah, in the highest companions",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:4463": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Aisha: the last word the Prophet spoke was O Allah, the highest companion",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:4699": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "al-Bara: when a Muslim is questioned in his grave he testifies there is no god but Allah and Muhammad is His messenger; this is the meaning of 14:27",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:5671": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Anas: none of you should wish for death because of a hardship; if he must, say \"O Allah, keep me alive as long as life is better for me and take me when death is better for me\"",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:5814": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Aisha: when the Prophet died he was covered with a Hibra garment",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:6000": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: Allah divided mercy into one hundred parts, kept ninety-nine, sent one down to the earth; so the mare lifts her hoof from her young",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:6312": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Hudhaifa: on going to bed the Prophet said Bismika amutu wa ahya; on waking al-hamdu lillahil-ladhi ahyana ba'da ma amatana wa ilayhin-nushur",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:6320": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: when going to bed shake out the bed, then say in Your name my Lord I lay down my side ... if You keep my soul have mercy on it ...",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:6412": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Ibn Abbas: two blessings many people lose: health and free time",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:6416": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Ibn Umar: the Prophet took my shoulder and said be in this world as a stranger or traveler; Ibn Umar: do not expect the morning when evening comes",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:6469": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: Allah created mercy in one hundred parts; had the non-believer known all the mercy he would not lose hope of Paradise; had the believer known all the punishment he would not feel safe from the Fire",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:6507": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Ubada: whoever loves to meet Allah, Allah loves to meet him; Aisha or wives: we dislike death; he said not so, it is when the believer's death approaches he receives good news of Allah's pleasure",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:6746": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Ibn Abbas: give the fara'id to those entitled; what remains goes to the closest male relative",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:6764": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Usama: a Muslim cannot inherit from a disbeliever nor a disbeliever from a Muslim",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:7405": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira, hadith qudsi: I am as My slave thinks of Me, I am with him when he remembers Me; if he walks to Me I go to him running",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:8": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Ibn Umar: Islam is built on five, the first being the testimony that there is no god but Allah and Muhammad is His messenger",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:832": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Aisha: the Prophet used to invoke in prayer: O Allah I seek refuge from the punishment of the grave, the Dajjal, trials of life and death, sins and debt",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "ibnmajah:242": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Hurairah: rewards that reach a believer after death: knowledge taught, a righteous son, a Qur'an left, a mosque, a house for wayfarers, a canal, charity in health (graders differ: Albani hasan, Zubair daif)",
+  "grade": "Hasan (Al-Albani); Hasan (Muhammad Fouad Abd al-Baqi); Daif (Zubair Ali Zai)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
+ },
+ "ibnmajah:2713": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Umamah: Farewell Pilgrimage sermon: Allah has given each person with rights his rights; no bequest for an heir",
+  "grade": "Sahih (Al-Albani); Sahih (Muhammad Fouad Abd al-Baqi); Hasan (Shuaib Al Arnaut); Isnaad Hasan (Zubair Ali Zai)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
+ },
+ "muslim:1627": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Ibn Umar: duty of a Muslim who has something to bequeath not to spend two (or three) nights without his will written; Ibn Umar never spent a night without his will since",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "muslim:1628": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Sa'd ibn Abi Waqqas, Farewell Pilgrimage illness, one daughter: not two-thirds, not half; one-third is much; better to leave heirs rich than poor",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "muslim:1631": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: when a man dies his acts end but three: recurring charity, knowledge (people) benefit from, or a pious son who prays for him",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "muslim:1893": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Mas'ud al-Ansari: one who guides to something good has a reward similar to that of its doer",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "muslim:2632": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: any Muslim three of whose children die and who resigns calmly, Fire will not touch him but for the fulfilment of the oath",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "muslim:2675": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira, hadith qudsi: I am near to the thought of My servant; if he walks towards Me, I rush towards him",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "muslim:2680": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Anas: none of you should request death because of a trouble; if he must, say keep me alive as long as there is goodness in life",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "muslim:2684": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Aisha: he who loves to meet Allah, Allah loves to meet him; we all dislike death; he said it is when the believer is given glad tidings at death",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "muslim:2752": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: Allah created mercy in one hundred parts, retained ninety-nine, sent one down; keeps ninety-nine for the Day of Resurrection",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "muslim:2877": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Jabir: three days before his death: none of you should die but hoping good from Allah",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "muslim:403": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Ibn Abbas: the Prophet taught the tashahhud like a surah, ending with the two testimonies: no god but Allah, and Muhammad is the Messenger of Allah",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "muslim:588": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: when any of you utters the tashahhud he must seek refuge from four: torment of Hell, torment of the grave, trial of life and death, evil of the Dajjal",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "muslim:831": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Uqba bin Amir: three times the Prophet forbade praying or burying our dead: sunrise until fully up, midday until the sun passes the meridian, and when setting until it sets",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "muslim:916": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Sa'id al-Khudri: exhort to recite there is no god but Allah to those of you who are dying",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "muslim:918": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Umm Salama: whoever is struck by a calamity and says we belong to Allah and to Him we return, O Allah reward me in my affliction and replace it with better",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "muslim:920": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Umm Salama: the Prophet closed Abu Salama's eyes after death and made the dua O Allah forgive Abu Salama, raise his degree ...",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "muslim:948": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Ibn Abbas: any Muslim who dies and forty men who associate nothing with Allah stand over his prayer, Allah accepts them as intercessors for him",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "muslim:951": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: the Prophet announced the death of the Negus the day he died, took them to the prayer place and said four takbirs",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "muslim:957": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abd al-Rahman bin Abu Laila: Zaid used to say four takbirs on funerals and once five, and said the Messenger of Allah did so",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "muslim:963": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Auf bin Malik: the dua the Prophet said over a dead body: forgive him, have mercy on him, give him peace ... wash him with water, snow and hail",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "muslim:971": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: better to sit on live coals that burn your skin than to sit on a grave",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "muslim:972": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Marthad: do not sit on graves and do not pray facing them",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "muslim:975": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Buraydah: the Prophet taught them what to say on going out to the graveyard: peace be upon you, inhabitants of the city among the believers and Muslims ...",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "muslim:976": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Huraira: the Prophet visited his mother's grave and wept; sought permission to ask forgiveness for her and was not given it; permission to visit her grave was given; so visit graves, it makes you mindful of death",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "muslim:977": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Ibn Buraida: I forbade you to visit graves, but you may now visit them",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "tirmidhi:1024": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Ibrahim al-Ashhali from his father: the Prophet's funeral-prayer dua: forgive our living and our deceased ...",
+  "grade": "Sahih (Ahmad Muhammad Shakir); Sahih (Al-Albani); Hasan Sahih (Bashar Awad Maarouf); Sahih (Zubair Ali Zai)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
+ },
+ "tirmidhi:1078": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Hurairah: the believer's soul is suspended by his debt until it is settled",
+  "grade": "Sahih (Ahmad Muhammad Shakir); Sahih (Al-Albani); Hasan (Zubair Ali Zai)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
+ },
+ "tirmidhi:2092": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Jabir: Sa'd bin Ar-Rabi's widow and two daughters; uncle took the wealth; verse revealed; give two daughters two thirds, their mother one eighth, rest to the uncle",
+  "grade": "Hasan (Ahmad Muhammad Shakir); Hasan (Al-Albani); Hasan Sahih (Bashar Awad Maarouf); Daif (Zubair Ali Zai)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
+ },
+ "tirmidhi:2120": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Ummah: Farewell Pilgrimage sermon: Allah has given every deserving person his right so no will for an heir",
+  "grade": "Sahih (Ahmad Muhammad Shakir); Sahih (Al-Albani); Hasan (Bashar Awad Maarouf); Isnaad Hasan (Zubair Ali Zai)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
+ },
+ "tirmidhi:2307": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Hurairah: increase remembrance of the severer of pleasures, meaning death",
+  "grade": "Hasan Sahih (Ahmad Muhammad Shakir); Hasan Sahih (Al-Albani); Hasan (Bashar Awad Maarouf); Isnaad Hasan (Zubair Ali Zai)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
+ },
+ "tirmidhi:2329": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abdullah bin Busr: who is the best of people? He whose life is long and his deeds are good",
+  "grade": "Sahih (Ahmad Muhammad Shakir); Sahih (Al-Albani); Hasan (Bashar Awad Maarouf); Isnaad Hasan (Zubair Ali Zai)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
+ },
+ "tirmidhi:2460": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Said: the long report that the grave speaks, I am the house of the estranged ... graded very da'if (al-Albani) and da'if (Zubair Ali Zai); the garden or pit wording is in this report; not relied on",
+  "grade": "Very Daif (Ahmad Muhammad Shakir); Very Daif (Al-Albani); Daif (Zubair Ali Zai)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
+ },
+ "tirmidhi:998": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abdullah bin Jafar: when news of Jafar's death came the Prophet said prepare food for the family of Jafar, for something has happened that keeps them busy",
+  "grade": "Hasan (Ahmad Muhammad Shakir); Hasan (Al-Albani); Hasan (Bashar Awad Maarouf); Isnaad Hasan (Zubair Ali Zai)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
+ }
+}

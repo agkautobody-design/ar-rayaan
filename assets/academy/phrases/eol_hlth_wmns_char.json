@@ -1,0 +1,799 @@
+{
+ "schema": 1,
+ "note": "Verified-phrase registry (End of Life, Health & Ruqyah, Women in the Deen, Character). A lesson never contains Arabic of its own: it names a phrase here, or an ayah of assets/quran/quran.json as q:<surah>:<ayah>. `status: verified` means the Arabic was copied, word for word with its vowel marks, out of the cited primary-source text on the date below; it does NOT mean a scholar has reviewed it (see needsScholarReview). Rebuild or re-check with tool/academy_phrases_ehwc.py.",
+ "checked": "2026-10-27",
+ "corpus": "github.com/fawazahmed0/hadith-api (branch 1, editions/ara-*.json); sunnah.com numbering; Muslim by Abd al-Baqi number",
+ "phrases": {
+  "eol.kalima": {
+   "arabic": "لاَ إِلَهَ إِلاَّ اللَّهُ",
+   "status": "verified",
+   "translit": "Laa ilaaha illal-laah",
+   "meaning": "There is no god but Allah.",
+   "words": [
+    {
+     "tr": "laa",
+     "en": "no"
+    },
+    {
+     "tr": "ilaaha",
+     "en": "god"
+    },
+    {
+     "tr": "illaa",
+     "en": "except"
+    },
+    {
+     "tr": "Allaah",
+     "en": "Allah"
+    }
+   ],
+   "sources": [
+    "Muslim 916",
+    "Abu Dawud 3116 (sahih per al-Albani)"
+   ],
+   "copiedFrom": "Muslim 916.01 (fawazahmed0/hadith-api, ara-muslim)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "eol.rafiq": {
+   "arabic": "اللَّهُمَّ فِي الرَّفِيقِ الأَعْلَى",
+   "status": "verified",
+   "translit": "Allaahumma fir-rafeeqil-a'laa",
+   "meaning": "O Allah, let me be with the highest companions.",
+   "words": [
+    {
+     "tr": "Allaahumma",
+     "en": "O Allah"
+    },
+    {
+     "tr": "fee",
+     "en": "in"
+    },
+    {
+     "tr": "ar-rafeeqi",
+     "en": "the company"
+    },
+    {
+     "tr": "al-a'laa",
+     "en": "the highest"
+    }
+   ],
+   "sources": [
+    "Bukhari 4437",
+    "Bukhari 4463"
+   ],
+   "copiedFrom": "Bukhari 4437 (fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "eol.janazah.1": {
+   "arabic": "اللَّهُمَّ اغْفِرْ لَهُ وَارْحَمْهُ وَعَافِهِ وَاعْفُ عَنْهُ",
+   "status": "verified",
+   "translit": "Allaahummagh-fir lahu warhamhu wa 'aafihi wa'-fu 'anhu",
+   "meaning": "O Allah, forgive him, have mercy on him, grant him safety and pardon him.",
+   "words": [
+    {
+     "tr": "Allaahumma",
+     "en": "O Allah"
+    },
+    {
+     "tr": "ighfir",
+     "en": "forgive"
+    },
+    {
+     "tr": "lahu",
+     "en": "him"
+    },
+    {
+     "tr": "wa-irhamhu",
+     "en": "and have mercy on him"
+    },
+    {
+     "tr": "wa-'aafihi",
+     "en": "and grant him safety"
+    },
+    {
+     "tr": "wa-'fu",
+     "en": "and pardon"
+    },
+    {
+     "tr": "'anhu",
+     "en": "him"
+    }
+   ],
+   "sources": [
+    "Muslim 963"
+   ],
+   "copiedFrom": "Muslim 963.02 (fawazahmed0/hadith-api, ara-muslim)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "eol.janazah.2": {
+   "arabic": "وَأَكْرِمْ نُزُلَهُ وَوَسِّعْ مُدْخَلَهُ",
+   "status": "verified",
+   "translit": "Wa akrim nuzulahu wa wassi' mudkhalahu",
+   "meaning": "Honour his arrival and make his entrance wide.",
+   "words": [
+    {
+     "tr": "wa-akrim",
+     "en": "and honour"
+    },
+    {
+     "tr": "nuzulahu",
+     "en": "his place of welcome"
+    },
+    {
+     "tr": "wa-wassi'",
+     "en": "and widen"
+    },
+    {
+     "tr": "mudkhalahu",
+     "en": "his entrance"
+    }
+   ],
+   "sources": [
+    "Muslim 963"
+   ],
+   "copiedFrom": "Muslim 963.02 (fawazahmed0/hadith-api, ara-muslim)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "eol.janazah.3": {
+   "arabic": "وَاغْسِلْهُ بِالْمَاءِ وَالثَّلْجِ وَالْبَرَدِ",
+   "status": "verified",
+   "translit": "Waghsilhu bil-maa'i wath-thalji wal-barad",
+   "meaning": "Wash him with water, snow and hail.",
+   "words": [
+    {
+     "tr": "wa-ighsilhu",
+     "en": "and wash him"
+    },
+    {
+     "tr": "bil-maa'i",
+     "en": "with water"
+    },
+    {
+     "tr": "wath-thalji",
+     "en": "and snow"
+    },
+    {
+     "tr": "wal-barad",
+     "en": "and hail"
+    }
+   ],
+   "sources": [
+    "Muslim 963"
+   ],
+   "copiedFrom": "Muslim 963.02 (fawazahmed0/hadith-api, ara-muslim)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "eol.janazah.4": {
+   "arabic": "وَنَقِّهِ مِنَ الْخَطَايَا كَمَا نَقَّيْتَ الثَّوْبَ الأَبْيَضَ مِنَ الدَّنَسِ",
+   "status": "verified",
+   "translit": "Wa naqqihi minal-khataayaa kamaa naqqaytath-thawbal-abyada minad-danas",
+   "meaning": "Cleanse him of his wrongs as a white garment is cleansed of dirt.",
+   "words": [
+    {
+     "tr": "wa-naqqihi",
+     "en": "and cleanse him"
+    },
+    {
+     "tr": "minal",
+     "en": "of"
+    },
+    {
+     "tr": "khataayaa",
+     "en": "the wrongs"
+    },
+    {
+     "tr": "kamaa",
+     "en": "as"
+    },
+    {
+     "tr": "naqqayta",
+     "en": "You cleanse"
+    },
+    {
+     "tr": "ath-thawba",
+     "en": "the garment"
+    },
+    {
+     "tr": "al-abyada",
+     "en": "the white"
+    },
+    {
+     "tr": "minad",
+     "en": "of"
+    },
+    {
+     "tr": "danas",
+     "en": "dirt"
+    }
+   ],
+   "sources": [
+    "Muslim 963"
+   ],
+   "copiedFrom": "Muslim 963.02 (fawazahmed0/hadith-api, ara-muslim)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "eol.janazah.5": {
+   "arabic": "وَأَبْدِلْهُ دَارًا خَيْرًا مِنْ دَارِهِ وَأَهْلاً خَيْرًا مِنْ أَهْلِهِ وَزَوْجًا خَيْرًا مِنْ زَوْجِهِ",
+   "status": "verified",
+   "translit": "Wa abdilhu daaran khayran min daarihi wa ahlan khayran min ahlihi wa zawjan khayran min zawjihi",
+   "meaning": "Give him in exchange a home better than his home, a family better than his family, and a spouse better than his spouse.",
+   "sources": [
+    "Muslim 963"
+   ],
+   "copiedFrom": "Muslim 963.02 (fawazahmed0/hadith-api, ara-muslim)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "eol.janazah.6": {
+   "arabic": "وَأَدْخِلْهُ الْجَنَّةَ وَأَعِذْهُ مِنْ عَذَابِ الْقَبْرِ أَوْ مِنْ عَذَابِ النَّارِ",
+   "status": "verified",
+   "translit": "Wa adkhilhul-jannah wa a'idh-hu min 'adhaabil-qabri aw min 'adhaabin-naar",
+   "meaning": "Admit him to Paradise, and protect him from the punishment of the grave or of the Fire.",
+   "sources": [
+    "Muslim 963"
+   ],
+   "copiedFrom": "Muslim 963.02 (fawazahmed0/hadith-api, ara-muslim)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "eol.janazah.dua": {
+   "parts": [
+    "eol.janazah.1",
+    "eol.janazah.2",
+    "eol.janazah.3",
+    "eol.janazah.4",
+    "eol.janazah.5",
+    "eol.janazah.6"
+   ],
+   "status": "verified",
+   "translit": "Allaahummagh-fir lahu warhamhu wa 'aafihi wa'-fu 'anhu. Wa akrim nuzulahu wa wassi' mudkhalahu. Waghsilhu bil-maa'i wath-thalji wal-barad. Wa naqqihi minal-khataayaa kamaa naqqaytath-thawbal-abyada minad-danas. Wa abdilhu daaran khayran min daarihi wa ahlan khayran min ahlihi wa zawjan khayran min zawjihi. Wa adkhilhul-jannah wa a'idh-hu min 'adhaabil-qabri aw min 'adhaabin-naar.",
+   "meaning": "O Allah, forgive him, have mercy on him, grant him safety and pardon him. Honour his arrival and make his entrance wide. Wash him with water, snow and hail. Cleanse him of his wrongs as a white garment is cleansed of dirt. Give him in exchange a home better than his home, a family better than his family, and a spouse better than his spouse. Admit him to Paradise, and protect him from the punishment of the grave or of the Fire.",
+   "sources": [
+    "Muslim 963"
+   ],
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "eol.general.1": {
+   "arabic": "اللَّهُمَّ اغْفِرْ لِحَيِّنَا وَمَيِّتِنَا وَصَغِيرِنَا وَكَبِيرِنَا وَذَكَرِنَا وَأُنْثَانَا وَشَاهِدِنَا وَغَائِبِنَا",
+   "status": "verified",
+   "translit": "Allaahummagh-fir li-hayyinaa wa mayyitinaa wa saghirinaa wa kabirinaa wa dhakarinaa wa unthaanaa wa shaahidinaa wa ghaa'ibinaa",
+   "meaning": "O Allah, forgive our living and our dead, our young and our old, our men and our women, those present and those absent.",
+   "sources": [
+    "Abu Dawud 3201 (sahih per al-Albani)",
+    "Tirmidhi 1024 (sahih per al-Albani)"
+   ],
+   "copiedFrom": "Abu Dawud 3201 (graded by al-Albani; fawazahmed0/hadith-api, ara-abudawud)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "eol.general.2": {
+   "arabic": "اللَّهُمَّ مَنْ أَحْيَيْتَهُ مِنَّا فَأَحْيِهِ عَلَى الإِيمَانِ وَمَنْ تَوَفَّيْتَهُ مِنَّا فَتَوَفَّهُ عَلَى الإِسْلاَمِ",
+   "status": "verified",
+   "translit": "Allaahumma man ahyaytahu minnaa fa-ahyihi 'alal-eemaan wa man tawaffaytahu minnaa fa-tawaffahu 'alal-islaam",
+   "meaning": "O Allah, whoever of us You keep alive, keep him alive in faith; and whoever of us You take, take him in Islam.",
+   "sources": [
+    "Abu Dawud 3201 (sahih per al-Albani)"
+   ],
+   "copiedFrom": "Abu Dawud 3201 (graded by al-Albani; fawazahmed0/hadith-api, ara-abudawud)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "eol.general.3": {
+   "arabic": "اللَّهُمَّ لاَ تَحْرِمْنَا أَجْرَهُ وَلاَ تُضِلَّنَا بَعْدَهُ",
+   "status": "verified",
+   "translit": "Allaahumma laa tahrimnaa ajrahu wa laa tudillanaa ba'dah",
+   "meaning": "O Allah, do not deprive us of his reward, and do not let us go astray after him.",
+   "sources": [
+    "Abu Dawud 3201 (sahih per al-Albani)"
+   ],
+   "copiedFrom": "Abu Dawud 3201 (graded by al-Albani; fawazahmed0/hadith-api, ara-abudawud)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "eol.general": {
+   "parts": [
+    "eol.general.1",
+    "eol.general.2",
+    "eol.general.3"
+   ],
+   "status": "verified",
+   "translit": "Allaahummagh-fir li-hayyinaa wa mayyitinaa wa saghirinaa wa kabirinaa wa dhakarinaa wa unthaanaa wa shaahidinaa wa ghaa'ibinaa. Allaahumma man ahyaytahu minnaa fa-ahyihi 'alal-eemaan wa man tawaffaytahu minnaa fa-tawaffahu 'alal-islaam. Allaahumma laa tahrimnaa ajrahu wa laa tudillanaa ba'dah.",
+   "meaning": "O Allah, forgive our living and our dead, our young and our old, our men and our women, those present and those absent. O Allah, whoever of us You keep alive, keep him alive in faith; and whoever of us You take, take him in Islam. O Allah, do not deprive us of his reward, and do not let us go astray after him.",
+   "sources": [
+    "Abu Dawud 3201 (sahih per al-Albani)"
+   ],
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "eol.burial": {
+   "arabic": "بِسْمِ اللَّهِ وَعَلَى سُنَّةِ رَسُولِ اللَّهِ",
+   "status": "verified",
+   "translit": "Bismil-laahi wa ala sunnati rasoolil-laah",
+   "meaning": "In the name of Allah, and on the way of the Messenger of Allah.",
+   "words": [
+    {
+     "tr": "bismi",
+     "en": "in the name of"
+    },
+    {
+     "tr": "Allaah",
+     "en": "Allah"
+    },
+    {
+     "tr": "wa-'alaa",
+     "en": "and on"
+    },
+    {
+     "tr": "sunnati",
+     "en": "the way of"
+    },
+    {
+     "tr": "rasooli",
+     "en": "the messenger of"
+    },
+    {
+     "tr": "Allaah",
+     "en": "Allah"
+    }
+   ],
+   "sources": [
+    "Abu Dawud 3213 (sahih per al-Albani)"
+   ],
+   "copiedFrom": "Abu Dawud 3213 (graded by al-Albani; fawazahmed0/hadith-api, ara-abudawud)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "eol.grave.greeting": {
+   "arabic": "السَّلاَمُ عَلَيْكُمْ أَهْلَ الدِّيَارِ مِنَ الْمُؤْمِنِينَ وَالْمُسْلِمِينَ وَإِنَّا إِنْ شَاءَ اللَّهُ لَلَاحِقُونَ أَسْأَلُ اللَّهَ لَنَا وَلَكُمْ الْعَافِيَةَ",
+   "status": "verified",
+   "translit": "As-salaamu 'alaykum ahlad-diyaari minal-mu'mineena wal-muslimeen wa innaa in shaa'al-laahu lalaahiqoon as'alul-laaha lanaa wa lakumul-'aafiyah",
+   "meaning": "Peace be upon you, people of this place, among the believers and the Muslims. If Allah wills, we will join you. I ask Allah for well-being for us and for you.",
+   "sources": [
+    "Muslim 975"
+   ],
+   "copiedFrom": "Muslim 975 (fawazahmed0/hadith-api, ara-muslim)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "eol.grave.refuge": {
+   "arabic": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ عَذَابِ جَهَنَّمَ وَمِنْ عَذَابِ الْقَبْرِ وَمِنْ فِتْنَةِ الْمَحْيَا وَالْمَمَاتِ وَمِنْ شَرِّ فِتْنَةِ الْمَسِيحِ الدَّجَّالِ",
+   "status": "verified",
+   "translit": "Allaahumma innee a'oodhu bika min 'adhaabi jahannam wa min 'adhaabil-qabr wa min fitnatil-mahyaa wal-mamaat wa min sharri fitnatil-maseehid-dajjaal",
+   "meaning": "O Allah, I seek refuge with You from the punishment of Hell, from the punishment of the grave, from the trial of life and death, and from the evil of the trial of the False Messiah (the Dajjal).",
+   "words": [
+    {
+     "tr": "Allaahumma",
+     "en": "O Allah"
+    },
+    {
+     "tr": "innee",
+     "en": "indeed I"
+    },
+    {
+     "tr": "a'oodhu",
+     "en": "seek refuge"
+    },
+    {
+     "tr": "bika",
+     "en": "with You"
+    },
+    {
+     "tr": "min",
+     "en": "from"
+    },
+    {
+     "tr": "'adhaabi",
+     "en": "the punishment of"
+    },
+    {
+     "tr": "jahannam",
+     "en": "Hell"
+    },
+    {
+     "tr": "wa-min",
+     "en": "and from"
+    },
+    {
+     "tr": "'adhaabi",
+     "en": "the punishment of"
+    },
+    {
+     "tr": "al-qabri",
+     "en": "the grave"
+    },
+    {
+     "tr": "wa-min",
+     "en": "and from"
+    },
+    {
+     "tr": "fitnati",
+     "en": "the trial of"
+    },
+    {
+     "tr": "al-mahyaa",
+     "en": "life"
+    },
+    {
+     "tr": "wal-mamaat",
+     "en": "and death"
+    },
+    {
+     "tr": "wa-min",
+     "en": "and from"
+    },
+    {
+     "tr": "sharri",
+     "en": "the evil of"
+    },
+    {
+     "tr": "fitnati",
+     "en": "the trial of"
+    },
+    {
+     "tr": "al-maseehi",
+     "en": "the Messiah"
+    },
+    {
+     "tr": "ad-dajjaal",
+     "en": "the Impostor"
+    }
+   ],
+   "sources": [
+    "Muslim 588",
+    "Bukhari 832"
+   ],
+   "copiedFrom": "Muslim 588.01 (fawazahmed0/hadith-api, ara-muslim)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "eol.grave.thabit": {
+   "arabic": "اسْتَغْفِرُوا لأَخِيكُمْ وَسَلُوا لَهُ التَّثْبِيتَ فَإِنَّهُ الآنَ يُسْأَلُ",
+   "status": "verified",
+   "translit": "Istaghfiroo li-akheekum wa salu lahut-tathbeeta fa-innahu al-aana yus'al",
+   "meaning": "Ask forgiveness for your brother, and ask steadfastness for him, for he is being questioned now.",
+   "words": [
+    {
+     "tr": "istaghfiroo",
+     "en": "ask forgiveness"
+    },
+    {
+     "tr": "li-akheekum",
+     "en": "for your brother"
+    },
+    {
+     "tr": "wa-salu",
+     "en": "and ask"
+    },
+    {
+     "tr": "lahu",
+     "en": "for him"
+    },
+    {
+     "tr": "at-tathbeeta",
+     "en": "steadfastness"
+    },
+    {
+     "tr": "fa-innahu",
+     "en": "for indeed he"
+    },
+    {
+     "tr": "al-aana",
+     "en": "now"
+    },
+    {
+     "tr": "yus'al",
+     "en": "is being questioned"
+    }
+   ],
+   "sources": [
+    "Abu Dawud 3221 (sahih per al-Albani)"
+   ],
+   "copiedFrom": "Abu Dawud 3221 (graded by al-Albani; fawazahmed0/hadith-api, ara-abudawud)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "eol.calamity.1": {
+   "arabic": "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ",
+   "status": "verified",
+   "translit": "Innaa lillaahi wa innaa ilayhi raaji'oon",
+   "meaning": "We belong to Allah, and to Him we return.",
+   "words": [
+    {
+     "tr": "innaa",
+     "en": "indeed we"
+    },
+    {
+     "tr": "lillaahi",
+     "en": "belong to Allah"
+    },
+    {
+     "tr": "wa-innaa",
+     "en": "and indeed we"
+    },
+    {
+     "tr": "ilayhi",
+     "en": "to Him"
+    },
+    {
+     "tr": "raaji'oon",
+     "en": "will return"
+    }
+   ],
+   "sources": [
+    "Muslim 918"
+   ],
+   "copiedFrom": "Muslim 918.02 (fawazahmed0/hadith-api, ara-muslim)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "eol.calamity.2": {
+   "arabic": "اللَّهُمَّ أْجُرْنِي فِي مُصِيبَتِي وَأَخْلِفْ لِي خَيْرًا مِنْهَا",
+   "status": "verified",
+   "translit": "Allaahumma-jurnee fee museebatee wa akhlif lee khayran minhaa",
+   "meaning": "O Allah, reward me in my affliction and replace it for me with something better.",
+   "sources": [
+    "Muslim 918"
+   ],
+   "copiedFrom": "Muslim 918.02 (fawazahmed0/hadith-api, ara-muslim)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "eol.calamity": {
+   "parts": [
+    "eol.calamity.1",
+    "eol.calamity.2"
+   ],
+   "status": "verified",
+   "translit": "Innaa lillaahi wa innaa ilayhi raaji'oon. Allaahumma-jurnee fee museebatee wa akhlif lee khayran minhaa",
+   "meaning": "We belong to Allah, and to Him we return. O Allah, reward me in my affliction and replace it for me with something better.",
+   "sources": [
+    "Muslim 918"
+   ],
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "eol.condolence": {
+   "arabic": "إِنَّ لِلَّهِ مَا أَخَذَ وَلَهُ مَا أَعْطَى وَكُلٌّ عِنْدَهُ بِأَجَلٍ مُسَمًّى",
+   "status": "verified",
+   "translit": "Inna lillaahi maa akhadha wa lahu maa a'taa wa kullun 'indahu bi-ajalin musammaa",
+   "meaning": "What Allah took belongs to Him, and what He gave belongs to Him, and everything with Him has an appointed term.",
+   "words": [
+    {
+     "tr": "inna",
+     "en": "indeed"
+    },
+    {
+     "tr": "lillaahi",
+     "en": "to Allah belongs"
+    },
+    {
+     "tr": "maa",
+     "en": "what"
+    },
+    {
+     "tr": "akhadha",
+     "en": "He took"
+    },
+    {
+     "tr": "wa-lahu",
+     "en": "and to Him"
+    },
+    {
+     "tr": "maa",
+     "en": "what"
+    },
+    {
+     "tr": "a'taa",
+     "en": "He gave"
+    },
+    {
+     "tr": "wa-kullun",
+     "en": "and everything"
+    },
+    {
+     "tr": "'indahu",
+     "en": "with Him"
+    },
+    {
+     "tr": "bi-ajalin",
+     "en": "has a term"
+    },
+    {
+     "tr": "musammaa",
+     "en": "appointed"
+    }
+   ],
+   "sources": [
+    "Bukhari 1284"
+   ],
+   "copiedFrom": "Bukhari 1284 (fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "eol.eyes.1": {
+   "arabic": "اللَّهُمَّ اغْفِرْ لأَبِي سَلَمَةَ وَارْفَعْ دَرَجَتَهُ فِي الْمَهْدِيِّينَ وَاخْلُفْهُ فِي عَقِبِهِ فِي الْغَابِرِينَ",
+   "status": "verified",
+   "translit": "Allaahummagh-fir li-Abee Salamah warfa' darajatahu fil-mahdiyyeen wakhlufhu fee 'aqibihi fil-ghaabireen",
+   "meaning": "O Allah, forgive Abu Salama, raise his rank among the guided, and take care of those he left behind.",
+   "sources": [
+    "Muslim 920"
+   ],
+   "copiedFrom": "Muslim 920.01 (fawazahmed0/hadith-api, ara-muslim)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "eol.eyes.2": {
+   "arabic": "وَاغْفِرْ لَنَا وَلَهُ يَا رَبَّ الْعَالَمِينَ وَافْسَحْ لَهُ فِي قَبْرِهِ وَنَوِّرْ لَهُ فِيهِ",
+   "status": "verified",
+   "translit": "Waghfir lanaa wa lahu yaa Rabbal-'aalameen wafsah lahu fee qabrihi wa nawwir lahu feeh",
+   "meaning": "And forgive us and him, O Lord of the worlds; make his grave wide and give him light in it.",
+   "sources": [
+    "Muslim 920"
+   ],
+   "copiedFrom": "Muslim 920.01 (fawazahmed0/hadith-api, ara-muslim)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "eol.eyes": {
+   "parts": [
+    "eol.eyes.1",
+    "eol.eyes.2"
+   ],
+   "status": "verified",
+   "translit": "Allaahummagh-fir li-Abee Salamah warfa' darajatahu fil-mahdiyyeen wakhlufhu fee 'aqibihi fil-ghaabireen. Waghfir lanaa wa lahu yaa Rabbal-'aalameen wafsah lahu fee qabrihi wa nawwir lahu feeh",
+   "meaning": "O Allah, forgive Abu Salama, raise his rank among the guided, and take care of those he left behind. And forgive us and him, O Lord of the worlds; make his grave wide and give him light in it.",
+   "sources": [
+    "Muslim 920"
+   ],
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "hlth.sleep.1": {
+   "arabic": "بِاسْمِكَ رَبِّ وَضَعْتُ جَنْبِي وَبِكَ أَرْفَعُهُ",
+   "status": "verified",
+   "translit": "Bismika Rabbee wada'tu janbee wa bika arfa'uhu",
+   "meaning": "In Your name, my Lord, I lay down my side, and by You I raise it.",
+   "words": [
+    {
+     "tr": "bismika",
+     "en": "in Your name"
+    },
+    {
+     "tr": "Rabbee",
+     "en": "my Lord"
+    },
+    {
+     "tr": "wada'tu",
+     "en": "I have laid down"
+    },
+    {
+     "tr": "janbee",
+     "en": "my side"
+    },
+    {
+     "tr": "wa-bika",
+     "en": "and by You"
+    },
+    {
+     "tr": "arfa'uhu",
+     "en": "I raise it"
+    }
+   ],
+   "sources": [
+    "Bukhari 6320"
+   ],
+   "copiedFrom": "Bukhari 6320 (fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "hlth.sleep.2": {
+   "arabic": "إِنْ أَمْسَكْتَ نَفْسِي فَارْحَمْهَا وَإِنْ أَرْسَلْتَهَا فَاحْفَظْهَا بِمَا تَحْفَظُ بِهِ عِبَادَكَ الصَّالِحِينَ",
+   "status": "verified",
+   "translit": "In amsakta nafsee farhamhaa wa in arsaltahaa fahfazhaa bimaa tahfazu bihi 'ibaadakas-saaliheen",
+   "meaning": "If You keep my soul, have mercy on it; and if You send it back, protect it as You protect Your righteous servants.",
+   "sources": [
+    "Bukhari 6320"
+   ],
+   "copiedFrom": "Bukhari 6320 (fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "hlth.sleep": {
+   "parts": [
+    "hlth.sleep.1",
+    "hlth.sleep.2"
+   ],
+   "status": "verified",
+   "translit": "Bismika Rabbee wada'tu janbee wa bika arfa'uhu. In amsakta nafsee farhamhaa wa in arsaltahaa fahfazhaa bimaa tahfazu bihi 'ibaadakas-saaliheen",
+   "meaning": "In Your name, my Lord, I lay down my side, and by You I raise it. If You keep my soul, have mercy on it; and if You send it back, protect it as You protect Your righteous servants.",
+   "sources": [
+    "Bukhari 6320"
+   ],
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "hlth.sleep.bismika": {
+   "arabic": "بِاسْمِكَ أَمُوتُ وَأَحْيَا",
+   "status": "verified",
+   "translit": "Bismika amootu wa ahyaa",
+   "meaning": "In Your name I die and I live.",
+   "words": [
+    {
+     "tr": "bismika",
+     "en": "in Your name"
+    },
+    {
+     "tr": "amootu",
+     "en": "I die"
+    },
+    {
+     "tr": "wa-ahyaa",
+     "en": "and I live"
+    }
+   ],
+   "sources": [
+    "Bukhari 6312"
+   ],
+   "copiedFrom": "Bukhari 6312 (fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "hlth.sleep.wake": {
+   "arabic": "الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ",
+   "status": "verified",
+   "translit": "Alhamdu lillaahil-ladhee ahyaanaa ba'da maa amaatanaa wa ilayhin-nushoor",
+   "meaning": "Praise be to Allah who gave us life after He made us die, and to Him is the rising.",
+   "words": [
+    {
+     "tr": "al-hamdu",
+     "en": "the praise"
+    },
+    {
+     "tr": "lillaahi",
+     "en": "is for Allah"
+    },
+    {
+     "tr": "alladhee",
+     "en": "who"
+    },
+    {
+     "tr": "ahyaanaa",
+     "en": "gave us life"
+    },
+    {
+     "tr": "ba'da",
+     "en": "after"
+    },
+    {
+     "tr": "maa",
+     "en": "that"
+    },
+    {
+     "tr": "amaatanaa",
+     "en": "He made us die"
+    },
+    {
+     "tr": "wa-ilayhi",
+     "en": "and to Him"
+    },
+    {
+     "tr": "an-nushoor",
+     "en": "is the rising"
+    }
+   ],
+   "sources": [
+    "Bukhari 6312"
+   ],
+   "copiedFrom": "Bukhari 6312 (fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  }
+ }
+}
