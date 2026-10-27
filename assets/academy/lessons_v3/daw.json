@@ -1,0 +1,4446 @@
+{
+ "schema": 3,
+ "course": "daw",
+ "lessons": [
+  {
+   "id": "daw.u1.l1",
+   "title": "Invite to the Oneness First",
+   "minutes": 15,
+   "intro": "Learn what the Prophet ﷺ told Mu’adh to begin with when he sent him to Yemen, how a letter to a king began, and how to start a conversation about Islam with Allah, not with rules.",
+   "steps": [
+    {
+     "id": "start",
+     "kind": "teach",
+     "title": "What is da’wah?",
+     "body": [
+      "Da’wah means invitation. A Muslim who shares Islam is inviting, not forcing, and not winning an argument. The Qur’an tells the Prophet ﷺ to invite to the way of his Lord (16:125).",
+      "Anyone can invite. A parent, a classmate or a neighbour can share what they know and live by. This course is about how to do it well."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 16:125"
+    },
+    {
+     "id": "muadh",
+     "kind": "story",
+     "title": "The order given to Mu’adh",
+     "body": [
+      "When the Prophet ﷺ sent Mu’adh to Yemen, he told him what to invite people to first: to testify that none has the right to be worshipped but Allah and that he is Allah’s Messenger. If they obey in that, then teach them that Allah has made five prayers obligatory every day and night. If they obey in that, then teach them that Allah has made zakat obligatory, taken from their rich and given to their poor (Bukhari 1395).",
+      "The order matters. The first call is to Allah. Laws come after."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 1395"
+    },
+    {
+     "id": "shahada",
+     "kind": "say",
+     "title": "The first thing",
+     "refs": [
+      "shahada.tawhid"
+     ],
+     "note": "This is the first part of the testimony. The call begins here.",
+     "label": "[Established]",
+     "source": "Bukhari 1395"
+    },
+    {
+     "id": "heraclius",
+     "kind": "story",
+     "title": "A letter to a king",
+     "body": [
+      "The Prophet ﷺ also wrote letters to rulers. In the letter to Heraclius, the ruler of the Byzantines, he began with peace on the one who follows the right path, then invited him to Islam. The letter quoted an ayah: come to a word common between us, that we worship none but Allah and associate nothing with Him, and that none of us takes others as lords instead of Allah (3:64; Bukhari 7).",
+      "The letter did not begin with a list of rules. It began with Allah."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 7; Qur’an 3:64"
+    },
+    {
+     "id": "quran",
+     "kind": "teach",
+     "title": "Teaching the Qur’an in Madinah",
+     "body": [
+      "Al-Bara ibn Azib reported that the first people who came to Madinah before the Prophet ﷺ were Mus’ab ibn Umayr and Ibn Umm Maktum, and they were teaching the Qur’an to the people (Bukhari 3925).",
+      "This is a good model. Share the Qur’an, and share what you live by."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 3925",
+     "review": "The older lesson text said Mus’ab was sent with “the shahada”; Bukhari 3925 says he taught the Qur’an. The text now follows the hadith."
+    },
+    {
+     "id": "why",
+     "kind": "why",
+     "title": "Why start with Allah?",
+     "body": [
+      "Rules make sense only if you know who gives them. A person who is asked to follow rules before knowing Allah may feel only a burden. A person who knows Allah’s mercy and oneness is more likely to want to know what He asks.",
+      "This is not a rule from a text. It is a lesson from the way the Prophet ﷺ ordered the invitation."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "begin",
+     "kind": "howto",
+     "title": "Starting a conversation about Islam",
+     "intro": "A simple way to begin.",
+     "steps": [
+      {
+       "text": "Listen first.",
+       "detail": "Ask what they already believe. You may find common ground."
+      },
+      {
+       "text": "Begin with Allah.",
+       "detail": "Talk about His oneness and mercy before any rules."
+      },
+      {
+       "text": "Share one thing, not everything.",
+       "detail": "A single ayah or a single story is enough."
+      },
+      {
+       "text": "Use words they understand.",
+       "detail": "Avoid jargon."
+      },
+      {
+       "text": "Leave the door open.",
+       "detail": "Say they are welcome to ask anything later."
+      }
+     ],
+     "mistakes": [
+      "Starting with a list of dos and don’ts.",
+      "Talking more than listening."
+     ],
+     "label": "[Interpretive]",
+     "source": "Bukhari 1395; Bukhari 7",
+     "review": "Practical guidance worded by the app author. Please confirm."
+    },
+    {
+     "id": "hear",
+     "kind": "listen",
+     "title": "Listen to the common word",
+     "ref": "q:3:64",
+     "repeats": 2,
+     "note": "Listen once, then say it aloud. Notice the word kalimah, a word common between us."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "Put the order in place",
+     "prompt": "Put these in the order of the Prophet’s instruction to Mu’adh.",
+     "explain": "Testimony, prayer, zakat.",
+     "items": [
+      {
+       "text": "The testimony of faith",
+       "why": "First.",
+       "back": "muadh"
+      },
+      {
+       "text": "The five daily prayers",
+       "why": "Second.",
+       "back": "muadh"
+      },
+      {
+       "text": "Zakat",
+       "why": "Third.",
+       "back": "muadh"
+      }
+     ]
+    },
+    {
+     "id": "sources",
+     "kind": "match",
+     "title": "Match the story to its hadith",
+     "prompt": "Tap a story, then where it is told.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Mu’adh sent to Yemen"
+       },
+       "right": {
+        "text": "Bukhari 1395"
+       },
+       "why": "The order of the invitation.",
+       "back": "muadh"
+      },
+      {
+       "left": {
+        "text": "The letter to Heraclius"
+       },
+       "right": {
+        "text": "Bukhari 7"
+       },
+       "why": "The letter and 3:64.",
+       "back": "heraclius"
+      },
+      {
+       "left": {
+        "text": "Mus’ab and Ibn Umm Maktum teaching"
+       },
+       "right": {
+        "text": "Bukhari 3925"
+       },
+       "why": "They were teaching the Qur’an.",
+       "back": "quran"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1",
+       "type": "mcq",
+       "q": "What did the Prophet ﷺ tell Mu’adh to invite people to first?",
+       "options": [
+        {
+         "text": "The five prayers",
+         "reteach": "The prayers came next.",
+         "back": "muadh"
+        },
+        {
+         "text": "Zakat",
+         "reteach": "Zakat came third.",
+         "back": "muadh"
+        },
+        {
+         "text": "The testimony that none is worthy of worship but Allah, and that he is Allah’s Messenger"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 1395."
+      },
+      {
+       "id": "c2",
+       "type": "mcq",
+       "q": "How did the letter to Heraclius begin?",
+       "options": [
+        {
+         "text": "With a list of rules",
+         "reteach": "It began with peace and the invitation.",
+         "back": "heraclius"
+        },
+        {
+         "text": "With a threat",
+         "reteach": "It began with peace.",
+         "back": "heraclius"
+        },
+        {
+         "text": "With peace on the one who follows the right path, then an invitation to Islam"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 7."
+      },
+      {
+       "id": "c3",
+       "type": "mcq",
+       "q": "What does 3:64 call people to?",
+       "options": [
+        {
+         "text": "To leave their land",
+         "reteach": "The ayah calls to a common word.",
+         "back": "heraclius"
+        },
+        {
+         "text": "To stop all trade",
+         "reteach": "The ayah calls to worshipping Allah alone.",
+         "back": "heraclius"
+        },
+        {
+         "text": "A word common between us: to worship none but Allah"
+        }
+       ],
+       "answer": 2,
+       "explain": "3:64."
+      },
+      {
+       "id": "c4",
+       "type": "mcq",
+       "q": "What were Mus’ab ibn Umayr and Ibn Umm Maktum doing in Madinah?",
+       "options": [
+        {
+         "text": "Collecting taxes",
+         "reteach": "They were teaching the Qur’an.",
+         "back": "quran"
+        },
+        {
+         "text": "Teaching the Qur’an to the people"
+        },
+        {
+         "text": "Leading an army",
+         "reteach": "They were teaching the Qur’an.",
+         "back": "quran"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 3925."
+      },
+      {
+       "id": "c5",
+       "type": "scenario",
+       "q": "What does this lesson suggest?",
+       "options": [
+        {
+         "text": "Begin with Allah: His oneness and mercy. Rules can come later."
+        },
+        {
+         "text": "List all the rules clearly",
+         "reteach": "The Prophet’s order to Mu’adh starts with Allah.",
+         "back": "muadh"
+        },
+        {
+         "text": "Tell them to read a book",
+         "reteach": "Share something yourself.",
+         "back": "begin"
+        }
+       ],
+       "answer": 0,
+       "explain": "Begin with Allah.",
+       "scenario": "A classmate asks what Islam is about. You are tempted to explain the dress rules and food rules first."
+      },
+      {
+       "id": "c6",
+       "type": "fill",
+       "q": "Which word means “Allah” in the first part of the testimony?",
+       "options": [
+        {
+         "word": "shahada.tawhid#3",
+         "reteach": "That is ilaaha, “god”. The name we need comes last.",
+         "back": "shahada"
+        },
+        {
+         "word": "shahada.tawhid#5"
+        },
+        {
+         "word": "shahada.tawhid#4",
+         "reteach": "That is illaa, “except”. The name we need comes right after it.",
+         "back": "shahada"
+        }
+       ],
+       "answer": 1,
+       "explain": "The last word is Allah: there is no god except Allah.",
+       "fill": {
+        "ref": "shahada.tawhid",
+        "blank": 5,
+        "show": "arabic"
+       }
+      },
+      {
+       "id": "lb1",
+       "lookback": "aqid.u2.l1#c1"
+      },
+      {
+       "id": "lb2",
+       "lookback": "aqid.u1.l1#c8"
+      }
+     ],
+     "title": "Check yourself"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "canDo": [
+      "Say what da’wah means",
+      "Retell the order of the invitation given to Mu’adh",
+      "Say how the letter to Heraclius began",
+      "Start a conversation with Allah’s oneness and mercy"
+     ],
+     "next": "Next: wisdom is knowing the person."
+    }
+   ]
+  },
+  {
+   "id": "daw.u1.l2",
+   "title": "Wisdom Is Knowing the Person",
+   "minutes": 15,
+   "intro": "Learn what the Qur’an means by wisdom and good instruction, how the Prophet ﷺ answered different people, and how to prepare for a conversation by thinking about the person.",
+   "steps": [
+    {
+     "id": "ayah",
+     "kind": "say",
+     "title": "The ayah of invitation",
+     "refs": [
+      "q:16:125"
+     ],
+     "note": "Read it one word at a time. The ayah gives three ways to invite: with wisdom, with good instruction, and by arguing in the best way.",
+     "words": {
+      "q:16:125": [
+       {
+        "tr": "ud'u",
+        "en": "invite"
+       },
+       {
+        "tr": "ilaa",
+        "en": "to"
+       },
+       {
+        "tr": "sabeeli",
+        "en": "the way"
+       },
+       {
+        "tr": "rabbika",
+        "en": "of your Lord"
+       },
+       {
+        "tr": "bil-hikmati",
+        "en": "with wisdom"
+       },
+       {
+        "tr": "wal-maw'izati",
+        "en": "and the instruction"
+       },
+       {
+        "tr": "al-hasanati",
+        "en": "good"
+       },
+       {
+        "tr": "wa-jaadilhum",
+        "en": "and argue with them"
+       },
+       {
+        "tr": "bi-llatee",
+        "en": "in the way that"
+       },
+       {
+        "tr": "hiya",
+        "en": "is"
+       },
+       {
+        "tr": "ahsan",
+        "en": "best"
+       },
+       {
+        "tr": "inna",
+        "en": "indeed"
+       },
+       {
+        "tr": "rabbaka",
+        "en": "your Lord"
+       },
+       {
+        "tr": "huwa",
+        "en": "He"
+       },
+       {
+        "tr": "a'lamu",
+        "en": "knows best"
+       },
+       {
+        "tr": "biman",
+        "en": "who"
+       },
+       {
+        "tr": "dalla",
+        "en": "has strayed"
+       },
+       {
+        "tr": "'an",
+        "en": "from"
+       },
+       {
+        "tr": "sabeelihi",
+        "en": "His way"
+       },
+       {
+        "tr": "wa-huwa",
+        "en": "and He"
+       },
+       {
+        "tr": "a'lamu",
+        "en": "knows best"
+       },
+       {
+        "tr": "bil-muhtadeen",
+        "en": "who are guided"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 16:125"
+    },
+    {
+     "id": "three",
+     "kind": "teach",
+     "title": "Three doors",
+     "body": [
+      "The ayah names three ways to invite. Wisdom (hikmah) is knowing what to say, how and when. Good instruction (mau’izah hasanah) is advice given with care. Argument in the best way (jidal) is for when there is a disagreement, and it must be done in the best manner.",
+      "The end of the ayah says that your Lord knows best who has strayed and who is guided. You are not the judge."
+     ],
+     "label": "[Interpretive]",
+     "source": "Qur’an 16:125",
+     "review": "The explanation of the three terms is a common summary. Please confirm the wording."
+    },
+    {
+     "id": "answers",
+     "kind": "teach",
+     "title": "Different answers to different people",
+     "body": [
+      "In one report, the Prophet ﷺ was asked which deed is the best, and he answered belief in Allah and His Messenger, then jihad, then an accepted Hajj (Bukhari 26). In another, Abdullah ibn Mas’ud asked which deed is dearest to Allah, and he answered prayer at its time, then kindness to parents, then jihad (Bukhari 527).",
+      "Scholars explain such differences as the Prophet ﷺ answering what suited the person or the time. This is an explanation, not stated in the hadith."
+     ],
+     "label": "[Interpretive]",
+     "source": "Bukhari 26; Bukhari 527",
+     "review": "The reports are verbatim from the corpus. The explanation that the answers suit the person or time is a common scholarly reading but not in the hadith text; please confirm."
+    },
+    {
+     "id": "bedouin",
+     "kind": "story",
+     "title": "The man in the mosque",
+     "body": [
+      "A Bedouin stood up and began to urinate in the mosque. The people caught him, but the Prophet ﷺ told them to leave him, and had a bucket of water poured over the place. Then he said: you were sent to make things easy, not difficult (Bukhari 220).",
+      "The man did not yet know the manners of the mosque. He was taught gently."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 220"
+    },
+    {
+     "id": "person",
+     "kind": "why",
+     "title": "Know the person",
+     "body": [
+      "Wisdom begins with the person in front of you. A student, an older neighbour and a worried parent each carry something different. Ask what they are carrying today.",
+      "The message is one. The door is tailored."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "prepare",
+     "kind": "howto",
+     "title": "Before a conversation",
+     "intro": "Preparing takes a few minutes.",
+     "steps": [
+      {
+       "text": "Spend two minutes thinking about the person.",
+       "detail": "What are they going through? What do they care about?"
+      },
+      {
+       "text": "Pick one thing to share.",
+       "detail": "Choose something that fits them."
+      },
+      {
+       "text": "Choose your words.",
+       "detail": "Gentle, clear and short."
+      },
+      {
+       "text": "Make a short dua.",
+       "detail": "Ask Allah to put the right words in your mouth."
+      },
+      {
+       "text": "Listen more than you speak.",
+       "detail": "Questions are better than speeches."
+      }
+     ],
+     "mistakes": [
+      "Using the same speech for everyone.",
+      "Arguing to win."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "hear",
+     "kind": "listen",
+     "title": "Listen to the ayah of invitation",
+     "ref": "q:16:125",
+     "repeats": 2,
+     "note": "Listen to the ayah, then say it aloud in the pause."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "Put the steps in order",
+     "prompt": "Put these in the order of preparing for a conversation.",
+     "explain": "Person, one thing, gentle words, dua.",
+     "items": [
+      {
+       "text": "Think about the person",
+       "why": "Two minutes.",
+       "back": "prepare"
+      },
+      {
+       "text": "Choose one thing to share",
+       "why": "Not everything.",
+       "back": "prepare"
+      },
+      {
+       "text": "Choose gentle words",
+       "why": "Short and clear.",
+       "back": "prepare"
+      },
+      {
+       "text": "Ask Allah for help",
+       "why": "A short dua.",
+       "back": "prepare"
+      }
+     ]
+    },
+    {
+     "id": "terms",
+     "kind": "match",
+     "title": "Match the word",
+     "prompt": "Tap an Arabic word, then its meaning.",
+     "pairs": [
+      {
+       "left": {
+        "word": "q:16:125#4"
+       },
+       "right": {
+        "text": "with wisdom"
+       },
+       "why": "Bil-hikmah.",
+       "back": "ayah"
+      },
+      {
+       "left": {
+        "word": "q:16:125#5"
+       },
+       "right": {
+        "text": "and the instruction"
+       },
+       "why": "Wal-maw’izah.",
+       "back": "ayah"
+      },
+      {
+       "left": {
+        "word": "q:16:125#10"
+       },
+       "right": {
+        "text": "best"
+       },
+       "why": "Ahsan.",
+       "back": "ayah"
+      },
+      {
+       "left": {
+        "word": "q:16:125#7"
+       },
+       "right": {
+        "text": "and argue with them"
+       },
+       "why": "Wa-jaadilhum.",
+       "back": "ayah"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1",
+       "type": "mcq",
+       "q": "What are the three ways of inviting in 16:125?",
+       "options": [
+        {
+         "text": "Force, fear and reward",
+         "reteach": "The ayah names wisdom, good instruction and the best argument.",
+         "back": "three"
+        },
+        {
+         "text": "Silence, gifts and travel",
+         "reteach": "The ayah names wisdom, good instruction and the best argument.",
+         "back": "three"
+        },
+        {
+         "text": "Wisdom, good instruction, and arguing in the best way"
+        }
+       ],
+       "answer": 2,
+       "explain": "16:125."
+      },
+      {
+       "id": "c2",
+       "type": "mcq",
+       "q": "What does the end of the ayah teach?",
+       "options": [
+        {
+         "text": "You must make everyone guided",
+         "reteach": "It is for Allah to guide.",
+         "back": "three"
+        },
+        {
+         "text": "Arguing is always the best",
+         "reteach": "It teaches that Allah knows best.",
+         "back": "three"
+        },
+        {
+         "text": "Allah knows best who has strayed and who is guided"
+        }
+       ],
+       "answer": 2,
+       "explain": "You are not the judge."
+      },
+      {
+       "id": "c3",
+       "type": "mcq",
+       "q": "What did the Prophet ﷺ do when the Bedouin urinated in the mosque?",
+       "options": [
+        {
+         "text": "He had the man beaten",
+         "reteach": "He told them to leave him.",
+         "back": "bedouin"
+        },
+        {
+         "text": "He sent him away",
+         "reteach": "He taught him gently.",
+         "back": "bedouin"
+        },
+        {
+         "text": "He told the people to leave him, then had water poured over the place"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 220."
+      },
+      {
+       "id": "c4",
+       "type": "mcq",
+       "q": "What did the Prophet ﷺ say about being sent?",
+       "options": [
+        {
+         "text": "To make things easy, not difficult"
+        },
+        {
+         "text": "To be strict",
+         "reteach": "He said to make things easy.",
+         "back": "bedouin"
+        },
+        {
+         "text": "To be silent",
+         "reteach": "He said to make things easy.",
+         "back": "bedouin"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 220."
+      },
+      {
+       "id": "c5",
+       "type": "mcq",
+       "q": "How do scholars explain different answers to the same kind of question?",
+       "options": [
+        {
+         "text": "The Prophet ﷺ answered what suited the person or the time"
+        },
+        {
+         "text": "The hadith is wrong",
+         "reteach": "Scholars explain it by the person or time.",
+         "back": "answers"
+        },
+        {
+         "text": "He did not know",
+         "reteach": "Scholars explain it by the person or time.",
+         "back": "answers"
+        }
+       ],
+       "answer": 0,
+       "explain": "This is an explanation, not in the hadith itself."
+      },
+      {
+       "id": "c6",
+       "type": "fill",
+       "q": "Which word means “with wisdom” in 16:125?",
+       "options": [
+        {
+         "word": "q:16:125#5",
+         "reteach": "That is wal-maw’izah, “and the instruction”.",
+         "back": "ayah"
+        },
+        {
+         "word": "q:16:125#10",
+         "reteach": "That is ahsan, “best”.",
+         "back": "ayah"
+        },
+        {
+         "word": "q:16:125#4"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bil-hikmah.",
+       "fill": {
+        "ref": "q:16:125",
+        "blank": 4,
+        "show": "arabic"
+       }
+      },
+      {
+       "id": "c7",
+       "type": "scenario",
+       "q": "How would you prepare?",
+       "options": [
+        {
+         "text": "Give the same speech to both",
+         "reteach": "Wisdom is knowing the person.",
+         "back": "person"
+        },
+        {
+         "text": "Say nothing to either",
+         "reteach": "Look for the right moment and words.",
+         "back": "prepare"
+        },
+        {
+         "text": "Think about each person and choose different words for each."
+        }
+       ],
+       "answer": 2,
+       "explain": "Tailor the door.",
+       "scenario": "You are about to talk to an older neighbour who is grieving and a teenager who is curious."
+      },
+      {
+       "id": "lb1",
+       "lookback": "daw.u1.l1#c1"
+      }
+     ],
+     "title": "Check yourself"
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Read Surah An-Nahl",
+     "body": "Open Surah An-Nahl and find ayah 125. Read it with its meaning.",
+     "route": "/quran/16",
+     "button": "Open Surah 16"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "canDo": [
+      "Name the three ways of inviting in 16:125",
+      "Explain why you are not the judge",
+      "Tell the story of the Bedouin in the mosque",
+      "Prepare for a conversation by thinking about the person"
+     ],
+     "next": "Next: the standard of Ta’if."
+    }
+   ]
+  },
+  {
+   "id": "daw.u1.l3",
+   "title": "The Ta’if Standard",
+   "minutes": 16,
+   "intro": "Learn the hadith in which the Prophet ﷺ was offered revenge on those who rejected him and chose hope for their children instead, and what this means when someone mocks your faith.",
+   "steps": [
+    {
+     "id": "hadith",
+     "kind": "story",
+     "title": "The hardest day",
+     "body": [
+      "Aisha asked the Prophet ﷺ: have you faced a day harder than the day of Uhud? He said: your people troubled me a lot, and the worst was the day of Aqaba, when I presented myself to Ibn Abd Yalil, and he did not respond.",
+      "The Prophet ﷺ left overwhelmed with sorrow and did not recover until he was at Qarn ath-Tha’alib. There he lifted his head and saw a cloud giving him shade, and Jibril was in it. Jibril said that Allah had heard what the people said to him and sent the Angel of the Mountains to do whatever he wished.",
+      "The Angel of the Mountains greeted him and said: order what you wish. If you like, I will let the two mountains fall on them. The Prophet ﷺ said: no, I hope that Allah will bring from their descendants those who worship Allah alone, associating nothing with Him (Bukhari 3231)."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 3231"
+    },
+    {
+     "id": "details",
+     "kind": "teach",
+     "title": "What the hadith says and what it does not",
+     "body": [
+      "Many biographies connect the day of Aqaba in this hadith with the Prophet’s visit to Ta’if. The hadith does not use the name Ta’if, and it does not mention stones or blood. Those details come from the biographers (the seerah), and this lesson does not repeat them as part of the hadith.",
+      "What the hadith does tell us is clear and enough: he was refused, he was offered revenge, and he said no."
+     ],
+     "label": "[Interpretive]",
+     "source": "Bukhari 3231",
+     "review": "The link of the day of Aqaba to Ta’if and the stoning story are seerah reports that this app has not verified against a hadith collection. The lesson says so. Please confirm the wording."
+    },
+    {
+     "id": "daws",
+     "kind": "say",
+     "title": "A prayer for those who refuse",
+     "refs": [
+      "daw.dua.daws"
+     ],
+     "note": "When Tufayl and his companions asked the Prophet ﷺ to pray against the tribe of Daus, he prayed for their guidance instead.",
+     "label": "[Established]",
+     "source": "Bukhari 2937"
+    },
+    {
+     "id": "pattern",
+     "kind": "teach",
+     "title": "The pattern",
+     "body": [
+      "In both reports, the Prophet ﷺ had the chance to ask for harm to his opponents, and chose hope for them instead. The Qur’an teaches the same: the good deed and the bad are not equal, so repel evil with what is better, and the one who was an enemy may become a close friend (41:34).",
+      "It also says that it was by mercy from Allah that he was gentle with them, and that if he had been harsh, they would have left (3:159)."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 41:34; Qur’an 3:159"
+    },
+    {
+     "id": "repel",
+     "kind": "say",
+     "title": "Repel with what is better",
+     "refs": [
+      "q:41:34"
+     ],
+     "note": "Read slowly. The ayah is a plan: do what is better, and see the change.",
+     "label": "[Established]",
+     "source": "Qur’an 41:34"
+    },
+    {
+     "id": "mock",
+     "kind": "howto",
+     "title": "When someone mocks your faith",
+     "intro": "A few steps for a moment that stings.",
+     "steps": [
+      {
+       "text": "Take a breath before you answer.",
+       "detail": "You do not owe an instant reply."
+      },
+      {
+       "text": "Do not mock back.",
+       "detail": "It makes the other person defend, not listen."
+      },
+      {
+       "text": "Answer calmly with one true sentence.",
+       "detail": "For example: it matters to me, and I am happy to explain if you want."
+      },
+      {
+       "text": "Make a dua for them.",
+       "detail": "The Prophet ﷺ prayed for guidance for Daus."
+      },
+      {
+       "text": "Walk away if it turns into abuse.",
+       "detail": "You do not have to stay in a place that harms you."
+      }
+     ],
+     "mistakes": [
+      "Replying with an insult.",
+      "Staying in a conversation that has turned abusive."
+     ],
+     "label": "[Interpretive]",
+     "source": "Qur’an 41:34; Bukhari 2937",
+     "review": "Practical guidance worded by the app author. Please confirm."
+    },
+    {
+     "id": "hear",
+     "kind": "listen",
+     "title": "Listen to the ayah",
+     "ref": "q:41:34",
+     "repeats": 2,
+     "note": "Listen once, then say it aloud. The ayah is a plan for meeting evil with good."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "Put the hadith in order",
+     "prompt": "Put these in the order of Bukhari 3231.",
+     "explain": "Refusal, sorrow and Jibril, the offer, the answer of hope.",
+     "items": [
+      {
+       "text": "He presents himself to Ibn Abd Yalil, who does not respond",
+       "why": "The day of Aqaba.",
+       "back": "hadith"
+      },
+      {
+       "text": "He leaves in sorrow and sees a cloud with Jibril",
+       "why": "At Qarn ath-Tha’alib.",
+       "back": "hadith"
+      },
+      {
+       "text": "The Angel of the Mountains offers to let the mountains fall",
+       "why": "The offer.",
+       "back": "hadith"
+      },
+      {
+       "text": "The Prophet ﷺ says he hopes for their descendants",
+       "why": "The answer.",
+       "back": "hadith"
+      }
+     ]
+    },
+    {
+     "id": "sources",
+     "kind": "match",
+     "title": "Match the lesson to its source",
+     "prompt": "Tap a teaching, then where it comes from.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Offered the mountains, he declines"
+       },
+       "right": {
+        "text": "Bukhari 3231"
+       },
+       "why": "The hadith.",
+       "back": "hadith"
+      },
+      {
+       "left": {
+        "text": "Prays for Daus to be guided"
+       },
+       "right": {
+        "text": "Bukhari 2937"
+       },
+       "why": "The dua.",
+       "back": "daws"
+      },
+      {
+       "left": {
+        "text": "Repel evil with what is better"
+       },
+       "right": {
+        "text": "Qur’an 41:34"
+       },
+       "why": "The ayah.",
+       "back": "repel"
+      },
+      {
+       "left": {
+        "text": "Gentle by mercy from Allah"
+       },
+       "right": {
+        "text": "Qur’an 3:159"
+       },
+       "why": "The ayah.",
+       "back": "pattern"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1",
+       "type": "mcq",
+       "q": "What did the Angel of the Mountains offer?",
+       "options": [
+        {
+         "text": "To let the two mountains fall on those who rejected him"
+        },
+        {
+         "text": "To give him wealth",
+         "reteach": "He offered to let the mountains fall.",
+         "back": "hadith"
+        },
+        {
+         "text": "To heal him",
+         "reteach": "He offered to let the mountains fall.",
+         "back": "hadith"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 3231."
+      },
+      {
+       "id": "c2",
+       "type": "mcq",
+       "q": "What did the Prophet ﷺ say?",
+       "options": [
+        {
+         "text": "Yes, destroy them",
+         "reteach": "He said no.",
+         "back": "hadith"
+        },
+        {
+         "text": "Wait until tomorrow",
+         "reteach": "He said no and gave hope for their descendants.",
+         "back": "hadith"
+        },
+        {
+         "text": "No, he hoped Allah would bring from them those who worship Him alone"
+        }
+       ],
+       "answer": 2,
+       "explain": "He hoped for their descendants."
+      },
+      {
+       "id": "c3",
+       "type": "mcq",
+       "q": "Does the hadith in Bukhari 3231 mention stones or the name Ta’if?",
+       "options": [
+        {
+         "text": "Yes, it describes the stoning",
+         "reteach": "The hadith does not mention it.",
+         "back": "details"
+        },
+        {
+         "text": "No. Those details come from the biographers"
+        },
+        {
+         "text": "Yes, it names Ta’if",
+         "reteach": "It does not use the name.",
+         "back": "details"
+        }
+       ],
+       "answer": 1,
+       "explain": "Be careful to separate the hadith from the biography."
+      },
+      {
+       "id": "c4",
+       "type": "mcq",
+       "q": "What did the Prophet ﷺ pray when asked to pray against Daus?",
+       "options": [
+        {
+         "text": "O Allah, destroy Daus",
+         "reteach": "He prayed for their guidance.",
+         "back": "daws"
+        },
+        {
+         "text": "O Allah, forgive Daus only",
+         "reteach": "He prayed for their guidance.",
+         "back": "daws"
+        },
+        {
+         "text": "O Allah, guide Daus and bring them"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 2937."
+      },
+      {
+       "id": "c5",
+       "type": "mcq",
+       "q": "What does 41:34 say to do?",
+       "options": [
+        {
+         "text": "Repay evil with evil",
+         "reteach": "It says repel with what is better.",
+         "back": "repel"
+        },
+        {
+         "text": "Ignore everyone",
+         "reteach": "It says repel with what is better.",
+         "back": "repel"
+        },
+        {
+         "text": "Repel evil with what is better"
+        }
+       ],
+       "answer": 2,
+       "explain": "41:34."
+      },
+      {
+       "id": "c6",
+       "type": "scenario",
+       "q": "What response fits the lesson?",
+       "options": [
+        {
+         "text": "Mock them back",
+         "reteach": "The lesson says not to mock back.",
+         "back": "mock"
+        },
+        {
+         "text": "Stay calm, answer with one kind sentence, and make a dua for them."
+        },
+        {
+         "text": "Wish harm on them",
+         "reteach": "The Prophet ﷺ prayed for guidance for those who refused.",
+         "back": "daws"
+        }
+       ],
+       "answer": 1,
+       "explain": "Mercy first.",
+       "scenario": "Someone in your class mocks your hijab or prayer in front of others."
+      },
+      {
+       "id": "c7",
+       "type": "fill",
+       "q": "Which word means “better” (best) in 41:34?",
+       "options": [
+        {
+         "word": "q:41:34#2",
+         "reteach": "That is al-hasanah, “the good deed”.",
+         "back": "repel"
+        },
+        {
+         "word": "q:41:34#8"
+        },
+        {
+         "word": "q:41:34#13",
+         "reteach": "That is ‘adawah, “enmity”.",
+         "back": "repel"
+        }
+       ],
+       "answer": 1,
+       "explain": "Ahsan.",
+       "fill": {
+        "ref": "q:41:34",
+        "blank": 8,
+        "show": "arabic"
+       }
+      },
+      {
+       "id": "lb1",
+       "lookback": "daw.u1.l2#c2"
+      }
+     ],
+     "title": "Check yourself"
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Read Surah Fussilat",
+     "body": "Open Surah Fussilat and find ayah 34. Read it with its meaning.",
+     "route": "/quran/41",
+     "button": "Open Surah 41"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "canDo": [
+      "Retell Bukhari 3231 and what the Prophet ﷺ chose",
+      "Say what the hadith does and does not mention",
+      "Say the dua for those who refuse",
+      "Respond to mockery with calm and a dua"
+     ],
+     "next": "Next: your life is the loudest sermon."
+    }
+   ]
+  },
+  {
+   "id": "daw.u1.l4",
+   "title": "Your Life Is the Loudest Sermon",
+   "minutes": 15,
+   "intro": "Learn how the people around the Prophet ﷺ knew him as truthful before they heard his message, and how your own character opens or closes the door.",
+   "steps": [
+    {
+     "id": "safa",
+     "kind": "story",
+     "title": "Standing on Safa",
+     "body": [
+      "When the ayah to warn his closest relatives was revealed, the Prophet ﷺ climbed Safa and called the tribes of Quraysh. He asked: if I told you that there was a cavalry in the valley about to attack, would you believe me? They said: yes, we have never found you telling anything but the truth. Then he said that he was a warner of a severe punishment (Bukhari 4770).",
+      "Their trust in his honesty came before they heard his message."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 4770"
+    },
+    {
+     "id": "khadija",
+     "kind": "story",
+     "title": "Khadija’s words",
+     "body": [
+      "After the first revelation, the Prophet ﷺ came home afraid. Khadija told him: never, by Allah, Allah will never disgrace you. You keep good relations with your kin, help the poor and destitute, serve your guests generously and help those hit by calamity (Bukhari 3).",
+      "She named his character as the reason for her trust."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 3"
+    },
+    {
+     "id": "heraclius",
+     "kind": "teach",
+     "title": "Even an opponent noticed",
+     "body": [
+      "Heraclius asked Abu Sufyan whether the Prophet ﷺ had been accused of lying before his claim. Abu Sufyan said no. Heraclius said: I wondered how a person who does not lie about people could lie about Allah (Bukhari 7).",
+      "Biographers also report that his people called him al-Amin, the trustworthy. This app has not checked that title against a hadith collection, so it is not used as a proof here."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 7",
+     "review": "The al-Amin title is a seerah report that has not been verified against a hadith collection. The lesson says so. Please confirm."
+    },
+    {
+     "id": "naseeha",
+     "kind": "say",
+     "title": "The religion is sincere care",
+     "refs": [
+      "daw.nasiha"
+     ],
+     "note": "The Prophet ﷺ said this to his Companions, who asked: to whom? He said: to Allah, to His Book, to His Messenger, and to the leaders of the Muslims and their common people.",
+     "label": "[Established]",
+     "source": "Muslim 55"
+    },
+    {
+     "id": "say_do",
+     "kind": "teach",
+     "title": "Say what you do",
+     "body": [
+      "The Qur’an warns believers: why do you say what you do not do? It is greatly hateful to Allah that you say what you do not do (61:2-3).",
+      "It does not mean you must be perfect before you speak. It means that what you say and what you do should match as far as you can."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 61:2-3",
+     "review": "The second sentence is the app author’s explanation. Please confirm."
+    },
+    {
+     "id": "convey",
+     "kind": "say",
+     "title": "Convey from me",
+     "refs": [
+      "daw.convey"
+     ],
+     "note": "The Prophet ﷺ told people to convey from him, even one ayah. You do not have to know everything.",
+     "label": "[Established]",
+     "source": "Bukhari 3461"
+    },
+    {
+     "id": "reward",
+     "kind": "teach",
+     "title": "Calling to good",
+     "body": [
+      "The Prophet ﷺ said that whoever calls to guidance will have a reward like those who follow it, without their rewards being reduced at all (Muslim 2674).",
+      "A hadith like this should make us humble and careful, not proud. We invite because Allah loves it, not to be seen."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 2674"
+    },
+    {
+     "id": "audit",
+     "kind": "howto",
+     "title": "A character check",
+     "intro": "Your life is the first thing people read.",
+     "steps": [
+      {
+       "text": "Pick one relationship.",
+       "detail": "A friend, a colleague or a neighbour."
+      },
+      {
+       "text": "Ask: does my behaviour open or close the door?",
+       "detail": "Be honest."
+      },
+      {
+       "text": "Pick one habit to change.",
+       "detail": "For example punctuality, a promise, or the way you speak when angry."
+      },
+      {
+       "text": "Ask for forgiveness if needed.",
+       "detail": "A small apology often opens a closed door."
+      },
+      {
+       "text": "Ask Allah for help.",
+       "detail": "Character is a gift to ask for."
+      }
+     ],
+     "mistakes": [
+      "Trying to fix every habit at once.",
+      "Using your character as a reason to stay quiet."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "Put the steps in order",
+     "prompt": "Put these in the order of the character check.",
+     "explain": "Relationship, honest question, one habit, dua.",
+     "items": [
+      {
+       "text": "Pick one relationship",
+       "why": "Start small.",
+       "back": "audit"
+      },
+      {
+       "text": "Ask if your behaviour opens or closes the door",
+       "why": "Be honest.",
+       "back": "audit"
+      },
+      {
+       "text": "Pick one habit to change",
+       "why": "Only one.",
+       "back": "audit"
+      },
+      {
+       "text": "Ask for help from Allah",
+       "why": "And keep going.",
+       "back": "audit"
+      }
+     ]
+    },
+    {
+     "id": "sources",
+     "kind": "match",
+     "title": "Match the person to their words",
+     "prompt": "Tap a person, then what they said.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Quraysh on Safa"
+       },
+       "right": {
+        "text": "We have never found you telling anything but the truth"
+       },
+       "why": "Bukhari 4770.",
+       "back": "safa"
+      },
+      {
+       "left": {
+        "text": "Khadija"
+       },
+       "right": {
+        "text": "Allah will never disgrace you"
+       },
+       "why": "Bukhari 3.",
+       "back": "khadija"
+      },
+      {
+       "left": {
+        "text": "Heraclius"
+       },
+       "right": {
+        "text": "He does not lie about people, so how could he lie about Allah"
+       },
+       "why": "Bukhari 7.",
+       "back": "heraclius"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1",
+       "type": "mcq",
+       "q": "What did the people on Safa say about the Prophet ﷺ?",
+       "options": [
+        {
+         "text": "They did not know him",
+         "reteach": "They said they had never found him telling anything but the truth.",
+         "back": "safa"
+        },
+        {
+         "text": "They said he was unreliable",
+         "reteach": "They said they had never found him telling anything but the truth.",
+         "back": "safa"
+        },
+        {
+         "text": "They had never found him telling anything but the truth"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 4770."
+      },
+      {
+       "id": "c2",
+       "type": "mcq",
+       "q": "What did Khadija say about the Prophet’s character?",
+       "options": [
+        {
+         "text": "He was wealthy",
+         "reteach": "She named his character.",
+         "back": "khadija"
+        },
+        {
+         "text": "He keeps ties, helps the poor, serves guests and helps those in calamity"
+        },
+        {
+         "text": "He was strict",
+         "reteach": "She named his kindness.",
+         "back": "khadija"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 3."
+      },
+      {
+       "id": "c3",
+       "type": "mcq",
+       "q": "What is the status of the title al-Amin in this app?",
+       "options": [
+        {
+         "text": "It is a seerah report not checked against a hadith collection, so it is not used as a proof"
+        },
+        {
+         "text": "It is a verified hadith",
+         "reteach": "The lesson says it has not been checked.",
+         "back": "heraclius"
+        },
+        {
+         "text": "It is a lie",
+         "reteach": "We do not say that; we only say it is unchecked here.",
+         "back": "heraclius"
+        }
+       ],
+       "answer": 0,
+       "explain": "Be honest about what is verified."
+      },
+      {
+       "id": "c4",
+       "type": "mcq",
+       "q": "What does 61:2-3 warn against?",
+       "options": [
+        {
+         "text": "Speaking in public",
+         "reteach": "It warns against saying what you do not do.",
+         "back": "say_do"
+        },
+        {
+         "text": "Saying what you do not do"
+        },
+        {
+         "text": "Being quiet",
+         "reteach": "It warns against saying what you do not do.",
+         "back": "say_do"
+        }
+       ],
+       "answer": 1,
+       "explain": "Qur’an 61:2-3."
+      },
+      {
+       "id": "c5",
+       "type": "mcq",
+       "q": "What did the Prophet ﷺ say naseeha (sincere care) is owed to?",
+       "options": [
+        {
+         "text": "Only to family",
+         "reteach": "He named five.",
+         "back": "naseeha"
+        },
+        {
+         "text": "To Allah, His Book, His Messenger, the leaders and the common people"
+        },
+        {
+         "text": "Only to scholars",
+         "reteach": "He named five.",
+         "back": "naseeha"
+        }
+       ],
+       "answer": 1,
+       "explain": "Muslim 55."
+      },
+      {
+       "id": "c6",
+       "type": "scenario",
+       "q": "What does this lesson suggest?",
+       "options": [
+        {
+         "text": "Work on your reliability. Your character speaks before your words."
+        },
+        {
+         "text": "Ignore it, since only words matter",
+         "reteach": "Character opens or closes the door.",
+         "back": "audit"
+        },
+        {
+         "text": "Stop talking about Islam forever",
+         "reteach": "Work on the habit and keep inviting gently.",
+         "back": "audit"
+        }
+       ],
+       "answer": 0,
+       "explain": "Let character open the door.",
+       "scenario": "A colleague who is curious about Islam has seen you arrive late and make excuses often."
+      },
+      {
+       "id": "lb1",
+       "lookback": "daw.u1.l3#c1"
+      },
+      {
+       "id": "lb2",
+       "lookback": "daw.u1.l1#c4"
+      }
+     ],
+     "title": "Check yourself"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "canDo": [
+      "Tell what the people of Quraysh said on Safa",
+      "Tell what Khadija said",
+      "Say why character matters in da’wah",
+      "Name one habit to work on this week"
+     ],
+     "next": "Next: why do bad things happen?"
+    }
+   ]
+  },
+  {
+   "id": "daw.u2.l1",
+   "title": "Why Do Bad Things Happen?",
+   "minutes": 16,
+   "intro": "Learn what the Qur’an and hadith say about hardship, and how to answer, and sit with, a person who asks this question in pain.",
+   "steps": [
+    {
+     "id": "start",
+     "kind": "teach",
+     "title": "The question behind the question",
+     "body": [
+      "When someone asks why bad things happen, they are often not asking for a lecture. They may be grieving, scared or angry. The first thing to offer is presence and care.",
+      "The Qur’an does give answers, and they are worth knowing. Offer them gently and in small pieces."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "test",
+     "kind": "say",
+     "title": "Life as a test",
+     "refs": [
+      "q:67:2"
+     ],
+     "note": "The ayah says Allah created death and life to test which of you is best in deed. Notice that it ends with two names: the Exalted in Might and the Forgiving.",
+     "words": {
+      "q:67:2": [
+       {
+        "tr": "alladhee",
+        "en": "He who"
+       },
+       {
+        "tr": "khalaqa",
+        "en": "created"
+       },
+       {
+        "tr": "al-mawta",
+        "en": "death"
+       },
+       {
+        "tr": "wal-hayaata",
+        "en": "and life"
+       },
+       {
+        "tr": "li-yabluwakum",
+        "en": "to test you"
+       },
+       {
+        "tr": "ayyukum",
+        "en": "which of you"
+       },
+       {
+        "tr": "ahsanu",
+        "en": "is best"
+       },
+       {
+        "tr": "'amalan",
+        "en": "in deed"
+       },
+       {
+        "tr": "wa-huwa",
+        "en": "and He"
+       },
+       {
+        "tr": "al-'azeezu",
+        "en": "the Exalted in Might"
+       },
+       {
+        "tr": "al-ghafoor",
+        "en": "the Forgiving"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 67:2"
+    },
+    {
+     "id": "hardship",
+     "kind": "teach",
+     "title": "What the Qur’an says about hardship",
+     "body": [
+      "Allah says that He will test people with fear, hunger, loss of wealth, lives and fruits, and gives good news to the patient, who say when disaster strikes: we belong to Allah and to Him we return (2:155-156).",
+      "It also says that perhaps you dislike something and it is good for you, and perhaps you love something and it is bad for you, and that Allah knows while you do not (2:216).",
+      "Allah does not burden a soul beyond its capacity (2:286), and with hardship there is ease (94:5-6)."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 2:155-156; Qur’an 2:216; Qur’an 2:286; Qur’an 94:5-6"
+    },
+    {
+     "id": "ease",
+     "kind": "say",
+     "title": "With hardship is ease",
+     "refs": [
+      "q:94:5",
+      "q:94:6"
+     ],
+     "note": "Say both ayat. They repeat the same promise. Notice the word with: the ease comes with the hardship, not only after it.",
+     "words": {
+      "q:94:5": [
+       {
+        "tr": "fa-inna",
+        "en": "so indeed"
+       },
+       {
+        "tr": "ma'a",
+        "en": "with"
+       },
+       {
+        "tr": "al-'usri",
+        "en": "the hardship"
+       },
+       {
+        "tr": "yusran",
+        "en": "ease"
+       }
+      ],
+      "q:94:6": [
+       {
+        "tr": "inna",
+        "en": "indeed"
+       },
+       {
+        "tr": "ma'a",
+        "en": "with"
+       },
+       {
+        "tr": "al-'usri",
+        "en": "the hardship"
+       },
+       {
+        "tr": "yusran",
+        "en": "ease"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 94:5-6"
+    },
+    {
+     "id": "expiate",
+     "kind": "teach",
+     "title": "What the hadith adds",
+     "body": [
+      "The Prophet ﷺ said that no fatigue, illness, sorrow, sadness, harm or distress befalls a Muslim, even a thorn’s prick, but that Allah expiates some of his sins for it (Bukhari 5641).",
+      "He also said how wonderful the affair of the believer is: all of it is good. If good times reach him he is thankful, and that is good for him. If hardship reaches him he is patient, and that is good for him (Muslim 2999)."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 5641; Muslim 2999"
+    },
+    {
+     "id": "believer",
+     "kind": "say",
+     "title": "The affair of the believer",
+     "refs": [
+      "daw.believer"
+     ],
+     "note": "Say it in parts. It gives two responses to two kinds of days: thanks and patience.",
+     "label": "[Established]",
+     "source": "Muslim 2999"
+    },
+    {
+     "id": "limits",
+     "kind": "teach",
+     "title": "What we do not know",
+     "body": [
+      "We can say that Allah is wise and just, and that He is merciful. We cannot always say why a particular thing happened to a particular person. It is better to admit this than to guess.",
+      "It is also wrong to tell a grieving person that their hardship was a punishment. We do not know that."
+     ],
+     "label": "[Interpretive]",
+     "review": "Guidance worded by the app author on how to speak about hardship. Please confirm that it is consistent with the Sunni teaching."
+    },
+    {
+     "id": "sit",
+     "kind": "howto",
+     "title": "Sitting with someone in pain",
+     "intro": "Care is the first answer.",
+     "steps": [
+      {
+       "text": "Listen first.",
+       "detail": "Let them say what they feel."
+      },
+      {
+       "text": "Do not rush to explain.",
+       "detail": "A short ayah may help later."
+      },
+      {
+       "text": "Do not blame them.",
+       "detail": "Never say they brought it on themselves."
+      },
+      {
+       "text": "Offer one ayah or hadith gently.",
+       "detail": "For example 94:5-6."
+      },
+      {
+       "text": "Offer practical help.",
+       "detail": "A meal, a lift, a visit."
+      },
+      {
+       "text": "Encourage help if they are in danger.",
+       "detail": "If they talk of harming themselves, stay with them and help them contact a doctor or emergency service."
+      }
+     ],
+     "mistakes": [
+      "Saying it is Allah’s will and leaving.",
+      "Giving a speech."
+     ],
+     "label": "[Interpretive]",
+     "source": "Qur’an 94:5-6",
+     "review": "Practical guidance worded by the app author. The last step is deliberate. Please confirm."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "Put the steps in order",
+     "prompt": "Put these in the order of sitting with someone in pain.",
+     "explain": "Listen, do not blame, offer one ayah, offer help.",
+     "items": [
+      {
+       "text": "Listen",
+       "why": "First.",
+       "back": "sit"
+      },
+      {
+       "text": "Do not blame",
+       "why": "Do not make it worse.",
+       "back": "sit"
+      },
+      {
+       "text": "Offer one ayah gently",
+       "why": "Only after listening.",
+       "back": "sit"
+      },
+      {
+       "text": "Offer practical help",
+       "why": "A meal, a lift, a visit.",
+       "back": "sit"
+      }
+     ]
+    },
+    {
+     "id": "verses",
+     "kind": "match",
+     "title": "Match the idea to the ayah",
+     "prompt": "Tap an idea, then the ayah.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Life is a test"
+       },
+       "right": {
+        "ref": "q:67:2"
+       },
+       "why": "He created death and life to test you.",
+       "back": "test"
+      },
+      {
+       "left": {
+        "text": "With hardship comes ease"
+       },
+       "right": {
+        "ref": "q:94:6"
+       },
+       "why": "The promise is repeated.",
+       "back": "ease"
+      },
+      {
+       "left": {
+        "text": "Allah does not burden beyond capacity"
+       },
+       "right": {
+        "ref": "q:2:286"
+       },
+       "why": "The ayah says its capacity.",
+       "back": "hardship"
+      },
+      {
+       "left": {
+        "text": "Perhaps you dislike a thing and it is good for you"
+       },
+       "right": {
+        "ref": "q:2:216"
+       },
+       "why": "Allah knows and you do not.",
+       "back": "hardship"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1",
+       "type": "mcq",
+       "q": "What is the first thing to offer someone who asks why bad things happen?",
+       "options": [
+        {
+         "text": "A long lecture",
+         "reteach": "Care comes first.",
+         "back": "start"
+        },
+        {
+         "text": "A debate",
+         "reteach": "Care comes first.",
+         "back": "start"
+        },
+        {
+         "text": "Presence and care"
+        }
+       ],
+       "answer": 2,
+       "explain": "Listen first."
+      },
+      {
+       "id": "c2",
+       "type": "mcq",
+       "q": "What does 67:2 say Allah created death and life for?",
+       "options": [
+        {
+         "text": "To scare people",
+         "reteach": "The ayah says to test.",
+         "back": "test"
+        },
+        {
+         "text": "For no reason",
+         "reteach": "The ayah says to test.",
+         "back": "test"
+        },
+        {
+         "text": "To test which of you is best in deed"
+        }
+       ],
+       "answer": 2,
+       "explain": "67:2."
+      },
+      {
+       "id": "c3",
+       "type": "mcq",
+       "q": "What does 2:286 say?",
+       "options": [
+        {
+         "text": "Allah does not burden a soul beyond its capacity"
+        },
+        {
+         "text": "Allah burdens everyone equally",
+         "reteach": "The ayah says capacity.",
+         "back": "hardship"
+        },
+        {
+         "text": "Allah does not test anyone",
+         "reteach": "The ayah says capacity.",
+         "back": "hardship"
+        }
+       ],
+       "answer": 0,
+       "explain": "2:286."
+      },
+      {
+       "id": "c4",
+       "type": "mcq",
+       "q": "What does the hadith say a thorn’s prick can do?",
+       "options": [
+        {
+         "text": "Nothing",
+         "reteach": "The hadith says it expiates sins.",
+         "back": "expiate"
+        },
+        {
+         "text": "Increase sins",
+         "reteach": "The hadith says it expiates sins.",
+         "back": "expiate"
+        },
+        {
+         "text": "Allah expiates some sins for it"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 5641."
+      },
+      {
+       "id": "c5",
+       "type": "mcq",
+       "q": "What should you never tell a grieving person?",
+       "options": [
+        {
+         "text": "That their hardship was a punishment"
+        },
+        {
+         "text": "That you are sorry",
+         "reteach": "That is caring.",
+         "back": "limits"
+        },
+        {
+         "text": "That Allah is merciful",
+         "reteach": "That is true.",
+         "back": "limits"
+        }
+       ],
+       "answer": 0,
+       "explain": "We do not know that."
+      },
+      {
+       "id": "c6",
+       "type": "fill",
+       "q": "Which word means “ease” in 94:5?",
+       "options": [
+        {
+         "word": "q:94:5#2",
+         "reteach": "That is al-’usr, “the hardship”.",
+         "back": "ease"
+        },
+        {
+         "word": "q:94:5#1",
+         "reteach": "That is ma’a, “with”.",
+         "back": "ease"
+        },
+        {
+         "word": "q:94:5#3"
+        }
+       ],
+       "answer": 2,
+       "explain": "Yusran.",
+       "fill": {
+        "ref": "q:94:5",
+        "blank": 3,
+        "show": "arabic"
+       }
+      },
+      {
+       "id": "c7",
+       "type": "scenario",
+       "q": "What fits this lesson?",
+       "options": [
+        {
+         "text": "Tell her it is a punishment",
+         "reteach": "We do not know that and should not say it.",
+         "back": "limits"
+        },
+        {
+         "text": "Listen, do not blame, and offer help. Share an ayah gently later."
+        },
+        {
+         "text": "Tell her not to complain",
+         "reteach": "She needs care first.",
+         "back": "sit"
+        }
+       ],
+       "answer": 1,
+       "explain": "Care first.",
+       "scenario": "A friend who lost her job says: why is Allah doing this to me?"
+      },
+      {
+       "id": "lb1",
+       "lookback": "aqid.u2.l2#c5"
+      },
+      {
+       "id": "lb2",
+       "lookback": "daw.u1.l4#c1"
+      }
+     ],
+     "title": "Check yourself"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "canDo": [
+      "Say why care comes before explanation",
+      "Name two ayat that speak about hardship",
+      "Say what the hadith teaches the believer to do in good times and in hardship",
+      "Describe how to sit with someone in pain"
+     ],
+     "next": "Next: when someone says Islam is too strict."
+    }
+   ]
+  },
+  {
+   "id": "daw.u2.l2",
+   "title": "Islam Is Too Strict",
+   "minutes": 15,
+   "intro": "Learn what the Qur’an and hadith say about ease, how the Prophet ﷺ chose the easier way, and how to speak about rules with mercy and honesty.",
+   "steps": [
+    {
+     "id": "start",
+     "kind": "teach",
+     "title": "A common worry",
+     "body": [
+      "Some people feel Islam has too many rules. Others have been shown only the strictest side. It helps to know what the sources say about ease.",
+      "The Qur’an says Allah intends ease for you and does not intend hardship (2:185), and that He has not placed any difficulty on you in the religion (22:78)."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 2:185; Qur’an 22:78"
+    },
+    {
+     "id": "capacity",
+     "kind": "say",
+     "title": "As much as you are able",
+     "refs": [
+      "q:64:16"
+     ],
+     "note": "The ayah says to be mindful of Allah as much as you are able. Notice the phrase that sets the limit: as much as you are able.",
+     "label": "[Established]",
+     "source": "Qur’an 64:16"
+    },
+    {
+     "id": "facilitate",
+     "kind": "say",
+     "title": "Make things easy",
+     "refs": [
+      "daw.ease"
+     ],
+     "note": "The Prophet ﷺ gave two pairs: make it easy and do not make it hard; give good news and do not drive people away.",
+     "label": "[Established]",
+     "source": "Bukhari 69"
+    },
+    {
+     "id": "choice",
+     "kind": "teach",
+     "title": "He chose the easier way",
+     "body": [
+      "Aisha said that whenever the Prophet ﷺ was given a choice between two matters, he chose the easier one as long as it was not a sin. If it was a sin, he kept furthest from it (Bukhari 6126).",
+      "He also said the religion is easy, and whoever overburdens himself in it will not be able to continue. So do not go to extremes, aim to be near the mark, and take heart (Bukhari 39)."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 6126; Bukhari 39"
+    },
+    {
+     "id": "limits",
+     "kind": "teach",
+     "title": "Ease is not the same as dropping what is required",
+     "body": [
+      "Ease does not mean that anything can be changed. Prayer, fasting and the other obligations remain. Ease means that Allah gave concessions where there is hardship: for example the sick and the traveller may delay or shorten some acts (2:185).",
+      "And when you describe Islam, you can say that the rules exist. Hiding them is not honest. What you can do is to put mercy and ease first."
+     ],
+     "label": "[Interpretive]",
+     "source": "Qur’an 2:185",
+     "review": "The first paragraph is a general summary of how ease works within obligations. Please confirm that it is stated correctly."
+    },
+    {
+     "id": "floor",
+     "kind": "why",
+     "title": "The floor and the ceiling",
+     "body": [
+      "It can help to explain that Islam has a floor: what Allah requires. Above that is a wide space of encouraged acts that no one is forced into. A new Muslim can start with the floor.",
+      "This is an image, not a ruling."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "describe",
+     "kind": "howto",
+     "title": "Describing Islam with mercy",
+     "intro": "A way to talk about rules without scaring someone away.",
+     "steps": [
+      {
+       "text": "Start with mercy.",
+       "detail": "Allah’s mercy and the door of repentance."
+      },
+      {
+       "text": "Mention the ease.",
+       "detail": "Concessions for sickness and travel."
+      },
+      {
+       "text": "Be honest about the rules.",
+       "detail": "Do not hide that there are rules."
+      },
+      {
+       "text": "Show the floor first.",
+       "detail": "What is required before what is recommended."
+      },
+      {
+       "text": "Invite questions.",
+       "detail": "Say they can ask about anything."
+      }
+     ],
+     "mistakes": [
+      "Describing only the strictest opinion.",
+      "Pretending that there are no rules."
+     ],
+     "label": "[Interpretive]",
+     "review": "Practical guidance worded by the app author. Please confirm."
+    },
+    {
+     "id": "hear",
+     "kind": "listen",
+     "title": "Listen to the ayah of ease",
+     "ref": "q:2:185",
+     "repeats": 2,
+     "note": "Listen to the ayah, then say it aloud in the pause."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "Put the steps in order",
+     "prompt": "Put these in the order of describing Islam with mercy.",
+     "explain": "Mercy, ease, honesty, questions.",
+     "items": [
+      {
+       "text": "Start with mercy",
+       "why": "First.",
+       "back": "describe"
+      },
+      {
+       "text": "Mention the ease",
+       "why": "Second.",
+       "back": "describe"
+      },
+      {
+       "text": "Be honest about the rules",
+       "why": "Third.",
+       "back": "describe"
+      },
+      {
+       "text": "Invite questions",
+       "why": "Last.",
+       "back": "describe"
+      }
+     ]
+    },
+    {
+     "id": "sources",
+     "kind": "match",
+     "title": "Match the teaching to its source",
+     "prompt": "Tap a teaching, then its source.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Allah intends ease"
+       },
+       "right": {
+        "text": "Qur’an 2:185"
+       },
+       "why": "The ayah.",
+       "back": "start"
+      },
+      {
+       "left": {
+        "text": "No difficulty in the religion"
+       },
+       "right": {
+        "text": "Qur’an 22:78"
+       },
+       "why": "The ayah.",
+       "back": "start"
+      },
+      {
+       "left": {
+        "text": "As much as you are able"
+       },
+       "right": {
+        "text": "Qur’an 64:16"
+       },
+       "why": "The ayah.",
+       "back": "capacity"
+      },
+      {
+       "left": {
+        "text": "He chose the easier of two matters"
+       },
+       "right": {
+        "text": "Bukhari 6126"
+       },
+       "why": "The hadith.",
+       "back": "choice"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1",
+       "type": "mcq",
+       "q": "What does 2:185 say Allah intends?",
+       "options": [
+        {
+         "text": "Hardship",
+         "reteach": "The ayah says ease.",
+         "back": "start"
+        },
+        {
+         "text": "Ease, not hardship"
+        },
+        {
+         "text": "Nothing",
+         "reteach": "The ayah says ease.",
+         "back": "start"
+        }
+       ],
+       "answer": 1,
+       "explain": "2:185."
+      },
+      {
+       "id": "c2",
+       "type": "mcq",
+       "q": "What did the Prophet ﷺ do when given a choice between two matters?",
+       "options": [
+        {
+         "text": "He chose the easier, as long as it was not a sin"
+        },
+        {
+         "text": "He chose the harder",
+         "reteach": "He chose the easier.",
+         "back": "choice"
+        },
+        {
+         "text": "He avoided choosing",
+         "reteach": "He chose the easier.",
+         "back": "choice"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 6126."
+      },
+      {
+       "id": "c3",
+       "type": "mcq",
+       "q": "What happens to whoever overburdens himself in religion?",
+       "options": [
+        {
+         "text": "He will not be able to continue"
+        },
+        {
+         "text": "He is rewarded double",
+         "reteach": "The hadith says he cannot continue.",
+         "back": "choice"
+        },
+        {
+         "text": "Nothing",
+         "reteach": "The hadith says he cannot continue.",
+         "back": "choice"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 39."
+      },
+      {
+       "id": "c4",
+       "type": "mcq",
+       "q": "Does ease mean the obligations can be dropped?",
+       "options": [
+        {
+         "text": "Yes, anything can be dropped",
+         "reteach": "Obligations remain.",
+         "back": "limits"
+        },
+        {
+         "text": "There are no concessions",
+         "reteach": "There are concessions.",
+         "back": "limits"
+        },
+        {
+         "text": "No. Obligations remain, with concessions in hardship"
+        }
+       ],
+       "answer": 2,
+       "explain": "Ease works within the obligations."
+      },
+      {
+       "id": "c5",
+       "type": "mcq",
+       "q": "What should you do when describing Islam to someone new?",
+       "options": [
+        {
+         "text": "Start with mercy and be honest about the rules"
+        },
+        {
+         "text": "Start with all the rules",
+         "reteach": "Start with mercy.",
+         "back": "describe"
+        },
+        {
+         "text": "Hide the rules",
+         "reteach": "Be honest.",
+         "back": "describe"
+        }
+       ],
+       "answer": 0,
+       "explain": "Mercy first, honesty always."
+      },
+      {
+       "id": "c6",
+       "type": "fill",
+       "q": "Which word means “as much as you are able” (part of it) in 64:16?",
+       "options": [
+        {
+         "word": "q:64:16#4",
+         "reteach": "That is wasma’oo, “and listen”.",
+         "back": "capacity"
+        },
+        {
+         "word": "q:64:16#0",
+         "reteach": "That is fattaqoo, “so fear (be mindful of)”.",
+         "back": "capacity"
+        },
+        {
+         "word": "q:64:16#3"
+        }
+       ],
+       "answer": 2,
+       "explain": "Istata’tum means you are able.",
+       "fill": {
+        "ref": "q:64:16",
+        "blank": 3,
+        "show": "arabic"
+       }
+      },
+      {
+       "id": "c7",
+       "type": "scenario",
+       "q": "What do you say?",
+       "options": [
+        {
+         "text": "There are no rules really",
+         "reteach": "That is not honest.",
+         "back": "limits"
+        },
+        {
+         "text": "Start with mercy and the ease the sources describe. Be honest that there are rules, and offer to go through the basics one step at a time."
+        },
+        {
+         "text": "Yes, it is hard, you need to try harder",
+         "reteach": "The sources emphasise ease.",
+         "back": "choice"
+        }
+       ],
+       "answer": 1,
+       "explain": "Mercy and honesty.",
+       "scenario": "A friend says: Islam is too hard, there are so many rules."
+      },
+      {
+       "id": "lb1",
+       "lookback": "daw.u1.l2#c3"
+      }
+     ],
+     "title": "Check yourself"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "canDo": [
+      "Name two ayat about ease",
+      "Say what the Prophet ﷺ did when given a choice",
+      "Explain that ease does not cancel obligations",
+      "Describe Islam to a friend starting with mercy"
+     ],
+     "next": "Next: the Qur’an was written by a man?"
+    }
+   ]
+  },
+  {
+   "id": "daw.u2.l3",
+   "title": "The Qur’an Was Written by a Man",
+   "minutes": 16,
+   "intro": "Learn what the Qur’an itself says in answer to this claim: the challenge to produce something like it, the Prophet’s own background, and the passages that go against his own interest.",
+   "steps": [
+    {
+     "id": "start",
+     "kind": "teach",
+     "title": "The claim",
+     "body": [
+      "Some people say that Muhammad ﷺ wrote the Qur’an himself. The Qur’an mentions this claim and answers it. This lesson shows what the Qur’an says. You are not expected to prove it to anyone. You are expected to understand the answer.",
+      "Muslims believe the Qur’an is the word of Allah. These are the reasons the Qur’an itself offers."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 10:38"
+    },
+    {
+     "id": "challenge",
+     "kind": "teach",
+     "title": "The challenge",
+     "body": [
+      "The Qur’an challenges its doubters. It says that if mankind and the jinn gathered to produce the like of it, they could not (17:88). It then asks them to bring ten surahs like it (11:13), and then one surah (10:38; 2:23).",
+      "Scholars often describe this as a ladder that gets easier at each step. The challenge is set in Arabic, to the people who were the best in Arabic at that time."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 17:88; Qur’an 11:13; Qur’an 10:38; Qur’an 2:23",
+     "review": "The description of the challenge as a ladder and its audience is a common summary. Please confirm the wording."
+    },
+    {
+     "id": "onesurah",
+     "kind": "say",
+     "title": "One surah like it",
+     "refs": [
+      "q:2:23"
+     ],
+     "note": "Read one word at a time. Notice the ending: if you are truthful.",
+     "label": "[Established]",
+     "source": "Qur’an 2:23"
+    },
+    {
+     "id": "background",
+     "kind": "teach",
+     "title": "He was not a writer of scripture",
+     "body": [
+      "The Qur’an says that he did not recite or write any scripture before it, otherwise those who falsify would have had cause for doubt (29:48). It also says that he did not know what the Book or faith was before the revelation (42:52).",
+      "These are statements within the Qur’an. They fit the hadith in which the angel asked him to read and he said: I do not know how to read (Bukhari 3)."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 29:48; Qur’an 42:52; Bukhari 3"
+    },
+    {
+     "id": "rebuke",
+     "kind": "teach",
+     "title": "A book that corrects its own messenger",
+     "body": [
+      "Surah Abasa begins by saying that the Prophet frowned and turned away because a blind man came to him (80:1-2). It continues with a correction (80:3-10). A person who made up a book might not include a passage that corrects himself.",
+      "This is an argument that people make. It is offered for reflection."
+     ],
+     "label": "[Interpretive]",
+     "source": "Qur’an 80:1-10",
+     "review": "The argument from self-correction is a commonly made argument, not a ruling. Please confirm that it is stated fairly."
+    },
+    {
+     "id": "jubayr",
+     "kind": "story",
+     "title": "Jubayr hears At-Tur",
+     "body": [
+      "Jubayr ibn Mut’im, who was not yet Muslim, heard the Prophet ﷺ recite Surah At-Tur in the Maghrib prayer. When the recitation reached the ayat that ask whether they were created from nothing, or whether they are the creators, or whether they created the heavens and the earth, he said his heart was about to fly (Bukhari 4854).",
+      "He later became a Muslim. The report tells us how the Qur’an affected someone who was listening."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 4854; Qur’an 52:35-37",
+     "review": "The last sentence is the biographers’ report that Jubayr later became Muslim; it is well known but not in this hadith. Please confirm."
+    },
+    {
+     "id": "talk",
+     "kind": "howto",
+     "title": "Talking about this calmly",
+     "intro": "You do not need to be a scholar.",
+     "steps": [
+      {
+       "text": "Do not argue to win.",
+       "detail": "The Qur’an says to argue in the best way (16:125)."
+      },
+      {
+       "text": "Share one ayah and what it says.",
+       "detail": "For example 2:23."
+      },
+      {
+       "text": "Invite them to read it.",
+       "detail": "Offer a translation and listen to the Arabic."
+      },
+      {
+       "text": "Say what you do not know.",
+       "detail": "It is fine to say you will find out."
+      },
+      {
+       "text": "Leave it with Allah.",
+       "detail": "Guidance is His."
+      }
+     ],
+     "mistakes": [
+      "Making claims you cannot support.",
+      "Mocking the doubter."
+     ],
+     "label": "[Interpretive]",
+     "source": "Qur’an 16:125",
+     "review": "Practical guidance worded by the app author. Please confirm."
+    },
+    {
+     "id": "hear",
+     "kind": "listen",
+     "title": "Listen to the challenge",
+     "ref": "q:2:23",
+     "repeats": 2,
+     "note": "Listen once, then say it aloud in the pause."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "Put the challenge in order",
+     "prompt": "Put these in the order of the challenge in the Qur’an, as the lesson gives it.",
+     "explain": "Mankind and jinn, ten surahs, one surah.",
+     "items": [
+      {
+       "text": "All mankind and the jinn together cannot produce the like of it",
+       "why": "The widest challenge (17:88).",
+       "back": "challenge"
+      },
+      {
+       "text": "Bring ten surahs like it",
+       "why": "Narrowed (11:13).",
+       "back": "challenge"
+      },
+      {
+       "text": "Bring one surah like it",
+       "why": "Narrowed again (10:38; 2:23).",
+       "back": "challenge"
+      }
+     ]
+    },
+    {
+     "id": "verses",
+     "kind": "match",
+     "title": "Match the claim to the ayah",
+     "prompt": "Tap a statement, then its ayah.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Even together they could not produce the like of it"
+       },
+       "right": {
+        "ref": "q:17:88"
+       },
+       "why": "The widest form.",
+       "back": "challenge"
+      },
+      {
+       "left": {
+        "text": "Bring ten surahs like it"
+       },
+       "right": {
+        "ref": "q:11:13"
+       },
+       "why": "The second form.",
+       "back": "challenge"
+      },
+      {
+       "left": {
+        "text": "Bring one surah like it"
+       },
+       "right": {
+        "ref": "q:10:38"
+       },
+       "why": "The third form.",
+       "back": "challenge"
+      },
+      {
+       "left": {
+        "text": "He did not recite or write scripture before it"
+       },
+       "right": {
+        "ref": "q:29:48"
+       },
+       "why": "The background.",
+       "back": "background"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1",
+       "type": "mcq",
+       "q": "What does the Qur’an invite doubters to do?",
+       "options": [
+        {
+         "text": "Burn it",
+         "reteach": "It invites them to produce a surah like it.",
+         "back": "challenge"
+        },
+        {
+         "text": "Ignore it",
+         "reteach": "It invites them to produce a surah like it.",
+         "back": "challenge"
+        },
+        {
+         "text": "Produce a surah like it"
+        }
+       ],
+       "answer": 2,
+       "explain": "2:23."
+      },
+      {
+       "id": "c2",
+       "type": "mcq",
+       "q": "What was the challenge’s audience?",
+       "options": [
+        {
+         "text": "Nobody",
+         "reteach": "It was set to the best Arabic speakers.",
+         "back": "challenge"
+        },
+        {
+         "text": "Only scholars today",
+         "reteach": "It was first set to Arabic speakers at that time.",
+         "back": "challenge"
+        },
+        {
+         "text": "Arabic speakers of the time"
+        }
+       ],
+       "answer": 2,
+       "explain": "It was set in Arabic."
+      },
+      {
+       "id": "c3",
+       "type": "mcq",
+       "q": "What does 29:48 say?",
+       "options": [
+        {
+         "text": "He wrote many books",
+         "reteach": "The ayah says he did not.",
+         "back": "background"
+        },
+        {
+         "text": "He did not recite or write any scripture before it"
+        },
+        {
+         "text": "He was a poet",
+         "reteach": "The ayah says he did not recite or write scripture.",
+         "back": "background"
+        }
+       ],
+       "answer": 1,
+       "explain": "29:48."
+      },
+      {
+       "id": "c4",
+       "type": "mcq",
+       "q": "What happened at the start of Surah Abasa?",
+       "options": [
+        {
+         "text": "The blind man was punished",
+         "reteach": "The correction was for the Prophet.",
+         "back": "rebuke"
+        },
+        {
+         "text": "Nothing happened",
+         "reteach": "The surah records a correction.",
+         "back": "rebuke"
+        },
+        {
+         "text": "The Prophet frowned and turned away from a blind man, and was corrected"
+        }
+       ],
+       "answer": 2,
+       "explain": "80:1-10."
+      },
+      {
+       "id": "c5",
+       "type": "mcq",
+       "q": "What is the argument from the correction?",
+       "options": [
+        {
+         "text": "It proves nothing",
+         "reteach": "It is an argument people make.",
+         "back": "rebuke"
+        },
+        {
+         "text": "A person making up a book might not include a passage correcting himself"
+        },
+        {
+         "text": "It is a ruling",
+         "reteach": "It is offered for reflection.",
+         "back": "rebuke"
+        }
+       ],
+       "answer": 1,
+       "explain": "It is an argument for reflection."
+      },
+      {
+       "id": "c6",
+       "type": "fill",
+       "q": "Which word means “a surah” in 2:23?",
+       "options": [
+        {
+         "word": "q:2:23#9"
+        },
+        {
+         "word": "q:2:23#3",
+         "reteach": "That is rayb, “doubt”.",
+         "back": "onesurah"
+        },
+        {
+         "word": "q:2:23#13",
+         "reteach": "That is shuhadaa’akum, “your witnesses”.",
+         "back": "onesurah"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bi-sooratin.",
+       "fill": {
+        "ref": "q:2:23",
+        "blank": 9,
+        "show": "arabic"
+       }
+      },
+      {
+       "id": "c7",
+       "type": "scenario",
+       "q": "What is a calm answer?",
+       "options": [
+        {
+         "text": "Say what the Qur’an itself says: it invites the doubter to produce a surah like it. Invite them to read it, and say you will find out more if they ask."
+        },
+        {
+         "text": "Get angry and walk away",
+         "reteach": "Stay calm.",
+         "back": "talk"
+        },
+        {
+         "text": "Claim you can prove it scientifically in one minute",
+         "reteach": "Do not make claims you cannot support.",
+         "back": "talk"
+        }
+       ],
+       "answer": 0,
+       "explain": "Calm and honest.",
+       "scenario": "A friend says: Muhammad just made it up. You are not an expert."
+      },
+      {
+       "id": "lb1",
+       "lookback": "und.u1.l2#c1"
+      }
+     ],
+     "title": "Check yourself"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "canDo": [
+      "Describe the three steps of the challenge",
+      "Say what 29:48 says about his background",
+      "Explain the argument from the opening of Surah Abasa",
+      "Talk about this calmly without claiming too much"
+     ],
+     "next": "Next: I have done too much wrong."
+    }
+   ]
+  },
+  {
+   "id": "daw.u2.l4",
+   "title": "I Have Done Too Much Wrong",
+   "minutes": 16,
+   "intro": "Learn the ayah for the person who thinks they are too far gone, the hadith of the man who killed ninety-nine, and how to answer someone who confesses a sin.",
+   "steps": [
+    {
+     "id": "ayah",
+     "kind": "say",
+     "title": "The ayah of hope",
+     "refs": [
+      "q:39:53"
+     ],
+     "note": "Read one word at a time. It begins with Say, and then speaks to those who have transgressed against themselves.",
+     "words": {
+      "q:39:53": [
+       {
+        "tr": "qul",
+        "en": "say"
+       },
+       {
+        "tr": "yaa-'ibaadiya",
+        "en": "O My servants"
+       },
+       {
+        "tr": "alladheena",
+        "en": "who"
+       },
+       {
+        "tr": "asrafoo",
+        "en": "have transgressed"
+       },
+       {
+        "tr": "'alaa",
+        "en": "against"
+       },
+       {
+        "tr": "anfusihim",
+        "en": "themselves"
+       },
+       {
+        "tr": "laa",
+        "en": "do not"
+       },
+       {
+        "tr": "taqnatoo",
+        "en": "despair"
+       },
+       {
+        "tr": "min",
+        "en": "of"
+       },
+       {
+        "tr": "rahmati",
+        "en": "the mercy"
+       },
+       {
+        "tr": "allaahi",
+        "en": "of Allah"
+       },
+       {
+        "tr": "inna",
+        "en": "indeed"
+       },
+       {
+        "tr": "allaaha",
+        "en": "Allah"
+       },
+       {
+        "tr": "yaghfiru",
+        "en": "forgives"
+       },
+       {
+        "tr": "adh-dhunooba",
+        "en": "the sins"
+       },
+       {
+        "tr": "jamee'an",
+        "en": "all of them"
+       },
+       {
+        "tr": "innahu",
+        "en": "indeed He"
+       },
+       {
+        "tr": "huwa",
+        "en": "is"
+       },
+       {
+        "tr": "al-ghafoor",
+        "en": "the Forgiving"
+       },
+       {
+        "tr": "ar-raheem",
+        "en": "the Merciful"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 39:53"
+    },
+    {
+     "id": "start",
+     "kind": "teach",
+     "title": "Do not despair",
+     "body": [
+      "The ayah is addressed to people who have wronged themselves. It tells them not to despair of Allah’s mercy, and it says that Allah forgives all sins, for He is the Forgiving, the Merciful (39:53).",
+      "This is the verse to give first to someone who feels too far gone."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 39:53"
+    },
+    {
+     "id": "man99",
+     "kind": "story",
+     "title": "The man who killed ninety-nine",
+     "body": [
+      "The Prophet ﷺ told of a man from the Children of Israel who had killed ninety-nine people. He asked a monk if he could be forgiven. The monk said no, and he killed him too. He kept asking, and someone told him to go to a certain village. He died on the way, and the angels of mercy and the angels of punishment disputed over him. Allah told the two lands to measure, and the man was nearer to the village he was heading for, so the angels of mercy took him (Bukhari 3470)."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 3470"
+    },
+    {
+     "id": "repent",
+     "kind": "teach",
+     "title": "Repentance is welcomed",
+     "body": [
+      "The Prophet ﷺ said that Allah is more pleased with the repentance of His servant than a man who lost his animal with his food and drink in the desert and then finds it (Bukhari 6308; Muslim 2744).",
+      "He also said that a believer sees his sins as if he were under a mountain that might fall on him. That fear is a sign of life in the heart (Bukhari 6308)."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 6308; Muslim 2744",
+     "review": "The last sentence about fear being a sign of life is the app author’s reflection. Please confirm."
+    },
+    {
+     "id": "hadith_qudsi",
+     "kind": "teach",
+     "title": "Sins as great as the earth",
+     "body": [
+      "Anas reported that the Prophet ﷺ said Allah says: son of Adam, as long as you call on Me and hope in Me, I forgive you whatever you have done. If your sins reached the clouds and you asked forgiveness, I would forgive you. If you came with sins nearly as great as the earth, then met Me without associating anything with Me, I would come with forgiveness nearly as great as it (Tirmidhi 3540, graded sahih by Shakir and al-Albani, hasan by Bashar Awad Maarouf, and isnaad hasan by Zubair Ali Zai).",
+      "The graders agree it is acceptable. They differ on the level. It is a hadith that scholars use for hope, with the condition that the person meets Allah without shirk."
+     ],
+     "label": "[Established]",
+     "source": "Tirmidhi 3540 (graded sahih by Shakir and al-Albani; hasan by Bashar Awad Maarouf; isnaad hasan by Zubair Ali Zai)"
+    },
+    {
+     "id": "amr",
+     "kind": "teach",
+     "title": "Islam wipes out what came before",
+     "body": [
+      "Amr ibn al-As came to the Prophet ﷺ to pledge allegiance but wished to set a condition: that he be forgiven. The Prophet ﷺ said: do you not know that Islam wipes out what came before it? (Muslim 121).",
+      "This is for someone coming to Islam. For a Muslim who sins, the way is sincere repentance."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 121",
+     "review": "The second paragraph is a general summary that sincere repentance is the way for a Muslim. Please confirm."
+    },
+    {
+     "id": "respond",
+     "kind": "howto",
+     "title": "When someone confesses a sin to you",
+     "intro": "The ayah first, always.",
+     "steps": [
+      {
+       "text": "Listen without shock.",
+       "detail": "Do not react with disgust."
+      },
+      {
+       "text": "Give the ayah first.",
+       "detail": "Share 39:53 before any advice."
+      },
+      {
+       "text": "Do not ask for details.",
+       "detail": "They do not need to tell you more."
+      },
+      {
+       "text": "Encourage sincere repentance.",
+       "detail": "Stop, regret, resolve not to return, and put right any wrong to others."
+      },
+      {
+       "text": "Keep it private.",
+       "detail": "Do not repeat it to others."
+      },
+      {
+       "text": "Encourage help if they are in danger.",
+       "detail": "If they talk of harming themselves, stay with them and help them contact a doctor or emergency service."
+      }
+     ],
+     "mistakes": [
+      "Giving a speech about the sin before showing hope.",
+      "Telling others."
+     ],
+     "label": "[Interpretive]",
+     "source": "Qur’an 39:53",
+     "review": "Practical guidance worded by the app author, including the conditions of repentance as commonly taught. Please confirm. The last step is deliberate."
+    },
+    {
+     "id": "hear",
+     "kind": "listen",
+     "title": "Listen to the ayah of hope",
+     "ref": "q:39:53",
+     "repeats": 2,
+     "note": "Listen once, then say it aloud in the pause."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "Put the steps in order",
+     "prompt": "Put these in the order of answering a confession.",
+     "explain": "Listen, ayah, repentance, privacy.",
+     "items": [
+      {
+       "text": "Listen without shock",
+       "why": "First.",
+       "back": "respond"
+      },
+      {
+       "text": "Give the ayah of hope",
+       "why": "Before advice.",
+       "back": "respond"
+      },
+      {
+       "text": "Encourage sincere repentance",
+       "why": "Then guidance.",
+       "back": "respond"
+      },
+      {
+       "text": "Keep it private",
+       "why": "Always.",
+       "back": "respond"
+      }
+     ]
+    },
+    {
+     "id": "sources",
+     "kind": "match",
+     "title": "Match the story to its hadith",
+     "prompt": "Tap a story, then its source.",
+     "pairs": [
+      {
+       "left": {
+        "text": "The man who killed ninety-nine"
+       },
+       "right": {
+        "text": "Bukhari 3470"
+       },
+       "why": "The story.",
+       "back": "man99"
+      },
+      {
+       "left": {
+        "text": "The lost animal in the desert"
+       },
+       "right": {
+        "text": "Bukhari 6308"
+       },
+       "why": "Allah is more pleased with repentance.",
+       "back": "repent"
+      },
+      {
+       "left": {
+        "text": "Islam wipes out what came before"
+       },
+       "right": {
+        "text": "Muslim 121"
+       },
+       "why": "Amr ibn al-As.",
+       "back": "amr"
+      },
+      {
+       "left": {
+        "text": "Sins as great as the earth"
+       },
+       "right": {
+        "text": "Tirmidhi 3540 (graded sahih by al-Albani)"
+       },
+       "why": "The hadith qudsi.",
+       "back": "hadith_qudsi"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1",
+       "type": "mcq",
+       "q": "What does 39:53 say?",
+       "options": [
+        {
+         "text": "Sins are never forgiven",
+         "reteach": "The ayah says Allah forgives all sins.",
+         "back": "start"
+        },
+        {
+         "text": "Do not despair of the mercy of Allah; He forgives all sins"
+        },
+        {
+         "text": "Only small sins are forgiven",
+         "reteach": "The ayah says all sins.",
+         "back": "start"
+        }
+       ],
+       "answer": 1,
+       "explain": "39:53."
+      },
+      {
+       "id": "c2",
+       "type": "mcq",
+       "q": "What happened to the man who killed ninety-nine?",
+       "options": [
+        {
+         "text": "He was not forgiven",
+         "reteach": "The angels of mercy took him.",
+         "back": "man99"
+        },
+        {
+         "text": "He was not mentioned again",
+         "reteach": "The angels of mercy took him.",
+         "back": "man99"
+        },
+        {
+         "text": "He was taken by the angels of mercy"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 3470."
+      },
+      {
+       "id": "c3",
+       "type": "mcq",
+       "q": "What did the Prophet ﷺ compare the joy of Allah at repentance to?",
+       "options": [
+        {
+         "text": "A man who finds a gift",
+         "reteach": "It was the lost animal.",
+         "back": "repent"
+        },
+        {
+         "text": "A king who wins a battle",
+         "reteach": "It was the lost animal.",
+         "back": "repent"
+        },
+        {
+         "text": "A man who finds his lost animal with his food and water"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 6308."
+      },
+      {
+       "id": "c4",
+       "type": "mcq",
+       "q": "What is the condition mentioned in the hadith of the sins as great as the earth?",
+       "options": [
+        {
+         "text": "Never sinning",
+         "reteach": "The condition is not associating anything with Him.",
+         "back": "hadith_qudsi"
+        },
+        {
+         "text": "Performing many deeds",
+         "reteach": "The condition is not associating anything with Him.",
+         "back": "hadith_qudsi"
+        },
+        {
+         "text": "Meeting Allah without associating anything with Him"
+        }
+       ],
+       "answer": 2,
+       "explain": "Tirmidhi 3540, graded sahih by Shakir and al-Albani."
+      },
+      {
+       "id": "c5",
+       "type": "mcq",
+       "q": "What should you give first to someone who confesses a sin?",
+       "options": [
+        {
+         "text": "The ayah of hope"
+        },
+        {
+         "text": "A warning",
+         "reteach": "Give hope first.",
+         "back": "respond"
+        },
+        {
+         "text": "A speech",
+         "reteach": "Give hope first.",
+         "back": "respond"
+        }
+       ],
+       "answer": 0,
+       "explain": "39:53."
+      },
+      {
+       "id": "c6",
+       "type": "fill",
+       "q": "Which word means “despair” (do not despair) in 39:53?",
+       "options": [
+        {
+         "word": "q:39:53#6",
+         "reteach": "That is laa, “do not”.",
+         "back": "ayah"
+        },
+        {
+         "word": "q:39:53#8",
+         "reteach": "That is min, “of”.",
+         "back": "ayah"
+        },
+        {
+         "word": "q:39:53#7"
+        }
+       ],
+       "answer": 2,
+       "explain": "Taqnatoo.",
+       "fill": {
+        "ref": "q:39:53",
+        "blank": 7,
+        "show": "arabic"
+       }
+      },
+      {
+       "id": "c7",
+       "type": "scenario",
+       "q": "What fits this lesson?",
+       "options": [
+        {
+         "text": "Tell him it is too late",
+         "reteach": "The ayah says do not despair.",
+         "back": "start"
+        },
+        {
+         "text": "Listen, share 39:53, encourage sincere repentance and keep it private."
+        },
+        {
+         "text": "Tell your other friends",
+         "reteach": "Keep it private.",
+         "back": "respond"
+        }
+       ],
+       "answer": 1,
+       "explain": "Hope and privacy.",
+       "scenario": "A friend tells you privately about a big sin he committed and says it is too late for him."
+      },
+      {
+       "id": "lb1",
+       "lookback": "daw.u2.l1#c3"
+      }
+     ],
+     "title": "Check yourself"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "canDo": [
+      "Say the message of 39:53",
+      "Tell the story of the man who killed ninety-nine",
+      "Say what to do first when someone confesses a sin",
+      "Say what to do if someone talks of harming themselves"
+     ],
+     "next": "Next: gentleness does not water down the truth."
+    }
+   ]
+  },
+  {
+   "id": "daw.u3.l1",
+   "title": "Gentleness Does Not Water Down the Truth",
+   "minutes": 15,
+   "intro": "Learn why the Prophet ﷺ praised gentleness, how Musa was told to speak to Pharaoh, and how to stay gentle while saying what is true.",
+   "steps": [
+    {
+     "id": "rifq",
+     "kind": "say",
+     "title": "A hadith on gentleness",
+     "refs": [
+      "daw.gentle"
+     ],
+     "note": "Say it in two parts. The first part is about what gentleness adds. The second is about what happens when it is taken away.",
+     "label": "[Established]",
+     "source": "Muslim 2594"
+    },
+    {
+     "id": "start",
+     "kind": "teach",
+     "title": "Gentleness adds beauty",
+     "body": [
+      "Aisha reported that the Prophet ﷺ said: kindness is not found in anything but it adds to its beauty, and it is not taken away from anything but it makes it defective (Muslim 2594).",
+      "Gentleness is not weakness, and it does not change the message. It changes how the message reaches the heart."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 2594"
+    },
+    {
+     "id": "musa",
+     "kind": "story",
+     "title": "Musa and Pharaoh",
+     "body": [
+      "Allah sent Musa and Harun to Pharaoh and described him as one who had transgressed (20:43). Yet He told them to speak to him with gentle speech, so that perhaps he might be reminded or fear (20:44).",
+      "If gentle speech was asked for with Pharaoh, it is asked of us with those who disagree with us."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 20:43-44"
+    },
+    {
+     "id": "gentle_speech",
+     "kind": "say",
+     "title": "Gentle speech",
+     "refs": [
+      "q:20:44"
+     ],
+     "note": "Read slowly. The phrase qawlan layyinan means gentle speech.",
+     "words": {
+      "q:20:44": [
+       {
+        "tr": "fa-qoolaa",
+        "en": "so speak, both of you"
+       },
+       {
+        "tr": "lahu",
+        "en": "to him"
+       },
+       {
+        "tr": "qawlan",
+        "en": "a saying"
+       },
+       {
+        "tr": "layyinan",
+        "en": "gentle"
+       },
+       {
+        "tr": "la'allahu",
+        "en": "perhaps he"
+       },
+       {
+        "tr": "yatadhakkaru",
+        "en": "will be reminded"
+       },
+       {
+        "tr": "aw",
+        "en": "or"
+       },
+       {
+        "tr": "yakhshaa",
+        "en": "fear"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 20:44"
+    },
+    {
+     "id": "aisha",
+     "kind": "story",
+     "title": "Aisha and the greeting",
+     "body": [
+      "A group of Jews came to the Prophet ﷺ and said: as-samu alaykum, which means death be upon you. Aisha understood it and replied: and upon you be death and the curse. The Prophet ﷺ said: be calm, Aisha. Allah loves gentleness in all matters. She said: did you not hear what they said? He said that he had already replied: and upon you (Bukhari 6024)."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 6024"
+    },
+    {
+     "id": "truth",
+     "kind": "why",
+     "title": "Gentle does not mean diluted",
+     "body": [
+      "Musa was gentle, and he still told Pharaoh the truth. The Prophet ﷺ was gentle, and he still told his people what Allah had revealed.",
+      "You can lower your voice without lowering the message. The volume is not the proof."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "calm",
+     "kind": "howto",
+     "title": "Staying gentle in a disagreement",
+     "intro": "Gentleness is a skill that can be practised.",
+     "steps": [
+      {
+       "text": "Lower your voice.",
+       "detail": "Slow your speech."
+      },
+      {
+       "text": "Say what is true in a simple sentence.",
+       "detail": "Do not add insults."
+      },
+      {
+       "text": "Ask a question.",
+       "detail": "It can open a door."
+      },
+      {
+       "text": "Take a break if it heats up.",
+       "detail": "You can return to it later."
+      },
+      {
+       "text": "Make a dua.",
+       "detail": "Ask Allah to soften your heart and theirs."
+      }
+     ],
+     "mistakes": [
+      "Raising your voice to be taken seriously.",
+      "Dropping the truth to avoid conflict."
+     ],
+     "label": "[Interpretive]",
+     "review": "Practical guidance worded by the app author. Please confirm."
+    },
+    {
+     "id": "hear",
+     "kind": "listen",
+     "title": "Listen to the gentle speech",
+     "ref": "q:20:44",
+     "repeats": 2,
+     "note": "Listen once, then say it aloud in the pause."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "Put the steps in order",
+     "prompt": "Put these in the order of staying gentle.",
+     "explain": "Voice, truth, question, break.",
+     "items": [
+      {
+       "text": "Lower your voice",
+       "why": "First.",
+       "back": "calm"
+      },
+      {
+       "text": "Say what is true simply",
+       "why": "Without insults.",
+       "back": "calm"
+      },
+      {
+       "text": "Ask a question",
+       "why": "To open a door.",
+       "back": "calm"
+      },
+      {
+       "text": "Take a break if it heats up",
+       "why": "Come back later.",
+       "back": "calm"
+      }
+     ]
+    },
+    {
+     "id": "terms",
+     "kind": "match",
+     "title": "Match the word",
+     "prompt": "Tap an Arabic word, then its meaning.",
+     "pairs": [
+      {
+       "left": {
+        "word": "q:20:44#2"
+       },
+       "right": {
+        "text": "a saying"
+       },
+       "why": "Qawlan.",
+       "back": "gentle_speech"
+      },
+      {
+       "left": {
+        "word": "q:20:44#3"
+       },
+       "right": {
+        "text": "gentle"
+       },
+       "why": "Layyinan.",
+       "back": "gentle_speech"
+      },
+      {
+       "left": {
+        "word": "q:20:44#5"
+       },
+       "right": {
+        "text": "he will be reminded"
+       },
+       "why": "Yatadhakkaru.",
+       "back": "gentle_speech"
+      },
+      {
+       "left": {
+        "word": "q:20:44#7"
+       },
+       "right": {
+        "text": "he fears"
+       },
+       "why": "Yakhshaa.",
+       "back": "gentle_speech"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1",
+       "type": "mcq",
+       "q": "What does gentleness add, according to the hadith?",
+       "options": [
+        {
+         "text": "Weakness",
+         "reteach": "The hadith says beauty.",
+         "back": "start"
+        },
+        {
+         "text": "Beauty"
+        },
+        {
+         "text": "Delay",
+         "reteach": "The hadith says beauty.",
+         "back": "start"
+        }
+       ],
+       "answer": 1,
+       "explain": "Muslim 2594."
+      },
+      {
+       "id": "c2",
+       "type": "mcq",
+       "q": "How did Allah tell Musa and Harun to speak to Pharaoh?",
+       "options": [
+        {
+         "text": "With gentle speech"
+        },
+        {
+         "text": "With force",
+         "reteach": "He said gentle speech.",
+         "back": "musa"
+        },
+        {
+         "text": "With silence",
+         "reteach": "He said gentle speech.",
+         "back": "musa"
+        }
+       ],
+       "answer": 0,
+       "explain": "20:44."
+      },
+      {
+       "id": "c3",
+       "type": "mcq",
+       "q": "What did the Prophet ﷺ say to Aisha when she replied harshly?",
+       "options": [
+        {
+         "text": "You were right",
+         "reteach": "He told her to be calm.",
+         "back": "aisha"
+        },
+        {
+         "text": "Do not speak to them",
+         "reteach": "He told her to be calm.",
+         "back": "aisha"
+        },
+        {
+         "text": "Allah loves gentleness in all matters"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 6024."
+      },
+      {
+       "id": "c4",
+       "type": "mcq",
+       "q": "Does gentleness change the message?",
+       "options": [
+        {
+         "text": "Yes, it waters it down",
+         "reteach": "It does not change the message.",
+         "back": "truth"
+        },
+        {
+         "text": "Yes, it makes it stronger",
+         "reteach": "It changes how the message is received.",
+         "back": "truth"
+        },
+        {
+         "text": "No. It changes how the message reaches the heart"
+        }
+       ],
+       "answer": 2,
+       "explain": "The volume is not the proof."
+      },
+      {
+       "id": "c5",
+       "type": "fill",
+       "q": "Which word means “gentle” in 20:44?",
+       "options": [
+        {
+         "word": "q:20:44#2",
+         "reteach": "That is qawlan, “a saying”.",
+         "back": "gentle_speech"
+        },
+        {
+         "word": "q:20:44#5",
+         "reteach": "That is yatadhakkaru, “he will be reminded”.",
+         "back": "gentle_speech"
+        },
+        {
+         "word": "q:20:44#3"
+        }
+       ],
+       "answer": 2,
+       "explain": "Layyinan.",
+       "fill": {
+        "ref": "q:20:44",
+        "blank": 3,
+        "show": "arabic"
+       }
+      },
+      {
+       "id": "c6",
+       "type": "scenario",
+       "q": "What fits this lesson?",
+       "options": [
+        {
+         "text": "Reply with a harsher insult",
+         "reteach": "The Prophet ﷺ taught gentleness.",
+         "back": "calm"
+        },
+        {
+         "text": "Pause, lower your tone, say one true sentence, and step back if needed."
+        },
+        {
+         "text": "Drop the truth completely",
+         "reteach": "Gentle does not mean diluted.",
+         "back": "truth"
+        }
+       ],
+       "answer": 1,
+       "explain": "Gentle and true.",
+       "scenario": "Someone insults your faith online and you feel your temper rising."
+      },
+      {
+       "id": "lb1",
+       "lookback": "daw.u1.l3#c5"
+      },
+      {
+       "id": "lb2",
+       "lookback": "daw.u2.l2#c2"
+      }
+     ],
+     "title": "Check yourself"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "canDo": [
+      "Say the hadith on gentleness",
+      "Say how Musa was told to speak to Pharaoh",
+      "Explain why gentle does not mean diluted",
+      "Use a few steps to stay gentle in a disagreement"
+     ],
+     "next": "Next: knowledge before speech."
+    }
+   ]
+  },
+  {
+   "id": "daw.u3.l2",
+   "title": "Knowledge Before Speech",
+   "minutes": 15,
+   "intro": "Learn what the Qur’an says about speaking without knowledge, what the Prophet ﷺ said about how knowledge leaves the world, and what to say when you do not know.",
+   "steps": [
+    {
+     "id": "start",
+     "kind": "teach",
+     "title": "Do not say what you do not know",
+     "body": [
+      "The Qur’an says that Allah forbade immorality, sin, wrongdoing, associating others with Him, and that you say about Allah what you do not know (7:33).",
+      "It also tells us not to pursue what we have no knowledge of, because hearing, sight and the heart will be questioned (17:36)."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 7:33; Qur’an 17:36"
+    },
+    {
+     "id": "ayah",
+     "kind": "say",
+     "title": "Do not pursue what you do not know",
+     "refs": [
+      "q:17:36"
+     ],
+     "note": "Read slowly. The ayah ends by saying that the hearing, sight and heart will all be asked.",
+     "words": {
+      "q:17:36": [
+       {
+        "tr": "wa-laa",
+        "en": "and do not"
+       },
+       {
+        "tr": "taqfu",
+        "en": "pursue"
+       },
+       {
+        "tr": "maa",
+        "en": "that which"
+       },
+       {
+        "tr": "laysa",
+        "en": "is not"
+       },
+       {
+        "tr": "laka",
+        "en": "for you"
+       },
+       {
+        "tr": "bihi",
+        "en": "of it"
+       },
+       {
+        "tr": "'ilm",
+        "en": "knowledge"
+       },
+       {
+        "tr": "inna",
+        "en": "indeed"
+       },
+       {
+        "tr": "as-sam'a",
+        "en": "the hearing"
+       },
+       {
+        "tr": "wal-basara",
+        "en": "and the sight"
+       },
+       {
+        "tr": "wal-fu'aada",
+        "en": "and the heart"
+       },
+       {
+        "tr": "kullu",
+        "en": "all of"
+       },
+       {
+        "tr": "ulaa'ika",
+        "en": "those"
+       },
+       {
+        "tr": "kaana",
+        "en": "is"
+       },
+       {
+        "tr": "'anhu",
+        "en": "about it"
+       },
+       {
+        "tr": "mas'oolan",
+        "en": "questioned"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 17:36"
+    },
+    {
+     "id": "lost",
+     "kind": "teach",
+     "title": "How knowledge leaves",
+     "body": [
+      "The Prophet ﷺ said that Allah does not take knowledge away by pulling it from people’s hearts. He takes it away by taking the scholars, until none remain. Then people take ignorant leaders, who are asked and give rulings without knowledge. They go astray and lead others astray (Bukhari 100).",
+      "This is a warning for all of us: when we are asked, we should not answer beyond what we know."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 100"
+    },
+    {
+     "id": "musa_khidr",
+     "kind": "story",
+     "title": "Musa and the question of who knows most",
+     "body": [
+      "The Prophet ﷺ told of Musa addressing the Children of Israel. He was asked who the most knowledgeable person was, and he said: I am. Allah corrected him, because he had not attributed knowledge to Allah, and told him of a servant at the meeting of the two seas who knew more (Bukhari 122).",
+      "Even a prophet was corrected for not returning knowledge to Allah."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 122"
+    },
+    {
+     "id": "say_dont_know",
+     "kind": "teach",
+     "title": "It is fine to say: I do not know",
+     "body": [
+      "Saying I do not know is not a failure. It is honest, and it protects the other person from a wrong answer. You can say: that is a good question, let me find out and come back to you.",
+      "Then find out from a reliable source: a teacher, a trusted book, or an app that shows its sources."
+     ],
+     "label": "[Interpretive]",
+     "review": "Practical guidance worded by the app author. Please confirm."
+    },
+    {
+     "id": "unsure",
+     "kind": "howto",
+     "title": "When you are asked and you are not sure",
+     "intro": "A few habits for being honest and helpful.",
+     "steps": [
+      {
+       "text": "Say you are not sure.",
+       "detail": "Do not guess."
+      },
+      {
+       "text": "Promise to find out.",
+       "detail": "And then do it."
+      },
+      {
+       "text": "Use a reliable source.",
+       "detail": "A teacher, a trusted book or a source-backed app."
+      },
+      {
+       "text": "Come back with the answer.",
+       "detail": "Give the source with it."
+      },
+      {
+       "text": "Say if scholars differ.",
+       "detail": "Do not hide a real difference."
+      }
+     ],
+     "mistakes": [
+      "Guessing so you do not look ignorant.",
+      "Forgetting to return with the answer."
+     ],
+     "label": "[Interpretive]",
+     "source": "Qur’an 17:36",
+     "review": "Practical guidance worded by the app author. Please confirm."
+    },
+    {
+     "id": "hear",
+     "kind": "listen",
+     "title": "Listen to the ayah",
+     "ref": "q:17:36",
+     "repeats": 2,
+     "note": "Listen once, then say it aloud in the pause."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "Put the steps in order",
+     "prompt": "Put these in the order of handling a question you cannot answer.",
+     "explain": "Not sure, promise, check, return.",
+     "items": [
+      {
+       "text": "Say you are not sure",
+       "why": "First.",
+       "back": "unsure"
+      },
+      {
+       "text": "Promise to find out",
+       "why": "Then.",
+       "back": "unsure"
+      },
+      {
+       "text": "Check a reliable source",
+       "why": "Then.",
+       "back": "unsure"
+      },
+      {
+       "text": "Come back with the answer and the source",
+       "why": "Last.",
+       "back": "unsure"
+      }
+     ]
+    },
+    {
+     "id": "sources",
+     "kind": "match",
+     "title": "Match the teaching to its source",
+     "prompt": "Tap a teaching, then its source.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Do not pursue what you do not know"
+       },
+       "right": {
+        "text": "Qur’an 17:36"
+       },
+       "why": "The ayah.",
+       "back": "ayah"
+      },
+      {
+       "left": {
+        "text": "Do not say about Allah what you do not know"
+       },
+       "right": {
+        "text": "Qur’an 7:33"
+       },
+       "why": "The ayah.",
+       "back": "start"
+      },
+      {
+       "left": {
+        "text": "Knowledge leaves with the scholars"
+       },
+       "right": {
+        "text": "Bukhari 100"
+       },
+       "why": "The hadith.",
+       "back": "lost"
+      },
+      {
+       "left": {
+        "text": "Musa is corrected about who knows most"
+       },
+       "right": {
+        "text": "Bukhari 122"
+       },
+       "why": "The hadith.",
+       "back": "musa_khidr"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1",
+       "type": "mcq",
+       "q": "What does 17:36 say we will be questioned about?",
+       "options": [
+        {
+         "text": "Wealth",
+         "reteach": "The ayah says hearing, sight and heart.",
+         "back": "ayah"
+        },
+        {
+         "text": "Hearing, sight and the heart"
+        },
+        {
+         "text": "Travel",
+         "reteach": "The ayah says hearing, sight and heart.",
+         "back": "ayah"
+        }
+       ],
+       "answer": 1,
+       "explain": "17:36."
+      },
+      {
+       "id": "c2",
+       "type": "mcq",
+       "q": "How does the hadith say knowledge leaves?",
+       "options": [
+        {
+         "text": "By burning books",
+         "reteach": "The hadith says by the death of the scholars.",
+         "back": "lost"
+        },
+        {
+         "text": "By the death of the scholars"
+        },
+        {
+         "text": "By being forgotten at once",
+         "reteach": "The hadith says by the death of the scholars.",
+         "back": "lost"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 100."
+      },
+      {
+       "id": "c3",
+       "type": "mcq",
+       "q": "What happens when ignorant leaders are asked?",
+       "options": [
+        {
+         "text": "They refuse",
+         "reteach": "They give rulings without knowledge.",
+         "back": "lost"
+        },
+        {
+         "text": "They give rulings without knowledge and mislead people"
+        },
+        {
+         "text": "They send people to scholars",
+         "reteach": "They give rulings without knowledge.",
+         "back": "lost"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 100."
+      },
+      {
+       "id": "c4",
+       "type": "mcq",
+       "q": "Why was Musa corrected?",
+       "options": [
+        {
+         "text": "He asked a question",
+         "reteach": "He did not return knowledge to Allah.",
+         "back": "musa_khidr"
+        },
+        {
+         "text": "He was silent",
+         "reteach": "He did not return knowledge to Allah.",
+         "back": "musa_khidr"
+        },
+        {
+         "text": "He did not attribute knowledge to Allah"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 122."
+      },
+      {
+       "id": "c5",
+       "type": "fill",
+       "q": "Which word means “knowledge” in 17:36?",
+       "options": [
+        {
+         "word": "q:17:36#6"
+        },
+        {
+         "word": "q:17:36#3",
+         "reteach": "That is laysa, “is not”.",
+         "back": "ayah"
+        },
+        {
+         "word": "q:17:36#15",
+         "reteach": "That is mas’oolan, “questioned”.",
+         "back": "ayah"
+        }
+       ],
+       "answer": 0,
+       "explain": "’Ilm.",
+       "fill": {
+        "ref": "q:17:36",
+        "blank": 6,
+        "show": "arabic"
+       }
+      },
+      {
+       "id": "c6",
+       "type": "scenario",
+       "q": "What do you do?",
+       "options": [
+        {
+         "text": "Say you are not sure, find out from a reliable source, and tell them what you find, including any difference between scholars."
+        },
+        {
+         "text": "Give your best guess so you look knowledgeable",
+         "reteach": "Do not speak about Allah without knowledge.",
+         "back": "say_dont_know"
+        },
+        {
+         "text": "Say it is forbidden to be safe",
+         "reteach": "That is also saying something without knowledge.",
+         "back": "say_dont_know"
+        }
+       ],
+       "answer": 0,
+       "explain": "Honest and helpful.",
+       "scenario": "A friend asks whether a certain thing is allowed in Islam and you are not sure."
+      },
+      {
+       "id": "lb1",
+       "lookback": "daw.u2.l3#c7"
+      },
+      {
+       "id": "lb2",
+       "lookback": "daw.u3.l1#c4"
+      }
+     ],
+     "title": "Check yourself"
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Read Surah Al-Isra",
+     "body": "Open Surah Al-Isra and find ayah 36. Read it with its meaning.",
+     "route": "/quran/17",
+     "button": "Open Surah 17"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "canDo": [
+      "Say what 7:33 and 17:36 warn against",
+      "Say how knowledge leaves, according to the hadith",
+      "Say what to do when you are asked something you do not know",
+      "Go back with the answer and its source"
+     ],
+     "next": "Next: release the result."
+    }
+   ]
+  },
+  {
+   "id": "daw.u3.l3",
+   "title": "Release the Result",
+   "minutes": 15,
+   "intro": "Learn what the Qur’an says about the Prophet’s job and what was not his job, and how to deliver a message and leave the outcome with Allah.",
+   "steps": [
+    {
+     "id": "ayat",
+     "kind": "say",
+     "title": "You are a reminder",
+     "refs": [
+      "q:88:21",
+      "q:88:22"
+     ],
+     "note": "Two short ayat that describe the job. Notice the word mudhakkir, one who reminds, and the word musaytir, one who controls.",
+     "words": {
+      "q:88:21": [
+       {
+        "tr": "fa-dhakkir",
+        "en": "so remind"
+       },
+       {
+        "tr": "innamaa",
+        "en": "only"
+       },
+       {
+        "tr": "anta",
+        "en": "you are"
+       },
+       {
+        "tr": "mudhakkir",
+        "en": "a reminder"
+       }
+      ],
+      "q:88:22": [
+       {
+        "tr": "lasta",
+        "en": "you are not"
+       },
+       {
+        "tr": "'alayhim",
+        "en": "over them"
+       },
+       {
+        "tr": "bi-musaytir",
+        "en": "a controller"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 88:21-22"
+    },
+    {
+     "id": "start",
+     "kind": "teach",
+     "title": "The job and what is not the job",
+     "body": [
+      "The Qur’an tells the Prophet ﷺ that he is only a reminder, not a controller over them (88:21-22). It says that only clear notification is upon him if they turn away (16:82), that he does not guide whom he likes but Allah guides whom He wills (28:56), and that their guidance is not upon him (2:272).",
+      "The job is to deliver clearly, kindly and honestly. The heart that opens is Allah’s to open."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 88:21-22; Qur’an 16:82; Qur’an 28:56; Qur’an 2:272"
+    },
+    {
+     "id": "talib",
+     "kind": "story",
+     "title": "His uncle",
+     "body": [
+      "When Abu Talib was dying, the Prophet ﷺ went to him and found Abu Jahl and Abdullah ibn Abi Umayya with him. He said: uncle, say there is no god but Allah, a word I will argue for you with before Allah. The two kept saying: would you leave the religion of Abd al-Muttalib? Abu Talib’s last words were that he was on the religion of Abd al-Muttalib, and he refused to say it (Bukhari 1360; Muslim 24).",
+      "The report then says that the ayah was revealed telling the Prophet ﷺ that he does not guide whom he loves, but Allah guides whom He wills (Muslim 24; Qur’an 28:56). The Prophet ﷺ loved his uncle and still could not make his heart open."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 1360; Muslim 24; Qur’an 28:56"
+    },
+    {
+     "id": "prophets",
+     "kind": "story",
+     "title": "Prophets with few followers",
+     "body": [
+      "The Prophet ﷺ said that the nations were shown to him. A prophet passed with one man, another with two, another with a group, and another with nobody (Bukhari 5752).",
+      "Some prophets delivered their message faithfully and had no followers. That did not make them less of a prophet. Success is not measured by how many followed."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 5752"
+    },
+    {
+     "id": "peace",
+     "kind": "why",
+     "title": "What this gives you",
+     "body": [
+      "If you think you are responsible for the result, every refusal feels like a failure. If you know your job is to deliver, you can speak with calm and then rest.",
+      "It does not mean you stop caring. The Qur’an describes the Prophet’s concern for people (9:128). It means you leave the outcome to Allah."
+     ],
+     "label": "[Reflection]",
+     "source": "Qur’an 9:128"
+    },
+    {
+     "id": "release",
+     "kind": "howto",
+     "title": "After a conversation",
+     "intro": "A way to finish well.",
+     "steps": [
+      {
+       "text": "Ask yourself: did I deliver clearly, kindly and honestly?",
+       "detail": "That is your job."
+      },
+      {
+       "text": "Say quietly: I delivered it; You guide the hearts.",
+       "detail": "Then let it go."
+      },
+      {
+       "text": "Make a dua for them.",
+       "detail": "The Prophet ﷺ prayed for people."
+      },
+      {
+       "text": "Do not follow up with pressure.",
+       "detail": "Be available if they come back."
+      },
+      {
+       "text": "Carry on being a good neighbour.",
+       "detail": "Your kindness continues the message."
+      }
+     ],
+     "mistakes": [
+      "Replaying the conversation again and again.",
+      "Pressing them for an answer."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "hear",
+     "kind": "listen",
+     "title": "Listen to the two ayat",
+     "ref": "q:88:21-22",
+     "repeats": 2,
+     "note": "Listen to each ayah, then say it aloud in the pause."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "Put the steps in order",
+     "prompt": "Put these in the order of finishing a conversation.",
+     "explain": "Check, say, dua, kindness.",
+     "items": [
+      {
+       "text": "Ask yourself whether you delivered clearly, kindly and honestly",
+       "why": "First.",
+       "back": "release"
+      },
+      {
+       "text": "Say: I delivered it; You guide the hearts",
+       "why": "Then.",
+       "back": "release"
+      },
+      {
+       "text": "Make a dua for them",
+       "why": "Then.",
+       "back": "release"
+      },
+      {
+       "text": "Remain a good neighbour",
+       "why": "Last.",
+       "back": "release"
+      }
+     ]
+    },
+    {
+     "id": "sources",
+     "kind": "match",
+     "title": "Match the idea to the ayah",
+     "prompt": "Tap an idea, then its ayah.",
+     "pairs": [
+      {
+       "left": {
+        "text": "You are only a reminder"
+       },
+       "right": {
+        "ref": "q:88:21"
+       },
+       "why": "The ayah.",
+       "back": "ayat"
+      },
+      {
+       "left": {
+        "text": "You are not a controller over them"
+       },
+       "right": {
+        "ref": "q:88:22"
+       },
+       "why": "The ayah.",
+       "back": "ayat"
+      },
+      {
+       "left": {
+        "text": "You do not guide whom you like"
+       },
+       "right": {
+        "ref": "q:28:56"
+       },
+       "why": "The ayah.",
+       "back": "start"
+      },
+      {
+       "left": {
+        "text": "Upon you is only clear notification"
+       },
+       "right": {
+        "ref": "q:16:82"
+       },
+       "why": "The ayah.",
+       "back": "start"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1",
+       "type": "mcq",
+       "q": "What does 88:21-22 say the Prophet ﷺ is?",
+       "options": [
+        {
+         "text": "A controller",
+         "reteach": "The ayat say not a controller.",
+         "back": "ayat"
+        },
+        {
+         "text": "A reminder, not a controller"
+        },
+        {
+         "text": "A judge",
+         "reteach": "The ayat say a reminder.",
+         "back": "ayat"
+        }
+       ],
+       "answer": 1,
+       "explain": "88:21-22."
+      },
+      {
+       "id": "c2",
+       "type": "mcq",
+       "q": "What does 28:56 say?",
+       "options": [
+        {
+         "text": "You do not guide whom you like, but Allah guides whom He wills"
+        },
+        {
+         "text": "You guide whomever you love",
+         "reteach": "The ayah says you do not.",
+         "back": "start"
+        },
+        {
+         "text": "Nobody is guided",
+         "reteach": "The ayah says Allah guides whom He wills.",
+         "back": "start"
+        }
+       ],
+       "answer": 0,
+       "explain": "28:56."
+      },
+      {
+       "id": "c3",
+       "type": "mcq",
+       "q": "What did Abu Talib say at the end?",
+       "options": [
+        {
+         "text": "That he was on the religion of Abd al-Muttalib"
+        },
+        {
+         "text": "He said the testimony",
+         "reteach": "He refused to say it.",
+         "back": "talib"
+        },
+        {
+         "text": "He said nothing",
+         "reteach": "He said he was on the religion of Abd al-Muttalib.",
+         "back": "talib"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 1360; Muslim 24."
+      },
+      {
+       "id": "c4",
+       "type": "mcq",
+       "q": "What did the Prophet ﷺ say about some prophets?",
+       "options": [
+        {
+         "text": "All had many followers",
+         "reteach": "The hadith says some had none.",
+         "back": "prophets"
+        },
+        {
+         "text": "None had followers",
+         "reteach": "The hadith says some had one or two.",
+         "back": "prophets"
+        },
+        {
+         "text": "Some passed with only one man, and some with nobody"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 5752."
+      },
+      {
+       "id": "c5",
+       "type": "mcq",
+       "q": "What is your job in da’wah?",
+       "options": [
+        {
+         "text": "To make them accept",
+         "reteach": "That is not in your control.",
+         "back": "start"
+        },
+        {
+         "text": "To deliver clearly, kindly and honestly"
+        },
+        {
+         "text": "To keep pushing",
+         "reteach": "The job is to deliver.",
+         "back": "start"
+        }
+       ],
+       "answer": 1,
+       "explain": "The heart is Allah’s to open."
+      },
+      {
+       "id": "c6",
+       "type": "fill",
+       "q": "Which word means “a reminder” in 88:21?",
+       "options": [
+        {
+         "word": "q:88:21#3"
+        },
+        {
+         "word": "q:88:21#2",
+         "reteach": "That is anta, “you are”.",
+         "back": "ayat"
+        },
+        {
+         "word": "q:88:21#0",
+         "reteach": "That is fa-dhakkir, “so remind”.",
+         "back": "ayat"
+        }
+       ],
+       "answer": 0,
+       "explain": "Mudhakkir.",
+       "fill": {
+        "ref": "q:88:21",
+        "blank": 3,
+        "show": "arabic"
+       }
+      },
+      {
+       "id": "c7",
+       "type": "scenario",
+       "q": "What does this lesson suggest?",
+       "options": [
+        {
+         "text": "Keep pressing him until he agrees",
+         "reteach": "Your job is to deliver.",
+         "back": "release"
+        },
+        {
+         "text": "You delivered. Make a dua for him, stay kind, and leave the result with Allah."
+        },
+        {
+         "text": "Never speak to him again",
+         "reteach": "Stay kind and available.",
+         "back": "release"
+        }
+       ],
+       "answer": 1,
+       "explain": "Release the result.",
+       "scenario": "You shared your faith with a close friend, and he did not accept. You feel you failed."
+      },
+      {
+       "id": "lb1",
+       "lookback": "daw.u3.l2#c1"
+      },
+      {
+       "id": "lb2",
+       "lookback": "daw.u1.l3#c2"
+      }
+     ],
+     "title": "Check yourself"
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Read Surah Al-Ghashiyah",
+     "body": "Open Surah Al-Ghashiyah and read the last ayat. Read their meaning.",
+     "route": "/quran/88",
+     "button": "Open Surah 88"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "canDo": [
+      "Say what your job is in da’wah",
+      "Say what is not your job",
+      "Tell the report of Abu Talib and what the ayah says",
+      "Finish a conversation with a dua and without pressure"
+     ],
+     "next": "Course complete. Keep inviting, gently."
+    }
+   ]
+  }
+ ]
+}
