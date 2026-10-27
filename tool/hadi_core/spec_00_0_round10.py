@@ -114,7 +114,11 @@ E('apostasy-ruling',
      r'\b(?:punish\w*|death|kill\w*|penalty|penalties|ruling|rulings|law|laws|sin|allowed|permitted|haram|consequences?|crime|executed|execution)\b.*\b(?:leaving|leave|leaves|left|quit|quitting|abandon\w*|renounc\w*) (?:from )?(?:the )?islam\b',
      r'\bwhat happens (?:if|when) (?:a )?(?:muslim|someone|you|i|one|people) (?:leave|leaves|left|quit|quits|abandons?) islam\b', r'\bcan (?:a )?(?:muslim|someone|you) (?:leave|quit|abandon) islam\b', r'\bfreedom of (?:religion|belief|faith|conscience)\b', r'\bcompulsion in religion\b',
      r'\bis it (?:true|a fact) that (?:muslims|ex muslims|people who leave islam)\b.*\b(?:killed|executed|die|death)\b', r'\bex muslims?\b'],
-  x=[r'\b(?:my|our) (?:son|daughter|child|children|husband|wife|friend|brother|sister|father|mother)\b'],
+  x=[r'\b(?:my|our) (?:son|daughter|child|children|husband|wife|friend|brother|sister|father|mother)\b',
+     # A question for a verdict (the punishment, the penalty, the ruling) is
+     # a legal question: it goes to the ruling gate and its scholar reply,
+     # as it always has, not to a summary from me.
+     r'\b(?:punish\w*|penalty|penalties|death|kill\w*|executed|execution|ruling|rulings|verdict|fatwa|crime)\b'],
   topic='apostasy',
   text="""
 This is one of the most argued-over questions about Islam, so here is a straight answer with the texts and the disagreement, not a dodge.
@@ -218,7 +222,7 @@ E('bored',
   text="""
 Let us fix that. A few ideas:
 - A story: the Stories section has the prophets, the companions, the Prophet's life and short tales, each with its sources.
-- A game: Games has Qur'an knowledge, Stories trivia, the 99 Names, a word search, Ludo and chess. They keep no points, coins or streaks.
+- A game: Games has Qur'an knowledge, Stories trivia, the 99 Names, a word search, Ludo and chess. They keep no points, coins or ranks.
 - A question: something you have always wondered about Islam. Ask me, and I will answer from the sources or say plainly that I cannot.
 - Something small that is good for you: a short du'a, or a few ayat read slowly.
 
