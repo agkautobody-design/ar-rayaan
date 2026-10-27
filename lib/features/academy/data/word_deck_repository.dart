@@ -20,6 +20,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../domain/recitation_audio.dart';
 import '../domain/mushaf_layout.dart';
 import '../domain/word_deck.dart';
+import '../domain/word_gloss.dart';
 
 /// Pack v2: the 251 cards whose gloss used to be a truncated verse snippet
 /// ("... (in context)") now carry an EMPTY gloss (the UI hides it rather than
@@ -60,6 +61,19 @@ abstract final class WordDeckRepository {
     await prefs.setString(_deckKey, jsonEncode(encoded));
   }
 
+  /// The meanings for the pack, from `assets/academy/word_glosses.json`.
+  /// Empty when the file is missing or unreadable (the deck then simply shows
+  /// no meanings, as before): never throws.
+  static Future<Map<String, WordGloss>> loadGlosses() async {
+    try {
+      final String raw =
+          await rootBundle.loadString('assets/academy/word_glosses.json');
+      return parseWordGlosses(raw);
+    } catch (_) {
+      return <String, WordGloss>{};
+    }
+  }
+
   /// Load the verified top-300 pack. Returns null when absent or
   /// unverified. [isValidRef] must confirm each card's source ayah
   /// resolves in the checksum-verified Quran text — the caller (data
@@ -93,6 +107,12 @@ abstract final class WordDeckRepository {
         continue;
       }
       cards.add(card);
+    }
+    final Map<String, WordGloss> glosses = await loadGlosses();
+    if (glosses.isNotEmpty) {
+      for (int i = 0; i < cards.length; i++) {
+        cards[i] = withGloss(cards[i], glosses);
+      }
     }
     if (dropped > 0) {
       // Logged, not thrown: a partially verified pack still teaches;
