@@ -13,6 +13,46 @@ import '../../../app/core/content/content_sync.dart';
 import '../../downloads/presentation/pack_save_row.dart';
 import '../domain/guide_glossary.dart';
 
+/// One thing a person says or recites in a guide. The Arabic is copied by
+/// tool/guide_recitations.py from the cited primary text (a hadith in the
+/// hadith corpus or an ayah of quran.json), never typed by hand. A
+/// recitation whose wording could not be verified has [status] `unverified`
+/// and no Arabic.
+class GuideRecitation {
+  final String when;
+  final String status;
+  final String? arabic;
+  final String? translit;
+  final String meaning;
+  final List<String> sources;
+  final String? note;
+  final bool needsScholarReview;
+
+  const GuideRecitation({
+    required this.when,
+    required this.status,
+    required this.meaning,
+    required this.sources,
+    this.arabic,
+    this.translit,
+    this.note,
+    this.needsScholarReview = false,
+  });
+
+  bool get isVerified => status == 'verified';
+
+  factory GuideRecitation.fromJson(Map<String, dynamic> j) => GuideRecitation(
+        when: j['when'] as String,
+        status: j['status'] as String? ?? 'unverified',
+        arabic: j['arabic'] as String?,
+        translit: j['translit'] as String?,
+        meaning: j['meaning'] as String? ?? '',
+        sources: ((j['sources'] as List<dynamic>?) ?? const <dynamic>[]).cast<String>(),
+        note: j['note'] as String?,
+        needsScholarReview: j['needsScholarReview'] as bool? ?? false,
+      );
+}
+
 class Guide {
   final String id;
   final String category;
@@ -30,6 +70,9 @@ class Guide {
   /// Comes from the guide's own JSON — nothing is hard-coded per title.
   final Map<String, String>? goDeeper;
 
+  /// What the person says or recites in this guide (may be empty).
+  final List<GuideRecitation> recitations;
+
   const Guide({
     required this.id,
     required this.category,
@@ -40,6 +83,7 @@ class Guide {
     this.madhhabNote,
     this.showPositions = false,
     this.goDeeper,
+    this.recitations = const <GuideRecitation>[],
   });
 
   factory Guide.fromJson(Map<String, dynamic> j) => Guide(
@@ -53,6 +97,9 @@ class Guide {
         showPositions: j['showPositions'] as bool? ?? false,
         goDeeper: (j['goDeeper'] as Map<String, dynamic>?)
             ?.map((String k, dynamic v) => MapEntry<String, String>(k, '$v')),
+        recitations: ((j['recitations'] as List<dynamic>?) ?? const <dynamic>[])
+            .map((dynamic e) => GuideRecitation.fromJson(e as Map<String, dynamic>))
+            .toList(),
       );
 }
 
@@ -333,6 +380,10 @@ class GuideScreen extends StatelessWidget {
             else
               const SizedBox(height: 16),
           ],
+          if (guide.recitations.isNotEmpty) ...[
+            _RecitationsCard(items: guide.recitations),
+            const SizedBox(height: 12),
+          ],
           if (guide.madhhabNote != null) ...[
             GlassCard(
               strong: true,
@@ -364,6 +415,78 @@ class GuideScreen extends StatelessWidget {
               ],
             ),
           ),
+        ],
+      ),
+    );
+  }
+}
+
+/// "WHAT YOU SAY": the Arabic, a transliteration and the meaning of each
+/// thing recited in the guide, with its source. The Arabic is shown only
+/// when it was verified against the cited text.
+class _RecitationsCard extends StatelessWidget {
+  final List<GuideRecitation> items;
+  const _RecitationsCard({required this.items});
+
+  @override
+  Widget build(BuildContext context) {
+    return GlassCard(
+      strong: true,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text('WHAT YOU SAY', style: AppText.eyebrow),
+          const SizedBox(height: 4),
+          Text(
+            'The Arabic is copied from the cited source. The transliteration and '
+            'meaning are learning aids and have not yet been reviewed by a scholar.',
+            style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.4),
+          ),
+          for (final GuideRecitation r in items) ...<Widget>[
+            const SizedBox(height: 14),
+            Text(r.when, style: AppText.bodyMuted.copyWith(fontSize: 12.5)),
+            const SizedBox(height: 6),
+            if (r.isVerified && r.arabic != null)
+              SizedBox(
+                width: double.infinity,
+                child: Text(
+                  r.arabic!,
+                  textAlign: TextAlign.right,
+                  textDirection: TextDirection.rtl,
+                  style: AppText.arabicLarge.copyWith(fontSize: 22, height: 2.0),
+                ),
+              ),
+            if (r.isVerified && r.translit != null) ...<Widget>[
+              const SizedBox(height: 6),
+              Text(
+                r.translit!,
+                style: AppText.body.copyWith(
+                  fontSize: 13,
+                  height: 1.5,
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
+            ],
+            const SizedBox(height: 4),
+            Text(r.meaning, style: AppText.body.copyWith(fontSize: 13, height: 1.5)),
+            if (!r.isVerified) ...<Widget>[
+              const SizedBox(height: 4),
+              Text(
+                'Not verified: ${r.note ?? 'the wording was not checked against a source.'}',
+                style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.4),
+              ),
+            ] else if (r.note != null) ...<Widget>[
+              const SizedBox(height: 4),
+              Text(r.note!, style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.4)),
+            ],
+            if (r.sources.isNotEmpty) ...<Widget>[
+              const SizedBox(height: 4),
+              Text(
+                'Source: ${r.sources.join('; ')}',
+                style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.4),
+              ),
+            ],
+          ],
         ],
       ),
     );

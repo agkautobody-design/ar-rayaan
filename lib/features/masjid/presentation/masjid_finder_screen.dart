@@ -19,6 +19,7 @@ import '../../prayer/application/prayer_providers.dart';
 import '../../prayer/application/prayer_repository.dart';
 import '../domain/masjid_search_service.dart';
 import '../domain/masjid_search_state.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 double _dist(double a1, double o1, double a2, double o2) =>
     masjidDistanceMeters(a1, o1, a2, o2);
@@ -242,10 +243,12 @@ class _MasjidState extends ConsumerState<MasjidFinderScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(children: [
                 for (var i = 0; i < 2; i++)
-                  Expanded(child: GestureDetector(
+                  Expanded(child: FocusableTap(
                     onTap: () { setState(() => _tab = i); _fetch(); },
                     child: Container(
                       margin: const EdgeInsets.symmetric(horizontal: 3),
+                      constraints: const BoxConstraints(minHeight: 44),
+                      alignment: Alignment.center,
                       padding: const EdgeInsets.symmetric(vertical: 8),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),

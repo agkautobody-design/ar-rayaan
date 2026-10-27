@@ -104,7 +104,7 @@ void main() {
     tester,
   ) async {
     await _pump(tester, AppRoutes.signup);
-    expect(find.text('Begin your journey with Ar-Rayaan'), findsOneWidget);
+    expect(find.text('Create your Ar-Rayaan account'), findsOneWidget);
 
     await tester.enterText(find.byType(TextFormField).at(0), 'Ahmed Khan');
     await tester.enterText(

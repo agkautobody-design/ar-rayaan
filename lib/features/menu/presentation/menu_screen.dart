@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../app/core/i18n/app_locale.dart';
 import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
@@ -70,12 +71,14 @@ class MenuScreen extends ConsumerWidget {
     (
       'Family & Community',
       [
-        // Marriage is the first unit of the Family Life school (verified in
-        // family_school_screen.dart). NOOR Connect matchmaking stays deferred.
-        (Icons.handshake_outlined, 'Marriage', '/academy/family-life'),
+        // One row: Marriage is the first unit of the Family Life school
+        // (verified in family_school_screen.dart), so both words open it.
+        // NOOR Connect matchmaking stays deferred.
+        (Icons.handshake_outlined, 'Marriage & Family Life', '/academy/family-life'),
         // The Family Wing: add children, follow their lessons, ask Wasia.
-        (Icons.child_care_outlined, 'Parenting', '/academy/family'),
-        (Icons.home_outlined, 'Family Life', '/academy/family-life'),
+        // It is the parents' space (behind the parent check), not parenting
+        // advice, and the label says so.
+        (Icons.child_care_outlined, 'Family Wing \u00b7 for parents', '/academy/family'),
         (Icons.people_outline, 'Community', AppRoutes.community),
         (Icons.favorite_outline, 'Elder Care', '/elder-care'),
       ],
@@ -99,12 +102,14 @@ class MenuScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     // Kill switch: ar.flag.academy=false removes every Academy entry point.
     final bool showAcademy = ref.watch(academyFlagProvider).valueOrNull ?? true;
+    final L10n l10n = ref.watch(l10nProvider);
+    final bool signedIn = ref.watch(authStateProvider).valueOrNull != null;
     return ScenicScaffold.pattern(
       body: SafeArea(
         bottom: false,
         child: Column(
           children: [
-            const ScreenHeader(title: 'Menu', close: true),
+            ScreenHeader(title: l10n.english('Menu'), close: true),
             Expanded(
               child: ListView(
                 padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
@@ -116,7 +121,8 @@ class MenuScreen extends ConsumerWidget {
                         top: 16,
                         bottom: 8,
                       ),
-                      child: Text(title.toUpperCase(), style: AppText.eyebrow),
+                      child: Text(l10n.english(title).toUpperCase(),
+                          style: AppText.eyebrow),
                     ),
                     GlassCard(
                       child: Column(
@@ -133,7 +139,7 @@ class MenuScreen extends ConsumerWidget {
                               ),
                             _MenuRow(
                               icon: e.$1,
-                              label: e.$2,
+                              label: l10n.english(e.$2),
                               comingSoon: e.$3 == null,
                               onTap: e.$3 == null
                                   ? null
@@ -150,17 +156,19 @@ class MenuScreen extends ConsumerWidget {
                   GlassCard(
                     child: _MenuRow(
                       icon: Icons.settings_outlined,
-                      label: 'Settings',
+                      label: l10n.ui('ui.settings'),
                       onTap: () => context.open(AppRoutes.settings),
                     ),
                   ),
                   const SizedBox(height: 16),
+                  // Opens the Journey screen, so it says Journey (it used to say
+                  // "My Profile", which is the You tab).
                   GlassCard(
                     strong: true,
                     onTap: () => context.open(AppRoutes.journey),
-                    child: const _MenuRow(
+                    child: _MenuRow(
                       icon: Icons.auto_awesome,
-                      label: 'My Profile',
+                      label: l10n.ui('tile.journey'),
                       subtitle: 'Your Journey, Your Progress',
                     ),
                   ),
@@ -175,22 +183,34 @@ class MenuScreen extends ConsumerWidget {
                     ),
                   ),
                   const SizedBox(height: 16),
+                  // A guest has nothing to log out of: the row offers sign-in
+                  // instead. Logging out asks first.
                   GlassCard(
-                    child: _MenuRow(
-                      icon: Icons.logout,
-                      label: 'Log Out',
-                      destructive: true,
-                      onTap: () async {
-                        await ref
-                            .read(authControllerProvider.notifier)
-                            .signOut();
-                        if (context.mounted) context.go(AppRoutes.login);
-                      },
-                    ),
+                    child: signedIn
+                        ? _MenuRow(
+                            icon: Icons.logout,
+                            label: l10n.ui('menu.logout'),
+                            destructive: true,
+                            onTap: () async {
+                              final bool ok = await _confirmLogOut(context);
+                              if (!ok || !context.mounted) return;
+                              await ref
+                                  .read(authControllerProvider.notifier)
+                                  .signOut();
+                              if (context.mounted) context.go(AppRoutes.login);
+                            },
+                          )
+                        : _MenuRow(
+                            icon: Icons.login,
+                            label: l10n.ui('menu.signin'),
+                            onTap: () => context.go(AppRoutes.login),
+                          ),
                   ),
                   const SizedBox(height: 20),
+                  // Says only what is true today: sources are shown, and no
+                  // named scholar has reviewed the app yet.
                   Text(
-                    'VERIFIED · AUTHENTIC · COMPASSIONATE',
+                    'SOURCES SHOWN \u00b7 NOT YET SCHOLAR-REVIEWED',
                     style: AppText.eyebrow,
                     textAlign: TextAlign.center,
                   ),
@@ -202,6 +222,33 @@ class MenuScreen extends ConsumerWidget {
       ),
     );
   }
+}
+
+/// "Log out of this device?" - true to go ahead.
+Future<bool> _confirmLogOut(BuildContext context) async {
+  final bool? ok = await showDialog<bool>(
+    context: context,
+    builder: (BuildContext ctx) => AlertDialog(
+      backgroundColor: const Color(0xFF0A0F18),
+      title: Text('Log out?', style: AppText.titleMedium),
+      content: Text(
+        'You will be signed out on this device. Your progress, bookmarks '
+        'and settings stay on it.',
+        style: AppText.bodyMuted,
+      ),
+      actions: <Widget>[
+        TextButton(
+          onPressed: () => Navigator.of(ctx).pop(false),
+          child: const Text('Stay signed in'),
+        ),
+        TextButton(
+          onPressed: () => Navigator.of(ctx).pop(true),
+          child: const Text('Log out'),
+        ),
+      ],
+    ),
+  );
+  return ok ?? false;
 }
 
 class _MenuRow extends StatelessWidget {

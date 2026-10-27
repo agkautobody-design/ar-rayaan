@@ -14,6 +14,7 @@ import '../data/story_layers_repository.dart';
 import '../domain/story.dart';
 import '../domain/story_length.dart';
 import 'source_label_chip.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 /// "Short reads" filter on the library (stories of about a minute or less).
 final AutoDisposeStateProvider<bool> shortReadsOnlyProvider =
@@ -49,7 +50,7 @@ class StoriesScreen extends ConsumerWidget {
         error: (e, _) => Center(
           child: Padding(
             padding: const EdgeInsets.all(24),
-            child: GestureDetector(
+            child: FocusableTap(
               onTap: () async {
                 // Clear the content-sync cache and rebuild the library.
                 final prefs = await SharedPreferences.getInstance();
@@ -93,7 +94,7 @@ class StoriesScreen extends ConsumerWidget {
             if (all.isEmpty)
               Padding(
                 padding: const EdgeInsets.all(24),
-                child: GestureDetector(
+                child: FocusableTap(
                   onTap: retry,
                   child: Column(mainAxisSize: MainAxisSize.min, children: [
                     Text(
@@ -112,7 +113,7 @@ class StoriesScreen extends ConsumerWidget {
               // Some shelves are missing: say so plainly (no debug counter).
               Padding(
                 padding: const EdgeInsets.only(left: 4, bottom: 8),
-                child: GestureDetector(
+                child: FocusableTap(
                   onTap: retry,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

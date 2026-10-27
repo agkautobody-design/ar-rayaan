@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'online_status_stub.dart'
     if (dart.library.js_interop) 'online_status_web.dart';
 
@@ -9,3 +11,6 @@ bool? Function() deviceOnlineProbe = platformReportsOnline;
 /// reliable when it says "offline". Null when unknown (the phone apps, where
 /// nothing needs a download).
 bool? get deviceReportsOnline => deviceOnlineProbe();
+
+/// The browser's online / offline events. Replaced in tests.
+Stream<bool> Function() deviceOnlineChanges = platformOnlineChanges;

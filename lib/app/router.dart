@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart' show kReleaseMode;
 import 'package:go_router/go_router.dart';
 
+import 'core/child_mode.dart';
 import '../features/auth/presentation/login_screen.dart';
 import '../features/auth/presentation/reset_screen.dart';
 import '../features/auth/presentation/signup_screen.dart';
@@ -430,6 +431,12 @@ CustomTransitionPage<void> _fade(Widget child, {bool pill = true}) {
 GoRouter buildRouter({String initialLocation = '/'}) {
   return GoRouter(
     initialLocation: initialLocation,
+    // Child mode: every address that is not for children goes to Kids Corner,
+    // including links typed or restored from history. Turning child mode on or
+    // off re-checks the current address.
+    refreshListenable: kChildMode,
+    redirect: (BuildContext context, GoRouterState state) =>
+        childModeRedirect(state.uri.path),
     // Any unknown link lands somewhere useful instead of a red error page.
     errorPageBuilder: (context, state) =>
         _fade(const NotFoundScreen(), pill: false),
@@ -714,7 +721,8 @@ GoRouter buildRouter({String initialLocation = '/'}) {
         ),
         GoRoute(
           path: AppRoutes.kids,
-          pageBuilder: (context, state) => _fade(const KidsCornerScreen()),
+          pageBuilder: (context, state) =>
+              _fade(const KidsCornerScreen(), pill: false),
         ),
         GoRoute(
           path: AppRoutes.stories,
@@ -1115,7 +1123,14 @@ GoRouter buildRouter({String initialLocation = '/'}) {
         builder: (context, state, shell) {
           return Scaffold(
             body: shell,
-            bottomNavigationBar: AppBottomNav(shell: shell),
+            // Child mode has no menus to wander into.
+            bottomNavigationBar: ValueListenableBuilder<bool>(
+              valueListenable: kChildMode,
+              builder: (BuildContext context, bool childMode, Widget? _) =>
+                  childMode
+                      ? const SizedBox.shrink()
+                      : AppBottomNav(shell: shell),
+            ),
           );
         },
         branches: [

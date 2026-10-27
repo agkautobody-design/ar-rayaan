@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'app/app.dart';
+import 'app/core/child_mode.dart';
 import 'app/core/env_config.dart';
 import 'app/core/error_handling.dart';
 import 'app/core/firebase/firebase_bootstrap.dart';
@@ -11,6 +12,7 @@ import 'app/core/providers.dart';
 import 'app/core/storage/safe_prefs.dart';
 import 'features/auth/application/auth_providers.dart';
 import 'features/doctor/application/drift_guard.dart';
+import 'features/hadi/data/hadi_report_service.dart';
 import 'features/onboarding/presentation/onboarding_screen.dart';
 import 'features/prayer/presentation/worship_boot.dart';
 import 'features/doctor/application/feature_probes.dart';
@@ -42,6 +44,8 @@ Future<void> _start() async {
   // Blocked browser storage must not stop the app from starting: SafePrefs
   // falls back to memory for the session.
   final SharedPreferences prefs = await SafePrefs.open();
+  // A device handed to a child stays in child mode across reloads.
+  loadChildMode(prefs);
 
   // Doctor Tier 1: every feature registers its vitals at boot.
   FeatureProbes.registerAll();
@@ -51,6 +55,8 @@ Future<void> _start() async {
   // place that chooses — screens never know the difference.
   final bool firebaseLive = await FirebaseBootstrap.maybeInit();
   unawaited(DriftGuard().scan());
+  // Reports saved on the device while offline go out now that Firebase is up.
+  if (firebaseLive) unawaited(HadiReportService(prefs).flush());
 
   final AuthRepository authRepo;
   if (firebaseLive) {

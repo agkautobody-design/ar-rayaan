@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -18,6 +20,7 @@ import '../domain/continue_hero.dart';
 import '../domain/daily_verse.dart';
 import 'wasia_lessons.dart' show Lesson, lettersLessonsProvider;
 import 'widgets/course_browser.dart';
+import 'widgets/parent_gate.dart';
 import 'widgets/path_ux_widgets.dart';
 
 /// Al-Wasia Academy of Sacred Knowledge — home (Wave 1).
@@ -309,7 +312,9 @@ class _AcademyHomeScreenState
               child: ListView(
                 padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
             children: <Widget>[
-              ScreenHeader(title: s),
+              // No Settings gear on the Child track: Settings holds account
+              // deletion and the AI switches.
+              ScreenHeader(title: s, showSettings: !layout.simpleCopy),
               const _TrackSwitcher(),
               const SizedBox(height: 8),
               if (layout.familyCard && !showDoor) ...<Widget>[
@@ -666,12 +671,26 @@ class _LibraryRow extends StatelessWidget {
 
 /// Three tracks, one school system. The track changes what the home page
 /// shows (a child sees the next letter first and the other schools folded
-/// away; a parent sees the Family Wing first); every school stays open on
-/// every track. It is a view on this device, not a child-safety control.
+/// away; a parent sees the Family Wing first). On the Child track the other
+/// schools and the other tracks open only after the parent check; on the
+/// Teen and Parent tracks every school is open.
 class _TrackSwitcher extends ConsumerWidget {
   const _TrackSwitcher();
 
   static const List<String> _tracks = <String>['child', 'teen', 'parent'];
+
+  /// Switching TO the Child track is free; switching away from it is for a
+  /// grown-up, so it asks the parent check first.
+  static Future<void> _choose(
+    BuildContext context,
+    WidgetRef ref,
+    String current,
+    String next,
+  ) async {
+    if (next == current) return;
+    if (current == 'child' && !await requireParent(context, ref)) return;
+    await ref.read(academyTrackProvider.notifier).set(next);
+  }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -699,13 +718,12 @@ class _TrackSwitcher extends ConsumerWidget {
                       label: '${AcademyStrings.get('track.eyebrow')}: '
                           '${AcademyStrings.get('track.$t')}',
                       excludeSemantics: true,
-                      onTap: () =>
-                          ref.read(academyTrackProvider.notifier).set(t),
+                      onTap: () => unawaited(_choose(context, ref, current, t)),
                       child: InkWell(
                         key: Key('track-$t'),
                         borderRadius: BorderRadius.circular(22),
                         onTap: () =>
-                            ref.read(academyTrackProvider.notifier).set(t),
+                            unawaited(_choose(context, ref, current, t)),
                         child: AnimatedContainer(
                           duration: still
                               ? Duration.zero
@@ -921,30 +939,65 @@ class _FamilyCard extends StatelessWidget {
   }
 }
 
-/// Every other school, folded behind one row on the child track.
-class _MoreSchools extends StatelessWidget {
+/// Every other school, folded behind one row on the child track. Opening the
+/// row needs the parent check (the rows lead to adult material: marriage,
+/// transactions, end of life, and so on).
+class _MoreSchools extends ConsumerStatefulWidget {
   const _MoreSchools({required this.children});
 
   final List<Widget> children;
 
   @override
+  ConsumerState<_MoreSchools> createState() => _MoreSchoolsState();
+}
+
+class _MoreSchoolsState extends ConsumerState<_MoreSchools> {
+  bool _open = false;
+
+  Future<void> _toggle() async {
+    if (_open) {
+      setState(() => _open = false);
+      return;
+    }
+    if (!await requireParent(context, ref)) return;
+    if (!mounted) return;
+    setState(() => _open = true);
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return GlassCard(
-      child: Theme(
-        data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
-        child: ExpansionTile(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: <Widget>[
+        GlassCard(
           key: const Key('more-schools'),
-          tilePadding: EdgeInsets.zero,
-          childrenPadding: EdgeInsets.zero,
-          iconColor: AppColors.gold,
-          collapsedIconColor: AppColors.gold,
-          title: Text(AcademyStrings.get('child.more'),
-              style: AppText.body.copyWith(fontWeight: FontWeight.w600)),
-          subtitle: Text(AcademyStrings.get('child.moreBody'),
-              style: AppText.caption),
-          children: children,
+          onTap: () => unawaited(_toggle()),
+          semanticsLabel: '${AcademyStrings.get('child.more')}. '
+              '${AcademyStrings.get('child.moreBody')}',
+          child: Row(
+            children: <Widget>[
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(AcademyStrings.get('child.more'),
+                        style: AppText.body
+                            .copyWith(fontWeight: FontWeight.w600)),
+                    const SizedBox(height: 2),
+                    Text(AcademyStrings.get('child.moreBody'),
+                        style: AppText.caption),
+                  ],
+                ),
+              ),
+              Icon(
+                _open ? Icons.expand_less : Icons.lock_outline,
+                color: AppColors.gold,
+              ),
+            ],
+          ),
         ),
-      ),
+        if (_open) ...widget.children,
+      ],
     );
   }
 }
