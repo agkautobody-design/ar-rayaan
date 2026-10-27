@@ -555,13 +555,27 @@ class _PrayerRow extends ConsumerWidget {
       ],
     );
 
+    // One spoken sentence per row, with separators, instead of the words and
+    // the time run together ("Fajr NEXT 6:27 AM Sunrise ..."). The bell is
+    // its own control and stays outside.
+    final String spoken = [
+      name,
+      timeText,
+      if (isNext) 'next prayer',
+      if (note != null) note!,
+      if (iqamah != null) 'Iqamah ${DateFormat.jm().format(iqamah!)}',
+      if (jumuah != null) "Jumu'ah $jumuah",
+    ].join(', ');
+
     Widget oneLine(String text) => FittedBox(
       fit: BoxFit.scaleDown,
       alignment: AlignmentDirectional.centerStart,
       child: Text(text, maxLines: 1, softWrap: false, style: nameStyle),
     );
 
-    Widget bell() => IconButton(
+    Widget bell() => Semantics(
+      toggled: alertOn,
+      child: IconButton(
       constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
       tooltip: alertOn ? 'Turn off the $name alert' : 'Turn on the $name alert',
       onPressed: () async {
@@ -581,6 +595,7 @@ class _PrayerRow extends ConsumerWidget {
         size: 22,
         color: alertOn ? AppColors.gold : AppColors.sand.withValues(alpha: 0.5),
       ),
+    ),
     );
 
     return LayoutBuilder(
@@ -599,13 +614,18 @@ class _PrayerRow extends ConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      oneLine(name),
-                      oneLine(timeText),
-                      extras(),
-                    ],
+                  child: Semantics(
+                    container: true,
+                    label: spoken,
+                    excludeSemantics: true,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        oneLine(name),
+                        oneLine(timeText),
+                        extras(),
+                      ],
+                    ),
                   ),
                 ),
                 if (alertable) bell(),
@@ -638,13 +658,24 @@ class _PrayerRow extends ConsumerWidget {
                 const SizedBox(width: 12),
               ],
               Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [oneLine(name), extras()],
+                child: Semantics(
+                  container: true,
+                  label: spoken,
+                  excludeSemantics: true,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [oneLine(name), extras()],
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      Text(timeText, softWrap: false, style: nameStyle),
+                    ],
+                  ),
                 ),
               ),
-              const SizedBox(width: 8),
-              Text(timeText, softWrap: false, style: nameStyle),
               if (alertable) bell() else const SizedBox(width: 4),
             ],
           ),
@@ -1291,8 +1322,9 @@ class _MethodSheet extends ConsumerWidget {
   }
 }
 
-/// The five-prayer log. Quiet by design: no streaks, no totals, and an
-/// "Excused" mark that counts for nothing and asks for nothing.
+/// The five-prayer log. Quiet by design: it keeps no streak or total of its
+/// own (the optional Streaks screen can read which days have a prayer logged),
+/// and an "Excused" mark counts for nothing and asks for nothing.
 class _PrayerLogCard extends ConsumerStatefulWidget {
   const _PrayerLogCard({required this.data, required this.now});
 
@@ -1408,7 +1440,9 @@ class _PrayerLogCardState extends ConsumerState<_PrayerLogCard> {
             ],
           ),
           Text(
-            'A private note to yourself on this device. No streaks, no totals.',
+            'A private note to yourself on this device. It keeps no streak or '
+            'total of its own. If you switch on Streaks, the Streaks screen '
+            'can count the days you logged a prayer.',
             style: AppText.bodyMuted.copyWith(fontSize: 12),
           ),
           const SizedBox(height: 6),

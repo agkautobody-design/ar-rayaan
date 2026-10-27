@@ -66,8 +66,8 @@ void main() {
     expect(Directionality.of(ctx), TextDirection.rtl);
     expect(find.text('الرئيسية'), findsWidgets);
     expect(find.text('مواقيت الصلاة'), findsWidgets);
-    // Untranslated text stays English rather than being faked.
-    expect(find.text('Today for You'), findsOneWidget);
+    // The Home chrome is translated; the English is gone.
+    expect(find.text('Today for You'), findsNothing);
   });
 
   testWidgets('English stays left-to-right', (tester) async {

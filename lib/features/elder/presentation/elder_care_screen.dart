@@ -11,6 +11,7 @@ import '../../../app/theme/widgets/screen_header.dart';
 import '../../hadi/grounding/corpus.dart';
 import '../../hadi/grounding/passage.dart';
 import '../../sakina/presentation/widgets/need_help_button.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 /// Elder Care - a gentle, large-type room: big buttons, big words.
 class ElderCareScreen extends ConsumerStatefulWidget {
@@ -76,7 +77,7 @@ class _ElderCareState extends ConsumerState<ElderCareScreen> {
           const ScreenHeader(title: 'Elder Care', close: true),
           Center(child: Text('BIG WORDS \u00b7 GENTLE HEARTS', style: AppText.eyebrow)),
           const SizedBox(height: 16),
-          GestureDetector(
+          FocusableTap(
             onTap: _tap,
             child: Container(
               width: double.infinity,

@@ -16,6 +16,7 @@ import '../../share/application/share_text.dart';
 import '../../share/presentation/share_actions.dart';
 import '../application/adhkar_providers.dart';
 import '../domain/adhkar_models.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 /// Dhikr & Du'a — Hisn al-Muslim sets with tap-to-count repetitions and
 /// daily-resetting progress. Pending Founder approval.
@@ -180,7 +181,7 @@ class _SetPicker extends StatelessWidget {
             child: Semantics(
               button: true,
               selected: sets[i].id == selected,
-              child: GestureDetector(
+              child: FocusableTap(
               onTap: () => onSelect(sets[i].id),
               child: AnimatedContainer(
                 duration: const Duration(milliseconds: 180),
@@ -431,7 +432,7 @@ class _DhikrCard extends ConsumerWidget {
           ? 'Dhikr ${dhikr.number} complete'
           : 'Count dhikr ${dhikr.number}, ${dhikr.count - done} left',
       excludeSemantics: true,
-      child: GestureDetector(
+      child: FocusableTap(
         onTap: complete
             ? null
             : () async {

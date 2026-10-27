@@ -58,10 +58,10 @@ AcademyDoor? suggestedDoor(String? onboardingNeed) => switch (onboardingNeed) {
       _ => null,
     };
 
-/// What the Academy home shows for a learning track. A track is a choice of
-/// view on this device, NOT a lock: every school stays one tap away on every
-/// track, and it is not a child-safety control (the Family Wing and its parent
-/// check are).
+/// What the Academy home shows for a learning track. On the Child track the
+/// other schools sit behind the parent check and so does switching to another
+/// track (the Family Wing uses the same check); on Teen and Parent every
+/// school is open. The check is the parent PIN; the full lock is child mode.
 class TrackLayout {
   const TrackLayout({
     required this.lettersFirst,

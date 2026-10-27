@@ -122,8 +122,8 @@ NextStep resolveNextStep({
       );
     case 'community':
       return const NextStep(
-        headline: 'Find your masjid and your people',
-        detail: 'Community, near you.',
+        headline: 'Find a masjid near you',
+        detail: 'The masjid finder and your Friday prayer time.',
         route: NextStepRoutes.community,
       );
     default:

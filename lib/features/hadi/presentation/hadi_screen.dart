@@ -388,8 +388,8 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                         content: Text(sent
                             ? 'Thank you. The report was sent.'
                             : 'Thank you. It is saved on this device and '
-                                'will be sent when the app can reach the '
-                                'server.'),
+                                'will be sent the next time you open the '
+                                'app with a connection.'),
                       ),
                     );
                   },

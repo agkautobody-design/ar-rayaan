@@ -13,6 +13,7 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../application/share_text.dart';
 import 'share_actions.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 class ShareCard {
   final String id, kind, arabic, text, ref;
@@ -160,7 +161,7 @@ class _ShareState extends State<ShareScreen> {
                     selected: i == _i,
                     label: 'Card ${i + 1} of ${_cards!.length}',
                     excludeSemantics: true,
-                    child: GestureDetector(
+                    child: FocusableTap(
                       behavior: HitTestBehavior.opaque,
                       onTap: () => setState(() { _i = i; _copied = false; }),
                       // Padding makes the touch area 48 high; the dot stays small.
