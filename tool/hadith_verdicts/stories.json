@@ -1433,12 +1433,11 @@
   "correct": "none"
  },
  "abudawud:567": {
-  "verdict": "wrong",
-  "grade": "",
-  "grader": "",
-  "checked": "2026-10-20",
-  "note": "As cited in the old content the claim did not match this number. sunnah.com shows: Ibn Umar; women not barred from mosque, home better",
-  "correct": "none"
+  "verdict": "ok",
+  "grade": "Sahih",
+  "grader": "al-Albani (Zubair Ali Zai: Daif)",
+  "checked": "2026-10-27",
+  "note": "Re-checked 2026-10-27 against the full text, cited correctly in the worship guides. Earlier note: As cited in the old content the claim did not match this number. sunnah.com shows: Ibn Umar; women not barred from mosque, home better"
  },
  "ahmad:15492": {
   "verdict": "unverifiable",
