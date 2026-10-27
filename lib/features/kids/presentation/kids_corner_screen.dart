@@ -14,6 +14,10 @@ import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/scenic_background.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../academy/application/academy_providers.dart';
+import '../../academy/application/family_service.dart';
+import '../../academy/application/wasia_checkin.dart';
+import '../../academy/application/wasia_controller.dart';
+import '../../academy/presentation/widgets/wasia_checkin_card.dart';
 import '../../academy/presentation/widgets/parent_gate.dart';
 import '../../sakina/domain/crisis_detector.dart';
 import '../../sakina/presentation/widgets/need_help_button.dart';
@@ -91,6 +95,41 @@ List<KidsDoor> kidsDoorsFor({
 /// and Kids Corner.
 Future<void> startChildMode(BuildContext context, WidgetRef ref) async {
   if (!await requireParent(context, ref)) return;
+  if (!context.mounted) return;
+  // Which child is the phone going to? Progress is saved to that child and
+  // Wasia uses that child's words. Nothing from the last child stays on screen.
+  final FamilyService fam = ref.read(familyServiceProvider);
+  final List<Map<String, dynamic>> kids = await fam.children();
+  if (!context.mounted) return;
+  if (kids.length > 1) {
+    final String? picked = await showDialog<String>(
+      context: context,
+      builder: (BuildContext ctx) => SimpleDialog(
+        backgroundColor: const Color(0xFF0A0F18),
+        title: Text('Who is it for?', style: AppText.titleMedium),
+        children: <Widget>[
+          for (final Map<String, dynamic> k in kids)
+            SimpleDialogOption(
+              key: Key('hand-over-child-${k['id']}'),
+              onPressed: () => Navigator.pop(ctx, k['id'] as String),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                child: Text(k['name'] as String, style: AppText.body),
+              ),
+            ),
+        ],
+      ),
+    );
+    if (picked == null) return;
+    await fam.setActiveChild(picked);
+  } else if (kids.length == 1) {
+    await fam.setActiveChild(kids.first['id'] as String);
+  }
+  ref.invalidate(activeChildProvider);
+  ref.read(learnerConfirmedProvider.notifier).state = true;
+  ref.read(wasiaControllerProvider.notifier).clear();
+  ref.read(wasiaParentControllerProvider.notifier).clear();
+  ref.read(wasiaCheckinProvider.notifier).reset();
   if (!context.mounted) return;
   final prefs = ref.read(sharedPreferencesProvider);
   ref.read(parentGateProvider.notifier).lock();
@@ -203,6 +242,7 @@ class _KidsCornerScreenState extends ConsumerState<KidsCornerScreen> {
                 style: AppText.body.copyWith(fontSize: 18, height: 1.4),
               ),
             ),
+            const WasiaCheckinCard(),
             for (final KidsDoor d in doors)
               Padding(
                 padding: const EdgeInsets.only(bottom: 14),

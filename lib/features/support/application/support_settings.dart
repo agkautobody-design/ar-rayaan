@@ -13,6 +13,7 @@ abstract final class SupportKeys {
   static const String checkinFreq = 'ar.support.checkin_freq';
   static const String checkinLast = 'ar.support.checkin_last';
   static const String checkinNext = 'ar.support.checkin_next';
+  static const String wasiaCheckinPrefix = 'ar.support.wasia_checkin.';
   static const String remember = 'ar.support.remember';
   static const String onlineModel = 'ar.support.online_model';
   static const String privateMode = 'ar.support.private_mode';
@@ -164,8 +165,19 @@ class SupportSettingsNotifier extends Notifier<SupportSettings> {
     await _str(SupportKeys.checkinNext, _iso(c.nextDue));
   }
 
-  Future<void> setFrequency(CheckinFrequency f) =>
-      saveCheckin(CheckinScheduler.setFrequency(state.checkin, f));
+  Future<void> setFrequency(CheckinFrequency f) async {
+    await saveCheckin(CheckinScheduler.setFrequency(state.checkin, f));
+    // Switching the check-in on in Settings also lifts any child's
+    // "Don't ask me again" in Wasia.
+    if (f != CheckinFrequency.off) {
+      try {
+        final SharedPreferences p = await SharedPreferences.getInstance();
+        for (final String k in p.getKeys().toList()) {
+          if (k.startsWith(SupportKeys.wasiaCheckinPrefix)) await p.remove(k);
+        }
+      } catch (_) {}
+    }
+  }
 
   Future<void> setRemember(bool v) async {
     state = state.copy(remember: v);

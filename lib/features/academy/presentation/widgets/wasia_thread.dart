@@ -5,32 +5,55 @@ import '../../../../app/theme/app_colors.dart';
 import '../../../../app/theme/app_typography.dart';
 import '../../../../app/theme/widgets/speak_button.dart';
 import '../../../sakina/presentation/widgets/need_help_button.dart';
-import '../../../support/domain/checkin_scheduler.dart';
+import '../../application/family_service.dart';
 import '../../application/wasia_controller.dart';
+import 'parent_gate.dart';
 
-/// The shared Wasia conversation thread — every chat box renders the same
-/// brain, so a question in the lessons and a follow-up in the exam hall are
-/// one continuing conversation.
+/// The Wasia conversation thread. A child's thread and the parent's own
+/// thread are different: [parent] selects the parent's, which never contains
+/// anything a child typed. A child's thread is dropped when another child
+/// takes over.
 class WasiaThread extends ConsumerStatefulWidget {
-  const WasiaThread({super.key});
+  const WasiaThread({super.key, this.parent = false});
+
+  final bool parent;
 
   @override
   ConsumerState<WasiaThread> createState() => _WasiaThreadState();
 }
 
 class _WasiaThreadState extends ConsumerState<WasiaThread> {
+  StateNotifierProvider<WasiaController, WasiaState> get _provider =>
+      widget.parent ? wasiaParentControllerProvider : wasiaControllerProvider;
+
   @override
   void initState() {
     super.initState();
-    // The gentle check-in, when it is due. In memory, never a notification.
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (mounted) ref.read(wasiaControllerProvider.notifier).maybeCheckin();
+      if (!mounted) return;
+      if (widget.parent) {
+        // The parent's box always starts empty.
+        ref.read(wasiaParentControllerProvider.notifier).clear();
+      } else {
+        ref.read(wasiaControllerProvider.notifier).syncChild();
+      }
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    final s = ref.watch(wasiaControllerProvider);
+    if (widget.parent) {
+      ref.listen(parentGateProvider, (_, __) {
+        if (!ref.read(parentGateProvider.notifier).isOpen()) {
+          ref.read(wasiaParentControllerProvider.notifier).clear();
+        }
+      });
+    } else {
+      ref.listen(activeChildProvider, (_, __) {
+        ref.read(wasiaControllerProvider.notifier).clear();
+      });
+    }
+    final s = ref.watch(_provider);
     if (s.messages.isEmpty && s.notice == null) {
       return const SizedBox.shrink();
     }
@@ -38,7 +61,7 @@ class _WasiaThreadState extends ConsumerState<WasiaThread> {
       Row(children: [
         Expanded(child: Text('CONVERSATION', style: AppText.eyebrow)),
         GestureDetector(
-          onTap: () => ref.read(wasiaControllerProvider.notifier).clear(),
+          onTap: () => ref.read(_provider.notifier).clear(),
           child: const Padding(
             padding: EdgeInsets.all(4),
             child: Icon(Icons.restart_alt, size: 15, color: AppColors.gold),
@@ -78,30 +101,6 @@ class _WasiaThreadState extends ConsumerState<WasiaThread> {
                     style: AppText.bodyMuted
                         .copyWith(fontSize: 13, height: 1.4)),
           ),
-        ),
-      if (s.messages.any((m) => m.checkin))
-        Padding(
-          padding: const EdgeInsets.only(bottom: 8),
-          child: Wrap(spacing: 8, runSpacing: 8, children: <Widget>[
-            for (final (String key, String label, CheckinAnswer a) in <(String, String, CheckinAnswer)>[
-              ('wasia-checkin-okay', 'I\u2019m okay', CheckinAnswer.okay),
-              ('wasia-checkin-hard', 'It\u2019s been hard', CheckinAnswer.hard),
-              ('wasia-checkin-rather', 'I\u2019d rather not say', CheckinAnswer.rather),
-            ])
-              OutlinedButton(
-                key: Key(key),
-                style: OutlinedButton.styleFrom(minimumSize: const Size(48, 48)),
-                onPressed: () => ref.read(wasiaControllerProvider.notifier).answerCheckin(a),
-                child: Text(label),
-              ),
-            TextButton(
-              key: const Key('wasia-checkin-stop'),
-              style: TextButton.styleFrom(minimumSize: const Size(48, 48)),
-              onPressed: () => ref.read(wasiaControllerProvider.notifier).stopCheckins(),
-              child: Text('Don\u2019t ask me again',
-                  style: AppText.caption.copyWith(fontSize: 12, decoration: TextDecoration.underline)),
-            ),
-          ]),
         ),
       if (s.messages.isNotEmpty &&
           s.messages.last.fromHadi &&

@@ -44,6 +44,15 @@ abstract final class StudentRouting {
     'how do i talk to my', 'gone quiet', 'how can i help my child',
     'how do i help my child', 'my child is struggling', 'my son is struggling',
     'my daughter is struggling', 'how do i talk to him', 'how do i talk to her',
+    'bullied', 'bullying', 'bully', 'mean to him', 'mean to her', 'mean to them',
+    'mean to my', 'picked on', 'dont want to go to school',
+    'does not want to go to school', 'doesnt want to go to school',
+    'refuses to go to school', 'school refusal', 'no friends', 'is scared',
+    'hurting', 'sad all the time', 'how should i talk', 'how should i listen',
+    'how do i listen', 'how to listen', 'what should i say to my', 'my son says',
+    'my daughter says', 'my child says', 'my child is being', 'wont talk to me',
+    'will not talk to me', 'withdrawn', 'talk to my son', 'talk to my daughter',
+    'talk to my child', 'help my child', 'help my son', 'help my daughter',
   ];
 
   /// The concern in [text], or null. [parent] is true when a parent is

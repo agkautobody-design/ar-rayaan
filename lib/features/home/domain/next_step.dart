@@ -59,6 +59,7 @@ NextStep resolveNextStep({
   String? quranResume,
   int newMuslimDone = 0,
   int lessonsDone = 0,
+  int childrenAdded = 0,
 }) {
   switch (need) {
     case 'pray':
@@ -115,6 +116,15 @@ NextStep resolveNextStep({
         route: NextStepRoutes.sakina,
       );
     case 'children':
+      if (childrenAdded > 0) {
+        return NextStep(
+          headline: 'Open the Family Wing',
+          detail: childrenAdded == 1
+              ? 'Follow your child’s lessons, or hand the phone over.'
+              : 'Follow your $childrenAdded children’s lessons, or hand the phone over.',
+          route: NextStepRoutes.family,
+        );
+      }
       return const NextStep(
         headline: 'Open the Family Wing',
         detail: 'Add a child, then start Wasia’s letters school.',

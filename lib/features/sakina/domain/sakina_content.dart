@@ -1088,14 +1088,17 @@ abstract final class HelpResources {
 
   /// Every row that may be shown: the verified rows of [all] plus [extra]
   /// whose number is not already listed.
+  /// Two rows are the same line when they dial the same digits (or open the
+  /// same page) in the same countries, however the contact text is written.
+  static String _rowKey(HelpResource r) =>
+      '${r.countries.join(',')}|${r.dial ?? r.url ?? r.contact.replaceAll(RegExp(r'[^0-9A-Za-z]'), '')}';
+
   static List<HelpResource> get shown {
-    String key(HelpResource r) =>
-        '${r.countries.join(',')}|${r.contact.replaceAll(RegExp(r'[^0-9A-Za-z]'), '')}';
-    final Set<String> have = <String>{for (final HelpResource r in all) key(r)};
+    final Set<String> have = <String>{for (final HelpResource r in all) _rowKey(r)};
     return <HelpResource>[
       ...all,
       for (final HelpResource r in extra)
-        if (r.verified && have.add(key(r))) r,
+        if (r.verified && have.add(_rowKey(r))) r,
     ];
   }
 
@@ -1114,7 +1117,11 @@ abstract final class HelpResources {
       for (final HelpResource r in shown)
         if (r.countries.isEmpty && wanted(r)) r,
     ];
-    return <HelpResource>[...local, ...worldwide];
+    final Set<String> seen = <String>{};
+    return <HelpResource>[
+      for (final HelpResource r in <HelpResource>[...local, ...worldwide])
+        if (seen.add('${r.dial ?? r.url ?? r.contact}')) r,
+    ];
   }
 
   /// Every country code that has at least one specific row.

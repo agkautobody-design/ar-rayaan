@@ -296,3 +296,22 @@ def add_all(R):
         'Only lines with a verified-on date and an https source are shown. Unconfirmed emergency rows are hidden.',
         'Numbers change. Each needs re-checking on its date.',
         CLIN, ['docs/support/pack_format.md'], 'high', sub='support')
+
+    # ------------------------------------------------ child-safety fixes (round 10, T2)
+    add('support.child-distress', 'sakina', 'Wasia > what a child is told when they say they are unhappy, scared, hurt, or ask for a secret to be kept',
+        'lib/features/support/domain/child_distress.dart', 'ChildDistress (word lists, replies by age band 5-8, 9-12, 13-17)',
+        'Fixed listening replies for school unhappiness, fear at home, general fear and "promise you will keep it secret", with trusted-adult choices and the child helpline button.',
+        'Round 10 T2: a bullying sentence got "beyond what I can teach". Written for coverage in English; no clinician or child-protection specialist has read them.',
+        CLIN, ['R10_T2'], 'high', also=[LAWYER, NATIVE], sub='children',
+        surf='Wasia thread and Kids Corner')
+    add('support.parent-listening', 'sakina', 'Family Wing > How to listen to a child who is hurting',
+        'lib/features/support/presentation/parent_listening_screen.dart', 'kParentListeningSections',
+        'Signs, how to open the conversation, what to say, what not to say, what to do next, harm at home, and one line from the faith.',
+        'Round 10 T2: no content told a parent how to listen to a bullied child. A clinician and a child-protection specialist should read it; a scholar should read the faith line.',
+        CLIN, ['R10_T2'], 'high', also=[FIQH, LAWYER], sub='children',
+        surf='Family Wing and search')
+    add('support.wasia-checkin', 'sakina', 'Wasia > the gentle check-in for a child',
+        'lib/features/academy/application/wasia_checkin.dart', 'WasiaCheckinNotifier; kWasiaCheckinFallback',
+        'Age-banded wording; once per interval per child; only the last-asked day and the off flag are stored on the device; the answer is not stored and no parent screen reads it.',
+        'Round 10 T2: the check-in never appeared in Wasia. Wording needs a clinician; storage needs a lawyer (children privacy version 6).',
+        CLIN, ['R10_T2'], 'high', also=[LAWYER], sub='children')

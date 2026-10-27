@@ -22,6 +22,7 @@ import 'wasia_lessons.dart' show Lesson, lettersLessonsProvider;
 import 'widgets/course_browser.dart';
 import 'widgets/parent_gate.dart';
 import 'widgets/path_ux_widgets.dart';
+import 'widgets/wasia_checkin_card.dart';
 
 /// Al-Wasia Academy of Sacred Knowledge — home (Wave 1).
 /// Locked look: Playfair header · continue hero · The Path card ·
@@ -317,6 +318,7 @@ class _AcademyHomeScreenState
               ScreenHeader(title: s, showSettings: !layout.simpleCopy),
               const _TrackSwitcher(),
               const SizedBox(height: 8),
+              const WasiaCheckinCard(),
               if (layout.familyCard && !showDoor) ...<Widget>[
                 const _FamilyCard(),
                 const SizedBox(height: 12),

@@ -10,12 +10,10 @@ import '../../hadi/grounding/ruling_gate.dart';
 import '../../hadi/data/groq_hadi_provider.dart';
 import '../data/offline_wasia_provider.dart';
 import '../domain/lesson_grounding.dart';
-import '../../support/application/support_settings.dart';
 import '../../support/data/pack_repository.dart';
-import '../../support/domain/checkin_scheduler.dart';
 import '../../support/domain/student_routing.dart';
 import '../../support/domain/support_engine.dart';
-import '../../support/domain/support_pack.dart';
+import '../../support/domain/child_distress.dart';
 import 'child_age_band.dart';
 
 enum WasiaPersona { student, parent, teacher }
@@ -45,12 +43,20 @@ String wasiaCrisisReply(WasiaPersona persona) {
       'someone you trust today, or a local professional. $help';
 }
 
-/// The check-in line used when no pack is loaded, by age band.
-const Map<String, String> kWasiaCheckinFallback = <String, String>{
-  '5-8': 'Hello. How are you today?',
-  '9-12': 'No hurry, I just like to ask now and then: how are you, really?',
-  '13-17': 'No agenda, I just like to check in now and then. How are you really doing?',
-};
+/// Pointer added to a parent's reply about a hurting or bullied child.
+const String kWasiaParentListeningPointer =
+    'There is a short guide for exactly this, with what to say, what not to '
+    'say, and when to ask the school or a doctor: open \u201cHow to listen to a '
+    'child who is hurting\u201d just below this box.';
+
+/// What a parent is told when the lessons do not cover the question. Not the
+/// child-directed "back to your letters".
+const String kWasiaParentDecline =
+    'I cannot answer that from my lessons, and I would rather not guess. If '
+    'it is about helping a child who is hurting or bullied, open \u201cHow to '
+    'listen to a child who is hurting\u201d just below this box. For worship '
+    'or daily-life questions, H\u0101di can help, or a teacher or scholar you '
+    'trust.';
 
 /// One brain, three voices. Research-backed shape: a specific, in-domain
 /// persona that NAMES its audience and context beats a generic role label —
@@ -175,10 +181,31 @@ class WasiaController extends StateNotifier<WasiaState> {
   WasiaController(
     this.ref, {
     HadiProvider Function(String name, String key)? providerFor,
+    this.forParent = false,
   })  : _providerFor = providerFor,
         super(const WasiaState());
 
   final Ref ref;
+
+  /// True for the parent's own box. A parent has a separate conversation from
+  /// every child: nothing a child types is ever in it, and nothing the parent
+  /// types reaches a child.
+  final bool forParent;
+
+  /// Which child the thread belongs to (null = no child chosen). A thread
+  /// never carries one child's words to another.
+  String? _threadChild;
+  bool _childSeen = false;
+
+  /// Drops the conversation when the active child is not the one it belongs
+  /// to. Call when a screen opens and before every question.
+  Future<void> syncChild() async {
+    if (forParent) return;
+    final String? id = await ChildAgeBand.activeId();
+    if (_childSeen && _threadChild != id && state.messages.isNotEmpty) clear();
+    _threadChild = id;
+    _childSeen = true;
+  }
 
   /// Test seam: builds the live provider. Null = the real one.
   final HadiProvider Function(String name, String key)? _providerFor;
@@ -221,79 +248,6 @@ class WasiaController extends StateNotifier<WasiaState> {
 
   /// The age band a parent set for the active child, or the default.
   Future<String> _band() => ChildAgeBand.active();
-
-  /// The gentle check-in for a child, in the words of their age band. In
-  /// memory only: nothing the child answers is stored, and no parent sees it.
-  /// Call when a Wasia screen opens.
-  Future<void> maybeCheckin() async {
-    try {
-      if (state.messages.any((HadiMessage m) => m.checkin)) return;
-      final SupportSettingsNotifier n = ref.read(supportSettingsProvider.notifier);
-      final SupportSettings s = ref.read(supportSettingsProvider);
-      if (s.privateMode) return;
-      final DateTime now = DateTime.now();
-      if (s.checkin.lastAsked == null) {
-        await n.saveCheckin(CheckinScheduler.start(s.checkin, now));
-        return;
-      }
-      if (!CheckinScheduler.isDue(s.checkin, now)) return;
-      final String band = await _band();
-      final SupportPack? p = SupportPackRepository.byName('checkin');
-      String line = kWasiaCheckinFallback[band] ?? kWasiaCheckinFallback['9-12']!;
-      if (p != null && !p.expiredAt(now)) {
-        final List<SupportSnippet> options = <SupportSnippet>[
-          for (final SupportSnippet x in p.snippets)
-            if (x.kind == 'checkin' && x.matchesAge(band) && x.audience != 'hadi' &&
-                (SupportPackRepository.allowDraft || x.shippable))
-              x,
-        ];
-        if (options.isNotEmpty) line = options[now.day % options.length].textIn('en');
-      }
-      await n.saveCheckin(CheckinScheduler.after(s.checkin, CheckinAnswer.ignored, now));
-      state = state.copy(messages: <HadiMessage>[
-        ...state.messages,
-        HadiMessage(fromHadi: true, text: line, ephemeral: true, sensitive: true, checkin: true),
-      ]);
-    } catch (_) {}
-  }
-
-  /// The child's answer to the check-in. If it has been hard, Wasia offers a
-  /// trusted adult and a child helpline, and never defaults to "tell a
-  /// parent". The answer is not stored and is not shown to a parent.
-  Future<void> answerCheckin(CheckinAnswer a) async {
-    final SupportSettingsNotifier n = ref.read(supportSettingsProvider.notifier);
-    final SupportSettings s = ref.read(supportSettingsProvider);
-    await n.saveCheckin(CheckinScheduler.after(s.checkin, a, DateTime.now()));
-    final String reply = switch (a) {
-      CheckinAnswer.okay => 'That is good to hear. I am here for your letters whenever you like.',
-      CheckinAnswer.hard => 'Thank you for telling me. Hard days happen, and you are not in trouble. '
-          'If it feels heavy, you can talk to ${CrisisResponses.trustedAdultForChild}. You choose who.',
-      CheckinAnswer.rather => 'That is fine. You do not have to say. I am here for your letters.',
-      CheckinAnswer.ignored => '',
-    };
-    state = state.copy(messages: <HadiMessage>[
-      for (final HadiMessage m in state.messages)
-        if (!m.checkin) m,
-      if (reply.isNotEmpty)
-        HadiMessage(
-          fromHadi: true,
-          text: reply,
-          ephemeral: true,
-          sensitive: true,
-          crisis: a == CheckinAnswer.hard ? CrisisKind.childSafety : null,
-        ),
-    ]);
-  }
-
-  Future<void> stopCheckins() async {
-    final SupportSettingsNotifier n = ref.read(supportSettingsProvider.notifier);
-    final SupportSettings s = ref.read(supportSettingsProvider);
-    await n.saveCheckin(CheckinScheduler.turnOff(s.checkin, DateTime.now()));
-    state = state.copy(messages: <HadiMessage>[
-      for (final HadiMessage m in state.messages)
-        if (!m.checkin) m,
-    ]);
-  }
 
   /// Whose voice the current thread was started in. A thread never mixes
   /// voices: the persona prompt is sent once, with the first message, so a
@@ -351,6 +305,7 @@ class WasiaController extends StateNotifier<WasiaState> {
       LessonGrounding? lesson}) async {
     final q = question.trim();
     if (q.isEmpty || state.isLoading) return '';
+    await syncChild();
     if (_threadPersona != persona || _threadLesson != lesson?.id) {
       _threadPersona = persona;
       _threadLesson = lesson?.id;
@@ -402,6 +357,35 @@ class WasiaController extends StateNotifier<WasiaState> {
         return reply;
       }
     }
+    // A child who says they are unhappy, scared or hurt (mean children, nobody
+    // likes me, I do not want to go home, someone hurts me) or who asks for a
+    // secret to be kept gets a listening reply, with trusted-adult choices and
+    // the child helpline button, never "beyond what I can teach" and never a
+    // push back to the lessons. Fixed wording by age band. Nothing is sent
+    // anywhere and nothing is kept.
+    if (persona == WasiaPersona.student) {
+      final ChildDistressKind? d = ChildDistress.detect(q);
+      if (d != null) {
+        final String band = await _band();
+        final String reply = ChildDistress.reply(d, band);
+        _latch = CrisisKind.childSafety;
+        _latchChecks = 0;
+        state = state.copy(
+          clearNotice: true,
+          messages: <HadiMessage>[
+            ...state.messages,
+            HadiMessage(fromHadi: false, text: q, sensitive: true),
+            HadiMessage(
+              fromHadi: true,
+              text: reply,
+              sensitive: true,
+              crisis: CrisisKind.childSafety,
+            ),
+          ],
+        );
+        return reply;
+      }
+    }
     // School and learning worries (bullying, exam fear, "I am stupid", a
     // video that upset them, a parent's worry about a learning difference) are
     // answered on the device from the student_problems pack. Nothing is sent
@@ -411,23 +395,29 @@ class WasiaController extends StateNotifier<WasiaState> {
       final bool parent = persona == WasiaPersona.parent;
       final StudentConcern? concern = StudentRouting.classify(q, parent: parent);
       final SupportEngine? eng = SupportPackRepository.engine;
-      if (concern != null && eng != null) {
+      if (concern != null && (eng != null || parent)) {
         final String band = parent ? 'adult' : await _band();
-        final SupportTurn? turn = eng.reply(
+        final SupportTurn? turn = eng?.reply(
           _support,
           pack: 'student_problems',
           userText: q,
           ageBand: band,
           extraCues: StudentRouting.cues(concern),
         );
-        if (turn != null) {
+        if (turn != null || parent) {
           final bool childAtRisk = !parent &&
               (concern == StudentConcern.bullying ||
                   concern == StudentConcern.exposure ||
                   concern == StudentConcern.familyStrain);
-          final String text = childAtRisk
-              ? '${turn.text}\n\nIf it keeps happening or it scares you, tell ${CrisisResponses.trustedAdultForChild}.'
-              : turn.text;
+          final String base = turn?.text ?? '';
+          final String text = parent
+              ? <String>[
+                  if (base.isNotEmpty) base,
+                  kWasiaParentListeningPointer,
+                ].join('\n\n')
+              : childAtRisk
+                  ? '$base\n\nIf it keeps happening or it scares you, tell ${CrisisResponses.trustedAdultForChild}.'
+                  : base;
           state = state.copy(
             clearNotice: true,
             messages: <HadiMessage>[
@@ -437,7 +427,7 @@ class WasiaController extends StateNotifier<WasiaState> {
                 fromHadi: true,
                 text: text,
                 sensitive: true,
-                supportIds: turn.ids,
+                supportIds: turn?.ids ?? const <String>[],
                 crisis: childAtRisk ? CrisisKind.childSafety : null,
               ),
             ],
@@ -478,6 +468,12 @@ class WasiaController extends StateNotifier<WasiaState> {
               : LessonAnswerer.answer(q, lesson.text) ?? kWasiaNotInLesson)
           : await const OfflineWasiaProvider().ask(q, state.messages);
       offline = offline.replaceAll(RegExp(r'\[GO:[^\]]+\]'), '').trim();
+      // A parent is never told "get back to your letters".
+      if (persona == WasiaPersona.parent &&
+          (offline == OfflineWasiaProvider.decline ||
+              offline.contains('your letters'))) {
+        offline = kWasiaParentDecline;
+      }
       if (quotaNote != null) offline = quotaNote + offline;
       state = state.copy(
         clearNotice: true,
@@ -580,4 +576,11 @@ class WasiaController extends StateNotifier<WasiaState> {
 final wasiaControllerProvider =
     StateNotifierProvider<WasiaController, WasiaState>((ref) {
   return WasiaController(ref);
+});
+
+/// The parent's own conversation. It is a different thread from every child's:
+/// a parent screen never reads [wasiaControllerProvider].
+final wasiaParentControllerProvider =
+    StateNotifierProvider<WasiaController, WasiaState>((ref) {
+  return WasiaController(ref, forParent: true);
 });
