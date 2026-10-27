@@ -29,6 +29,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # The content bots push straight to main. Their stories are checked
+      # here first (python only, seconds) so a bad entry stops the deploy
+      # with a clear message and opens the failure issue below, instead of
+      # surfacing as an unrelated test failure after a long build.
+      - name: Daily content check
+        run: python3 tool/check_daily_content.py
+
       - uses: subosito/flutter-action@v2
         with:
           channel: stable
