@@ -1,0 +1,961 @@
+{
+ "schema": 1,
+ "pack": "student_problems",
+ "packKind": "support",
+ "topic": "student",
+ "description": "School-age problems: finding learning hard, bullying, worry and not wanting to go to school, and teen exposure to vaping, porn, gambling and alcohol. Child bands are short and safe; adult lines are for parents and teachers.",
+ "audience": "both",
+ "ageBands": ["adult", "5-8", "9-12", "13-17"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en"],
+ "snippets": [
+  {
+   "id": "student_problems.reflect.001",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "That sounds hard. I'm glad you told me."
+   },
+   "ageBand": ["5-8"],
+   "tags": ["student", "child", "validation"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: adolescent mental health", "url": "https://www.who.int/news-room/fact-sheets/detail/adolescent-mental-health", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"},
+    {"type": "background", "section": "RES_H1 10.6", "note": "Learning difficulties, bullying and school refusal were not researched beyond the WHO adolescent page; clinician and safeguarding to supply sources and confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "student_problems.reflect.002",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "School can feel big and scary sometimes."
+   },
+   "ageBand": ["5-8"],
+   "tags": ["student", "child", "school"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: adolescent mental health", "url": "https://www.who.int/news-room/fact-sheets/detail/adolescent-mental-health", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"},
+    {"type": "background", "section": "RES_H1 10.6", "note": "Learning difficulties, bullying and school refusal were not researched beyond the WHO adolescent page; clinician and safeguarding to supply sources and confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "student_problems.affirm.001",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "You are trying, and that is brave."
+   },
+   "ageBand": ["5-8"],
+   "tags": ["student", "child", "effort"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.6", "note": "Learning difficulties, bullying and school refusal were not researched beyond the WHO adolescent page; clinician and safeguarding to supply sources and confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "student_problems.explain.001",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Everyone finds some things hard. Reading is hard for some kids, and maths is hard for others. A teacher can help you."
+   },
+   "ageBand": ["5-8"],
+   "tags": ["student", "child", "learning"],
+   "triggers": ["i can't read", "i am stupid"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.6", "note": "Learning difficulties, bullying and school refusal were not researched beyond the WHO adolescent page; clinician and safeguarding to supply sources and confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "student_problems.explain.002",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "It is not okay when someone is mean to you again and again. It is not your fault. Tell a teacher you trust."
+   },
+   "ageBand": ["5-8"],
+   "tags": ["student", "child", "bullying"],
+   "triggers": ["they are mean to me", "nobody plays with me", "hit me at school"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.6", "note": "Learning difficulties, bullying and school refusal were not researched beyond the WHO adolescent page; clinician and safeguarding to supply sources and confirm."},
+    {"type": "guideline", "title": "WHO fact sheet: adolescent mental health", "url": "https://www.who.int/news-room/fact-sheets/detail/adolescent-mental-health", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "C",
+   "risk": "medium",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "student_problems.plan-step.001",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "Let's take one small step. Which grown-up at school feels kind to you?"
+   },
+   "ageBand": ["5-8"],
+   "tags": ["student", "child", "trusted-adult"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.6", "note": "Learning difficulties, bullying and school refusal were not researched beyond the WHO adolescent page; clinician and safeguarding to supply sources and confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "student_problems.reflect.003",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "That sounds really hard. Thank you for telling me."
+   },
+   "ageBand": ["9-12"],
+   "tags": ["student", "child", "validation"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: adolescent mental health", "url": "https://www.who.int/news-room/fact-sheets/detail/adolescent-mental-health", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"},
+    {"type": "background", "section": "RES_H1 10.6", "note": "Learning difficulties, bullying and school refusal were not researched beyond the WHO adolescent page; clinician and safeguarding to supply sources and confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "student_problems.reflect.004",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like school is making you feel worried or sad."
+   },
+   "ageBand": ["9-12"],
+   "tags": ["student", "child", "school"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: adolescent mental health", "url": "https://www.who.int/news-room/fact-sheets/detail/adolescent-mental-health", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"},
+    {"type": "background", "section": "RES_H1 10.6", "note": "Learning difficulties, bullying and school refusal were not researched beyond the WHO adolescent page; clinician and safeguarding to supply sources and confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "student_problems.reflect.005",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you feel left out."
+   },
+   "ageBand": ["9-12"],
+   "tags": ["student", "child", "bullying"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: adolescent mental health", "url": "https://www.who.int/news-room/fact-sheets/detail/adolescent-mental-health", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"},
+    {"type": "background", "section": "RES_H1 10.6", "note": "Learning difficulties, bullying and school refusal were not researched beyond the WHO adolescent page; clinician and safeguarding to supply sources and confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "student_problems.ask.001",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What is the hardest part of school right now?"
+   },
+   "ageBand": ["9-12"],
+   "tags": ["student", "child", "explore"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.6", "note": "Learning difficulties, bullying and school refusal were not researched beyond the WHO adolescent page; clinician and safeguarding to supply sources and confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "student_problems.ask.002",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Is there a grown-up at school who you feel safe with?"
+   },
+   "ageBand": ["9-12"],
+   "tags": ["student", "child", "trusted-adult"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.6", "note": "Learning difficulties, bullying and school refusal were not researched beyond the WHO adolescent page; clinician and safeguarding to supply sources and confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "student_problems.explain.003",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Some people learn in different ways. Finding reading or maths hard does not mean you are not clever. A teacher can find the way that works for you."
+   },
+   "ageBand": ["9-12"],
+   "tags": ["student", "child", "learning"],
+   "triggers": ["i'm stupid", "can't read", "can't do maths"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.6", "note": "Learning difficulties, bullying and school refusal were not researched beyond the WHO adolescent page; clinician and safeguarding to supply sources and confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "student_problems.explain.004",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Being picked on again and again is bullying. It is never your fault. Telling a teacher or a trusted grown-up is the right thing to do."
+   },
+   "ageBand": ["9-12"],
+   "tags": ["student", "child", "bullying"],
+   "triggers": ["they pick on me", "bullied", "cyberbullying"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.6", "note": "Learning difficulties, bullying and school refusal were not researched beyond the WHO adolescent page; clinician and safeguarding to supply sources and confirm."},
+    {"type": "guideline", "title": "WHO fact sheet: adolescent mental health", "url": "https://www.who.int/news-room/fact-sheets/detail/adolescent-mental-health", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "C",
+   "risk": "medium",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "student_problems.explain.005",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Feeling worried about school is common. Your tummy may hurt or your heart may race. A school nurse or doctor can help."
+   },
+   "ageBand": ["9-12"],
+   "tags": ["student", "child", "anxiety"],
+   "triggers": ["stomach ache", "scared to go to school", "don't want to go"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.6", "note": "Learning difficulties, bullying and school refusal were not researched beyond the WHO adolescent page; clinician and safeguarding to supply sources and confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "student_problems.plan-step.002",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "Here is a small step. Think of one kind grown-up you could tell, and one sentence to start with. Want to practise it together?"
+   },
+   "ageBand": ["9-12"],
+   "tags": ["student", "child", "script"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.6", "note": "Learning difficulties, bullying and school refusal were not researched beyond the WHO adolescent page; clinician and safeguarding to supply sources and confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "student_problems.safety.001",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "If someone is hurting you or you feel unsafe, tell a teacher or a grown-up you trust right now. You can also call a children's helpline. It is free."
+   },
+   "ageBand": ["9-12"],
+   "tags": ["student", "child", "safety"],
+   "triggers": ["he hits me", "she threatens me", "i am scared"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.6", "note": "Learning difficulties, bullying and school refusal were not researched beyond the WHO adolescent page; clinician and safeguarding to supply sources and confirm."},
+    {"type": "institution", "title": "Childhelp National Child Abuse Hotline (operator page)", "url": "https://childhelphotline.org/", "section": "RES_H1 10.8", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "student_problems.reflect.006",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like a lot is going on at school."
+   },
+   "ageBand": ["13-17"],
+   "tags": ["student", "teen", "school"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: adolescent mental health", "url": "https://www.who.int/news-room/fact-sheets/detail/adolescent-mental-health", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"},
+    {"type": "background", "section": "RES_H1 10.6", "note": "Learning difficulties, bullying and school refusal were not researched beyond the WHO adolescent page; clinician and safeguarding to supply sources and confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "student_problems.reflect.007",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you feel on your own with this."
+   },
+   "ageBand": ["13-17"],
+   "tags": ["student", "teen", "isolation"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: adolescent mental health", "url": "https://www.who.int/news-room/fact-sheets/detail/adolescent-mental-health", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"},
+    {"type": "background", "section": "RES_H1 10.6", "note": "Learning difficulties, bullying and school refusal were not researched beyond the WHO adolescent page; clinician and safeguarding to supply sources and confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "student_problems.reflect.008",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "You want to do well, and the pressure is huge."
+   },
+   "ageBand": ["13-17"],
+   "tags": ["student", "teen", "pressure"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: adolescent mental health", "url": "https://www.who.int/news-room/fact-sheets/detail/adolescent-mental-health", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"},
+    {"type": "background", "section": "RES_H1 10.6", "note": "Learning difficulties, bullying and school refusal were not researched beyond the WHO adolescent page; clinician and safeguarding to supply sources and confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "student_problems.ask.003",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What would make school feel a bit easier right now?"
+   },
+   "ageBand": ["13-17"],
+   "tags": ["student", "teen", "goal"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.6", "note": "Learning difficulties, bullying and school refusal were not researched beyond the WHO adolescent page; clinician and safeguarding to supply sources and confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "student_problems.ask.004",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Is there a teacher, counsellor or nurse you trust?"
+   },
+   "ageBand": ["13-17"],
+   "tags": ["student", "teen", "trusted-adult"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.6", "note": "Learning difficulties, bullying and school refusal were not researched beyond the WHO adolescent page; clinician and safeguarding to supply sources and confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "student_problems.explain.006",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Finding it hard to read, focus or keep up does not mean you are not smart. A school can look at what's getting in the way and offer support. A doctor can help too."
+   },
+   "ageBand": ["13-17"],
+   "tags": ["student", "teen", "learning"],
+   "triggers": ["cannot focus", "dyslexia", "adhd", "cannot concentrate"],
+   "doNotSay": ["Never label or diagnose."],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.6", "note": "Learning difficulties, bullying and school refusal were not researched beyond the WHO adolescent page; clinician and safeguarding to supply sources and confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "student_problems.explain.007",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Being bullied, in person or online, is never your fault. You can keep copies of messages, block the person and tell someone you trust. A school counsellor can help you decide what's next."
+   },
+   "ageBand": ["13-17"],
+   "tags": ["student", "teen", "bullying"],
+   "triggers": ["bullied", "cyberbullying", "screenshots", "group chat"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.6", "note": "Learning difficulties, bullying and school refusal were not researched beyond the WHO adolescent page; clinician and safeguarding to supply sources and confirm."},
+    {"type": "guideline", "title": "WHO fact sheet: adolescent mental health", "url": "https://www.who.int/news-room/fact-sheets/detail/adolescent-mental-health", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "C",
+   "risk": "medium",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "student_problems.explain.008",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Not wanting to go to school because of worry is common, and it can be helped. It's best not to avoid it for long, because it usually gets harder. A doctor or counsellor can help you plan a gentle return."
+   },
+   "ageBand": ["13-17"],
+   "tags": ["student", "teen", "school-refusal"],
+   "triggers": ["cannot go to school", "school refusal", "panic at school"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.6", "note": "Learning difficulties, bullying and school refusal were not researched beyond the WHO adolescent page; clinician and safeguarding to supply sources and confirm."},
+    {"type": "guideline", "title": "WHO fact sheet: adolescent mental health", "url": "https://www.who.int/news-room/fact-sheets/detail/adolescent-mental-health", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "C",
+   "risk": "medium",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "student_problems.explain.009",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Vaping, alcohol, porn and betting are all around teens. Curiosity is normal, and the pressure is real. A doctor or school nurse can talk it through without judging you, and you can ask for it to stay private."
+   },
+   "ageBand": ["13-17"],
+   "tags": ["student", "teen", "exposure"],
+   "triggers": ["vaping at school", "everyone is drinking", "saw porn", "sports betting"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: adolescent mental health", "url": "https://www.who.int/news-room/fact-sheets/detail/adolescent-mental-health", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"},
+    {"type": "background", "section": "RES_H1 10.6", "note": "Teen vaping, alcohol, porn and gambling: honest, non-shaming information; clinician to approve; local law needed."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "medium",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "student_problems.plan-step.003",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: pick one person to tell and write down what you want to say. Want to practise it with me?"
+   },
+   "ageBand": ["13-17"],
+   "tags": ["student", "teen", "script"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.6", "note": "Learning difficulties, bullying and school refusal were not researched beyond the WHO adolescent page; clinician and safeguarding to supply sources and confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "student_problems.safety.002",
+   "kind": "safety",
+   "stage": ["crisis"],
+   "text": {
+    "en": "If someone is hurting you, or you feel unsafe or hopeless, please tell a trusted adult now and call a helpline or your emergency number. You deserve help."
+   },
+   "ageBand": ["13-17"],
+   "tags": ["student", "teen", "safety"],
+   "triggers": ["want to die", "hurt myself", "he hurts me"],
+   "doNotSay": ["Join with helplines.json scope child and suicide."],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.6", "note": "Learning difficulties, bullying and school refusal were not researched beyond the WHO adolescent page; clinician and safeguarding to supply sources and confirm."},
+    {"type": "guideline", "title": "WHO fact sheet: suicide", "url": "https://www.who.int/news-room/fact-sheets/detail/suicide", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"},
+    {"type": "institution", "title": "Childhelp National Child Abuse Hotline (operator page)", "url": "https://childhelphotline.org/", "section": "RES_H1 10.8", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "student_problems.orient.001",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "I'm an app, not a school psychologist or a doctor. I can listen and help you work out who to talk to about your child or student. What's worrying you?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["student", "parent", "teacher", "opening"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.6", "note": "Learning difficulties, bullying and school refusal were not researched beyond the WHO adolescent page; clinician and safeguarding to supply sources and confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "student_problems.reflect.009",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you're worried and want the best for them."
+   },
+   "ageBand": ["adult"],
+   "tags": ["student", "parent", "validation"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.6", "note": "Learning difficulties, bullying and school refusal were not researched beyond the WHO adolescent page; clinician and safeguarding to supply sources and confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "student_problems.explain.010",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "If a child is finding reading, writing, maths or focus hard, start with the teacher, then the school's support team, and a doctor if you have worries about health, hearing or vision. A label is not needed to ask for help."
+   },
+   "ageBand": ["adult"],
+   "tags": ["student", "parent", "learning"],
+   "triggers": ["my child cannot read", "falling behind"],
+   "doNotSay": ["Do not suggest a diagnosis."],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.6", "note": "Learning difficulties, bullying and school refusal were not researched beyond the WHO adolescent page; clinician and safeguarding to supply sources and confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "student_problems.explain.011",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "If your child is being bullied, listen, stay calm, and thank them for telling you. Keep a record, and talk to the school. If they feel unsafe, take it seriously."
+   },
+   "ageBand": ["adult"],
+   "tags": ["student", "parent", "bullying"],
+   "triggers": ["my son is being bullied", "my daughter is bullied"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.6", "note": "Learning difficulties, bullying and school refusal were not researched beyond the WHO adolescent page; clinician and safeguarding to supply sources and confirm."},
+    {"type": "guideline", "title": "WHO fact sheet: adolescent mental health", "url": "https://www.who.int/news-room/fact-sheets/detail/adolescent-mental-health", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "C",
+   "risk": "medium",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "student_problems.explain.012",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "If a child refuses school, treat the worry as real and speak to the school and a doctor early. Long absence tends to make it harder, so small gentle steps work best."
+   },
+   "ageBand": ["adult"],
+   "tags": ["student", "parent", "school-refusal"],
+   "triggers": ["refuses to go to school", "cries every morning"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.6", "note": "Learning difficulties, bullying and school refusal were not researched beyond the WHO adolescent page; clinician and safeguarding to supply sources and confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "medium",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "student_problems.explain.013",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "If you find out your teen has been looking at porn, vaping or betting, stay calm. Shouting can drive it underground. Talk about it as a health and safety matter, and ask a doctor if you need help."
+   },
+   "ageBand": ["adult"],
+   "tags": ["student", "parent", "teen", "exposure"],
+   "triggers": ["found porn on his phone", "vape in her bag", "betting app"],
+   "doNotSay": ["No spying or punishment advice; clinician to confirm."],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: adolescent mental health", "url": "https://www.who.int/news-room/fact-sheets/detail/adolescent-mental-health", "section": "RES_H1 10.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "C",
+   "risk": "medium",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "student_problems.referral.001",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "A school counsellor, the school nurse or a doctor can be the first stop. If safety is at risk, a child-protection service can advise. The lines for your country are listed below."
+   },
+   "ageBand": ["adult"],
+   "tags": ["student", "parent", "teacher", "helpline"],
+   "triggers": [],
+   "doNotSay": ["Join with helplines.json scope child."],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.6", "note": "Learning difficulties, bullying and school refusal were not researched beyond the WHO adolescent page; clinician and safeguarding to supply sources and confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "student_problems.islamic.001",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Allah is kind, and the Qur'an says that with hardship comes ease. Hard days at school do not last forever. You can talk to a grown-up or a teacher about it."
+   },
+   "ageBand": ["9-12"],
+   "tags": ["student", "child", "ease"],
+   "triggers": ["allah does not love me", "i am a bad student"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "94:5-6", "section": "RES_H2 2.2"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "student_problems.islamic.002",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet said the best of you are the best to their families, and told us to be gentle with children. Kindness matters at school, too. If you want to learn more, ask a teacher or a grown-up."
+   },
+   "ageBand": ["13-17"],
+   "tags": ["student", "child", "kindness", "bullying"],
+   "triggers": ["is it okay to fight back", "revenge"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "tirmidhi:3895", "grade": "Hasan (Zubair Ali Zai); Sahih (Al-Albani, Ahmad Muhammad Shakir); Hasan Sahih (Bashar Awad Maarouf)", "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus", "section": "RES_H2 5.3"},
+    {"type": "hadith", "ref": "tirmidhi:1919", "grade": "hasan", "grader": "Darussalam", "section": "RES_H2 5.3"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "student_problems.islamic.003",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet taught that mercy is for the young, and that no one who is not merciful will be shown mercy. Bullying is the opposite of that. Parents and teachers can protect a child without shame."
+   },
+   "ageBand": ["adult"],
+   "tags": ["student", "parent", "bullying", "mercy"],
+   "triggers": ["they said it is the way to toughen"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "tirmidhi:1922", "grade": "Sahih", "grader": "al-Albani", "section": "RES_H2 5.3"},
+    {"type": "hadith", "ref": "bukhari:5997", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 5.3"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "student_problems.summary.001",
+   "kind": "summary",
+   "stage": ["close"],
+   "text": {
+    "en": "What I've heard: school is hard right now, {topic} is part of it, and you want help. The next step is to tell a trusted grown-up."
+   },
+   "ageBand": ["13-17"],
+   "slots": ["topic"],
+   "tags": ["student", "child", "summary"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.6", "note": "Learning difficulties, bullying and school refusal were not researched beyond the WHO adolescent page; clinician and safeguarding to supply sources and confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}

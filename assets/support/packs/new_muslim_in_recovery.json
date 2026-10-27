@@ -1,0 +1,847 @@
+{
+ "schema": 1,
+ "pack": "new_muslim_in_recovery",
+ "packKind": "support",
+ "topic": "new_muslim",
+ "description": "A person new to Islam who is also in or near recovery: old habits, old friends, family reactions, fear of getting it wrong, gentle stages.",
+ "audience": "hadi",
+ "ageBands": ["adult"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en"],
+ "snippets": [
+  {
+   "id": "new_muslim_in_recovery.orient.001",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "Welcome. I'm an app, not a scholar or a counsellor. I can listen, and I can help you find people who know both Islam and recovery. What's on your mind?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["new-muslim", "opening", "honesty"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_in_recovery.orient.002",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "Being new to Islam and trying to change habits at the same time is a lot. You can go at your own pace. Where would you like to start?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["new-muslim", "opening", "pace"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_in_recovery.orient.003",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "There is no test here. You can ask anything, big or small. What would help most?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["new-muslim", "opening"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_in_recovery.reflect.001",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you're afraid of getting it wrong."
+   },
+   "ageBand": ["adult"],
+   "tags": ["new-muslim", "fear"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_in_recovery.reflect.002",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "You're proud of the step you've taken, and also scared you'll slip."
+   },
+   "ageBand": ["adult"],
+   "tags": ["new-muslim", "ambivalence"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_in_recovery.reflect.003",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like your old friends and your new faith pull in different directions."
+   },
+   "ageBand": ["adult"],
+   "tags": ["new-muslim", "social"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_in_recovery.reflect.004",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "You feel you have to be perfect straight away."
+   },
+   "ageBand": ["adult"],
+   "tags": ["new-muslim", "perfectionism"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_in_recovery.reflect.005",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like your family isn't sure about the change."
+   },
+   "ageBand": ["adult"],
+   "tags": ["new-muslim", "family"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_in_recovery.reflect.006",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "You miss the old life in some ways, and you want the new one."
+   },
+   "ageBand": ["adult"],
+   "tags": ["new-muslim", "ambivalence"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_in_recovery.reflect.007",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you feel you don't fit in at the mosque yet."
+   },
+   "ageBand": ["adult"],
+   "tags": ["new-muslim", "belonging"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_in_recovery.ask.001",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What brought you to Islam, if you'd like to share?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["new-muslim", "story"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_in_recovery.ask.002",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What's the hardest part of the change right now?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["new-muslim", "explore"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_in_recovery.ask.003",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Who has welcomed you so far, a person, a group or a mosque?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["new-muslim", "support"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_in_recovery.ask.004",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Which old habit worries you most?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["new-muslim", "habit"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_in_recovery.ask.005",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What would make this week a little easier?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["new-muslim", "goal"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_in_recovery.affirm.001",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "Coming to a new faith takes courage."
+   },
+   "ageBand": ["adult"],
+   "tags": ["new-muslim", "effort"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_in_recovery.affirm.002",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "You don't have to know everything. Asking is a good sign."
+   },
+   "ageBand": ["adult"],
+   "tags": ["new-muslim", "effort"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_in_recovery.affirm.003",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "You are exactly where you need to start."
+   },
+   "ageBand": ["adult"],
+   "tags": ["new-muslim", "validation"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_in_recovery.explain.001",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Islam asks for steps you can manage, not perfection overnight. Many new Muslims start small, with the basics, and learn the rest with time."
+   },
+   "ageBand": ["adult"],
+   "tags": ["new-muslim", "stages"],
+   "triggers": ["do i have to do everything", "too much to learn"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 4.1", "note": "New-Muslim experience of old habits and old social circles: brief background; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_in_recovery.explain.002",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Old friends and places can be strong triggers for old habits. It can help to spend time with people who support your recovery, and to find a welcoming community at your own pace."
+   },
+   "ageBand": ["adult"],
+   "tags": ["new-muslim", "social", "trigger"],
+   "triggers": ["my old friends", "old crowd"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "NIAAA Core Resource on Alcohol: alcohol use disorder, risk, diagnosis and recovery", "url": "https://www.niaaa.nih.gov/health-professionals-communities/core-resource-on-alcohol/alcohol-use-disorder-risk-diagnosis-recovery", "section": "RES_H1 2.1", "retrievedOn": "2026-10-27"},
+    {"type": "background", "section": "RES_H1 4.1", "note": "New-Muslim experience of old habits and old social circles: brief background; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_in_recovery.explain.003",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "If you used to drink or use drugs, ask a doctor before changing anything about your use, even for religious reasons, because stopping suddenly can be dangerous."
+   },
+   "ageBand": ["adult"],
+   "tags": ["new-muslim", "safety", "withdrawal"],
+   "triggers": ["i have to stop now", "cold turkey for allah"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "NIAAA Rethinking Drinking: cutting down or quitting", "url": "https://rethinkingdrinking.niaaa.nih.gov/thinking-about-change/cut-down-or-quit", "section": "RES_H1 2.1", "retrievedOn": "2026-10-27"},
+    {"type": "study", "title": "Horowitz et al. 2026, benzodiazepine dependence and withdrawal, Psychological Medicine", "url": "https://www.cambridge.org/core/product/C172F9ABC3E2E32D7FB133132A4F8012/core-reader", "section": "RES_H1 2.2", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_in_recovery.explain.004",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Many mosques have a welcoming person for new Muslims, and some towns have new-Muslim support groups. You can ask for someone to sit with you and explain."
+   },
+   "ageBand": ["adult"],
+   "tags": ["new-muslim", "community", "welcome"],
+   "triggers": ["no one to talk to", "mosque"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 4.1", "note": "New-Muslim experience of old habits and old social circles: brief background; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_in_recovery.explain.005",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Families sometimes react with worry or anger to a conversion. Giving them time, staying kind and keeping some calm space often helps."
+   },
+   "ageBand": ["adult"],
+   "tags": ["new-muslim", "family"],
+   "triggers": ["my family doesn't accept", "parents angry"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 4.1", "note": "New-Muslim experience of old habits and old social circles: brief background; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_in_recovery.plan-step.001",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: choose one new thing to learn this week, like one short surah or one way to make wudu. Shall we pick it together?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["new-muslim", "learning"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_in_recovery.plan-step.002",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: find one person, online or in person, who is also new to Islam, and say hello. I can help you find ideas."
+   },
+   "ageBand": ["adult"],
+   "tags": ["new-muslim", "community"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_in_recovery.plan-step.003",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: tell your doctor or counsellor about your change if it feels safe. They can fit support around it."
+   },
+   "ageBand": ["adult"],
+   "tags": ["new-muslim", "doctor"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "NIAAA Core Resource on Alcohol: alcohol use disorder, risk, diagnosis and recovery", "url": "https://www.niaaa.nih.gov/health-professionals-communities/core-resource-on-alcohol/alcohol-use-disorder-risk-diagnosis-recovery", "section": "RES_H1 2.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_in_recovery.safety.001",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "If you drink or use drugs most days, please don't stop suddenly because of a new religious commitment, because that can be dangerous. See a doctor first so stopping can be made safer."
+   },
+   "ageBand": ["adult"],
+   "tags": ["new-muslim", "withdrawal", "alcohol", "safety"],
+   "triggers": ["quit alcohol today", "stop everything now"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "NIAAA Rethinking Drinking: cutting down or quitting", "url": "https://rethinkingdrinking.niaaa.nih.gov/thinking-about-change/cut-down-or-quit", "section": "RES_H1 2.1", "retrievedOn": "2026-10-27"},
+    {"type": "guideline", "title": "NICE CG100: Alcohol-use disorders, diagnosis and management of physical complications", "url": "https://www.nice.org.uk/guidance/cg100/chapter/1-Guidance", "section": "RES_H1 2.1", "retrievedOn": "2026-10-27"},
+    {"type": "study", "title": "Horowitz et al. 2026, benzodiazepine dependence and withdrawal, Psychological Medicine", "url": "https://www.cambridge.org/core/product/C172F9ABC3E2E32D7FB133132A4F8012/core-reader", "section": "RES_H1 2.2", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_in_recovery.safety.002",
+   "kind": "safety",
+   "stage": ["crisis"],
+   "text": {
+    "en": "If you feel you've lost everything, such as family, friends and old life, and you feel you can't go on, please contact a crisis line or your emergency number now."
+   },
+   "ageBand": ["adult"],
+   "tags": ["new-muslim", "suicide", "crisis"],
+   "triggers": ["lost my family", "disowned", "kill myself"],
+   "doNotSay": ["Join with helplines.json scope suicide."],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: suicide", "url": "https://www.who.int/news-room/fact-sheets/detail/suicide", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"},
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_in_recovery.referral.001",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "A new-Muslim support group, or a convert-friendly mosque or organisation, can give practical help. The list below shows what exists in your country."
+   },
+   "ageBand": ["adult"],
+   "tags": ["new-muslim", "new-muslim-support"],
+   "triggers": [],
+   "doNotSay": ["Only verified services."],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_in_recovery.referral.002",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "A Muslim counsellor can understand both recovery and your new faith. The list below shows what exists in your country."
+   },
+   "ageBand": ["adult"],
+   "tags": ["new-muslim", "muslim-counsellor"],
+   "triggers": [],
+   "doNotSay": ["Only verified services."],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_in_recovery.islamic.001",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet told of a man who had done terrible things, asked if he could repent, and was told to go to a land of righteous people. A new beginning, in a new place and among new people, is something Islam welcomes."
+   },
+   "ageBand": ["adult"],
+   "tags": ["new-muslim", "fresh-start", "environment"],
+   "triggers": ["my past", "what i did before", "is my past forgiven"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:3470", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 1.1"},
+    {"type": "hadith", "ref": "muslim:2766", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 1.1"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_in_recovery.islamic.002",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet taught that the religion is easy, and that no one makes it harder for themselves without it overpowering them. Take it step by step."
+   },
+   "ageBand": ["adult"],
+   "tags": ["new-muslim", "ease", "stages"],
+   "triggers": ["i can't keep up", "i'm behind"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:39", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 2.2"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_in_recovery.islamic.003",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet said, make things easy and do not make them hard. This applies to how you treat yourself as a new Muslim, too."
+   },
+   "ageBand": ["adult"],
+   "tags": ["new-muslim", "ease"],
+   "triggers": ["too strict with myself"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:6125", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 2.2"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_in_recovery.islamic.004",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Qur'an says that Allah does not burden a soul beyond what it can bear. Your pace is part of His mercy, not a failure."
+   },
+   "ageBand": ["adult"],
+   "tags": ["new-muslim", "ease", "mercy"],
+   "triggers": ["not good enough"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "2:286", "section": "RES_H2 2.2"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_in_recovery.islamic.005",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Scholars differ on a few practical questions for new Muslims, such as old financial arrangements and family ties across faiths, and I can't give a ruling. A scholar who works with new Muslims can advise you."
+   },
+   "ageBand": ["adult"],
+   "tags": ["new-muslim", "fiqh", "scholar-handoff"],
+   "triggers": ["my mortgage", "my non-muslim family", "ruling"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "fiqh", "title": "Scholars differ on practical questions for new Muslims; no source opened for this brief", "level": "institution", "section": "RES_H2 1.3", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "disputed": true,
+   "schoolsNamed": ["hanafi", "maliki", "shafii", "hanbali"],
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_in_recovery.family.001",
+   "kind": "family",
+   "stage": ["explore"],
+   "text": {
+    "en": "If someone close to you has come to Islam, listen to why, stay kind, and let them tell you at their pace. If they are struggling with old habits, support them without shaming."
+   },
+   "ageBand": ["adult"],
+   "tags": ["new-muslim", "family-of"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 4.1", "note": "New-Muslim experience of old habits and old social circles: brief background; no source opened; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "new_muslim_in_recovery.summary.001",
+   "kind": "summary",
+   "stage": ["close"],
+   "text": {
+    "en": "What I've heard: you're new to Islam, {topic} is hard right now, and you want to do this well without rushing. Small steps are enough."
+   },
+   "ageBand": ["adult"],
+   "slots": ["topic"],
+   "tags": ["new-muslim", "summary"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}

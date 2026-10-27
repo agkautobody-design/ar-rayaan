@@ -1,0 +1,944 @@
+{
+ "schema": 1,
+ "pack": "porn_compulsive",
+ "packKind": "support",
+ "topic": "porn",
+ "description": "Pornography use and compulsive sexual behaviour: private, shame-aware, no diagnosis, no forced disclosure, no marriage as a cure.",
+ "audience": "hadi",
+ "ageBands": ["adult"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en"],
+ "snippets": [
+  {
+   "id": "porn_compulsive.orient.001",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "I'm an app, not a counsellor. This is private, and nothing you say here will be judged. I can listen and help you find the right human help if you want it. What would you like to talk about?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["porn", "opening", "honesty", "privacy"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "porn_compulsive.orient.002",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "A lot of people struggle with this and never tell anyone. You can say as much or as little as you like. Where would you like to start?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["porn", "opening", "shame"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "porn_compulsive.orient.003",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "Is this about how often, about what you watch, about what it is doing to your life, or something else?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["porn", "opening", "door"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "porn_compulsive.reflect.001",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like this has become a heavy secret to carry."
+   },
+   "ageBand": ["adult"],
+   "tags": ["porn", "secrecy", "shame"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "porn_compulsive.reflect.002",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "You want to stop, and you keep ending up back here."
+   },
+   "ageBand": ["adult"],
+   "tags": ["porn", "ambivalence", "relapse"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "porn_compulsive.reflect.003",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like the shame afterwards is worse than the thing itself."
+   },
+   "ageBand": ["adult"],
+   "tags": ["porn", "shame"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "porn_compulsive.reflect.004",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "You're worried about what it's doing to your relationship, your focus or your sleep."
+   },
+   "ageBand": ["adult"],
+   "tags": ["porn", "concern"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "porn_compulsive.reflect.005",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like it comes when you're lonely, stressed or tired."
+   },
+   "ageBand": ["adult"],
+   "tags": ["porn", "trigger", "coping"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "porn_compulsive.reflect.006",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "Part of you wants to feel clean again, and part of you feels stuck."
+   },
+   "ageBand": ["adult"],
+   "tags": ["porn", "ambivalence"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "porn_compulsive.reflect.007",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "You are tired of the cycle."
+   },
+   "ageBand": ["adult"],
+   "tags": ["porn", "relapse"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "porn_compulsive.ask.001",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What would you like to be different?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["porn", "goal"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "porn_compulsive.ask.002",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "When does it tend to happen, such as time of day, place or mood?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["porn", "trigger"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "porn_compulsive.ask.003",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What has helped, even a bit, on the days it didn't happen?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["porn", "strengths"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "porn_compulsive.ask.004",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "How is it affecting your day, your sleep or your relationships?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["porn", "impact"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "porn_compulsive.ask.005",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Is there anyone you trust enough to tell, or is it easier to keep this private for now?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["porn", "support"],
+   "triggers": [],
+   "doNotSay": ["Never push disclosure; privacy is a valid choice."],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "porn_compulsive.ask.006",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Has any of this crossed into something that hurts someone else, or that you are afraid of?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["porn", "safety-check"],
+   "triggers": [],
+   "doNotSay": ["If a child is involved or at risk, move to the safeguarding flow; do not continue with generic support."],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "high",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "porn_compulsive.affirm.001",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "It takes courage to speak about something so private."
+   },
+   "ageBand": ["adult"],
+   "tags": ["porn", "effort"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "porn_compulsive.affirm.002",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "You're still trying, and that matters."
+   },
+   "ageBand": ["adult"],
+   "tags": ["porn", "effort", "hope"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "porn_compulsive.affirm.003",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "Wanting to understand this is a good sign."
+   },
+   "ageBand": ["adult"],
+   "tags": ["porn", "effort"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "porn_compulsive.explain.001",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Many people find that it helps to understand what sits underneath the urge, such as stress, loneliness or boredom. A counsellor can help with that."
+   },
+   "ageBand": ["adult"],
+   "tags": ["porn", "trigger", "treatment"],
+   "triggers": ["why do i do this", "cannot stop"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "study", "title": "Frontiers in Psychiatry 2025 review: compulsive sexual behaviour disorder", "url": "https://www.frontiersin.org/articles/10.3389/fpsyt.2025.1621136/full", "section": "RES_H1 3.10", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "porn_compulsive.explain.002",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Researchers describe compulsive sexual behaviour as a pattern some people struggle to control, and it can be treated. It is not a sign that you are a bad person."
+   },
+   "ageBand": ["adult"],
+   "tags": ["porn", "csbd", "treatment"],
+   "triggers": ["addiction", "addicted", "compulsive"],
+   "doNotSay": ["Never diagnose or label; never say \"you have CSBD\"."],
+   "sources": [
+    {"type": "study", "title": "Frontiers in Psychiatry 2025 review: compulsive sexual behaviour disorder", "url": "https://www.frontiersin.org/articles/10.3389/fpsyt.2025.1621136/full", "section": "RES_H1 3.10", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "porn_compulsive.explain.003",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Blocking tools, changing where and when you use your phone, and sleeping on time can make urges easier to ride out. They help most alongside support from a person."
+   },
+   "ageBand": ["adult"],
+   "tags": ["porn", "environment", "tools"],
+   "triggers": ["filter", "blocker"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 3.10", "note": "Trigger planning, blocking tools and urge delay are standard relapse-prevention content (no source opened); clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "porn_compulsive.explain.004",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Urges rise and fall. Many people find that waiting fifteen minutes and doing something else makes them pass."
+   },
+   "ageBand": ["adult"],
+   "tags": ["porn", "urge", "delay"],
+   "triggers": ["urge", "craving"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 3.10", "note": "Trigger planning, blocking tools and urge delay are standard relapse-prevention content (no source opened); clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "porn_compulsive.explain.005",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Slipping up is common and it doesn't wipe out the progress you made. What matters is what you do next."
+   },
+   "ageBand": ["adult"],
+   "tags": ["porn", "relapse", "hope"],
+   "triggers": ["slipped", "relapsed", "again"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 3.10", "note": "Trigger planning, blocking tools and urge delay are standard relapse-prevention content (no source opened); clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "porn_compulsive.explain.006",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Some people find therapy and a peer group each help in different ways. You can try one without the other."
+   },
+   "ageBand": ["adult"],
+   "tags": ["porn", "peer-support", "treatment"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "study", "title": "Frontiers in Psychiatry 2025 review: compulsive sexual behaviour disorder", "url": "https://www.frontiersin.org/articles/10.3389/fpsyt.2025.1621136/full", "section": "RES_H1 3.10", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "porn_compulsive.plan-step.001",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: choose one change to your phone or evenings that makes it a little harder, like leaving the phone outside the bedroom. Want to choose one together?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["porn", "environment"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 3.10", "note": "Trigger planning, blocking tools and urge delay are standard relapse-prevention content (no source opened); clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "porn_compulsive.plan-step.002",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: when the urge comes, move to another room and do one thing for fifteen minutes, like a walk, wudu or a call. Shall we pick the thing now?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["porn", "urge", "delay"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 3.10", "note": "Trigger planning, blocking tools and urge delay are standard relapse-prevention content (no source opened); clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "porn_compulsive.plan-step.003",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: write down the times it tends to happen, just as information, without judging yourself."
+   },
+   "ageBand": ["adult"],
+   "tags": ["porn", "trigger-log"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 3.10", "note": "Trigger planning, blocking tools and urge delay are standard relapse-prevention content (no source opened); clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "porn_compulsive.safety.001",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "If looking at pornography involves children in any way, that is a crime and it harms real children. Please don't carry on alone. Contact a child-protection service or the police, or a specialist service that helps people who are worried about their own thoughts. I can show the lines for your country."
+   },
+   "ageBand": ["adult"],
+   "tags": ["porn", "csam", "child-safety"],
+   "triggers": ["child porn", "children", "minors", "underage"],
+   "doNotSay": ["Do not reassure; do not offer coping tips; route to safeguarding. Needs legal and safeguarding review per country."],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.1", "note": "Child sexual abuse material: refer to specialist prevention and child-protection services; clinician and safeguarding review required."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "porn_compulsive.safety.002",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "If you've been thinking about harming yourself because of shame or fear of being found out, please contact a crisis line or your emergency number now. Nothing you have done means help is out of reach."
+   },
+   "ageBand": ["adult"],
+   "tags": ["porn", "suicide", "shame", "crisis"],
+   "triggers": ["kill myself", "end it", "cannot live with this"],
+   "doNotSay": ["Join with helplines.json scope suicide."],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: suicide", "url": "https://www.who.int/news-room/fact-sheets/detail/suicide", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"},
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "porn_compulsive.referral.001",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "A counsellor or therapist can help with this without judging you. You could say: \"I'm struggling to control my pornography use and I'd like support.\" You don't need to share details."
+   },
+   "ageBand": ["adult"],
+   "tags": ["porn", "counsellor", "script"],
+   "triggers": ["therapist", "counsellor"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "study", "title": "Frontiers in Psychiatry 2025 review: compulsive sexual behaviour disorder", "url": "https://www.frontiersin.org/articles/10.3389/fpsyt.2025.1621136/full", "section": "RES_H1 3.10", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "porn_compulsive.referral.002",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "A doctor can help if this is tied to low mood, worry, sleep or relationship stress. You could say: \"I'd like to talk about something private that is affecting me.\""
+   },
+   "ageBand": ["adult"],
+   "tags": ["porn", "doctor", "script"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "porn_compulsive.referral.003",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "Some Muslim counsellors work with this struggle and understand the faith side. The list below shows what is available in your country."
+   },
+   "ageBand": ["adult"],
+   "tags": ["porn", "muslim-counsellor"],
+   "triggers": ["muslim counsellor"],
+   "doNotSay": ["Only list services marked verified in helplines.json."],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "porn_compulsive.islamic.001",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "This struggle does not take you out of the mercy of Allah. The Qur'an tells people who have wronged themselves not to despair of His mercy."
+   },
+   "ageBand": ["adult"],
+   "tags": ["porn", "mercy", "shame"],
+   "triggers": ["allah hates me", "too late for me"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "39:53", "section": "RES_H2 2.1"},
+    {"type": "quran", "ref": "4:28", "section": "RES_H2 2.1"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "porn_compulsive.islamic.002",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet taught that Allah accepts repentance, and the Qur'an describes Him as one who loves those who turn back to Him. Returning after a slip is part of that path, not the end of it."
+   },
+   "ageBand": ["adult"],
+   "tags": ["porn", "tawbah", "relapse"],
+   "triggers": ["i keep doing it", "repent again"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "tirmidhi:3537", "grade": "hasan", "grader": "Darussalam", "section": "RES_H2 1.1"},
+    {"type": "quran", "ref": "2:222", "section": "RES_H2 1.1"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "porn_compulsive.islamic.003",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Qur'an speaks about lowering the gaze and guarding modesty, for men and women. Many people find that practical steps, like changing their environment, go along with that teaching."
+   },
+   "ageBand": ["adult"],
+   "tags": ["porn", "gaze", "environment"],
+   "triggers": ["lower my gaze", "is it haram"],
+   "doNotSay": ["Not a rebuke. Never \"marry to fix it\"; never \"pray more instead\"."],
+   "sources": [
+    {"type": "quran", "ref": "24:30-31", "section": "RES_H2 4.3"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "porn_compulsive.islamic.004",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet advised a person who was struck by a sudden glance to turn the eyes away. A slip of the eye is not the end of your worth."
+   },
+   "ageBand": ["adult"],
+   "tags": ["porn", "gaze", "mercy"],
+   "triggers": ["sudden glance"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "muslim:2159", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 4.3"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "porn_compulsive.islamic.005",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "You do not have to announce a private struggle to anyone. Scholars say that you can ask a trusted professional or scholar for help to the extent needed, without publicising it."
+   },
+   "ageBand": ["adult"],
+   "tags": ["porn", "sitr", "privacy"],
+   "triggers": ["should i tell", "confess"],
+   "doNotSay": ["Never \"you must tell your family or imam\"."],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:6069", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 2.4"},
+    {"type": "hadith", "ref": "muslim:2990", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 2.4"},
+    {"type": "fiqh", "title": "Islamweb fatwa 393796 and Darul Ifta Birmingham fatwa 08109", "level": "institution", "section": "RES_H2 2.4", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "porn_compulsive.islamic.006",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Scholars differ on how to treat this, and I can't give a ruling. If you want to ask about a specific situation, a scholar you trust, ideally alongside a counsellor, can advise you."
+   },
+   "ageBand": ["adult"],
+   "tags": ["porn", "fiqh", "scholar-handoff"],
+   "triggers": ["is it zina", "ruling"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "fiqh", "title": "Contrast: IslamOnline fatwa by Sheikh Ahmad al-Khalili advises admitting to Allah and a trusted Muslim and does not mention professional help", "level": "institution", "section": "RES_H2 4.3", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "disputed": true,
+   "schoolsNamed": ["hanafi", "shafii", "maliki", "hanbali"],
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "porn_compulsive.family.001",
+   "kind": "family",
+   "stage": ["explore"],
+   "text": {
+    "en": "If your partner has told you about this, your feelings matter too, and you don't have to cope on your own. A counsellor can help you, and you can ask for support for yourself without deciding anything about the relationship."
+   },
+   "ageBand": ["adult"],
+   "tags": ["porn", "partner", "family-of"],
+   "triggers": ["my husband watches", "my wife found out"],
+   "doNotSay": ["If there is coercion or abuse, move to the domestic abuse flow."],
+   "sources": [
+    {"type": "study", "title": "Frontiers in Psychiatry 2025 review: compulsive sexual behaviour disorder", "url": "https://www.frontiersin.org/articles/10.3389/fpsyt.2025.1621136/full", "section": "RES_H1 3.10", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "porn_compulsive.summary.001",
+   "kind": "summary",
+   "stage": ["close"],
+   "text": {
+    "en": "What I've heard: it's a private struggle, you feel {topic}, and you'd like something to change. The next step is yours."
+   },
+   "ageBand": ["adult"],
+   "slots": ["topic"],
+   "tags": ["porn", "summary"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}

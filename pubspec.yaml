@@ -76,6 +76,8 @@ flutter:
     - assets/system/
     - assets/audio/
     - assets/qa/
+    - assets/support/
+    - assets/support/packs/
 
   fonts:
     - family: PlayfairDisplay

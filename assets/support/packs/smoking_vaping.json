@@ -1,0 +1,922 @@
+{
+ "schema": 1,
+ "pack": "smoking_vaping",
+ "packKind": "support",
+ "topic": "smoking",
+ "description": "Smoking, vaping, shisha and chewing tobacco: quitting support, pharmacist and quitline hand-over, with the faith position shown as a scholars-differ matter.",
+ "audience": "hadi",
+ "ageBands": ["adult"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en"],
+ "snippets": [
+  {
+   "id": "smoking_vaping.orient.001",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "I'm an app, not a doctor. I can listen, share what is known about quitting, and point you to quit services. Is this about cigarettes, vaping, shisha or something else?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["smoking", "opening", "honesty"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "smoking_vaping.orient.002",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "Wanting to cut down or stop is a good thing to be thinking about, whatever you've tried before. What's on your mind?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["smoking", "opening"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "smoking_vaping.orient.003",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "You can talk about this at your own pace. I won't lecture you. Where would you like to begin?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["smoking", "opening", "honesty"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "smoking_vaping.reflect.001",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you want to stop, and it hasn't been easy."
+   },
+   "ageBand": ["adult"],
+   "tags": ["smoking", "ambivalence"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "smoking_vaping.reflect.002",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "Smoking helps you cope, and you're tired of what it costs."
+   },
+   "ageBand": ["adult"],
+   "tags": ["smoking", "coping", "ambivalence"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "smoking_vaping.reflect.003",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "You're worried about your health, your money or the people around you."
+   },
+   "ageBand": ["adult"],
+   "tags": ["smoking", "concern"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "smoking_vaping.reflect.004",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you've tried before and it didn't last."
+   },
+   "ageBand": ["adult"],
+   "tags": ["smoking", "relapse"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "smoking_vaping.reflect.005",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "You'd like to be free of it, and it also feels like a comfort."
+   },
+   "ageBand": ["adult"],
+   "tags": ["smoking", "ambivalence"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "smoking_vaping.reflect.006",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "Vaping feels like a smaller thing, and it is still hard to put down."
+   },
+   "ageBand": ["adult"],
+   "tags": ["smoking", "vaping"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "smoking_vaping.ask.001",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What would you like to be different about smoking or vaping?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["smoking", "goal"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "smoking_vaping.ask.002",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "When do you reach for it most?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["smoking", "trigger"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "smoking_vaping.ask.003",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What have you tried before, and what helped even a little?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["smoking", "strengths"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "smoking_vaping.ask.004",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What would be the best thing about being free of it?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["smoking", "goal", "hope"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "smoking_vaping.ask.005",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Who around you smokes, and would anyone support you in stopping?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["smoking", "support"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "smoking_vaping.ask.006",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Are you pregnant, or planning to be, or do you have a health condition you take medicine for?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["smoking", "medical-screen"],
+   "triggers": [],
+   "doNotSay": ["If yes, route to a doctor or midwife before any advice about quit medicines."],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "medium",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "smoking_vaping.affirm.001",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "Thinking about quitting is already a step."
+   },
+   "ageBand": ["adult"],
+   "tags": ["smoking", "effort"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "smoking_vaping.affirm.002",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "Every attempt teaches you something, and many people need several tries."
+   },
+   "ageBand": ["adult"],
+   "tags": ["smoking", "effort", "hope"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "smoking_vaping.affirm.003",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "You came here to talk about it, and that counts."
+   },
+   "ageBand": ["adult"],
+   "tags": ["smoking", "effort"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "smoking_vaping.explain.001",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Quitting is easier with support. Talking help from a quitline, together with medicine that a pharmacist or doctor can advise on, helps many people quit. You can also do it with only one of these."
+   },
+   "ageBand": ["adult"],
+   "tags": ["smoking", "treatment", "support"],
+   "triggers": ["best way to quit", "how do i quit"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 3.11", "note": "Behavioural support plus pharmacotherapy roughly doubles quit rates and quitlines work: brief gives this as general knowledge, no source opened; clinician to supply the source."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "smoking_vaping.explain.002",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Nicotine replacement products, like patches or gum, are available at many pharmacies. A pharmacist can tell you what suits you and how to use it."
+   },
+   "ageBand": ["adult"],
+   "tags": ["smoking", "nrt", "pharmacist"],
+   "triggers": ["patches", "gum", "nicotine replacement"],
+   "doNotSay": ["Never doses or schedules; hand over to the pharmacist."],
+   "sources": [
+    {"type": "background", "section": "RES_H1 3.11", "note": "Behavioural support plus pharmacotherapy roughly doubles quit rates and quitlines work: brief gives this as general knowledge, no source opened; clinician to supply the source."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "medium",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "smoking_vaping.explain.003",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Some people stop all at once and some cut down first. Both can work. What matters is picking a plan you can stick with and getting support."
+   },
+   "ageBand": ["adult"],
+   "tags": ["smoking", "approach"],
+   "triggers": ["cold turkey", "cut down first"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 3.11", "note": "Behavioural support plus pharmacotherapy roughly doubles quit rates and quitlines work: brief gives this as general knowledge, no source opened; clinician to supply the source."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "smoking_vaping.explain.004",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Cravings pass, usually within a few minutes. Delaying and doing something else gets you through many of them."
+   },
+   "ageBand": ["adult"],
+   "tags": ["smoking", "craving", "delay"],
+   "triggers": ["craving", "urge"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 3.11", "note": "Triggers, delay and routines: standard cessation content; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "smoking_vaping.explain.005",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Vaping is not risk-free, and it can keep you dependent on nicotine. If you want to stop, the same kinds of support help."
+   },
+   "ageBand": ["adult"],
+   "tags": ["smoking", "vaping"],
+   "triggers": ["vape", "e-cigarette", "juul"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 3.11", "note": "Vaping evidence not researched in this session; clinician to supply source."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "smoking_vaping.explain.006",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Smoking shisha is still smoking tobacco. If you want to cut down, the same support applies."
+   },
+   "ageBand": ["adult"],
+   "tags": ["smoking", "shisha"],
+   "triggers": ["shisha", "hookah", "argileh"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 3.11", "note": "Shisha not researched; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "smoking_vaping.explain.007",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Slips are common when quitting. A slip is not the end of the road. It's information about what to plan for next time."
+   },
+   "ageBand": ["adult"],
+   "tags": ["smoking", "relapse", "hope"],
+   "triggers": ["slipped", "relapsed", "started again"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 3.11", "note": "Triggers, delay and routines: standard cessation content; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "smoking_vaping.explain.008",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "If you smoke while pregnant, or are around a pregnant woman who smokes, please speak to a doctor or midwife. Quitting is worth doing, and they can support you in a safe way."
+   },
+   "ageBand": ["adult"],
+   "tags": ["smoking", "pregnancy"],
+   "triggers": ["pregnant", "smoke while pregnant"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 8", "note": "Smoking in pregnancy needs a clinician (brief section 8)."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "smoking_vaping.plan-step.001",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: choose a quit day, even a few weeks away, and tell one person you trust. Want to pick one together?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["smoking", "quit-date"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 3.11", "note": "Triggers, delay and routines: standard cessation content; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "smoking_vaping.plan-step.002",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: when a craving comes, wait fifteen minutes and do one other thing, like a drink of water, a walk or wudu. Shall we choose your thing now?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["smoking", "craving", "delay"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 3.11", "note": "Triggers, delay and routines: standard cessation content; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "smoking_vaping.plan-step.003",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: ask a pharmacist what could help you. You could say: \"I want to stop smoking. What are my options?\""
+   },
+   "ageBand": ["adult"],
+   "tags": ["smoking", "pharmacist", "script"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 3.11", "note": "Behavioural support plus pharmacotherapy roughly doubles quit rates and quitlines work: brief gives this as general knowledge, no source opened; clinician to supply the source."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "smoking_vaping.safety.001",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "If you ever feel chest pain, trouble breathing, or a cough with blood, please see a doctor today, or call your emergency number if it is severe."
+   },
+   "ageBand": ["adult"],
+   "tags": ["smoking", "red-flag", "emergency"],
+   "triggers": ["chest pain", "coughing blood", "can't breathe"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 3.11", "note": "Chest pain, breathlessness and haemoptysis are standard red flags; clinician to confirm wording."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "smoking_vaping.referral.001",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "A quitline can give free advice and support to quit. The numbers for your country are listed below if one exists, and I can show them again whenever you like."
+   },
+   "ageBand": ["adult"],
+   "tags": ["smoking", "quitline"],
+   "triggers": ["quitline", "who can i call"],
+   "doNotSay": ["Join with helplines.json; mark honestly where none is verified."],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "smoking_vaping.referral.002",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "A pharmacist or a doctor can help you plan to quit and talk about medicines that make it easier."
+   },
+   "ageBand": ["adult"],
+   "tags": ["smoking", "pharmacist", "doctor"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 3.11", "note": "Behavioural support plus pharmacotherapy roughly doubles quit rates and quitlines work: brief gives this as general knowledge, no source opened; clinician to supply the source."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "smoking_vaping.referral.003",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "If you're a young person, a school nurse or a doctor can talk about this in private. You don't have to tell anyone else first."
+   },
+   "ageBand": ["13-17"],
+   "tags": ["smoking", "teen", "private"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 10.6", "note": "Teen vaping: direct to a doctor or school nurse; not researched further."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "smoking_vaping.islamic.001",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Many scholars today say smoking is forbidden because of its proven harm, while others, including some older and South Asian Hanafi opinions, call it disliked. Scholars differ, and I can't give you a ruling. If you want to ask, a scholar you trust can help."
+   },
+   "ageBand": ["adult"],
+   "tags": ["smoking", "fiqh"],
+   "triggers": ["is smoking haram", "is vaping haram", "is shisha haram"],
+   "doNotSay": ["Neither \"definitely haram\" nor \"definitely fine\". Scholar to approve."],
+   "sources": [
+    {"type": "fiqh", "title": "Saudi Permanent Committee, Malaysia NFC 2015 and Dar al-Ifta al-Misriyyah fatwa 21455 (29 Sep 2024): smoking forbidden on harm grounds; Indonesia MUI 2009 and some South Asian Hanafi opinions: makruh", "level": "institution", "section": "RES_H2 3.4", "schools": ["hanafi"], "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "disputed": true,
+   "schoolsNamed": ["hanafi", "maliki", "shafii", "hanbali"],
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "smoking_vaping.islamic.002",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet taught that there should be no harm and no harming. Many people find that a good reason to look after their body and their family's air."
+   },
+   "ageBand": ["adult"],
+   "tags": ["smoking", "harm", "health"],
+   "triggers": [],
+   "doNotSay": ["Do not cite as a ruling on tobacco; it is a general principle that scholars apply differently."],
+   "sources": [
+    {"type": "hadith", "ref": "ibnmajah:2340", "grade": "Sahih", "grader": "al-Albani", "section": "RES_H2 3.4"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "smoking_vaping.islamic.003",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet encouraged seeking treatment, saying Allah has not sent down a disease without sending down its cure. Getting help to quit fits that."
+   },
+   "ageBand": ["adult"],
+   "tags": ["smoking", "treatment"],
+   "triggers": ["is it okay to use patches", "is medication allowed"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "ibnmajah:3438", "grade": "Sahih", "grader": "al-Albani", "section": "RES_H2 2.5"},
+    {"type": "hadith", "ref": "tirmidhi:2038", "grade": "Sahih (Ahmad Muhammad Shakir); Sahih (Al-Albani); Hasan Sahih (Bashar Awad Maarouf); Isnaad Sahih (Zubair Ali Zai)", "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus", "section": "RES_H2 2.5"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "smoking_vaping.islamic.004",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Struggling with this does not mean your faith is weak. Allah asks for effort, not perfection, and the Prophet said the religion is easy."
+   },
+   "ageBand": ["adult"],
+   "tags": ["smoking", "mercy", "ease"],
+   "triggers": ["i am weak", "bad muslim"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:39", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 2.2"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "smoking_vaping.islamic.005",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "During Ramadan many people find it a natural time to begin, since they already go many hours without. If you would like a plan for before and after the fast, I can help."
+   },
+   "ageBand": ["adult"],
+   "tags": ["smoking", "ramadan"],
+   "triggers": ["ramadan", "fasting and smoking"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H2 13", "note": "Authored suggestion; no source claims it; clinician to confirm no safety issue."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "smoking_vaping.family.001",
+   "kind": "family",
+   "stage": ["explore"],
+   "text": {
+    "en": "If someone you love smokes, you can tell them calmly that you care and offer support. You can't make them stop, and you can keep your home smoke-free."
+   },
+   "ageBand": ["adult"],
+   "tags": ["smoking", "family-of"],
+   "triggers": ["my father smokes", "my husband vapes"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 3.11", "note": "Behavioural support plus pharmacotherapy roughly doubles quit rates and quitlines work: brief gives this as general knowledge, no source opened; clinician to supply the source."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "smoking_vaping.summary.001",
+   "kind": "summary",
+   "stage": ["close"],
+   "text": {
+    "en": "What I've heard: you'd like to be free of smoking, {topic} makes it hard, and you're thinking about a plan. The next step is yours."
+   },
+   "ageBand": ["adult"],
+   "slots": ["topic"],
+   "tags": ["smoking", "summary"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}

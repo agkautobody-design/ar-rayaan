@@ -1,0 +1,905 @@
+{
+ "schema": 1,
+ "pack": "elder_abuse",
+ "packKind": "support",
+ "topic": "elder_abuse",
+ "description": "Abuse or neglect of an older person: for the older person, for family and for carers under strain. Dignity first; no blame.",
+ "audience": "hadi",
+ "ageBands": ["adult"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en"],
+ "snippets": [
+  {
+   "id": "elder_abuse.orient.001",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "I'm an app, not a care worker. I can listen and help you find the right people. Is this about you, or about an older person you care about?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["elder-abuse", "opening", "honesty"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: abuse of older people", "url": "https://www.who.int/news-room/fact-sheets/detail/abuse-of-older-people", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "elder_abuse.orient.002",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "Thank you for raising it. Older people can be harmed by family, carers or others, and it is not their fault. What's happening?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["elder-abuse", "opening", "concern"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: abuse of older people", "url": "https://www.who.int/news-room/fact-sheets/detail/abuse-of-older-people", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "elder_abuse.orient.003",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "You can tell me at your own pace. I'll listen and won't judge. Where shall we start?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["elder-abuse", "opening"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: abuse of older people", "url": "https://www.who.int/news-room/fact-sheets/detail/abuse-of-older-people", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "elder_abuse.reflect.001",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you are being treated in a way that makes you afraid or small."
+   },
+   "ageBand": ["adult"],
+   "tags": ["elder-abuse", "older-person", "fear"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: abuse of older people", "url": "https://www.who.int/news-room/fact-sheets/detail/abuse-of-older-people", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "elder_abuse.reflect.002",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you don't want to cause trouble for your family."
+   },
+   "ageBand": ["adult"],
+   "tags": ["elder-abuse", "loyalty"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: abuse of older people", "url": "https://www.who.int/news-room/fact-sheets/detail/abuse-of-older-people", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "elder_abuse.reflect.003",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "You depend on this person, and that makes it harder to speak up."
+   },
+   "ageBand": ["adult"],
+   "tags": ["elder-abuse", "dependence"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: abuse of older people", "url": "https://www.who.int/news-room/fact-sheets/detail/abuse-of-older-people", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "elder_abuse.reflect.004",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you're worried about someone who can't speak up for themselves."
+   },
+   "ageBand": ["adult"],
+   "tags": ["elder-abuse", "concern", "family-of"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: abuse of older people", "url": "https://www.who.int/news-room/fact-sheets/detail/abuse-of-older-people", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "elder_abuse.reflect.005",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "You are doing a lot, and it sounds like it has become too much."
+   },
+   "ageBand": ["adult"],
+   "tags": ["elder-abuse", "carer-strain"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 6.1", "note": "Carer strain and respite as a route (brief); clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "elder_abuse.reflect.006",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you want to do right by them and you are worn out."
+   },
+   "ageBand": ["adult"],
+   "tags": ["elder-abuse", "carer-strain", "guilt"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 6.1", "note": "Carer strain and respite as a route (brief); clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "elder_abuse.ask.001",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Are you, or is the person, safe right now?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["elder-abuse", "safety-check"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: abuse of older people", "url": "https://www.who.int/news-room/fact-sheets/detail/abuse-of-older-people", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "elder_abuse.ask.002",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What have you noticed, such as injuries, money going missing, being left alone, or fear of someone?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["elder-abuse", "signs"],
+   "triggers": [],
+   "doNotSay": ["One list question; do not press for names."],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: abuse of older people", "url": "https://www.who.int/news-room/fact-sheets/detail/abuse-of-older-people", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "elder_abuse.ask.003",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Who else is involved in their care, and who could you talk to?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["elder-abuse", "support"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: abuse of older people", "url": "https://www.who.int/news-room/fact-sheets/detail/abuse-of-older-people", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "elder_abuse.ask.004",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What would help most right now: someone to talk to, a break, or advice on who to contact?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["elder-abuse", "choice"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 6.1", "note": "Carer strain and respite as a route (brief); clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "elder_abuse.ask.005",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Is the person able to make their own decisions, and do they know you are asking for help?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["elder-abuse", "capacity"],
+   "triggers": [],
+   "doNotSay": ["Do not assume; leave to a professional."],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: abuse of older people", "url": "https://www.who.int/news-room/fact-sheets/detail/abuse-of-older-people", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "elder_abuse.affirm.001",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "Speaking up for someone who can't is a kindness."
+   },
+   "ageBand": ["adult"],
+   "tags": ["elder-abuse", "effort"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: abuse of older people", "url": "https://www.who.int/news-room/fact-sheets/detail/abuse-of-older-people", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "elder_abuse.affirm.002",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "Asking for help for yourself as a carer is not failing."
+   },
+   "ageBand": ["adult"],
+   "tags": ["elder-abuse", "carer", "effort"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 6.1", "note": "Carer strain and respite as a route (brief); clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "elder_abuse.affirm.003",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "Thank you for telling me. It's not easy."
+   },
+   "ageBand": ["adult"],
+   "tags": ["elder-abuse", "effort"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: abuse of older people", "url": "https://www.who.int/news-room/fact-sheets/detail/abuse-of-older-people", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "elder_abuse.explain.001",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Abuse of older people includes hitting, neglect, taking their money, controlling them, and frightening or humiliating them. Most of the time it's done by someone the person knows."
+   },
+   "ageBand": ["adult"],
+   "tags": ["elder-abuse", "definition"],
+   "triggers": ["what counts as abuse", "is this abuse"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: abuse of older people", "url": "https://www.who.int/news-room/fact-sheets/detail/abuse-of-older-people", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "elder_abuse.explain.002",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Money problems around an older person, such as bank cards used without their say, are a common form of harm. A helpline or the bank can advise."
+   },
+   "ageBand": ["adult"],
+   "tags": ["elder-abuse", "financial"],
+   "triggers": ["taking his money", "bank card", "pension"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: abuse of older people", "url": "https://www.who.int/news-room/fact-sheets/detail/abuse-of-older-people", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "elder_abuse.explain.003",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Carers under heavy strain sometimes lose patience or neglect things without meaning to. Respite and support can help both of you. Asking for help early is better than waiting for a crisis."
+   },
+   "ageBand": ["adult"],
+   "tags": ["elder-abuse", "carer-strain"],
+   "triggers": ["i snapped", "i shouted at my mother", "cannot cope"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 6.1", "note": "Carer strain and respite as a route (brief); clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "elder_abuse.explain.004",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Older people often don't tell anyone, because they fear losing care, or being a burden, or getting a family member into trouble. Advisors are used to this and move gently."
+   },
+   "ageBand": ["adult"],
+   "tags": ["elder-abuse", "why-silent"],
+   "triggers": ["she won't say", "he says it's fine"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: abuse of older people", "url": "https://www.who.int/news-room/fact-sheets/detail/abuse-of-older-people", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "elder_abuse.explain.005",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Adult safeguarding teams, in many countries, can look into harm to older people. They decide with the person what to do, and the person's wishes matter."
+   },
+   "ageBand": ["adult"],
+   "tags": ["elder-abuse", "safeguarding"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: abuse of older people", "url": "https://www.who.int/news-room/fact-sheets/detail/abuse-of-older-people", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"},
+    {"type": "background", "section": "RES_H1 6.1", "note": "Country-specific safeguarding routes were not verified; helplines.json decides what to name."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "elder_abuse.plan-step.001",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: write down what you've seen, with dates, only for you. It helps the person you tell. Want to do it together?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["elder-abuse", "record"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: abuse of older people", "url": "https://www.who.int/news-room/fact-sheets/detail/abuse-of-older-people", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "elder_abuse.plan-step.002",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: call a helpline for older people or adult safeguarding and describe what you've noticed. They'll tell you what happens next."
+   },
+   "ageBand": ["adult"],
+   "tags": ["elder-abuse", "report"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: abuse of older people", "url": "https://www.who.int/news-room/fact-sheets/detail/abuse-of-older-people", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "elder_abuse.plan-step.003",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: ask a doctor or nurse what respite, home help or day care is available. Many families don't know it exists."
+   },
+   "ageBand": ["adult"],
+   "tags": ["elder-abuse", "respite"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 6.1", "note": "Carer strain and respite as a route (brief); clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "elder_abuse.safety.001",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "If an older person is in danger now, or is badly hurt, call your emergency number. If there's immediate danger from someone in the home, move to somewhere safe if you can."
+   },
+   "ageBand": ["adult"],
+   "tags": ["elder-abuse", "emergency"],
+   "triggers": ["right now", "badly hurt", "fell and"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: abuse of older people", "url": "https://www.who.int/news-room/fact-sheets/detail/abuse-of-older-people", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "elder_abuse.safety.002",
+   "kind": "safety",
+   "stage": ["crisis", "handoff"],
+   "text": {
+    "en": "If you are a carer and you are afraid you might hurt the person you look after, please step away, get support, and contact a doctor or helpline today. You are not a bad person for saying so."
+   },
+   "ageBand": ["adult"],
+   "tags": ["elder-abuse", "carer", "risk-of-harm"],
+   "triggers": ["i might hurt", "i hit my mother", "i hit my father"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 6.1", "note": "Carer strain and respite as a route (brief); clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "elder_abuse.referral.001",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "A helpline for older people can listen and tell you what support exists. The lines for your country are listed below."
+   },
+   "ageBand": ["adult"],
+   "tags": ["elder-abuse", "helpline"],
+   "triggers": ["helpline", "who can i call"],
+   "doNotSay": ["Join with helplines.json; mark honestly where no verified line exists."],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "elder_abuse.referral.002",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "A doctor, a district nurse or a social worker can arrange help at home or respite for a carer. You can say: \"I need support to keep caring safely.\""
+   },
+   "ageBand": ["adult"],
+   "tags": ["elder-abuse", "doctor", "script"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 6.1", "note": "Carer strain and respite as a route (brief); clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "elder_abuse.islamic.001",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Qur'an commands kindness to parents and tells people never to speak harshly to them, even in old age. Honouring them includes protecting them from harm and also getting help when it is too much."
+   },
+   "ageBand": ["adult"],
+   "tags": ["elder-abuse", "parents", "honour"],
+   "triggers": ["my parents", "my mother", "my father"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "17:23-24", "section": "RES_H2 5.4"},
+    {"type": "quran", "ref": "31:14", "section": "RES_H2 5.4"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "elder_abuse.islamic.002",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet taught mercy toward the young and respect for the old. Neglect and humiliation of an elder are against that."
+   },
+   "ageBand": ["adult"],
+   "tags": ["elder-abuse", "mercy", "elders"],
+   "triggers": ["it is the way we do it", "what is wrong with it"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "abudawud:4943", "grade": "Sahih", "grader": "Al-Albani", "section": "RES_H2 5.4"},
+    {"type": "hadith", "ref": "tirmidhi:1919", "grade": "hasan", "grader": "Darussalam", "section": "RES_H2 5.4"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "elder_abuse.islamic.003",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "A carer who is struggling is not failing in duty. Asking for help so that you can keep serving safely is in keeping with the Prophet's saying that the religion is easy."
+   },
+   "ageBand": ["adult"],
+   "tags": ["elder-abuse", "ease", "carer"],
+   "triggers": ["i am a bad son", "i am a bad daughter", "it is my duty"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:39", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 2.2"},
+    {"type": "hadith", "ref": "bukhari:6125", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 2.2"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "elder_abuse.islamic.004",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet said that Allah has forbidden oppression. Protecting a vulnerable person from harm is part of what Islam asks of us, even when the harm comes from within the family."
+   },
+   "ageBand": ["adult"],
+   "tags": ["elder-abuse", "oppression"],
+   "triggers": ["family matter", "it is private"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "muslim:2577", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 5.1"},
+    {"type": "hadith", "ref": "bukhari:2444", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 5.1"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "elder_abuse.islamic.005",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "If you want advice on whether a care home, home help or a shared family arrangement is acceptable, scholars differ, and I can't give a ruling. A scholar can advise you and a social worker can advise on the practical side."
+   },
+   "ageBand": ["adult"],
+   "tags": ["elder-abuse", "care-home", "fiqh", "scholar-handoff"],
+   "triggers": ["care home", "nursing home", "is it haram to put my mother"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "fiqh", "title": "Scholars differ on residential care for parents; no source opened for this brief", "level": "institution", "section": "RES_H2 5.4", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "disputed": true,
+   "schoolsNamed": ["hanafi", "maliki", "shafii", "hanbali"],
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "elder_abuse.family.001",
+   "kind": "family",
+   "stage": ["explore"],
+   "text": {
+    "en": "If you are the child or relative of an older person who is being harmed, you can raise it gently with them, and tell a professional. You do not need proof."
+   },
+   "ageBand": ["adult"],
+   "tags": ["elder-abuse", "family-of"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: abuse of older people", "url": "https://www.who.int/news-room/fact-sheets/detail/abuse-of-older-people", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "elder_abuse.summary.001",
+   "kind": "summary",
+   "stage": ["close"],
+   "text": {
+    "en": "What I've heard: {topic} is worrying you, you want the older person to be safe and respected, and you want to know who can help."
+   },
+   "ageBand": ["adult"],
+   "slots": ["topic"],
+   "tags": ["elder-abuse", "summary"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: abuse of older people", "url": "https://www.who.int/news-room/fact-sheets/detail/abuse-of-older-people", "section": "RES_H1 6.1", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsSafeguardingReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}

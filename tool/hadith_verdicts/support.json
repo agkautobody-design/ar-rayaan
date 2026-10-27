@@ -1,0 +1,303 @@
+{
+ "abudawud:1488": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "al-Albani",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /ashamed to turn away/ on 2026-10-27. Other graders in the corpus: Muhammad Muhyi Al-Din Abdul Hamid: Sahih; Zubair Ali Zai: Hasan.",
+  "verdict": "ok"
+ },
+ "abudawud:2146": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "al-Albani",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /handmaidens/ on 2026-10-27. Other graders in the corpus: Muhammad Muhyi Al-Din Abdul Hamid: Sahih; Shuaib Al Arnaut: Sahih; Zubair Ali Zai: Sahih.",
+  "verdict": "ok"
+ },
+ "abudawud:4012": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "al-Albani",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /modesty and concealment/ on 2026-10-27. Other graders in the corpus: Muhammad Muhyi Al-Din Abdul Hamid: Sahih; Zubair Ali Zai: Sahih.",
+  "verdict": "ok"
+ },
+ "bukhari:2078": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "two Sahihs",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /Forgive him/ on 2026-10-27. Sahih Bukhari / Sahih Muslim: the corpus carries no per-hadith grade; sahih by the consensus on the two books.",
+  "verdict": "ok"
+ },
+ "bukhari:2101": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "two Sahihs",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /musk|blacksmith/ on 2026-10-27. Sahih Bukhari / Sahih Muslim: the corpus carries no per-hadith grade; sahih by the consensus on the two books.",
+  "verdict": "ok"
+ },
+ "bukhari:2441": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "two Sahihs",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /Screen/ on 2026-10-27. Sahih Bukhari / Sahih Muslim: the corpus carries no per-hadith grade; sahih by the consensus on the two books.",
+  "verdict": "ok"
+ },
+ "bukhari:2447": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "two Sahihs",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /darkness/ on 2026-10-27. Sahih Bukhari / Sahih Muslim: the corpus carries no per-hadith grade; sahih by the consensus on the two books.",
+  "verdict": "ok"
+ },
+ "bukhari:2448": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "two Sahihs",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /curse|invocation/ on 2026-10-27. Sahih Bukhari / Sahih Muslim: the corpus carries no per-hadith grade; sahih by the consensus on the two books.",
+  "verdict": "ok"
+ },
+ "bukhari:2464": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "two Sahihs",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /wine/ on 2026-10-27. Sahih Bukhari / Sahih Muslim: the corpus carries no per-hadith grade; sahih by the consensus on the two books.",
+  "verdict": "ok"
+ },
+ "bukhari:4993": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "two Sahihs",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /Do not drink alcoholic drinks/ on 2026-10-27. Sahih Bukhari / Sahih Muslim: the corpus carries no per-hadith grade; sahih by the consensus on the two books.",
+  "verdict": "ok"
+ },
+ "bukhari:526": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "two Sahihs",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /good deeds remove/ on 2026-10-27. Sahih Bukhari / Sahih Muslim: the corpus carries no per-hadith grade; sahih by the consensus on the two books.",
+  "verdict": "ok"
+ },
+ "bukhari:5364": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "two Sahihs",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /Hind/ on 2026-10-27. Sahih Bukhari / Sahih Muslim: the corpus carries no per-hadith grade; sahih by the consensus on the two books.",
+  "verdict": "ok"
+ },
+ "bukhari:5642": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "two Sahihs",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /expiates/ on 2026-10-27. Sahih Bukhari / Sahih Muslim: the corpus carries no per-hadith grade; sahih by the consensus on the two books.",
+  "verdict": "ok"
+ },
+ "bukhari:5652": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "two Sahihs",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /epilepsy/ on 2026-10-27. Sahih Bukhari / Sahih Muslim: the corpus carries no per-hadith grade; sahih by the consensus on the two books.",
+  "verdict": "ok"
+ },
+ "bukhari:6042": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "two Sahihs",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /beat/ on 2026-10-27. Sahih Bukhari / Sahih Muslim: the corpus carries no per-hadith grade; sahih by the consensus on the two books.",
+  "verdict": "ok"
+ },
+ "bukhari:6069": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "two Sahihs",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /Mujahirin/ on 2026-10-27. Sahih Bukhari / Sahih Muslim: the corpus carries no per-hadith grade; sahih by the consensus on the two books.",
+  "verdict": "ok"
+ },
+ "bukhari:6125": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "two Sahihs",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /Make things easy/ on 2026-10-27. Sahih Bukhari / Sahih Muslim: the corpus carries no per-hadith grade; sahih by the consensus on the two books.",
+  "verdict": "ok"
+ },
+ "bukhari:6134": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "two Sahihs",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /your body has a right on you/ on 2026-10-27. Sahih Bukhari / Sahih Muslim: the corpus carries no per-hadith grade; sahih by the consensus on the two books.",
+  "verdict": "ok"
+ },
+ "bukhari:6780": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "two Sahihs",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /Do not curse him/ on 2026-10-27. Sahih Bukhari / Sahih Muslim: the corpus carries no per-hadith grade; sahih by the consensus on the two books.",
+  "verdict": "ok"
+ },
+ "bukhari:6781": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "two Sahihs",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /Do not help Satan/ on 2026-10-27. Sahih Bukhari / Sahih Muslim: the corpus carries no per-hadith grade; sahih by the consensus on the two books.",
+  "verdict": "ok"
+ },
+ "bukhari:7507": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "two Sahihs",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /sinned|commits a sin/ on 2026-10-27. Sahih Bukhari / Sahih Muslim: the corpus carries no per-hadith grade; sahih by the consensus on the two books.",
+  "verdict": "ok"
+ },
+ "ibnmajah:2043": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "al-Albani",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /forgiven for me my nation/ on 2026-10-27. Other graders in the corpus: Muhammad Fouad Abd al-Baqi: Sahih; Zubair Ali Zai: Sahih.",
+  "verdict": "ok"
+ },
+ "ibnmajah:2340": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "al-Albani",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /neither harming nor reciprocating harm/ on 2026-10-27. Other graders in the corpus: Muhammad Fouad Abd al-Baqi: Sahih; Shuaib Al Arnaut: Sahih Lighairihi; Zubair Ali Zai: Daif.",
+  "verdict": "ok"
+ },
+ "ibnmajah:3436": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "al-Albani",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /Seek treatment/ on 2026-10-27. Other graders in the corpus: Muhammad Fouad Abd al-Baqi: Sahih; Shuaib Al Arnaut: Hasan Sahih; Zubair Ali Zai: Isnaad Sahih.",
+  "verdict": "ok"
+ },
+ "ibnmajah:3438": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "al-Albani",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /does not send down any disease/ on 2026-10-27. Other graders in the corpus: Muhammad Fouad Abd al-Baqi: Sahih; Zubair Ali Zai: Sahih.",
+  "verdict": "ok"
+ },
+ "ibnmajah:3439": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "al-Albani",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /does not send down any disease/ on 2026-10-27. Other graders in the corpus: Muhammad Fouad Abd al-Baqi: Sahih; Shuaib Al Arnaut: Sahih; Zubair Ali Zai: Sahih Bukhari.",
+  "verdict": "ok"
+ },
+ "ibnmajah:4253": {
+  "checked": "2026-10-27",
+  "grade": "Hasan",
+  "grader": "al-Albani",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /accepts the repentance/ on 2026-10-27. Other graders in the corpus: Muhammad Fouad Abd al-Baqi: Hasan; Shuaib Al Arnaut: Hasan; Zubair Ali Zai: Hasan.",
+  "verdict": "ok"
+ },
+ "muslim:1480": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "two Sahihs",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /beater of women|beats women|beater/ on 2026-10-27. Sahih Bukhari / Sahih Muslim: the corpus carries no per-hadith grade; sahih by the consensus on the two books.",
+  "verdict": "ok"
+ },
+ "muslim:1563": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "two Sahihs",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /respite to the insolvent/ on 2026-10-27. Sahih Bukhari / Sahih Muslim: the corpus carries no per-hadith grade; sahih by the consensus on the two books.",
+  "verdict": "ok"
+ },
+ "muslim:1714": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "two Sahihs",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /Hind/ on 2026-10-27. Sahih Bukhari / Sahih Muslim: the corpus carries no per-hadith grade; sahih by the consensus on the two books.",
+  "verdict": "ok"
+ },
+ "muslim:1980": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "two Sahihs",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /liquor/ on 2026-10-27. Sahih Bukhari / Sahih Muslim: the corpus carries no per-hadith grade; sahih by the consensus on the two books.",
+  "verdict": "ok"
+ },
+ "muslim:2553": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "two Sahihs",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /Virtue is a kind disposition|virtue is/ on 2026-10-27. Sahih Bukhari / Sahih Muslim: the corpus carries no per-hadith grade; sahih by the consensus on the two books.",
+  "verdict": "ok"
+ },
+ "muslim:2573": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "two Sahihs",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /mental worry/ on 2026-10-27. Sahih Bukhari / Sahih Muslim: the corpus carries no per-hadith grade; sahih by the consensus on the two books.",
+  "verdict": "ok"
+ },
+ "muslim:2576": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "two Sahihs",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /falling sickness/ on 2026-10-27. Sahih Bukhari / Sahih Muslim: the corpus carries no per-hadith grade; sahih by the consensus on the two books.",
+  "verdict": "ok"
+ },
+ "muslim:2580": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "two Sahihs",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /did not expose/ on 2026-10-27. Sahih Bukhari / Sahih Muslim: the corpus carries no per-hadith grade; sahih by the consensus on the two books.",
+  "verdict": "ok"
+ },
+ "muslim:2628": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "two Sahihs",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /musk|blacksmith/ on 2026-10-27. Sahih Bukhari / Sahih Muslim: the corpus carries no per-hadith grade; sahih by the consensus on the two books.",
+  "verdict": "ok"
+ },
+ "muslim:2750": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "two Sahihs",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /Hanzala/ on 2026-10-27. Sahih Bukhari / Sahih Muslim: the corpus carries no per-hadith grade; sahih by the consensus on the two books.",
+  "verdict": "ok"
+ },
+ "muslim:2763": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "two Sahihs",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /good deeds take away/ on 2026-10-27. Sahih Bukhari / Sahih Muslim: the corpus carries no per-hadith grade; sahih by the consensus on the two books.",
+  "verdict": "ok"
+ },
+ "muslim:2768": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "two Sahihs",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /veil/ on 2026-10-27. Sahih Bukhari / Sahih Muslim: the corpus carries no per-hadith grade; sahih by the consensus on the two books.",
+  "verdict": "ok"
+ },
+ "muslim:2990": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "two Sahihs",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /publicise/ on 2026-10-27. Sahih Bukhari / Sahih Muslim: the corpus carries no per-hadith grade; sahih by the consensus on the two books.",
+  "verdict": "ok"
+ },
+ "nasai:406": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "al-Albani",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /concealing/ on 2026-10-27. Other graders in the corpus: Abu Ghuddah: Sahih; Zubair Ali Zai: Sahih.",
+  "verdict": "ok"
+ },
+ "tirmidhi:1922": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "al-Albani",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /show mercy/ on 2026-10-27. Other graders in the corpus: Ahmad Muhammad Shakir: Sahih; Bashar Awad Maarouf: Hasan Sahih; Zubair Ali Zai: Sahih Muslim.",
+  "verdict": "ok"
+ },
+ "tirmidhi:3556": {
+  "checked": "2026-10-27",
+  "grade": "Sahih",
+  "grader": "al-Albani",
+  "note": "Number resolves to the cited narration in the hadith-api English edition (fawazahmed0/hadith-api); text matched against /shy to return them/ on 2026-10-27. Other graders in the corpus: Ahmad Muhammad Shakir: Sahih; Zubair Ali Zai: Hasan.",
+  "verdict": "ok"
+ }
+}

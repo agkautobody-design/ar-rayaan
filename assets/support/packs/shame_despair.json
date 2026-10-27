@@ -1,0 +1,1033 @@
+{
+ "schema": 1,
+ "pack": "shame_despair",
+ "packKind": "support",
+ "topic": "shame",
+ "description": "Shame, guilt, hopelessness, feeling beyond forgiveness and thoughts of ending life: listen first, ask directly about suicide, hand over to crisis lines and doctors.",
+ "audience": "hadi",
+ "ageBands": ["adult"],
+ "version": "0.1.0",
+ "createdOn": "2026-10-27",
+ "reviewBy": "2027-04-27",
+ "languages": ["en", "ar", "ur", "bn"],
+ "snippets": [
+  {
+   "id": "shame_despair.orient.001",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "I'm an app, not a doctor or a counsellor. I'll listen without judging. You can say anything here. What's weighing on you?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair", "opening", "honesty"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.orient.002",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "It sounds like things feel very heavy. I'm here. Tell me what's been happening, in your own words."
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair", "opening"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.orient.003",
+   "kind": "orient",
+   "stage": ["open"],
+   "text": {
+    "en": "You don't have to have the right words. Start anywhere."
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair", "opening"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.reflect.001",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you feel ashamed of yourself."
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.reflect.002",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you feel you have let everyone down, including Allah."
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair", "guilt", "faith"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.reflect.003",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "Things feel hopeless, and you can't see a way out."
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair", "hopelessness"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.reflect.004",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "You are exhausted by carrying this."
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair", "exhaustion"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.reflect.005",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you feel you don't deserve help."
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair", "worthlessness"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.reflect.006",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "You are lonely with this."
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair", "isolation"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.reflect.007",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "It sounds like you've been hard on yourself for a long time."
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair", "self-criticism"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.reflect.008",
+   "kind": "reflect",
+   "stage": ["reflect"],
+   "text": {
+    "en": "Part of you is still reaching out, and I'm glad."
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair", "hope", "effort"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.ask.001",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Are you having thoughts of ending your life?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair", "suicide-check"],
+   "triggers": [],
+   "doNotSay": ["Ask directly, once, without softening; never \"you are not thinking of doing something silly\".", "If yes or unsure, go to the crisis flow at once."],
+   "sources": [
+    {"type": "guideline", "title": "AFSP: how to talk safely about suicide", "url": "https://afsp.org/how-to-talk-safely-about-suicide/", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"},
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"},
+    {"type": "guideline", "title": "WHO fact sheet: suicide", "url": "https://www.who.int/news-room/fact-sheets/detail/suicide", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.ask.002",
+   "kind": "ask",
+   "stage": ["crisis"],
+   "text": {
+    "en": "Do you have a plan, or the means to hurt yourself nearby?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair", "suicide-check"],
+   "triggers": [],
+   "doNotSay": ["Only after a yes; do not ask for method details; go to the safety card."],
+   "sources": [
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.ask.003",
+   "kind": "ask",
+   "stage": ["crisis"],
+   "text": {
+    "en": "Is someone with you right now, or could someone be?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair", "safety"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.ask.004",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What has made it feel this heavy lately?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair", "explore"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.ask.005",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "When did you last feel even a little lighter?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair", "strengths", "hope"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.ask.006",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "Who knows how you're feeling?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair", "support"],
+   "triggers": [],
+   "doNotSay": ["Never push disclosure."],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.ask.007",
+   "kind": "ask",
+   "stage": ["explore"],
+   "text": {
+    "en": "What would help you get through tonight?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair", "safety-plan"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.affirm.001",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "Telling me is not weakness."
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair", "effort"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.affirm.002",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "I'm glad you said it out loud."
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair", "effort"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.affirm.003",
+   "kind": "affirm",
+   "stage": ["reflect", "close"],
+   "text": {
+    "en": "You're still here and still talking. That matters."
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair", "effort", "hope"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.explain.001",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Feeling this way can make everything look hopeless, but those feelings can change, especially with support. Many people who felt like this are glad they got through it."
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair", "hope", "treatment"],
+   "triggers": ["no hope", "it will never change"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: suicide", "url": "https://www.who.int/news-room/fact-sheets/detail/suicide", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "B",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.explain.002",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Shame tells you that you are the problem. Guilt says you did something wrong. They are different, and shame is not a fair judge of who you are."
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair", "shame-guilt"],
+   "triggers": ["i hate myself", "i am disgusting"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "background", "section": "RES_H1 3.10", "note": "Shame versus guilt distinction is standard counselling content; clinician to confirm."}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.explain.003",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Low mood, worry and sleeplessness are common and treatable. A doctor can help, and a talking therapy or medicine may help. You can ask for either, or both."
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair", "depression", "treatment"],
+   "triggers": ["depressed", "cannot sleep", "anxious"],
+   "doNotSay": ["No diagnosis, no medicine names."],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: suicide", "url": "https://www.who.int/news-room/fact-sheets/detail/suicide", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"},
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "B",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.explain.004",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Reaching out for help is something many people find hard. You've done it just now."
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair", "effort"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.explain.005",
+   "kind": "explain",
+   "stage": ["explore"],
+   "text": {
+    "en": "Thoughts of ending your life are more common than people think, and they don't mean you will act on them. They are a sign you need more support, and there are people who can give it."
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair", "suicide", "normalising"],
+   "triggers": ["thoughts of suicide", "wish i was dead"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: suicide", "url": "https://www.who.int/news-room/fact-sheets/detail/suicide", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"},
+    {"type": "guideline", "title": "AFSP: how to talk safely about suicide", "url": "https://afsp.org/how-to-talk-safely-about-suicide/", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "B",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.plan-step.001",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: tell one person you trust that you're not okay. It can be one sentence. Shall we work out what to say?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair", "disclosure-choice"],
+   "triggers": [],
+   "doNotSay": ["Offer, never demand."],
+   "sources": [
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.plan-step.002",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: put distance between you and anything you could use to hurt yourself tonight, or ask someone to hold it. Can you do that?"
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair", "means-safety"],
+   "triggers": [],
+   "doNotSay": ["No method names."],
+   "sources": [
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"},
+    {"type": "guideline", "title": "AFSP: how to talk safely about suicide", "url": "https://afsp.org/how-to-talk-safely-about-suicide/", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.plan-step.003",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: make an appointment with a doctor and say, \"I haven't been coping.\" That is enough."
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair", "doctor", "script"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.plan-step.004",
+   "kind": "plan-step",
+   "stage": ["plan"],
+   "text": {
+    "en": "One small step: for the next hour, be in a room with other people, or on the phone with someone. Isolation makes it worse."
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair", "company"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "C",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.safety.001",
+   "kind": "safety",
+   "stage": ["crisis"],
+   "text": {
+    "en": "If you are thinking about ending your life, please contact your emergency number or a crisis line now. You don't have to be sure. If you can, don't be alone, and stay away from anything you could use to hurt yourself.",
+    "ar": "إذا كنت تفكر في إنهاء حياتك، فتواصل مع رقم الطوارئ أو خط الأزمات الآن. لا يلزم أن تكون متأكدًا. إن استطعت فلا تبقَ وحدك، وابتعد عن أي شيء قد تؤذي به نفسك.",
+    "ur": "اگر آپ اپنی زندگی ختم کرنے کے بارے میں سوچ رہے ہیں تو براہ کرم ابھی ایمرجنسی نمبر یا بحران کی ہیلپ لائن سے رابطہ کریں۔ آپ کا پوری طرح یقین رکھنا ضروری نہیں۔ ہو سکے تو اکیلے نہ رہیں، اور ایسی ہر چیز سے دور رہیں جس سے آپ خود کو نقصان پہنچا سکتے ہوں۔",
+    "bn": "আপনি যদি নিজের জীবন শেষ করার কথা ভাবেন, অনুগ্রহ করে এখনই জরুরি নম্বরে বা সংকটকালীন হেল্পলাইনে যোগাযোগ করুন। আপনার নিশ্চিত হওয়ার দরকার নেই। পারলে একা থাকবেন না, আর নিজেকে আঘাত করতে পারেন এমন সবকিছু থেকে দূরে থাকুন।"
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair", "suicide", "crisis"],
+   "triggers": ["kill myself", "want to die", "end my life", "suicide", "better off dead"],
+   "doNotSay": ["Join with helplines.json scope suicide. Never leave the person with only a rebuttal."],
+   "sources": [
+    {"type": "guideline", "title": "WHO fact sheet: suicide", "url": "https://www.who.int/news-room/fact-sheets/detail/suicide", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"},
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"},
+    {"type": "guideline", "title": "AFSP: how to talk safely about suicide", "url": "https://afsp.org/how-to-talk-safely-about-suicide/", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": true,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.safety.002",
+   "kind": "safety",
+   "stage": ["crisis"],
+   "text": {
+    "en": "If you have already taken something or hurt yourself, call your emergency number now. Telling someone is the next thing to do."
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair", "suicide", "emergency"],
+   "triggers": ["i took pills", "i cut myself", "i have taken"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"},
+    {"type": "guideline", "title": "WHO fact sheet: suicide", "url": "https://www.who.int/news-room/fact-sheets/detail/suicide", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.safety.003",
+   "kind": "safety",
+   "stage": ["crisis"],
+   "text": {
+    "en": "If you can't stay safe tonight, please call your emergency number or go to an emergency department. You deserve care, not shame."
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair", "suicide", "emergency"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.referral.001",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "A crisis line can listen at any hour, for free. The lines for your country are listed below, and I can show them again any time.",
+    "ar": "يمكن لخط الأزمات أن يستمع إليك في أي ساعة مجانًا. خطوط بلدك مدرجة أدناه، ويمكنني عرضها مرة أخرى في أي وقت.",
+    "ur": "بحران کی ہیلپ لائن کسی بھی وقت مفت آپ کی بات سن سکتی ہے۔ آپ کے ملک کی لائنیں نیچے درج ہیں، اور انہیں کسی بھی وقت دوبارہ دکھایا جا سکتا ہے۔",
+    "bn": "সংকটকালীন হেল্পলাইন যেকোনো সময় বিনামূল্যে আপনার কথা শুনতে পারে। আপনার দেশের লাইনগুলো নিচে দেওয়া আছে, আর আমি যেকোনো সময় আবার দেখাতে পারি।"
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair", "helpline"],
+   "triggers": ["helpline", "who can i call"],
+   "doNotSay": ["Join with helplines.json scope suicide; verified only."],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": true,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.referral.002",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "A doctor can help with how you're feeling. You can say: \"I've been feeling hopeless and I need help.\""
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair", "doctor", "script"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.referral.003",
+   "kind": "referral",
+   "stage": ["handoff", "plan"],
+   "text": {
+    "en": "If it would help to talk to someone who understands your faith, some Muslim counsellors and helplines take calls like this. The list below shows what exists in your country."
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair", "muslim-counsellor"],
+   "triggers": [],
+   "doNotSay": ["Only verified services."],
+   "sources": [],
+   "evidenceLevel": "N",
+   "risk": "low",
+   "neverParaphrase": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.islamic.001",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Qur'an tells people who have wronged themselves not to despair of Allah's mercy, for He forgives all sins. Feeling beyond forgiveness is a feeling, not a fact."
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair", "mercy"],
+   "triggers": ["allah will not forgive me", "beyond forgiveness", "too late"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "quran", "ref": "39:53", "section": "RES_H2 2.1"},
+    {"type": "quran", "ref": "4:28", "section": "RES_H2 2.1"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.islamic.002",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet taught that Allah is more pleased with the repentance of His servant than a man who finds his lost camel in the desert. Turning back is always welcome."
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair", "tawbah", "mercy"],
+   "triggers": ["again", "i keep falling"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:6308", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 1.1"},
+    {"type": "hadith", "ref": "muslim:2744", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 1.1"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.islamic.003",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet taught that no fatigue, sorrow, sadness or hurt befalls a believer without Allah wiping away some of their sins. Hard feelings are not a sign Allah has left you."
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair", "hardship", "mercy"],
+   "triggers": ["allah is punishing me", "why is allah doing this"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:5641", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 2.2"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.islamic.004",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Illness of the mind or heart is an illness like any other. The Prophet encouraged seeking treatment, so seeing a doctor or counsellor is in keeping with the faith."
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair", "treatment", "mental-health"],
+   "triggers": ["is therapy haram", "is it a lack of faith"],
+   "doNotSay": [],
+   "sources": [
+    {"type": "hadith", "ref": "tirmidhi:2038", "grade": "Sahih (Ahmad Muhammad Shakir); Sahih (Al-Albani); Hasan Sahih (Bashar Awad Maarouf); Isnaad Sahih (Zubair Ali Zai)", "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus", "section": "RES_H2 2.5"},
+    {"type": "hadith", "ref": "ibnmajah:3438", "grade": "Sahih", "grader": "al-Albani", "section": "RES_H2 2.5"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "low",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": false,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.islamic.005",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "The Prophet taught that none of you should wish for death because of a hardship. If it feels that way, please reach out now. Allah's mercy is bigger than the feeling."
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair", "suicide", "mercy"],
+   "triggers": ["wish i was dead", "i want to die"],
+   "doNotSay": ["Never use as the only response; always join with crisis support."],
+   "sources": [
+    {"type": "hadith", "ref": "bukhari:5671", "grade": "Sahih", "grader": "two Sahihs", "section": "RES_H2 4.5"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "high",
+   "askPermission": true,
+   "needsScholarReview": true,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.islamic.006",
+   "kind": "islamic",
+   "stage": ["explore"],
+   "text": {
+    "en": "Scholars differ on some questions about suicide and its consequences, and I can't give a ruling. What I can tell you is that you are loved, you matter, and there is help tonight."
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair", "suicide", "fiqh"],
+   "triggers": ["will i go to hell if i", "is suicide unforgivable"],
+   "doNotSay": ["Never describe what happens after death to someone at risk."],
+   "sources": [
+    {"type": "fiqh", "title": "Scholars differ on the ruling and consequences; no source opened for this brief", "level": "institution", "section": "RES_H2 4.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "D",
+   "risk": "high",
+   "askPermission": true,
+   "disputed": true,
+   "schoolsNamed": ["hanafi", "maliki", "shafii", "hanbali"],
+   "needsScholarReview": true,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.family.001",
+   "kind": "family",
+   "stage": ["explore"],
+   "text": {
+    "en": "If someone you love says they feel hopeless, ask them directly if they're thinking of ending their life. Asking doesn't plant the idea. Listen, stay with them, and help them reach a crisis line or a doctor."
+   },
+   "ageBand": ["adult"],
+   "tags": ["shame", "despair", "family-of", "suicide"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "AFSP: how to talk safely about suicide", "url": "https://afsp.org/how-to-talk-safely-about-suicide/", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"},
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "high",
+   "askPermission": true,
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  },
+  {
+   "id": "shame_despair.summary.001",
+   "kind": "summary",
+   "stage": ["close"],
+   "text": {
+    "en": "What I've heard: it feels very heavy, you feel {topic}, and you want some relief. Let's make sure you have someone to turn to tonight."
+   },
+   "ageBand": ["adult"],
+   "slots": ["topic"],
+   "tags": ["shame", "despair", "summary"],
+   "triggers": [],
+   "doNotSay": [],
+   "sources": [
+    {"type": "guideline", "title": "WHO mhGAP: assessment for self-harm and suicide in persons with priority mental, neurological and substance use disorders", "url": "https://cdn.who.int/media/docs/default-source/mental-health/mhgap/self-harm-and-suicide/assessment-for-self-harm-suicide-in-persons-with-priority-mental-neurological-and-substance-use-disorders.pdf?sfvrsn=616d6857_0", "section": "RES_H1 2.5", "retrievedOn": "2026-10-27"}
+   ],
+   "evidenceLevel": "A",
+   "risk": "low",
+   "needsScholarReview": false,
+   "needsClinicianReview": true,
+   "needsNativeClinicianReview": false,
+   "reviewedBy": null,
+   "reviewedOn": null,
+   "status": "draft"
+  }
+ ]
+}
