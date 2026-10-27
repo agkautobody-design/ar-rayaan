@@ -35,7 +35,7 @@ class _HifzPlannerScreenState extends ConsumerState<HifzPlannerScreen> {
   int _from = 1;
   int _to = 1;
 
-  int get _targetSurah => _hifz.targetSurah;
+  int get _targetSurah => _hifz.workingSurah;
   int get _dailyAyat => _hifz.dailyNewAyat;
 
   @override
@@ -57,7 +57,7 @@ class _HifzPlannerScreenState extends ConsumerState<HifzPlannerScreen> {
   void _set(HifzState next) {
     setState(() {
       _hifz = next;
-      final int max = ayatInSurah(next.targetSurah);
+      final int max = ayatInSurah(next.workingSurah);
       if (_from > max) _from = max;
       if (_to > max) _to = max;
       if (_to < _from) _to = _from;
@@ -77,6 +77,8 @@ class _HifzPlannerScreenState extends ConsumerState<HifzPlannerScreen> {
     final int ayat = ayatInSurah(_targetSurah);
     final int left = _hifz.remainingInTarget;
     final DateTime done = plan.projectedCompletion(left, DateTime.now());
+    final bool juz = _hifz.juzAmma;
+    final HifzDay today = _hifz.dayFor(DateTime.now());
 
     return Scaffold(
       body: ScenicScaffold.pattern(
@@ -90,6 +92,28 @@ class _HifzPlannerScreenState extends ConsumerState<HifzPlannerScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
+                    Text('Your plan', style: AppText.caption),
+                    const SizedBox(height: 8),
+                    Wrap(
+                      spacing: 8,
+                      children: <Widget>[
+                        ChoiceChip(
+                          key: const Key('hifz-plan-juz'),
+                          label: const Text('Juz Amma'),
+                          selected: juz,
+                          onSelected: (bool _) =>
+                              _set(_hifz.withPlan(juzAmma: true)),
+                        ),
+                        ChoiceChip(
+                          key: const Key('hifz-plan-surah'),
+                          label: const Text('One surah'),
+                          selected: !juz,
+                          onSelected: (bool _) =>
+                              _set(_hifz.withPlan(juzAmma: false)),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 12),
                     Text('Your pace', style: AppText.caption),
                     const SizedBox(height: 8),
                     Row(
@@ -110,14 +134,25 @@ class _HifzPlannerScreenState extends ConsumerState<HifzPlannerScreen> {
                     ),
                     const SizedBox(height: 12),
                     Text(
-                      left == 0
-                          ? 'Surah $_targetSurah (${hifzSurahName(_targetSurah)}) has $ayat ayat, and you have marked all of them as memorised. '
-                              'A teacher or checker confirms it; this is your own list.'
-                          : 'Surah $_targetSurah (${hifzSurahName(_targetSurah)}) has $ayat ayat'
-                              '${left == ayat ? '' : ' ($left still to do)'}. '
-                              'At $_dailyAyat ayat a day it completes around '
-                              '${done.year}-${done.month.toString().padLeft(2, '0')}-${done.day.toString().padLeft(2, '0')}. '
-                              'A teacher may set a different pace — this is your compass, not your judge.',
+                      juz
+                          ? (left == 0
+                              ? 'All ${juzAmmaAyat()} ayat of Juz Amma are on your list. '
+                                  'A teacher or checker confirms it; this is your own list.'
+                              : 'Juz Amma is surahs $kJuzAmmaFirstSurah to $kJuzAmmaLastSurah, ${juzAmmaAyat()} ayat. '
+                                  'You have written down ${_hifz.juzAmmaMemorised} ($left still to do). '
+                                  'We start with An-Nas and go back to An-Naba, because the short surahs are the ones you already pray. '
+                                  'At $_dailyAyat ayat a day it completes around '
+                                  '${done.year}-${done.month.toString().padLeft(2, '0')}-${done.day.toString().padLeft(2, '0')}, '
+                                  'if no day is missed. '
+                                  'A teacher may set a different pace — this is your compass, not your judge.')
+                          : (left == 0
+                              ? 'Surah $_targetSurah (${hifzSurahName(_targetSurah)}) has $ayat ayat, and you have marked all of them as memorised. '
+                                  'A teacher or checker confirms it; this is your own list.'
+                              : 'Surah $_targetSurah (${hifzSurahName(_targetSurah)}) has $ayat ayat'
+                                  '${left == ayat ? '' : ' ($left still to do)'}. '
+                                  'At $_dailyAyat ayat a day it completes around '
+                                  '${done.year}-${done.month.toString().padLeft(2, '0')}-${done.day.toString().padLeft(2, '0')}. '
+                                  'A teacher may set a different pace — this is your compass, not your judge.'),
                       key: const Key('hifz-summary'),
                       style: AppText.bodyMuted.copyWith(fontSize: 14, height: 1.5),
                     ),
@@ -132,31 +167,7 @@ class _HifzPlannerScreenState extends ConsumerState<HifzPlannerScreen> {
               const SizedBox(height: 12),
               _linksCard(),
               const SizedBox(height: 12),
-              GlassCard(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text('Today’s three lanes',
-                        style: AppText.titleMedium
-                            .copyWith(color: AppColors.gold)),
-                    const SizedBox(height: 10),
-                    for (final (i, String lane)
-                        in plan.todaysLanes().indexed)
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 4),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text('${i + 1}.  ',
-                                style: AppText.body
-                                    .copyWith(color: AppColors.gold)),
-                            Expanded(child: Text(lane, style: AppText.body)),
-                          ],
-                        ),
-                      ),
-                  ],
-                ),
-              ),
+              _lanesCard(today),
               const SizedBox(height: 12),
               GlassCard(
                 child: Text(
@@ -176,7 +187,7 @@ class _HifzPlannerScreenState extends ConsumerState<HifzPlannerScreen> {
                     Text(
                       "Start with what you already pray: Al-Fatihah and the short surahs of Juz Amma "
                       "(Al-Ikhlas, Al-Falaq, An-Nas). What you recite every day is the easiest to keep. "
-                      "Al-Kahf, the default target here, is a longer surah \u2014 set the surah above to the one you are working on.",
+                      "The Juz Amma plan begins with An-Nas. Choose One surah above to work on any other.",
                       style: AppText.bodyMuted.copyWith(height: 1.5),
                     ),
                     const SizedBox(height: 10),
@@ -188,6 +199,94 @@ class _HifzPlannerScreenState extends ConsumerState<HifzPlannerScreen> {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  /// "Ayat 4-6 of Surah 112 (Al-Ikhlas)".
+  String _chunkText(AyahChunk c) =>
+      'Surah ${c.surah} (${hifzSurahName(c.surah)}), ayat ${c.from == c.to ? '${c.from}' : '${c.from}–${c.to}'}';
+
+  Widget _laneRow(int n, String name, String text, AyahChunk? open, Key key) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 4),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text('$n.  ', style: AppText.body.copyWith(color: AppColors.gold)),
+          Expanded(
+            child: Text.rich(
+              TextSpan(
+                children: <InlineSpan>[
+                  TextSpan(
+                      text: '$name: ',
+                      style: AppText.body.copyWith(color: AppColors.gold)),
+                  TextSpan(text: text, style: AppText.body),
+                ],
+              ),
+            ),
+          ),
+          if (open != null)
+            TextButton(
+              key: key,
+              onPressed: () =>
+                  context.open(AppRoutes.surahAt(open.surah, open.from)),
+              child: const Text('Open'),
+            ),
+        ],
+      ),
+    );
+  }
+
+  /// Today's three lanes, worked out from what you have written down.
+  Widget _lanesCard(HifzDay day) {
+    final AyahChunk? fresh = day.fresh;
+    final List<AyahChunk> recent = day.recent;
+    final AyahChunk? older = day.older;
+    final int shown = recent.length > 4 ? 4 : recent.length;
+    return GlassCard(
+      key: const Key('hifz-lanes'),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text('Today’s three lanes',
+              style: AppText.titleMedium.copyWith(color: AppColors.gold)),
+          const SizedBox(height: 10),
+          _laneRow(
+            1,
+            'New',
+            fresh == null
+                ? 'nothing left in this plan. Choose another surah above.'
+                : _chunkText(fresh),
+            fresh,
+            const Key('hifz-open-new'),
+          ),
+          _laneRow(
+            2,
+            'Recent',
+            recent.isEmpty
+                ? 'nothing written down in the last $kRecentDays days.'
+                : '${recent.take(shown).map(_chunkText).join('; ')}'
+                    '${recent.length > shown ? ' and ${recent.length - shown} more' : ''}',
+            recent.isEmpty ? null : recent.first,
+            const Key('hifz-open-recent'),
+          ),
+          _laneRow(
+            3,
+            'Older',
+            older == null
+                ? 'nothing yet. What you write down stays in Recent for $kRecentDays days, then joins the older sections.'
+                : _chunkText(older),
+            older,
+            const Key('hifz-open-older'),
+          ),
+          const SizedBox(height: 6),
+          Text(
+            'Worked out from the ranges you wrote down. One older section a day, in turn. '
+            '[Interpretive: sabaq, sabqi and manzil as hifz circles teach them; a teacher sets your real pace.]',
+            style: AppText.caption,
+          ),
+        ],
       ),
     );
   }
@@ -283,7 +382,8 @@ class _HifzPlannerScreenState extends ConsumerState<HifzPlannerScreen> {
             child: OutlinedButton.icon(
               key: const Key('hifz-add'),
               onPressed: () =>
-                  _set(_hifz.addRange(_targetSurah, _from, _to)),
+                  _set(_hifz.addRange(_targetSurah, _from, _to,
+                      day: hifzDayNumber(DateTime.now()))),
               icon: const Icon(Icons.add, size: 18),
               label: const Text('Mark as memorised'),
             ),
