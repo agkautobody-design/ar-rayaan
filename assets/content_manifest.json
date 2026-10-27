@@ -66,9 +66,9 @@
    "version": 4
   },
   "stories/prophets.json": {
-   "bytes": 62600,
-   "sha256": "871e0f1e7e4994dd3a7d0bbab3f8ebfbcc3f26d1121f874124d17e387504beef",
-   "version": 4
+   "bytes": 90422,
+   "sha256": "4f2cdc745da11e6ba917386277b0f9011d656d1606f4452a67066b6c2074b5d9",
+   "version": 5
   },
   "stories/seerah.json": {
    "bytes": 66202,
