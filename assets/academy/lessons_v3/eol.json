@@ -1,0 +1,4429 @@
+{
+ "schema": 3,
+ "course": "eol",
+ "lessons": [
+  {
+   "id": "eol.u1.l1",
+   "title": "Every soul will taste it",
+   "minutes": 15,
+   "intro": "Death is certain. Learn what the Qur’an and the Prophet ﷺ say about remembering it, and the calm, practical things to do now.",
+   "steps": [
+    {
+     "id": "certain",
+     "kind": "why",
+     "title": "Death is certain",
+     "body": [
+      "Every person who has ever lived has died, and every person alive will die. The Qur’an says it plainly, in the ayah below.",
+      "In Qur’an 29:57 Allah says every soul tastes death and then returns to Him. In 62:8 He says the death we run from will meet us. Money, health and rank do not change this.",
+      "This is not said to frighten you. It is said so that you use your time well. The ayah goes on to say that each person is paid in full on the Day of Resurrection."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 3:185; 29:57; 62:8",
+     "quran": "q:3:185"
+    },
+    {
+     "id": "hear",
+     "kind": "listen",
+     "title": "Listen to the short ayah",
+     "ref": "q:29:57",
+     "repeats": 2,
+     "note": "Listen, then say it aloud. It is short, and it is a good ayah to know by heart."
+    },
+    {
+     "id": "remember",
+     "kind": "teach",
+     "title": "Remember it often",
+     "body": [
+      "The Prophet ﷺ said to increase your remembrance of the one that cuts off pleasures, meaning death (Tirmidhi 2307, hasan sahih per al-Albani).",
+      "To remember death is not to sit in sadness. It keeps one fact in front of you, so that other things stay the right size: a small quarrel, a lost bargain, a delay.",
+      "He also took Ibn Umar by the shoulder and said: be in this world as if you were a stranger or a traveler (Bukhari 6416). A traveler packs light, and does not forget where he is going."
+     ],
+     "label": "[Established]",
+     "source": "Tirmidhi 2307 (hasan sahih per al-Albani); Bukhari 6416"
+    },
+    {
+     "id": "notwish",
+     "kind": "teach",
+     "title": "Remembering death is not wishing for it",
+     "body": [
+      "The Prophet ﷺ said that none of you should wish for death because of a hardship that has come to him. If he must say something, let him say: O Allah, keep me alive as long as life is good for me, and take me when death is good for me (Bukhari 5671; Muslim 2680).",
+      "So the believer prepares for death without hurrying toward it. Your life is a trust from Allah, to be used well until He ends it."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 5671; Muslim 2680"
+    },
+    {
+     "id": "heavy",
+     "kind": "teach",
+     "title": "If life feels too heavy",
+     "body": [
+      "If things are so heavy that you are thinking of ending your life, or you are afraid for your own safety, please tell someone you trust now: a family member, a friend, your doctor, or the emergency services where you live.",
+      "In this app, the Need help now button is always there. Asking for help is not weakness, and you are not a burden. Allah’s mercy is wider than the hardest night."
+     ]
+    },
+    {
+     "id": "prepare",
+     "kind": "howto",
+     "title": "What to settle while you are well",
+     "steps": [
+      {
+       "text": "Ask Allah’s forgiveness and turn back to Him.",
+       "count": "today",
+       "detail": "Do not leave repentance for a later that may not come."
+      },
+      {
+       "text": "Make right what you owe people: money first, then wrongs.",
+       "detail": "Write down every debt and who it is owed to. The Prophet ﷺ said the soul of the believer is held back by his debt until it is paid (Tirmidhi 1078, sahih per al-Albani)."
+      },
+      {
+       "text": "Ask forgiveness from anyone you wronged, while it can still be done kindly.",
+       "detail": "The Prophet ﷺ said whoever has wronged his brother, in his honour or anything else, should settle it now, before a day when there is no money to pay with (Bukhari 2449)."
+      },
+      {
+       "text": "Write your will.",
+       "detail": "You will learn how in the next two lessons."
+      },
+      {
+       "text": "Tell someone you trust where your papers, accounts and passwords are.",
+       "detail": "This saves your family weeks of searching at a hard time."
+      },
+      {
+       "text": "Begin a good deed that keeps going after you.",
+       "detail": "Lesson 4 of this unit covers this."
+      }
+     ],
+     "intro": "Preparing is practical. These are the things to do while you are healthy and calm.",
+     "mistakes": [
+      "Waiting for old age, or for illness, to begin.",
+      "Leaving debts only in your memory, with no note of them.",
+      "Making preparing for death a reason for fear. It should make you steady."
+     ],
+     "source": "Tirmidhi 1078 (sahih per al-Albani); Bukhari 2449",
+     "label": "[Established]"
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "The order in the Qur’an",
+     "prompt": "Put these in the order the Qur’an gives them in 62:8 and 3:185.",
+     "items": [
+      {
+       "text": "Death meets every person",
+       "why": "Death comes first. The death we run from will meet us (62:8).",
+       "back": "certain"
+      },
+      {
+       "text": "Everyone is returned to Allah",
+       "why": "Then we are returned to the Knower of the unseen and the seen (62:8).",
+       "back": "certain"
+      },
+      {
+       "text": "Allah tells each person what they used to do",
+       "why": "He will inform us of what we used to do (62:8).",
+       "back": "certain"
+      },
+      {
+       "text": "Each person is paid in full",
+       "why": "The full compensation is on the Day of Resurrection (3:185).",
+       "back": "certain"
+      }
+     ],
+     "explain": "Death, return to Allah, being told what we did, and full payment. Nothing is lost on the way."
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "What would you do?",
+     "prompt": "Match each situation with the right response.",
+     "pairs": [
+      {
+       "left": {
+        "text": "You owe someone money"
+       },
+       "right": {
+        "text": "Record it and plan to repay it"
+       },
+       "why": "The soul of the believer is held back by his debt until it is paid, as the Prophet ﷺ taught.",
+       "back": "prepare"
+      },
+      {
+       "left": {
+        "text": "You wronged a friend long ago"
+       },
+       "right": {
+        "text": "Ask their forgiveness while you can"
+       },
+       "why": "Settle it now, before a day when there is no money to pay with (Bukhari 2449).",
+       "back": "prepare"
+      },
+      {
+       "left": {
+        "text": "A hardship makes you say you want to die"
+       },
+       "right": {
+        "text": "Do not wish for death; ask Allah for what is best and talk to someone"
+       },
+       "why": "Wishing for death is forbidden (Bukhari 5671). Asking for help is encouraged.",
+       "back": "notwish"
+      },
+      {
+       "left": {
+        "text": "You will travel far for a long time"
+       },
+       "right": {
+        "text": "Pack light and plan the journey"
+       },
+       "why": "The Prophet ﷺ said to be in this world like a traveler (Bukhari 6416).",
+       "back": "remember"
+      }
+     ]
+    },
+    {
+     "id": "shahada",
+     "kind": "say",
+     "title": "Keep these words ready",
+     "refs": [
+      "shahada.full"
+     ],
+     "note": "You learned this in The Path. Say it often, so it is the easiest sentence you know. Lesson 5 explains why it matters at the very end.",
+     "source": "Bukhari 8; Muslim 403",
+     "label": "[Established]"
+    },
+    {
+     "id": "time",
+     "kind": "teach",
+     "title": "What counts is how you live",
+     "body": [
+      "A Bedouin asked the Prophet ﷺ: who is the best of people? He said: the one whose life is long and whose deeds are good (Tirmidhi 2329, sahih per al-Albani).",
+      "The Prophet ﷺ also said that two blessings are lost by many people: health and free time (Bukhari 6412). Remembering death is a reminder to use both while you have them."
+     ],
+     "label": "[Established]",
+     "source": "Tirmidhi 2329 (sahih per al-Albani); Bukhari 6412"
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "e11",
+       "q": "What does the Qur’an say about death?",
+       "options": [
+        {
+         "text": "Only the sinful taste it",
+         "reteach": "No. Every soul tastes death (3:185, 29:57).",
+         "back": "certain"
+        },
+        {
+         "text": "Every soul will taste it"
+        },
+        {
+         "text": "It can be avoided by wealth or care",
+         "reteach": "No. The death we run from will meet us (62:8).",
+         "back": "certain"
+        }
+       ],
+       "answer": 1,
+       "explain": "Every soul will taste death (3:185).",
+       "type": "mcq"
+      },
+      {
+       "id": "e12",
+       "q": "Why does the Prophet ﷺ tell us to remember death often?",
+       "options": [
+        {
+         "text": "So we keep our priorities right and prepare"
+        },
+        {
+         "text": "So we feel afraid all the time",
+         "reteach": "No. It is to keep things the right size and to prepare, not to bring constant fear.",
+         "back": "remember"
+        },
+        {
+         "text": "So we give up our work",
+         "reteach": "No. A traveler still works; he just packs light.",
+         "back": "remember"
+        }
+       ],
+       "answer": 0,
+       "explain": "It keeps things in proportion and moves us to prepare, as the hadith on remembering death teaches.",
+       "type": "mcq"
+      },
+      {
+       "id": "e13",
+       "q": "Someone says: I am so tired of life, I wish I would die.",
+       "options": [
+        {
+         "text": "Do not wish for it; ask Allah for what is best, and talk to someone you trust"
+        },
+        {
+         "text": "Say it often, it brings reward",
+         "reteach": "No. The Prophet ﷺ forbade wishing for death because of a hardship (Bukhari 5671).",
+         "back": "notwish"
+        },
+        {
+         "text": "Tell no one, it is a private matter",
+         "reteach": "Please do not carry it alone. Tell someone you trust or use the Need help now button.",
+         "back": "heavy"
+        }
+       ],
+       "answer": 0,
+       "explain": "Wishing for death is forbidden, and asking for help is encouraged (Bukhari 5671).",
+       "type": "scenario",
+       "scenario": "A friend tells you they are exhausted and want to die. You wonder what to say."
+      },
+      {
+       "id": "e14",
+       "q": "What did the Prophet ﷺ say about debt?",
+       "options": [
+        {
+         "text": "Debt is forgiven at death automatically",
+         "reteach": "No. The believer’s soul is held back by it until it is paid.",
+         "back": "prepare"
+        },
+        {
+         "text": "Debt does not matter if you are poor",
+         "reteach": "No. It is a right of another person and should be recorded and paid.",
+         "back": "prepare"
+        },
+        {
+         "text": "The soul of the believer is held back by his debt until it is paid"
+        }
+       ],
+       "answer": 2,
+       "explain": "The soul of the believer is held back by his debt until it is paid.",
+       "type": "mcq"
+      },
+      {
+       "id": "e15",
+       "q": "A man has wronged a neighbour. What should he do?",
+       "options": [
+        {
+         "text": "Wait until the Day of Resurrection to see",
+         "reteach": "No. The Prophet ﷺ said to settle it now, before a day with no money to pay with (Bukhari 2449).",
+         "back": "prepare"
+        },
+        {
+         "text": "Ask forgiveness now, before the Day of Resurrection"
+        },
+        {
+         "text": "Forget it, it was long ago",
+         "reteach": "A wrong does not expire. It is a right of the neighbour.",
+         "back": "prepare"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 2449: settle it now.",
+       "type": "scenario",
+       "scenario": "Years ago a man wronged his neighbour, and now he remembers it."
+      },
+      {
+       "id": "e16",
+       "q": "Who did the Prophet ﷺ call the best of people, when the Bedouin asked him?",
+       "options": [
+        {
+         "text": "The one whose life is long and whose deeds are good"
+        },
+        {
+         "text": "The one who is richest",
+         "reteach": "No. He said: the one whose life is long and whose deeds are good.",
+         "back": "time"
+        },
+        {
+         "text": "The one who dies youngest",
+         "reteach": "No. A long life with good deeds is best.",
+         "back": "time"
+        }
+       ],
+       "answer": 0,
+       "explain": "The best of people is the one whose life is long and whose deeds are good.",
+       "type": "mcq"
+      },
+      {
+       "id": "e17",
+       "q": "Which dua may a person say if he feels he must speak about death?",
+       "options": [
+        {
+         "text": "O Allah, keep me alive as long as life is good for me, and take me when death is good for me"
+        },
+        {
+         "text": "O Allah, take me now",
+         "reteach": "No. That is wishing for death, which is forbidden because of a hardship.",
+         "back": "notwish"
+        },
+        {
+         "text": "O Allah, never let me die",
+         "reteach": "No. Death is certain; we ask for what is best.",
+         "back": "notwish"
+        }
+       ],
+       "answer": 0,
+       "explain": "This is the wording in Bukhari 5671.",
+       "type": "mcq"
+      },
+      {
+       "id": "e18",
+       "q": "In 62:8, what comes right after death?",
+       "options": [
+        {
+         "text": "The Day of Resurrection with no return",
+         "reteach": "No. We are returned to the Knower of the unseen and the seen.",
+         "back": "order"
+        },
+        {
+         "text": "Nothing at all",
+         "reteach": "No. We are returned to Allah and told what we used to do.",
+         "back": "order"
+        },
+        {
+         "text": "Return to Allah"
+        }
+       ],
+       "answer": 2,
+       "explain": "We are returned to Allah, then informed of what we did.",
+       "type": "mcq"
+      },
+      {
+       "id": "e19",
+       "q": "Where should a person keep the record of what he owes?",
+       "options": [
+        {
+         "text": "Written down, where his family can find it"
+        },
+        {
+         "text": "Only in his memory",
+         "reteach": "No. If he dies, no one will know. Write it down.",
+         "back": "prepare"
+        },
+        {
+         "text": "Nowhere, it will be sorted out",
+         "reteach": "Debts are rights of others and need to be recorded.",
+         "back": "prepare"
+        }
+       ],
+       "answer": 0,
+       "explain": "Write every debt down. The Prophet ﷺ also told us to keep our will written (Bukhari 2738).",
+       "type": "mcq"
+      },
+      {
+       "id": "e110",
+       "q": "What is the right attitude toward remembering death?",
+       "options": [
+        {
+         "text": "Calm readiness, and a good use of time"
+        },
+        {
+         "text": "Constant fear",
+         "reteach": "No. The aim is to be steady and to prepare.",
+         "back": "remember"
+        },
+        {
+         "text": "Not thinking about it at all",
+         "reteach": "The Prophet ﷺ told us to remember it often.",
+         "back": "remember"
+        }
+       ],
+       "answer": 0,
+       "explain": "The traveler packs light and keeps his destination in mind (Bukhari 6416).",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Say what the Qur’an says about death (3:185, 29:57, 62:8).",
+      "Explain why remembering death is encouraged and why wishing for it is forbidden.",
+      "List what to settle while you are healthy: forgiveness, debts, wrongs, papers.",
+      "Know where to go for help if life feels too heavy."
+     ],
+     "next": "Next: the will."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Read it in the Qur’an",
+     "body": "Open Surah Al-Jumu’ah and read 62:8 in its place, with the translation.",
+     "route": "/quran/62",
+     "button": "Open Surah 62"
+    }
+   ]
+  },
+  {
+   "id": "eol.u1.l2",
+   "title": "The will: write it, and write it well",
+   "minutes": 20,
+   "intro": "Learn what a will is, the limit of one third, the rule about heirs, and how to write a simple one.",
+   "steps": [
+    {
+     "id": "sunnah",
+     "kind": "why",
+     "title": "The Prophet ﷺ told us to write it",
+     "body": [
+      "The Prophet ﷺ said that it is not right for a Muslim who has something to leave in a will to let two nights pass without his will written and kept ready with him (Bukhari 2738).",
+      "Ibn Umar, who narrated this, said that from the day he heard it he did not spend a night without his will with him (Muslim 1627).",
+      "A will is called a wasiyyah. It is an instruction that takes effect after you die. It is not only about money. It can also say what you owe, who should look after your children, and how you want your funeral to be."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 2738; Muslim 1627"
+    },
+    {
+     "id": "what",
+     "kind": "teach",
+     "title": "What a will is for, and what it is not for",
+     "body": [
+      "Inheritance and the will are two different things. Inheritance is fixed by Allah for the close family, in fixed shares (you will learn them in the next lesson). You cannot change those shares by writing a will.",
+      "A will is for three things: (1) what you owe or hold for others, so it is not lost; (2) your instructions, such as your funeral wishes and who cares for your children; (3) gifts to people or causes who would not inherit from you, such as a charity, a grandchild whose father is alive, or a friend.",
+      "The Qur’an also tells us the will is made without harm to the heirs, as the ayah on inheritance says."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 4:11-12; Bukhari 2738",
+     "quran": "q:4:12"
+    },
+    {
+     "id": "sad",
+     "kind": "story",
+     "title": "Sa’d asks about his wealth",
+     "body": [
+      "Sa’d ibn Abi Waqqas, a close Companion, became very ill in Makkah. The Prophet ﷺ came to visit him. Sa’d had much wealth and only one daughter to inherit from him.",
+      "He asked: may I give all my wealth in charity? The Prophet ﷺ said no. Half? No. One third? The Prophet ﷺ said: yes, one third, and one third is a lot. It is better for you to leave your heirs well-off than to leave them poor, asking people for help (Bukhari 2742; Muslim 1628).",
+      "He added that whatever Sa’d spends for Allah’s sake is rewarded, even the morsel he puts in his wife’s mouth. So the limit is not unkindness. It is care for the family left behind."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 2742; Muslim 1628"
+    },
+    {
+     "id": "third",
+     "kind": "teach",
+     "title": "The limit: one third",
+     "body": [
+      "From this hadith the scholars take the rule: a will may give away at most one third of the estate. The rest goes to the heirs in their shares.",
+      "The third is counted on what is left after the funeral and burial costs and the debts are paid. A will that is larger than one third is carried out only if the heirs agree after the death.",
+      "A smaller amount is better still, if the heirs are poor. The Prophet ﷺ said even a third is a lot."
+     ],
+     "label": "[Interpretive]",
+     "source": "Bukhari 2742; Muslim 1628",
+     "review": "The one-third limit and the heirs’ agreement beyond it are the standard teaching of the four schools. The statement that the third is counted after funeral costs and debts is the usual juristic order. Please confirm."
+    },
+    {
+     "id": "heir",
+     "kind": "teach",
+     "title": "No bequest to an heir",
+     "body": [
+      "The Prophet ﷺ said in his sermon in the Farewell Pilgrimage: Allah has given every person with a right his right, so there is no bequest for an heir (Ibn Majah 2713, sahih per al-Albani).",
+      "An heir is a person who inherits from you at your death, such as your spouse, your child or your parent. They already have their fixed share, so the will cannot add to it.",
+      "You can leave a will for a person who does not inherit from you: a friend, a grandchild whose own parent is alive, a neighbour, a mosque, a school, or a charity. This is all within one third.",
+      "The same words are also in Abu Dawud 2870 (hasan sahih per al-Albani) and Tirmidhi 2120 (sahih per al-Albani)."
+     ],
+     "label": "[Established]",
+     "source": "Ibn Majah 2713 (sahih per al-Albani); Abu Dawud 2870 (hasan sahih per al-Albani); Tirmidhi 2120 (sahih per al-Albani)"
+    },
+    {
+     "id": "madhab",
+     "kind": "contrast",
+     "title": "Where scholars differ",
+     "rows": [
+      {
+       "name": "Is writing a will required?",
+       "text": "Most scholars, including the schools, say it is strongly encouraged for everyone and required when you owe debts or hold trusts that would be lost. Some earlier scholars said it is required in every case for relatives who do not inherit."
+      },
+      {
+       "name": "A will beyond one third, or for an heir",
+       "text": "All four schools say it needs the agreement of the other heirs after the death. If they agree, it stands. If they refuse, it falls back to what the rules allow."
+      },
+      {
+       "name": "A person with no heirs at all",
+       "text": "Hanafi: may leave more than one third. Maliki, Shafi’i and Hanbali: the limit of one third stays."
+      }
+     ],
+     "intro": "These are the commonly taught positions. If you follow a school, follow it. If you are not sure, ask a scholar before you write.",
+     "closing": "Scholars differ here and all of them reason from the same texts. None of these is a mistake to correct in another Muslim.",
+     "source": "Bukhari 2738, 2742; Ibn Majah 2713 (sahih per al-Albani)",
+     "review": "Each row states the commonly taught position of the schools. Needs a scholar to confirm the wording of every row, especially the one on a person with no heirs."
+    },
+    {
+     "id": "priority",
+     "kind": "arrange",
+     "title": "What is paid from an estate, in order",
+     "prompt": "Put these in the order they are paid from what a person leaves.",
+     "items": [
+      {
+       "text": "Funeral and burial costs",
+       "why": "The body is cared for first.",
+       "back": "third"
+      },
+      {
+       "text": "Debts",
+       "why": "Debts are rights of other people and come before the will. The ayahs on inheritance say the shares are after any bequest or debt (4:11-12).",
+       "back": "third"
+      },
+      {
+       "text": "The will, up to one third",
+       "why": "Then the will is carried out, within the one-third limit.",
+       "back": "third"
+      },
+      {
+       "text": "The fixed shares of the heirs",
+       "why": "What remains is divided among the heirs in the shares Allah set.",
+       "back": "third"
+      }
+     ],
+     "explain": "Funeral costs, debts, the will up to one third, and then the fixed shares. This is the order the scholars give."
+    },
+    {
+     "id": "yaqub",
+     "kind": "story",
+     "title": "The best will: guidance",
+     "body": [
+      "The Qur’an shows us a will that has nothing to do with money. When death came to Ya’qub (Jacob), he asked his sons: what will you worship after me?",
+      "They answered that they would worship the one God, the God of Ibrahim, Isma’il and Ishaq (2:133). The first duty of a parent in a will is the faith of the family he leaves.",
+      "So add a few lines of advice to your will for your children and family. Keep them short and kind."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 2:132-133",
+     "quran": "q:2:133"
+    },
+    {
+     "id": "write",
+     "kind": "howto",
+     "title": "How to write a will",
+     "steps": [
+      {
+       "text": "List what you owe and what you hold for others.",
+       "detail": "Name each person, the amount, and where the paper or proof is."
+      },
+      {
+       "text": "Write your funeral wishes.",
+       "detail": "For example: a simple Muslim funeral, burial soon, a Muslim cemetery, no wailing. See the next unit on the janazah."
+      },
+      {
+       "text": "Name a guardian for any young children, and a trusted person to carry out the will.",
+       "detail": "Ask them first."
+      },
+      {
+       "text": "Decide your gifts to people or causes who do not inherit.",
+       "detail": "Keep them to one third or less of what you own."
+      },
+      {
+       "text": "Write that the rest is to be divided among the heirs by the shares Allah gave.",
+       "detail": "Do not try to change the shares."
+      },
+      {
+       "text": "Add a few lines of advice for your family.",
+       "detail": "As Ya’qub did."
+      },
+      {
+       "text": "Sign and date it with two just witnesses, and get it checked.",
+       "detail": "The Qur’an speaks of two just witnesses at the time of a bequest (5:106). Where you live, a lawyer can tell you what makes it valid by law."
+      },
+      {
+       "text": "Tell your family or executor where it is kept.",
+       "detail": "Update it when your life changes."
+      }
+     ],
+     "intro": "Keep it simple. A short will that is clear and legal is better than a long one that is never finished.",
+     "mistakes": [
+      "Leaving a will that only a lawyer can read, or that is not legal where you live. Then it may not be carried out.",
+      "Trying to give one child more by a will. The will cannot do that.",
+      "Leaving more than a third without asking the heirs.",
+      "Never writing it, and leaving the family with no instructions."
+     ],
+     "source": "Qur’an 5:106; Bukhari 2738, 2742",
+     "label": "[Interpretive]",
+     "review": "Practical guidance on writing a will. Where the law of the country differs from the Islamic shares, a person should see both a lawyer and a scholar. Please confirm the wording."
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Allowed or not?",
+     "prompt": "Match each plan with what the rules say.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Leave a fifth of your wealth to a mosque"
+       },
+       "right": {
+        "text": "Allowed, it is within one third"
+       },
+       "why": "It is within the limit of one third (Bukhari 2742).",
+       "back": "third"
+      },
+      {
+       "left": {
+        "text": "Leave extra to one son because he is the favourite"
+       },
+       "right": {
+        "text": "Not allowed without the other heirs’ agreement"
+       },
+       "why": "There is no bequest for an heir.",
+       "back": "heir"
+      },
+      {
+       "left": {
+        "text": "Leave half of your wealth to charity"
+       },
+       "right": {
+        "text": "More than one third, so it needs the heirs’ agreement"
+       },
+       "why": "The Prophet ﷺ refused half to Sa’d (Bukhari 2742).",
+       "back": "sad"
+      },
+      {
+       "left": {
+        "text": "Give your friend who is not an heir a gift"
+       },
+       "right": {
+        "text": "Allowed, within one third"
+       },
+       "why": "A person who does not inherit may receive a bequest.",
+       "back": "heir"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "w1",
+       "q": "What did the Prophet ﷺ say about writing a will?",
+       "options": [
+        {
+         "text": "Write it only when you are very old",
+         "reteach": "No. He said two nights should not pass without it (Bukhari 2738).",
+         "back": "sunnah"
+        },
+        {
+         "text": "Not to let two nights pass without it written and ready"
+        },
+        {
+         "text": "A will is forbidden",
+         "reteach": "No. He encouraged it.",
+         "back": "sunnah"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 2738.",
+       "type": "mcq"
+      },
+      {
+       "id": "w2",
+       "q": "What is the most a will may give away without the heirs’ agreement?",
+       "options": [
+        {
+         "text": "One third"
+        },
+        {
+         "text": "Half",
+         "reteach": "No. The Prophet ﷺ refused half to Sa’d (Bukhari 2742).",
+         "back": "sad"
+        },
+        {
+         "text": "Everything",
+         "reteach": "No. The Prophet ﷺ refused all to Sa’d.",
+         "back": "sad"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 2742: one third.",
+       "type": "mcq"
+      },
+      {
+       "id": "w3",
+       "q": "Why did the Prophet ﷺ say a third is a lot?",
+       "options": [
+        {
+         "text": "Because charity is not rewarded",
+         "reteach": "No. He said spending for Allah is rewarded.",
+         "back": "sad"
+        },
+        {
+         "text": "Because the heirs do not need money",
+         "reteach": "No. He said it is better to leave them well-off.",
+         "back": "sad"
+        },
+        {
+         "text": "It is better to leave your heirs well-off than poor"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 2742.",
+       "type": "mcq"
+      },
+      {
+       "id": "w4",
+       "q": "Who can a will NOT add to, without the other heirs’ agreement?",
+       "options": [
+        {
+         "text": "A friend who is not an heir",
+         "reteach": "A friend is not an heir, so a will for them is allowed within one third.",
+         "back": "heir"
+        },
+        {
+         "text": "An heir, such as a son or a wife"
+        },
+        {
+         "text": "A mosque",
+         "reteach": "A charity is allowed within one third.",
+         "back": "heir"
+        }
+       ],
+       "answer": 1,
+       "explain": "The Prophet ﷺ said there is no bequest for an heir.",
+       "type": "mcq"
+      },
+      {
+       "id": "w5",
+       "q": "Sara has three children. She wants to leave her youngest more by her will. What is the answer?",
+       "options": [
+        {
+         "text": "It is not valid unless the other heirs agree after her death"
+        },
+        {
+         "text": "It is fine, it is her wealth",
+         "reteach": "No. A will cannot add to an heir’s share.",
+         "back": "heir"
+        },
+        {
+         "text": "It is valid if she writes it clearly",
+         "reteach": "Writing it clearly does not change the rule.",
+         "back": "heir"
+        }
+       ],
+       "answer": 0,
+       "explain": "No bequest for an heir.",
+       "type": "scenario",
+       "scenario": "Sara has three children. She wants to leave her youngest more than the others by her will."
+      },
+      {
+       "id": "w6",
+       "q": "Omar wants to give a tenth of his wealth to a school after his death. What do you tell him?",
+       "options": [
+        {
+         "text": "That is forbidden",
+         "reteach": "No. It is within the limit.",
+         "back": "third"
+        },
+        {
+         "text": "That is allowed. It is within one third"
+        },
+        {
+         "text": "He must ask his children first",
+         "reteach": "He only needs their agreement beyond one third.",
+         "back": "third"
+        }
+       ],
+       "answer": 1,
+       "explain": "A bequest within one third needs no one’s agreement.",
+       "type": "scenario",
+       "scenario": "Omar wants to give a tenth of his wealth to a school after his death."
+      },
+      {
+       "id": "w7",
+       "q": "What is paid first from an estate?",
+       "options": [
+        {
+         "text": "The heirs’ shares",
+         "reteach": "The shares come last.",
+         "back": "priority"
+        },
+        {
+         "text": "The will",
+         "reteach": "The will comes after the debts.",
+         "back": "priority"
+        },
+        {
+         "text": "Funeral and burial costs"
+        }
+       ],
+       "answer": 2,
+       "explain": "Funeral costs, debts, will, then shares.",
+       "type": "mcq"
+      },
+      {
+       "id": "w8",
+       "q": "Can a will change the share an heir gets from Allah?",
+       "options": [
+        {
+         "text": "Yes, if the heir agrees to it in life",
+         "reteach": "No. The shares are fixed by Allah. A will cannot change them.",
+         "back": "what"
+        },
+        {
+         "text": "Yes, if it is written",
+         "reteach": "No. The shares are Allah’s.",
+         "back": "what"
+        },
+        {
+         "text": "No"
+        }
+       ],
+       "answer": 2,
+       "explain": "The shares are set by Allah (4:11-12).",
+       "type": "mcq"
+      },
+      {
+       "id": "w9",
+       "q": "What did Ya’qub ask his sons at his death?",
+       "options": [
+        {
+         "text": "Where is the money?",
+         "reteach": "No. He asked about their worship.",
+         "back": "yaqub"
+        },
+        {
+         "text": "What will you worship after me?"
+        },
+        {
+         "text": "Who will care for the house?",
+         "reteach": "No. He asked about their worship.",
+         "back": "yaqub"
+        }
+       ],
+       "answer": 1,
+       "explain": "Qur’an 2:133.",
+       "type": "mcq"
+      },
+      {
+       "id": "w10",
+       "q": "What does the Qur’an say about witnesses to a bequest?",
+       "options": [
+        {
+         "text": "None are needed",
+         "reteach": "The ayah speaks of two just witnesses (5:106).",
+         "back": "write"
+        },
+        {
+         "text": "Two just men"
+        },
+        {
+         "text": "Four witnesses",
+         "reteach": "The ayah speaks of two.",
+         "back": "write"
+        }
+       ],
+       "answer": 1,
+       "explain": "Qur’an 5:106.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Say why and when to write a will (Bukhari 2738).",
+      "State the limit of one third and the rule of no bequest to an heir, with the sources.",
+      "Write a simple will: debts, funeral, guardians, gifts within a third, and advice.",
+      "Know where the schools differ, and where to ask a scholar and a lawyer."
+     ],
+     "next": "Next: how the estate is divided."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Read the will of Ya’qub",
+     "body": "Open Surah Al-Baqarah and read 2:132-133 in its place.",
+     "route": "/quran/2",
+     "button": "Open Surah 2"
+    }
+   ]
+  },
+  {
+   "id": "eol.u1.l3",
+   "title": "The estate: Allah’s shares",
+   "minutes": 20,
+   "intro": "Learn who inherits, the shares the Qur’an gives, and how to work a simple case, with a clear note on when to ask a scholar.",
+   "steps": [
+    {
+     "id": "shares",
+     "kind": "why",
+     "title": "Allah set the shares",
+     "body": [
+      "Before Islam, many families gave nothing to women and children. The Qur’an gave men and women each a share of what their parents and close relatives leave (4:7), and then set the shares one by one in 4:11, 4:12 and 4:176.",
+      "The ayah on children ends by calling these shares an obligation from Allah, who is All-Knowing and All-Wise. So the shares are not decided by the family’s feelings, or by who is richer or louder. They are Allah’s law, and they protect the weak.",
+      "This lesson teaches the main shapes. Real families can be complicated, so a case with many relatives should always be checked by a qualified scholar or inheritance specialist."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 4:7; 4:11-12; 4:176",
+     "quran": "q:4:11"
+    },
+    {
+     "id": "sadr",
+     "kind": "story",
+     "title": "Two daughters and their uncle",
+     "body": [
+      "A report says that the wife of Sa’d ibn al-Rabi’ came to the Prophet ﷺ with his two daughters. Sa’d had died at Uhud, and their uncle had taken all his wealth. She said that the girls could not marry without some property.",
+      "The Prophet ﷺ said that Allah would decide, and the ayah on inheritance came down. He sent for the uncle and said: give the two daughters two thirds, give their mother one eighth, and what remains is yours (Tirmidhi 2092; Zubair Ali Zai: da’if; al-Albani: hasan).",
+      "Please note: scholars grade this report differently, as shown. We use it as a story that explains the shares, not as the only proof of them. The shares themselves are in the ayat."
+     ],
+     "label": "[Interpretive]",
+     "source": "Tirmidhi 2092 (Zubair Ali Zai: da’if; al-Albani: hasan); Abu Dawud 2891 (Zubair Ali Zai: da’if; al-Albani: hasan)"
+    },
+    {
+     "id": "children",
+     "kind": "teach",
+     "title": "The children",
+     "body": [
+      "The ayah says: for the male, the share of two females. This rule is for sons and daughters who inherit together. A son gets twice what a daughter gets.",
+      "If there are only daughters: one daughter gets half the estate. Two or more daughters share two thirds between them.",
+      "If there are both sons and daughters, they share what is left after the spouse and parents get their shares, in the proportion two to one."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 4:11",
+     "quran": "q:4:11"
+    },
+    {
+     "id": "parents",
+     "kind": "teach",
+     "title": "The parents",
+     "body": [
+      "If the person who died left children, each parent gets one sixth. Notice that the father and the mother get equal shares here. The rule of two to one does not apply.",
+      "If he left no children and only his parents inherit, the mother gets one third, and the father takes the rest.",
+      "If he left brothers or sisters, the mother gets one sixth. The schools take this to mean two or more brothers and sisters."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 4:11",
+     "quran": "q:4:11"
+    },
+    {
+     "id": "spouses",
+     "kind": "teach",
+     "title": "The husband and the wife",
+     "body": [
+      "A husband gets half of what his wife leaves if she has no child. If she has a child, he gets one quarter.",
+      "A wife gets one quarter of what her husband leaves if he has no child. If he has a child, she gets one eighth. If there are several wives, they share that quarter or eighth between them.",
+      "In each case this comes after any will and any debt."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 4:12",
+     "quran": "q:4:12"
+    },
+    {
+     "id": "siblings",
+     "kind": "teach",
+     "title": "Brothers and sisters",
+     "body": [
+      "Brothers and sisters inherit when the person leaves no children and no father. In 4:176 Allah says that a sister alone gets half, two sisters get two thirds, and if there are brothers and sisters together, the brother gets the share of two sisters.",
+      "In 4:12 Allah speaks about a person who leaves no parents and no children, and has a brother or sister from the mother’s side. Each one gets one sixth, and if there are more than two, they share one third.",
+      "These cases are more complex than they look, because they depend on who else is alive. Ask a scholar if siblings are among the heirs."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 4:12; 4:176",
+     "quran": "q:4:176"
+    },
+    {
+     "id": "rest",
+     "kind": "teach",
+     "title": "What remains, and who cannot inherit",
+     "body": [
+      "The Prophet ﷺ said: give the fixed shares to those who have them, and what remains goes to the closest male relative of the dead person (Bukhari 6746).",
+      "He also said that a Muslim cannot inherit from a disbeliever, and a disbeliever cannot inherit from a Muslim (Bukhari 6764). The four schools follow this. A new Muslim whose family is not Muslim cannot inherit from them by these rules. Scholars allow a bequest, within one third, to a relative who is not Muslim."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 6746; Bukhari 6764",
+     "review": "The statement that scholars allow a bequest to a non-Muslim relative within one third, and that the four schools follow Bukhari 6764 on inheritance between Muslims and non-Muslims, are the usual teaching. Please confirm."
+    },
+    {
+     "id": "work",
+     "kind": "howto",
+     "title": "How to work out a simple case",
+     "steps": [
+      {
+       "text": "Take the whole estate, and subtract the funeral costs, the debts, and the will (up to one third).",
+       "detail": "What is left is the amount to divide."
+      },
+      {
+       "text": "List who is alive among the heirs.",
+       "detail": "Spouse, children, parents, brothers and sisters."
+      },
+      {
+       "text": "Give each heir with a fixed share their share.",
+       "detail": "Use 4:11, 4:12 and 4:176 as in the steps above."
+      },
+      {
+       "text": "Divide what remains among the residuary heirs.",
+       "detail": "Sons and daughters together share it two to one."
+      },
+      {
+       "text": "Add the shares. They must equal the whole amount.",
+       "detail": "If they do not, stop. Some cases need special rules, so ask."
+      },
+      {
+       "text": "Have a qualified scholar or inheritance specialist check it before anything is paid.",
+       "detail": "It is a trust. Take the time to get it right."
+      }
+     ],
+     "intro": "This is a method for simple families. It is not a replacement for a scholar.",
+     "mistakes": [
+      "Dividing equally among everyone, to avoid a quarrel.",
+      "Giving the daughters nothing because they will marry.",
+      "Using the rule of two to one for everyone, even for the parents.",
+      "Dividing before the debts are paid."
+     ],
+     "source": "Qur’an 4:11-12; Bukhari 6746",
+     "label": "[Interpretive]",
+     "review": "A practical method for simple cases. Needs a scholar to confirm that nothing here is out of line with the four schools."
+    },
+    {
+     "id": "examples",
+     "kind": "teach",
+     "title": "Two worked examples",
+     "body": [
+      "Example 1. A man dies and leaves a wife, a son and a daughter. His parents are no longer alive. After costs, debts and the will, 240,000 remain. The wife gets one eighth: 30,000. The rest, 210,000, is shared between the son and daughter in the ratio two to one: the son 140,000 and the daughter 70,000.",
+      "Example 2. A woman dies and leaves a husband, two sons and a daughter. 160,000 remain. The husband gets one quarter: 40,000. The remaining 120,000 is shared in five parts (two for each son, one for the daughter): each son 48,000 and the daughter 24,000.",
+      "Check each time: 30,000 + 140,000 + 70,000 = 240,000. And 40,000 + 48,000 + 48,000 + 24,000 = 160,000."
+     ],
+     "label": "[Interpretive]",
+     "source": "Qur’an 4:11-12"
+    },
+    {
+     "id": "madhab",
+     "kind": "contrast",
+     "title": "Where the schools differ",
+     "rows": [
+      {
+       "name": "A grandfather with brothers and sisters of the dead person",
+       "text": "Hanafi: the grandfather takes the place of the father, and the brothers and sisters get nothing. Maliki, Shafi’i and Hanbali: the grandfather shares with the brothers and sisters."
+      },
+      {
+       "name": "Relatives who are not sharers or residuary heirs (for example, a daughter’s children)",
+       "text": "Hanafi and Hanbali: they inherit when there are no others. Maliki and Shafi’i, in the earlier teaching: the estate goes to the public treasury instead. Many later scholars of those schools say they inherit where there is no just treasury."
+      }
+     ],
+     "intro": "The Qur’an fixes the main shares, and all schools agree on them. They differ on some of the rarer cases.",
+     "agree": "All four schools agree on the shares of the children, the parents and the spouses stated above.",
+     "closing": "These are differences between scholars who all reason from the same texts. If you have such a case, ask a scholar of your school.",
+     "source": "Qur’an 4:11-12, 4:176",
+     "review": "Each row states the commonly taught position of the schools. Needs a scholar to confirm the wording of both rows."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "Work it out in order",
+     "prompt": "Put these steps of dividing an estate in order.",
+     "items": [
+      {
+       "text": "Pay the funeral costs, debts and the will",
+       "why": "These come out of the estate first.",
+       "back": "work"
+      },
+      {
+       "text": "List who is alive among the heirs",
+       "why": "You need to know who the heirs are before you give shares.",
+       "back": "work"
+      },
+      {
+       "text": "Give the fixed shares",
+       "why": "The people with a fixed share in the Qur’an receive it.",
+       "back": "work"
+      },
+      {
+       "text": "Divide what remains among the residuary heirs",
+       "why": "Sons and daughters share the rest two to one.",
+       "back": "work"
+      },
+      {
+       "text": "Check with a scholar before paying out",
+       "why": "The sum must equal the whole, and special cases need an expert.",
+       "back": "work"
+      }
+     ],
+     "explain": "Costs, heirs, fixed shares, the remainder, and a check by a scholar."
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the heir to the share",
+     "prompt": "Match each case to the share the Qur’an gives.",
+     "pairs": [
+      {
+       "left": {
+        "text": "A wife, when her husband left a child"
+       },
+       "right": {
+        "text": "One eighth"
+       },
+       "why": "A wife gets one eighth if he has a child (4:12).",
+       "back": "spouses"
+      },
+      {
+       "left": {
+        "text": "A husband, when his wife left no child"
+       },
+       "right": {
+        "text": "One half"
+       },
+       "why": "A husband gets half if she has no child (4:12).",
+       "back": "spouses"
+      },
+      {
+       "left": {
+        "text": "Each parent, when the deceased left children"
+       },
+       "right": {
+        "text": "One sixth"
+       },
+       "why": "Each parent gets one sixth when there are children (4:11).",
+       "back": "parents"
+      },
+      {
+       "left": {
+        "text": "Two or more daughters and no sons"
+       },
+       "right": {
+        "text": "Two thirds together"
+       },
+       "why": "Daughters alone, two or more, share two thirds (4:11).",
+       "back": "children"
+      },
+      {
+       "left": {
+        "text": "One daughter and no sons"
+       },
+       "right": {
+        "text": "One half"
+       },
+       "why": "A single daughter gets half (4:11).",
+       "back": "children"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "f1",
+       "q": "Who decided the shares of inheritance?",
+       "options": [
+        {
+         "text": "Allah, in the Qur’an"
+        },
+        {
+         "text": "The family, by agreement",
+         "reteach": "No. Allah set them as an obligation (4:11).",
+         "back": "shares"
+        },
+        {
+         "text": "The judge, case by case",
+         "reteach": "No. The shares are in the Qur’an.",
+         "back": "shares"
+        }
+       ],
+       "answer": 0,
+       "explain": "Qur’an 4:11 calls them an obligation from Allah.",
+       "type": "mcq"
+      },
+      {
+       "id": "f2",
+       "q": "A son and a daughter inherit together. How do they share what is left?",
+       "options": [
+        {
+         "text": "Equal shares",
+         "reteach": "No. The ayah says the male gets the share of two females.",
+         "back": "children"
+        },
+        {
+         "text": "The daughter gets twice",
+         "reteach": "No. It is the other way: the son gets twice.",
+         "back": "children"
+        },
+        {
+         "text": "The son gets twice the daughter’s share"
+        }
+       ],
+       "answer": 2,
+       "explain": "Qur’an 4:11.",
+       "type": "mcq"
+      },
+      {
+       "id": "f3",
+       "q": "A man dies and leaves his father, his mother and a son. What does each parent get?",
+       "options": [
+        {
+         "text": "The mother one third, the father two thirds",
+         "reteach": "That is when there are no children. Here there is a son.",
+         "back": "parents"
+        },
+        {
+         "text": "One sixth each"
+        },
+        {
+         "text": "The father twice the mother",
+         "reteach": "No. With children, each parent gets one sixth.",
+         "back": "parents"
+        }
+       ],
+       "answer": 1,
+       "explain": "With children, each parent gets one sixth (4:11).",
+       "type": "scenario",
+       "scenario": "A man dies and leaves his father, his mother and a son."
+      },
+      {
+       "id": "f4",
+       "q": "A woman dies and leaves a husband and a child. What is the husband’s share?",
+       "options": [
+        {
+         "text": "One half",
+         "reteach": "That is when there is no child.",
+         "back": "spouses"
+        },
+        {
+         "text": "One quarter"
+        },
+        {
+         "text": "One eighth",
+         "reteach": "That is the wife’s share when there is a child.",
+         "back": "spouses"
+        }
+       ],
+       "answer": 1,
+       "explain": "Qur’an 4:12.",
+       "type": "scenario",
+       "scenario": "A woman dies and leaves a husband and a child."
+      },
+      {
+       "id": "f5",
+       "q": "A man dies and leaves a wife and a child. What is the wife’s share?",
+       "options": [
+        {
+         "text": "One quarter",
+         "reteach": "That is when there is no child.",
+         "back": "spouses"
+        },
+        {
+         "text": "One eighth"
+        },
+        {
+         "text": "One half",
+         "reteach": "That is the husband’s share when there is no child.",
+         "back": "spouses"
+        }
+       ],
+       "answer": 1,
+       "explain": "Qur’an 4:12.",
+       "type": "scenario",
+       "scenario": "A man dies and leaves a wife and a child."
+      },
+      {
+       "id": "f6",
+       "q": "Using Example 1: with 240,000 left, a wife, a son and a daughter, how much does the daughter get?",
+       "options": [
+        {
+         "text": "80,000",
+         "reteach": "The wife takes 30,000 first. Then the son and daughter share 210,000 two to one.",
+         "back": "examples"
+        },
+        {
+         "text": "70,000"
+        },
+        {
+         "text": "105,000",
+         "reteach": "That would be an equal split. The son gets twice the daughter.",
+         "back": "examples"
+        }
+       ],
+       "answer": 1,
+       "explain": "210,000 shared two to one gives 140,000 and 70,000.",
+       "type": "mcq"
+      },
+      {
+       "id": "f7",
+       "q": "Only daughters are left, three of them, and no sons. What do they get?",
+       "options": [
+        {
+         "text": "The whole estate",
+         "reteach": "No. Two thirds is their fixed share; the rest goes to other heirs.",
+         "back": "children"
+        },
+        {
+         "text": "One half, shared",
+         "reteach": "One half is the share of a single daughter.",
+         "back": "children"
+        },
+        {
+         "text": "Two thirds, shared between them"
+        }
+       ],
+       "answer": 2,
+       "explain": "Qur’an 4:11.",
+       "type": "mcq"
+      },
+      {
+       "id": "f8",
+       "q": "Can a Muslim inherit from a relative who is not Muslim?",
+       "options": [
+        {
+         "text": "Yes, always",
+         "reteach": "The Prophet ﷺ said no (Bukhari 6764).",
+         "back": "rest"
+        },
+        {
+         "text": "Only a son can",
+         "reteach": "The rule applies to all.",
+         "back": "rest"
+        },
+        {
+         "text": "No, by the hadith and the four schools"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 6764.",
+       "type": "mcq"
+      },
+      {
+       "id": "f9",
+       "q": "Where does what remains go after the fixed shares?",
+       "options": [
+        {
+         "text": "To the closest male relative"
+        },
+        {
+         "text": "To the public treasury at once",
+         "reteach": "First to the closest male relative (Bukhari 6746).",
+         "back": "rest"
+        },
+        {
+         "text": "To a charity",
+         "reteach": "Not unless there is no heir. Bukhari 6746 gives it to the closest male relative.",
+         "back": "rest"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 6746.",
+       "type": "mcq"
+      },
+      {
+       "id": "f10",
+       "q": "Is the rule “the male gets twice the female” true for everyone in the family?",
+       "options": [
+        {
+         "text": "Yes, for every heir",
+         "reteach": "No. Parents get equal sixths when there are children, and a husband and wife have their own shares.",
+         "back": "parents"
+        },
+        {
+         "text": "No, it is for sons and daughters (and brothers and sisters) who inherit together"
+        },
+        {
+         "text": "Yes, for the parents only",
+         "reteach": "No. With children, the parents each get one sixth.",
+         "back": "parents"
+        }
+       ],
+       "answer": 1,
+       "explain": "It applies between sons and daughters, and brothers and sisters, not to all heirs.",
+       "type": "mcq"
+      },
+      {
+       "id": "f11",
+       "lookback": "eol.u1.l2#w7"
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Say who sets the shares and where they are (4:11, 4:12, 4:176).",
+      "State the shares of the children, the parents and the spouses.",
+      "Work one simple case with numbers, and check that the total adds up.",
+      "Know when to stop and ask a scholar."
+     ],
+     "next": "Next: planting what outlives you."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Read the ayah of the shares",
+     "body": "Open Surah An-Nisa and read 4:11-12 slowly with the translation.",
+     "route": "/quran/4",
+     "button": "Open Surah 4"
+    }
+   ]
+  },
+  {
+   "id": "eol.u1.l4",
+   "title": "Plant what outlives you",
+   "minutes": 15,
+   "intro": "Learn the three deeds that continue after death and how to begin one this week.",
+   "steps": [
+    {
+     "id": "three",
+     "kind": "why",
+     "title": "Deeds that keep running",
+     "body": [
+      "The Prophet ﷺ said: when a person dies, his deeds stop, except for three: a charity that keeps going (sadaqah jariyah), knowledge that people benefit from, and a righteous child who prays for him (Muslim 1631).",
+      "So most of life’s work ends at death. These three do not, because they keep helping people after you are gone. Allah says in Qur’an 36:12 that He records what people send ahead and also what they leave behind.",
+      "This lesson shows how to start each of the three, in small, real ways."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 1631; Qur’an 36:12",
+     "quran": "q:36:12"
+    },
+    {
+     "id": "kinds",
+     "kind": "teach",
+     "title": "The three, in plain words",
+     "body": [
+      "A charity that keeps going: something that you pay for once, or keep paying for, and that goes on helping: a well, a school, a clinic, trees, water for a town, a share in a mosque.",
+      "Knowledge people benefit from: teaching someone the Qur’an or a skill, writing something true and useful, or sharing a lesson you know is correct. When they use it, you share in the reward.",
+      "A righteous child: a child who was raised to know Allah and who makes dua for you. You do not need many children. You need to teach the ones you have."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 1631"
+    },
+    {
+     "id": "umar",
+     "kind": "story",
+     "title": "Umar’s land in Khaybar",
+     "body": [
+      "Umar ibn al-Khattab received a piece of land in Khaybar, better than anything he had owned. He asked the Prophet ﷺ what to do with it.",
+      "The Prophet ﷺ said: if you like, keep the land itself, and give its produce in charity. So Umar made it an endowment (waqf). The land could not be sold, given away or inherited. Its produce would go to the poor, to relatives, to free people from slavery, in the way of Allah, and to travelers and guests. The one who looked after it could eat from it in reason, and feed a friend, without storing up wealth (Bukhari 2737).",
+      "This is the pattern of every waqf: the property stays, and the benefit keeps flowing."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 2737"
+    },
+    {
+     "id": "umarorder",
+     "kind": "arrange",
+     "title": "Put Umar’s story in order",
+     "prompt": "Put the steps of Umar’s endowment in order.",
+     "items": [
+      {
+       "text": "Umar receives land in Khaybar",
+       "why": "It began with the land he received.",
+       "back": "umar"
+      },
+      {
+       "text": "He asks the Prophet ﷺ what to do with it",
+       "why": "He did not decide alone. He asked the Prophet ﷺ.",
+       "back": "umar"
+      },
+      {
+       "text": "The Prophet ﷺ tells him to keep the land and give its produce",
+       "why": "The Prophet ﷺ said to keep the land itself and give what it produces.",
+       "back": "umar"
+      },
+      {
+       "text": "Umar sets the conditions: not sold, not given, not inherited",
+       "why": "He then made it an endowment with clear conditions.",
+       "back": "umar"
+      }
+     ],
+     "explain": "He received it, asked, was advised, and then set the conditions."
+    },
+    {
+     "id": "guide",
+     "kind": "teach",
+     "title": "Even guiding is charity",
+     "body": [
+      "A man came to the Prophet ﷺ and asked for something to ride. The Prophet ﷺ had nothing. Another man said, I can guide him to someone who has one. The Prophet ﷺ said: the one who guides to good has a reward like the one who does it (Muslim 1893).",
+      "So you do not need money to begin. Telling a person about a school, connecting a person with a job, or introducing a person to a teacher counts.",
+      "The Prophet ﷺ also said that the best charity is the one you give while you are healthy and want to keep your wealth, and not to delay it until death is near (Bukhari 1419)."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 1893; Bukhari 1419"
+    },
+    {
+     "id": "list",
+     "kind": "teach",
+     "title": "A longer list",
+     "body": [
+      "A report lists more things whose reward reaches a believer after death: knowledge he taught and spread, a righteous son, a copy of the Qur’an he left, a mosque he built, a house he built for travelers, a canal he dug, and charity he gave in his lifetime when he was in good health (Ibn Majah 242; Zubair Ali Zai: da’if; al-Albani: hasan).",
+      "Because scholars disagree on its grade, we use it only as a list of examples. The three in the hadith of Muslim are the foundation."
+     ],
+     "label": "[Interpretive]",
+     "source": "Ibn Majah 242 (Zubair Ali Zai: da’if; al-Albani: hasan)"
+    },
+    {
+     "id": "waqf",
+     "kind": "contrast",
+     "title": "Is a waqf permanent?",
+     "rows": [
+      {
+       "name": "Abu Hanifa",
+       "text": "A waqf is allowed, but is not binding until a judge rules it or it is made in a will. Until then the owner may take it back."
+      },
+      {
+       "name": "Abu Yusuf and Muhammad (Hanafi), Maliki, Shafi’i and Hanbali",
+       "text": "A waqf becomes binding once it is declared. The owner can no longer sell it or take it back."
+      }
+     ],
+     "intro": "Umar’s waqf was made permanent by its conditions: not sold, not given, not inherited. Scholars differ on when a waqf becomes binding.",
+     "closing": "If you want to set up a waqf, ask a scholar and a lawyer in your country how to do it so that it is valid and permanent.",
+     "source": "Bukhari 2737",
+     "review": "The positions on when a waqf becomes binding are the usual teaching of the schools. Needs a scholar to confirm."
+    },
+    {
+     "id": "dua",
+     "kind": "say",
+     "title": "A dua to teach your children",
+     "refs": [
+      "q:14:41"
+     ],
+     "note": "This is the dua of Ibrahim for himself, his parents and the believers. Teach it to your children, so that they say it for you.",
+     "source": "Qur’an 14:41",
+     "label": "[Established]",
+     "words": {
+      "q:14:41": [
+       {
+        "tr": "Rabbanaa",
+        "en": "Our Lord"
+       },
+       {
+        "tr": "ighfir",
+        "en": "forgive"
+       },
+       {
+        "tr": "lee",
+        "en": "me"
+       },
+       {
+        "tr": "wa-liwaalidayya",
+        "en": "and my parents"
+       },
+       {
+        "tr": "wa-lil-mu’mineena",
+        "en": "and the believers"
+       },
+       {
+        "tr": "yawma",
+        "en": "on the day"
+       },
+       {
+        "tr": "yaqoomu",
+        "en": "is established"
+       },
+       {
+        "tr": "al-hisaab",
+        "en": "the account"
+       }
+      ]
+     }
+    },
+    {
+     "id": "start",
+     "kind": "howto",
+     "title": "How to start",
+     "steps": [
+      {
+       "text": "Choose one cause that will still matter in ten years.",
+       "detail": "Water, education, a mosque, care for orphans, medical help."
+      },
+      {
+       "text": "Choose a trustworthy way to give.",
+       "detail": "A registered charity or waqf in your country, with clear accounts."
+      },
+      {
+       "text": "Begin with a small amount that you can keep up.",
+       "detail": "A small gift every month is better than a large gift once and then nothing."
+      },
+      {
+       "text": "Teach one person something useful and true.",
+       "detail": "It can be how to pray, how to read a letter, or a trade."
+      },
+      {
+       "text": "Teach your children the dua above, and teach them to love Allah.",
+       "detail": "The dua of a righteous child is a deed you keep."
+      },
+      {
+       "text": "Put a gift to charity in your will, within one third.",
+       "detail": "See the lesson on the will."
+      },
+      {
+       "text": "Write down what you started, and tell your family.",
+       "detail": "So it carries on."
+      }
+     ],
+     "intro": "You do not have to build a mosque. Begin with something real that you can keep going.",
+     "mistakes": [
+      "Giving once and never again.",
+      "Giving to a cause without checking who runs it.",
+      "Waiting until you are old or ill.",
+      "Leaving the charity out of your will and telling no one."
+     ],
+     "source": "Muslim 1631; Bukhari 1419",
+     "label": "[Interpretive]",
+     "review": "Practical suggestions. Please confirm that nothing is out of line with the schools."
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Which kind of deed is it?",
+     "prompt": "Match each deed with the kind it belongs to.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Paying for a well in a village"
+       },
+       "right": {
+        "text": "A charity that keeps going"
+       },
+       "why": "A well keeps giving water. It is a charity that keeps going.",
+       "back": "kinds"
+      },
+      {
+       "left": {
+        "text": "Teaching a neighbour the Qur’an"
+       },
+       "right": {
+        "text": "Knowledge that people benefit from"
+       },
+       "why": "Teaching a person is beneficial knowledge.",
+       "back": "kinds"
+      },
+      {
+       "left": {
+        "text": "Raising a child who prays for you"
+       },
+       "right": {
+        "text": "A righteous child"
+       },
+       "why": "The child’s dua reaches the parent.",
+       "back": "kinds"
+      },
+      {
+       "left": {
+        "text": "Planting a tree which people and birds eat from"
+       },
+       "right": {
+        "text": "Charity, as the Prophet ﷺ said"
+       },
+       "why": "The Prophet ﷺ said that what is eaten from a tree one has planted is charity for him (Bukhari 2320).",
+       "back": "kinds"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "s1",
+       "q": "Which three deeds continue after death, in Muslim 1631?",
+       "options": [
+        {
+         "text": "Prayer, fasting and hajj",
+         "reteach": "Those are important but they end with the person’s life.",
+         "back": "three"
+        },
+        {
+         "text": "Wealth, children and fame",
+         "reteach": "No. The hadith names charity, knowledge and a righteous child.",
+         "back": "three"
+        },
+        {
+         "text": "A charity that keeps going, beneficial knowledge, a righteous child who prays"
+        }
+       ],
+       "answer": 2,
+       "explain": "Muslim 1631.",
+       "type": "mcq"
+      },
+      {
+       "id": "s2",
+       "q": "What is a sadaqah jariyah?",
+       "options": [
+        {
+         "text": "A charity given only in Ramadan",
+         "reteach": "No. It is charity whose benefit continues.",
+         "back": "kinds"
+        },
+        {
+         "text": "A charity that keeps giving benefit"
+        },
+        {
+         "text": "A debt that must be repaid",
+         "reteach": "No. It is a continuing charity.",
+         "back": "kinds"
+        }
+       ],
+       "answer": 1,
+       "explain": "A well or school keeps giving benefit.",
+       "type": "mcq"
+      },
+      {
+       "id": "s3",
+       "q": "What did the Prophet ﷺ advise Umar to do with the land in Khaybar?",
+       "options": [
+        {
+         "text": "Sell it and give the money",
+         "reteach": "No. He said to keep the land and give its produce.",
+         "back": "umar"
+        },
+        {
+         "text": "Keep the land and give its produce in charity"
+        },
+        {
+         "text": "Divide it among his children",
+         "reteach": "No. He made it an endowment.",
+         "back": "umar"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 2737.",
+       "type": "mcq"
+      },
+      {
+       "id": "s4",
+       "q": "Which was NOT among Umar’s conditions?",
+       "options": [
+        {
+         "text": "That it be given to the Prophet ﷺ"
+        },
+        {
+         "text": "That it not be sold",
+         "reteach": "That was a condition.",
+         "back": "umar"
+        },
+        {
+         "text": "That it not be inherited",
+         "reteach": "That was a condition.",
+         "back": "umar"
+        }
+       ],
+       "answer": 0,
+       "explain": "He made it not to be sold, given, or inherited.",
+       "type": "mcq"
+      },
+      {
+       "id": "s5",
+       "q": "Ahmed has no money to give but knows a school that needs a teacher and a teacher who needs a job. What can he do?",
+       "options": [
+        {
+         "text": "Nothing. Only money counts",
+         "reteach": "No. Guiding to good has a reward (Muslim 1893).",
+         "back": "guide"
+        },
+        {
+         "text": "Wait until he is rich",
+         "reteach": "He can do it today.",
+         "back": "guide"
+        },
+        {
+         "text": "Connect them. The one who guides to good has a reward like the doer"
+        }
+       ],
+       "answer": 2,
+       "explain": "Muslim 1893.",
+       "type": "scenario",
+       "scenario": "Ahmed has no money to give, but he knows a school that needs a teacher and a teacher who needs a job."
+      },
+      {
+       "id": "s6",
+       "q": "When is the best time to give charity, according to Bukhari 1419?",
+       "options": [
+        {
+         "text": "When death is near",
+         "reteach": "No. The Prophet ﷺ said not to delay it until then.",
+         "back": "guide"
+        },
+        {
+         "text": "After you retire",
+         "reteach": "The hadith says to give while you are healthy.",
+         "back": "guide"
+        },
+        {
+         "text": "While you are healthy and still love your wealth"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 1419.",
+       "type": "mcq"
+      },
+      {
+       "id": "s7",
+       "q": "Salma plants a tree in her garden. A bird eats from it. What does the Prophet ﷺ say?",
+       "options": [
+        {
+         "text": "Nothing, it is just a tree",
+         "reteach": "No. What is eaten from it counts as charity for the planter.",
+         "back": "kinds"
+        },
+        {
+         "text": "Only if a person eats from it",
+         "reteach": "The hadith includes a bird or an animal.",
+         "back": "kinds"
+        },
+        {
+         "text": "It counts as charity for her"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 2320.",
+       "type": "scenario",
+       "scenario": "Salma plants a tree in her garden. A bird eats from it."
+      },
+      {
+       "id": "s8",
+       "q": "Which dua can children say for their parents, from the Qur’an?",
+       "options": [
+        {
+         "text": "Our Lord, give us wealth",
+         "reteach": "No. The ayah asks forgiveness for the parents and the believers.",
+         "back": "dua"
+        },
+        {
+         "text": "Our Lord, send us a king",
+         "reteach": "No. See the dua of Ibrahim.",
+         "back": "dua"
+        },
+        {
+         "text": "Our Lord, forgive me, my parents and the believers on the Day of account"
+        }
+       ],
+       "answer": 2,
+       "explain": "Qur’an 14:41.",
+       "type": "mcq"
+      },
+      {
+       "id": "s9",
+       "q": "How many children does a person need for the third deed?",
+       "options": [
+        {
+         "text": "At least four",
+         "reteach": "There is no number.",
+         "back": "kinds"
+        },
+        {
+         "text": "It is about teaching the children you have, not the number"
+        },
+        {
+         "text": "Only sons",
+         "reteach": "No. Any righteous child counts.",
+         "back": "kinds"
+        }
+       ],
+       "answer": 1,
+       "explain": "A righteous child who prays for you.",
+       "type": "mcq"
+      },
+      {
+       "id": "s10",
+       "q": "Why is a monthly small gift often better than one big gift and then nothing?",
+       "options": [
+        {
+         "text": "It keeps the reward flowing"
+        },
+        {
+         "text": "Because small is always better",
+         "reteach": "Not always. The aim is to keep it going.",
+         "back": "start"
+        },
+        {
+         "text": "Because Allah does not accept large gifts",
+         "reteach": "He accepts every sincere gift.",
+         "back": "start"
+        }
+       ],
+       "answer": 0,
+       "explain": "Keep it up in a way you can.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Name the three deeds that continue after death, with the hadith.",
+      "Explain how Umar’s waqf worked and why it kept going.",
+      "Start one small continuing deed this week.",
+      "Teach a child the dua of Ibrahim for parents."
+     ],
+     "next": "Next unit: the last days and the janazah."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Read the dua in its place",
+     "body": "Open Surah Ibrahim and read 14:41 with the translation.",
+     "route": "/quran/14",
+     "button": "Open Surah 14"
+    }
+   ]
+  },
+  {
+   "id": "eol.u2.l1",
+   "title": "La ilaha illa Allah: the last word",
+   "minutes": 15,
+   "intro": "Learn what to say beside a person who is dying, the dua after the death, and the first steps to take.",
+   "steps": [
+    {
+     "id": "last",
+     "kind": "why",
+     "title": "The best last words",
+     "body": [
+      "The Prophet ﷺ said that whoever’s last words are “there is no god but Allah” will enter Paradise (Abu Dawud 3116, sahih per al-Albani).",
+      "He also told us to remind those who are dying: say to your dying ones, “there is no god but Allah” (Muslim 916). The Arabic word for this reminding is talqin.",
+      "This lesson is for the family and friends who sit beside a person near death. It is about what to say, what not to say, and what to do in the first minutes after the death."
+     ],
+     "label": "[Established]",
+     "source": "Abu Dawud 3116 (sahih per al-Albani); Muslim 916"
+    },
+    {
+     "id": "kalima",
+     "kind": "say",
+     "title": "The words to remind with",
+     "refs": [
+      "eol.kalima"
+     ],
+     "note": "These are the words of the first half of the shahada. Say them slowly, in the hearing of the person. If you already know the whole shahada, the full words are in the next step.",
+     "source": "Muslim 916; Abu Dawud 3116 (sahih per al-Albani)",
+     "label": "[Established]"
+    },
+    {
+     "id": "shahada",
+     "kind": "say",
+     "title": "The full shahada",
+     "refs": [
+      "shahada.full"
+     ],
+     "note": "If the person can say more, the full testimony is the best thing to hear and to say.",
+     "source": "Muslim 403; Bukhari 8",
+     "label": "[Established]"
+    },
+    {
+     "id": "remind",
+     "kind": "howto",
+     "title": "How to remind a dying person",
+     "steps": [
+      {
+       "text": "Sit near the person, calmly, and keep the room quiet.",
+       "detail": "Let the person feel safe, not watched."
+      },
+      {
+       "text": "Say la ilaha illa Allah softly, so the person can hear it.",
+       "detail": "You can say it yourself, again and again, in a gentle voice, instead of telling the person to repeat it."
+      },
+      {
+       "text": "Do not insist, argue, or ask the person to say it again and again.",
+       "detail": "A dying person may be in pain or tired. The aim is comfort, not a test."
+      },
+      {
+       "text": "If the person says it, stop. Do not keep repeating.",
+       "detail": "Scholars advise that you only speak again if the person says something else."
+      },
+      {
+       "text": "Speak only good in the room.",
+       "detail": "The Prophet ﷺ said the angels say Amin to what you say (Muslim 920)."
+      },
+      {
+       "text": "Stay with the person, and make dua for them.",
+       "detail": "Your presence is itself a mercy."
+      }
+     ],
+     "intro": "Reminding is a mercy, and mercy is gentle.",
+     "mistakes": [
+      "Pressing the person to say it, or shouting it.",
+      "Arguing about religion at the bedside.",
+      "Wailing, loud crying, or saying bad things about the illness or the doctors.",
+      "Leaving the person alone."
+     ],
+     "source": "Muslim 916, 920",
+     "label": "[Interpretive]",
+     "review": "The advice to remind gently, without insisting, and to stop once the person has said it, is the usual teaching of scholars. Please confirm the wording."
+    },
+    {
+     "id": "prophet",
+     "kind": "story",
+     "title": "The last words of the Prophet ﷺ",
+     "body": [
+      "Aisha, may Allah be pleased with her, told how the Prophet ﷺ died with his head on her lap. He had said when he was well that no prophet dies until he is shown his place in Paradise and given a choice.",
+      "In his last illness he became faint, and when he came to himself he looked up toward the roof of the house and said the words below. Aisha understood that he had chosen the highest company. She said that this was the last thing he said (Bukhari 4437; Bukhari 4463)."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 4437; Bukhari 4463"
+    },
+    {
+     "id": "rafiq",
+     "kind": "say",
+     "title": "What he said",
+     "refs": [
+      "eol.rafiq"
+     ],
+     "note": "Allah chose the highest company for His Messenger ﷺ. We ask Allah to give us a good ending and to gather us with the best company in Paradise.",
+     "source": "Bukhari 4437; Bukhari 4463",
+     "label": "[Established]"
+    },
+    {
+     "id": "after",
+     "kind": "teach",
+     "title": "The moment after death",
+     "body": [
+      "When Abu Salama died with his eyes open, the Prophet ﷺ came, closed his eyes, and said that when the soul is taken, the sight follows it. Some of the family cried out. He told them not to pray for themselves anything but good, because the angels say Amin to what you say (Muslim 920).",
+      "Then he said the dua in the next step. It is a model for what we can ask for the one who has died: forgiveness, a higher rank, a good successor for the family, and a wide and bright grave.",
+      "Afterwards, the body was covered. When the Prophet ﷺ died, he was covered with a garment (Bukhari 5814)."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 920; Bukhari 5814"
+    },
+    {
+     "id": "eyes",
+     "kind": "say",
+     "title": "A dua for the one who has died",
+     "refs": [
+      "eol.eyes"
+     ],
+     "note": "The Prophet ﷺ said this for Abu Salama. You can put the name of the person in its place. For a woman, scholars teach to use the feminine endings. Ask your imam if you are unsure.",
+     "source": "Muslim 920",
+     "label": "[Established]",
+     "review": "The Arabic is copied from Muslim 920 and names Abu Salama. The advice to put another name in its place, and the feminine endings for a woman, is the usual teaching but is not in the hadith. Please confirm."
+    },
+    {
+     "id": "yasin",
+     "kind": "teach",
+     "title": "About reciting Surah Ya-Sin",
+     "body": [
+      "Many families recite Surah Ya-Sin beside a dying person. The hadith for this (Abu Dawud 3121) is graded da’if by al-Albani and by the other graders in our source. So it is not a sunnah that is established by a sound report.",
+      "Some scholars have still allowed it as a good thing to do, and others say there is no basis in the sunnah. If you wish to recite Qur’an quietly beside the person for comfort, no one forbids it. The sunnah we know with certainty is the reminding with la ilaha illa Allah."
+     ],
+     "label": "[Interpretive]",
+     "source": "Abu Dawud 3121 (da’if per al-Albani)",
+     "review": "The statement that scholars differ on reciting Ya-Sin, with some allowing and some saying there is no basis, is the usual summary. Please confirm."
+    },
+    {
+     "id": "first",
+     "kind": "howto",
+     "title": "The first minutes after death",
+     "steps": [
+      {
+       "text": "Close the eyes gently, and say the dua above.",
+       "detail": "Muslim 920."
+      },
+      {
+       "text": "Cover the body with a clean cloth.",
+       "detail": "Bukhari 5814."
+      },
+      {
+       "text": "Say “we belong to Allah and to Him we return.”",
+       "detail": "You will learn this in the lesson on grief."
+      },
+      {
+       "text": "Tell the family, and the local mosque or a Muslim funeral service.",
+       "detail": "They will guide you and help with washing and burial."
+      },
+      {
+       "text": "Do what the law of the country needs: a doctor’s certificate of death.",
+       "detail": "It is needed before burial in most countries."
+      },
+      {
+       "text": "Do not delay the burial without reason.",
+       "detail": "The Prophet ﷺ told us to hurry with the funeral (Bukhari 1315)."
+      }
+     ],
+     "intro": "A hard time is easier when you know the order. Take a deep breath, and begin.",
+     "mistakes": [
+      "Waiting days for relatives to arrive when there is no need.",
+      "Arguing about arrangements in front of the body.",
+      "Crying out loudly or tearing clothes."
+     ],
+     "source": "Muslim 920; Bukhari 5814; Bukhari 1315",
+     "label": "[Established]"
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "At the bedside, in order",
+     "prompt": "Put these in order.",
+     "items": [
+      {
+       "text": "Sit calmly and speak only good",
+       "why": "Peace comes first.",
+       "back": "remind"
+      },
+      {
+       "text": "Say la ilaha illa Allah gently in the person’s hearing",
+       "why": "The reminding comes while the person can still hear.",
+       "back": "remind"
+      },
+      {
+       "text": "After the death, close the eyes and say the dua",
+       "why": "This is what the Prophet ﷺ did for Abu Salama.",
+       "back": "after"
+      },
+      {
+       "text": "Cover the body",
+       "why": "The body is covered.",
+       "back": "after"
+      },
+      {
+       "text": "Tell the family and the mosque, and begin the funeral arrangements",
+       "why": "The funeral should not be delayed.",
+       "back": "first"
+      }
+     ],
+     "explain": "Calm, remind, dua after the death, cover, and begin the funeral."
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the words to when they are used",
+     "prompt": "Match each line to what it is for.",
+     "pairs": [
+      {
+       "left": {
+        "ref": "eol.kalima"
+       },
+       "right": {
+        "text": "Said near a dying person, to remind"
+       },
+       "why": "The Prophet ﷺ told us to remind our dying with these words.",
+       "back": "kalima"
+      },
+      {
+       "left": {
+        "ref": "eol.eyes"
+       },
+       "right": {
+        "text": "A dua for the one who has just died"
+       },
+       "why": "The Prophet ﷺ said it when he closed Abu Salama’s eyes.",
+       "back": "eyes"
+      },
+      {
+       "left": {
+        "ref": "shahada.full"
+       },
+       "right": {
+        "text": "The full testimony of faith"
+       },
+       "why": "The full shahada has both halves.",
+       "back": "shahada"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "l1",
+       "q": "What did the Prophet ﷺ say about the one whose last words are la ilaha illa Allah?",
+       "options": [
+        {
+         "text": "He will be forgiven nothing",
+         "reteach": "No. He said he will enter Paradise.",
+         "back": "last"
+        },
+        {
+         "text": "It does not matter",
+         "reteach": "The Prophet ﷺ said it matters greatly.",
+         "back": "last"
+        },
+        {
+         "text": "He will enter Paradise"
+        }
+       ],
+       "answer": 2,
+       "explain": "Abu Dawud 3116, graded sahih by al-Albani.",
+       "type": "mcq"
+      },
+      {
+       "id": "l2",
+       "q": "What did the Prophet ﷺ tell us to do for those who are dying?",
+       "options": [
+        {
+         "text": "Ask them to recite the whole Qur’an",
+         "reteach": "No. The reminding is with the words la ilaha illa Allah.",
+         "back": "remind"
+        },
+        {
+         "text": "Leave them alone",
+         "reteach": "No. Stay with them and remind gently.",
+         "back": "remind"
+        },
+        {
+         "text": "Remind them gently of la ilaha illa Allah"
+        }
+       ],
+       "answer": 2,
+       "explain": "Muslim 916.",
+       "type": "mcq"
+      },
+      {
+       "id": "l3",
+       "q": "A man is dying. His son keeps saying, “Say it! Say the shahada now!” What is better?",
+       "options": [
+        {
+         "text": "Keep pushing, it is the last chance",
+         "reteach": "No. Pressing a dying person is not the way. Be gentle.",
+         "back": "remind"
+        },
+        {
+         "text": "Say it softly and calmly, and do not insist"
+        },
+        {
+         "text": "Say nothing and leave the room",
+         "reteach": "Please stay. Remind gently.",
+         "back": "remind"
+        }
+       ],
+       "answer": 1,
+       "explain": "Remind, gently.",
+       "type": "scenario",
+       "scenario": "A man is dying. His son keeps shouting at him to say the shahada."
+      },
+      {
+       "id": "l4",
+       "q": "The dying person says the shahada. What do you do?",
+       "options": [
+        {
+         "text": "Ask him to say it ten more times",
+         "reteach": "Scholars advise not to keep repeating once it is said.",
+         "back": "remind"
+        },
+        {
+         "text": "Stop repeating it and let him be calm"
+        },
+        {
+         "text": "Say it louder",
+         "reteach": "No. Stay gentle.",
+         "back": "remind"
+        }
+       ],
+       "answer": 1,
+       "explain": "Speak again only if he says something else.",
+       "type": "scenario",
+       "scenario": "The dying man has just said la ilaha illa Allah quietly."
+      },
+      {
+       "id": "l5",
+       "q": "Why did the Prophet ﷺ say to say only good beside the dead?",
+       "options": [
+        {
+         "text": "Because the angels say Amin to what you say"
+        },
+        {
+         "text": "Because it is rude to speak",
+         "reteach": "No. It is because the angels say Amin.",
+         "back": "after"
+        },
+        {
+         "text": "Because the dead hear every word",
+         "reteach": "The hadith gives the reason: the angels say Amin.",
+         "back": "after"
+        }
+       ],
+       "answer": 0,
+       "explain": "Muslim 920.",
+       "type": "mcq"
+      },
+      {
+       "id": "l6",
+       "q": "Which of these did the Prophet ﷺ do after Abu Salama died?",
+       "options": [
+        {
+         "text": "Left the body alone",
+         "reteach": "No. He closed the eyes and made dua.",
+         "back": "after"
+        },
+        {
+         "text": "Washed him at once",
+         "reteach": "The eyes were closed and the dua was made.",
+         "back": "after"
+        },
+        {
+         "text": "Closed his eyes and made dua for him"
+        }
+       ],
+       "answer": 2,
+       "explain": "Muslim 920.",
+       "type": "mcq"
+      },
+      {
+       "id": "l7",
+       "q": "What does the grade of the hadith on reciting Ya-Sin tell us?",
+       "options": [
+        {
+         "text": "It is sahih, so it is a duty",
+         "reteach": "It is graded da’if.",
+         "back": "yasin"
+        },
+        {
+         "text": "It is forbidden",
+         "reteach": "No. Some scholars still allow it. It is just not established as sunnah.",
+         "back": "yasin"
+        },
+        {
+         "text": "It is da’if, so it is not a sunnah established by a sound report"
+        }
+       ],
+       "answer": 2,
+       "explain": "The hadith on reciting Ya-Sin is graded da’if.",
+       "type": "mcq"
+      },
+      {
+       "id": "l8",
+       "q": "What was the last thing the Prophet ﷺ said, according to Aisha?",
+       "options": [
+        {
+         "text": "O Allah, forgive my community",
+         "reteach": "The report says he asked for the highest company.",
+         "back": "prophet"
+        },
+        {
+         "text": "O Allah, with the highest companions"
+        },
+        {
+         "text": "Nothing",
+         "reteach": "Aisha told what he said.",
+         "back": "prophet"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 4437 and 4463.",
+       "type": "mcq"
+      },
+      {
+       "id": "l9",
+       "q": "Fill in the blank: Laa ____ illal-laah.",
+       "options": [
+        {
+         "text": "Rabba",
+         "reteach": "Rabba means Lord. The word here means god: ilaaha.",
+         "back": "kalima"
+        },
+        {
+         "text": "ilaaha"
+        },
+        {
+         "text": "nabiyya",
+         "reteach": "Nabiyya means prophet. The word here means god: ilaaha.",
+         "back": "kalima"
+        }
+       ],
+       "answer": 1,
+       "explain": "Laa ilaaha illal-laah: there is no god but Allah.",
+       "type": "fill",
+       "fill": {
+        "ref": "eol.kalima",
+        "blank": 1,
+        "show": "translit"
+       }
+      },
+      {
+       "id": "l10",
+       "q": "What must you do before burial in most countries?",
+       "options": [
+        {
+         "text": "Wait a week",
+         "reteach": "No. Do not delay.",
+         "back": "first"
+        },
+        {
+         "text": "Nothing",
+         "reteach": "Most countries need a certificate.",
+         "back": "first"
+        },
+        {
+         "text": "Get a doctor’s certificate of death"
+        }
+       ],
+       "answer": 2,
+       "explain": "Do what the law needs, and do not delay.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Say the words of talqin and when to say them.",
+      "Remind a dying person gently, without insisting.",
+      "Say the dua after closing the eyes, and cover the body.",
+      "Know the first steps after a death."
+     ],
+     "next": "Next: the funeral prayer."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Say it slowly",
+     "body": "Open the adhkar and say the shahada slowly, so these are the easiest words you know.",
+     "route": "/adhkar",
+     "button": "Open adhkar"
+    }
+   ]
+  },
+  {
+   "id": "eol.u2.l2",
+   "title": "The funeral prayer: no bowing, no prostration",
+   "minutes": 20,
+   "intro": "Learn how to pray the funeral prayer (salat al-janazah) in order, with its duas and the differences between the schools.",
+   "steps": [
+    {
+     "id": "duty",
+     "kind": "why",
+     "title": "A duty shared by the community",
+     "body": [
+      "Washing, shrouding, praying over and burying a Muslim are a duty on the community together (fard kifayah). If enough people do them, the duty is lifted from the rest. If no one does them, everyone is answerable.",
+      "The Prophet ﷺ listed following the funeral among the rights of one Muslim over another (Bukhari 1240). He said that whoever attends the funeral until he prays over it gets a reward of one qirat, and whoever stays until the burial gets two qirats, “like two great mountains” (Bukhari 1325).",
+      "He also said that if forty people who join nothing with Allah pray over a Muslim, Allah accepts their intercession for him (Muslim 948)."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 1240, 1325; Muslim 948"
+    },
+    {
+     "id": "different",
+     "kind": "teach",
+     "title": "What is different about this prayer",
+     "body": [
+      "The funeral prayer (salat al-janazah) is not like the five daily prayers. It has no bowing (ruku’) and no prostration (sujud). There is no adhan and no iqamah. You do not sit. You stand through the whole prayer.",
+      "It is made of four takbirs (saying Allahu akbar) and short, quiet words of dua, and it ends with the salam. The Prophet ﷺ prayed over the Negus of Abyssinia with four takbirs (Bukhari 1245; Muslim 951).",
+      "Four is the usual number. One report from Zaid ibn Arqam says he once prayed five takbirs and that the Prophet ﷺ had done so too (Muslim 957); the schools differ on whether to follow that, so ask your imam. The reports describe standing, takbirs and dua, with no bowing or prostration. If a person tells you how to pray janazah and mentions bowing or prostration, that is a different prayer."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 1245; Muslim 951, 957"
+    },
+    {
+     "id": "before",
+     "kind": "teach",
+     "title": "Before you begin",
+     "body": [
+      "The deceased must be a Muslim, and has been washed and shrouded. The body is laid in front of the imam, facing the qiblah direction as for burial.",
+      "The people praying need what any prayer needs: wudu, clean clothes and body, covered awrah, and facing the qiblah. The four schools require wudu for the funeral prayer. The person prays in rows behind the imam, with the intention in the heart to pray the janazah for this person.",
+      "Avoid the three times when the Prophet ﷺ forbade praying and burying: as the sun is rising, at its height at midday, and as it is setting (Muslim 831)."
+     ],
+     "label": "[Interpretive]",
+     "source": "Muslim 831",
+     "review": "The conditions of the funeral prayer (wudu, qiblah, covering, intention) follow the common teaching of the four schools. Please confirm."
+    },
+    {
+     "id": "how",
+     "kind": "howto",
+     "title": "How to pray it, step by step",
+     "steps": [
+      {
+       "text": "Stand in rows facing the qiblah, with the body in front. Make the intention in your heart.",
+       "detail": "The imam stands in front of the body. The schools differ on exactly where (see the table)."
+      },
+      {
+       "text": "First takbir: say Allahu akbar. Then the opening recitation.",
+       "detail": "In the Shafi’i and Hanbali schools this is al-Fatihah. Ibn Abbas recited it and said it is the sunnah (Bukhari 1335). The Hanafi and Maliki schools differ (see the table)."
+      },
+      {
+       "text": "Second takbir: say Allahu akbar. Then send blessings on the Prophet ﷺ.",
+       "detail": "The same words as in the tashahhud of every prayer."
+      },
+      {
+       "text": "Third takbir: say Allahu akbar. Then make dua for the dead person.",
+       "detail": "Learn one of the two duas in the next steps."
+      },
+      {
+       "text": "Fourth takbir: say Allahu akbar. Pause for a short moment.",
+       "detail": "Some people add a short dua here."
+      },
+      {
+       "text": "Give the salam to the right.",
+       "detail": "The Hanafi and Shafi’i schools give a second salam to the left (see the table)."
+      }
+     ],
+     "intro": "Most of it is silent. The imam says the takbirs and the salam aloud, so the rows can follow. Do not bow, do not prostrate, and do not sit.",
+     "mistakes": [
+      "Bowing or prostrating. There is none in the funeral prayer.",
+      "Saying the adhan or the iqamah. There is none.",
+      "Leaving before the imam gives the salam.",
+      "Raising your voice in dua."
+     ],
+     "source": "Bukhari 1245, 1335; Muslim 951",
+     "label": "[Established]",
+     "review": "The order of the four takbirs and what is said after each is the common teaching. The choice of recitation after the first takbir differs by school (see the table). Please confirm."
+    },
+    {
+     "id": "salawat",
+     "kind": "say",
+     "title": "After the second takbir",
+     "refs": [
+      "salawat.1"
+     ],
+     "note": "This is the blessing on the Prophet ﷺ you say in the last sitting of every prayer. In the funeral prayer, you say it after the second takbir.",
+     "source": "Bukhari 3370",
+     "label": "[Established]"
+    },
+    {
+     "id": "dua1",
+     "kind": "say",
+     "title": "After the third takbir: dua for the dead",
+     "refs": [
+      "eol.janazah.dua"
+     ],
+     "note": "The Companion Auf ibn Malik said he remembered this dua of the Prophet ﷺ and wished, from how good it was, that he were the one it was said for (Muslim 963). It is for a man. For a woman, say laha and -ha in place of lahu and -hu. For a group, say lahum.",
+     "source": "Muslim 963",
+     "label": "[Established]",
+     "review": "The Arabic is copied from Muslim 963. The note on the feminine and plural endings is the usual teaching but is not in the hadith. Please confirm."
+    },
+    {
+     "id": "dua2",
+     "kind": "say",
+     "title": "Another dua, for anyone",
+     "refs": [
+      "eol.general"
+     ],
+     "note": "This dua is shorter and is for any person who has died. It is also reported in Tirmidhi. It asks forgiveness for all of us, living and dead. You can say either dua. If you learn one, learn this one.",
+     "source": "Abu Dawud 3201 (sahih per al-Albani); Tirmidhi 1024 (sahih per al-Albani)",
+     "label": "[Established]"
+    },
+    {
+     "id": "child",
+     "kind": "teach",
+     "title": "When the one who died is a child",
+     "body": [
+      "The funeral prayer is also prayed over a child who died, including an early loss. The Prophet ﷺ said that prayer should be offered over the miscarried child, and forgiveness and mercy asked for its parents (Abu Dawud 3180, sahih per al-Albani).",
+      "Scholars differ about from what stage the prayer is prayed over a miscarried child, so ask your imam about a specific case. Where it is prayed, the dua is changed: instead of asking forgiveness for the child, scholars teach to ask Allah to make the child a forerunner and a reward for the parents, and to forgive the parents.",
+      "If you are the parent, please know that your loss is seen by Allah, and that there are comforting hadith about the child waiting in Paradise. You will meet them in the grief lesson."
+     ],
+     "label": "[Interpretive]",
+     "source": "Abu Dawud 3180 (sahih per al-Albani)",
+     "review": "The dua for a child is described in words, not in Arabic, because it is not given in the hadith we checked. The statement that scholars differ about the stage is the usual summary. Please confirm."
+    },
+    {
+     "id": "madhab",
+     "kind": "contrast",
+     "title": "Where the schools differ",
+     "rows": [
+      {
+       "name": "What is recited after the first takbir",
+       "text": "Shafi’i and Hanbali: al-Fatihah is required. Hanafi: the opening praise (thana) and not al-Fatihah, unless it is meant as dua. Maliki: no al-Fatihah is the relied-on view, only dua."
+      },
+      {
+       "name": "Where the imam stands",
+       "text": "Hanafi: at the chest of the body, for a man or woman. Maliki: at the middle of a man and the shoulders of a woman. Shafi’i: at the head of a man and the middle of a woman. Hanbali: at the chest of a man and the middle of a woman. (The Prophet ﷺ stood at the middle of a woman, Bukhari 1331.)"
+      },
+      {
+       "name": "The salam",
+       "text": "Hanafi and Shafi’i: two salams. Maliki: one. Hanbali: one is required and a second is recommended."
+      },
+      {
+       "name": "Praying over a body that is not there (salat al-ghaib)",
+       "text": "Shafi’i and Hanbali: allowed. Hanafi and Maliki: not allowed."
+      }
+     ],
+     "intro": "All four schools agree on four takbirs and on the dua for the dead. They differ on these details.",
+     "agree": "All four schools agree: four takbirs, standing, no bowing and no prostration.",
+     "closing": "If you follow a school, pray as it teaches. If you are behind an imam of another school, follow him. These are differences between scholars who all reason from the sunnah.",
+     "source": "Bukhari 1245, 1331, 1335; Muslim 951, 957",
+     "review": "Each row states the commonly taught position of each school. Needs a scholar to confirm the wording of every row."
+    },
+    {
+     "id": "negus",
+     "kind": "story",
+     "title": "The Prophet ﷺ prays over the Negus",
+     "body": [
+      "The Negus (an-Najashi), the Christian king of Abyssinia who had given shelter to the Muslims, accepted Islam and died far away. The Prophet ﷺ told the Companions of his death on the day he died, took them out to the prayer ground, and prayed over him with four takbirs (Bukhari 1245; Muslim 951).",
+      "Some scholars use this to say that one may pray over a Muslim who died elsewhere. Others say it was special to him. This is the difference you saw in the table.",
+      "It also shows that the funeral prayer is a gift to the dead, from people who may never have met them."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 1245; Muslim 951"
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "The funeral prayer in order",
+     "prompt": "Put the funeral prayer in order.",
+     "items": [
+      {
+       "text": "First takbir, then the opening recitation",
+       "why": "The prayer begins with the first takbir.",
+       "back": "how"
+      },
+      {
+       "text": "Second takbir, then blessings on the Prophet ﷺ",
+       "why": "After the second takbir you send blessings on the Prophet ﷺ.",
+       "back": "how"
+      },
+      {
+       "text": "Third takbir, then dua for the dead",
+       "why": "The main dua comes after the third takbir.",
+       "back": "how"
+      },
+      {
+       "text": "Fourth takbir, then a pause",
+       "why": "The fourth takbir is followed by a short pause.",
+       "back": "how"
+      },
+      {
+       "text": "The salam",
+       "why": "The prayer ends with the salam.",
+       "back": "how"
+      }
+     ],
+     "explain": "Four takbirs: recitation, blessings on the Prophet ﷺ, dua for the dead, a pause, and the salam. There is no bowing or prostration."
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the words to the part",
+     "prompt": "Match each line to the part of the funeral prayer where it belongs.",
+     "pairs": [
+      {
+       "left": {
+        "ref": "takbir"
+       },
+       "right": {
+        "text": "Said four times, to begin each part"
+       },
+       "why": "There are four takbirs.",
+       "back": "how"
+      },
+      {
+       "left": {
+        "ref": "salawat.1"
+       },
+       "right": {
+        "text": "Said after the second takbir"
+       },
+       "why": "Blessings on the Prophet ﷺ come after the second takbir.",
+       "back": "salawat"
+      },
+      {
+       "left": {
+        "ref": "eol.janazah.1"
+       },
+       "right": {
+        "text": "The start of the dua after the third takbir"
+       },
+       "why": "The dua for the dead is after the third takbir.",
+       "back": "dua1"
+      },
+      {
+       "left": {
+        "ref": "salam"
+       },
+       "right": {
+        "text": "Said at the end"
+       },
+       "why": "The prayer ends with the salam.",
+       "back": "how"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "j1",
+       "q": "How many takbirs are in the funeral prayer?",
+       "options": [
+        {
+         "text": "Two",
+         "reteach": "There are four. The Prophet ﷺ prayed over the Negus with four (Bukhari 1245).",
+         "back": "different"
+        },
+        {
+         "text": "Seven",
+         "reteach": "There are four takbirs.",
+         "back": "different"
+        },
+        {
+         "text": "Four"
+        }
+       ],
+       "answer": 2,
+       "explain": "Four takbirs (Bukhari 1245; Muslim 951).",
+       "type": "mcq"
+      },
+      {
+       "id": "j2",
+       "q": "Which of these is part of the funeral prayer?",
+       "options": [
+        {
+         "text": "One bowing and two prostrations",
+         "reteach": "No. There is no bowing or prostration in the funeral prayer.",
+         "back": "different"
+        },
+        {
+         "text": "The adhan and the iqamah",
+         "reteach": "No. There is no adhan or iqamah.",
+         "back": "different"
+        },
+        {
+         "text": "Standing and four takbirs with dua"
+        }
+       ],
+       "answer": 2,
+       "explain": "There is no bowing, prostration, adhan or iqamah.",
+       "type": "mcq"
+      },
+      {
+       "id": "j3",
+       "q": "A man says: I will pray the funeral prayer with bowing and prostration like the other prayers. What do you tell him?",
+       "options": [
+        {
+         "text": "There is no bowing or prostration in it; it is standing, four takbirs and dua"
+        },
+        {
+         "text": "Yes, it is like the other prayers",
+         "reteach": "No. It is different. It has no bowing or prostration.",
+         "back": "different"
+        },
+        {
+         "text": "Only prostrate, not bow",
+         "reteach": "There is neither.",
+         "back": "different"
+        }
+       ],
+       "answer": 0,
+       "explain": "The funeral prayer has no bowing and no prostration.",
+       "type": "scenario",
+       "scenario": "A man new to Islam asks how to pray janazah and says: I will bow and prostrate like in the other prayers."
+      },
+      {
+       "id": "j4",
+       "q": "What is said after the second takbir?",
+       "options": [
+        {
+         "text": "Blessings on the Prophet ﷺ"
+        },
+        {
+         "text": "Dua for the dead",
+         "reteach": "That is after the third takbir.",
+         "back": "how"
+        },
+        {
+         "text": "The salam",
+         "reteach": "The salam is at the end.",
+         "back": "how"
+        }
+       ],
+       "answer": 0,
+       "explain": "Blessings on the Prophet ﷺ.",
+       "type": "mcq"
+      },
+      {
+       "id": "j5",
+       "q": "What is said after the third takbir?",
+       "options": [
+        {
+         "text": "Dua for the dead person"
+        },
+        {
+         "text": "Blessings on the Prophet ﷺ",
+         "reteach": "That is after the second takbir.",
+         "back": "how"
+        },
+        {
+         "text": "Nothing",
+         "reteach": "The main dua is after the third takbir.",
+         "back": "how"
+        }
+       ],
+       "answer": 0,
+       "explain": "Dua for the dead.",
+       "type": "mcq"
+      },
+      {
+       "id": "j6",
+       "q": "The funeral prayer is a duty (fard kifayah). What does that mean?",
+       "options": [
+        {
+         "text": "If enough people pray it, the rest are free of the duty"
+        },
+        {
+         "text": "Every person must pray it each time",
+         "reteach": "No. It is a duty on the community.",
+         "back": "duty"
+        },
+        {
+         "text": "It is only a sunnah",
+         "reteach": "It is a duty on the community.",
+         "back": "duty"
+        }
+       ],
+       "answer": 0,
+       "explain": "A shared duty.",
+       "type": "mcq"
+      },
+      {
+       "id": "j7",
+       "q": "How much reward did the Prophet ﷺ promise for praying and staying until the burial?",
+       "options": [
+        {
+         "text": "Two qirats, like two great mountains"
+        },
+        {
+         "text": "One qirat only",
+         "reteach": "One qirat is for the prayer. Staying until the burial is two.",
+         "back": "duty"
+        },
+        {
+         "text": "None",
+         "reteach": "He promised a great reward.",
+         "back": "duty"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 1325.",
+       "type": "mcq"
+      },
+      {
+       "id": "j8",
+       "q": "Which schools say that al-Fatihah is required after the first takbir?",
+       "options": [
+        {
+         "text": "All four",
+         "reteach": "The schools differ. Hanafi and Maliki do not require it.",
+         "back": "madhab"
+        },
+        {
+         "text": "Hanafi and Maliki",
+         "reteach": "Those schools do not require it.",
+         "back": "madhab"
+        },
+        {
+         "text": "Shafi’i and Hanbali"
+        }
+       ],
+       "answer": 2,
+       "explain": "Shafi’i and Hanbali require it.",
+       "type": "mcq"
+      },
+      {
+       "id": "j9",
+       "q": "What is the dua “Allaahummagh-fir li-hayyinaa wa mayyitinaa” about?",
+       "options": [
+        {
+         "text": "Forgiveness for all of us, the living and the dead"
+        },
+        {
+         "text": "Wealth for the living",
+         "reteach": "No. It is a request for forgiveness.",
+         "back": "dua2"
+        },
+        {
+         "text": "Protection from a journey",
+         "reteach": "No. It is forgiveness for the living and the dead.",
+         "back": "dua2"
+        }
+       ],
+       "answer": 0,
+       "explain": "It is reported by Abu Dawud and Tirmidhi.",
+       "type": "mcq"
+      },
+      {
+       "id": "j10",
+       "q": "Fill in the blank. The first line of the dua: Allaahummagh-fir ____ warhamhu.",
+       "options": [
+        {
+         "text": "lanaa",
+         "reteach": "Lanaa means for us. The dua for the dead says lahu: for him.",
+         "back": "dua1"
+        },
+        {
+         "text": "lahu"
+        },
+        {
+         "text": "laka",
+         "reteach": "Laka means to You. The dua says lahu: for him.",
+         "back": "dua1"
+        }
+       ],
+       "answer": 1,
+       "explain": "Lahu means for him.",
+       "type": "fill",
+       "fill": {
+        "ref": "eol.janazah.1",
+        "blank": 1,
+        "show": "translit"
+       }
+      },
+      {
+       "id": "j11",
+       "q": "What do you do about the prayer times of sunrise, midday and sunset?",
+       "options": [
+        {
+         "text": "Nothing special",
+         "reteach": "The Prophet ﷺ forbade praying and burying at those three times (Muslim 831).",
+         "back": "before"
+        },
+        {
+         "text": "Avoid praying and burying at those three moments"
+        },
+        {
+         "text": "Pray double",
+         "reteach": "There is no double. Avoid those three moments.",
+         "back": "before"
+        }
+       ],
+       "answer": 1,
+       "explain": "Muslim 831.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Pray the funeral prayer in order: four takbirs, with no bowing and no prostration.",
+      "Say the blessings on the Prophet ﷺ and the dua for the dead.",
+      "Know where the schools differ, and follow the imam or your school.",
+      "Know that it is a shared duty and a gift to the dead."
+     ],
+     "next": "Next: grief, and what to say to the bereaved."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Learn the dua",
+     "body": "Say the first line of the dua slowly three times, then ask your imam when the next janazah will be held, so you can attend.",
+     "route": "/prayer",
+     "button": "Open prayer times"
+    }
+   ]
+  },
+  {
+   "id": "eol.u2.l3",
+   "title": "Grief and comfort: what to say and do",
+   "minutes": 18,
+   "intro": "Learn what the sunnah teaches about grief: weeping, patience, what to say to the family, and what to avoid.",
+   "steps": [
+    {
+     "id": "allowed",
+     "kind": "why",
+     "title": "Grieving is allowed",
+     "body": [
+      "When his baby son Ibrahim was dying, the Prophet ﷺ wept. Abd ar-Rahman ibn Awf asked, “Even you, O Messenger of Allah?” He answered, “O Ibn Awf, this is mercy.” Then he wept more and said that the eyes shed tears and the heart grieves, and we say only what pleases our Lord: “we are grieved by your separation, O Ibrahim” (Bukhari 1303).",
+      "So tears are not weakness and not a lack of faith. What the sunnah asks is that the words and deeds that come with grief stay within what pleases Allah."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 1303"
+    },
+    {
+     "id": "patience",
+     "kind": "teach",
+     "title": "Patience at the first blow",
+     "body": [
+      "The Prophet ﷺ passed a woman weeping at a grave and told her to fear Allah and be patient. She did not recognise him and answered sharply. When she learned who he was, she came to his door and said she had not known him. He said that real patience is at the first stroke of the calamity (Bukhari 1283).",
+      "Patience here does not mean feeling nothing. It means that in the first hour, when it is hardest, you hold your tongue and your hands, and turn to Allah. Allah says He will test us with loss, and gives good news to the patient, who say when a calamity strikes them, “Indeed we belong to Allah, and indeed to Him we will return” (2:155-156)."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 1283; Qur’an 2:155-157",
+     "quran": "q:2:156"
+    },
+    {
+     "id": "istirja",
+     "kind": "say",
+     "title": "What to say at a loss",
+     "refs": [
+      "eol.calamity"
+     ],
+     "note": "Umm Salama told how the Prophet ﷺ said that anyone struck by a calamity who says these words will have Allah replace it with something better. She said it after Abu Salama died, and Allah gave her the Prophet ﷺ as a husband (Muslim 918). You can say it for any hardship, not only a death.",
+     "source": "Muslim 918",
+     "label": "[Established]"
+    },
+    {
+     "id": "condole",
+     "kind": "say",
+     "title": "What to say to the family",
+     "refs": [
+      "eol.condolence"
+     ],
+     "note": "When the Prophet ﷺ’s daughter sent word that her child was dying, he sent her this message of comfort: what Allah takes belongs to Him, what He gives belongs to Him, and everything has an appointed term. He told her to be patient and hope for Allah’s reward (Bukhari 1284). Scholars teach that these are good words for condolence (ta’ziyah).",
+     "source": "Bukhari 1284",
+     "label": "[Established]",
+     "review": "The Arabic is copied from Bukhari 1284. Teaching it as the model words of condolence is the usual practice of scholars but is not stated as a command in the hadith. Please confirm."
+    },
+    {
+     "id": "comfort",
+     "kind": "howto",
+     "title": "How to comfort someone who has lost a loved one",
+     "steps": [
+      {
+       "text": "Go to them. Do not wait to be asked.",
+       "detail": "Being there matters more than clever words."
+      },
+      {
+       "text": "Say the words of comfort you just learned, or say less.",
+       "detail": "Even a few words, “I am sorry. May Allah have mercy on him,” are enough."
+      },
+      {
+       "text": "Make dua for the one who died and for the family.",
+       "detail": "The dua of the Prophet ﷺ for Abu Salama (Muslim 920) is a good model: forgive him, raise his rank, and look after those he left."
+      },
+      {
+       "text": "Help with something practical, such as food.",
+       "detail": "The Prophet ﷺ said to prepare food for the family of Jafar, because something had come upon them that kept them busy (Tirmidhi 998, hasan per al-Albani and Zubair Ali Zai)."
+      },
+      {
+       "text": "Listen. Let them speak about the person.",
+       "detail": "You do not have to fix the grief."
+      },
+      {
+       "text": "Come back after the first week.",
+       "detail": "Most visitors come in the first days. The long grief comes after."
+      }
+     ],
+     "intro": "Comfort is mostly presence, simple words and practical help.",
+     "mistakes": [
+      "Saying “it was better this way” or “you should be strong” in the first hours.",
+      "Comparing it to your own loss.",
+      "Asking how the person died, if the family does not bring it up.",
+      "Staying so long that the family cannot rest."
+     ],
+     "source": "Bukhari 1284; Muslim 920; Tirmidhi 998 (hasan per al-Albani and Zubair Ali Zai)",
+     "label": "[Interpretive]",
+     "review": "The practical advice (go, say little, help, listen, return later) is general guidance drawn from the sunnah of the cases above. Please confirm."
+    },
+    {
+     "id": "limits",
+     "kind": "teach",
+     "title": "What is not allowed in grief",
+     "body": [
+      "The Prophet ﷺ said that the one who slaps his cheeks, tears his clothes and calls with the call of the Days of Ignorance is not one of us (Bukhari 1294). Weeping is allowed. Wailing aloud, striking the face, tearing clothes and blaming Allah are not.",
+      "Mourning for the dead is limited to three days for a Muslim woman, except for a husband, for whom the widow mourns four months and ten days (Bukhari 1280; Qur’an 2:234). Mourning here means leaving adornment and perfume. It does not mean grief itself, which may last as long as it lasts.",
+      "Men and women may both weep. This limit on the mourning period is about outward signs."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 1294, 1280; Qur’an 2:234",
+     "review": "The scope of the three-day limit (outward mourning, not grief) and the widow’s period are described in the usual way. The detail of what is left during the widow’s waiting period differs among the schools, so it is not given here. Please confirm."
+    },
+    {
+     "id": "child",
+     "kind": "teach",
+     "title": "When a child is lost",
+     "body": [
+      "The Prophet ﷺ told a group of women that any woman whose three children die will find them a shield from the Fire. A woman asked, “And two?” He said, “And two” (Bukhari 1249). In Muslim 2632 he said that any Muslim who loses three children and accepts it with patience will not be touched by the Fire except for the oath.",
+      "Abu Huraira added that this is for children below puberty (Bukhari 1249). The hadith are comfort for the parents. They do not take away the pain, and the Prophet ﷺ himself wept for his son.",
+      "If you have lost a child, including before birth, your grief is real. The funeral prayer lesson told you that a miscarried child is prayed over too."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 1249; Muslim 2632",
+     "review": "The hadith are quoted from the corpus. The note that the comfort is for children below puberty is the saying of Abu Huraira in Bukhari 1249. Please confirm the wording."
+    },
+    {
+     "id": "help",
+     "kind": "teach",
+     "title": "When grief is too heavy",
+     "body": [
+      "Grief can stay heavy for weeks. If you cannot eat or sleep for a long time, or you have thoughts of harming yourself, please talk to a doctor, a counsellor or someone you trust, and do not wait. This is not a lack of faith. Seeking help is part of seeking healing.",
+      "In this app, the Need help now button is always there. In an emergency, call your local emergency number."
+     ],
+     "label": "[Interpretive]",
+     "source": "Bukhari 5671 (the Prophet ﷺ forbade wishing for death)",
+     "review": "Safety wording. Please confirm it is acceptable and that the Need help now route is correct."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "What to do when you hear of a death",
+     "prompt": "Put the steps in order.",
+     "items": [
+      {
+       "text": "Say Inna lillahi wa inna ilayhi raji’un",
+       "why": "Say it first, from the heart.",
+       "back": "istirja"
+      },
+      {
+       "text": "Make dua for the one who died",
+       "why": "Ask Allah to forgive and raise them.",
+       "back": "comfort"
+      },
+      {
+       "text": "Go to the family",
+       "why": "Go and comfort them.",
+       "back": "comfort"
+      },
+      {
+       "text": "Offer practical help, like food",
+       "why": "Help with what keeps them busy.",
+       "back": "comfort"
+      },
+      {
+       "text": "Check on them again later",
+       "why": "Return after the first days.",
+       "back": "comfort"
+      }
+     ],
+     "explain": "First turn to Allah, then dua, then go, help and return."
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the words to the situation",
+     "prompt": "Match each line to when you say it.",
+     "pairs": [
+      {
+       "left": {
+        "ref": "eol.calamity.1"
+       },
+       "right": {
+        "text": "When a calamity strikes you"
+       },
+       "why": "This is what you say when a calamity strikes.",
+       "back": "istirja"
+      },
+      {
+       "left": {
+        "ref": "eol.condolence"
+       },
+       "right": {
+        "text": "To comfort the family of the dead"
+       },
+       "why": "These are words of condolence.",
+       "back": "condole"
+      },
+      {
+       "left": {
+        "ref": "eol.eyes.1"
+       },
+       "right": {
+        "text": "A dua for the one who died"
+       },
+       "why": "This is a dua for the dead.",
+       "back": "comfort"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "g1",
+       "q": "Why did the Prophet ﷺ weep when his son Ibrahim died?",
+       "options": [
+        {
+         "text": "He lacked patience",
+         "reteach": "No. He called his tears mercy.",
+         "back": "allowed"
+        },
+        {
+         "text": "He did not believe in the decree",
+         "reteach": "No. He said we say only what pleases our Lord.",
+         "back": "allowed"
+        },
+        {
+         "text": "He said it is mercy"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 1303.",
+       "type": "mcq"
+      },
+      {
+       "id": "g2",
+       "q": "Which of these is allowed in grief?",
+       "options": [
+        {
+         "text": "Slapping the cheeks",
+         "reteach": "The Prophet ﷺ said that is not from us (Bukhari 1294).",
+         "back": "limits"
+        },
+        {
+         "text": "Tearing the clothes",
+         "reteach": "That is not allowed (Bukhari 1294).",
+         "back": "limits"
+        },
+        {
+         "text": "Weeping"
+        }
+       ],
+       "answer": 2,
+       "explain": "Weeping is allowed. Wailing and striking are not.",
+       "type": "mcq"
+      },
+      {
+       "id": "g3",
+       "q": "A friend loses her father and says: I cried all night. Am I weak in faith? What do you say?",
+       "options": [
+        {
+         "text": "Yes, a strong believer does not cry",
+         "reteach": "No. The Prophet ﷺ wept for Ibrahim.",
+         "back": "allowed"
+        },
+        {
+         "text": "You must stop crying at once",
+         "reteach": "No. Weeping is allowed.",
+         "back": "allowed"
+        },
+        {
+         "text": "No. Tears are mercy; the Prophet ﷺ wept too"
+        }
+       ],
+       "answer": 2,
+       "explain": "Tears are not weakness.",
+       "type": "scenario",
+       "scenario": "A friend lost her father and says she cried all night and fears her faith is weak."
+      },
+      {
+       "id": "g4",
+       "q": "When is real patience, according to the Prophet ﷺ?",
+       "options": [
+        {
+         "text": "At the first stroke of the calamity"
+        },
+        {
+         "text": "After a month",
+         "reteach": "He said it is at the first blow.",
+         "back": "patience"
+        },
+        {
+         "text": "Only when it is easy",
+         "reteach": "He said it is at the first blow.",
+         "back": "patience"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 1283.",
+       "type": "mcq"
+      },
+      {
+       "id": "g5",
+       "q": "What do you say when a calamity strikes you?",
+       "options": [
+        {
+         "text": "Praise be to the Lord of everything, I am fine",
+         "reteach": "The words are Inna lillahi wa inna ilayhi raji’un.",
+         "back": "istirja"
+        },
+        {
+         "text": "There is no power but in Allah only",
+         "reteach": "That is a different phrase. For a calamity, say Inna lillahi.",
+         "back": "istirja"
+        },
+        {
+         "text": "We belong to Allah, and to Him we return"
+        }
+       ],
+       "answer": 2,
+       "explain": "Muslim 918.",
+       "type": "mcq"
+      },
+      {
+       "id": "g6",
+       "q": "Fill in the blank: Innaa lillaahi wa innaa ____ raaji’oon.",
+       "options": [
+        {
+         "text": "laka",
+         "reteach": "Laka means to You. The phrase says ilayhi: to Him.",
+         "back": "istirja"
+        },
+        {
+         "text": "ilayhi"
+        },
+        {
+         "text": "anhu",
+         "reteach": "Anhu means from him. The phrase says ilayhi: to Him.",
+         "back": "istirja"
+        }
+       ],
+       "answer": 1,
+       "explain": "We belong to Allah, and to Him we return.",
+       "type": "fill",
+       "fill": {
+        "ref": "eol.calamity.1",
+        "blank": 4,
+        "show": "translit"
+       }
+      },
+      {
+       "id": "g7",
+       "q": "A neighbour’s mother has just died. What is the best thing to do?",
+       "options": [
+        {
+         "text": "Wait until she calls",
+         "reteach": "Go without waiting to be asked.",
+         "back": "comfort"
+        },
+        {
+         "text": "Tell her she should not cry",
+         "reteach": "Weeping is allowed. Comfort, do not correct.",
+         "back": "comfort"
+        },
+        {
+         "text": "Go to her, comfort her, and help with food or errands"
+        }
+       ],
+       "answer": 2,
+       "explain": "Go, say a few words, and help.",
+       "type": "scenario",
+       "scenario": "A neighbour’s mother died this morning. You hardly know the family."
+      },
+      {
+       "id": "g8",
+       "q": "What did the Prophet ﷺ tell people to do for the family of Jafar?",
+       "options": [
+        {
+         "text": "Prepare food for them"
+        },
+        {
+         "text": "Leave them alone",
+         "reteach": "He said to prepare food for them.",
+         "back": "comfort"
+        },
+        {
+         "text": "Hold a feast at their house",
+         "reteach": "He said to prepare food for them, because they were busy with their loss.",
+         "back": "comfort"
+        }
+       ],
+       "answer": 0,
+       "explain": "Prepare food for the family.",
+       "type": "mcq"
+      },
+      {
+       "id": "g9",
+       "q": "How long may a woman mourn a relative who is not her husband?",
+       "options": [
+        {
+         "text": "Forty days",
+         "reteach": "It is three days (Bukhari 1280).",
+         "back": "limits"
+        },
+        {
+         "text": "Three days"
+        },
+        {
+         "text": "A year",
+         "reteach": "It is three days. A widow’s waiting period is four months and ten days.",
+         "back": "limits"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 1280.",
+       "type": "mcq"
+      },
+      {
+       "id": "g10",
+       "q": "If grief stays heavy for weeks and you cannot eat or sleep, what should you do?",
+       "options": [
+        {
+         "text": "Keep it secret",
+         "reteach": "Please do not carry it alone.",
+         "back": "help"
+        },
+        {
+         "text": "Talk to a doctor, a counsellor or someone you trust"
+        },
+        {
+         "text": "Pray harder and ask nobody",
+         "reteach": "Prayer helps, and so does seeking help.",
+         "back": "help"
+        }
+       ],
+       "answer": 1,
+       "explain": "Seeking help is part of seeking healing.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Weep if you need to, because tears are mercy.",
+      "Say Inna lillahi wa inna ilayhi raji’un and ask Allah for something better.",
+      "Go to the grieving family, say a few kind words and help.",
+      "Avoid wailing and striking, and ask for help if the grief is too heavy."
+     ],
+     "next": "Next: the grave."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Say it and reach out",
+     "body": "Say Inna lillahi wa inna ilayhi raji’un once now. Then think of someone who lost a loved one and send them a short message of comfort.",
+     "route": "/adhkar",
+     "button": "Open adhkar"
+    }
+   ]
+  },
+  {
+   "id": "eol.u3.l1",
+   "title": "The grave: the first stop",
+   "minutes": 20,
+   "intro": "Learn what the sound reports say about the grave, the dua of refuge, what is said at a burial, and how to visit a grave.",
+   "steps": [
+    {
+     "id": "barzakh",
+     "kind": "why",
+     "title": "The first stop",
+     "body": [
+      "Death is not the end. Allah tells us that behind the dead is a barrier (barzakh) until the day they are raised (23:99-100). The grave is the first stop on that road.",
+      "We know about it only what Allah and His Messenger ﷺ told us. This lesson stays inside that. It is about three things: what the sound reports say, what to ask Allah for, and what to do at a burial and at a grave."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 23:99-100",
+     "quran": "q:23:100"
+    },
+    {
+     "id": "ask",
+     "kind": "teach",
+     "title": "The questioning",
+     "body": [
+      "The Prophet ﷺ said that when a person is put in the grave and the people who buried him walk away, so that he even hears their footsteps, two angels come, make him sit up and ask: “What did you used to say about this man, Muhammad?” The believer says: “I testify that he is Allah’s servant and His messenger” (Bukhari 1338; Bukhari 1374).",
+      "Allah says that He keeps firm those who believe with the firm word in this world and in the Hereafter (14:27). The Prophet ﷺ said that this verse was about the questioning in the grave (Bukhari 4699).",
+      "The Prophet ﷺ also said that when one of you dies, his place is shown to him morning and evening: Paradise for the people of Paradise, the Fire for the people of the Fire, and it is said to him, “This is your place until Allah raises you” (Bukhari 1379).",
+      "The reports tell us this much. We should not add pictures of our own."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 1338, 1374, 1379, 4699; Qur’an 14:27",
+     "quran": "q:14:27"
+    },
+    {
+     "id": "weak",
+     "kind": "teach",
+     "title": "A popular saying we do not rely on",
+     "body": [
+      "You may have heard that “the grave is either a garden of Paradise or a pit of the Fire”, or long speeches about the grave speaking to the believer and the sinner. Those words come from a report in Tirmidhi 2460, graded da’if (very weak) by al-Albani and da’if by Zubair Ali Zai.",
+      "So we do not teach those words as the Prophet’s ﷺ. We keep to the sound reports above. It is better to say less that is true than more that is not."
+     ],
+     "label": "[Established]",
+     "source": "Tirmidhi 2460 (da’if; Zubair Ali Zai; al-Albani: very da’if)"
+    },
+    {
+     "id": "refuge",
+     "kind": "say",
+     "title": "The dua you can say in every prayer",
+     "refs": [
+      "eol.grave.refuge"
+     ],
+     "note": "Aisha, may Allah be pleased with her, told that after a woman warned her of the punishment of the grave, she asked the Prophet ﷺ, and he said “Yes, there is punishment in the grave.” After that she never saw him pray without asking Allah’s refuge from it (Bukhari 1372). He taught us to say this dua at the end of the tashahhud, before the salam, asking refuge from four things (Muslim 588). The Dajjal is the False Messiah who will come near the end of time.",
+     "source": "Muslim 588; Bukhari 832, 1372",
+     "label": "[Established]",
+     "review": "The Arabic is copied from Muslim 588. Please confirm the explanation of the Dajjal and the placement before the salam."
+    },
+    {
+     "id": "burial",
+     "kind": "howto",
+     "title": "At the burial: what is done and said",
+     "steps": [
+      {
+       "text": "Carry the body to the grave without delay.",
+       "detail": "The Prophet ﷺ said to hurry with the funeral (Bukhari 1315)."
+      },
+      {
+       "text": "Lower the body into the grave and lay it on its right side facing the qiblah.",
+       "detail": "This is the common teaching of the four schools. The grave is dug with a side niche (lahd) or a straight trench (shaqq), as the ground allows."
+      },
+      {
+       "text": "As he is laid down, say: Bismillahi wa ala sunnati rasulillah.",
+       "detail": "Ibn Umar said this as he laid the dead in the grave (Abu Dawud 3213, sahih per al-Albani)."
+      },
+      {
+       "text": "Fill in the grave with earth.",
+       "detail": "Let those present who can do so take part."
+      },
+      {
+       "text": "Stand a moment, and ask forgiveness and steadfastness for him.",
+       "detail": "When the Prophet ﷺ finished a burial he stood and said this (Abu Dawud 3221, sahih per al-Albani)."
+      },
+      {
+       "text": "Go home. Do not sit on the grave.",
+       "detail": "See the next step."
+      }
+     ],
+     "intro": "Burial is quiet and simple. The most important part is the dua.",
+     "mistakes": [
+      "Delaying the burial for no reason.",
+      "Loud wailing at the grave.",
+      "Sitting or walking on graves.",
+      "Building over or raising a high mound."
+     ],
+     "source": "Bukhari 1315; Abu Dawud 3213 (sahih per al-Albani), 3221 (sahih per al-Albani)",
+     "label": "[Established]",
+     "review": "The direction of the body, the lahd or shaqq, and the participation of the people follow the usual teaching of the four schools. Please confirm."
+    },
+    {
+     "id": "lowering",
+     "kind": "say",
+     "title": "When laying him down",
+     "refs": [
+      "eol.burial"
+     ],
+     "note": "Ibn Umar said this as he laid the dead in the grave. It means “in the name of Allah, and on the way of the Messenger of Allah.”",
+     "source": "Abu Dawud 3213 (sahih per al-Albani)",
+     "label": "[Established]"
+    },
+    {
+     "id": "steadfast",
+     "kind": "say",
+     "title": "After the burial",
+     "refs": [
+      "eol.grave.thabit"
+     ],
+     "note": "This is what the Prophet ﷺ said to the people standing at the grave when the burial was done. In practice, everyone stands and makes dua quietly for the dead person: forgive him, make him firm.",
+     "source": "Abu Dawud 3221 (sahih per al-Albani)",
+     "label": "[Established]"
+    },
+    {
+     "id": "visit",
+     "kind": "howto",
+     "title": "Visiting graves",
+     "steps": [
+      {
+       "text": "Visit, to remember death and the Hereafter.",
+       "detail": "At first the Prophet ﷺ forbade visiting graves, then he allowed it (Muslim 977) and said it makes you mindful of death (Muslim 976)."
+      },
+      {
+       "text": "Greet the people of the graves.",
+       "detail": "Learn the greeting in the next step."
+      },
+      {
+       "text": "Make dua for them.",
+       "detail": "Ask forgiveness and mercy for them."
+      },
+      {
+       "text": "Do not sit on the graves or step on them.",
+       "detail": "The Prophet ﷺ said it is better to sit on live coals than on a grave (Muslim 971)."
+      },
+      {
+       "text": "Do not pray facing the graves.",
+       "detail": "The Prophet ﷺ forbade it (Muslim 972)."
+      },
+      {
+       "text": "Do not ask the dead for help. Ask Allah alone.",
+       "detail": "All prayer is for Allah."
+      }
+     ],
+     "intro": "A visit to a grave is a lesson for the living and a dua for the dead.",
+     "mistakes": [
+      "Asking the dead to fulfil your needs.",
+      "Sitting, eating or celebrating on graves.",
+      "Wailing."
+     ],
+     "source": "Muslim 971, 972, 976, 977",
+     "label": "[Established]",
+     "review": "The last step (ask Allah alone) is the common teaching of the four schools and the basis of the creed. Please confirm."
+    },
+    {
+     "id": "greet",
+     "kind": "say",
+     "title": "What to say when you arrive",
+     "refs": [
+      "eol.grave.greeting"
+     ],
+     "note": "Aisha asked the Prophet ﷺ what she should say when she visits the graves, and he taught her these words (Muslim 975).",
+     "source": "Muslim 975",
+     "label": "[Established]"
+    },
+    {
+     "id": "women",
+     "kind": "teach",
+     "title": "Can women visit graves?",
+     "body": [
+      "Scholars have differed about whether women may visit graves. Some permit it, some dislike it, and some forbid it. Part of the reason is that the Prophet ﷺ taught Aisha what to say when she visited (Muslim 975), and part is other reports about women who visit graves often and how they behave there.",
+      "This lesson does not choose between these views. Ask a scholar you trust, or follow what your school teaches."
+     ],
+     "label": "[Interpretive]",
+     "source": "Muslim 975",
+     "review": "The schools are not named in this step because the exact positions of each school need a scholar to state them. Please add a school-by-school summary."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "A burial in order",
+     "prompt": "Put the burial in order.",
+     "items": [
+      {
+       "text": "Carry the body to the grave without delay",
+       "why": "Hurry with the funeral.",
+       "back": "burial"
+      },
+      {
+       "text": "Lay it on its right side facing the qiblah, saying Bismillahi wa ala sunnati rasulillah",
+       "why": "Say the words as you lay him down.",
+       "back": "lowering"
+      },
+      {
+       "text": "Fill in the grave",
+       "why": "Fill in the grave.",
+       "back": "burial"
+      },
+      {
+       "text": "Stand and ask forgiveness and steadfastness for him",
+       "why": "Stand and make dua.",
+       "back": "steadfast"
+      }
+     ],
+     "explain": "Hurry, lay down with the words, fill in, then stand and make dua."
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the dua to the moment",
+     "prompt": "Match each dua to when it is said.",
+     "pairs": [
+      {
+       "left": {
+        "ref": "eol.burial"
+       },
+       "right": {
+        "text": "When laying the body in the grave"
+       },
+       "why": "These words are said as the body is laid down.",
+       "back": "lowering"
+      },
+      {
+       "left": {
+        "ref": "eol.grave.thabit"
+       },
+       "right": {
+        "text": "After the burial, at the grave"
+       },
+       "why": "This is said after the burial.",
+       "back": "steadfast"
+      },
+      {
+       "left": {
+        "ref": "eol.grave.greeting"
+       },
+       "right": {
+        "text": "When arriving at a graveyard"
+       },
+       "why": "This is the greeting for visiting graves.",
+       "back": "greet"
+      },
+      {
+       "left": {
+        "ref": "eol.grave.refuge"
+       },
+       "right": {
+        "text": "At the end of the tashahhud in prayer"
+       },
+       "why": "This dua is said before the salam.",
+       "back": "refuge"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "b1",
+       "q": "According to the Prophet ﷺ, what do the two angels ask the person in the grave?",
+       "options": [
+        {
+         "text": "How much wealth did you have?",
+         "reteach": "The reports give the question about the Prophet.",
+         "back": "ask"
+        },
+        {
+         "text": "How many prayers did you miss?",
+         "reteach": "The reported question is about the Prophet ﷺ.",
+         "back": "ask"
+        },
+        {
+         "text": "What did you used to say about this man, Muhammad?"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 1338 and 1374.",
+       "type": "mcq"
+      },
+      {
+       "id": "b2",
+       "q": "Which verse did the Prophet ﷺ say was about the questioning in the grave?",
+       "options": [
+        {
+         "text": "The verse of the throne (2:255)",
+         "reteach": "He mentioned 14:27 (Bukhari 4699).",
+         "back": "ask"
+        },
+        {
+         "text": "Allah keeps firm those who believe with the firm word (14:27)"
+        },
+        {
+         "text": "The verse of the debt (2:282)",
+         "reteach": "He mentioned 14:27 (Bukhari 4699).",
+         "back": "ask"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 4699.",
+       "type": "mcq"
+      },
+      {
+       "id": "b3",
+       "q": "A speaker says: the grave will squeeze you and then speak, “I am the house of worms.” Where does this come from?",
+       "options": [
+        {
+         "text": "A sound report in Bukhari",
+         "reteach": "It is not from Bukhari. It is in Tirmidhi and graded weak.",
+         "back": "weak"
+        },
+        {
+         "text": "The Qur’an",
+         "reteach": "It is not in the Qur’an.",
+         "back": "weak"
+        },
+        {
+         "text": "A weak report in Tirmidhi, so we do not teach it as the Prophet’s ﷺ words"
+        }
+       ],
+       "answer": 2,
+       "explain": "That report is weak.",
+       "type": "scenario",
+       "scenario": "A speaker says: the grave will squeeze you and say, “I am the house of worms.”"
+      },
+      {
+       "id": "b4",
+       "q": "When is the dua “O Allah, I seek refuge with You from the punishment of the grave” said in prayer?",
+       "options": [
+        {
+         "text": "In the first rak’ah",
+         "reteach": "The Prophet ﷺ taught it at the end of the tashahhud.",
+         "back": "refuge"
+        },
+        {
+         "text": "At the end of the tashahhud, before the salam"
+        },
+        {
+         "text": "During prostration only",
+         "reteach": "It is taught at the end of the tashahhud.",
+         "back": "refuge"
+        }
+       ],
+       "answer": 1,
+       "explain": "Muslim 588.",
+       "type": "mcq"
+      },
+      {
+       "id": "b5",
+       "q": "What did Aisha say about the Prophet ﷺ after she asked him about the punishment of the grave?",
+       "options": [
+        {
+         "text": "She never saw him pray without asking Allah’s refuge from it"
+        },
+        {
+         "text": "He stopped speaking of it",
+         "reteach": "She said he asked for refuge in every prayer.",
+         "back": "refuge"
+        },
+        {
+         "text": "He said it was only for others",
+         "reteach": "He confirmed it and asked for refuge himself.",
+         "back": "refuge"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 1372.",
+       "type": "mcq"
+      },
+      {
+       "id": "b6",
+       "q": "What is said as the body is laid in the grave?",
+       "options": [
+        {
+         "text": "In the name of Allah, and on the way of the Messenger of Allah"
+        },
+        {
+         "text": "There is no god but Allah",
+         "reteach": "That is said to the dying. At the grave, say Bismillahi wa ala sunnati rasulillah.",
+         "back": "lowering"
+        },
+        {
+         "text": "Allah is the greatest",
+         "reteach": "At the grave say Bismillahi wa ala sunnati rasulillah.",
+         "back": "lowering"
+        }
+       ],
+       "answer": 0,
+       "explain": "Said as the body is laid down.",
+       "type": "mcq"
+      },
+      {
+       "id": "b7",
+       "q": "Fill in the blank: Bismil-laahi wa ala ____ rasoolil-laah.",
+       "options": [
+        {
+         "text": "qiblati",
+         "reteach": "Qiblati means the direction of prayer. The words say sunnati: the way.",
+         "back": "lowering"
+        },
+        {
+         "text": "sunnati"
+        },
+        {
+         "text": "ummati",
+         "reteach": "Ummati means the community. The words say sunnati: the way.",
+         "back": "lowering"
+        }
+       ],
+       "answer": 1,
+       "explain": "On the way of the Messenger of Allah.",
+       "type": "fill",
+       "fill": {
+        "ref": "eol.burial",
+        "blank": 3,
+        "show": "translit"
+       }
+      },
+      {
+       "id": "b8",
+       "q": "What did the Prophet ﷺ do when he finished a burial?",
+       "options": [
+        {
+         "text": "He left at once",
+         "reteach": "He stayed and asked for steadfastness.",
+         "back": "steadfast"
+        },
+        {
+         "text": "He stood and said: ask forgiveness and steadfastness for your brother"
+        },
+        {
+         "text": "He recited the call to prayer",
+         "reteach": "He asked for forgiveness and steadfastness.",
+         "back": "steadfast"
+        }
+       ],
+       "answer": 1,
+       "explain": "Said at the grave after the burial.",
+       "type": "mcq"
+      },
+      {
+       "id": "b9",
+       "q": "A boy sits on a grave to eat his lunch in the graveyard. What do you tell him?",
+       "options": [
+        {
+         "text": "Please do not sit on graves; the Prophet ﷺ strongly warned against it"
+        },
+        {
+         "text": "It is fine, graves are just earth",
+         "reteach": "The Prophet ﷺ said it is better to sit on live coals (Muslim 971).",
+         "back": "visit"
+        },
+        {
+         "text": "Only women may not sit",
+         "reteach": "It applies to everyone.",
+         "back": "visit"
+        }
+       ],
+       "answer": 0,
+       "explain": "Muslim 971.",
+       "type": "scenario",
+       "scenario": "A boy sits on a grave in the graveyard to eat his lunch."
+      },
+      {
+       "id": "b10",
+       "q": "Why did the Prophet ﷺ allow visiting graves?",
+       "options": [
+        {
+         "text": "It makes you mindful of death and the Hereafter"
+        },
+        {
+         "text": "To ask the dead for help",
+         "reteach": "No. We ask Allah alone.",
+         "back": "visit"
+        },
+        {
+         "text": "To gather and celebrate",
+         "reteach": "No. It is to remember death.",
+         "back": "visit"
+        }
+       ],
+       "answer": 0,
+       "explain": "Muslim 976.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "The grave is the first stop. The questioning and the shown place are in sound reports.",
+      "I do not repeat weak stories about the grave.",
+      "I can say the dua of refuge before the salam in prayer.",
+      "I know the words at a burial, and how to visit a grave properly."
+     ],
+     "next": "Next: meeting Allah."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Say it in your next prayer",
+     "body": "In your next prayer, say the dua of refuge at the end of the tashahhud, before the salam.",
+     "route": "/prayer",
+     "button": "Open prayer times"
+    }
+   ]
+  },
+  {
+   "id": "eol.u3.l2",
+   "title": "Meeting Allah: hope and fear",
+   "minutes": 18,
+   "intro": "Learn what the hadith of meeting Allah means, how to live between hope and fear, and a dua for every night.",
+   "steps": [
+    {
+     "id": "meeting",
+     "kind": "why",
+     "title": "The meeting we are walking toward",
+     "body": [
+      "The Prophet ﷺ said: whoever loves to meet Allah, Allah loves to meet him, and whoever dislikes to meet Allah, Allah dislikes to meet him. Aisha or some of the wives said, “But we all dislike death.” He said it is not that. When the believer’s time comes, he is given good news of Allah’s pleasure and mercy, and nothing is dearer to him than what lies ahead. So he loves to meet Allah, and Allah loves to meet him (Bukhari 6507; Muslim 2684).",
+      "So the hadith is not about whether you feel afraid of dying. Everyone does. It is about the moment of death, and about the believer who hears good news."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 6507; Muslim 2684"
+    },
+    {
+     "id": "hope",
+     "kind": "teach",
+     "title": "Hope and fear, both",
+     "body": [
+      "Allah says: whoever hopes for the meeting with his Lord, let him do righteous work and not join anyone with Allah in worship (18:110). Hope for the meeting comes with action.",
+      "He also tells those who have wronged themselves not to lose hope in His mercy (39:53). The Prophet ﷺ taught that Allah divided mercy into one hundred parts, kept ninety-nine with Himself, and sent one down to earth, and that is why a mother animal lifts her hoof from her young (Bukhari 6000; Muslim 2752).",
+      "A believer lives between hope and fear, and this is what keeps the balance."
+     ],
+     "label": "[Established]",
+     "source": "Qur’an 18:110; 39:53; Bukhari 6000; Muslim 2752",
+     "quran": "q:18:110"
+    },
+    {
+     "id": "mercy",
+     "kind": "teach",
+     "title": "The mercy Allah keeps",
+     "body": [
+      "The Prophet ﷺ said that Allah created mercy in one hundred parts and kept ninety-nine of them for the Day of Resurrection (Bukhari 6469; Muslim 2752). If the disbeliever knew all the mercy with Allah, he would not lose hope of Paradise; if the believer knew all the punishment with Allah, he would not feel safe from the Fire (Bukhari 6469).",
+      "So we do not lose hope, and we do not feel safe."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 6469; Muslim 2752",
+     "quran": "q:39:53"
+    },
+    {
+     "id": "think",
+     "kind": "teach",
+     "title": "Think well of Allah",
+     "body": [
+      "Jabir heard the Prophet ﷺ say, three days before he died: none of you should die except while thinking well of Allah (Muslim 2877).",
+      "In a hadith qudsi, Allah says: I am as My servant thinks of Me, and I am with him when he remembers Me. If he comes a hand-span closer, I come a forearm closer; if he walks toward Me, I come to him running (Bukhari 7405; Muslim 2675).",
+      "Thinking well of Allah is not an excuse to be careless. It is the hope of someone who is trying."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 2877; Bukhari 7405; Muslim 2675"
+    },
+    {
+     "id": "not",
+     "kind": "why",
+     "title": "What this does not mean",
+     "body": [
+      "It does not mean wishing to die. The Prophet ﷺ forbade wishing for death because of a hardship (Bukhari 5671; Muslim 2680).",
+      "It does not mean that you stop working in this life. The Prophet ﷺ told Ibn Umar to be in this world like a stranger or a traveller (Bukhari 6416).",
+      "If you are suffering and feel life is too heavy, please talk to someone you trust or use the Need help now button in this app."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 5671, 6416; Muslim 2680"
+    },
+    {
+     "id": "sleep",
+     "kind": "say",
+     "title": "A dua to say each night",
+     "refs": [
+      "hlth.sleep.2"
+     ],
+     "note": "Each night, the Prophet ﷺ taught us to ask Allah, as we lay down, that if He keeps our soul He has mercy on it, and if He returns it He protects it. Sleep is called a little death. This dua practises the meeting every night (Bukhari 6320).",
+     "source": "Bukhari 6320",
+     "label": "[Established]"
+    },
+    {
+     "id": "bismika",
+     "kind": "say",
+     "title": "The Prophet’s words at sleep",
+     "refs": [
+      "hlth.sleep.bismika"
+     ],
+     "note": "When the Prophet ﷺ went to bed he said these words, and when he woke he said the words in the next step (Bukhari 6312).",
+     "source": "Bukhari 6312",
+     "label": "[Established]"
+    },
+    {
+     "id": "wake",
+     "kind": "say",
+     "title": "On waking",
+     "refs": [
+      "hlth.sleep.wake"
+     ],
+     "note": "Waking each morning is a small return of the soul. These words give thanks for it, and remind us of the rising at the end.",
+     "source": "Bukhari 6312",
+     "label": "[Established]"
+    },
+    {
+     "id": "prepare",
+     "kind": "howto",
+     "title": "Living ready to meet Allah",
+     "steps": [
+      {
+       "text": "Pray the five prayers on time.",
+       "detail": "Prayer is the first thing we are asked about."
+      },
+      {
+       "text": "Settle what you owe.",
+       "detail": "Return debts and ask people’s forgiveness (Bukhari 2449; see the first unit)."
+      },
+      {
+       "text": "Write down your will.",
+       "detail": "See the lesson on the will (Bukhari 2738)."
+      },
+      {
+       "text": "Repent often.",
+       "detail": "Say astaghfirullah and mean it, without waiting for old age."
+      },
+      {
+       "text": "Think well of Allah, and do good.",
+       "detail": "Hope with action (18:110)."
+      },
+      {
+       "text": "Say the night dua before you sleep.",
+       "detail": "Bukhari 6320."
+      }
+     ],
+     "intro": "You are ready to meet Allah when you are in the habit of returning to Him.",
+     "mistakes": [
+      "Putting repentance off until later.",
+      "Despairing of Allah’s mercy.",
+      "Feeling safe from His plan."
+     ],
+     "source": "Bukhari 2449, 2738; Qur’an 18:110",
+     "label": "[Interpretive]",
+     "review": "A practical summary of the lessons in this course. Please confirm."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "The path in order",
+     "prompt": "Put the path in order.",
+     "items": [
+      {
+       "text": "You live, with hope and fear",
+       "why": "We live between hope and fear.",
+       "back": "hope"
+      },
+      {
+       "text": "You die",
+       "why": "Every soul will taste death (3:185).",
+       "back": "meeting"
+      },
+      {
+       "text": "You are asked in the grave",
+       "why": "The questioning is the first stop.",
+       "back": "meeting"
+      },
+      {
+       "text": "You are raised",
+       "why": "Then comes the rising.",
+       "back": "wake"
+      }
+     ],
+     "explain": "Life, death, the grave, then the rising. The sound reports tell us this much."
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the words to the moment",
+     "prompt": "Match each line to when you say it.",
+     "pairs": [
+      {
+       "left": {
+        "ref": "hlth.sleep.2"
+       },
+       "right": {
+        "text": "Asking mercy for your soul as you lie down"
+       },
+       "why": "This is the night dua.",
+       "back": "sleep"
+      },
+      {
+       "left": {
+        "ref": "hlth.sleep.bismika"
+       },
+       "right": {
+        "text": "What the Prophet ﷺ said as he went to bed"
+       },
+       "why": "This is what he said in bed.",
+       "back": "bismika"
+      },
+      {
+       "left": {
+        "ref": "hlth.sleep.wake"
+       },
+       "right": {
+        "text": "When you wake up"
+       },
+       "why": "This is for waking.",
+       "back": "wake"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "m1",
+       "q": "What does “whoever loves to meet Allah, Allah loves to meet him” mean?",
+       "options": [
+        {
+         "text": "You should wish to die",
+         "reteach": "No. The Prophet ﷺ forbade wishing for death.",
+         "back": "meeting"
+        },
+        {
+         "text": "You should not be afraid in any way",
+         "reteach": "No. The hadith is about the moment of death and the good news.",
+         "back": "meeting"
+        },
+        {
+         "text": "The believer at death hears good news and loves the meeting"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 6507; Muslim 2684.",
+       "type": "mcq"
+      },
+      {
+       "id": "m2",
+       "q": "A friend says: I am afraid of death, so I must be a bad Muslim. What do you tell her?",
+       "options": [
+        {
+         "text": "Fear of death is normal; the hadith is about the good news at death"
+        },
+        {
+         "text": "Yes, you must be",
+         "reteach": "No. Aisha said the same and the Prophet ﷺ explained.",
+         "back": "meeting"
+        },
+        {
+         "text": "Never speak of it",
+         "reteach": "No. Speak of it, with hope.",
+         "back": "meeting"
+        }
+       ],
+       "answer": 0,
+       "explain": "Aisha said we all dislike death. The Prophet ﷺ explained.",
+       "type": "scenario",
+       "scenario": "A friend says she is afraid of death and thinks it means she is a bad Muslim."
+      },
+      {
+       "id": "m3",
+       "q": "Which of these did the Prophet ﷺ forbid?",
+       "options": [
+        {
+         "text": "Thinking well of Allah",
+         "reteach": "He told us to think well of Allah.",
+         "back": "not"
+        },
+        {
+         "text": "Wishing for death because of a hardship"
+        },
+        {
+         "text": "Making dua at night",
+         "reteach": "No. He taught dua at night.",
+         "back": "not"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 5671.",
+       "type": "mcq"
+      },
+      {
+       "id": "m4",
+       "q": "What did Jabir hear the Prophet ﷺ say three days before he died?",
+       "options": [
+        {
+         "text": "Prepare food",
+         "reteach": "That is another hadith.",
+         "back": "think"
+        },
+        {
+         "text": "Hurry the funeral",
+         "reteach": "That is another hadith.",
+         "back": "think"
+        },
+        {
+         "text": "None of you should die except thinking well of Allah"
+        }
+       ],
+       "answer": 2,
+       "explain": "Muslim 2877.",
+       "type": "mcq"
+      },
+      {
+       "id": "m5",
+       "q": "In the hadith qudsi, what does Allah say about a servant who walks toward Him?",
+       "options": [
+        {
+         "text": "I wait for him",
+         "reteach": "He says He comes running.",
+         "back": "think"
+        },
+        {
+         "text": "I turn away",
+         "reteach": "No. He comes running.",
+         "back": "think"
+        },
+        {
+         "text": "I go to him running"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 7405; Muslim 2675.",
+       "type": "mcq"
+      },
+      {
+       "id": "m6",
+       "q": "How many parts of mercy did Allah keep for the Day of Resurrection?",
+       "options": [
+        {
+         "text": "One",
+         "reteach": "One part was sent down to earth. He kept ninety-nine.",
+         "back": "mercy"
+        },
+        {
+         "text": "Ninety-nine"
+        },
+        {
+         "text": "Fifty",
+         "reteach": "It is ninety-nine.",
+         "back": "mercy"
+        }
+       ],
+       "answer": 1,
+       "explain": "Bukhari 6469; Muslim 2752.",
+       "type": "mcq"
+      },
+      {
+       "id": "m7",
+       "q": "What does the night dua ask Allah to do with our soul if He keeps it?",
+       "options": [
+        {
+         "text": "Have mercy on it"
+        },
+        {
+         "text": "Punish it",
+         "reteach": "No. It asks for mercy.",
+         "back": "sleep"
+        },
+        {
+         "text": "Forget it",
+         "reteach": "No. It asks for mercy.",
+         "back": "sleep"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 6320.",
+       "type": "mcq"
+      },
+      {
+       "id": "m8",
+       "q": "Fill in the blank: In amsakta ____ farhamhaa.",
+       "options": [
+        {
+         "text": "nafsee"
+        },
+        {
+         "text": "qalbee",
+         "reteach": "Qalbee means my heart. The dua says nafsee: my soul.",
+         "back": "sleep"
+        },
+        {
+         "text": "baytee",
+         "reteach": "Baytee means my house. The dua says nafsee: my soul.",
+         "back": "sleep"
+        }
+       ],
+       "answer": 0,
+       "explain": "If You keep my soul, have mercy on it.",
+       "type": "fill",
+       "fill": {
+        "ref": "hlth.sleep.2",
+        "blank": 2,
+        "show": "translit"
+       }
+      },
+      {
+       "id": "m9",
+       "q": "A man says: Allah is merciful, so I do not need to change. Which is the better answer?",
+       "options": [
+        {
+         "text": "He is right, nothing matters",
+         "reteach": "No. Hope goes with action (18:110).",
+         "back": "hope"
+        },
+        {
+         "text": "Hope in Allah goes with action; do not feel safe"
+        },
+        {
+         "text": "He should lose all hope",
+         "reteach": "No. Do not despair either.",
+         "back": "hope"
+        }
+       ],
+       "answer": 1,
+       "explain": "Hope with action, and fear.",
+       "type": "scenario",
+       "scenario": "A man says: Allah is merciful, so I do not need to change anything."
+      },
+      {
+       "id": "m10",
+       "q": "Who must think well of Allah?",
+       "options": [
+        {
+         "text": "Only scholars",
+         "reteach": "Everyone should.",
+         "back": "think"
+        },
+        {
+         "text": "Only the sick",
+         "reteach": "Everyone should.",
+         "back": "think"
+        },
+        {
+         "text": "Everyone, especially near death"
+        }
+       ],
+       "answer": 2,
+       "explain": "Muslim 2877.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "I know the hadith of meeting Allah is about the good news at death.",
+      "I live between hope and fear, with action.",
+      "I think well of Allah and do not wish for death.",
+      "I say the night dua and the words on waking."
+     ],
+     "next": "You have finished this course."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Tonight",
+     "body": "Tonight, before you sleep, say the dua: if You keep my soul, have mercy on it.",
+     "route": "/adhkar",
+     "button": "Open adhkar"
+    }
+   ]
+  }
+ ]
+}
