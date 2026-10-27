@@ -312,6 +312,16 @@ class _DownloadsScreenState extends ConsumerState<DownloadsScreen> {
                   ],
                 ),
               ),
+              _section('WORKS WITHOUT INTERNET'),
+              GlassCard(
+                key: const Key('downloads-offline-status'),
+                blur: false,
+                padding: const EdgeInsets.all(14),
+                child: Text(
+                  kOfflineStatusNote,
+                  style: AppText.bodyMuted.copyWith(height: 1.55),
+                ),
+              ),
               _section('QUR’AN RECITATION'),
               GlassCard(
                 blur: false,
@@ -366,6 +376,27 @@ class _DownloadsScreenState extends ConsumerState<DownloadsScreen> {
               _section(
                 bundled ? 'TEXT — ALREADY IN THE APP' : 'TEXT — READ OFFLINE',
               ),
+              if (!bundled && c.allTextEstimate() > 0)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: Align(
+                    alignment: AlignmentDirectional.centerStart,
+                    child: FilledButton.icon(
+                      key: const Key('download-all-text'),
+                      style: FilledButton.styleFrom(
+                        minimumSize: const Size(48, 48),
+                        backgroundColor: AppColors.gold,
+                        foregroundColor: AppColors.night,
+                      ),
+                      onPressed: c.downloadAllText,
+                      icon: const Icon(Icons.download_outlined, size: 18),
+                      label: Text(
+                        'Save all text (about '
+                        '${formatBytes(c.allTextEstimate())})',
+                      ),
+                    ),
+                  ),
+                ),
               for (final TextPackSpec t in kTextPackSpecs)
                 PackRow(
                   packId: t.id,

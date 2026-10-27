@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../features/elder/application/elder_mode.dart';
+import '../../core/kids_mode.dart';
 import '../../router.dart';
 import '../app_colors.dart';
 import '../app_typography.dart';
@@ -21,7 +22,12 @@ class ScreenHeader extends StatelessWidget {
     this.close = false,
     this.showSettings = true,
     this.actions = const <HeaderAction>[],
+    this.onBack,
   });
+
+  /// Replaces what Back / Close does (Kids Corner asks the parent check
+  /// before leaving).
+  final VoidCallback? onBack;
 
   /// Extra round buttons on the right (for example the Qur'an reader's text
   /// size). They replace the Settings gear, so the title keeps its room.
@@ -73,7 +79,7 @@ class ScreenHeader extends StatelessWidget {
           _RoundButton(
             icon: close ? Icons.close : Icons.arrow_back,
             tooltip: close ? 'Close' : 'Back',
-            onTap: () => _leave(context),
+            onTap: onBack ?? () => _leave(context),
           ),
           Expanded(
             // The title sits between two fixed 44 px buttons, so at very
@@ -104,10 +110,17 @@ class ScreenHeader extends StatelessWidget {
                 hitSize: 48,
               )
           else if (showSettings)
-            _RoundButton(
-              icon: Icons.settings_outlined,
-              tooltip: 'Settings',
-              onTap: () => context.open(AppRoutes.settings),
+            // Hidden while a child is in Kids Corner: Settings holds account
+            // deletion and the AI switches, which belong to a grown-up.
+            ValueListenableBuilder<bool>(
+              valueListenable: kKidsMode,
+              builder: (BuildContext c, bool kids, Widget? _) => kids
+                  ? const SizedBox(width: _RoundButton.defaultHitSize)
+                  : _RoundButton(
+                      icon: Icons.settings_outlined,
+                      tooltip: 'Settings',
+                      onTap: () => c.open(AppRoutes.settings),
+                    ),
             )
           else
             const SizedBox(width: _RoundButton.defaultHitSize),

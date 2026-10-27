@@ -10,6 +10,7 @@ import '../../../app/theme/widgets/screen_header.dart';
 import '../../quran/presentation/quran_marks_link_card.dart';
 import '../../sakina/domain/crisis_detector.dart';
 import '../../sakina/presentation/widgets/need_help_button.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 /// On-device notes — private by design, nothing ever leaves the device.
 class NotesScreen extends StatefulWidget {
@@ -167,15 +168,24 @@ class _NotesScreenState extends State<NotesScreen> {
                               style: AppText.titleMedium,
                             ),
                           ),
-                          GestureDetector(
-                            onTap: () async {
-                              setState(() => _notes.remove(n));
-                              await _save();
-                            },
-                            child: const Icon(
-                              Icons.delete_outline,
-                              size: 16,
-                              color: AppColors.sand,
+                          Semantics(
+                            button: true,
+                            label: 'Delete this note',
+                            excludeSemantics: true,
+                            child: FocusableTap(
+                              onTap: () async {
+                                setState(() => _notes.remove(n));
+                                await _save();
+                              },
+                              child: const SizedBox(
+                                width: 44,
+                                height: 44,
+                                child: Icon(
+                                  Icons.delete_outline,
+                                  size: 18,
+                                  color: AppColors.sand,
+                                ),
+                              ),
                             ),
                           ),
                         ],

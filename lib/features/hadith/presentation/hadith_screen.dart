@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../app/core/web_offline.dart';
 import '../../../app/router.dart';
+import '../../../app/theme/widgets/gold_button.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
@@ -61,9 +63,28 @@ class _HadithScreenState extends ConsumerState<HadithScreen> {
                   child: CircularProgressIndicator(color: AppColors.gold),
                 ),
                 error: (Object e, _) => Center(
-                  child: Text(
-                    'The collection could not be loaded.',
-                    style: AppText.bodyMuted,
+                  child: Padding(
+                    padding: const EdgeInsets.all(24),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        Text(
+                          'The collection could not be loaded. '
+                          '${WebOffline.needsInternet('The Hadith collection')}',
+                          key: const Key('hadith-load-error'),
+                          textAlign: TextAlign.center,
+                          style: AppText.bodyMuted,
+                        ),
+                        const SizedBox(height: 16),
+                        GoldButton(
+                          key: const Key('hadith-retry'),
+                          label: 'Try again',
+                          expand: false,
+                          onPressed: () =>
+                              ref.invalidate(hadithCollectionProvider),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 data: (List<Hadith> hadiths) {

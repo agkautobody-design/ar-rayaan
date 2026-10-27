@@ -10,6 +10,7 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../zakat/domain/zakat_calculation.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 /// TAYYIB FINANCE - the wealth wing. Purification, giving, and earning.
 /// Zakat links to the live engine; the stock screener teaches the AAOIFI
@@ -277,12 +278,21 @@ class _TayyibState extends State<TayyibFinanceScreen> {
                           if ((w['note'] as String? ?? '').isNotEmpty)
                             Text(w['note'] as String, style: AppText.bodyMuted.copyWith(fontSize: 12)),
                         ])),
-                        GestureDetector(
-                          onTap: () async {
-                            setState(() => _watch.remove(w));
-                            await _saveWatch();
-                          },
-                          child: const Icon(Icons.close, size: 15, color: AppColors.sand),
+                        Semantics(
+                          button: true,
+                          label: 'Remove from the watch list',
+                          excludeSemantics: true,
+                          child: FocusableTap(
+                            onTap: () async {
+                              setState(() => _watch.remove(w));
+                              await _saveWatch();
+                            },
+                            child: const SizedBox(
+                              width: 44,
+                              height: 44,
+                              child: Icon(Icons.close, size: 18, color: AppColors.sand),
+                            ),
+                          ),
                         ),
                       ]),
                     ),

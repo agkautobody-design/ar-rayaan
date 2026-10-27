@@ -8,6 +8,7 @@ import '../../../app/theme/widgets/screen_header.dart';
 import '../application/hijri_settings.dart';
 import '../domain/hijri_date.dart';
 import '../domain/sunnah_fasting.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 /// Islamic Calendar: today's Hijri date, a month grid you can page through,
 /// a date converter and the year's upcoming observances. Fully offline.
@@ -607,14 +608,23 @@ class _DayCell extends StatelessWidget {
       (FastingMarker m) => m.kind == FastingKind.forbidden,
     );
 
-    return GestureDetector(
+    final String note = forbidden
+        ? ', fasting is not allowed on this day'
+        : recommended
+            ? ', a recommended fasting day'
+            : '';
+    return Semantics(
+      label: valid ? 'Day $day$note' : null,
+      button: valid && markers.isNotEmpty,
+      excludeSemantics: valid,
+      child: FocusableTap(
       behavior: HitTestBehavior.opaque,
       onTap: valid && markers.isNotEmpty
           ? () => showFastingKnowledgeSheet(context, markers, date: date)
           : null,
       child: Container(
         width: 36,
-        height: 36,
+        height: 44,
         alignment: Alignment.center,
         decoration: isToday
             ? BoxDecoration(
@@ -660,6 +670,7 @@ class _DayCell extends StatelessWidget {
                 ],
               )
             : const SizedBox.shrink(),
+      ),
       ),
     );
   }

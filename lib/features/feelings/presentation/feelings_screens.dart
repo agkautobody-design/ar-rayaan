@@ -16,6 +16,7 @@ import '../../../app/theme/widgets/screen_header.dart';
 import '../../sakina/domain/crisis_detector.dart';
 import '../../sakina/presentation/widgets/need_help_button.dart';
 import '../../stories/data/stories_repository.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 class Feeling {
   final String id;
@@ -247,7 +248,7 @@ class FeelingScreen extends ConsumerWidget {
                 ),
               ],
               const SizedBox(height: 20),
-              GestureDetector(
+              FocusableTap(
                 onTap: () async {
                   final String seed =
                       'I came from For Your Heart — I am feeling '
