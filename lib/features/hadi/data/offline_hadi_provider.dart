@@ -3263,11 +3263,12 @@ const List<_Entry> _knowledge = <_Entry>[
   // ========== PRAYER & WUDU ==========
   _Entry(
     <String>['wudu', 'ablution', 'how to make wudu', 'wudhu', 'wuzu', 'wudoo'],
-    'Wudu has six obligatory steps: (1) intention, (2) washing the face, '
-    '(3) washing the hands to the elbows, (4) wiping the head, (5) washing '
-    'the feet to the ankles, (6) maintaining sequence. The Prophet ﷺ said that '
-    'whoever performs wudu well, his sins come out of his body, even from '
-    'beneath his fingernails (Sahih Muslim 245).',
+    'The Qur\'an names the obligatory acts of wudu: "wash your faces and '
+    'your forearms to the elbows and wipe over your heads and wash your feet '
+    'to the ankles" (Qur\'an 5:6). The schools add the intention and the '
+    'order as conditions in some views. The Prophet ﷺ said that whoever '
+    'performs wudu well, his sins come out of his body, even from beneath '
+    'his fingernails (Sahih Muslim 245).',
   ),
   _Entry(
     <String>['wudu nullifiers', 'breaks wudu', 'break my wudu', 'nullify wudu', 'invalidate wudu', 'invalidates wudu', 'lost wudu'],

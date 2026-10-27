@@ -125,7 +125,7 @@ E('mothers-feet',
   m=[r'\b(?:paradise|jannah|heaven)\b.*\b(?:feet|foot)\b.*\b(?:mothers?|mom|mum)\b', r'\b(?:mothers?|mom|mum)\b.*\b(?:feet|foot)\b.*\b(?:paradise|jannah|heaven)\b', r'\bat the feet of (?:the |your )?(?:mothers?|mom|mum)\b', r'\bunder (?:the |your )?(?:mothers?|mom|mum)s? feet\b'],
   topic='paradise and mothers',
   text="""
-The saying comes from a real report, with a different wording from the one you often see on posters. A man named Jahimah came to the Prophet ﷺ wanting to go out to fight and asked his advice. {HS nasai:3104|Jahimah asked to go out and fight and the Prophet asked if he had a mother, and told him to stay with her, for Paradise is beneath her feet}. It is graded sound by the scholars the app uses.
+The wording I can source is this one. A man named Jahimah came to the Prophet ﷺ wanting to go out and fight, and asked his advice. {HS nasai:3104|Jahimah asked to go out and fight and the Prophet asked if he had a mother, and told him to stay with her, for Paradise is beneath her feet}. The scholars the app uses grade that report as sound. The shorter line "Paradise lies under the feet of mothers", as it is often quoted, is not the wording of that report, and I cannot verify it as a separate hadith, so it is safer to quote the an-Nasa'i wording.
 
 The meaning is that serving and staying close to your mother is a path to Paradise. The Qur'an also puts kindness to parents right after the worship of Allah: {Q 17:23|And your Lord has decreed that you not worship except Him, and to parents, good treatment}.
 """,
