@@ -393,7 +393,6 @@ class GameChip extends StatelessWidget {
                 minWidth: GamesTheme.minTap,
               ),
               child: Container(
-                alignment: Alignment.center,
                 padding: const EdgeInsets.symmetric(
                   horizontal: 16,
                   vertical: 8,
@@ -408,7 +407,12 @@ class GameChip extends StatelessWidget {
                         : AppColors.gold.withValues(alpha: 0.5),
                   ),
                 ),
-                child: Row(
+                // widthFactor 1: the chip is as wide as its label. (A Container
+                // with `alignment` fills the whole row in a Wrap, which stacked
+                // every chip full width and pushed the games off the screen.)
+                child: Align(
+                  widthFactor: 1,
+                  child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     if (selected)
@@ -428,6 +432,7 @@ class GameChip extends StatelessWidget {
                       ),
                     ),
                   ],
+                  ),
                 ),
               ),
             ),

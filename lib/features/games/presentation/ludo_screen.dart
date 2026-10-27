@@ -707,9 +707,12 @@ class _LudoState extends State<LudoScreen> {
           onTap: _showHowTo,
         ),
         const SizedBox(width: 12),
+        // Tapping the die rolls it, as people expect; the Roll Dice button
+        // below does the same and stays for anyone who looks for a button.
         LudoDiceStage(
           value: LudoRules.faceValue(dice: dice, lastRoll: lastRoll),
           size: 104,
+          onTap: _canRoll ? _roll : null,
         ),
         const SizedBox(width: 12),
         _SmallAction(
@@ -1217,10 +1220,18 @@ class _SmallAction extends StatelessWidget {
 /// moment (a short tumble), then the face that was rolled. The game state is
 /// already updated when the tumble starts: it is only a picture.
 class LudoDiceStage extends StatefulWidget {
-  const LudoDiceStage({required this.value, this.size = 104, super.key});
+  const LudoDiceStage({
+    required this.value,
+    this.size = 104,
+    this.onTap,
+    super.key,
+  });
 
   final int value;
   final double size;
+
+  /// When set, a tap on the die rolls it (the die is then a button).
+  final VoidCallback? onTap;
 
   @override
   State<LudoDiceStage> createState() => _LudoDiceStageState();
@@ -1265,39 +1276,49 @@ class _LudoDiceStageState extends State<LudoDiceStage> {
   Widget build(BuildContext context) {
     final int value = widget.value;
     final double size = widget.size;
+    final VoidCallback? tap = widget.onTap;
+    final String rolledLabel = tap != null
+        ? 'Die, not rolled yet. Tap to roll'
+        : 'Die, not rolled yet';
     return Semantics(
-      label: value == 0 ? 'Die, not rolled yet' : 'Die showing $value',
+      button: tap != null,
+      onTap: tap,
+      label: value == 0 ? rolledLabel : 'Die showing $value',
       child: ExcludeSemantics(
-        child: Container(
-          width: size,
-          height: size,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            gradient: const RadialGradient(
-              colors: <Color>[Color(0x66FFD367), Color(0x00FFD367)],
-            ),
-            border: Border.all(
-              color: AppColors.goldLight.withValues(alpha: 0.7),
-              width: 1.6,
-            ),
-            boxShadow: const <BoxShadow>[
-              BoxShadow(
-                color: Color(0x80D4AF37),
-                blurRadius: 22,
-                spreadRadius: 2,
+        child: GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          onTap: tap,
+          child: Container(
+            width: size,
+            height: size,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              gradient: const RadialGradient(
+                colors: <Color>[Color(0x66FFD367), Color(0x00FFD367)],
               ),
-            ],
-          ),
-          child: value == 0 || _tumbling
-              ? _picture(
-                  LudoBoardArt.dieRolling,
-                  fallback: DiceFace(value: value, size: size * 0.6),
-                )
-              : _picture(
-                  LudoBoardArt.dieFace(value),
-                  fallback: DiceFace(value: value, size: size * 0.6),
+              border: Border.all(
+                color: AppColors.goldLight.withValues(alpha: 0.7),
+                width: 1.6,
+              ),
+              boxShadow: const <BoxShadow>[
+                BoxShadow(
+                  color: Color(0x80D4AF37),
+                  blurRadius: 22,
+                  spreadRadius: 2,
                 ),
+              ],
+            ),
+            child: value == 0 || _tumbling
+                ? _picture(
+                    LudoBoardArt.dieRolling,
+                    fallback: DiceFace(value: value, size: size * 0.6),
+                  )
+                : _picture(
+                    LudoBoardArt.dieFace(value),
+                    fallback: DiceFace(value: value, size: size * 0.6),
+                  ),
+          ),
         ),
       ),
     );

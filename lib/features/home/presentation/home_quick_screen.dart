@@ -17,7 +17,7 @@ class HomeQuickScreen extends ConsumerWidget {
     ('For Children', 'Letters, games & stories', 'assets/images/tiles/tile_knowledge.jpg', '/kids'),
     ('Wasia Academy', 'Learn with your teacher', 'assets/images/tiles/tile_quran.jpg', '/academy/gate'),
     ('Naat Player', 'Adhan, naats & nasheeds', 'assets/images/tiles/tile_noor.jpg', '/player'),
-    ('Games', 'Shatranj, Ludo & five more', 'assets/images/tiles/tile_knowledge.jpg', '/games'),
+    ('Games', 'Chess, Ludo, quizzes & puzzles', 'assets/images/tiles/tile_knowledge.jpg', '/games'),
     ('Elder Care', 'Big words, gentle hearts', 'assets/images/tiles/tile_dhikr.jpg', '/elder-care'),
     ('Islamic Therapy', 'Comfort rooms (Sakina)', 'assets/images/tiles/tile_hadith.jpg', '/sakina'),
     ('Quick Hadith', 'A hadith in a breath', 'assets/images/tiles/tile_prayer.jpg', '/hadith'),

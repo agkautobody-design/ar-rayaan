@@ -272,7 +272,11 @@ class LudoBoardView extends StatelessWidget {
               );
             }
             final double lift = s.movable ? -3 * k : 0;
-            final double font = math.max(side * 0.2, 9);
+            // 12 px is the app's minimum text size. A pawn that is already home
+            // is small and its number would sit above it, so it has none (the
+            // player card and the board summary count the pawns home).
+            final double font = math.max(side * 0.2, 12);
+            final bool atHome = s.where == 'home';
             final String name = LudoRules.colourNames[s.colour];
             pawns.add(
               Positioned(
@@ -316,6 +320,7 @@ class LudoBoardView extends StatelessWidget {
                         ),
                         // The number, drawn in code on the ball under the
                         // shape disc (the shape itself is in the picture).
+                        if (!atHome)
                         Positioned(
                           left: 0,
                           right: 0,
