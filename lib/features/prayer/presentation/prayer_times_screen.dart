@@ -1322,9 +1322,9 @@ class _MethodSheet extends ConsumerWidget {
   }
 }
 
-/// The five-prayer log. Quiet by design: it keeps no streak or total of its
-/// own (the optional Streaks screen can read which days have a prayer logged),
-/// and an "Excused" mark counts for nothing and asks for nothing.
+/// The five-prayer log. Quiet by design: a private note on this device. My
+/// log adds up the prayers marked prayed as plain totals, and an "Excused"
+/// mark counts for nothing and asks for nothing.
 class _PrayerLogCard extends ConsumerStatefulWidget {
   const _PrayerLogCard({required this.data, required this.now});
 
@@ -1381,7 +1381,7 @@ class _PrayerLogCardState extends ConsumerState<_PrayerLogCard> {
                     : m == PrayerMark.missed
                     ? Text(
                         'Adds one to the Qada counter on My Journey. How a '
-                        'missed prayer is made up is for your scholar.',
+                        'prayer is made up is for your scholar.',
                         style: AppText.bodyMuted.copyWith(fontSize: 12),
                       )
                     : null,
@@ -1440,9 +1440,9 @@ class _PrayerLogCardState extends ConsumerState<_PrayerLogCard> {
             ],
           ),
           Text(
-            'A private note to yourself on this device. It keeps no streak or '
-            'total of its own. If you switch on Streaks, the Streaks screen '
-            'can count the days you logged a prayer.',
+            'A private note to yourself on this device. My log adds up the '
+            'prayers you mark, for the week, the month and all time. Days you '
+            'leave empty are simply empty.',
             style: AppText.bodyMuted.copyWith(fontSize: 12),
           ),
           const SizedBox(height: 6),

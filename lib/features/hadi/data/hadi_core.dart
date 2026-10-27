@@ -273,7 +273,7 @@ abstract final class HadiCore {
     (RegExp(r'\bludo\b'), 'ludo'),
     (RegExp(r'\btrivia\b'), 'trivia game'),
     (RegExp(r'\bmemory match\b|\bnames memory\b'), 'names memory game'),
-    (RegExp(r'\bstreaks?\b'), 'streaks'),
+    (RegExp(r'\bstreaks?\b|\bmy log\b'), 'my log'),
     (RegExp(r'\bquran\b'), 'quran'),
     (RegExp(r'\bhadith\b'), 'hadith'),
     (RegExp(r'\btaraweeh\b'), 'taraweeh'),

@@ -36,13 +36,10 @@ String inviteShareText() => composeShareText(
 );
 
 /// A milestone line, "I completed ...", with the app credit and the link.
-/// [what] is a short phrase such as `reading Surah Al-Fatihah`. It must be
-/// built from what the person did, never from their notes or prayer log.
+/// [what] is a short phrase such as `the lesson “Names of Allah”`. Only study
+/// milestones are shared (a lesson, a course, a Hifz section), never acts of
+/// worship, counts or gaps. It must be built from what the person did, never
+/// from their notes or prayer log.
 String milestoneShareText(String what) => composeShareText(
   body: 'I completed $what on Ar-Rayaan.\n$kInviteUrl',
-);
-
-/// A "came back" line for a streak that may be shared (never prayers).
-String comeBackShareText(String what, int days) => composeShareText(
-  body: 'I came back to $what for $days days on Ar-Rayaan.\n$kInviteUrl',
 );

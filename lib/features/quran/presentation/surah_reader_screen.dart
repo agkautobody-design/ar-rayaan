@@ -39,7 +39,6 @@ import '../domain/quran_marks.dart';
 import '../domain/quran_models.dart';
 import '../domain/quran_texts.dart';
 import '../domain/surah_search.dart';
-import '../../share/application/share_text.dart';
 import 'ayah_actions_sheet.dart';
 import 'hideable_arabic.dart';
 
@@ -705,7 +704,6 @@ class _ReaderFooterState extends ConsumerState<_ReaderFooter> {
           context,
           ref,
           moment: 'surah:${widget.surah}',
-          shareText: milestoneShareText('reading Surah ${widget.surahName}'),
         ),
       );
     });

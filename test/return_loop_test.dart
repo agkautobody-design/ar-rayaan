@@ -3,14 +3,11 @@ import 'package:ar_rayaan/app/theme/app_theme.dart';
 import 'package:ar_rayaan/features/elder/application/elder_mode.dart';
 import 'package:ar_rayaan/features/habits/application/return_loop.dart';
 import 'package:ar_rayaan/features/habits/presentation/quiet_done.dart';
+import 'package:ar_rayaan/features/tracking/application/tracking_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-Set<String> days(List<int> dayOfOct) => <String>{
-  for (final int d in dayOfOct) '2026-10-${d.toString().padLeft(2, '0')}',
-};
 
 Future<ProviderContainer> make(Map<String, Object> initial) async {
   SharedPreferences.setMockInitialValues(initial);
@@ -23,81 +20,7 @@ Future<ProviderContainer> make(Map<String, Object> initial) async {
 }
 
 void main() {
-  // 2026-10-21 is a Wednesday, so Mon 19 .. Sun 25 is one week.
-  final DateTime wed = DateTime(2026, 10, 21);
-
-  group('days returned maths', () {
-    test('empty is zero and one day is not mentioned', () {
-      expect(ReturnLoop.daysReturned(<String>{}, wed), 0);
-      expect(ReturnLoop.daysReturned(days(<int>[21]), wed), 1);
-      expect(ReturnLoop.message(1), isNull);
-      expect(ReturnLoop.message(0), isNull);
-    });
-
-    test('consecutive days count', () {
-      expect(ReturnLoop.daysReturned(days(<int>[19, 20, 21]), wed), 3);
-      expect(ReturnLoop.message(3), 'You came back 3 days.');
-    });
-
-    test('today not done yet still shows yesterday run', () {
-      expect(ReturnLoop.daysReturned(days(<int>[19, 20]), wed), 2);
-    });
-
-    test('one grace day per week carries the run over', () {
-      // 19, (20 missed), 21 : grace used in the week of the 20th.
-      expect(ReturnLoop.daysReturned(days(<int>[19, 21]), wed), 2);
-      // Yesterday missed, today not yet done: still alive.
-      expect(ReturnLoop.daysReturned(days(<int>[18, 19]), wed), 2);
-    });
-
-    test('a second missed day in the same week ends the run silently', () {
-      // 19 done, 20 missed, 21 done, 22 missed, 23 done: the grace for that
-      // week covers 22 only, so 19 is not joined to the run.
-      expect(
-        ReturnLoop.daysReturned(
-          days(<int>[19, 21, 23]),
-          DateTime(2026, 10, 23),
-        ),
-        2,
-      );
-    });
-
-    test('two missed days in a row lapse to zero without any message', () {
-      expect(ReturnLoop.daysReturned(days(<int>[10, 11, 12]), wed), 0);
-      expect(ReturnLoop.message(0), isNull);
-    });
-
-    test('each calendar week has its own grace day', () {
-      // Sat 17 missed (week of Mon 12) and Mon 19 missed (week of Mon 19).
-      expect(ReturnLoop.daysReturned(days(<int>[16, 18, 20, 21]), wed), 4);
-    });
-
-    test('junk entries are ignored', () {
-      expect(
-        ReturnLoop.daysReturned(<String>{'junk', '2026-10-21', 'a-b-c'}, wed),
-        1,
-      );
-    });
-
-    test('wording never scolds', () {
-      for (int n = 0; n < 40; n++) {
-        final String? m = ReturnLoop.message(n);
-        if (m == null) continue;
-        final String l = m.toLowerCase();
-        for (final String bad in <String>[
-          'lost',
-          'miss',
-          'broke',
-          'streak',
-          'streak',
-          'fail',
-          'only',
-        ]) {
-          expect(l.contains(bad), isFalse, reason: m);
-        }
-      }
-    });
-
+  group('the switch and the store', () {
     test('there is no way to record a prayer', () {
       expect(ReturnAct.values.map((ReturnAct a) => a.name).toSet(), <String>{
         'quran',
@@ -105,49 +28,50 @@ void main() {
         'lesson',
       });
     });
-  });
 
-  group('providers', () {
     test('off by default: nothing is recorded', () async {
       final ProviderContainer c = await make(<String, Object>{});
       expect(c.read(returnLoopEnabledProvider), isFalse);
-      await c.read(returnDaysProvider.notifier).record(ReturnAct.adhkar);
-      expect(c.read(returnDaysProvider), isEmpty);
+      expect(c.read(quietDoneWarmLineProvider), isNull);
       expect(
-        c.read(sharedPreferencesProvider).getStringList('ar.return.days'),
+        c.read(sharedPreferencesProvider).getString(TrackingStore.key),
         isNull,
       );
-      expect(c.read(returnMessageProvider), isNull);
     });
 
     test('on: records once per day and persists', () async {
       final ProviderContainer c = await make(<String, Object>{
         'ar.return.enabled': true,
       });
-      final ReturnDaysController d = c.read(returnDaysProvider.notifier);
-      await d.record(ReturnAct.quran, now: DateTime(2026, 10, 20));
-      await d.record(ReturnAct.lesson, now: DateTime(2026, 10, 20));
-      await d.record(ReturnAct.adhkar, now: DateTime(2026, 10, 21));
-      expect(c.read(returnDaysProvider), days(<int>[20, 21]));
+      final TrackingStore d = c.read(trackingStoreProvider.notifier);
+      await d.record(TrackingAct.quran, now: DateTime(2026, 10, 20));
+      await d.record(TrackingAct.quran, now: DateTime(2026, 10, 20));
+      await d.record(TrackingAct.dhikr, now: DateTime(2026, 10, 21));
+      expect(c.read(trackingStoreProvider)[TrackingAct.quran], <String>{
+        '2026-10-20',
+      });
+      expect(c.read(trackingStoreProvider)[TrackingAct.dhikr], <String>{
+        '2026-10-21',
+      });
       expect(
-        c.read(sharedPreferencesProvider).getStringList('ar.return.days'),
-        <String>['2026-10-20', '2026-10-21'],
+        c.read(sharedPreferencesProvider).getString(TrackingStore.key),
+        isNotNull,
       );
     });
 
-    test('switching off erases the days', () async {
+    test('switching off erases the days it saved', () async {
       final ProviderContainer c = await make(<String, Object>{
         'ar.return.enabled': true,
         'ar.return.days': <String>['2026-10-20'],
+        TrackingStore.key: '{"quran":["2026-10-20"],"dhikr":[],"lesson":[]}',
       });
-      expect(c.read(returnDaysProvider), isNotEmpty);
+      expect(c.read(trackingStoreProvider)[TrackingAct.quran], isNotEmpty);
       await c.read(returnLoopEnabledProvider.notifier).set(false);
       expect(c.read(returnLoopEnabledProvider), isFalse);
-      expect(c.read(returnDaysProvider), isEmpty);
-      expect(
-        c.read(sharedPreferencesProvider).containsKey('ar.return.days'),
-        isFalse,
-      );
+      expect(c.read(trackingStoreProvider)[TrackingAct.quran], isEmpty);
+      final SharedPreferences p = c.read(sharedPreferencesProvider);
+      expect(p.containsKey(TrackingStore.key), isFalse);
+      expect(p.containsKey('ar.return.days'), isFalse);
     });
 
     test('the code switch is on and the stored key stays local', () {
@@ -237,21 +161,41 @@ void main() {
       expect(tester.takeException(), isNull);
     });
 
-    testWidgets('card shows the positive count only when opted in', (
-      tester,
-    ) async {
+    testWidgets('card welcomes a first log only when opted in', (tester) async {
       final String t1 = _stamp(DateTime.now());
-      final String t0 = _stamp(
-        DateTime.now().subtract(const Duration(days: 1)),
-      );
       await pumpCard(
         tester,
         prefs: <String, Object>{
           'ar.return.enabled': true,
-          'ar.return.days': <String>[t0, t1],
+          TrackingStore.key: '{"quran":["$t1"],"dhikr":[],"lesson":[]}',
         },
       );
-      expect(find.text('You came back 2 days.'), findsOneWidget);
+      expect(
+        find.text(
+          'Your first one is logged. Welcome, and thank you for being here.',
+        ),
+        findsOneWidget,
+      );
+      expect(find.byKey(const Key('quiet-done-returned')), findsOneWidget);
+    });
+
+    testWidgets('card shows no count or run line, ever', (tester) async {
+      final DateTime n = DateTime.now();
+      final List<String> many = <String>[
+        for (int i = 0; i < 30; i++)
+          _stamp(DateTime(n.year, n.month, n.day - i)),
+      ];
+      await pumpCard(
+        tester,
+        prefs: <String, Object>{
+          'ar.return.enabled': true,
+          TrackingStore.key:
+              '{"quran":${many.map((String e) => '"$e"').toList()},"dhikr":[],"lesson":[]}',
+        },
+      );
+      expect(find.byKey(const Key('quiet-done-returned')), findsNothing);
+      expect(find.textContaining('came back'), findsNothing);
+      expect(find.textContaining('days'), findsNothing);
     });
 
     testWidgets('large text, Elder Mode and RTL do not overflow', (

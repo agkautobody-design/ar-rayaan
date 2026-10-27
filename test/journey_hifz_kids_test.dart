@@ -92,7 +92,7 @@ void main() {
         ringValue(const RingInputs(adhkarDone: 900, adhkarTotal: 600)),
         closeTo(0.45, 1e-9),
       );
-      expect(daysThisWeekText(0), 'None yet this week');
+      expect(daysThisWeekText(0), 'Nothing yet, start whenever you like');
       expect(daysThisWeekText(3), '3 of 7 days');
     });
   });

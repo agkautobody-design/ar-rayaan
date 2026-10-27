@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:ar_rayaan/app/core/providers.dart';
 import 'package:ar_rayaan/app/theme/app_theme.dart';
 import 'package:ar_rayaan/features/elder/application/elder_mode.dart';
@@ -78,16 +80,18 @@ void main() {
     });
 
     test('milestone: "I completed ..." with the link and credit', () {
-      final String t = milestoneShareText('reading Surah Al-Fatihah');
-      expect(t, contains('I completed reading Surah Al-Fatihah on Ar-Rayaan.'));
+      final String t = milestoneShareText('the lesson “Names of Allah”');
+      expect(t, contains('I completed the lesson “Names of Allah” on Ar-Rayaan.'));
       expect(t, contains(kInviteUrl));
       expect(t.trimRight(), endsWith(kSharedFromLine));
     });
 
-    test('come-back line carries a count and nothing else personal', () {
-      final String t = comeBackShareText('the Qur’an', 7);
-      expect(t, contains('I came back to the Qur’an for 7 days on Ar-Rayaan.'));
-      expect(t, isNot(contains('prayer')));
+    test('only study milestones can be shared: no count or gap line exists', () {
+      final String src = File(
+        'lib/features/share/application/share_text.dart',
+      ).readAsStringSync();
+      expect(src.contains('comeBack'), isFalse);
+      expect(src.contains(' days on Ar-Rayaan'), isFalse);
     });
 
     test('an ayah names its reference, Arabic source and translation', () {
@@ -237,7 +241,7 @@ void main() {
       await pump(
         tester,
         Scaffold(
-          body: QuietDoneCard(shareText: milestoneShareText('an adhkar set')),
+          body: QuietDoneCard(shareText: milestoneShareText('a course')),
         ),
       );
       await tester.tap(find.byKey(const Key('quiet-done-share')));
@@ -246,7 +250,7 @@ void main() {
         tester
             .widget<SelectableText>(find.byKey(const Key('share-preview-text')))
             .data,
-        contains('I completed an adhkar set on Ar-Rayaan.'),
+        contains('I completed a course on Ar-Rayaan.'),
       );
     });
   });

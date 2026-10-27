@@ -1,108 +1,87 @@
-# Return loop: "days returned" and quiet completion moments
+# Return loop: My log (private totals) and quiet completion moments
 
-Status: built, owner-approved (Oct 2026). Both parts are small and can be
-switched off in code. Streaks and sharing (below, "Streaks and sharing") were
-added on top, also owner-approved.
+Status: built. Owner ruling on streaks, RESOLVED (Oct 2026), in his words:
 
-## The decision
+> not streaks but users can track, the app can track it for them, congratulate new users or people lacking, but no shaming for not being every day user or someone that doesn't log it in.
 
-The app used to say "no streaks, no totals" (habits_providers.dart,
-prayer_log.dart). The owner has narrowly approved two things:
+This replaces the earlier "streaks and days returned" design (a run of
+consecutive days with one grace day a week). That design is gone from the code.
 
-1. An optional, gentle "days returned" count.
-2. A quiet card at three natural finishing moments.
+## Rules that stand
 
-Everything else about the old rule still stands: no points, no confetti, no
-leaderboard, no push nag, no loss or guilt message. (The old "no share
-button" rule was lifted by the owner: see "Streaks and sharing".)
+- NO STREAKS, on any act (worship or study): no consecutive-day counts, no
+  reset-to-zero or loss mechanics, no "don't break the chain" framing, no
+  streak badge or share card.
+- Tracking is private and on-device. Counts are plain totals for a period
+  (this week, this month, all time). They never reset because a day was
+  missed, and the screen never shows a run length.
+- Encouragement, never shame. Banned everywhere: "you missed", "you failed",
+  "you broke", red or negative styling for gaps, loss counters, comparing to
+  others, leaderboards on worship, push notifications that scold. A gap is
+  neutral empty space.
+- Copy for religious acts does not imply points or reward-for-worship. No
+  points, coins, ads or ratings on religious acts (standing rule).
 
-## 1. Days returned (opt in)
+## My log
 
-- Settings, "COMING BACK", switch "Show days I came back". OFF by default.
-- Counts only Qur'an reading (tapping an ayah, or reaching the end of a
-  surah), adhkar (a tap on a counter) and lessons (finishing one). The enum
-  `ReturnAct` has exactly those three values: a prayer or any other
-  obligation cannot be recorded, by construction.
-- One grace day per calendar week (Monday to Sunday) is built in: one missed
-  day does not end the run. Two missed days in a row, or a second missed day
-  in the same week, quietly start a fresh run. Nothing is said about it.
-- Wording is positive only: "You came back N days." Shown from 2 days, in
-  Settings under the switch and on the completion card. Never when it is 0
-  or 1.
-- Local only: SharedPreferences keys `ar.return.enabled` and
-  `ar.return.days` (dates only, last 400 days). Not synced, not sent anywhere.
-- Switching it off deletes the stored days (silent reset).
-- Code: `lib/features/habits/application/return_loop.dart`, beside
-  habits_providers.dart. Maths is the pure `ReturnLoop.daysReturned`.
+- Screen `/my-log` (Menu, Settings "Open my log", Home card). Code in
+  `lib/features/tracking/`.
+- Tracks: Everything, Qur'an reading, Dhikr and tasbeeh, Prayers, Fasting,
+  Lessons. For each: This week (Monday to today), This month, All time, the
+  last day logged, and a month calendar of the days logged (filled = logged,
+  empty = nothing, no other state).
+- Sources: Qur'an, dhikr/tasbeeh and lesson days are recorded by the switch
+  ("Keep a private log", Settings under "Coming back", OFF by default) into
+  `ar.tracking.days` (dates only, about ten years, this device only). Prayers
+  are read from the prayer log (`ar.prayer.log.v1`; "prayed" and "late" count,
+  "not prayed" and "excused" add nothing and are not shown). Fasting is read
+  from the fasting log. Lessons also include the Academy activity days
+  (finishing a lesson or answering a review, which is how Hifz revision in the
+  Review Queue is logged).
+- Prayers show a count of prayers ("You have prayed 12 times this week"); the
+  other tracks count days.
+- `ReturnAct` has no prayer value: a prayer cannot be recorded by the switch.
+- Switching off erases the days the switch saved. Prayer and fasting logs stay.
+- Days saved by the earlier release under `ar.streaks.days` are read once and
+  moved to `ar.tracking.days`, so nobody loses what they logged.
 
-## 2. Quiet completion card
+## Encouragement (`lib/features/tracking/domain/encouragement.dart`)
 
-- Shown after: finishing an adhkar set, a surah read to its end (the end of
-  the surah stays on screen for 4 seconds), and the first lesson (a line
-  added to the existing lesson-complete sheet).
-- Text: "Done. May it be accepted." Plain words, not a ruling, no du'a text.
-  No du'a is shown; any du'a would have to come from the adhkar data with its
-  source, and none is used here.
-- Once per set or surah per day; the first lesson once ever. Not tied to the
-  switch above (the count line appears on it only when opted in).
-- Respects Elder Mode (larger text, 64dp button), large text (scrolls, no
-  fixed heights) and RTL (directional padding, centred text).
-- Code: `lib/features/habits/presentation/quiet_done.dart`.
+- Nothing logged: "Nothing is logged yet. Start whenever you like, there is no
+  rush."
+- First log: "Your first one is logged. Welcome, and thank you for being here."
+- First week of use: "Your first week with the log. Glad you are here."
+- Back after a gap of 7 days or more: "Welcome back, glad you're here."
+- No log for 3 days or more (and not new): an optional "A small step today?"
+  with "Not now". It is dismissible and stays away for the rest of that day.
+  It is shown inside the app only; there is no push notification for it.
+- Nothing special to say: nothing is said.
+
+## Journey ring
+
+Progress ring on My Journey, from totals only (adhkar counted today 45,
+surah opened 10, reflection 15, lesson 15, memorised ayat 15). No weight
+depends on a run. An empty ring reads as "start whenever you like".
+
+## Quiet completion card
+
+- Shown after: finishing an adhkar set, a surah read to its end, and the first
+  lesson. Text: "Done. May it be accepted." Plain words, not a ruling.
+- When the person is new or has just come back, one warm line is added (the
+  lines above). Never a count.
+- Once per set or surah per day; the first lesson once ever.
+- No Share button on the adhkar or Qur'an cards.
+
+## Sharing
+
+PENDING OWNER DECISION. Only study milestones are shared (a finished lesson or
+course; a Hifz section if one is added). Worship acts, counts and gaps are
+never offered for sharing. Every share still goes through the preview sheet.
 
 ## How to turn it off in code
 
-- Whole return loop (count and Settings switch): in `return_loop.dart` set
-  `const bool kReturnLoopEnabled = false;`. The switch disappears, nothing is
-  recorded, no count shows.
-- Quiet cards: in `quiet_done.dart` set `const bool kQuietDoneEnabled = false;`.
-
-## Owner notes
-
-- Changing the card wording: edit `kQuietDoneText` (test
-  test/return_loop_test.dart pins it, update both).
-- A user who wants to stop the count does it in Settings; nothing else needs
-  clearing.
-- Not built, on purpose: reminders, history view, goals, badges.
-
-## Streaks and sharing (owner-approved, Oct 2026)
-
-Streaks (screen `/streaks`, card on Home, code in `lib/features/streaks/`):
-
-- One switch, the same as before ("Keep my streaks" in Settings and on the
-  Streaks screen). OFF by default; Home shows a quiet invitation with "Turn on"
-  and "Not now". To default it ON, change the `?? false` in
+- Whole log and its Settings switch: `kReturnLoopEnabled = false` in
+  `lib/features/habits/application/return_loop.dart`.
+- Quiet cards: `kQuietDoneEnabled = false` in `quiet_done.dart`.
+- To default the log ON, change the `?? false` in
   `ReturnLoopEnabledController.build`.
-- Four streaks: Qur'an reading, dhikr and tasbeeh (adhkar taps and tasbeeh
-  taps), prayers logged, and days returned (any of Qur'an, dhikr, lessons).
-- Qur'an, dhikr and lessons are stored in `ar.streaks.days` (dates only,
-  last 400 days, this device only). Prayers are NOT stored again: the streak
-  is read from the prayer log the person already keeps. A day counts when at
-  least one prayer is marked prayed (on time or late). A day with only
-  "excused" marks is skipped: it never counts against anyone and never uses
-  the grace day.
-- Same grace rule as above (one forgiven day per Monday to Sunday week); the
-  maths is `StreakMath.run` (pure; a test checks it agrees with
-  `ReturnLoop.daysReturned` when nothing is excused).
-- The Streaks screen has a month calendar (done = filled, grace day = ring,
-  excused = dash), and the month's count. No "lost" or "broken" wording
-  anywhere (a test scans the sources).
-- Switching off erases the stored days. The prayer log is left alone.
-- `ReturnAct` still has no prayer value; the prayers streak is read-only.
-
-Sharing (`lib/features/share/`):
-
-- Every share goes through a preview sheet (`showSharePreview`) that shows
-  the exact text. Nothing is posted automatically. Where the browser has the
-  Web Share API the button says Share; elsewhere it says "Copy to share" and
-  copies with a "Copied" message.
-- Entry points: an ayah (its actions sheet; Arabic, translation, reference and
-  the Tanzil / Saheeh International credit), a dhikr or dua (only ones that
-  carry their source), a story chapter and a hadith (existing share buttons now
-  preview first), a milestone ("I completed ..." on the completion card after
-  an adhkar set or a surah, and on the lesson-complete sheet), a "came back N
-  days" line for Qur'an, dhikr or days returned, and an invitation to
-  https://ar-rayaan.onrender.com (Verse Cards screen).
-- Prayer streaks are never offered for sharing. Notes, the prayer log and
-  reading history are never part of any shared text.
-- Text only. An image card needs a canvas-to-file share path that is not in
-  the app yet (no new dependencies); not built.

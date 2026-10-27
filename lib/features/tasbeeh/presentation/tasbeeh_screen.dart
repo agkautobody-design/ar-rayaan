@@ -10,7 +10,7 @@ import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/theme/widgets/switch_row.dart';
 import '../../habits/application/return_loop.dart';
-import '../../streaks/application/streaks_providers.dart';
+import '../../tracking/application/tracking_providers.dart';
 import '../application/tasbeeh_providers.dart';
 import '../domain/tasbeeh_counter.dart';
 
@@ -55,7 +55,7 @@ class _TasbeehScreenState extends ConsumerState<TasbeehScreen>
   void _onTap() {
     final bool reached = ref.read(tasbeehControllerProvider.notifier).tap();
     unawaited(_haptic(strong: reached));
-    unawaited(noteStreak(ref, StreakAct.dhikr));
+    unawaited(noteTracking(ref, TrackingAct.dhikr));
   }
 
   /// A light tick on every tap, a heavier one when a round is complete.

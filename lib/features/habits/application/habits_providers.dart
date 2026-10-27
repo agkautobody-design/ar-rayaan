@@ -7,7 +7,7 @@ import '../../../app/core/providers.dart';
 
 /// The P1 habit layer (Wave A5): Qada make-up counter + fasting log.
 /// All data on-device only. The tone is the app's tone: these are gentle
-/// ledgers, never scoreboards — "days you returned," not streaks that shame.
+/// ledgers, never scoreboards: plain totals that only ever add up.
 class QadaController extends Notifier<Map<String, int>> {
   static const String _key = 'ar.habits.qada';
   static const List<String> prayers = <String>[
@@ -127,7 +127,7 @@ final NotifierProvider<FastingLogController, Set<String>> fastingLogProvider =
     );
 
 /// Dhikr ledger — how many remembrances were counted each day, saved on this
-/// device. A gentle ledger like the others: totals, never streaks.
+/// device. A gentle ledger like the others: plain totals.
 ///
 /// The Dhikr School calls [record] with the taps of a session as it ends
 /// (see the report for the one-line hook); until then the ledger simply

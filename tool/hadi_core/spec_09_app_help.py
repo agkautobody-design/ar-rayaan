@@ -26,17 +26,19 @@ I answer in English only. Ask me anything about Islam or the app, for example "h
   go=['/sources'],
   review='Statements about scope and limits only.')
 
-E('streaks-points',
-  m=[r'\bstreaks?\b', r'\bpoints?\b.*\b(?:app|hadi|game|games|quran|prayer|worship|earn|get|score|reward)\b', r'\b(?:app|hadi|game|games|worship)\b.*\bpoints?\b', r'\bcoins?\b', r'\bbadges?\b', r'\bleaderboards?\b', r'\blevels? up\b', r'\bgamif\w*\b', r'\bdays returned\b', r'\bcome back (?:streak|calendar)\b', r'\breward(?:s)? (?:in|for) the app\b', r'\bdoes the app (?:track|count|score)\b', r'\bwhat is keep my streaks\b', r'\bturn (?:off|on) streaks?\b'],
+E('tracking-points',
+  m=[r'\bstreaks?\b', r'\bpoints?\b.*\b(?:app|hadi|game|games|quran|prayer|worship|earn|get|score|reward)\b', r'\b(?:app|hadi|game|games|worship)\b.*\bpoints?\b', r'\bcoins?\b', r'\bbadges?\b', r'\bleaderboards?\b', r'\blevels? up\b', r'\bgamif\w*\b', r'\bdays returned\b', r'\bcome back (?:streak|calendar)\b', r'\breward(?:s)? (?:in|for) the app\b', r'\bdoes the app (?:track|count|score)\b', r'\bwhat is keep my streaks\b', r'\bturn (?:off|on) streaks?\b', r'\bkeep a private log\b', r'\bmy log\b', r'\bprivate log\b'],
   x=[r'\b(?:good deeds?|hasanat|hasanah|reward from allah|reward in|rewards? of)\b'],
-  topic='streaks',
+  topic='my log',
   text="""
-Streaks are optional and are off until you turn them on. The switch is called "Keep my streaks": you find it in Settings under "Coming back", and on the Streaks screen.
+Ar-Rayaan does not count days in a row, and nothing in it starts over when you take a break. If you like, you can keep a private log: the switch is called "Keep a private log", in Settings under "Coming back" and on the My log screen.
 
-When it is on, the app keeps a private calendar, on your device only, of the days you read the Qur'an, do dhikr and tasbeeh, log a prayer, or come back to the app. The calendar is gentle on purpose: one day off each week is forgiven. There are no points, coins, ranks or leaderboards for worship anywhere in the app; the calendar only helps you see your own pattern, and your reward is with Allah. The prayer calendar is read from your own prayer log, stays private and can never be shared. If you switch streaks off, the saved days are erased; your prayer log stays as it is.
+When it is on, the app adds up what you read in the Qur'an, your dhikr and tasbeeh and your lessons. My log also reads your own prayer log and fasting log. You see plain totals for this week, this month and all time, the last day you logged, and a calendar of the days you logged. A day with nothing on it is just empty space. It all stays on your device and is never shared.
+
+There are no points, coins, ranks or leaderboards for worship anywhere in the app, and no scolding when you have been away: when you come back you are simply welcomed. If you switch the log off, the days it saved for Qur'an, dhikr and lessons are erased; your prayer log and fasting log stay as they are.
 """,
-  go=['/streaks', '/settings'],
-  review='Checked against the Streaks and Settings screens by test/hadi_eval/app_help_facts_test.dart.')
+  go=['/my-log', '/settings'],
+  review='Checked against the My log and Settings screens by test/hadi_eval/app_help_facts_test.dart.')
 
 E('language-help',
   m=[r'\b(?:change|switch|set|choose|pick|select|use) (?:the |my )?(?:app )?language\b', r'\blanguage (?:of|in|for|settings?|options?|menu)\b.*\b(?:app|hadi)\b', r'\b(?:app|hadi)\b.*\blanguages?\b', r'\bis (?:the )?(?:app|hadi) (?:available|translated|offered) in\b', r'\b(?:does|can) (?:the )?(?:app|hadi) (?:speak|understand|support|answer in|reply in|work in|talk in)\b', r'\b(?:app|hadi) in (?:urdu|arabic|bangla|bengali|french|turkish|malay|indonesian|hindi|spanish|german|english)\b',

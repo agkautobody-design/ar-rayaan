@@ -1,7 +1,7 @@
 /// How the My Journey ring is worked out. Pure Dart, so the arithmetic can
 /// be tested and the screen can explain it in plain words.
 ///
-/// The ring starts at 0% and moves only when the person does something the
+/// The ring starts empty (a calm invitation, never a failure) and moves only when the person does something the
 /// app can actually see: counting adhkar today, opening a surah, saving a
 /// reflection, finishing a lesson, writing down memorised ayat.
 library;
@@ -98,11 +98,14 @@ double ringValue(RingInputs i) {
 
 /// Text for the days-this-week line.
 String daysThisWeekText(int days) =>
-    days <= 0 ? 'None yet this week' : '$days of 7 days';
+    days <= 0 ? 'Nothing yet, start whenever you like' : '$days of 7 days';
 
 /// Plain sentence under the ring.
+const String kRingEmptyLine = 'Start whenever you like.';
+
 const String kRingExplanation =
-    'This ring starts at 0% and fills as you do five things: count your '
+    'This ring starts empty, and that is fine: start whenever you like. It '
+    'fills as you do five things: count your '
     'adhkar today (up to 45%), then save a reflection, finish a lesson and '
     'write down ayat you have memorised (15% each), and open a surah (10%). '
     'It is a starting guide, not a score.';

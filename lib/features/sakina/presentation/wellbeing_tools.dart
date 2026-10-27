@@ -91,7 +91,7 @@ class _MoodCheckInScreenState extends ConsumerState<MoodCheckInScreen> {
       title: 'How are you today?',
       children: <Widget>[
         Text(
-          'One tap, only for you. It is not a score and not a streak, and it '
+          'One tap, only for you. It is not a score and not a tally, and it '
           'stays on this device.',
           style: AppText.caption.copyWith(height: 1.5),
         ),

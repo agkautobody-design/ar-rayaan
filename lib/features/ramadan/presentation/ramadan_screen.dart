@@ -343,7 +343,7 @@ class _RamadanState extends ConsumerState<RamadanScreen> {
   static String fastStateName(int state) => switch (state) {
         1 => 'fasted',
         2 => 'excused',
-        3 => 'make-up due',
+        3 => 'to make up',
         _ => 'not marked',
       };
 
@@ -374,20 +374,20 @@ class _RamadanState extends ConsumerState<RamadanScreen> {
             borderRadius: BorderRadius.circular(10),
             color: st == 1 ? AppColors.gold.withValues(alpha: 0.35)
                 : st == 2 ? AppColors.sand.withValues(alpha: 0.25)
-                : st == 3 ? Colors.orange.withValues(alpha: 0.25)
+                : st == 3 ? AppColors.sand.withValues(alpha: 0.12)
                 : const Color(0x1405090F),
             border: Border.all(color: AppColors.gold.withValues(alpha: 0.25)),
           ),
           child: Column(mainAxisSize: MainAxisSize.min, children: [
             Text('$d', style: TextStyle(
                 fontSize: 12,
-                color: st == 3 ? Colors.orangeAccent : AppColors.sand)),
+                color: AppColors.sand)),
             SizedBox(
               height: 14,
               child: mark == null
                   ? null
                   : Icon(mark, size: 12,
-                      color: st == 3 ? Colors.orangeAccent : AppColors.goldLight),
+                      color: AppColors.goldLight),
             ),
           ]),
         ),
@@ -487,14 +487,14 @@ class _RamadanState extends ConsumerState<RamadanScreen> {
     final excused = _fast.values.where((v) => v == 2).length;
     final makeup = _fast.values.where((v) => v == 3).length;
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Text('FASTING LOG · $fasted fasted · $excused excused · $makeup makeup-due',
+      Text('FASTING LOG · $fasted fasted · $excused excused · $makeup to make up',
           style: AppText.eyebrow),
       const SizedBox(height: 6),
       GlassCard(child: Wrap(spacing: 4, runSpacing: 4, children: [
         for (var d = 1; d <= _season.length; d++) _fastCell(d),
       ])),
-      Text('Tap a day to change it: not marked → fasted → excused → make-up due. '
-          'A fast missed for a valid reason is made up on other days '
+      Text('Tap a day to change it: not marked → fasted → excused → to make up. '
+          'A fast not kept for a valid reason is made up on other days '
           '(Qur’an 2:184). Each day also shows its state as a symbol and in '
           'words for a screen reader.', style: AppText.bodyMuted.copyWith(fontSize: 12)),
       const SizedBox(height: 12),

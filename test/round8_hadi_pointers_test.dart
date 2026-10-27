@@ -5,10 +5,11 @@ import 'package:flutter_test/flutter_test.dart';
 /// Round 8: the questions testers asked about the app itself that Hadi
 /// answered with "I don't have a checked answer".
 void main() {
-  test('a streak question points at the Streaks screen', () {
+  test('a streak question points at My log and never uses the word', () {
     final String? a = HadiFinder.pointerReply('What is a streak in this app?');
     expect(a, isNotNull);
-    expect(a, contains('[GO:/streaks]'));
+    expect(a, contains('[GO:/my-log]'));
+    expect(a!.toLowerCase(), isNot(contains('streak')));
   });
 
   test('an offline or download question points at Downloads', () {
@@ -45,9 +46,9 @@ void main() {
   });
 
   test('both screens are whitelisted for Hadi buttons', () {
-    expect(HadiTokens.isAllowed('/streaks'), isTrue);
+    expect(HadiTokens.isAllowed('/my-log'), isTrue);
     expect(HadiTokens.isAllowed('/downloads'), isTrue);
-    expect(kHadiRouteNames['/streaks'], isNotNull);
+    expect(kHadiRouteNames['/my-log'], isNotNull);
     expect(kHadiRouteNames['/downloads'], isNotNull);
   });
 }

@@ -4,7 +4,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 /// Round 8: the settings switch rows showed a wrapped subtitle cut to its
-/// first line with an ellipsis ("Gentle streaks for Qur'an reading, ...").
+/// first line with an ellipsis ("Private log for Qur'an reading, ...").
 /// The cause was an ellipsis overflow on a text with no line limit.
 void main() {
   Widget host(Widget child) => MaterialApp(
@@ -15,7 +15,7 @@ void main() {
       (WidgetTester tester) async {
     await tester.pumpWidget(
       host(const WholeWordText(
-        'Gentle streaks for Qur’an reading, dhikr and lessons, kept on '
+        'Totals and a calendar for Qur’an reading, dhikr and lessons, kept on '
         'this device only.',
       )),
     );

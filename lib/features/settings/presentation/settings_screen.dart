@@ -336,11 +336,11 @@ class SettingsScreen extends ConsumerWidget {
                           ),
                           child: SwitchRow(
                             icon: Icons.wb_twilight_outlined,
-                            title: 'Keep my streaks',
-                            subtitle: 'Gentle streaks for Qur\u2019an reading, '
-                                'dhikr and lessons, kept on this device '
-                                'only. Prayers are read from your own '
-                                'prayer log and are never shared.',
+                            title: 'Keep a private log',
+                            subtitle: 'Totals and a calendar for Qur\u2019an '
+                                'reading, dhikr and lessons, kept on this '
+                                'device only. Prayers and fasting come from '
+                                'your own logs and are never shared.',
                             value: ref.watch(returnLoopEnabledProvider),
                             onChanged: (bool v) => unawaited(
                               ref
@@ -351,8 +351,8 @@ class SettingsScreen extends ConsumerWidget {
                         ),
                         const SizedBox(height: 16),
                         Text(
-                          'One missed day each week is forgiven. Switching '
-                          'this off erases the count.',
+                          'It only adds up what you log. Switching this off '
+                          'erases the days it saved.',
                           style: AppText.bodyMuted.copyWith(
                             fontSize: 12,
                             height: 1.5,
@@ -360,18 +360,10 @@ class SettingsScreen extends ConsumerWidget {
                         ),
                         const SizedBox(height: 8),
                         TextButton(
-                          key: const Key('open-streaks'),
-                          onPressed: () => context.open(AppRoutes.streaks),
-                          child: const Text('Open my streaks'),
+                          key: const Key('open-my-log'),
+                          onPressed: () => context.open(AppRoutes.tracking),
+                          child: const Text('Open my log'),
                         ),
-                        if (ref.watch(returnMessageProvider) != null) ...<Widget>[
-                          const SizedBox(height: 8),
-                          Text(
-                            ref.watch(returnMessageProvider) ?? '',
-                            key: const Key('return-message'),
-                            style: AppText.body.copyWith(fontSize: 14),
-                          ),
-                        ],
                       ],
                       const SizedBox(height: 20),
                       Padding(

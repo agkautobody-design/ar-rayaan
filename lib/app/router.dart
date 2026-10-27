@@ -76,7 +76,7 @@ import '../features/settings/presentation/settings_screen.dart';
 import '../features/share/domain/handout.dart';
 import '../features/share/presentation/handout_screen.dart';
 import '../features/share/presentation/share_screen.dart';
-import '../features/streaks/presentation/streaks_screen.dart';
+import '../features/tracking/presentation/tracking_screen.dart';
 import '../features/sources/presentation/content_policy_screen.dart';
 import '../features/sources/presentation/sources_screen.dart';
 import '../features/stories/presentation/stories_screen.dart';
@@ -216,8 +216,8 @@ abstract final class AppRoutes {
   static const String calendar = '/calendar';
   static const String zakat = '/zakat';
   static const String share = '/share';
-  /// Gentle streaks: Qur'an, dhikr, prayers logged and days returned.
-  static const String streaks = '/streaks';
+  /// My log: private totals and a calendar of what the person logged.
+  static const String tracking = '/my-log';
   static const String settings = '/settings';
   static const String sources = '/sources';
   static const String sourcesPolicy = '/sources/policy';
@@ -836,8 +836,8 @@ GoRouter buildRouter({String initialLocation = '/'}) {
         pageBuilder: (c, s) => _fade(const ShareScreen()),
       ),
       GoRoute(
-        path: AppRoutes.streaks,
-        pageBuilder: (c, s) => _fade(const StreaksScreen()),
+        path: AppRoutes.tracking,
+        pageBuilder: (c, s) => _fade(const TrackingScreen()),
       ),
       GoRoute(
         path: AppRoutes.myAdditions,

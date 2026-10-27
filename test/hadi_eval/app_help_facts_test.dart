@@ -12,13 +12,14 @@ String src(String path) => File(path).readAsStringSync();
 Future<String> ask(String q) => const OfflineHadiProvider().ask(q, const <HadiMessage>[]);
 
 void main() {
-  test('streaks answer names the switch and section that exist', () async {
+  test('the private-log answer names the switch and section that exist', () async {
     final a = await ask('How do streaks work?');
-    expect(a, contains('Keep my streaks'));
-    expect(src('lib/features/settings/presentation/settings_screen.dart'), contains("'Keep my streaks'"));
+    expect(a, contains('Keep a private log'));
+    expect(src('lib/features/settings/presentation/settings_screen.dart'), contains("'Keep a private log'"));
     expect(src('lib/features/settings/presentation/settings_screen.dart'), contains("'COMING BACK'"));
-    expect(src('lib/features/streaks/presentation/streaks_screen.dart'), contains("'Keep my streaks'"));
+    expect(src('lib/features/tracking/presentation/tracking_screen.dart'), contains("'Keep a private log'"));
     expect(a.toLowerCase(), isNot(contains('leaderboard rank')));
+    expect(a.toLowerCase(), isNot(contains('streak')));
   });
 
   test('downloads answer names the Wi-Fi only switch', () async {

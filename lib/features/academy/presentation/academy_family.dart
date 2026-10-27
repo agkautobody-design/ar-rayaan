@@ -1063,7 +1063,7 @@ class _ReminderCard extends ConsumerWidget {
           Text(
             'Off by default. One quiet notification a day at most, on this '
             'device only: nothing is sent anywhere, and it never mentions a '
-            'child or counts a streak.',
+            'child or counts anything.',
             style: AppText.caption,
           ),
           SwitchListTile(
