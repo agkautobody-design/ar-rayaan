@@ -34,7 +34,7 @@ dependencies:
   crypto: ^3.0.7
   # Keeps a person's own AI key in the platform's secure store (Keystore /
   # Keychain). Never used in a browser: see ApiKeyVault.
-  flutter_secure_storage: ^9.2.4
+  flutter_secure_storage: ^10.3.4
   # Native adhan notifications and live compass (worship wave). Pinned to
   # versions verified on pub.dev on 2026-10-20. Every call site is behind a
   # conditional import or a platform check, so the web build never runs them.
