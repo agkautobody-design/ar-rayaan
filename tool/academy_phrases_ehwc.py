@@ -255,6 +255,10 @@ P('wmns.tasbih', 'muslim', '2726', 86, 96, "Subhaanal-laahi wa bihamdihi 'adada 
     ('khalqihi', 'His creation'), ('wa-ridaa', 'and the pleasure of'), ('nafsihi', 'Himself'), ('wa-zinata', 'and the weight of'),
     ("'arshihi", 'His Throne'), ('wa-midaada', 'and the ink of'), ('kalimaatihi', 'His words')))
 
+P('char.refuge', 'bukhari', '3282', 48, 51, "A'oodhu billaahi minash-shaytaan",
+  'I seek refuge with Allah from Satan.',
+  W(("a'oodhu", 'I seek refuge'), ('billaahi', 'with Allah'), ('mina', 'from'), ('ash-shaytaan', 'Satan')))
+
 
 def spec_by_id():
     return {s['id']: s for s in SPEC}

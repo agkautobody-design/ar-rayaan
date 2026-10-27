@@ -1264,6 +1264,36 @@
    "copiedFrom": "Muslim 2726 (fawazahmed0/hadith-api, ara-muslim)",
    "needsScholarReview": true,
    "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "char.refuge": {
+   "arabic": "أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ",
+   "status": "verified",
+   "translit": "A'oodhu billaahi minash-shaytaan",
+   "meaning": "I seek refuge with Allah from Satan.",
+   "words": [
+    {
+     "tr": "a'oodhu",
+     "en": "I seek refuge"
+    },
+    {
+     "tr": "billaahi",
+     "en": "with Allah"
+    },
+    {
+     "tr": "mina",
+     "en": "from"
+    },
+    {
+     "tr": "ash-shaytaan",
+     "en": "Satan"
+    }
+   ],
+   "sources": [
+    "Bukhari 3282"
+   ],
+   "copiedFrom": "Bukhari 3282 (fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is copied from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
   }
  }
 }

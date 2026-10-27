@@ -76,12 +76,40 @@
   "grade": "Hasan (Al-Albani); Hasan (Muhammad Muhyi Al-Din Abdul Hamid); Hasan (Shuaib Al Arnaut); Hasan (Zubair Ali Zai)",
   "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
  },
+ "abudawud:4782": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Dharr: when one of you is angry while standing he should sit; if the anger goes well, otherwise lie down",
+  "grade": "Sahih (Al-Albani); Sahih (Muhammad Muhyi Al-Din Abdul Hamid); Sahih (Zubair Ali Zai)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
+ },
+ "abudawud:4811": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Hurayrah: he who does not thank the people is not thankful to Allah",
+  "grade": "Sahih (Al-Albani); Sahih (Muhammad Muhyi Al-Din Abdul Hamid); Sahih (Shuaib Al Arnaut); Isnaad Sahih (Zubair Ali Zai)",
+  "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
+ },
  "abudawud:5217": {
   "checked": "2026-10-27",
   "verdict": "ok",
   "note": "Aisha: I never saw anyone more like the Messenger of Allah in gravity, calm deportment and speech than Fatimah",
   "grade": "Sahih (Al-Albani); Sahih (Muhammad Muhyi Al-Din Abdul Hamid); Hasan Sahih (Shuaib Al Arnaut); Isnaad Hasan (Zubair Ali Zai)",
   "grader": "Darussalam (Zubair Ali Zai) and al-Albani as listed; read in the fawazahmed0/hadith-api corpus"
+ },
+ "bukhari:1": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Umar: deeds depend on intentions; whoever emigrated for worldly benefit or a woman, his emigration is for that",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:1130": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Al-Mughirah: the Prophet prayed until his feet swelled; he said should I not be a thankful slave",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
  },
  "bukhari:1153": {
   "checked": "2026-10-27",
@@ -136,6 +164,13 @@
   "checked": "2026-10-27",
   "verdict": "ok",
   "note": "Abdullah: he who slaps his cheeks, tears his clothes and follows the ways of the Days of Ignorance is not one of us",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:13": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Anas: none of you has faith until he wishes for his brother what he likes for himself",
   "grade": "Sahih",
   "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
  },
@@ -216,10 +251,24 @@
   "grade": "Sahih",
   "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
  },
+ "bukhari:1469": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Said: whoever remains patient, Allah will make him patient; no blessing better and greater than patience",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
  "bukhari:2035": {
   "checked": "2026-10-27",
   "verdict": "ok",
   "note": "Safiyya: visited the Prophet in itikaf, he walked her to the gate; two Ansari men passed; he said she is Safiyya bint Huyayy; Satan reaches as blood does, he feared a whisper",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:220": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Hurayrah: a bedouin urinated in the mosque; the Prophet ordered water poured; you were sent to make things easy",
   "grade": "Sahih",
   "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
  },
@@ -234,6 +283,13 @@
   "checked": "2026-10-27",
   "verdict": "ok",
   "note": "Anas: no Muslim plants a tree or sows seed and a bird, person or animal eats from it but it is a charitable gift for him",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:2442": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Ibn Umar: a Muslim is the brother of a Muslim, does not oppress him nor hand him over; whoever fulfils his brother's need, Allah fulfils his; whoever screens a Muslim, Allah screens him",
   "grade": "Sahih",
   "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
  },
@@ -300,10 +356,24 @@
   "grade": "Sahih",
   "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
  },
+ "bukhari:3282": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Sulayman ibn Surad: a man angry with red face; the Prophet said if he says I seek refuge with Allah from Satan the anger would go",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
  "bukhari:3287": {
   "checked": "2026-10-27",
   "verdict": "ok",
   "note": "Alqama and Abu ad-Darda: the person whom Allah protected from Satan through the tongue of the Prophet was Ammar",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:33": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Hurayrah: signs of a hypocrite are three: lies when he speaks, breaks a promise, betrays a trust",
   "grade": "Sahih",
   "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
  },
@@ -454,6 +524,13 @@
   "grade": "Sahih",
   "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
  },
+ "bukhari:4141": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Aisha's slander account: Mistah among the slanderers; Abu Bakr swore to stop his support; 24:22 revealed; Abu Bakr resumed giving",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
  "bukhari:4200": {
   "checked": "2026-10-27",
   "verdict": "ok",
@@ -465,6 +542,13 @@
   "checked": "2026-10-27",
   "verdict": "ok",
   "note": "Anas: the Prophet married Safiyya on the way from Khaybar, the walima of hais, and made a cushion of his cloak and put his knee for her foot to mount the camel",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:4418": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Kab ibn Malik: stayed behind from Tabuk, told the Prophet the truth, waited, Allah forgave the three and revealed 9:118-119",
   "grade": "Sahih",
   "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
  },
@@ -521,6 +605,13 @@
   "checked": "2026-10-27",
   "verdict": "ok",
   "note": "Aisha: the Prophet examined believing women who migrated by the verse of the pledge, accepted by words, his hand never touched a woman",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:4918": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Haritha ibn Wahb: people of Paradise are the weak and poor looked down upon; people of the Fire are the violent, arrogant and stubborn",
   "grade": "Sahih",
   "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
  },
@@ -650,10 +741,73 @@
   "grade": "Sahih",
   "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
  },
+ "bukhari:5991": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abdullah ibn Amr: the one who keeps ties is not the one who repays but the one who keeps ties with relatives who cut him",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
  "bukhari:6000": {
   "checked": "2026-10-27",
   "verdict": "ok",
   "note": "Abu Huraira: Allah divided mercy into one hundred parts, kept ninety-nine, sent one down to the earth; so the mare lifts her hoof from her young",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:6011": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "An-Numan ibn Bashir: the believers in mercy, love and kindness are like one body; if a part is unwell the whole shares sleeplessness and fever",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:6018": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Hurayrah: whoever believes in Allah and the Last Day should not harm his neighbour, should honour his guest, and speak good or keep quiet",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:6025": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Anas: a bedouin urinated in the mosque and people ran to beat him; the Prophet said leave him, then had water poured on it",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:6064": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Hurayrah: beware of suspicion; do not spy, be jealous, desert or hate one another; be brothers",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:6072": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Anas: any slave girl of Madinah could take the Prophet by the hand and take him wherever she wished",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:6094": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abdullah ibn Masud: truthfulness leads to righteousness and Paradise; lying leads to wickedness and the Fire; a man keeps lying until written a liar",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:6114": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Hurayrah: the strong is not the one who overcomes people by strength but who controls himself in anger",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:6116": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Hurayrah: a man asked for advice and the Prophet said do not become angry, repeated",
   "grade": "Sahih",
   "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
  },
@@ -720,6 +874,13 @@
   "grade": "Sahih",
   "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
  },
+ "bukhari:6446": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Hurayrah: wealth is not having many possessions but sufficiency in the soul",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
  "bukhari:6464": {
   "checked": "2026-10-27",
   "verdict": "ok",
@@ -731,6 +892,20 @@
   "checked": "2026-10-27",
   "verdict": "ok",
   "note": "Abu Huraira: Allah created mercy in one hundred parts; had the non-believer known all the mercy he would not lose hope of Paradise; had the believer known all the punishment he would not feel safe from the Fire",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:6474": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Sahl ibn Sad: whoever guarantees what is between his jaws and between his legs, I guarantee him Paradise",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:6478": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Hurayrah: a servant may utter a word that pleases Allah and be raised in degrees, or a word that displeases Allah and be thrown into the Fire",
   "grade": "Sahih",
   "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
  },
@@ -748,10 +923,24 @@
   "grade": "Sahih",
   "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
  },
+ "bukhari:676": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Al-Aswad asked Aisha what the Prophet did at home: he served his family and went to prayer when it was time",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
  "bukhari:6764": {
   "checked": "2026-10-27",
   "verdict": "ok",
   "note": "Usama: a Muslim cannot inherit from a disbeliever nor a disbeliever from a Muslim",
+  "grade": "Sahih",
+  "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "bukhari:73": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Ibn Masud: do not wish to be like anyone except two: one given wealth who spends it rightly, one given wisdom who acts on it and teaches it",
   "grade": "Sahih",
   "grader": "Sahih al-Bukhari (compiler's criteria; sunnah.com shows no separate grade)"
  },
@@ -857,6 +1046,13 @@
   "checked": "2026-10-27",
   "verdict": "ok",
   "note": "Abu Mas'ud al-Ansari: one who guides to something good has a reward similar to that of its doer",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "muslim:1905": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Hurayrah: the first judged: a martyr, a reciter-scholar and a rich giver, each did it for praise and is cast into the Fire",
   "grade": "Sahih",
   "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
  },
@@ -986,6 +1182,41 @@
   "grade": "Sahih",
   "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
  },
+ "muslim:2586": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "An-Numan ibn Bashir: believers in mutual love and fellow-feeling are like one body; when a limb aches the whole body aches",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "muslim:2588": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Hurayrah: charity does not decrease wealth; no one forgives but Allah increases his honour; no one humbles himself for Allah but Allah raises him",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "muslim:2589": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Hurayrah: backbiting is talking about your brother in a way he dislikes; if it is in him it is backbiting, if not it is slander",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "muslim:2592": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Jarir: he who is deprived of tender feelings is deprived of good",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "muslim:2593": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Aisha: Allah is kind and loves kindness and gives for kindness what He does not give for severity",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
  "muslim:2632": {
   "checked": "2026-10-27",
   "verdict": "ok",
@@ -1035,6 +1266,13 @@
   "grade": "Sahih",
   "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
  },
+ "muslim:2749": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Hurayrah: if you did not sin Allah would replace you with people who sin and seek forgiveness and He would pardon them",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
  "muslim:2752": {
   "checked": "2026-10-27",
   "verdict": "ok",
@@ -1042,10 +1280,38 @@
   "grade": "Sahih",
   "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
  },
+ "muslim:2758": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Hurayrah, hadith qudsi: a servant sins and asks forgiveness, Allah forgives, repeated; do what you like, I have forgiven you",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
  "muslim:2877": {
   "checked": "2026-10-27",
   "verdict": "ok",
   "note": "Jabir: three days before his death: none of you should die but hoping good from Allah",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "muslim:2963": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Hurayrah: look at those below you in wealth and do not look at those above, so you do not disparage Allah's favours",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "muslim:2985": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Abu Hurayrah, hadith qudsi: I do not need a partner; whoever does a deed associating another with Me, I leave him with the one he associated",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "muslim:2999": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Suhayb: strange are the affairs of the believer: thanks in ease and patience in hardship, both good",
   "grade": "Sahih",
   "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
  },
@@ -1067,6 +1333,13 @@
   "checked": "2026-10-27",
   "verdict": "ok",
   "note": "Uqba bin Amir: three times the Prophet forbade praying or burying our dead: sunrise until fully up, midday until the sun passes the meridian, and when setting until it sets",
+  "grade": "Sahih",
+  "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
+ },
+ "muslim:91": {
+  "checked": "2026-10-27",
+  "verdict": "ok",
+  "note": "Ibn Masud: no one with a mustard seed of pride enters Paradise; pride is disdaining the truth and contempt for people; Allah is graceful and loves grace",
   "grade": "Sahih",
   "grader": "Sahih Muslim (compiler's criteria; sunnah.com shows no separate grade)"
  },
