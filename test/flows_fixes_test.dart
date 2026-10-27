@@ -269,6 +269,12 @@ void main() {
         );
         await tester.pump(const Duration(milliseconds: 100));
       }
+      expect(
+        find.byType(Scrollable),
+        findsWidgets,
+        reason: 'spinner=${find.byType(CircularProgressIndicator).evaluate().length} '
+            'error=${find.text('Could not load Ramadan.').evaluate().length}',
+      );
       return handle;
     }
 
