@@ -36,6 +36,18 @@ import '../grounding/minor_signal.dart';
 import '../grounding/passage.dart';
 import '../grounding/ruling_gate.dart';
 import '../grounding/support_signal.dart';
+import '../../support/domain/knowledge_answerer.dart';
+import '../../support/domain/conversation_moves.dart';
+import '../../support/domain/tone.dart';
+import '../../support/application/support_settings.dart';
+import '../../support/data/pack_repository.dart';
+import '../../support/domain/support_pack.dart';
+import '../../support/domain/checkin_scheduler.dart';
+import '../../support/domain/emotion_intent.dart';
+import '../../support/domain/online_support_policy.dart';
+import '../../support/domain/quick_exit_signal.dart';
+import '../../support/domain/user_memory.dart';
+import '../../support/domain/support_engine.dart';
 import 'hadi_bookmark.dart';
 import 'hadi_stats.dart';
 import 'local_knowledge_provider.dart';
@@ -449,7 +461,112 @@ class HadiController extends Notifier<HadiState> {
         Future<void>.microtask(() => ask(seed));
       }
     } catch (_) {}
+    messages = _withCheckin(messages);
     return HadiState(messages: messages, live: _apiKey != null, madhhab: madhhab);
+  }
+
+  /// The owner's own line, used the first time and as one variant after.
+  static const String kCheckinLine =
+      'No agenda, I just like to ask now and then: how are you really doing?';
+
+  /// Adds the gentle check-in to the opening of a visit when it is due.
+  /// In-app only (never a notification). Recording that it was shown happens
+  /// here, as if ignored, so closing the app cannot make it appear twice in
+  /// one interval; an answer then shortens the wait.
+  List<HadiMessage> _withCheckin(List<HadiMessage> messages) {
+    try {
+      final SupportSettingsNotifier n = ref.read(supportSettingsProvider.notifier);
+      final SupportSettings s = ref.read(supportSettingsProvider);
+      if (s.privateMode) return messages;
+      final DateTime now = DateTime.now();
+      if (s.checkin.lastAsked == null) {
+        // First open: start the clock, ask nothing.
+        Future<void>.microtask(() => n.saveCheckin(CheckinScheduler.start(s.checkin, now)));
+        return messages;
+      }
+      if (!CheckinScheduler.isDue(s.checkin, now)) return messages;
+      String line = kCheckinLine;
+      final SupportSnippet? sn = _checkinSnippet(s, now);
+      if (s.checkin.nextDue != null && sn != null) line = sn.textIn(s.language);
+      Future<void>.microtask(() => n.saveCheckin(
+            CheckinScheduler.after(s.checkin, CheckinAnswer.ignored, now),
+          ));
+      return <HadiMessage>[
+        ...messages,
+        HadiMessage(fromHadi: true, text: line, ephemeral: true, checkin: true),
+      ];
+    } catch (_) {
+      return messages;
+    }
+  }
+
+  SupportSnippet? _checkinSnippet(SupportSettings s, DateTime now) {
+    final SupportPack? p = SupportPackRepository.byName('checkin');
+    if (p == null || p.expiredAt(now)) return null;
+    final List<SupportSnippet> options = <SupportSnippet>[
+      for (final SupportSnippet x in p.snippets)
+        if (x.kind == 'checkin' && x.matchesAge('adult') && (SupportPackRepository.allowDraft || x.shippable)) x,
+    ];
+    if (options.isEmpty) return null;
+    return options[now.day % options.length];
+  }
+
+  /// The person answered the check-in. "Hard" opens a gentle conversation
+  /// and offers help only if wanted; the other answers just close it.
+  Future<void> answerCheckin(CheckinAnswer a) async {
+    final SupportSettingsNotifier n = ref.read(supportSettingsProvider.notifier);
+    final SupportSettings s = ref.read(supportSettingsProvider);
+    final DateTime now = DateTime.now();
+    await n.saveCheckin(CheckinScheduler.after(s.checkin, a, now));
+    final List<HadiMessage> kept = <HadiMessage>[
+      for (final HadiMessage m in state.messages)
+        if (!m.checkin) m,
+    ];
+    if (a == CheckinAnswer.hard) {
+      _lastSupportTopic = SupportTopic.general;
+      _hardCheckin = true;
+    }
+    String reply;
+    switch (a) {
+      case CheckinAnswer.okay:
+        reply = 'Glad to hear it. I am here whenever you want to talk.';
+      case CheckinAnswer.hard:
+        reply = 'I am sorry it has been hard. There is no pressure. Would you like to tell me a little about it, or would you rather just have some company for a minute?';
+      case CheckinAnswer.rather:
+        reply = 'That is completely fine. The question is always open, and so is the door.';
+      case CheckinAnswer.ignored:
+        reply = '';
+    }
+    state = state.copy(messages: <HadiMessage>[
+      ...kept,
+      HadiMessage(fromHadi: false, text: _answerLabel(a), sensitive: true, ephemeral: true),
+      if (reply.isNotEmpty)
+        HadiMessage(
+          fromHadi: true,
+          text: reply,
+          sensitive: true,
+          ephemeral: true,
+          support: a == CheckinAnswer.hard ? SupportTopic.general.name : null,
+        ),
+    ]);
+  }
+
+  static String _answerLabel(CheckinAnswer a) => switch (a) {
+        CheckinAnswer.okay => 'I\u2019m okay',
+        CheckinAnswer.hard => 'It\u2019s been hard lately',
+        CheckinAnswer.rather => 'I\u2019d rather not say',
+        CheckinAnswer.ignored => '',
+      };
+
+  /// "Don't ask me again": off until it is switched on in Settings.
+  Future<void> stopCheckins() async {
+    final SupportSettingsNotifier n = ref.read(supportSettingsProvider.notifier);
+    final SupportSettings s = ref.read(supportSettingsProvider);
+    await n.saveCheckin(CheckinScheduler.turnOff(s.checkin, DateTime.now()));
+    state = state.copy(messages: <HadiMessage>[
+      for (final HadiMessage m in state.messages)
+        if (!m.checkin) m,
+    ]);
   }
 
   /// Fresh conversation: forget everything said so far and start over.
@@ -462,6 +579,9 @@ class HadiController extends Notifier<HadiState> {
     _minorSession = false;
     _latch = null;
     _latchChecks = 0;
+    _supportSession = SupportSession(seed: DateTime.now().microsecondsSinceEpoch);
+    _lastSupportTopic = null;
+    _hardCheckin = false;
     state = HadiState(
       messages: const <HadiMessage>[
         HadiMessage(fromHadi: true, text: kHadiGreeting),
@@ -592,6 +712,127 @@ class HadiController extends Notifier<HadiState> {
   /// How many check-ins this latch has produced (picks the wording).
   int _latchChecks = 0;
 
+  /// The support conversation's memory (state, rotation history). Memory
+  /// only: it dies with the conversation and is never saved.
+  SupportSession _supportSession = SupportSession(seed: DateTime.now().microsecondsSinceEpoch);
+
+  SupportTopic? _lastSupportTopic;
+
+  Future<String?> _onlineSupport(
+    String q,
+    SupportSettings st,
+    SupportTopic topic, {
+    required bool fixed,
+    required List<String> ids,
+    HadiProvider? provider,
+  }) async {
+    try {
+      final String? managed =
+          ref.read(subscriptionServiceProvider.notifier).managedKey;
+      if (!SupportOnlinePolicy.allowed(
+        setting: st.onlineModel,
+        usingManagedKey: _usingManagedKey,
+        hasManagedKey: managed != null && managed.isNotEmpty,
+        crisis: false,
+        latched: _latch != null,
+        minor: _minorSession,
+        fixedWording: fixed,
+      )) {
+        return null;
+      }
+      if (EmotionIntentDetector.detect(q).intent == SupportIntent.askMedical) {
+        return null;
+      }
+      final HadiProvider p = provider ?? resolveProvider(managed);
+      final String prompt = 'Topic: ${topic.name}\nWhat the person wrote: $q';
+      final String raw;
+      if (p is SystemPromptProvider) {
+        raw = await p.askWithSystem(
+            SupportOnlinePolicy.systemPrompt, prompt, const <HadiMessage>[]);
+      } else {
+        raw = await p.ask(
+            '${SupportOnlinePolicy.systemPrompt}\n\n$prompt', const <HadiMessage>[]);
+      }
+      final ({String text, bool changed}) f = RulingGate.filterLive(raw);
+      if (f.changed || !SupportOnlinePolicy.acceptable(f.text)) return null;
+      return f.text;
+    } catch (_) {
+      return null;
+    }
+  }
+
+  static final RegExp _askKnows = RegExp(
+      r'^\s*(?:what|how much) do you (?:remember|know) about me\??\s*$',
+      caseSensitive: false);
+  static final RegExp _deleteAll = RegExp(
+      r'^\s*(?:please\s+)?(?:delete|forget|erase|clear)\s+(?:everything|all of (?:it|this)|all)\s*[.!]?\s*$',
+      caseSensitive: false);
+
+  Future<String?> _memoryCommand(String q) async {
+    final SupportSettingsNotifier n = ref.read(supportSettingsProvider.notifier);
+    final SupportSettings s = ref.read(supportSettingsProvider);
+    if (_deleteAll.hasMatch(q)) {
+      await n.deleteAllMemory();
+      await clearThread();
+      return 'Done. I have forgotten everything I had saved, and this conversation is cleared.';
+    }
+    if (_askKnows.hasMatch(q)) {
+      if (!s.remember) {
+        return 'Nothing. I only keep things if you switch on "Let Hadi remember things I tell it" in Settings, under Support & wellbeing.';
+      }
+      final List<MemoryItem> items = n.memory;
+      if (items.isEmpty) return 'Nothing yet. You can ask me to remember something, and you can see and delete it all in Settings.';
+      return 'This is what you asked me to remember:\n${items.map((MemoryItem i) => '- ${i.text}').join('\n')}\nYou can edit or delete any of it in Settings, under Support & wellbeing.';
+    }
+    final String? ask = UserMemory.requestedText(q);
+    if (ask == null) return null;
+    if (!s.remember) {
+      return 'I do not remember things unless you switch that on in Settings, under Support & wellbeing. Nothing has been saved.';
+    }
+    final bool ok = await n.remember(ask, DateTime.now());
+    return ok
+        ? 'Saved. You can see, change or delete it any time in Settings, under Support & wellbeing.'
+        : 'I will not keep that one. I never keep anything about safety, health or substances, and I cannot hold more than a short note.';
+  }
+
+  /// Set after "It has been hard lately": the conversation then draws on the
+  /// shame and despair pack, not on a topic pack.
+  bool _hardCheckin = false;
+
+  /// True when the last thing Hadi said was a support reply and [q] is a
+  /// natural next turn in it (not a fresh factual question).
+  bool _continuesSupport(String q) {
+    if (_lastSupportTopic == null || state.messages.isEmpty) return false;
+    final HadiMessage last = state.messages.last;
+    if (!last.fromHadi || last.support == null) return false;
+    return EmotionIntentDetector.detect(q).intent != SupportIntent.askInfo;
+  }
+
+  static String _packFor(SupportTopic t) => switch (t) {
+        SupportTopic.alcohol => 'alcohol',
+        SupportTopic.drugs => 'drugs',
+        SupportTopic.gambling => 'gambling',
+        SupportTopic.porn => 'porn_compulsive',
+        SupportTopic.smoking => 'smoking_vaping',
+        SupportTopic.general => 'relapse_and_slips',
+        SupportTopic.family => 'family_of_struggling',
+      };
+
+  static String _scopeFor(SupportTopic t) => switch (t) {
+        SupportTopic.gambling => 'gambling',
+        SupportTopic.smoking => 'smoking',
+        _ => 'addiction',
+      };
+
+  /// Packs consulted beside the topic pack, chosen from the words.
+  static List<String> _extraPacksFor(String q) {
+    final EmotionIntent e = EmotionIntentDetector.detect(q);
+    return <String>[
+      if (e.emotions.contains('shame') || e.emotions.contains('despair')) 'shame_despair',
+      if (e.emotions.contains('cravings')) 'cravings_toolkit',
+    ];
+  }
+
   /// Short, different replies for when a person keeps talking about wanting
   /// to die. Never a question the offline shelf could not follow up.
   static const List<String> _selfHarmFollowUps = <String>[
@@ -716,7 +957,22 @@ class HadiController extends Notifier<HadiState> {
     // `typing` is only set after the first awaits inside [_ask]; this flag is
     // set at once, so a chip tapped twice in a row asks one question, not two.
     if (_asking) return '';
+    // The safe word leaves at once, silently: the conversation is cleared and
+    // nothing is answered or kept.
+    try {
+      if (ref.read(supportSettingsProvider.notifier).isSafeWord(question)) {
+        requestQuickExit();
+        return '';
+      }
+    } catch (_) {}
     _asking = true;
+    // Typing instead of answering the check-in simply lets it go.
+    if (state.messages.any((HadiMessage m) => m.checkin)) {
+      state = state.copy(messages: <HadiMessage>[
+        for (final HadiMessage m in state.messages)
+          if (!m.checkin) m,
+      ]);
+    }
     final int before = state.messages.length;
     try {
       return await _ask(question, provider: provider);
@@ -857,11 +1113,36 @@ class HadiController extends Notifier<HadiState> {
       }
     }
 
+    // "Remember that ...", "What do you know about me?", "Delete everything".
+    // Memory is off until the person switches it on in Settings; nothing is
+    // kept otherwise, and nothing about safety or substances is ever kept.
+    if (crisis == null) {
+      final String? mem = await _memoryCommand(q);
+      if (mem != null) {
+        state = state.copy(
+          messages: <HadiMessage>[
+            ...state.messages,
+            HadiMessage(fromHadi: false, text: q, sensitive: true),
+            HadiMessage(fromHadi: true, text: mem, sensitive: true),
+          ],
+          typing: false,
+        );
+        await _stat(HadiAnswerKind.local);
+        return mem;
+      }
+    }
+
     // A person talking about drinking, drugs, gambling, pornography, smoking
     // or a relapse is answered as a person, on the device: never with a
     // ruling card, never by a live model, never saved, never reportable.
-    final SupportTopic? support =
+    SupportTopic? support =
         crisis == null ? SupportSignal.classify(q) : null;
+    // A conversation already about this subject goes on: "yes", "what can I
+    // do", "thanks" carry no topic word of their own.
+    if (support == null && crisis == null && _continuesSupport(q)) {
+      support = _lastSupportTopic;
+    }
+    if (support != null) _lastSupportTopic = support;
 
     // Hādi is for adults. Someone who says they are under 18 gets a short
     // fixed reply and the children's lines; no live model is called.
@@ -894,12 +1175,56 @@ class HadiController extends Notifier<HadiState> {
       final int prior = state.messages
           .where((HadiMessage m) => m.fromHadi && m.support != null)
           .length;
-      final String reply = SupportReplies.build(
-        topic: support,
-        prior: prior,
-        countryCode: ref.read(deviceCountryProvider),
-        verdict: SupportSignal.asksVerdict(q),
+      final SupportSettings prefsNow = ref.read(supportSettingsProvider);
+      final SupportTurn? turn = SupportPackRepository.engine?.reply(
+        _supportSession,
+        pack: _hardCheckin && SupportPackRepository.byName('shame_despair') != null
+            ? 'shame_despair'
+            : _packFor(support),
+        userText: q,
+        extraPacks: _extraPacksFor(q),
+        lang: prefsNow.language,
+        toneSetting: prefsNow.tone,
       );
+      String reply;
+      List<String> ids = const <String>[];
+      if (turn != null) {
+        reply = turn.text;
+        ids = turn.ids;
+        // The one safety note that matters most stays on the first reply
+        // about alcohol and medicines.
+        if (prior == 0 &&
+            (support == SupportTopic.alcohol ||
+                support == SupportTopic.drugs ||
+                support == SupportTopic.general)) {
+          reply = '$reply\n\n${SupportReplies.safetyNote}';
+        }
+        if (SupportSignal.asksVerdict(q) && turn.ids.isEmpty) {
+          reply = '$reply\n\n${SupportReplies.verdictNote}';
+        }
+      } else {
+        reply = SupportReplies.build(
+          topic: support,
+          prior: prior,
+          countryCode: ref.read(deviceCountryProvider),
+          verdict: SupportSignal.asksVerdict(q),
+        );
+      }
+      // Optional: a longer reply from the online model, only if the person
+      // turned that on, only with a key the app manages (never their own),
+      // and only if the reply passes every check. Otherwise the reply above.
+      final String? online = await _onlineSupport(
+        q,
+        prefsNow,
+        support,
+        fixed: turn?.fixed ?? false,
+        ids: ids,
+        provider: provider,
+      );
+      if (online != null) {
+        reply = online;
+        ids = const <String>[];
+      }
       state = state.copy(
         messages: <HadiMessage>[
           ...state.messages,
@@ -909,6 +1234,8 @@ class HadiController extends Notifier<HadiState> {
             text: reply,
             sensitive: true,
             support: support.name,
+            supportIds: ids,
+            helpScope: _scopeFor(support),
             notes: supportReviewLabels('support.hadi-replies',
                 'support.hadi-replies'),
           ),
@@ -1069,6 +1396,60 @@ class HadiController extends Notifier<HadiState> {
           }
           if (refusal) closestMatch = lk.closest(q);
         }
+      }
+    }
+    // Broad knowledge packs, offline first: when a built-in knowledge pack
+    // answers the question confidently, no model is called. Quoted, not
+    // rewritten. Never for personal rulings or medical questions.
+    if (provider == null &&
+        p is OfflineHadiProvider &&
+        ruling != RulingClass.personal &&
+        !OfflineHadiProvider.asksMedical(q)) {
+      final String? move = ConversationMoves.moveFor(q, DateTime.now());
+      if (move != null) {
+        _supportSession.rotator.nextTurn();
+        final SupportSnippet? line = ConversationMoves.pick(
+          move,
+          SupportPackRepository.packs,
+          _supportSession.rotator,
+          toneOrder: ToneChooser.order(
+            setting: ref.read(supportSettingsProvider).tone,
+            recentLengths: _supportSession.lengths,
+          ),
+          allowDraft: SupportPackRepository.allowDraft,
+        );
+        if (line != null) {
+          final String text = line.textIn('en');
+          state = state.copy(
+            messages: <HadiMessage>[
+              ...state.messages,
+              HadiMessage(fromHadi: true, text: text),
+            ],
+            typing: false,
+          );
+          await _stat(HadiAnswerKind.local);
+          return text;
+        }
+      }
+      final KnowledgeAnswer? ka = KnowledgeAnswerer.answer(
+        q,
+        SupportPackRepository.packs,
+        allowDraft: SupportPackRepository.allowDraft,
+      );
+      if (ka != null) {
+        String text = ka.text;
+        if (ruling == RulingClass.general) {
+          text = '$text\n\n${RulingGate.generalFooter}';
+        }
+        state = state.copy(
+          messages: <HadiMessage>[
+            ...state.messages,
+            HadiMessage(fromHadi: true, text: text),
+          ],
+          typing: false,
+        );
+        await _stat(HadiAnswerKind.local);
+        return text;
       }
     }
     // Hosted AI (package-capped): only for a question the built-in library

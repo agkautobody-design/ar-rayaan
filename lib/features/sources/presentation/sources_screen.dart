@@ -125,6 +125,34 @@ class SourcesScreen extends ConsumerWidget {
                     ),
                   ),
 
+                  // ---------------- SUPPORT & WELLBEING ----------------
+                  _SectionLabel('SUPPORT & WELLBEING'),
+                  Text(
+                    'Hadi and Wasia can listen when something is hard. They '
+                    'are not a doctor, a counsellor or a scholar, and they '
+                    'give no ruling and no medical or withdrawal advice. The '
+                    'wording comes from built-in packs that wait for a '
+                    'named scholar and clinician, and each reply says so. '
+                    'Help lines are shown only with the date they were '
+                    'checked and their source.\n\n'
+                    'Settings > Support & wellbeing: Check-in frequency '
+                    '(off, weekly, every 2 weeks, monthly; in the app only, '
+                    'never a notification); Let Hadi remember things I tell '
+                    'it (off by default; kept encrypted on this device; see, '
+                    'edit, delete or export under What Hadi knows about me); '
+                    'Use the online model for support chats (off by default; '
+                    'your own key is never used; never in an emergency or '
+                    'for a child); Private mode (hides the app in the app '
+                    'switcher; it cannot rename the icon); Quick exit button '
+                    '(on or off, left or right); Safe word (say it to '
+                    'close the chat and go home); Language for support '
+                    'lines; Show or hide the Sakina support rooms; and, '
+                    'behind the parent gate, an age band per child. '
+                    'Nothing here is sent to analytics.',
+                    style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.5),
+                  ),
+                  const SizedBox(height: 16),
+
                   // ---------------- HADITH ----------------
                   _SectionLabel('HADITH · THE SIX COLLECTIONS'),
                   GlassCard(

@@ -19,6 +19,7 @@ import 'l10n/generated/app_localizations.dart';
 import 'router.dart';
 import 'theme/app_theme.dart';
 import 'theme/widgets/offline_banner.dart';
+import '../features/support/presentation/privacy_shield.dart';
 
 class ArRayaanApp extends ConsumerStatefulWidget {
   const ArRayaanApp({required this.env, this.showOnboarding = false, super.key});
@@ -163,8 +164,11 @@ class _ArRayaanAppState extends ConsumerState<ArRayaanApp> {
                     // The "Ask Hādi" pill is drawn by each page itself (see
                     // _fade in router.dart), so dialogs and sheets stay on
                     // top of it.
-                    child: OfflineBanner(
-                      child: child ?? const SizedBox.shrink(),
+                    child: PrivacyShield(
+                      router: _router,
+                      child: OfflineBanner(
+                        child: child ?? const SizedBox.shrink(),
+                      ),
                     ),
                   ),
                 ),

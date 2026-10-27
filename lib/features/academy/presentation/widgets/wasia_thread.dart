@@ -5,16 +5,31 @@ import '../../../../app/theme/app_colors.dart';
 import '../../../../app/theme/app_typography.dart';
 import '../../../../app/theme/widgets/speak_button.dart';
 import '../../../sakina/presentation/widgets/need_help_button.dart';
+import '../../../support/domain/checkin_scheduler.dart';
 import '../../application/wasia_controller.dart';
 
 /// The shared Wasia conversation thread — every chat box renders the same
 /// brain, so a question in the lessons and a follow-up in the exam hall are
 /// one continuing conversation.
-class WasiaThread extends ConsumerWidget {
+class WasiaThread extends ConsumerStatefulWidget {
   const WasiaThread({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<WasiaThread> createState() => _WasiaThreadState();
+}
+
+class _WasiaThreadState extends ConsumerState<WasiaThread> {
+  @override
+  void initState() {
+    super.initState();
+    // The gentle check-in, when it is due. In memory, never a notification.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) ref.read(wasiaControllerProvider.notifier).maybeCheckin();
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final s = ref.watch(wasiaControllerProvider);
     if (s.messages.isEmpty && s.notice == null) {
       return const SizedBox.shrink();
@@ -63,6 +78,30 @@ class WasiaThread extends ConsumerWidget {
                     style: AppText.bodyMuted
                         .copyWith(fontSize: 13, height: 1.4)),
           ),
+        ),
+      if (s.messages.any((m) => m.checkin))
+        Padding(
+          padding: const EdgeInsets.only(bottom: 8),
+          child: Wrap(spacing: 8, runSpacing: 8, children: <Widget>[
+            for (final (String key, String label, CheckinAnswer a) in <(String, String, CheckinAnswer)>[
+              ('wasia-checkin-okay', 'I\u2019m okay', CheckinAnswer.okay),
+              ('wasia-checkin-hard', 'It\u2019s been hard', CheckinAnswer.hard),
+              ('wasia-checkin-rather', 'I\u2019d rather not say', CheckinAnswer.rather),
+            ])
+              OutlinedButton(
+                key: Key(key),
+                style: OutlinedButton.styleFrom(minimumSize: const Size(48, 48)),
+                onPressed: () => ref.read(wasiaControllerProvider.notifier).answerCheckin(a),
+                child: Text(label),
+              ),
+            TextButton(
+              key: const Key('wasia-checkin-stop'),
+              style: TextButton.styleFrom(minimumSize: const Size(48, 48)),
+              onPressed: () => ref.read(wasiaControllerProvider.notifier).stopCheckins(),
+              child: Text('Don\u2019t ask me again',
+                  style: AppText.caption.copyWith(fontSize: 12, decoration: TextDecoration.underline)),
+            ),
+          ]),
         ),
       if (s.messages.isNotEmpty &&
           s.messages.last.fromHadi &&

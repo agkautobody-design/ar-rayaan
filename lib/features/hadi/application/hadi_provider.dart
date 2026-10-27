@@ -18,6 +18,9 @@ class HadiMessage {
     this.ephemeral = false,
     this.retryQuestion,
     this.support,
+    this.supportIds = const <String>[],
+    this.helpScope,
+    this.checkin = false,
   });
 
   final bool fromHadi;
@@ -60,6 +63,18 @@ class HadiMessage {
   /// struggling. Such a message is never saved, never sent to a live model
   /// and never offered for a Report.
   final String? support;
+
+  /// Ids of the knowledge-pack snippets this reply was built from, for the
+  /// "How I know this" panel. Empty for built-in wording.
+  final List<String> supportIds;
+
+  /// The help-line scope to show under this reply (for example `addiction`,
+  /// `gambling`), or null.
+  final String? helpScope;
+
+  /// True for the gentle check-in line: the screen shows the three answers
+  /// and "Don't ask me again" under it. Shown for this visit only.
+  final bool checkin;
 }
 
 abstract interface class HadiProvider {

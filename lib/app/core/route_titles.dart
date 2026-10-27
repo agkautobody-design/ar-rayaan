@@ -18,6 +18,8 @@ abstract final class RouteTitles {
     '/finance/rayaan': 'Rayaan Stocks',
     '/settings': 'Settings',
     '/settings/language': 'Language',
+    '/settings/support': 'Support & wellbeing',
+    '/support': 'Support',
     '/masajid': 'Masajid and Halal Food',
     '/home/elder': 'Elder Home',
     '/elder-care': 'Elder Care',
@@ -129,6 +131,7 @@ abstract final class RouteTitles {
 
   /// Paths with an id: matched by prefix, most specific first.
   static const List<(String, String)> _prefixes = <(String, String)>[
+    ('/support/', 'Support'),
     ('/quran/madinah/', 'Qur’an Page View'),
     ('/quran/', 'Qur’an'),
     ('/finance/rayaan/', 'Rayaan Lesson'),

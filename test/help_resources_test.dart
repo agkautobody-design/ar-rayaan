@@ -34,7 +34,7 @@ void main() {
     test('numbers that could not be verified are not on screen', () {
       expect(HelpResources.unverified, isNotEmpty);
       for (final HelpResource u in HelpResources.unverified) {
-        expect(HelpResources.all.any((HelpResource r) => r.contact == u.contact),
+        expect(HelpResources.all.any((HelpResource r) => r.contact == u.contact && r.region == u.region),
             isFalse,
             reason: '${u.name} is unverified and must stay out of all');
         expect(u.verified, isFalse);

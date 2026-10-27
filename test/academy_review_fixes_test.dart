@@ -423,7 +423,7 @@ void main() {
 
     test('changed text needs fresh consent: version 1 consent is not enough',
         () async {
-      expect(kChildrenPrivacyVersion, 4);
+      expect(kChildrenPrivacyVersion, 5);
       expect(FamilyService.consentVersion, kChildrenPrivacyVersion);
       SharedPreferences.setMockInitialValues(<String, Object>{
         'ar.family.consent':

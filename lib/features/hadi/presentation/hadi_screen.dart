@@ -35,6 +35,8 @@ import '../../sakina/domain/crisis_detector.dart';
 import '../../sakina/domain/sakina_content.dart';
 import '../../sakina/presentation/widgets/help_line_tile.dart';
 import '../../sakina/presentation/widgets/need_help_button.dart';
+import '../../support/presentation/privacy_shield.dart';
+import '../../support/presentation/support_widgets.dart';
 
 /// The items under the More options button in the header.
 enum _HadiMenu { newConversation, school, advanced, about }
@@ -833,6 +835,12 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                 ),
               ),
             ),
+            if (hadi.messages.any((HadiMessage m) =>
+                m.fromHadi && (m.support != null || m.crisis != null)))
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+                child: QuickExitButton(),
+              ),
             Expanded(
               child: ListView(
                 controller: _scroll,
@@ -891,7 +899,7 @@ class _HadiScreenState extends ConsumerState<HadiScreen> {
                         ],
                       ),
                     ),
-                  if (hadi.messages.length == 1)
+                  if (hadi.messages.every((HadiMessage m) => m.fromHadi))
                     Wrap(
                       spacing: 8,
                       runSpacing: 8,
@@ -1376,6 +1384,12 @@ class _Bubble extends ConsumerWidget {
                           HadiNotesPanel(notes: message.notes),
                         if (message.crisis != null)
                           _CrisisHelpPanel(kind: message.crisis!),
+                        if (message.checkin) const CheckinPanel(),
+                        if (message.supportIds.isNotEmpty)
+                          SupportProvenanceButton(ids: message.supportIds),
+                        if (message.helpScope != null &&
+                            message.supportIds.isNotEmpty)
+                          SupportHelpLines(scope: message.helpScope!),
                         if (onOnlineMode != null &&
                             !message.live &&
                             HadiRouting.isRefusal(message.text))
