@@ -48,6 +48,17 @@ jobs:
           python3 tool/check_daily_content.py 2>&1 | tee daily.log
         continue-on-error: true
 
+      # Support / conversation / knowledge packs (tool/support/validate_packs.py):
+      # schema, forbidden phrases, hadith verdicts, Qur'an refs, review flags.
+      # Python standard library only.
+      - name: Support packs check
+        id: support
+        run: |
+          set -o pipefail
+          python3 tool/support/validate_packs.py --self-test 2>&1 | tee support.log
+          python3 tool/support/validate_packs.py 2>&1 | tee -a support.log
+        continue-on-error: true
+
       - uses: subosito/flutter-action@v2
         with:
           channel: stable
@@ -148,6 +159,7 @@ jobs:
             echo "| --- | --- |"
             echo "| hadith citations | ${{ steps.hadith.outcome }} |"
             echo "| daily content | ${{ steps.daily.outcome }} |"
+            echo "| support packs | ${{ steps.support.outcome }} |"
             echo "| pub get | ${{ steps.pub.outcome }} |"
             echo "| analyze | ${{ steps.analyze.outcome }} |"
             echo "| test | ${{ steps.test.outcome }} |"
@@ -177,6 +189,13 @@ jobs:
             echo ""
             echo '```'
             head -n 40 daily.log 2>/dev/null
+            echo '```'
+            echo "</details>"
+            echo ""
+            echo "<details><summary>support packs check</summary>"
+            echo ""
+            echo '```'
+            head -n 60 support.log 2>/dev/null
             echo '```'
             echo "</details>"
             echo ""
@@ -222,7 +241,7 @@ jobs:
           gh pr comment "$PR" --body-file report.md
 
       - name: Fail if any step failed
-        if: steps.hadith.outcome != 'success' || steps.daily.outcome != 'success' || steps.pub.outcome != 'success' || steps.analyze.outcome != 'success' || steps.test.outcome != 'success' || steps.build.outcome != 'success'
+        if: steps.hadith.outcome != 'success' || steps.daily.outcome != 'success' || steps.support.outcome != 'success' || steps.pub.outcome != 'success' || steps.analyze.outcome != 'success' || steps.test.outcome != 'success' || steps.build.outcome != 'success'
         run: exit 1
 
   # Native compile check: builds the Android debug APK so a change that
