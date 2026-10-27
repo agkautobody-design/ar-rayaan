@@ -1,0 +1,1031 @@
+{
+ "schema": 1,
+ "note": "Verified-phrase registry for the Aqeedah, Understanding the Qur'an and Dawah Academy lessons. A lesson never contains Arabic of its own: it names a phrase here, or an ayah of assets/quran/quran.json as q:<surah>:<ayah>. `status: verified` means the Arabic was cut, with its vowel marks, from the cited primary-source text on the date below; it does NOT mean a scholar has reviewed it (see needsScholarReview). Rebuild or re-check with tool/academy_phrases_aqid_und_daw.py.",
+ "checked": "2026-10-27",
+ "corpus": "github.com/fawazahmed0/hadith-api (branch 1, editions/ara-*.json); sunnah.com numbering; Muslim by Abd al-Baqi number",
+ "phrases": {
+  "aqid.mercy": {
+   "arabic": "إِنَّ رَحْمَتِي تَغْلِبُ غَضَبِي",
+   "status": "verified",
+   "translit": "Inna rahmatee taghlibu ghadabee",
+   "meaning": "Truly, My mercy overcomes My anger.",
+   "words": [
+    {
+     "tr": "inna",
+     "en": "truly"
+    },
+    {
+     "tr": "rahmatee",
+     "en": "My mercy"
+    },
+    {
+     "tr": "taghlibu",
+     "en": "overcomes"
+    },
+    {
+     "tr": "ghadabee",
+     "en": "My anger"
+    }
+   ],
+   "sources": [
+    "Bukhari 7404",
+    "Muslim 2751 (the same teaching in another wording)"
+   ],
+   "copiedFrom": "Bukhari 7404 (words 41 to 44 of narration 7404, fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is cut from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "aqid.names99.1": {
+   "arabic": "إِنَّ لِلَّهِ تِسْعَةً وَتِسْعِينَ اسْمَا مِائَةً إِلاَّ وَاحِدًا",
+   "status": "verified",
+   "translit": "Inna lillaahi tis'atan wa tis'eena ismaa, mi'atan illaa waahidan",
+   "meaning": "Allah has ninety-nine names, one hundred less one.",
+   "words": [
+    {
+     "tr": "inna",
+     "en": "truly"
+    },
+    {
+     "tr": "lillaahi",
+     "en": "Allah has"
+    },
+    {
+     "tr": "tis'atan",
+     "en": "nine"
+    },
+    {
+     "tr": "wa-tis'eena",
+     "en": "and ninety"
+    },
+    {
+     "tr": "ismaa",
+     "en": "names"
+    },
+    {
+     "tr": "mi'atan",
+     "en": "a hundred"
+    },
+    {
+     "tr": "illaa",
+     "en": "except"
+    },
+    {
+     "tr": "waahidan",
+     "en": "one"
+    }
+   ],
+   "sources": [
+    "Bukhari 2736",
+    "Muslim 2677 (the same teaching in another wording)"
+   ],
+   "copiedFrom": "Bukhari 2736 (words 29 to 36 of narration 2736, fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is cut from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "aqid.names99.2": {
+   "arabic": "مَنْ أَحْصَاهَا دَخَلَ الْجَنَّةَ",
+   "status": "verified",
+   "translit": "Man ahsaahaa dakhalal-jannah",
+   "meaning": "Whoever counts them [learns and keeps them] will enter Paradise.",
+   "words": [
+    {
+     "tr": "man",
+     "en": "whoever"
+    },
+    {
+     "tr": "ahsaahaa",
+     "en": "counts them"
+    },
+    {
+     "tr": "dakhala",
+     "en": "enters"
+    },
+    {
+     "tr": "al-jannah",
+     "en": "Paradise"
+    }
+   ],
+   "sources": [
+    "Bukhari 2736"
+   ],
+   "copiedFrom": "Bukhari 2736 (words 37 to 40 of narration 2736, fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is cut from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar. The verb ahsaa has been explained as counting, memorising, understanding and acting on the names. The English gives the plain sense; the range of explanations is in the lesson text."
+  },
+  "aqid.prophets.1": {
+   "arabic": "وَالأَنْبِيَاءُ إِخْوَةٌ لِعَلاَّتٍ أُمَّهَاتُهُمْ شَتَّى",
+   "status": "verified",
+   "translit": "Wal-anbiyaa'u ikhwatun li-'allaat, ummahaatuhum shattaa",
+   "meaning": "The prophets are brothers from one father; their mothers are different.",
+   "words": [
+    {
+     "tr": "wal-anbiyaa'u",
+     "en": "and the prophets"
+    },
+    {
+     "tr": "ikhwatun",
+     "en": "brothers"
+    },
+    {
+     "tr": "li-'allaat",
+     "en": "of one father"
+    },
+    {
+     "tr": "ummahaatuhum",
+     "en": "their mothers"
+    },
+    {
+     "tr": "shattaa",
+     "en": "are different"
+    }
+   ],
+   "sources": [
+    "Bukhari 3443",
+    "Muslim 2365 (the same teaching in another wording)"
+   ],
+   "copiedFrom": "Bukhari 3443 (words 41 to 45 of narration 3443, fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is cut from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "aqid.prophets.2": {
+   "arabic": "وَدِينُهُمْ وَاحِدٌ",
+   "status": "verified",
+   "translit": "Wa deenuhum waahid",
+   "meaning": "And their religion is one.",
+   "words": [
+    {
+     "tr": "wa-deenuhum",
+     "en": "and their religion"
+    },
+    {
+     "tr": "waahid",
+     "en": "is one"
+    }
+   ],
+   "sources": [
+    "Bukhari 3443",
+    "Muslim 2365 (the same teaching in another wording)"
+   ],
+   "copiedFrom": "Bukhari 3443 (words 46 to 47 of narration 3443, fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is cut from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "aqid.iman.1": {
+   "arabic": "أَنْ تُؤْمِنَ بِاللَّهِ وَمَلاَئِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ وَالْيَوْمِ الآخِرِ",
+   "status": "verified",
+   "translit": "An tu'mina billaahi wa malaa'ikatihi wa kutubihi wa rusulihi wal-yawmil-aakhir",
+   "meaning": "Faith is to believe in Allah, His angels, His books, His messengers and the Last Day,",
+   "words": [
+    {
+     "tr": "an",
+     "en": "that"
+    },
+    {
+     "tr": "tu'mina",
+     "en": "you believe"
+    },
+    {
+     "tr": "billaahi",
+     "en": "in Allah"
+    },
+    {
+     "tr": "wa-malaa'ikatihi",
+     "en": "and His angels"
+    },
+    {
+     "tr": "wa-kutubihi",
+     "en": "and His books"
+    },
+    {
+     "tr": "wa-rusulihi",
+     "en": "and His messengers"
+    },
+    {
+     "tr": "wal-yawmi",
+     "en": "and the Day"
+    },
+    {
+     "tr": "al-aakhir",
+     "en": "the Last"
+    }
+   ],
+   "sources": [
+    "Muslim 8 (the hadith of Jibril)"
+   ],
+   "copiedFrom": "Muslim 8 (words 274 to 281 of narration 8.01, fawazahmed0/hadith-api, ara-muslim)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is cut from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "aqid.iman.2": {
+   "arabic": "وَتُؤْمِنَ بِالْقَدَرِ خَيْرِهِ وَشَرِّهِ",
+   "status": "verified",
+   "translit": "Wa tu'mina bil-qadari khayrihi wa sharrih",
+   "meaning": "and to believe in the decree (qadar), its good and its bad.",
+   "words": [
+    {
+     "tr": "wa-tu'mina",
+     "en": "and you believe"
+    },
+    {
+     "tr": "bil-qadar",
+     "en": "in the decree"
+    },
+    {
+     "tr": "khayrihi",
+     "en": "its good"
+    },
+    {
+     "tr": "wa-sharrihi",
+     "en": "and its bad"
+    }
+   ],
+   "sources": [
+    "Muslim 8 (the hadith of Jibril)"
+   ],
+   "copiedFrom": "Muslim 8 (words 282 to 285 of narration 8.01, fawazahmed0/hadith-api, ara-muslim)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is cut from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "aqid.ihsan.1": {
+   "arabic": "أَنْ تَعْبُدَ اللَّهَ كَأَنَّكَ تَرَاهُ",
+   "status": "verified",
+   "translit": "An ta'buda Allaaha ka-annaka taraahu",
+   "meaning": "Ihsan is to worship Allah as if you see Him,",
+   "words": [
+    {
+     "tr": "an",
+     "en": "that"
+    },
+    {
+     "tr": "ta'buda",
+     "en": "you worship"
+    },
+    {
+     "tr": "Allaaha",
+     "en": "Allah"
+    },
+    {
+     "tr": "ka-annaka",
+     "en": "as if you"
+    },
+    {
+     "tr": "taraahu",
+     "en": "see Him"
+    }
+   ],
+   "sources": [
+    "Muslim 8 (the hadith of Jibril)",
+    "Bukhari 50 (the same teaching in another wording)"
+   ],
+   "copiedFrom": "Muslim 8 (words 298 to 302 of narration 8.01, fawazahmed0/hadith-api, ara-muslim)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is cut from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "aqid.ihsan.2": {
+   "arabic": "فَإِنْ لَمْ تَكُنْ تَرَاهُ فَإِنَّهُ يَرَاكَ",
+   "status": "verified",
+   "translit": "Fa-in lam takun taraahu fa-innahu yaraak",
+   "meaning": "and if you do not see Him, then He sees you.",
+   "words": [
+    {
+     "tr": "fa-in",
+     "en": "and if"
+    },
+    {
+     "tr": "lam",
+     "en": "not"
+    },
+    {
+     "tr": "takun",
+     "en": "you are"
+    },
+    {
+     "tr": "taraahu",
+     "en": "seeing Him"
+    },
+    {
+     "tr": "fa-innahu",
+     "en": "then indeed He"
+    },
+    {
+     "tr": "yaraak",
+     "en": "sees you"
+    }
+   ],
+   "sources": [
+    "Muslim 8 (the hadith of Jibril)",
+    "Bukhari 50 (the same teaching in another wording)"
+   ],
+   "copiedFrom": "Muslim 8 (words 303 to 308 of narration 8.01, fawazahmed0/hadith-api, ara-muslim)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is cut from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "aqid.zulm.1": {
+   "arabic": "يَا عِبَادِي إِنِّي حَرَّمْتُ الظُّلْمَ عَلَى نَفْسِي",
+   "status": "verified",
+   "translit": "Yaa 'ibaadee innee harramtuz-zulma 'alaa nafsee",
+   "meaning": "O My servants, I have forbidden injustice for Myself,",
+   "words": [
+    {
+     "tr": "yaa",
+     "en": "O"
+    },
+    {
+     "tr": "'ibaadee",
+     "en": "My servants"
+    },
+    {
+     "tr": "innee",
+     "en": "indeed I"
+    },
+    {
+     "tr": "harramtu",
+     "en": "have forbidden"
+    },
+    {
+     "tr": "az-zulma",
+     "en": "injustice"
+    },
+    {
+     "tr": "'alaa",
+     "en": "upon"
+    },
+    {
+     "tr": "nafsee",
+     "en": "Myself"
+    }
+   ],
+   "sources": [
+    "Muslim 2577"
+   ],
+   "copiedFrom": "Muslim 2577 (words 50 to 56 of narration 2577.01, fawazahmed0/hadith-api, ara-muslim)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is cut from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "aqid.zulm.2": {
+   "arabic": "وَجَعَلْتُهُ بَيْنَكُمْ مُحَرَّمًا فَلاَ تَظَالَمُوا",
+   "status": "verified",
+   "translit": "Wa ja'altuhu baynakum muharraman fa-laa tazaalamoo",
+   "meaning": "and I have made it forbidden between you, so do not wrong one another.",
+   "words": [
+    {
+     "tr": "wa-ja'altuhu",
+     "en": "and I have made it"
+    },
+    {
+     "tr": "baynakum",
+     "en": "between you"
+    },
+    {
+     "tr": "muharraman",
+     "en": "forbidden"
+    },
+    {
+     "tr": "fa-laa",
+     "en": "so do not"
+    },
+    {
+     "tr": "tazaalamoo",
+     "en": "wrong one another"
+    }
+   ],
+   "sources": [
+    "Muslim 2577"
+   ],
+   "copiedFrom": "Muslim 2577 (words 57 to 61 of narration 2577.01, fawazahmed0/hadith-api, ara-muslim)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is cut from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "daw.convey": {
+   "arabic": "بَلِّغُوا عَنِّي وَلَوْ آيَةً",
+   "status": "verified",
+   "translit": "Ballighoo 'annee wa law aayah",
+   "meaning": "Convey from me, even if it is one verse.",
+   "words": [
+    {
+     "tr": "ballighoo",
+     "en": "convey"
+    },
+    {
+     "tr": "'annee",
+     "en": "from me"
+    },
+    {
+     "tr": "wa-law",
+     "en": "even if"
+    },
+    {
+     "tr": "aayah",
+     "en": "one verse"
+    }
+   ],
+   "sources": [
+    "Bukhari 3461"
+   ],
+   "copiedFrom": "Bukhari 3461 (words 30 to 33 of narration 3461, fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is cut from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "daw.ease.1": {
+   "arabic": "يَسِّرُوا وَلاَ تُعَسِّرُوا",
+   "status": "verified",
+   "translit": "Yassiroo wa laa tu'assiroo",
+   "meaning": "Make things easy, and do not make them hard.",
+   "words": [
+    {
+     "tr": "yassiroo",
+     "en": "make it easy"
+    },
+    {
+     "tr": "wa-laa",
+     "en": "and do not"
+    },
+    {
+     "tr": "tu'assiroo",
+     "en": "make it hard"
+    }
+   ],
+   "sources": [
+    "Bukhari 69"
+   ],
+   "copiedFrom": "Bukhari 69 (words 28 to 30 of narration 69, fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is cut from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "daw.ease.2": {
+   "arabic": "وَبَشِّرُوا وَلاَ تُنَفِّرُوا",
+   "status": "verified",
+   "translit": "Wa bashshiroo wa laa tunaffiroo",
+   "meaning": "Give good news, and do not drive people away.",
+   "words": [
+    {
+     "tr": "wa-bashshiroo",
+     "en": "and give good news"
+    },
+    {
+     "tr": "wa-laa",
+     "en": "and do not"
+    },
+    {
+     "tr": "tunaffiroo",
+     "en": "drive people away"
+    }
+   ],
+   "sources": [
+    "Bukhari 69"
+   ],
+   "copiedFrom": "Bukhari 69 (words 31 to 33 of narration 69, fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is cut from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "daw.gentle.1": {
+   "arabic": "إِنَّ الرِّفْقَ لاَ يَكُونُ فِي شَىْءٍ إِلاَّ زَانَهُ",
+   "status": "verified",
+   "translit": "Innar-rifqa laa yakoonu fee shay'in illaa zaanahu",
+   "meaning": "Gentleness is not found in anything but it beautifies it,",
+   "words": [
+    {
+     "tr": "inna",
+     "en": "indeed"
+    },
+    {
+     "tr": "ar-rifqa",
+     "en": "gentleness"
+    },
+    {
+     "tr": "laa",
+     "en": "not"
+    },
+    {
+     "tr": "yakoonu",
+     "en": "is"
+    },
+    {
+     "tr": "fee",
+     "en": "in"
+    },
+    {
+     "tr": "shay'in",
+     "en": "anything"
+    },
+    {
+     "tr": "illaa",
+     "en": "except"
+    },
+    {
+     "tr": "zaanahu",
+     "en": "it beautified it"
+    }
+   ],
+   "sources": [
+    "Muslim 2594"
+   ],
+   "copiedFrom": "Muslim 2594 (words 39 to 46 of narration 2594.01, fawazahmed0/hadith-api, ara-muslim)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is cut from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "daw.gentle.2": {
+   "arabic": "وَلاَ يُنْزَعُ مِنْ شَىْءٍ إِلاَّ شَانَهُ",
+   "status": "verified",
+   "translit": "Wa laa yun-za'u min shay'in illaa shaanahu",
+   "meaning": "and it is not taken away from anything but it spoils it.",
+   "words": [
+    {
+     "tr": "wa-laa",
+     "en": "and not"
+    },
+    {
+     "tr": "yunza'u",
+     "en": "is taken away"
+    },
+    {
+     "tr": "min",
+     "en": "from"
+    },
+    {
+     "tr": "shay'in",
+     "en": "anything"
+    },
+    {
+     "tr": "illaa",
+     "en": "except"
+    },
+    {
+     "tr": "shaanahu",
+     "en": "it spoiled it"
+    }
+   ],
+   "sources": [
+    "Muslim 2594"
+   ],
+   "copiedFrom": "Muslim 2594 (words 47 to 52 of narration 2594.01, fawazahmed0/hadith-api, ara-muslim)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is cut from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "daw.nasiha": {
+   "arabic": "الدِّينُ النَّصِيحَةُ",
+   "status": "verified",
+   "translit": "Ad-deenun-naseehah",
+   "meaning": "The religion is sincere care (naseehah).",
+   "words": [
+    {
+     "tr": "ad-deenu",
+     "en": "the religion"
+    },
+    {
+     "tr": "an-naseehah",
+     "en": "sincere care"
+    }
+   ],
+   "sources": [
+    "Muslim 55"
+   ],
+   "copiedFrom": "Muslim 55 (words 56 to 57 of narration 55.01, fawazahmed0/hadith-api, ara-muslim)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is cut from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "daw.believer.1": {
+   "arabic": "عَجَبًا لأَمْرِ الْمُؤْمِنِ إِنَّ أَمْرَهُ كُلَّهُ خَيْرٌ",
+   "status": "verified",
+   "translit": "'Ajaban li-amril-mu'mini inna amrahu kullahu khayr",
+   "meaning": "How wonderful is the affair of the believer: all of his affair is good.",
+   "words": [
+    {
+     "tr": "'ajaban",
+     "en": "how wonderful"
+    },
+    {
+     "tr": "li-amri",
+     "en": "is the affair of"
+    },
+    {
+     "tr": "al-mu'mini",
+     "en": "the believer"
+    },
+    {
+     "tr": "inna",
+     "en": "indeed"
+    },
+    {
+     "tr": "amrahu",
+     "en": "his affair"
+    },
+    {
+     "tr": "kullahu",
+     "en": "all of it"
+    },
+    {
+     "tr": "khayr",
+     "en": "good"
+    }
+   ],
+   "sources": [
+    "Muslim 2999"
+   ],
+   "copiedFrom": "Muslim 2999 (words 40 to 46 of narration 2999, fawazahmed0/hadith-api, ara-muslim)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is cut from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "daw.believer.2": {
+   "arabic": "إِنْ أَصَابَتْهُ سَرَّاءُ شَكَرَ فَكَانَ خَيْرًا لَهُ",
+   "status": "verified",
+   "translit": "In asaabat-hu sarraa'u shakara fa-kaana khayran lahu",
+   "meaning": "If good times reach him he is thankful, and that is good for him.",
+   "words": [
+    {
+     "tr": "in",
+     "en": "if"
+    },
+    {
+     "tr": "asaabat-hu",
+     "en": "reaches him"
+    },
+    {
+     "tr": "sarraa'u",
+     "en": "good times"
+    },
+    {
+     "tr": "shakara",
+     "en": "he is thankful"
+    },
+    {
+     "tr": "fa-kaana",
+     "en": "and it is"
+    },
+    {
+     "tr": "khayran",
+     "en": "good"
+    },
+    {
+     "tr": "lahu",
+     "en": "for him"
+    }
+   ],
+   "sources": [
+    "Muslim 2999"
+   ],
+   "copiedFrom": "Muslim 2999 (words 52 to 58 of narration 2999, fawazahmed0/hadith-api, ara-muslim)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is cut from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "daw.believer.3": {
+   "arabic": "وَإِنْ أَصَابَتْهُ ضَرَّاءُ صَبَرَ فَكَانَ خَيْرًا لَهُ",
+   "status": "verified",
+   "translit": "Wa in asaabat-hu darraa'u sabara fa-kaana khayran lahu",
+   "meaning": "And if hardship reaches him he is patient, and that is good for him.",
+   "words": [
+    {
+     "tr": "wa-in",
+     "en": "and if"
+    },
+    {
+     "tr": "asaabat-hu",
+     "en": "reaches him"
+    },
+    {
+     "tr": "darraa'u",
+     "en": "hardship"
+    },
+    {
+     "tr": "sabara",
+     "en": "he is patient"
+    },
+    {
+     "tr": "fa-kaana",
+     "en": "and it is"
+    },
+    {
+     "tr": "khayran",
+     "en": "good"
+    },
+    {
+     "tr": "lahu",
+     "en": "for him"
+    }
+   ],
+   "sources": [
+    "Muslim 2999"
+   ],
+   "copiedFrom": "Muslim 2999 (words 59 to 65 of narration 2999, fawazahmed0/hadith-api, ara-muslim)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is cut from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "daw.dua.daws": {
+   "arabic": "اللَّهُمَّ اهْدِ دَوْسًا وَائْتِ بِهِمْ",
+   "status": "verified",
+   "translit": "Allaahumma ihdi Dawsan wa'-ti bihim",
+   "meaning": "O Allah, guide Daws and bring them.",
+   "words": [
+    {
+     "tr": "Allaahumma",
+     "en": "O Allah"
+    },
+    {
+     "tr": "ihdi",
+     "en": "guide"
+    },
+    {
+     "tr": "Dawsan",
+     "en": "Daws (a tribe)"
+    },
+    {
+     "tr": "wa'-ti",
+     "en": "and bring"
+    },
+    {
+     "tr": "bihim",
+     "en": "them"
+    }
+   ],
+   "sources": [
+    "Bukhari 2937",
+    "Muslim 2524 (the same prayer in another wording)"
+   ],
+   "copiedFrom": "Bukhari 2937 (words 49 to 53 of narration 2937, fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is cut from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "und.best": {
+   "arabic": "خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ",
+   "status": "verified",
+   "translit": "Khayrukum man ta'allamal-Qur'aana wa 'allamahu",
+   "meaning": "The best of you is the one who learns the Qur'an and teaches it.",
+   "words": [
+    {
+     "tr": "khayrukum",
+     "en": "the best of you"
+    },
+    {
+     "tr": "man",
+     "en": "is the one who"
+    },
+    {
+     "tr": "ta'allama",
+     "en": "learns"
+    },
+    {
+     "tr": "al-Qur'aana",
+     "en": "the Qur'an"
+    },
+    {
+     "tr": "wa-'allamahu",
+     "en": "and teaches it"
+    }
+   ],
+   "sources": [
+    "Bukhari 5027"
+   ],
+   "copiedFrom": "Bukhari 5027 (words 37 to 41 of narration 5027, fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is cut from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "und.beautify": {
+   "arabic": "زَيِّنُوا الْقُرْآنَ بِأَصْوَاتِكُمْ",
+   "status": "verified",
+   "translit": "Zayyinul-Qur'aana bi-aswaatikum",
+   "meaning": "Beautify the Qur'an with your voices.",
+   "words": [
+    {
+     "tr": "zayyinoo",
+     "en": "beautify"
+    },
+    {
+     "tr": "al-Qur'aana",
+     "en": "the Qur'an"
+    },
+    {
+     "tr": "bi-aswaatikum",
+     "en": "with your voices"
+    }
+   ],
+   "sources": [
+    "Abu Dawud 1468 (graded sahih by al-Albani)"
+   ],
+   "copiedFrom": "Abu Dawud 1468 (graded by al-Albani; words 31 to 33 of narration 1468, fawazahmed0/hadith-api, ara-abudawud)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is cut from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "und.consistent": {
+   "arabic": "أَحَبَّ الأَعْمَالِ أَدْوَمُهَا إِلَى اللَّهِ وَإِنْ قَلَّ",
+   "status": "verified",
+   "translit": "Ahabbal-a'maali adwamuhaa ilal-laahi wa in qall",
+   "meaning": "The deeds most beloved to Allah are the most constant, even if small.",
+   "words": [
+    {
+     "tr": "ahabba",
+     "en": "most beloved"
+    },
+    {
+     "tr": "al-a'maali",
+     "en": "of deeds"
+    },
+    {
+     "tr": "adwamuhaa",
+     "en": "the most constant of them"
+    },
+    {
+     "tr": "ilaa",
+     "en": "to"
+    },
+    {
+     "tr": "Allaahi",
+     "en": "Allah"
+    },
+    {
+     "tr": "wa-in",
+     "en": "even if"
+    },
+    {
+     "tr": "qalla",
+     "en": "it is little"
+    }
+   ],
+   "sources": [
+    "Bukhari 6464"
+   ],
+   "copiedFrom": "Bukhari 6464 (words 41 to 47 of narration 6464, fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is cut from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "und.proof": {
+   "arabic": "وَالْقُرْآنُ حُجَّةٌ لَكَ أَوْ عَلَيْكَ",
+   "status": "verified",
+   "translit": "Wal-Qur'aanu hujjatun laka aw 'alayk",
+   "meaning": "And the Qur'an is a proof for you or against you.",
+   "words": [
+    {
+     "tr": "wal-Qur'aanu",
+     "en": "and the Qur'an"
+    },
+    {
+     "tr": "hujjatun",
+     "en": "a proof"
+    },
+    {
+     "tr": "laka",
+     "en": "for you"
+    },
+    {
+     "tr": "aw",
+     "en": "or"
+    },
+    {
+     "tr": "'alayka",
+     "en": "against you"
+    }
+   ],
+   "sources": [
+    "Muslim 223"
+   ],
+   "copiedFrom": "Muslim 223 (words 61 to 65 of narration 223, fawazahmed0/hadith-api, ara-muslim)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is cut from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "und.taawwudh": {
+   "arabic": "أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ",
+   "status": "verified",
+   "translit": "A'oodhu billaahi minash-shaytaan",
+   "meaning": "I seek refuge with Allah from the devil.",
+   "words": [
+    {
+     "tr": "a'oodhu",
+     "en": "I seek refuge"
+    },
+    {
+     "tr": "billaahi",
+     "en": "with Allah"
+    },
+    {
+     "tr": "mina",
+     "en": "from"
+    },
+    {
+     "tr": "ash-shaytaan",
+     "en": "the devil"
+    }
+   ],
+   "sources": [
+    "Bukhari 3282"
+   ],
+   "copiedFrom": "Bukhari 3282 (words 50 to 53 of narration 3282, fawazahmed0/hadith-api, ara-bukhari)",
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is cut from the cited text. The transliteration, the English meaning and the word glosses are the app author's own learning aids and have not been reviewed by a scholar. The wording in the cited narration is shorter than the form usually said (which adds ar-rajeem, from the Qur'an, 16:98). The lesson shows both."
+  },
+  "aqid.names99": {
+   "parts": [
+    "aqid.names99.1",
+    "aqid.names99.2"
+   ],
+   "status": "verified",
+   "translit": "Inna lillaahi tis'atan wa tis'eena ismaa, mi'atan illaa waahidan. Man ahsaahaa dakhalal-jannah",
+   "meaning": "Allah has ninety-nine names, one hundred less one. Whoever counts them [learns and keeps them] will enter Paradise.",
+   "sources": [
+    "Bukhari 2736",
+    "Muslim 2677 (the same teaching in another wording)"
+   ],
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is cut from the cited text. The transliteration and the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "aqid.prophets": {
+   "parts": [
+    "aqid.prophets.1",
+    "aqid.prophets.2"
+   ],
+   "status": "verified",
+   "translit": "Wal-anbiyaa'u ikhwatun li-'allaat, ummahaatuhum shattaa, wa deenuhum waahid",
+   "meaning": "The prophets are brothers from one father; their mothers are different, and their religion is one.",
+   "sources": [
+    "Bukhari 3443",
+    "Muslim 2365 (the same teaching in another wording)"
+   ],
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is cut from the cited text. The transliteration and the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "aqid.iman": {
+   "parts": [
+    "aqid.iman.1",
+    "aqid.iman.2"
+   ],
+   "status": "verified",
+   "translit": "An tu'mina billaahi wa malaa'ikatihi wa kutubihi wa rusulihi wal-yawmil-aakhir, wa tu'mina bil-qadari khayrihi wa sharrih",
+   "meaning": "Faith is to believe in Allah, His angels, His books, His messengers and the Last Day, and to believe in the decree (qadar), its good and its bad.",
+   "sources": [
+    "Muslim 8 (the hadith of Jibril)"
+   ],
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is cut from the cited text. The transliteration and the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "aqid.ihsan": {
+   "parts": [
+    "aqid.ihsan.1",
+    "aqid.ihsan.2"
+   ],
+   "status": "verified",
+   "translit": "An ta'buda Allaaha ka-annaka taraahu, fa-in lam takun taraahu fa-innahu yaraak",
+   "meaning": "Ihsan is to worship Allah as if you see Him, and if you do not see Him, then He sees you.",
+   "sources": [
+    "Muslim 8 (the hadith of Jibril)",
+    "Bukhari 50 (the same teaching in another wording)"
+   ],
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is cut from the cited text. The transliteration and the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "aqid.zulm": {
+   "parts": [
+    "aqid.zulm.1",
+    "aqid.zulm.2"
+   ],
+   "status": "verified",
+   "translit": "Yaa 'ibaadee innee harramtuz-zulma 'alaa nafsee, wa ja'altuhu baynakum muharraman fa-laa tazaalamoo",
+   "meaning": "O My servants, I have forbidden injustice for Myself, and I have made it forbidden between you, so do not wrong one another.",
+   "sources": [
+    "Muslim 2577"
+   ],
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is cut from the cited text. The transliteration and the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "daw.ease": {
+   "parts": [
+    "daw.ease.1",
+    "daw.ease.2"
+   ],
+   "status": "verified",
+   "translit": "Yassiroo wa laa tu'assiroo, wa bashshiroo wa laa tunaffiroo",
+   "meaning": "Make things easy, and do not make them hard. Give good news, and do not drive people away.",
+   "sources": [
+    "Bukhari 69"
+   ],
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is cut from the cited text. The transliteration and the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "daw.gentle": {
+   "parts": [
+    "daw.gentle.1",
+    "daw.gentle.2"
+   ],
+   "status": "verified",
+   "translit": "Innar-rifqa laa yakoonu fee shay'in illaa zaanahu, wa laa yun-za'u min shay'in illaa shaanahu",
+   "meaning": "Gentleness is not found in anything but it beautifies it, and it is not taken away from anything but it spoils it.",
+   "sources": [
+    "Muslim 2594"
+   ],
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is cut from the cited text. The transliteration and the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  },
+  "daw.believer": {
+   "parts": [
+    "daw.believer.1",
+    "daw.believer.2",
+    "daw.believer.3"
+   ],
+   "status": "verified",
+   "translit": "'Ajaban li-amril-mu'mini inna amrahu kullahu khayr. In asaabat-hu sarraa'u shakara fa-kaana khayran lahu. Wa in asaabat-hu darraa'u sabara fa-kaana khayran lahu",
+   "meaning": "How wonderful is the affair of the believer: all of his affair is good. If good times reach him he is thankful, and that is good for him. If hardship reaches him he is patient, and that is good for him.",
+   "sources": [
+    "Muslim 2999"
+   ],
+   "needsScholarReview": true,
+   "reviewNote": "Arabic is cut from the cited text. The transliteration and the English meaning are the app author's own learning aids and have not been reviewed by a scholar."
+  }
+ }
+}

@@ -51,14 +51,26 @@ const List<LegalSection> kTermsSections = <LegalSection>[
         'cannot call for help on your behalf.',
   ),
   LegalSection(
+    'Who may use the app',
+    'Ar-Rayaan is for people aged 13 or over (or the age of digital '
+        'consent where you live) who create an account themselves. Younger '
+        'children use the app only through a parent or guardian, who sets '
+        'up a child\u2019s learning profile in the Family Wing; a child never '
+        'needs an account.',
+  ),
+  LegalSection(
     'Your account',
     'You are responsible for what you do with your account and for keeping '
         'your password private. You can delete your account at any time '
-        'from the Delete account screen.',
+        'from the Delete account screen. An account only identifies you '
+        'when you sign in: your progress, bookmarks and settings are kept on '
+        'your device and are not backed up to the account, so clearing the '
+        'app\u2019s data removes them.',
   ),
   LegalSection(
     'The Majlis (community)',
-    'Posts in the Majlis are public and shown with the display name you '
+    'The Majlis is not open yet. Once it opens, posts in it are public and '
+        'shown with the display name you '
         'choose. They are not reviewed before they appear. Do not post '
         'anything unlawful, abusive, hateful, deceptive, or that shares '
         'private information about other people, and do not claim to be '
@@ -100,11 +112,25 @@ const List<LegalSection> kPrivacySections = <LegalSection>[
     'If you create an account we use Firebase Authentication (Google) to '
         'store your name, email address and sign-in method. Deleting your '
         'account removes the sign-in record and the account data we keep '
-        'about you.',
+        'about you. The account does not back up your progress or '
+        'bookmarks: those stay on your device.',
+  ),
+  LegalSection(
+    'Reports about a Hadi answer',
+    'If you choose \u201cReport this answer\u201d, the text of that answer '
+        '(shortened to 1,200 characters), the reason you pick, the passages '
+        'it showed, whether it came from the offline library or an AI '
+        'provider, and your question only if you tick \u201cInclude my '
+        'question\u201d, are sent to our Firebase Firestore database '
+        '(Google), using an anonymous sign-in number that is not linked to '
+        'your name or email. We use reports only to correct Hadi. If you '
+        'are offline the report is kept on your device and sent the next '
+        'time the app opens with a connection; reports are never sent '
+        'unless you press Send.',
   ),
   LegalSection(
     'The Majlis',
-    'What you post in the Majlis (title, text, display name and an '
+    'The Majlis is not open yet. Once it opens, what you post in it (title, text, display name and an '
         'identifier for your account) is stored in Firebase Firestore and '
         'is public. Deleting your account does not automatically remove '
         'posts already published; contact us to ask for a post to be '
@@ -119,7 +145,12 @@ const List<LegalSection> kPrivacySections = <LegalSection>[
         'service). When you play a YouTube or Spotify track in the Player, '
         'that service\u2019s player loads inside the app, receives your IP '
         'address, may set cookies and may show its own advertising; it '
-        'loads only when you press play. Each has its own privacy policy.',
+        'loads only when you press play. '
+        'The fonts for English, Arabic and Bangla are part of the app. '
+        'Only for a rare character none of them contains (an emoji, or a '
+        'script such as Chinese), your browser may fetch a fallback font '
+        'from Google (fonts.gstatic.com), which reveals your IP address to '
+        'Google. Each has its own privacy policy.',
   ),
   LegalSection(
     'We do not sell your data',
@@ -132,6 +163,27 @@ const List<LegalSection> kPrivacySections = <LegalSection>[
         'we hold about you. Contact address: $kLegalContactPending.',
   ),
   LegalSection(kChildrenPrivacyTitle, kChildrenPrivacyBody),
+  LegalSection(
+    'Kids Corner',
+    'Kids Corner is a page of big buttons for a child to use with a grown-up '
+        'beside them. It asks for no name and no account. While it is open '
+        'the Settings button and the Ask Hadi button are not shown, and '
+        'leaving it, opening the games, or leaving the Child track of the '
+        'Academy asks for the parent PIN. The PIN is 4 to 6 digits that a '
+        'parent chooses the first time it is asked for. Only a scrambled '
+        '(salted SHA-256) form of it is kept, on this device; it is never '
+        'sent anywhere. Five wrong tries lock it for five minutes, and once '
+        'entered it stays open for two minutes.\n\n'
+        'Child mode, which a parent can turn on from Kids Corner or the '
+        'Family Wing, goes further: the rest of the app (menus, Settings, '
+        'Ask Hadi, marriage and family life, finance, community, the Qur\u2019an '
+        'and hadith readers, games and the other Academy schools) cannot be '
+        'opened, and every other address leads back to Kids Corner. Only the '
+        'Arabic letters and the stories school remain. The PIN turns it off. '
+        'The PIN is a barrier for a child, not a vault against a determined '
+        'adult with the device: clearing the browser\u2019s site data for '
+        'Ar-Rayaan removes it, along with everything else stored on the device.',
+  ),
 ];
 
 class _LegalPage extends StatelessWidget {

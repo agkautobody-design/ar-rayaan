@@ -5,12 +5,15 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../app/core/notifications/prayer_notification_scheduler.dart';
+import '../../../app/router.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/needs_internet_view.dart';
 import '../../../app/theme/widgets/not_found_view.dart';
 import '../../../app/theme/widgets/screen_header.dart';
+import '../../kids/presentation/kids_corner_screen.dart';
 import '../application/academy_reminder_providers.dart';
 import '../application/family_service.dart';
 import '../application/wasia_controller.dart';
@@ -38,46 +41,65 @@ class FamilyScreen extends ConsumerWidget {
     }
     if (!context.mounted) return;
     final name = TextEditingController();
+    String? problem;
     final ok = await showDialog<bool>(
       context: context,
-      builder: (ctx) => AlertDialog(
-        backgroundColor: const Color(0xFF0A0F18),
-        title: Text('Add a child', style: AppText.titleMedium),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            TextField(
-              controller: name,
-              maxLength: 30,
-              style: AppText.body,
-              decoration: const InputDecoration(
-                  hintText: 'First name or nickname'),
-            ),
-            Text(
-              'A nickname is enough. It stays on this device only.',
-              style: AppText.caption,
-            ),
+      builder: (ctx) => StatefulBuilder(
+        builder: (BuildContext ctx, StateSetter setInner) => AlertDialog(
+          backgroundColor: const Color(0xFF0A0F18),
+          title: Text('Add a child', style: AppText.titleMedium),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              TextField(
+                key: const Key('add-child-name'),
+                controller: name,
+                // The name box has the cursor on open, so typing is not lost.
+                autofocus: true,
+                maxLength: 30,
+                style: AppText.body,
+                decoration: InputDecoration(
+                  hintText: 'First name or nickname',
+                  errorText: problem,
+                ),
+                onSubmitted: (_) {
+                  if (name.text.trim().isEmpty) {
+                    setInner(() => problem = 'Type a first name or a nickname.');
+                  } else {
+                    Navigator.pop(ctx, true);
+                  }
+                },
+              ),
+              Text(
+                'A nickname is enough. It stays on this device only.',
+                style: AppText.caption,
+              ),
+            ],
+          ),
+          actions: [
+            TextButton(
+                onPressed: () => Navigator.pop(ctx, false),
+                child: const Text('Cancel')),
+            TextButton(
+                onPressed: () {
+                  // An empty name keeps the box open and says why, instead
+                  // of closing it and making the parent start again.
+                  if (name.text.trim().isEmpty) {
+                    setInner(() => problem = 'Type a first name or a nickname.');
+                    return;
+                  }
+                  Navigator.pop(ctx, true);
+                },
+                child: const Text('Add',
+                    style: TextStyle(color: AppColors.goldLight))),
           ],
         ),
-        actions: [
-          TextButton(
-              onPressed: () => Navigator.pop(ctx, false),
-              child: const Text('Cancel')),
-          TextButton(
-              onPressed: () => Navigator.pop(ctx, true),
-              child: const Text('Add',
-                  style: TextStyle(color: AppColors.goldLight))),
-        ],
       ),
     );
     if (ok == true && name.text.trim().isNotEmpty) {
       await fam.addChild(name.text);
       ref.invalidate(childrenProvider);
-    } else if (ok == true && context.mounted) {
-      ScaffoldMessenger.maybeOf(context)?.showSnackBar(
-        const SnackBar(content: Text('Type a first name or a nickname.')),
-      );
     }
   }
 
@@ -107,6 +129,46 @@ class FamilyScreen extends ConsumerWidget {
               'on this device \u2014 they are never sent to our servers or to any '
               'AI service, and you can delete a child at any time.',
               style: AppText.bodyMuted,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 14),
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  child: OutlinedButton.icon(
+                    key: const Key('family-lock'),
+                    style: OutlinedButton.styleFrom(
+                      minimumSize: const Size(0, 48),
+                      foregroundColor: AppColors.goldLight,
+                      side: BorderSide(
+                        color: AppColors.gold.withValues(alpha: 0.5),
+                      ),
+                    ),
+                    onPressed: () =>
+                        ref.read(parentGateProvider.notifier).lock(),
+                    icon: const Icon(Icons.lock_outline, size: 18),
+                    label: const Text('Lock'),
+                  ),
+                ),
+                const SizedBox(width: 10),
+                Expanded(
+                  flex: 2,
+                  child: OutlinedButton.icon(
+                    key: const Key('child-mode-start'),
+                    style: OutlinedButton.styleFrom(
+                      minimumSize: const Size(0, 48),
+                      foregroundColor: AppColors.goldLight,
+                      side: BorderSide(
+                        color: AppColors.gold.withValues(alpha: 0.5),
+                      ),
+                    ),
+                    onPressed: () => unawaited(startChildMode(context, ref)),
+                    icon: const Icon(Icons.child_care_outlined, size: 18),
+                    label: const Text('Hand over to a child'),
+                  ),
+                ),
+              ],
             ),
           ),
           // An ordinary button in the page, not a floating one: a floating
@@ -310,7 +372,9 @@ class _ParentWasiaBoxState extends ConsumerState<_ParentWasiaBox> {
   Widget build(BuildContext context) {
     final busy = ref.watch(wasiaControllerProvider).isLoading;
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Text('ASK WASIA ABOUT ${widget.childName.toUpperCase()}',
+      // Wasia is never told which child: the box is for general guidance, so
+      // its label does not name the child either.
+      Text('ASK WASIA HOW TO HELP',
           style: AppText.eyebrow.copyWith(fontSize: 12)),
       const SizedBox(height: 6),
       Row(children: [
@@ -319,8 +383,11 @@ class _ParentWasiaBoxState extends ConsumerState<_ParentWasiaBox> {
             controller: _input,
             style: AppText.body.copyWith(fontSize: 13),
             decoration: const InputDecoration(
-                hintText: 'How is my child doing? What should we practice?',
-                helperText: 'Please do not type your child\u2019s name.'),
+                hintText: 'How can we practise the letters at home?',
+                helperText: 'Wasia is not given your child\u2019s name or '
+                    'progress, so she answers in general. Please do not '
+                    'type the name.',
+                helperMaxLines: 3),
           ),
         ),
         const SizedBox(width: 8),
@@ -419,7 +486,7 @@ class _ExamScreenState extends ConsumerState<ExamScreen> {
             children: [
               ScreenHeader(title: exam['title'] as String? ?? 'Exam', close: true),
               const ActiveChildBanner(),
-              Text('QUESTION ${_i + 1} OF ${qs.length} \u00b7 SCORE $_score',
+              Text('QUESTION ${_i + 1} OF ${qs.length}',
                   style: AppText.eyebrow),
               const SizedBox(height: 12),
               GlassCard(
@@ -437,8 +504,8 @@ class _ExamScreenState extends ConsumerState<ExamScreen> {
                       padding: const EdgeInsets.symmetric(vertical: 6),
                       child: Text(options[o],
                           textAlign: TextAlign.center,
-                          style: const TextStyle(fontFamily: 'Amiri', fontSize: 30,
-                              color: Color(0xFFEAD9A8))),
+                          // Arabic options in Amiri; English ones in the body face.
+                          style: quizOptionStyle(options[o])),
                     ),
                   ),
                 ),
@@ -573,6 +640,18 @@ class FamilyLockedView extends ConsumerWidget {
                   'Please answer a quick question to continue.',
                   style: AppText.bodyMuted.copyWith(height: 1.5),
                 ),
+                const SizedBox(height: 10),
+                // What is behind the question, so a visitor can tell whether
+                // this is the place they came for.
+                Text(
+                  'Inside: add a child (a first name or nickname), follow '
+                  'their Arabic-letter lessons and exams, set reminders, and '
+                  'choose whether an AI service may be used for them. It is '
+                  'not about marriage or family life in general, and it all '
+                  'stays on this device.',
+                  key: const Key('family-locked-about'),
+                  style: AppText.bodyMuted.copyWith(height: 1.5),
+                ),
                 const SizedBox(height: 14),
                 FilledButton(
                   onPressed: () => requireParent(context, ref),
@@ -581,7 +660,73 @@ class FamilyLockedView extends ConsumerWidget {
               ],
             ),
           ),
+          const SizedBox(height: 16),
+          // Not a parent, or looking for marriage, family life, community or
+          // care for an elder: these are the doors for that.
+          Padding(
+            padding: const EdgeInsets.only(left: 4, bottom: 8),
+            child: Text('NOT A PARENT? FAMILY AND COMMUNITY', style: AppText.eyebrow),
+          ),
+          GlassCard(
+            child: Column(children: <Widget>[
+              _FamilyDoor(
+                key: const Key('family-door-life'),
+                icon: Icons.handshake_outlined,
+                label: 'Marriage & Family Life',
+                onTap: () => context.open('/academy/family-life'),
+              ),
+              _FamilyDoor(
+                key: const Key('family-door-community'),
+                icon: Icons.people_outline,
+                label: 'Community',
+                onTap: () => context.go(AppRoutes.community),
+              ),
+              _FamilyDoor(
+                key: const Key('family-door-elder'),
+                icon: Icons.favorite_outline,
+                label: 'Elder Care',
+                onTap: () => context.open('/elder-care'),
+              ),
+            ]),
+          ),
         ],
+      ),
+    );
+  }
+}
+
+/// One row of the doors under the parent check.
+class _FamilyDoor extends StatelessWidget {
+  const _FamilyDoor({
+    required this.icon,
+    required this.label,
+    required this.onTap,
+    super.key,
+  });
+
+  final IconData icon;
+  final String label;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Semantics(
+      button: true,
+      label: label,
+      excludeSemantics: true,
+      onTap: onTap,
+      child: FocusableTap(
+        onTap: onTap,
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(minHeight: 48),
+          child: Row(children: <Widget>[
+            Icon(icon, color: AppColors.gold, size: 22),
+            const SizedBox(width: 12),
+            Expanded(child: Text(label, style: AppText.body)),
+            Icon(Icons.chevron_right,
+                size: 18, color: AppColors.gold.withValues(alpha: 0.6)),
+          ]),
+        ),
       ),
     );
   }

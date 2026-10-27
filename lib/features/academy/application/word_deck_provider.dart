@@ -11,6 +11,7 @@ import '../domain/path_ux.dart';
 import '../domain/recitation_audio.dart';
 import '../domain/spaced_repetition.dart';
 import '../domain/word_deck.dart';
+import '../domain/word_gloss.dart';
 
 /// The learner's deck. Loaded from device storage; every mutation
 /// persists immediately (Amanah: on-device only, never synced).
@@ -53,7 +54,26 @@ class WordDeckNotifier extends StateNotifier<Map<String, WordCard>> {
     );
     if (pack != null && pack.isNotEmpty) {
       await seedPack(pack);
+      await applyGlosses(await WordDeckRepository.loadGlosses());
     }
+  }
+
+  /// A deck saved by an older version holds the pack cards with no meaning.
+  /// Give each such card its meaning (and root) from [glosses]; review
+  /// progress is never touched, and a card that already has a sourced
+  /// meaning is left alone.
+  Future<void> applyGlosses(Map<String, WordGloss> glosses) async {
+    if (glosses.isEmpty) return;
+    bool changed = false;
+    final Map<String, WordCard> next = <String, WordCard>{};
+    for (final MapEntry<String, WordCard> e in state.entries) {
+      final WordCard updated = withGloss(e.value, glosses);
+      if (!identical(updated, e.value)) changed = true;
+      next[e.key] = updated;
+    }
+    if (!changed) return;
+    state = next;
+    await _save();
   }
 
   static bool _ayahExists(AyahRef ref) {

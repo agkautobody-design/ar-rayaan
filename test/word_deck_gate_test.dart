@@ -61,7 +61,8 @@ void main() {
       }
     }
     expect(shown + hidden, 300);
-    // Today none carries a source: all meanings are hidden, none invented.
+    // The pack itself is checksum-pinned and carries no source; the meanings
+    // live in word_glosses.json (see word_gloss_test.dart).
     expect(shown, 0);
   });
 }

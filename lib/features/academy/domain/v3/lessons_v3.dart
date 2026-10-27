@@ -23,6 +23,7 @@ bool isDoItRoute(String route) {
     '/hadi',
     '/calendar',
     '/adhkar',
+    '/academy/hifz',
   };
   if (fixed.contains(route)) return true;
   final RegExpMatch? m = RegExp(r'^/quran/(\d{1,3})$').firstMatch(route);

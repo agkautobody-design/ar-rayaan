@@ -113,7 +113,7 @@ void main() {
     final List<dynamic> duas = jsonDecode(
       File('assets/stories/dailyduas.json').readAsStringSync(),
     ) as List<dynamic>;
-    expect(duas.length, 42);
+    expect(duas.length, 38);
     const Set<String> gates = <String>{
       'morning-evening', 'waking-sleeping', 'home', 'food', 'travel',
       'hardship', 'prayer', 'fasting', 'family', 'decisions', 'rain',

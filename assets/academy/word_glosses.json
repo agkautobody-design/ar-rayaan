@@ -1,0 +1,1208 @@
+{
+ "version": 1,
+ "source": "Ar-Rayaan word glosses v1",
+ "about": "English meanings written for this app and checked against the verse each word first appears in (Saheeh International text bundled in quran.json). No root is given: no root source with clear terms has been chosen. Not yet reviewed by a scholar of Arabic. Kept in its own file because word_pack.json is pinned by checksum.",
+ "needsScholarReview": true,
+ "glosses": [
+  {
+   "key": "2:4:مِن",
+   "gloss": "from"
+  },
+  {
+   "key": "1:1:ٱللَّهِ",
+   "gloss": "Allah"
+  },
+  {
+   "key": "2:10:فِي",
+   "gloss": "in"
+  },
+  {
+   "key": "2:17:مَا",
+   "gloss": "what / that which (also the word for \"not\")"
+  },
+  {
+   "key": "2:6:إِنَّ",
+   "gloss": "indeed / truly"
+  },
+  {
+   "key": "2:2:لَا",
+   "gloss": "no / not"
+  },
+  {
+   "key": "1:7:ٱلَّذِينَ",
+   "gloss": "those who"
+  },
+  {
+   "key": "2:5:عَلَىٰ",
+   "gloss": "upon / on"
+  },
+  {
+   "key": "2:9:إِلَّآ",
+   "gloss": "except / but"
+  },
+  {
+   "key": "1:7:وَلَا",
+   "gloss": "and not / and no"
+  },
+  {
+   "key": "2:4:وَمَآ",
+   "gloss": "and what (also \"and not\")"
+  },
+  {
+   "key": "2:25:أَنَّ",
+   "gloss": "that (indeed that)"
+  },
+  {
+   "key": "2:30:قَالَ",
+   "gloss": "he said"
+  },
+  {
+   "key": "2:14:إِلَىٰ",
+   "gloss": "to / towards"
+  },
+  {
+   "key": "2:11:لَهُمۡ",
+   "gloss": "for them / they have"
+  },
+  {
+   "key": "2:8:وَمِنَ",
+   "gloss": "and from / and of"
+  },
+  {
+   "key": "2:28:ثُمَّ",
+   "gloss": "then"
+  },
+  {
+   "key": "2:22:لَكُمُ",
+   "gloss": "for you (all)"
+  },
+  {
+   "key": "2:22:بِهِۦ",
+   "gloss": "with it / by it / by him"
+  },
+  {
+   "key": "2:75:كَانَ",
+   "gloss": "was / used to be"
+  },
+  {
+   "key": "2:80:قُلۡ",
+   "gloss": "say! (command to one person)"
+  },
+  {
+   "key": "2:4:بِمَآ",
+   "gloss": "with what / in what / by what"
+  },
+  {
+   "key": "2:11:ٱلۡأَرۡضِ",
+   "gloss": "the earth"
+  },
+  {
+   "key": "2:2:ذَٰلِكَ",
+   "gloss": "that"
+  },
+  {
+   "key": "2:19:أَوۡ",
+   "gloss": "or"
+  },
+  {
+   "key": "2:102:لَهُۥ",
+   "gloss": "for him / he has"
+  },
+  {
+   "key": "2:17:ٱلَّذِي",
+   "gloss": "the one who / who"
+  },
+  {
+   "key": "2:29:هُوَ",
+   "gloss": "he / He"
+  },
+  {
+   "key": "2:9:ءَامَنُواْ",
+   "gloss": "they believed"
+  },
+  {
+   "key": "2:4:هُمۡ",
+   "gloss": "they / them"
+  },
+  {
+   "key": "2:23:وَإِن",
+   "gloss": "and if"
+  },
+  {
+   "key": "2:11:قَالُوٓاْ",
+   "gloss": "they said"
+  },
+  {
+   "key": "2:20:كُلِّ",
+   "gloss": "every / all"
+  },
+  {
+   "key": "2:25:فِيهَآ",
+   "gloss": "in it / in them"
+  },
+  {
+   "key": "2:19:وَٱللَّهُ",
+   "gloss": "and Allah"
+  },
+  {
+   "key": "2:10:كَانُواْ",
+   "gloss": "they were"
+  },
+  {
+   "key": "2:48:عَن",
+   "gloss": "from / about"
+  },
+  {
+   "key": "2:145:إِذٗا",
+   "gloss": "then / in that case"
+  },
+  {
+   "key": "2:30:رَبُّكَ",
+   "gloss": "your Lord"
+  },
+  {
+   "key": "1:4:يَوۡمِ",
+   "gloss": "day (of)"
+  },
+  {
+   "key": "1:7:عَلَيۡهِمۡ",
+   "gloss": "upon them"
+  },
+  {
+   "key": "2:20:شَيۡءٖ",
+   "gloss": "a thing / anything"
+  },
+  {
+   "key": "2:25:هَٰذَا",
+   "gloss": "this"
+  },
+  {
+   "key": "2:6:كَفَرُواْ",
+   "gloss": "they disbelieved"
+  },
+  {
+   "key": "2:23:كُنتُمۡ",
+   "gloss": "you (all) were"
+  },
+  {
+   "key": "2:8:ٱلنَّاسِ",
+   "gloss": "the people"
+  },
+  {
+   "key": "2:33:ٱلسَّمَٰوَٰتِ",
+   "gloss": "the heavens"
+  },
+  {
+   "key": "2:6:لَمۡ",
+   "gloss": "did not / not (past)"
+  },
+  {
+   "key": "2:29:وَهُوَ",
+   "gloss": "and He / and he"
+  },
+  {
+   "key": "2:24:فَإِن",
+   "gloss": "so if"
+  },
+  {
+   "key": "2:131:إِذۡ",
+   "gloss": "when / at the time"
+  },
+  {
+   "key": "2:4:وَٱلَّذِينَ",
+   "gloss": "and those who"
+  },
+  {
+   "key": "2:40:عَلَيۡكُمۡ",
+   "gloss": "upon you (all)"
+  },
+  {
+   "key": "2:2:ٱلۡكِتَٰبُ",
+   "gloss": "the Book"
+  },
+  {
+   "key": "2:33:وَٱلۡأَرۡضِ",
+   "gloss": "and the earth"
+  },
+  {
+   "key": "2:14:إِنَّا",
+   "gloss": "indeed we"
+  },
+  {
+   "key": "2:22:فَلَا",
+   "gloss": "so do not / so no"
+  },
+  {
+   "key": "2:75:مِّنۡهُمۡ",
+   "gloss": "from them / of them"
+  },
+  {
+   "key": "2:7:عَذَابٌ",
+   "gloss": "a punishment"
+  },
+  {
+   "key": "2:27:بَعۡدِ",
+   "gloss": "after"
+  },
+  {
+   "key": "2:37:إِنَّهُۥ",
+   "gloss": "indeed He / indeed it"
+  },
+  {
+   "key": "2:37:عَلَيۡهِۚ",
+   "gloss": "upon him / upon it"
+  },
+  {
+   "key": "2:21:يَـٰٓأَيُّهَا",
+   "gloss": "O (you ...)"
+  },
+  {
+   "key": "2:55:حَتَّىٰ",
+   "gloss": "until / so that"
+  },
+  {
+   "key": "2:8:بِٱللَّهِ",
+   "gloss": "in Allah / by Allah"
+  },
+  {
+   "key": "2:25:وَهُمۡ",
+   "gloss": "and they"
+  },
+  {
+   "key": "2:11:وَإِذَا",
+   "gloss": "and when"
+  },
+  {
+   "key": "2:5:أُوْلَـٰٓئِكَ",
+   "gloss": "those"
+  },
+  {
+   "key": "2:30:إِنِّي",
+   "gloss": "indeed I"
+  },
+  {
+   "key": "2:6:أَمۡ",
+   "gloss": "or"
+  },
+  {
+   "key": "2:65:وَلَقَدۡ",
+   "gloss": "and certainly / and indeed"
+  },
+  {
+   "key": "1:2:رَبِّ",
+   "gloss": "Lord (of)"
+  },
+  {
+   "key": "2:2:فِيهِۛ",
+   "gloss": "in it"
+  },
+  {
+   "key": "2:88:بَل",
+   "gloss": "rather / nay"
+  },
+  {
+   "key": "2:60:قَدۡ",
+   "gloss": "already / indeed"
+  },
+  {
+   "key": "2:54:عِندَ",
+   "gloss": "with / at / near"
+  },
+  {
+   "key": "2:25:قَبۡلُۖ",
+   "gloss": "before"
+  },
+  {
+   "key": "1:2:لِلَّهِ",
+   "gloss": "for Allah / belongs to Allah"
+  },
+  {
+   "key": "2:54:خَيۡرٞ",
+   "gloss": "good / better"
+  },
+  {
+   "key": "2:90:يَشَآءُ",
+   "gloss": "he wills / He wills"
+  },
+  {
+   "key": "2:85:ٱلدُّنۡيَاۖ",
+   "gloss": "the world (this worldly life)"
+  },
+  {
+   "key": "2:11:إِنَّمَا",
+   "gloss": "only / indeed"
+  },
+  {
+   "key": "2:12:وَلَٰكِن",
+   "gloss": "but / however"
+  },
+  {
+   "key": "2:5:رَّبِّهِمۡۖ",
+   "gloss": "their Lord"
+  },
+  {
+   "key": "2:20:وَلَوۡ",
+   "gloss": "and if / even if (it were so)"
+  },
+  {
+   "key": "2:23:مِّمَّا",
+   "gloss": "from what / of what"
+  },
+  {
+   "key": "2:19:ٱلسَّمَآءِ",
+   "gloss": "the sky / the heaven"
+  },
+  {
+   "key": "2:26:ٱلۡحَقُّ",
+   "gloss": "the truth"
+  },
+  {
+   "key": "2:65:مِنكُمۡ",
+   "gloss": "from you (all)"
+  },
+  {
+   "key": "2:29:عَلِيمٞ",
+   "gloss": "all-knowing"
+  },
+  {
+   "key": "2:127:رَبَّنَا",
+   "gloss": "our Lord"
+  },
+  {
+   "key": "2:51:مُوسَىٰٓ",
+   "gloss": "Musa (Moses)"
+  },
+  {
+   "key": "2:21:رَبَّكُمُ",
+   "gloss": "your (all) Lord"
+  },
+  {
+   "key": "2:24:ٱلنَّارَ",
+   "gloss": "the Fire"
+  },
+  {
+   "key": "2:17:فَلَمَّآ",
+   "gloss": "so when"
+  },
+  {
+   "key": "2:12:أَلَآ",
+   "gloss": "beware! / indeed (a call to attention)"
+  },
+  {
+   "key": "2:4:أُنزِلَ",
+   "gloss": "was sent down"
+  },
+  {
+   "key": "2:102:لَمَنِ",
+   "gloss": "whoever"
+  },
+  {
+   "key": "2:258:رَبِّيَ",
+   "gloss": "my Lord"
+  },
+  {
+   "key": "2:29:خَلَقَ",
+   "gloss": "he created"
+  },
+  {
+   "key": "2:23:دُونِ",
+   "gloss": "besides / other than"
+  },
+  {
+   "key": "2:38:فَمَن",
+   "gloss": "so whoever"
+  },
+  {
+   "key": "2:60:مِنۡهُ",
+   "gloss": "from him / from it"
+  },
+  {
+   "key": "2:154:سَبِيلِ",
+   "gloss": "way / path (of)"
+  },
+  {
+   "key": "2:196:فَإِذَآ",
+   "gloss": "so when"
+  },
+  {
+   "key": "2:3:يُؤۡمِنُونَ",
+   "gloss": "they believe"
+  },
+  {
+   "key": "2:16:فَمَا",
+   "gloss": "so not / so what"
+  },
+  {
+   "key": "2:25:مِنۡهَا",
+   "gloss": "from it / from them (f.)"
+  },
+  {
+   "key": "2:73:كَذَٰلِكَ",
+   "gloss": "like that / thus"
+  },
+  {
+   "key": "2:49:ٱلۡعَذَابِ",
+   "gloss": "the punishment"
+  },
+  {
+   "key": "2:118:وَقَالَ",
+   "gloss": "and he said"
+  },
+  {
+   "key": "2:34:وَكَانَ",
+   "gloss": "and he was / and it was"
+  },
+  {
+   "key": "2:168:مُّبِينٌ",
+   "gloss": "clear / evident"
+  },
+  {
+   "key": "2:32:لَنَآ",
+   "gloss": "for us / to us"
+  },
+  {
+   "key": "2:74:تَعۡمَلُونَ",
+   "gloss": "you (all) do"
+  },
+  {
+   "key": "2:13:يَعۡلَمُونَ",
+   "gloss": "they know"
+  },
+  {
+   "key": "2:66:بَيۡنَ",
+   "gloss": "between / among"
+  },
+  {
+   "key": "2:79:لِّلَّذِينَ",
+   "gloss": "for those who"
+  },
+  {
+   "key": "2:99:بِهَآ",
+   "gloss": "with it / by it (f.)"
+  },
+  {
+   "key": "3:117:قَوۡمٖ",
+   "gloss": "a people"
+  },
+  {
+   "key": "2:33:أَلَمۡ",
+   "gloss": "did (he) not...? / have you not...?"
+  },
+  {
+   "key": "2:96:لَوۡ",
+   "gloss": "if (it were so)"
+  },
+  {
+   "key": "2:223:ٱلۡمُؤۡمِنِينَ",
+   "gloss": "the believers"
+  },
+  {
+   "key": "2:4:إِلَيۡكَ",
+   "gloss": "to you"
+  },
+  {
+   "key": "2:32:عِلۡمَ",
+   "gloss": "knowledge"
+  },
+  {
+   "key": "2:48:شَيۡـٔٗا",
+   "gloss": "anything / a thing"
+  },
+  {
+   "key": "2:28:إِلَيۡهِ",
+   "gloss": "to him / to Him"
+  },
+  {
+   "key": "2:85:أَنتُمۡ",
+   "gloss": "you (all)"
+  },
+  {
+   "key": "2:86:عَنۡهُمُ",
+   "gloss": "from them / about them"
+  },
+  {
+   "key": "2:41:لِّمَا",
+   "gloss": "for what / for that which"
+  },
+  {
+   "key": "2:71:بِٱلۡحَقِّۚ",
+   "gloss": "with the truth"
+  },
+  {
+   "key": "2:37:رَّبِّهِۦ",
+   "gloss": "his Lord"
+  },
+  {
+   "key": "2:163:إِلَٰهٞ",
+   "gloss": "a god / a deity"
+  },
+  {
+   "key": "2:9:أَنفُسَهُمۡ",
+   "gloss": "themselves / their souls"
+  },
+  {
+   "key": "2:30:وَإِذۡ",
+   "gloss": "and when / and (remember) when"
+  },
+  {
+   "key": "2:206:جَهَنَّمُۖ",
+   "gloss": "Jahannam (Hell)"
+  },
+  {
+   "key": "2:30:لَكَۖ",
+   "gloss": "for you"
+  },
+  {
+   "key": "2:77:يَعۡلَمُ",
+   "gloss": "he knows"
+  },
+  {
+   "key": "2:85:ٱلۡقِيَٰمَةِ",
+   "gloss": "the Resurrection (Day of Rising)"
+  },
+  {
+   "key": "2:94:ٱلۡأٓخِرَةُ",
+   "gloss": "the Hereafter"
+  },
+  {
+   "key": "1:7:غَيۡرِ",
+   "gloss": "other than / without"
+  },
+  {
+   "key": "2:165:وَأَنَّ",
+   "gloss": "and that"
+  },
+  {
+   "key": "2:89:كِتَٰبٞ",
+   "gloss": "a book / a scripture"
+  },
+  {
+   "key": "2:210:هَلۡ",
+   "gloss": "is...? / do...? (question word)"
+  },
+  {
+   "key": "2:258:أَنَا۠",
+   "gloss": "I"
+  },
+  {
+   "key": "2:279:وَرَسُولِهِۦۖ",
+   "gloss": "and His Messenger"
+  },
+  {
+   "key": "2:7:قُلُوبِهِمۡ",
+   "gloss": "their hearts"
+  },
+  {
+   "key": "2:11:نَحۡنُ",
+   "gloss": "we / We"
+  },
+  {
+   "key": "2:24:ٱلَّتِي",
+   "gloss": "the one who (f.) / which"
+  },
+  {
+   "key": "2:49:فِرۡعَوۡنَ",
+   "gloss": "Fir'awn (Pharaoh)"
+  },
+  {
+   "key": "3:167:يَوۡمَئِذٍ",
+   "gloss": "on that day"
+  },
+  {
+   "key": "2:35:ٱلظَّـٰلِمِينَ",
+   "gloss": "the wrongdoers"
+  },
+  {
+   "key": "2:129:ٱلۡعَزِيزُ",
+   "gloss": "the Almighty / the Mighty"
+  },
+  {
+   "key": "2:12:إِنَّهُمۡ",
+   "gloss": "indeed they"
+  },
+  {
+   "key": "2:36:ٱلشَّيۡطَٰنُ",
+   "gloss": "the Shaytan (Satan)"
+  },
+  {
+   "key": "2:85:ٱلۡحَيَوٰةِ",
+   "gloss": "the life"
+  },
+  {
+   "key": "4:97:كُنَّا",
+   "gloss": "we were"
+  },
+  {
+   "key": "2:25:جَنَّـٰتٖ",
+   "gloss": "gardens"
+  },
+  {
+   "key": "2:28:كَيۡفَ",
+   "gloss": "how"
+  },
+  {
+   "key": "2:39:أَصۡحَٰبُ",
+   "gloss": "companions / people (of)"
+  },
+  {
+   "key": "2:250:ٱلۡقَوۡمِ",
+   "gloss": "the people"
+  },
+  {
+   "key": "1:2:ٱلۡعَٰلَمِينَ",
+   "gloss": "the worlds"
+  },
+  {
+   "key": "2:25:ٱلصَّـٰلِحَٰتِ",
+   "gloss": "the righteous deeds"
+  },
+  {
+   "key": "2:76:بَعۡضٖ",
+   "gloss": "some / one another"
+  },
+  {
+   "key": "2:80:وَقَالُواْ",
+   "gloss": "and they said"
+  },
+  {
+   "key": "2:143:رَّحِيمٞ",
+   "gloss": "merciful"
+  },
+  {
+   "key": "2:152:لِي",
+   "gloss": "for me / to me"
+  },
+  {
+   "key": "2:13:كَمَآ",
+   "gloss": "as / just as"
+  },
+  {
+   "key": "2:21:لَعَلَّكُمۡ",
+   "gloss": "so that you may / perhaps you"
+  },
+  {
+   "key": "2:55:لَن",
+   "gloss": "will never / will not"
+  },
+  {
+   "key": "2:164:ٱلَّيۡلِ",
+   "gloss": "the night"
+  },
+  {
+   "key": "2:3:ٱلصَّلَوٰةَ",
+   "gloss": "the prayer (salah)"
+  },
+  {
+   "key": "2:43:مَعَ",
+   "gloss": "with"
+  },
+  {
+   "key": "2:113:بَيۡنَهُمۡ",
+   "gloss": "between them / among them"
+  },
+  {
+   "key": "4:28:ٱلۡإِنسَٰنُ",
+   "gloss": "the human being"
+  },
+  {
+   "key": "2:39:بِـَٔايَٰتِنَآ",
+   "gloss": "with Our signs / in Our verses"
+  },
+  {
+   "key": "2:108:فَقَدۡ",
+   "gloss": "so already / so indeed"
+  },
+  {
+   "key": "2:252:عَلَيۡكَ",
+   "gloss": "upon you"
+  },
+  {
+   "key": "4:43:جَآءَ",
+   "gloss": "he came"
+  },
+  {
+   "key": "2:20:شَآءَ",
+   "gloss": "he willed"
+  },
+  {
+   "key": "2:22:تَعۡلَمُونَ",
+   "gloss": "you (all) know"
+  },
+  {
+   "key": "2:35:ٱلۡجَنَّةَ",
+   "gloss": "the Garden (Paradise)"
+  },
+  {
+   "key": "2:96:يَعۡمَلُونَ",
+   "gloss": "they do"
+  },
+  {
+   "key": "2:30:أَعۡلَمُ",
+   "gloss": "I know"
+  },
+  {
+   "key": "2:32:أَنتَ",
+   "gloss": "you"
+  },
+  {
+   "key": "2:41:قَلِيلٗا",
+   "gloss": "little / a small amount"
+  },
+  {
+   "key": "3:164:لَقَدۡ",
+   "gloss": "certainly / indeed"
+  },
+  {
+   "key": "2:25:وَعَمِلُواْ",
+   "gloss": "and they did / and they worked"
+  },
+  {
+   "key": "2:10:أَلِيمُۢ",
+   "gloss": "painful"
+  },
+  {
+   "key": "2:34:ٱلۡكَٰفِرِينَ",
+   "gloss": "the disbelievers"
+  },
+  {
+   "key": "2:87:رَسُولُۢ",
+   "gloss": "a messenger"
+  },
+  {
+   "key": "2:99:ءَايَٰتِۭ",
+   "gloss": "signs / verses (ayat)"
+  },
+  {
+   "key": "2:118:قَبۡلِهِم",
+   "gloss": "before them"
+  },
+  {
+   "key": "2:173:غَفُورٞ",
+   "gloss": "forgiving"
+  },
+  {
+   "key": "2:70:عَلَيۡنَا",
+   "gloss": "upon us"
+  },
+  {
+   "key": "2:79:يَقُولُونَ",
+   "gloss": "they say"
+  },
+  {
+   "key": "2:83:لِلنَّاسِ",
+   "gloss": "to the people / for the people"
+  },
+  {
+   "key": "2:118:لِقَوۡمٖ",
+   "gloss": "for a people"
+  },
+  {
+   "key": "2:143:كُنتَ",
+   "gloss": "you were"
+  },
+  {
+   "key": "2:151:أَرۡسَلۡنَا",
+   "gloss": "We sent"
+  },
+  {
+   "key": "2:32:إِنَّكَ",
+   "gloss": "indeed you"
+  },
+  {
+   "key": "2:7:عَظِيمٞ",
+   "gloss": "great / mighty"
+  },
+  {
+   "key": "2:29:جَمِيعٗا",
+   "gloss": "all together / all"
+  },
+  {
+   "key": "2:128:أُمَّةٗ",
+   "gloss": "a nation / a community"
+  },
+  {
+   "key": "2:25:تَجۡرِي",
+   "gloss": "flows / runs"
+  },
+  {
+   "key": "2:142:عَلَيۡهَاۚ",
+   "gloss": "upon it (f.)"
+  },
+  {
+   "key": "1:4:ٱلدِّينِ",
+   "gloss": "the religion (also \"recompense\", as in the Day of Recompense, 1:4)"
+  },
+  {
+   "key": "2:48:نَفۡسٌ",
+   "gloss": "soul / self / a person"
+  },
+  {
+   "key": "2:68:هِيَۚ",
+   "gloss": "she / it (f.)"
+  },
+  {
+   "key": "2:74:عَمَّا",
+   "gloss": "from what / about what"
+  },
+  {
+   "key": "2:106:ءَايَةٍ",
+   "gloss": "a sign / a verse (ayah)"
+  },
+  {
+   "key": "2:113:مِثۡلَ",
+   "gloss": "like / the like of"
+  },
+  {
+   "key": "2:177:۞لَّيۡسَ",
+   "gloss": "is not"
+  },
+  {
+   "key": "2:247:وَلَمۡ",
+   "gloss": "and did not"
+  },
+  {
+   "key": "2:26:كَثِيرٗا",
+   "gloss": "much / many"
+  },
+  {
+   "key": "2:35:هَٰذِهِ",
+   "gloss": "this (f.)"
+  },
+  {
+   "key": "2:81:فَأُوْلَـٰٓئِكَ",
+   "gloss": "so those"
+  },
+  {
+   "key": "1:1:ٱلرَّحۡمَٰنِ",
+   "gloss": "the Entirely Merciful (ar-Rahman)"
+  },
+  {
+   "key": "2:22:جَعَلَ",
+   "gloss": "he made"
+  },
+  {
+   "key": "2:22:وَأَنتُمۡ",
+   "gloss": "and you (all)"
+  },
+  {
+   "key": "2:44:أَفَلَا",
+   "gloss": "so will (you) not...?"
+  },
+  {
+   "key": "2:143:ٱلرَّسُولُ",
+   "gloss": "the Messenger"
+  },
+  {
+   "key": "2:49:ذَٰلِكُم",
+   "gloss": "that (said to several people)"
+  },
+  {
+   "key": "2:85:وَيَوۡمَ",
+   "gloss": "and (on) the day"
+  },
+  {
+   "key": "2:162:خَٰلِدِينَ",
+   "gloss": "abiding forever"
+  },
+  {
+   "key": "2:7:وَلَهُمۡ",
+   "gloss": "and for them / and they have"
+  },
+  {
+   "key": "2:25:ٱلۡأَنۡهَٰرُۖ",
+   "gloss": "the rivers"
+  },
+  {
+   "key": "2:54:يَٰقَوۡمِ",
+   "gloss": "O my people"
+  },
+  {
+   "key": "2:75:وَقَدۡ",
+   "gloss": "and already / and certainly"
+  },
+  {
+   "key": "2:105:أَهۡلِ",
+   "gloss": "people of / family of"
+  },
+  {
+   "key": "2:142:يَهۡدِي",
+   "gloss": "he guides"
+  },
+  {
+   "key": "2:185:ٱلۡقُرۡءَانُ",
+   "gloss": "the Qur'an"
+  },
+  {
+   "key": "3:11:كَذَّبُواْ",
+   "gloss": "they denied"
+  },
+  {
+   "key": "3:33:إِبۡرَٰهِيمَ",
+   "gloss": "Ibrahim (Abraham)"
+  },
+  {
+   "key": "2:32:ٱلۡحَكِيمُ",
+   "gloss": "the All-Wise"
+  },
+  {
+   "key": "2:40:إِسۡرَـٰٓءِيلَ",
+   "gloss": "Isra'il (Israel, Ya'qub)"
+  },
+  {
+   "key": "2:48:وَٱتَّقُواْ",
+   "gloss": "and fear / and guard yourselves against"
+  },
+  {
+   "key": "2:59:ظَلَمُواْ",
+   "gloss": "they wronged"
+  },
+  {
+   "key": "2:15:بِهِمۡ",
+   "gloss": "with them / by them"
+  },
+  {
+   "key": "2:18:فَهُمۡ",
+   "gloss": "so they"
+  },
+  {
+   "key": "2:27:أَمَرَ",
+   "gloss": "he commanded"
+  },
+  {
+   "key": "2:31:هَـٰٓؤُلَآءِ",
+   "gloss": "these"
+  },
+  {
+   "key": "2:46:أَنَّهُم",
+   "gloss": "that they"
+  },
+  {
+   "key": "2:61:بِغَيۡرِ",
+   "gloss": "without / other than"
+  },
+  {
+   "key": "2:89:جَآءَهُمۡ",
+   "gloss": "(he) came to them"
+  },
+  {
+   "key": "2:134:لَهَا",
+   "gloss": "for it (f.) / to it"
+  },
+  {
+   "key": "2:186:لَعَلَّهُمۡ",
+   "gloss": "perhaps they / so that they may"
+  },
+  {
+   "key": "2:249:ٱلۡيَوۡمَ",
+   "gloss": "today / the day"
+  },
+  {
+   "key": "3:77:إِلَيۡهِمۡ",
+   "gloss": "to them"
+  },
+  {
+   "key": "3:86:قَوۡمٗا",
+   "gloss": "a people"
+  },
+  {
+   "key": "2:7:وَعَلَىٰ",
+   "gloss": "and upon"
+  },
+  {
+   "key": "2:8:يَقُولُ",
+   "gloss": "he says"
+  },
+  {
+   "key": "2:190:يُحِبُّ",
+   "gloss": "he loves"
+  },
+  {
+   "key": "2:209:حَكِيمٌ",
+   "gloss": "all-wise"
+  },
+  {
+   "key": "2:2:هُدٗى",
+   "gloss": "guidance"
+  },
+  {
+   "key": "2:31:ٱلۡمَلَـٰٓئِكَةِ",
+   "gloss": "the angels"
+  },
+  {
+   "key": "2:44:أَنفُسَكُمۡ",
+   "gloss": "yourselves (all)"
+  },
+  {
+   "key": "2:100:أَكۡثَرُهُمۡ",
+   "gloss": "most of them"
+  },
+  {
+   "key": "2:118:لَوۡلَا",
+   "gloss": "why not / if not for"
+  },
+  {
+   "key": "2:143:وَكَذَٰلِكَ",
+   "gloss": "and thus / and likewise"
+  },
+  {
+   "key": "2:185:يُرِيدُ",
+   "gloss": "he wants / intends"
+  },
+  {
+   "key": "3:56:عَذَابٗا",
+   "gloss": "a punishment"
+  },
+  {
+   "key": "3:195:ذَكَرٍ",
+   "gloss": "a male"
+  },
+  {
+   "key": "4:95:وَعَدَ",
+   "gloss": "he promised"
+  },
+  {
+   "key": "4:117:دُونِهِۦٓ",
+   "gloss": "besides Him / other than Him"
+  },
+  {
+   "key": "4:130:كُلّٗا",
+   "gloss": "each / all"
+  },
+  {
+   "key": "2:8:ءَامَنَّا",
+   "gloss": "we believed"
+  },
+  {
+   "key": "2:18:بُكۡمٌ",
+   "gloss": "mute"
+  },
+  {
+   "key": "2:20:قَدِيرٞ",
+   "gloss": "all-capable / powerful"
+  },
+  {
+   "key": "2:62:صَٰلِحٗا",
+   "gloss": "righteous / good"
+  },
+  {
+   "key": "2:158:خَيۡرٗا",
+   "gloss": "good"
+  },
+  {
+   "key": "4:31:عَنۡهُ",
+   "gloss": "from him / from it"
+  },
+  {
+   "key": "5:13:وَجَعَلۡنَا",
+   "gloss": "and We made"
+  },
+  {
+   "key": "2:25:تَحۡتِهَا",
+   "gloss": "beneath it (f.)"
+  },
+  {
+   "key": "2:105:ٱلۡعَظِيمِ",
+   "gloss": "the Mighty / the Great"
+  },
+  {
+   "key": "6:80:قَوۡمُهُۥۚ",
+   "gloss": "his people"
+  },
+  {
+   "key": "2:19:ٱلۡمَوۡتِۚ",
+   "gloss": "death"
+  },
+  {
+   "key": "2:22:مَآءٗ",
+   "gloss": "water"
+  },
+  {
+   "key": "2:61:وَّكَانُواْ",
+   "gloss": "and they were"
+  },
+  {
+   "key": "2:150:يَكُونَ",
+   "gloss": "he/it is / may be"
+  },
+  {
+   "key": "2:165:شَدِيدُ",
+   "gloss": "severe / intense"
+  },
+  {
+   "key": "2:260:أَوَلَمۡ",
+   "gloss": "and did (they) not...?"
+  },
+  {
+   "key": "6:31:ٱلسَّاعَةُ",
+   "gloss": "the Hour"
+  },
+  {
+   "key": "7:185:فَبِأَيِّ",
+   "gloss": "so by which / so which"
+  },
+  {
+   "key": "1:1:ٱلرَّحِيمِ",
+   "gloss": "the Especially Merciful (ar-Rahim)"
+  },
+  {
+   "key": "2:11:قِيلَ",
+   "gloss": "it was said"
+  },
+  {
+   "key": "2:29:بِكُلِّ",
+   "gloss": "with every / of every"
+  },
+  {
+   "key": "2:61:بِـَٔايَٰتِ",
+   "gloss": "with the signs of / in the verses of"
+  },
+  {
+   "key": "2:91:مُّؤۡمِنِينَ",
+   "gloss": "believers"
+  },
+  {
+   "key": "2:121:حَقَّ",
+   "gloss": "right / due / true"
+  },
+  {
+   "key": "2:214:مَعَهُۥ",
+   "gloss": "with him"
+  },
+  {
+   "key": "3:8:رَحۡمَةًۚ",
+   "gloss": "mercy"
+  },
+  {
+   "key": "3:28:أَوۡلِيَآءَ",
+   "gloss": "allies / protectors"
+  },
+  {
+   "key": "7:69:ءَالَآءَ",
+   "gloss": "favours / blessings"
+  },
+  {
+   "key": "1:4:مَٰلِكِ",
+   "gloss": "Owner / Sovereign (of)"
+  },
+  {
+   "key": "2:4:قَبۡلِكَ",
+   "gloss": "before you"
+  },
+  {
+   "key": "2:49:وَفِي",
+   "gloss": "and in"
+  },
+  {
+   "key": "2:70:وَإِنَّآ",
+   "gloss": "and indeed we"
+  },
+  {
+   "key": "2:76:بَعۡضُهُمۡ",
+   "gloss": "some of them"
+  },
+  {
+   "key": "2:79:أَيۡدِيهِمۡ",
+   "gloss": "their hands"
+  }
+ ]
+}

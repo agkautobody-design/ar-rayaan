@@ -22,6 +22,7 @@ import '../domain/story.dart';
 import 'source_label_chip.dart';
 import 'story_layers_section.dart';
 import 'story_listen_bar.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 /// True when a chapter's Arabic is only the opening of the text (the pack
 /// marks the cut with "..." or an ellipsis).
@@ -180,7 +181,7 @@ class _StoryReaderScreenState extends ConsumerState<StoryReaderScreen> {
                     Expanded(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 2),
-                        child: GestureDetector(
+                        child: FocusableTap(
                           onTap: () => setState(() => _chapter = i),
                           child: Container(
                             height: 3,

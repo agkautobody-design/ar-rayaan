@@ -61,15 +61,28 @@ void main() {
     expect(find.text('FAMILY & COMMUNITY'), findsOneWidget);
     expect(find.text('TOOLS & RESOURCES'), findsOneWidget);
 
-    // Marriage now opens the Family Life school; no dead rows pretend.
-    expect(find.text('Marriage'), findsOneWidget);
+    // One row opens the Family Life school (Marriage is its first unit); the
+    // Family Wing row says it is for parents; no dead rows pretend.
+    expect(find.text('Marriage & Family Life'), findsOneWidget);
+    expect(find.text('Marriage'), findsNothing);
+    expect(find.text('Family Life'), findsNothing);
+    expect(find.text('Parenting'), findsNothing);
+    expect(find.text('Family Wing · for parents'), findsOneWidget);
     expect(find.text('Settings'), findsOneWidget);
     // Nothing unbuilt is listed: no Help & Support, no "Coming soon" row.
     expect(find.text('Help & Support'), findsNothing);
     expect(find.text('Coming soon'), findsNothing);
-    expect(find.text('My Profile'), findsOneWidget);
+    // The row opens the Journey screen and is named for it.
+    expect(find.text('My Profile'), findsNothing);
+    expect(find.text('My Journey'), findsOneWidget);
     expect(find.text('Your Journey, Your Progress'), findsOneWidget);
-    expect(find.text('Log Out'), findsOneWidget);
+    // A guest has nothing to log out of: the row offers sign-in instead.
+    expect(find.text('Log Out'), findsNothing);
+    expect(find.text('Sign in'), findsOneWidget);
+    // The footer claims only what is true.
+    expect(find.textContaining('AUTHENTIC'), findsNothing);
+    expect(find.text('SOURCES SHOWN · NOT YET SCHOLAR-REVIEWED'),
+        findsOneWidget);
 
     // A shipped module row routes.
     await tester.tap(find.text('Notes & Bookmarks'));
@@ -80,12 +93,12 @@ void main() {
     );
   });
 
-  testWidgets('Marriage and Family Life open the Family Life school', (
+  testWidgets('Marriage & Family Life opens the Family Life school', (
     tester,
   ) async {
     await AppHarness.boot(tester);
     await AppHarness.go(tester, find.text('Faith'), '/menu');
-    await tester.tap(find.text('Marriage'));
+    await tester.tap(find.text('Marriage & Family Life'));
     await AppHarness.settle(tester);
     expect(
       AppHarness.location(tester, find.byType(Scaffold).first),
@@ -103,9 +116,8 @@ void main() {
     await AppHarness.go(tester, find.text('Faith'), '/menu');
 
     expect(find.text('Islamic Courses'), findsNothing);
-    expect(find.text('Marriage'), findsNothing);
-    expect(find.text('Parenting'), findsNothing);
-    expect(find.text('Family Life'), findsNothing);
+    expect(find.text('Marriage & Family Life'), findsNothing);
+    expect(find.text('Family Wing · for parents'), findsNothing);
     // Non-Academy rows of the same sections remain.
     expect(find.text('Qur’an'), findsOneWidget);
     expect(find.text('Community'), findsOneWidget);
@@ -163,7 +175,7 @@ void main() {
     await tester.tap(find.text('Faith'));
     await AppHarness.settle(tester);
     expect(find.text('The Academy'), findsNothing);
-    expect(find.text('Marriage'), findsNothing);
+    expect(find.text('Marriage & Family Life'), findsNothing);
     expect(find.text('Qur’an'), findsOneWidget);
   });
 }

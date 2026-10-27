@@ -59,7 +59,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
 
     return AuthScaffold(
       title: 'Welcome Back',
-      subtitle: 'Sign in to continue your journey',
+      subtitle: 'Sign in to your Ar-Rayaan account',
       children: [
         Form(
           key: _formKey,
@@ -96,6 +96,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         Align(
           alignment: Alignment.centerRight,
           child: TextButton(
+            style: TextButton.styleFrom(minimumSize: const Size(44, 44)),
             onPressed: () => context.go(AppRoutes.reset),
             child: Text(
               'Forgot password?',
@@ -185,8 +186,8 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
               onPressed: () => context.go(AppRoutes.signup),
               style: TextButton.styleFrom(
                 padding: const EdgeInsets.symmetric(horizontal: 6),
-                minimumSize: Size.zero,
-                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                minimumSize: const Size(44, 44),
+                tapTargetSize: MaterialTapTargetSize.padded,
               ),
               child: Text(
                 'Create account',
@@ -235,6 +236,7 @@ class _SocialButton extends StatelessWidget {
       label: Text(label, style: AppText.label.copyWith(color: AppColors.sand)),
       style: OutlinedButton.styleFrom(
         padding: const EdgeInsets.symmetric(vertical: 14),
+        minimumSize: const Size(44, 48),
         side: BorderSide(color: Colors.white.withValues(alpha: 0.16)),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
         backgroundColor: Colors.white.withValues(alpha: 0.05),

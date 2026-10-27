@@ -87,9 +87,8 @@ class ExploreScreen extends ConsumerWidget {
       [
         // Same targets as the Menu (verified: Family Life school opens with
         // the Marriage unit; the Family Wing is the parents' space).
-        (Icons.handshake_outlined, 'Marriage', '/academy/family-life'),
-        (Icons.child_care_outlined, 'Parenting', '/academy/family'),
-        (Icons.home_outlined, 'Family Life', '/academy/family-life'),
+        (Icons.handshake_outlined, 'Marriage & Family Life', '/academy/family-life'),
+        (Icons.child_care_outlined, 'Family Wing \u00b7 for parents', '/academy/family'),
         (Icons.people_outline, 'Community', AppRoutes.community),
         (Icons.favorite_outline, 'Elder Care', '/elder-care'),
       ],
@@ -179,7 +178,7 @@ class ExploreScreen extends ConsumerWidget {
                     onTap: () => context.open(AppRoutes.journey),
                     child: const _Row(
                       icon: Icons.auto_awesome,
-                      label: 'My Profile',
+                      label: 'My Journey',
                       subtitle: 'Your Journey, Your Progress',
                     ),
                   ),

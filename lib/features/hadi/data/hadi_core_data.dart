@@ -60,7 +60,7 @@ const List<CoreEntry> kHadiCoreEntries = <CoreEntry>[
     answer: 'Laylat al-Qadr, the Night of Decree, is the night the Qur\'an began to be revealed, and it falls in Ramadan. Allah says: "Indeed, We sent the Qur\'an down during the Night of Decree. And what can make you know what is the Night of Decree? The Night of Decree is better than a thousand months. The angels and the Spirit descend therein by permission of their Lord for every matter. Peace it is until the emergence of dawn" (Qur\'an 97:1-5).\n\nIts date is not fixed. Aisha reported the Prophet said to look for Laylat al-Qadr in the odd nights of the last ten days of Ramadan (Sahih al-Bukhari 2017). So people give those nights extra prayer, Qur\'an and du\'a.\n\nA\'ishah asked what to say if she found the night, and the Prophet ﷺ taught her a short du\'a, "Allahumma innaka afuwwun tuhibbul-afwa fa\'fu anni" (O Allah, You are Pardoning and You love to pardon, so pardon me). It is reported in Jami\' at-Tirmidhi 3513, da\'if per Darussalam. The graders differ on that report (some call it sahih, one calls it weak), and the du\'a is a good one to say in any case.\n\nSource: Qur\'an 97:1-5; Sahih al-Bukhari 2017; Jami\' at-Tirmidhi 3513, da\'if per Darussalam.\n[GO:/ramadan]',
     topic: 'laylat al-qadr',
     beforeGate: true,
-    reviewNote: 'tirmidhi:3513 is graded sahih by Al-Albani and da\'if by Zubair Ali Zai; cited as disputed, not as firm evidence.',
+    reviewNote: 'The Laylat al-Qadr du\'a report has conflicting grades from different graders; it is cited as disputed, not as firm evidence.',
   ),
   CoreEntry(
     id: 'friday-sunnah',

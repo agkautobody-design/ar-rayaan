@@ -1,0 +1,3137 @@
+{
+ "schema": 3,
+ "course": "hifz",
+ "lessons": [
+  {
+   "id": "hfz.u1.l1",
+   "title": "The Three Lanes",
+   "minutes": 12,
+   "intro": "Learn the three daily lanes of memorising: new, recent and old, and why each one is needed.",
+   "steps": [
+    {
+     "id": "why",
+     "kind": "why",
+     "title": "Why three lanes?",
+     "body": [
+      "Learning a new ayah is the easy part. Keeping it is the hard part. Someone who only memorises new things, and never goes back, loses the old things as fast as they learn the new.",
+      "Hifz circles have long solved this with a simple daily rhythm of three parts, called lanes. In this lesson you will learn the three lanes and the order to do them in."
+     ]
+    },
+    {
+     "id": "lanes",
+     "kind": "teach",
+     "title": "The three lanes",
+     "label": "[Interpretive]",
+     "source": "Traditional hifz method (sabaq, sabqi, manzil) as taught in hifz circles",
+     "review": "The names sabaq, sabqi and manzil and the way the three are used are the traditional teaching of hifz circles, written in plain words by the app author. A teacher sets the real pace. Please confirm the wording.",
+     "body": [
+      "Sabaq is the new lesson: the new ayat you learn today.",
+      "Sabqi is the recent revision: what you learned over the last days, which is not yet firm.",
+      "Manzil is the long-range revision: the older parts you learned weeks or months ago, which you go through in turn to keep them warm."
+     ],
+     "bullets": [
+      "Sabaq: new.",
+      "Sabqi: recent, the last days.",
+      "Manzil: old, a section in turn."
+     ]
+    },
+    {
+     "id": "ease",
+     "kind": "say",
+     "title": "Made easy",
+     "refs": [
+      "q:54:17"
+     ],
+     "note": "Allah says He has made the Qur’an easy to remember. The three lanes are not a burden. They are a way to use that ease.",
+     "words": {
+      "q:54:17": [
+       {
+        "tr": "wa-laqad",
+        "en": "and indeed"
+       },
+       {
+        "tr": "yassarnaa",
+        "en": "We made easy"
+       },
+       {
+        "tr": "al-Qur’aana",
+        "en": "the Qur’an"
+       },
+       {
+        "tr": "lildh-dhikri",
+        "en": "for remembrance"
+       },
+       {
+        "tr": "fa-hal",
+        "en": "so is there"
+       },
+       {
+        "tr": "min",
+        "en": "any"
+       },
+       {
+        "tr": "muddakir",
+        "en": "who will remember"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 54:17"
+    },
+    {
+     "id": "camel",
+     "kind": "teach",
+     "title": "Why revision matters",
+     "label": "[Established]",
+     "source": "Bukhari 5031; Bukhari 5033",
+     "body": [
+      "The Prophet ﷺ gave an example: the person who knows the Qur’an by heart is like the owner of tied camels. If he keeps them tied, he will control them. If he lets them go, they run away (Bukhari 5031).",
+      "In another report he said to keep on reciting, because the Qur’an escapes from the hearts of men faster than camels from their ropes (Bukhari 5033).",
+      "This is why the second and third lanes are not extras. They are what keeps the first lane."
+     ]
+    },
+    {
+     "id": "guard",
+     "kind": "say",
+     "title": "Allah guards it",
+     "refs": [
+      "q:15:9"
+     ],
+     "note": "Allah has promised to guard the Qur’an. The one who memorises it takes part in that guarding. Be gentle with yourself, and keep at it.",
+     "words": {
+      "q:15:9": [
+       {
+        "tr": "innaa",
+        "en": "indeed We"
+       },
+       {
+        "tr": "nahnu",
+        "en": "We"
+       },
+       {
+        "tr": "nazzalnaa",
+        "en": "sent down"
+       },
+       {
+        "tr": "adh-dhikra",
+        "en": "the Reminder"
+       },
+       {
+        "tr": "wa-innaa",
+        "en": "and indeed We"
+       },
+       {
+        "tr": "lahu",
+        "en": "of it"
+       },
+       {
+        "tr": "lahaafizoon",
+        "en": "are guardians"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 15:9"
+    },
+    {
+     "id": "jibril",
+     "kind": "teach",
+     "title": "The Prophet ﷺ revised too",
+     "label": "[Established]",
+     "source": "Bukhari 1902; Bukhari 4998",
+     "body": [
+      "Ibn Abbas reported that Jibril used to meet the Prophet ﷺ every night of Ramadan, until the month ended, and the Prophet ﷺ would recite the Qur’an to him (Bukhari 1902).",
+      "Abu Huraira reported that Jibril went over the Qur’an with him once every year, and twice in the year he died (Bukhari 4998).",
+      "So revision is not for the weak. It is the way of the best of mankind."
+     ]
+    },
+    {
+     "id": "day",
+     "kind": "howto",
+     "title": "One day, three lanes",
+     "steps": [
+      {
+       "text": "Start with the old.",
+       "detail": "Revise your manzil section for today first, while you are fresh."
+      },
+      {
+       "text": "Then the recent.",
+       "detail": "Go over what you learned over the last days (sabqi)."
+      },
+      {
+       "text": "Then the new.",
+       "detail": "Learn today’s new ayat (sabaq). Say them many times, then close the book and say them."
+      },
+      {
+       "text": "End with the new again.",
+       "detail": "Say the new ayat once more at the end of the day."
+      }
+     ],
+     "intro": "Orders differ between teachers. This one is common, and a teacher may tell you to do it differently.",
+     "mistakes": [
+      "Doing only the new lane because it feels like progress.",
+      "Skipping revision on busy days and never going back."
+     ],
+     "label": "[Interpretive]",
+     "source": "Traditional hifz method (sabaq, sabqi, manzil) as taught in hifz circles",
+     "review": "The names sabaq, sabqi and manzil and the way the three are used are the traditional teaching of hifz circles, written in plain words by the app author. A teacher sets the real pace. Please confirm the wording."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "Put the day in order",
+     "prompt": "Put the lanes in the order of the common daily routine.",
+     "explain": "Old, recent, new.",
+     "items": [
+      {
+       "text": "Manzil: a section from long ago",
+       "why": "The old lane is done first, while you are fresh.",
+       "back": "day"
+      },
+      {
+       "text": "Sabqi: the last few days",
+       "why": "The recent lane comes next.",
+       "back": "day"
+      },
+      {
+       "text": "Sabaq: the new lesson",
+       "why": "The new lane comes last, with the freshest effort left for it.",
+       "back": "day"
+      }
+     ]
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the lane to what it is",
+     "prompt": "Match each lane to what it is.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Sabaq"
+       },
+       "right": {
+        "text": "The new ayat of today"
+       },
+       "why": "Sabaq is the new lesson.",
+       "back": "lanes"
+      },
+      {
+       "left": {
+        "text": "Sabqi"
+       },
+       "right": {
+        "text": "What you learned in the last days"
+       },
+       "why": "Sabqi is the recent revision.",
+       "back": "lanes"
+      },
+      {
+       "left": {
+        "text": "Manzil"
+       },
+       "right": {
+        "text": "An older section, revised in turn"
+       },
+       "why": "Manzil is the long-range revision.",
+       "back": "lanes"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "a1",
+       "q": "What is sabaq?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "The revision of old sections",
+         "reteach": "No. That is manzil.",
+         "back": "lanes"
+        },
+        {
+         "text": "The revision of the last days",
+         "reteach": "No. That is sabqi.",
+         "back": "lanes"
+        },
+        {
+         "text": "The new lesson of today"
+        }
+       ],
+       "answer": 2,
+       "explain": "Sabaq: the new lesson."
+      },
+      {
+       "id": "a2",
+       "q": "What is sabqi?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "Revision of what you learned in the last days"
+        },
+        {
+         "text": "The new lesson",
+         "reteach": "No. That is sabaq.",
+         "back": "lanes"
+        },
+        {
+         "text": "A section from months ago",
+         "reteach": "No. That is manzil.",
+         "back": "lanes"
+        }
+       ],
+       "answer": 0,
+       "explain": "Sabqi: recent revision."
+      },
+      {
+       "id": "a3",
+       "q": "What is manzil?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "The first ayah of a surah",
+         "reteach": "No. Manzil is about older sections you revise.",
+         "back": "lanes"
+        },
+        {
+         "text": "Revision of older sections, in turn"
+        },
+        {
+         "text": "Today’s new ayat",
+         "reteach": "No. That is sabaq.",
+         "back": "lanes"
+        }
+       ],
+       "answer": 1,
+       "explain": "Manzil: long-range revision."
+      },
+      {
+       "id": "a4",
+       "q": "In the hadith of Bukhari 5031, what is the person who knows the Qur’an by heart like?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "The owner of tied camels"
+        },
+        {
+         "text": "A traveller with a map",
+         "reteach": "No. The example is tied camels.",
+         "back": "camel"
+        },
+        {
+         "text": "A farmer with a field",
+         "reteach": "No. The example is tied camels.",
+         "back": "camel"
+        }
+       ],
+       "answer": 0,
+       "explain": "Tied camels: keep them tied and you control them."
+      },
+      {
+       "id": "a5",
+       "q": "A friend has learned a lot of new ayat this month but never goes back. What do you say?",
+       "type": "scenario",
+       "options": [
+        {
+         "text": "He is doing well, new ayat are enough",
+         "reteach": "No. The Prophet ﷺ said it escapes like camels from their ropes.",
+         "back": "camel"
+        },
+        {
+         "text": "He should stop memorising",
+         "reteach": "No. He should keep learning and also revise.",
+         "back": "lanes"
+        },
+        {
+         "text": "The Qur’an escapes quickly, so he needs to revise what he has learned"
+        }
+       ],
+       "answer": 2,
+       "explain": "Keep learning, and revise, so that what you learned stays.",
+       "scenario": "A friend keeps learning new ayat every day. They never go back to old ones."
+      },
+      {
+       "id": "a6",
+       "q": "Why are the second and third lanes not extras?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "They make the day longer",
+         "reteach": "No. Their job is to keep what you have learned.",
+         "back": "camel"
+        },
+        {
+         "text": "They keep what the first lane gives"
+        },
+        {
+         "text": "They are only for teachers",
+         "reteach": "No. They are for every learner.",
+         "back": "lanes"
+        }
+       ],
+       "answer": 1,
+       "explain": "Revision keeps the new."
+      },
+      {
+       "id": "a7",
+       "q": "What does Allah say about the Qur’an in 54:17?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "He made it easy for remembrance"
+        },
+        {
+         "text": "He made it hard to remember",
+         "reteach": "No. He made it easy.",
+         "back": "ease"
+        },
+        {
+         "text": "He made it for scholars only",
+         "reteach": "No. The ayah says it is easy for remembrance.",
+         "back": "ease"
+        }
+       ],
+       "answer": 0,
+       "explain": "He made it easy for remembrance."
+      },
+      {
+       "id": "a8",
+       "q": "Which word in 54:17 means “We made easy”?",
+       "type": "fill",
+       "options": [
+        {
+         "word": "q:54:17#0",
+         "reteach": "That word means “and indeed”.",
+         "back": "ease"
+        },
+        {
+         "word": "q:54:17#1"
+        },
+        {
+         "word": "q:54:17#3",
+         "reteach": "That word means “for remembrance”.",
+         "back": "ease"
+        }
+       ],
+       "answer": 1,
+       "explain": "Yassarnaa.",
+       "fill": {
+        "ref": "q:54:17",
+        "blank": 1,
+        "show": "arabic"
+       }
+      },
+      {
+       "id": "a9",
+       "q": "In the common daily order, which lane is done first?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "Sabaq, the new",
+         "reteach": "No. The new lane comes last in this order.",
+         "back": "day"
+        },
+        {
+         "text": "Sabqi, the recent",
+         "reteach": "No. The recent lane is second.",
+         "back": "day"
+        },
+        {
+         "text": "Manzil, the old"
+        }
+       ],
+       "answer": 2,
+       "explain": "Manzil first, then sabqi, then sabaq."
+      },
+      {
+       "id": "a10",
+       "q": "Who sets your real pace?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "A teacher"
+        },
+        {
+         "text": "The app",
+         "reteach": "No. The app only keeps a record. A teacher sets the pace.",
+         "back": "lanes"
+        },
+        {
+         "text": "A friend who has finished",
+         "reteach": "No. A teacher who hears you sets your pace.",
+         "back": "lanes"
+        }
+       ],
+       "answer": 0,
+       "explain": "A teacher sets the pace."
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Name the three lanes: sabaq, sabqi and manzil.",
+      "Explain why revision keeps what you learned, using the tied camels.",
+      "Put a day in the common order: old, recent, new.",
+      "Say that a teacher sets your real pace."
+     ],
+     "next": "Next: start where you pray."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Name your lanes",
+     "body": "Open the Hifz planner and look at the three lanes for today.",
+     "route": "/academy/hifz",
+     "button": "Open the Hifz planner"
+    }
+   ]
+  },
+  {
+   "id": "hfz.u1.l2",
+   "title": "Start Where You Pray",
+   "minutes": 12,
+   "intro": "Choose a first surah from what you already pray, and learn the first steps of memorising it.",
+   "steps": [
+    {
+     "id": "why",
+     "kind": "why",
+     "title": "The easiest place to begin",
+     "body": [
+      "You already know some surahs by heart in a loose way, because you hear them or say them in your prayer. The sound is already in your ear. Starting there is the easiest way to begin, and it builds confidence.",
+      "In this lesson you will look at four short surahs that many Muslims pray, see what they say, and choose where to start."
+     ]
+    },
+    {
+     "id": "ikhlas",
+     "kind": "say",
+     "title": "Al-Ikhlas: 4 ayat",
+     "refs": [
+      "q:112:1",
+      "q:112:2",
+      "q:112:3",
+      "q:112:4"
+     ],
+     "note": "Four short ayat about who Allah is. The Prophet ﷺ said that Surat al-Ikhlas is equal to a third of the Qur’an (Bukhari 5013).",
+     "words": {
+      "q:112:1": [
+       {
+        "tr": "qul",
+        "en": "say"
+       },
+       {
+        "tr": "huwa",
+        "en": "He is"
+       },
+       {
+        "tr": "Allaahu",
+        "en": "Allah"
+       },
+       {
+        "tr": "ahad",
+        "en": "One"
+       }
+      ],
+      "q:112:2": [
+       {
+        "tr": "Allaahu",
+        "en": "Allah"
+       },
+       {
+        "tr": "as-samad",
+        "en": "the Eternal Refuge"
+       }
+      ],
+      "q:112:3": [
+       {
+        "tr": "lam",
+        "en": "not"
+       },
+       {
+        "tr": "yalid",
+        "en": "He begot"
+       },
+       {
+        "tr": "wa-lam",
+        "en": "and not"
+       },
+       {
+        "tr": "yoolad",
+        "en": "was He born"
+       }
+      ],
+      "q:112:4": [
+       {
+        "tr": "wa-lam",
+        "en": "and not"
+       },
+       {
+        "tr": "yakun",
+        "en": "is there"
+       },
+       {
+        "tr": "lahu",
+        "en": "to Him"
+       },
+       {
+        "tr": "kufuwan",
+        "en": "an equal"
+       },
+       {
+        "tr": "ahad",
+        "en": "anyone"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 112:1-4; Bukhari 5013"
+    },
+    {
+     "id": "asr",
+     "kind": "say",
+     "title": "Al-‘Asr: 3 ayat",
+     "refs": [
+      "q:103:1",
+      "q:103:2",
+      "q:103:3"
+     ],
+     "note": "Three ayat. Time is passing, and we are in loss, except those who believe, do good, and remind each other of truth and patience.",
+     "words": {
+      "q:103:1": [
+       {
+        "tr": "wal-‘asr",
+        "en": "by time"
+       }
+      ],
+      "q:103:2": [
+       {
+        "tr": "inna",
+        "en": "indeed"
+       },
+       {
+        "tr": "al-insaana",
+        "en": "mankind"
+       },
+       {
+        "tr": "lafee",
+        "en": "is surely in"
+       },
+       {
+        "tr": "khusr",
+        "en": "loss"
+       }
+      ],
+      "q:103:3": [
+       {
+        "tr": "illaa",
+        "en": "except"
+       },
+       {
+        "tr": "alladheena",
+        "en": "those who"
+       },
+       {
+        "tr": "aamanoo",
+        "en": "believed"
+       },
+       {
+        "tr": "wa-‘amiloo",
+        "en": "and did"
+       },
+       {
+        "tr": "as-saalihaat",
+        "en": "righteous deeds"
+       },
+       {
+        "tr": "wa-tawaasaw",
+        "en": "and advised each other"
+       },
+       {
+        "tr": "bil-haqq",
+        "en": "to the truth"
+       },
+       {
+        "tr": "wa-tawaasaw",
+        "en": "and advised each other"
+       },
+       {
+        "tr": "bis-sabr",
+        "en": "to patience"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 103:1-3"
+    },
+    {
+     "id": "kawthar",
+     "kind": "say",
+     "title": "Al-Kawthar: 3 ayat",
+     "refs": [
+      "q:108:1",
+      "q:108:2",
+      "q:108:3"
+     ],
+     "note": "Al-Kawthar is one of the shortest surahs, with three ayat. Many pray it often because it is easy to say.",
+     "words": {
+      "q:108:1": [
+       {
+        "tr": "innaa",
+        "en": "indeed We"
+       },
+       {
+        "tr": "a‘taynaaka",
+        "en": "have given you"
+       },
+       {
+        "tr": "al-Kawthar",
+        "en": "al-Kawthar"
+       }
+      ],
+      "q:108:2": [
+       {
+        "tr": "fa-salli",
+        "en": "so pray"
+       },
+       {
+        "tr": "li-Rabbika",
+        "en": "to your Lord"
+       },
+       {
+        "tr": "wanhar",
+        "en": "and sacrifice"
+       }
+      ],
+      "q:108:3": [
+       {
+        "tr": "inna",
+        "en": "indeed"
+       },
+       {
+        "tr": "shaani’aka",
+        "en": "the one who hates you"
+       },
+       {
+        "tr": "huwa",
+        "en": "he"
+       },
+       {
+        "tr": "al-abtar",
+        "en": "is the one cut off"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 108:1-3"
+    },
+    {
+     "id": "count",
+     "kind": "teach",
+     "title": "How many ayat?",
+     "label": "[Established]",
+     "source": "Counted from the bundled Qur’an text",
+     "body": [
+      "Al-Fatihah has 7 ayat. Al-Ikhlas has 4. Al-‘Asr has 3. Al-Kawthar has 3.",
+      "Together, those four surahs are 7 + 4 + 3 + 3 = 17 ayat. At 3 new ayat a day that is 6 days. It is a small number, and every one of them is a surah you could already say in your prayer."
+     ]
+    },
+    {
+     "id": "choose",
+     "kind": "teach",
+     "title": "How to choose",
+     "label": "[Interpretive]",
+     "source": "Traditional hifz teaching: begin with what you already pray",
+     "review": "Advice to begin with the short surahs one already recites is common teaching in hifz circles, worded by the app author. A teacher may choose another start for you.",
+     "body": [
+      "Choose by three questions. Which surah do you say most in your prayer? Which one do you know best by ear? Which one has the fewest ayat?",
+      "Start with the one that answers yes to the most. If your teacher gives you another start, follow your teacher."
+     ]
+    },
+    {
+     "id": "start",
+     "kind": "howto",
+     "title": "How to start on one surah",
+     "steps": [
+      {
+       "text": "Listen to the surah three times.",
+       "detail": "Use the reader and a reciter you like."
+      },
+      {
+       "text": "Read the first ayah, looking at the Arabic.",
+       "detail": "Say it ten times while looking."
+      },
+      {
+       "text": "Say it without looking.",
+       "detail": "If you stumble, look again and say it again."
+      },
+      {
+       "text": "Join the next ayah to it.",
+       "detail": "Say the two together."
+      },
+      {
+       "text": "Say the whole part you have learned.",
+       "detail": "Then stop for today."
+      }
+     ],
+     "intro": "A surah is learned one ayah at a time, and joined together as you go.",
+     "label": "[Interpretive]",
+     "source": "Traditional hifz teaching: begin with what you already pray",
+     "review": "Advice to begin with the short surahs one already recites is common teaching in hifz circles, worded by the app author. A teacher may choose another start for you."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "Learning one ayah",
+     "prompt": "Put these steps in the order you do them.",
+     "explain": "Listen, read, say from memory, join.",
+     "items": [
+      {
+       "text": "Listen to the surah",
+       "why": "Listening comes first, so the sound is in your ear.",
+       "back": "start"
+      },
+      {
+       "text": "Read the ayah, looking",
+       "why": "Then read it from the page.",
+       "back": "start"
+      },
+      {
+       "text": "Say it without looking",
+       "why": "Then say it from memory.",
+       "back": "start"
+      },
+      {
+       "text": "Join it to the next ayah",
+       "why": "Then link it to the one after.",
+       "back": "start"
+      }
+     ]
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the Arabic to the meaning",
+     "prompt": "Match each Arabic word to its meaning.",
+     "pairs": [
+      {
+       "left": {
+        "word": "q:112:1#3"
+       },
+       "right": {
+        "text": "One"
+       },
+       "why": "Ahad.",
+       "back": "ikhlas"
+      },
+      {
+       "left": {
+        "word": "q:112:2#1"
+       },
+       "right": {
+        "text": "the Eternal Refuge"
+       },
+       "why": "As-Samad.",
+       "back": "ikhlas"
+      },
+      {
+       "left": {
+        "word": "q:103:1#0"
+       },
+       "right": {
+        "text": "by time"
+       },
+       "why": "Wal-‘asr.",
+       "back": "asr"
+      },
+      {
+       "left": {
+        "word": "q:103:2#3"
+       },
+       "right": {
+        "text": "loss"
+       },
+       "why": "Khusr.",
+       "back": "asr"
+      },
+      {
+       "left": {
+        "word": "q:108:2#2"
+       },
+       "right": {
+        "text": "and sacrifice"
+       },
+       "why": "Wanhar.",
+       "back": "kawthar"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "b1",
+       "q": "Why is it easiest to start with a surah you already pray?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "It is shorter than the others",
+         "reteach": "No. It may not be. The reason is that you already know the sound.",
+         "back": "why"
+        },
+        {
+         "text": "It is a rule of the Qur’an",
+         "reteach": "No. It is a common teaching, not a rule.",
+         "back": "choose"
+        },
+        {
+         "text": "The sound is already in your ear"
+        }
+       ],
+       "answer": 2,
+       "explain": "The sound is already known."
+      },
+      {
+       "id": "b2",
+       "q": "How many ayat does Surat al-Ikhlas have?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "Four"
+        },
+        {
+         "text": "Three",
+         "reteach": "No. Count: say, Allah the Eternal, not begot, no equal. Four.",
+         "back": "ikhlas"
+        },
+        {
+         "text": "Seven",
+         "reteach": "No. That is Al-Fatihah.",
+         "back": "count"
+        }
+       ],
+       "answer": 0,
+       "explain": "Four."
+      },
+      {
+       "id": "b3",
+       "q": "What did the Prophet ﷺ say about Surat al-Ikhlas (Bukhari 5013)?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "That it is equal to the whole Qur’an",
+         "reteach": "No. He said a third.",
+         "back": "ikhlas"
+        },
+        {
+         "text": "That it is equal to a third of the Qur’an"
+        },
+        {
+         "text": "That it should not be said in prayer",
+         "reteach": "No. He praised it.",
+         "back": "ikhlas"
+        }
+       ],
+       "answer": 1,
+       "explain": "Equal to a third of the Qur’an."
+      },
+      {
+       "id": "b4",
+       "q": "How many ayat are in Al-Fatihah, Al-Ikhlas, Al-‘Asr and Al-Kawthar together?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "14",
+         "reteach": "No. Add 7 + 4 + 3 + 3.",
+         "back": "count"
+        },
+        {
+         "text": "20",
+         "reteach": "No. Add 7 + 4 + 3 + 3.",
+         "back": "count"
+        },
+        {
+         "text": "17"
+        }
+       ],
+       "answer": 2,
+       "explain": "7 + 4 + 3 + 3 = 17."
+      },
+      {
+       "id": "b5",
+       "q": "Which word in 112:1 means “One”?",
+       "type": "fill",
+       "options": [
+        {
+         "word": "q:112:1#0",
+         "reteach": "That word means “say”.",
+         "back": "ikhlas"
+        },
+        {
+         "word": "q:112:1#3"
+        },
+        {
+         "word": "q:112:1#2",
+         "reteach": "That word means “Allah”.",
+         "back": "ikhlas"
+        }
+       ],
+       "answer": 1,
+       "explain": "Ahad.",
+       "fill": {
+        "ref": "q:112:1",
+        "blank": 3,
+        "show": "arabic"
+       }
+      },
+      {
+       "id": "b6",
+       "q": "What is the first step in learning one surah?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "Listen to it a few times"
+        },
+        {
+         "text": "Say it from memory",
+         "reteach": "No. First listen, so the sound is in your ear.",
+         "back": "start"
+        },
+        {
+         "text": "Read the tafsir",
+         "reteach": "No. Study of the meaning is good, but for memorising you listen first.",
+         "back": "start"
+        }
+       ],
+       "answer": 0,
+       "explain": "Listen first."
+      },
+      {
+       "id": "b7",
+       "q": "A friend wants to start with the longest surah to show she is serious. What do you say?",
+       "type": "scenario",
+       "options": [
+        {
+         "text": "Yes, the long surahs are best",
+         "reteach": "No. Starting small builds confidence and is the common advice.",
+         "back": "choose"
+        },
+        {
+         "text": "Start with a short surah you already pray, then build up"
+        },
+        {
+         "text": "Do not memorise at all",
+         "reteach": "No. Memorising is good. Begin small.",
+         "back": "why"
+        }
+       ],
+       "answer": 1,
+       "explain": "Start small, build up.",
+       "scenario": "A friend wants to begin memorising with Surat al-Baqarah."
+      },
+      {
+       "id": "b8",
+       "q": "What does “wal-‘asr” mean?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "By the sun",
+         "reteach": "No. Al-‘asr is time.",
+         "back": "asr"
+        },
+        {
+         "text": "By the night",
+         "reteach": "No. Al-‘asr is time.",
+         "back": "asr"
+        },
+        {
+         "text": "By time"
+        }
+       ],
+       "answer": 2,
+       "explain": "By time."
+      },
+      {
+       "id": "b9",
+       "q": "Which surah has the fewest ayat of these: Al-Fatihah, Al-Ikhlas, Al-Kawthar?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "Al-Kawthar (3)"
+        },
+        {
+         "text": "Al-Ikhlas (4)",
+         "reteach": "No. Al-Ikhlas has 4.",
+         "back": "count"
+        },
+        {
+         "text": "Al-Fatihah (7)",
+         "reteach": "No. Al-Fatihah has 7.",
+         "back": "count"
+        }
+       ],
+       "answer": 0,
+       "explain": "Al-Kawthar has 3."
+      },
+      {
+       "id": "b10",
+       "q": "If your teacher gives you a different start, what do you do?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "Follow the app",
+         "reteach": "No. A teacher who hears you knows best.",
+         "back": "choose"
+        },
+        {
+         "text": "Follow your teacher"
+        },
+        {
+         "text": "Choose for yourself",
+         "reteach": "No. Follow your teacher.",
+         "back": "choose"
+        }
+       ],
+       "answer": 1,
+       "explain": "Follow your teacher."
+      },
+      {
+       "id": "b11",
+       "lookback": "hfz.u1.l1#a1"
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Say why it is easiest to start with a surah you already pray.",
+      "Name four short surahs and how many ayat each has.",
+      "Choose a starting surah using three questions.",
+      "Learn one ayah in four steps: listen, read, say, join."
+     ],
+     "next": "Next: set your pace."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Listen to your surah",
+     "body": "Open the reader at a short surah you pray, and listen to it once.",
+     "route": "/quran/112",
+     "button": "Open Al-Ikhlas"
+    }
+   ]
+  },
+  {
+   "id": "hfz.u1.l3",
+   "title": "Set Your Pace",
+   "minutes": 12,
+   "intro": "Learn how the planner counts, how to choose a pace you can keep, and why a teacher sets the real one.",
+   "steps": [
+    {
+     "id": "why",
+     "kind": "why",
+     "title": "A pace you can keep",
+     "body": [
+      "The best pace is not the fastest one. It is the one you can keep on a bad week, too. A pace that is too fast lasts three days and then stops.",
+      "In this lesson you will learn to read the planner’s estimate, how to choose a number of new ayat a day, and why a teacher has the last word."
+     ]
+    },
+    {
+     "id": "dua",
+     "kind": "say",
+     "title": "Do not hasten",
+     "refs": [
+      "q:20:114"
+     ],
+     "note": "This ayah was said to the Prophet ﷺ about the revelation. It ends with a du‘a that every learner can make: “Rabbi zidnee ‘ilman”, My Lord, increase me in knowledge. The wish to learn with patience, and to ask Allah for more.",
+     "words": {
+      "q:20:114": [
+       {
+        "tr": "fa-ta‘aalaa",
+        "en": "so exalted is"
+       },
+       {
+        "tr": "Allaahu",
+        "en": "Allah"
+       },
+       {
+        "tr": "al-maliku",
+        "en": "the Sovereign"
+       },
+       {
+        "tr": "al-haqqu",
+        "en": "the Truth"
+       },
+       {
+        "tr": "wa-laa",
+        "en": "and do not"
+       },
+       {
+        "tr": "ta‘jal",
+        "en": "hasten"
+       },
+       {
+        "tr": "bil-Qur’aani",
+        "en": "with the Qur’an"
+       },
+       {
+        "tr": "min",
+        "en": "from"
+       },
+       {
+        "tr": "qabli",
+        "en": "before"
+       },
+       {
+        "tr": "an",
+        "en": "that"
+       },
+       {
+        "tr": "yuqdaa",
+        "en": "is completed"
+       },
+       {
+        "tr": "ilayka",
+        "en": "to you"
+       },
+       {
+        "tr": "wahyuhu",
+        "en": "its revelation"
+       },
+       {
+        "tr": "wa-qul",
+        "en": "and say"
+       },
+       {
+        "tr": "Rabbi",
+        "en": "my Lord"
+       },
+       {
+        "tr": "zidnee",
+        "en": "increase me"
+       },
+       {
+        "tr": "‘ilman",
+        "en": "in knowledge"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 20:114"
+    },
+    {
+     "id": "sum",
+     "kind": "teach",
+     "title": "How the planner counts",
+     "label": "[Interpretive]",
+     "source": "Counted from the bundled Qur’an text; the planner’s own arithmetic",
+     "review": "The division of the Qur’an into 30 parts (juz) is standard, and Juz Amma is surahs 78 to 114 in the Madinah mushaf. Please confirm.",
+     "body": [
+      "The planner takes the number of ayat you still need, and divides by the new ayat you do each day. It rounds up. That gives the number of days.",
+      "Juz Amma, the 30th part, is surahs 78 to 114, and has 564 ayat. At 1 ayah a day: 564 days. At 3 a day: 188 days. At 5 a day: 113 days. At 10 a day: 57 days.",
+      "This is a projection with no missed days. It only counts. Real life will be slower."
+     ]
+    },
+    {
+     "id": "rev",
+     "kind": "teach",
+     "title": "Revision grows",
+     "label": "[Interpretive]",
+     "source": "Traditional hifz method; planner arithmetic is the app’s own",
+     "review": "The advice on pace and on growing revision is common teaching in hifz circles, worded by the app author. The planner only counts. A teacher sets the real pace.",
+     "body": [
+      "Every ayah you learn has to be revised, so each week your revision gets longer. The more you have learned, the more time it takes to keep it.",
+      "So a pace that fits on day one may not fit in month three. If revision begins to crowd out the new lane, it is time to lower the number of new ayat for a while. This is common, and wise."
+     ]
+    },
+    {
+     "id": "teacher",
+     "kind": "teach",
+     "title": "A teacher sets the pace",
+     "label": "[Established]",
+     "source": "Bukhari 5027",
+     "body": [
+      "The planner keeps a record. It cannot hear you. It does not know if you stumble. A teacher listens and says: go on, or stay.",
+      "The Prophet ﷺ said that the best of you are those who learn the Qur’an and teach it (Bukhari 5027). Learning from a teacher, and later teaching what you learned, is the path."
+     ]
+    },
+    {
+     "id": "ease",
+     "kind": "say",
+     "title": "With hardship, ease",
+     "refs": [
+      "q:94:5",
+      "q:94:6"
+     ],
+     "note": "Allah says it twice. Memorising is hard on some days. The ayah is a reminder to be patient with yourself and keep going at a pace you can keep.",
+     "words": {
+      "q:94:5": [
+       {
+        "tr": "fa-inna",
+        "en": "so indeed"
+       },
+       {
+        "tr": "ma‘a",
+        "en": "with"
+       },
+       {
+        "tr": "al-‘usri",
+        "en": "the hardship"
+       },
+       {
+        "tr": "yusraa",
+        "en": "ease"
+       }
+      ],
+      "q:94:6": [
+       {
+        "tr": "inna",
+        "en": "indeed"
+       },
+       {
+        "tr": "ma‘a",
+        "en": "with"
+       },
+       {
+        "tr": "al-‘usri",
+        "en": "the hardship"
+       },
+       {
+        "tr": "yusraa",
+        "en": "ease"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 94:5-6"
+    },
+    {
+     "id": "choose",
+     "kind": "howto",
+     "title": "How to choose your number",
+     "steps": [
+      {
+       "text": "Start low.",
+       "detail": "Choose a number you could keep even on a busy day. For most beginners that is 1 to 3 ayat."
+      },
+      {
+       "text": "Keep it for a week.",
+       "detail": "See if you still have energy for revision."
+      },
+      {
+       "text": "Raise it by one if it was easy.",
+       "detail": "Only then."
+      },
+      {
+       "text": "Lower it if revision is squeezed.",
+       "detail": "This is not failing. It is how the method works."
+      },
+      {
+       "text": "Ask your teacher.",
+       "detail": "If you have one, tell them your number."
+      }
+     ],
+     "intro": "There is no right number for everyone.",
+     "mistakes": [
+      "Choosing the number you wish you could do.",
+      "Never lowering it."
+     ],
+     "label": "[Interpretive]",
+     "source": "Traditional hifz method; planner arithmetic is the app’s own",
+     "review": "The advice on pace and on growing revision is common teaching in hifz circles, worded by the app author. The planner only counts. A teacher sets the real pace."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "Choosing a number",
+     "prompt": "Put these in the order you do them.",
+     "explain": "Low, hold, adjust, ask.",
+     "items": [
+      {
+       "text": "Start with a low number",
+       "why": "A low number is the start.",
+       "back": "choose"
+      },
+      {
+       "text": "Keep it for a week",
+       "why": "Then test it.",
+       "back": "choose"
+      },
+      {
+       "text": "Raise it by one if easy, lower it if not",
+       "why": "Adjust after the week.",
+       "back": "choose"
+      },
+      {
+       "text": "Tell your teacher your number",
+       "why": "Your teacher decides what is right.",
+       "back": "teacher"
+      }
+     ]
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the pace to the days",
+     "prompt": "Match each pace for Juz Amma (564 ayat) to the number of days.",
+     "pairs": [
+      {
+       "left": {
+        "text": "1 ayah a day"
+       },
+       "right": {
+        "text": "564 days"
+       },
+       "why": "564 / 1 = 564.",
+       "back": "sum"
+      },
+      {
+       "left": {
+        "text": "3 ayat a day"
+       },
+       "right": {
+        "text": "188 days"
+       },
+       "why": "564 / 3 = 188.",
+       "back": "sum"
+      },
+      {
+       "left": {
+        "text": "5 ayat a day"
+       },
+       "right": {
+        "text": "113 days"
+       },
+       "why": "564 / 5 = 112.8, rounded up to 113.",
+       "back": "sum"
+      },
+      {
+       "left": {
+        "text": "10 ayat a day"
+       },
+       "right": {
+        "text": "57 days"
+       },
+       "why": "564 / 10 = 56.4, rounded up to 57.",
+       "back": "sum"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "c1",
+       "q": "How many ayat are in Juz Amma (surahs 78 to 114)?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "300",
+         "reteach": "No. Juz Amma has 564 ayat.",
+         "back": "sum"
+        },
+        {
+         "text": "564"
+        },
+        {
+         "text": "1000",
+         "reteach": "No. Juz Amma has 564 ayat.",
+         "back": "sum"
+        }
+       ],
+       "answer": 1,
+       "explain": "564."
+      },
+      {
+       "id": "c2",
+       "q": "At 3 new ayat a day, how many days does Juz Amma take, with no missed days?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "564",
+         "reteach": "No. That is at 1 ayah a day. Divide 564 by 3.",
+         "back": "sum"
+        },
+        {
+         "text": "113",
+         "reteach": "No. That is at 5 a day. Divide 564 by 3.",
+         "back": "sum"
+        },
+        {
+         "text": "188"
+        }
+       ],
+       "answer": 2,
+       "explain": "564 / 3 = 188."
+      },
+      {
+       "id": "c3",
+       "q": "At 5 new ayat a day, how many days?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "113"
+        },
+        {
+         "text": "112",
+         "reteach": "No. 564 / 5 = 112.8. The planner rounds up.",
+         "back": "sum"
+        },
+        {
+         "text": "100",
+         "reteach": "No. Divide 564 by 5 and round up.",
+         "back": "sum"
+        }
+       ],
+       "answer": 0,
+       "explain": "113."
+      },
+      {
+       "id": "c4",
+       "q": "Why will real life be slower than the planner’s estimate?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "The planner is always wrong",
+         "reteach": "No. It counts correctly. It just does not know about life.",
+         "back": "sum"
+        },
+        {
+         "text": "The estimate has no missed days and no growing revision"
+        },
+        {
+         "text": "Ayat get longer",
+         "reteach": "No. It is about missed days and revision.",
+         "back": "rev"
+        }
+       ],
+       "answer": 1,
+       "explain": "The planner only counts."
+      },
+      {
+       "id": "c5",
+       "q": "Revision is taking all your time and you cannot do your new ayat. What do you do?",
+       "type": "scenario",
+       "options": [
+        {
+         "text": "Lower the number of new ayat for a while"
+        },
+        {
+         "text": "Skip revision",
+         "reteach": "No. Revision keeps what you learned.",
+         "back": "rev"
+        },
+        {
+         "text": "Raise the number of new ayat",
+         "reteach": "No. That makes it worse.",
+         "back": "rev"
+        }
+       ],
+       "answer": 0,
+       "explain": "Lower the number of new ayat.",
+       "scenario": "A learner has been memorising for three months. Revision now takes most of their time."
+      },
+      {
+       "id": "c6",
+       "q": "What should a beginner choose as a first number?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "The highest the planner allows",
+         "reteach": "No. A pace that is too fast stops after a few days.",
+         "back": "choose"
+        },
+        {
+         "text": "Whatever a friend does",
+         "reteach": "No. Choose what you can keep.",
+         "back": "choose"
+        },
+        {
+         "text": "A low number they could keep on a busy day"
+        }
+       ],
+       "answer": 2,
+       "explain": "Start low."
+      },
+      {
+       "id": "c7",
+       "q": "Who sets your real pace?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "A teacher who hears you"
+        },
+        {
+         "text": "The planner",
+         "reteach": "No. It cannot hear you.",
+         "back": "teacher"
+        },
+        {
+         "text": "Nobody",
+         "reteach": "No. A teacher listens and says go on or stay.",
+         "back": "teacher"
+        }
+       ],
+       "answer": 0,
+       "explain": "A teacher."
+      },
+      {
+       "id": "c8",
+       "q": "What does “Rabbi zidnee ‘ilman” mean?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "My Lord, make it quick",
+         "reteach": "No. The du‘a is for knowledge.",
+         "back": "dua"
+        },
+        {
+         "text": "My Lord, increase me in knowledge"
+        },
+        {
+         "text": "My Lord, forgive me",
+         "reteach": "No. That is “Rabbigh-fir lee”. This one is for knowledge.",
+         "back": "dua"
+        }
+       ],
+       "answer": 1,
+       "explain": "My Lord, increase me in knowledge."
+      },
+      {
+       "id": "c9",
+       "q": "Which word in 20:114 means “increase me”?",
+       "type": "fill",
+       "options": [
+        {
+         "word": "q:20:114#14",
+         "reteach": "That word means “my Lord”.",
+         "back": "dua"
+        },
+        {
+         "word": "q:20:114#16",
+         "reteach": "That word means “in knowledge”.",
+         "back": "dua"
+        },
+        {
+         "word": "q:20:114#15"
+        }
+       ],
+       "answer": 2,
+       "explain": "Zidnee.",
+       "fill": {
+        "ref": "q:20:114",
+        "blank": 15,
+        "show": "arabic"
+       }
+      },
+      {
+       "id": "c10",
+       "q": "What did the Prophet ﷺ say about the best of people (Bukhari 5027)?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "Those who learn the Qur’an and teach it"
+        },
+        {
+         "text": "Those who learn it fastest",
+         "reteach": "No. The hadith is about learning and teaching.",
+         "back": "teacher"
+        },
+        {
+         "text": "Those who own the most copies",
+         "reteach": "No. The hadith is about learning and teaching.",
+         "back": "teacher"
+        }
+       ],
+       "answer": 0,
+       "explain": "Those who learn the Qur’an and teach it."
+      },
+      {
+       "id": "c11",
+       "lookback": "hfz.u1.l2#b1"
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Read the planner’s estimate and know what it leaves out.",
+      "Say how many ayat are in Juz Amma, and how long it takes at different paces.",
+      "Choose a low number and adjust it after a week.",
+      "Say that a teacher sets the real pace."
+     ],
+     "next": "Next: recent revision."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Set your number",
+     "body": "Open the Hifz planner and choose a number of new ayat a day.",
+     "route": "/academy/hifz",
+     "button": "Open the Hifz planner"
+    }
+   ]
+  },
+  {
+   "id": "hfz.u2.l1",
+   "title": "Recent Revision",
+   "minutes": 12,
+   "intro": "Learn how to keep the newest ayat firm with daily revision of the last week.",
+   "steps": [
+    {
+     "id": "why",
+     "kind": "why",
+     "title": "Yesterday’s lesson is still wet",
+     "body": [
+      "A new ayah is like wet clay. It takes the shape you give it, but if you leave it alone it dries in the wrong shape, or cracks. The days right after you learn are when it is weakest.",
+      "Sabqi is the lane that looks after this time. In this lesson you will learn what to revise, how much, and how to know if it is firm."
+     ]
+    },
+    {
+     "id": "follow",
+     "kind": "say",
+     "title": "Go over it",
+     "refs": [
+      "q:75:17",
+      "q:75:18"
+     ],
+     "note": "Allah told the Prophet ﷺ not to hurry with the revelation. His part is to gather it and make it recited. The Prophet’s part is to follow the recitation. We learn from this to be patient and to go over what we have received.",
+     "words": {
+      "q:75:17": [
+       {
+        "tr": "inna",
+        "en": "indeed"
+       },
+       {
+        "tr": "‘alaynaa",
+        "en": "upon Us"
+       },
+       {
+        "tr": "jam‘ahu",
+        "en": "is its collecting"
+       },
+       {
+        "tr": "wa-qur’aanahu",
+        "en": "and its recitation"
+       }
+      ],
+      "q:75:18": [
+       {
+        "tr": "fa-idhaa",
+        "en": "so when"
+       },
+       {
+        "tr": "qara’naahu",
+        "en": "We have recited it"
+       },
+       {
+        "tr": "fattabi‘",
+        "en": "then follow"
+       },
+       {
+        "tr": "qur’aanahu",
+        "en": "its recitation"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 75:17-18"
+    },
+    {
+     "id": "what",
+     "kind": "teach",
+     "title": "What sabqi is",
+     "label": "[Interpretive]",
+     "source": "Traditional hifz method (sabaq, sabqi, manzil) as taught in hifz circles",
+     "review": "The way sabqi is done is the traditional teaching of hifz circles, written in plain words by the app author. Teachers differ on the length of the window. Please confirm.",
+     "body": [
+      "Sabqi is the revision of what you learned recently. The planner uses the last 7 days. That means that every day you go over the ayat you learned in the last week, from the oldest to the newest.",
+      "Some teachers call this window longer or shorter. A teacher may tell you the right size for you."
+     ]
+    },
+    {
+     "id": "sum",
+     "kind": "teach",
+     "title": "How much is it?",
+     "label": "[Interpretive]",
+     "source": "Traditional hifz method (sabaq, sabqi, manzil) as taught in hifz circles",
+     "review": "The way sabqi is done is the traditional teaching of hifz circles, written in plain words by the app author. Teachers differ on the length of the window. Please confirm.",
+     "body": [
+      "If you learn 3 new ayat a day, then the last 7 days are 21 ayat. If you learn 5 a day, they are 35. If you learn 10 a day, they are 70.",
+      "Say them all every day. It should be easy, as you have said them many times. If it is not easy, you have learned too fast, and should slow down."
+     ]
+    },
+    {
+     "id": "camel",
+     "kind": "teach",
+     "title": "The tied camels",
+     "label": "[Established]",
+     "source": "Bukhari 5031",
+     "body": [
+      "The Prophet ﷺ said that the person who knows the Qur’an by heart is like the owner of tied camels. If he keeps them tied, he will control them. If he lets them go, they run away (Bukhari 5031).",
+      "Sabqi is how you keep the newest ones tied while the rope is still new."
+     ]
+    },
+    {
+     "id": "firm",
+     "kind": "teach",
+     "title": "How to know it is firm",
+     "label": "[Interpretive]",
+     "source": "Traditional hifz method (sabaq, sabqi, manzil) as taught in hifz circles",
+     "review": "The way sabqi is done is the traditional teaching of hifz circles, written in plain words by the app author. Teachers differ on the length of the window. Please confirm.",
+     "body": [
+      "An ayah is firm when you can say it with the book closed, without stopping, and without thinking where it begins. Another sign is that you can start from the middle of the surah and go on.",
+      "It is not firm if you must say the one before it to get started. Then say that ayah alone, many times, until it starts by itself."
+     ]
+    },
+    {
+     "id": "do",
+     "kind": "howto",
+     "title": "How to do sabqi",
+     "steps": [
+      {
+       "text": "Start from yesterday’s sabaq.",
+       "detail": "Say it from memory before you do anything new."
+      },
+      {
+       "text": "Go back one day at a time.",
+       "detail": "Say each day’s ayat from memory."
+      },
+      {
+       "text": "Mark where you stumble.",
+       "detail": "Look at the page, fix it, and say it again."
+      },
+      {
+       "text": "If you stumble a lot, stay there.",
+       "detail": "Do not add anything new until it is firm."
+      },
+      {
+       "text": "Finish with the whole window once.",
+       "detail": "Say all 7 days in a row."
+      }
+     ],
+     "intro": "Sabqi should be done with the book closed. Use the page only to fix.",
+     "mistakes": [
+      "Reading from the page and calling it revision.",
+      "Skipping sabqi when the new lesson is long."
+     ],
+     "label": "[Interpretive]",
+     "source": "Traditional hifz method (sabaq, sabqi, manzil) as taught in hifz circles",
+     "review": "The way sabqi is done is the traditional teaching of hifz circles, written in plain words by the app author. Teachers differ on the length of the window. Please confirm."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "Doing sabqi",
+     "prompt": "Put these steps in the order you do them.",
+     "explain": "Yesterday, earlier days, fix, whole window.",
+     "items": [
+      {
+       "text": "Say yesterday’s sabaq from memory",
+       "why": "Yesterday comes first.",
+       "back": "do"
+      },
+      {
+       "text": "Go back through the other days",
+       "why": "Then the days before it.",
+       "back": "do"
+      },
+      {
+       "text": "Fix mistakes from the page",
+       "why": "When you stumble, look and fix.",
+       "back": "do"
+      },
+      {
+       "text": "Say the whole window once",
+       "why": "End with all the days together.",
+       "back": "do"
+      }
+     ]
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the pace to the window",
+     "prompt": "Match each daily pace to the number of ayat in the last 7 days.",
+     "pairs": [
+      {
+       "left": {
+        "text": "3 new ayat a day"
+       },
+       "right": {
+        "text": "21 ayat"
+       },
+       "why": "3 × 7 = 21.",
+       "back": "sum"
+      },
+      {
+       "left": {
+        "text": "5 new ayat a day"
+       },
+       "right": {
+        "text": "35 ayat"
+       },
+       "why": "5 × 7 = 35.",
+       "back": "sum"
+      },
+      {
+       "left": {
+        "text": "10 new ayat a day"
+       },
+       "right": {
+        "text": "70 ayat"
+       },
+       "why": "10 × 7 = 70.",
+       "back": "sum"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "d1",
+       "q": "What is sabqi?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "The new lesson",
+         "reteach": "No. That is sabaq.",
+         "back": "what"
+        },
+        {
+         "text": "Revision of old sections",
+         "reteach": "No. That is manzil.",
+         "back": "what"
+        },
+        {
+         "text": "Revision of what you learned recently"
+        }
+       ],
+       "answer": 2,
+       "explain": "Recent revision."
+      },
+      {
+       "id": "d2",
+       "q": "How many days does the planner use for sabqi?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "7"
+        },
+        {
+         "text": "1",
+         "reteach": "No. The planner uses the last 7 days.",
+         "back": "what"
+        },
+        {
+         "text": "30",
+         "reteach": "No. The planner uses the last 7 days.",
+         "back": "what"
+        }
+       ],
+       "answer": 0,
+       "explain": "The last 7 days."
+      },
+      {
+       "id": "d3",
+       "q": "If you learn 5 new ayat a day, how many are in the last 7 days?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "12",
+         "reteach": "No. Multiply 5 by 7.",
+         "back": "sum"
+        },
+        {
+         "text": "35"
+        },
+        {
+         "text": "70",
+         "reteach": "No. That is for 10 a day. Multiply 5 by 7.",
+         "back": "sum"
+        }
+       ],
+       "answer": 1,
+       "explain": "5 × 7 = 35."
+      },
+      {
+       "id": "d4",
+       "q": "When you do sabqi, what should you do with the book?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "Keep it closed, and use it only to fix mistakes"
+        },
+        {
+         "text": "Read from it the whole time",
+         "reteach": "No. Reading is not revising from memory.",
+         "back": "do"
+        },
+        {
+         "text": "Leave it at home",
+         "reteach": "No. You need it to fix mistakes.",
+         "back": "do"
+        }
+       ],
+       "answer": 0,
+       "explain": "Closed, and open only to fix."
+      },
+      {
+       "id": "d5",
+       "q": "You stumble a lot in the last three days. What do you do?",
+       "type": "scenario",
+       "options": [
+        {
+         "text": "Move on to the new ayat",
+         "reteach": "No. Adding new things on top of weak ones makes it worse.",
+         "back": "do"
+        },
+        {
+         "text": "Stay there until it is firm, and add nothing new"
+        },
+        {
+         "text": "Stop revising",
+         "reteach": "No. Revise it until firm.",
+         "back": "do"
+        }
+       ],
+       "answer": 1,
+       "explain": "Stay with it until firm.",
+       "scenario": "A learner has just revised the last week. The last three days are shaky."
+      },
+      {
+       "id": "d6",
+       "q": "Why is the first week after learning the weakest time?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "The Qur’an is harder then",
+         "reteach": "No. The Qur’an is the same. It is your memory that is still new.",
+         "back": "why"
+        },
+        {
+         "text": "The ayat change",
+         "reteach": "No. The ayat do not change.",
+         "back": "why"
+        },
+        {
+         "text": "The ayat are new and not yet firm"
+        }
+       ],
+       "answer": 2,
+       "explain": "They are new and not firm."
+      },
+      {
+       "id": "d7",
+       "q": "Which word in 75:18 means “then follow”?",
+       "type": "fill",
+       "options": [
+        {
+         "word": "q:75:18#0",
+         "reteach": "That word means “so when”.",
+         "back": "follow"
+        },
+        {
+         "word": "q:75:18#2"
+        },
+        {
+         "word": "q:75:18#3",
+         "reteach": "That word means “its recitation”.",
+         "back": "follow"
+        }
+       ],
+       "answer": 1,
+       "explain": "Fattabi‘.",
+       "fill": {
+        "ref": "q:75:18",
+        "blank": 2,
+        "show": "arabic"
+       }
+      },
+      {
+       "id": "d8",
+       "q": "In the hadith of Bukhari 5031, what happens if the owner lets the camels go?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "They run away"
+        },
+        {
+         "text": "They find their own way back",
+         "reteach": "No. The hadith says they run away.",
+         "back": "camel"
+        },
+        {
+         "text": "They stay where they are",
+         "reteach": "No. The hadith says they run away.",
+         "back": "camel"
+        }
+       ],
+       "answer": 0,
+       "explain": "They run away."
+      },
+      {
+       "id": "d9",
+       "q": "If sabqi is not easy, what does that mean?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "You should stop for good",
+         "reteach": "No. Slow down for a while.",
+         "back": "sum"
+        },
+        {
+         "text": "You learned too fast and should slow down"
+        },
+        {
+         "text": "You should learn more",
+         "reteach": "No. Slow down.",
+         "back": "sum"
+        }
+       ],
+       "answer": 1,
+       "explain": "You learned too fast."
+      },
+      {
+       "id": "d10",
+       "q": "What does “inna ‘alaynaa jam‘ahu wa-qur’aanahu” say?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "Upon you is its recitation only",
+         "reteach": "No. The ayah says upon Us, Allah.",
+         "back": "follow"
+        },
+        {
+         "text": "Do not recite it",
+         "reteach": "No. The ayah is about Allah gathering it and making it recited.",
+         "back": "follow"
+        },
+        {
+         "text": "Upon Us is its collecting and its recitation"
+        }
+       ],
+       "answer": 2,
+       "explain": "Upon Us is its collecting and its recitation."
+      },
+      {
+       "id": "d11",
+       "lookback": "hfz.u1.l1#a1"
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Say what sabqi is and which days it covers.",
+      "Work out how many ayat are in the window for your pace.",
+      "Do sabqi with the book closed, and fix from the page.",
+      "Slow down when the recent days are not firm."
+     ],
+     "next": "Next: long-range revision."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Say yesterday’s ayat",
+     "body": "Open the reader at a surah you are learning. Use the hide-text option in the reader to test yourself on yesterday’s ayat.",
+     "route": "/quran",
+     "button": "Open the reader"
+    }
+   ]
+  },
+  {
+   "id": "hfz.u2.l2",
+   "title": "Long-Range Revision",
+   "minutes": 12,
+   "intro": "Learn how to keep older sections warm by revising one section a day in turn.",
+   "steps": [
+    {
+     "id": "why",
+     "kind": "why",
+     "title": "Keeping the old warm",
+     "body": [
+      "When you have learned many surahs, you cannot revise all of them every day. But if you leave the old ones alone, they fade. Manzil is the answer: each day you revise one section, and over some days you cover everything.",
+      "In this lesson you will learn what a section is, how to cycle through them, and how long a cycle is."
+     ]
+    },
+    {
+     "id": "hearts",
+     "kind": "say",
+     "title": "In the hearts of those given knowledge",
+     "refs": [
+      "q:29:49"
+     ],
+     "note": "The Qur’an is clear verses in the chests of those who have been given knowledge. Memorising is one way this is carried out.",
+     "words": {
+      "q:29:49": [
+       {
+        "tr": "bal",
+        "en": "rather"
+       },
+       {
+        "tr": "huwa",
+        "en": "it is"
+       },
+       {
+        "tr": "aayaatun",
+        "en": "verses"
+       },
+       {
+        "tr": "bayyinaatun",
+        "en": "clear"
+       },
+       {
+        "tr": "fee",
+        "en": "in"
+       },
+       {
+        "tr": "sudoori",
+        "en": "the chests"
+       },
+       {
+        "tr": "alladheena",
+        "en": "of those who"
+       },
+       {
+        "tr": "ootoo",
+        "en": "were given"
+       },
+       {
+        "tr": "al-‘ilma",
+        "en": "the knowledge"
+       },
+       {
+        "tr": "wa-maa",
+        "en": "and not"
+       },
+       {
+        "tr": "yajhadu",
+        "en": "rejects"
+       },
+       {
+        "tr": "bi-aayaatinaa",
+        "en": "Our verses"
+       },
+       {
+        "tr": "illaa",
+        "en": "except"
+       },
+       {
+        "tr": "adh-dhaalimoon",
+        "en": "the wrongdoers"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 29:49"
+    },
+    {
+     "id": "what",
+     "kind": "teach",
+     "title": "What manzil is",
+     "label": "[Interpretive]",
+     "source": "Traditional hifz method (sabaq, sabqi, manzil) as taught in hifz circles",
+     "review": "The way manzil is done (a section each day, cycled) is the traditional teaching of hifz circles, written in plain words by the app author. The size of a section and the length of the cycle differ between teachers. Please confirm.",
+     "body": [
+      "Manzil is the long-range revision. It covers the older parts that are no longer in the sabqi window.",
+      "A common way is to divide what you have learned into sections, for example a surah, or part of a juz, and revise one section every day, in turn, so that you come back to the first after the last."
+     ]
+    },
+    {
+     "id": "cycle",
+     "kind": "teach",
+     "title": "How long is a cycle?",
+     "label": "[Interpretive]",
+     "source": "Traditional hifz method (sabaq, sabqi, manzil) as taught in hifz circles",
+     "review": "The way manzil is done (a section each day, cycled) is the traditional teaching of hifz circles, written in plain words by the app author. The size of a section and the length of the cycle differ between teachers. Please confirm.",
+     "body": [
+      "The cycle depends on how much you have learned and how many sections you make. If you have 7 sections and revise one a day, the cycle is 7 days: each section comes round once a week.",
+      "If you have 30 sections, the cycle is 30 days. The more you have learned, the longer the cycle, unless you revise more than one section a day."
+     ]
+    },
+    {
+     "id": "camel",
+     "kind": "teach",
+     "title": "Keeping it tied",
+     "label": "[Established]",
+     "source": "Bukhari 5032",
+     "body": [
+      "The Prophet ﷺ said that one should not say “I have forgotten such-and-such ayah”, but rather that he was made to forget it. He said to keep reciting, because it escapes from the hearts faster than camels (Bukhari 5032).",
+      "So manzil is not optional for the one who has memorised. It is how the old stays."
+     ]
+    },
+    {
+     "id": "when",
+     "kind": "teach",
+     "title": "When to do it",
+     "label": "[Interpretive]",
+     "source": "Qur’an 73:1-4; Traditional hifz method (sabaq, sabqi, manzil) as taught in hifz circles",
+     "review": "The way manzil is done (a section each day, cycled) is the traditional teaching of hifz circles, written in plain words by the app author. The size of a section and the length of the cycle differ between teachers. Please confirm.",
+     "body": [
+      "Many teachers advise doing manzil at a fixed time that you protect, such as after Fajr or in the night prayer, because it is long and easy to push aside.",
+      "The Prophet ﷺ was told to rise for part of the night and recite the Qur’an with tarteel (73:1-4). The night prayer is a good place for the old sections, if you can."
+     ]
+    },
+    {
+     "id": "do",
+     "kind": "howto",
+     "title": "How to do manzil",
+     "steps": [
+      {
+       "text": "Divide what you know into sections.",
+       "detail": "A short surah, or a part of a long one, is one section."
+      },
+      {
+       "text": "Write the list in order.",
+       "detail": "Put the oldest first."
+      },
+      {
+       "text": "Take today’s section.",
+       "detail": "Say it from memory, with the book closed."
+      },
+      {
+       "text": "Fix mistakes from the page.",
+       "detail": "Then say that part again."
+      },
+      {
+       "text": "Tomorrow, take the next.",
+       "detail": "When you reach the end, go back to the first."
+      }
+     ],
+     "intro": "One section a day is enough. Make it a regular time.",
+     "mistakes": [
+      "Always revising your favourite and leaving the others.",
+      "Making the sections too long to finish in a day."
+     ],
+     "label": "[Interpretive]",
+     "source": "Traditional hifz method (sabaq, sabqi, manzil) as taught in hifz circles",
+     "review": "The way manzil is done (a section each day, cycled) is the traditional teaching of hifz circles, written in plain words by the app author. The size of a section and the length of the cycle differ between teachers. Please confirm."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "A manzil cycle",
+     "prompt": "Put these in the order of a manzil cycle.",
+     "explain": "Divide, first, next, round again.",
+     "items": [
+      {
+       "text": "Divide what you know into sections",
+       "why": "First decide the sections.",
+       "back": "do"
+      },
+      {
+       "text": "Revise section 1 today",
+       "why": "Start with the first.",
+       "back": "do"
+      },
+      {
+       "text": "Revise section 2 tomorrow",
+       "why": "Then the next.",
+       "back": "do"
+      },
+      {
+       "text": "After the last section, go back to section 1",
+       "why": "The cycle turns.",
+       "back": "do"
+      }
+     ]
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the sections to the cycle",
+     "prompt": "Revising one section a day, match the number of sections to the length of the cycle.",
+     "pairs": [
+      {
+       "left": {
+        "text": "7 sections"
+       },
+       "right": {
+        "text": "7 days"
+       },
+       "why": "One a day: 7 days.",
+       "back": "cycle"
+      },
+      {
+       "left": {
+        "text": "15 sections"
+       },
+       "right": {
+        "text": "15 days"
+       },
+       "why": "One a day: 15 days.",
+       "back": "cycle"
+      },
+      {
+       "left": {
+        "text": "30 sections"
+       },
+       "right": {
+        "text": "30 days"
+       },
+       "why": "One a day: 30 days.",
+       "back": "cycle"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "e1",
+       "q": "What is manzil?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "The new lesson",
+         "reteach": "No. That is sabaq.",
+         "back": "what"
+        },
+        {
+         "text": "Revision of the last week",
+         "reteach": "No. That is sabqi.",
+         "back": "what"
+        },
+        {
+         "text": "Long-range revision of older sections"
+        }
+       ],
+       "answer": 2,
+       "explain": "Long-range revision."
+      },
+      {
+       "id": "e2",
+       "q": "If you have 7 sections and revise one a day, how long is the cycle?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "7 days"
+        },
+        {
+         "text": "1 day",
+         "reteach": "No. One section a day, 7 sections: 7 days.",
+         "back": "cycle"
+        },
+        {
+         "text": "30 days",
+         "reteach": "No. One section a day, 7 sections: 7 days.",
+         "back": "cycle"
+        }
+       ],
+       "answer": 0,
+       "explain": "7 days."
+      },
+      {
+       "id": "e3",
+       "q": "You have 30 sections and revise one a day. How often does each section come round?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "Every day",
+         "reteach": "No. One section a day means each comes round once in 30 days.",
+         "back": "cycle"
+        },
+        {
+         "text": "Once every 30 days"
+        },
+        {
+         "text": "Once a week",
+         "reteach": "No. That would need 7 sections.",
+         "back": "cycle"
+        }
+       ],
+       "answer": 1,
+       "explain": "30 days."
+      },
+      {
+       "id": "e4",
+       "q": "Why not revise only your favourite surah?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "The favourite does not need it",
+         "reteach": "No. It also needs revision, but the others need it too.",
+         "back": "do"
+        },
+        {
+         "text": "It is not allowed",
+         "reteach": "No. It is just that the others will fade.",
+         "back": "do"
+        },
+        {
+         "text": "The others fade if they are not revised"
+        }
+       ],
+       "answer": 2,
+       "explain": "The others fade."
+      },
+      {
+       "id": "e5",
+       "q": "A learner has memorised many surahs and only revises the newest one. What do you say?",
+       "type": "scenario",
+       "options": [
+        {
+         "text": "Divide the older ones into sections and revise one each day"
+        },
+        {
+         "text": "The old ones will stay by themselves",
+         "reteach": "No. The Prophet ﷺ said the Qur’an escapes faster than camels (Bukhari 5032).",
+         "back": "camel"
+        },
+        {
+         "text": "Stop learning anything new",
+         "reteach": "No. Keep learning, and revise the old in turn.",
+         "back": "what"
+        }
+       ],
+       "answer": 0,
+       "explain": "Sections, one a day.",
+       "scenario": "A learner knows ten surahs but only goes over the last one."
+      },
+      {
+       "id": "e6",
+       "q": "What did the Prophet ﷺ say about forgetting ayat (Bukhari 5032)?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "Forgetting is a sign of failure",
+         "reteach": "No. He told us to keep reciting.",
+         "back": "camel"
+        },
+        {
+         "text": "Do not say “I forgot”. Keep reciting, because it escapes faster than camels"
+        },
+        {
+         "text": "Stop memorising",
+         "reteach": "No. He told us to keep reciting.",
+         "back": "camel"
+        }
+       ],
+       "answer": 1,
+       "explain": "Keep reciting."
+      },
+      {
+       "id": "e7",
+       "q": "Where is the Qur’an carried, according to 29:49?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "In the chests of those given knowledge"
+        },
+        {
+         "text": "Only in books",
+         "reteach": "No. The ayah says in the chests of those given knowledge.",
+         "back": "hearts"
+        },
+        {
+         "text": "Nowhere",
+         "reteach": "No. The ayah says in the chests of those given knowledge.",
+         "back": "hearts"
+        }
+       ],
+       "answer": 0,
+       "explain": "In the chests of those given knowledge."
+      },
+      {
+       "id": "e8",
+       "q": "Which word in 29:49 means “the chests”?",
+       "type": "fill",
+       "options": [
+        {
+         "word": "q:29:49#4",
+         "reteach": "That word means “in”.",
+         "back": "hearts"
+        },
+        {
+         "word": "q:29:49#8",
+         "reteach": "That word means “the knowledge”.",
+         "back": "hearts"
+        },
+        {
+         "word": "q:29:49#5"
+        }
+       ],
+       "answer": 2,
+       "explain": "Sudoori.",
+       "fill": {
+        "ref": "q:29:49",
+        "blank": 5,
+        "show": "arabic"
+       }
+      },
+      {
+       "id": "e9",
+       "q": "What should the oldest section be in your list?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "First"
+        },
+        {
+         "text": "Last",
+         "reteach": "No. Put the oldest first.",
+         "back": "do"
+        },
+        {
+         "text": "Left out",
+         "reteach": "No. Include every section.",
+         "back": "do"
+        }
+       ],
+       "answer": 0,
+       "explain": "First."
+      },
+      {
+       "id": "e10",
+       "q": "Where is the line between sabqi and manzil?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "There is none",
+         "reteach": "No. Sabqi covers the last week and manzil the older part.",
+         "back": "what"
+        },
+        {
+         "text": "Sabqi is the last week, manzil is the older part"
+        },
+        {
+         "text": "Sabqi is older than manzil",
+         "reteach": "No. Sabqi is the recent one.",
+         "back": "what"
+        }
+       ],
+       "answer": 1,
+       "explain": "Sabqi recent, manzil old."
+      },
+      {
+       "id": "e11",
+       "lookback": "hfz.u2.l1#d1"
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Say what manzil is and how it differs from sabqi.",
+      "Divide what you know into sections and put them in order.",
+      "Work out how long the cycle is.",
+      "Revise one section a day with the book closed."
+     ],
+     "next": "Next: the listening ear."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Choose today’s section",
+     "body": "Open the Hifz planner. Look at what you have marked as memorised and choose the section to revise today.",
+     "route": "/academy/hifz",
+     "button": "Open the Hifz planner"
+    }
+   ]
+  },
+  {
+   "id": "hfz.u2.l3",
+   "title": "The Listening Ear",
+   "minutes": 12,
+   "intro": "Learn why the Qur’an is learned by reciting to a listener, and how to use a listening ear when no teacher is near.",
+   "steps": [
+    {
+     "id": "why",
+     "kind": "why",
+     "title": "The ear sees what the tongue cannot",
+     "body": [
+      "When you say an ayah you have learned, you do not hear your own mistakes. You hear what you meant to say. Another ear hears what you really said.",
+      "In this lesson you will learn why the Qur’an has always been learned by reciting to a listener, who can be a teacher, and how to make use of a listening ear when no teacher is near."
+     ]
+    },
+    {
+     "id": "listen",
+     "kind": "say",
+     "title": "When it is recited, listen",
+     "refs": [
+      "q:7:204"
+     ],
+     "note": "Listening is a command of the Qur’an itself. It brings mercy. The one who listens is also learning.",
+     "words": {
+      "q:7:204": [
+       {
+        "tr": "wa-idhaa",
+        "en": "and when"
+       },
+       {
+        "tr": "quri’a",
+        "en": "is recited"
+       },
+       {
+        "tr": "al-Qur’aanu",
+        "en": "the Qur’an"
+       },
+       {
+        "tr": "fastami‘oo",
+        "en": "then listen"
+       },
+       {
+        "tr": "lahu",
+        "en": "to it"
+       },
+       {
+        "tr": "wa-ansitoo",
+        "en": "and be silent"
+       },
+       {
+        "tr": "la‘allakum",
+        "en": "so that you may"
+       },
+       {
+        "tr": "turhamoon",
+        "en": "receive mercy"
+       }
+      ]
+     },
+     "label": "[Established]",
+     "source": "Qur’an 7:204"
+    },
+    {
+     "id": "jibril",
+     "kind": "story",
+     "title": "Jibril and the Prophet ﷺ",
+     "label": "[Established]",
+     "source": "Bukhari 1902; Bukhari 4998",
+     "body": [
+      "Ibn Abbas reported that Jibril used to meet the Prophet ﷺ every night in Ramadan, and the Prophet ﷺ would recite the Qur’an to him (Bukhari 1902).",
+      "Abu Huraira reported that Jibril went over the Qur’an with him once every year, and twice in the year he died (Bukhari 4998).",
+      "Even the Prophet ﷺ recited to a listener. This is the pattern for every learner after him."
+     ]
+    },
+    {
+     "id": "abdullah",
+     "kind": "teach",
+     "title": "Recite to me",
+     "label": "[Established]",
+     "source": "Bukhari 5049",
+     "body": [
+      "Abdullah ibn Mas‘ud reported that the Prophet ﷺ said to him, “Recite the Qur’an to me.” Abdullah said, “Shall I recite to you, when it was revealed to you?” The Prophet ﷺ said, “I like to hear it from others” (Bukhari 5049).",
+      "So the best of creation sat and listened to a Companion recite. Reciting to someone is an honour, not an examination."
+     ]
+    },
+    {
+     "id": "who",
+     "kind": "teach",
+     "title": "Who can listen",
+     "label": "[Interpretive]",
+     "source": "Traditional hifz method: reciting to a checker (a teacher, or a trusted reader)",
+     "review": "Reciting to a teacher or checker is the traditional method of hifz and of learning the Qur’an. The advice on recording yourself is a study aid written by the app author. Please confirm.",
+     "body": [
+      "The best listener is a teacher who knows the Qur’an and tajweed. They hear the mistakes in letters and rules that you cannot hear.",
+      "If you have no teacher near you, a trusted family member who can read the Arabic can follow in the mushaf while you recite, and tell you where you went wrong. You can also play back your own recording and follow it in the mushaf.",
+      "A recording is a help, but it is not a replacement for a teacher."
+     ]
+    },
+    {
+     "id": "correct",
+     "kind": "teach",
+     "title": "Receiving correction",
+     "label": "[Interpretive]",
+     "source": "Traditional hifz method: reciting to a checker (a teacher, or a trusted reader)",
+     "review": "Reciting to a teacher or checker is the traditional method of hifz and of learning the Qur’an. The advice on recording yourself is a study aid written by the app author. Please confirm.",
+     "body": [
+      "When your listener corrects you, thank them. A correction is a gift: it is a mistake you will not carry for years.",
+      "Repeat the corrected word several times, then the whole ayah. A mistake learned wrongly is harder to fix later than one fixed at once."
+     ]
+    },
+    {
+     "id": "do",
+     "kind": "howto",
+     "title": "How to recite to a listener",
+     "steps": [
+      {
+       "text": "Choose what you will recite.",
+       "detail": "Take today’s sabaq, or one revision section."
+      },
+      {
+       "text": "Ask the listener to follow in the mushaf.",
+       "detail": "They look at the page while you recite from memory."
+      },
+      {
+       "text": "Recite without stopping.",
+       "detail": "Do not go back to fix. Go on to the end."
+      },
+      {
+       "text": "Let the listener tell you each mistake.",
+       "detail": "Write down where it was."
+      },
+      {
+       "text": "Say the ayah again, fixed.",
+       "detail": "Then go on."
+      }
+     ],
+     "intro": "A recording is the same, but you are the listener afterwards.",
+     "mistakes": [
+      "Stopping at the first slip so the listener never sees the whole recitation.",
+      "Taking offence when you are corrected."
+     ],
+     "label": "[Interpretive]",
+     "source": "Traditional hifz method: reciting to a checker (a teacher, or a trusted reader)",
+     "review": "Reciting to a teacher or checker is the traditional method of hifz and of learning the Qur’an. The advice on recording yourself is a study aid written by the app author. Please confirm."
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "title": "Reciting to a listener",
+     "prompt": "Put these in the order you do them.",
+     "explain": "Choose, listener follows, recite, fix.",
+     "items": [
+      {
+       "text": "Choose what you will recite",
+       "why": "First decide.",
+       "back": "do"
+      },
+      {
+       "text": "The listener follows in the mushaf",
+       "why": "Then the listener opens the page.",
+       "back": "do"
+      },
+      {
+       "text": "Recite to the end without stopping",
+       "why": "Then you recite.",
+       "back": "do"
+      },
+      {
+       "text": "Fix each mistake and say it again",
+       "why": "Last, you fix.",
+       "back": "do"
+      }
+     ]
+    },
+    {
+     "id": "match",
+     "kind": "match",
+     "title": "Match the Arabic to the meaning",
+     "prompt": "Match each Arabic word to its meaning.",
+     "pairs": [
+      {
+       "left": {
+        "word": "q:7:204#3"
+       },
+       "right": {
+        "text": "then listen"
+       },
+       "why": "Fastami‘oo.",
+       "back": "listen"
+      },
+      {
+       "left": {
+        "word": "q:7:204#5"
+       },
+       "right": {
+        "text": "and be silent"
+       },
+       "why": "Wa-ansitoo.",
+       "back": "listen"
+      },
+      {
+       "left": {
+        "word": "q:7:204#7"
+       },
+       "right": {
+        "text": "you may receive mercy"
+       },
+       "why": "Turhamoon.",
+       "back": "listen"
+      },
+      {
+       "left": {
+        "word": "q:7:204#1"
+       },
+       "right": {
+        "text": "is recited"
+       },
+       "why": "Quri’a.",
+       "back": "listen"
+      }
+     ]
+    },
+    {
+     "id": "check",
+     "kind": "check",
+     "title": "Check what you have learned",
+     "items": [
+      {
+       "id": "f1",
+       "q": "Why is it hard to hear your own mistakes?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "Because you speak too quietly",
+         "reteach": "No. It is because you hear your intention.",
+         "back": "why"
+        },
+        {
+         "text": "Because the mistakes are not real",
+         "reteach": "No. They are real. You just cannot hear them.",
+         "back": "why"
+        },
+        {
+         "text": "You hear what you meant to say, not what you said"
+        }
+       ],
+       "answer": 2,
+       "explain": "You hear your intention."
+      },
+      {
+       "id": "f2",
+       "q": "What does 7:204 tell us to do when the Qur’an is recited?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "Listen and be silent"
+        },
+        {
+         "text": "Recite along loudly",
+         "reteach": "No. The ayah says listen and be silent.",
+         "back": "listen"
+        },
+        {
+         "text": "Leave",
+         "reteach": "No. The ayah says listen and be silent.",
+         "back": "listen"
+        }
+       ],
+       "answer": 0,
+       "explain": "Listen and be silent."
+      },
+      {
+       "id": "f3",
+       "q": "What does the ayah promise to those who listen?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "Wealth",
+         "reteach": "No. The ayah says that you may receive mercy.",
+         "back": "listen"
+        },
+        {
+         "text": "Mercy"
+        },
+        {
+         "text": "Fame",
+         "reteach": "No. The ayah says that you may receive mercy.",
+         "back": "listen"
+        }
+       ],
+       "answer": 1,
+       "explain": "Mercy."
+      },
+      {
+       "id": "f4",
+       "q": "Who used to meet the Prophet ﷺ every night in Ramadan to go over the Qur’an (Bukhari 1902)?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "Abu Bakr",
+         "reteach": "No. It was Jibril.",
+         "back": "jibril"
+        },
+        {
+         "text": "Ibn Mas‘ud",
+         "reteach": "No. It was Jibril.",
+         "back": "jibril"
+        },
+        {
+         "text": "Jibril"
+        }
+       ],
+       "answer": 2,
+       "explain": "Jibril."
+      },
+      {
+       "id": "f5",
+       "q": "What did the Prophet ﷺ say to Abdullah ibn Mas‘ud (Bukhari 5049)?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "“Recite the Qur’an to me”"
+        },
+        {
+         "text": "“Do not recite in front of me”",
+         "reteach": "No. He asked him to recite.",
+         "back": "abdullah"
+        },
+        {
+         "text": "“Recite only at night”",
+         "reteach": "No. He asked him to recite to him.",
+         "back": "abdullah"
+        }
+       ],
+       "answer": 0,
+       "explain": "“Recite the Qur’an to me.”"
+      },
+      {
+       "id": "f6",
+       "q": "You have no teacher nearby. What can you do?",
+       "type": "scenario",
+       "options": [
+        {
+         "text": "Give up memorising",
+         "reteach": "No. There are ways to get a listening ear. A teacher is still best.",
+         "back": "who"
+        },
+        {
+         "text": "Recite to a family member who follows in the mushaf, or play back a recording and follow it in the mushaf"
+        },
+        {
+         "text": "Trust that you are always right",
+         "reteach": "No. Mistakes cannot be heard by the one who makes them.",
+         "back": "why"
+        }
+       ],
+       "answer": 1,
+       "explain": "Find a listening ear.",
+       "scenario": "A learner lives far from any teacher and wants someone to hear their recitation."
+      },
+      {
+       "id": "f7",
+       "q": "Should you stop at the first slip when reciting to a listener?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "No, go on to the end so the listener sees the whole"
+        },
+        {
+         "text": "Yes, always fix at once",
+         "reteach": "No. The listener must hear the whole recitation.",
+         "back": "do"
+        },
+        {
+         "text": "Yes, and start again",
+         "reteach": "No. Go on to the end.",
+         "back": "do"
+        }
+       ],
+       "answer": 0,
+       "explain": "Go on to the end."
+      },
+      {
+       "id": "f8",
+       "q": "Which word in 7:204 means “and be silent”?",
+       "type": "fill",
+       "options": [
+        {
+         "word": "q:7:204#3",
+         "reteach": "That word means “then listen”.",
+         "back": "listen"
+        },
+        {
+         "word": "q:7:204#5"
+        },
+        {
+         "word": "q:7:204#7",
+         "reteach": "That word means “you may receive mercy”.",
+         "back": "listen"
+        }
+       ],
+       "answer": 1,
+       "explain": "Wa-ansitoo.",
+       "fill": {
+        "ref": "q:7:204",
+        "blank": 5,
+        "show": "arabic"
+       }
+      },
+      {
+       "id": "f9",
+       "q": "Is a recording a replacement for a teacher?",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "Yes, fully",
+         "reteach": "No. A teacher hears rules of tajweed that you may not.",
+         "back": "who"
+        },
+        {
+         "text": "It is forbidden",
+         "reteach": "No. It is a help, not a replacement.",
+         "back": "who"
+        },
+        {
+         "text": "No, it is a help only"
+        }
+       ],
+       "answer": 2,
+       "explain": "A help only."
+      },
+      {
+       "id": "f10",
+       "q": "Reciting to someone is…",
+       "type": "mcq",
+       "options": [
+        {
+         "text": "An honour and a way to learn, not an examination"
+        },
+        {
+         "text": "A test to fail",
+         "reteach": "No. Even the Prophet ﷺ asked a Companion to recite to him.",
+         "back": "abdullah"
+        },
+        {
+         "text": "Only for the weak",
+         "reteach": "No. Even the Prophet ﷺ recited to Jibril.",
+         "back": "jibril"
+        }
+       ],
+       "answer": 0,
+       "explain": "An honour and a way to learn."
+      },
+      {
+       "id": "f11",
+       "lookback": "hfz.u2.l2#e1"
+      }
+     ]
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Say why you need another ear to hear your mistakes.",
+      "Recite to a listener without stopping, and fix after.",
+      "Use a recording as a help, but not as a replacement for a teacher.",
+      "Listen when the Qur’an is recited, as 7:204 commands."
+     ],
+     "next": "You have finished this course. Keep your three lanes."
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Listen to a recitation",
+     "body": "Open the reader and listen to a surah you are learning, following in the mushaf.",
+     "route": "/quran",
+     "button": "Open the reader"
+    }
+   ]
+  }
+ ]
+}

@@ -13,6 +13,7 @@ import '../../share/application/share_text.dart';
 import '../../share/presentation/share_actions.dart';
 import '../application/noor_providers.dart';
 import '../domain/noor_entry.dart';
+import '../../../app/theme/widgets/focus_ring.dart';
 
 /// Screen 7 · Today's NOOR — daily ayah/hadith + reflection.
 ///
@@ -397,7 +398,7 @@ class _ShareNoorButton extends StatelessWidget {
       label: 'Copy today’s NOOR to share',
       excludeSemantics: true,
       onTap: () => _copy(context),
-      child: GestureDetector(
+      child: FocusableTap(
         key: const Key('noor-share'),
         behavior: HitTestBehavior.opaque,
         onTap: () => _copy(context),

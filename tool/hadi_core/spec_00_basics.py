@@ -48,7 +48,7 @@ Its date is not fixed. {HS bukhari:2017|Aisha reported the Prophet said to look 
 A'ishah asked what to say if she found the night, and the Prophet ﷺ taught her a short du'a, "Allahumma innaka afuwwun tuhibbul-afwa fa'fu anni" (O Allah, You are Pardoning and You love to pardon, so pardon me). It is reported in {HW tirmidhi:3513|Aisha asked the Prophet what to say if she knew the Night of Al-Qadr, and he taught her to say O Allah, You are Pardoning, You love pardon, so pardon me}. The graders differ on that report (some call it sahih, one calls it weak), and the du'a is a good one to say in any case.
 """,
   go=['/ramadan'],
-  review='tirmidhi:3513 is graded sahih by Al-Albani and da\'if by Zubair Ali Zai; cited as disputed, not as firm evidence.')
+  review='The Laylat al-Qadr du\'a report has conflicting grades from different graders; it is cited as disputed, not as firm evidence.')
 
 E('friday-sunnah',
   m=[r'\bsunn?ah (?:of|on|for) (?:friday|jumuah|jumah)\b', r'\bfriday (?:sunn?ah|etiquette|manners|etiquettes|rituals|habits|traditions)\b', r'\bwhat (?:to do|should i do|do muslims do) on friday\b', r'\bwhat is sunn?ah on friday\b', r'\bsunn?ahs? of jumuah\b', r'\bjumuah (?:sunn?ah|etiquette|manners)\b', r'\bwhy is friday (?:special|important|holy|blessed)\b', r'\bsignificance of friday\b', r'\bwhat to do before jumuah\b'],

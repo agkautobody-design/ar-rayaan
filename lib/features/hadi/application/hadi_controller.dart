@@ -191,6 +191,7 @@ const Map<String, String> kHadiGuideNames = <String, String>{
   'huda-eid': 'the Eid guide',
   'huda-udhiyah': 'the Udhiyah guide',
   'huda-zakat-fitr': 'the Zakat al-Fitr guide',
+  'huda-halal-food': 'the Halal Food guide',
 };
 
 /// Reads the [GO:] / [DO:] tokens a reply may carry. Pure, so it is tested
