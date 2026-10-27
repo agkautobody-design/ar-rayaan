@@ -65,8 +65,8 @@ void main() {
       expect(ringValue(const RingInputs(adhkarTotal: 600)), 0);
     });
 
-    test('opening a surah alone is 15%, and parts add up', () {
-      expect(ringValue(const RingInputs(openedSurah: true)), closeTo(0.15, 1e-9));
+    test('opening a surah alone is 10%, and parts add up', () {
+      expect(ringValue(const RingInputs(openedSurah: true)), closeTo(0.10, 1e-9));
       expect(
         ringValue(
           const RingInputs(
@@ -75,10 +75,13 @@ void main() {
             openedSurah: true,
             reflections: 2,
             lessonsDone: 1,
+            ayatMemorised: 5,
           ),
         ),
-        closeTo(0.275 + 0.45, 1e-9),
+        closeTo(0.225 + 0.10 + 0.15 + 0.15 + 0.15, 1e-9),
       );
+      // Writing down memorised ayat moves the ring (it used to stay at 0%).
+      expect(ringValue(const RingInputs(ayatMemorised: 5)), closeTo(0.15, 1e-9));
       final double all = ringParts(const RingInputs())
           .fold<double>(0, (double a, RingPart p) => a + p.weight);
       expect(all, closeTo(1, 1e-9));
@@ -87,7 +90,7 @@ void main() {
     test('never goes past 100% and handles bad totals', () {
       expect(
         ringValue(const RingInputs(adhkarDone: 900, adhkarTotal: 600)),
-        closeTo(0.55, 1e-9),
+        closeTo(0.45, 1e-9),
       );
       expect(daysThisWeekText(0), 'None yet this week');
       expect(daysThisWeekText(3), '3 of 7 days');
