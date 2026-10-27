@@ -186,7 +186,7 @@ void main() {
       // "Continue where you left off" with a part-filled bar.
       expect(find.text('Start here'), findsOneWidget);
       expect(find.text('Continue where you left off'), findsNothing);
-      expect(find.text('Your first step'), findsOneWidget);
+      expect(find.text('Welcome, and the shahada'), findsOneWidget);
       final LinearProgressIndicator bar =
           tester.widget<LinearProgressIndicator>(
               find.byType(LinearProgressIndicator).first);
