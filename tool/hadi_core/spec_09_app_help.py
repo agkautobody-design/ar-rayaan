@@ -104,7 +104,7 @@ E('privacy-free-ads',
 What I can tell you, from the app's own Privacy policy screen:
 - Your settings, bookmarks, progress, reflections and saved conversations with me are stored on your device. You can clear them by clearing the app's data.
 - I answer from a library built into the app, which does not leave your device. Only if you choose to add your own key for an AI provider are your key and the messages of that conversation sent to that provider, under its terms. Messages that look like a personal crisis are answered on the device and are not sent or saved.
-- Accounts: if you create one, sign-in uses Firebase Authentication. You can delete your account from the Delete account screen. What you post in the Majlis is public.
+- Accounts: if you create one, sign-in uses Firebase Authentication. You can delete your account and data from Settings: the "Delete my account" link opens the Delete account screen. What you post in the Majlis is public.
 - Prayer times, Qibla and the mosque finder use the location you give or allow; the app contacts services such as prayer-time and map services and audio servers to work.
 - The policy says: "We do not sell personal data or show advertising based on it."
 

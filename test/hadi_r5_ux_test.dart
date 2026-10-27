@@ -205,7 +205,7 @@ void main() {
       await tester.tap(find.descendant(
           of: find.byType(HadiScreen), matching: find.byIcon(Icons.send)));
       await AppHarness.settle(tester);
-      expect(find.textContaining('I only cover Islam'), findsOneWidget);
+      expect(find.textContaining('outside what I do'), findsOneWidget);
       expect(find.textContaining('API key'), findsNothing);
       expect(find.byKey(const Key('hadi-online-mode')), findsOneWidget);
       expect(find.text('Open Prayer Times'), findsNothing);

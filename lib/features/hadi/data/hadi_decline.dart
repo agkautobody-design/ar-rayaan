@@ -226,7 +226,7 @@ abstract final class HadiDecline {
     'This one is not on my shelf yet, and I would rather not guess about '
         'religion. What helps: ask about one thing at a time, name the act or '
         'the person, or open Find Anything to look through every guide and '
-        'story. If it is about your own case, please take it to a scholar.',
+        'story. If it is about your own case, please take it to a qualified scholar.',
   ];
 
   /// The out-of-scope reply for [question], or null when it is a question

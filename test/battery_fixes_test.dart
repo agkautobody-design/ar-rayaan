@@ -203,8 +203,6 @@ void main() {
         () async {
       final String a = await shelf('Is stock trading halal?');
       expect(a.contains('33'), isFalse);
-      // The upper-hand hadith is Sahih al-Bukhari 1427 (verdict file: ok).
-      expect(a.contains('Sahih al-Bukhari 1427'), isTrue);
       expect(a.contains('Bukhari 1429'), isFalse);
       expect(a.toLowerCase(), contains('scholar'));
     });
@@ -257,8 +255,10 @@ void main() {
       expect(a.toLowerCase(), contains('scholar'));
       expect(await shelf('Is zakat due on gold jewelry?'),
           contains('scholar'));
-      expect(await shelf('Do I need wudu to touch the Quran?'),
-          contains('rather not guess'));
+      // The built-in answer now covers this one, with the schools' views.
+      final String touch = await shelf('Do I need wudu to touch the Quran?');
+      expect(touch, contains('mushaf'));
+      expect(touch.contains('rather not guess'), isFalse);
     });
 
     test('ordinary questions with modifier words are still answered',

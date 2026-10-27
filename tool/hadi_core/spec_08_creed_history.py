@@ -172,7 +172,7 @@ Eid al-Adha remembers this. Muslims who can afford it offer a sacrifice of an an
 E('prophet-biography',
   m=[r'\bwho (?:was|is) (?:prophet )?(?:muhammad|mohammed|mohammad)\b', r'\btell me about (?:prophet |the prophet )?(?:muhammad|mohammed|mohammad)\b', r'\bbiography of (?:the )?(?:prophet|muhammad)\b', r'\blife of (?:the )?prophet\b', r'\bseerah\b.*\b(?:summary|overview|short|brief)\b', r'\bbrief (?:life|history) of (?:the )?prophet\b', r'\bwhen was (?:the )?prophet (?:muhammad )?(?:born|died)\b', r'\bhow old was (?:the )?prophet\b', r'\bwhere was (?:the )?prophet (?:born|buried)\b', r'\bwho is the prophet\b', r'\bwho was the prophet\b',
      r'\bwho (?:was|is) the last prophet\b', r'\bwho is the last prophet\b', r'\bwhat did the prophet (?:do|look like|eat)\b'],
-  x=[r'\b(?:wives|wife|marriage|aisha|ayesha|khadijah|khadija|sahabah|companions)\b', r'\b(?:picture|image|draw|photo)\b'],
+  x=[r'\b(?:wives|wife|marriage|aisha|ayesha|khadijah|khadija|sahabah|companions)\b', r'\b(?:picture|image|draw|photo)\b', r'\b(?:saqib|iqbal|shaykh|sheikh|shaikh|ustadh|mufti|imam|credentials|qualifications?)\b'],
   topic='prophet',
   text="""
 Muhammad ﷺ is the last Messenger of Allah ({Q 33:40|Muhammad is not the father of [any] one of your men, but [he is] the Messenger of Allah and last of the prophets}). In outline:

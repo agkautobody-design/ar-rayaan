@@ -93,7 +93,7 @@ E('dating-relationships',
   m=[r'\bboy ?friends?\b', r'\bgirl ?friends?\b', r'\bdating\b', r'\bdate (?:a|someone|my|him|her)\b', r'\bpre ?marital\b', r'\bpremarital\b', r'\bcourtship\b', r'\b(?:talk|text|chat|speak|message|go out)\w* (?:to|with) (?:a )?(?:girl|girls|boy|boys|guy|guys|opposite gender|opposite sex|non mahram|him|her)\b',
      r'\bhalal (?:dating|relationship|courtship)\b', r'\bharam relationship\b', r'\b(?:kiss|kissing|hug|hugging|touch|touching|holding hands)\b.*\b(?:before marriage|boyfriend|girlfriend|haram)\b', r'\bzina\b', r'\bfornication\b', r'\bsex before marriage\b', r'\bpre ?marital sex\b',
      r'\bhave (?:a )?crush\b', r'\bin love with\b', r'\bfalling in love\b', r'\bwant to get married but\b', r'\bhow to find (?:a )?(?:spouse|husband|wife)\b', r'\bfind (?:a )?(?:spouse|husband|wife|partner)\b'],
-  x=[r'\b(?:non muslim|christian|jewish|hindu)\b'],
+  x=[r'\b(?:non muslim|christian|jewish|hindu)\b', r'\b(?:guilt\w*|ashamed|regret\w*|heartbroken|broke up|breakup|cheated|cry\w*|depress\w*|lonely|i feel)\b'],
   topic='dating',
   text="""
 I am not assuming anything about you, and this is only the general guidance. Islam does not allow a private romantic relationship (boyfriend or girlfriend) outside marriage, but it does give a clean path to love and companionship, which is marriage.

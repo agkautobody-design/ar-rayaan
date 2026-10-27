@@ -128,10 +128,14 @@ void main() {
         () async {
       expect(RulingGate.classify('Should I divorce my wife?'),
           RulingClass.personal);
-      expect(await offline('Is bitcoin halal?'),
-          OfflineHadiProvider.rulingDecline);
-      expect(await offline('What is the ruling on tattoos?'),
-          OfflineHadiProvider.rulingDecline);
+      // Bitcoin: scholars differ, and the answer says so without a verdict.
+      final String btc = await offline('Is bitcoin halal?');
+      expect(btc, contains('scholars disagree'));
+      expect(btc.toLowerCase(), contains('scholar you trust'));
+      // Tattoos: the sourced answer, not a refusal.
+      final String tat = await offline('What is the ruling on tattoos?');
+      expect(tat, contains('Sahih al-Bukhari 5937'));
+      expect(OfflineHadiProvider.isDecline(tat), isFalse);
     });
   });
 

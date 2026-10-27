@@ -103,6 +103,7 @@ const Map<String, String> kHadiRouteNames = <String, String>{
   '/academy/ramadan-mode': 'Ramadan Mode',
   '/ramadan': 'the Ramadan screen',
   '/academy/family-life': 'Family Life School',
+  '/academy/family': 'the Family Wing',
   '/academy/stories': 'Stories School',
   '/academy/hifz': 'the Hifz planner',
   '/sources/policy': 'How we handle religious content',
@@ -885,9 +886,12 @@ class HadiController extends Notifier<HadiState> {
     // A few built-in answers are general and safe to give even though the
     // question reads like a ruling about one person ("Is it okay to hit my
     // wife?"): those are answered, not handed over.
-    final RulingClass ruling = (crisis == null && !grief && !HadiCore.claims(q))
-        ? RulingGate.classify(q)
-        : RulingClass.none;
+    final RulingClass rawRuling =
+        (crisis == null && !grief) ? RulingGate.classify(q) : RulingClass.none;
+    final RulingClass ruling =
+        (rawRuling == RulingClass.personal && HadiCore.claims(q))
+            ? RulingClass.none
+            : rawRuling;
     if (ruling == RulingClass.personal) {
       final HadiCorpus corpus = await _corpus();
       final Madhhab m = madhhab;

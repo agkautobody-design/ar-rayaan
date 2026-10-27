@@ -244,8 +244,13 @@ abstract final class HadiCore {
 
   /// True when [reply] (a provider reply, buttons and all) is one of the
   /// built-in answers, word for word.
-  static bool isCoreAnswer(String reply) =>
-      _answerBodies.contains(_body(reply));
+  static bool isCoreAnswer(String reply) {
+    final String b = _body(reply);
+    if (_answerBodies.contains(b)) return true;
+    // A note added under the answer (the general-ruling footer) does not make
+    // it a different answer.
+    return _answerBodies.any(b.startsWith);
+  }
 
   // ── Short follow-ups ("how much?", "what breaks it?") ────────────────
 
@@ -347,7 +352,7 @@ abstract final class HadiCore {
       if (!m.fromHadi) continue;
       final String b = _body(m.text);
       for (final _Compiled e in _compiled) {
-        if (_body(e.entry.answer) == b) return e.entry;
+        if (b.startsWith(_body(e.entry.answer))) return e.entry;
       }
       return null;
     }
