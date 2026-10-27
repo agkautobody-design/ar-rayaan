@@ -440,7 +440,7 @@ class _RecitationsCard extends StatelessWidget {
           Text(
             'The Arabic is copied from the cited source. The transliteration and '
             'meaning are learning aids and have not yet been reviewed by a scholar.',
-            style: AppText.bodyMuted.copyWith(fontSize: 11.5, height: 1.4),
+            style: AppText.bodyMuted.copyWith(fontSize: 12, height: 1.4),
           ),
           for (final GuideRecitation r in items) ...<Widget>[
             const SizedBox(height: 14),
