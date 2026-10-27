@@ -66,7 +66,7 @@ abstract final class RouteTitles {
     '/calendar': 'Islamic Calendar',
     '/zakat': 'Zakat',
     '/share': 'Share',
-    '/streaks': 'Streaks',
+    '/my-log': 'My log',
     '/sources': 'Sources',
     '/sources/policy': 'Content Policy',
     '/sources/review': 'What Still Needs Review',

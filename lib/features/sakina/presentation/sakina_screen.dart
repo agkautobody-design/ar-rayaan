@@ -72,8 +72,9 @@ class SakinaScreen extends ConsumerWidget {
                           ),
                           child: Text(
                             daysReturned <= 1
-                                ? 'Day 1 — you came back. That is everything.'
-                                : 'Day $daysReturned — every return is a victory.',
+                                ? 'Welcome. This door is always open.'
+                                : 'Welcome back, glad you’re here. You have '
+                                      'stopped by on $daysReturned days.',
                             style: AppText.caption.copyWith(
                               color: AppColors.gold,
                             ),

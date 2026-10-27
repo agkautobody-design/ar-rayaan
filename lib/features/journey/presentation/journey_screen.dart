@@ -71,6 +71,17 @@ class JourneyScreen extends ConsumerWidget {
                                   height: 1.45,
                                 ),
                               ),
+                              if ((s?.progress ?? 0) <= 0) ...<Widget>[
+                                const SizedBox(height: 6),
+                                Text(
+                                  kRingEmptyLine,
+                                  key: const Key('journey-ring-empty'),
+                                  style: AppText.body.copyWith(
+                                    fontSize: 14,
+                                    color: AppColors.gold,
+                                  ),
+                                ),
+                              ],
                             ],
                           ),
                         ),

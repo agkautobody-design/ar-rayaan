@@ -88,7 +88,7 @@ class MenuScreen extends ConsumerWidget {
       [
         (Icons.local_library_outlined, 'Library', AppRoutes.stories),
         (Icons.bookmark_outline, 'Notes & Bookmarks', AppRoutes.notes),
-        (Icons.event_available_outlined, 'Streaks', AppRoutes.streaks),
+        (Icons.event_available_outlined, 'My log', AppRoutes.tracking),
         (Icons.download_outlined, 'Downloads', AppRoutes.downloads),
         (Icons.text_fields, 'Text size \u00b7 bigger words', AppRoutes.settings),
         (Icons.translate_outlined, 'Language & Voice \u00b7 your tongue, your choice', '/settings/language'),

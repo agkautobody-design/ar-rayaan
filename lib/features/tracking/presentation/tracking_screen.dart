@@ -12,38 +12,25 @@ import '../../../app/theme/widgets/screen_header.dart';
 import '../../../app/theme/widgets/switch_row.dart';
 import '../../elder/application/elder_mode.dart';
 import '../../habits/application/return_loop.dart';
-import '../../share/application/share_text.dart';
-import '../../share/presentation/share_actions.dart';
-import '../application/streaks_providers.dart';
-import '../domain/streak_math.dart';
-import 'streaks_card.dart' show streakPhrase;
+import '../application/tracking_providers.dart';
+import '../domain/encouragement.dart';
+import '../domain/tracking_math.dart';
+import 'gentle_nudge.dart';
+import 'tracking_card.dart' show totalSentence;
 
-/// What a shared "came back" line calls each streak. Prayers have none: a
-/// prayer streak is never offered for sharing.
-String? streakShareSubject(StreakTrack t) {
-  switch (t) {
-    case StreakTrack.quran:
-      return 'the Qur’an';
-    case StreakTrack.dhikr:
-      return 'dhikr';
-    case StreakTrack.returned:
-      return 'my daily practice';
-    case StreakTrack.prayers:
-      return null;
-  }
-}
-
-/// Streaks: Qur'an, dhikr, prayers logged and days returned. Gentle by
-/// design: one grace day a week, no loss messages, kept on this device.
-class StreaksScreen extends ConsumerStatefulWidget {
-  const StreaksScreen({super.key});
+/// My log: plain totals (this week, this month, all time), the last day
+/// something was logged, and a calendar of the days the person logged. Kept
+/// on this device only. Nothing resets, nothing is compared, and a day with
+/// nothing on it is just empty space.
+class TrackingScreen extends ConsumerStatefulWidget {
+  const TrackingScreen({super.key});
 
   @override
-  ConsumerState<StreaksScreen> createState() => _StreaksScreenState();
+  ConsumerState<TrackingScreen> createState() => _TrackingScreenState();
 }
 
-class _StreaksScreenState extends ConsumerState<StreaksScreen> {
-  StreakTrack _track = StreakTrack.returned;
+class _TrackingScreenState extends ConsumerState<TrackingScreen> {
+  TrackingTrack _track = TrackingTrack.all;
   late DateTime _month = DateTime(DateTime.now().year, DateTime.now().month);
 
   bool get _atCurrentMonth {
@@ -63,12 +50,14 @@ class _StreaksScreenState extends ConsumerState<StreaksScreen> {
     final bool on = kReturnLoopEnabled && ref.watch(returnLoopEnabledProvider);
     final bool elder = ref.watch(elderModeProvider);
     final double minTap = elder ? 64 : 48;
+    final bool needsSwitch = _track.needsSwitch || _track == TrackingTrack.all;
+    final bool showOffInvite = !on && _track.needsSwitch;
     return ScenicScaffold.pattern(
       body: SafeArea(
         bottom: false,
         child: Column(
           children: <Widget>[
-            const ScreenHeader(title: 'Streaks', close: true),
+            const ScreenHeader(title: 'My log', close: true),
             Expanded(
               child: Center(
                 child: ConstrainedBox(
@@ -77,33 +66,42 @@ class _StreaksScreenState extends ConsumerState<StreaksScreen> {
                     padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
                     children: <Widget>[
                       Text(
-                        'Gentle by design. One day off each week is forgiven, '
-                        'a longer break simply starts a fresh run, and nothing '
-                        'is ever said about it. Kept on this device only.',
-                        key: const Key('streaks-intro'),
+                        'Your own totals and a calendar of what you logged. '
+                        'It only adds up, nothing starts over, and a day with '
+                        'nothing on it is simply empty. Kept on this device '
+                        'only.',
+                        key: const Key('log-intro'),
                         style: AppText.bodyMuted.copyWith(
                           fontSize: elder ? 18 : 14,
                           height: 1.5,
                         ),
                       ),
                       const SizedBox(height: 16),
-                      if (!on) ...<Widget>[
+                      _TrackPicker(
+                        selected: _track,
+                        minTap: minTap,
+                        onPick: (TrackingTrack t) =>
+                            setState(() => _track = t),
+                      ),
+                      const SizedBox(height: 12),
+                      if (showOffInvite)
                         GlassCard(
                           padding: const EdgeInsets.all(16),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: <Widget>[
                               Text(
-                                'Streaks are off.',
+                                'The private log is off.',
                                 style: AppText.titleMedium.copyWith(
                                   fontSize: elder ? 24 : null,
                                 ),
                               ),
                               const SizedBox(height: 6),
                               Text(
-                                'Turn them on to keep a calendar of the days '
-                                'you read, remember Allah, log your prayers '
-                                'and come back.',
+                                'Turn it on to keep totals and a calendar of '
+                                'the days you read, remember Allah and learn. '
+                                'Your prayer and fasting logs are always '
+                                'here.',
                                 style: AppText.body.copyWith(
                                   fontSize: elder ? 18 : 14,
                                   height: 1.5,
@@ -113,10 +111,12 @@ class _StreaksScreenState extends ConsumerState<StreaksScreen> {
                               ConstrainedBox(
                                 constraints: BoxConstraints(minHeight: minTap),
                                 child: FilledButton(
-                                  key: const Key('streaks-screen-turn-on'),
+                                  key: const Key('log-screen-turn-on'),
                                   onPressed: () => unawaited(
                                     ref
-                                        .read(returnLoopEnabledProvider.notifier)
+                                        .read(
+                                          returnLoopEnabledProvider.notifier,
+                                        )
                                         .set(true),
                                   ),
                                   child: const Text('Turn on'),
@@ -124,25 +124,23 @@ class _StreaksScreenState extends ConsumerState<StreaksScreen> {
                               ),
                             ],
                           ),
+                        )
+                      else ...<Widget>[
+                        _Summary(
+                          view: ref.watch(trackingViewProvider(_track)),
+                          note: needsSwitch && !on
+                              ? 'Turn on the private log to add Qur’an, '
+                                    'dhikr and lessons here.'
+                              : null,
                         ),
-                      ] else ...<Widget>[
-                        _TrackPicker(
-                          selected: _track,
-                          minTap: minTap,
-                          onPick: (StreakTrack t) => setState(() => _track = t),
-                        ),
-                        const SizedBox(height: 12),
-                        _Summary(view: ref.watch(streakViewProvider(_track))),
                         const SizedBox(height: 12),
                         _MonthCard(
-                          view: ref.watch(streakViewProvider(_track)),
+                          view: ref.watch(trackingViewProvider(_track)),
                           month: _month,
                           canGoNext: !_atCurrentMonth,
                           onPrev: () => _shift(-1),
                           onNext: () => _shift(1),
                         ),
-                        const SizedBox(height: 12),
-                        _ShareBlock(view: ref.watch(streakViewProvider(_track))),
                       ],
                       const SizedBox(height: 16),
                       if (kReturnLoopEnabled)
@@ -153,10 +151,12 @@ class _StreaksScreenState extends ConsumerState<StreaksScreen> {
                           ),
                           child: SwitchRow(
                             icon: Icons.wb_twilight_outlined,
-                            title: 'Keep my streaks',
+                            title: 'Keep a private log',
                             subtitle:
-                                'Switching off erases the saved days. Your '
-                                'prayer log is yours and stays as it is.',
+                                'Switching off erases the days it saved for '
+                                'Qur’an, dhikr and lessons. Your prayer and '
+                                'fasting logs are yours and stay as they '
+                                'are.',
                             value: on,
                             onChanged: (bool v) => unawaited(
                               ref
@@ -184,9 +184,9 @@ class _TrackPicker extends StatelessWidget {
     required this.onPick,
   });
 
-  final StreakTrack selected;
+  final TrackingTrack selected;
   final double minTap;
-  final ValueChanged<StreakTrack> onPick;
+  final ValueChanged<TrackingTrack> onPick;
 
   @override
   Widget build(BuildContext context) {
@@ -194,7 +194,7 @@ class _TrackPicker extends StatelessWidget {
       spacing: 8,
       runSpacing: 8,
       children: <Widget>[
-        for (final StreakTrack t in StreakTrack.values)
+        for (final TrackingTrack t in TrackingTrack.values)
           Semantics(
             button: true,
             selected: t == selected,
@@ -202,7 +202,7 @@ class _TrackPicker extends StatelessWidget {
             excludeSemantics: true,
             onTap: () => onPick(t),
             child: InkWell(
-              key: Key('streak-track-${t.name}'),
+              key: Key('log-track-${t.name}'),
               borderRadius: BorderRadius.circular(24),
               onTap: () => onPick(t),
               child: ConstrainedBox(
@@ -241,19 +241,22 @@ class _TrackPicker extends StatelessWidget {
 }
 
 class _Summary extends ConsumerWidget {
-  const _Summary({required this.view});
+  const _Summary({required this.view, this.note});
 
-  final StreakView view;
+  final TrackingView view;
+  final String? note;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final bool elder = ref.watch(elderModeProvider);
-    final int n = view.days;
-    final String headline = n >= StreakMath.minToShow
-        ? streakPhrase(view.track, n)
-        : n == 1
-        ? 'One day so far. A good start.'
-        : 'Begin whenever you are ready. Today is a good day.';
+    final Encouragement e = ref.watch(encouragementProvider);
+    final TrackingTrack t = view.track;
+    final int week = view.total(LogPeriod.week);
+    final DateTime? last = view.lastLogged;
+    final TextStyle small = AppText.bodyMuted.copyWith(
+      fontSize: elder ? 18 : 14,
+      height: 1.5,
+    );
     return GlassCard(
       strong: true,
       padding: const EdgeInsets.all(16),
@@ -261,35 +264,100 @@ class _Summary extends ConsumerWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            headline,
-            key: const Key('streak-headline'),
+            e.text ?? totalSentence(t, LogPeriod.week, week),
+            key: const Key('log-headline'),
             style: AppText.titleMedium.copyWith(fontSize: elder ? 26 : null),
+          ),
+          if (e.text != null) ...<Widget>[
+            const SizedBox(height: 6),
+            Text(
+              totalSentence(t, LogPeriod.week, week),
+              key: const Key('log-week-sentence'),
+              style: small,
+            ),
+          ],
+          const SizedBox(height: 12),
+          Row(
+            children: <Widget>[
+              _Total(
+                label: 'This week',
+                value: view.total(LogPeriod.week),
+                tileKey: const Key('log-total-week'),
+                elder: elder,
+              ),
+              _Total(
+                label: 'This month',
+                value: view.total(LogPeriod.month),
+                tileKey: const Key('log-total-month'),
+                elder: elder,
+              ),
+              _Total(
+                label: 'All time',
+                value: view.total(LogPeriod.allTime),
+                tileKey: const Key('log-total-all'),
+                elder: elder,
+              ),
+            ],
+          ),
+          const SizedBox(height: 6),
+          Text(
+            t == TrackingTrack.prayers
+                ? 'Prayers you marked as prayed, on time or late.'
+                : 'Days with something logged.',
+            style: small.copyWith(fontSize: elder ? 16 : 12),
           ),
           const SizedBox(height: 8),
           Text(
-            view.graceAvailable
-                ? 'A grace day is ready this week. One day off will not end '
-                      'your run.'
-                : 'This week’s grace day is in use. A fresh one comes on '
-                      'Monday.',
-            key: const Key('streak-grace'),
-            style: AppText.bodyMuted.copyWith(
-              fontSize: elder ? 18 : 14,
-              height: 1.5,
+            last == null
+                ? 'Nothing logged here yet.'
+                : 'Last logged: ${DateFormat('d MMMM yyyy').format(last)}.',
+            key: const Key('log-last'),
+            style: small,
+          ),
+          if (note != null) ...<Widget>[
+            const SizedBox(height: 8),
+            Text(note!, key: const Key('log-switch-note'), style: small),
+          ],
+          if (e.nudge != null) GentleNudge(text: e.nudge!),
+        ],
+      ),
+    );
+  }
+}
+
+class _Total extends StatelessWidget {
+  const _Total({
+    required this.label,
+    required this.value,
+    required this.tileKey,
+    required this.elder,
+  });
+
+  final String label;
+  final int value;
+  final Key tileKey;
+  final bool elder;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Column(
+        key: tileKey,
+        children: <Widget>[
+          Text(
+            '$value',
+            style: AppText.titleMedium.copyWith(
+              fontSize: elder ? 28 : 24,
+              color: AppColors.gold,
             ),
           ),
-          if (view.track == StreakTrack.prayers) ...<Widget>[
-            const SizedBox(height: 8),
-            Text(
-              'A day counts when you log at least one prayer. Days you mark '
-              'as excused are skipped and never count against you.',
-              key: const Key('streak-prayers-note'),
-              style: AppText.bodyMuted.copyWith(
-                fontSize: elder ? 18 : 14,
-                height: 1.5,
-              ),
+          FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              label,
+              style: AppText.bodyMuted.copyWith(fontSize: elder ? 16 : 12),
             ),
-          ],
+          ),
         ],
       ),
     );
@@ -305,7 +373,7 @@ class _MonthCard extends ConsumerWidget {
     required this.onNext,
   });
 
-  final StreakView view;
+  final TrackingView view;
   final DateTime month;
   final bool canGoNext;
   final VoidCallback onPrev;
@@ -328,7 +396,7 @@ class _MonthCard extends ConsumerWidget {
     final int count = DateTime(month.year, month.month + 1, 0).day;
     final int rows = ((lead + count) / 7).ceil();
     final double cell = elder ? 52 : 44;
-    final int doneThisMonth = view.doneInMonth(month);
+    final int loggedThisMonth = view.daysInMonth(month);
     return GlassCard(
       padding: const EdgeInsets.all(12),
       child: Column(
@@ -337,7 +405,7 @@ class _MonthCard extends ConsumerWidget {
           Row(
             children: <Widget>[
               IconButton(
-                key: const Key('streak-prev-month'),
+                key: const Key('log-prev-month'),
                 tooltip: 'Previous month',
                 constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
                 icon: const Icon(Icons.chevron_left, color: AppColors.gold),
@@ -346,7 +414,7 @@ class _MonthCard extends ConsumerWidget {
               Expanded(
                 child: Text(
                   DateFormat('MMMM yyyy').format(month),
-                  key: const Key('streak-month'),
+                  key: const Key('log-month'),
                   textAlign: TextAlign.center,
                   style: AppText.titleMedium.copyWith(
                     fontSize: elder ? 24 : 18,
@@ -354,7 +422,7 @@ class _MonthCard extends ConsumerWidget {
                 ),
               ),
               IconButton(
-                key: const Key('streak-next-month'),
+                key: const Key('log-next-month'),
                 tooltip: 'Next month',
                 constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
                 icon: Icon(
@@ -391,9 +459,14 @@ class _MonthCard extends ConsumerWidget {
                       view: view,
                       height: cell,
                       elder: elder,
-                      day: (r * 7 + c - lead + 1) >= 1 &&
+                      day:
+                          (r * 7 + c - lead + 1) >= 1 &&
                               (r * 7 + c - lead + 1) <= count
-                          ? DateTime(month.year, month.month, r * 7 + c - lead + 1)
+                          ? DateTime(
+                              month.year,
+                              month.month,
+                              r * 7 + c - lead + 1,
+                            )
                           : null,
                     ),
                   ),
@@ -401,66 +474,15 @@ class _MonthCard extends ConsumerWidget {
             ),
           const SizedBox(height: 8),
           Text(
-            doneThisMonth == 0
-                ? 'Nothing marked this month yet.'
-                : '$doneThisMonth ${doneThisMonth == 1 ? 'day' : 'days'} '
-                      'this month.',
-            key: const Key('streak-month-count'),
+            loggedThisMonth == 0
+                ? 'Nothing logged in this month. That is fine.'
+                : '$loggedThisMonth ${loggedThisMonth == 1 ? 'day' : 'days'} '
+                      'logged in this month.',
+            key: const Key('log-month-count'),
             style: AppText.bodyMuted.copyWith(fontSize: elder ? 16 : 14),
-          ),
-          const SizedBox(height: 6),
-          Wrap(
-            spacing: 16,
-            runSpacing: 4,
-            children: <Widget>[
-              _Legend(
-                swatch: _swatch(filled: true),
-                label: 'Done',
-              ),
-              _Legend(
-                swatch: _swatch(filled: false),
-                label: 'Grace day (forgiven)',
-              ),
-              if (view.track == StreakTrack.prayers)
-                const _Legend(
-                  swatch: Text('–', style: TextStyle(color: AppColors.sand)),
-                  label: 'Excused (skipped)',
-                ),
-            ],
           ),
         ],
       ),
-    );
-  }
-
-  static Widget _swatch({required bool filled}) => Container(
-    width: 14,
-    height: 14,
-    decoration: BoxDecoration(
-      shape: BoxShape.circle,
-      color: filled ? AppColors.gold : Colors.transparent,
-      border: Border.all(color: AppColors.gold, width: 1.6),
-    ),
-  );
-}
-
-class _Legend extends StatelessWidget {
-  const _Legend({required this.swatch, required this.label});
-
-  final Widget swatch;
-  final String label;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        swatch,
-        const SizedBox(width: 6),
-        Flexible(
-          child: Text(label, style: AppText.bodyMuted.copyWith(fontSize: 12)),
-        ),
-      ],
     );
   }
 }
@@ -473,7 +495,7 @@ class _DayCell extends StatelessWidget {
     required this.elder,
   });
 
-  final StreakView view;
+  final TrackingView view;
   final DateTime? day;
   final double height;
   final bool elder;
@@ -482,38 +504,28 @@ class _DayCell extends StatelessWidget {
   Widget build(BuildContext context) {
     final DateTime? d = day;
     if (d == null) return SizedBox(height: height);
-    final bool done = view.isDone(d);
-    final bool grace = !done && view.isGrace(d);
-    final bool neutral = !done && !grace && view.isNeutral(d);
-    final bool today = StreakMath.stamp(d) == StreakMath.stamp(view.today);
+    final bool logged = view.isLogged(d);
+    final bool today =
+        TrackingMath.stamp(d) == TrackingMath.stamp(view.today);
     final bool future = d.isAfter(view.today);
-    final String state = done
-        ? 'done'
-        : grace
-        ? 'grace day, forgiven'
-        : neutral
-        ? 'excused, skipped'
-        : '';
     final double dot = height - 8;
     return Semantics(
       label:
           '${DateFormat('d MMMM').format(d)}${today ? ', today' : ''}'
-          '${state.isEmpty ? '' : ', $state'}',
+          '${logged ? ', logged' : ''}',
       excludeSemantics: true,
       child: SizedBox(
         height: height,
         child: Center(
           child: Container(
-            key: Key('streak-day-${StreakMath.stamp(d)}'),
+            key: Key('log-day-${TrackingMath.stamp(d)}'),
             width: dot,
             height: dot,
             alignment: Alignment.center,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: done ? AppColors.gold : Colors.transparent,
-              border: grace
-                  ? Border.all(color: AppColors.gold, width: 1.6)
-                  : today
+              color: logged ? AppColors.gold : Colors.transparent,
+              border: today && !logged
                   ? Border.all(
                       color: AppColors.sand.withValues(alpha: 0.8),
                       width: 1,
@@ -523,11 +535,11 @@ class _DayCell extends StatelessWidget {
             child: FittedBox(
               fit: BoxFit.scaleDown,
               child: Text(
-                neutral ? '–' : '${d.day}',
+                '${d.day}',
                 style: TextStyle(
                   fontSize: elder ? 18 : 14,
-                  fontWeight: done ? FontWeight.w700 : FontWeight.w400,
-                  color: done
+                  fontWeight: logged ? FontWeight.w700 : FontWeight.w400,
+                  color: logged
                       ? AppColors.night
                       : future
                       ? AppColors.sand.withValues(alpha: 0.6)
@@ -536,44 +548,6 @@ class _DayCell extends StatelessWidget {
               ),
             ),
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class _ShareBlock extends ConsumerWidget {
-  const _ShareBlock({required this.view});
-
-  final StreakView view;
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final bool elder = ref.watch(elderModeProvider);
-    final String? subject = streakShareSubject(view.track);
-    if (!view.track.shareable || subject == null) {
-      return Text(
-        'Prayer streaks stay private. They are never offered for sharing.',
-        key: const Key('streak-prayers-private'),
-        style: AppText.bodyMuted.copyWith(fontSize: elder ? 16 : 14),
-      );
-    }
-    if (view.days < StreakMath.minToShow) return const SizedBox.shrink();
-    return Align(
-      alignment: AlignmentDirectional.centerStart,
-      child: ConstrainedBox(
-        constraints: BoxConstraints(minHeight: elder ? 64 : 48),
-        child: OutlinedButton.icon(
-          key: const Key('streak-share'),
-          onPressed: () => unawaited(
-            showSharePreview(
-              context,
-              text: comeBackShareText(subject, view.days),
-              subject: 'this milestone',
-            ),
-          ),
-          icon: const Icon(Icons.ios_share, size: 18),
-          label: const Text('Preview and share'),
         ),
       ),
     );

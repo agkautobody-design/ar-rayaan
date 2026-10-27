@@ -15,8 +15,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 abstract final class ActivityLog {
   static const String prefKey = 'ar.academy.activity.v1';
 
-  /// Days kept (about four months).
-  static const int maxDays = 120;
+  /// Days kept (about ten years): they are tiny and totals must not shrink.
+  static const int maxDays = 3650;
 
   /// 'yyyy-mm-dd' in the device's local time.
   static String dayKey(DateTime d) =>
@@ -84,7 +84,7 @@ class WeeklyRhythm {
       return 'A fresh week. One small lesson is enough to begin, in shaa Allah.';
     }
     if (n == 1) return 'You showed up once this week. That is a beginning.';
-    if (n >= 7) return 'You came every day this week. Keep it gentle.';
+    if (n >= 7) return 'You showed up on all 7 days this week. Glad you are here.';
     return 'You showed up on $n of the last 7 days.';
   }
 }

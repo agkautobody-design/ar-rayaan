@@ -5,9 +5,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../app/core/providers.dart';
 
-/// "Days you returned" — Sakina's counter. Not a streak (a streak shames
-/// when it breaks); a count of every day the user came back, which only
-/// ever grows. On-device only.
+/// How many different days the person has visited Sakina. A plain total: it
+/// only ever grows, never resets and is never compared. On-device only.
 class DaysReturnedController extends Notifier<int> {
   static const String _key = 'ar.sakina.days_returned';
 

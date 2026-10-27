@@ -453,9 +453,6 @@ class _DhikrCard extends ConsumerWidget {
                       context,
                       ref,
                       moment: 'adhkar:${set.id}',
-                      shareText: milestoneShareText(
-                        'the ${set.titleEn} adhkar',
-                      ),
                     ),
                   );
                 }

@@ -342,14 +342,14 @@ abstract final class HadiFinder {
       bare: true,
     ),
     _Pointer(
-      <String>['streak', 'streaks'],
-      'Streaks are optional and off until you turn on "Keep my streaks" '
-          '(Settings, under "Coming back"). When on, a private calendar on '
-          'your device marks the days you read, make dhikr, log a prayer or '
-          'come back. One day off each week is forgiven, and there are no '
-          'points, ranks or leaderboards. Your streaks are on their own '
-          'screen.',
-      <String>['/streaks'],
+      <String>['streak', 'streaks', 'my log', 'private log'],
+      'The app does not count days in a row and nothing starts over. If you '
+          'like, turn on "Keep a private log" (Settings, under "Coming '
+          'back"): it adds up what you read, make dhikr and learn, with your '
+          'own prayer and fasting logs, as totals for the week, the month '
+          'and all time, plus a calendar. It stays on your device, and there '
+          'are no points, ranks or leaderboards. It has its own screen.',
+      <String>['/my-log'],
       bare: true,
     ),
     _Pointer(

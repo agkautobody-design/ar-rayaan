@@ -253,7 +253,7 @@ Frameworks considered, all principles rather than a claim of compliance:
   minimisation, data sharing, geolocation, parental controls, profiling, nudge
   techniques, connected toys, online tools. The design maps to them: high
   privacy by default, no profiling, no geolocation for children, no nudges or
-  streak pressure on children (also the owner's streak decision is pending),
+  streak pressure on children (the owner's streak ruling is resolved: no streaks, plain totals only),
   guardian controls, minimal data.
 - Also for the lawyer: Quebec's Law 25 if Quebec residents use the service;
   Canada's anti-spam law (CASL) for any non-transactional email (none planned);

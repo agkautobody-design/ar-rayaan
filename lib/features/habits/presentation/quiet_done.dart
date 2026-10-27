@@ -10,6 +10,8 @@ import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../elder/application/elder_mode.dart';
 import '../../share/presentation/share_actions.dart';
+import '../../tracking/application/tracking_providers.dart';
+import '../../tracking/domain/encouragement.dart';
 import '../application/habits_providers.dart';
 import '../application/return_loop.dart';
 
@@ -18,6 +20,26 @@ const bool kQuietDoneEnabled = true;
 
 /// The one line shown. Plain words, not a ruling and not a du'a.
 const String kQuietDoneText = 'Done. May it be accepted.';
+
+/// A warm line for someone who is new (their first log, their first week) or
+/// coming back after a gap. Null when the log is off or there is nothing
+/// special to say. Never a count, never a comparison.
+final Provider<String?> quietDoneWarmLineProvider = Provider<String?>((
+  Ref ref,
+) {
+  if (!ref.watch(returnLoopEnabledProvider)) return null;
+  final Encouragement e = ref.watch(encouragementProvider);
+  switch (e.kind) {
+    case EncouragementKind.firstLog:
+    case EncouragementKind.firstWeek:
+    case EncouragementKind.welcomeBack:
+      return e.text;
+    case EncouragementKind.startAnyTime:
+    case EncouragementKind.quiet:
+    case EncouragementKind.none:
+      return null;
+  }
+});
 
 /// Remembers which moments were already shown, so a card appears once per
 /// set / surah per day (and the first lesson only once, ever).
@@ -54,7 +76,8 @@ class QuietDoneGate {
   }
 }
 
-/// The calm card body: one line, an optional "came back" line, one button.
+/// The calm card body: one line, an optional warm line for someone new or
+/// coming back, one button.
 /// No points, no confetti, no ranking. When [shareText] is given there is
 /// also a quiet "Share" button; it only opens a preview, nothing is sent
 /// until the person confirms there.
@@ -69,7 +92,7 @@ class QuietDoneCard extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final bool elder = ref.watch(elderModeProvider);
-    final String? returned = ref.watch(returnMessageProvider);
+    final String? returned = ref.watch(quietDoneWarmLineProvider);
     return Padding(
       padding: const EdgeInsetsDirectional.fromSTEB(20, 20, 20, 20),
       child: GlassCard(

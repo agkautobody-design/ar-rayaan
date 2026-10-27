@@ -21,7 +21,7 @@ import '../../hadi/presentation/hadi_ask_bar.dart';
 import '../../noor/application/noor_providers.dart';
 import '../../noor/domain/noor_entry.dart';
 import '../../hadith/presentation/daily_hadith_banner.dart';
-import '../../streaks/presentation/streaks_card.dart';
+import '../../tracking/presentation/tracking_card.dart';
 import '../../../app/theme/widgets/focus_ring.dart';
 import '../../../app/theme/widgets/glass_card.dart';
 import '../../../app/theme/widgets/gold_text.dart';
@@ -455,7 +455,7 @@ class HomeScreen extends ConsumerWidget {
                       // Below the tiles on purpose: it loads late, and above them it
                       // pushed the tiles down under a person's finger.
                       const DailyHadithBanner(),
-                      const StreaksCard(),
+                      const TrackingCard(),
                       GlassCard(
                         strong: true,
                         padding: const EdgeInsets.all(16),

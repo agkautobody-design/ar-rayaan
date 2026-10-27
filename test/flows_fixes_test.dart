@@ -302,7 +302,7 @@ void main() {
       for (final String next in <String>[
         'fasted',
         'excused',
-        'make-up due',
+        'to make up',
         'not marked',
       ]) {
         await tester.tap(cell);

@@ -14,7 +14,7 @@ enum PrayerMark {
   prayedLate('Late'),
 
   /// Not prayed; added once to the make-up (qada) list on the Gentle Ledger.
-  missed('Missed — add to my make-up list'),
+  missed('Not prayed — add to my make-up list'),
 
   /// Not required or not possible that day (for example menstruation,
   /// postnatal bleeding or illness). Never counted, never added to the
@@ -28,9 +28,11 @@ enum PrayerMark {
 }
 
 /// The five-prayer log: a quiet record of what the user chose to write down,
-/// on this device only. There are no streaks and no totals; the only thing a
-/// mark ever does elsewhere is a "missed" mark adding one prayer to the
-/// make-up list (and removing it again if the mark is changed or cleared).
+/// on this device only. My log adds up the prayers marked prayed, as plain
+/// totals for a week, a month or all time; an empty day is just empty. The
+/// only other thing a mark does elsewhere is a "not prayed" mark adding one
+/// prayer to the make-up list (and removing it again if the mark is changed
+/// or cleared).
 class PrayerLogState {
   const PrayerLogState({
     this.days = const <String, Map<String, PrayerMark>>{},
@@ -51,7 +53,7 @@ class PrayerLogController extends Notifier<PrayerLogState> {
   static const String _key = 'ar.prayer.log.v1';
 
   /// Marks older than this many days are dropped on the next save.
-  static const int keepDays = 120;
+  static const int keepDays = 3650;
 
   static const List<String> prayers = QadaController.prayers;
 

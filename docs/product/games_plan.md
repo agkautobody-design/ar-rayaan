@@ -47,7 +47,7 @@ Not in the repo (checked with grep): memory/match, word search, jigsaw, sudoku, 
 - **Kids.** `/kids` (`kids_corner_screen.dart`): three doors, Arabic letters, Games, Stories school. Games is already a child door. Family Wing (`academy_family.dart`, `family_service.dart`, `widgets/parent_gate.dart`, `domain/children_privacy.dart`): child profiles are first name only, on the device only; the privacy text promises no cloud copy, no advertising, no analytics.
 - **Stories / Seerah.** `assets/stories/*.json` (seerah 31 collections, prophets 24, companions 26, women 17, ghayb 50 ...). Seerah School (`seerah_school_screen.dart`) lists chapters that open the stories. Every Seerah chapter has an audit row in `docs/story_audit.md` and a label policy (`story_labels_test.dart`).
 - **Journey** (`/journey`, in the Home branch of the nav shell): "My Journey" progress ring and saved stories. It is a progress page, not a game.
-- **Streaks.** `docs/product/return_loop.md`: owner-approved gentle "days returned" (opt-in, one grace day a week, three acts only: Qur'an, adhkar, lessons; no points, no confetti, no leaderboard).
+- **Streaks.** RESOLVED (Oct 2026): no streaks anywhere. `docs/product/return_loop.md`: a private on-device log of totals (this week, this month, all time) with warm, never shaming encouragement; no points, no confetti, no leaderboard.
 
 ### 1.3 Shell, nav, theme
 
@@ -302,7 +302,7 @@ What it does not have: identity beyond an anonymous uid, friends, presence, invi
 
 - No score, coin, point, badge or rank is awarded for prayer, fasting, Qur'an reading, charity or any act of worship. The "Good Deeds Checklist (+50 points, 7 day streak, 320 total points)" screen is NOT to be built as designed. Worship tracking stays as it is (private, no points; `return_loop.md`).
 - Scores belong only to game performance (answers right, moves, time in a board game). A learning-game score is shown as "8 of 10", never as a measure of faith, and never compared between children.
-- Streaks: only the owner-approved "days returned". Games do not add streak counters, daily-challenge streaks, "don't lose your streak" messaging, or loss language.
+- No streaks of any kind (owner ruling, Oct 2026). Games do not add run counters, daily-challenge streaks, "don't lose your streak" messaging, or loss language. Plain totals only.
 
 ### 6.3 No gambling-like or manipulative mechanics
 
