@@ -1,0 +1,4249 @@
+{
+ "schema": 3,
+ "course": "transactions",
+ "lessons": [
+  {
+   "id": "trx.u1.l1",
+   "title": "Do not consume unjustly",
+   "minutes": 14,
+   "intro": "The base rule for earning and trading from 4:29 and 2:188, and an audit of your own income.",
+   "steps": [
+    {
+     "id": "hook",
+     "kind": "teach",
+     "title": "Whose money is it?",
+     "body": [
+      "Money passes from hand to hand all day: wages, prices, tips, loans, gifts. Islam asks one question about every transfer: is it fair?",
+      "This lesson is about 4:29 and 2:188, the two ayat that set the base rule for earning and trading, and a short audit you can use on your own income."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "rule",
+     "kind": "say",
+     "title": "Not unjustly, but by consent",
+     "refs": [
+      "q:4:29"
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 4:29",
+     "note": "Allah says: do not consume one another’s wealth unjustly, but only through lawful business by mutual consent. The rule has two halves: not unjust, and lawful trade by mutual consent. Read the meaning under the ayah."
+    },
+    {
+     "id": "hear",
+     "kind": "listen",
+     "title": "Hear the ayah",
+     "ref": "q:4:29",
+     "repeats": 2,
+     "note": "Listen, then say it after the reciter in the pause."
+    },
+    {
+     "id": "bribe",
+     "kind": "say",
+     "title": "Not through bribery",
+     "refs": [
+      "q:2:188"
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 2:188",
+     "note": "A second ayah: do not consume one another’s wealth unjustly, and do not pass it to the rulers so that they will help you take part of other people’s wealth in sin, while you know. This is the ayah about bribery."
+    },
+    {
+     "id": "consent",
+     "kind": "teach",
+     "title": "Consent is not enough by itself",
+     "body": [
+      "The ayah of 4:29 says the trade must be by mutual consent, and it also says lawful business. So consent is necessary, but a deal can still be wrong if the thing traded is forbidden, if one side is deceived, or if one side is forced by need into unfair terms.",
+      "Teachers often summarise it in three questions: Did both sides agree freely? Is the thing itself lawful? Was everything described honestly? The summary is a teaching aid, not a quotation."
+     ],
+     "label": "[Interpretive]",
+     "source": "Qur'an 4:29; Qur'an 2:188",
+     "review": "The three-question summary of a valid deal is a teaching aid. Please confirm that it is acceptable as stated."
+    },
+    {
+     "id": "truth",
+     "kind": "teach",
+     "title": "Truth brings blessing",
+     "body": [
+      "Hakim ibn Hizam reported that the Prophet ﷺ said: the buyer and seller have the choice as long as they have not parted. If they both speak the truth and make clear the defects, their transaction is blessed. If they lie and conceal, the blessing of the transaction is lost (Bukhari 2079).",
+      "So the Prophet ﷺ ties the blessing (barakah) of a deal to honesty about the goods. The amount may be the same, but the barakah is different."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 2079"
+    },
+    {
+     "id": "forms",
+     "kind": "contrast",
+     "title": "Ways money is taken unjustly",
+     "intro": "These are common forms. The list is a teaching summary, not a full legal list.",
+     "agree": "All of these are forms of consuming wealth unjustly.",
+     "rows": [
+      {
+       "name": "Deception",
+       "text": "Hiding a fault, giving a false description, or lying about the price."
+      },
+      {
+       "name": "Bribery",
+       "text": "Paying someone in power so that they help you take what is not yours (2:188)."
+      },
+      {
+       "name": "Taking by pressure",
+       "text": "Using someone’s need or fear to force an unfair price."
+      },
+      {
+       "name": "Taking what is not earned",
+       "text": "Theft, fraud, and cheating an employer or a customer."
+      }
+     ],
+     "closing": "Ask of each: would I accept this if I were the other person?",
+     "label": "[Interpretive]",
+     "source": "Qur'an 4:29; Qur'an 2:188",
+     "review": "The list of unjust forms is a teaching summary. Please confirm."
+    },
+    {
+     "id": "audit",
+     "kind": "howto",
+     "title": "Audit one source of income",
+     "intro": "Do this once, with a pen. It takes ten minutes.",
+     "steps": [
+      {
+       "text": "Write down one source of money.",
+       "detail": "A job, a side business, an allowance, or a loan."
+      },
+      {
+       "text": "Ask: how does the money come to me?",
+       "detail": "Describe it in plain words."
+      },
+      {
+       "text": "Ask: is anyone deceived or harmed?",
+       "detail": "The customer, the employer, the public?"
+      },
+      {
+       "text": "Ask: is the work or product lawful?",
+       "detail": "If you are not sure, write the question down."
+      },
+      {
+       "text": "Ask: do I feel uneasy about it?",
+       "detail": "If yes, take it to someone who knows."
+      },
+      {
+       "text": "Ask a scholar about anything grey.",
+       "detail": "Bring the details. Do not hide parts."
+      }
+     ],
+     "mistakes": [
+      "Assuming it is fine because everyone does it.",
+      "Giving only half the details when you ask.",
+      "Waiting until the end of the year."
+     ],
+     "label": "[Reflection]",
+     "source": "Qur'an 4:29; Bukhari 2079"
+    },
+    {
+     "id": "c1",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1a",
+       "q": "What does 4:29 say about trade?",
+       "options": [
+        {
+         "text": "It must be lawful business by mutual consent"
+        },
+        {
+         "text": "Any trade is fine if you can profit",
+         "reteach": "No. It says lawful business by mutual consent.",
+         "back": "rule"
+        },
+        {
+         "text": "Trade is forbidden",
+         "reteach": "No. It allows lawful business by mutual consent.",
+         "back": "rule"
+        }
+       ],
+       "answer": 0,
+       "explain": "Qur’an 4:29.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1b",
+       "q": "What does 2:188 forbid passing money to?",
+       "options": [
+        {
+         "text": "Family",
+         "reteach": "No. The ayah is about bribing rulers.",
+         "back": "bribe"
+        },
+        {
+         "text": "The poor",
+         "reteach": "No. It is about bribery.",
+         "back": "bribe"
+        },
+        {
+         "text": "Rulers, in order to take part of other people’s wealth in sin"
+        }
+       ],
+       "answer": 2,
+       "explain": "Qur’an 2:188.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1c",
+       "q": "In Bukhari 2079, what happens to the blessing of a deal when buyer and seller lie and conceal?",
+       "options": [
+        {
+         "text": "It is lost"
+        },
+        {
+         "text": "It doubles",
+         "reteach": "No. The blessing is lost.",
+         "back": "truth"
+        },
+        {
+         "text": "Nothing changes",
+         "reteach": "The hadith says the blessing is lost.",
+         "back": "truth"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 2079.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1d",
+       "q": "What is the right step?",
+       "options": [
+        {
+         "text": "Tell the buyer about it, or lower the price to match"
+        },
+        {
+         "text": "Say nothing; he agreed to buy",
+         "reteach": "Consent is not enough. Hiding a fault loses the blessing.",
+         "back": "truth"
+        },
+        {
+         "text": "Hide it with a cover",
+         "reteach": "This is deception.",
+         "back": "forms"
+        }
+       ],
+       "answer": 0,
+       "explain": "Say it plainly.",
+       "type": "scenario",
+       "scenario": "Sami sells a used phone. It has a cracked camera that the buyer has not noticed."
+      }
+     ]
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "prompt": "Put the steps of the audit in order.",
+     "items": [
+      {
+       "text": "Write down one source of money",
+       "why": "Choose one.",
+       "back": "audit"
+      },
+      {
+       "text": "Describe how it comes to you",
+       "why": "In plain words.",
+       "back": "audit"
+      },
+      {
+       "text": "Ask if anyone is deceived or harmed",
+       "why": "Look at the other side.",
+       "back": "audit"
+      },
+      {
+       "text": "Ask if the work or product is lawful",
+       "why": "Check the thing itself.",
+       "back": "audit"
+      },
+      {
+       "text": "Ask a scholar about anything grey",
+       "why": "Bring all details.",
+       "back": "audit"
+      }
+     ],
+     "explain": "Write, describe, harm, lawful, ask."
+    },
+    {
+     "id": "mm",
+     "kind": "match",
+     "prompt": "Match each text to its message. Tap one on the left, then its meaning on the right.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Qur’an 4:29"
+       },
+       "right": {
+        "text": "Lawful business by mutual consent"
+       },
+       "why": "It sets the base rule.",
+       "back": "rule"
+      },
+      {
+       "left": {
+        "text": "Qur’an 2:188"
+       },
+       "right": {
+        "text": "Do not bribe rulers to take wealth"
+       },
+       "why": "It is the ayah about bribery.",
+       "back": "bribe"
+      },
+      {
+       "left": {
+        "text": "Bukhari 2079"
+       },
+       "right": {
+        "text": "Truth brings blessing to a deal"
+       },
+       "why": "It is about speaking the truth and describing defects.",
+       "back": "truth"
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c2a",
+       "q": "Why is consent not enough on its own?",
+       "options": [
+        {
+         "text": "Because consent does not matter",
+         "reteach": "It matters. 4:29 requires it.",
+         "back": "consent"
+        },
+        {
+         "text": "Because the ayah also says lawful business, and deceit or forbidden goods make a deal wrong"
+        },
+        {
+         "text": "Because only the seller needs to agree",
+         "reteach": "Both sides must agree.",
+         "back": "consent"
+        }
+       ],
+       "answer": 1,
+       "explain": "Consent and lawful business.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2b",
+       "q": "The lesson calls its three questions a...",
+       "options": [
+        {
+         "text": "Hadith",
+         "reteach": "It is not a hadith.",
+         "back": "consent"
+        },
+        {
+         "text": "Teaching aid, flagged for scholar review"
+        },
+        {
+         "text": "Fatwa",
+         "reteach": "It is not a fatwa.",
+         "back": "consent"
+        }
+       ],
+       "answer": 1,
+       "explain": "Teaching aid.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2c",
+       "q": "What should you do with a grey area in your income?",
+       "options": [
+        {
+         "text": "Decide alone and stop thinking",
+         "reteach": "Ask someone who knows.",
+         "back": "audit"
+        },
+        {
+         "text": "Take the details to someone who knows"
+        },
+        {
+         "text": "Ignore it",
+         "reteach": "The audit says to ask.",
+         "back": "audit"
+        }
+       ],
+       "answer": 1,
+       "explain": "Ask.",
+       "type": "scenario",
+       "scenario": "Aisha earns commission on something she is unsure about."
+      },
+      {
+       "id": "c2d",
+       "q": "Which is a form of consuming wealth unjustly?",
+       "options": [
+        {
+         "text": "Hiding a fault in what you sell"
+        },
+        {
+         "text": "Telling the buyer the price",
+         "reteach": "This is fair.",
+         "back": "forms"
+        },
+        {
+         "text": "Paying on time",
+         "reteach": "This is fair.",
+         "back": "forms"
+        }
+       ],
+       "answer": 0,
+       "explain": "Deception.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Read 4:29",
+     "body": "Open Surah An-Nisa and read ayah 29. Then do the audit on one source of income.",
+     "route": "/quran/4",
+     "button": "Open Surah An-Nisa"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Say the two halves of the rule in 4:29.",
+      "Say what 2:188 forbids.",
+      "Say what Bukhari 2079 ties to honesty.",
+      "Run the audit on one source of income."
+     ],
+     "next": "Next: The birds leave hungry."
+    }
+   ]
+  },
+  {
+   "id": "trx.u1.l2",
+   "title": "The birds leave hungry",
+   "minutes": 14,
+   "intro": "Trust in Allah with effort, from the hadith of the birds and the ayat of provision.",
+   "steps": [
+    {
+     "id": "hook",
+     "kind": "teach",
+     "title": "Plan, then let go",
+     "body": [
+      "Money worry keeps people awake. Some give up and wait for provision; others grab at everything in fear. Neither is what the Prophet ﷺ described.",
+      "In this lesson, a hadith about birds shows trust in Allah (tawakkul) with action. You will read two ayat on provision and learn a du’a for what Allah has made lawful."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "bird",
+     "kind": "teach",
+     "title": "The bird",
+     "body": [
+      "Umar reported that the Messenger of Allah ﷺ said: if you were to rely upon Allah as He should be relied upon, He would provide for you as He provides for the birds. They go out in the morning empty and return full (Tirmidhi 2344 (graded sahih by al-Albani)).",
+      "Look at what the bird does. It goes out. It does not wait in the nest. Trust in Allah and effort go together."
+     ],
+     "label": "[Established]",
+     "source": "Tirmidhi 2344 (graded sahih by al-Albani)"
+    },
+    {
+     "id": "provision",
+     "kind": "say",
+     "title": "Provision is with Allah",
+     "refs": [
+      "q:11:6"
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 11:6",
+     "note": "Allah says there is no creature on earth whose provision is not upon Allah. He knows where it lives and where it is stored. All is in a clear register."
+    },
+    {
+     "id": "walk",
+     "kind": "say",
+     "title": "Walk and eat of His provision",
+     "refs": [
+      "q:67:15"
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 67:15",
+     "note": "Allah made the earth tame for you: walk in its paths and eat of His provision. The ayah gives the movement and the source together."
+    },
+    {
+     "id": "way",
+     "kind": "say",
+     "title": "A way out",
+     "refs": [
+      "q:65:2",
+      "q:65:3"
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 65:2-3",
+     "note": "Allah says that whoever fears Him, He makes for him a way out, and provides for him from where he does not expect. Whoever relies upon Allah, He is sufficient for him."
+    },
+    {
+     "id": "tawakkul",
+     "kind": "contrast",
+     "title": "Trust and effort",
+     "intro": "A short comparison of three ways of facing a need.",
+     "agree": "The bird in the hadith goes out, and Allah provides.",
+     "rows": [
+      {
+       "name": "Giving up",
+       "text": "Sitting back and saying Allah will provide, without working. This is not what the bird does."
+      },
+      {
+       "name": "Panic",
+       "text": "Chasing everything out of fear, and breaking rules to get ahead."
+      },
+      {
+       "name": "Tawakkul",
+       "text": "Do what is in your hands, honestly, and leave the result to Allah."
+      }
+     ],
+     "closing": "Plan, act, then let go.",
+     "label": "[Interpretive]",
+     "source": "Tirmidhi 2344 (graded sahih by al-Albani); Qur'an 65:3",
+     "review": "The three-way comparison is a teaching summary based on the hadith of the bird. Please confirm."
+    },
+    {
+     "id": "halaldua",
+     "kind": "say",
+     "title": "A du’a for what is lawful",
+     "refs": [
+      "trx.halal.1",
+      "trx.halal.2"
+     ],
+     "label": "[Established]",
+     "source": "Tirmidhi 3563 (graded hasan by al-Albani)",
+     "note": "Ali reported that the Prophet ﷺ taught this du’a, and said that if a person had a debt like a mountain, Allah would help pay it. The words ask Allah to be enough with His lawful instead of the unlawful, and to make you need nobody but Him. There is no recording of this du’a in the app yet. Source: Tirmidhi 3563 (graded hasan by al-Albani)."
+    },
+    {
+     "id": "release",
+     "kind": "howto",
+     "title": "Plan, then release",
+     "intro": "Use this for one worry about money this week.",
+     "steps": [
+      {
+       "text": "Name the worry.",
+       "detail": "In one sentence. For example: I may not have enough for rent."
+      },
+      {
+       "text": "Write what is in your hands.",
+       "detail": "Work, a budget, a call to the landlord, a request for help."
+      },
+      {
+       "text": "Do one of them today.",
+       "detail": "A small step."
+      },
+      {
+       "text": "Say the du’a.",
+       "detail": "For lawful provision (Tirmidhi 3563 (graded hasan by al-Albani))."
+      },
+      {
+       "text": "Leave the rest to Allah.",
+       "detail": "Do not break a rule to get ahead."
+      }
+     ],
+     "mistakes": [
+      "Doing nothing and calling it trust.",
+      "Breaking the rules because of fear.",
+      "Checking the same account every hour."
+     ],
+     "label": "[Reflection]",
+     "source": "Tirmidhi 3563 (graded hasan by al-Albani)"
+    },
+    {
+     "id": "c1",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1a",
+       "q": "What does the bird do in the hadith?",
+       "options": [
+        {
+         "text": "It goes out in the morning empty and returns full"
+        },
+        {
+         "text": "It stays in the nest",
+         "reteach": "No. It goes out.",
+         "back": "bird"
+        },
+        {
+         "text": "It stores food for a year",
+         "reteach": "The hadith does not say that.",
+         "back": "bird"
+        }
+       ],
+       "answer": 0,
+       "explain": "Tirmidhi 2344 (graded sahih by al-Albani).",
+       "type": "mcq"
+      },
+      {
+       "id": "c1b",
+       "q": "Whom does 11:6 say every creature’s provision is upon?",
+       "options": [
+        {
+         "text": "The creature itself",
+         "reteach": "No. The ayah says upon Allah.",
+         "back": "provision"
+        },
+        {
+         "text": "Its family",
+         "reteach": "No. It says upon Allah.",
+         "back": "provision"
+        },
+        {
+         "text": "Allah"
+        }
+       ],
+       "answer": 2,
+       "explain": "Qur’an 11:6.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1c",
+       "q": "What is tawakkul?",
+       "options": [
+        {
+         "text": "Doing what is in your hands, and leaving the result to Allah"
+        },
+        {
+         "text": "Waiting without working",
+         "reteach": "The bird goes out.",
+         "back": "tawakkul"
+        },
+        {
+         "text": "Worrying until it works",
+         "reteach": "This is panic.",
+         "back": "tawakkul"
+        }
+       ],
+       "answer": 0,
+       "explain": "Effort and trust.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1d",
+       "q": "What is a good response?",
+       "options": [
+        {
+         "text": "Make a budget, ask for help, say the du’a, and leave the rest to Allah"
+        },
+        {
+         "text": "Take a risky loan to be safe",
+         "reteach": "Breaking rules from fear is panic.",
+         "back": "release"
+        },
+        {
+         "text": "Do nothing and wait",
+         "reteach": "Trust includes effort.",
+         "back": "tawakkul"
+        }
+       ],
+       "answer": 0,
+       "explain": "Plan, then release.",
+       "type": "scenario",
+       "scenario": "Yusuf has lost shifts at work and is afraid he cannot pay his rent."
+      }
+     ]
+    },
+    {
+     "id": "steps",
+     "kind": "arrange",
+     "prompt": "Put the steps in order.",
+     "items": [
+      {
+       "text": "Name the worry",
+       "why": "In one sentence.",
+       "back": "release"
+      },
+      {
+       "text": "Write what is in your hands",
+       "why": "Work, budget, call.",
+       "back": "release"
+      },
+      {
+       "text": "Do one step today",
+       "why": "Small.",
+       "back": "release"
+      },
+      {
+       "text": "Say the du’a",
+       "why": "For lawful provision.",
+       "back": "halaldua"
+      },
+      {
+       "text": "Leave the rest to Allah",
+       "why": "Without breaking rules.",
+       "back": "release"
+      }
+     ],
+     "explain": "Name, write, do, du’a, leave."
+    },
+    {
+     "id": "mm",
+     "kind": "match",
+     "prompt": "Match each text to its message. Tap one on the left, then its meaning on the right.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Tirmidhi 2344 (graded sahih by al-Albani)"
+       },
+       "right": {
+        "text": "The bird goes out empty and returns full"
+       },
+       "why": "It joins effort and trust.",
+       "back": "bird"
+      },
+      {
+       "left": {
+        "text": "Qur’an 11:6"
+       },
+       "right": {
+        "text": "Provision is upon Allah"
+       },
+       "why": "He knows each creature.",
+       "back": "provision"
+      },
+      {
+       "left": {
+        "text": "Qur’an 67:15"
+       },
+       "right": {
+        "text": "Walk and eat of His provision"
+       },
+       "why": "It joins movement and provision.",
+       "back": "walk"
+      },
+      {
+       "left": {
+        "text": "Qur’an 65:3"
+       },
+       "right": {
+        "text": "Whoever relies upon Allah, He is sufficient"
+       },
+       "why": "It follows fearing Allah.",
+       "back": "way"
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c2a",
+       "q": "What does the du’a of Tirmidhi 3563 (graded hasan by al-Albani) ask for?",
+       "options": [
+        {
+         "text": "A large sum of money",
+         "reteach": "It asks for what is lawful and independence from others.",
+         "back": "halaldua"
+        },
+        {
+         "text": "To be sufficed with the lawful instead of the unlawful, and to need nobody but Allah"
+        },
+        {
+         "text": "To avoid all work",
+         "reteach": "No. It is a du’a for lawful provision.",
+         "back": "halaldua"
+        }
+       ],
+       "answer": 1,
+       "explain": "Tirmidhi 3563 (graded hasan by al-Albani).",
+       "type": "mcq"
+      },
+      {
+       "id": "c2b",
+       "q": "What does 65:2-3 promise to the one who fears Allah?",
+       "options": [
+        {
+         "text": "Immediate wealth",
+         "reteach": "The ayah does not say that.",
+         "back": "way"
+        },
+        {
+         "text": "A way out, and provision from where he does not expect"
+        },
+        {
+         "text": "Freedom from all trouble",
+         "reteach": "The ayah says a way out, and provision.",
+         "back": "way"
+        }
+       ],
+       "answer": 1,
+       "explain": "Qur’an 65:2-3.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2c",
+       "q": "What does the lesson say about breaking a rule out of fear?",
+       "options": [
+        {
+         "text": "It is trust",
+         "reteach": "No. Trust leaves the result to Allah and keeps to the rules.",
+         "back": "tawakkul"
+        },
+        {
+         "text": "It is panic, and not trust"
+        },
+        {
+         "text": "It is required in hardship",
+         "reteach": "The lesson does not say that.",
+         "back": "tawakkul"
+        }
+       ],
+       "answer": 1,
+       "explain": "Do not break rules.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2d",
+       "q": "The bird hadith is graded by al-Albani as...",
+       "options": [
+        {
+         "text": "Sahih"
+        },
+        {
+         "text": "Weak",
+         "reteach": "Al-Albani graded it sahih.",
+         "back": "bird"
+        },
+        {
+         "text": "Fabricated",
+         "reteach": "No.",
+         "back": "bird"
+        }
+       ],
+       "answer": 0,
+       "explain": "Tirmidhi 2344 (graded sahih by al-Albani).",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Say the du’a",
+     "body": "Open the adhkar and find a du’a for provision to say this week. Plan one step for your worry first.",
+     "route": "/adhkar",
+     "button": "Open adhkar"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Retell the hadith of the bird.",
+      "Say what 11:6 and 67:15 teach together.",
+      "Explain tawakkul in a sentence.",
+      "Plan one step for a money worry, then release it."
+     ],
+     "next": "Next: The honest measure."
+    }
+   ]
+  },
+  {
+   "id": "trx.u1.l3",
+   "title": "The honest measure",
+   "minutes": 14,
+   "intro": "The warning of Surah Al-Mutaffifin, the story of Shu’ayb, and the hadith of the wet grain.",
+   "steps": [
+    {
+     "id": "hook",
+     "kind": "teach",
+     "title": "Exactly one kilo",
+     "body": [
+      "A scale that reads a little light. A deadline that is a little loose. A promise made to get the sale. Small cheats feel harmless. The Qur’an does not treat them that way.",
+      "In this lesson you will read the surah that opens with a warning to those who give less than they owe, the story of Shu’ayb, and a hadith about hiding a fault in the goods."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "woe",
+     "kind": "say",
+     "title": "Woe to those who give less",
+     "refs": [
+      "q:83:1",
+      "q:83:2",
+      "q:83:3"
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 83:1-3",
+     "note": "Surah Al-Mutaffifin opens with a warning. Woe to those who give less than due: when they take a measure from people they take in full, but when they give by measure or weight to them, they cause loss."
+    },
+    {
+     "id": "hear",
+     "kind": "listen",
+     "title": "Hear the opening",
+     "ref": "q:83:1",
+     "repeats": 2,
+     "note": "Listen to the first ayah of the surah."
+    },
+    {
+     "id": "shuayb",
+     "kind": "say",
+     "title": "Shu’ayb’s people",
+     "refs": [
+      "q:11:84",
+      "q:11:85"
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 11:84-85",
+     "note": "The prophet Shu’ayb told his people not to decrease the measure and the scale, and to give full measure and weight in justice, and not to deprive people of their due. The Qur’an remembers him for this message."
+    },
+    {
+     "id": "heap",
+     "kind": "story",
+     "title": "The wet grain",
+     "body": [
+      "Abu Huraira reported that the Messenger of Allah ﷺ passed a heap of grain. He put his hand in and his fingers touched wetness. He asked the owner: what is this? The owner said: the rain fell on it. The Prophet ﷺ said: why did you not put it on top so that people could see it? Whoever deceives is not of me (Muslim 102).",
+      "The seller had not said anything false. He just let the buyer see only the dry part. The Prophet ﷺ still called it deception."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 102"
+    },
+    {
+     "id": "notof",
+     "kind": "teach",
+     "title": "Not of us",
+     "body": [
+      "In another report he said: whoever acts dishonestly towards us is not of us (Muslim 101). Scholars take this wording as a strong warning. Many explain that it means that this person is not following the Prophet’s way, and not that he has left Islam.",
+      "The lesson here is simple: honesty in a deal is part of following the Prophet ﷺ."
+     ],
+     "label": "[Interpretive]",
+     "source": "Muslim 101; Muslim 102",
+     "review": "The explanation that not of us is a strong warning and not a declaration of leaving Islam is the common scholarly reading. Please confirm."
+    },
+    {
+     "id": "size",
+     "kind": "teach",
+     "title": "Small cheats",
+     "body": [
+      "It is easy to think that 83:1-3 is only for market traders with scales. Teachers apply it more widely: to a worker who gives less time than paid for, a student who gives less effort than a degree requires, and a person who takes full rights and gives less than his due. This wider use is an application of the principle, not the wording of the ayah."
+     ],
+     "label": "[Interpretive]",
+     "source": "Qur'an 83:1-3",
+     "review": "Applying 83:1-3 to workers and students is a common application; please confirm."
+    },
+    {
+     "id": "measure",
+     "kind": "howto",
+     "title": "Make one measure exact",
+     "intro": "Choose one this week.",
+     "steps": [
+      {
+       "text": "Pick a measure.",
+       "detail": "A scale, a deadline, a promise, a timesheet, a delivery time."
+      },
+      {
+       "text": "Check it against the truth.",
+       "detail": "Is it exact, or a little in your favour?"
+      },
+      {
+       "text": "Fix it.",
+       "detail": "Change the price, the time, or the promise."
+      },
+      {
+       "text": "Say it plainly.",
+       "detail": "Tell the other person what it is. Do not hide the wet part."
+      },
+      {
+       "text": "Notice the difference.",
+       "detail": "See how it feels."
+      }
+     ],
+     "mistakes": [
+      "Thinking a small amount does not count.",
+      "Fixing it only when you are watched.",
+      "Making an honest promise you cannot keep."
+     ],
+     "label": "[Reflection]",
+     "source": "Qur'an 83:1-3; Muslim 102"
+    },
+    {
+     "id": "c1",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1a",
+       "q": "What does 83:1-3 warn against?",
+       "options": [
+        {
+         "text": "Taking in full but giving less than due"
+        },
+        {
+         "text": "Weighing goods",
+         "reteach": "No. It warns against giving less than due.",
+         "back": "woe"
+        },
+        {
+         "text": "Selling at a profit",
+         "reteach": "No. It warns against giving less than due.",
+         "back": "woe"
+        }
+       ],
+       "answer": 0,
+       "explain": "Qur’an 83:1-3.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1b",
+       "q": "What did Shu’ayb tell his people?",
+       "options": [
+        {
+         "text": "Trade only at night",
+         "reteach": "No. He told them to give full measure.",
+         "back": "shuayb"
+        },
+        {
+         "text": "Do not trade",
+         "reteach": "He told them to give full measure.",
+         "back": "shuayb"
+        },
+        {
+         "text": "Do not decrease the measure and scale; give full measure in justice"
+        }
+       ],
+       "answer": 2,
+       "explain": "Qur’an 11:84-85.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1c",
+       "q": "What did the Prophet ﷺ say should have been done with the wet grain?",
+       "options": [
+        {
+         "text": "The wet part should have been placed on top so people could see it"
+        },
+        {
+         "text": "Nothing; it was only a little",
+         "reteach": "He called hiding it deception.",
+         "back": "heap"
+        },
+        {
+         "text": "It should be thrown away",
+         "reteach": "He said it should be placed where people could see.",
+         "back": "heap"
+        }
+       ],
+       "answer": 0,
+       "explain": "Muslim 102.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1d",
+       "q": "What is the honest step?",
+       "options": [
+        {
+         "text": "Tell the customer about the delay, or change the promise"
+        },
+        {
+         "text": "Say it will arrive tomorrow and hope",
+         "reteach": "This is a promise you cannot keep.",
+         "back": "measure"
+        },
+        {
+         "text": "Say nothing",
+         "reteach": "Hiding the fault is the lesson of the grain.",
+         "back": "heap"
+        }
+       ],
+       "answer": 0,
+       "explain": "Say it plainly.",
+       "type": "scenario",
+       "scenario": "Dan runs a small shop and knows an order will be a week late, but wants the sale."
+      }
+     ]
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "prompt": "Put the steps in order.",
+     "items": [
+      {
+       "text": "Pick a measure",
+       "why": "A scale, a deadline, a promise.",
+       "back": "measure"
+      },
+      {
+       "text": "Check it against the truth",
+       "why": "Is it exact?",
+       "back": "measure"
+      },
+      {
+       "text": "Fix it",
+       "why": "Change it.",
+       "back": "measure"
+      },
+      {
+       "text": "Say it plainly",
+       "why": "Do not hide the wet part.",
+       "back": "heap"
+      },
+      {
+       "text": "Notice the difference",
+       "why": "Reflect.",
+       "back": "measure"
+      }
+     ],
+     "explain": "Pick, check, fix, say, notice."
+    },
+    {
+     "id": "mm",
+     "kind": "match",
+     "prompt": "Match each text to its message. Tap one on the left, then its meaning on the right.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Qur’an 83:1-3"
+       },
+       "right": {
+        "text": "Woe to those who give less than due"
+       },
+       "why": "It opens Surah Al-Mutaffifin.",
+       "back": "woe"
+      },
+      {
+       "left": {
+        "text": "Qur’an 11:84-85"
+       },
+       "right": {
+        "text": "Shu’ayb: give full measure"
+       },
+       "why": "The prophet of Madyan.",
+       "back": "shuayb"
+      },
+      {
+       "left": {
+        "text": "Muslim 102"
+       },
+       "right": {
+        "text": "Put the wet grain where people can see it"
+       },
+       "why": "Whoever deceives is not of me.",
+       "back": "heap"
+      },
+      {
+       "left": {
+        "text": "Muslim 101"
+       },
+       "right": {
+        "text": "Acting dishonestly towards us is not of us"
+       },
+       "why": "A strong warning.",
+       "back": "notof"
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c2a",
+       "q": "How does the lesson explain not of us?",
+       "options": [
+        {
+         "text": "As leaving Islam",
+         "reteach": "The lesson reports the common reading: a strong warning, not leaving Islam.",
+         "back": "notof"
+        },
+        {
+         "text": "As a strong warning that this person is not following the Prophet’s way, which is the common reading and flagged for scholar review"
+        },
+        {
+         "text": "As a joke",
+         "reteach": "No. It is a strong warning.",
+         "back": "notof"
+        }
+       ],
+       "answer": 1,
+       "explain": "A strong warning.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2b",
+       "q": "Is applying 83:1-3 to workers and students in the wording of the ayah?",
+       "options": [
+        {
+         "text": "Yes, the ayah names workers",
+         "reteach": "The ayah is about measure and weight.",
+         "back": "size"
+        },
+        {
+         "text": "No. It is a common application of the principle"
+        },
+        {
+         "text": "Yes, the ayah names students",
+         "reteach": "It does not.",
+         "back": "size"
+        }
+       ],
+       "answer": 1,
+       "explain": "Application.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2c",
+       "q": "Which is an exact measure?",
+       "options": [
+        {
+         "text": "Rounding your hours up",
+         "reteach": "This is a little in your favour.",
+         "back": "measure"
+        },
+        {
+         "text": "Charging for the hours you worked"
+        },
+        {
+         "text": "Leaving early and writing the full shift",
+         "reteach": "This gives less than due.",
+         "back": "size"
+        }
+       ],
+       "answer": 1,
+       "explain": "Exact.",
+       "type": "scenario",
+       "scenario": "Mia is paid by the hour and often ends early."
+      },
+      {
+       "id": "c2d",
+       "q": "Who warned his people about the measure?",
+       "options": [
+        {
+         "text": "Shu’ayb"
+        },
+        {
+         "text": "Nuh",
+         "reteach": "No. It was Shu’ayb.",
+         "back": "shuayb"
+        },
+        {
+         "text": "Yusuf",
+         "reteach": "No. It was Shu’ayb.",
+         "back": "shuayb"
+        }
+       ],
+       "answer": 0,
+       "explain": "Qur’an 11:84.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Read Al-Mutaffifin",
+     "body": "Open Surah Al-Mutaffifin and read the first six ayat. Then make one measure exact.",
+     "route": "/quran/83",
+     "button": "Open Surah Al-Mutaffifin"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Say what 83:1-3 warns against.",
+      "Retell the story of the wet grain.",
+      "Say what Shu’ayb told his people.",
+      "Make one measure exact."
+     ],
+     "next": "Next: Honest work over easy wealth."
+    }
+   ]
+  },
+  {
+   "id": "trx.u1.l4",
+   "title": "Honest work over easy wealth",
+   "minutes": 13,
+   "intro": "Earning with your own hands, not asking when you can work, and the barakah of a generous soul.",
+   "steps": [
+    {
+     "id": "hook",
+     "kind": "teach",
+     "title": "Which money feels best?",
+     "body": [
+      "A first wage from a hard day. A gift from a relative. A lucky win. Most people say the first feels different. This lesson looks at why.",
+      "It uses three hadith about earning with your own hands and asking from people, and one about taking wealth with a generous soul or with greed."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "hands",
+     "kind": "teach",
+     "title": "The best meal",
+     "body": [
+      "Al-Miqdam reported that the Prophet ﷺ said: no one has eaten a better meal than one he has earned by working with his own hands. The prophet of Allah, Dawud, used to eat from the earnings of his hands (Bukhari 2072).",
+      "The Prophet ﷺ did not say that hand-work is the only honest work. He was praising earning, not complaining about other jobs."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 2072"
+    },
+    {
+     "id": "rope",
+     "kind": "teach",
+     "title": "Rather than ask",
+     "body": [
+      "Abu Huraira reported that the Prophet ﷺ said: it is better for one of you to take his rope, bring a bundle of wood on his back and sell it, than to go to someone and ask them, whether they give him or refuse (Bukhari 1470).",
+      "This is not a rule against taking help when you are in real need. The Prophet ﷺ also taught that the poor have a right in zakat. The hadith is about not turning to asking when you can work."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 1470"
+    },
+    {
+     "id": "hidden",
+     "kind": "teach",
+     "title": "Pious, independent, hidden",
+     "body": [
+      "Sa’d ibn Abi Waqqas reported that the Prophet ﷺ said: Allah loves the servant who is God-conscious, free from want, and hidden (Muslim 2965).",
+      "Free from want does not mean rich. It means a heart that does not depend on people. Hidden means not seeking attention."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 2965"
+    },
+    {
+     "id": "soul",
+     "kind": "teach",
+     "title": "A generous soul",
+     "body": [
+      "Hakim ibn Hizam reported that the Prophet ﷺ said: this wealth is like sweet fresh fruit. Whoever takes it without greed will be blessed in it, and whoever takes it with greed will not be blessed in it, like one who eats and is never satisfied. The upper hand is better than the lower hand (Bukhari 1472).",
+      "So barakah is not decided by the amount. It depends on how the wealth is taken and how the heart is."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 1472"
+    },
+    {
+     "id": "disperse",
+     "kind": "say",
+     "title": "Work, then remember Allah",
+     "refs": [
+      "q:62:10"
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 62:10",
+     "note": "After Friday prayer Allah says: when the prayer is finished, spread out in the land, seek from the bounty of Allah, and remember Allah often so that you may succeed. Work and remembrance are joined."
+    },
+    {
+     "id": "hour",
+     "kind": "howto",
+     "title": "One honest hour",
+     "intro": "Do one hour of honest, useful work this week that no one will praise.",
+     "steps": [
+      {
+       "text": "Choose the work.",
+       "detail": "Fix something, write something, clean something, deliver something."
+      },
+      {
+       "text": "Do it well.",
+       "detail": "As if someone were checking."
+      },
+      {
+       "text": "Keep it quiet.",
+       "detail": "Muslim 2965 praises the hidden servant."
+      },
+      {
+       "text": "Make du’a.",
+       "detail": "Ask Allah to bless it."
+      },
+      {
+       "text": "Notice how the day feels.",
+       "detail": "Compare with an easy hour."
+      }
+     ],
+     "mistakes": [
+      "Doing it for praise.",
+      "Looking down on people with other jobs.",
+      "Refusing help when you are in real need."
+     ],
+     "label": "[Reflection]",
+     "source": "Muslim 2965; Bukhari 2072"
+    },
+    {
+     "id": "c1",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1a",
+       "q": "In Bukhari 2072, what is the best meal?",
+       "options": [
+        {
+         "text": "One earned by working with one’s own hands"
+        },
+        {
+         "text": "One bought in a restaurant",
+         "reteach": "No. The hadith praises what one earns by his own hands.",
+         "back": "hands"
+        },
+        {
+         "text": "One received as a gift",
+         "reteach": "No. It praises earning by one’s own hands.",
+         "back": "hands"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 2072.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1b",
+       "q": "In Bukhari 1472, what depends on how wealth is taken?",
+       "options": [
+        {
+         "text": "Whether you pay tax",
+         "reteach": "No. It is about being blessed.",
+         "back": "soul"
+        },
+        {
+         "text": "Whether it is large",
+         "reteach": "No. It is about how you take it.",
+         "back": "soul"
+        },
+        {
+         "text": "Whether you are blessed in it"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 1472.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1c",
+       "q": "What does Muslim 2965 say Allah loves?",
+       "options": [
+        {
+         "text": "The servant who is God-conscious, free from want and hidden"
+        },
+        {
+         "text": "The rich and famous",
+         "reteach": "No. It names God-conscious, free from want, hidden.",
+         "back": "hidden"
+        },
+        {
+         "text": "The one who is always asking",
+         "reteach": "No. It names free from want.",
+         "back": "hidden"
+        }
+       ],
+       "answer": 0,
+       "explain": "Muslim 2965.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1d",
+       "q": "What does the lesson say about someone in real need?",
+       "options": [
+        {
+         "text": "The hadith about asking does not forbid taking help in real need; the poor have a right in zakat"
+        },
+        {
+         "text": "He must refuse all help",
+         "reteach": "The lesson says it is not a rule against help in real need.",
+         "back": "rope"
+        },
+        {
+         "text": "He must ask everyone",
+         "reteach": "The hadith is about not asking when you can work.",
+         "back": "rope"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 1470.",
+       "type": "scenario",
+       "scenario": "Omar has lost his job and wonders if taking help from the community is wrong."
+      }
+     ]
+    },
+    {
+     "id": "chain",
+     "kind": "arrange",
+     "prompt": "Put the steps of an honest hour in order.",
+     "items": [
+      {
+       "text": "Choose useful work",
+       "why": "Fix, write, clean, deliver.",
+       "back": "hour"
+      },
+      {
+       "text": "Do it well",
+       "why": "With care.",
+       "back": "hour"
+      },
+      {
+       "text": "Keep it quiet",
+       "why": "Hidden.",
+       "back": "hidden"
+      },
+      {
+       "text": "Make du’a for blessing",
+       "why": "Ask Allah.",
+       "back": "hour"
+      },
+      {
+       "text": "Notice how the day feels",
+       "why": "Reflect.",
+       "back": "hour"
+      }
+     ],
+     "explain": "Choose, do well, quiet, du’a, notice."
+    },
+    {
+     "id": "mm",
+     "kind": "match",
+     "prompt": "Match each text to its message. Tap one on the left, then its meaning on the right.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Bukhari 2072"
+       },
+       "right": {
+        "text": "The best meal is from the work of your hands"
+       },
+       "why": "Dawud ate from his hands.",
+       "back": "hands"
+      },
+      {
+       "left": {
+        "text": "Bukhari 1470"
+       },
+       "right": {
+        "text": "Better to carry wood than to ask"
+       },
+       "why": "It is about not asking when you can work.",
+       "back": "rope"
+      },
+      {
+       "left": {
+        "text": "Muslim 2965"
+       },
+       "right": {
+        "text": "God-conscious, free from want, hidden"
+       },
+       "why": "It is what Allah loves.",
+       "back": "hidden"
+      },
+      {
+       "left": {
+        "text": "Bukhari 1472"
+       },
+       "right": {
+        "text": "Blessed with a generous soul, not with greed"
+       },
+       "why": "It speaks about wealth as sweet fruit.",
+       "back": "soul"
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c2a",
+       "q": "What does free from want mean, according to the lesson?",
+       "options": [
+        {
+         "text": "Having a lot of money",
+         "reteach": "The lesson says it is not about being rich.",
+         "back": "hidden"
+        },
+        {
+         "text": "A heart that does not depend on people, not necessarily a rich person"
+        },
+        {
+         "text": "Never needing help",
+         "reteach": "The lesson says it is about the heart.",
+         "back": "hidden"
+        }
+       ],
+       "answer": 1,
+       "explain": "Muslim 2965.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2b",
+       "q": "What is the upper hand in Bukhari 1472?",
+       "options": [
+        {
+         "text": "The hand that takes",
+         "reteach": "The upper hand is the one that gives.",
+         "back": "soul"
+        },
+        {
+         "text": "The hand that gives"
+        },
+        {
+         "text": "The hand that works",
+         "reteach": "The hadith contrasts giving and receiving.",
+         "back": "soul"
+        }
+       ],
+       "answer": 1,
+       "explain": "The giving hand is better.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2c",
+       "q": "Which is the best way to earn a day’s meal according to the lesson?",
+       "options": [
+        {
+         "text": "By asking from many people",
+         "reteach": "Bukhari 1470 prefers working.",
+         "back": "rope"
+        },
+        {
+         "text": "By honest effort, as far as you are able"
+        },
+        {
+         "text": "By waiting for a gift",
+         "reteach": "It prefers working.",
+         "back": "rope"
+        }
+       ],
+       "answer": 1,
+       "explain": "Work.",
+       "type": "scenario",
+       "scenario": "A young man is able to work but prefers to ask relatives for money."
+      },
+      {
+       "id": "c2d",
+       "q": "What does 62:10 join?",
+       "options": [
+        {
+         "text": "Seeking Allah’s bounty and remembering Allah often"
+        },
+        {
+         "text": "Sleeping and waking",
+         "reteach": "No. It joins seeking bounty and remembering Allah.",
+         "back": "disperse"
+        },
+        {
+         "text": "Trade and gambling",
+         "reteach": "No.",
+         "back": "disperse"
+        }
+       ],
+       "answer": 0,
+       "explain": "Qur’an 62:10.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "One honest hour",
+     "body": "Do one hour of honest work this week that no one will praise. Afterwards, read ayah 10 of Surah Al-Jumu’ah.",
+     "route": "/quran/62",
+     "button": "Open Surah Al-Jumu’ah"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Say what Bukhari 2072 calls the best meal.",
+      "Say what Bukhari 1470 prefers to asking.",
+      "Say the three qualities in Muslim 2965.",
+      "Do one honest hour this week."
+     ],
+     "next": "You have finished Halal Earnings. Next: Riba."
+    }
+   ]
+  },
+  {
+   "id": "trx.u2.l1",
+   "title": "What riba actually is",
+   "minutes": 14,
+   "intro": "What the Qur’an and hadith say about riba, the two kinds, and a way to check one product.",
+   "steps": [
+    {
+     "id": "hook",
+     "kind": "teach",
+     "title": "A loan is a trust",
+     "body": [
+      "You lend a friend some money. A month later he gives you back a little more, saying thank you. Is that fine? What if you had asked for the extra at the start?",
+      "This lesson explains what riba is in the Qur’an, the two hadith that say how seriously it is taken, and the two kinds that scholars talk about. It does not tell you what to do with your own bank; the next lessons come to that."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "permit",
+     "kind": "say",
+     "title": "Trade is permitted, interest is forbidden",
+     "refs": [
+      "q:2:275"
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 2:275",
+     "note": "Allah describes those who consume interest and says that they say trade is just like interest, but Allah has permitted trade and forbidden interest. Whoever receives an admonition and desists may keep what is past, and his affair is with Allah. Read the meaning."
+    },
+    {
+     "id": "destroy",
+     "kind": "say",
+     "title": "Allah destroys interest",
+     "refs": [
+      "q:2:276"
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 2:276; Qur'an 30:39",
+     "note": "Allah destroys interest and gives increase for charities. Money that seems to grow through interest does not grow with Allah, and money given in charity does (also 30:39)."
+    },
+    {
+     "id": "double",
+     "kind": "say",
+     "title": "Doubled and multiplied",
+     "refs": [
+      "q:3:130"
+     ],
+     "label": "[Interpretive]",
+     "source": "Qur'an 3:130",
+     "note": "Allah says: do not consume usury, doubled and multiplied, but fear Allah so that you may be successful. Scholars note that this describes the practice of the time and do not take it to mean that only doubled interest is forbidden.",
+     "review": "The note that scholars do not take doubled and multiplied as a limit on the prohibition is the common reading; please confirm."
+    },
+    {
+     "id": "curse",
+     "kind": "teach",
+     "title": "A strong warning",
+     "body": [
+      "Jabir reported that the Messenger of Allah ﷺ cursed the one who takes interest, the one who pays it, the one who records it, and the two witnesses, and said: they are all the same (Muslim 1598).",
+      "The warning covers the whole chain. That is why scholars say riba is not only a matter for the lender."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 1598"
+    },
+    {
+     "id": "kinds",
+     "kind": "contrast",
+     "title": "Two kinds scholars discuss",
+     "intro": "The hadith in Muslim 1584 lists six items, and the schools differ on what else it covers.",
+     "agree": "All agree that stipulated increase on a loan is forbidden.",
+     "rows": [
+      {
+       "name": "Riba of delay (nasi’a)",
+       "text": "An increase that is stipulated in return for waiting or for more time on a loan. This is the kind most people mean by interest."
+      },
+      {
+       "name": "Riba of excess (fadl)",
+       "text": "An excess when trading the same kind of item for itself, for example gold for more gold, hand to hand. Muslim 1584 mentions gold, silver, wheat, barley, dates and salt, like for like, hand to hand."
+      },
+      {
+       "name": "Where scholars differ",
+       "text": "The schools differ on what else belongs with the six items named, because they explain the reason differently: Hanafis by weight or volume of the same kind, Shafi’is by being a currency or a food, Malikis by staple foods that can be stored, Hanbalis by weight or volume."
+      }
+     ],
+     "closing": "If you are not sure whether a product contains riba, ask a qualified scholar.",
+     "label": "[Interpretive]",
+     "source": "Muslim 1584",
+     "review": "Please confirm the definitions of nasi’a and fadl and the one-line summary of each school’s reason (illa) for the six items."
+    },
+    {
+     "id": "check",
+     "kind": "howto",
+     "title": "Check one product",
+     "intro": "Use this on one loan, card, or savings product.",
+     "steps": [
+      {
+       "text": "Write down the product.",
+       "detail": "A card, a loan, a savings account, a car plan."
+      },
+      {
+       "text": "Look for a charge on the loan itself.",
+       "detail": "Interest, a fee that grows with time, a penalty for late payment."
+      },
+      {
+       "text": "Ask who pays whom.",
+       "detail": "Who gives the money and who gets the extra?"
+      },
+      {
+       "text": "Write your question.",
+       "detail": "For example: does a late fee count as riba?"
+      },
+      {
+       "text": "Take it to a qualified scholar.",
+       "detail": "Bring the contract, not only your summary."
+      }
+     ],
+     "mistakes": [
+      "Asking from memory without the contract.",
+      "Assuming all products are the same.",
+      "Giving up because it is hard."
+     ],
+     "label": "[Reflection]",
+     "source": "Qur'an 2:275; Muslim 1598"
+    },
+    {
+     "id": "c1",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1a",
+       "q": "What does 2:275 say Allah has permitted and forbidden?",
+       "options": [
+        {
+         "text": "Permitted trade, forbidden interest"
+        },
+        {
+         "text": "Permitted interest, forbidden trade",
+         "reteach": "It is the other way around.",
+         "back": "permit"
+        },
+        {
+         "text": "Forbidden both",
+         "reteach": "No. Trade is permitted.",
+         "back": "permit"
+        }
+       ],
+       "answer": 0,
+       "explain": "Qur’an 2:275.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1b",
+       "q": "Who did the Prophet ﷺ curse in Muslim 1598?",
+       "options": [
+        {
+         "text": "Only the lender",
+         "reteach": "No. The warning covers the whole chain.",
+         "back": "curse"
+        },
+        {
+         "text": "Only the borrower",
+         "reteach": "No. It covers the whole chain.",
+         "back": "curse"
+        },
+        {
+         "text": "The taker, the payer, the recorder and the two witnesses"
+        }
+       ],
+       "answer": 2,
+       "explain": "Muslim 1598.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1c",
+       "q": "What does 2:276 say about interest and charity?",
+       "options": [
+        {
+         "text": "Allah destroys interest and gives increase for charities"
+        },
+        {
+         "text": "Interest grows and charity shrinks",
+         "reteach": "It is the opposite.",
+         "back": "destroy"
+        },
+        {
+         "text": "Both grow",
+         "reteach": "No.",
+         "back": "destroy"
+        }
+       ],
+       "answer": 0,
+       "explain": "Qur’an 2:276.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1d",
+       "q": "What is the best step?",
+       "options": [
+        {
+         "text": "Take the contract to a qualified scholar and ask a clear question"
+        },
+        {
+         "text": "Guess from the name of the product",
+         "reteach": "Bring the contract.",
+         "back": "check"
+        },
+        {
+         "text": "Ignore it",
+         "reteach": "Ask.",
+         "back": "check"
+        }
+       ],
+       "answer": 0,
+       "explain": "Ask with the contract.",
+       "type": "scenario",
+       "scenario": "Rania has a card with a late fee and is not sure whether it counts as riba."
+      }
+     ]
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "prompt": "Put the steps in order.",
+     "items": [
+      {
+       "text": "Write down the product",
+       "why": "One at a time.",
+       "back": "check"
+      },
+      {
+       "text": "Look for a charge on the loan itself",
+       "why": "Interest, growing fees.",
+       "back": "check"
+      },
+      {
+       "text": "Ask who pays whom",
+       "why": "Find the extra.",
+       "back": "check"
+      },
+      {
+       "text": "Write your question",
+       "why": "Be specific.",
+       "back": "check"
+      },
+      {
+       "text": "Take it to a qualified scholar",
+       "why": "With the contract.",
+       "back": "check"
+      }
+     ],
+     "explain": "Write, look, ask, question, scholar."
+    },
+    {
+     "id": "mm",
+     "kind": "match",
+     "prompt": "Match each text to its message. Tap one on the left, then its meaning on the right.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Qur’an 2:275"
+       },
+       "right": {
+        "text": "Trade permitted, interest forbidden"
+       },
+       "why": "The base ayah.",
+       "back": "permit"
+      },
+      {
+       "left": {
+        "text": "Qur’an 2:276"
+       },
+       "right": {
+        "text": "Allah destroys interest"
+       },
+       "why": "And increases charity.",
+       "back": "destroy"
+      },
+      {
+       "left": {
+        "text": "Qur’an 3:130"
+       },
+       "right": {
+        "text": "Do not consume usury, doubled and multiplied"
+       },
+       "why": "A description, not a limit.",
+       "back": "double"
+      },
+      {
+       "left": {
+        "text": "Muslim 1598"
+       },
+       "right": {
+        "text": "The whole chain is cursed"
+       },
+       "why": "Taker, payer, recorder, witnesses.",
+       "back": "curse"
+      },
+      {
+       "left": {
+        "text": "Muslim 1584"
+       },
+       "right": {
+        "text": "Like for like, hand to hand"
+       },
+       "why": "About the six items.",
+       "back": "kinds"
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c2a",
+       "q": "Which kind of riba is the one most people mean by interest?",
+       "options": [
+        {
+         "text": "Riba of excess in same-kind exchange",
+         "reteach": "That is the other kind (fadl).",
+         "back": "kinds"
+        },
+        {
+         "text": "Riba of delay, an increase stipulated for time on a loan"
+        },
+        {
+         "text": "Any profit",
+         "reteach": "No. Trade is permitted.",
+         "back": "permit"
+        }
+       ],
+       "answer": 1,
+       "explain": "Nasi’a.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2b",
+       "q": "Do the schools agree on the reason behind the six items of Muslim 1584?",
+       "options": [
+        {
+         "text": "Yes, all agree",
+         "reteach": "The schools differ.",
+         "back": "kinds"
+        },
+        {
+         "text": "No. They explain it differently, and so differ on what else is covered"
+        },
+        {
+         "text": "The hadith gives the reason",
+         "reteach": "The reason is derived by scholars, and they differ.",
+         "back": "kinds"
+        }
+       ],
+       "answer": 1,
+       "explain": "They differ.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2c",
+       "q": "Does 3:130 mean that only doubled interest is forbidden?",
+       "options": [
+        {
+         "text": "Yes, small interest is allowed",
+         "reteach": "This is not the common reading.",
+         "back": "double"
+        },
+        {
+         "text": "No. Scholars take it as a description of the practice, flagged for scholar review"
+        },
+        {
+         "text": "Yes, only on Sundays",
+         "reteach": "No.",
+         "back": "double"
+        }
+       ],
+       "answer": 1,
+       "explain": "A description.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2d",
+       "q": "What does a friend who returns a little extra voluntarily, with no condition, show?",
+       "options": [
+        {
+         "text": "This is a different case from a stipulated increase, and scholars discuss it; ask a scholar for your case"
+        },
+        {
+         "text": "That all extras are riba",
+         "reteach": "The lesson says the forbidden one is stipulated.",
+         "back": "kinds"
+        },
+        {
+         "text": "That riba does not exist",
+         "reteach": "It exists when the increase is stipulated.",
+         "back": "kinds"
+        }
+       ],
+       "answer": 0,
+       "explain": "Ask. Nasa’i 4683 (graded sahih by al-Albani) reports the Prophet ﷺ repaying with praise and repayment.",
+       "type": "scenario",
+       "scenario": "Ali lends a friend 100, and the friend returns 105 on his own, with no agreement."
+      }
+     ]
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Read the ayat",
+     "body": "Open Surah Al-Baqarah and read ayat 275 and 276, then check one product.",
+     "route": "/quran/2",
+     "button": "Open Surah Al-Baqarah"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Say what 2:275 says about trade and interest.",
+      "Say who is included in Muslim 1598.",
+      "Name the two kinds of riba scholars discuss.",
+      "Check one product and write a question for a scholar."
+     ],
+     "next": "Next: Interest in everyday life."
+    }
+   ]
+  },
+  {
+   "id": "trx.u2.l2",
+   "title": "Interest in everyday life",
+   "minutes": 14,
+   "intro": "What scholars say about cards, plans, loans and savings interest, and how to start an exit.",
+   "steps": [
+    {
+     "id": "hook",
+     "kind": "teach",
+     "title": "It is in the small print",
+     "body": [
+      "A card balance. A buy-now-pay-later plan. A student loan. A car on finance. A savings account that pays interest. The word riba is old, but the products are new.",
+      "This lesson sets out what scholars say about these everyday cases and where they disagree. It does not give you a verdict on your own contract. It helps you ask a good question."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "classic",
+     "kind": "teach",
+     "title": "What most scholars say",
+     "body": [
+      "Large fiqh bodies, including the Islamic Fiqh Academy of the OIC and the Fiqh Council of the Muslim World League, have stated that conventional bank interest is riba. Many scholars hold the same view. A small number of modern scholars have argued the other way, mostly on the basis of how banks and money work today, and the majority have not accepted it.",
+      "The Qur’an itself says that Allah destroys interest (2:276) and that a stipulated increase on a loan is the thing forbidden (2:278-279)."
+     ],
+     "label": "[Interpretive]",
+     "source": "Qur'an 2:276; Qur'an 2:278-279",
+     "quran": "q:2:276",
+     "review": "Please confirm the statement about the OIC Fiqh Academy and the Muslim World League Fiqh Council, and the minority view."
+    },
+    {
+     "id": "cases",
+     "kind": "contrast",
+     "title": "Common cases and common questions",
+     "intro": "These are the questions people ask most. The answers are not settled by this lesson.",
+     "agree": "Most scholars agree that stipulated increase on a loan is forbidden.",
+     "rows": [
+      {
+       "name": "A card balance",
+       "text": "Interest on a balance you carry is stipulated increase on a loan. Paying the balance in full before interest applies is a different thing. Ask about fees."
+      },
+      {
+       "name": "Buy now, pay later",
+       "text": "Some plans have no fee if paid on time and a penalty if late. Scholars discuss late penalties. Ask about your plan."
+      },
+      {
+       "name": "Student loan or car finance",
+       "text": "These are loans with interest. Some Islamic finance products exist. Scholars debate how closely they follow the rules."
+      },
+      {
+       "name": "Interest on savings",
+       "text": "Many scholars say a Muslim should not keep interest paid on savings, and should give that part to charity without expecting reward. Others hold a different view. Ask a scholar."
+      }
+     ],
+     "closing": "Ask a qualified scholar about your own contract.",
+     "label": "[Interpretive]",
+     "source": "Qur'an 2:278-279",
+     "review": "Please confirm each case summary, especially the advice about interest on savings and about late penalties."
+    },
+    {
+     "id": "curse",
+     "kind": "teach",
+     "title": "Why it is taken seriously",
+     "body": [
+      "The Prophet ﷺ cursed the taker, the payer, the recorder and the two witnesses (Muslim 1598). And in Bukhari 2086, Awn ibn Abi Juhayfa reported that the Prophet ﷺ forbade giving and receiving riba, among other things. Because the warning is so strong, the right response is care, not panic."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 1598; Bukhari 2086"
+    },
+    {
+     "id": "no",
+     "kind": "teach",
+     "title": "What the lesson does not say",
+     "body": [
+      "The old version of this lesson said that the world economy runs on riba. That is a claim about economics that this app cannot source, so it has been removed. The lesson only says what the sources and the scholars say.",
+      "It also does not say that anyone who uses a card is a sinner. It asks you to learn, to ask, and to move step by step."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "exit",
+     "kind": "howto",
+     "title": "Name one habit and set an exit date",
+     "intro": "Do this for one habit.",
+     "steps": [
+      {
+       "text": "Name one riba-related habit.",
+       "detail": "A card balance you carry, a late fee, a plan with a penalty."
+      },
+      {
+       "text": "Write what it costs.",
+       "detail": "Per month and per year."
+      },
+      {
+       "text": "Ask a scholar about the exact contract.",
+       "detail": "Bring the document."
+      },
+      {
+       "text": "Set an exit date.",
+       "detail": "Even a year away, written down."
+      },
+      {
+       "text": "Plan one step towards it.",
+       "detail": "An extra payment, a call to ask for a plan, a switch to a product without interest."
+      }
+     ],
+     "mistakes": [
+      "Doing nothing because it is everywhere.",
+      "Taking on a new loan to pay the old one without asking.",
+      "Hiding the contract from the scholar."
+     ],
+     "label": "[Reflection]",
+     "source": "Qur'an 2:278-279"
+    },
+    {
+     "id": "c1",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1a",
+       "q": "What do large fiqh bodies say about conventional bank interest?",
+       "options": [
+        {
+         "text": "That it is riba"
+        },
+        {
+         "text": "That it is not riba",
+         "reteach": "The lesson reports they say it is riba.",
+         "back": "classic"
+        },
+        {
+         "text": "That it is a gift",
+         "reteach": "No.",
+         "back": "classic"
+        }
+       ],
+       "answer": 0,
+       "explain": "This is flagged for scholar review.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1b",
+       "q": "What does the lesson say about the claim that the world economy runs on riba?",
+       "options": [
+        {
+         "text": "It is a hadith",
+         "reteach": "It is not a hadith.",
+         "back": "no"
+        },
+        {
+         "text": "It is proven",
+         "reteach": "It was removed.",
+         "back": "no"
+        },
+        {
+         "text": "It was removed because it cannot be sourced"
+        }
+       ],
+       "answer": 2,
+       "explain": "Removed.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1c",
+       "q": "A person asks if he is a sinner for having a card. What does the lesson say?",
+       "options": [
+        {
+         "text": "It does not say that; it asks you to learn, ask and move step by step"
+        },
+        {
+         "text": "Yes, always",
+         "reteach": "The lesson does not say that.",
+         "back": "no"
+        },
+        {
+         "text": "No, forget it",
+         "reteach": "The lesson asks you to learn and ask.",
+         "back": "no"
+        }
+       ],
+       "answer": 0,
+       "explain": "Learn, ask, move.",
+       "type": "scenario",
+       "scenario": "Imran has a card with a balance and is scared he is sinning."
+      },
+      {
+       "id": "c1d",
+       "q": "What is the first step in the exit plan?",
+       "options": [
+        {
+         "text": "Name one habit"
+        },
+        {
+         "text": "Cancel everything today",
+         "reteach": "Start with one habit.",
+         "back": "exit"
+        },
+        {
+         "text": "Ask nobody",
+         "reteach": "Ask a scholar.",
+         "back": "exit"
+        }
+       ],
+       "answer": 0,
+       "explain": "One habit.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "prompt": "Put the exit plan in order.",
+     "items": [
+      {
+       "text": "Name one habit",
+       "why": "One.",
+       "back": "exit"
+      },
+      {
+       "text": "Write what it costs",
+       "why": "Per month and year.",
+       "back": "exit"
+      },
+      {
+       "text": "Ask a scholar about the contract",
+       "why": "With the document.",
+       "back": "exit"
+      },
+      {
+       "text": "Set an exit date",
+       "why": "Even far away.",
+       "back": "exit"
+      },
+      {
+       "text": "Plan one step towards it",
+       "why": "A small step.",
+       "back": "exit"
+      }
+     ],
+     "explain": "Name, cost, scholar, date, step."
+    },
+    {
+     "id": "mm",
+     "kind": "match",
+     "prompt": "Match each case to the question to ask. Tap one on the left, then its meaning on the right.",
+     "pairs": [
+      {
+       "left": {
+        "text": "A card balance"
+       },
+       "right": {
+        "text": "Is there interest on what I carry?"
+       },
+       "why": "Interest on a carried balance is a stipulated increase.",
+       "back": "cases"
+      },
+      {
+       "left": {
+        "text": "A buy-now-pay-later plan"
+       },
+       "right": {
+        "text": "Is there a penalty for late payment?"
+       },
+       "why": "Scholars discuss late penalties.",
+       "back": "cases"
+      },
+      {
+       "left": {
+        "text": "A student loan"
+       },
+       "right": {
+        "text": "Is there an Islamic finance option?"
+       },
+       "why": "Scholars debate those too.",
+       "back": "cases"
+      },
+      {
+       "left": {
+        "text": "Interest on savings"
+       },
+       "right": {
+        "text": "What should I do with it?"
+       },
+       "why": "Many say give it to charity without expecting reward.",
+       "back": "cases"
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c2a",
+       "q": "What do many scholars advise about interest paid on savings?",
+       "options": [
+        {
+         "text": "Keep it all",
+         "reteach": "The lesson reports many scholars say do not keep it.",
+         "back": "cases"
+        },
+        {
+         "text": "Do not keep it; give it to charity without expecting reward, while others hold a different view"
+        },
+        {
+         "text": "Burn it",
+         "reteach": "No.",
+         "back": "cases"
+        }
+       ],
+       "answer": 1,
+       "explain": "Ask a scholar.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2b",
+       "q": "Who is cursed in Muslim 1598?",
+       "options": [
+        {
+         "text": "Only the taker",
+         "reteach": "The whole chain.",
+         "back": "curse"
+        },
+        {
+         "text": "The taker, the payer, the recorder and the two witnesses"
+        },
+        {
+         "text": "Only the bank",
+         "reteach": "The whole chain.",
+         "back": "curse"
+        }
+       ],
+       "answer": 1,
+       "explain": "Muslim 1598.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2c",
+       "q": "What is the right response to such a strong warning?",
+       "options": [
+        {
+         "text": "Panic",
+         "reteach": "The lesson says care.",
+         "back": "curse"
+        },
+        {
+         "text": "Care, not panic"
+        },
+        {
+         "text": "Ignore it",
+         "reteach": "Care.",
+         "back": "curse"
+        }
+       ],
+       "answer": 1,
+       "explain": "Care.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2d",
+       "q": "What should you bring to a scholar?",
+       "options": [
+        {
+         "text": "The contract"
+        },
+        {
+         "text": "Only your summary",
+         "reteach": "Bring the document.",
+         "back": "exit"
+        },
+        {
+         "text": "Nothing",
+         "reteach": "Bring the document.",
+         "back": "exit"
+        }
+       ],
+       "answer": 0,
+       "explain": "The contract.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Write your exit date",
+     "body": "Name one riba-related habit and write an exit date. Then use Hadi to find a way to ask a scholar.",
+     "route": "/hadi",
+     "button": "Open Hadi"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Say what large fiqh bodies say about conventional interest.",
+      "Name three everyday cases where you would ask a scholar.",
+      "Say why the old claim about the world economy was removed.",
+      "Write one exit date."
+     ],
+     "next": "Next: Leaving riba with dignity."
+    }
+   ]
+  },
+  {
+   "id": "trx.u2.l3",
+   "title": "Leaving riba with dignity",
+   "minutes": 14,
+   "intro": "The verses of giving up riba, ease for those in hardship, and the first steps out.",
+   "steps": [
+    {
+     "id": "hook",
+     "kind": "teach",
+     "title": "A way out with dignity",
+     "body": [
+      "If you are in debt with interest, shame and fear are common. The Qur’an speaks to this situation with firmness and with mercy.",
+      "This lesson reads the verses that tell believers to give up what remains of riba, what they may keep, and how a lender is to treat someone in hardship. It adds a prophetic example of repaying well, and one du’a."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "giveup",
+     "kind": "say",
+     "title": "Give up what remains",
+     "refs": [
+      "q:2:278",
+      "q:2:279"
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 2:278-279",
+     "note": "Allah tells the believers to fear Him and give up what remains of interest, if they are believers. If they do not, they are informed of a war from Allah and His Messenger. But if they repent, they may have their principal: they do no wrong and are not wronged."
+    },
+    {
+     "id": "hear",
+     "kind": "listen",
+     "title": "Hear the ayah",
+     "ref": "q:2:279",
+     "repeats": 2,
+     "note": "Listen to the ayah of repentance and the principal."
+    },
+    {
+     "id": "ease",
+     "kind": "say",
+     "title": "Ease for the one in hardship",
+     "refs": [
+      "q:2:280"
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 2:280",
+     "note": "If someone is in hardship, there should be postponement until ease. To give it up as charity is better, if you only knew. This ayah is for the lender: do not press someone who cannot pay."
+    },
+    {
+     "id": "war",
+     "kind": "teach",
+     "title": "What war means here",
+     "body": [
+      "The Qur’an uses the language of war from Allah and His Messenger for those who refuse to give up what remains of riba. It is a very strong sentence. Notice what comes right after: but if you repent, you may have your principal. The door of repentance is in the same ayah.",
+      "The lesson should not be used to frighten someone who is trying. It shows how serious the matter is and how open the way back is."
+     ],
+     "label": "[Interpretive]",
+     "source": "Qur'an 2:279",
+     "quran": "q:2:279",
+     "review": "Please confirm the explanation of the war ayah and that repentance is in the same ayah."
+    },
+    {
+     "id": "best",
+     "kind": "teach",
+     "title": "Repay well",
+     "body": [
+      "Abu Huraira reported that a man came to the Prophet ﷺ to demand a camel owed to him. The Prophet ﷺ told his companions to give him one. They found only an older camel. He said: give it to him, for the best among you is the one who repays in the best manner (Bukhari 2392).",
+      "Repaying a debt with grace is a sunnah. It is a good habit to keep when you are leaving a bad one."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 2392"
+    },
+    {
+     "id": "worry",
+     "kind": "say",
+     "title": "A du’a for debt and worry",
+     "refs": [
+      "trx.worry.1",
+      "trx.worry.2",
+      "trx.worry.3",
+      "trx.worry.4"
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 6369",
+     "note": "Anas reported that the Prophet ﷺ used to make this du’a (Bukhari 6369): he sought refuge in Allah from worry and grief, from weakness and laziness, from cowardice and stinginess, and from the weight of debt and from being overpowered by men. There is no recording of it in the app yet."
+    },
+    {
+     "id": "home",
+     "kind": "contrast",
+     "title": "Home loans: where scholars differ",
+     "intro": "This is one of the most disputed practical questions. The lesson only reports the positions.",
+     "agree": "Everyone agrees on the seriousness of interest.",
+     "rows": [
+      {
+       "name": "The majority position",
+       "text": "Many scholars and fiqh bodies say a conventional mortgage is a loan with interest and is not allowed, and recommend Islamic home finance or saving."
+      },
+      {
+       "name": "A minority position",
+       "text": "Some contemporary councils, such as the European Council for Fatwa and Research, have permitted a home loan for Muslims living as minorities under strict conditions of need. Others disagree with them."
+      },
+      {
+       "name": "What to do",
+       "text": "Do not decide alone from a website. Ask a qualified scholar about your exact situation."
+      }
+     ],
+     "closing": "Ask a qualified scholar.",
+     "label": "[Interpretive]",
+     "source": "Qur'an 2:278-279",
+     "review": "Please confirm the summary of positions on mortgages and the reference to the European Council for Fatwa and Research."
+    },
+    {
+     "id": "leave",
+     "kind": "howto",
+     "title": "Leaving riba step by step",
+     "intro": "Take one step at a time.",
+     "steps": [
+      {
+       "text": "Write down the total you owe.",
+       "detail": "Face the number."
+      },
+      {
+       "text": "List each debt and its interest.",
+       "detail": "See which costs most."
+      },
+      {
+       "text": "Pay the principal first where you can.",
+       "detail": "Do not add new riba debt."
+      },
+      {
+       "text": "Ask for a plan.",
+       "detail": "Many lenders accept a hardship plan."
+      },
+      {
+       "text": "Repent and make du’a.",
+       "detail": "Repentance is in the same ayah (2:279)."
+      },
+      {
+       "text": "Pay one amount above the minimum this month.",
+       "detail": "Quietly, with no show."
+      }
+     ],
+     "mistakes": [
+      "Hiding the number from yourself.",
+      "Taking a new loan with interest to clear an old one without asking.",
+      "Giving up."
+     ],
+     "label": "[Reflection]",
+     "source": "Qur'an 2:278-280"
+    },
+    {
+     "id": "c1",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1a",
+       "q": "What may a person keep if he repents, according to 2:279?",
+       "options": [
+        {
+         "text": "His principal"
+        },
+        {
+         "text": "Nothing",
+         "reteach": "The ayah says he may have his principal.",
+         "back": "giveup"
+        },
+        {
+         "text": "The interest",
+         "reteach": "The ayah says the principal.",
+         "back": "giveup"
+        }
+       ],
+       "answer": 0,
+       "explain": "Qur’an 2:279.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1b",
+       "q": "What does 2:280 tell the lender to do about someone in hardship?",
+       "options": [
+        {
+         "text": "Press him harder",
+         "reteach": "No. It says postponement until ease.",
+         "back": "ease"
+        },
+        {
+         "text": "Add a fee",
+         "reteach": "No.",
+         "back": "ease"
+        },
+        {
+         "text": "Allow time until ease; giving it up is better"
+        }
+       ],
+       "answer": 2,
+       "explain": "Qur’an 2:280.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1c",
+       "q": "What did the Prophet ﷺ say about repaying?",
+       "options": [
+        {
+         "text": "The best among you is the one who repays in the best manner"
+        },
+        {
+         "text": "Repay only the minimum",
+         "reteach": "The hadith praises repaying well.",
+         "back": "best"
+        },
+        {
+         "text": "Do not repay if it hurts",
+         "reteach": "No.",
+         "back": "best"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 2392.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1d",
+       "q": "What is the next step?",
+       "options": [
+        {
+         "text": "Write down the total, then plan to pay principal first and ask a scholar before taking any new loan"
+        },
+        {
+         "text": "Take a new loan to clear it",
+         "reteach": "Ask first.",
+         "back": "leave"
+        },
+        {
+         "text": "Hide it",
+         "reteach": "Face the number.",
+         "back": "leave"
+        }
+       ],
+       "answer": 0,
+       "explain": "One step at a time.",
+       "type": "scenario",
+       "scenario": "Hana owes a large amount with interest and feels ashamed."
+      }
+     ]
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "prompt": "Put the steps in order.",
+     "items": [
+      {
+       "text": "Write down the total you owe",
+       "why": "Face it.",
+       "back": "leave"
+      },
+      {
+       "text": "List each debt and its interest",
+       "why": "See the cost.",
+       "back": "leave"
+      },
+      {
+       "text": "Pay the principal first where you can",
+       "why": "Start there.",
+       "back": "leave"
+      },
+      {
+       "text": "Ask for a plan",
+       "why": "Hardship plan.",
+       "back": "leave"
+      },
+      {
+       "text": "Repent and make du’a",
+       "why": "In 2:279.",
+       "back": "war"
+      }
+     ],
+     "explain": "Total, list, principal, plan, repent."
+    },
+    {
+     "id": "mm",
+     "kind": "match",
+     "prompt": "Match each text to its message. Tap one on the left, then its meaning on the right.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Qur’an 2:278"
+       },
+       "right": {
+        "text": "Give up what remains of interest"
+       },
+       "why": "The command.",
+       "back": "giveup"
+      },
+      {
+       "left": {
+        "text": "Qur’an 2:279"
+       },
+       "right": {
+        "text": "Keep your principal if you repent"
+       },
+       "why": "The way back.",
+       "back": "war"
+      },
+      {
+       "left": {
+        "text": "Qur’an 2:280"
+       },
+       "right": {
+        "text": "Ease for the one in hardship"
+       },
+       "why": "The lender’s duty.",
+       "back": "ease"
+      },
+      {
+       "left": {
+        "text": "Bukhari 2392"
+       },
+       "right": {
+        "text": "Repay in the best manner"
+       },
+       "why": "The sunnah of repaying.",
+       "back": "best"
+      },
+      {
+       "left": {
+        "text": "Bukhari 6369"
+       },
+       "right": {
+        "text": "Du’a against worry and the weight of debt"
+       },
+       "why": "The Prophet’s du’a.",
+       "back": "worry"
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c2a",
+       "q": "What does the lesson say comes right after the war sentence in 2:279?",
+       "options": [
+        {
+         "text": "Nothing",
+         "reteach": "The ayah continues.",
+         "back": "war"
+        },
+        {
+         "text": "The offer that if you repent you may have your principal"
+        },
+        {
+         "text": "A further punishment",
+         "reteach": "It continues with repentance.",
+         "back": "war"
+        }
+       ],
+       "answer": 1,
+       "explain": "Qur’an 2:279.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2b",
+       "q": "How does the lesson report the positions on mortgages?",
+       "options": [
+        {
+         "text": "It gives one ruling",
+         "reteach": "It reports more than one.",
+         "back": "home"
+        },
+        {
+         "text": "It reports a majority and a minority position and tells you to ask a scholar"
+        },
+        {
+         "text": "It says there is none",
+         "reteach": "There are positions.",
+         "back": "home"
+        }
+       ],
+       "answer": 1,
+       "explain": "Ask a scholar.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2c",
+       "q": "Which is the lender’s duty in 2:280?",
+       "options": [
+        {
+         "text": "To take the house",
+         "reteach": "The ayah says allow time.",
+         "back": "ease"
+        },
+        {
+         "text": "To allow time to someone in hardship"
+        },
+        {
+         "text": "To raise the rate",
+         "reteach": "No.",
+         "back": "ease"
+        }
+       ],
+       "answer": 1,
+       "explain": "Qur’an 2:280.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2d",
+       "q": "What does Bukhari 6369 ask refuge from, among other things?",
+       "options": [
+        {
+         "text": "The weight of debt"
+        },
+        {
+         "text": "Wealth",
+         "reteach": "It asks refuge from the weight of debt.",
+         "back": "worry"
+        },
+        {
+         "text": "Friends",
+         "reteach": "No.",
+         "back": "worry"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 6369.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Face the number",
+     "body": "Write down what you owe, even if it is hard. Then read ayat 278 to 280 of Surah Al-Baqarah.",
+     "route": "/quran/2",
+     "button": "Open Surah Al-Baqarah"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Say what 2:278-279 tells believers to do, and what they may keep.",
+      "Say what 2:280 tells the lender.",
+      "Say what the Prophet ﷺ said about repaying.",
+      "Take the first step on your own debt."
+     ],
+     "next": "You have finished Riba. Next: Zakat."
+    }
+   ]
+  },
+  {
+   "id": "trx.u3.l1",
+   "title": "Zakat on savings",
+   "minutes": 15,
+   "intro": "Who pays zakat, the nisab and the year, how to work out 2.5 percent, and who receives it.",
+   "steps": [
+    {
+     "id": "hook",
+     "kind": "teach",
+     "title": "The part that is not yours",
+     "body": [
+      "Some of the money in your account was never really yours to keep. Zakat is the share that belongs to others. Many people give it but are unsure how to work it out.",
+      "This lesson explains who must give zakat, what the nisab and the year mean, how to work out 2.5 percent, and who receives it. Scholars differ on some calculation details, so those are flagged."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "purify",
+     "kind": "say",
+     "title": "Take from their wealth",
+     "refs": [
+      "q:9:103"
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 9:103",
+     "note": "Allah tells His Messenger to take from their wealth a charity by which he purifies them and causes them increase, and to pray for them. Zakat is a purification of wealth and of the giver."
+    },
+    {
+     "id": "right",
+     "kind": "teach",
+     "title": "From the wealthy to the poor",
+     "body": [
+      "Ibn Abbas reported that the Prophet ﷺ sent Mu’adh to Yemen and told him to teach the people that Allah has made zakat obligatory on their property, to be taken from the wealthy among them and given to the poor among them (Bukhari 1395).",
+      "This tells you two things: zakat is a duty, not a favour, and it goes to people who need it."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 1395"
+    },
+    {
+     "id": "nisab",
+     "kind": "teach",
+     "title": "The nisab",
+     "body": [
+      "The Prophet ﷺ said that there is no zakat on less than five uqiyas of silver (Bukhari 1405). Scholars take the minimum amount from reports like this, and it is called the nisab. For silver this is 200 dirhams, which many calculate as about 595 grams. Gold has a nisab of 20 dinars, commonly calculated as about 85 grams.",
+      "The exact gram values are conventions used by scholars and councils and are not stated in the hadith. Check a current figure from a trusted authority before calculating."
+     ],
+     "label": "[Interpretive]",
+     "source": "Bukhari 1405",
+     "review": "Please confirm the gram values (595 g silver, 85 g gold) and the statement that the gold nisab is derived from other reports."
+    },
+    {
+     "id": "which",
+     "kind": "contrast",
+     "title": "Gold or silver for cash?",
+     "intro": "Cash was not around in the Prophet’s time in its present form, so scholars differ on which nisab to use for savings.",
+     "agree": "All agree that zakat is due on wealth above the nisab.",
+     "rows": [
+      {
+       "name": "Silver nisab",
+       "text": "It is lower in value today, so more people would owe zakat. Some scholars, among them many Hanafis, prefer whichever benefits the poor, which is usually silver."
+      },
+      {
+       "name": "Gold nisab",
+       "text": "It is higher in value today. Others, including many scholars of the other schools, use gold for savings in cash."
+      },
+      {
+       "name": "Your next step",
+       "text": "Choose the view of a scholar you follow, and keep to it. If in doubt, use the lower nisab, which is the cautious choice."
+      }
+     ],
+     "closing": "Follow a scholar you trust, and be cautious.",
+     "label": "[Interpretive]",
+     "source": "Bukhari 1405",
+     "review": "Please confirm the summary of the schools on which nisab applies to cash, and the cautious-choice suggestion."
+    },
+    {
+     "id": "year",
+     "kind": "teach",
+     "title": "The year and the rate",
+     "body": [
+      "Zakat is due once a year, on wealth that you have held at or above the nisab for a full lunar year. This one-year condition is held by the schools, based on reports of the Companions. The rate for cash and silver is 2.5 percent, which is one-fortieth. Abu Bakr’s letter, reported in Bukhari 1454, gives one-fortieth for silver.",
+      "So to work it out: add up the zakatable wealth you have on your zakat date, subtract short-term debts you owe, and take 2.5 percent if what is left is above the nisab."
+     ],
+     "label": "[Interpretive]",
+     "source": "Bukhari 1454",
+     "review": "The year condition is stated on the authority of the schools and the Companions; I did not verify the individual reports. Please confirm, and confirm the debt-subtraction step."
+    },
+    {
+     "id": "eight",
+     "kind": "say",
+     "title": "Who receives zakat",
+     "refs": [
+      "q:9:60"
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 9:60",
+     "note": "Allah names the eight groups: the poor, the needy, those who collect it, those whose hearts are to be reconciled, freeing captives, those in debt, in the cause of Allah, and the traveller in need. It is an obligation from Allah."
+    },
+    {
+     "id": "calc",
+     "kind": "howto",
+     "title": "Work out your zakat",
+     "intro": "This is an outline. Use your own scholar’s rules for details.",
+     "steps": [
+      {
+       "text": "Choose your zakat date.",
+       "detail": "The same date each year, for example the first of Ramadan."
+      },
+      {
+       "text": "Add up what you have on that date.",
+       "detail": "Cash, savings, gold and silver you hold as savings, money owed to you that you expect back."
+      },
+      {
+       "text": "Subtract short-term debts you owe.",
+       "detail": "Many scholars allow this. Ask about long-term loans."
+      },
+      {
+       "text": "Compare with the nisab.",
+       "detail": "If it is below, nothing is due. If above, continue."
+      },
+      {
+       "text": "Take 2.5 percent of what is left.",
+       "detail": "Multiply by 0.025."
+      },
+      {
+       "text": "Pay it to those who qualify.",
+       "detail": "Choose from the groups in 9:60, directly or through a trusted charity."
+      }
+     ],
+     "mistakes": [
+      "Counting your house and car you live in.",
+      "Giving it to people who are not in the groups.",
+      "Waiting for the date to pass."
+     ],
+     "label": "[Interpretive]",
+     "source": "Bukhari 1454; Qur’an 9:60",
+     "review": "Please confirm what counts as zakatable for personal items and the debt rules."
+    },
+    {
+     "id": "c1",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1a",
+       "q": "What does Bukhari 1395 say zakat is taken from, and given to?",
+       "options": [
+        {
+         "text": "Taken from the wealthy and given to the poor"
+        },
+        {
+         "text": "Taken from the poor",
+         "reteach": "No.",
+         "back": "right"
+        },
+        {
+         "text": "Taken from everyone equally",
+         "reteach": "No. It is taken from the wealthy.",
+         "back": "right"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 1395.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1b",
+       "q": "What is the nisab?",
+       "options": [
+        {
+         "text": "The rate of zakat",
+         "reteach": "The rate is 2.5 percent.",
+         "back": "nisab"
+        },
+        {
+         "text": "The date of zakat",
+         "reteach": "No.",
+         "back": "nisab"
+        },
+        {
+         "text": "The minimum amount of wealth above which zakat is due"
+        }
+       ],
+       "answer": 2,
+       "explain": "The minimum.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1c",
+       "q": "What is the zakat rate on cash savings?",
+       "options": [
+        {
+         "text": "2.5 percent, one-fortieth"
+        },
+        {
+         "text": "10 percent",
+         "reteach": "No.",
+         "back": "year"
+        },
+        {
+         "text": "1 percent",
+         "reteach": "No.",
+         "back": "year"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 1454 gives one-fortieth for silver.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1d",
+       "q": "How much zakat does she owe?",
+       "options": [
+        {
+         "text": "About 250 (2.5 percent of 10,000), if 10,000 is above the nisab"
+        },
+        {
+         "text": "1,000",
+         "reteach": "That would be 10 percent.",
+         "back": "year"
+        },
+        {
+         "text": "Nothing, because it is not her house",
+         "reteach": "Savings count.",
+         "back": "year"
+        }
+       ],
+       "answer": 0,
+       "explain": "10,000 x 0.025 = 250.",
+       "type": "scenario",
+       "scenario": "Salma has held 10,000 in savings above the nisab for a full lunar year."
+      }
+     ]
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "prompt": "Put the steps in order.",
+     "items": [
+      {
+       "text": "Choose your zakat date",
+       "why": "Same date each year.",
+       "back": "calc"
+      },
+      {
+       "text": "Add up what you have on that date",
+       "why": "List it.",
+       "back": "calc"
+      },
+      {
+       "text": "Subtract short-term debts",
+       "why": "If your scholar allows.",
+       "back": "calc"
+      },
+      {
+       "text": "Compare with the nisab",
+       "why": "Above or below?",
+       "back": "nisab"
+      },
+      {
+       "text": "Take 2.5 percent and give it",
+       "why": "To those in 9:60.",
+       "back": "calc"
+      }
+     ],
+     "explain": "Date, add, subtract, compare, 2.5 percent."
+    },
+    {
+     "id": "mm",
+     "kind": "match",
+     "prompt": "Match each text to its message. Tap one on the left, then its meaning on the right.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Qur’an 9:103"
+       },
+       "right": {
+        "text": "Zakat purifies and increases"
+       },
+       "why": "It is a purification.",
+       "back": "purify"
+      },
+      {
+       "left": {
+        "text": "Bukhari 1395"
+       },
+       "right": {
+        "text": "Taken from the wealthy, given to the poor"
+       },
+       "why": "Mu’adh and Yemen.",
+       "back": "right"
+      },
+      {
+       "left": {
+        "text": "Bukhari 1405"
+       },
+       "right": {
+        "text": "No zakat below a minimum"
+       },
+       "why": "The nisab.",
+       "back": "nisab"
+      },
+      {
+       "left": {
+        "text": "Bukhari 1454"
+       },
+       "right": {
+        "text": "One-fortieth on silver"
+       },
+       "why": "The 2.5 percent rate.",
+       "back": "year"
+      },
+      {
+       "left": {
+        "text": "Qur’an 9:60"
+       },
+       "right": {
+        "text": "The eight groups who receive zakat"
+       },
+       "why": "Poor, needy, collectors, and others.",
+       "back": "eight"
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c2a",
+       "q": "Are the gram values for the nisab in the hadith?",
+       "options": [
+        {
+         "text": "Yes, in Bukhari 1405",
+         "reteach": "The hadith gives uqiyas; the grams are calculated.",
+         "back": "nisab"
+        },
+        {
+         "text": "No. They are scholarly conventions, flagged for review"
+        },
+        {
+         "text": "Yes, in the Qur’an",
+         "reteach": "No.",
+         "back": "nisab"
+        }
+       ],
+       "answer": 1,
+       "explain": "Conventions.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2b",
+       "q": "Which nisab is the cautious choice for cash?",
+       "options": [
+        {
+         "text": "The higher one always",
+         "reteach": "The cautious choice is the lower.",
+         "back": "which"
+        },
+        {
+         "text": "The lower one, if you are unsure and your scholar allows"
+        },
+        {
+         "text": "None",
+         "reteach": "Zakat is due.",
+         "back": "which"
+        }
+       ],
+       "answer": 1,
+       "explain": "Ask your scholar.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2c",
+       "q": "Who may receive zakat?",
+       "options": [
+        {
+         "text": "Anyone you like",
+         "reteach": "Only the groups in 9:60.",
+         "back": "eight"
+        },
+        {
+         "text": "The groups named in 9:60"
+        },
+        {
+         "text": "Only family",
+         "reteach": "The groups in 9:60.",
+         "back": "eight"
+        }
+       ],
+       "answer": 1,
+       "explain": "Qur’an 9:60.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2d",
+       "q": "The lesson says the one-year condition is...",
+       "options": [
+        {
+         "text": "Held by the schools, but the individual reports were not verified here"
+        },
+        {
+         "text": "Proved by Bukhari 1454",
+         "reteach": "Bukhari 1454 gives the rate.",
+         "back": "year"
+        },
+        {
+         "text": "Not required",
+         "reteach": "It is held by the schools.",
+         "back": "year"
+        }
+       ],
+       "answer": 0,
+       "explain": "Flagged.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Mark your zakat date",
+     "body": "Open the calendar and note your zakat date. Then work out the number once, even if you are below the nisab.",
+     "route": "/calendar",
+     "button": "Open the calendar"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Say who zakat is taken from and given to.",
+      "Say what the nisab is and why the grams are conventions.",
+      "Say the rate and the year condition.",
+      "Name who may receive zakat."
+     ],
+     "next": "Next: Debt and the door."
+    }
+   ]
+  },
+  {
+   "id": "trx.u3.l2",
+   "title": "Debt and the door",
+   "minutes": 15,
+   "intro": "The promise for one who intends to repay, the seriousness of debt, and a plan to carry it.",
+   "steps": [
+    {
+     "id": "hook",
+     "kind": "teach",
+     "title": "A weight with a door",
+     "body": [
+      "Debt can be a heavy thing to carry. It is also not a shame to be in debt if you are working to repay. The Prophet ﷺ spoke about it often, with both warning and hope.",
+      "This lesson has a promise for the one who borrows intending to repay, a warning, a story about a funeral prayer, a du’a, and practical steps."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "intend",
+     "kind": "teach",
+     "title": "Intending to repay",
+     "body": [
+      "Abu Huraira reported that the Prophet ﷺ said: whoever takes people’s money intending to repay it, Allah will repay it for him; and whoever takes it intending to destroy it, Allah will destroy him (Bukhari 2387).",
+      "The intention is part of the borrowing. A person who borrows with the real intention to repay, and works at it, is promised help from Allah."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 2387"
+    },
+    {
+     "id": "serious",
+     "kind": "teach",
+     "title": "But it is serious",
+     "body": [
+      "Amr ibn al-As reported that the Prophet ﷺ said: all the sins of a martyr are forgiven except debt (Muslim 1886). This shows how seriously the rights of people are taken: they are not wiped out like other things.",
+      "So debt is not a reason for despair. It is a reason to take repaying seriously, to write it down, and to tell the family so that it is not lost."
+     ],
+     "label": "[Established]",
+     "source": "Muslim 1886"
+    },
+    {
+     "id": "funeral",
+     "kind": "story",
+     "title": "The funeral prayer",
+     "body": [
+      "Salama ibn al-Akwa reported that a dead man was brought to the Prophet ﷺ to lead the funeral prayer. He asked: is he in debt? They said: yes, three dinars, and he left nothing. He said: then pray for your companion. Abu Qatada said: O Messenger of Allah, I will pay his debt. So the Prophet ﷺ led the prayer (Bukhari 2289).",
+      "The story is not about being harsh. It teaches that debts belong to the living and the dead alike, and that those who help repay carry a real kindness."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 2289"
+    },
+    {
+     "id": "ease",
+     "kind": "say",
+     "title": "Ease for the debtor",
+     "refs": [
+      "q:2:280"
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 2:280",
+     "note": "Allah tells the lender to give time to someone in hardship, and says that giving it up as charity is better. If you are the one in debt, this is a right to ask for time; if you are the lender, it is a duty."
+    },
+    {
+     "id": "writeit",
+     "kind": "say",
+     "title": "Write it down",
+     "refs": [
+      "q:2:282"
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 2:282",
+     "note": "The longest ayah of the Qur’an is about debts with a fixed term: write them down, let a scribe write between you in justice, and call witnesses. A written record protects both sides. Read the meaning of the first lines."
+    },
+    {
+     "id": "dua",
+     "kind": "say",
+     "title": "The du’a of the indebted",
+     "refs": [
+      "trx.worry.4"
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 6369",
+     "note": "From the du’a of Bukhari 6369: I seek refuge in You from the weight of debt and from being overpowered by men. There is no recording of it in the app yet."
+    },
+    {
+     "id": "thanks",
+     "kind": "say",
+     "title": "When you repay",
+     "refs": [
+      "trx.repay.1",
+      "trx.repay.2"
+     ],
+     "label": "[Established]",
+     "source": "Nasa’i 4683 (graded sahih by al-Albani)",
+     "note": "When the Prophet ﷺ repaid a loan, he said: may Allah bless your family and your wealth; the reward of a loan is praise and repayment (Nasa’i 4683 (graded sahih by al-Albani)). You can say this to a lender when you repay. There is no recording of it in the app yet."
+    },
+    {
+     "id": "plan",
+     "kind": "howto",
+     "title": "A plan for the weight",
+     "intro": "Do these in order.",
+     "steps": [
+      {
+       "text": "Write the total down.",
+       "detail": "Face the number."
+      },
+      {
+       "text": "List each debt, who it is owed to, and the date.",
+       "detail": "A written list, as in 2:282."
+      },
+      {
+       "text": "Tell someone you trust.",
+       "detail": "Muslim 1886 shows debts must not be lost."
+      },
+      {
+       "text": "Contact the lender early.",
+       "detail": "Ask for time, as 2:280 asks lenders to give."
+      },
+      {
+       "text": "Make a small plan you can keep.",
+       "detail": "A fixed monthly amount."
+      },
+      {
+       "text": "Say the du’a.",
+       "detail": "And ask Allah to pay it for you (Bukhari 2387)."
+      },
+      {
+       "text": "When you repay, thank the lender.",
+       "detail": "Say the words above."
+      }
+     ],
+     "mistakes": [
+      "Avoiding the lender.",
+      "Borrowing again with no intention to repay.",
+      "Hiding the debt from the family."
+     ],
+     "label": "[Reflection]",
+     "source": "Bukhari 2387; Qur’an 2:280; Qur’an 2:282"
+    },
+    {
+     "id": "c1",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1a",
+       "q": "What does Bukhari 2387 promise the one who borrows intending to repay?",
+       "options": [
+        {
+         "text": "Allah will repay it for him"
+        },
+        {
+         "text": "Nothing",
+         "reteach": "The hadith promises help.",
+         "back": "intend"
+        },
+        {
+         "text": "The debt is cancelled",
+         "reteach": "It says Allah will repay it for him.",
+         "back": "intend"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 2387.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1b",
+       "q": "What is the one sin of a martyr that is not forgiven in Muslim 1886?",
+       "options": [
+        {
+         "text": "Pride",
+         "reteach": "The hadith names debt.",
+         "back": "serious"
+        },
+        {
+         "text": "Anger",
+         "reteach": "The hadith names debt.",
+         "back": "serious"
+        },
+        {
+         "text": "Debt"
+        }
+       ],
+       "answer": 2,
+       "explain": "Muslim 1886.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1c",
+       "q": "What did Abu Qatada do in the story of Bukhari 2289?",
+       "options": [
+        {
+         "text": "He took on the dead man’s debt"
+        },
+        {
+         "text": "He refused",
+         "reteach": "He said he would pay it.",
+         "back": "funeral"
+        },
+        {
+         "text": "He prayed alone",
+         "reteach": "He took on the debt.",
+         "back": "funeral"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 2289.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1d",
+       "q": "What should he do first?",
+       "options": [
+        {
+         "text": "Write the total down and contact the lender early"
+        },
+        {
+         "text": "Avoid the lender",
+         "reteach": "Contact early.",
+         "back": "plan"
+        },
+        {
+         "text": "Borrow again",
+         "reteach": "Do not add without a plan.",
+         "back": "plan"
+        }
+       ],
+       "answer": 0,
+       "explain": "Face the number.",
+       "type": "scenario",
+       "scenario": "Karim is two months behind on a personal loan from a friend."
+      }
+     ]
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "prompt": "Put the plan in order.",
+     "items": [
+      {
+       "text": "Write the total down",
+       "why": "Face the number.",
+       "back": "plan"
+      },
+      {
+       "text": "List each debt with the date",
+       "why": "As in 2:282.",
+       "back": "writeit"
+      },
+      {
+       "text": "Tell someone you trust",
+       "why": "Do not carry it alone.",
+       "back": "plan"
+      },
+      {
+       "text": "Contact the lender early",
+       "why": "Ask for time.",
+       "back": "ease"
+      },
+      {
+       "text": "Make a plan you can keep",
+       "why": "A fixed monthly amount.",
+       "back": "plan"
+      }
+     ],
+     "explain": "Total, list, tell, contact, plan."
+    },
+    {
+     "id": "mm",
+     "kind": "match",
+     "prompt": "Match each text to its message. Tap one on the left, then its meaning on the right.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Bukhari 2387"
+       },
+       "right": {
+        "text": "Allah repays for one who intends to repay"
+       },
+       "why": "The promise.",
+       "back": "intend"
+      },
+      {
+       "left": {
+        "text": "Muslim 1886"
+       },
+       "right": {
+        "text": "Debt is not forgiven even for the martyr"
+       },
+       "why": "The warning.",
+       "back": "serious"
+      },
+      {
+       "left": {
+        "text": "Bukhari 2289"
+       },
+       "right": {
+        "text": "The funeral prayer and the debt"
+       },
+       "why": "Abu Qatada pays.",
+       "back": "funeral"
+      },
+      {
+       "left": {
+        "text": "Qur’an 2:280"
+       },
+       "right": {
+        "text": "Time for the one in hardship"
+       },
+       "why": "The lender’s duty.",
+       "back": "ease"
+      },
+      {
+       "left": {
+        "text": "Qur’an 2:282"
+       },
+       "right": {
+        "text": "Write debts down"
+       },
+       "why": "A record protects both sides.",
+       "back": "writeit"
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c2a",
+       "q": "What does 2:282 say about debts with a fixed term?",
+       "options": [
+        {
+         "text": "Keep them secret",
+         "reteach": "No. Write them down.",
+         "back": "writeit"
+        },
+        {
+         "text": "Write them down and call witnesses"
+        },
+        {
+         "text": "Do not write them",
+         "reteach": "It says write them down.",
+         "back": "writeit"
+        }
+       ],
+       "answer": 1,
+       "explain": "Qur’an 2:282.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2b",
+       "q": "What should you say to a lender when you repay?",
+       "options": [
+        {
+         "text": "Nothing",
+         "reteach": "The Prophet ﷺ said this.",
+         "back": "thanks"
+        },
+        {
+         "text": "May Allah bless you in your family and wealth; the reward of a loan is praise and repayment"
+        },
+        {
+         "text": "Complain",
+         "reteach": "No.",
+         "back": "thanks"
+        }
+       ],
+       "answer": 1,
+       "explain": "Nasa’i 4683 (graded sahih by al-Albani).",
+       "type": "mcq"
+      },
+      {
+       "id": "c2c",
+       "q": "Is debt a reason for despair?",
+       "options": [
+        {
+         "text": "Yes, always",
+         "reteach": "The lesson says no.",
+         "back": "serious"
+        },
+        {
+         "text": "No. It is a reason to take repaying seriously"
+        },
+        {
+         "text": "It does not matter",
+         "reteach": "It matters.",
+         "back": "serious"
+        }
+       ],
+       "answer": 1,
+       "explain": "Take it seriously.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2d",
+       "q": "What does the du’a of Bukhari 6369 ask refuge from?",
+       "options": [
+        {
+         "text": "The weight of debt and being overpowered by men"
+        },
+        {
+         "text": "Wealth",
+         "reteach": "Debt.",
+         "back": "dua"
+        },
+        {
+         "text": "Work",
+         "reteach": "Debt.",
+         "back": "dua"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 6369.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Write the number",
+     "body": "If you carry any debt, write the total down and the date. Then open Hadi and ask how to start a repayment plan.",
+     "route": "/hadi",
+     "button": "Open Hadi"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Say what Bukhari 2387 promises.",
+      "Say what Muslim 1886 shows about debt.",
+      "Retell the funeral story.",
+      "Write your plan."
+     ],
+     "next": "Next: Barakah, not just more."
+    }
+   ]
+  },
+  {
+   "id": "trx.u3.l3",
+   "title": "Barakah, not just more",
+   "minutes": 14,
+   "intro": "What the Prophet ﷺ said about barakah, honest work, early hours and rest.",
+   "steps": [
+    {
+     "id": "hook",
+     "kind": "teach",
+     "title": "More is not the same as enough",
+     "body": [
+      "Some people have a lot and are always short. Others have little and are fine. The Prophet ﷺ had a word for this: barakah, the blessing that makes a little enough.",
+      "This lesson follows what the Prophet ﷺ said about barakah in wealth, in time, and in rest. It does not claim that prayer cures burnout. It says what the sources say and when to ask for help."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "fruit",
+     "kind": "teach",
+     "title": "Sweet fruit, taken with a generous soul",
+     "body": [
+      "Hakim ibn Hizam reported that the Prophet ﷺ said: this wealth is like sweet fresh fruit. Whoever takes it without greed will be blessed in it, and whoever takes it with greed will not be blessed in it, like one who eats and is never satisfied (Bukhari 1472).",
+      "Barakah here is not about the amount. It is about being satisfied. The person who is never satisfied does not feel blessed even with more."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 1472"
+    },
+    {
+     "id": "truth",
+     "kind": "teach",
+     "title": "Honesty in a deal",
+     "body": [
+      "In Bukhari 2079 the Prophet ﷺ said that if buyer and seller speak the truth and make clear the defects, they will be blessed in the deal; if they lie and hide, the blessing of the deal is lost.",
+      "So honest work protects barakah."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 2079"
+    },
+    {
+     "id": "taqwa",
+     "kind": "say",
+     "title": "Blessings from the heavens and earth",
+     "refs": [
+      "q:7:96"
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 7:96",
+     "note": "Allah says that if the people of the towns had believed and feared Allah, He would have opened upon them blessings from the heaven and the earth. Barakah is linked to faith and taqwa."
+    },
+    {
+     "id": "early",
+     "kind": "teach",
+     "title": "Blessing in the early hours",
+     "body": [
+      "Sakhr al-Ghamidi reported that the Prophet ﷺ said: O Allah, bless my community in what they do early in the day. When he sent an army, he sent it at the beginning of the day. Sakhr was a trader who sent his goods early in the morning, and he became rich (Tirmidhi 1212 (graded sahih by al-Albani)).",
+      "This is practical: the early hours are a time of barakah for work."
+     ],
+     "label": "[Established]",
+     "source": "Tirmidhi 1212 (graded sahih by al-Albani)"
+    },
+    {
+     "id": "earlydua",
+     "kind": "say",
+     "title": "The du’a for early blessing",
+     "refs": [
+      "trx.barakah.early"
+     ],
+     "label": "[Established]",
+     "source": "Tirmidhi 1212 (graded sahih by al-Albani)",
+     "note": "You can say this du’a at the start of the day. It asks Allah to bless the community in its early hours. There is no recording of it in the app yet. Source: Tirmidhi 1212 (graded sahih by al-Albani)."
+    },
+    {
+     "id": "salman",
+     "kind": "story",
+     "title": "Your body has a right",
+     "body": [
+      "Abu Juhaifa reported that Salman visited his brother Abu al-Darda and found him fasting by day and praying by night. Salman told him: your Lord has a right on you, your soul has a right on you, and your family has a right on you, so give each its right. When Abu al-Darda told the Prophet ﷺ, he said: Salman has spoken the truth (Bukhari 1968).",
+      "The Prophet ﷺ did not praise exhausting yourself, even in worship. Rest and family are rights."
+     ],
+     "label": "[Established]",
+     "source": "Bukhari 1968"
+    },
+    {
+     "id": "rhythm",
+     "kind": "say",
+     "title": "Work, then remember",
+     "refs": [
+      "q:62:10"
+     ],
+     "label": "[Established]",
+     "source": "Qur'an 62:10",
+     "note": "After the prayer, spread out in the land, seek Allah’s bounty, and remember Allah often. Prayer and work take turns through the day."
+    },
+    {
+     "id": "limit",
+     "kind": "teach",
+     "title": "What this does not say",
+     "body": [
+      "The old lesson claimed that the cure for burnout is barakah, and that the believer sleeps differently. This lesson does not claim that. Burnout and anxiety can have physical and mental causes. Faith helps many people, but if you feel exhausted, hopeless or cannot function, talk to a doctor or counsellor as well as to a scholar. Seeking treatment is not a lack of trust. The Prophet ﷺ taught tawakkul together with action."
+     ],
+     "label": "[Reflection]"
+    },
+    {
+     "id": "protect",
+     "kind": "howto",
+     "title": "Protect one prayer like a meeting",
+     "intro": "Choose one prayer this week.",
+     "steps": [
+      {
+       "text": "Choose one prayer.",
+       "detail": "The one that gets squeezed out most."
+      },
+      {
+       "text": "Put it in the calendar.",
+       "detail": "Treat it as fixed."
+      },
+      {
+       "text": "Tell the people who need to know.",
+       "detail": "A colleague, a teacher, family."
+      },
+      {
+       "text": "Pray it on time.",
+       "detail": "Phone away."
+      },
+      {
+       "text": "Notice the day.",
+       "detail": "See what changes."
+      }
+     ],
+     "mistakes": [
+      "Praying at the end of the day for every prayer.",
+      "Skipping it when busy.",
+      "Using it as a cure for everything."
+     ],
+     "label": "[Reflection]",
+     "source": "Qur'an 62:10; Bukhari 528"
+    },
+    {
+     "id": "c1",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c1a",
+       "q": "In Bukhari 1472, who is not blessed in his wealth?",
+       "options": [
+        {
+         "text": "The one who takes it with greed"
+        },
+        {
+         "text": "The one who earns it by work",
+         "reteach": "The hadith speaks of greed.",
+         "back": "fruit"
+        },
+        {
+         "text": "The one who gives it away",
+         "reteach": "The hadith speaks of greed.",
+         "back": "fruit"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 1472.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1b",
+       "q": "What does Bukhari 2079 say causes the blessing of a deal to be lost?",
+       "options": [
+        {
+         "text": "Making a profit",
+         "reteach": "No. It is lying and hiding.",
+         "back": "truth"
+        },
+        {
+         "text": "Taking time",
+         "reteach": "No.",
+         "back": "truth"
+        },
+        {
+         "text": "Lying and hiding defects"
+        }
+       ],
+       "answer": 2,
+       "explain": "Bukhari 2079.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1c",
+       "q": "What did the Prophet ﷺ say about Salman’s words to Abu al-Darda?",
+       "options": [
+        {
+         "text": "Salman has spoken the truth"
+        },
+        {
+         "text": "Salman was wrong",
+         "reteach": "He said he spoke the truth.",
+         "back": "salman"
+        },
+        {
+         "text": "Abu al-Darda should fast more",
+         "reteach": "He agreed with Salman.",
+         "back": "salman"
+        }
+       ],
+       "answer": 0,
+       "explain": "Bukhari 1968.",
+       "type": "mcq"
+      },
+      {
+       "id": "c1d",
+       "q": "What is the right step?",
+       "options": [
+        {
+         "text": "Treat the prayer as fixed, rest as a right, and seek help from a doctor or counsellor as well"
+        },
+        {
+         "text": "Pray more and avoid doctors",
+         "reteach": "The lesson says do both.",
+         "back": "limit"
+        },
+        {
+         "text": "Stop praying to save time",
+         "reteach": "No.",
+         "back": "rhythm"
+        }
+       ],
+       "answer": 0,
+       "explain": "Faith and help.",
+       "type": "scenario",
+       "scenario": "Reem is exhausted and cannot sleep. Someone tells her barakah will fix it."
+      }
+     ]
+    },
+    {
+     "id": "order",
+     "kind": "arrange",
+     "prompt": "Put the steps in order.",
+     "items": [
+      {
+       "text": "Choose one prayer",
+       "why": "The one squeezed most.",
+       "back": "protect"
+      },
+      {
+       "text": "Put it in the calendar",
+       "why": "Fix it.",
+       "back": "protect"
+      },
+      {
+       "text": "Tell the people who need to know",
+       "why": "Make room.",
+       "back": "protect"
+      },
+      {
+       "text": "Pray it on time",
+       "why": "Phone away.",
+       "back": "protect"
+      },
+      {
+       "text": "Notice the day",
+       "why": "Reflect.",
+       "back": "protect"
+      }
+     ],
+     "explain": "Choose, calendar, tell, pray, notice."
+    },
+    {
+     "id": "mm",
+     "kind": "match",
+     "prompt": "Match each text to its message. Tap one on the left, then its meaning on the right.",
+     "pairs": [
+      {
+       "left": {
+        "text": "Bukhari 1472"
+       },
+       "right": {
+        "text": "Wealth taken without greed is blessed"
+       },
+       "why": "Sweet fruit.",
+       "back": "fruit"
+      },
+      {
+       "left": {
+        "text": "Bukhari 2079"
+       },
+       "right": {
+        "text": "Honest deals are blessed"
+       },
+       "why": "Truth and clarity.",
+       "back": "truth"
+      },
+      {
+       "left": {
+        "text": "Qur’an 7:96"
+       },
+       "right": {
+        "text": "Blessings follow faith and taqwa"
+       },
+       "why": "Allah opens blessings.",
+       "back": "taqwa"
+      },
+      {
+       "left": {
+        "text": "Tirmidhi 1212 (graded sahih by al-Albani)"
+       },
+       "right": {
+        "text": "Blessing in the early hours"
+       },
+       "why": "Sakhr the trader.",
+       "back": "early"
+      },
+      {
+       "left": {
+        "text": "Bukhari 1968"
+       },
+       "right": {
+        "text": "Your body and family have a right"
+       },
+       "why": "Salman spoke the truth.",
+       "back": "salman"
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "kind": "check",
+     "items": [
+      {
+       "id": "c2a",
+       "q": "Does the lesson say barakah cures burnout?",
+       "options": [
+        {
+         "text": "Yes, always",
+         "reteach": "The lesson does not claim that.",
+         "back": "limit"
+        },
+        {
+         "text": "No. It says seek a doctor or counsellor as well"
+        },
+        {
+         "text": "It says nothing",
+         "reteach": "It addresses the claim.",
+         "back": "limit"
+        }
+       ],
+       "answer": 1,
+       "explain": "It does not claim that.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2b",
+       "q": "What does Tirmidhi 1212 (graded sahih by al-Albani) say about early hours?",
+       "options": [
+        {
+         "text": "Work should wait until noon",
+         "reteach": "No.",
+         "back": "early"
+        },
+        {
+         "text": "The Prophet ﷺ asked Allah to bless the community in what it does early in the day"
+        },
+        {
+         "text": "Night is best for trade",
+         "reteach": "No.",
+         "back": "early"
+        }
+       ],
+       "answer": 1,
+       "explain": "Tirmidhi 1212 (graded sahih by al-Albani).",
+       "type": "mcq"
+      },
+      {
+       "id": "c2c",
+       "q": "What is barakah in Bukhari 1472?",
+       "options": [
+        {
+         "text": "Having more",
+         "reteach": "No.",
+         "back": "fruit"
+        },
+        {
+         "text": "Being satisfied, not the amount"
+        },
+        {
+         "text": "Having nothing",
+         "reteach": "No.",
+         "back": "fruit"
+        }
+       ],
+       "answer": 1,
+       "explain": "Satisfaction.",
+       "type": "mcq"
+      },
+      {
+       "id": "c2d",
+       "q": "What does 62:10 join?",
+       "options": [
+        {
+         "text": "Seeking Allah’s bounty and remembering Allah often"
+        },
+        {
+         "text": "Fasting and silence",
+         "reteach": "No.",
+         "back": "rhythm"
+        },
+        {
+         "text": "Trade and gambling",
+         "reteach": "No.",
+         "back": "rhythm"
+        }
+       ],
+       "answer": 0,
+       "explain": "Qur’an 62:10.",
+       "type": "mcq"
+      }
+     ]
+    },
+    {
+     "id": "doit",
+     "kind": "doit",
+     "title": "Protect one prayer",
+     "body": "Open prayer times and put one prayer in your calendar as a fixed appointment this week.",
+     "route": "/prayer",
+     "button": "Open prayer times"
+    },
+    {
+     "id": "recap",
+     "kind": "recap",
+     "title": "What you can now do",
+     "canDo": [
+      "Say what Bukhari 1472 teaches about barakah.",
+      "Say what honest deals protect.",
+      "Say what Bukhari 1968 teaches about rest.",
+      "Choose one prayer to protect this week."
+     ],
+     "next": "You have finished the Transactions course."
+    }
+   ]
+  }
+ ]
+}
