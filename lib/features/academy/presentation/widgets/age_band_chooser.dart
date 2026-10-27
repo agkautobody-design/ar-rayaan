@@ -37,7 +37,7 @@ class _AgeBandChooserState extends ConsumerState<AgeBandChooser> {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
-        Text('Wasia’s words for ${widget.childName}', style: AppText.eyebrow.copyWith(fontSize: 11)),
+        Text('Wasia’s words for ${widget.childName}', style: AppText.eyebrow.copyWith(fontSize: 12)),
         const SizedBox(height: 4),
         Wrap(spacing: 8, children: <Widget>[
           for (final String b in FamilyService.ageBands)
@@ -54,7 +54,7 @@ class _AgeBandChooserState extends ConsumerState<AgeBandChooser> {
         ]),
         Text(
           'An age band, not an age. It only picks the words Wasia uses. It stays on this device.',
-          style: AppText.caption.copyWith(fontSize: 11),
+          style: AppText.caption.copyWith(fontSize: 12),
         ),
       ]),
     );

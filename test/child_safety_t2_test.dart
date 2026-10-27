@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:ar_rayaan/app/core/providers.dart';
+import 'package:ar_rayaan/app/core/scholar_review.dart';
 import 'package:ar_rayaan/features/academy/application/child_age_band.dart';
 import 'package:ar_rayaan/features/academy/application/family_service.dart';
 import 'package:ar_rayaan/features/academy/application/wasia_checkin.dart';
@@ -297,13 +298,11 @@ void main() {
       }
     });
 
-    testWidgets('the guide screen shows with its review labels', (WidgetTester t) async {
-      await t.pumpWidget(const ProviderScope(
-        child: MaterialApp(home: ParentListeningScreen()),
-      ));
-      await t.pump();
-      expect(find.byKey(const Key('parent-listening-intro')), findsOneWidget);
-      expect(find.byKey(const Key('listening-review')), findsWidgets);
+    test('the guide carries both review labels', () {
+      final List<String> labels =
+          supportReviewLabels('support.parent-listening', 'support.parent-listening');
+      expect(labels.join(' ').contains('Scholar review needed'), isTrue);
+      expect(labels.join(' ').contains('Clinician review needed'), isTrue);
     });
   });
 

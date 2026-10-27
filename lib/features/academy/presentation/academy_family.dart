@@ -78,7 +78,7 @@ class FamilyScreen extends ConsumerWidget {
                 style: AppText.caption,
               ),
               const SizedBox(height: 12),
-              Text('Wasia\u2019s words', style: AppText.eyebrow.copyWith(fontSize: 11)),
+              Text('Wasia\u2019s words', style: AppText.eyebrow.copyWith(fontSize: 12)),
               const SizedBox(height: 4),
               Wrap(spacing: 8, children: <Widget>[
                 for (final String b in FamilyService.ageBands)
@@ -92,7 +92,7 @@ class FamilyScreen extends ConsumerWidget {
               Text(
                 'Pick the band that fits. It is not an age. It only chooses the '
                 'words Wasia uses, and you can change it later.',
-                style: AppText.caption.copyWith(fontSize: 11),
+                style: AppText.caption.copyWith(fontSize: 12),
               ),
             ],
           ),
