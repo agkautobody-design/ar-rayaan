@@ -38,7 +38,7 @@ void main() {
   group('offline notice', () {
     testWidgets('shows while offline, can be hidden, returns on a new loss',
         (WidgetTester tester) async {
-      final StreamController<bool> events = StreamController<bool>.broadcast();
+      final StreamController<bool> events = StreamController<bool>.broadcast(sync: true);
       addTearDown(events.close);
       await tester.pumpWidget(
         MaterialApp(
@@ -262,7 +262,13 @@ void main() {
           child: MaterialApp(theme: AppTheme.dark(), home: const RamadanScreen()),
         ),
       );
-      await tester.pump(const Duration(milliseconds: 400));
+      // The season's daily texts load from the bundle: give them real time.
+      for (int i = 0; i < 10; i++) {
+        await tester.runAsync(
+          () => Future<void>.delayed(const Duration(milliseconds: 30)),
+        );
+        await tester.pump(const Duration(milliseconds: 100));
+      }
       return handle;
     }
 
@@ -298,6 +304,7 @@ void main() {
         (WidgetTester tester) async {
       final SemanticsHandle h = await pump(tester);
       final Finder cell = find.byKey(const Key('juz-5'));
+      await tester.scrollUntilVisible(cell, 300);
       expect(tester.getSize(cell), const Size(44, 44));
       expect(find.bySemanticsLabel('Juz 5, not completed'), findsOneWidget);
       await tester.tap(cell);
@@ -351,6 +358,7 @@ void main() {
         (WidgetTester tester) async {
       final SemanticsHandle h = await pump(tester);
       expect(find.textContaining('debts to Allah'), findsNothing);
+      await tester.scrollUntilVisible(find.textContaining('2:184'), 300);
       expect(find.textContaining('Qur’an 2:184'), findsOneWidget);
       h.dispose();
     });
