@@ -8,8 +8,10 @@
 ///    word for word in the story it names; the source shown is the story's
 ///    own source lines;
 ///  * Hadith questions are built from the bundled Forty Hadith of an-Nawawi
-///    only: the hadith text, its collection, its number and its grade WITH
-///    the person who gave it. A report with no named grader is not asked;
+///    only, using a hand-checked list of the Prophet's ﷺ own words
+///    (`assets/games/hadith_quiz.json`): the saying, its collection, its
+///    number and its grade WITH the person who gave it. A report with no
+///    named grader is not asked;
 ///  * Arabic Words use the 99 Names list and the 28-letter curriculum only:
 ///    words whose meaning is not sourced in the app (the large word deck) are
 ///    never used;
@@ -87,22 +89,31 @@ List<QuizQuestion> seerahPool(
 // Hadith Knowledge
 // ---------------------------------------------------------------------------
 
-final RegExp _quoteRe = RegExp('[“"]([^”"]+)[”"]');
-final RegExp _sentenceEnd = RegExp(r'[,;:.]$');
-
 /// A hadith of the Forty with what a question needs.
 class _H {
-  const _H(this.n, this.src, this.grade, this.quote, this.cut);
+  const _H(this.n, this.src, this.grade, this.said, this.head, this.askSource);
   final int n;
   final String src;
   final HadithGrade grade;
 
-  /// The Prophet's ﷺ words as the app prints them, 8 to 45 words.
-  final String quote;
+  /// The Prophet's ﷺ own words, copied from the Forty (never a Companion's
+  /// question), 4 to 50 words.
+  final String said;
 
-  /// Word index after which [quote] can be split for "finish the hadith",
-  /// or -1 when it has no natural break.
-  final int cut;
+  /// The first part of [said] shown in "finish the hadith", or null when the
+  /// saying has no clean break.
+  final String? head;
+
+  /// False when the collection an-Nawawi names was not confirmed against a
+  /// checked corpus, so "which collection" is not asked.
+  final bool askSource;
+
+  /// The words that follow [head], or null.
+  String? get tail {
+    final String? h = head;
+    if (h == null) return null;
+    return said.substring(h.length).trim();
+  }
 }
 
 const List<String> _collectionWords = <String>[
@@ -128,95 +139,117 @@ Set<String> _collectionsIn(String src) {
   };
 }
 
-int _count(String s, String ch) => ch.allMatches(s).length;
+String _squash(String s) => s.replaceAll(RegExp(r'\s+'), ' ').trim();
 
-List<_H> _hadithPool(List<Map<String, dynamic>> forty) {
+int _wordCount(String s) => _squash(s).split(' ').length;
+
+/// The hadith the quiz may ask about: every entry of the curated list
+/// (`assets/games/hadith_quiz.json`, its `items`) whose Forty entry has a
+/// source and a grade WITH a named grader, and whose saying is word for word
+/// inside that entry's English text. The saying is the Prophet's ﷺ own
+/// words, chosen by hand: the earlier version took the first quoted string,
+/// which was often a Companion's question.
+List<_H> _hadithPool(
+  List<Map<String, dynamic>> forty,
+  List<Map<String, dynamic>> curated,
+) {
+  final Map<int, Map<String, dynamic>> byN = <int, Map<String, dynamic>>{
+    for (final Map<String, dynamic> h in forty)
+      if (h['n'] is int) h['n'] as int: h,
+  };
   final List<_H> out = <_H>[];
-  for (final Map<String, dynamic> h in forty) {
-    final Object? n = h['n'];
+  for (final Map<String, dynamic> c in curated) {
+    final Object? n = c['n'];
+    final Object? said = c['said'];
+    if (n is! int || said is! String) continue;
+    final Map<String, dynamic>? h = byN[n];
+    if (h == null) continue;
     final Object? src = h['src'];
     final Object? en = h['en'];
-    if (n is! int || src is! String || en is! String) continue;
-    if (src.trim().isEmpty) continue;
+    if (src is! String || src.trim().isEmpty || en is! String) continue;
     final HadithGrade? grade = HadithGrade.fromJson(h);
     if (grade == null) continue;
-    String? quote;
-    for (final RegExpMatch m in _quoteRe.allMatches(en)) {
-      final String q = m.group(1)!.trim();
-      final int words = q.split(RegExp(r'\s+')).length;
-      if (words >= 8 && words <= 45) {
-        quote = q;
-        break;
-      }
+    if (!_squash(en).contains(_squash(said))) continue;
+    final Object? head = c['head'];
+    String? headText;
+    if (head is String &&
+        _squash(said).startsWith(_squash(head)) &&
+        _squash(said).length > _squash(head).length) {
+      headText = _squash(head);
     }
-    if (quote == null) continue;
-    final List<String> w = quote.split(RegExp(r'\s+'));
-    int cut = -1;
-    if (w.length >= 10) {
-      int best = 1 << 30;
-      for (int i = 3; i <= w.length - 4; i++) {
-        if (!_sentenceEnd.hasMatch(w[i])) continue;
-        final String head = w.sublist(0, i + 1).join(' ');
-        if (_count(head, '(') != _count(head, ')') ||
-            _count(head, '[') != _count(head, ']')) {
-          continue;
-        }
-        final int d = (i - w.length ~/ 2).abs();
-        if (d < best) {
-          best = d;
-          cut = i;
-        }
-      }
-    }
-    out.add(_H(n, src.trim(), grade, quote, cut));
+    out.add(_H(
+      n,
+      src.trim(),
+      grade,
+      _squash(said),
+      headText,
+      c['collection'] != false,
+    ));
   }
   return out;
 }
 
-/// How many Hadith Knowledge questions the Forty can supply.
-int hadithQuestionCount(List<Map<String, dynamic>> forty) {
-  final List<_H> pool = _hadithPool(forty);
-  return pool.length * 2 + pool.where((_H h) => h.cut >= 0).length;
+/// How many Hadith Knowledge questions the curated list can supply.
+int hadithQuestionCount(
+  List<Map<String, dynamic>> forty,
+  List<Map<String, dynamic>> curated,
+) {
+  final List<_H> pool = _hadithPool(forty, curated);
+  return pool.length +
+      pool.where((_H h) => h.askSource).length +
+      pool.where((_H h) => h.head != null).length;
 }
 
 String _hadithCite(_H h) =>
-    'Forty Hadith of Imam an-Nawawi, No. ${h.n} · ${h.src} · '
-    '${h.grade.label}';
+    'Forty Hadith of Imam an-Nawawi (42-hadith edition), No. ${h.n} · '
+    '${h.src} · ${h.grade.label}';
 
 String _hadithExplain(_H h, {required bool withWording}) {
   final StringBuffer b = StringBuffer()
     ..write('This is hadith ${h.n} in an-Nawawi’s Forty. ')
-    ..write('It is reported in ${h.src}. ')
-    ..write('The grade the app shows is ${h.grade.label}.');
-  if (withWording) b.write(' The wording: “${h.quote}”');
+    ..write('An-Nawawi names: ${h.src}. ')
+    ..write('The grade the app shows is ${h.grade.label}; later scholars '
+        'sometimes grade a report differently.');
+  if (withWording) b.write(' The wording: “${h.said}”');
   return b.toString();
 }
 
-/// Builds [count] questions from the bundled Forty (`assets/hadith/nawawi40.json`).
+/// Builds [count] questions from the curated list and the Forty.
 ///
-/// Three kinds: finish the hadith (the second half of the words), which
-/// collection reports it, and which number it has in the Forty. The wrong
-/// choices for "which collection" never name a collection that the right
-/// answer also names, so there is one right answer.
+/// Three kinds: finish the hadith (the second half of the Prophet's ﷺ words),
+/// which collection an-Nawawi names, and which number it has in the Forty.
+/// One right answer each: the wrong collections never share a collection
+/// with the right one, the wrong numbers are other hadith, and the wrong
+/// endings come from other hadith, with a different opening and a similar
+/// length, so no ending can also be a true ending of this hadith.
 List<QuizQuestion> buildHadithQuiz(
   List<Map<String, dynamic>> forty,
+  List<Map<String, dynamic>> curated,
   Random rnd, {
   required int count,
 }) {
-  final List<_H> pool = _hadithPool(forty);
+  final List<_H> pool = _hadithPool(forty, curated);
   if (pool.length < 5) return <QuizQuestion>[];
   final List<QuizQuestion> all = <QuizQuestion>[];
   final List<_H> finishable = <_H>[
     for (final _H h in pool)
-      if (h.cut >= 0) h,
+      if (h.head != null) h,
+  ];
+  final List<_H> sourced = <_H>[
+    for (final _H h in pool)
+      if (h.askSource) h,
   ];
   for (final _H h in pool) {
-    all.add(_collectionQuestion(h, pool, rnd));
+    if (h.askSource && sourced.length >= 4) {
+      final QuizQuestion? q = _collectionQuestion(h, sourced, rnd);
+      if (q != null) all.add(q);
+    }
     all.add(_numberQuestion(h, pool, rnd));
   }
   if (finishable.length >= 4) {
     for (final _H h in finishable) {
-      all.add(_finishQuestion(h, finishable, rnd));
+      final QuizQuestion? q = _finishQuestion(h, finishable, rnd);
+      if (q != null) all.add(q);
     }
   }
   // One question of each hadith first, so a short game does not repeat one.
@@ -231,20 +264,20 @@ List<QuizQuestion> buildHadithQuiz(
   return <QuizQuestion>[...first, ...rest].take(count).toList();
 }
 
-QuizQuestion _collectionQuestion(_H h, List<_H> pool, Random rnd) {
+QuizQuestion? _collectionQuestion(_H h, List<_H> pool, Random rnd) {
   final Set<String> mine = _collectionsIn(h.src);
   final List<String> others = <String>{
     for (final _H o in pool)
-      if (_collectionsIn(o.src).intersection(mine).isEmpty &&
-          o.src != h.src)
+      if (_collectionsIn(o.src).intersection(mine).isEmpty && o.src != h.src)
         o.src,
   }.toList()
     ..shuffle(rnd);
+  if (others.length < 3) return null;
   final List<String> options = <String>[h.src, ...others.take(3)]
     ..shuffle(rnd);
   return QuizQuestion(
     id: 'hk-c-${h.n}',
-    prompt: '“${h.quote}”\n\nWhich collection does an-Nawawi name for this '
+    prompt: '“${h.said}”\n\nWhich collection does an-Nawawi name for this '
         'hadith?',
     options: options,
     answer: options.indexOf(h.src),
@@ -262,7 +295,7 @@ QuizQuestion _numberQuestion(_H h, List<_H> pool, Random rnd) {
   final List<int> nums = <int>[h.n, ...others.take(3)]..sort();
   return QuizQuestion(
     id: 'hk-n-${h.n}',
-    prompt: '“${h.quote}”\n\nWhich number does this hadith have in an-Nawawi’s '
+    prompt: '“${h.said}”\n\nWhich number does this hadith have in an-Nawawi’s '
         'Forty?',
     options: <String>[for (final int n in nums) 'Hadith $n'],
     answer: nums.indexOf(h.n),
@@ -272,19 +305,33 @@ QuizQuestion _numberQuestion(_H h, List<_H> pool, Random rnd) {
   );
 }
 
-QuizQuestion _finishQuestion(_H h, List<_H> finishable, Random rnd) {
-  final List<String> w = h.quote.split(RegExp(r'\s+'));
-  final String head = w.sublist(0, h.cut + 1).join(' ');
-  final String tail = w.sublist(h.cut + 1).join(' ');
-  final List<String> others = <String>[
+String _opening(String s) {
+  final List<String> w = _squash(s).toLowerCase().split(' ');
+  return w.take(2).join(' ');
+}
+
+QuizQuestion? _finishQuestion(_H h, List<_H> finishable, Random rnd) {
+  final String head = h.head!;
+  final String tail = h.tail!;
+  final int want = _wordCount(tail);
+  final List<_H> cand = <_H>[
     for (final _H o in finishable)
-      if (o.n != h.n)
-        o.quote
-            .split(RegExp(r'\s+'))
-            .sublist(o.cut + 1)
-            .join(' '),
+      if (o.n != h.n && _opening(o.tail!) != _opening(tail)) o,
   ]..shuffle(rnd);
-  final List<String> options = <String>[tail, ...others.take(3)]..shuffle(rnd);
+  // The closest lengths first, so the longest ending is not the answer.
+  cand.sort((_H a, _H b) => (_wordCount(a.tail!) - want)
+      .abs()
+      .compareTo((_wordCount(b.tail!) - want).abs()));
+  final List<String> wrong = <String>[];
+  final Set<String> openings = <String>{_opening(tail)};
+  for (final _H o in cand.take(10)) {
+    final String t = o.tail!;
+    if (!openings.add(_opening(t))) continue;
+    wrong.add(t);
+    if (wrong.length == 3) break;
+  }
+  if (wrong.length < 3) return null;
+  final List<String> options = <String>[tail, ...wrong]..shuffle(rnd);
   return QuizQuestion(
     id: 'hk-f-${h.n}',
     prompt: '“$head …”\n\nHow does the hadith go on?',

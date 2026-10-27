@@ -41,3 +41,19 @@ Needs (a) the schematic map art (Makkah, Mina, Arafat, Muzdalifah, Jamarat; no p
 ## Art for the learning games
 
 The art system is in `docs/content_needed/GAMES_ART_NEEDED.md` (slots in `lib/features/games/ui/games_art.dart`, files in `assets/games/art/`, rebuilt by `tool/crop_game_art.py`). The designs have no clean text-free crop for the boards of these games, so seven fallback slots were added (`seerahTimelineBoard`, `prophetsOrderBoard`, `wuduStepsBoard`, `salahStepsBoard`, `wordSearchGrid`, `scrambleTile`, `hajjMap`). Each screen draws the same theme in code until the file exists. Seerah Challenge, Hadith Knowledge and Arabic Words use the existing `gameSeerahChallenge`, `gameHadith` and `gameArabicWords` pictures. The export sizes are in the art file.
+
+## 2026-10-27 games content accuracy pass
+
+- Stories Trivia is now 310 questions; every one has a `source` and `claims`
+  (verse ref plus quoted words, or a Bukhari/Muslim number) and is tested in
+  `test/games/content_accuracy_test.dart`. Unsourced questions were dropped.
+- The 99 Names data has `kind` (name, related, list); verbs and descriptions
+  are no longer shown as the Name itself.
+- Hadith Knowledge uses `assets/games/hadith_quiz.json` (36 items), only words
+  of the Prophet ﷺ, no Companion questions.
+- Seerah Challenge: 72 questions, each with evidence in its story.
+
+For scholar review (not claims of the app): the 99 meanings and the Names
+classification; Zayd as the Companion named in 33:37; the Spirit in 97:4 as
+Jibril; Quba as the mosque of 9:108; Khadijah/Sarah/Asiya naming where the
+Qur'an says only "the wife of".
