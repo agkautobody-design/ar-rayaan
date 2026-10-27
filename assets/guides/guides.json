@@ -32,7 +32,142 @@
    "why": "Prayer is a meeting, not a performance: each position carries a meaning — standing in awe, bowing in humility, prostration in nearness (Muslim 482: the nearest a servant comes to his Lord is when he is prostrating, so make much supplication).",
    "evidence": "Bukhari 757 (the man who prayed badly) and Bukhari 828 (Abu Humayd's description of the Prophet's ﷺ prayer) are the two fullest descriptions; the steps above follow them.",
    "commonMistakes": "Rushing; looking around; reciting the words without knowing what they mean; treating wudu as a formality rather than the threshold of the meeting. Do not wait to be perfect before you pray: pray now, and learn the words as you go."
-  }
+  },
+  "recitations": [
+   {
+    "when": "To begin the prayer",
+    "kind": "hadith",
+    "arabic": "اللَّهُ أَكْبَرُ",
+    "translit": "Allaahu akbar",
+    "meaning": "Allah is the Greatest.",
+    "sources": [
+     "Muslim 379 (the words, in the adhan)",
+     "Abu Dawud 61 (graded hasan sahih by al-Albani): the prayer is entered by takbir"
+    ],
+    "status": "verified",
+    "phraseId": "takbir",
+    "needsScholarReview": true
+   },
+   {
+    "when": "In every rak’ah, standing",
+    "kind": "quran",
+    "arabic": "بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ\nٱلۡحَمۡدُ لِلَّهِ رَبِّ ٱلۡعَٰلَمِينَ\nٱلرَّحۡمَٰنِ ٱلرَّحِيمِ\nمَٰلِكِ يَوۡمِ ٱلدِّينِ\nإِيَّاكَ نَعۡبُدُ وَإِيَّاكَ نَسۡتَعِينُ\nٱهۡدِنَا ٱلصِّرَٰطَ ٱلۡمُسۡتَقِيمَ\nصِرَٰطَ ٱلَّذِينَ أَنۡعَمۡتَ عَلَيۡهِمۡ غَيۡرِ ٱلۡمَغۡضُوبِ عَلَيۡهِمۡ وَلَا ٱلضَّآلِّينَ",
+    "translit": "Bismillaahir-Rahmaanir-Raheem Al-hamdu lillaahi Rabbil-'aalameen Ar-Rahmaanir-Raheem Maaliki Yawmid-Deen Iyyaaka na'budu wa iyyaaka nasta'een Ihdinas-siraatal-mustaqeem Siraatal-lazeena an'amta 'alayhim, ghayril-maghdoobi 'alayhim wa lad-daaalleen",
+    "meaning": "In the name of Allah, the Entirely Merciful, the Especially Merciful. [All] praise is [due] to Allah, Lord of the worlds - The Entirely Merciful, the Especially Merciful, Sovereign of the Day of Recompense. It is You we worship and You we ask for help. Guide us to the straight path - The path of those upon whom You have bestowed favor, not of those who have evoked [Your] anger or of those who are astray.",
+    "sources": [
+     "Qur'an 1:1-7 (Al-Fatihah); the Prophet said there is no prayer for the one who does not recite it (Bukhari 756)"
+    ],
+    "status": "verified",
+    "ref": "1:1-7",
+    "needsScholarReview": true
+   },
+   {
+    "when": "After the Fatihah, said by the imam and the one praying behind",
+    "kind": "hadith",
+    "arabic": "آمِينَ",
+    "translit": "Aameen",
+    "meaning": "O Allah, answer (our prayer).",
+    "sources": [
+     "Bukhari 780"
+    ],
+    "status": "verified",
+    "phraseId": "amin",
+    "needsScholarReview": true
+   },
+   {
+    "when": "In ruku’ (bowing)",
+    "kind": "hadith",
+    "arabic": "سُبْحَانَ رَبِّيَ الْعَظِيمِ",
+    "translit": "Subhaana Rabbiyal-'Azeem",
+    "meaning": "Glory be to my Lord, the Magnificent.",
+    "sources": [
+     "Muslim 772"
+    ],
+    "status": "verified",
+    "phraseId": "ruku.tasbih",
+    "needsScholarReview": true
+   },
+   {
+    "when": "Rising from ruku’",
+    "kind": "hadith",
+    "arabic": "سَمِعَ اللَّهُ لِمَنْ حَمِدَهُ رَبَّنَا وَلَكَ الْحَمْدُ",
+    "translit": "Sami'al-laahu liman hamidah. Rabbanaa wa lakal-hamd",
+    "meaning": "Allah hears the one who praises Him. Our Lord, and to You belongs all praise.",
+    "sources": [
+     "Bukhari 689"
+    ],
+    "status": "verified",
+    "phraseId": "rise",
+    "needsScholarReview": true
+   },
+   {
+    "when": "In sujud (prostration)",
+    "kind": "hadith",
+    "arabic": "سُبْحَانَ رَبِّيَ الأَعْلَى",
+    "translit": "Subhaana Rabbiyal-A'laa",
+    "meaning": "Glory be to my Lord, the Most High.",
+    "sources": [
+     "Muslim 772"
+    ],
+    "status": "verified",
+    "phraseId": "sujud.tasbih",
+    "needsScholarReview": true
+   },
+   {
+    "when": "Sitting between the two prostrations",
+    "kind": "hadith",
+    "arabic": "رَبِّ اغْفِرْ لِي",
+    "translit": "Rabbigh-fir lee",
+    "meaning": "My Lord, forgive me.",
+    "sources": [
+     "Abu Dawud 874 (graded sahih by al-Albani)"
+    ],
+    "status": "verified",
+    "phraseId": "between.rabbighfir",
+    "needsScholarReview": true
+   },
+   {
+    "when": "In the sitting, the tashahhud",
+    "kind": "hadith",
+    "arabic": "التَّحِيَّاتُ لِلَّهِ وَالصَّلَوَاتُ وَالطَّيِّبَاتُ السَّلاَمُ عَلَيْكَ أَيُّهَا النَّبِيُّ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ السَّلاَمُ عَلَيْنَا وَعَلَى عِبَادِ اللَّهِ الصَّالِحِينَ أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ اللَّهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ",
+    "translit": "At-tahiyyaatu lillaahi was-salawaatu wat-tayyibaat. As-salaamu 'alayka ayyuhan-Nabiyyu wa rahmatul-laahi wa barakaatuh. As-salaamu 'alaynaa wa 'alaa 'ibaadil-laahis-saaliheen. Ash-hadu al-laa ilaaha illal-laah, wa ash-hadu anna Muhammadan 'abduhu wa rasooluh.",
+    "meaning": "All greetings, prayers and good things belong to Allah. Peace be upon you, O Prophet, and the mercy of Allah and His blessings. Peace be upon us and upon the righteous servants of Allah. I bear witness that there is no god but Allah, and I bear witness that Muhammad is His servant and His Messenger.",
+    "sources": [
+     "Bukhari 831",
+     "Muslim 403 (Ibn Abbas teaches another authentic wording)"
+    ],
+    "status": "verified",
+    "phraseId": "tashahhud",
+    "needsScholarReview": true
+   },
+   {
+    "when": "After the tashahhud in the last sitting",
+    "kind": "hadith",
+    "arabic": "اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ اللَّهُمَّ بَارِكْ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ كَمَا بَارَكْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ إِنَّكَ حَمِيدٌ مَجِيدٌ",
+    "translit": "Allaahumma salli 'alaa Muhammadin wa 'alaa aali Muhammad, kamaa sallayta 'alaa Ibraaheema wa 'alaa aali Ibraaheem, innaka Hameedun Majeed. Allaahumma baarik 'alaa Muhammadin wa 'alaa aali Muhammad, kamaa baarakta 'alaa Ibraaheema wa 'alaa aali Ibraaheem, innaka Hameedun Majeed.",
+    "meaning": "O Allah, send prayers upon Muhammad and upon the family of Muhammad, as You sent prayers upon Ibrahim and upon the family of Ibrahim. You are Praiseworthy, Glorious. O Allah, bless Muhammad and the family of Muhammad, as You blessed Ibrahim and the family of Ibrahim. You are Praiseworthy, Glorious.",
+    "sources": [
+     "Bukhari 3370",
+     "Muslim 406 (another wording of the same teaching)"
+    ],
+    "status": "verified",
+    "phraseId": "salawat",
+    "needsScholarReview": true
+   },
+   {
+    "when": "To end the prayer, turning right then left",
+    "kind": "hadith",
+    "arabic": "السَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ",
+    "translit": "As-salaamu 'alaykum wa rahmatul-laah",
+    "meaning": "Peace be upon you, and the mercy of Allah.",
+    "sources": [
+     "Abu Dawud 996 (graded sahih by al-Albani)"
+    ],
+    "status": "verified",
+    "phraseId": "salam",
+    "needsScholarReview": true
+   }
+  ]
  },
  {
   "id": "huda-prayer-times",
@@ -178,7 +313,36 @@
    "why": "Wudu is the threshold of the prayer: a small washing that tells the heart a meeting is about to begin.",
    "evidence": "Each step carries its own source; the full list is under Sources.",
    "commonMistakes": "Wasting water; missing the heels and between the toes; leaving dry patches under a watch, a ring or nail varnish that stops water reaching the nail."
-  }
+  },
+  "recitations": [
+   {
+    "when": "At the start of wudu",
+    "kind": "hadith",
+    "arabic": "بِسْمِ اللَّهِ",
+    "translit": "Bismil-laah",
+    "meaning": "In the name of Allah.",
+    "sources": [
+     "Nasa'i 78 (graded sahih isnad by al-Albani)",
+     "Abu Dawud 101 (graded sahih by al-Albani)"
+    ],
+    "status": "verified",
+    "phraseId": "wudu.bismillah",
+    "needsScholarReview": true
+   },
+   {
+    "when": "After finishing wudu",
+    "kind": "hadith",
+    "arabic": "أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ",
+    "translit": "Ash-hadu al-laa ilaaha illal-laahu wahdahu laa shareeka lah, wa ash-hadu anna Muhammadan 'abduhu wa rasooluh",
+    "meaning": "I bear witness that there is no god but Allah alone, with no partner, and I bear witness that Muhammad is His servant and His Messenger.",
+    "sources": [
+     "Muslim 234"
+    ],
+    "status": "verified",
+    "phraseId": "wudu.dua",
+    "needsScholarReview": true
+   }
+  ]
  },
  {
   "id": "huda-ghusl",
@@ -323,7 +487,45 @@
    "why": "The adhan announces the time, calls people to the prayer and declares the testimony of faith aloud five times a day over a town.",
    "evidence": "The wording and the replies above are from Muslim, Bukhari, Abu Dawud and Nasa'i; the numbers are in Sources.",
    "commonMistakes": "Answering Hayya 'alas-salah with the same words instead of La hawla wa la quwwata illa billah; leaving the mosque after the call."
-  }
+  },
+  "recitations": [
+   {
+    "when": "The adhan, as taught to Abdullah ibn Zayd",
+    "kind": "hadith",
+    "arabic": "اللَّهُ أَكْبَرُ اللَّهُ أَكْبَرُ اللَّهُ أَكْبَرُ اللَّهُ أَكْبَرُ أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ اللَّهُ أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ اللَّهُ أَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ اللَّهِ أَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ اللَّهِ حَىَّ عَلَى الصَّلاَةِ حَىَّ عَلَى الصَّلاَةِ حَىَّ عَلَى الْفَلاَحِ حَىَّ عَلَى الْفَلاَحِ اللَّهُ أَكْبَرُ اللَّهُ أَكْبَرُ لاَ إِلَهَ إِلاَّ اللَّهُ",
+    "translit": "Allaahu akbar, Allaahu akbar, Allaahu akbar, Allaahu akbar. Ash-hadu al-laa ilaaha illal-laah, ash-hadu al-laa ilaaha illal-laah. Ash-hadu anna Muhammadar-rasoolul-laah, ash-hadu anna Muhammadar-rasoolul-laah. Hayya 'alas-salaah, hayya 'alas-salaah. Hayya 'alal-falaah, hayya 'alal-falaah. Allaahu akbar, Allaahu akbar. Laa ilaaha illal-laah.",
+    "meaning": "Allah is the Greatest (four times). I bear witness that there is no god but Allah (twice). I bear witness that Muhammad is the Messenger of Allah (twice). Come to the prayer (twice). Come to success (twice). Allah is the Greatest (twice). There is no god but Allah.",
+    "sources": [
+     "Abu Dawud 499 (hasan sahih per al-Albani); the Prophet said of it: it is a true vision, if Allah wills"
+    ],
+    "status": "verified",
+    "needsScholarReview": true
+   },
+   {
+    "when": "The iqamah, called when the prayer is about to begin",
+    "kind": "hadith",
+    "arabic": "اللَّهُ أَكْبَرُ اللَّهُ أَكْبَرُ أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ اللَّهُ أَشْهَدُ أَنَّ مُحَمَّدًا رَسُولُ اللَّهِ حَىَّ عَلَى الصَّلاَةِ حَىَّ عَلَى الْفَلاَحِ قَدْ قَامَتِ الصَّلاَةُ قَدْ قَامَتِ الصَّلاَةُ اللَّهُ أَكْبَرُ اللَّهُ أَكْبَرُ لاَ إِلَهَ إِلاَّ اللَّهُ",
+    "translit": "Allaahu akbar, Allaahu akbar. Ash-hadu al-laa ilaaha illal-laah. Ash-hadu anna Muhammadar-rasoolul-laah. Hayya 'alas-salaah. Hayya 'alal-falaah. Qad qaamatis-salaah, qad qaamatis-salaah. Allaahu akbar, Allaahu akbar. Laa ilaaha illal-laah.",
+    "meaning": "Allah is the Greatest (twice). I bear witness that there is no god but Allah. I bear witness that Muhammad is the Messenger of Allah. Come to the prayer. Come to success. The prayer has been established (twice). Allah is the Greatest (twice). There is no god but Allah.",
+    "sources": [
+     "Abu Dawud 499 (hasan sahih per al-Albani)"
+    ],
+    "status": "verified",
+    "needsScholarReview": true
+   },
+   {
+    "when": "After hearing the adhan, send blessings and say",
+    "kind": "hadith",
+    "arabic": "اللَّهُمَّ رَبَّ هَذِهِ الدَّعْوَةِ التَّامَّةِ وَالصَّلاَةِ الْقَائِمَةِ آتِ مُحَمَّدًا الْوَسِيلَةَ وَالْفَضِيلَةَ وَابْعَثْهُ مَقَامًا مَحْمُودًا الَّذِي وَعَدْتَهُ",
+    "translit": "Allaahumma Rabba haadhihid-da'watit-taammah, was-salaatil-qaa'imah, aati Muhammadanil-waseelata wal-fadeelah, wab'athhu maqaamam-mahmoodanil-ladhee wa'adtah.",
+    "meaning": "O Allah, Lord of this perfect call and of the prayer that is about to be established, give Muhammad the means of approach and the excellence, and raise him to the praised station that You have promised him.",
+    "sources": [
+     "Bukhari 614"
+    ],
+    "status": "verified",
+    "needsScholarReview": true
+   }
+  ]
  },
  {
   "id": "huda-jumuah",
@@ -388,7 +590,25 @@
    "why": "Eid is gratitude made visible: fasting ends, the community prays together in the open, and everyone eats.",
    "evidence": "The numbers for the prayer and the takbirs are from Muslim, Bukhari and Abu Dawud as listed.",
    "commonMistakes": "Fasting on Eid; missing the zakat al-Fitr deadline; treating the greeting as obligatory; praying a sunnah before the Eid prayer at the prayer ground."
-  }
+  },
+  "recitations": [
+   {
+    "when": "The takbir of Eid",
+    "kind": "hadith",
+    "status": "unverified",
+    "meaning": "The takbir is said in the days of Eid; the Prophet’s own words for it are not given here.",
+    "note": "The exact wording and its chain were not verified against a primary text in this audit, so no Arabic is shown. Ask your imam for the wording of your school.",
+    "sources": []
+   },
+   {
+    "when": "The Eid greeting (for example “Taqabbal Allahu minna wa minkum”)",
+    "kind": "hadith",
+    "status": "unverified",
+    "meaning": "A wish that Allah accept our worship and yours.",
+    "note": "No hadith number for this greeting was verified, so it is not presented as a text of the Sunnah and no Arabic is shown.",
+    "sources": []
+   }
+  ]
  },
  {
   "id": "huda-udhiyah",
@@ -421,7 +641,22 @@
    "why": "Udhiyah recalls Ibrahim's obedience; what reaches Allah is the piety of the one who sacrifices.",
    "evidence": "Bukhari 5545 and Muslim 1963 are the sources for the timing and the age; the Nasa'i report in the sources gives the defects.",
    "commonMistakes": "Slaughtering before the Eid prayer; selling any part; sharpening the knife in front of the animal; cutting the hair in the first days of Dhul-Hijjah by someone who intends to sacrifice."
-  }
+  },
+  "recitations": [
+   {
+    "when": "At the sacrifice, as the Prophet said when he sacrificed",
+    "kind": "hadith",
+    "arabic": "بِاسْمِ اللَّهِ اللَّهُمَّ تَقَبَّلْ مِنْ مُحَمَّدٍ وَآلِ مُحَمَّدٍ وَمِنْ أُمَّةِ مُحَمَّدٍ",
+    "translit": "Bismillaah, Allaahumma taqabbal min Muhammadin wa aali Muhammadin wa min ummati Muhammad.",
+    "meaning": "In the name of Allah. O Allah, accept this from Muhammad, the family of Muhammad and the community of Muhammad.",
+    "sources": [
+     "Muslim 1967"
+    ],
+    "status": "verified",
+    "note": "This is what the Prophet said over his own sacrifice. He is also reported to have said Bismillah and Allahu akbar as he slaughtered (Bukhari 5558). Ask your imam how you should say it over your own animal.",
+    "needsScholarReview": true
+   }
+  ]
  },
  {
   "id": "huda-qada",
@@ -505,7 +740,33 @@
    "why": "The mosque is where Muslims gather for prayer; its manners protect the worship of those inside.",
    "evidence": "Muslim 713 gives the entering and leaving supplication; the other reports are from Bukhari and Abu Dawud.",
    "commonMistakes": "Sitting down without the two rak'ahs; talking loudly or using the phone aloud; walking in front of someone praying; coming with the smell of raw onion or garlic."
-  }
+  },
+  "recitations": [
+   {
+    "when": "Entering the mosque",
+    "kind": "hadith",
+    "arabic": "اللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ",
+    "translit": "Allaahum-maftah lee abwaaba rahmatik.",
+    "meaning": "O Allah, open for me the doors of Your mercy.",
+    "sources": [
+     "Muslim 713"
+    ],
+    "status": "verified",
+    "needsScholarReview": true
+   },
+   {
+    "when": "Leaving the mosque",
+    "kind": "hadith",
+    "arabic": "اللَّهُمَّ إِنِّي أَسْأَلُكَ مِنْ فَضْلِكَ",
+    "translit": "Allaahumma innee as'aluka min fadlik.",
+    "meaning": "O Allah, I ask You of Your bounty.",
+    "sources": [
+     "Muslim 713"
+    ],
+    "status": "verified",
+    "needsScholarReview": true
+   }
+  ]
  },
  {
   "id": "huda-home",
@@ -591,7 +852,22 @@
    "why": "The funeral prayer is made of supplication: its whole purpose is to ask Allah's forgiveness and mercy for the one who has died.",
    "evidence": "Bukhari 1245 and Muslim 951 give the four takbirs; Muslim 963 and the Abu Dawud report in the sources give the supplications.",
    "commonMistakes": "Praying with ruku' or sujud; forgetting that the wording of the supplication changes for a child or a woman (ask a teacher); leaving before the prayer when the rows are forming."
-  }
+  },
+  "recitations": [
+   {
+    "when": "The dua for the deceased, after the third takbir",
+    "kind": "hadith",
+    "arabic": "اللَّهُمَّ اغْفِرْ لَهُ وَارْحَمْهُ وَعَافِهِ وَاعْفُ عَنْهُ وَأَكْرِمْ نُزُلَهُ وَوَسِّعْ مُدْخَلَهُ وَاغْسِلْهُ بِالْمَاءِ وَالثَّلْجِ وَالْبَرَدِ وَنَقِّهِ مِنَ الْخَطَايَا كَمَا نَقَّيْتَ الثَّوْبَ الأَبْيَضَ مِنَ الدَّنَسِ وَأَبْدِلْهُ دَارًا خَيْرًا مِنْ دَارِهِ وَأَهْلاً خَيْرًا مِنْ أَهْلِهِ وَزَوْجًا خَيْرًا مِنْ زَوْجِهِ وَأَدْخِلْهُ الْجَنَّةَ وَأَعِذْهُ مِنْ عَذَابِ الْقَبْرِ أَوْ مِنْ عَذَابِ النَّارِ",
+    "translit": "Allaahum-maghfir lahu warhamhu wa 'aafihi wa'fu 'anhu, wa akrim nuzulahu wa wassi' mudkhalahu, waghsilhu bil-maa'i wath-thalji wal-barad, wa naqqihi minal-khataayaa kamaa naqqaytath-thawbal-abyada minad-danas, wa abdilhu daaran khayran min daarih, wa ahlan khayran min ahlih, wa zawjan khayran min zawjih, wa adkhilhul-jannah, wa a'idhhu min 'adhaabil-qabri aw min 'adhaabin-naar.",
+    "meaning": "O Allah, forgive him and have mercy on him, give him well-being and pardon him; honor his place of rest and make his entrance wide; wash him with water, snow and hail; cleanse him of sins as a white garment is cleansed of dirt; give him a home better than his home, a family better than his family and a spouse better than his spouse; admit him to Paradise and protect him from the punishment of the grave, or of the Fire.",
+    "sources": [
+     "Muslim 963 (Awf ibn Malik)"
+    ],
+    "status": "verified",
+    "note": "For a woman or a group, the pronouns change (for example \"laha\", \"lahum\"); ask your imam.",
+    "needsScholarReview": true
+   }
+  ]
  },
  {
   "id": "huda-janazah-burial",
@@ -623,7 +899,21 @@
    "why": "Burial is quick, simple and carried out by the living for the dead; the visit to graves keeps the Hereafter in mind.",
    "evidence": "Each ruling above is from the cited hadith; the scholars' differences are in the note.",
    "commonMistakes": "Delaying the burial for convenience; raising a loud wail; building over a grave; asking the dead for help instead of asking Allah for the dead."
-  }
+  },
+  "recitations": [
+   {
+    "when": "When placing the deceased in the grave",
+    "kind": "hadith",
+    "arabic": "بِسْمِ اللَّهِ وَعَلَى سُنَّةِ رَسُولِ اللَّهِ",
+    "translit": "Bismillaahi wa 'alaa sunnati rasoolil-laah.",
+    "meaning": "In the name of Allah and upon the way of the Messenger of Allah.",
+    "sources": [
+     "Abu Dawud 3213 (sahih per al-Albani)"
+    ],
+    "status": "verified",
+    "needsScholarReview": true
+   }
+  ]
  },
  {
   "id": "huda-condolence",
@@ -651,7 +941,34 @@
    "why": "Condolence is for the living: it steadies the bereaved and reminds them that Allah is the One who gives and takes.",
    "evidence": "Bukhari 1284 gives the Prophet's own words of condolence; Muslim 918 gives the du'a of the bereaved.",
    "commonMistakes": "Saying 'it was his time' coldly; telling someone not to cry; forgetting the family afterwards, when the visitors have gone."
-  }
+  },
+  "recitations": [
+   {
+    "when": "The dua taught by Umm Salamah’s hadith, after a calamity",
+    "kind": "hadith",
+    "arabic": "إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ اللَّهُمَّ أْجُرْنِي فِي مُصِيبَتِي وَأَخْلِفْ لِي خَيْرًا مِنْهَا",
+    "translit": "Innaa lillaahi wa innaa ilayhi raaji'oon. Allaahumma-jurnee fee museebatee wa akhlif lee khayran minhaa.",
+    "meaning": "We belong to Allah and to Him we return. O Allah, reward me in my calamity and replace it for me with something better.",
+    "sources": [
+     "Muslim 918"
+    ],
+    "status": "verified",
+    "needsScholarReview": true
+   },
+   {
+    "when": "When a calamity strikes, or to a bereaved person",
+    "kind": "quran",
+    "arabic": "ٱلَّذِينَ إِذَآ أَصَٰبَتۡهُم مُّصِيبَةٞ قَالُوٓاْ إِنَّا لِلَّهِ وَإِنَّآ إِلَيۡهِ رَٰجِعُونَ",
+    "translit": "Innaa lillaahi wa innaa ilayhi raaji'oon.",
+    "meaning": "Who, when disaster strikes them, say, \"Indeed we belong to Allah, and indeed to Him we will return.\"",
+    "sources": [
+     "Qur’an 2:156; Muslim 918 (the Prophet taught saying it with a dua)"
+    ],
+    "status": "verified",
+    "ref": "2:156",
+    "needsScholarReview": true
+   }
+  ]
  },
  {
   "id": "huda-food",
@@ -678,7 +995,33 @@
    "why": "Eating is an act that Allah has made a means of worship when it begins with His name and ends with His praise.",
    "evidence": "Each manner above is a quoted hadith; the wording of the closing dua is from Bukhari 5458.",
    "commonMistakes": "Eating until full as a habit; eating with the left hand without need; forgetting Bismillah and not saying the dua for forgetting."
-  }
+  },
+  "recitations": [
+   {
+    "when": "If you forgot Bismillah at the start of the meal",
+    "kind": "hadith",
+    "arabic": "بِسْمِ اللَّهِ أَوَّلَهُ وَآخِرَهُ",
+    "translit": "Bismillaahi awwalahu wa aakhirah.",
+    "meaning": "In the name of Allah at its beginning and at its end.",
+    "sources": [
+     "Abu Dawud 3767 (sahih per al-Albani)"
+    ],
+    "status": "verified",
+    "needsScholarReview": true
+   },
+   {
+    "when": "When the meal is finished",
+    "kind": "hadith",
+    "arabic": "الْحَمْدُ لِلَّهِ كَثِيرًا طَيِّبًا مُبَارَكًا فِيهِ غَيْرَ مَكْفِيٍّ وَلاَ مُوَدَّعٍ وَلاَ مُسْتَغْنًى عَنْهُ رَبَّنَا",
+    "translit": "Al-hamdu lillaahi katheeran tayyiban mubaarakan feeh, ghayra makfiyyin wa laa muwadda'in wa laa mustaghnan 'anhu, Rabbanaa.",
+    "meaning": "Praise be to Allah, abundant, good and blessed praise; not a farewell to it nor in disregard of it, nor can we do without it, our Lord.",
+    "sources": [
+     "Bukhari 5458"
+    ],
+    "status": "verified",
+    "needsScholarReview": true
+   }
+  ]
  },
  {
   "id": "huda-halal-food",
@@ -734,7 +1077,85 @@
    "why": "Sleep is a small death; the Prophet taught that the day should end, like it begins, in the remembrance of Allah.",
    "evidence": "Bukhari 247 and 6324 give the sleep duas; Bukhari 5017 the recitation and wiping; Bukhari 2311 Ayat al-Kursi.",
    "commonMistakes": "Sleeping without wudu or any dhikr; treating Ayat al-Kursi as a charm without understanding it."
-  }
+  },
+  "recitations": [
+   {
+    "when": "When lying down to sleep",
+    "kind": "hadith",
+    "arabic": "بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا",
+    "translit": "Bismika Allaahumma amootu wa ahyaa.",
+    "meaning": "With Your name, O Allah, I die and I live.",
+    "sources": [
+     "Bukhari 6324"
+    ],
+    "status": "verified",
+    "needsScholarReview": true
+   },
+   {
+    "when": "On waking",
+    "kind": "hadith",
+    "arabic": "الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ",
+    "translit": "Al-hamdu lillaahil-ladhee ahyaanaa ba'da maa amaatanaa wa ilayhin-nushoor.",
+    "meaning": "All praise is for Allah who gave us life after He made us die, and to Him is the resurrection.",
+    "sources": [
+     "Bukhari 6324"
+    ],
+    "status": "verified",
+    "needsScholarReview": true
+   },
+   {
+    "when": "Ayat al-Kursi, before sleeping",
+    "kind": "quran",
+    "arabic": "ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلۡحَيُّ ٱلۡقَيُّومُۚ لَا تَأۡخُذُهُۥ سِنَةٞ وَلَا نَوۡمٞۚ لَّهُۥ مَا فِي ٱلسَّمَٰوَٰتِ وَمَا فِي ٱلۡأَرۡضِۗ مَن ذَا ٱلَّذِي يَشۡفَعُ عِندَهُۥٓ إِلَّا بِإِذۡنِهِۦۚ يَعۡلَمُ مَا بَيۡنَ أَيۡدِيهِمۡ وَمَا خَلۡفَهُمۡۖ وَلَا يُحِيطُونَ بِشَيۡءٖ مِّنۡ عِلۡمِهِۦٓ إِلَّا بِمَا شَآءَۚ وَسِعَ كُرۡسِيُّهُ ٱلسَّمَٰوَٰتِ وَٱلۡأَرۡضَۖ وَلَا يَـُٔودُهُۥ حِفۡظُهُمَاۚ وَهُوَ ٱلۡعَلِيُّ ٱلۡعَظِيمُ",
+    "translit": "Allaahu laa 'ilaaha 'illaa Huwal-Hayyul-Qayyoom. Laa ta'khudhuhu sinatunw-wa laa nawm. Lahu maa fis-samaawaati wa maa fil-'ard. Man dhal-ladhee yashfa'u 'indahoo 'illaa bi'idhnih. Ya'lamu maa bayna 'aydeehim wa maa khalfahum, wa laa yuheetoona bishay'im-min 'ilmihee 'illaa bimaa shaa'. Wasi'a kursiyyuhus-samaawaati wal-'ard, wa laa ya'ooduhoo hifzuhumaa, wa Huwal-'Aliyyul-'Azeem",
+    "meaning": "Allah - there is no deity except Him, the Ever-Living, the Sustainer of [all] existence. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth. Who is it that can intercede with Him except by His permission? He knows what is [presently] before them and what will be after them, and they encompass not a thing of His knowledge except for what He wills. His Kursi extends over the heavens and the earth, and their preservation tires Him not. And He is the Most High, the Most Great.",
+    "sources": [
+     "Qur’an 2:255; Bukhari 2311"
+    ],
+    "status": "verified",
+    "ref": "2:255",
+    "needsScholarReview": true
+   },
+   {
+    "when": "Al-Ikhlas, blown into the hands and wiped over the body",
+    "kind": "quran",
+    "arabic": "قُلۡ هُوَ ٱللَّهُ أَحَدٌ\nٱللَّهُ ٱلصَّمَدُ\nلَمۡ يَلِدۡ وَلَمۡ يُولَدۡ\nوَلَمۡ يَكُن لَّهُۥ كُفُوًا أَحَدُۢ",
+    "translit": "Qul huwal-laahu 'ahad Allaahus-samad Lam yalid wa lam yoolad Wa lam yakul-lahoo kufuwan 'ahad",
+    "meaning": "Say, \"He is Allah, [who is] One, Allah, the Eternal Refuge. He neither begets nor is born, Nor is there to Him any equivalent.\"",
+    "sources": [
+     "Qur’an 112; Bukhari 5017"
+    ],
+    "status": "verified",
+    "ref": "112:1-4",
+    "needsScholarReview": true
+   },
+   {
+    "when": "Al-Falaq, in the same way",
+    "kind": "quran",
+    "arabic": "قُلۡ أَعُوذُ بِرَبِّ ٱلۡفَلَقِ\nمِن شَرِّ مَا خَلَقَ\nوَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ\nوَمِن شَرِّ ٱلنَّفَّـٰثَٰتِ فِي ٱلۡعُقَدِ\nوَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ",
+    "translit": "Qul 'a'oozu birabbil-falaq Min sharri maa khalaq Wa min sharri ghaasiqin 'izaa waqab Wa min sharrin-naffaasaati fil-'uqad Wa min sharri haasidin 'izaa hasad",
+    "meaning": "Say, \"I seek refuge in the Lord of daybreak From the evil of that which He created And from the evil of darkness when it settles And from the evil of the blowers in knots And from the evil of an envier when he envies.\"",
+    "sources": [
+     "Qur’an 113; Bukhari 5017"
+    ],
+    "status": "verified",
+    "ref": "113:1-5",
+    "needsScholarReview": true
+   },
+   {
+    "when": "An-Nas, in the same way",
+    "kind": "quran",
+    "arabic": "قُلۡ أَعُوذُ بِرَبِّ ٱلنَّاسِ\nمَلِكِ ٱلنَّاسِ\nإِلَٰهِ ٱلنَّاسِ\nمِن شَرِّ ٱلۡوَسۡوَاسِ ٱلۡخَنَّاسِ\nٱلَّذِي يُوَسۡوِسُ فِي صُدُورِ ٱلنَّاسِ\nمِنَ ٱلۡجِنَّةِ وَٱلنَّاسِ",
+    "translit": "Qul 'a'oozu birabbin-naas Malikin-naas 'Ilaahin-naas Min sharril-waswaasil-khannaas Allazee yuwaswisu fee sudoorin-naas Minal-jinnati wan-naas",
+    "meaning": "Say, \"I seek refuge in the Lord of mankind, The Sovereign of mankind. The God of mankind, From the evil of the retreating whisperer - Who whispers [evil] into the breasts of mankind - From among the jinn and mankind.\"",
+    "sources": [
+     "Qur’an 114; Bukhari 5017"
+    ],
+    "status": "verified",
+    "ref": "114:1-6",
+    "needsScholarReview": true
+   }
+  ]
  },
  {
   "id": "huda-speech",
@@ -789,7 +1210,58 @@
    "why": "The salam makes a stranger into a person to whom you have already wished peace.",
    "evidence": "Muslim 54 gives the command to spread it; Bukhari 12 and 6231 give who should greet whom.",
    "commonMistakes": "Greeting only those you know; leaving a sneeze unanswered; answering a sneeze without Alhamdulillah being said."
-  }
+  },
+  "recitations": [
+   {
+    "when": "When you sneeze",
+    "kind": "hadith",
+    "arabic": "الْحَمْدُ لِلَّهِ",
+    "translit": "Al-hamdu lillaah.",
+    "meaning": "Praise be to Allah.",
+    "sources": [
+     "Bukhari 6224"
+    ],
+    "status": "verified",
+    "needsScholarReview": true
+   },
+   {
+    "when": "To the one who sneezed and praised Allah",
+    "kind": "hadith",
+    "arabic": "يَرْحَمُكَ اللَّهُ",
+    "translit": "Yarhamukal-laah.",
+    "meaning": "May Allah have mercy on you.",
+    "sources": [
+     "Bukhari 6224"
+    ],
+    "status": "verified",
+    "needsScholarReview": true
+   },
+   {
+    "when": "The sneezer replies",
+    "kind": "hadith",
+    "arabic": "يَهْدِيكُمُ اللَّهُ وَيُصْلِحُ بَالَكُمْ",
+    "translit": "Yahdeekumul-laahu wa yuslihu baalakum.",
+    "meaning": "May Allah guide you and set right your condition.",
+    "sources": [
+     "Bukhari 6224"
+    ],
+    "status": "verified",
+    "needsScholarReview": true
+   },
+   {
+    "when": "The greeting",
+    "kind": "hadith",
+    "arabic": "السَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ",
+    "translit": "As-salaamu 'alaykum wa rahmatul-laah",
+    "meaning": "Peace be upon you, and the mercy of Allah.",
+    "sources": [
+     "Abu Dawud 996 (graded sahih by al-Albani)"
+    ],
+    "status": "verified",
+    "phraseId": "salam",
+    "needsScholarReview": true
+   }
+  ]
  },
  {
   "id": "huda-hajj-intro",
@@ -845,7 +1317,21 @@
    "why": "Ihram strips away rank: every pilgrim stands before Allah in the same cloth.",
    "evidence": "The garments and the talbiyah are from Bukhari and Muslim.",
    "commonMistakes": "Perfuming the cloths after the intention; wearing sewn garments; forgetting to say the talbiyah."
-  }
+  },
+  "recitations": [
+   {
+    "when": "The talbiyah",
+    "kind": "hadith",
+    "arabic": "لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ لَبَّيْكَ لاَ شَرِيكَ لَكَ لَبَّيْكَ إِنَّ الْحَمْدَ وَالنِّعْمَةَ لَكَ وَالْمُلْكَ لاَ شَرِيكَ لَكَ",
+    "translit": "Labbayka Allaahumma labbayk, labbayka laa shareeka laka labbayk, innal-hamda wan-ni'mata laka wal-mulk, laa shareeka lak.",
+    "meaning": "Here I am, O Allah, here I am. Here I am, You have no partner, here I am. Indeed all praise and blessing are Yours, and all sovereignty. You have no partner.",
+    "sources": [
+     "Bukhari 1549"
+    ],
+    "status": "verified",
+    "needsScholarReview": true
+   }
+  ]
  },
  {
   "id": "huda-tawaf",
@@ -874,7 +1360,22 @@
    "why": "Tawaf circles the House of Allah; sa'i walks again the walk of a mother who trusted Him.",
    "evidence": "Each rite above carries its own source; the Jabir hadith (Muslim 1218) is the main account of the Prophet's own Hajj.",
    "commonMistakes": "Starting the tawaf before the Stone's line; shortening the sa'i; forgetting the two rak'ahs; pushing through the crowd."
-  }
+  },
+  "recitations": [
+   {
+    "when": "Between the Yemeni corner and the Black Stone",
+    "kind": "quran",
+    "arabic": "وَمِنۡهُم مَّن يَقُولُ رَبَّنَآ ءَاتِنَا فِي ٱلدُّنۡيَا حَسَنَةٗ وَفِي ٱلۡأٓخِرَةِ حَسَنَةٗ وَقِنَا عَذَابَ ٱلنَّارِ",
+    "translit": "Rabbanaa aatinaa fid-dunyaa hasanatan wa fil-aakhirati hasanatan wa qinaa 'adhaaban-naar.",
+    "meaning": "But among them is he who says, \"Our Lord, give us in this world [that which is] good and in the Hereafter [that which is] good and protect us from the punishment of the Fire.\"",
+    "sources": [
+     "Qur’an 2:201 (the Prophet said it between the two corners: Abu Dawud 1892, hasan per al-Albani)"
+    ],
+    "status": "verified",
+    "ref": "2:201",
+    "needsScholarReview": true
+   }
+  ]
  },
  {
   "id": "huda-arafat",
@@ -902,7 +1403,21 @@
    "why": "Arafah is the heart of Hajj: no rite can be completed without it.",
    "evidence": "The Tirmidhi report in the sources and Muslim 1218 give the standing and its time.",
    "commonMistakes": "Leaving before sunset; resting in the shade of the borders outside Arafah; wasting the hours in conversation."
-  }
+  },
+  "recitations": [
+   {
+    "when": "The best dua of the day of Arafah",
+    "kind": "hadith",
+    "arabic": "لاَ إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ",
+    "translit": "Laa ilaaha illal-laahu wahdahu laa shareeka lah, lahul-mulku wa lahul-hamdu wa huwa 'alaa kulli shay'in qadeer.",
+    "meaning": "There is no god but Allah alone, with no partner. His is the dominion and His is the praise, and He has power over all things.",
+    "sources": [
+     "Tirmidhi 3585 (da'if per Zubair Ali Zai; hasan per al-Albani)"
+    ],
+    "status": "verified",
+    "needsScholarReview": true
+   }
+  ]
  },
  {
   "id": "huda-fasting",
@@ -934,7 +1449,21 @@
    "why": "Fasting trains the believer to obey Allah even in what is permitted, so that obedience in what is forbidden is easier.",
    "evidence": "Each ruling above has its own source; the differences between the schools are in the note.",
    "commonMistakes": "Making the intention only after dawn without knowing the school's rule; breaking the fast out of fear of a small thing that does not break it; forgetting to make up days; not knowing that kaffarah is owed for deliberate intercourse."
-  }
+  },
+  "recitations": [
+   {
+    "when": "When breaking the fast",
+    "kind": "hadith",
+    "arabic": "ذَهَبَ الظَّمَأُ وَابْتَلَّتِ الْعُرُوقُ وَثَبَتَ الأَجْرُ إِنْ شَاءَ اللَّهُ",
+    "translit": "Dhahaba az-zama'u wabtallatil-'urooqu wa thabatal-ajru in shaa'allaah.",
+    "meaning": "The thirst has gone, the veins are moistened, and the reward is confirmed, if Allah wills.",
+    "sources": [
+     "Abu Dawud 2357 (hasan per al-Albani)"
+    ],
+    "status": "verified",
+    "needsScholarReview": true
+   }
+  ]
  },
  {
   "id": "huda-taraweeh",
@@ -963,7 +1492,21 @@
    "why": "The nights of Ramadan are for standing before Allah; the last ten are the best of them.",
    "evidence": "Bukhari 37 gives the reward; Bukhari 1147 the Prophet's own number.",
    "commonMistakes": "Arguing about eight or twenty rak'ahs; rushing the recitation; seeking Laylat al-Qadr on a single night only."
-  }
+  },
+  "recitations": [
+   {
+    "when": "The dua for Laylat al-Qadr",
+    "kind": "hadith",
+    "arabic": "اللَّهُمَّ إِنَّكَ عَفُوٌّ كَرِيمٌ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي",
+    "translit": "Allaahumma innaka 'afuwwun kareemun tuhibbul-'afwa fa'fu 'annee.",
+    "meaning": "O Allah, You are Pardoning and Generous, You love to pardon, so pardon me.",
+    "sources": [
+     "Tirmidhi 3513 (da'if per Darussalam (Zubair Ali Zai); sahih per al-Albani)"
+    ],
+    "status": "verified",
+    "needsScholarReview": true
+   }
+  ]
  },
  {
   "id": "huda-istikhara",
@@ -989,7 +1532,21 @@
    "why": "Istikhara admits that outcomes belong to Allah: you ask to be steered and then you walk with tawakkul.",
    "evidence": "Bukhari 6382 contains the whole istikhara; the verse for consultation is Qur'an 3:159.",
    "commonMistakes": "Waiting for a dream; using istikhara instead of asking knowledgeable people; making the dua without thinking of the matter."
-  }
+  },
+  "recitations": [
+   {
+    "when": "The istikhara dua, after the two rak’ahs; at the words “this matter”, name your need",
+    "kind": "hadith",
+    "arabic": "اللَّهُمَّ إِنِّي أَسْتَخِيرُكَ بِعِلْمِكَ وَأَسْتَقْدِرُكَ بِقُدْرَتِكَ وَأَسْأَلُكَ مِنْ فَضْلِكَ الْعَظِيمِ فَإِنَّكَ تَقْدِرُ وَلاَ أَقْدِرُ وَتَعْلَمُ وَلاَ أَعْلَمُ وَأَنْتَ عَلاَّمُ الْغُيُوبِ\nاللَّهُمَّ إِنْ كُنْتَ تَعْلَمُ أَنَّ هَذَا الأَمْرَ خَيْرٌ لِي فِي دِينِي وَمَعَاشِي وَعَاقِبَةِ أَمْرِي\nفَاقْدُرْهُ لِي\nوَإِنْ كُنْتَ تَعْلَمُ أَنَّ هَذَا الأَمْرَ شَرٌّ لِي فِي دِينِي وَمَعَاشِي وَعَاقِبَةِ أَمْرِي\nفَاصْرِفْهُ عَنِّي وَاصْرِفْنِي عَنْهُ وَاقْدُرْ لِيَ الْخَيْرَ حَيْثُ كَانَ ثُمَّ رَضِّنِي بِهِ",
+    "translit": "Allaahumma innee astakheeruka bi'ilmika, wa astaqdiruka biqudratika, wa as'aluka min fadlikal-'azeem, fa-innaka taqdiru wa laa aqdir, wa ta'lamu wa laa a'lam, wa anta 'allaamul-ghuyoob.\nAllaahumma in kunta ta'lamu anna haadhal-amra khayrun lee fee deenee wa ma'aashee wa 'aaqibati amree,\nfaqdurhu lee,\nwa in kunta ta'lamu anna haadhal-amra sharrun lee fee deenee wa ma'aashee wa 'aaqibati amree,\nfasrifhu 'annee wasrifnee 'anhu, waqdur liyal-khayra haythu kaana thumma raddinee bih.",
+    "meaning": "O Allah, I ask You to choose for me by Your knowledge, and I ask You for ability by Your power, and I ask You of Your great bounty; for You are able and I am not able, You know and I do not know, and You are the Knower of the unseen.\nO Allah, if You know that this matter is good for me in my religion, my livelihood and the end of my affair,\nthen decree it for me;\nand if You know that this matter is bad for me in my religion, my livelihood and the end of my affair,\nthen turn it away from me and turn me away from it, and decree for me the good wherever it may be, then make me content with it.",
+    "sources": [
+     "Bukhari 6382"
+    ],
+    "status": "verified",
+    "needsScholarReview": true
+   }
+  ]
  },
  {
   "id": "huda-tawba",
@@ -1098,7 +1655,21 @@
    "why": "Illness is a means by which the sins of a believer are removed and by which he turns to Allah.",
    "evidence": "Each item quotes the hadith; the wording of the dua is that of Bukhari 5675.",
    "commonMistakes": "Complaining against Allah instead of to Him; refusing treatment; visiting and staying too long."
-  }
+  },
+  "recitations": [
+   {
+    "when": "Over a sick person",
+    "kind": "hadith",
+    "arabic": "أَذْهِبِ الْبَاسَ رَبَّ النَّاسِ اشْفِ وَأَنْتَ الشَّافِي لاَ شِفَاءَ إِلاَّ شِفَاؤُكَ شِفَاءً لاَ يُغَادِرُ سَقَمًا",
+    "translit": "Adh-hibil-ba'sa Rabban-naas, ishfi wa antash-shaafee, laa shifaa'a illaa shifaa'uk, shifaa'an laa yughaadiru saqamaa.",
+    "meaning": "Take away the harm, O Lord of the people. Heal, for You are the Healer. There is no healing except Your healing, a healing that leaves no illness.",
+    "sources": [
+     "Bukhari 5675"
+    ],
+    "status": "verified",
+    "needsScholarReview": true
+   }
+  ]
  },
  {
   "id": "huda-gratitude",
@@ -1150,7 +1721,33 @@
    "why": "Travel is a time when a person is dependent on Allah, and the Prophet taught words for it.",
    "evidence": "Muslim 1342 gives the full dua of departure and the words on return.",
    "commonMistakes": "Leaving without the dua; neglecting prayer because of the journey; delaying the return without need."
-  }
+  },
+  "recitations": [
+   {
+    "when": "On setting out",
+    "kind": "hadith",
+    "arabic": "سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ وَإِنَّا إِلَى رَبِّنَا لَمُنْقَلِبُونَ اللَّهُمَّ إِنَّا نَسْأَلُكَ فِي سَفَرِنَا هَذَا الْبِرَّ وَالتَّقْوَى وَمِنَ الْعَمَلِ مَا تَرْضَى اللَّهُمَّ هَوِّنْ عَلَيْنَا سَفَرَنَا هَذَا وَاطْوِ عَنَّا بُعْدَهُ اللَّهُمَّ أَنْتَ الصَّاحِبُ فِي السَّفَرِ وَالْخَلِيفَةُ فِي الأَهْلِ اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ وَعْثَاءِ السَّفَرِ وَكَآبَةِ الْمَنْظَرِ وَسُوءِ الْمُنْقَلَبِ فِي الْمَالِ وَالأَهْلِ",
+    "translit": "Subhaanal-ladhee sakh-khara lanaa haadhaa wa maa kunnaa lahu muqrineen, wa innaa ilaa Rabbinaa lamunqaliboon. Allaahumma innaa nas'aluka fee safarinaa haadhal-birra wat-taqwaa, wa minal-'amali maa tardaa. Allaahumma hawwin 'alaynaa safaranaa haadhaa, watwi 'annaa bu'dah. Allaahumma antas-saahibu fis-safar, wal-khaleefatu fil-ahl. Allaahumma innee a'oodhu bika min wa'thaa'is-safar, wa ka'aabatil-manzar, wa soo'il-munqalabi fil-maali wal-ahl.",
+    "meaning": "Glory to Him who has subjected this to us, and we could not have subdued it, and to our Lord we shall return. O Allah, we ask You on this journey of ours for righteousness and piety, and for deeds that please You. O Allah, make this journey easy for us and fold up its distance for us. O Allah, You are the Companion on the journey and the Guardian of the family. O Allah, I seek refuge in You from the hardship of travel, from a gloomy sight, and from an evil return in property and family.",
+    "sources": [
+     "Muslim 1342"
+    ],
+    "status": "verified",
+    "needsScholarReview": true
+   },
+   {
+    "when": "On returning, say the same and add",
+    "kind": "hadith",
+    "arabic": "آيِبُونَ تَائِبُونَ عَابِدُونَ لِرَبِّنَا حَامِدُونَ",
+    "translit": "Aa'iboona taa'iboona 'aabidoona li-Rabbinaa haamidoon.",
+    "meaning": "We return, repentant, worshipping, and praising our Lord.",
+    "sources": [
+     "Muslim 1342"
+    ],
+    "status": "verified",
+    "needsScholarReview": true
+   }
+  ]
  },
  {
   "id": "huda-adhkar",
@@ -1175,7 +1772,45 @@
    "why": "The adhkar keep the day framed by the remembrance of Allah, in the words the Prophet himself used.",
    "evidence": "Muslim 2723 and Bukhari 6306 give two of the main morning and evening duas; Abu Dawud 5082 (hasan per al-Albani) gives the three surahs.",
    "commonMistakes": "Reading only for the count; saying the words without understanding; omitting them when busy."
-  }
+  },
+  "recitations": [
+   {
+    "when": "The evening dua (in the morning say “we have entered the morning”)",
+    "kind": "hadith",
+    "arabic": "أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ وَالْحَمْدُ لِلَّهِ لاَ إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ",
+    "translit": "Amsaynaa wa amsal-mulku lillaah, wal-hamdu lillaah, laa ilaaha illal-laahu wahdahu laa shareeka lah.",
+    "meaning": "We have entered the evening and the whole kingdom of Allah has entered the evening; praise is for Allah. There is no god but Allah alone, with no partner.",
+    "sources": [
+     "Muslim 2723"
+    ],
+    "status": "verified",
+    "needsScholarReview": true
+   },
+   {
+    "when": "Sayyid al-istighfar",
+    "kind": "hadith",
+    "arabic": "اللَّهُمَّ أَنْتَ رَبِّي لاَ إِلَهَ إِلاَّ أَنْتَ خَلَقْتَنِي وَأَنَا عَبْدُكَ وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَىَّ وَأَبُوءُ لَكَ بِذَنْبِي فَاغْفِرْ لِي فَإِنَّهُ لاَ يَغْفِرُ الذُّنُوبَ إِلاَّ أَنْتَ",
+    "translit": "Allaahumma anta Rabbee, laa ilaaha illaa anta, khalaqtanee wa anaa 'abduka, wa anaa 'alaa 'ahdika wa wa'dika mastata'tu, a'oodhu bika min sharri maa sana'tu, aboo'u laka bini'matika 'alayya, wa aboo'u laka bidhanbee faghfir lee, fa-innahu laa yaghfirudh-dhunooba illaa anta.",
+    "meaning": "O Allah, You are my Lord; there is no god but You. You created me and I am Your servant, and I keep Your covenant and promise as far as I am able. I seek refuge in You from the evil of what I have done. I acknowledge Your favor upon me and I acknowledge my sin, so forgive me, for none forgives sins except You.",
+    "sources": [
+     "Bukhari 6306"
+    ],
+    "status": "verified",
+    "needsScholarReview": true
+   },
+   {
+    "when": "Tasbih",
+    "kind": "hadith",
+    "arabic": "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ",
+    "translit": "Subhaanal-laahi wa bihamdih.",
+    "meaning": "Glory be to Allah and praise be to Him.",
+    "sources": [
+     "Bukhari 6405"
+    ],
+    "status": "verified",
+    "needsScholarReview": true
+   }
+  ]
  },
  {
   "id": "huda-baby",
@@ -1228,7 +1863,22 @@
    "why": "After the worship of Allah, the Qur'an places kindness to parents; the Prophet emphasised the mother.",
    "evidence": "Bukhari 5971 gives the order of the mother and father; Muslim 1631 what continues after death.",
    "commonMistakes": "Speaking harshly in their old age; neglecting a parent because of work; forgetting their dua and charity after they die."
-  }
+  },
+  "recitations": [
+   {
+    "when": "A dua for your parents",
+    "kind": "quran",
+    "arabic": "وَٱخۡفِضۡ لَهُمَا جَنَاحَ ٱلذُّلِّ مِنَ ٱلرَّحۡمَةِ وَقُل رَّبِّ ٱرۡحَمۡهُمَا كَمَا رَبَّيَانِي صَغِيرٗا",
+    "translit": "Wakhfid lahumaa janaahadh-dhulli minar-rahmati waqur-rabbir-hamhumaa kamaa rabbayaanee sagheeraa.",
+    "meaning": "And lower to them the wing of humility out of mercy and say, \"My Lord, have mercy upon them as they brought me up [when I was] small.\"",
+    "sources": [
+     "Qur’an 17:24"
+    ],
+    "status": "verified",
+    "ref": "17:24",
+    "needsScholarReview": true
+   }
+  ]
  },
  {
   "id": "huda-neighbors",
@@ -1310,7 +1960,21 @@
    "why": "Witr ends the night prayer with an odd number; it is the closing of the day's worship.",
    "evidence": "Bukhari 998 and Muslim 755 give the practice; the report that forbids two witrs in a night is in the sources.",
    "commonMistakes": "Praying witr twice in one night; missing it because of sleep and giving it up; counting witr as nothing because it is not fard."
-  }
+  },
+  "recitations": [
+   {
+    "when": "The qunut of witr, taught to al-Hasan ibn Ali",
+    "kind": "hadith",
+    "arabic": "اللَّهُمَّ اهْدِنِي فِيمَنْ هَدَيْتَ وَعَافِنِي فِيمَنْ عَافَيْتَ وَتَوَلَّنِي فِيمَنْ تَوَلَّيْتَ وَبَارِكْ لِي فِيمَا أَعْطَيْتَ وَقِنِي شَرَّ مَا قَضَيْتَ إِنَّكَ تَقْضِي وَلاَ يُقْضَى عَلَيْكَ وَإِنَّهُ لاَ يَذِلُّ مَنْ وَالَيْتَ وَلاَ يَعِزُّ مَنْ عَادَيْتَ تَبَارَكْتَ رَبَّنَا وَتَعَالَيْتَ",
+    "translit": "Allaahumma-hdinee feeman hadayt, wa 'aafinee feeman 'aafayt, wa tawallanee feeman tawallayt, wa baarik lee feemaa a'tayt, wa qinee sharra maa qadayt. Innaka taqdee wa laa yuqdaa 'alayk, wa innahu laa yadhillu man waalayt, wa laa ya'izzu man 'aadayt. Tabaarakta Rabbanaa wa ta'aalayt.",
+    "meaning": "O Allah, guide me among those You have guided; grant me well-being among those You have granted well-being; take me into Your charge among those You have taken into Your charge; bless me in what You have given; guard me from the evil of what You have decreed. You decree and none decrees over You. He whom You take as an ally is not humbled, and he whom You take as an enemy is not honored. Blessed are You, our Lord, and exalted.",
+    "sources": [
+     "Abu Dawud 1425 (sahih per al-Albani)"
+    ],
+    "status": "verified",
+    "needsScholarReview": true
+   }
+  ]
  },
  {
   "id": "huda-knowledge",
@@ -1360,7 +2024,58 @@
    "why": "In hardship the Prophet taught turning to Allah with known words and keeping patience.",
    "evidence": "Each dua is quoted from its hadith; the words in Arabic will be shown in the recitation cards.",
    "commonMistakes": "Despair; asking only people; abandoning the duas when relief is slow."
-  }
+  },
+  "recitations": [
+   {
+    "when": "The dua of distress",
+    "kind": "hadith",
+    "arabic": "لاَ إِلَهَ إِلاَّ اللَّهُ الْعَظِيمُ الْحَلِيمُ لاَ إِلَهَ إِلاَّ اللَّهُ رَبُّ الْعَرْشِ الْعَظِيمِ لاَ إِلَهَ إِلاَّ اللَّهُ رَبُّ السَّمَوَاتِ وَرَبُّ الأَرْضِ وَرَبُّ الْعَرْشِ الْكَرِيمِ",
+    "translit": "Laa ilaaha illal-laahul-'Azeemul-Haleem. Laa ilaaha illal-laahu Rabbul-'arshil-'azeem. Laa ilaaha illal-laahu Rabbus-samaawaati wa Rabbul-ardi wa Rabbul-'arshil-kareem.",
+    "meaning": "There is no god but Allah, the Mighty, the Forbearing. There is no god but Allah, Lord of the Mighty Throne. There is no god but Allah, Lord of the heavens, Lord of the earth and Lord of the Noble Throne.",
+    "sources": [
+     "Bukhari 6346"
+    ],
+    "status": "verified",
+    "needsScholarReview": true
+   },
+   {
+    "when": "The dua of Yunus",
+    "kind": "hadith",
+    "arabic": "لاَ إِلَهَ إِلاَّ أَنْتَ سُبْحَانَكَ إِنِّي كُنْتُ مِنَ الظَّالِمِينَ",
+    "translit": "Laa ilaaha illaa anta, subhaanaka innee kuntu minaz-zaalimeen.",
+    "meaning": "There is no god but You; glory be to You. Indeed, I have been of the wrongdoers.",
+    "sources": [
+     "Tirmidhi 3505 (sahih per al-Albani)",
+     "Qur’an 21:87"
+    ],
+    "status": "verified",
+    "needsScholarReview": true
+   },
+   {
+    "when": "Seeking refuge from worry and debt",
+    "kind": "hadith",
+    "arabic": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ وَالْعَجْزِ وَالْكَسَلِ وَالْجُبْنِ وَالْبُخْلِ وَضَلَعِ الدَّيْنِ وَغَلَبَةِ الرِّجَالِ",
+    "translit": "Allaahumma innee a'oodhu bika minal-hammi wal-hazan, wal-'ajzi wal-kasal, wal-jubni wal-bukhl, wa dala'id-dayni wa ghalabatir-rijaal.",
+    "meaning": "O Allah, I seek refuge in You from worry and grief, from incapacity and laziness, from cowardice and miserliness, from being heavily in debt and from being overpowered by men.",
+    "sources": [
+     "Bukhari 6369"
+    ],
+    "status": "verified",
+    "needsScholarReview": true
+   },
+   {
+    "when": "For a debt",
+    "kind": "hadith",
+    "arabic": "اللَّهُمَّ اكْفِنِي بِحَلاَلِكَ عَنْ حَرَامِكَ وَأَغْنِنِي بِفَضْلِكَ عَمَّنْ سِوَاكَ",
+    "translit": "Allaahum-makfinee bihalaalika 'an haraamik, wa aghninee bifadlika 'amman siwaak.",
+    "meaning": "O Allah, suffice me with what You have made lawful against what You have forbidden, and make me independent by Your favor of all others.",
+    "sources": [
+     "Tirmidhi 3563 (hasan per al-Albani)"
+    ],
+    "status": "verified",
+    "needsScholarReview": true
+   }
+  ]
  },
  {
   "id": "huda-death-prep",
@@ -1420,7 +2135,34 @@
    "why": "Follow your group's guide (mutawwif) for times and crowds; these are the Prophet's own rites.",
    "evidence": "Muslim 1218 is Jabir's account of the whole Farewell Pilgrimage.",
    "commonMistakes": "Leaving Arafah before sunset; praying Maghrib on the road; stoning before the meridian on the days of Tashriq; leaving Makkah without the farewell tawaf."
-  }
+  },
+  "recitations": [
+   {
+    "when": "The talbiyah",
+    "kind": "hadith",
+    "arabic": "لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ لَبَّيْكَ لاَ شَرِيكَ لَكَ لَبَّيْكَ إِنَّ الْحَمْدَ وَالنِّعْمَةَ لَكَ وَالْمُلْكَ لاَ شَرِيكَ لَكَ",
+    "translit": "Labbayka Allaahumma labbayk, labbayka laa shareeka laka labbayk, innal-hamda wan-ni'mata laka wal-mulk, laa shareeka lak.",
+    "meaning": "Here I am, O Allah, here I am. Here I am, You have no partner, here I am. Indeed all praise and blessing are Yours, and all sovereignty. You have no partner.",
+    "sources": [
+     "Bukhari 1549"
+    ],
+    "status": "verified",
+    "needsScholarReview": true
+   },
+   {
+    "when": "Between the Yemeni corner and the Black Stone",
+    "kind": "quran",
+    "arabic": "وَمِنۡهُم مَّن يَقُولُ رَبَّنَآ ءَاتِنَا فِي ٱلدُّنۡيَا حَسَنَةٗ وَفِي ٱلۡأٓخِرَةِ حَسَنَةٗ وَقِنَا عَذَابَ ٱلنَّارِ",
+    "translit": "Rabbanaa aatinaa fid-dunyaa hasanatan wa fil-aakhirati hasanatan wa qinaa 'adhaaban-naar.",
+    "meaning": "But among them is he who says, \"Our Lord, give us in this world [that which is] good and in the Hereafter [that which is] good and protect us from the punishment of the Fire.\"",
+    "sources": [
+     "Qur’an 2:201 (the Prophet said it between the two corners: Abu Dawud 1892, hasan per al-Albani)"
+    ],
+    "status": "verified",
+    "ref": "2:201",
+    "needsScholarReview": true
+   }
+  ]
  },
  {
   "id": "huda-umrah",
@@ -1449,7 +2191,34 @@
    "why": "Umrah is a small pilgrimage: ihram, tawaf, sa'i, release, in a few hours.",
    "evidence": "Bukhari 1647 describes the Prophet's tawaf, prayer and sa'i in order.",
    "commonMistakes": "Leaving ihram before the sa'i is complete; shaving without ihram status; skipping the talbiyah."
-  }
+  },
+  "recitations": [
+   {
+    "when": "The talbiyah",
+    "kind": "hadith",
+    "arabic": "لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ لَبَّيْكَ لاَ شَرِيكَ لَكَ لَبَّيْكَ إِنَّ الْحَمْدَ وَالنِّعْمَةَ لَكَ وَالْمُلْكَ لاَ شَرِيكَ لَكَ",
+    "translit": "Labbayka Allaahumma labbayk, labbayka laa shareeka laka labbayk, innal-hamda wan-ni'mata laka wal-mulk, laa shareeka lak.",
+    "meaning": "Here I am, O Allah, here I am. Here I am, You have no partner, here I am. Indeed all praise and blessing are Yours, and all sovereignty. You have no partner.",
+    "sources": [
+     "Bukhari 1549"
+    ],
+    "status": "verified",
+    "needsScholarReview": true
+   },
+   {
+    "when": "Between the Yemeni corner and the Black Stone",
+    "kind": "quran",
+    "arabic": "وَمِنۡهُم مَّن يَقُولُ رَبَّنَآ ءَاتِنَا فِي ٱلدُّنۡيَا حَسَنَةٗ وَفِي ٱلۡأٓخِرَةِ حَسَنَةٗ وَقِنَا عَذَابَ ٱلنَّارِ",
+    "translit": "Rabbanaa aatinaa fid-dunyaa hasanatan wa fil-aakhirati hasanatan wa qinaa 'adhaaban-naar.",
+    "meaning": "But among them is he who says, \"Our Lord, give us in this world [that which is] good and in the Hereafter [that which is] good and protect us from the punishment of the Fire.\"",
+    "sources": [
+     "Qur’an 2:201 (the Prophet said it between the two corners: Abu Dawud 1892, hasan per al-Albani)"
+    ],
+    "status": "verified",
+    "ref": "2:201",
+    "needsScholarReview": true
+   }
+  ]
  },
  {
   "id": "huda-arafat-day",
@@ -1504,7 +2273,21 @@
    "why": "The prohibitions train the pilgrim to put restraint on what is otherwise lawful.",
    "evidence": "Qur'an 2:196, 2:197 and 5:95 are the foundation; the hadith above give examples.",
    "commonMistakes": "Treating the fidyah as optional for anything; killing an insect from irritation without asking; wearing scented soap."
-  }
+  },
+  "recitations": [
+   {
+    "when": "The talbiyah",
+    "kind": "hadith",
+    "arabic": "لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ لَبَّيْكَ لاَ شَرِيكَ لَكَ لَبَّيْكَ إِنَّ الْحَمْدَ وَالنِّعْمَةَ لَكَ وَالْمُلْكَ لاَ شَرِيكَ لَكَ",
+    "translit": "Labbayka Allaahumma labbayk, labbayka laa shareeka laka labbayk, innal-hamda wan-ni'mata laka wal-mulk, laa shareeka lak.",
+    "meaning": "Here I am, O Allah, here I am. Here I am, You have no partner, here I am. Indeed all praise and blessing are Yours, and all sovereignty. You have no partner.",
+    "sources": [
+     "Bukhari 1549"
+    ],
+    "status": "verified",
+    "needsScholarReview": true
+   }
+  ]
  },
  {
   "id": "huda-zakat",
