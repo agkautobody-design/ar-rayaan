@@ -306,7 +306,7 @@ abstract final class AcademyStrings {
       'fam.u1.l1.s2.body': 'Name one act of mercy — not affection, mercy — you can show your spouse or family member this week.',
       'fam.u1.l1.title': 'Why Marriage at All',
       'fam.u1.l2.s1.title': 'The Best of You',
-      'fam.u1.l2.s1.body': 'The best of you is the one who is best to his wife (Tirmidhi 3895, sahih per Darussalam). The measure of a Muslim is not the masjid face; it is the kitchen face.',
+      'fam.u1.l2.s1.body': 'The best of you is the one who is best to his wife (Tirmidhi 3895, hasan per Darussalam, sahih per al-Albani). The measure of a Muslim is not the masjid face; it is the kitchen face.',
       'fam.u1.l2.s2.title': 'Practice',
       'fam.u1.l2.s2.body': 'Be gentler at home today than you were at any meeting. Let the family see the best version first.',
       'fam.u1.l2.title': 'The Best of You',
@@ -1057,7 +1057,7 @@ abstract final class AcademyStrings {
           'Many converts meet resistance at home. The Prophet ﷺ was patient with those who opposed him, and the Qur\'an asks a believer to keep good company with parents even when they disagree about faith (31:15) — kindness without compromise. If this weight feels heavy, the Sakina rooms are always open.',
       'path.u9.s2.title': 'The best of you',
       'path.u9.s2.body':
-          'The best of you are the best to their families (Tirmidhi 3895, sahih per Darussalam), and the most beloved to the Prophet ﷺ are those best in character (Tirmidhi 2018, hasan per Darussalam). Start with one person, today.',
+          'The best of you are the best to their families (Tirmidhi 3895, hasan per Darussalam, sahih per al-Albani), and the most beloved to the Prophet ﷺ are those best in character (Tirmidhi 2018, hasan per Darussalam). Start with one person, today.',
       'school.letters.title': 'Letters',
       'school.letters.subtitle': 'Learn the letters and their sounds',
       'school.recitation.title': 'Recitation',
