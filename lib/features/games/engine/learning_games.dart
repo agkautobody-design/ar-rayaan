@@ -34,7 +34,7 @@ const List<GameDef> kLearningGames = <GameDef>[
     hasHints: true,
     sourceNote: 'Every question is checked against the words of a story in '
         'the Seerah School, and after you answer it shows that story’s own '
-        'source lines. The stories are marked as not yet scholar-reviewed. '
+        'source lines. The stories are marked "scholar review needed". '
         'No images of any prophet are used.',
     howToPlay: <String>[
       'Choose how many questions.',

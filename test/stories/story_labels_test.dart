@@ -103,7 +103,7 @@ void main() {
     expect(s.sources.join(' '), contains('18:83-98'));
     final String layers =
         File('assets/stories/layers/dhul-qarnayn.json').readAsStringSync();
-    expect(layers, contains('Not yet scholar-reviewed'));
+    expect(layers, contains('Scholar review needed'));
     expect(File('assets/stories/earlier/dhul-qarnayn.json').existsSync(), isTrue);
   });
 }

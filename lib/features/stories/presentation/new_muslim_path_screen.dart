@@ -1,3 +1,4 @@
+import '../../../app/core/scholar_review.dart';
 import '../domain/story.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -90,6 +91,10 @@ class _PathState extends ConsumerState<NewMuslimPathScreen> {
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
             children: [
               const ScreenHeader(title: 'The New Muslim Path', close: true),
+              const ScholarReviewNote(
+                reviewKey: 'new-muslim',
+                padding: const EdgeInsets.only(bottom: 8),
+              ),
               Padding(
                 padding: const EdgeInsets.only(left: 4, bottom: 6),
                 child: Text('THIRTY GENTLE DAYS · ONE STEP AT A TIME',

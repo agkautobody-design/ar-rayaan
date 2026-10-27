@@ -111,7 +111,7 @@ class StoryLayersSection extends ConsumerWidget {
   }
 }
 
-/// "Not yet scholar-reviewed" - there is no named reviewer yet.
+/// "Scholar review needed" - there is no named reviewer yet.
 class ReviewBanner extends StatelessWidget {
   const ReviewBanner({super.key});
 

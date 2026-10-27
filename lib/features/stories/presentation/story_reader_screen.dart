@@ -1,3 +1,4 @@
+import '../../../app/core/scholar_review.dart';
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -115,6 +116,10 @@ class _StoryReaderScreenState extends ConsumerState<StoryReaderScreen> {
         padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
         children: [
           ScreenHeader(title: story.kicker, close: true),
+          ScholarReviewNote(
+            reviewKey: storyReviewKey(story.collection, story.id),
+            padding: const EdgeInsets.only(bottom: 8),
+          ),
           Wrap(
             alignment: WrapAlignment.end,
             crossAxisAlignment: WrapCrossAlignment.center,

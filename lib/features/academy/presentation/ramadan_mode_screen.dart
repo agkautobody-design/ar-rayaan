@@ -3,6 +3,7 @@
 /// doors back to the fasting guide and the duas of the day.
 library;
 
+import '../../../app/core/scholar_review.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -63,6 +64,10 @@ class RamadanModeScreen extends ConsumerWidget {
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
             children: <Widget>[
               const ScreenHeader(title: 'Ramadan Mode', close: true),
+              const ScholarReviewNote(
+                reviewKey: 'school.ramadan-mode',
+                padding: EdgeInsets.only(bottom: 8),
+              ),
               Text('رمضان',
                   style: AppText.arabic.copyWith(
                       fontSize: 32, color: AppColors.gold)),

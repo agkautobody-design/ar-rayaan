@@ -78,6 +78,7 @@ import '../features/share/presentation/handout_screen.dart';
 import '../features/share/presentation/share_screen.dart';
 import '../features/streaks/presentation/streaks_screen.dart';
 import '../features/sources/presentation/content_policy_screen.dart';
+import '../features/sources/presentation/review_status_screen.dart';
 import '../features/sources/presentation/sources_screen.dart';
 import '../features/stories/presentation/stories_screen.dart';
 import '../features/stories/presentation/new_muslim_path_screen.dart';
@@ -221,6 +222,7 @@ abstract final class AppRoutes {
   static const String settings = '/settings';
   static const String sources = '/sources';
   static const String sourcesPolicy = '/sources/policy';
+  static const String sourcesReview = '/sources/review';
   static const String quranBookmarks = '/quran/bookmarks';
   static const String sakina = '/sakina';
   static const String sakinaSteady = '/sakina/steady';
@@ -864,6 +866,10 @@ GoRouter buildRouter({String initialLocation = '/'}) {
       GoRoute(
         path: AppRoutes.sourcesPolicy,
         pageBuilder: (c, s) => _fade(const ContentPolicyScreen()),
+      ),
+      GoRoute(
+        path: AppRoutes.sourcesReview,
+        pageBuilder: (c, s) => _fade(const ReviewStatusScreen()),
       ),
       GoRoute(
         path: AppRoutes.sakina,

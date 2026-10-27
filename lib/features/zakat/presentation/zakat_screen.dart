@@ -1,3 +1,4 @@
+import '../../../app/core/scholar_review.dart';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -211,6 +212,10 @@ class _ZakatScreenState extends ConsumerState<ZakatScreen> {
         child: Column(
           children: [
             const ScreenHeader(title: 'Zakat Calculator'),
+            const ScholarReviewNote(
+              reviewKey: 'money.zakat',
+              padding: const EdgeInsets.only(bottom: 8),
+            ),
             Expanded(
               child: ListView(
                 padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),

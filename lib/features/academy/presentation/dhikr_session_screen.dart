@@ -1,6 +1,7 @@
 /// The Dhikr Session screen — the breathing-gold practice.
 library;
 
+import '../../../app/core/scholar_review.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -122,6 +123,10 @@ class _DhikrSessionScreenState
           child: Column(
             children: <Widget>[
               const ScreenHeader(title: 'The Dhikr Session'),
+              const ScholarReviewNote(
+                reviewKey: 'dua.dhikr-session',
+                padding: EdgeInsets.only(bottom: 8),
+              ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Wrap(

@@ -1,3 +1,4 @@
+import '../../../app/core/scholar_review.dart';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -140,6 +141,12 @@ class _DailyHadithBannerState extends State<DailyHadithBanner> {
             const SizedBox(height: 4),
             Text('tap for the full entry and its sources',
                 style: AppText.bodyMuted.copyWith(fontSize: 12)),
+            const SizedBox(height: 4),
+            ScholarReviewNote(
+              reviewKey: storyReviewKey(
+                  'modernhadith', _entry!['id'] as String? ?? ''),
+              padding: EdgeInsets.zero,
+            ),
           ],
         ),
       ),

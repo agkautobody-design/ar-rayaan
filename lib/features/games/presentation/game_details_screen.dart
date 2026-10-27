@@ -1,3 +1,4 @@
+import '../../../app/core/scholar_review.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -226,6 +227,10 @@ class _UnknownGame extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
         children: <Widget>[
           const ScreenHeader(title: 'Game', showSettings: false),
+          const ScholarReviewNote(
+            reviewKey: 'games',
+            padding: const EdgeInsets.only(bottom: 8),
+          ),
           const SizedBox(height: 24),
           Text(
             'That game is not in this version of the app.',

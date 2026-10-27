@@ -1,3 +1,4 @@
+import '../../../app/core/scholar_review.dart';
 import 'dart:async';
 import 'dart:math' as math;
 
@@ -49,6 +50,10 @@ class QiblaScreen extends ConsumerWidget {
               padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
               children: [
                 const ScreenHeader(title: 'Qibla', close: true),
+                const ScholarReviewNote(
+                  reviewKey: 'prayer.qibla',
+                  padding: const EdgeInsets.only(bottom: 8),
+                ),
                 const SizedBox(height: 8),
                 Center(
                   child: Text(
@@ -279,6 +284,10 @@ class _QiblaNeedsLocationState extends ConsumerState<_QiblaNeedsLocation> {
               padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
               children: [
                 const ScreenHeader(title: 'Qibla', close: true),
+                const ScholarReviewNote(
+                  reviewKey: 'prayer.qibla',
+                  padding: const EdgeInsets.only(bottom: 8),
+                ),
                 const SizedBox(height: 8),
                 Center(
                   child: Text(

@@ -1,3 +1,4 @@
+import '../../../app/core/scholar_review.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -163,6 +164,10 @@ class _NoorScreenState extends ConsumerState<NoorScreen>
             child: Column(
               children: [
                 const ScreenHeader(title: 'Today’s NOOR'),
+                const ScholarReviewNote(
+                  reviewKey: 'noor',
+                  padding: const EdgeInsets.only(bottom: 8),
+                ),
                 Expanded(
                   child: ListView(
                     padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),

@@ -114,7 +114,7 @@ void main() {
   });
 
   group('review-claim wording', () {
-    test('"scholar-reviewed" only appears as "Not yet scholar-reviewed"', () {
+    test('"scholar-reviewed" only appears as "Scholar review needed"', () {
       final List<String> roots = <String>[
         'lib/features/academy',
         'lib/features/games',
@@ -140,9 +140,7 @@ void main() {
           final String text = f.readAsStringSync().toLowerCase();
           int at = text.indexOf('scholar-reviewed');
           while (at >= 0) {
-            final String before =
-                text.substring(at < 8 ? 0 : at - 8, at);
-            if (!before.endsWith('not yet ')) offenders.add(f.path);
+            offenders.add(f.path);
             at = text.indexOf('scholar-reviewed', at + 1);
           }
         }

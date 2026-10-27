@@ -1,3 +1,4 @@
+import '../../../app/core/scholar_review.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -66,6 +67,10 @@ class _HadithScreenState extends ConsumerState<HadithScreen> {
         child: Column(
           children: [
             const ScreenHeader(title: 'Hadith'),
+            const ScholarReviewNote(
+              reviewKey: 'hadith',
+              padding: const EdgeInsets.only(bottom: 8),
+            ),
             Expanded(
               child: collection.when(
                 loading: () => const Center(

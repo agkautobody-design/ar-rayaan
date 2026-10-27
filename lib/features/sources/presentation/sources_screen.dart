@@ -114,6 +114,13 @@ class SourcesScreen extends ConsumerWidget {
                               'What we quote, what we label, what we leave out: Qur’an, hadith grades, earlier accounts, images, and scholar review status.',
                           onTap: () => context.push(AppRoutes.sourcesPolicy),
                         ),
+                        const _Divider(),
+                        _SourceRow(
+                          title: 'What still needs review',
+                          subtitle:
+                              'The areas waiting for a named scholar, clinician, native speaker or lawyer, and how many items are in each.',
+                          onTap: () => context.push(AppRoutes.sourcesReview),
+                        ),
                       ],
                     ),
                   ),
@@ -239,7 +246,7 @@ class SourcesScreen extends ConsumerWidget {
 
                   const SizedBox(height: 24),
                   Text(
-                    'CHECKED · CITED · NOT YET SCHOLAR-REVIEWED',
+                    'CHECKED · CITED · SCHOLAR REVIEW NEEDED',
                     style: AppText.eyebrow.copyWith(
                       fontSize: 12,
                       color: AppColors.gold.withValues(alpha: 0.9),
@@ -271,7 +278,7 @@ class _TrustCard extends StatelessWidget {
           'instead. Qur’an is never produced by an AI.',
     ),
     (
-      'Not reviewed by a scholar yet',
+      'Scholar review needed',
       'No named scholar has reviewed this app. We check the citations we '
           'can and say so when we cannot. Please check anything important '
           'with a scholar.',

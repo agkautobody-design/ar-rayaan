@@ -4,6 +4,7 @@
 /// an existing library entry.
 library;
 
+import '../../../app/core/scholar_review.dart';
 import 'package:flutter/material.dart';
 
 import '../../../app/theme/app_colors.dart';
@@ -82,7 +83,7 @@ const List<_WomUnit> kWomenUnits = <_WomUnit>[
       ),
       _WomLesson(
         title: 'Umm Ayman — The One They Forgot to List',
-        body: 'Ibn Sa\u2019d (a seerah source, not one of the six hadith books) reports that Umm Ayman looked after the boy Muhammad ﷺ after his mother Amina died, and that when he died she wept because revelation had ended. Not yet scholar-reviewed. The barakah of a household often lives with the person no one thinks to mention.',
+        body: 'Ibn Sa\u2019d (a seerah source, not one of the six hadith books) reports that Umm Ayman looked after the boy Muhammad ﷺ after his mother Amina died, and that when he died she wept because revelation had ended. Scholar review needed. The barakah of a household often lives with the person no one thinks to mention.',
         practice: 'Thank one person who raised, fed, or cleaned for you — the invisible ones first.',
         storyId: 'woman-umm-ayman',
       ),
@@ -186,6 +187,10 @@ class WomensSchoolScreen extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 32),
             children: <Widget>[
               const ScreenHeader(title: 'Women in the Deen', close: true),
+              const ScholarReviewNote(
+                reviewKey: 'school.womens',
+                padding: EdgeInsets.only(bottom: 8),
+              ),
               Text('النساء',
                   style: AppText.arabic.copyWith(fontSize: 28, color: AppColors.gold)),
               const SizedBox(height: 6),

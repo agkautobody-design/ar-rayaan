@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../app/core/scholar_review.dart';
 import '../../../app/theme/app_colors.dart';
 import '../../../app/theme/app_typography.dart';
 import '../../../app/theme/widgets/glass_card.dart';
@@ -455,7 +456,14 @@ class _LessonV3ScreenState extends ConsumerState<LessonV3Screen> {
                 child: ListView(
                   key: ValueKey<int>(_index),
                   padding: const EdgeInsets.all(20),
-                  children: <Widget>[_body(step)],
+                  children: <Widget>[
+                    if (step.review != null || step is ContrastStep)
+                      ScholarReviewNote(
+                        key: const Key('v3-step-review-note'),
+                        reviewKey: 'lesson.${_lesson.id}.${step.id}',
+                      ),
+                    _body(step),
+                  ],
                 ),
               ),
               Padding(
