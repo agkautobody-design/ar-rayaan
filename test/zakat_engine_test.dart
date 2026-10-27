@@ -188,10 +188,27 @@ void main() {
       expect(r.netZakatable, 0);
       expect(r.zakatDue, 0);
     });
-    test('shafi\'i debt note appears', () {
-      final r = ZakatEngine.compute(
-          base(madhab: Madhab.shafii, cash: 50000, debts: 1000));
-      expect(r.notes.any((n) => n.contains('Shafi')), isTrue);
+    test('shafi\'i does not deduct debts, and says so', () {
+      final r = ZakatEngine.compute(base(
+          madhab: Madhab.shafii, cash: 50000, debts: 1000, mortgageYear: 500));
+      expect(r.netZakatable, closeTo(50000, 0.01));
+      expect(r.totalDebts, 0);
+      expect(r.debtLines, isEmpty);
+      expect(r.notes.any((n) => n.contains('Shafi') && n.contains('NOT subtracted')),
+          isTrue);
+    });
+    test('hanafi, hanbali and maliki deduct, each with its own note', () {
+      for (final Madhab m in <Madhab>[Madhab.hanafi, Madhab.hanbali, Madhab.maliki]) {
+        final r = ZakatEngine.compute(base(madhab: m, cash: 50000, debts: 1000));
+        expect(r.netZakatable, closeTo(49000, 0.01), reason: '$m');
+        expect(r.notes.where((n) => n.startsWith('Debts (')).length, 1, reason: '$m');
+      }
+    });
+    test('no debts entered means no debt note in any school', () {
+      for (final Madhab m in Madhab.values) {
+        final r = ZakatEngine.compute(base(madhab: m, cash: 50000));
+        expect(r.notes.any((n) => n.startsWith('Debts (')), isFalse, reason: '$m');
+      }
     });
   });
 
