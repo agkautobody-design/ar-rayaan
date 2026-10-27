@@ -140,6 +140,9 @@ class FeelingsScreen extends ConsumerWidget {
 /// Feelings that can sit heavy. For these a quiet support card is shown
 /// under the du'a. It never diagnoses; it only says where a person is.
 const Set<String> kHeavyFeelingIds = <String>{
+  'feel-anxious',
+  'feel-insecure',
+  'feel-disappointed',
   'feel-sad',
   'feel-lonely',
   'feel-lost',

@@ -78,11 +78,12 @@ abstract final class SakinaRooms {
       emoji: '💞',
       doorLine:
           'Hard days do not mean a failed home. The Prophet ﷺ taught that '
-          'the best of believers are those who are best to their wives '
-          '(Jamiʿ at-Tirmidhi 3895, graded sahih by Darussalam). Your '
+          'the best of you is the best to his wives '
+          '(Jamiʿ at-Tirmidhi 3895, hasan per Darussalam; sahih per '
+          'al-Albani). Your '
           'marriage is not failing because it struggles; it is alive '
           'because you are still here.',
-      sources: 'Jamiʿ at-Tirmidhi 3895 (sahih, Darussalam)',
+      sources: 'Jamiʿ at-Tirmidhi 3895 (hasan per Darussalam; sahih per al-Albani)',
       safetyLine:
           'If you are ever afraid in your own home, hurt, threatened or '
           'forced, that is not a hard patch to endure quietly. Your safety '

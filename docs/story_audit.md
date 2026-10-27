@@ -284,39 +284,39 @@ Chapters audited: 278, in 200 stories.
 | khutbahs | kh-gratitude | 3 | M | Bukhari 1303 (not cited in this story): the Prophet wept at the death of his son Ibrahim; 'at the grave' is not what the report says. Reworded. |
 | khutbahs | kh-gratitude | 4 | M | Qur’an 2:152. The supplications at eating, dressing, rising are in the collections; references not checked, hedged. |
 | modernhadith | mh-youth-seven | 1 | C | Hadith citations verified on file; no change. |
-| modernhadith | mh-youth-feet | 1 | C | Hadith citations verified on file; no change. |
-| modernhadith | mh-youth-friends | 1 | M | Tirmidhi 2378 verified. The Abu Dawud line ('do not sit with them, for then Allah will make you like them') had no number and was not matched; replaced with Qur’an 4:140 (checked against the bundled text). |
-| modernhadith | mh-money-birds | 1 | C | Hadith citations verified on file; no change. |
-| modernhadith | mh-money-debt | 1 | M | Muslim 1598 and Tirmidhi 3563 verified. 'Such a one sins and sins and laughs' (attributed to Bukhari, no number) is not a matched report; replaced with the hedged hadith about the indebted person’s speech. |
-| modernhadith | mh-money-hand | 1 | C | Bukhari 1419, Muslim 2588 verified. 'Swore by Allah' is not in Muslim 2588; reworded. |
-| modernhadith | mh-marriage-half | 1 | M | Qur’an 23:5-6 supported. The 'half the religion' saying is cited to al-Baihaqi with the grade not checked. Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
-| modernhadith | mh-marriage-kindness | 1 | M | Bukhari 676 and Tirmidhi 3895 verified. Bukhari 676 does not contain mending clothes, milking the goat or 'as if he did not know us'; separated as other reports (not checked here). |
-| modernhadith | mh-marriage-children | 1 | C | Hadith citations verified on file; no change. |
+| modernhadith | mh-youth-feet | 1 | M | Tirmidhi 2416 (the five questions) re-checked: graders differ (daif per Darussalam; hasan per al-Albani), so the page now says to hold it as a reminder, not a ruling. Citation corrected from 2417. Verdict in tool/hadith_verdicts/s4.json. (Audit 2026-10-27.) |
+| modernhadith | mh-youth-friends | 1 | M | Tirmidhi 2378 and Qur’an 4:140 verified; grader wording completed (hasan per Darussalam and al-Albani). (Audit 2026-10-27.) |
+| modernhadith | mh-money-birds | 1 | M | Tirmidhi 2344 verified; graders named (hasan per Darussalam, sahih per al-Albani); an unsupported line about the birds not knowing tomorrow replaced. (Audit 2026-10-27.) |
+| modernhadith | mh-money-debt | 1 | M | Bukhari 832, 2068, Muslim 589, 1598 and Tirmidhi 3563 verified. The quoted ‘lies and breaks promises’ wording is Bukhari 832/Muslim 589; the debtor’s dua is Tirmidhi 3563; the interest hadith is Muslim 1598 with its wording corrected. Advice to speak to a scholar and an adviser added. (Audit 2026-10-27.) |
+| modernhadith | mh-money-hand | 1 | M | Bukhari 1419 and 1427 were conflated in one quotation; now two quotations: ‘the upper hand’ (Bukhari 1427; Muslim 1034) and ‘the charity you give while healthy and tight-fisted’ (Bukhari 1419). Unsupported spreadsheet claim reworded. (Audit 2026-10-27.) |
+| modernhadith | mh-marriage-half | 1 | M | Retitled: ‘half the religion’ has no verified narration in the Sahihs and was dropped. Page now rests on Qur’an 4:21, 23:5-6, 30:21 and Bukhari 5090; source label Established. (Audit 2026-10-27.) |
+| modernhadith | mh-marriage-kindness | 1 | M | Tirmidhi 3895 is hasan per Darussalam (sahih per al-Albani), not ‘sahih per Darussalam’: corrected. Bukhari 676 wording quoted exactly; mending clothes and similar reports removed. (Audit 2026-10-27.) |
+| modernhadith | mh-marriage-children | 1 | M | Bukhari 143, 709, 1385, 6247 verified; Bukhari 143 is ‘make him learned in the religion’, reworded; greeting children cited (6247). (Audit 2026-10-27.) |
 | modernhadith | mh-parents-feet | 1 | CQ | Hadith citations verified on file and Qur’an verses present; no change. |
-| modernhadith | mh-parents-door | 1 | C | Bukhari 5976 and Tirmidhi 1900 verified. The subtitle claim that the three questions of the grave start with how we treated parents is unsourced; removed. |
-| modernhadith | mh-elders-young | 1 | C | Hadith citations verified on file; no change. |
-| modernhadith | mh-elders-wisdom | 1 | C | Muslim 90 and Tirmidhi 1919 verified. The first quotation was given as 'the curse of Allah is upon…'; Muslim 90 says it is among the major sins for a man to curse his parents. Reworded. |
-| modernhadith | mh-soul-heart | 1 | CQ | Hadith citations verified on file and Qur’an verses present; no change. |
-| modernhadith | mh-soul-tears | 1 | M | Bukhari 660, 1303, Tirmidhi 1633 verified. 'Umar wept and the companions wept with him' has no source; marked as unchecked. |
-| modernhadith | mh-soul-solitude | 1 | M | Qur’an 7:205 supported. The 'best prayer in his house' hadith has no verified number; the Hira seclusion is in Bukhari 3 (not cited). Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
-| modernhadith | mh-society-news | 1 | C | Muslim 55, Bukhari 52, Tirmidhi 2318 (daif) verified. The Tirmidhi line was quoted as a command; it says leaving what does not concern one is part of the excellence of Islam. Reworded. |
+| modernhadith | mh-parents-door | 1 | M | Qur’an 17:23, Bukhari 5976 and Tirmidhi 1900 verified; the Prophet’s ﷺ reciting 17:23 before the hadith is not in Bukhari 5976 and was removed; Tirmidhi 1900 graders named (sahih per al-Albani, hasan per Darussalam). (Audit 2026-10-27.) |
+| modernhadith | mh-elders-young | 1 | M | Tirmidhi 1919 verified; graders named (hasan per Darussalam, sahih per al-Albani). (Audit 2026-10-27.) |
+| modernhadith | mh-elders-wisdom | 1 | M | Retitled. Muslim 90 now quoted as it is (abusing one’s parents is a major sin); the unsupported claim about witnesses on the Day (39:69) removed; Tirmidhi 1919 graders named. (Audit 2026-10-27.) |
+| modernhadith | mh-soul-heart | 1 | M | Bukhari 52, 6369, Muslim 1599, Qur’an 26:88-89, Abu Dawud 5082 (hasan per al-Albani) and 3855 (sahih per al-Albani) verified. ‘Diagnosis’ and ‘revealed medicine’ wording removed; the page says it is not medical advice and points to a doctor or counsellor when heaviness persists. (Audit 2026-10-27.) |
+| modernhadith | mh-soul-tears | 1 | M | Bukhari 660, 1303 and Tirmidhi 1633 verified; Tirmidhi 1633 graders named. The unsourced report of Umar weeping removed. (Audit 2026-10-27.) |
+| modernhadith | mh-soul-solitude | 1 | M | Retitled. Bukhari 731 (best prayer at home), Bukhari 3 (Hira) and Tirmidhi 2507 (sahih per Darussalam and al-Albani) now cited; the page balances solitude with mixing with people and bearing their harm. (Audit 2026-10-27.) |
+| modernhadith | mh-society-news | 1 | M | Muslim 55 quoted with its question and answer; the leave-what-does-not-concern-you report is Tirmidhi 2317 (not 2318), daif per Darussalam and sahih per al-Albani, so the graders differ and the page says to hold it lightly. (Audit 2026-10-27.) |
 | modernhadith | mh-society-tongue | 1 | C | Hadith citations verified on file; no change. |
 | modernhadith | mh-society-muslim | 1 | M | Bukhari 10 verified. The 'no faith for the one without trustworthiness' saying is cited to al-Baihaqi without a reference or grade; hedged. Labelled Hadith report (reference not checked). Label: Hadith report (reference not checked). |
 | modernhadith | mh-society-ummah | 1 | C | Hadith citations verified on file; no change. |
 | modernhadith | mh-family-021 | 1 | C | Hadith citations verified on file; no change. |
-| modernhadith | mh-jumuah-022 | 1 | C | Muslim 854 verified. The hour of acceptance on Friday is mentioned without a number; marked as such. |
+| modernhadith | mh-jumuah-022 | 1 | M | Friday hour of acceptance now cited (Bukhari 935; Muslim 852) and stated as an unspecified hour; Muslim 854 and Qur’an 62:9 verified. (Audit 2026-10-27.) |
 | modernhadith | mh-reflection-023 | 1 | C | Hadith citations verified on file; no change. |
-| modernhadith | mh-reflection-24 | 1 | M | Muslim 2749 verified. The lost-camel hadith has no number; marked. 'Sunday is a gift' has no basis in the hadith; replaced. |
-| modernhadith | mh-death-graves | 1 | M | Muslim 977 verified (earlier bans lifted). No Bukhari number was found for the quoted wording; source line and citation corrected. The explanation of why the ban was temporary is an interpretation; hedged. |
+| modernhadith | mh-reflection-24 | 1 | M | Muslim 2749, 2747 and Tirmidhi 3537 verified; lost-camel hadith now cited (Muslim 2747); ‘until the soul reaches the throat’ cited to Tirmidhi 3537 with graders. (Audit 2026-10-27.) |
+| modernhadith | mh-death-graves | 1 | M | Muslim 977, 976 and 975 verified; the greeting at the graveyard now quoted from Muslim 975; the ‘social media’ line removed; the reason for the earlier ban is flagged as interpretation. (Audit 2026-10-27.) |
 | modernhadith | mh-hijab-modesty | 1 | C | Hadith citations verified on file; no change. |
-| modernhadith | mh-men-shepherd | 1 | M | Bukhari 893 and Muslim 1829 verified. 'He mended his own clothes… and never raised his hand to those under his care' is unsourced here; replaced by Bukhari 676 (serving his household) and Bukhari 1303 (weeping at his son’s death), both verified. |
-| modernhadith | mh-migration-strangers | 1 | C | Hadith citations verified on file; no change. |
+| modernhadith | mh-men-shepherd | 1 | M | Bukhari 893, Muslim 1829, Bukhari 676 and 1303 verified; Abu Dawud 2639 (he kept to the rear urging on the weak; sahih per Darussalam and al-Albani) added in place of the ‘predator/bystander’ rhetoric. (Audit 2026-10-27.) |
+| modernhadith | mh-migration-strangers | 1 | M | Muslim 145 verified; Tirmidhi 1987 (hasan per Darussalam and al-Albani) added; claims that the strangeness proves a heart that refused to assimilate removed; the page says it is a comfort, not an instruction to withdraw. (Audit 2026-10-27.) |
 | modernhadith | mh-envy-below | 1 | C | Hadith citations verified on file; no change. |
-| modernhadith | mh-forgive-anger | 1 | C | Hadith citations verified on file; no change. |
-| modernhadith | mh-addiction-ninetynine | 1 | C | Bukhari 3470 and Muslim 2766 verified. The monk/scholar sequence and the measuring of the land (‘a span’) corrected to the hadith. |
+| modernhadith | mh-forgive-anger | 1 | M | Bukhari 6114 and Muslim 2609 verified. Safety line added: this is not a call to stay where one is harmed; Need help now lists lines. (Audit 2026-10-27.) |
+| modernhadith | mh-addiction-ninetynine | 1 | M | Bukhari 3470 and Muslim 2766 verified. ‘Hadith of the century’ subtitle removed; pointer to a doctor or addiction service and to Need help now added. (Audit 2026-10-27.) |
 | modernhadith | mh-work-hand | 1 | C | Hadith citations verified on file; no change. |
-| modernhadith | mh-work-25 | 1 | C | Added by the content bot; repaired 2026-10-22: sources reduced to the one verified citation (Bukhari 2072, verified on file), empty heading filled. The reflection paragraph is app-written. Duplicates the hadith of mh-work-hand. |
-| modernhadith | mh-grief-ibrahim | 1 | C | Bukhari 1303 and Muslim 2315 verified. 'The child who died is already in a garden' is stated as certain without a cited report; removed. |
+| modernhadith | mh-work-25 | 1 | M | Bukhari 2072 verified. The Prophet ﷺ did not say work itself is worship; reworded to ‘ate from the work of his own hands’ and honest work as a way of worshipping Allah. (Audit 2026-10-27.) |
+| modernhadith | mh-grief-ibrahim | 1 | M | Bukhari 1303, Muslim 2315 and Qur’an 2:156 verified. The unsupported ‘floor beneath the fall’ claim replaced by 2:156; a line pointing to real help added for grief that becomes too heavy. (Audit 2026-10-27.) |
 | modernhadith | mh-community-structure | 1 | C | Hadith citations verified on file; no change. |
 | modernhadith | mh-jumuah-26 | 1 | C | Added by the content bot; repaired 2026-10-23: sources were an object (broke loading), now the string 'Sahih Muslim 854'; empty heading filled; two uncited claims in the app-written reflection removed (du'a during the blessed hour; rehearsal for the Day of Judgment). The citation matches the quoted text but is NOT yet verified against a file on record. |
 | tales | tale-dhul-qarnayn | 1 | Q | New story, written from the bundled Qur’an 18:83-98 with short quoted phrases only; no detail beyond the verses; identity pointed to the Go deeper "Disputed in the sources" layer. |

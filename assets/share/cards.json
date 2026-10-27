@@ -22,23 +22,23 @@
    "ref": "Qur'an 94:6"
   },
   {
-   "id": "s-kahf",
+   "id": "s-salah-dua",
    "kind": "Qur'an",
-   "arabic": "رَبِّ ٱجۡعَلۡنِي مُقِيمَ ٱلصَّلَوٰةِ وَمِن ذُرِّيَّتِي",
-   "text": "My Lord, make me an establisher of prayer, and [many] from my descendants.",
+   "arabic": "رَبِّ ٱجۡعَلۡنِي مُقِيمَ ٱلصَّلَوٰةِ وَمِن ذُرِّيَّتِيۚ رَبَّنَا وَتَقَبَّلۡ دُعَآءِ",
+   "text": "My Lord, make me an establisher of prayer, and [many] from my descendants. Our Lord, and accept my supplication.",
    "ref": "Qur'an 14:40"
   },
   {
    "id": "s-ikhlas2",
    "kind": "Qur'an",
    "arabic": "قُلۡ هُوَ ٱللَّهُ أَحَدٌ",
-   "text": "Say, \"He is Allah, [who is] One",
+   "text": "Say, \"He is Allah, [who is] One,\"",
    "ref": "Qur'an 112:1"
   },
   {
    "id": "s-nur",
    "kind": "Qur'an",
-   "arabic": "ٱللَّهُ نُورُ ٱلسَّمَٰوَٰتِ وَٱلۡأَرۡضِ",
+   "arabic": "ٱللَّهُ نُورُ ٱلسَّمَٰوَٰتِ وَٱلۡأَرۡضِۚ",
    "text": "Allah is the Light of the heavens and the earth.",
    "ref": "Qur'an 24:35"
   },
@@ -46,36 +46,36 @@
    "id": "s-gentle",
    "kind": "Hadith",
    "arabic": "",
-   "text": "Allah is Gentle and loves gentleness in all things.",
+   "text": "Allah is kind and gentle and loves gentleness in all matters.",
    "ref": "Sahih al-Bukhari 6927"
   },
   {
    "id": "s-kindness",
    "kind": "Hadith",
    "arabic": "",
-   "text": "Kindness is not found in anything except that it adds beauty to it — and nothing is deprived of kindness except that it is disgraced.",
+   "text": "Kindness is not found in anything except that it adds to its beauty, and it is not removed from anything except that it makes it defective.",
    "ref": "Sahih Muslim 2594"
   },
   {
    "id": "s-smile",
    "kind": "Hadith",
    "arabic": "",
-   "text": "Your smile in your brother's face is sadaqah.",
-   "ref": "Sunan at-Tirmidhi 1956 (hasan per Darussalam)"
+   "text": "Your smiling in the face of your brother is charity.",
+   "ref": "Sunan at-Tirmidhi 1956 (hasan per Darussalam; sahih per al-Albani)"
   },
   {
    "id": "s-mercy",
    "kind": "Hadith",
    "arabic": "",
-   "text": "The merciful are shown mercy by the Most Merciful. Be merciful to those on earth, and the One above the heavens will be merciful to you.",
-   "ref": "Sunan at-Tirmidhi 1924 (hasan per Darussalam)"
+   "text": "The merciful are shown mercy by Ar-Rahman. Be merciful on the earth, and you will be shown mercy from the One above the heavens.",
+   "ref": "Sunan at-Tirmidhi 1924 (hasan per Darussalam; sahih per al-Albani)"
   },
   {
    "id": "s-sins",
    "kind": "Hadith",
    "arabic": "",
-   "text": "Every son of Adam sins, and the best of sinners are those who repent.",
-   "ref": "Jami' at-Tirmidhi 2499 (daif per Darussalam)"
+   "text": "By Allah, I ask forgiveness from Allah and turn to Him in repentance more than seventy times a day.",
+   "ref": "Sahih al-Bukhari 6307"
   },
   {
    "id": "s-deeds",
