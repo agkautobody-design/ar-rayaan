@@ -26,9 +26,9 @@
    "version": 4
   },
   "guides/guides.json": {
-   "bytes": 194230,
-   "sha256": "3e558a4d6adcb2274e93c92f33218a6f4db1a6afc6461a94044ea304346bde0d",
-   "version": 11
+   "bytes": 241828,
+   "sha256": "3523e97fbaea1fa53bb52c3eddc1c5f2fe613d346208e15b97c006d42600ee5b",
+   "version": 12
   },
   "share/cards.json": {
    "bytes": 2639,
